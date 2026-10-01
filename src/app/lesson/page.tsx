@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { findSampleLesson } from "@/data/sampleLessons";
 import { validateLessonRequest, type LessonRequest } from "@/lib/lessonRequest";
 
 export async function generateMetadata({ searchParams }: PageProps<"/lesson">): Promise<Metadata> {
@@ -24,6 +25,7 @@ export default async function LessonPage({ searchParams }: PageProps<"/lesson">)
 
 function LessonSummary({ request }: { request: LessonRequest }) {
   const { subject, chapter, topic, level, duration } = request;
+  const sample = findSampleLesson(topic.id, level.slug);
   return (
     <article className="flex flex-col gap-6">
       <div>
@@ -46,6 +48,14 @@ function LessonSummary({ request }: { request: LessonRequest }) {
         <p className="mt-1 text-sm text-muted">
           {level.style} Lesson building is switched on in an upcoming update.
         </p>
+        {sample && (
+          <p className="mt-3 text-sm">
+            <span className="font-semibold text-success">✓ Sample lesson ready:</span>{" "}
+            {sample.sections.length} sections, {sample.workedExamples.length} worked examples,{" "}
+            {sample.quiz.length} quiz questions and {sample.meta.sources.length} sources, all
+            checked against the lesson schema.
+          </p>
+        )}
       </div>
 
       <BackLink>Choose a different topic</BackLink>

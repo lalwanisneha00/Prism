@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useId, useRef, useState, type FormEvent } from "react";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
 import { FieldError, FieldGroup } from "@/components/form/FieldGroup";
+import { TopicSearch } from "@/components/TopicSearch";
 import { defaultDuration, durations } from "@/data/durations";
 import { availableLevels } from "@/data/levels";
 import {
@@ -80,9 +81,18 @@ export function LessonPicker({ subject }: { subject: Subject }) {
         </p>
       </div>
 
+      <TopicSearch
+        subject={subject}
+        onPick={({ chapter, topic }) => {
+          setChapterId(chapter.id);
+          setTopicId(topic.id);
+          clearErrors("chapter", "topic");
+        }}
+      />
+
       <div className="flex flex-col gap-2">
         <label htmlFor={`${id}-chapter`} className="font-semibold">
-          Chapter
+          Or browse by chapter
         </label>
         <select
           id={`${id}-chapter`}

@@ -2,22 +2,22 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V1 · Step 4 (Lesson schema + topic search), in progress
+**Current:** V1 · Step 5 (Lesson page renderer). User approved autonomous build through end of V1 (2026-10-02).
 
 ## Version 1: Foundation
 
-| Step | Title                  | Status         | Date       | Notes                                                                             |
-| ---- | ---------------------- | -------------- | ---------- | --------------------------------------------------------------------------------- |
-| 1    | Project setup          | ✅ Done        | 2026-10-02 | Next 16.3, Tailwind 4, ESLint 9 + Prettier, Vitest 5. Pushed to GitHub.           |
-| 2    | Design system & layout | ✅ Done        | 2026-10-02 | Tokens in globals.css, data-theme dark mode, header, hero, footer.                |
-| 3    | Topic picker           | ✅ Done        | 2026-10-02 | em.json (7 chapters, 43 topics), levels + durations config, /lesson summary page. |
-| 4    | Lesson schema + search | 🟡 In progress | 2026-10-02 | + topic search box (user request)                                                 |
-| 5    | Lesson page renderer   | ⬜ Not started |            |                                                                                   |
-| 6    | AI integration         | ⬜ Not started |            |                                                                                   |
-| 7    | Sources & grounding    | ⬜ Not started |            |                                                                                   |
-| 8    | Visual library part 1  | ⬜ Not started |            |                                                                                   |
-| 9    | Audio (read-aloud)     | ⬜ Not started |            |                                                                                   |
-| 10   | Save, polish, deploy   | ⬜ Not started |            | Storage records must carry `id`, `updatedAt`, `deleted` (sync-ready).             |
+| Step | Title                  | Status         | Date       | Notes                                                                                |
+| ---- | ---------------------- | -------------- | ---------- | ------------------------------------------------------------------------------------ |
+| 1    | Project setup          | ✅ Done        | 2026-10-02 | Next 16.3, Tailwind 4, ESLint 9 + Prettier, Vitest 5. Pushed to GitHub.              |
+| 2    | Design system & layout | ✅ Done        | 2026-10-02 | Tokens in globals.css, data-theme dark mode, header, hero, footer.                   |
+| 3    | Topic picker           | ✅ Done        | 2026-10-02 | em.json (7 chapters, 43 topics), levels + durations config, /lesson summary page.    |
+| 4    | Lesson schema + search | ✅ Done        | 2026-10-02 | schema.ts (Zod + cross-checks), Gauss sample lesson, topic search box (user request) |
+| 5    | Lesson page renderer   | ⬜ Not started |            |                                                                                      |
+| 6    | AI integration         | ⬜ Not started |            |                                                                                      |
+| 7    | Sources & grounding    | ⬜ Not started |            |                                                                                      |
+| 8    | Visual library part 1  | ⬜ Not started |            |                                                                                      |
+| 9    | Audio (read-aloud)     | ⬜ Not started |            |                                                                                      |
+| 10   | Save, polish, deploy   | ⬜ Not started |            | Storage records must carry `id`, `updatedAt`, `deleted` (sync-ready).                |
 
 ## Version 2: Personal & powerful
 

@@ -195,7 +195,7 @@ Recent topics · saved lesson IDs · quiz attempts and scores · weak topics · 
 1. Project setup: Next.js + TS + Tailwind, folders, ESLint/Prettier, SPEC/CLAUDE/PROGRESS, git, GitHub
 2. Design system & layout: tokens, typography, dark/light, header, hero, responsive shell
 3. Topic picker: E&M, chapter dropdown, topics from `src/data/subjects/em.json`, 3 levels, duration, validation
-4. Lesson schema: Zod schema, types, hand-written sample lesson
+4. Lesson schema: Zod schema, types, hand-written sample lesson; plus a type-to-search topic box (added at user request; still limited to known topics)
 5. Lesson page renderer: sections, KaTeX, analogies, examples, misconceptions, interactive quiz, revision sheet (no AI)
 6. AI integration: `/api/lesson`, Gemini adapter, level prompts, validation + retry, streaming, error and rate-limit states
 7. Sources & grounding: Wikipedia/OpenStax excerpts, per-section citations, verifier pass

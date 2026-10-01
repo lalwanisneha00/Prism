@@ -1,0 +1,305 @@
+{
+  "meta": {
+    "subject": "em",
+    "chapter": "electrostatics",
+    "topic": "gauss-law",
+    "title": "Gauss's law",
+    "level": "first-encounter",
+    "durationMin": 10,
+    "createdAt": "2026-10-02T00:00:00Z",
+    "sources": [
+      {
+        "id": "openstax-flux",
+        "title": "University Physics Volume 2, §6.1 Electric Flux",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/6-1-electric-flux",
+        "publisher": "OpenStax",
+        "kind": "textbook",
+        "license": "CC BY 4.0"
+      },
+      {
+        "id": "openstax-gauss",
+        "title": "University Physics Volume 2, §6.2 Explaining Gauss's Law",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/6-2-explaining-gausss-law",
+        "publisher": "OpenStax",
+        "kind": "textbook",
+        "license": "CC BY 4.0"
+      },
+      {
+        "id": "openstax-applying",
+        "title": "University Physics Volume 2, §6.3 Applying Gauss's Law",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/6-3-applying-gausss-law",
+        "publisher": "OpenStax",
+        "kind": "textbook",
+        "license": "CC BY 4.0"
+      },
+      {
+        "id": "wikipedia-gauss",
+        "title": "Gauss's law",
+        "url": "https://en.wikipedia.org/wiki/Gauss%27s_law",
+        "publisher": "Wikipedia",
+        "kind": "encyclopedia",
+        "license": "CC BY-SA 4.0"
+      },
+      {
+        "id": "wikipedia-flux",
+        "title": "Electric flux",
+        "url": "https://en.wikipedia.org/wiki/Electric_flux",
+        "publisher": "Wikipedia",
+        "kind": "encyclopedia",
+        "license": "CC BY-SA 4.0"
+      }
+    ]
+  },
+  "hook": "Gauss's law turns pages of calculus into three lines: to find the electric field around a charged ball, wire or sheet, you just count how much field leaks out of an imaginary bag.",
+  "prerequisites": [
+    {
+      "concept": "Electric field",
+      "oneLiner": "The push a +1 C charge would feel at a point. We draw it as lines pointing away from + charges and towards − charges."
+    },
+    {
+      "concept": "Coulomb's law",
+      "oneLiner": "Two charges push or pull each other with a force $F = \\dfrac{q_1 q_2}{4\\pi\\varepsilon_0 r^2}$ that weakens with the square of distance."
+    },
+    {
+      "concept": "Area has a direction",
+      "oneLiner": "A flat surface can be described by its size and the direction it faces, straight out of the surface."
+    }
+  ],
+  "sections": [
+    {
+      "id": "field-lines",
+      "title": "Picture the field as lines",
+      "body": "Imagine every positive charge sprouting lines that shoot outwards, and every negative charge swallowing lines.\n\n- Lines **start** on positive charges and **end** on negative charges.\n- Where lines are **crowded**, the field is **strong**; where they spread out, it is weak.\n- The **number of lines** leaving a charge is proportional to how big the charge is: double the charge, double the lines.\n\nThat last idea is the seed of Gauss's law.",
+      "visual": {
+        "type": "widget",
+        "widget": "field-lines",
+        "params": { "charges": [{ "q": 1, "x": 0, "y": 0 }] },
+        "caption": "Field lines spread out evenly from a single positive charge."
+      },
+      "sourceIds": ["openstax-flux"]
+    },
+    {
+      "id": "electric-flux",
+      "title": "Electric flux: how much field passes through a surface",
+      "body": "Hold a hoop in the rain. How much rain goes through it depends on how hard it is raining, how big the hoop is, and how you tilt it.\n\n**Electric flux** is the same idea for electric field. For a flat surface of area $A$ in a uniform field $E$:\n\n$$\\Phi_E = EA\\cos\\theta$$\n\nwhere $\\theta$ is the angle between the field and the direction the surface faces.\n\n- Facing the field ($\\theta = 0^\\circ$): flux is biggest, $EA$.\n- Edge-on ($\\theta = 90^\\circ$): no field passes through, so flux is $0$.\n\nFlux is measured in $\\text{N·m}^2/\\text{C}$.",
+      "visual": {
+        "type": "plot",
+        "expression": "cos(x)",
+        "xRange": [0, 1.5708],
+        "xLabel": "tilt angle θ (radians)",
+        "yLabel": "flux ÷ EA",
+        "caption": "Flux falls from its maximum when the surface faces the field to zero when it is edge-on."
+      },
+      "sourceIds": ["openstax-flux", "wikipedia-flux"]
+    },
+    {
+      "id": "gauss-law-statement",
+      "title": "Gauss's law: count what leaks out of a closed bag",
+      "body": "Now wrap the charges in a **closed** surface, like a sealed bag. Physicists call it a **Gaussian surface**; it is imaginary, so you can choose any shape.\n\nGauss's law says the **net** flux out of the bag depends only on the charge **inside** it:\n\n$$\\oint \\vec{E}\\cdot d\\vec{A} = \\frac{Q_{\\text{enc}}}{\\varepsilon_0}$$\n\nHere $Q_{\\text{enc}}$ is the total charge enclosed and $\\varepsilon_0 \\approx 8.85\\times10^{-12}\\ \\text{C}^2/(\\text{N·m}^2)$ is a constant of nature.\n\nTwo surprising consequences:\n\n1. **Shape and size do not matter.** A small sphere and a huge lumpy bag around the same charge have exactly the same net flux.\n2. **Charges outside do not count.** Their field lines enter the bag on one side and leave on the other, adding zero overall.",
+      "visual": {
+        "type": "phet",
+        "sim": "charges-and-fields",
+        "caption": "Drag charges around and watch the field. Notice how lines from outside charges pass straight through any region."
+      },
+      "sourceIds": ["openstax-gauss", "wikipedia-gauss"]
+    },
+    {
+      "id": "point-charge-field",
+      "title": "Using it: the field of a point charge",
+      "body": "Let's find the field a distance $r$ from a point charge $Q$.\n\n1. **Choose a smart bag:** a sphere of radius $r$ centred on the charge.\n2. By symmetry, the field has the **same strength** everywhere on that sphere and points **straight out** through it.\n3. So the flux is just field × area: $E \\cdot 4\\pi r^2$.\n4. Gauss's law says this equals $Q/\\varepsilon_0$, so\n\n$$E = \\frac{Q}{4\\pi\\varepsilon_0 r^2}$$\n\nThat is Coulomb's law, recovered in four lines. The same trick gives the field of a long straight wire, $E = \\dfrac{\\lambda}{2\\pi\\varepsilon_0 r}$, and of a large flat sheet, $E = \\dfrac{\\sigma}{2\\varepsilon_0}$.",
+      "visual": {
+        "type": "plot",
+        "expression": "1/x^2",
+        "xRange": [0.3, 3],
+        "xLabel": "distance from the charge, r",
+        "yLabel": "field strength E (relative)",
+        "caption": "Double the distance and the field drops to a quarter: the inverse-square law."
+      },
+      "sourceIds": ["openstax-applying", "wikipedia-gauss"]
+    },
+    {
+      "id": "when-to-use",
+      "title": "When Gauss's law is (and isn't) a shortcut",
+      "body": "Gauss's law is **always true**, but it only *hands you* the field when the charges are arranged very symmetrically: a sphere, a long cylinder or wire, or a flat sheet. Then you can pick a bag on which $E$ is constant and pull it out of the integral.\n\nFor a lopsided arrangement the law still holds, but $E$ changes across the bag, so you cannot solve for it this way. Then you go back to Coulomb's law and add up the pieces.",
+      "visual": {
+        "type": "mermaid",
+        "code": "flowchart TD\n  A[Charge arrangement] --> B{Highly symmetric?}\n  B -- Sphere, wire or sheet --> C[Pick a matching Gaussian surface]\n  C --> D[E is constant on it, so flux = E x area]\n  D --> E[Solve E x area = Q_enc / epsilon_0]\n  B -- No --> F[Law still true, but E cannot be pulled out]\n  F --> G[Use Coulomb's law and add up the pieces]",
+        "caption": "Deciding whether Gauss's law will give you the field directly."
+      },
+      "sourceIds": ["openstax-applying"]
+    }
+  ],
+  "analogies": [
+    {
+      "concept": "Electric flux",
+      "analogy": "A hoop held in the rain: the rain through it depends on how hard it rains (field strength), the hoop's size (area) and its tilt. Face-on catches the most; edge-on catches none.",
+      "whereItBreaks": "Rain is real stuff moving somewhere. An electric field does not flow; flux is a measure of how much field passes through a surface, not a flow of material."
+    },
+    {
+      "concept": "Gauss's law",
+      "analogy": "A sealed tent with lamps inside. However big or oddly shaped the tent, the total light coming out through the fabric depends only on the lamps inside. A lamp outside shines in one side and out the other, adding nothing overall.",
+      "whereItBreaks": "Tent fabric can absorb light, but nothing absorbs field lines. And negative charges act like 'light drains' that pull lines in, which no lamp can do."
+    }
+  ],
+  "workedExamples": [
+    {
+      "problem": "A charge of $+2.0\\ \\mu\\text{C}$ sits somewhere inside a closed cardboard box. What is the net electric flux through the box?",
+      "steps": [
+        "Gauss's law: the net flux is $Q_{\\text{enc}}/\\varepsilon_0$, whatever the box's shape and wherever the charge is inside.",
+        "$\\Phi_E = \\dfrac{2.0\\times10^{-6}\\ \\text{C}}{8.85\\times10^{-12}\\ \\text{C}^2/(\\text{N·m}^2)}$",
+        "$\\Phi_E \\approx 2.26\\times10^{5}\\ \\text{N·m}^2/\\text{C}$"
+      ],
+      "answer": "$\\Phi_E \\approx 2.26\\times10^{5}\\ \\text{N·m}^2/\\text{C}$"
+    },
+    {
+      "problem": "The same $+2.0\\ \\mu\\text{C}$ charge is placed exactly at the centre of a cube. How much flux passes through one face?",
+      "steps": [
+        "The total flux through all six faces is still $Q/\\varepsilon_0 \\approx 2.26\\times10^{5}\\ \\text{N·m}^2/\\text{C}$.",
+        "The charge is at the centre, so by symmetry every face gets an equal share.",
+        "$\\Phi_{\\text{face}} = \\dfrac{2.26\\times10^{5}}{6} \\approx 3.77\\times10^{4}\\ \\text{N·m}^2/\\text{C}$"
+      ],
+      "answer": "$\\Phi_{\\text{face}} = \\dfrac{Q}{6\\varepsilon_0} \\approx 3.77\\times10^{4}\\ \\text{N·m}^2/\\text{C}$"
+    },
+    {
+      "problem": "Use Gauss's law to find the field $0.30\\ \\text{m}$ from a point charge of $+1.0\\ \\text{nC}$.",
+      "steps": [
+        "Choose a sphere of radius $r = 0.30\\ \\text{m}$ centred on the charge; $E$ is the same all over it and points outwards.",
+        "Gauss's law: $E \\cdot 4\\pi r^2 = \\dfrac{Q}{\\varepsilon_0}$, so $E = \\dfrac{Q}{4\\pi\\varepsilon_0 r^2}$.",
+        "$E = \\dfrac{1.0\\times10^{-9}}{4\\pi (8.85\\times10^{-12})(0.30)^2} \\approx 99.9\\ \\text{N/C}$"
+      ],
+      "answer": "$E \\approx 1.0\\times10^{2}\\ \\text{N/C}$, pointing away from the charge"
+    }
+  ],
+  "misconceptions": [
+    {
+      "wrong": "The field $E$ in Gauss's law is caused only by the charges inside the surface.",
+      "right": "$E$ at each point on the surface is the total field from all charges, inside and outside.",
+      "why": "Outside charges do change the field on the surface, but their lines enter and then leave, so they add zero to the net flux. Only the total flux depends on just the enclosed charge."
+    },
+    {
+      "wrong": "Zero net flux means the electric field on the surface is zero.",
+      "right": "Zero net flux only means as much field goes in as comes out.",
+      "why": "A closed surface near an outside charge has field everywhere on it, yet its net flux is zero because the inward and outward parts cancel."
+    },
+    {
+      "wrong": "A bigger Gaussian surface around the same charge has more flux through it.",
+      "right": "The net flux depends only on the enclosed charge, not on the surface's size.",
+      "why": "For a sphere, the area grows as $r^2$ while the field weakens as $1/r^2$; the two effects cancel exactly."
+    }
+  ],
+  "quiz": [
+    {
+      "question": "A closed surface encloses a net charge of zero. What is the net electric flux through it?",
+      "options": ["Zero", "Positive", "Negative", "It depends on the surface's shape"],
+      "answer": "Zero",
+      "explanation": "Net flux equals $Q_{\\text{enc}}/\\varepsilon_0$. With no net charge inside, every line that enters also leaves.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "You double the radius of a spherical Gaussian surface centred on a point charge. The net flux through it…",
+      "options": ["Stays the same", "Doubles", "Halves", "Becomes four times smaller"],
+      "answer": "Stays the same",
+      "explanation": "The enclosed charge has not changed, so neither has the flux. The area grows 4×, but the field weakens 4×.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "A flat 0.50 m² surface sits in a uniform 200 N/C field, tilted so the direction it faces makes 60° with the field. What is the flux through it?",
+      "options": ["50 N·m²/C", "100 N·m²/C", "87 N·m²/C", "0 N·m²/C"],
+      "answer": "50 N·m²/C",
+      "explanation": "$\\Phi_E = EA\\cos\\theta = 200 \\times 0.50 \\times \\cos 60^\\circ = 50\\ \\text{N·m}^2/\\text{C}$.",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which Gaussian surface makes it easiest to find the field of a point charge?",
+      "options": [
+        "A sphere centred on the charge",
+        "A cube with the charge at one corner",
+        "A flat square sheet",
+        "Any closed surface; they are all equally easy"
+      ],
+      "answer": "A sphere centred on the charge",
+      "explanation": "On a centred sphere the field has the same strength everywhere and points straight out, so the flux is simply $E \\cdot 4\\pi r^2$.",
+      "difficulty": "easy"
+    },
+    {
+      "question": "A charge $q$ sits at the exact centre of a cube. Write the flux through one face in terms of $q$ and $\\varepsilon_0$.",
+      "answer": "$\\dfrac{q}{6\\varepsilon_0}$",
+      "explanation": "The total flux is $q/\\varepsilon_0$ and the six faces are identical by symmetry, so each gets one sixth.",
+      "difficulty": "hard"
+    }
+  ],
+  "revisionSheet": {
+    "formulas": [
+      "\\Phi_E = EA\\cos\\theta",
+      "\\oint \\vec{E}\\cdot d\\vec{A} = \\dfrac{Q_{\\text{enc}}}{\\varepsilon_0}",
+      "E_{\\text{point}} = \\dfrac{Q}{4\\pi\\varepsilon_0 r^2}",
+      "\\varepsilon_0 \\approx 8.85\\times10^{-12}\\ \\text{C}^2/(\\text{N·m}^2)"
+    ],
+    "keyPoints": [
+      "Electric flux measures how much field passes through a surface: biggest face-on, zero edge-on.",
+      "Gauss's law: the net flux out of any closed surface equals the enclosed charge divided by ε₀.",
+      "The shape and size of the closed surface do not change the net flux.",
+      "Charges outside the surface add zero net flux, even though they affect the field on it.",
+      "Gauss's law gives E directly only for symmetric cases: spheres, long wires and flat sheets."
+    ],
+    "mnemonics": [
+      "\"Only the inside counts\": net flux cares only about the charge inside the bag."
+    ]
+  },
+  "audioScript": [
+    {
+      "id": "intro",
+      "title": "Why this matters",
+      "text": "Welcome. Today's idea is Gauss's law, and here is the promise: by the end, you will be able to find the electric field around a charged ball in about four lines, just by imagining a bag around it and counting what leaks out."
+    },
+    {
+      "id": "lines-and-flux",
+      "title": "Field lines and flux",
+      "text": "Picture a positive charge with lines shooting out of it in every direction. Bigger charge, more lines. Now hold a hoop in that field, like a hoop held in the rain. The amount of field passing through the hoop is called electric flux. Face the hoop straight at the field and you catch the most. Turn it edge-on and you catch nothing.",
+      "sectionId": "electric-flux"
+    },
+    {
+      "id": "the-law",
+      "title": "The law itself",
+      "text": "Now seal the charge inside a bag of any shape. Gauss's law says the total flux leaking out of the bag equals the charge inside, divided by a constant called epsilon nought. It does not matter how big the bag is or how lumpy. And charges outside the bag add nothing, because their lines go in one side and straight out the other.",
+      "sectionId": "gauss-law-statement"
+    },
+    {
+      "id": "using-it",
+      "title": "Using it",
+      "text": "Here is the payoff. Put a sphere around a point charge. The field is equally strong everywhere on the sphere, so the flux is just the field times the sphere's area, four pi r squared. Set that equal to the charge over epsilon nought, divide, and you have Coulomb's law. The same trick works for long wires and flat sheets.",
+      "sectionId": "point-charge-field"
+    }
+  ],
+  "furtherLearning": {
+    "videos": [
+      {
+        "title": "Physics II: Electricity and Magnetism (8.02), full lecture course",
+        "url": "https://ocw.mit.edu/courses/8-02-physics-ii-electricity-and-magnetism-spring-2007/",
+        "publisher": "MIT OpenCourseWare",
+        "note": "University-level lectures; Gauss's law is covered early in the course."
+      },
+      {
+        "title": "Electric charge, electric force and voltage",
+        "url": "https://www.khanacademy.org/science/physics/electric-charge-electric-force-and-voltage",
+        "publisher": "Khan Academy",
+        "note": "Gentle refresher on charge and field before Gauss's law."
+      }
+    ],
+    "papers": [],
+    "readings": [
+      {
+        "title": "Charges and Fields (interactive simulation)",
+        "url": "https://phet.colorado.edu/en/simulations/charges-and-fields",
+        "publisher": "PhET Interactive Simulations, University of Colorado Boulder",
+        "note": "Free to use under CC BY 4.0."
+      },
+      {
+        "title": "University Physics Volume 2, Chapter 6: Gauss's Law",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/6-2-explaining-gausss-law",
+        "publisher": "OpenStax",
+        "note": "Free textbook chapter with more worked problems."
+      }
+    ]
+  }
+}
