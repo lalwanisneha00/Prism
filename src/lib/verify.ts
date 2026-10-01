@@ -4,6 +4,7 @@ import { parseJsonReply } from "@/lib/jsonReply";
 import type { GenerateOptions } from "@/lib/llm/types";
 import type { GroundingSource } from "@/lib/prompts/lessonPrompt";
 import { parseLesson, type Lesson } from "@/lib/schema";
+import { findVisualProblems } from "@/visuals/visualChecks";
 
 /*
  * Pass 2 of SPEC §6: an AI fact-checker compares the lesson with the sources, recomputes
@@ -158,7 +159,10 @@ export async function verifyLesson(
     const { draft, applied } = applyCorrections(lesson, verification.corrections);
     // Keep the corrections only if the corrected lesson is still fully valid.
     const reparsed = parseLesson(draft);
-    const usable = reparsed.ok && findMathErrors(reparsed.lesson).length === 0;
+    const usable =
+      reparsed.ok &&
+      findMathErrors(reparsed.lesson).length === 0 &&
+      findVisualProblems(reparsed.lesson).length === 0;
     const base = usable ? reparsed.lesson : lesson;
     return {
       lesson: markSections(base, verification.sections),

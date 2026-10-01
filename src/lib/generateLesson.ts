@@ -11,6 +11,7 @@ import {
   type GroundingSource,
 } from "@/lib/prompts/lessonPrompt";
 import { parseLesson, SectionSchema, type Lesson, type Link, type Source } from "@/lib/schema";
+import { dropBadVisuals, findVisualProblems } from "@/visuals/visualChecks";
 
 export type GenerateFn = (options: GenerateOptions) => Promise<string>;
 
@@ -139,11 +140,13 @@ export async function generateLesson(
         : body;
     const result = parseLesson(candidate);
     if (result.ok) {
-      // Deterministic check: every formula must typeset. On the last attempt a lesson with
-      // a few broken formulas is still shown (they render in red) rather than nothing.
-      const mathProblems = findMathErrors(result.lesson);
-      if (mathProblems.length === 0 || attempt === maxAttempts) return result.lesson;
-      lastProblems = mathProblems;
+      // Deterministic checks: every formula must typeset and every visual must be drawable.
+      // On the last attempt the lesson is still shown: broken formulas render in red and
+      // undrawable visuals are removed, rather than showing nothing at all.
+      const problems = [...findMathErrors(result.lesson), ...findVisualProblems(result.lesson)];
+      if (problems.length === 0) return result.lesson;
+      if (attempt === maxAttempts) return dropBadVisuals(result.lesson);
+      lastProblems = problems;
       currentPrompt = buildRepairPrompt(prompt, reply, lastProblems);
       continue;
     }

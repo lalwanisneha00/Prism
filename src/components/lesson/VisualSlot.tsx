@@ -1,19 +1,35 @@
 import type { VisualSpec } from "@/lib/schema";
+import { CommonsImage } from "@/visuals/CommonsImage";
+import { KeyIdeaCard } from "@/visuals/KeyIdeaCard";
+import { MermaidDiagram } from "@/visuals/MermaidDiagram";
+import { PhetEmbed } from "@/visuals/PhetEmbed";
+import { Plot } from "@/visuals/Plot";
+import { visualProblem } from "@/visuals/visualChecks";
+import { WidgetView } from "@/visuals/WidgetView";
 
-const labels: Record<VisualSpec["type"], string> = {
-  widget: "Interactive widget",
-  phet: "PhET simulation",
-  mermaid: "Diagram",
-  plot: "Graph",
-  image: "Image",
-};
-
-/** Placeholder until the visual library lands in Step 8: shows what will appear here. */
+/** Shows a section's visual using only trusted renderers (SPEC §4). */
 export function VisualSlot({ visual }: { visual: VisualSpec }) {
-  return (
-    <figure className="rounded-xl border border-dashed border-border bg-surface-2 p-4">
-      <p className="text-sm font-semibold">{labels[visual.type]}</p>
-      <figcaption className="mt-1 text-sm text-muted">{visual.caption}</figcaption>
-    </figure>
-  );
+  // Belt and braces: the server already checked this, but never draw an unchecked visual.
+  if (visualProblem(visual)) return <KeyIdeaCard caption={visual.caption} />;
+
+  switch (visual.type) {
+    case "widget":
+      return <WidgetView widget={visual.widget} params={visual.params} caption={visual.caption} />;
+    case "phet":
+      return <PhetEmbed sim={visual.sim} caption={visual.caption} />;
+    case "mermaid":
+      return <MermaidDiagram code={visual.code} caption={visual.caption} />;
+    case "plot":
+      return (
+        <Plot
+          expression={visual.expression}
+          xRange={visual.xRange}
+          xLabel={visual.xLabel}
+          yLabel={visual.yLabel}
+          caption={visual.caption}
+        />
+      );
+    case "image":
+      return <CommonsImage file={visual.file} alt={visual.alt} caption={visual.caption} />;
+  }
 }

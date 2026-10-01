@@ -9,6 +9,7 @@ import { fakeLessonBody, fakeVerification } from "@/lib/llm/fakeLesson";
 import type { GenerateOptions, LlmProvider } from "@/lib/llm/types";
 import { sourcesForTopic } from "@/lib/sources";
 import { verifyLesson } from "@/lib/verify";
+import { visualPromptRules } from "@/visuals/visualChecks";
 
 // Writing and checking a lesson can take a while on the free tier.
 export const maxDuration = 60;
@@ -76,6 +77,7 @@ export async function POST(req: Request) {
           generate,
           emit: send,
           sources,
+          visualRules: visualPromptRules(request.topic.id),
           signal: req.signal,
         });
 
