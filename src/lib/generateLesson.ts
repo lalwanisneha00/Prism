@@ -1,4 +1,5 @@
 import { curatedVideos } from "@/data/curatedLinks";
+import { findMathErrors } from "@/lib/checks/mathCheck";
 import { extractCompleteArrayItems, parseJsonReply } from "@/lib/jsonReply";
 import type { LessonEvent } from "@/lib/lessonEvents";
 import type { LessonRequest } from "@/lib/lessonRequest";
@@ -59,6 +60,14 @@ function curatedFurtherLearning(
   return { videos: curatedVideos[request.subject.id] ?? [], papers: [], readings };
 }
 
+/** Only the fact-check pass may set a section's Sourced/Verify badge, never the writer. */
+function withoutSelfAwardedBadge(section: unknown): unknown {
+  if (!section || typeof section !== "object") return section;
+  const copy = { ...(section as Record<string, unknown>) };
+  delete copy.check;
+  return copy;
+}
+
 /**
  * Writes a lesson with the AI and returns it only once it passes the lesson schema.
  * Invalid replies are sent back with the list of problems, up to `maxAttempts` times.
@@ -100,7 +109,7 @@ export async function generateLesson(
             streamed += chunk;
             const items = extractCompleteArrayItems(streamed, "sections");
             for (; sent < items.length; sent++) {
-              const section = SectionSchema.safeParse(items[sent]);
+              const section = SectionSchema.safeParse(withoutSelfAwardedBadge(items[sent]));
               if (section.success) emit({ type: "section", section: section.data });
             }
           }
@@ -121,12 +130,23 @@ export async function generateLesson(
       body && typeof body === "object"
         ? {
             ...body,
+            sections: Array.isArray((body as { sections?: unknown }).sections)
+              ? (body as { sections: unknown[] }).sections.map(withoutSelfAwardedBadge)
+              : (body as { sections?: unknown }).sections,
             meta,
             furtherLearning: curatedFurtherLearning(request, meta.sources),
           }
         : body;
     const result = parseLesson(candidate);
-    if (result.ok) return result.lesson;
+    if (result.ok) {
+      // Deterministic check: every formula must typeset. On the last attempt a lesson with
+      // a few broken formulas is still shown (they render in red) rather than nothing.
+      const mathProblems = findMathErrors(result.lesson);
+      if (mathProblems.length === 0 || attempt === maxAttempts) return result.lesson;
+      lastProblems = mathProblems;
+      currentPrompt = buildRepairPrompt(prompt, reply, lastProblems);
+      continue;
+    }
 
     lastProblems = result.problems;
     currentPrompt = buildRepairPrompt(prompt, reply, lastProblems);

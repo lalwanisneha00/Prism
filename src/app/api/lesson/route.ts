@@ -1,20 +1,29 @@
 import { findSampleLesson } from "@/data/sampleLessons";
 import { generateLesson } from "@/lib/generateLesson";
+import { groundSources } from "@/lib/grounding/groundSources";
 import { errorCopy, type LessonEvent } from "@/lib/lessonEvents";
 import { validateLessonRequest, type RawLessonRequest } from "@/lib/lessonRequest";
 import { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
 import { FakeProvider } from "@/lib/llm/fake";
-import { fakeLessonBody } from "@/lib/llm/fakeLesson";
-import type { LlmProvider } from "@/lib/llm/types";
+import { fakeLessonBody, fakeVerification } from "@/lib/llm/fakeLesson";
+import type { GenerateOptions, LlmProvider } from "@/lib/llm/types";
 import { sourcesForTopic } from "@/lib/sources";
+import { verifyLesson } from "@/lib/verify";
 
 // Writing and checking a lesson can take a while on the free tier.
 export const maxDuration = 60;
 
 function providers(sources: ReturnType<typeof sourcesForTopic>): LlmProvider[] {
-  // LLM_PROVIDER=fake streams a canned lesson: for testing without an API key.
+  // LLM_PROVIDER=fake streams a canned lesson and fact-check: for testing without an API key.
   if (process.env.LLM_PROVIDER === "fake") {
-    return [new FakeProvider(() => JSON.stringify(fakeLessonBody(sources)), 150)];
+    const body = fakeLessonBody(sources);
+    return [
+      new FakeProvider(
+        (options) =>
+          JSON.stringify(options.system.includes("fact-checker") ? fakeVerification(body) : body),
+        150,
+      ),
+    ];
   }
   return providersFromEnv();
 }
@@ -56,15 +65,22 @@ export async function POST(req: Request) {
           return;
         }
 
-        send({ type: "stage", stage: "sources", message: "Gathering trusted sources…" });
-        const sources = sourcesForTopic(request.subject.id, request.topic.id);
+        send({ type: "stage", stage: "sources", message: "Reading trusted sources…" });
+        const sources = await groundSources(sourcesForTopic(request.subject.id, request.topic.id), {
+          signal: req.signal,
+        });
         const chain = providers(sources);
-        const lesson = await generateLesson(request, {
-          generate: (options) => generateJsonWithFallback(chain, options),
+        const generate = (options: GenerateOptions) => generateJsonWithFallback(chain, options);
+
+        const draft = await generateLesson(request, {
+          generate,
           emit: send,
           sources,
           signal: req.signal,
         });
+
+        send({ type: "stage", stage: "checking", message: "Fact-checking against the sources…" });
+        const { lesson } = await verifyLesson(draft, sources, generate, req.signal);
         send({ type: "lesson", lesson, cached: false });
       } catch (err) {
         if (req.signal.aborted) return;

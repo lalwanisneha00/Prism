@@ -3,9 +3,9 @@ import { normalizeDisplayMath } from "@/lib/mathText";
 
 describe("normalizeDisplayMath", () => {
   it("moves a one-line $$ formula onto its own lines", () => {
-    expect(normalizeDisplayMath("Flux:\n\n$$\Phi = EA$$\n\nDone")).toBe(
-      "Flux:\n\n$$\n\Phi = EA\n$$\n\nDone",
-    );
+    expect(
+      normalizeDisplayMath(String.raw`Flux:` + "\n\n" + String.raw`$$\Phi = EA$$` + "\n\nDone"),
+    ).toBe("Flux:\n\n$$\n" + String.raw`\Phi = EA` + "\n$$\n\nDone");
   });
 
   it("leaves inline maths and already-fenced blocks alone", () => {

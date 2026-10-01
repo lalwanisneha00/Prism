@@ -73,10 +73,22 @@
       "visual": {
         "type": "widget",
         "widget": "field-lines",
-        "params": { "charges": [{ "q": 1, "x": 0, "y": 0 }] },
+        "params": {
+          "charges": [
+            {
+              "q": 1,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
         "caption": "Field lines spread out evenly from a single positive charge."
       },
-      "sourceIds": ["openstax-flux"]
+      "sourceIds": ["openstax-flux"],
+      "check": {
+        "status": "sourced",
+        "note": "Hand-checked against the cited sources."
+      }
     },
     {
       "id": "electric-flux",
@@ -90,7 +102,11 @@
         "yLabel": "flux ÷ EA",
         "caption": "Flux falls from its maximum when the surface faces the field to zero when it is edge-on."
       },
-      "sourceIds": ["openstax-flux", "wikipedia-flux"]
+      "sourceIds": ["openstax-flux", "wikipedia-flux"],
+      "check": {
+        "status": "sourced",
+        "note": "Hand-checked against the cited sources."
+      }
     },
     {
       "id": "gauss-law-statement",
@@ -101,7 +117,11 @@
         "sim": "charges-and-fields",
         "caption": "Drag charges around and watch the field. Notice how lines from outside charges pass straight through any region."
       },
-      "sourceIds": ["openstax-gauss", "wikipedia-gauss"]
+      "sourceIds": ["openstax-gauss", "wikipedia-gauss"],
+      "check": {
+        "status": "sourced",
+        "note": "Hand-checked against the cited sources."
+      }
     },
     {
       "id": "point-charge-field",
@@ -115,7 +135,11 @@
         "yLabel": "field strength E (relative)",
         "caption": "Double the distance and the field drops to a quarter: the inverse-square law."
       },
-      "sourceIds": ["openstax-applying", "wikipedia-gauss"]
+      "sourceIds": ["openstax-applying", "wikipedia-gauss"],
+      "check": {
+        "status": "sourced",
+        "note": "Hand-checked against the cited sources."
+      }
     },
     {
       "id": "when-to-use",
@@ -126,7 +150,11 @@
         "code": "flowchart TD\n  A[Charge arrangement] --> B{Highly symmetric?}\n  B -- Sphere, wire or sheet --> C[Pick a matching Gaussian surface]\n  C --> D[E is constant on it, so flux = E x area]\n  D --> E[Solve E x area = Q_enc / epsilon_0]\n  B -- No --> F[Law still true, but E cannot be pulled out]\n  F --> G[Use Coulomb's law and add up the pieces]",
         "caption": "Deciding whether Gauss's law will give you the field directly."
       },
-      "sourceIds": ["openstax-applying"]
+      "sourceIds": ["openstax-applying"],
+      "check": {
+        "status": "sourced",
+        "note": "Hand-checked against the cited sources."
+      }
     }
   ],
   "analogies": [

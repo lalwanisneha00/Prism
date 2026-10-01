@@ -67,6 +67,8 @@ export const SectionSchema = z.object({
   visual: VisualSpecSchema.optional(),
   /** Every teaching section must be backed by at least one source. */
   sourceIds: z.array(id).min(1, "every section needs at least one source"),
+  /** Set by the fact-check pass (never by the writer): drives the Sourced ✓ / Verify ⚠ badge. */
+  check: z.object({ status: z.enum(["sourced", "verify"]), note: text.optional() }).optional(),
 });
 
 export const QuizQuestionSchema = z

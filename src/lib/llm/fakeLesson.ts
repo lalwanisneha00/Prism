@@ -17,3 +17,13 @@ export function fakeLessonBody(sources: Source[]): Record<string, unknown> {
   }));
   return body;
 }
+
+/** A fake fact-check reply: everything supported except the last section, to show both badges. */
+export function fakeVerification(body: Record<string, unknown>) {
+  const sections = (body.sections as { id: string }[]).map((s, i, all) =>
+    i === all.length - 1
+      ? { id: s.id, status: "unsupported", note: "Fake fact-check: shown as Verify for testing." }
+      : { id: s.id, status: "supported", note: "Matches the sources." },
+  );
+  return { sections, corrections: [] };
+}
