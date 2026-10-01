@@ -1,6 +1,8 @@
 import { Container } from "@/components/Container";
+import { LessonPicker } from "@/components/LessonPicker";
 import { PrismArt } from "@/components/PrismArt";
 import { site } from "@/lib/site";
+import { subjects } from "@/lib/subjects";
 
 const steps = [
   {
@@ -15,12 +17,6 @@ const steps = [
     title: "Listen, practise, revise",
     body: "An audio lesson for the bus ride, a quick quiz, and a one-page revision sheet.",
   },
-];
-
-const levels = [
-  { name: "First Encounter", hint: "Never seen it before" },
-  { name: "Second Chance", hint: "Studied it, still stuck" },
-  { name: "Last-Minute Revision", hint: "Exam in a few hours" },
 ];
 
 export default function Home() {
@@ -75,22 +71,7 @@ export default function Home() {
 
       <section id="start" className="scroll-mt-20 py-12">
         <Container>
-          <div className="rounded-2xl border border-dashed border-border bg-surface-2 p-6 sm:p-8">
-            <h2 className="text-2xl font-bold tracking-tight">Start a lesson</h2>
-            <p className="mt-2 text-muted">Pick the level that matches where you are right now.</p>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {levels.map((level) => (
-                <li
-                  key={level.name}
-                  className="rounded-full border border-border bg-surface px-4 py-2 text-sm"
-                >
-                  <span className="font-semibold">{level.name}</span>
-                  <span className="text-muted"> · {level.hint}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 text-sm text-muted">The topic picker is coming in the next step.</p>
-          </div>
+          <LessonPicker subject={subjects[0]} />
         </Container>
       </section>
     </>
