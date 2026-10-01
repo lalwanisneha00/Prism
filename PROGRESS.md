@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V1 · Step 9 (Audio read-aloud). User approved autonomous build through end of V1 (2026-10-02).
+**Current:** V1 · Step 10 (Save, polish, deploy). User approved autonomous build through end of V1 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -16,7 +16,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 6    | AI integration         | ✅ Done        | 2026-10-02 | /api/lesson NDJSON stream, Gemini→Groq chain, per-level prompts, Zod + repair retries, LLM_PROVIDER=fake for testing.               |
 | 7    | Sources & grounding    | ✅ Done        | 2026-10-02 | em-sources.json (all 43 topics, links verified), Wikipedia excerpts, KaTeX check, AI fact-check pass, Sourced/Verify badges.        |
 | 8    | Visual library part 1  | ✅ Done        | 2026-10-02 | 8 widgets (src/visuals), physics.ts tested, 11 PhET sims, safe plot parser, Mermaid (strict), Commons images, /dev/visuals gallery. |
-| 9    | Audio (read-aloud)     | ⬜ Not started |            |                                                                                                                                     |
+| 9    | Audio (read-aloud)     | ✅ Done        | 2026-10-02 | /api/audio writes chapter-by-chapter narration (140 wpm); Web Speech player with ±15s, speed, voice, chapters, highlight, resume.   |
 | 10   | Save, polish, deploy   | ⬜ Not started |            | Storage records must carry `id`, `updatedAt`, `deleted` (sync-ready).                                                               |
 
 ## Version 2: Personal & powerful

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { AudioLesson } from "@/components/audio/AudioLesson";
 import { LessonBlockShell } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
 import { Quiz } from "@/components/lesson/Quiz";
@@ -90,6 +91,8 @@ export function LessonView({ lesson, request }: { lesson: Lesson; request: Lesso
           </ul>
         </nav>
       </header>
+
+      <AudioLesson lesson={lesson} />
 
       {layout.blocks.map((b) => (
         <LessonBlockShell key={b} id={b} title={blockTitle(request.level.slug, b)}>
