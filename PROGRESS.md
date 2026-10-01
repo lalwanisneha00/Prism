@@ -2,14 +2,14 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V1 · Step 2 (Design system & layout), not started
+**Current:** V1 · Step 3 (Topic picker), in progress
 
 ## Version 1: Foundation
 
 | Step | Title                  | Status         | Date       | Notes                                                                   |
 | ---- | ---------------------- | -------------- | ---------- | ----------------------------------------------------------------------- |
 | 1    | Project setup          | ✅ Done        | 2026-10-02 | Next 16.3, Tailwind 4, ESLint 9 + Prettier, Vitest 5. Pushed to GitHub. |
-| 2    | Design system & layout | ⬜ Not started |            |                                                                         |
+| 2    | Design system & layout | ✅ Done        | 2026-10-02 | Tokens in globals.css, data-theme dark mode, header, hero, footer.      |
 | 3    | Topic picker           | ⬜ Not started |            |                                                                         |
 | 4    | Lesson schema          | ⬜ Not started |            |                                                                         |
 | 5    | Lesson page renderer   | ⬜ Not started |            |                                                                         |
@@ -43,4 +43,4 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 
 ## Known issues / leftovers
 
-- None yet.
+- Dev tip: if the page looks stuck on old styles, check `about:debugging#/runtime/this-firefox` for a stale service worker on `localhost:3000` (the separate "Register" project installs one there). Its cache-first rule serves outdated `/_next/static` files in dev mode.

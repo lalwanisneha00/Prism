@@ -1,14 +1,98 @@
+import { Container } from "@/components/Container";
+import { PrismArt } from "@/components/PrismArt";
 import { site } from "@/lib/site";
 
-// Temporary placeholder. The real home page is built in V1 · Step 2.
+const steps = [
+  {
+    title: "Pick your topic",
+    body: "Choose the chapter and topic, how well you know it, and how much time you have.",
+  },
+  {
+    title: "Get a lesson that fits",
+    body: "Plain-language explanations, interactive visuals, worked examples, and a source for every claim.",
+  },
+  {
+    title: "Listen, practise, revise",
+    body: "An audio lesson for the bus ride, a quick quiz, and a one-page revision sheet.",
+  },
+];
+
+const levels = [
+  { name: "First Encounter", hint: "Never seen it before" },
+  { name: "Second Chance", hint: "Studied it, still stuck" },
+  { name: "Last-Minute Revision", hint: "Exam in a few hours" },
+];
+
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-4 p-6 text-center">
-      <h1 className="text-4xl font-bold tracking-tight">{site.name}</h1>
-      <p className="max-w-md text-lg text-zinc-600 dark:text-zinc-400">{site.tagline}</p>
-      <p className="rounded-full bg-emerald-100 px-4 py-1 text-sm font-medium text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100">
-        ✓ Setup complete: V1 · Step 1
-      </p>
-    </main>
+    <>
+      <section className="py-12 sm:py-20">
+        <Container className="grid items-center gap-10 md:grid-cols-[1.2fr_1fr]">
+          <div>
+            <p className="mb-4 inline-flex rounded-full bg-primary-soft px-3 py-1 text-sm font-medium text-primary">
+              Now teaching: Electricity &amp; Magnetism
+            </p>
+            <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl">
+              The topic your professor rushed,{" "}
+              <span className="text-spectrum">explained clearly</span>.
+            </h1>
+            <p className="mt-4 max-w-xl text-lg text-pretty text-muted">{site.description}</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#start"
+                className="rounded-full bg-primary px-6 py-3 text-center font-semibold text-primary-fg transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              >
+                Start a lesson
+              </a>
+              <a
+                href="#how"
+                className="rounded-full border border-border bg-surface px-6 py-3 text-center font-semibold text-fg transition-colors hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              >
+                How it works
+              </a>
+            </div>
+          </div>
+          <PrismArt className="mx-auto w-full max-w-sm" />
+        </Container>
+      </section>
+
+      <section id="how" className="scroll-mt-20 py-12">
+        <Container>
+          <h2 className="text-2xl font-bold tracking-tight">How it works</h2>
+          <ol className="mt-6 grid gap-4 sm:grid-cols-3">
+            {steps.map((step, i) => (
+              <li key={step.title} className="rounded-2xl border border-border bg-surface p-5">
+                <span className="grid size-8 place-items-center rounded-full bg-primary-soft text-sm font-bold text-primary">
+                  {i + 1}
+                </span>
+                <h3 className="mt-3 font-semibold">{step.title}</h3>
+                <p className="mt-1 text-sm text-muted">{step.body}</p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      <section id="start" className="scroll-mt-20 py-12">
+        <Container>
+          <div className="rounded-2xl border border-dashed border-border bg-surface-2 p-6 sm:p-8">
+            <h2 className="text-2xl font-bold tracking-tight">Start a lesson</h2>
+            <p className="mt-2 text-muted">Pick the level that matches where you are right now.</p>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {levels.map((level) => (
+                <li
+                  key={level.name}
+                  className="rounded-full border border-border bg-surface px-4 py-2 text-sm"
+                >
+                  <span className="font-semibold">{level.name}</span>
+                  <span className="text-muted"> · {level.hint}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-sm text-muted">The topic picker is coming in the next step.</p>
+          </div>
+        </Container>
+      </section>
+    </>
   );
 }
