@@ -2,22 +2,22 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V1 · Step 6 (AI integration). User approved autonomous build through end of V1 (2026-10-02).
+**Current:** V1 · Step 7 (Sources & grounding). User approved autonomous build through end of V1 (2026-10-02).
 
 ## Version 1: Foundation
 
-| Step | Title                  | Status         | Date       | Notes                                                                                |
-| ---- | ---------------------- | -------------- | ---------- | ------------------------------------------------------------------------------------ |
-| 1    | Project setup          | ✅ Done        | 2026-10-02 | Next 16.3, Tailwind 4, ESLint 9 + Prettier, Vitest 5. Pushed to GitHub.              |
-| 2    | Design system & layout | ✅ Done        | 2026-10-02 | Tokens in globals.css, data-theme dark mode, header, hero, footer.                   |
-| 3    | Topic picker           | ✅ Done        | 2026-10-02 | em.json (7 chapters, 43 topics), levels + durations config, /lesson summary page.    |
-| 4    | Lesson schema + search | ✅ Done        | 2026-10-02 | schema.ts (Zod + cross-checks), Gauss sample lesson, topic search box (user request) |
-| 5    | Lesson page renderer   | ✅ Done        | 2026-10-02 | Level-specific layouts (levelLayouts.ts), KaTeX, step-by-step examples, quiz.        |
-| 6    | AI integration         | ⬜ Not started |            |                                                                                      |
-| 7    | Sources & grounding    | ⬜ Not started |            |                                                                                      |
-| 8    | Visual library part 1  | ⬜ Not started |            |                                                                                      |
-| 9    | Audio (read-aloud)     | ⬜ Not started |            |                                                                                      |
-| 10   | Save, polish, deploy   | ⬜ Not started |            | Storage records must carry `id`, `updatedAt`, `deleted` (sync-ready).                |
+| Step | Title                  | Status         | Date       | Notes                                                                                                                 |
+| ---- | ---------------------- | -------------- | ---------- | --------------------------------------------------------------------------------------------------------------------- |
+| 1    | Project setup          | ✅ Done        | 2026-10-02 | Next 16.3, Tailwind 4, ESLint 9 + Prettier, Vitest 5. Pushed to GitHub.                                               |
+| 2    | Design system & layout | ✅ Done        | 2026-10-02 | Tokens in globals.css, data-theme dark mode, header, hero, footer.                                                    |
+| 3    | Topic picker           | ✅ Done        | 2026-10-02 | em.json (7 chapters, 43 topics), levels + durations config, /lesson summary page.                                     |
+| 4    | Lesson schema + search | ✅ Done        | 2026-10-02 | schema.ts (Zod + cross-checks), Gauss sample lesson, topic search box (user request)                                  |
+| 5    | Lesson page renderer   | ✅ Done        | 2026-10-02 | Level-specific layouts (levelLayouts.ts), KaTeX, step-by-step examples, quiz.                                         |
+| 6    | AI integration         | ✅ Done        | 2026-10-02 | /api/lesson NDJSON stream, Gemini→Groq chain, per-level prompts, Zod + repair retries, LLM_PROVIDER=fake for testing. |
+| 7    | Sources & grounding    | ⬜ Not started |            |                                                                                                                       |
+| 8    | Visual library part 1  | ⬜ Not started |            |                                                                                                                       |
+| 9    | Audio (read-aloud)     | ⬜ Not started |            |                                                                                                                       |
+| 10   | Save, polish, deploy   | ⬜ Not started |            | Storage records must carry `id`, `updatedAt`, `deleted` (sync-ready).                                                 |
 
 ## Version 2: Personal & powerful
 
@@ -42,5 +42,7 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 - **2026-10-01: Accounts & cloud sync added** (SPEC §9). New V2 · Step 1: Firebase Spark (no billing, no Firebase Storage), Google sign-in only, local-first IndexedDB + Firestore outbox sync, a shared server-written lesson library (replaces the old "caching" item from V3 · Step 10), quota fallback and a study dashboard. The old V2 steps shift down one (now 11 steps). V3 · Step 8 Supabase sync is replaced by share links and mistake reports sent to Firestore. V1 is unchanged except Step 10 makes storage records sync-ready.
 
 ## Known issues / leftovers
+
+- Windows: `npm test` goes through `scripts/vitest.mjs`, which fixes a lowercase drive letter (c:\) that otherwise breaks every test.
 
 - Dev tip: if the page looks stuck on old styles, check `about:debugging#/runtime/this-firefox` for a stale service worker on `localhost:3000` (the separate "Register" project installs one there). Its cache-first rule serves outdated `/_next/static` files in dev mode.

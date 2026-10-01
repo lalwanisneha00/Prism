@@ -25,18 +25,20 @@ export function SectionView({
       </div>
       <Markdown>{section.body}</Markdown>
       {section.visual && <VisualSlot visual={section.visual} />}
-      <p className="flex flex-wrap items-center gap-2 text-xs text-muted">
-        <span>Sources:</span>
-        {cited.map((c) => (
-          <a
-            key={c.id}
-            href={`#source-${c.id}`}
-            className="rounded-full border border-border px-2 py-0.5 font-medium hover:bg-surface-2"
-          >
-            [{c.number}]
-          </a>
-        ))}
-      </p>
+      {cited.length > 0 && (
+        <p className="flex flex-wrap items-center gap-2 text-xs text-muted">
+          <span>Sources:</span>
+          {cited.map((c) => (
+            <a
+              key={c.id}
+              href={`#source-${c.id}`}
+              className="rounded-full border border-border px-2 py-0.5 font-medium hover:bg-surface-2"
+            >
+              [{c.number}]
+            </a>
+          ))}
+        </p>
+      )}
     </Card>
   );
 }
