@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import "katex/dist/katex.min.css";
 import { Container } from "@/components/Container";
+import { LessonView } from "@/components/lesson/LessonView";
 import { findSampleLesson } from "@/data/sampleLessons";
 import { validateLessonRequest, type LessonRequest } from "@/lib/lessonRequest";
 
@@ -15,7 +17,7 @@ export default async function LessonPage({ searchParams }: PageProps<"/lesson">)
   return (
     <Container className="py-10 sm:py-14">
       {result.ok ? (
-        <LessonSummary request={result.request} />
+        <LessonOrPlaceholder request={result.request} />
       ) : (
         <InvalidRequest problems={Object.values(result.errors)} />
       )}
@@ -23,9 +25,21 @@ export default async function LessonPage({ searchParams }: PageProps<"/lesson">)
   );
 }
 
+function LessonOrPlaceholder({ request }: { request: LessonRequest }) {
+  const sample = findSampleLesson(request.topic.id, request.level.slug);
+  if (sample) {
+    return (
+      <div className="flex flex-col gap-10">
+        <LessonView lesson={sample} request={request} />
+        <BackLink>Choose a different topic</BackLink>
+      </div>
+    );
+  }
+  return <LessonSummary request={request} />;
+}
+
 function LessonSummary({ request }: { request: LessonRequest }) {
   const { subject, chapter, topic, level, duration } = request;
-  const sample = findSampleLesson(topic.id, level.slug);
   return (
     <article className="flex flex-col gap-6">
       <div>
@@ -48,14 +62,6 @@ function LessonSummary({ request }: { request: LessonRequest }) {
         <p className="mt-1 text-sm text-muted">
           {level.style} Lesson building is switched on in an upcoming update.
         </p>
-        {sample && (
-          <p className="mt-3 text-sm">
-            <span className="font-semibold text-success">✓ Sample lesson ready:</span>{" "}
-            {sample.sections.length} sections, {sample.workedExamples.length} worked examples,{" "}
-            {sample.quiz.length} quiz questions and {sample.meta.sources.length} sources, all
-            checked against the lesson schema.
-          </p>
-        )}
       </div>
 
       <BackLink>Choose a different topic</BackLink>

@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V1 · Step 5 (Lesson page renderer). User approved autonomous build through end of V1 (2026-10-02).
+**Current:** V1 · Step 6 (AI integration). User approved autonomous build through end of V1 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -12,7 +12,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 2    | Design system & layout | ✅ Done        | 2026-10-02 | Tokens in globals.css, data-theme dark mode, header, hero, footer.                   |
 | 3    | Topic picker           | ✅ Done        | 2026-10-02 | em.json (7 chapters, 43 topics), levels + durations config, /lesson summary page.    |
 | 4    | Lesson schema + search | ✅ Done        | 2026-10-02 | schema.ts (Zod + cross-checks), Gauss sample lesson, topic search box (user request) |
-| 5    | Lesson page renderer   | ⬜ Not started |            |                                                                                      |
+| 5    | Lesson page renderer   | ✅ Done        | 2026-10-02 | Level-specific layouts (levelLayouts.ts), KaTeX, step-by-step examples, quiz.        |
 | 6    | AI integration         | ⬜ Not started |            |                                                                                      |
 | 7    | Sources & grounding    | ⬜ Not started |            |                                                                                      |
 | 8    | Visual library part 1  | ⬜ Not started |            |                                                                                      |

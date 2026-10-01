@@ -71,3 +71,11 @@ body {
   background-clip: text;
   color: transparent;
 }
+
+/* Display maths: long formulas scroll sideways on small screens instead of overflowing. */
+.markdown .katex-display {
+  margin: 0.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.35em;
+}
