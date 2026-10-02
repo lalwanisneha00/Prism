@@ -8,7 +8,13 @@ import type { Lesson, Section } from "@/lib/schema";
 export type LessonEvent =
   | { type: "stage"; stage: "sources" | "writing" | "fixing" | "checking"; message: string }
   | { type: "section"; section: Section }
-  | { type: "lesson"; lesson: Lesson; cached: boolean }
+  | {
+      type: "lesson";
+      lesson: Lesson;
+      cached: boolean;
+      /** Set when the lesson is in the shared library, so saved copies can sync as a reference. */
+      libraryKey?: string;
+    }
   | { type: "error"; kind: LlmErrorKind | "invalid-request"; message: string };
 
 export type LessonErrorKind = Extract<LessonEvent, { type: "error" }>["kind"] | "offline";

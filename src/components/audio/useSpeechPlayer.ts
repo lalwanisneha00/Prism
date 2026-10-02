@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { skip as skipBy, type TimelineItem } from "@/lib/audio/timeline";
+import { updateSettings } from "@/lib/storage/progress";
 
 export type PlayerStatus = "idle" | "playing" | "paused" | "waiting" | "ended";
 
@@ -45,8 +46,18 @@ function englishVoices(): SpeechSynthesisVoice[] {
  * Speaking sentence by sentence makes highlighting, skipping and resuming exact,
  * and avoids browsers that stop long utterances after ~15 seconds.
  */
-export function useSpeechPlayer(timeline: TimelineItem[], complete: boolean, resumeKey: string) {
-  const [index, setIndex] = useState(() => Number(readStorage(resumeKey) ?? 0) || 0);
+export function useSpeechPlayer(
+  timeline: TimelineItem[],
+  complete: boolean,
+  resumeKey: string,
+  /** Where the student stopped on another device (seconds), used if this device has no position. */
+  resumeSeconds = 0,
+) {
+  const [index, setIndex] = useState(() => {
+    const local = readStorage(resumeKey);
+    if (local !== null) return Number(local) || 0;
+    return resumeSeconds > 0 ? skipBy(timeline, 0, resumeSeconds) : 0;
+  });
   const [status, setStatus] = useState<PlayerStatus>("idle");
   const [rate, setRateState] = useState(() => Number(readStorage(RATE_KEY)) || 1);
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>(englishVoices);
@@ -161,6 +172,7 @@ export function useSpeechPlayer(timeline: TimelineItem[], complete: boolean, res
     (r: number) => {
       setRateState(r);
       writeStorage(RATE_KEY, String(r));
+      void updateSettings({ audioRate: r }).catch(() => {});
       latest.current.rate = r;
       if (latest.current.status === "playing") speak(latest.current.index);
     },

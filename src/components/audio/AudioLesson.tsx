@@ -8,6 +8,8 @@ import { buildTimeline, cleanForSpeech, type AudioChapter } from "@/lib/audio/ti
 import { errorCopy, type LessonErrorKind } from "@/lib/lessonEvents";
 import { readNdjson } from "@/lib/readLessonStream";
 import type { Lesson } from "@/lib/schema";
+import { lessonId } from "@/lib/storage/library";
+import { getAudioPosition } from "@/lib/storage/progress";
 
 type Phase =
   | { name: "idle" }
@@ -41,6 +43,15 @@ export function AudioLesson({ lesson }: { lesson: Lesson }) {
   const [supported] = useState(() => typeof window === "undefined" || speechSupported());
   const controller = useRef<AbortController | null>(null);
   const timeline = useMemo(() => buildTimeline(chapters), [chapters]);
+
+  // Where the student stopped last time, possibly on another device (synced, in seconds).
+  const positionId = lessonId(lesson.meta);
+  const [syncedSeconds, setSyncedSeconds] = useState<number | null>(null);
+  useEffect(() => {
+    getAudioPosition(positionId)
+      .then((p) => setSyncedSeconds(p?.seconds ?? 0))
+      .catch(() => setSyncedSeconds(0));
+  }, [positionId]);
 
   useEffect(() => {
     const pending = controller;
@@ -171,13 +182,16 @@ export function AudioLesson({ lesson }: { lesson: Lesson }) {
             </p>
           )}
 
-          {showPlayer && (
+          {showPlayer && syncedSeconds !== null && (
             <AudioPlayer
               key={phase.name === "ready" && phase.short ? "short" : "full"}
               chapters={chapters}
               timeline={timeline}
               complete={phase.name === "ready"}
               resumeKey={`${key}:${phase.name === "ready" && phase.short ? "short" : "full"}:position`}
+              positionId={positionId}
+              title={lesson.meta.title}
+              resumeSeconds={phase.name === "ready" && phase.short ? 0 : syncedSeconds}
             />
           )}
         </div>

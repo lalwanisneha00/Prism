@@ -14,7 +14,7 @@ import { getSavedLesson, lessonId, recordRecent } from "@/lib/storage/library";
 
 type State =
   | { status: "loading"; stage: string; sections: Section[] }
-  | { status: "ready"; lesson: Lesson; fromLibrary: boolean }
+  | { status: "ready"; lesson: Lesson; fromLibrary: boolean; libraryKey?: string }
   | { status: "error"; kind: LessonErrorKind };
 
 const initial: State = { status: "loading", stage: "Getting started…", sections: [] };
@@ -34,7 +34,12 @@ export function LessonLoader({ request }: { request: LessonRequest }) {
     function handle(event: LessonEvent) {
       setState((prev) => {
         if (event.type === "lesson")
-          return { status: "ready", lesson: event.lesson, fromLibrary: false };
+          return {
+            status: "ready",
+            lesson: event.lesson,
+            fromLibrary: false,
+            libraryKey: event.libraryKey,
+          };
         if (event.type === "error") return { status: "error", kind: event.kind };
         if (prev.status !== "loading") return prev;
         if (event.type === "stage") return { ...prev, stage: event.message };
@@ -53,7 +58,14 @@ export function LessonLoader({ request }: { request: LessonRequest }) {
           }),
         ).catch(() => undefined);
         if (controller.signal.aborted) return;
-        if (saved) return setState({ status: "ready", lesson: saved.lesson, fromLibrary: true });
+        if (saved) {
+          return setState({
+            status: "ready",
+            lesson: saved.lesson,
+            fromLibrary: true,
+            libraryKey: saved.libraryKey,
+          });
+        }
       }
       if (!navigator.onLine) return setState({ status: "error", kind: "offline" });
       try {
@@ -66,6 +78,7 @@ export function LessonLoader({ request }: { request: LessonRequest }) {
             topic: request.topic.id,
             level: request.level.slug,
             duration: String(request.duration),
+            fresh: skipLibrary,
           }),
           signal: controller.signal,
         });
@@ -126,7 +139,7 @@ export function LessonLoader({ request }: { request: LessonRequest }) {
             </button>
           </p>
         )}
-        <LessonView lesson={state.lesson} request={request} />
+        <LessonView lesson={state.lesson} request={request} libraryKey={state.libraryKey} />
       </div>
     );
   }

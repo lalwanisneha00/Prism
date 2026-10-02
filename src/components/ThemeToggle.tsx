@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect } from "react";
+import { updateSettings } from "@/lib/storage/progress";
 import { THEME_STORAGE_KEY, resolveTheme, type Theme } from "@/lib/theme";
 
 function currentTheme(): Theme {
@@ -28,6 +29,7 @@ export function ThemeToggle() {
     applyTheme(next);
     try {
       localStorage.setItem(THEME_STORAGE_KEY, next);
+      void updateSettings({ theme: next }).catch(() => {}); // synced to the account, if signed in
     } catch {
       // Not saved, but the switch still works for this visit.
     }

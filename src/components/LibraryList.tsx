@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/components/account/AuthProvider";
 import { findLevel } from "@/data/levels";
 import { findChapter, findSubject } from "@/lib/subjects";
 import type { SavedLesson } from "@/lib/storage/db";
@@ -12,13 +13,14 @@ type State =
 
 /** Every lesson saved on this device, newest first. */
 export function LibraryList() {
+  const { dataVersion } = useAuth();
   const [state, setState] = useState<State>({ status: "loading" });
 
   useEffect(() => {
     listSavedLessons()
       .then((items) => setState({ status: "ready", items }))
       .catch(() => setState({ status: "error" }));
-  }, []);
+  }, [dataVersion]);
 
   if (state.status === "loading") {
     return (

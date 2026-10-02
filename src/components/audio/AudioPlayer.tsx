@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef } from "react";
+import { saveAudioPosition } from "@/lib/storage/progress";
 import { useSpeechPlayer } from "@/components/audio/useSpeechPlayer";
 import {
   chapterStart,
@@ -21,13 +22,42 @@ export function AudioPlayer({
   timeline,
   complete,
   resumeKey,
+  positionId,
+  title,
+  resumeSeconds,
 }: {
+  positionId: string;
+  title: string;
+  resumeSeconds?: number;
   chapters: AudioChapter[];
   timeline: TimelineItem[];
   complete: boolean;
   resumeKey: string;
 }) {
-  const player = useSpeechPlayer(timeline, complete, resumeKey);
+  const player = useSpeechPlayer(timeline, complete, resumeKey, resumeSeconds);
+
+  // Sync the position sparingly (SPEC §9.3): every 30 s while playing, on pause, and when the
+  // page is closed or hidden, not on every sentence.
+  const latest = useRef({ index: player.index, timeline });
+  useEffect(() => {
+    latest.current = { index: player.index, timeline };
+  });
+  useEffect(() => {
+    const save = () => {
+      const item = latest.current.timeline[latest.current.index];
+      if (item) void saveAudioPosition(positionId, title, item.start).catch(() => {});
+    };
+    if (player.status === "paused" || player.status === "ended") save();
+    const onHide = () => document.visibilityState === "hidden" && save();
+    document.addEventListener("visibilitychange", onHide);
+    window.addEventListener("pagehide", save);
+    const timer = player.status === "playing" ? setInterval(save, 30_000) : undefined;
+    return () => {
+      document.removeEventListener("visibilitychange", onHide);
+      window.removeEventListener("pagehide", save);
+      clearInterval(timer);
+    };
+  }, [player.status, positionId, title]);
   const id = useId();
   const transcript = useRef<HTMLDivElement>(null);
   const current = timeline[Math.min(player.index, timeline.length - 1)];

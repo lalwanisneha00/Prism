@@ -29,14 +29,15 @@ Read `SPEC.md` (what we're building) and `PROGRESS.md` (where we are) before doi
 
 ## Commands
 
-| Command          | What it does                                        |
-| ---------------- | --------------------------------------------------- |
-| `npm run dev`    | Start the local dev server at http://localhost:3000 |
-| `npm run check`  | Typecheck + lint + format check + tests             |
-| `npm run build`  | Production build (must pass before handover)        |
-| `npm run format` | Auto-format all files                               |
-| `npm test`       | Run Vitest once                                     |
-| `npm run eval`   | Golden-set accuracy eval (needs GEMINI_API_KEY)     |
+| Command                 | What it does                                                      |
+| ----------------------- | ----------------------------------------------------------------- |
+| `npm run dev`           | Start the local dev server at http://localhost:3000               |
+| `npm run check`         | Typecheck + lint + format check + tests                           |
+| `npm run build`         | Production build (must pass before handover)                      |
+| `npm run format`        | Auto-format all files                                             |
+| `npm test`              | Run Vitest once                                                   |
+| `npm run eval`          | Golden-set accuracy eval (needs GEMINI_API_KEY)                   |
+| `npm run test:firebase` | Live checks of Firestore rules and sync (needs Firebase settings) |
 
 ## Folder map
 
@@ -46,3 +47,5 @@ Read `SPEC.md` (what we're building) and `PROGRESS.md` (where we are) before doi
 - `src/visuals`: widget registry and hand-coded widgets
 - `src/data/subjects`: subject/chapter/topic data
 - `eval`: golden set and accuracy script
+- `src/lib/storage`: IndexedDB (the main copy) · `src/lib/sync`: outbox sync engine + Firestore adapter
+- `firestore.rules`: security rules (paste into Firebase console → Firestore → Rules when changed)

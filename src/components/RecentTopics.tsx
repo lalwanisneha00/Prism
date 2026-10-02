@@ -2,19 +2,21 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/components/account/AuthProvider";
 import { findLevel } from "@/data/levels";
 import type { RecentTopic } from "@/lib/storage/db";
 import { clearRecent, listRecent } from "@/lib/storage/library";
 
 /** "Pick up where you left off": the last few topics opened on this device. */
 export function RecentTopics() {
+  const { dataVersion } = useAuth();
   const [recent, setRecent] = useState<RecentTopic[]>([]);
 
   useEffect(() => {
     listRecent()
       .then(setRecent)
       .catch(() => setRecent([]));
-  }, []);
+  }, [dataVersion]);
 
   if (recent.length === 0) return null;
 

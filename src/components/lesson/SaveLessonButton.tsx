@@ -5,7 +5,7 @@ import type { Lesson } from "@/lib/schema";
 import { getSavedLesson, lessonId, saveLesson, unsaveLesson } from "@/lib/storage/library";
 
 /** ☆ Save / ★ Saved toggle. Saved lessons open instantly and work offline. */
-export function SaveLessonButton({ lesson }: { lesson: Lesson }) {
+export function SaveLessonButton({ lesson, libraryKey }: { lesson: Lesson; libraryKey?: string }) {
   const id = lessonId(lesson.meta);
   const [saved, setSaved] = useState<boolean | null>(null);
   const [failed, setFailed] = useState(false);
@@ -19,7 +19,7 @@ export function SaveLessonButton({ lesson }: { lesson: Lesson }) {
   async function toggle() {
     try {
       if (saved) await unsaveLesson(id);
-      else await saveLesson(lesson);
+      else await saveLesson(lesson, Date.now(), libraryKey);
       setSaved(!saved);
       setFailed(false);
     } catch {

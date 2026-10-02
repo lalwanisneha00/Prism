@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V1 signed off by the user (2026-10-02). V2 · Step 1 (Accounts, cloud sync & shared lesson library): waiting for the user to create the Firebase project.
+**Current:** V2 · Step 2 (All 6 levels), in progress.
 
 ## Version 1: Foundation
 
@@ -23,8 +23,8 @@ Update this after every step so any person or AI tool can pick up the work.
 
 | Step | Title                                        | Status         |
 | ---- | -------------------------------------------- | -------------- |
-| 1    | Accounts, cloud sync & shared lesson library | 🟡 In progress |
-| 2    | All 6 levels                                 | ⬜ Not started |
+| 1    | Accounts, cloud sync & shared lesson library | ✅ Done        |
+| 2    | All 6 levels                                 | 🟡 In progress |
 | 3    | Long audio                                   | ⬜ Not started |
 | 4    | PDF upload + retrieval                       | ⬜ Not started |
 | 5    | PYQ / worksheet mode                         | ⬜ Not started |
@@ -40,6 +40,12 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 ## Plan changes
 
 - **2026-10-01: Accounts & cloud sync added** (SPEC §9). New V2 · Step 1: Firebase Spark (no billing, no Firebase Storage), Google sign-in only, local-first IndexedDB + Firestore outbox sync, a shared server-written lesson library (replaces the old "caching" item from V3 · Step 10), quota fallback and a study dashboard. The old V2 steps shift down one (now 11 steps). V3 · Step 8 Supabase sync is replaced by share links and mistake reports sent to Firestore. V1 is unchanged except Step 10 makes storage records sync-ready.
+
+## V2 · Step 1 notes
+
+- Firebase project `prism-study-7faa5` (Spark). Rules in `firestore.rules`, published manually (the Admin key cannot publish rules). `npm run test:firebase` passed 18/18 live checks on 2026-10-02.
+- Sign-out clears the device copy (privacy on shared devices); a different account signing in also clears it first. Guest data merges into the first account.
+- Firebase Analytics was enabled on the project but the app never loads it.
 
 ## Known issues / leftovers
 

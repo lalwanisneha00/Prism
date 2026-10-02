@@ -1,4 +1,5 @@
 import { findSampleLesson } from "@/data/sampleLessons";
+import { getAdmin } from "@/lib/firebase/admin";
 import { generateLesson } from "@/lib/generateLesson";
 import { groundSources } from "@/lib/grounding/groundSources";
 import { errorCopy, type LessonEvent } from "@/lib/lessonEvents";
@@ -7,6 +8,13 @@ import { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm"
 import { FakeProvider } from "@/lib/llm/fake";
 import { fakeLessonBody, fakeVerification } from "@/lib/llm/fakeLesson";
 import type { GenerateOptions, LlmProvider } from "@/lib/llm/types";
+import { adminLibraryStore } from "@/lib/library/adminStore";
+import {
+  libraryKey,
+  readFromLibrary,
+  writeToLibrary,
+  type LibraryStore,
+} from "@/lib/library/sharedLibrary";
 import { sourcesForTopic } from "@/lib/sources";
 import { verifyLesson } from "@/lib/verify";
 import { visualPromptRules } from "@/visuals/visualChecks";
@@ -29,8 +37,15 @@ function providers(sources: ReturnType<typeof sourcesForTopic>): LlmProvider[] {
   return providersFromEnv();
 }
 
+/** The shared lesson library, or null when Firebase Admin isn't configured (or in fake mode). */
+function sharedLibrary(): LibraryStore | null {
+  if (process.env.LLM_PROVIDER === "fake") return null;
+  const admin = getAdmin();
+  return admin ? adminLibraryStore(admin.db) : null;
+}
+
 /**
- * POST { subject, chapter, topic, level, duration } → a stream of LessonEvent lines
+ * POST { subject, chapter, topic, level, duration, fresh? } → a stream of LessonEvent lines
  * (application/x-ndjson). The AI key is only ever used here, on the server.
  */
 export async function POST(req: Request) {
@@ -47,6 +62,14 @@ export async function POST(req: Request) {
     return Response.json(event, { status: 400 });
   }
   const request = result.request;
+  // "Write a fresh version" skips the shared library copy.
+  const fresh = Boolean(raw && typeof raw === "object" && (raw as { fresh?: unknown }).fresh);
+  const key = libraryKey({
+    subject: request.subject.id,
+    topic: request.topic.id,
+    level: request.level.slug,
+    durationMin: request.duration,
+  });
 
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
@@ -66,6 +89,19 @@ export async function POST(req: Request) {
           return;
         }
 
+        // The shared library first: an instant, consistent answer that uses no AI quota.
+        const library = sharedLibrary();
+        if (library && !fresh) {
+          const stored = await readFromLibrary(library, key).catch((err: unknown) => {
+            console.warn("[api/lesson] library read failed:", String(err));
+            return null;
+          });
+          if (stored) {
+            send({ type: "lesson", lesson: stored, cached: true, libraryKey: key });
+            return;
+          }
+        }
+
         send({ type: "stage", stage: "sources", message: "Reading trusted sources…" });
         const sources = await groundSources(sourcesForTopic(request.subject.id, request.topic.id), {
           signal: req.signal,
@@ -82,8 +118,17 @@ export async function POST(req: Request) {
         });
 
         send({ type: "stage", stage: "checking", message: "Fact-checking against the sources…" });
-        const { lesson } = await verifyLesson(draft, sources, generate, req.signal);
-        send({ type: "lesson", lesson, cached: false });
+        const { lesson, checked } = await verifyLesson(draft, sources, generate, req.signal);
+
+        // Only lessons that went through the fact-check are shared with other students.
+        let stored = false;
+        if (library && checked) {
+          stored = await writeToLibrary(library, lesson).catch((err: unknown) => {
+            console.warn("[api/lesson] library write failed:", String(err));
+            return false;
+          });
+        }
+        send({ type: "lesson", lesson, cached: false, libraryKey: stored ? key : undefined });
       } catch (err) {
         if (req.signal.aborted) return;
         const error = err instanceof LlmError ? err : new LlmError("unavailable", String(err));

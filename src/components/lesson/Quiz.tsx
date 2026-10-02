@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { Card } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
-import type { QuizQuestion } from "@/lib/schema";
+import type { Lesson, QuizQuestion } from "@/lib/schema";
+import { lessonId } from "@/lib/storage/library";
+import { recordQuizAttempt } from "@/lib/storage/progress";
 
 /** What the student did with one question: picked an option, or self-marked a written answer. */
 type Attempt = { picked?: string; correct: boolean };
@@ -14,7 +16,7 @@ const difficultyStyle: Record<QuizQuestion["difficulty"], string> = {
   hard: "text-danger",
 };
 
-export function Quiz({ questions }: { questions: QuizQuestion[] }) {
+export function Quiz({ questions, meta }: { questions: QuizQuestion[]; meta?: Lesson["meta"] }) {
   const [attempts, setAttempts] = useState<Record<number, Attempt>>({});
   // Bumped by "Try again" so every question card starts fresh.
   const [round, setRound] = useState(0);
@@ -22,7 +24,25 @@ export function Quiz({ questions }: { questions: QuizQuestion[] }) {
   const score = Object.values(attempts).filter((a) => a.correct).length;
 
   function record(i: number, attempt: Attempt) {
-    setAttempts((prev) => (prev[i] ? prev : { ...prev, [i]: attempt }));
+    if (attempts[i]) return;
+    const next = { ...attempts, [i]: attempt };
+    setAttempts(next);
+    // A finished quiz is saved (and synced) so the dashboard can spot weak topics.
+    if (meta && Object.keys(next).length === questions.length) {
+      void recordQuizAttempt({
+        lessonId: lessonId(meta),
+        subject: meta.subject,
+        chapter: meta.chapter,
+        topic: meta.topic,
+        level: meta.level,
+        duration: meta.durationMin,
+        title: meta.title,
+        score: Object.values(next).filter((a) => a.correct).length,
+        total: questions.length,
+      }).catch(() => {
+        // Storage unavailable: the score just isn't remembered.
+      });
+    }
   }
 
   return (

@@ -13,9 +13,12 @@
     "test": "node scripts/vitest.mjs run",
     "test:watch": "node scripts/vitest.mjs",
     "check": "npm run typecheck && npm run lint && npm run format:check && npm run test",
-    "eval": "tsx --tsconfig tsconfig.json eval/run.ts"
+    "eval": "tsx --tsconfig tsconfig.json eval/run.ts",
+    "test:firebase": "tsx --tsconfig tsconfig.json scripts/test-firebase.ts"
   },
   "dependencies": {
+    "firebase": "^12.19.0",
+    "firebase-admin": "^14.5.0",
     "idb": "^8.0.3",
     "katex": "^0.19.0",
     "mermaid": "^11.17.2",
@@ -47,5 +50,13 @@
   },
   "engines": {
     "node": ">=20.9"
+  },
+  "overrides": {
+    "@firebase/firestore": {
+      "@grpc/grpc-js": "^1.14.5"
+    },
+    "gaxios": {
+      "uuid": "^11.1.1"
+    }
   }
 }

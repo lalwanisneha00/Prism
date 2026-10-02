@@ -19,7 +19,16 @@ import type { LessonRequest } from "@/lib/lessonRequest";
 import type { Lesson } from "@/lib/schema";
 
 /** A full lesson page. The order and headings of its blocks come from the level's layout. */
-export function LessonView({ lesson, request }: { lesson: Lesson; request: LessonRequest }) {
+export function LessonView({
+  lesson,
+  request,
+  libraryKey,
+}: {
+  lesson: Lesson;
+  request: LessonRequest;
+  /** Set when the lesson is in the shared library (saved copies then sync as a reference). */
+  libraryKey?: string;
+}) {
   const layout = levelLayouts[request.level.slug];
   const sources = lesson.meta.sources;
 
@@ -53,7 +62,7 @@ export function LessonView({ lesson, request }: { lesson: Lesson; request: Lesso
       </div>
     ),
     misconceptions: () => <Misconceptions items={lesson.misconceptions} />,
-    quiz: () => <Quiz questions={lesson.quiz} />,
+    quiz: () => <Quiz questions={lesson.quiz} meta={lesson.meta} />,
     revisionSheet: () => <RevisionSheet sheet={lesson.revisionSheet} />,
     furtherLearning: () => <FurtherLearning links={lesson.furtherLearning} />,
   };
@@ -76,7 +85,7 @@ export function LessonView({ lesson, request }: { lesson: Lesson; request: Lesso
               {lesson.meta.durationMin} min
             </li>
           </ul>
-          <SaveLessonButton lesson={lesson} />
+          <SaveLessonButton lesson={lesson} libraryKey={libraryKey} />
         </div>
         <Markdown className="text-lg text-muted">{lesson.hook}</Markdown>
         <nav aria-label="In this lesson" className="text-sm">

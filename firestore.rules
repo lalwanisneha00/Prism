@@ -1,0 +1,23 @@
+rules_version = '2';
+
+// Prism security rules (SPEC §9.6).
+// - Each signed-in student can read and write only their own data under users/{theirUid}.
+// - Signed-in students can read the shared lesson library; nobody can write it from a
+//   browser (only the server, via the Admin SDK, which bypasses these rules).
+// - Everything else is denied.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    match /lessons/{lessonId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
