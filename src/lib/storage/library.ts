@@ -4,9 +4,11 @@ import { getRecord, putRecord } from "@/lib/storage/records";
 
 /** One saved copy per (subject, topic, level, duration). */
 export function lessonId(
-  meta: Pick<Lesson["meta"], "subject" | "topic" | "level" | "durationMin">,
+  meta: Pick<Lesson["meta"], "subject" | "topic" | "level" | "durationMin" | "fromNotes">,
 ) {
-  return `${meta.subject}:${meta.topic}:${meta.level}:${meta.durationMin}`;
+  // A lesson built from the student's notes is kept apart from the standard one.
+  const notes = meta.fromNotes ? ":notes" : "";
+  return `${meta.subject}:${meta.topic}:${meta.level}:${meta.durationMin}${notes}`;
 }
 
 export async function saveLesson(

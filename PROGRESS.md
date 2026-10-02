@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 4 (PDF upload). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 · Step 5 (PYQ / worksheet mode). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -26,7 +26,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 1    | Accounts, cloud sync & shared lesson library | ✅ Done        |
 | 2    | All 6 levels                                 | ✅ Done        |
 | 3    | Long audio                                   | ✅ Done        |
-| 4    | PDF upload + retrieval                       | ⬜ Not started |
+| 4    | PDF upload + retrieval                       | ✅ Done        |
 | 5    | PYQ / worksheet mode                         | ⬜ Not started |
 | 6    | Engineering Mathematics + visuals part 2     | ⬜ Not started |
 | 7    | Interaction tools                            | ⬜ Not started |
@@ -46,6 +46,12 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 - Firebase project `prism-study-7faa5` (Spark). Rules in `firestore.rules`, published manually (the Admin key cannot publish rules). `npm run test:firebase` passed 18/18 live checks on 2026-10-02.
 - Sign-out clears the device copy (privacy on shared devices); a different account signing in also clears it first. Guest data merges into the first account.
 - Firebase Analytics was enabled on the project but the app never loads it.
+
+## V2 · Step 4 notes
+
+- PDF text is extracted in the browser (pdfjs-dist; its worker is copied to `public/` by `scripts/copy-pdf-worker.mjs` on install/dev/build). Text lives in the local-only IndexedDB store `notes` (DB v3); `noteSummaries` (name, pages, 280-char summary) syncs.
+- BM25 search (`src/lib/notes/retrieval.ts`) picks ≤ 8 passages × 1200 chars for the topic; the server validates them (`notesSources.ts`) and cites them as `notes-N` sources. Notes lessons skip the sample lessons and shared library, and save under a `:notes` id.
+- Scanned (image-only) PDFs show "no text found"; OCR is not in scope.
 
 ## Known issues / leftovers
 

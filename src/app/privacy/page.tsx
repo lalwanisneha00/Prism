@@ -22,7 +22,7 @@ const points: [string, string][] = [
   ],
   [
     "Your files",
-    "Notes and papers you upload in the future stay on your device; only their names and short summaries would sync.",
+    "PDF notes you upload are read in your browser and stay on this device; only their names and a short summary sync. When you build a lesson from your notes, the few matching passages (at most 8) are sent to the AI to write it, and that lesson is never added to the shared library.",
   ],
   ["No ads, no tracking", "We don't show ads, sell data or use tracking cookies."],
   [

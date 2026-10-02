@@ -81,6 +81,15 @@ ${jsonShape}`;
     })
     .join("\n");
 
+  const hasNotes = sources.some((s) => s.kind === "notes");
+  const notesRule = hasNotes
+    ? `
+THE STUDENT'S OWN NOTES:
+- Sources with ids starting "notes-" are excerpts from the student's college notes. Follow their order, notation and emphasis, and cite them wherever you use them.
+- If the notes contradict the other sources, follow the other sources and gently point out the difference.
+`
+    : "";
+
   const prompt = `Write a lesson.
 
 SUBJECT: ${request.subject.name} (${request.subject.field})
@@ -98,7 +107,8 @@ SIZE:
 - prerequisites: 2-4
 
 SOURCES (cite only these ids):
-${sourceList}`;
+${sourceList}
+${notesRule}`;
 
   return { system, prompt };
 }

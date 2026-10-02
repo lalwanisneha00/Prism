@@ -13,7 +13,8 @@ const levelSlugs = levels.map((l) => l.slug) as [LevelSlug, ...LevelSlug[]];
 export const SourceSchema = z.object({
   id,
   title: text,
-  url: z.url(),
+  /** Missing only for the student's own notes, which live on their device. */
+  url: z.url().optional(),
   publisher: text,
   kind: z.enum(["encyclopedia", "textbook", "paper", "video", "simulation", "notes"]),
   /** Licence shown next to the citation, e.g. "CC BY 4.0". */
@@ -105,6 +106,8 @@ export const LessonSchema = z
       durationMin: z.int().positive(),
       createdAt: z.iso.datetime(),
       sources: z.array(SourceSchema).min(1),
+      /** True when the lesson was grounded in the student's uploaded notes. */
+      fromNotes: z.boolean().optional(),
     }),
     hook: text,
     prerequisites: z.array(z.object({ concept: text, oneLiner: text })),

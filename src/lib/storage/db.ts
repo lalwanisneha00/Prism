@@ -54,6 +54,22 @@ export type AppSettings = SyncFields & {
   audioRate?: number;
 };
 
+/**
+ * An uploaded PDF's extracted text, split into passages. Local only: the file's contents
+ * never leave this device (SPEC: V2 · Step 4). Only a short summary syncs.
+ */
+export type StoredNote = {
+  id: string;
+  name: string;
+  size: number;
+  pages: number;
+  addedAt: number;
+  chunks: { id: string; page: number; text: string }[];
+};
+
+/** What syncs about an uploaded note: its name and a short summary, never the text. */
+export type NoteSummary = SyncFields & { name: string; pages: number; summary: string };
+
 /** Every collection that syncs to users/{uid}/{collection}/{id}. */
 export type SyncedRecords = {
   savedLessons: SavedLesson;
@@ -61,6 +77,7 @@ export type SyncedRecords = {
   quizAttempts: QuizAttempt;
   audioPositions: AudioPosition;
   settings: AppSettings;
+  noteSummaries: NoteSummary;
 };
 export type SyncedCollection = keyof SyncedRecords;
 export const SYNCED_COLLECTIONS: SyncedCollection[] = [
@@ -69,6 +86,7 @@ export const SYNCED_COLLECTIONS: SyncedCollection[] = [
   "quizAttempts",
   "audioPositions",
   "settings",
+  "noteSummaries",
 ];
 
 /** A local change waiting to be sent to the cloud. */
@@ -85,12 +103,14 @@ interface PrismDB extends DBSchema {
   quizAttempts: { key: string; value: QuizAttempt; indexes: { byAt: number } };
   audioPositions: { key: string; value: AudioPosition };
   settings: { key: string; value: AppSettings };
+  noteSummaries: { key: string; value: NoteSummary };
+  notes: { key: string; value: StoredNote };
   outbox: { key: string; value: OutboxEntry };
   meta: { key: string; value: { key: string; value: unknown } };
 }
 
 const DB_NAME = "prism";
-const DB_VERSION = 2;
+const DB_VERSION = 3;
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -111,6 +131,11 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
         db.createObjectStore("settings", { keyPath: "id" });
         db.createObjectStore("outbox", { keyPath: "key" });
         db.createObjectStore("meta", { keyPath: "key" });
+      }
+      // Version 3 (uploaded notes): the text stays local; summaries sync.
+      if (oldVersion < 3) {
+        db.createObjectStore("notes", { keyPath: "id" });
+        db.createObjectStore("noteSummaries", { keyPath: "id" });
       }
     },
   });

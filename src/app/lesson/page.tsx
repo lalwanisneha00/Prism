@@ -11,12 +11,13 @@ export async function generateMetadata({ searchParams }: PageProps<"/lesson">): 
 }
 
 export default async function LessonPage({ searchParams }: PageProps<"/lesson">) {
-  const result = validateLessonRequest(await searchParams);
+  const params = await searchParams;
+  const result = validateLessonRequest(params);
 
   return (
     <Container className="py-10 sm:py-14">
       {result.ok ? (
-        <LessonContent request={result.request} />
+        <LessonContent request={result.request} useNotes={params.notes === "1"} />
       ) : (
         <InvalidRequest problems={Object.values(result.errors)} />
       )}
@@ -24,10 +25,10 @@ export default async function LessonPage({ searchParams }: PageProps<"/lesson">)
   );
 }
 
-function LessonContent({ request }: { request: LessonRequest }) {
+function LessonContent({ request, useNotes }: { request: LessonRequest; useNotes: boolean }) {
   return (
     <div className="flex flex-col gap-10">
-      <LessonLoader request={request} />
+      <LessonLoader request={request} useNotes={useNotes} />
       <BackLink>Choose a different topic</BackLink>
     </div>
   );

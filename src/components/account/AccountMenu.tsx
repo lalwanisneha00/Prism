@@ -42,7 +42,7 @@ export function AccountMenu() {
         <button
           type="button"
           onClick={signIn}
-          className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-fg hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className="rounded-full bg-primary px-4 py-2 text-sm font-semibold whitespace-nowrap text-primary-fg hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           Sign in
         </button>
@@ -104,6 +104,9 @@ export function AccountMenu() {
           </Link>
           <Link href="/library" className={item} role="menuitem" onClick={() => setOpen(false)}>
             Saved lessons
+          </Link>
+          <Link href="/notes" className={item} role="menuitem" onClick={() => setOpen(false)}>
+            My notes (PDFs)
           </Link>
           <Link href="/account" className={item} role="menuitem" onClick={() => setOpen(false)}>
             Account, backup &amp; privacy

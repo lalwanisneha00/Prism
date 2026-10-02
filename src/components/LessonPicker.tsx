@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useId, useRef, useState, type FormEvent } from "react";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
 import { FieldError, FieldGroup } from "@/components/form/FieldGroup";
+import { NotesToggle } from "@/components/notes/NotesToggle";
 import { TopicSearch } from "@/components/TopicSearch";
 import { defaultDuration, durations } from "@/data/durations";
 import { availableLevels } from "@/data/levels";
@@ -28,6 +29,7 @@ export function LessonPicker({ subject }: { subject: Subject }) {
   const [duration, setDuration] = useState(String(defaultDuration));
   const [errors, setErrors] = useState<LessonRequestErrors>({});
   const [submitting, setSubmitting] = useState(false);
+  const [useNotes, setUseNotes] = useState(false);
 
   const chapter = subject.chapters.find((c) => c.id === chapterId);
 
@@ -56,7 +58,7 @@ export function LessonPicker({ subject }: { subject: Subject }) {
       return;
     }
     setSubmitting(true);
-    router.push(lessonHref(result.request));
+    router.push(lessonHref(result.request, { notes: useNotes }));
   }
 
   return (
@@ -194,6 +196,8 @@ export function LessonPicker({ subject }: { subject: Subject }) {
           ))}
         </div>
       </FieldGroup>
+
+      <NotesToggle checked={useNotes} onChange={setUseNotes} />
 
       <button
         type="submit"

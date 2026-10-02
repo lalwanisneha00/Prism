@@ -42,6 +42,9 @@ describe("saved lessons", () => {
     await saveLesson(lesson, 3000);
     expect(await listSavedLessons()).toHaveLength(1);
     expect(lessonId(lesson.meta)).toBe("em:gauss-law:first-encounter:10");
+    expect(lessonId({ ...lesson.meta, fromNotes: true })).toBe(
+      "em:gauss-law:first-encounter:10:notes",
+    );
   });
 
   it("removes by tombstone, so the deletion can sync later", async () => {

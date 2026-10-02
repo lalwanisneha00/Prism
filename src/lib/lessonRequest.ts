@@ -69,7 +69,7 @@ export function validateLessonRequest(raw: RawLessonRequest): ValidationResult {
 }
 
 /** The /lesson URL for a valid request, so a lesson link can be bookmarked or shared. */
-export function lessonHref(request: LessonRequest): string {
+export function lessonHref(request: LessonRequest, options: { notes?: boolean } = {}): string {
   const params = new URLSearchParams({
     subject: request.subject.id,
     chapter: request.chapter.id,
@@ -77,5 +77,6 @@ export function lessonHref(request: LessonRequest): string {
     level: request.level.slug,
     duration: String(request.duration),
   });
+  if (options.notes) params.set("notes", "1");
   return `/lesson?${params.toString()}`;
 }

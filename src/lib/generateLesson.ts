@@ -43,6 +43,7 @@ export function lessonMeta(request: LessonRequest, sources: Source[], now: Date)
       kind: s.kind,
       license: s.license,
     })),
+    ...(sources.some((s) => s.kind === "notes") ? { fromNotes: true } : {}),
   };
 }
 
@@ -50,14 +51,11 @@ function curatedFurtherLearning(
   request: LessonRequest,
   sources: Source[],
 ): Lesson["furtherLearning"] {
-  const readings: Link[] = sources
-    .filter((s) => s.kind === "textbook")
-    .map((s) => ({
-      title: s.title,
-      url: s.url,
-      publisher: s.publisher,
-      note: "Free textbook section.",
-    }));
+  const readings: Link[] = sources.flatMap((s) =>
+    s.kind === "textbook" && s.url
+      ? [{ title: s.title, url: s.url, publisher: s.publisher, note: "Free textbook section." }]
+      : [],
+  );
   return { videos: curatedVideos[request.subject.id] ?? [], papers: [], readings };
 }
 

@@ -8,6 +8,8 @@ import { LessonView } from "@/components/lesson/LessonView";
 import { SectionView } from "@/components/lesson/SectionView";
 import type { LessonErrorKind, LessonEvent } from "@/lib/lessonEvents";
 import type { LessonRequest } from "@/lib/lessonRequest";
+import { toPassages, type NotePassage } from "@/lib/notes/notesSources";
+import { findRelevantPassages } from "@/lib/notes/store";
 import { readLessonStream } from "@/lib/readLessonStream";
 import type { Lesson, Section } from "@/lib/schema";
 import { getSavedLesson, lessonId, recordRecent } from "@/lib/storage/library";
@@ -23,10 +25,17 @@ const initial: State = { status: "loading", stage: "Getting started…", section
  * Shows a lesson: from the student's saved library if it's there (instant, offline, no AI
  * quota used), otherwise asks the server and shows it as it streams in.
  */
-export function LessonLoader({ request }: { request: LessonRequest }) {
+export function LessonLoader({
+  request,
+  useNotes = false,
+}: {
+  request: LessonRequest;
+  useNotes?: boolean;
+}) {
   const [state, setState] = useState<State>(initial);
   const [attempt, setAttempt] = useState(0);
   const [skipLibrary, setSkipLibrary] = useState(false);
+  const [notesMissing, setNotesMissing] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -55,6 +64,7 @@ export function LessonLoader({ request }: { request: LessonRequest }) {
             topic: request.topic.id,
             level: request.level.slug,
             durationMin: request.duration,
+            fromNotes: useNotes,
           }),
         ).catch(() => undefined);
         if (controller.signal.aborted) return;
@@ -68,6 +78,18 @@ export function LessonLoader({ request }: { request: LessonRequest }) {
         }
       }
       if (!navigator.onLine) return setState({ status: "error", kind: "offline" });
+
+      // The best-matching pages of the student's notes, found on this device.
+      let notes: NotePassage[] = [];
+      if (useNotes) {
+        notes = toPassages(
+          await findRelevantPassages(`${request.topic.name} ${request.chapter.name}`).catch(
+            () => [],
+          ),
+        );
+        if (controller.signal.aborted) return;
+        setNotesMissing(notes.length === 0);
+      }
       try {
         const res = await fetch("/api/lesson", {
           method: "POST",
@@ -79,6 +101,7 @@ export function LessonLoader({ request }: { request: LessonRequest }) {
             level: request.level.slug,
             duration: String(request.duration),
             fresh: skipLibrary,
+            ...(notes.length > 0 ? { notes } : {}),
           }),
           signal: controller.signal,
         });
@@ -101,7 +124,7 @@ export function LessonLoader({ request }: { request: LessonRequest }) {
     })();
 
     return () => controller.abort();
-  }, [request, attempt, skipLibrary]);
+  }, [request, attempt, skipLibrary, useNotes]);
 
   // Every lesson opened goes to the top of "Recent topics" on the home page.
   const readyLesson = state.status === "ready" ? state.lesson : null;
@@ -123,6 +146,12 @@ export function LessonLoader({ request }: { request: LessonRequest }) {
   if (state.status === "ready") {
     return (
       <div className="flex flex-col gap-4">
+        {notesMissing && (
+          <p className="rounded-xl border border-warning/30 bg-warning/10 px-4 py-2 text-sm">
+            📒 None of your uploaded notes mention this topic, so this lesson uses the standard
+            sources only.
+          </p>
+        )}
         {state.fromLibrary && (
           <p className="flex flex-wrap items-center gap-2 rounded-xl border border-border bg-surface px-4 py-2 text-sm">
             <span>📚 Opened from your saved lessons. It works offline.</span>

@@ -39,4 +39,10 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     theme: z.enum(["light", "dark"]).optional(),
     audioRate: z.number().min(0.5).max(3).optional(),
   }),
+  noteSummaries: z.object({
+    ...syncFields,
+    name: z.string().max(300),
+    pages: z.number(),
+    summary: z.string().max(600),
+  }),
 };

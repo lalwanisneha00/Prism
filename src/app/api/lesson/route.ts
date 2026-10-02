@@ -15,6 +15,7 @@ import {
   writeToLibrary,
   type LibraryStore,
 } from "@/lib/library/sharedLibrary";
+import { parsePassages, passagesToSources } from "@/lib/notes/notesSources";
 import { sourcesForTopic } from "@/lib/sources";
 import { verifyLesson } from "@/lib/verify";
 import { visualPromptRules } from "@/visuals/visualChecks";
@@ -45,7 +46,7 @@ function sharedLibrary(): LibraryStore | null {
 }
 
 /**
- * POST { subject, chapter, topic, level, duration, fresh? } → a stream of LessonEvent lines
+ * POST { subject, chapter, topic, level, duration, fresh?, notes? } → a stream of LessonEvent lines
  * (application/x-ndjson). The AI key is only ever used here, on the server.
  */
 export async function POST(req: Request) {
@@ -63,7 +64,11 @@ export async function POST(req: Request) {
   }
   const request = result.request;
   // "Write a fresh version" skips the shared library copy.
-  const fresh = Boolean(raw && typeof raw === "object" && (raw as { fresh?: unknown }).fresh);
+  const body = raw && typeof raw === "object" ? (raw as { fresh?: unknown; notes?: unknown }) : {};
+  const fresh = Boolean(body.fresh);
+  // Passages from the student's own notes: such lessons are personal, never shared.
+  const notes = passagesToSources(parsePassages(body.notes));
+  const personal = notes.length > 0;
   const key = libraryKey({
     subject: request.subject.id,
     topic: request.topic.id,
@@ -79,7 +84,7 @@ export async function POST(req: Request) {
         controller.enqueue(encoder.encode(`${JSON.stringify(event)}\n`));
       };
       try {
-        const sample = findSampleLesson(request.topic.id, request.level.slug);
+        const sample = personal ? null : findSampleLesson(request.topic.id, request.level.slug);
         if (sample) {
           send({
             type: "lesson",
@@ -90,7 +95,7 @@ export async function POST(req: Request) {
         }
 
         // The shared library first: an instant, consistent answer that uses no AI quota.
-        const library = sharedLibrary();
+        const library = personal ? null : sharedLibrary();
         if (library && !fresh) {
           const stored = await readFromLibrary(library, key).catch((err: unknown) => {
             console.warn("[api/lesson] library read failed:", String(err));
@@ -103,9 +108,12 @@ export async function POST(req: Request) {
         }
 
         send({ type: "stage", stage: "sources", message: "Reading trusted sources…" });
-        const sources = await groundSources(sourcesForTopic(request.subject.id, request.topic.id), {
-          signal: req.signal,
-        });
+        const sources = [
+          ...notes,
+          ...(await groundSources(sourcesForTopic(request.subject.id, request.topic.id), {
+            signal: req.signal,
+          })),
+        ];
         const chain = providers(sources);
         const generate = (options: GenerateOptions) => generateJsonWithFallback(chain, options);
 

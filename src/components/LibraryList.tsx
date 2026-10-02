@@ -77,6 +77,7 @@ export function LibraryList() {
           level,
           duration: String(durationMin),
         });
+        if (lesson.meta.fromNotes) params.set("notes", "1");
         return (
           <li
             key={id}

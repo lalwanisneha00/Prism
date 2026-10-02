@@ -18,7 +18,7 @@ export async function groundSources(
 ): Promise<GroundingSource[]> {
   return Promise.all(
     sources.map(async (source) => {
-      const title = wikipediaTitleFromUrl(source.url);
+      const title = source.url ? wikipediaTitleFromUrl(source.url) : null;
       if (!title) return source;
       const excerpt = await fetchWikipediaExtract(title, options);
       return excerpt ? { ...source, excerpt } : source;

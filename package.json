@@ -14,7 +14,10 @@
     "test:watch": "node scripts/vitest.mjs",
     "check": "npm run typecheck && npm run lint && npm run format:check && npm run test",
     "eval": "tsx --tsconfig tsconfig.json eval/run.ts",
-    "test:firebase": "tsx --tsconfig tsconfig.json scripts/test-firebase.ts"
+    "test:firebase": "tsx --tsconfig tsconfig.json scripts/test-firebase.ts",
+    "postinstall": "node scripts/copy-pdf-worker.mjs",
+    "predev": "node scripts/copy-pdf-worker.mjs",
+    "prebuild": "node scripts/copy-pdf-worker.mjs"
   },
   "dependencies": {
     "firebase": "^12.19.0",
@@ -23,6 +26,7 @@
     "katex": "^0.19.0",
     "mermaid": "^11.17.2",
     "next": "16.3.8",
+    "pdfjs-dist": "^6.3.289",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-markdown": "^10.1.0",

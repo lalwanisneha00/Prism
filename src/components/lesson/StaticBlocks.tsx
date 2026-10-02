@@ -155,14 +155,18 @@ export function SourceList({ sources }: { sources: Source[] }) {
         <li key={s.id} id={`source-${s.id}`} className="flex scroll-mt-20 gap-2">
           <span className="text-muted">[{i + 1}]</span>
           <span>
-            <a
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-primary underline underline-offset-2"
-            >
-              {s.title}
-            </a>
+            {s.url ? (
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-primary underline underline-offset-2"
+              >
+                {s.title}
+              </a>
+            ) : (
+              <span className="font-medium">📒 {s.title}</span>
+            )}
             <span className="text-muted">
               {" "}
               · {s.publisher}

@@ -33,6 +33,7 @@ export function SectionView({
   const cited = section.sourceIds
     .map((id) => ({ id, number: sources.findIndex((s) => s.id === id) + 1 }))
     .filter((c) => c.number > 0);
+  const fromNotes = cited.some((c) => sources[c.number - 1].kind === "notes");
 
   return (
     <Card className="flex flex-col gap-4">
@@ -44,7 +45,14 @@ export function SectionView({
           <p className="text-sm font-semibold text-primary">Part {index + 1}</p>
           <h3 className="text-xl font-bold tracking-tight">{section.title}</h3>
         </div>
-        {section.check && <CheckBadge check={section.check} />}
+        <div className="flex shrink-0 flex-col items-end gap-1">
+          {section.check && <CheckBadge check={section.check} />}
+          {fromNotes && (
+            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold whitespace-nowrap text-primary">
+              📒 From your notes
+            </span>
+          )}
+        </div>
       </div>
       <Markdown>{section.body}</Markdown>
       {section.visual && <VisualSlot visual={section.visual} />}
