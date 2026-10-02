@@ -48,6 +48,9 @@ export function TopicSearch({ subject, onPick }: TopicSearchProps) {
     <div className="flex flex-col gap-2">
       <label htmlFor={`${id}-input`} className="font-semibold">
         Search topics
+        <kbd className="ml-2 rounded border border-border px-1.5 text-xs font-normal text-muted">
+          /
+        </kbd>
       </label>
       <input
         id={`${id}-input`}

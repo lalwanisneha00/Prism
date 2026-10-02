@@ -2,22 +2,22 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V1 · Step 10 (Save, polish, deploy). User approved autonomous build through end of V1 (2026-10-02).
+**Current:** V1 built and tested (2026-10-02). Waiting on the user for: GEMINI_API_KEY, Vercel deploy, first real `npm run eval`. Next: V2 · Step 1 after V1 sign-off.
 
 ## Version 1: Foundation
 
-| Step | Title                  | Status         | Date       | Notes                                                                                                                               |
-| ---- | ---------------------- | -------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| 1    | Project setup          | ✅ Done        | 2026-10-02 | Next 16.3, Tailwind 4, ESLint 9 + Prettier, Vitest 5. Pushed to GitHub.                                                             |
-| 2    | Design system & layout | ✅ Done        | 2026-10-02 | Tokens in globals.css, data-theme dark mode, header, hero, footer.                                                                  |
-| 3    | Topic picker           | ✅ Done        | 2026-10-02 | em.json (7 chapters, 43 topics), levels + durations config, /lesson summary page.                                                   |
-| 4    | Lesson schema + search | ✅ Done        | 2026-10-02 | schema.ts (Zod + cross-checks), Gauss sample lesson, topic search box (user request)                                                |
-| 5    | Lesson page renderer   | ✅ Done        | 2026-10-02 | Level-specific layouts (levelLayouts.ts), KaTeX, step-by-step examples, quiz.                                                       |
-| 6    | AI integration         | ✅ Done        | 2026-10-02 | /api/lesson NDJSON stream, Gemini→Groq chain, per-level prompts, Zod + repair retries, LLM_PROVIDER=fake for testing.               |
-| 7    | Sources & grounding    | ✅ Done        | 2026-10-02 | em-sources.json (all 43 topics, links verified), Wikipedia excerpts, KaTeX check, AI fact-check pass, Sourced/Verify badges.        |
-| 8    | Visual library part 1  | ✅ Done        | 2026-10-02 | 8 widgets (src/visuals), physics.ts tested, 11 PhET sims, safe plot parser, Mermaid (strict), Commons images, /dev/visuals gallery. |
-| 9    | Audio (read-aloud)     | ✅ Done        | 2026-10-02 | /api/audio writes chapter-by-chapter narration (140 wpm); Web Speech player with ±15s, speed, voice, chapters, highlight, resume.   |
-| 10   | Save, polish, deploy   | ⬜ Not started |            | Storage records must carry `id`, `updatedAt`, `deleted` (sync-ready).                                                               |
+| Step | Title                  | Status   | Date       | Notes                                                                                                                                                        |
+| ---- | ---------------------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1    | Project setup          | ✅ Done  | 2026-10-02 | Next 16.3, Tailwind 4, ESLint 9 + Prettier, Vitest 5. Pushed to GitHub.                                                                                      |
+| 2    | Design system & layout | ✅ Done  | 2026-10-02 | Tokens in globals.css, data-theme dark mode, header, hero, footer.                                                                                           |
+| 3    | Topic picker           | ✅ Done  | 2026-10-02 | em.json (7 chapters, 43 topics), levels + durations config, /lesson summary page.                                                                            |
+| 4    | Lesson schema + search | ✅ Done  | 2026-10-02 | schema.ts (Zod + cross-checks), Gauss sample lesson, topic search box (user request)                                                                         |
+| 5    | Lesson page renderer   | ✅ Done  | 2026-10-02 | Level-specific layouts (levelLayouts.ts), KaTeX, step-by-step examples, quiz.                                                                                |
+| 6    | AI integration         | ✅ Done  | 2026-10-02 | /api/lesson NDJSON stream, Gemini→Groq chain, per-level prompts, Zod + repair retries, LLM_PROVIDER=fake for testing.                                        |
+| 7    | Sources & grounding    | ✅ Done  | 2026-10-02 | em-sources.json (all 43 topics, links verified), Wikipedia excerpts, KaTeX check, AI fact-check pass, Sourced/Verify badges.                                 |
+| 8    | Visual library part 1  | ✅ Done  | 2026-10-02 | 8 widgets (src/visuals), physics.ts tested, 11 PhET sims, safe plot parser, Mermaid (strict), Commons images, /dev/visuals gallery.                          |
+| 9    | Audio (read-aloud)     | ✅ Done  | 2026-10-02 | /api/audio writes chapter-by-chapter narration (140 wpm); Web Speech player with ±15s, speed, voice, chapters, highlight, resume.                            |
+| 10   | Save, polish, deploy   | 🟡 Built | 2026-10-02 | IndexedDB library + recent topics (sync-ready records), 404/error pages, "/" shortcut, 15-topic golden set + npm run eval. Deploy + real eval need the user. |
 
 ## Version 2: Personal & powerful
 
@@ -46,3 +46,10 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 - Windows: `npm test` goes through `scripts/vitest.mjs`, which fixes a lowercase drive letter (c:\) that otherwise breaks every test.
 
 - Dev tip: if the page looks stuck on old styles, check `about:debugging#/runtime/this-firefox` for a stale service worker on `localhost:3000` (the separate "Register" project installs one there). Its cache-first rule serves outdated `/_next/static` files in dev mode.
+
+## V1 status for the next session
+
+- Live deploy: not done yet. Needs the user's Vercel login (steps in README → "Put it online").
+- `npm run eval`: harness verified with `-- --fake`. Real accuracy number still to be measured once GEMINI_API_KEY is set; prompts may need tuning to reach ≥ 95%.
+- Real Gemini calls have only been tested with a mocked network and an invalid key; the first real lesson should be checked by eye.
+- Not in V1 by design: "report a mistake" button (§6.6), sleep timer and watch-along audio (V2), 30–90 min audio (V2).

@@ -3,7 +3,7 @@ import { FakeProvider } from "@/lib/llm/fake";
 import { LlmError, type LlmProvider } from "@/lib/llm/types";
 
 vi.mock("server-only", () => ({}));
-const { generateJsonWithFallback, providersFromEnv } = await import("@/lib/llm/index");
+const { generateJsonWithFallback, providersFromEnv } = await import("@/lib/llm/providers");
 
 const failing = (kind: LlmError["kind"]): LlmProvider => ({
   name: "Failing",

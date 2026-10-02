@@ -1,0 +1,23 @@
+"use client";
+
+import { useEffect } from "react";
+
+/** "/" jumps to the topic search from anywhere on the home page (like many websites). */
+export function KeyboardShortcuts() {
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      const target = e.target as HTMLElement | null;
+      const typing = target?.closest("input, textarea, select, [contenteditable=true]");
+      if (e.key !== "/" || typing || e.ctrlKey || e.metaKey || e.altKey) return;
+      const search = document.querySelector<HTMLInputElement>('input[type="search"]');
+      if (search) {
+        e.preventDefault();
+        search.focus();
+        search.scrollIntoView({ block: "center", behavior: "smooth" });
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+  return null;
+}

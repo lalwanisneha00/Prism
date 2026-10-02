@@ -36,6 +36,7 @@ Read `SPEC.md` (what we're building) and `PROGRESS.md` (where we are) before doi
 | `npm run build`  | Production build (must pass before handover)        |
 | `npm run format` | Auto-format all files                               |
 | `npm test`       | Run Vitest once                                     |
+| `npm run eval`   | Golden-set accuracy eval (needs GEMINI_API_KEY)     |
 
 ## Folder map
 

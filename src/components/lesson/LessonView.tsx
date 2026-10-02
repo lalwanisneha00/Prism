@@ -3,6 +3,7 @@ import { AudioLesson } from "@/components/audio/AudioLesson";
 import { LessonBlockShell } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
 import { Quiz } from "@/components/lesson/Quiz";
+import { SaveLessonButton } from "@/components/lesson/SaveLessonButton";
 import { SectionView } from "@/components/lesson/SectionView";
 import {
   Analogies,
@@ -66,14 +67,17 @@ export function LessonView({ lesson, request }: { lesson: Lesson; request: Lesso
         <h1 className="text-3xl font-bold tracking-tight text-balance sm:text-4xl">
           {lesson.meta.title}
         </h1>
-        <ul className="flex flex-wrap gap-2 text-sm">
-          <li className="rounded-full bg-primary-soft px-3 py-1 font-medium text-primary">
-            {request.level.name}
-          </li>
-          <li className="rounded-full border border-border bg-surface px-3 py-1">
-            {lesson.meta.durationMin} min
-          </li>
-        </ul>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <ul className="flex flex-wrap gap-2 text-sm">
+            <li className="rounded-full bg-primary-soft px-3 py-1 font-medium text-primary">
+              {request.level.name}
+            </li>
+            <li className="rounded-full border border-border bg-surface px-3 py-1">
+              {lesson.meta.durationMin} min
+            </li>
+          </ul>
+          <SaveLessonButton lesson={lesson} />
+        </div>
         <Markdown className="text-lg text-muted">{lesson.hook}</Markdown>
         <nav aria-label="In this lesson" className="text-sm">
           <p className="font-semibold">In this lesson</p>

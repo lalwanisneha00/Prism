@@ -1,6 +1,7 @@
 import { Container } from "@/components/Container";
 import { LessonPicker } from "@/components/LessonPicker";
 import { PrismArt } from "@/components/PrismArt";
+import { RecentTopics } from "@/components/RecentTopics";
 import { site } from "@/lib/site";
 import { subjects } from "@/lib/subjects";
 
@@ -71,7 +72,10 @@ export default function Home() {
 
       <section id="start" className="scroll-mt-20 py-12">
         <Container>
-          <LessonPicker subject={subjects[0]} />
+          <div className="flex flex-col gap-6">
+            <RecentTopics />
+            <LessonPicker subject={subjects[0]} />
+          </div>
         </Container>
       </section>
     </>
