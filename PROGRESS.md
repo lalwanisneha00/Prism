@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 2 (All 6 levels), in progress.
+**Current:** V2 · Step 3 (Long audio). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -24,7 +24,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | Step | Title                                        | Status         |
 | ---- | -------------------------------------------- | -------------- |
 | 1    | Accounts, cloud sync & shared lesson library | ✅ Done        |
-| 2    | All 6 levels                                 | 🟡 In progress |
+| 2    | All 6 levels                                 | ✅ Done        |
 | 3    | Long audio                                   | ⬜ Not started |
 | 4    | PDF upload + retrieval                       | ⬜ Not started |
 | 5    | PYQ / worksheet mode                         | ⬜ Not started |

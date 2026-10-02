@@ -1,6 +1,6 @@
 /**
  * The six learning levels (SPEC §2). `available` controls what the picker shows:
- * V1 ships levels 1, 3 and 6; V2 · Step 2 switches the rest on.
+ * All six are switched on (V2 · Step 2). Set one to false to hide it from the picker.
  */
 export const levels = [
   {
@@ -17,7 +17,7 @@ export const levels = [
     name: "Building Blocks",
     forWho: "I've seen it, but my basics are shaky",
     style: "Recaps the prerequisites, then connects the pieces.",
-    available: false,
+    available: true,
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const levels = [
     name: "Deep Dive",
     forWho: "I want to really understand why",
     style: "Step-by-step derivations, edge cases and further reading.",
-    available: false,
+    available: true,
   },
   {
     id: 5,
@@ -41,7 +41,7 @@ export const levels = [
     name: "Exam Prep",
     forWho: "I have a test coming up",
     style: "Question patterns, solved problems and common traps.",
-    available: false,
+    available: true,
   },
   {
     id: 6,

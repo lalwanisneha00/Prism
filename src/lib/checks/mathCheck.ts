@@ -24,6 +24,13 @@ export function mathErrorsInMarkdown(markdown: string): string[] {
         `${display ? "$$" : "$"}${(match[1] ?? match[2]).trim().slice(0, 60)}… → ${error}`,
       );
   }
+  // A LaTeX command outside $…$ would show up as raw text like "\Omega" or "\frac{1}{2}".
+  const outside = markdown.replace(mathPattern, " ");
+  const stray = outside.match(/\\[a-zA-Z]{2,}/);
+  if (stray)
+    errors.push(
+      `"${stray[0]}" is outside $…$, so it would show as raw text; wrap the maths in $…$`,
+    );
   return errors;
 }
 

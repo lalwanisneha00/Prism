@@ -23,6 +23,12 @@ describe("maths checks", () => {
     ).toHaveLength(1);
   });
 
+  it("catches LaTeX commands written outside $…$", () => {
+    expect(mathErrorsInMarkdown(String.raw`R = 0.0280 \Omega`)[0]).toMatch(/outside/);
+    expect(mathErrorsInMarkdown(String.raw`R = $0.0280\ \Omega$`)).toEqual([]);
+    expect(mathErrorsInMarkdown(String.raw`a\_b and \* are markdown escapes`)).toEqual([]);
+  });
+
   it("passes the hand-written sample lesson", () => {
     expect(findMathErrors(sampleLessons[0])).toEqual([]);
   });

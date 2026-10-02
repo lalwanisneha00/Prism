@@ -33,8 +33,8 @@ describe("validateLessonRequest", () => {
     expect(result.errors.topic).toMatch(/isn't in the chosen chapter/);
   });
 
-  it("rejects levels that are not switched on yet", () => {
-    const result = validateLessonRequest({ ...valid, level: "deep-dive" });
+  it("rejects levels that don't exist", () => {
+    const result = validateLessonRequest({ ...valid, level: "genius" });
     expect(result.ok).toBe(false);
     if (result.ok) return;
     expect(result.errors.level).toMatch(/isn't available yet/);

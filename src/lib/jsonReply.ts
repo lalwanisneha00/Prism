@@ -3,7 +3,60 @@ export function parseJsonReply(text: string): unknown {
   const start = text.indexOf("{");
   const end = text.lastIndexOf("}");
   if (start === -1 || end <= start) throw new Error("the reply contains no JSON object");
-  return JSON.parse(text.slice(start, end + 1));
+  return JSON.parse(repairLatexEscapes(text.slice(start, end + 1)));
+}
+
+/*
+ * LaTeX commands whose first letter is also a JSON escape (\b \f \n \r \t \u). Written with
+ * one backslash they would silently become a backspace, form feed, newline, return or tab.
+ */
+const AMBIGUOUS_LATEX = new Set(
+  (
+    "beta bar bf binom big bigg bigl bigr boldsymbol bot bullet bmod backslash begin boxed breve " +
+    "frac forall flat frown " +
+    "nabla neq ne nu not neg nolimits nonumber nearrow ni notin " +
+    "rho right rightarrow rangle rceil rfloor rm rvert " +
+    "theta tau times text textbf textit textrm tan tanh to tilde top triangle tfrac therefore textstyle " +
+    "underline underbrace uparrow upsilon"
+  ).split(" "),
+);
+
+/**
+ * AI replies often forget to double the backslashes of LaTeX inside JSON strings
+ * ("\omega" instead of "\\omega"). Inside string values only, this doubles a backslash that
+ * starts a LaTeX command, leaving real escapes (\n, \", \\, é) untouched.
+ */
+export function repairLatexEscapes(json: string): string {
+  let out = "";
+  let inString = false;
+  for (let i = 0; i < json.length; i++) {
+    const ch = json[i];
+    if (!inString) {
+      if (ch === '"') inString = true;
+      out += ch;
+      continue;
+    }
+    if (ch === '"') {
+      inString = false;
+      out += ch;
+      continue;
+    }
+    if (ch !== "\\") {
+      out += ch;
+      continue;
+    }
+    const next = json[i + 1] ?? "";
+    const word = /^[a-zA-Z]+/.exec(json.slice(i + 1))?.[0] ?? "";
+    const validEscape = /["\\/bfnrtu]/.test(next);
+    const isLatex = word.length > 0 && (!validEscape || AMBIGUOUS_LATEX.has(word));
+    if (isLatex) {
+      out += "\\\\"; // a LaTeX command: keep the backslash as a real character
+    } else {
+      out += ch + next; // a genuine escape, copied as-is (including \\ and \")
+      i++;
+    }
+  }
+  return out;
 }
 
 /**
@@ -37,7 +90,7 @@ export function extractCompleteArrayItems(text: string, key: string): unknown[] 
       depth--;
       if (depth === 0 && ch === "}" && itemStart !== -1) {
         try {
-          items.push(JSON.parse(text.slice(itemStart, i + 1)));
+          items.push(JSON.parse(repairLatexEscapes(text.slice(itemStart, i + 1))));
         } catch {
           // A malformed item is skipped here; full validation happens at the end.
         }

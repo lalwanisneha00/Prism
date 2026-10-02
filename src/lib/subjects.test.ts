@@ -24,8 +24,8 @@ describe("subject data", () => {
 });
 
 describe("levels config", () => {
-  it("defines all six levels with V1's three switched on", () => {
+  it("defines all six levels, all switched on", () => {
     expect(levels.map((l) => l.id)).toEqual([1, 2, 3, 4, 5, 6]);
-    expect(levels.filter((l) => l.available).map((l) => l.id)).toEqual([1, 3, 6]);
+    expect(levels.filter((l) => l.available).map((l) => l.id)).toEqual([1, 2, 3, 4, 5, 6]);
   });
 });
