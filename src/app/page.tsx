@@ -27,7 +27,7 @@ export default function Home() {
         <Container className="grid items-center gap-10 md:grid-cols-[1.2fr_1fr]">
           <div>
             <p className="mb-4 inline-flex rounded-full bg-primary-soft px-3 py-1 text-sm font-medium text-primary">
-              Now teaching: Electricity &amp; Magnetism
+              Now teaching: {subjects.map((s) => s.name).join(" · ")}
             </p>
             <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl">
               The topic your professor rushed,{" "}
@@ -74,7 +74,7 @@ export default function Home() {
         <Container>
           <div className="flex flex-col gap-6">
             <RecentTopics />
-            <LessonPicker subject={subjects[0]} />
+            <LessonPicker subjects={subjects} />
           </div>
         </Container>
       </section>

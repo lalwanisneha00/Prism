@@ -1,5 +1,6 @@
 import { z } from "zod";
 import em from "@/data/subjects/em.json";
+import enggMath from "@/data/subjects/engg-math.json";
 
 const slug = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "ids must be lowercase-kebab-case");
 
@@ -24,7 +25,10 @@ export type Subject = z.infer<typeof SubjectSchema>;
  * Every subject the app teaches. Adding a subject = add a JSON file and list it here.
  * Parsing at load time means a typo in the data fails loudly, not silently.
  */
-export const subjects: readonly Subject[] = [SubjectSchema.parse(em)];
+export const subjects: readonly Subject[] = [
+  SubjectSchema.parse(em),
+  SubjectSchema.parse(enggMath),
+];
 
 export function findSubject(id: string): Subject | undefined {
   return subjects.find((s) => s.id === id);

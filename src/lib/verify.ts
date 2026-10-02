@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { findSubject } from "@/lib/subjects";
 import { findMathErrors } from "@/lib/checks/mathCheck";
 import { parseJsonReply } from "@/lib/jsonReply";
 import type { GenerateOptions } from "@/lib/llm/types";
@@ -39,9 +40,10 @@ export type VerifyResult = {
 };
 
 export function buildVerifyPrompt(lesson: Lesson, sources: GroundingSource[]) {
-  const system = `You are a meticulous physics fact-checker reviewing a study lesson before students see it.
+  const field = (findSubject(lesson.meta.subject)?.field ?? "science").toLowerCase();
+  const system = `You are a meticulous ${field} fact-checker reviewing a study lesson before students see it.
 
-CHECK every definition, formula, number, unit and claim against the SOURCES and standard first-year university physics.
+CHECK every definition, formula, number, unit and claim against the SOURCES and standard first-year university ${field}.
 RECOMPUTE every worked-example calculation and quiz answer yourself.
 
 Reply with ONE JSON object only:
@@ -52,7 +54,7 @@ Reply with ONE JSON object only:
 
 RULES:
 - Give a status for EVERY section. "supported" = its main claims agree with the sources or standard textbooks.
-- Only correct real errors (wrong physics, wrong numbers, wrong units, quiz answers that are wrong). Do not rewrite style.
+- Only correct real errors (wrong ${field}, wrong numbers, wrong units, quiz answers that are wrong). Do not rewrite style.
 - "path" uses dots and zero-based indexes, e.g. "sections.2.body", "workedExamples.0.steps.1", "quiz.3.answer", "revisionSheet.formulas.0".
 - "find" must be copied EXACTLY from the current field (it is used for find-and-replace). Keep it short but unique.
 - If a quiz answer changes, the new answer must still exactly match one of its options; correct the option text too if needed.

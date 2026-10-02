@@ -1,5 +1,6 @@
 import type { VisualSpec } from "@/lib/schema";
 import { CommonsImage } from "@/visuals/CommonsImage";
+import { Derivation } from "@/visuals/Derivation";
 import { KeyIdeaCard } from "@/visuals/KeyIdeaCard";
 import { MermaidDiagram } from "@/visuals/MermaidDiagram";
 import { PhetEmbed } from "@/visuals/PhetEmbed";
@@ -29,6 +30,8 @@ export function VisualSlot({ visual }: { visual: VisualSpec }) {
           caption={visual.caption}
         />
       );
+    case "derivation":
+      return <Derivation steps={visual.steps} caption={visual.caption} />;
     case "image":
       return <CommonsImage file={visual.file} alt={visual.alt} caption={visual.caption} />;
   }

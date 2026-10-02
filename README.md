@@ -2,7 +2,7 @@
 
 A visual, sourced study guide for college students. Pick a topic, how well you know it and how much time you have, and get a lesson with interactive physics visuals, worked examples, a quiz, a revision sheet, an audio narration and a source for every claim.
 
-**Version 1** teaches Electricity & Magnetism (43 topics, 7 chapters) at three levels: First Encounter, Second Chance and Last-Minute Revision. See [SPEC.md](SPEC.md) for the full plan and [PROGRESS.md](PROGRESS.md) for status.
+**Version 1** teaches Electricity & Magnetism (43 topics, 7 chapters) at three levels: First Encounter, Second Chance and Last-Minute Revision. **Version 2** (in progress) adds Engineering Mathematics (44 topics), all six levels, accounts with cloud sync, long audio, lessons from your own PDF notes and exam worksheets. See [SPEC.md](SPEC.md) for the full plan and [PROGRESS.md](PROGRESS.md) for status.
 
 ## What's inside
 

@@ -1,5 +1,6 @@
 import { findPhetSim, phetSims, phetSimsForTopic } from "@/data/phet";
 import type { Lesson, VisualSpec } from "@/lib/schema";
+import { katexError, mathErrorsInMarkdown } from "@/lib/checks/mathCheck";
 import { isValidExpression } from "@/visuals/expression";
 import { widgetProblem, widgetRegistry, widgetsForTopic, type WidgetId } from "@/visuals/registry";
 
@@ -24,6 +25,15 @@ export function visualProblem(visual: VisualSpec): string | null {
       if (/\bclick\b|<script|javascript:/i.test(visual.code))
         return "mermaid code may not contain click handlers or scripts";
       return null;
+    case "derivation": {
+      for (const [i, step] of visual.steps.entries()) {
+        const error = katexError(step.math, true);
+        if (error) return `derivation step ${i + 1} maths does not render (${error})`;
+        const why = mathErrorsInMarkdown(step.why)[0];
+        if (why) return `derivation step ${i + 1} explanation: ${why}`;
+      }
+      return null;
+    }
     case "image":
       return null; // Checked in the browser: a missing Commons file is simply hidden.
   }
@@ -67,12 +77,25 @@ export function visualPromptRules(topicId: string): string {
     .map((s) => `"${s.id}" (${s.title})`)
     .join(", ");
 
-  return `VISUALS (optional, at most one per section; aim for 2-4 across the lesson, choosing what genuinely helps):
-Priority order: an interactive widget, then a PhET simulation, then a plot or diagram.
+  const mustUse = fitting.length
+    ? `\nREQUIRED: at least one section MUST use a widget marked "(fits this topic)" (best: ${fitting
+        .slice(0, 2)
+        .map((id) => `"${id}"`)
+        .join(" or ")}). Students learn most from what they can move.`
+    : "";
+
+  return `VISUALS (at most one per section; aim for 2-4 across the lesson, choosing what genuinely helps):
+Priority order: an interactive widget, then a PhET simulation, then a plot or diagram.${mustUse}${visualMenu(widgetLines, sims)}`;
+}
+
+/** The list of visuals the AI may choose from. */
+function visualMenu(widgetLines: string, sims: string): string {
+  return `
 - {"type":"widget","widget":"<id>","params":{...},"caption":"..."} using ONLY these widgets and parameter ranges:
 ${widgetLines}
 - {"type":"phet","sim":"<id>","caption":"..."} using ONLY: ${sims}
 - {"type":"plot","expression":"<function of x using + - * / ^ ( ) and sin cos tan exp ln log sqrt abs pi>","xRange":[min,max],"xLabel":"...","yLabel":"...","caption":"..."} for how one quantity depends on another.
+- {"type":"derivation","steps":[{"math":"<one line of LaTeX, no $ signs>","why":"<the reason for this step>"}],"caption":"..."} for a derivation or proof the student should follow step by step (2-12 steps).
 - {"type":"mermaid","code":"flowchart TD\\n  A[Short label] --> B[Short label]","caption":"..."} for processes or concept maps ONLY. Plain words in labels, no quotes or brackets inside labels.
 Never output SVG, HTML, image URLs or anything not listed here.`;
 }

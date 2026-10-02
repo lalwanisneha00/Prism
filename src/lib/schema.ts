@@ -52,6 +52,22 @@ export const VisualSpecSchema = z.discriminatedUnion("type", [
     caption,
   }),
   z.object({
+    type: z.literal("derivation"),
+    /** A step-by-step derivation the student reveals one line at a time. */
+    steps: z
+      .array(
+        z.object({
+          /** LaTeX for one line, without the surrounding $ signs. */
+          math: text,
+          /** Why this step follows, in plain words (markdown allowed). */
+          why: text,
+        }),
+      )
+      .min(2)
+      .max(12),
+    caption,
+  }),
+  z.object({
     type: z.literal("image"),
     /** A Wikimedia Commons file name, e.g. "File:Gauss law.svg". */
     file: z.string().startsWith("File:"),

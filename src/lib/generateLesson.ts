@@ -59,6 +59,23 @@ function curatedFurtherLearning(
   return { videos: curatedVideos[request.subject.id] ?? [], papers: [], readings };
 }
 
+const CITATION_TAG = /\s*[[(](?:source[ _-]?ids?|sources?|cite)\s*:\s*[a-z0-9 ,_-]*[\])]/gi;
+
+/**
+ * Removes citation tags the AI sometimes writes into the text, like
+ * "[sourceIds: wikipedia-taylor-series]". Citations live in "sourceIds" and show as badges.
+ */
+export function stripCitationTags(value: unknown): unknown {
+  if (typeof value === "string") return value.replace(CITATION_TAG, "");
+  if (Array.isArray(value)) return value.map(stripCitationTags);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([k, v]) => [k, k === "sourceIds" ? v : stripCitationTags(v)]),
+    );
+  }
+  return value;
+}
+
 /** Only the fact-check pass may set a section's Sourced/Verify badge, never the writer. */
 function withoutSelfAwardedBadge(section: unknown): unknown {
   if (!section || typeof section !== "object") return section;
@@ -108,7 +125,9 @@ export async function generateLesson(
             streamed += chunk;
             const items = extractCompleteArrayItems(streamed, "sections");
             for (; sent < items.length; sent++) {
-              const section = SectionSchema.safeParse(withoutSelfAwardedBadge(items[sent]));
+              const section = SectionSchema.safeParse(
+                withoutSelfAwardedBadge(stripCitationTags(items[sent])),
+              );
               if (section.success) emit({ type: "section", section: section.data });
             }
           }
@@ -118,7 +137,7 @@ export async function generateLesson(
 
     let body: unknown;
     try {
-      body = parseJsonReply(reply);
+      body = stripCitationTags(parseJsonReply(reply));
     } catch (err) {
       lastProblems = [`the reply was not valid JSON (${(err as Error).message})`];
       currentPrompt = buildRepairPrompt(prompt, reply, lastProblems);

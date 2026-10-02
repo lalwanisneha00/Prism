@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { isValidExpression } from "@/visuals/expression";
 
 /*
  * Every interactive widget the AI may choose (SPEC §4). The AI returns
@@ -15,6 +16,20 @@ const charge = z.object({
   x: z.number().min(-3.5).max(3.5),
   y: z.number().min(-2.2).max(2.2),
 });
+
+/** An expression our safe parser accepts, in the given variables. */
+const formula = (variables: string[]) =>
+  z
+    .string()
+    .min(1)
+    .max(120)
+    .refine((s) => isValidExpression(s, variables), {
+      message: `must be a valid expression in ${variables.join(", ")} (use * between variables)`,
+    });
+
+const range = z
+  .tuple([z.number().min(-100).max(100), z.number().min(-100).max(100)])
+  .refine(([lo, hi]) => lo < hi, { message: "range must be [min, max] with min < max" });
 
 export const widgetRegistry = {
   "field-lines": {
@@ -124,6 +139,157 @@ export const widgetRegistry = {
       "transformers",
       "ac-generator",
     ],
+  },
+
+  // ── Engineering Mathematics (V2 · Step 6) ──────────────────────────────────────────
+  "function-explorer": {
+    name: "Function with a parameter slider",
+    params: z
+      .object({
+        expression: formula(["x", "a"]),
+        aMin: z.number().min(-20).max(20),
+        aMax: z.number().min(-20).max(20),
+        aStart: z.number().min(-20).max(20),
+        xRange: range,
+      })
+      .refine((p) => p.aMin < p.aMax && p.aStart >= p.aMin && p.aStart <= p.aMax, {
+        message: "need aMin < aMax and aStart between them",
+      }),
+    help: 'expression in x and a (write products with *, e.g. "exp(-a*x)*sin(3*x)"); aMin, aMax, aStart (-20..20); xRange [min,max]. Shows how the constant a reshapes the curve.',
+    topics: [
+      "limits-continuity",
+      "improper-integrals",
+      "higher-order-linear-ode",
+      "laplace-transform",
+      "inverse-laplace",
+      "power-series",
+      "beta-gamma-functions",
+    ],
+  },
+  "tangent-line": {
+    name: "Tangent line and derivative",
+    params: z
+      .object({ expression: formula(["x"]), xRange: range, x0: z.number().min(-100).max(100) })
+      .refine((p) => p.x0 >= p.xRange[0] && p.x0 <= p.xRange[1], {
+        message: "x0 must lie inside xRange",
+      }),
+    help: 'expression in x, e.g. "x^3 - 3*x"; xRange [min,max]; x0 = starting point inside xRange. The student slides the point and reads the slope.',
+    topics: [
+      "derivatives-basics",
+      "mean-value-theorems",
+      "maxima-minima-one-variable",
+      "lhopital-rule",
+      "successive-differentiation",
+      "limits-continuity",
+    ],
+  },
+  "riemann-sum": {
+    name: "Riemann sum (area by rectangles)",
+    params: z
+      .object({
+        expression: formula(["x"]),
+        a: z.number().min(-50).max(50),
+        b: z.number().min(-50).max(50),
+        n: z.int().min(1).max(50),
+        method: z.enum(["left", "right", "midpoint"]),
+      })
+      .refine((p) => p.a < p.b, { message: "need a < b" }),
+    help: 'expression in x; a < b are the limits; n rectangles (1..50, start small like 4); method "left" | "right" | "midpoint".',
+    topics: [
+      "definite-integrals",
+      "area-volume-integrals",
+      "improper-integrals",
+      "double-integrals",
+    ],
+  },
+  "taylor-polynomial": {
+    name: "Taylor / Maclaurin polynomial",
+    params: z.object({
+      fn: z.enum(["sin", "cos", "exp", "ln1p", "geometric"]),
+      order: z.int().min(0).max(15),
+    }),
+    help: 'fn: "sin" | "cos" | "exp" | "ln1p" (ln(1+x)) | "geometric" (1/(1-x)); order 0..15 to start with (e.g. 3).',
+    topics: ["taylor-maclaurin", "power-series", "convergence-tests", "successive-differentiation"],
+  },
+  "matrix-transform": {
+    name: "2×2 matrix as a transformation (eigenvectors)",
+    params: z.preprocess(
+      // The AI often writes the matrix as rows; accept {"matrix": [[a, b], [c, d]]} too.
+      (raw) => {
+        const m = (raw as { matrix?: unknown } | null)?.matrix;
+        if (
+          Array.isArray(m) &&
+          m.length === 2 &&
+          m.every((r) => Array.isArray(r) && r.length === 2)
+        ) {
+          const [[a, b], [c, d]] = m as unknown[][];
+          return { a, b, c, d };
+        }
+        return raw;
+      },
+      z.object({
+        a: z.number().min(-3).max(3),
+        b: z.number().min(-3).max(3),
+        c: z.number().min(-3).max(3),
+        d: z.number().min(-3).max(3),
+      }),
+    ),
+    help: 'the matrix [[a, b], [c, d]] as {"a":2,"b":1,"c":1,"d":2}, each entry -3..3. Shows the transformed grid, unit square (area = det) and real eigenvector lines.',
+    topics: [
+      "eigenvalues-eigenvectors",
+      "diagonalisation",
+      "linear-transformations",
+      "cayley-hamilton",
+      "rank-of-matrix",
+      "linear-systems",
+      "jacobians",
+    ],
+  },
+  "vector-field": {
+    name: "2D vector field with divergence and curl",
+    params: z.object({
+      p: formula(["x", "y"]),
+      q: formula(["x", "y"]),
+      range: z.number().min(1).max(10),
+    }),
+    help: 'F = (p, q), each an expression in x and y with * for products, e.g. p "-y", q "x" (rotation); range 1..10 (half-height of the view). The student taps to read div and curl.',
+    topics: [
+      "gradient-divergence-curl",
+      "directional-derivative",
+      "line-integrals",
+      "greens-theorem",
+      "stokes-theorem",
+      "divergence-theorem",
+    ],
+  },
+  "slope-field": {
+    name: "Slope field of a first-order ODE",
+    params: z
+      .object({
+        f: formula(["x", "y"]),
+        xRange: range,
+        yRange: range,
+        start: z.tuple([z.number(), z.number()]),
+      })
+      .refine(
+        (p) =>
+          p.start[0] >= p.xRange[0] &&
+          p.start[0] <= p.xRange[1] &&
+          p.start[1] >= p.yRange[0] &&
+          p.start[1] <= p.yRange[1],
+        { message: "start must lie inside xRange and yRange" },
+      ),
+    help: 'f = dy/dx as an expression in x and y (use *), e.g. "x - y"; xRange, yRange [min,max]; start [x0, y0] inside them (the initial condition).',
+    topics: ["separable-ode", "exact-equations", "linear-first-order-ode", "bernoulli-equation"],
+  },
+  "fourier-series": {
+    name: "Fourier series partial sums",
+    params: z.object({
+      wave: z.enum(["square", "sawtooth", "triangle"]),
+      terms: z.int().min(1).max(40),
+    }),
+    help: 'wave: "square" | "sawtooth" (f(x) = x) | "triangle" (f(x) = |x|) on (-π, π); terms 1..40 to start with (e.g. 3).',
+    topics: ["fourier-series", "half-range-series", "convergence-tests"],
   },
 } as const;
 

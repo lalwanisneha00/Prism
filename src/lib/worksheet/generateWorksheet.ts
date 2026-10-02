@@ -18,7 +18,7 @@ Rules:
 - Maths uses KaTeX: inline $...$, display $$...$$. Inside JSON strings every backslash must be doubled (\\\\frac, \\\\varepsilon_0).
 - Every number must be calculated correctly; show the substitution step. Use SI units and sensible significant figures.
 - "steps" is the model answer an examiner would accept, one step per item. "markingPoints" lists what earns marks (e.g. "correct Gaussian surface (1 mark)").
-- Use only physics consistent with the lesson content given; standard first-year textbook facts are fine.`;
+- Use only facts consistent with the lesson content given; standard first-year textbook facts are fine.`;
 
   const lessonContext = `TOPIC: ${lesson.meta.title} (level ${lesson.meta.level})
 KEY POINTS:

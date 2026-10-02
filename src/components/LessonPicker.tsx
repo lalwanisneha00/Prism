@@ -18,11 +18,13 @@ import type { Subject } from "@/lib/subjects";
 
 const fieldOrder: LessonRequestField[] = ["chapter", "topic", "level", "duration"];
 
-export function LessonPicker({ subject }: { subject: Subject }) {
+export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
   const id = useId();
 
+  const [subjectId, setSubjectId] = useState(subjects[0].id);
+  const subject = subjects.find((s) => s.id === subjectId) ?? subjects[0];
   const [chapterId, setChapterId] = useState("");
   const [topicId, setTopicId] = useState("");
   const [level, setLevel] = useState("");
@@ -76,14 +78,41 @@ export function LessonPicker({ subject }: { subject: Subject }) {
         <p className="mt-1 text-muted">Tell us what you need. It takes about 20 seconds.</p>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <span className="font-semibold">Subject</span>
-        <p className="w-fit rounded-full bg-primary-soft px-3 py-1 text-sm font-medium text-primary">
-          {subject.name} · {subject.field}
-        </p>
-      </div>
+      <fieldset className="flex flex-col gap-2">
+        <legend className="mb-2 font-semibold">Subject</legend>
+        <div className="flex flex-wrap gap-2">
+          {subjects.map((s) => (
+            <label
+              key={s.id}
+              className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-semibold transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-primary ${
+                s.id === subject.id
+                  ? "border-primary bg-primary-soft text-primary"
+                  : "border-border hover:bg-surface-2"
+              }`}
+            >
+              <input
+                type="radio"
+                name="subject"
+                value={s.id}
+                checked={s.id === subject.id}
+                onChange={() => {
+                  setSubjectId(s.id);
+                  // A new subject has its own chapters: start the choice again.
+                  setChapterId("");
+                  setTopicId("");
+                  clearErrors("chapter", "topic");
+                }}
+                className="sr-only"
+              />
+              {s.name}
+              <span className="font-normal text-muted"> · {s.field}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
 
       <TopicSearch
+        key={subject.id}
         subject={subject}
         onPick={({ chapter, topic }) => {
           setChapterId(chapter.id);

@@ -1,10 +1,13 @@
 /*
- * A tiny, safe maths parser for graphs. It understands numbers, x, + - * / ^, brackets,
- * pi, e and common functions. Nothing is ever passed to eval(), so an AI-written
- * expression can only ever describe a curve, never run code.
+ * A tiny, safe maths parser for graphs. It understands numbers, variables (x by default),
+ * + - * / ^, brackets, pi, e and common functions. Nothing is ever passed to eval(), so an
+ * AI-written expression can only ever describe a curve, never run code.
  */
 
 export type Fn = (x: number) => number;
+/** Values for the variables of a formula, e.g. { x: 1, y: 2 }. */
+export type Scope = Record<string, number>;
+export type Formula = (scope: Scope) => number;
 
 const functions: Record<string, (v: number) => number> = {
   sin: Math.sin,
@@ -53,9 +56,17 @@ function tokenize(src: string): Token[] {
   return tokens;
 }
 
-/** Parses an expression in x into a function. Throws a readable error if it can't. */
-export function parseExpression(src: string): Fn {
+/**
+ * Parses a formula in the given variables (e.g. ["x", "y"]). Throws a readable error if it
+ * can't. Variables must be written apart: "x*y", not "xy".
+ */
+export function parseFormula(src: string, variables: readonly string[] = ["x"]): Formula {
   if (src.length > 200) throw new Error("expression is too long");
+  for (const v of variables) {
+    if (Object.hasOwn(functions, v) || Object.hasOwn(constants, v)) {
+      throw new Error(`"${v}" can't be a variable name`);
+    }
+  }
   const tokens = tokenize(src);
   let pos = 0;
   const peek = () => tokens[pos];
@@ -65,13 +76,13 @@ export function parseExpression(src: string): Fn {
     pos++;
   };
 
-  function expression(): Fn {
+  function expression(): Formula {
     let left = term();
     while (isOp("+") || isOp("-")) {
       const op = tokens[pos++].value;
       const l = left;
       const r = term();
-      left = op === "+" ? (x) => l(x) + r(x) : (x) => l(x) - r(x);
+      left = op === "+" ? (s) => l(s) + r(s) : (s) => l(s) - r(s);
     }
     return left;
   }
@@ -82,29 +93,29 @@ export function parseExpression(src: string): Fn {
     return t && (t.kind === "num" || t.kind === "id" || (t.kind === "op" && t.value === "("));
   };
 
-  function term(): Fn {
+  function term(): Formula {
     let left = unary();
     for (;;) {
       if (isOp("*") || isOp("/")) {
         const op = tokens[pos++].value;
         const l = left;
         const r = unary();
-        left = op === "*" ? (x) => l(x) * r(x) : (x) => l(x) / r(x);
+        left = op === "*" ? (s) => l(s) * r(s) : (s) => l(s) / r(s);
       } else if (startsFactor()) {
         const l = left;
         const r = power();
-        left = (x) => l(x) * r(x);
+        left = (s) => l(s) * r(s);
       } else {
         return left;
       }
     }
   }
 
-  function unary(): Fn {
+  function unary(): Formula {
     if (isOp("-")) {
       pos++;
       const inner = unary();
-      return (x) => -inner(x);
+      return (s) => -inner(s);
     }
     if (isOp("+")) {
       pos++;
@@ -113,17 +124,17 @@ export function parseExpression(src: string): Fn {
     return power();
   }
 
-  function power(): Fn {
+  function power(): Formula {
     const base = primary();
     if (isOp("^")) {
       pos++;
       const exponent = unary(); // right-associative: 2^3^2 = 2^9
-      return (x) => Math.pow(base(x), exponent(x));
+      return (s) => Math.pow(base(s), exponent(s));
     }
     return base;
   }
 
-  function primary(): Fn {
+  function primary(): Formula {
     const t = tokens[pos++];
     if (!t) throw new Error("expression ended too early");
     if (t.kind === "num") return () => t.value;
@@ -133,29 +144,36 @@ export function parseExpression(src: string): Fn {
       return inner;
     }
     if (t.kind === "id") {
-      if (t.value === "x") return (x) => x;
-      if (Object.hasOwn(constants, t.value)) return () => constants[t.value];
-      const fn = Object.hasOwn(functions, t.value) ? functions[t.value] : undefined;
+      const name = t.value;
+      if (variables.includes(name)) return (s) => s[name] ?? NaN;
+      if (Object.hasOwn(constants, name)) return () => constants[name];
+      const fn = Object.hasOwn(functions, name) ? functions[name] : undefined;
       if (fn) {
         expectOp("(");
         const arg = expression();
         expectOp(")");
-        return (x) => fn(arg(x));
+        return (s) => fn(arg(s));
       }
-      throw new Error(`unknown name "${t.value}"`);
+      throw new Error(`unknown name "${name}"`);
     }
     throw new Error(`unexpected "${t.value}"`);
   }
 
-  const fn = expression();
+  const formula = expression();
   if (pos < tokens.length) throw new Error(`unexpected "${tokens[pos].value}"`);
-  return fn;
+  return formula;
+}
+
+/** Parses an expression in x into a function. Throws a readable error if it can't. */
+export function parseExpression(src: string): Fn {
+  const formula = parseFormula(src, ["x"]);
+  return (x) => formula({ x });
 }
 
 /** True if the expression parses; used to reject bad plots before a student sees them. */
-export function isValidExpression(src: string): boolean {
+export function isValidExpression(src: string, variables: readonly string[] = ["x"]): boolean {
   try {
-    parseExpression(src);
+    parseFormula(src, variables);
     return true;
   } catch {
     return false;

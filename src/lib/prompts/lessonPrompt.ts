@@ -55,9 +55,9 @@ TEACHING APPROACH for the "${request.level.name}" level:
 ${guide.approach.map((a) => `- ${a}`).join("\n")}
 
 ACCURACY RULES:
-- State only facts supported by the SOURCES below or by standard first-year university physics textbooks.
+- State only facts supported by the SOURCES below or by standard first-year university ${request.subject.field.toLowerCase()} textbooks.
 - If you must say something beyond the sources, write "(beyond the provided sources)" after it.
-- Cite with "sourceIds" using ONLY the ids listed in SOURCES. Never invent sources, URLs or references.
+- Cite with "sourceIds" using ONLY the ids listed in SOURCES. Never invent sources, URLs or references. Never write source ids or citation tags inside the text itself; the app shows citations from "sourceIds".
 - Every number in a worked example must be calculated correctly. Show the substitution step.
 - Use SI units and correct significant figures.
 

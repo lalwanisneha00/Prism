@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { generateLesson } from "@/lib/generateLesson";
+import { generateLesson, stripCitationTags } from "@/lib/generateLesson";
 import type { LessonEvent } from "@/lib/lessonEvents";
 import { validateLessonRequest } from "@/lib/lessonRequest";
 import { FakeProvider, type FakeResponder } from "@/lib/llm/fake";
@@ -104,5 +104,23 @@ describe("generateLesson", () => {
     for (const s of sources) expect(prompts[0]).toContain(`id: ${s.id}`);
     expect(prompts[0]).toContain("TOPIC: Faraday's law of induction");
     expect(prompts[0]).toContain("TIME BUDGET: 15 minutes");
+  });
+});
+
+describe("stripCitationTags", () => {
+  it("removes citation tags from text but keeps the sourceIds list", () => {
+    expect(
+      stripCitationTags({
+        body: "A power series [sourceIds: wikipedia-taylor-series]. Next (source: openstax-6-3).",
+        steps: ["Use the rule [Sources: a, b]"],
+        sourceIds: ["wikipedia-taylor-series"],
+        note: "Keep [1] and [a, b] intervals.",
+      }),
+    ).toEqual({
+      body: "A power series. Next.",
+      steps: ["Use the rule"],
+      sourceIds: ["wikipedia-taylor-series"],
+      note: "Keep [1] and [a, b] intervals.",
+    });
   });
 });

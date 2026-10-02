@@ -80,7 +80,9 @@ describe("visualProblem", () => {
 });
 
 describe("registry coverage", () => {
-  const topics = subjects[0].chapters.flatMap((c) => c.topics.map((t) => t.id));
+  const topicsOf = (subjectId: string) =>
+    subjects.find((s) => s.id === subjectId)!.chapters.flatMap((c) => c.topics.map((t) => t.id));
+  const topics = subjects.flatMap((s) => topicsOf(s.id));
 
   it("only lists real topics", () => {
     for (const w of Object.values(widgetRegistry)) {
@@ -88,9 +90,12 @@ describe("registry coverage", () => {
     }
   });
 
-  it("has at least one fitting widget for most topics", () => {
-    const covered = topics.filter((t) => widgetsForTopic(t).length > 0);
-    expect(covered.length / topics.length).toBeGreaterThan(0.75);
+  it("has at least one fitting widget for most topics of every subject", () => {
+    for (const subject of subjects) {
+      const own = topicsOf(subject.id);
+      const covered = own.filter((t) => widgetsForTopic(t).length > 0);
+      expect(covered.length / own.length, subject.id).toBeGreaterThan(0.75);
+    }
   });
 
   it("puts fitting widgets first in the prompt and lists only real PhET sims", () => {

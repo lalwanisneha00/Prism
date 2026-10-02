@@ -62,6 +62,28 @@ export const phetSims: PhetSim[] = [
     topics: ["solenoid-toroid", "biot-savart-law", "amperes-law", "magnetic-materials"],
   },
   { id: "generator", title: "Generator", topics: ["ac-generator", "faradays-law", "motional-emf"] },
+  // Engineering Mathematics (V2 · Step 6)
+  {
+    id: "calculus-grapher",
+    title: "Calculus Grapher",
+    topics: [
+      "derivatives-basics",
+      "definite-integrals",
+      "maxima-minima-one-variable",
+      "mean-value-theorems",
+      "successive-differentiation",
+    ],
+  },
+  {
+    id: "fourier-making-waves",
+    title: "Fourier: Making Waves",
+    topics: ["fourier-series", "half-range-series"],
+  },
+  {
+    id: "vector-addition",
+    title: "Vector Addition",
+    topics: ["gradient-divergence-curl", "directional-derivative", "linear-transformations"],
+  },
 ];
 
 export const PHET_ATTRIBUTION = "PhET Interactive Simulations, University of Colorado Boulder";

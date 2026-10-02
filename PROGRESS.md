@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 6 (Engineering Mathematics + visuals part 2). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 · Step 7 (Interaction tools). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -28,7 +28,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 3    | Long audio                                   | ✅ Done        |
 | 4    | PDF upload + retrieval                       | ✅ Done        |
 | 5    | PYQ / worksheet mode                         | ✅ Done        |
-| 6    | Engineering Mathematics + visuals part 2     | ⬜ Not started |
+| 6    | Engineering Mathematics + visuals part 2     | ✅ Done        |
 | 7    | Interaction tools                            | ⬜ Not started |
 | 8    | Prerequisite concept map                     | ⬜ Not started |
 | 9    | Flashcards + spaced repetition               | ⬜ Not started |
@@ -57,6 +57,14 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 
 - Exam Prep lessons have a "Worksheet & past papers" block: a 4/6/8-question practice set (2/5/10 marks) or up to 10 pasted / PDF-loaded PYQs, solved by `/api/worksheet` (Zod + KaTeX check, 2 repair tries). Self-marking (full / half / none) is saved as a quiz attempt with lessonId `…:worksheet`, so weak-topic detection sees it. The last worksheet is cached per device in localStorage.
 - Real Gemini check (2026-10-02): a 5-mark PYQ on a uniformly charged sphere came back correct (2.25×10³ and 1.12×10³ N/C) in ~20 s via the fallback model.
+
+## V2 · Step 6 notes
+
+- New subject `engg-math` (7 chapters, 44 topics) with sources from OpenStax Calculus Vol 1–3 (sections verified: a fake slug returns 404) and Wikipedia (titles verified via the API). `sources.ts` now supports several books per subject (`"calc3/6-4-greens-theorem"`).
+- 8 maths widgets (function explorer, tangent line, Riemann sum, Taylor polynomial, 2×2 matrix transform, vector field with div/curl, slope field with RK4, Fourier series), numerics in `src/visuals/mathTools.ts` (tested), a new `derivation` visual (KaTeX steps revealed one at a time) and 3 PhET maths sims. WidgetView is now a typed table.
+- The safe parser takes several variables (`parseFormula(src, ["x", "y"])`). Graph coordinates are rounded so server and browser render identical SVG (fixed a hydration mismatch).
+- Prompts are subject-neutral (field from the subject data). Citation tags the AI writes into text ("[sourceIds: …]") are stripped. When a widget fits the topic, the prompt requires at least one; matrix-transform also accepts `{"matrix": [[a,b],[c,d]]}` because Gemini kept writing that.
+- Real Gemini checks (2026-10-02): Taylor series (Deep Dive) used taylor-polynomial + a derivation; Green's theorem used vector-field; eigenvalues used matrix-transform. All fact-checked "sourced", 0 corrections, 24–33 s.
 
 ## Known issues / leftovers
 

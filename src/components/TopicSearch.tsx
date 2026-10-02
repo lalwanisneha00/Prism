@@ -62,7 +62,10 @@ export function TopicSearch({ subject, onPick }: TopicSearchProps) {
         aria-activedescendant={open && results[active] ? optionId(active) : undefined}
         autoComplete="off"
         spellCheck={false}
-        placeholder="e.g. gauss or capacitor"
+        placeholder={`e.g. ${subject.chapters
+          .slice(0, 2)
+          .map((c) => c.topics[Math.min(1, c.topics.length - 1)].name.split(" ")[0].toLowerCase())
+          .join(" or ")}`}
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);

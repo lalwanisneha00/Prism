@@ -19,4 +19,24 @@ export const curatedVideos: Record<string, Link[]> = {
       note: "Short, gentle videos with practice questions.",
     },
   ],
+  "engg-math": [
+    {
+      title: "Single Variable Calculus (18.01SC), full course",
+      url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/",
+      publisher: "MIT OpenCourseWare",
+      note: "Free lectures, notes and problem sets with solutions.",
+    },
+    {
+      title: "Linear Algebra (18.06SC), Gilbert Strang",
+      url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/",
+      publisher: "MIT OpenCourseWare",
+      note: "The classic linear algebra course, with recitation videos.",
+    },
+    {
+      title: "Essence of calculus (video series)",
+      url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr",
+      publisher: "3Blue1Brown",
+      note: "Beautiful visual intuition for derivatives and integrals.",
+    },
+  ],
 };

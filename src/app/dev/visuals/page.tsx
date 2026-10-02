@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "katex/dist/katex.min.css";
 import { Container } from "@/components/Container";
 import { VisualSlot } from "@/components/lesson/VisualSlot";
 import type { VisualSpec } from "@/lib/schema";
@@ -89,6 +90,74 @@ const gallery: VisualSpec[] = [
     file: "File:VFPt charges plus minus thumb.svg",
     alt: "Field lines between a positive and a negative charge",
     caption: "Field lines of a dipole (a real image from Wikimedia Commons).",
+  },
+  // Engineering Mathematics (V2 · Step 6)
+  {
+    type: "widget",
+    widget: "function-explorer",
+    params: { expression: "exp(-a*x)*sin(3*x)", aMin: 0, aMax: 2, aStart: 0.3, xRange: [0, 10] },
+    caption: "Damped oscillation: a larger a makes it die out faster.",
+  },
+  {
+    type: "widget",
+    widget: "tangent-line",
+    params: { expression: "x^3 - 3*x", xRange: [-2.5, 2.5], x0: 0.5 },
+    caption: "The tangent is flat at x = ±1: the local maximum and minimum.",
+  },
+  {
+    type: "widget",
+    widget: "riemann-sum",
+    params: { expression: "x^2", a: 0, b: 2, n: 4, method: "left" },
+    caption: "Left rectangles underestimate a rising curve; more rectangles close the gap.",
+  },
+  {
+    type: "widget",
+    widget: "taylor-polynomial",
+    params: { fn: "sin", order: 3 },
+    caption: "x − x³/6 already matches sin x near 0.",
+  },
+  {
+    type: "widget",
+    widget: "matrix-transform",
+    params: { a: 2, b: 1, c: 1, d: 2 },
+    caption: "This symmetric matrix stretches along y = x by 3 and along y = −x by 1.",
+  },
+  {
+    type: "widget",
+    widget: "vector-field",
+    params: { p: "-y", q: "x", range: 3 },
+    caption: "A pure rotation: zero divergence, curl 2 everywhere.",
+  },
+  {
+    type: "widget",
+    widget: "slope-field",
+    params: { f: "x - y", xRange: [-3, 3], yRange: [-3, 3], start: [-2, 1] },
+    caption: "Every solution of y′ = x − y approaches the line y = x − 1.",
+  },
+  {
+    type: "widget",
+    widget: "fourier-series",
+    params: { wave: "square", terms: 3 },
+    caption: "Odd sine harmonics build a square wave; note the overshoot at each jump.",
+  },
+  {
+    type: "derivation",
+    steps: [
+      { math: String.raw`\frac{dy}{dx} + P(x)\,y = Q(x)`, why: "A linear first-order equation." },
+      {
+        math: String.raw`\mu(x) = e^{\int P(x)\,dx}`,
+        why: "Choose the integrating factor $\mu$ so that $\mu' = P\mu$.",
+      },
+      {
+        math: String.raw`\frac{d}{dx}\left(\mu y\right) = \mu Q`,
+        why: "Multiplying by $\mu$ turns the left side into a product rule.",
+      },
+      {
+        math: String.raw`y = \frac{1}{\mu}\left(\int \mu Q\,dx + C\right)`,
+        why: "Integrate both sides and divide by $\mu$.",
+      },
+    ],
+    caption: "Solving a linear first-order ODE with an integrating factor.",
   },
 ];
 
