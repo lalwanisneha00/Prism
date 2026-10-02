@@ -31,13 +31,17 @@ Update this after every step so any person or AI tool can pick up the work.
 | 6    | Engineering Mathematics + visuals part 2     | ✅ Done        |
 | 7    | Interaction tools                            | ✅ Done        |
 | 8    | Prerequisite concept map                     | ⬜ Not started |
-| 9    | Flashcards + spaced repetition               | ⬜ Not started |
-| 10   | Backlog planner & progress tracker           | ⬜ Not started |
-| 11   | Export & eval                                | ⬜ Not started |
+| 9    | Trust tiers & accuracy guards                | ⬜ Not started |
+| 10   | Generic visual toolkit part 1 + planner      | ⬜ Not started |
+| 11   | Flashcards + spaced repetition               | ⬜ Not started |
+| 12   | Backlog planner & progress tracker           | ⬜ Not started |
+| 13   | Export & eval (golden sets, accuracy page)   | ⬜ Not started |
 
 When V2 · Step 1 starts: give the user click-by-click Firebase console setup (Spark project, Google sign-in, Firestore database, web config, service account key, authorized domains).
 
 ## Plan changes
+
+- **2026-10-02: Accuracy tiers + universal visual toolkit** (SPEC §4.1 and §6.1). V2 grows from 11 to 13 steps; finished steps 1-7 are unchanged. New Step 9 (trust tiers & accuracy guards) and Step 10 (generic visual toolkit part 1 + visual planner); flashcards, planner and export/eval move to 11-13. Step 13 now also needs golden sets for E&M and Engineering Maths (>= 15 topics), `EVAL_LOG.md` and a public accuracy page; V2 is done only when Engineering Maths is `verified`. V3 Step 2 takes the rest of the toolkit (financial charts, timelines, maps, economics, CS, chemistry, images) and the high-stakes notes; V3 Step 8 takes the report-a-mistake feedback loop. The plan's "V2 Step 5 (second subject)" is our Step 6, already done with hand-coded maths widgets; the generic toolkit is therefore built as the new Step 10 instead of redoing Step 6.
 
 - **2026-10-01: Accounts & cloud sync added** (SPEC §9). New V2 · Step 1: Firebase Spark (no billing, no Firebase Storage), Google sign-in only, local-first IndexedDB + Firestore outbox sync, a shared server-written lesson library (replaces the old "caching" item from V3 · Step 10), quota fallback and a study dashboard. The old V2 steps shift down one (now 11 steps). V3 · Step 8 Supabase sync is replaced by share links and mistake reports sent to Firestore. V1 is unchanged except Step 10 makes storage records sync-ready.
 
