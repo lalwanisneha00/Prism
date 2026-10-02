@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 7 (Interaction tools). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 · Step 8 (Prerequisite concept map). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -29,7 +29,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 4    | PDF upload + retrieval                       | ✅ Done        |
 | 5    | PYQ / worksheet mode                         | ✅ Done        |
 | 6    | Engineering Mathematics + visuals part 2     | ✅ Done        |
-| 7    | Interaction tools                            | ⬜ Not started |
+| 7    | Interaction tools                            | ✅ Done        |
 | 8    | Prerequisite concept map                     | ⬜ Not started |
 | 9    | Flashcards + spaced repetition               | ⬜ Not started |
 | 10   | Backlog planner & progress tracker           | ⬜ Not started |
@@ -65,6 +65,13 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 - The safe parser takes several variables (`parseFormula(src, ["x", "y"])`). Graph coordinates are rounded so server and browser render identical SVG (fixed a hydration mismatch).
 - Prompts are subject-neutral (field from the subject data). Citation tags the AI writes into text ("[sourceIds: …]") are stripped. When a widget fits the topic, the prompt requires at least one; matrix-transform also accepts `{"matrix": [[a,b],[c,d]]}` because Gemini kept writing that.
 - Real Gemini checks (2026-10-02): Taylor series (Deep Dive) used taylor-polynomial + a derivation; Green's theorem used vector-field; eigenvalues used matrix-transform. All fact-checked "sourced", 0 corrections, 24–33 s.
+
+## V2 · Step 7 notes
+
+- Every section has "Explain simpler" and "Give me an analogy" / "Another analogy" (previous analogies are sent as `avoid`). Selecting lesson text shows a toolbar with Explain / Define; answers open in a bottom card. All go through `/api/explain` (lesson re-validated, Zod + KaTeX check, one repair).
+- Lessons now carry an optional `glossary` (4–10 terms, fact-checked with the rest). `rehypeGlossary` marks each term's first appearance per section (plurals too, never inside maths/code/links); `GlossaryTerm` shows a card on hover, focus or tap. Older saved lessons simply have no glossary.
+- The selection popup's "＋ Flashcard" button is added in Step 9, when flashcards exist.
+- Real Gemini: answers 7–10 s; one analogy took 67 s via fallback models, so `/api/explain` allows 60 s.
 
 ## Known issues / leftovers
 

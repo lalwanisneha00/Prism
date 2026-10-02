@@ -73,5 +73,6 @@ export function findMathErrors(lesson: Lesson): string[] {
     if (error) problems.push(`revisionSheet.formulas.${i}: maths does not render (${error})`);
   });
   lesson.revisionSheet.keyPoints.forEach((k, i) => check(`revisionSheet.keyPoints.${i}`, k));
+  lesson.glossary?.forEach((g, i) => check(`glossary.${i}.definition`, g.definition));
   return problems;
 }

@@ -1,6 +1,8 @@
 import { Card } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
+import { SectionHelp } from "@/components/explain/SectionHelp";
 import { VisualSlot } from "@/components/lesson/VisualSlot";
+import type { GlossaryEntry } from "@/lib/glossary";
 import type { Section, Source } from "@/lib/schema";
 
 /** The fact-check result for a section (SPEC §6.4). */
@@ -25,10 +27,15 @@ export function SectionView({
   section,
   index,
   sources,
+  glossary,
+  interactive = false,
 }: {
   section: Section;
   index: number;
   sources: Source[];
+  glossary?: GlossaryEntry[];
+  /** Show the "Explain simpler" / "Another analogy" tools (not while streaming). */
+  interactive?: boolean;
 }) {
   const cited = section.sourceIds
     .map((id) => ({ id, number: sources.findIndex((s) => s.id === id) + 1 }))
@@ -54,7 +61,7 @@ export function SectionView({
           )}
         </div>
       </div>
-      <Markdown>{section.body}</Markdown>
+      <Markdown glossary={glossary}>{section.body}</Markdown>
       {section.visual && <VisualSlot visual={section.visual} />}
       {section.check?.status === "verify" && (
         <p className="rounded-xl border border-warning/30 bg-warning/10 px-3 py-2 text-sm">
@@ -76,6 +83,7 @@ export function SectionView({
           ))}
         </p>
       )}
+      {interactive && <SectionHelp sectionId={section.id} />}
     </Card>
   );
 }

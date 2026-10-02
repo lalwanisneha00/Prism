@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { AudioLesson } from "@/components/audio/AudioLesson";
+import { InteractiveLesson } from "@/components/explain/InteractiveLesson";
 import { LessonBlockShell } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
 import { Quiz } from "@/components/lesson/Quiz";
@@ -39,7 +40,14 @@ export function LessonView({
       const list = (
         <div className="flex flex-col gap-5">
           {lesson.sections.map((s, i) => (
-            <SectionView key={s.id} section={s} index={i} sources={sources} />
+            <SectionView
+              key={s.id}
+              section={s}
+              index={i}
+              sources={sources}
+              glossary={lesson.glossary}
+              interactive
+            />
           ))}
         </div>
       );
@@ -70,7 +78,7 @@ export function LessonView({
   };
 
   return (
-    <article className="flex flex-col gap-10">
+    <InteractiveLesson lesson={lesson}>
       <header className="flex flex-col gap-4">
         <p className="text-sm text-muted">
           {request.subject.name} <span aria-hidden="true">›</span> {request.chapter.name}
@@ -122,6 +130,6 @@ export function LessonView({
           on, so you can check it.
         </p>
       </LessonBlockShell>
-    </article>
+    </InteractiveLesson>
   );
 }

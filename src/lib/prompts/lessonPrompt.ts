@@ -33,6 +33,7 @@ const jsonShape = `{
     "difficulty": "easy | medium | hard"
   }],
   "revisionSheet": { "formulas": ["LaTeX without $ signs"], "keyPoints": ["..."], "mnemonics": ["optional"] },
+  "glossary": [{ "term": "a key term written EXACTLY as it appears in the sections", "definition": "one plain sentence a beginner understands" }],
   "audioScript": [{ "id": "kebab-case-id", "title": "...", "text": "plain spoken English", "sectionId": "optional section id" }],
   "furtherLearning": { "videos": [], "papers": [], "readings": [] }
 }`;
@@ -105,6 +106,7 @@ SIZE:
 - misconceptions: ${guide.counts.misconceptions}
 - quiz questions: ${guide.counts.quiz}
 - prerequisites: 2-4
+- glossary: 4-10 key terms (technical words a student might not know), no formulas as terms
 
 SOURCES (cite only these ids):
 ${sourceList}

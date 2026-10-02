@@ -138,6 +138,11 @@ export const LessonSchema = z
       keyPoints: z.array(text).min(1),
       mnemonics: z.array(text).optional(),
     }),
+    /** Key terms shown as hover cards where they appear (V2 · Step 7; older lessons have none). */
+    glossary: z
+      .array(z.object({ term: text.max(60), definition: text.max(300) }))
+      .max(15)
+      .optional(),
     audioScript: z.array(AudioChunkSchema).min(1),
     furtherLearning: z.object({
       videos: z.array(LinkSchema),

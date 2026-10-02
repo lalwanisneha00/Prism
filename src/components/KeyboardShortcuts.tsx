@@ -6,7 +6,8 @@ import { useEffect } from "react";
 export function KeyboardShortcuts() {
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      const target = e.target as HTMLElement | null;
+      // The target can be the window or document (no .closest), not only an element.
+      const target = e.target instanceof Element ? e.target : null;
       const typing = target?.closest("input, textarea, select, [contenteditable=true]");
       if (e.key !== "/" || typing || e.ctrlKey || e.metaKey || e.altKey) return;
       const search = document.querySelector<HTMLInputElement>('input[type="search"]');

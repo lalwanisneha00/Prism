@@ -71,6 +71,7 @@ RULES:
     misconceptions: lesson.misconceptions,
     quiz: lesson.quiz,
     revisionSheet: lesson.revisionSheet,
+    glossary: lesson.glossary ?? [],
   };
   const sourceList = sources
     .map((s) => `- ${s.id}: ${s.title}${s.excerpt ? `\n  EXCERPT: ${s.excerpt}` : ""}`)

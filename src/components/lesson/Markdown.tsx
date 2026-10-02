@@ -1,4 +1,6 @@
-import ReactMarkdown, { type Components } from "react-markdown";
+import ReactMarkdown, { type Components, type Options } from "react-markdown";
+import { GlossaryTerm } from "@/components/explain/GlossaryTerm";
+import { rehypeGlossary, type GlossaryEntry } from "@/lib/glossary";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -28,19 +30,53 @@ const components: Components = {
  * Raw HTML is never rendered and images are dropped, so lesson text cannot
  * inject markup or load outside content.
  */
-export function Markdown({ children, className = "" }: { children: string; className?: string }) {
+export function Markdown({
+  children,
+  className = "",
+  glossary,
+}: {
+  children: string;
+  className?: string;
+  /** Key terms to mark with hover cards (their first appearance in this text). */
+  glossary?: GlossaryEntry[];
+}) {
+  const withGlossary = glossary && glossary.length > 0;
+  const plugins: NonNullable<Options["rehypePlugins"]> = [
+    [rehypeKatex, { throwOnError: false, strict: "ignore" }],
+  ];
+  if (withGlossary) plugins.push([rehypeGlossary, { terms: glossary.map((g) => g.term) }]);
   return (
     <div className={`markdown flex flex-col gap-3 ${className}`}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
-        rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: "ignore" }]]}
-        components={components}
+        rehypePlugins={plugins}
+        components={withGlossary ? glossaryComponents(glossary) : components}
         disallowedElements={["img"]}
       >
         {normalizeDisplayMath(children)}
       </ReactMarkdown>
     </div>
   );
+}
+
+/** The usual components, plus glossary terms (marked by rehypeGlossary) as hover cards. */
+function glossaryComponents(glossary: GlossaryEntry[]): Components {
+  const definitions = new Map(glossary.map((g) => [g.term, g.definition]));
+  return {
+    ...components,
+    span: ({ node, children, ...props }) => {
+      void node;
+      const term = (props as { "data-glossary"?: string })["data-glossary"];
+      const definition = term ? definitions.get(term) : undefined;
+      return term && definition ? (
+        <GlossaryTerm term={term} definition={definition}>
+          {children}
+        </GlossaryTerm>
+      ) : (
+        <span {...props}>{children}</span>
+      );
+    },
+  };
 }
 
 /** A single formula given as bare LaTeX (no $ signs), shown in display style. */
