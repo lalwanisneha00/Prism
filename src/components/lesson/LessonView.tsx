@@ -7,6 +7,7 @@ import { Markdown } from "@/components/lesson/Markdown";
 import { Quiz } from "@/components/lesson/Quiz";
 import { SaveLessonButton } from "@/components/lesson/SaveLessonButton";
 import { SectionView } from "@/components/lesson/SectionView";
+import { LimitedBanner, TierBadge } from "@/components/lesson/TierBadge";
 import {
   Analogies,
   FurtherLearning,
@@ -34,6 +35,8 @@ export function LessonView({
 }) {
   const layout = levelLayouts[request.level.slug];
   const sources = lesson.meta.sources;
+  // Older saved lessons have no tier: they carry their subject's.
+  const tier = lesson.meta.tier ?? request.subject.tier;
 
   const render: Record<LessonBlock, () => ReactNode> = {
     prerequisites: () => <Prerequisites items={lesson.prerequisites} />,
@@ -99,6 +102,8 @@ export function LessonView({
           </ul>
           <SaveLessonButton lesson={lesson} libraryKey={libraryKey} />
         </div>
+        <TierBadge tier={tier} />
+        {tier === "limited" && <LimitedBanner />}
         <Markdown className="text-lg text-muted">{lesson.hook}</Markdown>
         <nav aria-label="In this lesson" className="text-sm">
           <p className="font-semibold">In this lesson</p>

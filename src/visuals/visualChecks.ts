@@ -1,4 +1,4 @@
-import { findPhetSim, phetSims, phetSimsForTopic } from "@/data/phet";
+import { findPhetSim, phetSimsForTopic } from "@/data/phet";
 import type { Lesson, VisualSpec } from "@/lib/schema";
 import { katexError, mathErrorsInMarkdown } from "@/lib/checks/mathCheck";
 import { isValidExpression } from "@/visuals/expression";
@@ -6,13 +6,26 @@ import { widgetProblem, widgetRegistry, widgetsForTopic, type WidgetId } from "@
 
 const mermaidStart = /^\s*(flowchart|graph)\s+(TD|TB|LR|RL|BT)\b/;
 
-/** Why a visual can't be shown, or null if it is safe and drawable. */
-export function visualProblem(visual: VisualSpec): string | null {
+/**
+ * Why a visual can't be shown, or null if it is safe and drawable. With a topic, the
+ * topic-specific visuals (widgets and PhET) must also be listed for that topic (SPEC §6.1 rule 4).
+ */
+export function visualProblem(visual: VisualSpec, topicId?: string): string | null {
   switch (visual.type) {
-    case "widget":
-      return widgetProblem(visual.widget, visual.params);
-    case "phet":
-      return findPhetSim(visual.sim) ? null : `unknown PhET simulation "${visual.sim}"`;
+    case "widget": {
+      const problem = widgetProblem(visual.widget, visual.params);
+      if (problem || !topicId) return problem;
+      return widgetsForTopic(topicId).includes(visual.widget as WidgetId)
+        ? null
+        : `widget "${visual.widget}" is not valid for this topic; use a plot, derivation or diagram instead`;
+    }
+    case "phet": {
+      const sim = findPhetSim(visual.sim);
+      if (!sim) return `unknown PhET simulation "${visual.sim}"`;
+      return !topicId || sim.topics.includes(topicId)
+        ? null
+        : `PhET simulation "${visual.sim}" is not valid for this topic`;
+    }
     case "plot":
       if (!isValidExpression(visual.expression))
         return `plot expression "${visual.expression}" is not valid`;
@@ -42,7 +55,7 @@ export function visualProblem(visual: VisualSpec): string | null {
 /** "sections.N.visual: problem" lines, in the same style as schema problems. */
 export function findVisualProblems(lesson: Lesson): string[] {
   return lesson.sections.flatMap((s, i) => {
-    const problem = s.visual ? visualProblem(s.visual) : null;
+    const problem = s.visual ? visualProblem(s.visual, lesson.meta.topic) : null;
     return problem ? [`sections.${i}.visual: ${problem}`] : [];
   });
 }
@@ -52,7 +65,7 @@ export function dropBadVisuals(lesson: Lesson): Lesson {
   return {
     ...lesson,
     sections: lesson.sections.map((s) => {
-      if (s.visual && visualProblem(s.visual)) {
+      if (s.visual && visualProblem(s.visual, lesson.meta.topic)) {
         const copy = { ...s };
         delete copy.visual;
         return copy;
@@ -62,39 +75,35 @@ export function dropBadVisuals(lesson: Lesson): Lesson {
   };
 }
 
-/** The VISUALS part of the lesson prompt: exactly what the AI is allowed to choose from. */
+/**
+ * The VISUALS part of the lesson prompt: exactly what the AI may choose from. Topic-specific
+ * widgets and PhET sims are offered only for the topics they were built for (SPEC §6.1 rule 4);
+ * generic visuals (plots, derivations, diagrams) are always available.
+ */
 export function visualPromptRules(topicId: string): string {
   const fitting = widgetsForTopic(topicId);
-  const widgetLines = (Object.keys(widgetRegistry) as WidgetId[])
-    .sort((a, b) => Number(fitting.includes(b)) - Number(fitting.includes(a)))
-    .map(
-      (id) =>
-        `  - "${id}"${fitting.includes(id) ? " (fits this topic)" : ""}: ${widgetRegistry[id].name}. params: ${widgetRegistry[id].help}`,
-    )
+  const widgetLines = fitting
+    .map((id) => `  - "${id}": ${widgetRegistry[id].name}. params: ${widgetRegistry[id].help}`)
     .join("\n");
-  const topicSims = phetSimsForTopic(topicId);
-  const sims = (topicSims.length ? topicSims : phetSims)
+  const sims = phetSimsForTopic(topicId)
     .map((s) => `"${s.id}" (${s.title})`)
     .join(", ");
 
   const mustUse = fitting.length
-    ? `\nREQUIRED: at least one section MUST use a widget marked "(fits this topic)" (best: ${fitting
+    ? `\nREQUIRED: at least one section MUST use one of the interactive widgets below (best: ${fitting
         .slice(0, 2)
         .map((id) => `"${id}"`)
         .join(" or ")}). Students learn most from what they can move.`
     : "";
 
-  return `VISUALS (at most one per section; aim for 2-4 across the lesson, choosing what genuinely helps):
-Priority order: an interactive widget, then a PhET simulation, then a plot or diagram.${mustUse}${visualMenu(widgetLines, sims)}`;
+  return `VISUALS (at most one per section; aim for 2-4 across the lesson, choosing what genuinely helps; skip a visual that would only decorate):
+Priority order: an interactive widget, then a PhET simulation, then a plot, derivation or diagram.${mustUse}${visualMenu(widgetLines, sims)}`;
 }
 
 /** The list of visuals the AI may choose from. */
 function visualMenu(widgetLines: string, sims: string): string {
   return `
-- {"type":"widget","widget":"<id>","params":{...},"caption":"..."} using ONLY these widgets and parameter ranges:
-${widgetLines}
-- {"type":"phet","sim":"<id>","caption":"..."} using ONLY: ${sims}
-- {"type":"plot","expression":"<function of x using + - * / ^ ( ) and sin cos tan exp ln log sqrt abs pi>","xRange":[min,max],"xLabel":"...","yLabel":"...","caption":"..."} for how one quantity depends on another.
+${widgetLines ? `- {"type":"widget","widget":"<id>","params":{...},"caption":"..."} using ONLY these widgets (built for this topic) and parameter ranges:\n${widgetLines}\n` : ""}${sims ? `- {"type":"phet","sim":"<id>","caption":"..."} using ONLY: ${sims}\n` : ""}- {"type":"plot","expression":"<function of x using + - * / ^ ( ) and sin cos tan exp ln log sqrt abs pi>","xRange":[min,max],"xLabel":"...","yLabel":"...","caption":"..."} for how one quantity depends on another.
 - {"type":"derivation","steps":[{"math":"<one line of LaTeX, no $ signs>","why":"<the reason for this step>"}],"caption":"..."} for a derivation or proof the student should follow step by step (2-12 steps).
 - {"type":"mermaid","code":"flowchart TD\\n  A[Short label] --> B[Short label]","caption":"..."} for processes or concept maps ONLY. Plain words in labels, no quotes or brackets inside labels.
 Never output SVG, HTML, image URLs or anything not listed here.`;

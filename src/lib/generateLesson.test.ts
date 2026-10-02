@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { generateLesson, stripCitationTags } from "@/lib/generateLesson";
+import { generateLesson, stripCitationTags, wrapBareMath } from "@/lib/generateLesson";
 import type { LessonEvent } from "@/lib/lessonEvents";
 import { validateLessonRequest } from "@/lib/lessonRequest";
 import { FakeProvider, type FakeResponder } from "@/lib/llm/fake";
@@ -17,7 +17,7 @@ const result = validateLessonRequest({
 if (!result.ok) throw new Error("test request should be valid");
 const request = result.request;
 const sources = sourcesForTopic("em", "faradays-law");
-const goodReply = JSON.stringify(fakeLessonBody(sources));
+const goodReply = JSON.stringify(fakeLessonBody(sources, "faradays-law"));
 
 async function run(respond: FakeResponder) {
   const provider = new FakeProvider(respond);
@@ -122,5 +122,14 @@ describe("stripCitationTags", () => {
       sourceIds: ["wikipedia-taylor-series"],
       note: "Keep [1] and [a, b] intervals.",
     });
+  });
+});
+
+describe("wrapBareMath", () => {
+  it("wraps short bare-LaTeX answers and leaves everything else alone", () => {
+    expect(wrapBareMath(String.raw`\frac{1}{2}`)).toBe(String.raw`$\frac{1}{2}$`);
+    expect(wrapBareMath(String.raw`$\frac{1}{2}$`)).toBe(String.raw`$\frac{1}{2}$`);
+    expect(wrapBareMath("It doubles.")).toBe("It doubles.");
+    expect(wrapBareMath(String.raw`Mixed $x$ and \pi`)).toBe(String.raw`Mixed $x$ and \pi`);
   });
 });

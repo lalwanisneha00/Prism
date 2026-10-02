@@ -177,7 +177,11 @@
         "$\\Phi_E = \\dfrac{2.0\\times10^{-6}\\ \\text{C}}{8.85\\times10^{-12}\\ \\text{C}^2/(\\text{N·m}^2)}$",
         "$\\Phi_E \\approx 2.26\\times10^{5}\\ \\text{N·m}^2/\\text{C}$"
       ],
-      "answer": "$\\Phi_E \\approx 2.26\\times10^{5}\\ \\text{N·m}^2/\\text{C}$"
+      "answer": "$\\Phi_E \\approx 2.26\\times10^{5}\\ \\text{N·m}^2/\\text{C}$",
+      "check": {
+        "expression": "2e-6 / 8.854e-12",
+        "answer": 225886
+      }
     },
     {
       "problem": "The same $+2.0\\ \\mu\\text{C}$ charge is placed exactly at the centre of a cube. How much flux passes through one face?",
@@ -186,7 +190,11 @@
         "The charge is at the centre, so by symmetry every face gets an equal share.",
         "$\\Phi_{\\text{face}} = \\dfrac{2.26\\times10^{5}}{6} \\approx 3.77\\times10^{4}\\ \\text{N·m}^2/\\text{C}$"
       ],
-      "answer": "$\\Phi_{\\text{face}} = \\dfrac{Q}{6\\varepsilon_0} \\approx 3.77\\times10^{4}\\ \\text{N·m}^2/\\text{C}$"
+      "answer": "$\\Phi_{\\text{face}} = \\dfrac{Q}{6\\varepsilon_0} \\approx 3.77\\times10^{4}\\ \\text{N·m}^2/\\text{C}$",
+      "check": {
+        "expression": "2e-6 / (6 * 8.854e-12)",
+        "answer": 37648
+      }
     },
     {
       "problem": "Use Gauss's law to find the field $0.30\\ \\text{m}$ from a point charge of $+1.0\\ \\text{nC}$.",
@@ -195,7 +203,11 @@
         "Gauss's law: $E \\cdot 4\\pi r^2 = \\dfrac{Q}{\\varepsilon_0}$, so $E = \\dfrac{Q}{4\\pi\\varepsilon_0 r^2}$.",
         "$E = \\dfrac{1.0\\times10^{-9}}{4\\pi (8.85\\times10^{-12})(0.30)^2} \\approx 99.9\\ \\text{N/C}$"
       ],
-      "answer": "$E \\approx 1.0\\times10^{2}\\ \\text{N/C}$, pointing away from the charge"
+      "answer": "$E \\approx 1.0\\times10^{2}\\ \\text{N/C}$, pointing away from the charge",
+      "check": {
+        "expression": "1e-9 / (4 * pi * 8.854e-12 * 0.3^2)",
+        "answer": 99.87
+      }
     }
   ],
   "misconceptions": [

@@ -19,7 +19,17 @@ export function WorkedExample({ example, index }: { example: Example; index: num
   return (
     <Card className="flex flex-col gap-4">
       <div>
-        <p className="text-sm font-semibold text-primary">Example {index + 1}</p>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <p className="text-sm font-semibold text-primary">Example {index + 1}</p>
+          {example.check && (
+            <span
+              title="The server re-did this calculation with a maths library and got the same answer."
+              className="rounded-full bg-success/15 px-2 py-0.5 text-xs font-semibold text-success"
+            >
+              ✓ Answer checked by computer
+            </span>
+          )}
+        </div>
         <Markdown className="mt-1 font-medium">{example.problem}</Markdown>
       </div>
 

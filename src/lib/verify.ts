@@ -117,6 +117,10 @@ export function applyCorrections(lesson: Lesson, corrections: Verification["corr
     if (typeof current === "string" && current.includes(c.find)) {
       field!.set(current.replace(c.find, c.replace));
       applied++;
+      // A corrected worked example no longer matches its computer check: drop the check
+      // (and its "answer checked" badge) rather than show a stale one.
+      const example = /^workedExamples\.(\d+)\./.exec(c.path);
+      if (example) delete draft.workedExamples[Number(example[1])]?.check;
     }
   }
   return { draft, applied };

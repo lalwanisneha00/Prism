@@ -98,12 +98,29 @@ describe("registry coverage", () => {
     }
   });
 
-  it("puts fitting widgets first in the prompt and lists only real PhET sims", () => {
+  it("offers only the widgets and PhET sims built for the topic", () => {
     const rules = visualPromptRules("gauss-law");
-    expect(rules.indexOf('"gauss-surface" (fits this topic)')).toBeLessThan(
-      rules.indexOf('"capacitor"'),
-    );
+    expect(rules).toContain('"gauss-surface"');
+    expect(rules).not.toContain('"capacitor"');
     expect(rules).toContain('"charges-and-fields"');
     expect(rules).not.toContain('"capacitor-lab-basics"');
+    // A topic with no widget still gets the generic visuals.
+    const plain = visualPromptRules("no-such-topic");
+    expect(plain).not.toContain('"type":"widget"');
+    expect(plain).toContain('"type":"plot"');
+  });
+
+  it("rejects a topic-specific widget used on another topic (enforced in code)", () => {
+    const visual = {
+      type: "widget" as const,
+      widget: "capacitor",
+      params: { areaCm2: 100, gapMm: 1, kappa: 1, voltage: 12 },
+      caption: "A capacitor.",
+    };
+    expect(visualProblem(visual, "capacitors")).toBeNull();
+    expect(visualProblem(visual, "gauss-law")).toMatch(/not valid for this topic/);
+    expect(visualProblem({ type: "phet", sim: "coulombs-law", caption: "x" }, "phasors")).toMatch(
+      /not valid for this topic/,
+    );
   });
 });

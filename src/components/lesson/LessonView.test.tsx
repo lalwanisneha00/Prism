@@ -8,7 +8,7 @@ import { validateLessonRequest } from "@/lib/lessonRequest";
 
 const lesson = sampleLessons[0];
 
-function render(level: string) {
+function render(level: string, shown = lesson) {
   const result = validateLessonRequest({
     subject: "em",
     chapter: lesson.meta.chapter,
@@ -17,7 +17,7 @@ function render(level: string) {
     duration: "10",
   });
   if (!result.ok) throw new Error("bad request");
-  return renderToStaticMarkup(<LessonView lesson={lesson} request={result.request} />);
+  return renderToStaticMarkup(<LessonView lesson={shown} request={result.request} />);
 }
 
 describe("LessonView", () => {
@@ -42,8 +42,21 @@ describe("LessonView", () => {
     expect(html).toContain('id="source-openstax-gauss"');
   });
 
+  it("shows the trust tier on every lesson, and a banner on limited ones", () => {
+    expect(render("first-encounter")).toContain("Sourced");
+    expect(render("first-encounter")).not.toContain("Limited sources, please verify");
+    const limited = { ...lesson, meta: { ...lesson.meta, tier: "limited" as const } };
+    const html = render("first-encounter", limited);
+    expect(html).toContain("Limited sources, please verify");
+    expect(html).toContain('href="/notes"');
+  });
+
+  it("marks worked examples whose answer the computer re-checked", () => {
+    expect(render("exam-prep")).toContain("Answer checked by computer");
+  });
+
   it("collapses the explanations for last-minute revision", () => {
-    expect(render("last-minute")).toContain("<details");
-    expect(render("first-encounter")).not.toContain("<details");
+    expect(render("last-minute")).toContain("explanation sections");
+    expect(render("first-encounter")).not.toContain("explanation sections");
   });
 });

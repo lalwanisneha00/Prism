@@ -89,9 +89,7 @@ describe("derivation visuals", () => {
 
   it("are offered in the prompt", () => {
     expect(visualPromptRules("taylor-maclaurin")).toContain('"type":"derivation"');
-    expect(visualPromptRules("taylor-maclaurin")).toContain(
-      '"taylor-polynomial" (fits this topic)',
-    );
+    expect(visualPromptRules("taylor-maclaurin")).toContain('"taylor-polynomial"');
   });
 });
 

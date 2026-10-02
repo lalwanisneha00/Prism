@@ -24,7 +24,7 @@ export function trimExtract(text: string, max = MAX_CHARS): string {
 export async function fetchWikipediaExtract(
   title: string,
   { signal, fetchImpl = fetch }: { signal?: AbortSignal; fetchImpl?: typeof fetch } = {},
-): Promise<string | null> {
+): Promise<string | null | false> {
   const cached = cache.get(title);
   if (cached) return cached;
 
@@ -45,7 +45,9 @@ export async function fetchWikipediaExtract(
     });
     if (!res.ok) return null;
     const page = ((await res.json()) as ExtractReply).query?.pages?.[0];
-    if (!page?.extract || page.missing) return null;
+    // `false` means Wikipedia says the article doesn't exist: the link is broken.
+    if (page?.missing) return false;
+    if (!page?.extract) return null;
     const excerpt = trimExtract(page.extract);
     cache.set(title, excerpt);
     return excerpt;

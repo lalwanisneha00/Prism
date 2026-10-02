@@ -37,6 +37,16 @@ describe("groundSources", () => {
     expect(book?.excerpt).toBeUndefined();
   });
 
+  it("drops a Wikipedia source whose article no longer exists", async () => {
+    const fetchImpl = vi.fn(async () =>
+      Response.json({ query: { pages: [{ title: "Gone", missing: true }] } }),
+    ) as unknown as typeof fetch;
+    const sources = sourcesForTopic("em", "motional-emf");
+    const grounded = await groundSources(sources, { fetchImpl });
+    expect(grounded.some((s) => s.publisher === "Wikipedia")).toBe(false);
+    expect(grounded.length).toBe(sources.filter((s) => s.publisher !== "Wikipedia").length);
+  });
+
   it("still returns every source when Wikipedia is unreachable", async () => {
     const fetchImpl = vi.fn(async () => {
       throw new TypeError("offline");

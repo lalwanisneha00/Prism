@@ -1,4 +1,6 @@
 import { curatedVideos } from "@/data/curatedLinks";
+import { dropFailedChecks, findAnswerProblems } from "@/lib/checks/answerCheck";
+import { effectiveTier } from "@/lib/tiers";
 import { findMathErrors } from "@/lib/checks/mathCheck";
 import { extractCompleteArrayItems, parseJsonReply } from "@/lib/jsonReply";
 import type { LessonEvent } from "@/lib/lessonEvents";
@@ -26,7 +28,11 @@ export type GenerateLessonOptions = {
 };
 
 /** The parts of a lesson the app decides itself, never the AI. */
-export function lessonMeta(request: LessonRequest, sources: Source[], now: Date): Lesson["meta"] {
+export function lessonMeta(
+  request: LessonRequest,
+  sources: GroundingSource[],
+  now: Date,
+): Lesson["meta"] {
   return {
     subject: request.subject.id,
     chapter: request.chapter.id,
@@ -43,6 +49,7 @@ export function lessonMeta(request: LessonRequest, sources: Source[], now: Date)
       kind: s.kind,
       license: s.license,
     })),
+    tier: effectiveTier(request.subject.tier, sources),
     ...(sources.some((s) => s.kind === "notes") ? { fromNotes: true } : {}),
   };
 }
@@ -74,6 +81,43 @@ export function stripCitationTags(value: unknown): unknown {
     );
   }
   return value;
+}
+
+/**
+ * A short answer written as bare LaTeX ("\frac{1}{2}") would show as raw text. When the
+ * string has no "$" at all, the whole thing is maths: wrap it, saving a repair round.
+ */
+export function wrapBareMath(text: string): string {
+  return text.length <= 160 && !text.includes("$") && /\\[a-zA-Z]{2,}/.test(text)
+    ? `$${text.trim()}$`
+    : text;
+}
+
+/** Applies wrapBareMath to quiz options/answers and worked-example answers (same rule for both, so they still match). */
+function wrapShortAnswers(body: unknown): unknown {
+  if (!body || typeof body !== "object") return body;
+  const copy = { ...(body as Record<string, unknown>) };
+  if (Array.isArray(copy.quiz)) {
+    copy.quiz = copy.quiz.map((q: unknown) => {
+      if (!q || typeof q !== "object") return q;
+      const item = { ...(q as Record<string, unknown>) };
+      if (typeof item.answer === "string") item.answer = wrapBareMath(item.answer);
+      if (Array.isArray(item.options)) {
+        item.options = item.options.map((o: unknown) =>
+          typeof o === "string" ? wrapBareMath(o) : o,
+        );
+      }
+      return item;
+    });
+  }
+  if (Array.isArray(copy.workedExamples)) {
+    copy.workedExamples = copy.workedExamples.map((w: unknown) =>
+      w && typeof w === "object" && typeof (w as { answer?: unknown }).answer === "string"
+        ? { ...w, answer: wrapBareMath((w as { answer: string }).answer) }
+        : w,
+    );
+  }
+  return copy;
 }
 
 /** Only the fact-check pass may set a section's Sourced/Verify badge, never the writer. */
@@ -137,7 +181,7 @@ export async function generateLesson(
 
     let body: unknown;
     try {
-      body = stripCitationTags(parseJsonReply(reply));
+      body = wrapShortAnswers(stripCitationTags(parseJsonReply(reply)));
     } catch (err) {
       lastProblems = [`the reply was not valid JSON (${(err as Error).message})`];
       currentPrompt = buildRepairPrompt(prompt, reply, lastProblems);
@@ -160,9 +204,16 @@ export async function generateLesson(
       // Deterministic checks: every formula must typeset and every visual must be drawable.
       // On the last attempt the lesson is still shown: broken formulas render in red and
       // undrawable visuals are removed, rather than showing nothing at all.
-      const problems = [...findMathErrors(result.lesson), ...findVisualProblems(result.lesson)];
+      const problems = [
+        ...findMathErrors(result.lesson),
+        ...findVisualProblems(result.lesson),
+        ...findAnswerProblems(result.lesson.workedExamples),
+      ];
       if (problems.length === 0) return result.lesson;
-      if (attempt === maxAttempts) return dropBadVisuals(result.lesson);
+      if (attempt === maxAttempts) {
+        const lesson = dropBadVisuals(result.lesson);
+        return { ...lesson, workedExamples: dropFailedChecks(lesson.workedExamples) };
+      }
       lastProblems = problems;
       currentPrompt = buildRepairPrompt(prompt, reply, lastProblems);
       continue;

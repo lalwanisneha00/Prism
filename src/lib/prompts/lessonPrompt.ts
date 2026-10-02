@@ -1,9 +1,16 @@
 import type { LessonRequest } from "@/lib/lessonRequest";
 import { levelGuides } from "@/lib/prompts/levelGuides";
 import type { Source } from "@/lib/schema";
+import { effectiveTier } from "@/lib/tiers";
 
 /** A source plus (from Step 7) the text excerpt the AI must ground its facts in. */
 export type GroundingSource = Source & { excerpt?: string };
+
+/**
+ * Bumped whenever the lesson prompt changes meaningfully: shared-library lessons written
+ * with an older version are treated as stale and rewritten (SPEC §6.1 rule 10).
+ */
+export const PROMPT_VERSION = "2026-10-03.1";
 
 /** Total words across all sections, scaled to the student's time budget. */
 export function sectionWordTarget(durationMin: number): string {
@@ -23,7 +30,7 @@ const jsonShape = `{
     "sourceIds": ["ids from SOURCES, at least one"]
   }],
   "analogies": [{ "concept": "...", "analogy": "...", "whereItBreaks": "..." }],
-  "workedExamples": [{ "problem": "...", "steps": ["...", "..."], "answer": "..." }],
+  "workedExamples": [{ "problem": "...", "steps": ["...", "..."], "answer": "...", "check": { "expression": "mathjs calculation", "answer": 0 } }],
   "misconceptions": [{ "wrong": "...", "right": "...", "why": "..." }],
   "quiz": [{
     "question": "...",
@@ -57,9 +64,10 @@ ${guide.approach.map((a) => `- ${a}`).join("\n")}
 
 ACCURACY RULES:
 - State only facts supported by the SOURCES below or by standard first-year university ${request.subject.field.toLowerCase()} textbooks.
-- If you must say something beyond the sources, write "(beyond the provided sources)" after it.
+- No source, no claim: if the SOURCES don't cover something a section needs, say plainly "This could not be verified from the provided sources." instead of filling the gap. Standard textbook definitions and formulas are fine; specific facts, figures, dates and history must come from the sources.
 - Cite with "sourceIds" using ONLY the ids listed in SOURCES. Never invent sources, URLs or references. Never write source ids or citation tags inside the text itself; the app shows citations from "sourceIds".
 - Every number in a worked example must be calculated correctly. Show the substitution step.
+- ANSWER CHECKS: for every worked example whose final answer is a number, add "check": {"expression": "<one mathjs expression that computes the answer from the problem's data>", "answer": <that number>}. The app re-computes it, so it must be exact. Allowed: + - * / ^, sqrt, exp, log (natural), log10, sin cos tan (radians), pi, e, abs, det([[a,b],[c,d]]), inv, max(eigs(M).values), sum, nintegrate("f(x)", "x", a, b), nderivative("f(x)", "x", x0). Write numbers plainly (5e-9). Omit "check" for proofs and symbolic answers.
 - Use SI units and correct significant figures.
 
 FORMAT RULES:
@@ -82,12 +90,20 @@ ${jsonShape}`;
     })
     .join("\n");
 
+  // Too little source text: a shorter, careful lesson (SPEC §6.1, "limited" tier).
+  const limited = effectiveTier(request.subject.tier, sources) === "limited";
+  const limitedRule = limited
+    ? `
+LIMITED SOURCES: almost no source text was found for this topic. Write a SHORT lesson (half the usual size), keep to core textbook definitions, and say clearly in the first section which parts could not be verified.
+`
+    : "";
   const hasNotes = sources.some((s) => s.kind === "notes");
   const notesRule = hasNotes
     ? `
 THE STUDENT'S OWN NOTES:
 - Sources with ids starting "notes-" are excerpts from the student's college notes. Follow their order, notation and emphasis, and cite them wherever you use them.
-- If the notes contradict the other sources, follow the other sources and gently point out the difference.
+- Your notes come first: build each section on them where they cover it, and cite other sources only for what they add.
+- If the notes and the other sources disagree, show both and say so plainly, e.g. "Your notes write X; the textbook writes Y." Never silently pick one.
 `
     : "";
 
@@ -110,7 +126,7 @@ SIZE:
 
 SOURCES (cite only these ids):
 ${sourceList}
-${notesRule}`;
+${notesRule}${limitedRule}`;
 
   return { system, prompt };
 }

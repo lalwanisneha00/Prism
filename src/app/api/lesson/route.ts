@@ -23,10 +23,10 @@ import { visualPromptRules } from "@/visuals/visualChecks";
 // Writing and checking a lesson can take a while on the free tier.
 export const maxDuration = 60;
 
-function providers(sources: ReturnType<typeof sourcesForTopic>): LlmProvider[] {
+function providers(sources: ReturnType<typeof sourcesForTopic>, topicId: string): LlmProvider[] {
   // LLM_PROVIDER=fake streams a canned lesson and fact-check: for testing without an API key.
   if (process.env.LLM_PROVIDER === "fake") {
-    const body = fakeLessonBody(sources);
+    const body = fakeLessonBody(sources, topicId);
     return [
       new FakeProvider(
         (options) =>
@@ -114,7 +114,7 @@ export async function POST(req: Request) {
             signal: req.signal,
           })),
         ];
-        const chain = providers(sources);
+        const chain = providers(sources, request.topic.id);
         const generate = (options: GenerateOptions) => generateJsonWithFallback(chain, options);
 
         const draft = await generateLesson(request, {

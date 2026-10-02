@@ -122,6 +122,8 @@ export const LessonSchema = z
       durationMin: z.int().positive(),
       createdAt: z.iso.datetime(),
       sources: z.array(SourceSchema).min(1),
+      /** How far this lesson can be trusted (SPEC §6.1); set by the app, never by the AI. */
+      tier: z.enum(["verified", "sourced", "limited"]).optional(),
       /** True when the lesson was grounded in the student's uploaded notes. */
       fromNotes: z.boolean().optional(),
     }),
@@ -129,7 +131,17 @@ export const LessonSchema = z
     prerequisites: z.array(z.object({ concept: text, oneLiner: text })),
     sections: z.array(SectionSchema).min(1),
     analogies: z.array(z.object({ concept: text, analogy: text, whereItBreaks: text })),
-    workedExamples: z.array(z.object({ problem: text, steps: z.array(text).min(1), answer: text })),
+    workedExamples: z.array(
+      z.object({
+        problem: text,
+        steps: z.array(text).min(1),
+        answer: text,
+        /** A calculation that reproduces a numeric answer, re-run by the server (SPEC §6.1 rule 7). */
+        check: z
+          .object({ expression: z.string().trim().min(1).max(300), answer: z.number() })
+          .optional(),
+      }),
+    ),
     misconceptions: z.array(z.object({ wrong: text, right: text, why: text })),
     quiz: z.array(QuizQuestionSchema).min(1),
     revisionSheet: z.object({

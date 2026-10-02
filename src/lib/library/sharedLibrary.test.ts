@@ -1,3 +1,4 @@
+import { PROMPT_VERSION } from "@/lib/prompts/lessonPrompt";
 import { describe, expect, it } from "vitest";
 import { sampleLessons } from "@/data/sampleLessons";
 import { gunzipJson, gzipJson } from "@/lib/compress";
@@ -40,6 +41,17 @@ describe("shared library", () => {
     const doc = store.docs.get("em_gauss-law_first-encounter_10")!;
     expect(doc).toMatchObject({ topic: "gauss-law", level: "first-encounter", durationMin: 10 });
     expect(await readFromLibrary(store, "em_gauss-law_first-encounter_10")).toEqual(lesson);
+  });
+
+  it("records tier, sources and prompt version, and treats older prompts as stale", async () => {
+    const store = memoryStore();
+    await writeToLibrary(store, lesson);
+    const key = libraryKey(lesson.meta);
+    const doc = store.docs.get(key)!;
+    expect(doc.promptVersion).toBe(PROMPT_VERSION);
+    expect(doc.sourceIds).toEqual(lesson.meta.sources.map((s) => s.id));
+    store.docs.set(key, { ...doc, promptVersion: "2025-01-01.1" });
+    expect(await readFromLibrary(store, key)).toBeNull();
   });
 
   it("returns null for a missing or broken entry", async () => {

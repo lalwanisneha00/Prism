@@ -41,6 +41,9 @@ export function SectionView({
     .map((id) => ({ id, number: sources.findIndex((s) => s.id === id) + 1 }))
     .filter((c) => c.number > 0);
   const fromNotes = cited.some((c) => sources[c.number - 1].kind === "notes");
+  // In a lesson built from the student's notes, say which parts come from elsewhere.
+  const notesLesson = sources.some((s) => s.kind === "notes");
+  const outside = notesLesson && cited.some((c) => sources[c.number - 1].kind !== "notes");
 
   return (
     <Card className="flex flex-col gap-4">
@@ -57,6 +60,11 @@ export function SectionView({
           {fromNotes && (
             <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold whitespace-nowrap text-primary">
               📒 From your notes
+            </span>
+          )}
+          {outside && (
+            <span className="rounded-full bg-surface-2 px-2 py-0.5 text-xs font-semibold whitespace-nowrap text-muted">
+              📚 {fromNotes ? "+ outside sources" : "Outside sources"}
             </span>
           )}
         </div>

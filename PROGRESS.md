@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 9 (Trust tiers & accuracy guards). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 · Step 10 (Generic visual toolkit part 1 + visual planner). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -31,7 +31,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 6    | Engineering Mathematics + visuals part 2     | ✅ Done        |
 | 7    | Interaction tools                            | ✅ Done        |
 | 8    | Prerequisite concept map                     | ✅ Done        |
-| 9    | Trust tiers & accuracy guards                | ⬜ Not started |
+| 9    | Trust tiers & accuracy guards                | ✅ Done        |
 | 10   | Generic visual toolkit part 1 + planner      | ⬜ Not started |
 | 11   | Flashcards + spaced repetition               | ⬜ Not started |
 | 12   | Highlights & comments                        | ⬜ Not started |
@@ -84,6 +84,17 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 
 - Prerequisites are data: each topic's `requires` list in the subject JSON (84 topics linked; a test checks every id exists and there are no cycles). Pure graph logic in `src/lib/conceptMap.ts` (layers, neighbourhood, statuses from the latest quiz/worksheet score, "revise first" gaps).
 - Lessons (all levels except Last-Minute) have a "Concept map" block: two steps back, one forward, colour-coded by status, every node opens that topic at the same level and length; a weak prerequisite shows "Revise first". `/map?subject=…` shows the whole subject in layers (linked from the dashboard and account menu). On phones the layers stack with ↓ instead of arrows.
+
+## V2 · Step 9 notes
+
+- Each subject JSON has a `tier`; both are `sourced` until their golden sets pass >= 95% (Step 14 flips them to `verified`). A lesson drops to `limited` when retrieval found no source text (`src/lib/tiers.ts`): the prompt asks for a short, careful lesson and the page shows a banner with "upload your own notes". Every lesson shows its tier badge (tap for what it means).
+- No source, no claim: the prompt now says "This could not be verified from the provided sources." instead of filling gaps; a Wikipedia source whose article is missing is dropped (`groundSources`).
+- Widget safety is enforced in code: `visualProblem(visual, topicId)` rejects widgets/PhET not built for the topic, and the prompt only lists the fitting ones.
+- Answer checks (SPEC §6.1 rule 7): worked examples with a numeric answer carry `check: {expression, answer}`; the server evaluates it in a locked-down mathjs (custom `nintegrate`/`nderivative`; import/evaluate/parse etc. disabled) and compares with the written answer (decimals, `\frac`/`\sqrt`/`\ln`/pi and SI prefixes understood). Mismatches go to the repair loop; on the last try a contradicted example is removed. A fact-check correction to an example removes its check. Checked examples show "✓ Answer checked by computer".
+- Notes lessons: sections say "📒 From your notes" and/or "📚 Outside sources"; disagreements are written out as "your notes write X; the textbook writes Y".
+- Shared library docs store `promptVersion`, `tier`, `sourceIds`; a different `PROMPT_VERSION` makes a library lesson stale (regenerated and overwritten on the next request). Saved copies in a student's library are not affected.
+- Short bare-LaTeX quiz options/answers are wrapped in `$…$` in code (saves a repair round).
+- Real Gemini (2026-10-03): definite integrals (Exam Prep) produced checks for 3 of 4 examples (the symbolic one correctly had none), all passing; a capacitor lesson's 4 checks all passed after one repair.
 
 ## Known issues / leftovers
 

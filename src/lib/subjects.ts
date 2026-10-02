@@ -19,6 +19,8 @@ export const SubjectSchema = z.object({
   id: slug,
   name: z.string().min(1),
   field: z.string().min(1),
+  /** Trust tier (SPEC §6.1): "verified" only once the subject's golden set passes ≥ 95%. */
+  tier: z.enum(["verified", "sourced", "limited"]),
   chapters: z.array(ChapterSchema).min(1),
 });
 

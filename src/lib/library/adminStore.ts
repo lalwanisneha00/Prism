@@ -8,7 +8,9 @@ export function adminLibraryStore(db: Firestore): LibraryStore {
     async get(key) {
       const snap = await lessons.doc(key).get();
       const data = snap.data();
-      return data?.lessonGz ? { lessonGz: new Uint8Array(data.lessonGz) } : null;
+      if (!data?.lessonGz) return null;
+      const promptVersion = typeof data.promptVersion === "string" ? data.promptVersion : undefined;
+      return { lessonGz: new Uint8Array(data.lessonGz), promptVersion };
     },
     async set(key, doc) {
       await lessons.doc(key).set({ ...doc, lessonGz: Buffer.from(doc.lessonGz) });
