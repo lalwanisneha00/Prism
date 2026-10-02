@@ -2,11 +2,12 @@
 
 import { useEffect, useState, type RefObject } from "react";
 import { ExplainAnswer } from "@/components/explain/ExplainAnswer";
+import { SelectionCardEditor } from "@/components/flashcards/SelectionCardEditor";
 import { useExplain, useLesson } from "@/components/explain/useExplain";
 import { MAX_SELECTION } from "@/lib/explain/explain";
 
 type Selected = { text: string; left: number; top: number };
-type Asked = { action: "explain" | "define"; text: string };
+type Asked = { action: "explain" | "define" | "card"; text: string };
 
 /**
  * Select any text in the lesson → a small toolbar offers "Explain" and "Define".
@@ -38,7 +39,7 @@ export function SelectionPopup({ container }: { container: RefObject<HTMLElement
         const below = rect.bottom + 56 < window.innerHeight;
         setSelected({
           text,
-          left: Math.min(Math.max(12, rect.left + rect.width / 2 - 100), window.innerWidth - 212),
+          left: Math.min(Math.max(12, rect.left + rect.width / 2 - 160), window.innerWidth - 332),
           top: below ? rect.bottom + 10 : Math.max(8, rect.top - 52),
         });
       }, 250);
@@ -58,7 +59,8 @@ export function SelectionPopup({ container }: { container: RefObject<HTMLElement
   function ask(action: Asked["action"], text: string) {
     setAsked({ action, text });
     setSelected(null);
-    void run({ action, selection: text });
+    // A flashcard's back starts as a short definition of the selection.
+    void run({ action: action === "card" ? "define" : action, selection: text });
   }
 
   return (
@@ -86,18 +88,36 @@ export function SelectionPopup({ container }: { container: RefObject<HTMLElement
           >
             📖 Define
           </button>
+          <button
+            type="button"
+            onClick={() => ask("card", selected.text)}
+            className="rounded-full px-3 py-1.5 text-sm font-semibold hover:bg-surface-2"
+          >
+            ＋ Flashcard
+          </button>
         </div>
       )}
 
       {asked && state.status !== "idle" && (
         <aside
-          aria-label={asked.action === "define" ? "Definition" : "Explanation"}
+          aria-label={
+            asked.action === "card"
+              ? "New flashcard"
+              : asked.action === "define"
+                ? "Definition"
+                : "Explanation"
+          }
           className="fixed inset-x-3 bottom-3 z-50 max-h-[60vh] overflow-y-auto rounded-2xl border border-border bg-surface p-4 shadow-xl sm:inset-x-auto sm:right-6 sm:bottom-6 sm:w-[26rem]"
         >
           <div className="mb-2 flex items-start justify-between gap-3">
             <p className="text-sm">
               <span className="font-semibold text-primary">
-                {asked.action === "define" ? "📖 Define" : "💡 Explain"}:
+                {asked.action === "card"
+                  ? "🃏 New flashcard"
+                  : asked.action === "define"
+                    ? "📖 Define"
+                    : "💡 Explain"}
+                :
               </span>{" "}
               <span className="text-muted">
                 “{asked.text.length > 90 ? `${asked.text.slice(0, 90)}…` : asked.text}”
@@ -115,7 +135,17 @@ export function SelectionPopup({ container }: { container: RefObject<HTMLElement
               ✕
             </button>
           </div>
-          <ExplainAnswer state={state} onRetry={() => ask(asked.action, asked.text)} />
+          {asked.action === "card" ? (
+            <SelectionCardEditor
+              key={asked.text}
+              selection={asked.text}
+              lesson={lesson}
+              definition={state}
+              onRetry={() => ask("card", asked.text)}
+            />
+          ) : (
+            <ExplainAnswer state={state} onRetry={() => ask(asked.action, asked.text)} />
+          )}
         </aside>
       )}
     </>

@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 11 (Flashcards + spaced repetition). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 · Step 12 (Highlights & comments). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -33,7 +33,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 8    | Prerequisite concept map                     | ✅ Done        |
 | 9    | Trust tiers & accuracy guards                | ✅ Done        |
 | 10   | Generic visual toolkit part 1 + planner      | ✅ Done        |
-| 11   | Flashcards + spaced repetition               | ⬜ Not started |
+| 11   | Flashcards + spaced repetition               | ✅ Done        |
 | 12   | Highlights & comments                        | ⬜ Not started |
 | 13   | Backlog planner & progress tracker           | ⬜ Not started |
 | 14   | Export & eval (golden sets, accuracy page)   | ⬜ Not started |
@@ -115,6 +115,20 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 - **Stats:** normal curve (move μ and σ; the shaded probability updates, 68.3% at the start); sampling (switch to "skewed", raise n from 2 to 30 and watch the histogram turn bell-shaped); regression (drag a point, or Tab to it and press arrow keys, and watch r fall from 0.999).
 - **Compare:** table, Venn (two circles plus three lists), pros/cons, before/after. **Diagrams:** mind map, sequence, state, Gantt.
 - **Edge case:** switch to light mode and to a 375px-wide window: everything fits with no sideways scrolling.
+
+## V2 · Step 11 notes
+
+- `flashcards` is a synced collection (IndexedDB v4 → `users/{uid}/flashcards`, in backups). Scheduling is SM-2 (`src/lib/flashcards/srs.ts`, tested): Again → 10 min, new cards 1 day (Easy 4), then 6 days, then ×ease.
+- Cards come from: a lesson's glossary, quiz and common mistakes (🃏 Flashcards (N) in the lesson header, no AI, de-duplicated by a stable id); "＋ Flashcard" in the selection popup (front from the selection, back pre-filled with an AI definition, both editable); or "Add your own card" on `/flashcards`.
+- `/flashcards`: due / reviewed / total, subject filter, flip with Space, rate with 1–4 (each button shows the next interval), list to edit or delete. Dashboard shows "N due now"; account menu links to it.
+
+### ✅ Check this (Step 11)
+
+- Open a Gauss's law lesson → press **🃏 Flashcards (13)** → "✓ 13 cards added"; press again → "You already have these 13 cards".
+- Select a phrase in a lesson → **＋ Flashcard** → the back fills in with a short definition → **Save flashcard**.
+- Go to **/flashcards** (or Dashboard → "Flashcards due today") → Space shows the answer → press 3 (Good) → "Due now" drops by one. Press 1 (Again) on another and it comes back in 10 minutes.
+- Sign in on a second device: the same cards and due dates appear (synced).
+- Edge case: on a private window with storage blocked, the page says flashcards can't be kept instead of breaking.
 
 ## Known issues / leftovers
 

@@ -70,6 +70,27 @@ export type StoredNote = {
 /** What syncs about an uploaded note: its name and a short summary, never the text. */
 export type NoteSummary = SyncFields & { name: string; pages: number; summary: string };
 
+/** A flashcard with its spaced-repetition state (V2 · Step 11). */
+export type Flashcard = SyncFields & {
+  /** Markdown with KaTeX. */
+  front: string;
+  back: string;
+  subject: string;
+  chapter: string;
+  topic: string;
+  /** What made it: a lesson's glossary/quiz/mistakes, a text selection, or the student. */
+  origin: "glossary" | "quiz" | "misconception" | "selection" | "manual" | "highlight";
+  createdAt: number;
+  srs: {
+    due: number;
+    interval: number;
+    ease: number;
+    reps: number;
+    lapses: number;
+    lastReviewed?: number;
+  };
+};
+
 /** Every collection that syncs to users/{uid}/{collection}/{id}. */
 export type SyncedRecords = {
   savedLessons: SavedLesson;
@@ -78,6 +99,7 @@ export type SyncedRecords = {
   audioPositions: AudioPosition;
   settings: AppSettings;
   noteSummaries: NoteSummary;
+  flashcards: Flashcard;
 };
 export type SyncedCollection = keyof SyncedRecords;
 export const SYNCED_COLLECTIONS: SyncedCollection[] = [
@@ -87,6 +109,7 @@ export const SYNCED_COLLECTIONS: SyncedCollection[] = [
   "audioPositions",
   "settings",
   "noteSummaries",
+  "flashcards",
 ];
 
 /** A local change waiting to be sent to the cloud. */
@@ -105,12 +128,13 @@ interface PrismDB extends DBSchema {
   settings: { key: string; value: AppSettings };
   noteSummaries: { key: string; value: NoteSummary };
   notes: { key: string; value: StoredNote };
+  flashcards: { key: string; value: Flashcard };
   outbox: { key: string; value: OutboxEntry };
   meta: { key: string; value: { key: string; value: unknown } };
 }
 
 const DB_NAME = "prism";
-const DB_VERSION = 3;
+const DB_VERSION = 4;
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -136,6 +160,10 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
       if (oldVersion < 3) {
         db.createObjectStore("notes", { keyPath: "id" });
         db.createObjectStore("noteSummaries", { keyPath: "id" });
+      }
+      // Version 4 (flashcards): synced like the rest.
+      if (oldVersion < 4) {
+        db.createObjectStore("flashcards", { keyPath: "id" });
       }
     },
   });

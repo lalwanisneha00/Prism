@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { AudioLesson } from "@/components/audio/AudioLesson";
 import { InteractiveLesson } from "@/components/explain/InteractiveLesson";
+import { MakeFlashcardsButton } from "@/components/flashcards/MakeFlashcardsButton";
 import { LessonConceptMap } from "@/components/map/LessonConceptMap";
 import { LessonBlockShell } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
@@ -100,7 +101,10 @@ export function LessonView({
               {lesson.meta.durationMin} min
             </li>
           </ul>
-          <SaveLessonButton lesson={lesson} libraryKey={libraryKey} />
+          <div className="flex flex-wrap items-center gap-2">
+            <MakeFlashcardsButton lesson={lesson} />
+            <SaveLessonButton lesson={lesson} libraryKey={libraryKey} />
+          </div>
         </div>
         <TierBadge tier={tier} />
         {tier === "limited" && <LimitedBanner />}

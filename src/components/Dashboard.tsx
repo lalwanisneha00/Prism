@@ -1,5 +1,7 @@
 "use client";
 
+import { dueCards, listCards } from "@/lib/flashcards/cards";
+import type { Flashcard } from "@/lib/storage/db";
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { useAuth } from "@/components/account/AuthProvider";
@@ -9,7 +11,12 @@ import type { AudioPosition, QuizAttempt, RecentTopic } from "@/lib/storage/db";
 import { listRecent } from "@/lib/storage/library";
 import { listAudioPositions, listQuizAttempts, weakTopics } from "@/lib/storage/progress";
 
-type Data = { recent: RecentTopic[]; positions: AudioPosition[]; attempts: QuizAttempt[] };
+type Data = {
+  recent: RecentTopic[];
+  positions: AudioPosition[];
+  attempts: QuizAttempt[];
+  cards: Flashcard[];
+};
 
 const lessonHref = (t: {
   subject: string;
@@ -36,6 +43,31 @@ const Empty = ({ children }: { children: ReactNode }) => (
   <p className="text-sm text-muted">{children}</p>
 );
 
+function FlashcardsDue({ cards }: { cards: Flashcard[] }) {
+  // Read the clock once when the dashboard opens.
+  const [now] = useState(() => Date.now());
+  if (cards.length === 0) {
+    return (
+      <Empty>
+        No cards yet. Open a lesson and press <b>🃏 Flashcards</b>.
+      </Empty>
+    );
+  }
+  const due = dueCards(cards, now).length;
+  return (
+    <Link
+      href="/flashcards"
+      className="flex items-center justify-between gap-3 rounded-xl bg-primary-soft p-4 hover:opacity-90"
+    >
+      <span>
+        <span className="text-2xl font-bold">{due}</span>{" "}
+        <span className="text-sm">due now · {cards.length} cards in total</span>
+      </span>
+      <span className="font-semibold text-primary">{due ? "Review →" : "All caught up ✓"}</span>
+    </Link>
+  );
+}
+
 /** "My study dashboard" (SPEC §9.7), built from this device's copy of the student's data. */
 export function Dashboard() {
   const { status, user, signIn, dataVersion } = useAuth();
@@ -43,8 +75,10 @@ export function Dashboard() {
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    Promise.all([listRecent(20), listAudioPositions(), listQuizAttempts()])
-      .then(([recent, positions, attempts]) => setData({ recent, positions, attempts }))
+    Promise.all([listRecent(20), listAudioPositions(), listQuizAttempts(), listCards()])
+      .then(([recent, positions, attempts, cards]) =>
+        setData({ recent, positions, attempts, cards }),
+      )
       .catch(() => setFailed(true));
   }, [dataVersion]);
 
@@ -155,9 +189,7 @@ export function Dashboard() {
         </Card>
 
         <Card title="Flashcards due today">
-          <Empty>
-            Flashcards are coming soon: lessons you study now will be ready to turn into cards.
-          </Empty>
+          <FlashcardsDue cards={data.cards} />
         </Card>
 
         <Card title="Recent mock test scores">
