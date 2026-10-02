@@ -2,28 +2,28 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V1 built and tested (2026-10-02). Waiting on the user for: GEMINI_API_KEY, Vercel deploy, first real `npm run eval`. Next: V2 · Step 1 after V1 sign-off.
+**Current:** V1 signed off by the user (2026-10-02). V2 · Step 1 (Accounts, cloud sync & shared lesson library): waiting for the user to create the Firebase project.
 
 ## Version 1: Foundation
 
-| Step | Title                  | Status   | Date       | Notes                                                                                                                                                        |
-| ---- | ---------------------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1    | Project setup          | ✅ Done  | 2026-10-02 | Next 16.3, Tailwind 4, ESLint 9 + Prettier, Vitest 5. Pushed to GitHub.                                                                                      |
-| 2    | Design system & layout | ✅ Done  | 2026-10-02 | Tokens in globals.css, data-theme dark mode, header, hero, footer.                                                                                           |
-| 3    | Topic picker           | ✅ Done  | 2026-10-02 | em.json (7 chapters, 43 topics), levels + durations config, /lesson summary page.                                                                            |
-| 4    | Lesson schema + search | ✅ Done  | 2026-10-02 | schema.ts (Zod + cross-checks), Gauss sample lesson, topic search box (user request)                                                                         |
-| 5    | Lesson page renderer   | ✅ Done  | 2026-10-02 | Level-specific layouts (levelLayouts.ts), KaTeX, step-by-step examples, quiz.                                                                                |
-| 6    | AI integration         | ✅ Done  | 2026-10-02 | /api/lesson NDJSON stream, Gemini→Groq chain, per-level prompts, Zod + repair retries, LLM_PROVIDER=fake for testing.                                        |
-| 7    | Sources & grounding    | ✅ Done  | 2026-10-02 | em-sources.json (all 43 topics, links verified), Wikipedia excerpts, KaTeX check, AI fact-check pass, Sourced/Verify badges.                                 |
-| 8    | Visual library part 1  | ✅ Done  | 2026-10-02 | 8 widgets (src/visuals), physics.ts tested, 11 PhET sims, safe plot parser, Mermaid (strict), Commons images, /dev/visuals gallery.                          |
-| 9    | Audio (read-aloud)     | ✅ Done  | 2026-10-02 | /api/audio writes chapter-by-chapter narration (140 wpm); Web Speech player with ±15s, speed, voice, chapters, highlight, resume.                            |
-| 10   | Save, polish, deploy   | 🟡 Built | 2026-10-02 | IndexedDB library + recent topics (sync-ready records), 404/error pages, "/" shortcut, 15-topic golden set + npm run eval. Deploy + real eval need the user. |
+| Step | Title                  | Status  | Date       | Notes                                                                                                                                                        |
+| ---- | ---------------------- | ------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1    | Project setup          | ✅ Done | 2026-10-02 | Next 16.3, Tailwind 4, ESLint 9 + Prettier, Vitest 5. Pushed to GitHub.                                                                                      |
+| 2    | Design system & layout | ✅ Done | 2026-10-02 | Tokens in globals.css, data-theme dark mode, header, hero, footer.                                                                                           |
+| 3    | Topic picker           | ✅ Done | 2026-10-02 | em.json (7 chapters, 43 topics), levels + durations config, /lesson summary page.                                                                            |
+| 4    | Lesson schema + search | ✅ Done | 2026-10-02 | schema.ts (Zod + cross-checks), Gauss sample lesson, topic search box (user request)                                                                         |
+| 5    | Lesson page renderer   | ✅ Done | 2026-10-02 | Level-specific layouts (levelLayouts.ts), KaTeX, step-by-step examples, quiz.                                                                                |
+| 6    | AI integration         | ✅ Done | 2026-10-02 | /api/lesson NDJSON stream, Gemini→Groq chain, per-level prompts, Zod + repair retries, LLM_PROVIDER=fake for testing.                                        |
+| 7    | Sources & grounding    | ✅ Done | 2026-10-02 | em-sources.json (all 43 topics, links verified), Wikipedia excerpts, KaTeX check, AI fact-check pass, Sourced/Verify badges.                                 |
+| 8    | Visual library part 1  | ✅ Done | 2026-10-02 | 8 widgets (src/visuals), physics.ts tested, 11 PhET sims, safe plot parser, Mermaid (strict), Commons images, /dev/visuals gallery.                          |
+| 9    | Audio (read-aloud)     | ✅ Done | 2026-10-02 | /api/audio writes chapter-by-chapter narration (140 wpm); Web Speech player with ±15s, speed, voice, chapters, highlight, resume.                            |
+| 10   | Save, polish, deploy   | ✅ Done | 2026-10-02 | IndexedDB library + recent topics (sync-ready records), 404/error pages, "/" shortcut, 15-topic golden set + npm run eval. Deploy + real eval need the user. |
 
 ## Version 2: Personal & powerful
 
 | Step | Title                                        | Status         |
 | ---- | -------------------------------------------- | -------------- |
-| 1    | Accounts, cloud sync & shared lesson library | ⬜ Not started |
+| 1    | Accounts, cloud sync & shared lesson library | 🟡 In progress |
 | 2    | All 6 levels                                 | ⬜ Not started |
 | 3    | Long audio                                   | ⬜ Not started |
 | 4    | PDF upload + retrieval                       | ⬜ Not started |
