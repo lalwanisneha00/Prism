@@ -7,85 +7,256 @@
       "id": "electrostatics",
       "name": "Electrostatics",
       "topics": [
-        { "id": "coulombs-law", "name": "Electric charge and Coulomb's law" },
-        { "id": "electric-field", "name": "Electric field and field lines" },
-        { "id": "electric-dipole", "name": "Electric dipole" },
-        { "id": "electric-flux", "name": "Electric flux" },
-        { "id": "gauss-law", "name": "Gauss's law" },
-        { "id": "gauss-law-applications", "name": "Applications of Gauss's law" },
-        { "id": "electric-potential", "name": "Electric potential and potential energy" },
-        { "id": "equipotential-surfaces", "name": "Equipotential surfaces" }
+        {
+          "id": "coulombs-law",
+          "name": "Electric charge and Coulomb's law"
+        },
+        {
+          "id": "electric-field",
+          "name": "Electric field and field lines",
+          "requires": ["coulombs-law"]
+        },
+        {
+          "id": "electric-dipole",
+          "name": "Electric dipole",
+          "requires": ["electric-field"]
+        },
+        {
+          "id": "electric-flux",
+          "name": "Electric flux",
+          "requires": ["electric-field"]
+        },
+        {
+          "id": "gauss-law",
+          "name": "Gauss's law",
+          "requires": ["electric-flux"]
+        },
+        {
+          "id": "gauss-law-applications",
+          "name": "Applications of Gauss's law",
+          "requires": ["gauss-law"]
+        },
+        {
+          "id": "electric-potential",
+          "name": "Electric potential and potential energy",
+          "requires": ["electric-field"]
+        },
+        {
+          "id": "equipotential-surfaces",
+          "name": "Equipotential surfaces",
+          "requires": ["electric-potential"]
+        }
       ]
     },
     {
       "id": "capacitance",
       "name": "Capacitance and Dielectrics",
       "topics": [
-        { "id": "capacitors", "name": "Capacitors and capacitance" },
-        { "id": "parallel-plate-capacitor", "name": "Parallel-plate capacitor" },
-        { "id": "capacitor-combinations", "name": "Capacitors in series and parallel" },
-        { "id": "capacitor-energy", "name": "Energy stored in a capacitor" },
-        { "id": "dielectrics", "name": "Dielectrics and polarization" }
+        {
+          "id": "capacitors",
+          "name": "Capacitors and capacitance",
+          "requires": ["electric-potential"]
+        },
+        {
+          "id": "parallel-plate-capacitor",
+          "name": "Parallel-plate capacitor",
+          "requires": ["capacitors", "gauss-law-applications"]
+        },
+        {
+          "id": "capacitor-combinations",
+          "name": "Capacitors in series and parallel",
+          "requires": ["capacitors"]
+        },
+        {
+          "id": "capacitor-energy",
+          "name": "Energy stored in a capacitor",
+          "requires": ["capacitors"]
+        },
+        {
+          "id": "dielectrics",
+          "name": "Dielectrics and polarization",
+          "requires": ["parallel-plate-capacitor"]
+        }
       ]
     },
     {
       "id": "current-electricity",
       "name": "Current Electricity",
       "topics": [
-        { "id": "current-drift-velocity", "name": "Electric current and drift velocity" },
-        { "id": "ohms-law", "name": "Ohm's law, resistance and resistivity" },
-        { "id": "resistor-combinations", "name": "Resistors in series and parallel" },
-        { "id": "kirchhoffs-laws", "name": "Kirchhoff's laws" },
-        { "id": "electrical-power", "name": "Electrical power and energy" },
-        { "id": "rc-circuits", "name": "RC circuits: charging and discharging" }
+        {
+          "id": "current-drift-velocity",
+          "name": "Electric current and drift velocity",
+          "requires": ["electric-field"]
+        },
+        {
+          "id": "ohms-law",
+          "name": "Ohm's law, resistance and resistivity",
+          "requires": ["current-drift-velocity", "electric-potential"]
+        },
+        {
+          "id": "resistor-combinations",
+          "name": "Resistors in series and parallel",
+          "requires": ["ohms-law"]
+        },
+        {
+          "id": "kirchhoffs-laws",
+          "name": "Kirchhoff's laws",
+          "requires": ["resistor-combinations"]
+        },
+        {
+          "id": "electrical-power",
+          "name": "Electrical power and energy",
+          "requires": ["ohms-law"]
+        },
+        {
+          "id": "rc-circuits",
+          "name": "RC circuits: charging and discharging",
+          "requires": ["kirchhoffs-laws", "capacitors"]
+        }
       ]
     },
     {
       "id": "magnetostatics",
       "name": "Magnetic Effects of Current",
       "topics": [
-        { "id": "lorentz-force", "name": "Magnetic field and the Lorentz force" },
-        { "id": "force-on-wire", "name": "Force on a current-carrying wire" },
-        { "id": "biot-savart-law", "name": "Biot–Savart law" },
-        { "id": "amperes-law", "name": "Ampère's circuital law" },
-        { "id": "solenoid-toroid", "name": "Magnetic field of a solenoid and toroid" },
-        { "id": "magnetic-materials", "name": "Dia-, para- and ferromagnetic materials" }
+        {
+          "id": "lorentz-force",
+          "name": "Magnetic field and the Lorentz force",
+          "requires": ["electric-field"]
+        },
+        {
+          "id": "force-on-wire",
+          "name": "Force on a current-carrying wire",
+          "requires": ["lorentz-force", "current-drift-velocity"]
+        },
+        {
+          "id": "biot-savart-law",
+          "name": "Biot–Savart law",
+          "requires": ["force-on-wire"]
+        },
+        {
+          "id": "amperes-law",
+          "name": "Ampère's circuital law",
+          "requires": ["biot-savart-law"]
+        },
+        {
+          "id": "solenoid-toroid",
+          "name": "Magnetic field of a solenoid and toroid",
+          "requires": ["amperes-law"]
+        },
+        {
+          "id": "magnetic-materials",
+          "name": "Dia-, para- and ferromagnetic materials",
+          "requires": ["solenoid-toroid"]
+        }
       ]
     },
     {
       "id": "induction",
       "name": "Electromagnetic Induction",
       "topics": [
-        { "id": "magnetic-flux", "name": "Magnetic flux" },
-        { "id": "faradays-law", "name": "Faraday's law of induction" },
-        { "id": "lenzs-law", "name": "Lenz's law" },
-        { "id": "motional-emf", "name": "Motional EMF" },
-        { "id": "inductance", "name": "Self and mutual inductance" },
-        { "id": "eddy-currents", "name": "Eddy currents" },
-        { "id": "ac-generator", "name": "AC generator" }
+        {
+          "id": "magnetic-flux",
+          "name": "Magnetic flux",
+          "requires": ["biot-savart-law", "electric-flux"]
+        },
+        {
+          "id": "faradays-law",
+          "name": "Faraday's law of induction",
+          "requires": ["magnetic-flux"]
+        },
+        {
+          "id": "lenzs-law",
+          "name": "Lenz's law",
+          "requires": ["faradays-law"]
+        },
+        {
+          "id": "motional-emf",
+          "name": "Motional EMF",
+          "requires": ["faradays-law", "lorentz-force"]
+        },
+        {
+          "id": "inductance",
+          "name": "Self and mutual inductance",
+          "requires": ["faradays-law", "solenoid-toroid"]
+        },
+        {
+          "id": "eddy-currents",
+          "name": "Eddy currents",
+          "requires": ["lenzs-law"]
+        },
+        {
+          "id": "ac-generator",
+          "name": "AC generator",
+          "requires": ["motional-emf"]
+        }
       ]
     },
     {
       "id": "alternating-current",
       "name": "Alternating Current",
       "topics": [
-        { "id": "ac-rms", "name": "AC voltage, current and RMS values" },
-        { "id": "phasors", "name": "Phasors" },
-        { "id": "impedance", "name": "Reactance and impedance (RL, RC, LCR)" },
-        { "id": "lcr-resonance", "name": "Resonance in an LCR circuit" },
-        { "id": "power-factor", "name": "Power in AC circuits and power factor" },
-        { "id": "transformers", "name": "Transformers" }
+        {
+          "id": "ac-rms",
+          "name": "AC voltage, current and RMS values",
+          "requires": ["ac-generator", "electrical-power"]
+        },
+        {
+          "id": "phasors",
+          "name": "Phasors",
+          "requires": ["ac-rms"]
+        },
+        {
+          "id": "impedance",
+          "name": "Reactance and impedance (RL, RC, LCR)",
+          "requires": ["phasors", "inductance", "capacitors"]
+        },
+        {
+          "id": "lcr-resonance",
+          "name": "Resonance in an LCR circuit",
+          "requires": ["impedance"]
+        },
+        {
+          "id": "power-factor",
+          "name": "Power in AC circuits and power factor",
+          "requires": ["impedance"]
+        },
+        {
+          "id": "transformers",
+          "name": "Transformers",
+          "requires": ["inductance", "ac-rms"]
+        }
       ]
     },
     {
       "id": "em-waves",
       "name": "Maxwell's Equations and EM Waves",
       "topics": [
-        { "id": "displacement-current", "name": "Displacement current" },
-        { "id": "maxwells-equations", "name": "Maxwell's equations" },
-        { "id": "em-waves", "name": "Electromagnetic waves" },
-        { "id": "em-spectrum", "name": "The electromagnetic spectrum" },
-        { "id": "poynting-vector", "name": "Energy in EM waves and the Poynting vector" }
+        {
+          "id": "displacement-current",
+          "name": "Displacement current",
+          "requires": ["amperes-law", "capacitors"]
+        },
+        {
+          "id": "maxwells-equations",
+          "name": "Maxwell's equations",
+          "requires": ["displacement-current", "faradays-law", "gauss-law"]
+        },
+        {
+          "id": "em-waves",
+          "name": "Electromagnetic waves",
+          "requires": ["maxwells-equations"]
+        },
+        {
+          "id": "em-spectrum",
+          "name": "The electromagnetic spectrum",
+          "requires": ["em-waves"]
+        },
+        {
+          "id": "poynting-vector",
+          "name": "Energy in EM waves and the Poynting vector",
+          "requires": ["em-waves"]
+        }
       ]
     }
   ]

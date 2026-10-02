@@ -43,6 +43,11 @@ type AuthContextValue = {
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
+/** The data version only (0 outside an AuthProvider, e.g. in tests): bumps when synced data changes. */
+export function useDataVersion(): number {
+  return useContext(AuthContext)?.dataVersion ?? 0;
+}
+
 export function useAuth(): AuthContextValue {
   const value = useContext(AuthContext);
   if (!value) throw new Error("useAuth must be used inside <AuthProvider>");

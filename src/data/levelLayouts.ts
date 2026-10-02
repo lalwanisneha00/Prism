@@ -11,7 +11,9 @@ export type LessonBlock =
   | "revisionSheet"
   | "furtherLearning"
   /** Exam worksheet and past-paper (PYQ) solver, generated on request. */
-  | "worksheet";
+  | "worksheet"
+  /** Prerequisite concept map around the topic (V2 · Step 8). */
+  | "conceptMap";
 
 export type LevelLayout = {
   blocks: LessonBlock[];
@@ -31,6 +33,7 @@ export const defaultBlockTitles: Record<LessonBlock, string> = {
   revisionSheet: "Revision sheet",
   furtherLearning: "Keep learning",
   worksheet: "Worksheet & past papers",
+  conceptMap: "Concept map",
 };
 
 /** Each level gets a different page layout (SPEC §2). */
@@ -38,6 +41,7 @@ export const levelLayouts: Record<LevelSlug, LevelLayout> = {
   "first-encounter": {
     blocks: [
       "prerequisites",
+      "conceptMap",
       "sections",
       "analogies",
       "workedExamples",
@@ -50,6 +54,7 @@ export const levelLayouts: Record<LevelSlug, LevelLayout> = {
   "building-blocks": {
     blocks: [
       "prerequisites",
+      "conceptMap",
       "sections",
       "analogies",
       "workedExamples",
@@ -69,6 +74,7 @@ export const levelLayouts: Record<LevelSlug, LevelLayout> = {
       "quiz",
       "revisionSheet",
       "prerequisites",
+      "conceptMap",
       "furtherLearning",
     ],
     titles: {
@@ -80,6 +86,7 @@ export const levelLayouts: Record<LevelSlug, LevelLayout> = {
   "deep-dive": {
     blocks: [
       "prerequisites",
+      "conceptMap",
       "sections",
       "workedExamples",
       "misconceptions",
@@ -98,6 +105,7 @@ export const levelLayouts: Record<LevelSlug, LevelLayout> = {
       "misconceptions",
       "revisionSheet",
       "sections",
+      "conceptMap",
       "furtherLearning",
     ],
     titles: { workedExamples: "Solved exam-style problems", misconceptions: "Common traps" },

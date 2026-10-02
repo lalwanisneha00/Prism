@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { AudioLesson } from "@/components/audio/AudioLesson";
 import { InteractiveLesson } from "@/components/explain/InteractiveLesson";
+import { LessonConceptMap } from "@/components/map/LessonConceptMap";
 import { LessonBlockShell } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
 import { Quiz } from "@/components/lesson/Quiz";
@@ -75,6 +76,7 @@ export function LessonView({
     revisionSheet: () => <RevisionSheet sheet={lesson.revisionSheet} />,
     furtherLearning: () => <FurtherLearning links={lesson.furtherLearning} />,
     worksheet: () => <Worksheet lesson={lesson} />,
+    conceptMap: () => <LessonConceptMap request={request} />,
   };
 
   return (

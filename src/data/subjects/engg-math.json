@@ -7,92 +7,260 @@
       "id": "differential-calculus",
       "name": "Differential Calculus",
       "topics": [
-        { "id": "limits-continuity", "name": "Limits and continuity" },
-        { "id": "derivatives-basics", "name": "Derivatives and rules of differentiation" },
+        {
+          "id": "limits-continuity",
+          "name": "Limits and continuity"
+        },
+        {
+          "id": "derivatives-basics",
+          "name": "Derivatives and rules of differentiation",
+          "requires": ["limits-continuity"]
+        },
         {
           "id": "successive-differentiation",
-          "name": "Successive differentiation and Leibniz's theorem"
+          "name": "Successive differentiation and Leibniz's theorem",
+          "requires": ["derivatives-basics"]
         },
-        { "id": "mean-value-theorems", "name": "Rolle's and mean value theorems" },
-        { "id": "taylor-maclaurin", "name": "Taylor and Maclaurin series" },
-        { "id": "lhopital-rule", "name": "Indeterminate forms and L'Hôpital's rule" },
-        { "id": "maxima-minima-one-variable", "name": "Maxima and minima of one variable" }
+        {
+          "id": "mean-value-theorems",
+          "name": "Rolle's and mean value theorems",
+          "requires": ["derivatives-basics"]
+        },
+        {
+          "id": "taylor-maclaurin",
+          "name": "Taylor and Maclaurin series",
+          "requires": ["successive-differentiation", "power-series"]
+        },
+        {
+          "id": "lhopital-rule",
+          "name": "Indeterminate forms and L'Hôpital's rule",
+          "requires": ["derivatives-basics"]
+        },
+        {
+          "id": "maxima-minima-one-variable",
+          "name": "Maxima and minima of one variable",
+          "requires": ["derivatives-basics"]
+        }
       ]
     },
     {
       "id": "partial-differentiation",
       "name": "Partial Differentiation",
       "topics": [
-        { "id": "partial-derivatives", "name": "Partial derivatives" },
-        { "id": "eulers-theorem-homogeneous", "name": "Euler's theorem on homogeneous functions" },
-        { "id": "total-derivative-chain-rule", "name": "Total derivative and chain rule" },
-        { "id": "jacobians", "name": "Jacobians" },
-        { "id": "maxima-minima-two-variables", "name": "Maxima and minima of two variables" },
-        { "id": "lagrange-multipliers", "name": "Lagrange's method of multipliers" }
+        {
+          "id": "partial-derivatives",
+          "name": "Partial derivatives",
+          "requires": ["derivatives-basics"]
+        },
+        {
+          "id": "eulers-theorem-homogeneous",
+          "name": "Euler's theorem on homogeneous functions",
+          "requires": ["partial-derivatives"]
+        },
+        {
+          "id": "total-derivative-chain-rule",
+          "name": "Total derivative and chain rule",
+          "requires": ["partial-derivatives"]
+        },
+        {
+          "id": "jacobians",
+          "name": "Jacobians",
+          "requires": ["total-derivative-chain-rule"]
+        },
+        {
+          "id": "maxima-minima-two-variables",
+          "name": "Maxima and minima of two variables",
+          "requires": ["partial-derivatives", "maxima-minima-one-variable"]
+        },
+        {
+          "id": "lagrange-multipliers",
+          "name": "Lagrange's method of multipliers",
+          "requires": ["maxima-minima-two-variables"]
+        }
       ]
     },
     {
       "id": "integral-calculus",
       "name": "Integral Calculus",
       "topics": [
-        { "id": "definite-integrals", "name": "Definite integrals and the fundamental theorem" },
-        { "id": "beta-gamma-functions", "name": "Beta and gamma functions" },
-        { "id": "improper-integrals", "name": "Improper integrals" },
-        { "id": "double-integrals", "name": "Double integrals" },
-        { "id": "change-of-order", "name": "Change of order of integration" },
-        { "id": "triple-integrals", "name": "Triple integrals" },
-        { "id": "area-volume-integrals", "name": "Area and volume by integration" }
+        {
+          "id": "definite-integrals",
+          "name": "Definite integrals and the fundamental theorem",
+          "requires": ["derivatives-basics"]
+        },
+        {
+          "id": "beta-gamma-functions",
+          "name": "Beta and gamma functions",
+          "requires": ["improper-integrals"]
+        },
+        {
+          "id": "improper-integrals",
+          "name": "Improper integrals",
+          "requires": ["definite-integrals"]
+        },
+        {
+          "id": "double-integrals",
+          "name": "Double integrals",
+          "requires": ["definite-integrals", "partial-derivatives"]
+        },
+        {
+          "id": "change-of-order",
+          "name": "Change of order of integration",
+          "requires": ["double-integrals"]
+        },
+        {
+          "id": "triple-integrals",
+          "name": "Triple integrals",
+          "requires": ["double-integrals"]
+        },
+        {
+          "id": "area-volume-integrals",
+          "name": "Area and volume by integration",
+          "requires": ["double-integrals"]
+        }
       ]
     },
     {
       "id": "linear-algebra",
       "name": "Matrices and Linear Algebra",
       "topics": [
-        { "id": "rank-of-matrix", "name": "Rank of a matrix" },
-        { "id": "linear-systems", "name": "Systems of linear equations" },
-        { "id": "eigenvalues-eigenvectors", "name": "Eigenvalues and eigenvectors" },
-        { "id": "cayley-hamilton", "name": "Cayley–Hamilton theorem" },
-        { "id": "diagonalisation", "name": "Diagonalisation of matrices" },
-        { "id": "linear-transformations", "name": "Linear transformations" }
+        {
+          "id": "rank-of-matrix",
+          "name": "Rank of a matrix"
+        },
+        {
+          "id": "linear-systems",
+          "name": "Systems of linear equations",
+          "requires": ["rank-of-matrix"]
+        },
+        {
+          "id": "eigenvalues-eigenvectors",
+          "name": "Eigenvalues and eigenvectors",
+          "requires": ["linear-systems"]
+        },
+        {
+          "id": "cayley-hamilton",
+          "name": "Cayley–Hamilton theorem",
+          "requires": ["eigenvalues-eigenvectors"]
+        },
+        {
+          "id": "diagonalisation",
+          "name": "Diagonalisation of matrices",
+          "requires": ["eigenvalues-eigenvectors"]
+        },
+        {
+          "id": "linear-transformations",
+          "name": "Linear transformations",
+          "requires": ["rank-of-matrix"]
+        }
       ]
     },
     {
       "id": "differential-equations",
       "name": "Ordinary Differential Equations",
       "topics": [
-        { "id": "separable-ode", "name": "Variables separable equations" },
-        { "id": "exact-equations", "name": "Exact differential equations" },
-        { "id": "linear-first-order-ode", "name": "Linear first-order equations" },
-        { "id": "bernoulli-equation", "name": "Bernoulli's equation" },
+        {
+          "id": "separable-ode",
+          "name": "Variables separable equations",
+          "requires": ["definite-integrals"]
+        },
+        {
+          "id": "exact-equations",
+          "name": "Exact differential equations",
+          "requires": ["separable-ode", "partial-derivatives"]
+        },
+        {
+          "id": "linear-first-order-ode",
+          "name": "Linear first-order equations",
+          "requires": ["separable-ode"]
+        },
+        {
+          "id": "bernoulli-equation",
+          "name": "Bernoulli's equation",
+          "requires": ["linear-first-order-ode"]
+        },
         {
           "id": "higher-order-linear-ode",
-          "name": "Higher-order linear equations with constant coefficients"
+          "name": "Higher-order linear equations with constant coefficients",
+          "requires": ["linear-first-order-ode"]
         },
-        { "id": "variation-of-parameters", "name": "Method of variation of parameters" }
+        {
+          "id": "variation-of-parameters",
+          "name": "Method of variation of parameters",
+          "requires": ["higher-order-linear-ode"]
+        }
       ]
     },
     {
       "id": "vector-calculus",
       "name": "Vector Calculus",
       "topics": [
-        { "id": "gradient-divergence-curl", "name": "Gradient, divergence and curl" },
-        { "id": "directional-derivative", "name": "Directional derivative" },
-        { "id": "line-integrals", "name": "Line integrals" },
-        { "id": "greens-theorem", "name": "Green's theorem" },
-        { "id": "stokes-theorem", "name": "Stokes' theorem" },
-        { "id": "divergence-theorem", "name": "Gauss divergence theorem" }
+        {
+          "id": "gradient-divergence-curl",
+          "name": "Gradient, divergence and curl",
+          "requires": ["partial-derivatives"]
+        },
+        {
+          "id": "directional-derivative",
+          "name": "Directional derivative",
+          "requires": ["gradient-divergence-curl"]
+        },
+        {
+          "id": "line-integrals",
+          "name": "Line integrals",
+          "requires": ["gradient-divergence-curl", "definite-integrals"]
+        },
+        {
+          "id": "greens-theorem",
+          "name": "Green's theorem",
+          "requires": ["line-integrals", "double-integrals"]
+        },
+        {
+          "id": "stokes-theorem",
+          "name": "Stokes' theorem",
+          "requires": ["greens-theorem"]
+        },
+        {
+          "id": "divergence-theorem",
+          "name": "Gauss divergence theorem",
+          "requires": ["greens-theorem", "triple-integrals"]
+        }
       ]
     },
     {
       "id": "series-and-transforms",
       "name": "Series, Fourier and Laplace",
       "topics": [
-        { "id": "convergence-tests", "name": "Convergence of infinite series" },
-        { "id": "power-series", "name": "Power series" },
-        { "id": "fourier-series", "name": "Fourier series" },
-        { "id": "half-range-series", "name": "Half-range Fourier series" },
-        { "id": "laplace-transform", "name": "Laplace transform" },
-        { "id": "inverse-laplace", "name": "Inverse Laplace transform" }
+        {
+          "id": "convergence-tests",
+          "name": "Convergence of infinite series",
+          "requires": ["limits-continuity"]
+        },
+        {
+          "id": "power-series",
+          "name": "Power series",
+          "requires": ["convergence-tests"]
+        },
+        {
+          "id": "fourier-series",
+          "name": "Fourier series",
+          "requires": ["definite-integrals", "convergence-tests"]
+        },
+        {
+          "id": "half-range-series",
+          "name": "Half-range Fourier series",
+          "requires": ["fourier-series"]
+        },
+        {
+          "id": "laplace-transform",
+          "name": "Laplace transform",
+          "requires": ["improper-integrals"]
+        },
+        {
+          "id": "inverse-laplace",
+          "name": "Inverse Laplace transform",
+          "requires": ["laplace-transform"]
+        }
       ]
     }
   ]

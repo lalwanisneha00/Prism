@@ -4,7 +4,12 @@ import enggMath from "@/data/subjects/engg-math.json";
 
 const slug = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "ids must be lowercase-kebab-case");
 
-const TopicSchema = z.object({ id: slug, name: z.string().min(1) });
+const TopicSchema = z.object({
+  id: slug,
+  name: z.string().min(1),
+  /** Topics to know first (same subject): the edges of the concept map. */
+  requires: z.array(slug).optional(),
+});
 const ChapterSchema = z.object({
   id: slug,
   name: z.string().min(1),

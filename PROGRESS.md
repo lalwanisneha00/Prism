@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 8 (Prerequisite concept map). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 · Step 9 (Trust tiers & accuracy guards). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -30,7 +30,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 5    | PYQ / worksheet mode                         | ✅ Done        |
 | 6    | Engineering Mathematics + visuals part 2     | ✅ Done        |
 | 7    | Interaction tools                            | ✅ Done        |
-| 8    | Prerequisite concept map                     | ⬜ Not started |
+| 8    | Prerequisite concept map                     | ✅ Done        |
 | 9    | Trust tiers & accuracy guards                | ⬜ Not started |
 | 10   | Generic visual toolkit part 1 + planner      | ⬜ Not started |
 | 11   | Flashcards + spaced repetition               | ⬜ Not started |
@@ -79,6 +79,11 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 - Lessons now carry an optional `glossary` (4–10 terms, fact-checked with the rest). `rehypeGlossary` marks each term's first appearance per section (plurals too, never inside maths/code/links); `GlossaryTerm` shows a card on hover, focus or tap. Older saved lessons simply have no glossary.
 - The selection popup's "＋ Flashcard" button is added in Step 9, when flashcards exist.
 - Real Gemini: answers 7–10 s; one analogy took 67 s via fallback models, so `/api/explain` allows 60 s.
+
+## V2 · Step 8 notes
+
+- Prerequisites are data: each topic's `requires` list in the subject JSON (84 topics linked; a test checks every id exists and there are no cycles). Pure graph logic in `src/lib/conceptMap.ts` (layers, neighbourhood, statuses from the latest quiz/worksheet score, "revise first" gaps).
+- Lessons (all levels except Last-Minute) have a "Concept map" block: two steps back, one forward, colour-coded by status, every node opens that topic at the same level and length; a weak prerequisite shows "Revise first". `/map?subject=…` shows the whole subject in layers (linked from the dashboard and account menu). On phones the layers stack with ↓ instead of arrows.
 
 ## Known issues / leftovers
 
