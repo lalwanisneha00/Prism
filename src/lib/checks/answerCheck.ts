@@ -1,72 +1,15 @@
-import { all, create } from "mathjs";
-import { simpson } from "@/visuals/mathTools";
-import { parseFormula } from "@/visuals/expression";
+import { evaluateCheck } from "@/lib/safeMath";
 
 /*
  * Checks worked-example answers with a computer (SPEC §6.1 rule 7). The AI writes, next to
  * each numeric answer, a mathjs expression that computes it from the problem's data; we
- * evaluate it here and compare. Like checking a calculator answer by doing it again.
+ * evaluate it here (in the locked-down mathjs of safeMath.ts) and compare. Like checking a
+ * calculator answer by doing it again.
  */
 
-const math = create(all);
-
-/** A single-variable function given as text, using our own safe parser (never eval). */
-function fn(expr: unknown, variable: unknown) {
-  if (typeof expr !== "string" || typeof variable !== "string" || !/^[a-z]$/.test(variable)) {
-    throw new Error('use nintegrate("f(x)", "x", a, b) with a quoted expression');
-  }
-  const f = parseFormula(expr, [variable]);
-  return (v: number) => f({ [variable]: v });
-}
-
-math.import(
-  {
-    /** ∫ f dx from a to b, numerically. */
-    nintegrate: (expr: unknown, variable: unknown, a: number, b: number) =>
-      simpson(fn(expr, variable), Number(a), Number(b), 4000),
-    /** f'(x0), numerically. */
-    nderivative: (expr: unknown, variable: unknown, x0: number) => {
-      const f = fn(expr, variable);
-      const h = 1e-5;
-      return (f(Number(x0) + h) - f(Number(x0) - h)) / (2 * h);
-    },
-  },
-  { override: false },
-);
-
-// Lock the evaluator down as the mathjs security guide recommends: an expression may only
-// calculate, never define functions, import code or create units.
-const evaluateExpression = math.evaluate.bind(math);
-const disabled = (name: string) => () => {
-  throw new Error(`function ${name} is not allowed`);
-};
-math.import(
-  Object.fromEntries(
-    [
-      "import",
-      "createUnit",
-      "evaluate",
-      "parse",
-      "simplify",
-      "derivative",
-      "resolve",
-      "compile",
-    ].map((name) => [name, disabled(name)]),
-  ),
-  { override: true },
-);
+export { evaluateCheck };
 
 export type AnswerCheck = { expression: string; answer: number };
-
-/** Evaluates a check expression to a plain number, or throws a readable error. */
-export function evaluateCheck(expression: string): number {
-  if (expression.length > 300) throw new Error("expression is too long");
-  if (/[=;]|\bfunction\b|=>/.test(expression)) throw new Error("only a calculation is allowed");
-  const value: unknown = evaluateExpression(expression);
-  const n = typeof value === "number" ? value : Number(math.number(value as never));
-  if (!Number.isFinite(n)) throw new Error("the expression did not give a finite number");
-  return n;
-}
 
 /** True when two numbers agree to about 3 significant figures (answers are usually rounded). */
 export function closeEnough(a: number, b: number, rel = 5e-3): boolean {

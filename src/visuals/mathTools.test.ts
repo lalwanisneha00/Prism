@@ -120,3 +120,19 @@ describe("fitRange", () => {
     expect(fitRange([5, 5])[0]).toBeLessThan(5);
   });
 });
+
+describe("fmt for readouts", () => {
+  it("shows thousands with separators and huge or tiny numbers in exponent form", () => {
+    expect(fmt(21589.25, 5)).toBe("21,589");
+    expect(fmt(1234.5)).toBe("1,235");
+    expect(fmt(2.5e7)).toBe("2.50e+7");
+    expect(fmt(0.5)).toBe("0.5");
+  });
+});
+
+describe("variable names with digits and underscores", () => {
+  it("parses c_0 and a1 but still rejects unknown names", () => {
+    expect(parseFormula("c_0 + a1 * x", ["c_0", "a1", "x"])({ c_0: 1, a1: 2, x: 3 })).toBe(7);
+    expect(() => parseFormula("x2", ["x"])).toThrow(/unknown name "x2"/);
+  });
+});

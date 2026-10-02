@@ -80,6 +80,18 @@ export const phetSims: PhetSim[] = [
     topics: ["fourier-series", "half-range-series"],
   },
   {
+    id: "graphing-quadratics",
+    title: "Graphing Quadratics",
+    topics: ["maxima-minima-one-variable", "derivatives-basics"],
+  },
+  {
+    id: "graphing-lines",
+    title: "Graphing Lines",
+    topics: ["limits-continuity", "linear-systems"],
+  },
+  { id: "trig-tour", title: "Trig Tour", topics: ["fourier-series", "phasors"] },
+  { id: "curve-fitting", title: "Curve Fitting", topics: ["power-series", "taylor-maclaurin"] },
+  {
     id: "vector-addition",
     title: "Vector Addition",
     topics: ["gradient-divergence-curl", "directional-derivative", "linear-transformations"],

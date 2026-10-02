@@ -42,8 +42,9 @@ function tokenize(src: string): Token[] {
       if (!m) throw new Error(`bad number at "${src.slice(i, i + 5)}"`);
       tokens.push({ kind: "num", value: Number(m[0]) });
       i += m[0].length;
-    } else if (/[a-zA-Z]/.test(ch)) {
-      const m = /^[a-zA-Z]+/.exec(src.slice(i))!;
+    } else if (/[a-zA-Z_]/.test(ch)) {
+      // Names may contain digits and underscores after the first letter: x, a1, c_0.
+      const m = /^[a-zA-Z_][a-zA-Z0-9_]*/.exec(src.slice(i))!;
       tokens.push({ kind: "id", value: m[0].toLowerCase() });
       i += m[0].length;
     } else if ("+-*/^()".includes(ch)) {

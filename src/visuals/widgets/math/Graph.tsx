@@ -60,8 +60,14 @@ export function curvePath(scale: Scale, f: (x: number) => number, samples = 240)
   return segments;
 }
 
-const tickLabel = (v: number) =>
-  Math.abs(v) >= 1e4 || (Math.abs(v) < 1e-2 && v !== 0) ? v.toExponential(0) : String(v);
+/** Short tick labels: 20k, 1.5M, 0.002 → 2e-3. */
+const tickLabel = (v: number) => {
+  const a = Math.abs(v);
+  if (a >= 1e9 || (a < 1e-2 && v !== 0)) return v.toExponential(0);
+  if (a >= 1e6) return `${Number((v / 1e6).toPrecision(3))}M`;
+  if (a >= 1e4) return `${Number((v / 1e3).toPrecision(3))}k`;
+  return String(v);
+};
 
 /** Axes, grid and tick labels; children draw on top using the same scale. */
 export function Graph({

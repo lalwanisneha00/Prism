@@ -10,7 +10,7 @@ export type GroundingSource = Source & { excerpt?: string };
  * Bumped whenever the lesson prompt changes meaningfully: shared-library lessons written
  * with an older version are treated as stale and rewritten (SPEC §6.1 rule 10).
  */
-export const PROMPT_VERSION = "2026-10-03.1";
+export const PROMPT_VERSION = "2026-10-03.2";
 
 /** Total words across all sections, scaled to the student's time budget. */
 export function sectionWordTarget(durationMin: number): string {
@@ -20,6 +20,7 @@ export function sectionWordTarget(durationMin: number): string {
 }
 
 const jsonShape = `{
+  "visualPlan": [{ "section": "section id", "visual": "the visual kind, or none", "why": "a few words" }],
   "hook": "one sentence: why this topic matters to a student",
   "prerequisites": [{ "concept": "...", "oneLiner": "..." }],
   "sections": [{

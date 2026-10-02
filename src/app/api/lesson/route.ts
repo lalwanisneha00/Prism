@@ -121,7 +121,10 @@ export async function POST(req: Request) {
           generate,
           emit: send,
           sources,
-          visualRules: visualPromptRules(request.topic.id),
+          visualRules: visualPromptRules(request.topic.id, {
+            field: request.subject.field,
+            level: request.level.slug,
+          }),
           signal: req.signal,
         });
 

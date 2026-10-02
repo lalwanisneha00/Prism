@@ -1,5 +1,13 @@
 import { z } from "zod";
 import { levels, type LevelSlug } from "@/data/levels";
+import {
+  ChartSpecSchema,
+  CompareSpecSchema,
+  FormulaSpecSchema,
+  GraphSpecSchema,
+  StatsSpecSchema,
+  StepsSpecSchema,
+} from "@/visuals/generic/specs";
 
 /*
  * The lesson contract (SPEC §5). Every lesson, hand-written or AI-generated,
@@ -67,6 +75,13 @@ export const VisualSpecSchema = z.discriminatedUnion("type", [
       .max(12),
     caption,
   }),
+  // Generic visuals (SPEC §4.1): usable in any subject.
+  ChartSpecSchema,
+  GraphSpecSchema,
+  FormulaSpecSchema,
+  CompareSpecSchema,
+  StepsSpecSchema,
+  StatsSpecSchema,
   z.object({
     type: z.literal("image"),
     /** A Wikimedia Commons file name, e.g. "File:Gauss law.svg". */

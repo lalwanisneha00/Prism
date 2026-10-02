@@ -118,3 +118,30 @@ describe("Engineering Mathematics data", () => {
     expect(new Set(all).size).toBe(all.length);
   });
 });
+
+describe("visual planner", () => {
+  it("adds per-subject, per-level guidance and the generic visual menu", () => {
+    const rules = visualPromptRules("definite-integrals", {
+      field: "Mathematics",
+      level: "deep-dive",
+    });
+    expect(rules).toContain("VISUAL PLAN");
+    expect(rules).toContain("graph, formula, steps");
+    expect(rules).toContain("formula explorers");
+    expect(rules).toContain('"type":"formula"');
+    expect(rules).toContain("Illustrative".toLowerCase());
+    expect(visualPromptRules("x", { field: "History", level: "last-minute" })).toContain(
+      "chart, compare, steps, mermaid",
+    );
+  });
+});
+
+describe("generic gallery samples", () => {
+  it("every sample is a valid, drawable visual", async () => {
+    const { genericSamples } = await import("@/app/dev/visuals/genericSamples");
+    for (const { heading, visual } of genericSamples) {
+      expect(VisualSpecSchema.safeParse(visual).success, heading).toBe(true);
+      expect(visualProblem(visual), heading).toBeNull();
+    }
+  });
+});

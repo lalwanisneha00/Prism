@@ -3,6 +3,7 @@ import "katex/dist/katex.min.css";
 import { Container } from "@/components/Container";
 import { VisualSlot } from "@/components/lesson/VisualSlot";
 import type { VisualSpec } from "@/lib/schema";
+import { genericSamples } from "./genericSamples";
 
 export const metadata: Metadata = {
   title: "Visual gallery (dev)",
@@ -170,8 +171,18 @@ export default function VisualGalleryPage() {
           Developer page: every visual type the lesson AI may choose, with example settings.
         </p>
       </div>
+      <h2 className="text-2xl font-bold tracking-tight">Topic widgets and simulations</h2>
       {gallery.map((visual, i) => (
         <section key={i} aria-label={visual.caption}>
+          <VisualSlot visual={visual} />
+        </section>
+      ))}
+      <h2 id="generic" className="scroll-mt-20 text-2xl font-bold tracking-tight">
+        Generic visuals (any subject)
+      </h2>
+      {genericSamples.map(({ heading, visual }) => (
+        <section key={heading} aria-label={heading} className="flex flex-col gap-2">
+          <h3 className="text-sm font-semibold tracking-wide text-muted uppercase">{heading}</h3>
           <VisualSlot visual={visual} />
         </section>
       ))}

@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 10 (Generic visual toolkit part 1 + visual planner). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 · Step 11 (Flashcards + spaced repetition). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -32,7 +32,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 7    | Interaction tools                            | ✅ Done        |
 | 8    | Prerequisite concept map                     | ✅ Done        |
 | 9    | Trust tiers & accuracy guards                | ✅ Done        |
-| 10   | Generic visual toolkit part 1 + planner      | ⬜ Not started |
+| 10   | Generic visual toolkit part 1 + planner      | ✅ Done        |
 | 11   | Flashcards + spaced repetition               | ⬜ Not started |
 | 12   | Highlights & comments                        | ⬜ Not started |
 | 13   | Backlog planner & progress tracker           | ⬜ Not started |
@@ -95,6 +95,26 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 - Shared library docs store `promptVersion`, `tier`, `sourceIds`; a different `PROMPT_VERSION` makes a library lesson stale (regenerated and overwritten on the next request). Saved copies in a student's library are not affected.
 - Short bare-LaTeX quiz options/answers are wrapped in `$…$` in code (saves a repair round).
 - Real Gemini (2026-10-03): definite integrals (Exam Prep) produced checks for 3 of 4 examples (the symbolic one correctly had none), all passing; a capacitor lesson's 4 checks all passed after one repair.
+
+## V2 · Step 10 notes
+
+- Generic visuals in `src/visuals/generic/` (Zod spec per type in `specs.ts`, sanity checks in `checks.ts`): `chart` (line, area, bar, stacked-bar, pie, donut, scatter, histogram, radar via Recharts 3, MIT, lazy-loaded; box plot in plain SVG), `graph` (functions, shaded area, tangent, points, vectors, equal axes), `formula` (formula explorer, maths by mathjs in a lazy chunk; specs checked with our small parser so mathjs stays out of the lesson bundle), `steps` (step-through), `stats` (normal curve, sampling/CLT, draggable + keyboard regression), `compare` (table, Venn, pros/cons, before/after). Mermaid now also allows mindmap, sequence, state, class, ER and Gantt.
+- Data origin on every chart/stats visual: computed / sourced (must cite a lesson source id) / illustrative ("Illustrative example, not real data"). Sanity checks: pie % sums to 100, axes labelled, box order, contiguous histogram bins, series lengths, ≤ 8 pie slices, etc. Failing specs go to the repair loop, then are dropped.
+- Visual planner (`src/lib/visualPlanner.ts`): preferred visuals per subject type and level, a `visualPlan` step at the top of the AI's JSON (not stored), "what to notice" captions and audio references. `PROMPT_VERSION` bumped to 2026-10-03.2 (older library lessons regenerate).
+- PhET map extended (Graphing Quadratics, Graphing Lines, Trig Tour, Curve Fitting) to real topics only.
+- Safe parser now accepts names like `c_0`, `a1`. Readouts use thousands separators (21,589) and graph ticks use k/M.
+- `/dev/visuals` has a "Generic visuals" section with one sample of every type; a test checks every sample passes the schema and sanity checks.
+- Real Gemini (2026-10-03): convergence tests → step-through; separable ODEs → slope field; power series → formula explorer + graph (after one repair for a 6th variable).
+
+### ✅ Check this (Step 10): open `/dev/visuals`, scroll to "Generic visuals (any subject)"
+
+- **Charts:** line (two cars), area, grouped bar, stacked bar, pie (40/30/10/20 with % labels), donut, scatter, histogram, box plot (two boxes with whiskers and a thick median line), radar. Hover a point or bar to see a tooltip. Each says "Illustrative example, not real data".
+- **Graph:** y = x² with the area from 0 to 2 shaded and an orange tangent at P; the note says area ≈ 2.667 and slope 3. **Vectors:** a, b and a + b at true angles.
+- **Formula explorer (compound interest):** move "Interest rate" from 8 to 12 → Amount goes from 21,589 ₹ to 31,058 ₹ and the orange dot moves along the curve. **Pendulum:** quadruple L and the period only doubles.
+- **Step-through:** Next / Back walks through 3 steps with a progress bar and formulas.
+- **Stats:** normal curve (move μ and σ; the shaded probability updates, 68.3% at the start); sampling (switch to "skewed", raise n from 2 to 30 and watch the histogram turn bell-shaped); regression (drag a point, or Tab to it and press arrow keys, and watch r fall from 0.999).
+- **Compare:** table, Venn (two circles plus three lists), pros/cons, before/after. **Diagrams:** mind map, sequence, state, Gantt.
+- **Edge case:** switch to light mode and to a 375px-wide window: everything fits with no sideways scrolling.
 
 ## Known issues / leftovers
 

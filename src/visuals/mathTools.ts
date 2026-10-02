@@ -185,8 +185,10 @@ export function divCurl(
 export function fmt(v: number, digits = 3): string {
   if (!Number.isFinite(v)) return "undefined";
   if (Math.abs(v) < 1e-10) return "0";
-  if (Math.abs(v) >= 1e4 || Math.abs(v) < 1e-3) return v.toExponential(2);
-  return String(Number(v.toPrecision(digits)));
+  if (Math.abs(v) >= 1e6 || Math.abs(v) < 1e-3) return v.toExponential(2);
+  // Thousands get separators ("21,589"), with enough digits to show the whole part.
+  const precision = Math.max(digits, Math.floor(Math.log10(Math.abs(v))) + 1);
+  return Number(v.toPrecision(precision)).toLocaleString("en-US", { maximumFractionDigits: 6 });
 }
 
 /**
