@@ -9,7 +9,9 @@ type GeminiChunk = {
 
 /** Google Gemini via the REST API (free tier key from Google AI Studio). */
 export class GeminiProvider implements LlmProvider {
-  readonly name = "Gemini";
+  get name() {
+    return `Gemini (${this.model})`;
+  }
 
   constructor(
     private readonly apiKey: string,
