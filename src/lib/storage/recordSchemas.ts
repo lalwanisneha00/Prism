@@ -83,6 +83,36 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     comment: z.string().max(1200),
     createdAt: z.number(),
   }),
+  plans: z.object({
+    ...syncFields,
+    subject: z.string(),
+    level: z.string(),
+    lessonMinutes: z.number(),
+    minutesPerDay: z.number(),
+    startDate: z.string().max(10),
+    examDate: z.string().max(10).optional(),
+    days: z
+      .array(
+        z.object({
+          date: z.string().max(10),
+          items: z
+            .array(
+              z.object({
+                id: z.string().max(80),
+                kind: z.enum(["learn", "revise", "flashcards"]),
+                topicId: z.string().max(80).optional(),
+                minutes: z.number(),
+                done: z.boolean(),
+                doneAt: z.number().optional(),
+              }),
+            )
+            .max(30),
+        }),
+      )
+      .max(60),
+    overflow: z.array(z.string().max(80)).max(200),
+    createdAt: z.number(),
+  }),
   noteSummaries: z.object({
     ...syncFields,
     name: z.string().max(300),

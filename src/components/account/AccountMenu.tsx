@@ -117,6 +117,9 @@ export function AccountMenu() {
           <Link href="/flashcards" className={item} role="menuitem" onClick={() => setOpen(false)}>
             Flashcards
           </Link>
+          <Link href="/planner" className={item} role="menuitem" onClick={() => setOpen(false)}>
+            Backlog planner
+          </Link>
           <Link href="/account" className={item} role="menuitem" onClick={() => setOpen(false)}>
             Account, backup &amp; privacy
           </Link>

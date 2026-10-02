@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 13 (Backlog planner & progress tracker). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 · Step 14 (Export & eval: golden sets, accuracy page). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -35,7 +35,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 10   | Generic visual toolkit part 1 + planner      | ✅ Done        |
 | 11   | Flashcards + spaced repetition               | ✅ Done        |
 | 12   | Highlights & comments                        | ✅ Done        |
-| 13   | Backlog planner & progress tracker           | ⬜ Not started |
+| 13   | Backlog planner & progress tracker           | ✅ Done        |
 | 14   | Export & eval (golden sets, accuracy page)   | ⬜ Not started |
 
 When V2 · Step 1 starts: give the user click-by-click Firebase console setup (Spark project, Google sign-in, Firestore database, web config, service account key, authorized domains).
@@ -148,6 +148,21 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 6. **Sign in on a second device** (or another browser) with the same Google account and open the same lesson (same level and length): everything is there. Also check **/my-notes** and the dashboard's weak topics.
 
 - Edge case: overlap a yellow highlight with a green one in its middle → the yellow splits into two pieces around the green.
+
+## V2 · Step 13 notes
+
+- Scheduler (`src/lib/planner/plan.ts`, tested): topological study order from the concept-map prerequisites with weak topics (quiz < 60% or "didn't understand" highlights) as early as allowed; each day = flashcards (10 min, if the student has cards) + revision of topics learned 1 and 3 days earlier (10 min each) + new lessons that fit, always keeping room for one lesson; leftovers are shown as overflow, never dropped.
+- `plans` is a synced collection (IndexedDB v6, one plan per subject, `plan:<subject>`); ticking an item stores `doneAt`. `/planner`: subject tabs, setup (minutes per day, lesson length, level, exam date or 3–30 days, topic chips: mastered left out, ⚠ weak), then the day list with tick boxes, progress bar, catch-up hint and overflow. Revision items open the Last-Minute (5-min) lesson.
+- Progress tracker on the dashboard: 🔥 study streak (any day with a lesson view, quiz, flashcard review, note or ticked plan item; a streak that ended yesterday is still alive today), "Today's plan" with tick boxes, and chapter progress bars per subject (mastered / tried / weak).
+- Recent-topic history keeps only each topic's latest view, so older streak days come from quizzes, flashcards, notes and the plan.
+
+### ✅ Check this (Step 13)
+
+- Dashboard → **Make a plan** (or account menu → Backlog planner). Choose 1 hour a day, 15-min lessons, 7 days → **Build my 7-day plan**.
+- You see 7 days: today has ~4 lessons; tomorrow starts with "🔁 Revise" items for today's topics; topics you've mastered are missing and ⚠ weak ones come early (but never before what they build on). Anything that didn't fit is listed at the bottom.
+- Tick an item → "1 of N done"; refresh → still ticked; sign in on another device → same plan and ticks.
+- Dashboard shows 🔥 your streak, today's items (tick them there too) and the chapter progress bars.
+- Edge case: pick only 20 minutes a day with 30-min lessons → you still get one lesson per day (the plan never leaves a day empty).
 
 ## Known issues / leftovers
 

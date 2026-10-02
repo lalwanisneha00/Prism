@@ -1,5 +1,6 @@
 "use client";
 
+import { ChapterProgressBars, TodayAndStreak } from "@/components/planner/ProgressTracker";
 import { annotationHref, confusedTopics, listAllAnnotations } from "@/lib/annotations/store";
 import type { Annotation } from "@/lib/storage/db";
 import { dueCards, listCards } from "@/lib/flashcards/cards";
@@ -123,6 +124,8 @@ export function Dashboard() {
         )}
       </p>
 
+      <TodayAndStreak />
+
       <div className="grid gap-4 md:grid-cols-2">
         <Card title="Continue where you left off">
           {last ? (
@@ -219,8 +222,8 @@ export function Dashboard() {
           <FlashcardsDue cards={data.cards} />
         </Card>
 
-        <Card title="Recent mock test scores">
-          <Empty>Mock tests from past papers are coming in a later update.</Empty>
+        <Card title="Chapter progress">
+          <ChapterProgressBars />
         </Card>
       </div>
     </div>

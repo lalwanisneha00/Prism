@@ -120,6 +120,30 @@ export type Annotation = SyncFields & {
   createdAt: number;
 };
 
+/** A backlog study plan for one subject (V2 · Step 13). */
+export type StudyPlan = SyncFields & {
+  subject: string;
+  level: string;
+  lessonMinutes: number;
+  minutesPerDay: number;
+  startDate: string;
+  examDate?: string;
+  days: {
+    date: string;
+    items: {
+      id: string;
+      kind: "learn" | "revise" | "flashcards";
+      topicId?: string;
+      minutes: number;
+      done: boolean;
+      doneAt?: number;
+    }[];
+  }[];
+  /** Topics that didn't fit in the plan. */
+  overflow: string[];
+  createdAt: number;
+};
+
 /** Every collection that syncs to users/{uid}/{collection}/{id}. */
 export type SyncedRecords = {
   savedLessons: SavedLesson;
@@ -130,6 +154,7 @@ export type SyncedRecords = {
   noteSummaries: NoteSummary;
   flashcards: Flashcard;
   annotations: Annotation;
+  plans: StudyPlan;
 };
 export type SyncedCollection = keyof SyncedRecords;
 export const SYNCED_COLLECTIONS: SyncedCollection[] = [
@@ -141,6 +166,7 @@ export const SYNCED_COLLECTIONS: SyncedCollection[] = [
   "noteSummaries",
   "flashcards",
   "annotations",
+  "plans",
 ];
 
 /** A local change waiting to be sent to the cloud. */
@@ -161,12 +187,13 @@ interface PrismDB extends DBSchema {
   notes: { key: string; value: StoredNote };
   flashcards: { key: string; value: Flashcard };
   annotations: { key: string; value: Annotation; indexes: { byLesson: string } };
+  plans: { key: string; value: StudyPlan };
   outbox: { key: string; value: OutboxEntry };
   meta: { key: string; value: { key: string; value: unknown } };
 }
 
 const DB_NAME = "prism";
-const DB_VERSION = 5;
+const DB_VERSION = 6;
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -200,6 +227,10 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
       // Version 5 (highlights and comments): synced, indexed by lesson.
       if (oldVersion < 5) {
         db.createObjectStore("annotations", { keyPath: "id" }).createIndex("byLesson", "lessonId");
+      }
+      // Version 6 (backlog planner): one plan per subject, synced.
+      if (oldVersion < 6) {
+        db.createObjectStore("plans", { keyPath: "id" });
       }
     },
   });
