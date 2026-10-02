@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 3 (Long audio). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 · Step 4 (PDF upload). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -25,7 +25,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | ---- | -------------------------------------------- | -------------- |
 | 1    | Accounts, cloud sync & shared lesson library | ✅ Done        |
 | 2    | All 6 levels                                 | ✅ Done        |
-| 3    | Long audio                                   | ⬜ Not started |
+| 3    | Long audio                                   | ✅ Done        |
 | 4    | PDF upload + retrieval                       | ⬜ Not started |
 | 5    | PYQ / worksheet mode                         | ⬜ Not started |
 | 6    | Engineering Mathematics + visuals part 2     | ⬜ Not started |

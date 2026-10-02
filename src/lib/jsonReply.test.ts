@@ -28,6 +28,10 @@ describe("parseJsonReply", () => {
     });
   });
 
+  it("accepts a bare list as the top level", () => {
+    expect(parseJsonReply('Here: [{"id": "a"}, {"id": "b"}]')).toEqual([{ id: "a" }, { id: "b" }]);
+  });
+
   it("explains when there is no JSON", () => {
     expect(() => parseJsonReply("I can't help with that")).toThrow(/no JSON object/);
   });

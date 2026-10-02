@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { saveAudioPosition } from "@/lib/storage/progress";
 import { useSpeechPlayer } from "@/components/audio/useSpeechPlayer";
 import {
@@ -64,6 +64,43 @@ export function AudioPlayer({
   const elapsed = current ? current.start / player.rate : 0;
   const total = totalSeconds(timeline) / player.rate;
   const playing = player.status === "playing" || player.status === "waiting";
+
+  // Sleep timer: stop after N minutes, or when the current chapter ends.
+  const [sleep, setSleep] = useState<{
+    mode: "off" | "minutes" | "chapter";
+    until?: number;
+    chapter?: number;
+  }>({ mode: "off" });
+  const { pause } = player;
+  useEffect(() => {
+    if (sleep.mode !== "minutes" || !sleep.until || !playing) return;
+    const id = setTimeout(
+      () => {
+        pause();
+        setSleep({ mode: "off" });
+      },
+      Math.max(0, sleep.until - Date.now()),
+    );
+    return () => clearTimeout(id);
+  }, [sleep, playing, pause]);
+  const chapterNow = current?.chapter;
+  useEffect(() => {
+    if (sleep.mode === "chapter" && chapterNow !== undefined && chapterNow !== sleep.chapter) {
+      pause();
+      const id = setTimeout(() => setSleep({ mode: "off" }), 0);
+      return () => clearTimeout(id);
+    }
+  }, [sleep, chapterNow, pause]);
+
+  // Watch-along: bring the matching lesson section into view as the narration reaches it.
+  const [watchAlong, setWatchAlong] = useState(false);
+  const sectionNow = chapterNow !== undefined ? chapters[chapterNow]?.sectionId : undefined;
+  useEffect(() => {
+    if (!watchAlong || !playing || !sectionNow) return;
+    document
+      .getElementById(`section-${sectionNow}`)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [watchAlong, playing, sectionNow]);
 
   // Keep the spoken sentence visible inside the transcript box (without scrolling the page).
   useEffect(() => {
@@ -157,6 +194,47 @@ export function AudioPlayer({
               </option>
             ))}
           </select>
+        </label>
+      </div>
+
+      <div className="flex flex-wrap items-end gap-4">
+        <label htmlFor={`${id}-sleep`} className="flex flex-col gap-1 text-sm">
+          Sleep timer
+          <select
+            id={`${id}-sleep`}
+            value={sleep.mode === "minutes" ? "minutes" : sleep.mode}
+            onChange={(e) => {
+              const v = e.target.value;
+              if (v === "off") setSleep({ mode: "off" });
+              else if (v === "chapter") setSleep({ mode: "chapter", chapter: chapterNow });
+              else setSleep({ mode: "minutes", until: Date.now() + Number(v) * 60_000 });
+            }}
+            className="rounded-xl border border-border bg-surface px-3 py-2"
+          >
+            <option value="off">Off</option>
+            {[10, 15, 30, 45, 60].map((m) => (
+              <option key={m} value={m}>
+                {m} minutes
+              </option>
+            ))}
+            <option value="chapter">End of this chapter</option>
+            {sleep.mode === "minutes" && <option value="minutes">Set</option>}
+          </select>
+        </label>
+        {sleep.mode === "minutes" && sleep.until && (
+          <p className="pb-2 text-sm text-muted">
+            Stops at{" "}
+            {new Date(sleep.until).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+          </p>
+        )}
+        <label className="flex items-center gap-2 pb-2 text-sm">
+          <input
+            type="checkbox"
+            checked={watchAlong}
+            onChange={(e) => setWatchAlong(e.target.checked)}
+            className="size-4 accent-[var(--primary)]"
+          />
+          Watch along (scroll to each section as it&apos;s narrated)
         </label>
       </div>
 

@@ -3,10 +3,15 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AudioPlayer } from "@/components/audio/AudioPlayer";
 import { speechSupported } from "@/components/audio/useSpeechPlayer";
-import type { AudioEvent } from "@/lib/audio/audioEvents";
-import { buildTimeline, cleanForSpeech, type AudioChapter } from "@/lib/audio/timeline";
+import type { AudioRequest, AudioResponse } from "@/lib/audio/audioEvents";
+import type { ChapterPlan } from "@/lib/audio/generateNarration";
+import {
+  buildTimeline,
+  cleanForSpeech,
+  splitSentences,
+  type AudioChapter,
+} from "@/lib/audio/timeline";
 import { errorCopy, type LessonErrorKind } from "@/lib/lessonEvents";
-import { readNdjson } from "@/lib/readLessonStream";
 import type { Lesson } from "@/lib/schema";
 import { lessonId } from "@/lib/storage/library";
 import { getAudioPosition } from "@/lib/storage/progress";
@@ -58,49 +63,71 @@ export function AudioLesson({ lesson }: { lesson: Lesson }) {
     return () => pending.current?.abort();
   }, []);
 
+  // Progress of the current narration, kept so "Try again" resumes instead of starting over.
+  const plan = useRef<ChapterPlan[] | null>(null);
+  const written = useRef<AudioChapter[]>([]);
+
+  async function call(body: AudioRequest, signal: AbortSignal): Promise<AudioResponse> {
+    const res = await fetch("/api/audio", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(body),
+      signal,
+    });
+    return (await res.json()) as AudioResponse;
+  }
+
   async function write() {
     controller.current?.abort();
-    controller.current = new AbortController();
-    setChapters([]);
-    setPhase({ name: "writing", done: 0, total: lesson.audioScript.length });
+    const signal = (controller.current = new AbortController()).signal;
+    if (phase.name === "ready") {
+      // A fresh narration (e.g. after the short summary): start from scratch.
+      plan.current = null;
+      written.current = [];
+    }
+    setChapters([...written.current]);
     try {
-      const res = await fetch("/api/audio", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ lesson }),
-        signal: controller.current.signal,
-      });
-      if (!res.ok || !res.body) throw new Error(`HTTP ${res.status}`);
-      const written: AudioChapter[] = [];
-      let failed: LessonErrorKind | null = null;
-      await readNdjson<AudioEvent>(res.body, (event) => {
-        if (event.type === "chapter") {
-          written[event.index] = event.chapter;
-          setChapters([...written]);
-          setPhase({ name: "writing", done: event.index + 1, total: event.total });
-        } else if (event.type === "error") {
-          failed = event.kind;
-        }
-      });
-      if (failed) return setPhase({ name: "error", kind: failed });
+      if (!plan.current) {
+        setPhase({ name: "writing", done: 0, total: lesson.audioScript.length });
+        const outline = await call({ step: "outline", lesson }, signal);
+        if (!outline.ok) return setPhase({ name: "error", kind: outline.kind });
+        if (!("plan" in outline)) throw new Error("unexpected reply");
+        plan.current = outline.plan;
+      }
+      const chapterPlan = plan.current;
+      for (let i = written.current.length; i < chapterPlan.length; i++) {
+        setPhase({ name: "writing", done: i, total: chapterPlan.length });
+        const previousEnding = splitSentences(written.current[i - 1]?.text ?? "")
+          .slice(-2)
+          .join(" ");
+        const res = await call(
+          { step: "chapter", lesson, plan: chapterPlan, index: i, previousEnding },
+          signal,
+        );
+        if (!res.ok) return setPhase({ name: "error", kind: res.kind });
+        if (!("chapter" in res)) throw new Error("unexpected reply");
+        written.current = [...written.current, res.chapter];
+        setChapters(written.current);
+      }
       try {
-        localStorage.setItem(`${key}:script`, JSON.stringify(written));
+        localStorage.setItem(`${key}:script`, JSON.stringify(written.current));
       } catch {
         // Not cached: it will be written again next time.
       }
       setPhase({ name: "ready", short: false });
     } catch {
-      if (controller.current?.signal.aborted) return;
+      if (signal.aborted) return;
       setPhase({ name: "error", kind: navigator.onLine ? "unavailable" : "offline" });
     }
   }
 
   function playShortVersion() {
+    controller.current?.abort();
     setChapters(outlineChapters(lesson));
     setPhase({ name: "ready", short: true });
   }
 
-  const showPlayer = chapters.length > 0 && (phase.name === "ready" || phase.name === "writing");
+  const showPlayer = chapters.length > 0;
 
   return (
     <section
@@ -156,7 +183,7 @@ export function AudioLesson({ lesson }: { lesson: Lesson }) {
                   onClick={write}
                   className="font-semibold text-primary underline underline-offset-2"
                 >
-                  Try again
+                  {chapters.length ? `Continue from chapter ${chapters.length + 1}` : "Try again"}
                 </button>
                 <button
                   type="button"
@@ -187,7 +214,7 @@ export function AudioLesson({ lesson }: { lesson: Lesson }) {
               key={phase.name === "ready" && phase.short ? "short" : "full"}
               chapters={chapters}
               timeline={timeline}
-              complete={phase.name === "ready"}
+              complete={phase.name !== "writing"}
               resumeKey={`${key}:${phase.name === "ready" && phase.short ? "short" : "full"}:position`}
               positionId={positionId}
               title={lesson.meta.title}

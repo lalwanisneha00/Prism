@@ -1,7 +1,11 @@
 /** Parses an AI reply as JSON, tolerating code fences or chatter around the object. */
 export function parseJsonReply(text: string): unknown {
-  const start = text.indexOf("{");
-  const end = text.lastIndexOf("}");
+  // Usually an object; sometimes the AI answers with a bare list instead.
+  const objectStart = text.indexOf("{");
+  const arrayStart = text.indexOf("[");
+  const isArray = arrayStart !== -1 && (objectStart === -1 || arrayStart < objectStart);
+  const start = isArray ? arrayStart : objectStart;
+  const end = text.lastIndexOf(isArray ? "]" : "}");
   if (start === -1 || end <= start) throw new Error("the reply contains no JSON object");
   return JSON.parse(repairLatexEscapes(text.slice(start, end + 1)));
 }

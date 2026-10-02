@@ -176,7 +176,7 @@ export function LessonPicker({ subject }: { subject: Subject }) {
         error={errors.duration}
         errorId={`${id}-duration-error`}
       >
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-4 gap-2 sm:grid-cols-7">
           {durations.map((d) => (
             <ChoiceCard
               key={d.minutes}
