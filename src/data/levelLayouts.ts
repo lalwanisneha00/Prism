@@ -9,7 +9,9 @@ export type LessonBlock =
   | "misconceptions"
   | "quiz"
   | "revisionSheet"
-  | "furtherLearning";
+  | "furtherLearning"
+  /** Exam worksheet and past-paper (PYQ) solver, generated on request. */
+  | "worksheet";
 
 export type LevelLayout = {
   blocks: LessonBlock[];
@@ -28,6 +30,7 @@ export const defaultBlockTitles: Record<LessonBlock, string> = {
   quiz: "Check yourself",
   revisionSheet: "Revision sheet",
   furtherLearning: "Keep learning",
+  worksheet: "Worksheet & past papers",
 };
 
 /** Each level gets a different page layout (SPEC §2). */
@@ -91,6 +94,7 @@ export const levelLayouts: Record<LevelSlug, LevelLayout> = {
     blocks: [
       "workedExamples",
       "quiz",
+      "worksheet",
       "misconceptions",
       "revisionSheet",
       "sections",

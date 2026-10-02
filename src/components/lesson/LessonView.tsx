@@ -14,6 +14,7 @@ import {
   SourceList,
 } from "@/components/lesson/StaticBlocks";
 import { WorkedExample } from "@/components/lesson/WorkedExample";
+import { Worksheet } from "@/components/worksheet/Worksheet";
 import { blockTitle, levelLayouts, type LessonBlock } from "@/data/levelLayouts";
 import type { LessonRequest } from "@/lib/lessonRequest";
 import type { Lesson } from "@/lib/schema";
@@ -65,6 +66,7 @@ export function LessonView({
     quiz: () => <Quiz questions={lesson.quiz} meta={lesson.meta} />,
     revisionSheet: () => <RevisionSheet sheet={lesson.revisionSheet} />,
     furtherLearning: () => <FurtherLearning links={lesson.furtherLearning} />,
+    worksheet: () => <Worksheet lesson={lesson} />,
   };
 
   return (

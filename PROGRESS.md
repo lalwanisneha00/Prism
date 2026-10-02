@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 5 (PYQ / worksheet mode). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 · Step 6 (Engineering Mathematics + visuals part 2). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -27,7 +27,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 2    | All 6 levels                                 | ✅ Done        |
 | 3    | Long audio                                   | ✅ Done        |
 | 4    | PDF upload + retrieval                       | ✅ Done        |
-| 5    | PYQ / worksheet mode                         | ⬜ Not started |
+| 5    | PYQ / worksheet mode                         | ✅ Done        |
 | 6    | Engineering Mathematics + visuals part 2     | ⬜ Not started |
 | 7    | Interaction tools                            | ⬜ Not started |
 | 8    | Prerequisite concept map                     | ⬜ Not started |
@@ -52,6 +52,11 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 - PDF text is extracted in the browser (pdfjs-dist; its worker is copied to `public/` by `scripts/copy-pdf-worker.mjs` on install/dev/build). Text lives in the local-only IndexedDB store `notes` (DB v3); `noteSummaries` (name, pages, 280-char summary) syncs.
 - BM25 search (`src/lib/notes/retrieval.ts`) picks ≤ 8 passages × 1200 chars for the topic; the server validates them (`notesSources.ts`) and cites them as `notes-N` sources. Notes lessons skip the sample lessons and shared library, and save under a `:notes` id.
 - Scanned (image-only) PDFs show "no text found"; OCR is not in scope.
+
+## V2 · Step 5 notes
+
+- Exam Prep lessons have a "Worksheet & past papers" block: a 4/6/8-question practice set (2/5/10 marks) or up to 10 pasted / PDF-loaded PYQs, solved by `/api/worksheet` (Zod + KaTeX check, 2 repair tries). Self-marking (full / half / none) is saved as a quiz attempt with lessonId `…:worksheet`, so weak-topic detection sees it. The last worksheet is cached per device in localStorage.
+- Real Gemini check (2026-10-02): a 5-mark PYQ on a uniformly charged sphere came back correct (2.25×10³ and 1.12×10³ N/C) in ~20 s via the fallback model.
 
 ## Known issues / leftovers
 

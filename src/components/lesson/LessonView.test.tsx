@@ -27,7 +27,7 @@ describe("LessonView", () => {
     expect(positions.every((p) => p >= 0)).toBe(true);
     expect([...positions].sort((a, b) => a - b)).toEqual(positions);
     for (const b of levelLayouts[slug].blocks)
-      expect(html).toContain(blockTitle(slug, b).replace(/'/g, "&#x27;"));
+      expect(html).toContain(blockTitle(slug, b).replace(/&/g, "&amp;").replace(/'/g, "&#x27;"));
   });
 
   it("typesets maths with KaTeX instead of showing raw LaTeX", () => {
