@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BlockNoteButton, BlockNotes } from "@/components/annotations/BlockNotes";
 import { Card } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
 import type { Lesson } from "@/lib/schema";
@@ -17,10 +18,13 @@ export function WorkedExample({ example, index }: { example: Example; index: num
   const done = shown >= total;
 
   return (
-    <Card className="flex flex-col gap-4">
+    <Card className="flex flex-col gap-4" data-anno-block={`example:${index}`}>
       <div>
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="text-sm font-semibold text-primary">Example {index + 1}</p>
+          <p className="text-sm font-semibold text-primary">
+            Example {index + 1}{" "}
+            <BlockNoteButton block={`example:${index}`} label={`worked example ${index + 1}`} />
+          </p>
           {example.check && (
             <span
               title="The server re-did this calculation with a maths library and got the same answer."
@@ -61,6 +65,7 @@ export function WorkedExample({ example, index }: { example: Example; index: num
           </button>
         </div>
       )}
+      <BlockNotes block={`example:${index}`} />
     </Card>
   );
 }

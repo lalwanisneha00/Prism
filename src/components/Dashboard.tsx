@@ -1,5 +1,7 @@
 "use client";
 
+import { annotationHref, confusedTopics, listAllAnnotations } from "@/lib/annotations/store";
+import type { Annotation } from "@/lib/storage/db";
 import { dueCards, listCards } from "@/lib/flashcards/cards";
 import type { Flashcard } from "@/lib/storage/db";
 import Link from "next/link";
@@ -16,6 +18,7 @@ type Data = {
   positions: AudioPosition[];
   attempts: QuizAttempt[];
   cards: Flashcard[];
+  notes: Annotation[];
 };
 
 const lessonHref = (t: {
@@ -75,9 +78,15 @@ export function Dashboard() {
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    Promise.all([listRecent(20), listAudioPositions(), listQuizAttempts(), listCards()])
-      .then(([recent, positions, attempts, cards]) =>
-        setData({ recent, positions, attempts, cards }),
+    Promise.all([
+      listRecent(20),
+      listAudioPositions(),
+      listQuizAttempts(),
+      listCards(),
+      listAllAnnotations(),
+    ])
+      .then(([recent, positions, attempts, cards, notes]) =>
+        setData({ recent, positions, attempts, cards, notes }),
       )
       .catch(() => setFailed(true));
   }, [dataVersion]);
@@ -91,6 +100,7 @@ export function Dashboard() {
   const lastAudio =
     last && data.positions.find((p) => p.id.startsWith(`${last.subject}:${last.topic}:`));
   const weak = weakTopics(data.attempts);
+  const confused = confusedTopics(data.notes).filter((c) => !weak.some((w) => w.topic === c.topic));
 
   return (
     <div className="flex flex-col gap-6">
@@ -143,6 +153,21 @@ export function Dashboard() {
         </Card>
 
         <Card title="Weak topics to revise">
+          {confused.length > 0 && (
+            <ul className="mb-3 flex flex-col gap-2">
+              {confused.slice(0, 5).map((c) => (
+                <li key={c.topic}>
+                  <Link
+                    href={annotationHref(c.latest)}
+                    className="flex justify-between gap-3 rounded-xl border border-border px-3 py-2 text-sm hover:bg-surface-2"
+                  >
+                    <span className="font-medium">{c.title}</span>
+                    <span className="text-danger">{c.count} marked “didn&apos;t understand”</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
           {weak.length ? (
             <ul className="flex flex-col gap-2">
               {weak.slice(0, 5).map((a) => (
@@ -161,9 +186,11 @@ export function Dashboard() {
             </ul>
           ) : (
             <Empty>
-              {data.attempts.length
-                ? "No weak topics: every latest quiz score is 60% or more. 🎉"
-                : "Finish a lesson quiz and topics you found hard will appear here."}
+              {confused.length
+                ? "Open one above: each “didn't understand” highlight has an “Explain this simpler” button."
+                : data.attempts.length
+                  ? "No weak topics: every latest quiz score is 60% or more. 🎉"
+                  : "Finish a lesson quiz and topics you found hard will appear here."}
             </Empty>
           )}
         </Card>

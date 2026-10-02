@@ -22,8 +22,8 @@ export function Analogies({ items }: { items: Lesson["analogies"] }) {
   if (items.length === 0) return <Empty>No analogies for this lesson.</Empty>;
   return (
     <div className="grid gap-4">
-      {items.map((a) => (
-        <Card key={a.concept} className="flex flex-col gap-3">
+      {items.map((a, i) => (
+        <Card key={a.concept} className="flex flex-col gap-3" data-anno-block={`analogy:${i}`}>
           <p className="text-sm font-semibold text-primary">{a.concept}</p>
           <Markdown>{a.analogy}</Markdown>
           <div className="rounded-xl bg-surface-2 p-3 text-sm">
@@ -40,8 +40,8 @@ export function Misconceptions({ items }: { items: Lesson["misconceptions"] }) {
   if (items.length === 0) return <Empty>No common mistakes listed.</Empty>;
   return (
     <div className="grid gap-4">
-      {items.map((m) => (
-        <Card key={m.wrong} className="flex flex-col gap-3">
+      {items.map((m, i) => (
+        <Card key={m.wrong} className="flex flex-col gap-3" data-anno-block={`mistake:${i}`}>
           <div className="flex gap-2">
             <span aria-hidden="true" className="font-bold text-danger">
               ✗
@@ -71,7 +71,7 @@ export function Misconceptions({ items }: { items: Lesson["misconceptions"] }) {
 
 export function RevisionSheet({ sheet }: { sheet: Lesson["revisionSheet"] }) {
   return (
-    <Card className="flex flex-col gap-5 border-primary/40">
+    <Card className="flex flex-col gap-5 border-primary/40" data-anno-block="revision">
       {sheet.formulas.length > 0 && (
         <div>
           <p className="font-semibold">Formulas</p>

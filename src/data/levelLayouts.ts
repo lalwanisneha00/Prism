@@ -13,7 +13,9 @@ export type LessonBlock =
   /** Exam worksheet and past-paper (PYQ) solver, generated on request. */
   | "worksheet"
   /** Prerequisite concept map around the topic (V2 · Step 8). */
-  | "conceptMap";
+  | "conceptMap"
+  /** The student's own highlights and comments (V2 · Step 12). */
+  | "myNotes";
 
 export type LevelLayout = {
   blocks: LessonBlock[];
@@ -34,6 +36,7 @@ export const defaultBlockTitles: Record<LessonBlock, string> = {
   furtherLearning: "Keep learning",
   worksheet: "Worksheet & past papers",
   conceptMap: "Concept map",
+  myNotes: "My notes",
 };
 
 /** Each level gets a different page layout (SPEC §2). */
@@ -111,7 +114,7 @@ export const levelLayouts: Record<LevelSlug, LevelLayout> = {
     titles: { workedExamples: "Solved exam-style problems", misconceptions: "Common traps" },
   },
   "last-minute": {
-    blocks: ["revisionSheet", "quiz", "misconceptions", "sections", "workedExamples"],
+    blocks: ["myNotes", "revisionSheet", "quiz", "misconceptions", "sections", "workedExamples"],
     titles: {
       revisionSheet: "Your cheat sheet",
       quiz: "Rapid recall",

@@ -11,7 +11,7 @@ export function LessonBlockShell({
   children: ReactNode;
 }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-20">
+    <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-20" data-lesson-block="">
       <h2 id={`${id}-title`} className="mb-4 text-2xl font-bold tracking-tight">
         {title}
       </h2>

@@ -22,7 +22,7 @@ export function SiteHeader() {
             className="rounded-full px-2.5 py-2 text-sm font-semibold hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-3"
           >
             <span aria-hidden="true">📒</span>
-            <span className="max-sm:sr-only"> Notes</span>
+            <span className="max-sm:sr-only"> Uploads</span>
           </Link>
           <Link
             href="/dashboard"

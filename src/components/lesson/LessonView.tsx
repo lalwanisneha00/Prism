@@ -3,6 +3,7 @@ import { AudioLesson } from "@/components/audio/AudioLesson";
 import { InteractiveLesson } from "@/components/explain/InteractiveLesson";
 import { MakeFlashcardsButton } from "@/components/flashcards/MakeFlashcardsButton";
 import { LessonConceptMap } from "@/components/map/LessonConceptMap";
+import { MyNotesList, MyNotesPanel } from "@/components/annotations/MyNotesPanel";
 import { LessonBlockShell } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
 import { Quiz } from "@/components/lesson/Quiz";
@@ -81,6 +82,7 @@ export function LessonView({
     furtherLearning: () => <FurtherLearning links={lesson.furtherLearning} />,
     worksheet: () => <Worksheet lesson={lesson} />,
     conceptMap: () => <LessonConceptMap request={request} />,
+    myNotes: () => <MyNotesList compact />,
   };
 
   return (
@@ -107,6 +109,7 @@ export function LessonView({
           </div>
         </div>
         <TierBadge tier={tier} />
+        <MyNotesPanel />
         {tier === "limited" && <LimitedBanner />}
         <Markdown className="text-lg text-muted">{lesson.hook}</Markdown>
         <nav aria-label="In this lesson" className="text-sm">

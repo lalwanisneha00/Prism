@@ -91,6 +91,35 @@ export type Flashcard = SyncFields & {
   };
 };
 
+export type HighlightColor = "important" | "confused" | "formula" | "exam";
+
+/**
+ * A student's highlight and/or comment on a lesson (V2 · Step 12). Stored apart from the
+ * lesson (lessons can be shared and read-only), so it survives the lesson being rewritten.
+ */
+export type Annotation = SyncFields & {
+  lessonId: string;
+  /** The lesson's createdAt when annotated: tells us if it was rewritten since. */
+  lessonVersion: string;
+  subject: string;
+  chapter: string;
+  topic: string;
+  level: string;
+  duration: number;
+  title: string;
+  fromNotes?: boolean;
+  /** Which part of the lesson: "section:<id>", "example:<n>", "quiz:<n>", "visual:<id>", … */
+  block: string;
+  /** The section it belongs to, for listing unanchored notes in the right place. */
+  sectionId?: string;
+  /** Missing for a comment on a whole block (a formula, a chart, a quiz question). */
+  color?: HighlightColor;
+  anchor?: { start: number; end: number; quote: string; prefix: string; suffix: string };
+  /** Plain text, up to about 1,000 characters. */
+  comment: string;
+  createdAt: number;
+};
+
 /** Every collection that syncs to users/{uid}/{collection}/{id}. */
 export type SyncedRecords = {
   savedLessons: SavedLesson;
@@ -100,6 +129,7 @@ export type SyncedRecords = {
   settings: AppSettings;
   noteSummaries: NoteSummary;
   flashcards: Flashcard;
+  annotations: Annotation;
 };
 export type SyncedCollection = keyof SyncedRecords;
 export const SYNCED_COLLECTIONS: SyncedCollection[] = [
@@ -110,6 +140,7 @@ export const SYNCED_COLLECTIONS: SyncedCollection[] = [
   "settings",
   "noteSummaries",
   "flashcards",
+  "annotations",
 ];
 
 /** A local change waiting to be sent to the cloud. */
@@ -129,12 +160,13 @@ interface PrismDB extends DBSchema {
   noteSummaries: { key: string; value: NoteSummary };
   notes: { key: string; value: StoredNote };
   flashcards: { key: string; value: Flashcard };
+  annotations: { key: string; value: Annotation; indexes: { byLesson: string } };
   outbox: { key: string; value: OutboxEntry };
   meta: { key: string; value: { key: string; value: unknown } };
 }
 
 const DB_NAME = "prism";
-const DB_VERSION = 4;
+const DB_VERSION = 5;
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -164,6 +196,10 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
       // Version 4 (flashcards): synced like the rest.
       if (oldVersion < 4) {
         db.createObjectStore("flashcards", { keyPath: "id" });
+      }
+      // Version 5 (highlights and comments): synced, indexed by lesson.
+      if (oldVersion < 5) {
+        db.createObjectStore("annotations", { keyPath: "id" }).createIndex("byLesson", "lessonId");
       }
     },
   });

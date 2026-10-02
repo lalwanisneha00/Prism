@@ -106,7 +106,10 @@ export function AccountMenu() {
             Saved lessons
           </Link>
           <Link href="/notes" className={item} role="menuitem" onClick={() => setOpen(false)}>
-            My notes (PDFs)
+            Uploaded notes (PDFs)
+          </Link>
+          <Link href="/my-notes" className={item} role="menuitem" onClick={() => setOpen(false)}>
+            My Notes (highlights)
           </Link>
           <Link href="/map" className={item} role="menuitem" onClick={() => setOpen(false)}>
             Concept map

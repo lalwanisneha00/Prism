@@ -57,6 +57,32 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
       lastReviewed: z.number().optional(),
     }),
   }),
+  annotations: z.object({
+    ...syncFields,
+    lessonId: z.string().max(200),
+    lessonVersion: z.string().max(40),
+    subject: z.string(),
+    chapter: z.string(),
+    topic: z.string(),
+    level: z.string(),
+    duration: z.number(),
+    title: z.string().max(300),
+    fromNotes: z.boolean().optional(),
+    block: z.string().max(120),
+    sectionId: z.string().max(120).optional(),
+    color: z.enum(["important", "confused", "formula", "exam"]).optional(),
+    anchor: z
+      .object({
+        start: z.number(),
+        end: z.number(),
+        quote: z.string().max(4000),
+        prefix: z.string().max(100),
+        suffix: z.string().max(100),
+      })
+      .optional(),
+    comment: z.string().max(1200),
+    createdAt: z.number(),
+  }),
   noteSummaries: z.object({
     ...syncFields,
     name: z.string().max(300),

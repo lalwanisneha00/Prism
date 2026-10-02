@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 12 (Highlights & comments). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 · Step 13 (Backlog planner & progress tracker). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -34,7 +34,7 @@ Update this after every step so any person or AI tool can pick up the work.
 | 9    | Trust tiers & accuracy guards                | ✅ Done        |
 | 10   | Generic visual toolkit part 1 + planner      | ✅ Done        |
 | 11   | Flashcards + spaced repetition               | ✅ Done        |
-| 12   | Highlights & comments                        | ⬜ Not started |
+| 12   | Highlights & comments                        | ✅ Done        |
 | 13   | Backlog planner & progress tracker           | ⬜ Not started |
 | 14   | Export & eval (golden sets, accuracy page)   | ⬜ Not started |
 
@@ -129,6 +129,25 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 - Go to **/flashcards** (or Dashboard → "Flashcards due today") → Space shows the answer → press 3 (Good) → "Due now" drops by one. Press 1 (Again) on another and it comes back in 10 minutes.
 - Sign in on a second device: the same cards and due dates appear (synced).
 - Edge case: on a private window with storage blocked, the page says flashcards can't be kept instead of breaking.
+
+## V2 · Step 12 notes
+
+- `annotations` is a synced collection (IndexedDB v5, index by lesson → `users/{uid}/annotations`; in backups and the guest merge). Annotations are never stored inside a lesson. Each saves lessonId + lesson version (createdAt), block (`section:<id>`, `example:<n>`, `quiz:<n>`, `visual:<id>`, `analogy:<n>`, `mistake:<n>`, `revision`), offsets, quote, prefix and suffix.
+- Anchoring (`src/lib/annotations/anchor.ts`, tested): offsets first, then quote search scored by surrounding text; not found → kept as an "unanchored note" at the top of its section. Overlaps: same colour merges (comments kept), another colour takes the overlap and trims/splits the old highlight.
+- Painting uses the CSS Custom Highlight API (`::highlight(prism-…)` in globals.css), so the DOM is never changed: KaTeX, glossary cards and the audio highlight are unaffected. Browsers without it still list every note in "My notes".
+- UI: selection toolbar row of four colour swatches + 💬 Comment (Alt+H focuses it from a keyboard selection); tapping a highlight opens the editor (colour, comment with autosave and 1,000-character limit, Explain this simpler, Turn into flashcard, Remove); 📝 on sections, visuals, worked examples and quiz questions; comments as 💬 margin markers on desktop (≥1024px) and inline on phones; "📝 My notes (N)" panel with legend and "Show only my highlights"; "My notes" block first in Last-Minute Revision; `/my-notes` page (subject, chapter, colour, date filters and search; links open the lesson scrolled to the note); "Didn't understand" highlights appear in the dashboard's weak topics. The PDF uploads page is now called "Uploaded notes" to avoid confusion.
+- Bug found and fixed while testing: the lesson article's ref callback was re-created every render, which re-rendered the page in a loop and kept cancelling the comment autosave.
+
+### ✅ Check this (Step 12)
+
+1. Open any lesson. Select a sentence and tap each colour in turn on four different sentences: yellow (Important), red (Didn't understand), blue (Formula/definition), green (Exam-likely).
+2. Select another phrase → **💬 Comment** → type a comment → it says "✓ Saved". Tap any highlight to change its colour or comment.
+3. Press 📝 on a worked example and write a note.
+4. **Refresh the page**: all highlights, the comment (💬 in the margin on a laptop, inline on a phone) and the note are still there; "📝 My notes" lists them in reading order.
+5. Tick **Show only my highlights**: the lesson shrinks to just your marked passages.
+6. **Sign in on a second device** (or another browser) with the same Google account and open the same lesson (same level and length): everything is there. Also check **/my-notes** and the dashboard's weak topics.
+
+- Edge case: overlap a yellow highlight with a green one in its middle → the yellow splits into two pieces around the green.
 
 ## Known issues / leftovers
 

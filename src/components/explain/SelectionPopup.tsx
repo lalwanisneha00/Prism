@@ -1,6 +1,9 @@
 "use client";
 
-import { useEffect, useState, type RefObject } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
+import { useAnnotations } from "@/components/annotations/AnnotationsProvider";
+import { ColorSwatch } from "@/components/annotations/ColorSwatch";
+import { highlightColors } from "@/lib/annotations/store";
 import { ExplainAnswer } from "@/components/explain/ExplainAnswer";
 import { SelectionCardEditor } from "@/components/flashcards/SelectionCardEditor";
 import { useExplain, useLesson } from "@/components/explain/useExplain";
@@ -10,14 +13,29 @@ type Selected = { text: string; left: number; top: number };
 type Asked = { action: "explain" | "define" | "card"; text: string };
 
 /**
- * Select any text in the lesson → a small toolbar offers "Explain" and "Define".
- * The answer opens in a card at the bottom of the screen.
+ * Select any text in the lesson → a small toolbar: highlight in one of four colours, comment,
+ * Explain, Define or make a flashcard. Answers open in a card at the bottom of the screen.
+ * Keyboard: select with Shift + arrows, then Alt+H moves focus into the toolbar.
  */
 export function SelectionPopup({ container }: { container: RefObject<HTMLElement | null> }) {
   const lesson = useLesson();
   const { state, run, reset } = useExplain(lesson);
   const [selected, setSelected] = useState<Selected | null>(null);
   const [asked, setAsked] = useState<Asked | null>(null);
+  const anno = useAnnotations();
+  const toolbar = useRef<HTMLDivElement>(null);
+
+  // Alt+H: jump from a keyboard selection into the toolbar.
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.altKey && e.key.toLowerCase() === "h" && toolbar.current) {
+        e.preventDefault();
+        toolbar.current.querySelector("button")?.focus();
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | undefined;
@@ -40,7 +58,7 @@ export function SelectionPopup({ container }: { container: RefObject<HTMLElement
         setSelected({
           text,
           left: Math.min(Math.max(12, rect.left + rect.width / 2 - 160), window.innerWidth - 332),
-          top: below ? rect.bottom + 10 : Math.max(8, rect.top - 52),
+          top: below ? rect.bottom + 10 : Math.max(8, rect.top - 100),
         });
       }, 250);
     };
@@ -67,34 +85,65 @@ export function SelectionPopup({ container }: { container: RefObject<HTMLElement
     <>
       {selected && (
         <div
+          ref={toolbar}
           role="toolbar"
-          aria-label="Ask about the selected text"
+          aria-label="Highlight or ask about the selected text"
           style={{ left: selected.left, top: selected.top }}
-          className="fixed z-50 flex gap-1 rounded-full border border-border bg-surface p-1 shadow-lg"
+          className="fixed z-50 flex w-[20rem] max-w-[calc(100vw-24px)] flex-col gap-1 rounded-2xl border border-border bg-surface p-1 shadow-lg"
           // Keep the selection while the student presses a button.
           onPointerDown={(e) => e.preventDefault()}
+          onKeyDown={(e) => {
+            if (e.key === "Escape") setSelected(null);
+          }}
         >
-          <button
-            type="button"
-            onClick={() => ask("explain", selected.text)}
-            className="rounded-full px-3 py-1.5 text-sm font-semibold hover:bg-surface-2"
-          >
-            💡 Explain
-          </button>
-          <button
-            type="button"
-            onClick={() => ask("define", selected.text)}
-            className="rounded-full px-3 py-1.5 text-sm font-semibold hover:bg-surface-2"
-          >
-            📖 Define
-          </button>
-          <button
-            type="button"
-            onClick={() => ask("card", selected.text)}
-            className="rounded-full px-3 py-1.5 text-sm font-semibold hover:bg-surface-2"
-          >
-            ＋ Flashcard
-          </button>
+          {anno && (
+            <div className="flex items-center gap-1 border-b border-border px-1 pb-1">
+              {highlightColors.map((c) => (
+                <ColorSwatch
+                  key={c.color}
+                  color={c.color}
+                  label={c.label}
+                  onPick={() => {
+                    setSelected(null);
+                    void anno.highlightSelection(c.color);
+                  }}
+                />
+              ))}
+              <button
+                type="button"
+                onClick={() => {
+                  setSelected(null);
+                  void anno.commentOnSelection();
+                }}
+                className="ml-auto rounded-full px-2.5 py-1.5 text-sm font-semibold hover:bg-surface-2"
+              >
+                💬 Comment
+              </button>
+            </div>
+          )}
+          <div className="flex gap-1">
+            <button
+              type="button"
+              onClick={() => ask("explain", selected.text)}
+              className="rounded-full px-3 py-1.5 text-sm font-semibold hover:bg-surface-2"
+            >
+              💡 Explain
+            </button>
+            <button
+              type="button"
+              onClick={() => ask("define", selected.text)}
+              className="rounded-full px-3 py-1.5 text-sm font-semibold hover:bg-surface-2"
+            >
+              📖 Define
+            </button>
+            <button
+              type="button"
+              onClick={() => ask("card", selected.text)}
+              className="rounded-full px-3 py-1.5 text-sm font-semibold hover:bg-surface-2"
+            >
+              ＋ Flashcard
+            </button>
+          </div>
         </div>
       )}
 

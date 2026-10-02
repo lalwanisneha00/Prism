@@ -1,5 +1,6 @@
 import { Card } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
+import { BlockNoteButton, BlockNotes } from "@/components/annotations/BlockNotes";
 import { SectionHelp } from "@/components/explain/SectionHelp";
 import { VisualSlot } from "@/components/lesson/VisualSlot";
 import type { GlossaryEntry } from "@/lib/glossary";
@@ -46,7 +47,7 @@ export function SectionView({
   const outside = notesLesson && cited.some((c) => sources[c.number - 1].kind !== "notes");
 
   return (
-    <Card className="flex flex-col gap-4">
+    <Card className="flex flex-col gap-4" data-section-card="">
       <div
         id={`section-${section.id}`}
         className="flex scroll-mt-20 items-start justify-between gap-3"
@@ -56,6 +57,13 @@ export function SectionView({
           <h3 className="text-xl font-bold tracking-tight">{section.title}</h3>
         </div>
         <div className="flex shrink-0 flex-col items-end gap-1">
+          {interactive && (
+            <BlockNoteButton
+              block={`section:${section.id}`}
+              sectionId={section.id}
+              label={`section ${index + 1}`}
+            />
+          )}
           {section.check && <CheckBadge check={section.check} />}
           {fromNotes && (
             <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold whitespace-nowrap text-primary">
@@ -69,8 +77,30 @@ export function SectionView({
           )}
         </div>
       </div>
-      <Markdown glossary={glossary}>{section.body}</Markdown>
-      {section.visual && <VisualSlot visual={section.visual} />}
+      {interactive && <BlockNotes block={`section:${section.id}`} unanchoredSection={section.id} />}
+      <div data-anno-block={`section:${section.id}`} data-section-id={section.id}>
+        <Markdown glossary={glossary}>{section.body}</Markdown>
+      </div>
+      {interactive && <BlockNotes block={`section:${section.id}`} />}
+      {section.visual && (
+        <div
+          data-anno-block={`visual:${section.id}`}
+          data-section-id={section.id}
+          className="flex flex-col gap-2"
+        >
+          <VisualSlot visual={section.visual} />
+          {interactive && (
+            <div className="flex items-center justify-end gap-2" data-anno-skip="">
+              <BlockNotes block={`visual:${section.id}`} />
+              <BlockNoteButton
+                block={`visual:${section.id}`}
+                sectionId={section.id}
+                label="this visual"
+              />
+            </div>
+          )}
+        </div>
+      )}
       {section.check?.status === "verify" && (
         <p className="rounded-xl border border-warning/30 bg-warning/10 px-3 py-2 text-sm">
           <span className="font-semibold">Double-check this part.</span>{" "}

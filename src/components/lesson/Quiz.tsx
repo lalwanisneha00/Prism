@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BlockNoteButton, BlockNotes } from "@/components/annotations/BlockNotes";
 import { Card } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
 import type { Lesson, QuizQuestion } from "@/lib/schema";
@@ -96,9 +97,12 @@ function QuestionCard({
   const showAnswer = isChoice ? Boolean(attempt) : revealed;
 
   return (
-    <Card className="flex flex-col gap-4">
+    <Card className="flex flex-col gap-4" data-anno-block={`quiz:${index}`}>
       <div className="flex items-start justify-between gap-3">
-        <p className="text-sm font-semibold text-primary">Question {index + 1}</p>
+        <p className="text-sm font-semibold text-primary">
+          Question {index + 1}{" "}
+          <BlockNoteButton block={`quiz:${index}`} label={`quiz question ${index + 1}`} />
+        </p>
         <p className={`text-xs font-semibold uppercase ${difficultyStyle[question.difficulty]}`}>
           {question.difficulty}
         </p>
@@ -180,6 +184,7 @@ function QuestionCard({
           )}
         </div>
       )}
+      <BlockNotes block={`quiz:${index}`} />
     </Card>
   );
 }
