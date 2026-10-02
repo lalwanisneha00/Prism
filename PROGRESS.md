@@ -34,12 +34,15 @@ Update this after every step so any person or AI tool can pick up the work.
 | 9    | Trust tiers & accuracy guards                | ⬜ Not started |
 | 10   | Generic visual toolkit part 1 + planner      | ⬜ Not started |
 | 11   | Flashcards + spaced repetition               | ⬜ Not started |
-| 12   | Backlog planner & progress tracker           | ⬜ Not started |
-| 13   | Export & eval (golden sets, accuracy page)   | ⬜ Not started |
+| 12   | Highlights & comments                        | ⬜ Not started |
+| 13   | Backlog planner & progress tracker           | ⬜ Not started |
+| 14   | Export & eval (golden sets, accuracy page)   | ⬜ Not started |
 
 When V2 · Step 1 starts: give the user click-by-click Firebase console setup (Spark project, Google sign-in, Firestore database, web config, service account key, authorized domains).
 
 ## Plan changes
+
+- **2026-10-02: Highlights and comments** (SPEC §8.1). The request placed it in "V2 Step 6 (Interaction tools)"; in our numbering Interaction tools is Step 7, already done, so it becomes a new Step 12 right after flashcards (so "Turn into flashcard" and "Add to flashcards" work from day one) and well after accounts/sync (annotations sync to `users/{uid}/annotations`). Planner is now 13, export & eval 14 (the PDF export and Last-Minute level include the "My notes" block). User asked for autonomous work through the end of V2, resuming after usage limits without waiting for confirmation.
 
 - **2026-10-02: Accuracy tiers + universal visual toolkit** (SPEC §4.1 and §6.1). V2 grows from 11 to 13 steps; finished steps 1-7 are unchanged. New Step 9 (trust tiers & accuracy guards) and Step 10 (generic visual toolkit part 1 + visual planner); flashcards, planner and export/eval move to 11-13. Step 13 now also needs golden sets for E&M and Engineering Maths (>= 15 topics), `EVAL_LOG.md` and a public accuracy page; V2 is done only when Engineering Maths is `verified`. V3 Step 2 takes the rest of the toolkit (financial charts, timelines, maps, economics, CS, chemistry, images) and the high-stakes notes; V3 Step 8 takes the report-a-mistake feedback loop. The plan's "V2 Step 5 (second subject)" is our Step 6, already done with hand-coded maths widgets; the generic toolkit is therefore built as the new Step 10 instead of redoing Step 6.
 

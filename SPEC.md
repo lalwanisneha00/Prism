@@ -157,6 +157,18 @@ The UI states honestly that AI can make mistakes and links every claim to its so
 | PWA with offline saved lessons                            | V3      |
 | Accessibility (screen reader, transcripts, dyslexia font) | V3      |
 
+## 8.1 Highlights and comments (plan update 2026-10-02)
+
+Students highlight parts of a lesson and attach their own comments, so revisiting a topic is faster.
+
+- **Highlighting:** the selection popup offers Highlight and Add comment next to Explain, Define and Add to flashcards. Four colours with fixed meanings in a small legend: Important, Didn't understand, Formula/definition, Exam-likely. Tapping a highlight lets the student change its colour, add/edit a comment or remove it.
+- **Comments** attach to a highlight, or to a whole section, visual, worked example or quiz question via a small "add note" icon (for formulas and charts, where selection doesn't work). Desktop: marker in the margin; mobile: inline; both open on tap. Plain text with line breaks, up to about 1,000 characters.
+- **Anchoring that survives changes:** annotations are stored per user, never inside the (read-only, shared) lesson. Each saves the lesson ID and version, section ID, character offsets, the exact quoted text and a little text before and after it. On load: anchor by offsets, then by searching for the quote. If a regenerated lesson no longer has the passage, the annotation is kept as an "unanchored note" at the top of that section, never silently deleted.
+- **Storage and sync:** through `src/lib/storage` (IndexedDB first, synced to `users/{uid}/annotations` when signed in; guests work locally); autosave with batched writes; included in export/import backup and the guest-to-account merge.
+- **My Notes:** a panel on the lesson page listing that lesson's highlights and comments in order (click to scroll), and a "My Notes" page across all topics with filters (subject, chapter, colour, date) and search.
+- **Revision use:** "Show only my highlights" collapses a lesson to highlighted passages and comments; a "My notes" block in Last-Minute Revision and in the PDF export; "Didn't understand" highlights feed the weak-topics list and each gets an "Explain this simpler" shortcut; one-tap "Turn into flashcard" on any highlight.
+- **Details:** highlights must not break KaTeX, the audio sentence highlight (clearly different styling) or glossary hover cards; overlapping highlights merge or split cleanly; touch selection at 375px, dark and light mode, keyboard access. Annotations are private and never part of shared lesson links.
+
 ## 9. Accounts & cloud sync (Firebase Spark, free forever)
 
 Goal: progress syncs across devices and is never lost, while staying **100% free on the Firebase Spark plan with billing never enabled**.
@@ -245,8 +257,9 @@ Recent topics · saved lesson IDs · quiz attempts and scores · weak topics · 
 9. **Trust tiers & accuracy guards (§6.1 rules 1-4, 7, 8, 10):** tier per subject + badge + per-tier behaviour, "could not verify" handling, widget-topic enforcement in code, mathjs answer checks for Engineering Maths, notes-vs-sources labelling, library entries store tier/sources/prompt version and go stale on prompt change
 10. **Generic visual toolkit part 1 + visual planner (§4.1 items 1, 3, 4, 5, 7, 8, 10):** charts, function/geometry plots, formula explorer (mathjs), Mermaid diagram types, comparison visuals, step-through, statistics explorers; visual planner step; data-source labels (computed / sourced / illustrative); code sanity checks and fallbacks; PhET map beyond E&M; all in `/dev/visuals`
 11. Flashcards + spaced repetition (synced), incl. "+ Flashcard" in the selection popup
-12. Backlog planner + progress tracker (synced)
-13. **Export & eval (§6.1 rules 5, 6, 12):** PDF export of revision sheets; golden sets for E&M (40 topics) and Engineering Maths (>= 15 topics); every verified subject >= 95%; visual checks in the eval; `EVAL_LOG.md`; public accuracy page
+12. **Highlights & comments (§8.1):** four-colour highlights and comments with robust anchoring, synced annotations, My Notes panel and page, "show only my highlights", weak-topic feed, "Turn into flashcard"
+13. Backlog planner + progress tracker (synced)
+14. **Export & eval (§6.1 rules 5, 6, 12):** PDF export of revision sheets (with the student's "My notes" block, which also appears in Last-Minute Revision); golden sets for E&M (40 topics) and Engineering Maths (>= 15 topics); every verified subject >= 95%; visual checks in the eval; `EVAL_LOG.md`; public accuracy page
 
 **Done when:** signing in with Google on a laptop and a phone shows the same progress; upload a college PDF → lesson follows it; 45-min audio; flashcards; 7-day backlog plan; Engineering Maths is `verified` (>= 95% on its golden set) and every lesson shows its trust tier.
 
