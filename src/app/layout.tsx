@@ -4,6 +4,7 @@ import { AuthProvider } from "@/components/account/AuthProvider";
 import { KeyboardShortcuts } from "@/components/KeyboardShortcuts";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { TestModeBanner } from "@/components/TestModeBanner";
 import { site } from "@/lib/site";
 import { themeScript } from "@/lib/theme";
 import "./globals.css";
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <TestModeBanner />
         <AuthProvider>
           <SiteHeader />
           <main id="main" className="flex-1">
