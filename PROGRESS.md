@@ -4,10 +4,10 @@ Update this after every step so any person or AI tool can pick up the work.
 
 ## Current state (resume here)
 
-- **Version / step:** V2.5 · Step 1 (multi-format parsers and the normalised extracted-text format): built, tested and saved as a `wip:` commit; waiting for the user's confirmation.
-- **Finished:** `src/lib/extract/` reads PowerPoint, Word, Excel, CSV, text, Markdown, RTF, OpenDocument, PDF and images into one format (file → sections → text blocks), with friendly errors for old .ppt/.doc/.xls, password-protected, damaged, empty, huge and unknown files. Notes storage and citations use it ("Unit 3.pptx, slide 14"); the past-paper input reads any format. Real test files made with Microsoft Office are in `C:\Users\lalwa\Desktop\prism-test-files` (outside the repo). V3 · Step 1 (plan restructure) is done; V3 continues at Step 2 after V2.5.
+- **Version / step:** V2.5 · Step 1 done and confirmed (2026-10-04). **Do not start Step 2 until the user says to proceed.**
+- **Finished:** `src/lib/extract/` reads PowerPoint, Word, Excel, CSV, text, Markdown, RTF, OpenDocument, PDF and images into one format (file → sections → text blocks), with friendly errors for old .ppt/.doc/.xls, password-protected, damaged, empty, huge and unknown files. Old Equation 3.0 / MathType equations are read from their WMF/EMF previews. Notes storage and citations use it ("Unit 3.pptx, slide 14"); the past-paper input reads any format. Real test files made with Microsoft Office are in `C:\Users\lalwa\Desktop\prism-test-files` (outside the repo). V3 · Step 1 (plan restructure) is done; V3 continues at Step 2 after V2.5.
 - **Half-done:** nothing.
-- **Next action:** after confirmation, commit "V2.5 step 1: multi-format parsers and normalised extracted text", then start V2.5 · Step 2 (several files at once, drag-and-drop, file types and subjects, preview, "My materials" page, OCR).
+- **Next action:** wait for the user's go-ahead, then start V2.5 · Step 2 (several files at once, drag-and-drop, file types and subjects, preview, "My materials" page, OCR). The user chose to keep the step order (chapter lessons are Steps 3–5).
 - **Running commands:** none.
 - **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` after the free quota resets; under the new tiers engg-math would qualify for `tested` (≥ 85%), em for neither yet.
 - **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, say in 2–3 lines where we are, continue from "Next action".
@@ -52,13 +52,13 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 
 Step protocol: "✅ Check this" block and the user's confirmation after each step (SPEC §11.5).
 
-| Step | Title                                                                                   | Status                   |
-| ---- | --------------------------------------------------------------------------------------- | ------------------------ |
-| 1    | Multi-format parsers and the normalised extracted-text format                           | 🔄 Awaiting confirmation |
-| 2    | Upload experience, preview, "My materials" page, OCR option                             | ⬜ Not started           |
-| 3    | Chapter and multi-topic selection, chapter load score, three time options               | ⬜ Not started           |
-| 4    | Chapter lesson composition, chunked generation and streaming, library reuse             | ⬜ Not started           |
-| 5    | Long-lesson reading, chapter audio, chapter extras + mock test, regression eval, deploy | ⬜ Not started           |
+| Step | Title                                                                                   | Status         |
+| ---- | --------------------------------------------------------------------------------------- | -------------- |
+| 1    | Multi-format parsers and the normalised extracted-text format                           | ✅ Done        |
+| 2    | Upload experience, preview, "My materials" page, OCR option                             | ⬜ Not started |
+| 3    | Chapter and multi-topic selection, chapter load score, three time options               | ⬜ Not started |
+| 4    | Chapter lesson composition, chunked generation and streaming, library reuse             | ⬜ Not started |
+| 5    | Long-lesson reading, chapter audio, chapter extras + mock test, regression eval, deploy | ⬜ Not started |
 
 ## Version 3: All Engineering
 
