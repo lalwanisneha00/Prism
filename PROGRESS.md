@@ -5,10 +5,10 @@ Update this after every step so any person or AI tool can pick up the work.
 ## Current state (resume here)
 
 - **Mode:** OVERNIGHT AUTONOMOUS RUN (started 2026-10-04 02:36) on branch `overnight-v2.5-v3`. Rules below; status for the user goes in `MORNING_REPORT.md`.
-- **Version / step:** V2.5 · Step 4 (chapter lesson composition, chunked generation and streaming, library reuse): starting.
+- **Version / step:** V2.5 · Step 4 (chapter lesson composition, chunked generation and streaming, library reuse): IN PROGRESS (paused at usage limit, 2026-10-04).
 - **Finished:** V2.5 · Steps 1–3 (tags `v2.5-step-2`, `v2.5-step-3`); plan updated with "Other subjects" (V3 · Step 4) and tonight's rules.
-- **Half-done:** nothing.
-- **Next action:** build V2.5 · Step 4 (the `/chapter/lesson` page that the plan's "Start the lesson" links to).
+- **Half-done:** Step 4 server side is written and unit-tested (`src/lib/chapter/parts.ts`: intro/bridges/wrap-up schema, prompt, library cache, topic length rounding; `src/app/api/chapter-parts/route.ts`). Not yet written: the client `/chapter/lesson` page (`src/app/chapter/lesson/page.tsx` + `components/chapter/ChapterLesson.tsx`): fetch parts, then each topic in plan order via `/api/lesson` (duration = `topicDuration(minutes)`), each topic wrapped in `InteractiveLesson`, bridges between topics, wrap-up; local store for resume (DB v8 `chapterLessons`); Playwright test.
+- **Next action:** write the `/chapter/lesson` page and its browser test, run check/build/e2e, then commit and tag `v2.5-step-4`.
 - **Running commands:** none.
 - **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` when quota allows.
 - **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, continue from "Next action". Finish half-done work first; never restart a finished step.

@@ -66,7 +66,7 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Problems
 
-(None yet.)
+- The overnight run stopped early at the Claude usage limit, during V2.5 · Step 4. "Start the lesson" on the chapter plan page leads to `/chapter/lesson`, which isn't built yet (404 for now).
 
 ## Accuracy
 
@@ -75,6 +75,7 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 ## Pauses
 
 - 2026-10-04 02:36: run started.
+- Paused: Claude usage limit reached during V2.5 · Step 4 (server part done and committed as `wip:`; the `/chapter/lesson` page is next).
 
 ## Next action
 
