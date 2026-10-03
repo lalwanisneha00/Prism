@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import sample from "@/data/sample-lessons/gauss-law.first-encounter.json";
 import { findSampleLesson } from "@/data/sampleLessons";
-import { parseLesson } from "@/lib/schema";
+import { parseLesson, QuizQuestionSchema } from "@/lib/schema";
 import { findChapter, findSubject, findTopic } from "@/lib/subjects";
 
 /** A deep copy of the sample that a test can break on purpose. */
@@ -90,5 +90,16 @@ describe("lesson schema rejects broken lessons", () => {
   it("something that is not a lesson at all", () => {
     expect(parseLesson("hello").ok).toBe(false);
     expect(parseLesson(null).ok).toBe(false);
+  });
+});
+
+describe("quiz options", () => {
+  const base = { question: "Q?", answer: "u", explanation: "e", difficulty: "easy" as const };
+  it("drops a repeated option instead of showing it twice", () => {
+    const q = QuizQuestionSchema.parse({ ...base, options: ["u", "v", "u"] });
+    expect(q.options).toEqual(["u", "v"]);
+  });
+  it("rejects a question left with fewer than 2 different options", () => {
+    expect(QuizQuestionSchema.safeParse({ ...base, options: ["u", "u"] }).success).toBe(false);
   });
 });

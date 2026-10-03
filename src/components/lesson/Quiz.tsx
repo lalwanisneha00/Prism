@@ -111,7 +111,7 @@ function QuestionCard({
 
       {question.options ? (
         <ul className="grid gap-2">
-          {question.options.map((option) => {
+          {question.options.map((option, optionIndex) => {
             const isAnswer = option === question.answer;
             const isPicked = attempt?.picked === option;
             const state = !attempt
@@ -122,7 +122,8 @@ function QuestionCard({
                   ? "border-danger bg-danger/10"
                   : "border-border opacity-60";
             return (
-              <li key={option}>
+              // Position + text: unique even if a saved lesson repeats an option.
+              <li key={`${optionIndex}-${option}`}>
                 <button
                   type="button"
                   disabled={Boolean(attempt)}

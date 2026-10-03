@@ -107,10 +107,20 @@ export const QuizQuestionSchema = z
   .object({
     question: text,
     /** Present for multiple choice; absent for short-answer questions. */
-    options: z.array(text).min(2).max(6).optional(),
+    // A repeated option is dropped (it would show the same choice twice).
+    options: z
+      .array(text)
+      .min(2)
+      .max(6)
+      .transform((o) => [...new Set(o)])
+      .optional(),
     answer: text,
     explanation: text,
     difficulty: z.enum(["easy", "medium", "hard"]),
+  })
+  .refine((q) => !q.options || q.options.length >= 2, {
+    message: "a multiple-choice question needs at least 2 different options",
+    path: ["options"],
   })
   .refine((q) => !q.options || q.options.includes(q.answer), {
     message: "the answer must be one of the options",
