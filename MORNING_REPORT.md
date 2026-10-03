@@ -4,9 +4,9 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 
 ## Summary
 
-- **Finished:** V2.5 · Step 1 (before tonight), V2.5 · Step 2 (tag `v2.5-step-2`).
-- **In progress:** V2.5 · Step 3 (chapter selection and the three time options).
-- **Not started:** V2.5 · Steps 4–5, V3 · Steps 2–11.
+- **Finished:** V2.5 · Step 1 (before tonight), Step 2 (tag `v2.5-step-2`), Step 3 (tag `v2.5-step-3`).
+- **In progress:** V2.5 · Step 4 (building the chapter lesson: composition, streaming, library reuse).
+- **Not started:** V2.5 · Step 5, V3 · Steps 2–11.
 
 ## How to see it
 
@@ -15,6 +15,23 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 - Automated checks: `npm run check`, `npm run build`, `npm run test:e2e` (Playwright, uses the fake AI, no quota).
 
 ## Finished steps and "✅ Check this"
+
+### V2.5 · Step 3: whole-chapter / several-topic selection and the three time options (tag `v2.5-step-3`)
+
+**Built:** in the topic picker, after choosing a chapter: **One topic** (as before), **Study the whole chapter**, or **Choose topics** (checkboxes with "Select all"). For a chapter or several topics, the duration list is replaced by exactly three options computed for that chapter, level and student: **Quick / Standard / Thorough**, one marked **Recommended ★** and preselected. The estimate uses a load score from: number of topics, how much each topic builds on (prerequisite depth), syllabus teaching hours/marks when the subject data has them (none yet: V3 adds them), how many of the student's uploaded previous-year papers ask about these topics (and their marks), how much of their material covers it, topics already done well (short recap) and weak topics (more time). Revision levels scale down; anything over 90 minutes is offered as two parts. **"Why these timings?"** lists only the factors really used; with no papers or syllabus data it says the estimate is based on size and difficulty only and links to uploading papers. Never an invented weightage. Then a **plan page** (`/chapter`) shows each topic with its minutes (important/harder/weak topics get more, done topics a recap), ordered by prerequisites for learning levels and by importance for Exam Prep / Last-Minute; − / + and Skip keep the total equal to the chosen option; long lessons show "Part 2 starts here: take a break". The "Start the lesson" button leads to the chapter lesson built in Step 4.
+
+Also fixed: the "Parsing CSS source code failed … ::highlight" warning on every page load (it was in your terminal earlier). The highlight colours are now added by the highlights code at runtime; a browser test confirms highlights are still painted and survive a reload.
+
+**Tests:** 362 unit tests (new: load score, sizes, level scaling, two-part split, honest factor list, paper matching with marks, minute sharing that always adds up, recap/weak weighting, prerequisite vs importance order, adjusting/skipping keeps the total, split point, URL round-trip and validation). Playwright: 35 checks pass across desktop/375px × light/dark (whole chapter → options → plan adjust/skip; chosen topics with an uploaded paper changing the estimate; "tick topics first" message; broken link message; no sideways scrolling at 375px).
+
+**✅ Check this**
+
+- http://localhost:3000 → Electricity & Magnetism → chapter **Electrostatics** → **Study the whole chapter** → level **First Encounter**.
+- You should see three options like "Quick · 45 min", "Standard · 60 min ★ (Recommended)", "Thorough · 90 min". Open **Why these timings?**: "8 topics · builds on up to N earlier topics" and the "size and difficulty only" note.
+- Change the level to **Last-Minute Revision**: all three get shorter and Quick becomes recommended.
+- Click **Build my lesson** → the plan: 8 topics with minutes. Press + on one topic and Skip on another: "Total: 60 of 60 min" stays.
+- Upload `test-fixtures/PYQ-applied-physics-2024.txt` in My materials (Electricity & Magnetism), then choose **Choose topics** → Gauss's law + Electric dipole → Exam Prep: the note now says "appears in 1 of your 1 uploaded paper (… marks)".
+- Edge case: choose **Deep Dive** for the whole chapter: Thorough is over 90 minutes and says "In 2 parts", and the plan shows "Part 2 starts here: take a break".
 
 ### V2.5 · Step 2: upload experience, preview, "My materials", OCR (tag `v2.5-step-2`)
 
@@ -40,6 +57,8 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 - The original uploaded file is kept on the device (≤ 15 MB, new local-only IndexedDB store, database version 7 adds it without touching existing data) so "Read text from images" can work later; larger files keep only their text.
 - A file uploaded with "Any subject" is used for every subject's lessons; a file tagged with a subject only for that subject.
 - OCR on the device downloads English language data from the free jsDelivr CDN on first use (the picture itself never leaves the device).
+- Chapter time estimate: when the subject data has no syllabus hours (true for both current subjects), size comes from topic count and prerequisite depth; papers raise it by up to 25% when the chapter is often asked. Deep Dive is 1.2× the first-time times, Exam Prep 0.67×, Last-Minute 0.45×. "Completed" = latest quiz score ≥ 60%; "weak" = below 60% or marked "Didn't understand".
+- Plan adjustments change a topic by 2 minutes per press (minimum 3 minutes per topic).
 
 ## Needs Sneha
 
@@ -59,4 +78,4 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 
 ## Next action
 
-Build V2.5 · Step 3 (chapter / multi-topic selection, chapter load score, three time options).
+Build V2.5 · Step 4 (chapter lesson: intro, topic sections with bridges, wrap-up; library reuse; generate topic by topic and stream).

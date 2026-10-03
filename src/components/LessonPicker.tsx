@@ -2,12 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import { useId, useRef, useState, type FormEvent } from "react";
+import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
 import { FieldError, FieldGroup } from "@/components/form/FieldGroup";
 import { NotesToggle } from "@/components/notes/NotesToggle";
 import { TopicSearch } from "@/components/TopicSearch";
 import { defaultDuration, durations } from "@/data/durations";
-import { availableLevels } from "@/data/levels";
+import { availableLevels, type LevelSlug } from "@/data/levels";
+import { chapterHref } from "@/lib/chapter/request";
 import {
   lessonHref,
   validateLessonRequest,
@@ -32,8 +34,19 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
   const [errors, setErrors] = useState<LessonRequestErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [useNotes, setUseNotes] = useState(false);
+  // One topic (the usual lesson), the whole chapter, or several chosen topics (V2.5 · Step 3).
+  const [scope, setScope] = useState<"topic" | "chapter" | "topics">("topic");
+  const [picked, setPicked] = useState<string[]>([]);
+  const [chapterMinutes, setChapterMinutes] = useState<number | null>(null);
 
   const chapter = subject.chapters.find((c) => c.id === chapterId);
+  const chosenTopics =
+    chapter && scope !== "topic"
+      ? scope === "chapter"
+        ? chapter.topics
+        : chapter.topics.filter((t) => picked.includes(t.id))
+      : [];
+  const chosenLevel: LevelSlug | undefined = availableLevels.find((l) => l.slug === level)?.slug;
 
   function clearErrors(...fields: LessonRequestField[]) {
     setErrors((prev) => {
@@ -45,6 +58,7 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (scope !== "topic") return submitChapter();
     const result = validateLessonRequest({
       subject: subject.id,
       chapter: chapterId,
@@ -61,6 +75,31 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
     }
     setSubmitting(true);
     router.push(lessonHref(result.request, { notes: useNotes }));
+  }
+
+  function submitChapter() {
+    const problems: LessonRequestErrors = {};
+    if (!chapter) problems.chapter = "Choose a chapter.";
+    else if (chosenTopics.length === 0) problems.topic = "Tick at least one topic.";
+    if (!chosenLevel) problems.level = "Choose how well you know this chapter.";
+    if (!chapterMinutes) problems.duration = "Choose one of the time options.";
+    if (!chapter || !chosenLevel || !chapterMinutes || chosenTopics.length === 0) {
+      setErrors(problems);
+      const firstBad = fieldOrder.find((f) => problems[f]);
+      formRef.current?.querySelector<HTMLElement>(`[name="${firstBad}"]`)?.focus();
+      return;
+    }
+    setSubmitting(true);
+    router.push(
+      chapterHref("/chapter", {
+        subject: subject.id,
+        chapter: chapter.id,
+        topics: scope === "topics" ? chosenTopics.map((t) => t.id) : undefined,
+        level: chosenLevel,
+        minutes: chapterMinutes,
+        notes: useNotes,
+      }),
+    );
   }
 
   return (
@@ -117,6 +156,7 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
         onPick={({ chapter, topic }) => {
           setChapterId(chapter.id);
           setTopicId(topic.id);
+          setScope("topic");
           clearErrors("chapter", "topic");
         }}
       />
@@ -132,6 +172,7 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
           onChange={(e) => {
             setChapterId(e.target.value);
             setTopicId("");
+            setPicked([]);
             clearErrors("chapter", "topic");
           }}
           aria-invalid={Boolean(errors.chapter)}
@@ -157,20 +198,94 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
         errorId={`${id}-topic-error`}
       >
         {chapter ? (
-          <div className="grid gap-2 sm:grid-cols-2">
-            {chapter.topics.map((t) => (
-              <ChoiceCard
-                key={t.id}
-                name="topic"
-                value={t.id}
-                checked={topicId === t.id}
-                onSelect={(v) => {
-                  setTopicId(v);
-                  clearErrors("topic");
-                }}
-                title={t.name}
-              />
-            ))}
+          <div className="flex flex-col gap-3">
+            <div role="radiogroup" aria-label="What to study" className="flex flex-wrap gap-2">
+              {(
+                [
+                  ["topic", "One topic"],
+                  ["chapter", "Study the whole chapter"],
+                  ["topics", "Choose topics"],
+                ] as const
+              ).map(([value, label]) => (
+                <button
+                  key={value}
+                  type="button"
+                  role="radio"
+                  aria-checked={scope === value}
+                  onClick={() => {
+                    setScope(value);
+                    clearErrors("topic", "duration");
+                  }}
+                  className={`rounded-full border px-4 py-2 text-sm font-semibold ${
+                    scope === value
+                      ? "border-primary bg-primary-soft text-primary"
+                      : "border-border hover:bg-surface-2"
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            {scope === "topic" && (
+              <div className="grid gap-2 sm:grid-cols-2">
+                {chapter.topics.map((t) => (
+                  <ChoiceCard
+                    key={t.id}
+                    name="topic"
+                    value={t.id}
+                    checked={topicId === t.id}
+                    onSelect={(v) => {
+                      setTopicId(v);
+                      clearErrors("topic");
+                    }}
+                    title={t.name}
+                  />
+                ))}
+              </div>
+            )}
+            {scope === "chapter" && (
+              <p className="rounded-xl bg-surface-2 px-3 py-3 text-sm">
+                One continuous lesson covering all {chapter.topics.length} topics, in an order where
+                each builds on the last.
+              </p>
+            )}
+            {scope === "topics" && (
+              <div className="flex flex-col gap-2">
+                <label className="flex w-fit items-center gap-2 text-sm font-semibold">
+                  <input
+                    type="checkbox"
+                    checked={picked.length === chapter.topics.length}
+                    onChange={(e) => {
+                      setPicked(e.target.checked ? chapter.topics.map((t) => t.id) : []);
+                      clearErrors("topic");
+                    }}
+                  />
+                  Select all
+                </label>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {chapter.topics.map((t) => (
+                    <label
+                      key={t.id}
+                      className="flex cursor-pointer items-start gap-3 rounded-xl border border-border p-3 has-checked:border-primary has-checked:bg-primary-soft"
+                    >
+                      <input
+                        type="checkbox"
+                        name="topic"
+                        className="mt-1"
+                        checked={picked.includes(t.id)}
+                        onChange={(e) => {
+                          setPicked((list) =>
+                            e.target.checked ? [...list, t.id] : list.filter((x) => x !== t.id),
+                          );
+                          clearErrors("topic");
+                        }}
+                      />
+                      <span className="font-semibold">{t.name}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <p className="rounded-xl border border-dashed border-border px-3 py-4 text-sm text-muted">
@@ -207,23 +322,42 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
         error={errors.duration}
         errorId={`${id}-duration-error`}
       >
-        <div className="grid grid-cols-4 gap-2 sm:grid-cols-7">
-          {durations.map((d) => (
-            <ChoiceCard
-              key={d.minutes}
-              name="duration"
-              value={String(d.minutes)}
-              checked={duration === String(d.minutes)}
-              onSelect={(v) => {
-                setDuration(v);
-                clearErrors("duration");
-              }}
-              title={d.label}
-              description={d.hint}
-              compact
+        {scope !== "topic" && chapter ? (
+          chosenLevel && chosenTopics.length > 0 ? (
+            <ChapterTimeOptions
+              subject={subject}
+              chapter={chapter}
+              topics={chosenTopics}
+              level={chosenLevel}
+              value={chapterMinutes}
+              onChange={setChapterMinutes}
             />
-          ))}
-        </div>
+          ) : (
+            <p className="rounded-xl border border-dashed border-border px-3 py-4 text-sm text-muted">
+              {chosenTopics.length === 0
+                ? "Tick the topics you want first."
+                : "Choose a level first: the time options depend on it."}
+            </p>
+          )
+        ) : (
+          <div className="grid grid-cols-4 gap-2 sm:grid-cols-7">
+            {durations.map((d) => (
+              <ChoiceCard
+                key={d.minutes}
+                name="duration"
+                value={String(d.minutes)}
+                checked={duration === String(d.minutes)}
+                onSelect={(v) => {
+                  setDuration(v);
+                  clearErrors("duration");
+                }}
+                title={d.label}
+                description={d.hint}
+                compact
+              />
+            ))}
+          </div>
+        )}
       </FieldGroup>
 
       <NotesToggle checked={useNotes} onChange={setUseNotes} />

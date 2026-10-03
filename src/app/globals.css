@@ -85,22 +85,7 @@ body {
  * page itself is never changed, so maths, glossary cards and audio highlighting keep working.
  * The audio's current-sentence highlight is purple; these four colours are clearly different.
  */
-::highlight(prism-important) {
-  background-color: rgb(250 204 21 / 0.45);
-}
-::highlight(prism-confused) {
-  background-color: rgb(248 113 113 / 0.4);
-}
-::highlight(prism-formula) {
-  background-color: rgb(96 165 250 / 0.4);
-}
-::highlight(prism-exam) {
-  background-color: rgb(52 211 153 / 0.42);
-}
-::highlight(prism-comment) {
-  text-decoration: underline dotted var(--primary) 2px;
-  background-color: rgb(139 92 246 / 0.12);
-}
+/* The colours themselves are added at runtime: see components/annotations/highlightStyles.ts. */
 
 /* "Show only my highlights": the lesson collapses to the passages and notes the student marked. */
 [data-only-mine] [data-lesson-block]:not([data-has-anno]),

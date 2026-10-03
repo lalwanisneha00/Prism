@@ -1,5 +1,6 @@
 "use client";
 
+import { ensureHighlightStyles } from "@/components/annotations/highlightStyles";
 import {
   createContext,
   useCallback,
@@ -171,6 +172,7 @@ export function AnnotationsProvider({
       }
       setPlaced(next);
       if (!supported) return;
+      ensureHighlightStyles();
       for (const name of names) {
         const ranges = next
           .filter((p) => p.range && (p.annotation.color ?? "comment") === name)

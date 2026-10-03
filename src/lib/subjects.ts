@@ -13,6 +13,9 @@ const TopicSchema = z.object({
 const ChapterSchema = z.object({
   id: slug,
   name: z.string().min(1),
+  /** Teaching hours and marks for the unit, when the syllabus source gives them (V2.5). */
+  hours: z.number().positive().optional(),
+  marks: z.number().positive().optional(),
   topics: z.array(TopicSchema).min(1),
 });
 export const SubjectSchema = z.object({
