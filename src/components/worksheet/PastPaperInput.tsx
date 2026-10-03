@@ -1,11 +1,13 @@
 "use client";
 
 import { useId, useState } from "react";
-import { extractPdfPages, PdfTextError } from "@/lib/notes/pdfText";
+import { ACCEPT } from "@/lib/extract/detect";
+import { extractFile } from "@/lib/extract/extractFile";
+import { docText, ExtractError, hasText } from "@/lib/extract/types";
 import { MAX_PYQ_QUESTIONS } from "@/lib/worksheet/schema";
 import { splitPaper } from "@/lib/worksheet/splitPaper";
 
-/** Paste past-paper questions (or load them from a PDF on this device) to get them solved. */
+/** Paste past-paper questions (or load them from a file on this device) to get them solved. */
 export function PastPaperInput({
   busy,
   onSolve,
@@ -15,18 +17,25 @@ export function PastPaperInput({
 }) {
   const id = useId();
   const [text, setText] = useState("");
-  const [pdfStatus, setPdfStatus] = useState<string | null>(null);
+  const [fileStatus, setFileStatus] = useState<string | null>(null);
   const questions = splitPaper(text);
   const used = questions.slice(0, MAX_PYQ_QUESTIONS);
 
-  async function loadPdf(file: File) {
-    setPdfStatus("Reading the PDF on your device…");
+  async function loadFile(file: File) {
+    setFileStatus("Reading the file on your device…");
     try {
-      const pages = await extractPdfPages(await file.arrayBuffer());
-      setText(pages.join("\n"));
-      setPdfStatus(`Loaded ${file.name}. Check the questions below and remove any you don't need.`);
+      const doc = await extractFile(file);
+      if (!hasText(doc)) {
+        return setFileStatus(
+          "No text found: this paper looks like a scan or photo. Type or paste the questions instead.",
+        );
+      }
+      setText(docText(doc));
+      setFileStatus(
+        `Loaded ${file.name}. Check the questions below and remove any you don't need.`,
+      );
     } catch (err) {
-      setPdfStatus(err instanceof PdfTextError ? err.message : "That PDF couldn't be read.");
+      setFileStatus(err instanceof ExtractError ? err.message : "That file couldn't be read.");
     }
   }
 
@@ -48,19 +57,19 @@ export function PastPaperInput({
       />
       <div className="flex flex-wrap items-center gap-3 text-sm">
         <label className="cursor-pointer font-semibold text-primary underline underline-offset-2">
-          or load a PDF
+          or load a file (PDF, Word, PowerPoint, text…)
           <input
             type="file"
-            accept="application/pdf,.pdf"
+            accept={ACCEPT}
             className="sr-only"
             onChange={(e) => {
               const file = e.target.files?.[0];
-              if (file) void loadPdf(file);
+              if (file) void loadFile(file);
               e.target.value = "";
             }}
           />
         </label>
-        {pdfStatus && <span className="text-muted">{pdfStatus}</span>}
+        {fileStatus && <span className="text-muted">{fileStatus}</span>}
       </div>
 
       {text.trim() && (

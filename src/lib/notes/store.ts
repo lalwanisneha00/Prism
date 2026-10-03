@@ -1,3 +1,4 @@
+import { sectionText, type ExtractedDoc } from "@/lib/extract/types";
 import { getDb, type NoteSummary, type StoredNote } from "@/lib/storage/db";
 import { chunkPage, searchChunks, summarize, type NoteChunk } from "@/lib/notes/retrieval";
 import { getAllRecords, putRecord } from "@/lib/storage/records";
@@ -7,36 +8,39 @@ import { getAllRecords, putRecord } from "@/lib/storage/records";
  * browser. Only the file name and a short summary sync, so other devices know it exists.
  */
 
-export const MAX_NOTE_BYTES = 30 * 1024 * 1024;
-
-/** Stores a document's pages (already extracted) and syncs its summary. */
+/** Stores a file (already read into sections on this device) and syncs its summary. */
 export async function addNote(
   file: { name: string; size: number },
-  pages: string[],
+  doc: ExtractedDoc,
   now = Date.now(),
 ): Promise<StoredNote> {
   const id = `note-${now.toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
-  const chunks = pages.flatMap((text, i) =>
-    chunkPage(text, { noteId: id, noteName: file.name, page: i + 1 }).map((c) => ({
-      id: c.id,
-      page: c.page,
-      text: c.text,
-    })),
+  const texts = doc.sections.map(sectionText);
+  const chunks = doc.sections.flatMap((section, i) =>
+    chunkPage(texts[i], {
+      noteId: id,
+      noteName: file.name,
+      page: section.index,
+      where: section.label,
+    }).map((c) => ({ id: c.id, page: c.page, where: c.where, text: c.text })),
   );
   const note: StoredNote = {
     id,
     name: file.name,
     size: file.size,
-    pages: pages.length,
+    pages: doc.sections.length,
     addedAt: now,
     chunks,
+    format: doc.format,
+    sections: doc.sections,
+    warnings: doc.warnings,
   };
   await (await getDb()).put("notes", note);
   const summary: NoteSummary = {
     id,
     name: file.name,
-    pages: pages.length,
-    summary: summarize(pages.join(" ")),
+    pages: doc.sections.length,
+    summary: summarize(texts.join(" ")),
     updatedAt: now,
     deleted: false,
   };

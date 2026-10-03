@@ -1,5 +1,6 @@
 import { openDB, type DBSchema, type IDBPDatabase } from "idb";
 import type { Lesson } from "@/lib/schema";
+import type { ExtractedSection, FileFormat } from "@/lib/extract/types";
 
 /*
  * The local database (IndexedDB): the main copy of a student's data (SPEC §9.3).
@@ -55,16 +56,22 @@ export type AppSettings = SyncFields & {
 };
 
 /**
- * An uploaded PDF's extracted text, split into passages. Local only: the file's contents
- * never leave this device (SPEC: V2 · Step 4). Only a short summary syncs.
+ * An uploaded file's extracted text, split into passages. Local only: the file's contents
+ * never leave this device (SPEC: V2 · Step 4, V2.5 · Step 1). Only a short summary syncs.
  */
 export type StoredNote = {
   id: string;
   name: string;
   size: number;
+  /** Number of sections (pages, slides, headings' parts, sheets). */
   pages: number;
   addedAt: number;
-  chunks: { id: string; page: number; text: string }[];
+  chunks: { id: string; page: number; where?: string; text: string }[];
+  /** Missing on notes from before V2.5, which were all PDFs. */
+  format?: FileFormat;
+  /** The file as read, section by section, for the preview. */
+  sections?: ExtractedSection[];
+  warnings?: string[];
 };
 
 /** What syncs about an uploaded note: its name and a short summary, never the text. */

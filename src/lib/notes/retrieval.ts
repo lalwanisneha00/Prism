@@ -8,7 +8,10 @@ export type NoteChunk = {
   id: string;
   noteId: string;
   noteName: string;
+  /** The section's position in the file (page or slide number, or its order). */
   page: number;
+  /** Where it is, for citations: "slide 14", "page 3", "“Gauss's law”". Older notes have none. */
+  where?: string;
   text: string;
 };
 
@@ -31,7 +34,7 @@ export function tokenize(text: string): string[] {
 /** Splits one page of text into passages of about `size` words that overlap a little. */
 export function chunkPage(
   text: string,
-  meta: { noteId: string; noteName: string; page: number },
+  meta: { noteId: string; noteName: string; page: number; where?: string },
   size = 150,
   overlap = 30,
 ): NoteChunk[] {

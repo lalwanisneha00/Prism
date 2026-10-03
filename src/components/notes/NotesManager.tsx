@@ -2,14 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/components/account/AuthProvider";
-import { extractPdfPages, PdfTextError } from "@/lib/notes/pdfText";
-import {
-  addNote,
-  deleteNote,
-  listLocalNotes,
-  listRemoteOnlyNotes,
-  MAX_NOTE_BYTES,
-} from "@/lib/notes/store";
+import { ACCEPT, FORMAT_NAMES } from "@/lib/extract/detect";
+import { extractFile } from "@/lib/extract/extractFile";
+import { ExtractError, hasText, unitName } from "@/lib/extract/types";
+import { addNote, deleteNote, listLocalNotes, listRemoteOnlyNotes } from "@/lib/notes/store";
 import type { NoteSummary, StoredNote } from "@/lib/storage/db";
 
 type State =
@@ -20,10 +16,10 @@ type State =
 type Upload =
   | { status: "idle" }
   | { status: "reading"; name: string; page: number; total: number }
-  | { status: "done"; name: string }
-  | { status: "failed"; message: string };
+  | { status: "done"; name: string; warnings: string[] }
+  | { status: "failed"; message: string; howTo?: string };
 
-/** Upload PDFs (read on this device), list them, and delete them. */
+/** Upload notes in any common format (read on this device), list them, and delete them. */
 export function NotesManager() {
   const { dataVersion } = useAuth();
   const [state, setState] = useState<State>({ status: "loading" });
@@ -38,26 +34,29 @@ export function NotesManager() {
   }, [dataVersion, version]);
 
   async function handleFile(file: File) {
-    if (file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
-      return setUpload({ status: "failed", message: "Please choose a PDF file." });
-    }
-    if (file.size > MAX_NOTE_BYTES) {
-      return setUpload({ status: "failed", message: "That PDF is over 30 MB. Try a smaller one." });
-    }
     setUpload({ status: "reading", name: file.name, page: 0, total: 0 });
     try {
-      const pages = await extractPdfPages(await file.arrayBuffer(), (page, total) =>
+      const doc = await extractFile(file, (page, total) =>
         setUpload({ status: "reading", name: file.name, page, total }),
       );
-      await addNote(file, pages);
-      setUpload({ status: "done", name: file.name });
+      if (!hasText(doc)) {
+        throw new ExtractError(
+          "empty",
+          `No text could be found in ${file.name}: its content is in pictures (a photo, a scan or picture-only slides). Prism can't read text in pictures yet.`,
+        );
+      }
+      await addNote(file, doc);
+      setUpload({ status: "done", name: file.name, warnings: doc.warnings });
       setVersion((v) => v + 1);
     } catch (err) {
-      const message =
-        err instanceof PdfTextError
-          ? err.message
-          : "Something went wrong saving this file. Check that storage isn't blocked.";
-      setUpload({ status: "failed", message });
+      setUpload(
+        err instanceof ExtractError
+          ? { status: "failed", message: err.message, howTo: err.howTo }
+          : {
+              status: "failed",
+              message: "Something went wrong saving this file. Check that storage isn't blocked.",
+            },
+      );
     } finally {
       if (input.current) input.current.value = "";
     }
@@ -74,13 +73,13 @@ export function NotesManager() {
     <div className="flex flex-col gap-6">
       <section className="flex flex-col gap-3 rounded-2xl border border-dashed border-border bg-surface-2 p-5">
         <label htmlFor="notes-file" className="font-semibold">
-          Add a PDF of your notes, slides or syllabus
+          Add your notes, slides or syllabus
         </label>
         <input
           ref={input}
           id="notes-file"
           type="file"
-          accept="application/pdf,.pdf"
+          accept={ACCEPT}
           disabled={busy}
           onChange={(e) => {
             const file = e.target.files?.[0];
@@ -90,21 +89,29 @@ export function NotesManager() {
         />
         <p className="text-sm text-muted">
           🔒 The file is read in your browser and stays on this device. Only its name and a short
-          summary sync to your account. Scanned pages (photos) can&apos;t be read yet.
+          summary sync to your account. Works with {FORMAT_NAMES}.
         </p>
         <p aria-live="polite" className="text-sm">
           {upload.status === "reading" &&
             (upload.total
               ? `Reading ${upload.name}: page ${upload.page} of ${upload.total}…`
-              : `Opening ${upload.name}…`)}
+              : `Reading ${upload.name}…`)}
           {upload.status === "done" && (
             <span className="font-semibold text-success">✓ {upload.name} is ready to use.</span>
           )}
         </p>
+        {upload.status === "done" && upload.warnings.length > 0 && (
+          <ul className="list-disc pl-5 text-sm text-warning">
+            {upload.warnings.map((w) => (
+              <li key={w}>{w}</li>
+            ))}
+          </ul>
+        )}
         {upload.status === "failed" && (
-          <p role="alert" className="text-sm text-danger">
-            {upload.message}
-          </p>
+          <div role="alert" className="flex flex-col gap-1 text-sm">
+            <p className="text-danger">{upload.message}</p>
+            {upload.howTo && <p className="whitespace-pre-line text-muted">{upload.howTo}</p>}
+          </div>
         )}
       </section>
 
@@ -128,7 +135,7 @@ function NotesList({ state, onRemove }: { state: State; onRemove: (id: string) =
   if (state.local.length === 0 && state.remote.length === 0) {
     return (
       <p className="rounded-2xl border border-border bg-surface p-5 text-muted">
-        No notes yet. Add a PDF above, then tick{" "}
+        No notes yet. Add a file above, then tick{" "}
         <span className="font-semibold">“Use my uploaded notes”</span> when you pick a topic.
       </p>
     );
@@ -145,7 +152,8 @@ function NotesList({ state, onRemove }: { state: State; onRemove: (id: string) =
               <div className="min-w-0">
                 <p className="truncate font-semibold">📒 {n.name}</p>
                 <p className="text-sm text-muted">
-                  {n.pages} {n.pages === 1 ? "page" : "pages"} · {n.chunks.length} passages · added{" "}
+                  {unitName(n.format, n.pages)} · {n.chunks.length}{" "}
+                  {n.chunks.length === 1 ? "passage" : "passages"} · added{" "}
                   {new Date(n.addedAt).toLocaleDateString()}
                 </p>
               </div>
@@ -173,7 +181,8 @@ function NotesList({ state, onRemove }: { state: State; onRemove: (id: string) =
                 <div className="min-w-0">
                   <p className="truncate font-semibold">{n.name}</p>
                   <p className="text-muted">
-                    {n.pages} pages · upload it here too to use it on this device.
+                    {n.pages} {n.pages === 1 ? "part" : "parts"} · upload it here too to use it on
+                    this device.
                   </p>
                 </div>
                 <button

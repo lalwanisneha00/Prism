@@ -41,4 +41,16 @@ describe("notes passages", () => {
     expect(sources[0].excerpt).toBe("Gauss's law. … Flux.");
     for (const s of sources) expect(SourceSchema.safeParse(s).success).toBe(true);
   });
+
+  it("cites slides, headings and sheets by name", () => {
+    const passages = toPassages([
+      { ...chunk(14, "Gauss's law."), noteName: "Unit 3.pptx", where: "slide 14" },
+      { ...chunk(2, "Flux."), noteName: "Notes.docx", where: "“Gauss's law”" },
+    ]);
+    expect(parsePassages(passages)).toHaveLength(2);
+    expect(passagesToSources(passages).map((s) => s.title)).toEqual([
+      "Unit 3.pptx, slide 14",
+      "Notes.docx, “Gauss's law”",
+    ]);
+  });
 });
