@@ -1,9 +1,11 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { ACCEPT } from "@/lib/extract/detect";
 import { extractFile } from "@/lib/extract/extractFile";
-import { docText, ExtractError, hasText } from "@/lib/extract/types";
+import { docText, ExtractError, hasText, sectionText } from "@/lib/extract/types";
+import { listLocalNotes } from "@/lib/notes/store";
+import type { StoredNote } from "@/lib/storage/db";
 import { MAX_PYQ_QUESTIONS } from "@/lib/worksheet/schema";
 import { splitPaper } from "@/lib/worksheet/splitPaper";
 
@@ -69,6 +71,12 @@ export function PastPaperInput({
             }}
           />
         </label>
+        <SavedPapers
+          onPick={(name, paper) => {
+            setText(paper);
+            setFileStatus(`Loaded ${name} from My materials.`);
+          }}
+        />
         {fileStatus && <span className="text-muted">{fileStatus}</span>}
       </div>
 
@@ -96,5 +104,38 @@ export function PastPaperInput({
             )}
       </button>
     </div>
+  );
+}
+
+/** Previous-year papers already in "My materials" (on this device), one tap to load. */
+function SavedPapers({ onPick }: { onPick: (name: string, text: string) => void }) {
+  const [papers, setPapers] = useState<StoredNote[]>([]);
+  useEffect(() => {
+    listLocalNotes()
+      .then((notes) => setPapers(notes.filter((n) => n.kind === "pyq" && n.sections?.length)))
+      .catch(() => setPapers([]));
+  }, []);
+  if (papers.length === 0) return null;
+  return (
+    <label className="flex items-center gap-2">
+      <span className="text-muted">or use a saved paper</span>
+      <select
+        defaultValue=""
+        onChange={(e) => {
+          const paper = papers.find((p) => p.id === e.target.value);
+          if (paper) onPick(paper.name, (paper.sections ?? []).map(sectionText).join("\n"));
+        }}
+        className="max-w-48 rounded-lg border border-border bg-bg px-2 py-1"
+      >
+        <option value="" disabled>
+          Choose…
+        </option>
+        {papers.map((p) => (
+          <option key={p.id} value={p.id}>
+            {p.name}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 }

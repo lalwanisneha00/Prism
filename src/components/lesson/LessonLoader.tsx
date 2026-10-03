@@ -83,9 +83,11 @@ export function LessonLoader({
       let notes: NotePassage[] = [];
       if (useNotes) {
         notes = toPassages(
-          await findRelevantPassages(`${request.topic.name} ${request.chapter.name}`).catch(
-            () => [],
-          ),
+          await findRelevantPassages(
+            `${request.topic.name} ${request.chapter.name}`,
+            8,
+            request.subject.id,
+          ).catch(() => []),
         );
         if (controller.signal.aborted) return;
         setNotesMissing(notes.length === 0);

@@ -33,6 +33,12 @@ export type ExtractedSection = {
   images: number;
   /** Almost no text: the content is probably in a picture (offer "Read text from images"). */
   thin: boolean;
+  /** Paths (inside the file) of the photos on this slide, for reading their text later. */
+  pictures?: string[];
+  /** Set when the text was read from the pictures: on this device, or by the AI. */
+  ocr?: "device" | "ai";
+  /** The text read from the pictures (kept apart, so reading again replaces it). */
+  ocrText?: string;
 };
 
 export type ExtractedDoc = {
@@ -71,10 +77,7 @@ export function wordCount(text: string): number {
 
 /** A section's text, title first, ready for searching. */
 export function sectionText(section: ExtractedSection): string {
-  return section.blocks
-    .map((b) => b.text)
-    .join("\n")
-    .trim();
+  return [...section.blocks.map((b) => b.text), section.ocrText ?? ""].join("\n").trim();
 }
 
 /** The whole file as plain text (for example to find past-paper questions). */

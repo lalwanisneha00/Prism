@@ -65,12 +65,22 @@ export function extractPptx(name: string, data: Uint8Array): ExtractedDoc {
       blocks,
       images: found.images,
       thin: false,
+      ...(found.images > 0 ? { pictures: rasterPictures(zip, slidePath, slide) } : {}),
     });
   });
   if (hidden > 0) {
     warnings.push(`${hidden} hidden ${hidden === 1 ? "slide was" : "slides were"} skipped.`);
   }
   return finishDoc(name, "pptx", sections, warnings);
+}
+
+/** The photos (PNG, JPG…) on a slide, as paths inside the file, for reading their text later. */
+function rasterPictures(zip: ZipFolder, slidePath: string, slide: XmlElement): string[] {
+  const rels = new Map(readRels(zip, slidePath).map((r) => [r.id, r.target]));
+  const paths = findAll(slide, "blip")
+    .map((b) => rels.get(attr(b, "r:embed") ?? ""))
+    .filter((p): p is string => Boolean(p && /\.(png|jpe?g|gif|bmp|webp)$/i.test(p)));
+  return [...new Set(paths)];
 }
 
 /** Slide files in presentation order (falls back to file-name order). */

@@ -5,10 +5,10 @@ Update this after every step so any person or AI tool can pick up the work.
 ## Current state (resume here)
 
 - **Mode:** OVERNIGHT AUTONOMOUS RUN (started 2026-10-04 02:36) on branch `overnight-v2.5-v3`. Rules below; status for the user goes in `MORNING_REPORT.md`.
-- **Version / step:** V2.5 · Step 2 (upload experience, preview, "My materials", OCR): starting.
-- **Finished:** V2.5 · Step 1; plan updated with "Other subjects" (V3 · Step 4) and tonight's rules.
+- **Version / step:** V2.5 · Step 3 (chapter and multi-topic selection, load score, three time options): starting.
+- **Finished:** V2.5 · Steps 1–2 (tag `v2.5-step-2`); plan updated with "Other subjects" (V3 · Step 4) and tonight's rules.
 - **Half-done:** nothing.
-- **Next action:** build V2.5 · Step 2.
+- **Next action:** build V2.5 · Step 3.
 - **Running commands:** none.
 - **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` when quota allows.
 - **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, continue from "Next action". Finish half-done work first; never restart a finished step.
@@ -66,7 +66,7 @@ Step protocol: "✅ Check this" block and the user's confirmation after each ste
 | Step | Title                                                                                   | Status         |
 | ---- | --------------------------------------------------------------------------------------- | -------------- |
 | 1    | Multi-format parsers and the normalised extracted-text format                           | ✅ Done        |
-| 2    | Upload experience, preview, "My materials" page, OCR option                             | ⬜ Not started |
+| 2    | Upload experience, preview, "My materials" page, OCR option                             | ✅ Done        |
 | 3    | Chapter and multi-topic selection, chapter load score, three time options               | ⬜ Not started |
 | 4    | Chapter lesson composition, chunked generation and streaming, library reuse             | ⬜ Not started |
 | 5    | Long-lesson reading, chapter audio, chapter extras + mock test, regression eval, deploy | ⬜ Not started |

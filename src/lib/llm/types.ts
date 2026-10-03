@@ -23,11 +23,15 @@ export type GenerateOptions = {
   /** Called with each new piece of text as it streams in. */
   onText?: (chunk: string) => void;
   signal?: AbortSignal;
+  /** Pictures sent with the prompt (only providers with supportsImages can read them). */
+  images?: { mimeType: string; base64: string }[];
 };
 
 /** Every AI provider looks the same to the rest of the app, so they can be swapped. */
 export interface LlmProvider {
   readonly name: string;
+  /** True when the provider can read images sent with the prompt. */
+  readonly supportsImages?: boolean;
   /** Returns the full reply text, which the caller expects to be JSON. */
   generateJson(options: GenerateOptions): Promise<string>;
 }

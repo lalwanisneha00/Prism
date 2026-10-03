@@ -3,6 +3,10 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { IDBFactory } from "fake-indexeddb";
 import {
   addNote,
+  getNoteFile,
+  setSectionIncluded,
+  setSectionOcr,
+  updateNoteMeta,
   deleteNote,
   findRelevantPassages,
   listLocalNotes,
@@ -50,6 +54,43 @@ describe("notes store", () => {
     await addNote({ name: "Unit 2.pdf", size: 1234 }, pages);
     const found = await findRelevantPassages("Gauss's law electric flux");
     expect(found[0]).toMatchObject({ noteName: "Unit 2.pdf", page: 2, where: "page 2" });
+  });
+
+  it("re-tags a file, leaves parts out, stores read pictures and keeps the original", async () => {
+    const original = { bytes: new Uint8Array([1, 2, 3]).buffer, mime: "application/pdf" };
+    const note = await addNote({ name: "Unit 2.pdf", size: 3 }, pages, 1000, {}, original);
+    expect((await getNoteFile(note.id))?.mime).toBe("application/pdf");
+
+    const tagged = await updateNoteMeta(
+      note.id,
+      { kind: "pyq", subject: "em", chapter: "electrostatics" },
+      2000,
+    );
+    expect(tagged).toMatchObject({ kind: "pyq", subject: "em", chapter: "electrostatics" });
+    const summary = (await getAllRecords("noteSummaries")).find((s) => s.id === note.id);
+    expect(summary).toMatchObject({ kind: "pyq", subject: "em", chapter: "electrostatics" });
+    // Changing the subject drops a chapter that belonged to the old subject.
+    expect((await updateNoteMeta(note.id, { subject: "engg-math" }))?.chapter).toBeUndefined();
+
+    const without = await setSectionIncluded(note.id, 2, false);
+    expect(without?.excluded).toEqual([2]);
+    expect(without?.chunks.every((c) => c.page !== 2)).toBe(true);
+    expect(await findRelevantPassages("Gauss flux")).toEqual([]);
+    await setSectionIncluded(note.id, 2, true);
+
+    const read = await setSectionOcr(note.id, 1, "Ampere's circuital law from the board", "device");
+    expect(read?.sections?.[0]).toMatchObject({ ocr: "device", ocrText: expect.any(String) });
+    expect((await findRelevantPassages("Ampere circuital"))[0]).toMatchObject({ page: 1 });
+
+    await deleteNote(note.id);
+    expect(await getNoteFile(note.id)).toBeUndefined();
+  });
+
+  it("uses only the matching subject's notes (and untagged ones) for a lesson", async () => {
+    await addNote({ name: "maths.pdf", size: 1 }, pages, 1, { subject: "engg-math" });
+    expect(await findRelevantPassages("Gauss flux", 8, "em")).toEqual([]);
+    await addNote({ name: "any.pdf", size: 1 }, pages, 2);
+    expect((await findRelevantPassages("Gauss flux", 8, "em"))[0].noteName).toBe("any.pdf");
   });
 
   it("keeps the sections for the preview and labels passages by place", async () => {

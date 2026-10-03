@@ -118,5 +118,8 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     name: z.string().max(300),
     pages: z.number(),
     summary: z.string().max(600),
+    kind: z.enum(["notes", "slides", "pyq", "worksheet", "syllabus"]).optional(),
+    subject: z.string().max(80).optional(),
+    chapter: z.string().max(80).optional(),
   }),
 };

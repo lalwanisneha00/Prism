@@ -27,6 +27,22 @@ beforeEach(() => {
 });
 
 describe("provider chain", () => {
+  it("sends a request with pictures only to providers that read images", async () => {
+    const textOnly = failing("unavailable", "TextOnly");
+    const reader = new FakeProvider(() => '{"text":"read"}');
+    const images = [{ mimeType: "image/png", base64: "AAAA" }];
+    const reply = await generateJsonWithFallback([textOnly, reader], {
+      system: "s",
+      prompt: "p",
+      images,
+    });
+    expect(reply).toBe('{"text":"read"}');
+    expect(textOnly.calls).toBe(0);
+    await expect(
+      generateJsonWithFallback([textOnly], { system: "s", prompt: "p", images }),
+    ).rejects.toMatchObject({ kind: "not-configured" });
+  });
+
   it("falls back to the next provider when the first is overloaded", async () => {
     const text = await generateJsonWithFallback(
       [failing("unavailable"), new FakeProvider(() => "{}")],

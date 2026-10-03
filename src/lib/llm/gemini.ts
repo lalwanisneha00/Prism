@@ -9,6 +9,8 @@ type GeminiChunk = {
 
 /** Google Gemini via the REST API (free tier key from Google AI Studio). */
 export class GeminiProvider implements LlmProvider {
+  readonly supportsImages = true;
+
   get name() {
     return `Gemini (${this.model})`;
   }
@@ -18,7 +20,14 @@ export class GeminiProvider implements LlmProvider {
     private readonly model: string,
   ) {}
 
-  async generateJson({ system, prompt, temperature = 0.4, onText, signal }: GenerateOptions) {
+  async generateJson({
+    system,
+    prompt,
+    temperature = 0.4,
+    onText,
+    signal,
+    images = [],
+  }: GenerateOptions) {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(this.model)}:streamGenerateContent?alt=sse`;
     const res = await safeFetch(this.name, url, {
       method: "POST",
@@ -26,7 +35,15 @@ export class GeminiProvider implements LlmProvider {
       headers: { "content-type": "application/json", "x-goog-api-key": this.apiKey },
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: system }] },
-        contents: [{ role: "user", parts: [{ text: prompt }] }],
+        contents: [
+          {
+            role: "user",
+            parts: [
+              ...images.map((i) => ({ inline_data: { mime_type: i.mimeType, data: i.base64 } })),
+              { text: prompt },
+            ],
+          },
+        ],
         generationConfig: { responseMimeType: "application/json", temperature },
       }),
     });

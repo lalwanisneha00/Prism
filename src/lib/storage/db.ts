@@ -1,6 +1,7 @@
 import { openDB, type DBSchema, type IDBPDatabase } from "idb";
 import type { Lesson } from "@/lib/schema";
 import type { ExtractedSection, FileFormat } from "@/lib/extract/types";
+import type { MaterialKind } from "@/lib/notes/kinds";
 
 /*
  * The local database (IndexedDB): the main copy of a student's data (SPEC §9.3).
@@ -72,10 +73,27 @@ export type StoredNote = {
   /** The file as read, section by section, for the preview. */
   sections?: ExtractedSection[];
   warnings?: string[];
+  /** Notes, slides, previous-year paper… (V2.5 · Step 2; older notes have none). */
+  kind?: MaterialKind;
+  /** The subject (and optionally chapter) it belongs to; missing means "any subject". */
+  subject?: string;
+  chapter?: string;
+  /** Section indexes the student removed in the preview: not used in lessons. */
+  excluded?: number[];
 };
 
+/** The original uploaded file, kept on this device so pictures can be read (OCR) later. */
+export type NoteFile = { id: string; bytes: ArrayBuffer; mime: string };
+
 /** What syncs about an uploaded note: its name and a short summary, never the text. */
-export type NoteSummary = SyncFields & { name: string; pages: number; summary: string };
+export type NoteSummary = SyncFields & {
+  name: string;
+  pages: number;
+  summary: string;
+  kind?: MaterialKind;
+  subject?: string;
+  chapter?: string;
+};
 
 /** A flashcard with its spaced-repetition state (V2 · Step 11). */
 export type Flashcard = SyncFields & {
@@ -192,6 +210,7 @@ interface PrismDB extends DBSchema {
   settings: { key: string; value: AppSettings };
   noteSummaries: { key: string; value: NoteSummary };
   notes: { key: string; value: StoredNote };
+  noteFiles: { key: string; value: NoteFile };
   flashcards: { key: string; value: Flashcard };
   annotations: { key: string; value: Annotation; indexes: { byLesson: string } };
   plans: { key: string; value: StudyPlan };
@@ -200,7 +219,7 @@ interface PrismDB extends DBSchema {
 }
 
 const DB_NAME = "prism";
-const DB_VERSION = 6;
+const DB_VERSION = 7;
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -238,6 +257,10 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
       // Version 6 (backlog planner): one plan per subject, synced.
       if (oldVersion < 6) {
         db.createObjectStore("plans", { keyPath: "id" });
+      }
+      // Version 7 (uploads in any format): original files, local only. Nothing else changes.
+      if (oldVersion < 7) {
+        db.createObjectStore("noteFiles", { keyPath: "id" });
       }
     },
   });

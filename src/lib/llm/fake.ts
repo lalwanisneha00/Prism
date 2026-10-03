@@ -9,6 +9,7 @@ export type FakeResponder = (options: GenerateOptions, call: number) => string;
  */
 export class FakeProvider implements LlmProvider {
   readonly name = "Fake";
+  readonly supportsImages = true;
   private calls = 0;
 
   constructor(

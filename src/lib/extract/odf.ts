@@ -165,6 +165,14 @@ export function extractOdp(name: string, data: Uint8Array): ExtractedDoc {
         ],
         images,
         thin: false,
+        // Photos on the slide, for reading their text later (paths inside the file).
+        ...(images > 0
+          ? {
+              pictures: findAll(page, "image")
+                .map((img) => attr(img, "xlink:href") ?? "")
+                .filter((href) => /\.(png|jpe?g|gif|bmp|webp)$/i.test(href)),
+            }
+          : {}),
       },
     ];
   });

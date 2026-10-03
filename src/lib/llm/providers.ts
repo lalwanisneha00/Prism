@@ -63,9 +63,14 @@ export async function generateJsonWithFallback(
       "No AI provider is set up. Add GEMINI_API_KEY to .env.local.",
     );
   }
+  // A request with pictures can only go to providers that read images.
+  const able = options.images?.length ? providers.filter((p) => p.supportsImages) : providers;
+  if (able.length === 0) {
+    throw new LlmError("not-configured", "No AI provider that can read images is set up.");
+  }
   const t = now();
-  const ready = providers.filter((p) => (busyUntil.get(p.name) ?? 0) <= t);
-  const resting = providers.filter((p) => (busyUntil.get(p.name) ?? 0) > t);
+  const ready = able.filter((p) => (busyUntil.get(p.name) ?? 0) <= t);
+  const resting = able.filter((p) => (busyUntil.get(p.name) ?? 0) > t);
 
   let lastError: unknown;
   for (const provider of [...ready, ...resting]) {
