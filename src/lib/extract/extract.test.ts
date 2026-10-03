@@ -10,6 +10,7 @@ import {
   makeOdp,
   makeOdt,
   makePptx,
+  makeWmf,
   makeXlsx,
   para,
   picture,
@@ -133,6 +134,47 @@ describe("Word (.docx)", () => {
     );
     expect(doc.sections.map((s) => s.label)).toEqual(["page 1", "page 2"]);
     expect(sectionText(doc.sections[1])).toContain("More on page two.");
+  });
+});
+
+describe("equations saved as pictures inside Office files", () => {
+  const REL = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
+  const equation = makeWmf([
+    { font: { size: 384, face: "Times New Roman" } },
+    { text: "1", x: 100, y: 960 },
+    { text: "2", x: 100, y: 1500 },
+    { text: "mv", x: 450, y: 1200 },
+    { bar: { x1: 80, x2: 300, y: 1100 } },
+    { font: { size: 224, face: "Times New Roman" } },
+    { text: "2", x: 820, y: 1000 },
+  ]);
+
+  it("reads an Equation 3.0 object on a slide instead of calling it a picture", () => {
+    const ole =
+      `<p:graphicFrame><a:graphic><a:graphicData><mc:AlternateContent xmlns:mc="m"><mc:Choice><p:oleObj r:id="rId2" progId="Equation.3"><p:embed/></p:oleObj></mc:Choice>` +
+      `<mc:Fallback><p:oleObj r:id="rId2" progId="Equation.3"><p:embed/><p:pic><p:blipFill><a:blip r:embed="rId3"/></p:blipFill></p:pic></p:oleObj></mc:Fallback></mc:AlternateContent></a:graphicData></a:graphic></p:graphicFrame>`;
+    const deck = makePptx([{ shapes: shape(para("Kinetic energy"), "title") + ole }], [1], {
+      "ppt/slides/_rels/slide1.xml.rels": `<Relationships><Relationship Id="rId3" Type="${REL}/image" Target="../media/image1.wmf"/></Relationships>`,
+      "ppt/media/image1.wmf": equation,
+    });
+    const slide = extractPptx("KE.pptx", deck).sections[0];
+    expect(slide.blocks[1]).toEqual({ kind: "equation", text: "1/2 mv^2" });
+    expect(slide).toMatchObject({ images: 0, thin: false });
+  });
+
+  it("reads an equation object inside a Word paragraph", () => {
+    const doc = extractDocx(
+      "KE.docx",
+      makeDocx(
+        `<w:p><w:r><w:t xml:space="preserve">Kinetic energy is </w:t></w:r><w:r><w:object><v:shape xmlns:v="v"><v:imagedata r:id="rId9"/></v:shape></w:object></w:r></w:p>`,
+        {
+          "word/_rels/document.xml.rels": `<Relationships><Relationship Id="rId9" Type="${REL}/image" Target="media/image1.wmf"/></Relationships>`,
+          "word/media/image1.wmf": equation,
+        },
+      ),
+    );
+    expect(docText(doc)).toBe("Kinetic energy is 1/2 mv^2");
+    expect(doc.sections[0].images).toBe(0);
   });
 });
 

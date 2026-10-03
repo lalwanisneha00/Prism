@@ -151,25 +151,99 @@ const CHARSET_CODEPAGE: Record<number, number> = {
 /** The Symbol font draws Latin letters as Greek ones (typing "e" in Symbol shows ε). */
 const SYMBOL_LETTERS = "αβχδεφγηιϕκλμνοπθρστυϖωξψζ";
 const SYMBOL_CAPITALS = "ΑΒΧΔΕΦΓΗΙϑΚΛΜΝΟΠΘΡΣΤΥςΩΞΨΖ";
-function symbolChar(code: number): string {
+/** Symbol-font codes that aren't Greek letters: operators, arrows and bracket pieces. */
+const SYMBOL_OTHER: Record<number, string> = {
+  0x22: "∀",
+  0x24: "∃",
+  0x27: "∋",
+  0x2a: "∗",
+  0x2d: "−",
+  0x40: "≅",
+  0x5c: "∴",
+  0x5e: "⊥",
+  0x7e: "∼",
+  0xa2: "′",
+  0xa3: "≤",
+  0xa5: "∞",
+  0xa6: "ƒ",
+  0xab: "↔",
+  0xac: "←",
+  0xad: "↑",
+  0xae: "→",
+  0xaf: "↓",
+  0xb0: "°",
+  0xb1: "±",
+  0xb2: "″",
+  0xb3: "≥",
+  0xb4: "×",
+  0xb5: "∝",
+  0xb6: "∂",
+  0xb7: "•",
+  0xb8: "÷",
+  0xb9: "≠",
+  0xba: "≡",
+  0xbb: "≈",
+  0xbc: "…",
+  0xc0: "ℵ",
+  0xc4: "⊗",
+  0xc5: "⊕",
+  0xc6: "∅",
+  0xc7: "∩",
+  0xc8: "∪",
+  0xc9: "⊃",
+  0xca: "⊇",
+  0xcb: "⊄",
+  0xcc: "⊂",
+  0xcd: "⊆",
+  0xce: "∈",
+  0xcf: "∉",
+  0xd0: "∠",
+  0xd1: "∇",
+  0xd5: "∏",
+  0xd6: "√",
+  0xd7: "⋅",
+  0xd8: "¬",
+  0xd9: "∧",
+  0xda: "∨",
+  0xdb: "⇔",
+  0xdc: "⇐",
+  0xdd: "⇑",
+  0xde: "⇒",
+  0xdf: "⇓",
+  0xe0: "◊",
+  0xe1: "〈",
+  0xe5: "∑",
+  0xf1: "〉",
+  0xf2: "∫",
+  // Tall brackets are drawn in pieces: keep the top piece as the bracket, drop the rest.
+  0xe6: "(",
+  0xe7: "",
+  0xe8: "",
+  0xe9: "[",
+  0xea: "",
+  0xeb: "",
+  0xec: "{",
+  0xed: "",
+  0xee: "",
+  0xef: "",
+  0xf3: "∫",
+  0xf4: "",
+  0xf5: "",
+  0xf6: ")",
+  0xf7: "",
+  0xf8: "",
+  0xf9: "]",
+  0xfa: "",
+  0xfb: "",
+  0xfc: "}",
+  0xfd: "",
+  0xfe: "",
+};
+
+export function symbolChar(code: number): string {
   if (code >= 0x61 && code <= 0x7a) return SYMBOL_LETTERS[code - 0x61];
   if (code >= 0x41 && code <= 0x5a) return SYMBOL_CAPITALS[code - 0x41];
-  if (code === 0xb7) return "•";
-  if (code === 0xb4) return "×";
-  if (code === 0xb8) return "÷";
-  if (code === 0xb3) return "≥";
-  if (code === 0xa3) return "≤";
-  if (code === 0xb9) return "≠";
-  if (code === 0xbb) return "≈";
-  if (code === 0xb1) return "±";
-  if (code === 0xa5) return "∞";
-  if (code === 0xd6) return "√";
-  if (code === 0xe5) return "∑";
-  if (code === 0xf2) return "∫";
-  if (code === 0xb6) return "∂";
-  if (code === 0xae) return "→";
-  if (code === 0xb0) return "°";
-  return String.fromCharCode(code);
+  return SYMBOL_OTHER[code] ?? String.fromCharCode(code);
 }
 
 type RtfFont = { codepage?: number; symbol: boolean };

@@ -15,7 +15,8 @@ import {
   localName,
   type XmlElement,
 } from "@/lib/extract/xml";
-import { openZip, readXml } from "@/lib/extract/zip";
+import { metafileText } from "@/lib/extract/metafile";
+import { openZip, readRels, readXml, type ZipFolder } from "@/lib/extract/zip";
 
 /*
  * Word (.docx): headings, paragraphs, lists and tables in order. The document is split at
@@ -27,12 +28,20 @@ import { openZip, readXml } from "@/lib/extract/zip";
 type Para = { kind: "heading"; level: number; text: string } | { kind: "block"; block: TextBlock };
 
 export function extractDocx(name: string, data: Uint8Array): ExtractedDoc {
-  const zip = openZip(data, (f) => f === "word/document.xml" || f === "word/styles.xml");
+  const zip = openZip(
+    data,
+    (f) =>
+      f === "word/document.xml" ||
+      f === "word/styles.xml" ||
+      f === "word/_rels/document.xml.rels" ||
+      /^word\/media\/[^/]+\.(wmf|emf)$/i.test(f),
+  );
   const doc = readXml(zip, "word/document.xml");
   const body = doc && findFirst(doc, "body");
   if (!body) return finishDoc(name, "docx", []);
 
   const styles = readStyles(readXml(zip, "word/styles.xml"));
+  const pictures = equationPictures(zip);
   const items: { para: Para; page: number; images: number }[] = [];
   let page = 1;
 
@@ -44,15 +53,21 @@ export function extractDocx(name: string, data: Uint8Array): ExtractedDoc {
         const breaks = pageBreaks(child);
         // A page that last ended inside this paragraph means it starts on the next page.
         page += breaks.rendered;
-        const images = findAll(child, "drawing").length + findAll(child, "pict").length;
-        const para = readParagraph(child, styles);
+        const before = pictures.read;
+        const para = readParagraph(child, styles, pictures.text);
+        // Pictures, minus the equations whose text was read from their picture.
+        const images =
+          findAll(child, "drawing").length +
+          findAll(child, "pict").length +
+          findAll(child, "object").length -
+          (pictures.read - before);
         if (para || images) items.push({ para: para ?? emptyBlock, page, images });
         page += breaks.manual;
       } else if (kind === "tbl") {
         const breaks = pageBreaks(child);
         page += breaks.rendered;
         items.push({
-          para: { kind: "block", block: { kind: "table", text: tableText(child) } },
+          para: { kind: "block", block: { kind: "table", text: tableText(child, pictures.text) } },
           page,
           images: 0,
         });
@@ -106,8 +121,36 @@ function headingLevel(styleName: string): number | undefined {
   return m ? Number(m[1]) : undefined;
 }
 
-function readParagraph(p: XmlElement, styles: Styles): Para | undefined {
-  const text = paragraphText(p).trim();
+type PicText = (el: XmlElement) => string;
+
+/**
+ * Reads equations saved as pictures (Equation 3.0 / MathType objects keep a WMF or EMF
+ * preview; see metafile.ts). `read` counts them, so they aren't also counted as pictures.
+ */
+function equationPictures(zip: ZipFolder): { text: PicText; read: number } {
+  const rels = new Map(readRels(zip, "word/document.xml").map((r) => [r.id, r.target]));
+  const out = {
+    read: 0,
+    text: (el: XmlElement) => {
+      const refs = [...findAll(el, "imagedata"), ...findAll(el, "blip")]
+        .map((r) => attr(r, "r:id") ?? attr(r, "r:embed") ?? "")
+        .map((id) => rels.get(id));
+      for (const target of refs) {
+        const bytes = target && /\.(wmf|emf)$/i.test(target) ? zip.files[target] : undefined;
+        const text = bytes ? metafileText(bytes) : "";
+        if (text) {
+          out.read++;
+          return text;
+        }
+      }
+      return "";
+    },
+  };
+  return out;
+}
+
+function readParagraph(p: XmlElement, styles: Styles, picText: PicText): Para | undefined {
+  const text = paragraphText(p, picText).trim();
   if (!text) return undefined;
   const props = childElements(p, "pPr")[0];
   const styleId = props && attr(childElements(props, "pStyle")[0] ?? props, "w:val");
@@ -129,7 +172,7 @@ function readParagraph(p: XmlElement, styles: Styles): Para | undefined {
 }
 
 /** A paragraph's visible text: runs, tabs and line breaks; deleted text and field codes skipped. */
-function paragraphText(p: XmlElement): string {
+function paragraphText(p: XmlElement, picText: PicText): string {
   let text = "";
   const walk = (node: XmlElement) => {
     for (const child of node.children) {
@@ -142,6 +185,11 @@ function paragraphText(p: XmlElement): string {
       else if (kind === "AlternateContent") {
         const choice = childElements(child)[0];
         if (choice) walk(choice);
+      } else if (kind === "object" || kind === "pict" || kind === "drawing") {
+        // An equation picture becomes text; any other picture may hold a text box.
+        const equation = picText(child);
+        if (equation) text += ` ${equation} `;
+        else walk(child);
       } else if (kind !== "del" && kind !== "instrText" && kind !== "delText" && kind !== "pPr") {
         walk(child);
       }
@@ -159,13 +207,13 @@ function pageBreaks(el: XmlElement): { rendered: number; manual: number } {
   };
 }
 
-function tableText(table: XmlElement): string {
+function tableText(table: XmlElement, picText: PicText): string {
   return childElements(table, "tr")
     .map((row) =>
       childElements(row, "tc")
         .map((cell) =>
           childElements(cell, "p")
-            .map((p) => paragraphText(p).trim())
+            .map((p) => paragraphText(p, picText).trim())
             .filter(Boolean)
             .join(" "),
         )

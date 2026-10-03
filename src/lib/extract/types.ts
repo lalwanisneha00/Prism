@@ -9,7 +9,15 @@ export type FileFormat =
   "pdf" | "pptx" | "docx" | "xlsx" | "csv" | "txt" | "md" | "rtf" | "image" | "odt" | "odp";
 
 export type SectionKind = "slide" | "page" | "heading" | "sheet" | "part" | "image";
-export type BlockKind = "title" | "heading" | "paragraph" | "list" | "table" | "notes";
+export type BlockKind =
+  | "title"
+  | "heading"
+  | "paragraph"
+  | "list"
+  | "table"
+  | "notes"
+  /** An equation read back from an Equation 3.0 / MathType picture (approximate layout). */
+  | "equation";
 
 export type TextBlock = { kind: BlockKind; text: string };
 

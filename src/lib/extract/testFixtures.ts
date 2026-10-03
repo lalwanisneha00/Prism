@@ -9,8 +9,14 @@ const P =
   'xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"';
 const REL = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
 
-function zip(files: Record<string, string>): Uint8Array {
-  return zipSync(Object.fromEntries(Object.entries(files).map(([k, v]) => [k, strToU8(v)])));
+type Files = Record<string, string | Uint8Array>;
+
+function zip(files: Files): Uint8Array {
+  return zipSync(
+    Object.fromEntries(
+      Object.entries(files).map(([k, v]) => [k, typeof v === "string" ? strToU8(v) : v]),
+    ),
+  );
 }
 
 export const para = (text: string, lvl?: number) =>
@@ -32,7 +38,11 @@ export const table = (rows: string[][]) =>
 export type FixtureSlide = { shapes: string; notes?: string; hidden?: boolean };
 
 /** A .pptx whose presentation order is `order` (file numbers), to test reordering. */
-export function makePptx(slides: FixtureSlide[], order = slides.map((_, i) => i + 1)): Uint8Array {
+export function makePptx(
+  slides: FixtureSlide[],
+  order = slides.map((_, i) => i + 1),
+  extra: Files = {},
+): Uint8Array {
   const files: Record<string, string> = {
     "[Content_Types].xml": "<Types/>",
     "ppt/presentation.xml": `<?xml version="1.0"?><p:presentation ${P}><p:sldIdLst>${order
@@ -56,7 +66,7 @@ export function makePptx(slides: FixtureSlide[], order = slides.map((_, i) => i 
         `<p:notes ${P}><p:cSld><p:spTree>${shape(para(String(n)), "sldNum")}${shape(para(s.notes), "body")}</p:spTree></p:cSld></p:notes>`;
     }
   });
-  return zip(files);
+  return zip({ ...files, ...extra });
 }
 
 const W = 'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"';
@@ -70,8 +80,9 @@ export const wPara = (
 export const wTable = (rows: string[][]) =>
   `<w:tbl>${rows.map((r) => `<w:tr>${r.map((c) => `<w:tc>${wPara(c)}</w:tc>`).join("")}</w:tr>`).join("")}</w:tbl>`;
 
-export function makeDocx(body: string): Uint8Array {
+export function makeDocx(body: string, extra: Files = {}): Uint8Array {
   return zip({
+    ...extra,
     "[Content_Types].xml": "<Types/>",
     "word/document.xml": `<?xml version="1.0"?><w:document ${W}><w:body>${body}<w:sectPr/></w:body></w:document>`,
     "word/styles.xml": `<w:styles ${W}><w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/></w:style><w:style w:type="paragraph" w:styleId="Berschrift2"><w:name w:val="heading 2"/></w:style><w:style w:type="paragraph" w:styleId="Heading3"><w:name w:val="heading 3"/></w:style><w:style w:type="paragraph" w:styleId="ListBullet"><w:name w:val="List Bullet"/><w:pPr><w:numPr><w:numId w:val="1"/></w:numPr></w:pPr></w:style></w:styles>`,
@@ -140,4 +151,57 @@ export function makeOdp(pages: string): Uint8Array {
     mimetype: "application/vnd.oasis.opendocument.presentation",
     "content.xml": `<office:document-content ${ODF}><office:automatic-styles><style:style style:family="drawing-page" style:name="dpHidden"><style:drawing-page-properties presentation:visibility="hidden"/></style:style></office:automatic-styles><office:body><office:presentation>${pages}</office:presentation></office:body></office:document-content>`,
   });
+}
+
+export type WmfOp =
+  | { font: { size: number; face: string } }
+  | { text: string; x: number; y: number }
+  | { bar: { x1: number; x2: number; y: number } };
+
+/** A Windows Metafile like the picture Equation 3.0 saves (fonts, positioned text, lines). */
+export function makeWmf(ops: WmfOp[]): Uint8Array {
+  const records: number[][] = [];
+  const word = (n: number) => [n & 0xff, (n >> 8) & 0xff];
+  const record = (fn: number, params: number[]) => {
+    const padded = params.length % 2 ? [...params, 0] : params;
+    const words = 3 + padded.length / 2;
+    records.push([...word(words & 0xffff), ...word(words >> 16), ...word(fn), ...padded]);
+  };
+  let fonts = 0;
+  for (const op of ops) {
+    if ("font" in op) {
+      const face = [...op.font.face].map((c) => c.charCodeAt(0));
+      const faceBytes = [...face, ...new Array(32 - face.length).fill(0)];
+      record(0x02fb, [
+        ...word(-op.font.size),
+        ...new Array(8).fill(0),
+        ...new Array(8).fill(0),
+        ...faceBytes,
+      ]);
+      record(0x012d, word(fonts++));
+    } else if ("text" in op) {
+      const bytes = [...op.text].map((c) => c.charCodeAt(0) & 0xff);
+      record(0x0a32, [...word(op.y), ...word(op.x), ...word(bytes.length), ...word(0), ...bytes]);
+    } else {
+      record(0x0214, [...word(op.bar.y), ...word(op.bar.x1)]);
+      record(0x0213, [...word(op.bar.y), ...word(op.bar.x2)]);
+    }
+  }
+  record(0x0000, []);
+  const body = records.flat();
+  const total = (18 + body.length) / 2;
+  const header = [
+    ...word(1),
+    ...word(9),
+    ...word(0x0300),
+    ...word(total & 0xffff),
+    ...word(total >> 16),
+    ...word(Math.max(fonts, 1)),
+    0,
+    0,
+    0,
+    0,
+    ...word(0),
+  ];
+  return new Uint8Array([...header, ...body]);
 }

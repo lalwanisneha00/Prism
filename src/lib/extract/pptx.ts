@@ -14,6 +14,7 @@ import {
   path,
   type XmlElement,
 } from "@/lib/extract/xml";
+import { metafileText } from "@/lib/extract/metafile";
 import { openZip, partNumber, readRels, readXml, type ZipFolder } from "@/lib/extract/zip";
 
 /*
@@ -26,7 +27,12 @@ const TITLE_TYPES = new Set(["title", "ctrTitle"]);
 const SKIP_TYPES = new Set(["sldNum", "dt", "ftr", "hdr"]);
 
 export function extractPptx(name: string, data: Uint8Array): ExtractedDoc {
-  const zip = openZip(data, (f) => f.startsWith("ppt/") && /\.(xml|rels)$/.test(f));
+  const zip = openZip(
+    data,
+    (f) =>
+      (f.startsWith("ppt/") && /\.(xml|rels)$/.test(f)) ||
+      /^ppt\/media\/[^/]+\.(wmf|emf)$/i.test(f),
+  );
   const slidePaths = slideOrder(zip);
   const warnings: string[] = [];
   let hidden = 0;
@@ -42,7 +48,9 @@ export function extractPptx(name: string, data: Uint8Array): ExtractedDoc {
       return;
     }
     const tree = path(slide, "cSld", "spTree");
-    const found = tree ? readShapes(tree) : { title: undefined, blocks: [], images: 0 };
+    const found = tree
+      ? readShapes(tree, pictureText(zip, slidePath))
+      : { title: undefined, blocks: [], images: 0 };
     const notes = speakerNotes(zip, slidePath);
     const blocks: TextBlock[] = [
       ...(found.title ? [{ kind: "title" as const, text: found.title }] : []),
@@ -83,8 +91,25 @@ function slideOrder(zip: ZipFolder): string[] {
 
 type Shapes = { title?: string; blocks: TextBlock[]; images: number };
 
+/**
+ * The text inside a slide object's preview picture: old Equation 3.0 and MathType equations
+ * are saved as WMF/EMF pictures whose characters can be read back (see metafile.ts).
+ */
+function pictureText(zip: ZipFolder, slidePath: string): (el: XmlElement) => string {
+  const rels = new Map(readRels(zip, slidePath).map((r) => [r.id, r.target]));
+  return (el) => {
+    for (const blip of findAll(el, "blip")) {
+      const target = rels.get(attr(blip, "r:embed") ?? "");
+      const bytes = target && /\.(wmf|emf)$/i.test(target) ? zip.files[target] : undefined;
+      const text = bytes ? metafileText(bytes) : "";
+      if (text) return text;
+    }
+    return "";
+  };
+}
+
 /** Walks a slide's shape tree in reading order (groups included). */
-function readShapes(tree: XmlElement): Shapes {
+function readShapes(tree: XmlElement, picText: (el: XmlElement) => string): Shapes {
   const out: Shapes = { blocks: [], images: 0 };
   const walk = (node: XmlElement) => {
     for (const child of node.children) {
@@ -97,10 +122,15 @@ function readShapes(tree: XmlElement): Shapes {
       } else if (kind === "grpSp") {
         walk(child);
       } else if (kind === "pic") {
-        out.images++;
+        // A pasted equation picture is read; any other picture is counted.
+        const text = picText(child);
+        if (text) out.blocks.push({ kind: "equation", text });
+        else out.images++;
       } else if (kind === "graphicFrame") {
         const table = findFirst(child, "tbl");
+        const equation = !table && findFirst(child, "oleObj") ? picText(child) : "";
         if (table) out.blocks.push({ kind: "table", text: tableText(table) });
+        else if (equation) out.blocks.push({ kind: "equation", text: equation });
         else out.images++; // a chart, diagram (SmartArt) or embedded object
       } else if (kind === "sp" || kind === "cxnSp") {
         readShape(child, out);
