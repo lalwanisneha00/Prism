@@ -4,13 +4,24 @@ Update this after every step so any person or AI tool can pick up the work.
 
 ## Current state (resume here)
 
-- **Version / step:** V2.5 · Step 1 done and confirmed (2026-10-04). **Do not start Step 2 until the user says to proceed.**
-- **Finished:** `src/lib/extract/` reads PowerPoint, Word, Excel, CSV, text, Markdown, RTF, OpenDocument, PDF and images into one format (file → sections → text blocks), with friendly errors for old .ppt/.doc/.xls, password-protected, damaged, empty, huge and unknown files. Old Equation 3.0 / MathType equations are read from their WMF/EMF previews. Notes storage and citations use it ("Unit 3.pptx, slide 14"); the past-paper input reads any format. Real test files made with Microsoft Office are in `C:\Users\lalwa\Desktop\prism-test-files` (outside the repo). V3 · Step 1 (plan restructure) is done; V3 continues at Step 2 after V2.5.
+- **Mode:** OVERNIGHT AUTONOMOUS RUN (started 2026-10-04 02:36) on branch `overnight-v2.5-v3`. Rules below; status for the user goes in `MORNING_REPORT.md`.
+- **Version / step:** V2.5 · Step 2 (upload experience, preview, "My materials", OCR): starting.
+- **Finished:** V2.5 · Step 1; plan updated with "Other subjects" (V3 · Step 4) and tonight's rules.
 - **Half-done:** nothing.
-- **Next action:** wait for the user's go-ahead, then start V2.5 · Step 2 (several files at once, drag-and-drop, file types and subjects, preview, "My materials" page, OCR). The user chose to keep the step order (chapter lessons are Steps 3–5).
+- **Next action:** build V2.5 · Step 2.
 - **Running commands:** none.
-- **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` after the free quota resets; under the new tiers engg-math would qualify for `tested` (≥ 85%), em for neither yet.
-- **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, say in 2–3 lines where we are, continue from "Next action".
+- **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` when quota allows.
+- **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, continue from "Next action". Finish half-done work first; never restart a finished step.
+
+### Overnight autonomous run rules (2026-10-04)
+
+1. Finish V2.5 in order, then V3 in order (Other subjects after navigation; structure, navigation, accuracy scaffolding and Other subjects before the syllabus waves; Wave 1 completely first).
+2. Never ask or wait. Unclear → most sensible option that fits SPEC.md, noted in MORNING_REPORT.md.
+3. After each step: build, lint, typecheck, Vitest (with new tests), Playwright headless checks of the main flow at desktop and 375px in light and dark; parser/generator fixtures in `test-fixtures/`. Fix failures; after three real attempts, revert the broken part, record it and move on.
+4. "✅ Check this" blocks go into MORNING_REPORT.md. Anything needing the user → "Needs Sneha".
+5. Branch `overnight-v2.5-v3` only (never main, never production). Commit and tag every finished step (`v2.5-step-N`, `v3-step-N`); push the branch for a Vercel preview. No destructive git, no secrets, no live Firestore rule or data changes (proposed rules go in a file), nothing paid, storage changes migrate without data loss.
+6. Tests use mocked AI and fixtures; live Gemini only for the eval, rate-limited, cached and resumable. Regression eval for E&M and Engineering Maths when quota allows.
+7. Usage limit: wait and resume. Network loss: retry with increasing waits, then keep working offline and push later.
 
 ## Version 1: Foundation
 
@@ -62,20 +73,21 @@ Step protocol: "✅ Check this" block and the user's confirmation after each ste
 
 ## Version 3: All Engineering
 
-Step protocol: one step at a time, "✅ Check this" block, wait for the user's confirmation. `wip:` commits inside a step; update "Current state" after each unit of work.
+Step protocol: one step at a time, "✅ Check this" block, wait for the user's confirmation (tonight: autonomous, see the rules above). `wip:` commits inside a step; update "Current state" after each unit of work.
 
 | Step | Title                                                                                              | Status         |
 | ---- | -------------------------------------------------------------------------------------------------- | -------------- |
 | 1    | Restructure the plan                                                                               | ✅ Done        |
 | 2    | Subject data model and loader (branches, shared subjects)                                          | ⬜ Not started |
 | 3    | Navigation (branch → semester → subject …), search, mock tests                                     | ⬜ Not started |
-| 4    | Accuracy scaffolding (`tested` tier, sourced golden sets, resumable eval, numeric and code checks) | ⬜ Not started |
-| 5    | Wave 1 syllabus and grounding (incl. complete Applied Physics)                                     | ⬜ Not started |
-| 6    | Wave 1 visuals and widgets, Wave 1 eval                                                            | ⬜ Not started |
-| 7    | Wave 2 (CE/IT/ICT/ECE) syllabus, visuals, eval                                                     | ⬜ Not started |
-| 8    | Wave 3 (Electrical, Mechanical, Civil)                                                             | ⬜ Not started |
-| 9    | Wave 4 (Chemical, Petroleum, others at `sourced`)                                                  | ⬜ Not started |
-| 10   | My-own-syllabus upload, regression eval, performance, accuracy page, deploy                        | ⬜ Not started |
+| 4    | Other subjects (custom non-core subjects, outline from material, theory-style lessons)             | ⬜ Not started |
+| 5    | Accuracy scaffolding (`tested` tier, sourced golden sets, resumable eval, numeric and code checks) | ⬜ Not started |
+| 6    | Wave 1 syllabus and grounding (incl. complete Applied Physics)                                     | ⬜ Not started |
+| 7    | Wave 1 visuals and widgets, Wave 1 eval                                                            | ⬜ Not started |
+| 8    | Wave 2 (CE/IT/ICT/ECE) syllabus, visuals, eval                                                     | ⬜ Not started |
+| 9    | Wave 3 (Electrical, Mechanical, Civil)                                                             | ⬜ Not started |
+| 10   | Wave 4 (Chemical, Petroleum, others at `sourced`)                                                  | ⬜ Not started |
+| 11   | My-own-syllabus matching, regression eval, performance, accuracy page, deploy                      | ⬜ Not started |
 
 Subjects per wave: Wave 1: 9 · Wave 2: 21 · Wave 3: 21 unique (Circuit Theory = Network Theory) · Wave 4: 12 tested candidates (Heat Transfer shared with Mechanical) + ~20 `sourced` subjects for other branches.
 
@@ -84,6 +96,8 @@ Subjects per wave: Wave 1: 9 · Wave 2: 21 · Wave 3: 21 unique (Circuit Theory 
 The old V3 steps, unchanged except those pulled into V3 (syllabus upload, mock tests, computer-science and chemistry visuals, maps where needed). See SPEC §13. Not started.
 
 ## Plan changes
+
+- **2026-10-04: "Other subjects"** (SPEC §12.8) added as V3 · Step 4 (later steps renumbered 5–11), and an overnight autonomous run on branch `overnight-v2.5-v3` (rules in "Current state").
 
 - **2026-10-04: New V2.5** (SPEC §11.5), built before the rest of V3: uploads in any common format (PowerPoint, Word, Excel/CSV, text, images with OCR, OpenDocument; friendly message for old .ppt/.doc) and whole-chapter lessons with three computed time options. Moved here so nothing is built twice: the mock test generator (chapter scope) from V3 · Step 3, and reading a syllabus file from V3 · Step 10 (V3 keeps cross-chapter mock tests and syllabus-to-topic matching). V3 subject files gain teaching hours and marks per unit.
 

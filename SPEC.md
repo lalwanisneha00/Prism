@@ -340,13 +340,14 @@ Lessons are generated on demand (first request → verified → shared library),
 1. Restructure the plan (versions in SPEC.md and PROGRESS.md; old V3 → V-Final; this V3)
 2. Subject data model and loader: branches and semesters, shared subjects, migration of E&M and Engineering Maths with no loss of saved progress
 3. New navigation: branch → semester → subject → chapter → topic picker, search, subject pages, "my branch" setting; mock tests spanning several chapters or subjects (built on the V2.5 chapter mock test generator)
-4. Accuracy scaffolding: `tested` tier, golden-set format with sources and quote checks, eval runner with rate limiting and resume, numerical and code checking
-5. Wave 1 syllabus and grounding, including complete Applied Physics
-6. Wave 1 visuals and widgets, then Wave 1 eval (Wave 1 must reach `tested` before moving on)
-7. Wave 2 syllabus, visuals, eval
-8. Wave 3 syllabus, visuals, eval
-9. Wave 4 syllabus, visuals, eval (other branches at `sourced`)
-10. My-own-syllabus matching (file reading built in V2.5), full regression eval, performance check, accuracy page update, deploy
+4. **Other subjects** (non-core courses, §12.8): custom subjects with optional topics, syllabus and material, outline built from material, theory-style lessons and answer-writing help
+5. Accuracy scaffolding: `tested` tier, golden-set format with sources and quote checks, eval runner with rate limiting and resume, numerical and code checking
+6. Wave 1 syllabus and grounding, including complete Applied Physics
+7. Wave 1 visuals and widgets, then Wave 1 eval (Wave 1 must reach `tested` before moving on)
+8. Wave 2 syllabus, visuals, eval
+9. Wave 3 syllabus, visuals, eval
+10. Wave 4 syllabus, visuals, eval (other branches at `sourced`)
+11. My-own-syllabus matching (file reading built in V2.5), full regression eval, performance check, accuracy page update, deploy
 
 Each wave ships on its own and is deployed, so the live site is always working and honest.
 
@@ -355,6 +356,16 @@ Each wave ships on its own and is deployed, so the live site is always working a
 ### 12.7 Pausing and resuming
 
 A "Current state" block at the top of PROGRESS.md is updated after every meaningful unit of work (version and step, sub-task, what is finished, what is half-done and where, the exact next action, any running command). Small `wip:` commits inside a step; the repo never sits broken between commits (half-built work stays behind a flag or out of the build). Network operations retry with increasing waits before stopping cleanly. On a new session or "continue": read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, say in 2–3 lines where we are, resume the recorded next action. Long-running scripts (eval, loaders) save progress after each item, detect 429/quota and network errors, wait (honouring retry-after, pausing until the daily reset if needed) and resume without redoing finished items or spending quota twice.
+
+### 12.8 Other subjects (plan update 2026-10-04)
+
+Non-core courses of the early semesters (Indian Knowledge System, Environmental Science, Universal Human Values, Organisational Behaviour, English Communication and similar) differ a lot between universities, so they get their own section instead of a built-in syllabus.
+
+1. **Entry point:** an "Other subjects" section on the home page and in the subject picker, next to the branch and semester picker. One-tap name suggestions (Indian Knowledge System, Environmental Science, Universal Human Values, Organisational Behaviour, English Communication, Constitution of India, Professional Ethics, Economics for Engineers, Principles of Management) plus "Add my own subject". Suggestions fill in the name only; they bring no built-in syllabus.
+2. **Setup form:** subject name (required); units/chapters and topic names (optional: type, paste the syllabus, or upload the syllabus file); material (optional but encouraged: slides, notes, previous-year papers, worksheets in any V2.5 format); other optional details (exam date, exam pattern: marks per question, theory or MCQ, internal or end-semester; units in the next exam; semester; language of instruction). At least one of topics, syllabus or material is required; otherwise ask for one in a friendly way instead of generating a generic lesson.
+3. **Building the subject:** given topics are the structure, and uploaded material is matched to each topic. Without topics, a proposed outline (units → topics) is built from the material and previous-year papers, labelled "Outline built from your material", and the student can edit, reorder, rename, merge or delete topics before saving. With only a name and a few topics, lessons are grounded in trusted free sources and the subject is `sourced` or `limited` per the accuracy rules, with a prompt to upload material. Uploaded faculty material is the first source and is labelled; disagreements show both. Previous-year papers drive exam emphasis (frequent topics, typical question types).
+4. **Lessons:** single topic, several topics or a whole unit, then level and length, with audio for the same length; whole units use the V2.5 Quick / Standard / Thorough options and "Why these timings?". Every existing feature works unchanged. Theory style: prefer mind maps, timelines, comparison tables, flowcharts and labelled images; Exam Prep adds answer-writing help (model answers sized for 2, 5 and 10 marks, examiner key points, structure of a long answer); mock tests include descriptive questions with a self-check list. Skill subjects (English Communication) include practice activities (grammar and vocabulary exercises, letter, email and report formats with examples).
+5. **Storage and privacy:** a custom subject belongs to its student: local-first storage, synced to their own account (structure, progress, small data; originals and full text stay on the device). Lessons from private uploads never go to the shared library. "My subjects" lists custom subjects next to the engineering ones with edit, duplicate and delete, and they are part of export/import backup. Environmental Science stays in the Wave 1 built-in list too.
 
 ## 13. Version Final: Universal (formerly V3; may become V4 or V5)
 
