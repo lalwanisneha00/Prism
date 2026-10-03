@@ -40,9 +40,45 @@ export function lessonText(lesson: Lesson): string {
   ].join("\n");
 }
 
-/** Lower-case, LaTeX backslashes and braces removed, spaces collapsed. */
+/** Unicode maths written in plain text, spelled the way LaTeX would (ε₀ → epsilon_0). */
+const UNICODE_MATH: [RegExp, string][] = [
+  [/[εϵ]/g, "epsilon"],
+  [/π/g, "pi"],
+  [/λ/g, "lambda"],
+  [/σ/g, "sigma"],
+  [/μ/g, "mu"],
+  [/[Φφϕ]/g, "phi"],
+  [/θ/g, "theta"],
+  [/[ωΩ]/g, "omega"],
+  [/κ/g, "kappa"],
+  [/τ/g, "tau"],
+  [/Δ/g, "delta"],
+  [/∂/g, "partial"],
+  [/∇/g, "nabla"],
+  [/∮|∫/g, "int"],
+  [/∞/g, "infty"],
+  [/√/g, "sqrt"],
+  [/−/g, "-"],
+  [/⋅/g, "·"],
+];
+const SUBSCRIPTS = "₀₁₂₃₄₅₆₇₈₉";
+const SUPERSCRIPTS: Record<string, string> = { "²": "^2", "³": "^3", ⁿ: "^n", "⁻": "^-" };
+
+/**
+ * Lower-case, LaTeX backslashes and braces removed, spaces collapsed, and Unicode maths
+ * (ε₀, π, x²) spelled like LaTeX, so a fact counts however the lesson typed it.
+ */
 export function normalizeForMatch(text: string): string {
-  return text
+  // Formatting commands change how a symbol looks, not what it says: \mathbf{p} is just p.
+  let t = text.replace(
+    /\\(mathbf|boldsymbol|bm|vec|hat|mathrm|text|textbf|textit|operatorname|mathit|displaystyle|left|right|big|Big)\b/g,
+    "",
+  );
+  for (const [re, name] of UNICODE_MATH) t = t.replace(re, name);
+  t = t
+    .replace(/[₀-₉]/g, (c) => `_${SUBSCRIPTS.indexOf(c)}`)
+    .replace(/[²³ⁿ⁻]/g, (c) => SUPERSCRIPTS[c]);
+  return t
     .toLowerCase()
     .replace(/\\/g, "")
     .replace(/[{}]/g, "")
@@ -59,6 +95,58 @@ export function scoreLesson(lesson: Lesson, entry: GoldenTopic): TopicScore {
     (new RegExp(fact.pattern, "i").test(text) ? found : missing).push(fact.id);
   }
   return { topic: entry.topic, found, missing };
+}
+
+/** Every number written in a text (plain decimals and 1.5e3 / 1.5 × 10^3 forms). */
+function numbers(text: string): number[] {
+  const t = text.replace(/\\times|×/g, "x").replace(/[{}$\\]/g, "");
+  return [...t.matchAll(/(-?\d+(?:\.\d+)?)(?:\s*x\s*10\^\s*\(?(-?\d+)\)?|e(-?\d+))?/gi)].map(
+    (m) => Number(m[1]) * 10 ** Number(m[2] ?? m[3] ?? 0),
+  );
+}
+
+export type VisualReport = {
+  /** Sections with a visual. */
+  visuals: number;
+  /** Visuals that fail the registry/sanity checks (should be 0: the pipeline drops them). */
+  invalid: string[];
+  /** Numbers on "sourced" charts that appear neither in the lesson nor in the cited source. */
+  unsupportedNumbers: string[];
+};
+
+/**
+ * Visual checks for the eval (SPEC §4.1): every visual is valid for its topic, and numbers on
+ * charts that claim to be sourced really appear in the lesson text or the cited excerpt.
+ */
+export function visualReport(
+  lesson: Lesson,
+  problems: string[],
+  excerpts: Record<string, string>,
+): VisualReport {
+  const text = numbers(lessonText(lesson));
+  const unsupported: string[] = [];
+  for (const section of lesson.sections) {
+    const v = section.visual;
+    if (!v || (v.type !== "chart" && v.type !== "stats") || v.data !== "sourced") continue;
+    const source = numbers(excerpts[v.sourceId ?? ""] ?? "");
+    const shown =
+      v.type === "chart"
+        ? [
+            ...(v.series ?? []).flatMap((s) => s.values),
+            ...(v.scatter ?? []).flatMap((s) => s.points.flatMap((p) => [p.x, p.y])),
+            ...(v.bins ?? []).map((b) => b.count),
+          ]
+        : (v.points ?? []).flatMap((p) => [p.x, p.y]);
+    for (const n of shown) {
+      const close = (m: number) => Math.abs(m - n) <= 1e-6 + Math.abs(n) * 0.005;
+      if (!text.some(close) && !source.some(close)) unsupported.push(`${section.id}: ${n}`);
+    }
+  }
+  return {
+    visuals: lesson.sections.filter((s) => s.visual).length,
+    invalid: problems,
+    unsupportedNumbers: unsupported,
+  };
 }
 
 /** Percentage of all golden facts stated across the scored lessons. */

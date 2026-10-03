@@ -109,3 +109,77 @@ body {
 [data-only-mine] [data-anno-block^="section:"] > .markdown > :not([data-has-anno]) {
   display: none;
 }
+
+/*
+ * The printable revision sheet ("🖨️ Revision PDF"): hidden on screen; when printing, it is
+ * the only thing on the page, in plain black on white whatever the theme.
+ */
+#print-root {
+  display: none;
+}
+@media print {
+  :root,
+  :root[data-theme] {
+    --bg: #fff;
+    --fg: #000;
+    --muted: #444;
+    --border: #bbb;
+    --surface: #fff;
+    --surface-2: #f3f3f3;
+  }
+  body > *:not(#print-root) {
+    display: none !important;
+  }
+  #print-root {
+    display: block;
+    color: #000;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+  .print-sheet h1 {
+    font-size: 20pt;
+    font-weight: 700;
+    margin: 0.2em 0;
+  }
+  .print-sheet h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    border-bottom: 1px solid #999;
+    margin: 1em 0 0.4em;
+    break-after: avoid;
+  }
+  .print-sheet ul,
+  .print-sheet ol {
+    padding-left: 1.3em;
+  }
+  .print-sheet ul {
+    list-style: disc;
+  }
+  .print-sheet ol {
+    list-style: decimal;
+  }
+  .print-sheet li,
+  .print-sheet dl > div {
+    break-inside: avoid;
+    margin-bottom: 0.35em;
+  }
+  .print-sheet dt {
+    font-weight: 700;
+  }
+  .print-sheet .print-muted {
+    color: #444;
+    font-size: 9.5pt;
+  }
+  .print-sheet .print-answer,
+  .print-sheet .print-comment {
+    margin-left: 0.8em;
+    color: #222;
+  }
+  .print-sheet .print-sources {
+    font-size: 9.5pt;
+    word-break: break-all;
+  }
+  @page {
+    margin: 16mm;
+  }
+}

@@ -1,0 +1,841 @@
+{
+  "description": "Key facts a correct lesson on each topic must state (from the cited OpenStax sections). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "em",
+  "topics": [
+    {
+      "topic": "coulombs-law",
+      "chapter": "electrostatics",
+      "facts": [
+        {
+          "id": "inverse-square",
+          "claim": "Force falls with the square of distance",
+          "pattern": "inverse[- ]square|r\\^2|r squared"
+        },
+        {
+          "id": "constant",
+          "claim": "k ≈ 8.99 × 10^9 N·m²/C² (= 1/4πε₀)",
+          "pattern": "8\\.99?\\d*\\s*(×|times|x)\\s*10\\^9|9\\s*(×|times|x)\\s*10\\^9|frac\\s*1\\s*4\\s*pi\\s*(var)?epsilon_?0|1\\s*/\\s*\\(?4\\s*pi\\s*(var)?epsilon_?0"
+        },
+        {
+          "id": "like-repel",
+          "claim": "Like charges repel",
+          "pattern": "like charges repel|same sign[^.]{0,40}repel|repel[^.]{0,40}same sign"
+        }
+      ]
+    },
+    {
+      "topic": "electric-field",
+      "chapter": "electrostatics",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Field = force per unit charge",
+          "pattern": "force per (unit )?(positive )?(test )?charge|per coulomb|frac\\s*(vec\\s*)?f\\s*q|f\\s*/\\s*q"
+        },
+        {
+          "id": "units",
+          "claim": "Units N/C (or V/m)",
+          "pattern": "n/c|newtons? per coulomb|v/m|volts? per met(re|er)"
+        },
+        {
+          "id": "direction",
+          "claim": "Points away from positive charge",
+          "pattern": "away from (a |the |any )?positive|outward from (a |the )?positive|points? away"
+        }
+      ]
+    },
+    {
+      "topic": "gauss-law",
+      "chapter": "electrostatics",
+      "facts": [
+        {
+          "id": "statement",
+          "claim": "Net flux = Q_enc / ε₀",
+          "pattern": "frac\\s*q_?(text)?\\s*enc\\s*(var)?epsilon_?0|q_?(text)?\\s*enc\\s*/\\s*(var)?epsilon_?0|enclosed charge (divided by|over) (epsilon|ε)"
+        },
+        {
+          "id": "closed-surface",
+          "claim": "Applies to a closed (Gaussian) surface",
+          "pattern": "closed surface|gaussian surface"
+        },
+        {
+          "id": "outside-zero",
+          "claim": "Charges outside add zero net flux",
+          "pattern": "outside[^.]{0,120}(zero|no) net|outside[^.]{0,80}add(s|ing)? (zero|nothing)|(zero|no) net (flux|contribution)[^.]{0,120}outside"
+        }
+      ]
+    },
+    {
+      "topic": "electric-potential",
+      "chapter": "electrostatics",
+      "facts": [
+        {
+          "id": "point-charge",
+          "claim": "V = kq/r for a point charge",
+          "pattern": "v\\s*=\\s*(frac\\s*)?k\\s*q\\s*/?\\s*r|v\\s*=\\s*frac\\s*q\\s*4\\s*pi|kq\\s*/\\s*r"
+        },
+        {
+          "id": "unit",
+          "claim": "Volt = joule per coulomb",
+          "pattern": "j/c|joules? per coulomb"
+        },
+        {
+          "id": "scalar",
+          "claim": "Potential is a scalar",
+          "pattern": "scalar"
+        }
+      ]
+    },
+    {
+      "topic": "capacitors",
+      "chapter": "capacitance",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "C = Q/V",
+          "pattern": "c\\s*=\\s*frac\\s*q\\s*v|c\\s*=\\s*q\\s*/\\s*v|charge (stored )?per (unit )?(volt|potential difference)"
+        },
+        {
+          "id": "farad",
+          "claim": "Unit is the farad",
+          "pattern": "farad"
+        },
+        {
+          "id": "parallel-plate",
+          "claim": "Parallel plates: C = ε₀A/d",
+          "pattern": "frac\\s*(kappa\\s*)?(var)?epsilon_?0\\s*a\\s*d|(var)?epsilon_?0\\s*a\\s*/\\s*d"
+        }
+      ]
+    },
+    {
+      "topic": "capacitor-energy",
+      "chapter": "capacitance",
+      "facts": [
+        {
+          "id": "half-cv2",
+          "claim": "U = ½CV²",
+          "pattern": "frac\\s*1\\s*2\\s*c\\s*v\\^2|1\\s*/\\s*2\\s*c\\s*v\\^2|½\\s*c\\s*v\\^?2|half[^.]{0,20}c\\s*v\\s*squared"
+        },
+        {
+          "id": "in-field",
+          "claim": "Energy is stored in the electric field",
+          "pattern": "stored[^.]{0,20}in the (electric )?field|energy density"
+        },
+        {
+          "id": "alt-forms",
+          "claim": "Also U = Q²/2C = ½QV",
+          "pattern": "frac\\s*q\\^2\\s*2\\s*c|q\\^2\\s*/\\s*\\(?2\\s*c|frac\\s*1\\s*2\\s*q\\s*v|1\\s*/\\s*2\\s*q\\s*v"
+        }
+      ]
+    },
+    {
+      "topic": "ohms-law",
+      "chapter": "current-electricity",
+      "facts": [
+        {
+          "id": "v-ir",
+          "claim": "V = IR",
+          "pattern": "v\\s*=\\s*i\\s*r\\b"
+        },
+        {
+          "id": "resistivity",
+          "claim": "R = ρL/A",
+          "pattern": "frac\\s*rho\\s*(l|ell)\\s*a|rho\\s*(l|ell)\\s*/\\s*a|resistivity"
+        },
+        {
+          "id": "ohm",
+          "claim": "Resistance in ohms",
+          "pattern": "ohm|ω"
+        }
+      ]
+    },
+    {
+      "topic": "kirchhoffs-laws",
+      "chapter": "current-electricity",
+      "facts": [
+        {
+          "id": "charge",
+          "claim": "Junction rule comes from conservation of charge",
+          "pattern": "conservation of (electric )?charge|charge is conserved"
+        },
+        {
+          "id": "energy",
+          "claim": "Loop rule comes from conservation of energy",
+          "pattern": "conservation of energy|energy is conserved"
+        },
+        {
+          "id": "rules",
+          "claim": "Junction and loop rules",
+          "pattern": "junction[^.]{0,400}loop|loop[^.]{0,400}junction"
+        }
+      ]
+    },
+    {
+      "topic": "rc-circuits",
+      "chapter": "current-electricity",
+      "facts": [
+        {
+          "id": "tau",
+          "claim": "Time constant τ = RC",
+          "pattern": "tau\\s*=\\s*r\\s*c|τ\\s*=\\s*rc|time constant"
+        },
+        {
+          "id": "63",
+          "claim": "After one time constant a charging capacitor reaches about 63%",
+          "pattern": "63"
+        },
+        {
+          "id": "exponential",
+          "claim": "Charge/current change exponentially",
+          "pattern": "exponential|e\\^\\s*-\\s*t"
+        }
+      ]
+    },
+    {
+      "topic": "biot-savart-law",
+      "chapter": "magnetostatics",
+      "facts": [
+        {
+          "id": "inverse-square",
+          "claim": "dB falls as 1/r²",
+          "pattern": "r\\^2|inverse[- ]square"
+        },
+        {
+          "id": "mu0",
+          "claim": "Uses the permeability of free space μ₀",
+          "pattern": "mu_?0|μ_?0|permeability"
+        },
+        {
+          "id": "straight-wire",
+          "claim": "Long straight wire: B = μ₀I/2πr",
+          "pattern": "frac\\s*mu_?0\\s*i\\s*2\\s*pi\\s*r|mu_?0\\s*i\\s*/\\s*\\(?2\\s*pi\\s*r|2\\s*pi\\s*r"
+        }
+      ]
+    },
+    {
+      "topic": "amperes-law",
+      "chapter": "magnetostatics",
+      "facts": [
+        {
+          "id": "statement",
+          "claim": "∮B·dl = μ₀I_enc around a closed loop",
+          "pattern": "oint|closed (loop|path|curve)"
+        },
+        {
+          "id": "solenoid",
+          "claim": "Solenoid: B = μ₀nI",
+          "pattern": "mu_?0\\s*n\\s*i|turns per (unit )?length"
+        },
+        {
+          "id": "symmetry",
+          "claim": "Useful when there is symmetry",
+          "pattern": "symmetr"
+        }
+      ]
+    },
+    {
+      "topic": "faradays-law",
+      "chapter": "induction",
+      "facts": [
+        {
+          "id": "rate",
+          "claim": "EMF = −dΦ/dt (rate of change of flux)",
+          "pattern": "fracd\\s*(phi|φ)|d\\s*(phi|φ)_?(b|textb|mathrmb)?\\s*/\\s*d\\s*t|rate of change of (the )?(magnetic )?flux"
+        },
+        {
+          "id": "turns",
+          "claim": "N turns multiply the EMF",
+          "pattern": "turns|coil"
+        },
+        {
+          "id": "weber",
+          "claim": "Flux measured in webers",
+          "pattern": "weber|\\bwb\\b|t\\s*·?\\s*m\\^2"
+        }
+      ]
+    },
+    {
+      "topic": "lenzs-law",
+      "chapter": "induction",
+      "facts": [
+        {
+          "id": "opposes",
+          "claim": "Induced current opposes the change in flux",
+          "pattern": "oppos"
+        },
+        {
+          "id": "energy",
+          "claim": "Follows from conservation of energy",
+          "pattern": "conservation of energy|energy is conserved"
+        },
+        {
+          "id": "minus-sign",
+          "claim": "It is the minus sign in Faraday's law",
+          "pattern": "minus sign|negative sign"
+        }
+      ]
+    },
+    {
+      "topic": "ac-rms",
+      "chapter": "alternating-current",
+      "facts": [
+        {
+          "id": "root-two",
+          "claim": "V_rms = V₀/√2 ≈ 0.707 V₀",
+          "pattern": "sqrt\\s*2|√2|0\\.707"
+        },
+        {
+          "id": "average-zero",
+          "claim": "Average over a full cycle is zero",
+          "pattern": "average[^.]{0,80}(zero|0)\\b|(zero|0) average"
+        },
+        {
+          "id": "heating",
+          "claim": "RMS gives the same heating as a steady DC value",
+          "pattern": "same (heating|power|average power)|equivalent (dc|steady)|heating effect|dc (value|voltage|current) (that|which)"
+        }
+      ]
+    },
+    {
+      "topic": "transformers",
+      "chapter": "alternating-current",
+      "facts": [
+        {
+          "id": "ratio",
+          "claim": "Vs/Vp = Ns/Np",
+          "pattern": "frac\\s*v_?s\\s*v_?p|frac\\s*n_?s\\s*n_?p|v_?s\\s*/\\s*v_?p|n_?s\\s*/\\s*n_?p|turns ratio"
+        },
+        {
+          "id": "ac-only",
+          "claim": "Needs AC (a changing flux)",
+          "pattern": "alternating|\\bac\\b|changing (magnetic )?flux"
+        },
+        {
+          "id": "step",
+          "claim": "Step-up and step-down transformers",
+          "pattern": "step[- ]up|step[- ]down"
+        }
+      ]
+    },
+    {
+      "topic": "electric-dipole",
+      "chapter": "electrostatics",
+      "facts": [
+        {
+          "id": "moment",
+          "claim": "Dipole moment p = qd",
+          "pattern": "p\\s*=\\s*q\\s*\\*?\\s*(vec\\s*)?d|charge (times|multiplied by) (the )?(separation|distance)|q\\s*(·|cdot)\\s*d"
+        },
+        {
+          "id": "direction",
+          "claim": "p points from − to +",
+          "pattern": "from (the )?negative (charge )?to (the )?positive"
+        },
+        {
+          "id": "torque",
+          "claim": "Torque τ = p × E = pE sinθ",
+          "pattern": "p\\s*(times|×)\\s*(vec\\s*)?e|p\\s*e\\s*sin|pe\\s*sin"
+        }
+      ]
+    },
+    {
+      "topic": "electric-flux",
+      "chapter": "electrostatics",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Φ = EA cosθ (or ∫E·dA)",
+          "pattern": "e\\s*a\\s*cos|ea\\s*cos|e\\s*(cdot|·)\\s*d\\s*(vec\\s*)?a|int[^.]{0,30}e\\s*(cdot|·)"
+        },
+        {
+          "id": "units",
+          "claim": "Units N·m²/C",
+          "pattern": "n\\s*(·|⋅|cdot|\\.)?\\s*m\\^?2\\s*/\\s*c|n\\s*m\\^2/c|newton[- ]met(er|re)s? squared per coulomb"
+        },
+        {
+          "id": "angle",
+          "claim": "Flux is largest face-on and zero edge-on",
+          "pattern": "(zero|no flux)[^.]{0,60}(parallel|edge[- ]on|90)|(parallel|edge[- ]on|90)[^.]{0,60}(zero|no flux)"
+        }
+      ]
+    },
+    {
+      "topic": "gauss-law-applications",
+      "chapter": "electrostatics",
+      "facts": [
+        {
+          "id": "line",
+          "claim": "Infinite line: E = λ/(2πε₀r)",
+          "pattern": "frac\\s*lambda\\s*2\\s*pi\\s*(var)?epsilon_?0\\s*r|lambda\\s*/\\s*\\(?2\\s*pi\\s*(var)?epsilon_?0\\s*r"
+        },
+        {
+          "id": "sheet",
+          "claim": "Infinite sheet: E = σ/(2ε₀)",
+          "pattern": "frac\\s*sigma\\s*2\\s*(var)?epsilon_?0|sigma\\s*/\\s*\\(?2\\s*(var)?epsilon_?0"
+        },
+        {
+          "id": "sphere",
+          "claim": "Outside a charged sphere the field is like a point charge's",
+          "pattern": "point charge"
+        }
+      ]
+    },
+    {
+      "topic": "equipotential-surfaces",
+      "chapter": "electrostatics",
+      "facts": [
+        {
+          "id": "perpendicular",
+          "claim": "Equipotentials are perpendicular to field lines",
+          "pattern": "perpendicular|right angles|90\\s*(°|\\^circ|degrees)"
+        },
+        {
+          "id": "no-work",
+          "claim": "No work is done moving along an equipotential",
+          "pattern": "no work|zero work|w\\s*=\\s*0|does not (do|require) (any )?work"
+        },
+        {
+          "id": "conductor",
+          "claim": "A conductor's surface is an equipotential",
+          "pattern": "conductor[^.]{0,120}equipotential|equipotential[^.]{0,120}conductor"
+        }
+      ]
+    },
+    {
+      "topic": "parallel-plate-capacitor",
+      "chapter": "capacitance",
+      "facts": [
+        {
+          "id": "capacitance",
+          "claim": "C = ε₀A/d",
+          "pattern": "frac\\s*(var)?epsilon_?0\\s*a\\s*d|(var)?epsilon_?0\\s*a\\s*/\\s*d|kappa\\s*(var)?epsilon_?0\\s*a\\s*/?\\s*d|frac\\s*kappa\\s*(var)?epsilon_?0\\s*a\\s*d"
+        },
+        {
+          "id": "field",
+          "claim": "Field between plates E = V/d (= σ/ε₀)",
+          "pattern": "frac\\s*v\\s*d|v\\s*/\\s*d|frac\\s*sigma\\s*(var)?epsilon_?0|sigma\\s*/\\s*(var)?epsilon_?0"
+        },
+        {
+          "id": "uniform",
+          "claim": "The field between the plates is uniform",
+          "pattern": "uniform"
+        }
+      ]
+    },
+    {
+      "topic": "capacitor-combinations",
+      "chapter": "capacitance",
+      "facts": [
+        {
+          "id": "series",
+          "claim": "Series: 1/C = 1/C₁ + 1/C₂",
+          "pattern": "frac\\s*1\\s*c_?(eq|s|total|t)?\\s*=\\s*frac\\s*1\\s*c_?1|1\\s*/\\s*c_?(eq|s|total|t)?\\s*=\\s*1\\s*/\\s*c_?1"
+        },
+        {
+          "id": "parallel",
+          "claim": "Parallel: C = C₁ + C₂",
+          "pattern": "c_?(eq|p|total|t)?\\s*=\\s*c_?1\\s*\\+\\s*c_?2"
+        },
+        {
+          "id": "same-charge",
+          "claim": "Series capacitors carry the same charge",
+          "pattern": "same charge"
+        }
+      ]
+    },
+    {
+      "topic": "dielectrics",
+      "chapter": "capacitance",
+      "facts": [
+        {
+          "id": "kappa",
+          "claim": "C = κC₀",
+          "pattern": "kappa\\s*c_?0|c\\s*=\\s*kappa|dielectric constant"
+        },
+        {
+          "id": "increase",
+          "claim": "A dielectric increases capacitance",
+          "pattern": "increas[^.]{0,60}capacitance|capacitance[^.]{0,60}increas|multipl[^.]{0,40}capacitance"
+        },
+        {
+          "id": "field",
+          "claim": "The dielectric is polarized and reduces the field",
+          "pattern": "polari[sz]|reduc[^.]{0,50}field|field[^.]{0,50}reduc|weaken"
+        }
+      ]
+    },
+    {
+      "topic": "current-drift-velocity",
+      "chapter": "current-electricity",
+      "facts": [
+        {
+          "id": "formula",
+          "claim": "I = nqAv_d",
+          "pattern": "i\\s*=\\s*n\\s*(q|e)\\s*a\\s*(v|u)|n\\s*(q|e)\\s*a\\s*v_?d|nqav|neav"
+        },
+        {
+          "id": "slow",
+          "claim": "Drift speed is very small (fractions of a mm/s)",
+          "pattern": "(very )?(small|slow)|mm\\s*/\\s*s|10\\^\\s*\\(?-\\s*[345]"
+        },
+        {
+          "id": "ampere",
+          "claim": "1 A = 1 C/s",
+          "pattern": "ampere|c\\s*/\\s*s|coulombs? per second"
+        }
+      ]
+    },
+    {
+      "topic": "resistor-combinations",
+      "chapter": "current-electricity",
+      "facts": [
+        {
+          "id": "series",
+          "claim": "Series: R = R₁ + R₂",
+          "pattern": "r_?(eq|s|total|t)?\\s*=\\s*r_?1\\s*\\+\\s*r_?2"
+        },
+        {
+          "id": "parallel",
+          "claim": "Parallel: 1/R = 1/R₁ + 1/R₂",
+          "pattern": "frac\\s*1\\s*r_?(eq|p|total|t)?\\s*=\\s*frac\\s*1\\s*r_?1|1\\s*/\\s*r_?(eq|p|total|t)?\\s*=\\s*1\\s*/\\s*r_?1|frac\\s*r_?1\\s*r_?2\\s*r_?1\\s*\\+\\s*r_?2"
+        },
+        {
+          "id": "same-current",
+          "claim": "Series resistors carry the same current",
+          "pattern": "same current"
+        }
+      ]
+    },
+    {
+      "topic": "electrical-power",
+      "chapter": "current-electricity",
+      "facts": [
+        {
+          "id": "iv",
+          "claim": "P = IV",
+          "pattern": "p\\s*=\\s*i\\s*v|p\\s*=\\s*v\\s*i"
+        },
+        {
+          "id": "i2r",
+          "claim": "P = I²R (= V²/R)",
+          "pattern": "i\\^2\\s*r|i squared|frac\\s*v\\^2\\s*r|v\\^2\\s*/\\s*r"
+        },
+        {
+          "id": "watt",
+          "claim": "Unit: watt",
+          "pattern": "watt"
+        }
+      ]
+    },
+    {
+      "topic": "lorentz-force",
+      "chapter": "magnetostatics",
+      "facts": [
+        {
+          "id": "formula",
+          "claim": "F = qv × B (F = qvB sinθ)",
+          "pattern": "q\\s*(vec\\s*)?v\\s*(times|×)|q\\s*v\\s*b\\s*sin|qvb"
+        },
+        {
+          "id": "no-work",
+          "claim": "The magnetic force does no work",
+          "pattern": "no work|zero work|does(n'?t| not) do (any )?work"
+        },
+        {
+          "id": "circle",
+          "claim": "Uniform B: circular motion, r = mv/(qB)",
+          "pattern": "frac\\s*m\\s*v\\s*q\\s*b|m\\s*v\\s*/\\s*\\(?q\\s*b|circ(le|ular)"
+        }
+      ]
+    },
+    {
+      "topic": "force-on-wire",
+      "chapter": "magnetostatics",
+      "facts": [
+        {
+          "id": "formula",
+          "claim": "F = IL × B (= BIL sinθ)",
+          "pattern": "i\\s*(vec\\s*)?l\\s*(times|×)|b\\s*i\\s*l|i\\s*l\\s*b|bil|ilb"
+        },
+        {
+          "id": "rhr",
+          "claim": "Direction from the right-hand rule",
+          "pattern": "right[- ]hand"
+        },
+        {
+          "id": "parallel",
+          "claim": "Parallel currents attract",
+          "pattern": "attract"
+        }
+      ]
+    },
+    {
+      "topic": "solenoid-toroid",
+      "chapter": "magnetostatics",
+      "facts": [
+        {
+          "id": "solenoid",
+          "claim": "Solenoid: B = μ₀nI",
+          "pattern": "mu_?0\\s*n\\s*i|mu_0ni"
+        },
+        {
+          "id": "turns",
+          "claim": "n is turns per unit length",
+          "pattern": "turns per (unit )?(length|met)|n\\s*=\\s*frac\\s*n\\s*l|n\\s*=\\s*n\\s*/\\s*l"
+        },
+        {
+          "id": "toroid",
+          "claim": "Toroid: B = μ₀NI/(2πr)",
+          "pattern": "frac\\s*mu_?0\\s*n\\s*i\\s*2\\s*pi\\s*r|mu_?0\\s*n\\s*i\\s*/\\s*\\(?2\\s*pi\\s*r"
+        }
+      ]
+    },
+    {
+      "topic": "magnetic-flux",
+      "chapter": "induction",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Φ_B = BA cosθ (or ∫B·dA)",
+          "pattern": "b\\s*a\\s*cos|ba\\s*cos|b\\s*(cdot|·)\\s*d\\s*(vec\\s*)?a|int[^.]{0,30}b\\s*(cdot|·)"
+        },
+        {
+          "id": "weber",
+          "claim": "Unit: weber (T·m²)",
+          "pattern": "weber|\\bwb\\b|t\\s*(·|⋅|cdot)?\\s*m\\^?2"
+        }
+      ]
+    },
+    {
+      "topic": "motional-emf",
+      "chapter": "induction",
+      "facts": [
+        {
+          "id": "blv",
+          "claim": "ε = BLv",
+          "pattern": "b\\s*l\\s*v|blv|b\\s*v\\s*l|bvl|vbl|v\\s*b\\s*l"
+        },
+        {
+          "id": "force",
+          "claim": "Charges in the moving rod feel a magnetic force",
+          "pattern": "lorentz|force on (the )?(moving |free )?(charges|electrons)|q\\s*v\\s*b|qvb"
+        },
+        {
+          "id": "lenz",
+          "claim": "The induced current opposes the motion (Lenz)",
+          "pattern": "lenz|oppos"
+        }
+      ]
+    },
+    {
+      "topic": "inductance",
+      "chapter": "induction",
+      "facts": [
+        {
+          "id": "emf",
+          "claim": "ε = −L dI/dt",
+          "pattern": "l\\s*frac\\s*d\\s*i\\s*d\\s*t|l\\s*d\\s*i\\s*/\\s*d\\s*t|l\\s*fracdidt|l\\s*di/dt"
+        },
+        {
+          "id": "henry",
+          "claim": "Unit: henry",
+          "pattern": "henr(y|ies)"
+        },
+        {
+          "id": "energy",
+          "claim": "Energy U = ½LI²",
+          "pattern": "frac\\s*1\\s*2\\s*l\\s*i\\^2|1\\s*/\\s*2\\s*l\\s*i\\^2|½\\s*l\\s*i\\^2|0\\.5\\s*l\\s*i\\^2"
+        }
+      ]
+    },
+    {
+      "topic": "ac-generator",
+      "chapter": "induction",
+      "facts": [
+        {
+          "id": "emf",
+          "claim": "ε = NBAω sin ωt",
+          "pattern": "n\\s*b\\s*a\\s*omega|nbaomega|n\\s*a\\s*b\\s*omega|nab\\s*omega|b\\s*a\\s*n\\s*omega"
+        },
+        {
+          "id": "sinusoid",
+          "claim": "The emf is sinusoidal",
+          "pattern": "sinusoid|sin\\s*\\(?\\s*omega\\s*t"
+        },
+        {
+          "id": "rotation",
+          "claim": "A coil rotates in a magnetic field",
+          "pattern": "rotat"
+        }
+      ]
+    },
+    {
+      "topic": "phasors",
+      "chapter": "alternating-current",
+      "facts": [
+        {
+          "id": "rotating",
+          "claim": "A phasor is a rotating vector",
+          "pattern": "rotat"
+        },
+        {
+          "id": "amplitude",
+          "claim": "Its length is the peak value",
+          "pattern": "amplitude|peak"
+        },
+        {
+          "id": "projection",
+          "claim": "The projection gives the instantaneous value",
+          "pattern": "project"
+        }
+      ]
+    },
+    {
+      "topic": "impedance",
+      "chapter": "alternating-current",
+      "facts": [
+        {
+          "id": "z",
+          "claim": "Z = √(R² + (X_L − X_C)²)",
+          "pattern": "sqrt\\s*\\(?\\s*r\\^2\\s*\\+\\s*\\(?\\s*x_?l\\s*-\\s*x_?c|sqrtr\\^2\\s*\\+\\s*\\(?x_?l\\s*-\\s*x_?c"
+        },
+        {
+          "id": "xl",
+          "claim": "X_L = ωL",
+          "pattern": "x_?l\\s*=\\s*(omega|2\\s*pi\\s*f)\\s*l"
+        },
+        {
+          "id": "xc",
+          "claim": "X_C = 1/(ωC)",
+          "pattern": "x_?c\\s*=\\s*frac\\s*1\\s*(omega|2\\s*pi\\s*f)\\s*c|x_?c\\s*=\\s*1\\s*/\\s*\\(?\\s*(omega|2\\s*pi\\s*f)\\s*c"
+        }
+      ]
+    },
+    {
+      "topic": "lcr-resonance",
+      "chapter": "alternating-current",
+      "facts": [
+        {
+          "id": "omega0",
+          "claim": "ω₀ = 1/√(LC)",
+          "pattern": "frac\\s*1\\s*(2\\s*pi\\s*)?sqrt\\s*\\(?\\s*l\\s*c|1\\s*/\\s*\\(?(2\\s*pi\\s*)?sqrt\\s*\\(?\\s*l\\s*c"
+        },
+        {
+          "id": "equal",
+          "claim": "At resonance X_L = X_C",
+          "pattern": "x_?l\\s*=\\s*x_?c"
+        },
+        {
+          "id": "max-current",
+          "claim": "Impedance is smallest (Z = R), current largest",
+          "pattern": "z\\s*=\\s*r\\b|maximum current|current[^.]{0,40}(maximum|largest|greatest|peaks?)|minimum impedance|impedance[^.]{0,40}(minimum|smallest)"
+        }
+      ]
+    },
+    {
+      "topic": "power-factor",
+      "chapter": "alternating-current",
+      "facts": [
+        {
+          "id": "cos",
+          "claim": "Power factor is cos φ",
+          "pattern": "cos\\s*\\(?\\s*(phi|φ|varphi|theta)|cosine of the phase"
+        },
+        {
+          "id": "pavg",
+          "claim": "P_avg = V_rms I_rms cos φ",
+          "pattern": "v_?\\s*(rms)?\\s*i_?\\s*(rms)?\\s*cos|i_?\\s*(rms)?\\s*v_?\\s*(rms)?\\s*cos"
+        },
+        {
+          "id": "r-over-z",
+          "claim": "cos φ = R/Z",
+          "pattern": "frac\\s*r\\s*z|r\\s*/\\s*z"
+        }
+      ]
+    },
+    {
+      "topic": "displacement-current",
+      "chapter": "em-waves",
+      "facts": [
+        {
+          "id": "formula",
+          "claim": "I_d = ε₀ dΦ_E/dt",
+          "pattern": "(var)?epsilon_?0\\s*frac\\s*d\\s*(phi|φ)|(var)?epsilon_?0\\s*d\\s*(phi|φ)|(var)?epsilon_?0\\s*fracd"
+        },
+        {
+          "id": "maxwell",
+          "claim": "Introduced by Maxwell",
+          "pattern": "maxwell"
+        },
+        {
+          "id": "capacitor",
+          "claim": "Explains the 'current' in a charging capacitor's gap",
+          "pattern": "capacitor"
+        }
+      ]
+    },
+    {
+      "topic": "maxwells-equations",
+      "chapter": "em-waves",
+      "facts": [
+        {
+          "id": "four",
+          "claim": "There are four equations",
+          "pattern": "four"
+        },
+        {
+          "id": "monopoles",
+          "claim": "No magnetic monopoles (Gauss's law for magnetism)",
+          "pattern": "monopole|(net )?magnetic flux[^.]{0,60}(closed surface)[^.]{0,40}zero"
+        },
+        {
+          "id": "waves",
+          "claim": "They predict electromagnetic waves travelling at c",
+          "pattern": "(electromagnetic|em) waves?|speed of light"
+        }
+      ]
+    },
+    {
+      "topic": "em-waves",
+      "chapter": "em-waves",
+      "facts": [
+        {
+          "id": "speed",
+          "claim": "c = 1/√(μ₀ε₀)",
+          "pattern": "frac\\s*1\\s*sqrt\\s*\\(?\\s*(mu_?0\\s*(var)?epsilon_?0|(var)?epsilon_?0\\s*mu_?0)|1\\s*/\\s*sqrt\\s*\\(?\\s*(mu_?0\\s*(var)?epsilon_?0|(var)?epsilon_?0\\s*mu_?0)"
+        },
+        {
+          "id": "value",
+          "claim": "c ≈ 3.00 × 10⁸ m/s",
+          "pattern": "3(\\.0+)?\\s*(×|times|x)\\s*10\\^\\s*8|2\\.998|299[ ,]?792"
+        },
+        {
+          "id": "transverse",
+          "claim": "E and B are perpendicular to each other and to the direction of travel",
+          "pattern": "transverse|perpendicular"
+        }
+      ]
+    },
+    {
+      "topic": "poynting-vector",
+      "chapter": "em-waves",
+      "facts": [
+        {
+          "id": "formula",
+          "claim": "S = (1/μ₀) E × B",
+          "pattern": "frac\\s*1\\s*mu_?0|1\\s*/\\s*mu_?0|e\\s*(times|×)\\s*(vec\\s*)?b\\s*/\\s*mu_?0|s\\s*=\\s*e\\s*(times|×|cdot|·)\\s*h"
+        },
+        {
+          "id": "intensity",
+          "claim": "Intensity in W/m²",
+          "pattern": "w\\s*/\\s*m\\^?2|watts? per square met"
+        },
+        {
+          "id": "direction",
+          "claim": "It points along the direction of energy flow",
+          "pattern": "energy flow|flow of energy|direction[^.]{0,60}(energy|propagat)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,374 @@
+{
+  "description": "Key facts a correct lesson on each topic must state (from the cited OpenStax sections). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "engg-math",
+  "topics": [
+    {
+      "topic": "limits-continuity",
+      "chapter": "differential-calculus",
+      "facts": [
+        {
+          "id": "continuity",
+          "claim": "f is continuous at a when lim f(x) = f(a)",
+          "pattern": "lim[^.\\n]{0,40}=\\s*f\\s*\\(?\\s*a|limit (equals|is equal to) (the )?(function'?s? )?value"
+        },
+        {
+          "id": "one-sided",
+          "claim": "The limit exists when the left- and right-hand limits agree",
+          "pattern": "left[- ]hand[^.]{0,120}right[- ]hand|right[- ]hand[^.]{0,120}left[- ]hand|one[- ]sided"
+        }
+      ]
+    },
+    {
+      "topic": "derivatives-basics",
+      "chapter": "differential-calculus",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "f'(x) = lim_{h→0} (f(x+h) − f(x))/h",
+          "pattern": "lim_?\\s*\\(?\\s*h\\s*(to|→|->)\\s*0|limh\\s*to\\s*0|difference quotient"
+        },
+        {
+          "id": "power",
+          "claim": "Power rule: d/dx xⁿ = n xⁿ⁻¹",
+          "pattern": "n\\s*x\\^\\s*\\(?\\s*n\\s*-\\s*1"
+        },
+        {
+          "id": "tangent",
+          "claim": "The derivative is the slope of the tangent",
+          "pattern": "slope of (the )?tangent|tangent line|gradient of (the )?tangent"
+        }
+      ]
+    },
+    {
+      "topic": "mean-value-theorems",
+      "chapter": "differential-calculus",
+      "facts": [
+        {
+          "id": "rolle",
+          "claim": "Rolle: f(a) = f(b) ⇒ f'(c) = 0",
+          "pattern": "f\\s*'\\s*\\(\\s*c\\s*\\)\\s*=\\s*0"
+        },
+        {
+          "id": "mvt",
+          "claim": "MVT: f'(c) = (f(b) − f(a))/(b − a)",
+          "pattern": "frac\\s*f\\s*\\(\\s*b\\s*\\)\\s*-\\s*f\\s*\\(\\s*a\\s*\\)\\s*b\\s*-\\s*a|\\(?\\s*f\\s*\\(\\s*b\\s*\\)\\s*-\\s*f\\s*\\(\\s*a\\s*\\)\\s*\\)?\\s*/\\s*\\(?\\s*b\\s*-\\s*a"
+        },
+        {
+          "id": "conditions",
+          "claim": "Continuous on [a, b], differentiable on (a, b)",
+          "pattern": "continuous[^.]{0,80}differentiable"
+        }
+      ]
+    },
+    {
+      "topic": "taylor-maclaurin",
+      "chapter": "differential-calculus",
+      "facts": [
+        {
+          "id": "term",
+          "claim": "General term f⁽ⁿ⁾(a)/n! · (x − a)ⁿ",
+          "pattern": "n\\s*!"
+        },
+        {
+          "id": "maclaurin",
+          "claim": "Maclaurin series = Taylor series at a = 0",
+          "pattern": "maclaurin[^.]{0,100}(a\\s*=\\s*0|zero|x\\s*=\\s*0|origin)|(a\\s*=\\s*0|about zero|at zero|centred at 0|centered at 0)[^.]{0,100}maclaurin"
+        },
+        {
+          "id": "exp",
+          "claim": "eˣ = 1 + x + x²/2! + …",
+          "pattern": "1\\s*\\+\\s*x\\s*\\+\\s*frac\\s*x\\^2\\s*2|1\\s*\\+\\s*x\\s*\\+\\s*x\\^2\\s*/\\s*2"
+        }
+      ]
+    },
+    {
+      "topic": "lhopital-rule",
+      "chapter": "differential-calculus",
+      "facts": [
+        {
+          "id": "forms",
+          "claim": "Applies to 0/0 or ∞/∞",
+          "pattern": "frac\\s*0\\s*0|0\\s*/\\s*0|infty\\s*/\\s*infty|frac\\s*infty\\s*infty|indeterminate"
+        },
+        {
+          "id": "rule",
+          "claim": "lim f/g = lim f'/g'",
+          "pattern": "frac\\s*f\\s*'\\s*\\(?\\s*x\\s*\\)?\\s*g\\s*'|f\\s*'\\s*\\(?\\s*x\\s*\\)?\\s*/\\s*g\\s*'"
+        },
+        {
+          "id": "not-quotient",
+          "claim": "Differentiate top and bottom separately (not the quotient rule)",
+          "pattern": "separately|quotient rule"
+        }
+      ]
+    },
+    {
+      "topic": "maxima-minima-one-variable",
+      "chapter": "differential-calculus",
+      "facts": [
+        {
+          "id": "critical",
+          "claim": "Critical points: f'(x) = 0",
+          "pattern": "f\\s*'\\s*\\(\\s*[xc]\\s*\\)\\s*=\\s*0|critical point"
+        },
+        {
+          "id": "second",
+          "claim": "f''(x) > 0 ⇒ local minimum",
+          "pattern": "f\\s*''\\s*\\(\\s*[xc]\\s*\\)\\s*>\\s*0|second derivative[^.]{0,100}(positive|minimum)"
+        },
+        {
+          "id": "local",
+          "claim": "Local (relative) vs absolute extrema",
+          "pattern": "local|relative"
+        }
+      ]
+    },
+    {
+      "topic": "partial-derivatives",
+      "chapter": "partial-differentiation",
+      "facts": [
+        {
+          "id": "constant",
+          "claim": "Other variables are held constant",
+          "pattern": "(held|hold|holding|keep|keeping|treat(ed|ing)?)[^.]{0,40}constant"
+        },
+        {
+          "id": "symbol",
+          "claim": "Written with ∂",
+          "pattern": "partial|∂"
+        },
+        {
+          "id": "mixed",
+          "claim": "Mixed partials are equal (Clairaut)",
+          "pattern": "clairaut|mixed partial|f_?\\s*xy\\s*=\\s*f_?\\s*yx|schwarz"
+        }
+      ]
+    },
+    {
+      "topic": "eulers-theorem-homogeneous",
+      "chapter": "partial-differentiation",
+      "facts": [
+        {
+          "id": "statement",
+          "claim": "x ∂u/∂x + y ∂u/∂y = n u",
+          "pattern": "=\\s*[nk]\\s*u\\b|=\\s*[nk]\\s*(\\\\cdot\\s*)?f\\s*\\(?\\s*x\\s*,?\\s*y|=\\s*[nk]f"
+        },
+        {
+          "id": "homogeneous",
+          "claim": "Homogeneous of degree n: f(tx, ty) = tⁿ f(x, y)",
+          "pattern": "(t|lambda|s|k)\\^\\s*[nk]\\s*f|degree\\s*[nk]\\b"
+        }
+      ]
+    },
+    {
+      "topic": "lagrange-multipliers",
+      "chapter": "partial-differentiation",
+      "facts": [
+        {
+          "id": "condition",
+          "claim": "∇f = λ∇g",
+          "pattern": "nabla\\s*f\\s*=\\s*lambda\\s*nabla\\s*g|grad\\s*f\\s*=\\s*lambda|f_?x\\s*=\\s*lambda\\s*g_?x"
+        },
+        {
+          "id": "constraint",
+          "claim": "Optimise subject to a constraint g = c",
+          "pattern": "constraint"
+        },
+        {
+          "id": "lambda",
+          "claim": "λ is the Lagrange multiplier",
+          "pattern": "lambda|λ"
+        }
+      ]
+    },
+    {
+      "topic": "definite-integrals",
+      "chapter": "integral-calculus",
+      "facts": [
+        {
+          "id": "ftc",
+          "claim": "∫ₐᵇ f(x) dx = F(b) − F(a)",
+          "pattern": "f\\s*\\(\\s*b\\s*\\)\\s*-\\s*f\\s*\\(\\s*a\\s*\\)"
+        },
+        {
+          "id": "area",
+          "claim": "The definite integral gives (signed) area under the curve",
+          "pattern": "area under"
+        },
+        {
+          "id": "antiderivative",
+          "claim": "F is an antiderivative of f",
+          "pattern": "antiderivative"
+        }
+      ]
+    },
+    {
+      "topic": "double-integrals",
+      "chapter": "integral-calculus",
+      "facts": [
+        {
+          "id": "iterated",
+          "claim": "Evaluated as iterated integrals",
+          "pattern": "iterated|inner integral|integrate (first )?with respect to"
+        },
+        {
+          "id": "order",
+          "claim": "Order can be swapped (Fubini)",
+          "pattern": "fubini|order of integration|either order|reverse the order|switch the order"
+        },
+        {
+          "id": "volume",
+          "claim": "Gives volume under a surface (or area when f = 1)",
+          "pattern": "volume"
+        }
+      ]
+    },
+    {
+      "topic": "eigenvalues-eigenvectors",
+      "chapter": "linear-algebra",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Av = λv",
+          "pattern": "a\\s*(vec\\s*|mathbf\\s*)?(v|x)\\s*=\\s*lambda\\s*(vec\\s*|mathbf\\s*)?(v|x)"
+        },
+        {
+          "id": "characteristic",
+          "claim": "det(A − λI) = 0",
+          "pattern": "det\\s*\\(?\\s*a\\s*-\\s*lambda\\s*(mathbf\\s*)?i|\\|\\s*a\\s*-\\s*lambda\\s*i\\s*\\||characteristic (equation|polynomial)"
+        },
+        {
+          "id": "nonzero",
+          "claim": "Eigenvectors are non-zero",
+          "pattern": "non-?zero"
+        }
+      ]
+    },
+    {
+      "topic": "separable-ode",
+      "chapter": "differential-equations",
+      "facts": [
+        {
+          "id": "form",
+          "claim": "dy/dx = g(x) h(y)",
+          "pattern": "=\\s*g\\s*\\(\\s*x\\s*\\)\\s*h\\s*\\(\\s*y\\s*\\)|=\\s*f\\s*\\(\\s*x\\s*\\)\\s*g\\s*\\(\\s*y\\s*\\)|function of x[^.]{0,40}function of y"
+        },
+        {
+          "id": "integrate",
+          "claim": "Separate the variables and integrate both sides",
+          "pattern": "integrat[^.]{0,60}both sides|both sides[^.]{0,60}integrat"
+        },
+        {
+          "id": "constant",
+          "claim": "Add a constant of integration",
+          "pattern": "\\+\\s*c\\b|constant of integration|arbitrary constant"
+        }
+      ]
+    },
+    {
+      "topic": "linear-first-order-ode",
+      "chapter": "differential-equations",
+      "facts": [
+        {
+          "id": "form",
+          "claim": "dy/dx + P(x) y = Q(x)",
+          "pattern": "p\\s*\\(\\s*x\\s*\\)\\s*y\\s*=\\s*q\\s*\\(\\s*x\\s*\\)"
+        },
+        {
+          "id": "if",
+          "claim": "Integrating factor e^{∫P dx}",
+          "pattern": "integrating factor"
+        },
+        {
+          "id": "ife",
+          "claim": "μ = e^{∫P(x) dx}",
+          "pattern": "e\\^\\s*\\(?\\s*int\\s*p"
+        }
+      ]
+    },
+    {
+      "topic": "laplace-transform",
+      "chapter": "series-and-transforms",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "L{f} = ∫₀^∞ e^{−st} f(t) dt",
+          "pattern": "e\\^\\s*\\(?\\s*-\\s*s\\s*t"
+        },
+        {
+          "id": "one",
+          "claim": "L{1} = 1/s",
+          "pattern": "frac\\s*1\\s*s\\b|1\\s*/\\s*s\\b"
+        },
+        {
+          "id": "linear",
+          "claim": "The transform is linear",
+          "pattern": "linear"
+        }
+      ]
+    },
+    {
+      "topic": "fourier-series",
+      "chapter": "series-and-transforms",
+      "facts": [
+        {
+          "id": "form",
+          "claim": "a₀ + Σ (aₙ cos nx + bₙ sin nx)",
+          "pattern": "a_?n\\s*cos|cos\\s*\\(?\\s*n\\s*x"
+        },
+        {
+          "id": "coefficients",
+          "claim": "aₙ = (1/π) ∫ f(x) cos nx dx",
+          "pattern": "frac\\s*1\\s*(pi|l)\\s*int|1\\s*/\\s*(pi|l)\\s*int"
+        },
+        {
+          "id": "periodic",
+          "claim": "Represents a periodic function (period 2π)",
+          "pattern": "periodic|2\\s*pi"
+        }
+      ]
+    },
+    {
+      "topic": "gradient-divergence-curl",
+      "chapter": "vector-calculus",
+      "facts": [
+        {
+          "id": "divergence",
+          "claim": "Divergence ∇·F is a scalar",
+          "pattern": "nabla\\s*(cdot|·)|div(ergence)?\\s*(vec\\s*|mathbf\\s*)?f"
+        },
+        {
+          "id": "curl",
+          "claim": "Curl ∇×F is a vector",
+          "pattern": "nabla\\s*(times|×)|curl"
+        },
+        {
+          "id": "gradient",
+          "claim": "The gradient points in the direction of greatest increase",
+          "pattern": "(greatest|steepest|maximum|fastest)[^.]{0,40}(increase|ascent|rate)"
+        }
+      ]
+    },
+    {
+      "topic": "greens-theorem",
+      "chapter": "vector-calculus",
+      "facts": [
+        {
+          "id": "statement",
+          "claim": "∮ P dx + Q dy = ∬ (∂Q/∂x − ∂P/∂y) dA",
+          "pattern": "partial\\s*q\\s*partial\\s*x\\s*-\\s*frac\\s*partial\\s*p\\s*partial\\s*y|q_?x\\s*-\\s*p_?y|frac\\s*partial\\s*q\\s*partial\\s*x\\s*-"
+        },
+        {
+          "id": "region",
+          "claim": "Relates a line integral round a closed curve to a double integral over the region",
+          "pattern": "double integral|region"
+        },
+        {
+          "id": "orientation",
+          "claim": "The curve is traversed counterclockwise (positively oriented)",
+          "pattern": "counter-?clockwise|anticlockwise|anti-clockwise|positive(ly)? orient"
+        }
+      ]
+    }
+  ]
+}

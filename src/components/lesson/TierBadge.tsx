@@ -17,7 +17,10 @@ export function TierBadge({ tier }: { tier: TrustTier }) {
         {tierCopy[tier].badge} <span className="text-xs opacity-70">ⓘ</span>
       </summary>
       <p className="mt-2 max-w-md rounded-xl border border-border bg-surface p-3 text-sm text-muted">
-        {tierCopy[tier].explain}
+        {tierCopy[tier].explain}{" "}
+        <Link href="/accuracy" className="font-semibold text-primary underline">
+          How we measure accuracy
+        </Link>
       </p>
     </details>
   );

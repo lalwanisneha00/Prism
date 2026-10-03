@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { findSubject } from "@/lib/subjects";
-import { findMathErrors } from "@/lib/checks/mathCheck";
+import { findMathErrors, katexError, mathErrorsInMarkdown } from "@/lib/checks/mathCheck";
 import { parseJsonReply } from "@/lib/jsonReply";
 import type { GenerateOptions } from "@/lib/llm/types";
 import type { GroundingSource } from "@/lib/prompts/lessonPrompt";
@@ -29,6 +29,17 @@ export const VerificationSchema = z.object({
       reason: z.string().optional(),
     }),
   ),
+  /** Core textbook facts the lesson never states (SPEC §6.1): added to the revision sheet. */
+  missing: z
+    .array(
+      z.object({
+        keyPoint: z.string().trim().min(1).max(300),
+        /** Optional display formula, LaTeX without $ signs. */
+        formula: z.string().trim().max(200).optional(),
+      }),
+    )
+    .max(8)
+    .optional(),
 });
 export type Verification = z.infer<typeof VerificationSchema>;
 
@@ -49,7 +60,8 @@ RECOMPUTE every worked-example calculation and quiz answer yourself.
 Reply with ONE JSON object only:
 {
   "sections": [{ "id": "<section id>", "status": "supported" | "unsupported", "note": "one short reason" }],
-  "corrections": [{ "path": "<field path>", "find": "<exact text currently in that field>", "replace": "<corrected text>", "reason": "..." }]
+  "corrections": [{ "path": "<field path>", "find": "<exact text currently in that field>", "replace": "<corrected text>", "reason": "..." }],
+  "missing": [{ "keyPoint": "<a core fact the lesson never states>", "formula": "<optional LaTeX>" }]
 }
 
 RULES:
@@ -59,7 +71,8 @@ RULES:
 - "find" must be copied EXACTLY from the current field (it is used for find-and-replace). Keep it short but unique.
 - If a quiz answer changes, the new answer must still exactly match one of its options; correct the option text too if needed.
 - Inside JSON strings, backslashes must be doubled (\\\\frac).
-- If everything is correct, return an empty "corrections" array.`;
+- If everything is correct, return an empty "corrections" array.
+- COMPLETENESS: in "missing", list the core facts a textbook section on this topic always states that this lesson never states anywhere (definition, main formula with SI unit, standard special cases, characteristic numbers, key properties). Each as one short plain key point, with its formula as LaTeX (no $ signs) in "formula" when there is one. Only facts supported by the SOURCES or standard first-year textbooks; never repeat something the lesson already says. Return [] if nothing is missing.`;
 
   // Only the teaching content is checked; meta, audio outline and links are set by the app.
   const content = {
@@ -152,6 +165,27 @@ export function markSections(lesson: Lesson, verdicts: Verification["sections"] 
 }
 
 /** Runs the fact-check pass. Never throws: on failure the lesson is returned marked "Verify ⚠". */
+/**
+ * Adds core facts the fact-checker found missing to the revision sheet (key points and
+ * formulas). Each must typeset; duplicates are skipped. Returns how many were added.
+ */
+export function addMissingFacts(
+  lesson: Lesson,
+  missing: NonNullable<Verification["missing"]>,
+): number {
+  let added = 0;
+  const sheet = lesson.revisionSheet;
+  for (const m of missing.slice(0, 6)) {
+    if (mathErrorsInMarkdown(m.keyPoint).length) continue;
+    if (m.formula && katexError(m.formula, true)) continue;
+    if (sheet.keyPoints.some((k) => k.toLowerCase() === m.keyPoint.toLowerCase())) continue;
+    sheet.keyPoints.push(m.keyPoint);
+    if (m.formula && !sheet.formulas.includes(m.formula)) sheet.formulas.push(m.formula);
+    added++;
+  }
+  return added;
+}
+
 export async function verifyLesson(
   lesson: Lesson,
   sources: GroundingSource[],
@@ -163,7 +197,9 @@ export async function verifyLesson(
     const reply = await generate({ system, prompt, signal, temperature: 0 });
     const verification = VerificationSchema.parse(parseJsonReply(reply));
 
-    const { draft, applied } = applyCorrections(lesson, verification.corrections);
+    const corrected = applyCorrections(lesson, verification.corrections);
+    const { draft } = corrected;
+    const applied = corrected.applied + addMissingFacts(draft, verification.missing ?? []);
     // Keep the corrections only if the corrected lesson is still fully valid.
     const reparsed = parseLesson(draft);
     const usable =

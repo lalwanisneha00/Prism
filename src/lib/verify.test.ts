@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { sampleLessons } from "@/data/sampleLessons";
-import { applyCorrections, buildVerifyPrompt, markSections, verifyLesson } from "@/lib/verify";
+import {
+  addMissingFacts,
+  applyCorrections,
+  buildVerifyPrompt,
+  markSections,
+  verifyLesson,
+} from "@/lib/verify";
 
 const lesson = sampleLessons[0];
 const sources = lesson.meta.sources.map((s) => ({ ...s, excerpt: `Text of ${s.title}` }));
@@ -102,5 +108,23 @@ describe("verifyLesson", () => {
   it("treats an unusable reply like a failed check", async () => {
     const result = await verifyLesson(lesson, sources, async () => "not json");
     expect(result.checked).toBe(false);
+  });
+});
+
+describe("addMissingFacts (completeness check)", () => {
+  it("adds missing core facts to the revision sheet, skipping duplicates and broken maths", () => {
+    const lesson = structuredClone(sampleLessons[0]);
+    const before = lesson.revisionSheet.keyPoints.length;
+    const added = addMissingFacts(lesson, [
+      {
+        keyPoint: "Field of an infinite sheet: E = σ/(2ε₀).",
+        formula: String.raw`E = \frac{\sigma}{2\varepsilon_0}`,
+      },
+      { keyPoint: lesson.revisionSheet.keyPoints[0] },
+      { keyPoint: "Broken", formula: String.raw`\frac{1}{` },
+    ]);
+    expect(added).toBe(1);
+    expect(lesson.revisionSheet.keyPoints).toHaveLength(before + 1);
+    expect(lesson.revisionSheet.formulas).toContain(String.raw`E = \frac{\sigma}{2\varepsilon_0}`);
   });
 });

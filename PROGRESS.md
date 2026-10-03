@@ -2,7 +2,7 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 · Step 14 (Export & eval: golden sets, accuracy page). User approved autonomous build through the end of V2 (2026-10-02).
+**Current:** V2 steps 1–14 built. Release gate still open: Engineering Maths (and E&M) must reach ≥ 95% on `npm run eval` before V2 is called done (re-run after the free AI quota resets). User approved autonomous build through the end of V2 (2026-10-02).
 
 ## Version 1: Foundation
 
@@ -21,22 +21,22 @@ Update this after every step so any person or AI tool can pick up the work.
 
 ## Version 2: Personal & powerful
 
-| Step | Title                                        | Status         |
-| ---- | -------------------------------------------- | -------------- |
-| 1    | Accounts, cloud sync & shared lesson library | ✅ Done        |
-| 2    | All 6 levels                                 | ✅ Done        |
-| 3    | Long audio                                   | ✅ Done        |
-| 4    | PDF upload + retrieval                       | ✅ Done        |
-| 5    | PYQ / worksheet mode                         | ✅ Done        |
-| 6    | Engineering Mathematics + visuals part 2     | ✅ Done        |
-| 7    | Interaction tools                            | ✅ Done        |
-| 8    | Prerequisite concept map                     | ✅ Done        |
-| 9    | Trust tiers & accuracy guards                | ✅ Done        |
-| 10   | Generic visual toolkit part 1 + planner      | ✅ Done        |
-| 11   | Flashcards + spaced repetition               | ✅ Done        |
-| 12   | Highlights & comments                        | ✅ Done        |
-| 13   | Backlog planner & progress tracker           | ✅ Done        |
-| 14   | Export & eval (golden sets, accuracy page)   | ⬜ Not started |
+| Step | Title                                        | Status                                            |
+| ---- | -------------------------------------------- | ------------------------------------------------- |
+| 1    | Accounts, cloud sync & shared lesson library | ✅ Done                                           |
+| 2    | All 6 levels                                 | ✅ Done                                           |
+| 3    | Long audio                                   | ✅ Done                                           |
+| 4    | PDF upload + retrieval                       | ✅ Done                                           |
+| 5    | PYQ / worksheet mode                         | ✅ Done                                           |
+| 6    | Engineering Mathematics + visuals part 2     | ✅ Done                                           |
+| 7    | Interaction tools                            | ✅ Done                                           |
+| 8    | Prerequisite concept map                     | ✅ Done                                           |
+| 9    | Trust tiers & accuracy guards                | ✅ Done                                           |
+| 10   | Generic visual toolkit part 1 + planner      | ✅ Done                                           |
+| 11   | Flashcards + spaced repetition               | ✅ Done                                           |
+| 12   | Highlights & comments                        | ✅ Done                                           |
+| 13   | Backlog planner & progress tracker           | ✅ Done                                           |
+| 14   | Export & eval (golden sets, accuracy page)   | ✅ Built (gate open: best runs em 83%, maths 89%) |
 
 When V2 · Step 1 starts: give the user click-by-click Firebase console setup (Spark project, Google sign-in, Firestore database, web config, service account key, authorized domains).
 
@@ -163,6 +163,21 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 - Tick an item → "1 of N done"; refresh → still ticked; sign in on another device → same plan and ticks.
 - Dashboard shows 🔥 your streak, today's items (tick them there too) and the chapter progress bars.
 - Edge case: pick only 20 minutes a day with 30-min lessons → you still get one lesson per day (the plan never leaves a day empty).
+
+## V2 · Step 14 notes
+
+- "🖨️ Revision PDF" on every lesson opens the print dialog with a clean sheet (formulas, key points, memory tricks, glossary, worked-example answers, common mistakes, the student's own highlights and comments, sources with links); print CSS shows only that sheet, black on white. "Save as PDF" makes the file. Last-Minute Revision already starts with "My notes".
+- Golden sets: `eval/golden/em.json` (40 topics, 119 facts) and `eval/golden/engg-math.json` (18 topics, 52 facts), generated from readable patterns by `node eval/build-golden.mjs`. `npm run eval` runs every subject, adds visual checks (valid for the topic; numbers on "sourced" charts must appear in the lesson or cited source), saves each lesson's text, writes `eval/results/<subject>.json`, appends a row to `EVAL_LOG.md` and updates `src/data/accuracy.json`. `npx tsx eval/inspect-misses.ts` shows each missed fact in context; `npx tsx eval/rescore.ts` re-scores saved lessons after a scorer fix.
+- The fact-check pass now also lists core textbook facts a lesson never states; they are added to the revision sheet if they typeset (`addMissingFacts`). Prompt 2026-10-03.4 also asks for "core content at every level".
+- `/accuracy` (linked from the footer and every tier badge) lists each subject's tier, golden-set size and latest measured score.
+- Eval history (see EVAL_LOG.md): em 71.4 → 79.8 → 79.8 (83.2 re-scored); engg-math 78.8 → 76.9 → 88.5. Not yet ≥ 95%, so both subjects remain "sourced". Run 3 was hurt by the free quota running out (five topics never got their fact-check).
+
+### ✅ Check this (Step 14)
+
+- Open any lesson → **🖨️ Revision PDF** → the print preview shows a 1–2 page revision sheet (formulas typeset, your highlights under "My notes", sources at the end) → choose "Save as PDF".
+- Visit **/accuracy** (footer link "How accurate is Prism?"): both subjects show "📚 Sourced" with their latest scores (em 79.8%, maths 88.5%) and an explanation of the tiers.
+- Open **EVAL_LOG.md** in the repo: three dated runs and notes on every scorer change.
+- To finish the gate yourself later: `npm run eval` (≈ 40 min, needs the free Gemini quota) → if a subject shows ≥ 95%, change its `"tier"` to `"verified"` in `src/data/subjects/<subject>.json`.
 
 ## Known issues / leftovers
 

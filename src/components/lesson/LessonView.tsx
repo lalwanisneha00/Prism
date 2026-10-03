@@ -9,6 +9,7 @@ import { Markdown } from "@/components/lesson/Markdown";
 import { Quiz } from "@/components/lesson/Quiz";
 import { SaveLessonButton } from "@/components/lesson/SaveLessonButton";
 import { SectionView } from "@/components/lesson/SectionView";
+import { ExportPdfButton, PrintSheet } from "@/components/lesson/PrintSheet";
 import { LimitedBanner, TierBadge } from "@/components/lesson/TierBadge";
 import {
   Analogies,
@@ -105,6 +106,7 @@ export function LessonView({
           </ul>
           <div className="flex flex-wrap items-center gap-2">
             <MakeFlashcardsButton lesson={lesson} />
+            <ExportPdfButton />
             <SaveLessonButton lesson={lesson} libraryKey={libraryKey} />
           </div>
         </div>
@@ -129,6 +131,7 @@ export function LessonView({
         </nav>
       </header>
 
+      <PrintSheet lesson={lesson} request={request} tier={tier} />
       <AudioLesson lesson={lesson} />
 
       {layout.blocks.map((b) => (

@@ -10,7 +10,7 @@ export type GroundingSource = Source & { excerpt?: string };
  * Bumped whenever the lesson prompt changes meaningfully: shared-library lessons written
  * with an older version are treated as stale and rewritten (SPEC §6.1 rule 10).
  */
-export const PROMPT_VERSION = "2026-10-03.2";
+export const PROMPT_VERSION = "2026-10-03.4";
 
 /** Total words across all sections, scaled to the student's time budget. */
 export function sectionWordTarget(durationMin: number): string {
@@ -65,6 +65,7 @@ ${guide.approach.map((a) => `- ${a}`).join("\n")}
 
 ACCURACY RULES:
 - State only facts supported by the SOURCES below or by standard first-year university ${request.subject.field.toLowerCase()} textbooks.
+- CORE CONTENT, at every level: the lesson must state what a textbook section on this topic always states: the precise definition, the main formula(s) with every symbol explained and the SI unit, standard special cases and results (e.g. the formula for a point charge, a straight wire or a parallel-plate arrangement where relevant), characteristic numbers (such as constants or the 63% of a time constant), and key properties (scalar or vector, what is conserved, what is zero). A beginner level changes HOW you explain, never WHETHER these appear; put each one in the sections or the revision sheet.
 - No source, no claim: if the SOURCES don't cover something a section needs, say plainly "This could not be verified from the provided sources." instead of filling the gap. Standard textbook definitions and formulas are fine; specific facts, figures, dates and history must come from the sources.
 - Cite with "sourceIds" using ONLY the ids listed in SOURCES. Never invent sources, URLs or references. Never write source ids or citation tags inside the text itself; the app shows citations from "sourceIds".
 - Every number in a worked example must be calculated correctly. Show the substitution step.
