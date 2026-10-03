@@ -15,7 +15,7 @@ A study guide for college students who struggle because a professor taught a top
 
 It must feel **better than asking ChatGPT**: structured, visual, sourced, consistent, and full of small conveniences.
 
-**Scope:** V1 covers one subject deeply (Electricity & Magnetism / Applied Physics). V2 adds uploads and more subjects. V3 goes universal. The architecture is subject-agnostic from day 1: a new subject is new data, not a rewrite.
+**Scope:** V1 covers one subject deeply (Electricity & Magnetism / Applied Physics). V2 adds personal features and a second subject. V3 covers all engineering branches. V-Final goes universal. The architecture is subject-agnostic from day 1: a new subject is new data, not a rewrite.
 
 ## 2. Learning levels
 
@@ -109,7 +109,7 @@ The UI states honestly that AI can make mistakes and links every claim to its so
 
 ### 6.1 Keeping V1-level accuracy as Prism grows (plan update 2026-10-02, Part A)
 
-1. **Trust tiers** in each subject's config: `verified` (own golden set, passes >= 95%), `sourced` (grounding sources, no golden set yet), `limited` (weak or no sources). The tier shows as a badge on every lesson.
+1. **Trust tiers** in each subject's config: `verified` (own golden set, passes >= 95%), `tested` (own golden set, passes >= 85%; added in V3, §12.3), `sourced` (grounding sources, no golden set yet), `limited` (weak or no sources). The tier shows as a badge on every lesson.
 2. **Per tier** (as refined by §4.1): `verified`: full lesson, all visuals. `sourced`: full lesson with citations, all _generic_ visuals; topic-specific widgets and PhET only for their exact topics. `limited`: shorter lesson, a visible "limited sources, please verify" banner and a prompt to upload the student's own material.
 3. **No source, no claim:** when retrieval is too thin for a section, the lesson says what it could not verify instead of filling the gap; the verifier removes or flags unsupported claims. Every source link comes from retrieval and is checked to exist.
 4. **Widget safety:** a topic-specific widget can only be used for a topic in its registry list; otherwise fall back to a generic visual or none (enforced in code, not only in the prompt).
@@ -151,7 +151,7 @@ The UI states honestly that AI can make mistakes and links every claim to its so
 | Focus mode / Pomodoro                                     | V3      |
 | "Ask a doubt" chat scoped to the lesson                   | V3      |
 | Adaptive level from quiz scores                           | V3      |
-| Mock test generator from PYQs                             | V3      |
+| Mock test generator from PYQs                             | V2.5/V3 |
 | Share lesson via link                                     | V3      |
 | English / Hindi / Gujarati                                | V3      |
 | PWA with offline saved lessons                            | V3      |
@@ -210,7 +210,7 @@ If any quota is exceeded the app **degrades gracefully and never crashes** (§9.
 
 Recent topics · saved lesson IDs · quiz attempts and scores · weak topics · flashcards and review schedule · mock test results · planner schedules · audio resume position · settings.
 
-**Stays on the device:** uploaded PDFs and their full extracted text. Only file names and short summaries sync.
+**Stays on the device:** uploaded files (any format) and their full extracted text. Only file names and short summaries sync.
 
 ### 9.6 Security & quota safety
 
@@ -263,8 +263,103 @@ Recent topics · saved lesson IDs · quiz attempts and scores · weak topics · 
 
 **Done when:** signing in with Google on a laptop and a phone shows the same progress; upload a college PDF → lesson follows it; 45-min audio; flashcards; 7-day backlog plan; Engineering Maths is `verified` (>= 95% on its golden set) and every lesson shows its trust tier.
 
-## 12. Version 3: Universal & final
+## 11.5 Version 2.5: Uploads in any format and whole-chapter lessons (plan update 2026-10-04)
 
-1. Free-text topic input + syllabus parsing · 2. Subject-type routing (templates + preferred visual sets per field; generic toolkit part 2: §4.1 items 2, 6, 9, 11, 12, 13, 14; high-stakes notes and the `limited` tier, §6.1 rule 9) · 3. Papers (arXiv/OpenAlex) and curated lectures · 4. Ask-a-doubt chat · 5. Adaptive learning · 6. Mock tests (results synced) · 7. Focus mode, Pomodoro, streaks · 8. Shareable lesson links (library lesson IDs) + "report a mistake" flags sent to Firestore via a server route, with the feedback loop of §6.1 rule 11 · 9. Hindi/Gujarati, PWA, accessibility · 10. Hardening: rate limits, BYO key, analytics, Lighthouse 90+, multi-subject eval, README + demo, launch checklist
+A short version between V2 and V3. All existing rules apply (step protocol with "✅ Check this" and confirmation, zero cost, accuracy rules, pausing and resuming). Both features are data-driven, so they work unchanged for every subject V3 adds.
+
+### 11.5.1 Feature A: uploads in any common file format
+
+1. **Formats:** PDF (kept); PowerPoint `.pptx`/`.ppsx` (slide text in order, titles, speaker notes, tables); Word `.docx` (headings, paragraphs, lists, tables); `.xlsx` and `.csv` (tables); `.txt`, `.md`, `.rtf`; images `.png`/`.jpg`/`.jpeg`/`.webp`; scanned PDFs and picture-only slides; OpenDocument `.odt`/`.odp`. Old binary `.ppt`/`.doc`/`.xls` are detected and get a friendly "save it as .pptx/.docx or PDF" message with a two-line how-to.
+2. **Read on the device, for free:** every format is parsed in the browser and lazy-loaded per type; files never go to our server or Firebase Storage. Office and OpenDocument files are ZIP archives of XML, read with a small unzip library (fflate, MIT) and our own XML reader; PDF with PDF.js. Each library's licence is checked.
+3. **Text in pictures:** "Read text from images" runs in-browser OCR (Tesseract.js, Apache-2.0) with progress. Optional better quality: read one page with Gemini image input, labelled as using AI quota, never automatic for a whole file.
+4. **Thin extraction:** a slide or page with almost no text is marked "content is in an image" in the preview (never silently skipped), with the OCR option.
+5. **One normalised format:** file → sections (slide, page, heading, sheet) → text blocks, each with its position, so citations read "from your notes: Unit 3.pptx, slide 14".
+6. **Preview before use:** per slide or page, collapsible; the student can remove irrelevant parts.
+7. **Upload experience:** drag-and-drop and picker, several files and mixed formats at once; each file has a type (Notes / Slides / Previous-year paper / Worksheet / Syllabus), auto-guessed and editable, and a subject (optionally a chapter); size and page/slide caps with clear messages and warnings instead of crashes; friendly errors for password-protected, corrupted or unsupported files; a "My materials" page per subject (list, preview, re-tag, delete).
+8. Everything built on uploads (grounded lessons, "from your notes" badges, PYQ pattern analysis, mock tests) works the same for every format. Storage rule unchanged: originals and full text stay on the device; only file names and short summaries sync.
+
+### 11.5.2 Feature B: study a whole chapter in one lesson
+
+1. **Selecting:** "Study the whole chapter" on each chapter, and checkboxes (with "select all") for a custom multi-topic lesson. The level applies to the whole lesson.
+2. **Three time options** (Quick / Standard / Thorough, one marked Recommended) computed per chapter and level from a **chapter load score**: number of topics; syllabus teaching hours or marks when the data has them; how often (and for how many marks) the chapter appears in the student's uploaded previous-year papers; difficulty and how numerical or derivation-heavy it is; number of prerequisites; how much uploaded material covers it. Adjusted for the student: level, topics already completed, weak topics. Starting points for a first-time lesson: small 20/30/45, medium 30/45/60, large 45/60/90 min; revision levels scale down (e.g. 10/15/20); tuned in testing. If Thorough would exceed 90 minutes, offer Part 1 and Part 2 split at a natural break.
+3. **Honest weightage:** never invent a weightage figure. A "Why these timings?" note lists only the factors actually used (e.g. "7 topics · 8 syllabus hours · appears in 4 of your 5 uploaded papers"); with no papers or syllabus marks it says the estimate uses chapter size and difficulty only and suggests uploading papers.
+4. **Time inside the chapter:** split by importance, not equally (more for high-weight and difficult topics, a brief recap for completed ones). The plan (topics with minutes) is shown before generating; the student can adjust or skip topics while the total stays within the option. Exam Prep and Last-Minute order by exam importance; learning levels order by prerequisites.
+5. **Building it:** chapter introduction (why it matters, chapter map) → topic sections in order with short bridges → wrap-up. Verified topic lessons from the shared library are reused (resized to the allotted minutes); only missing topics are generated. Outline first, then one topic at a time, streamed: the student starts on topic 1 while the rest generate, with a progress indicator. Every topic still goes through grounding and the verifier pass.
+6. **Chapter extras:** concept map, combined mixed-topic quiz, one revision sheet, formula list, and a chapter mock test. One continuous audio lesson with a chapter per topic, generated in chunks, resume position saved. Chapter-level parts (intro, bridges, wrap-up, map) are cached in the shared library keyed by chapter, level and duration; lessons from private uploads stay private.
+7. **Reading a long lesson:** sticky table of contents (topic, minutes, ticks), progress bar, time remaining, "Continue where you left off", "Take a break" markers, jump to any topic without regenerating, "Open this topic as its own lesson". Finishing marks topics as studied, updates weak topics from the combined quiz, and feeds flashcards, highlights and comments like single-topic lessons.
+
+### 11.5.3 Steps
+
+1. Multi-format parsers and the normalised extracted-text format
+2. Upload experience, preview, "My materials" page, OCR option
+3. Chapter and multi-topic selection, chapter load score, three time options with the "Why these timings?" note
+4. Chapter lesson composition, chunked generation and streaming, library reuse
+5. Long-lesson reading features, chapter audio, chapter extras (incl. the chapter mock test generator, moved here from V3 · Step 3), regression eval on both existing subjects, deploy
+
+**Done when:** a student uploads a mix of `.pptx`, `.docx`, PDF and a photo of notes, sees what Prism read from each, and gets lessons citing "Unit 3.pptx, slide 14"; and picks a whole chapter in E&M or Engineering Maths, chooses one of three honest time options, starts reading while later topics generate, plays the audio, closes the tab and resumes at the same place.
+
+## 12. Version 3: All Engineering (plan update 2026-10-03)
+
+V3 adds **syllabus breadth, not new features**: the major subjects of every B.Tech/BE branch commonly taught in India. Every feature up to V2.5 must work for every new subject exactly as today (6 levels, audio, interactive and static visuals, uploads and PYQ mode, flashcards, mock tests, weak-topic tracking, backlog planner, highlights and comments, accounts and sync, shared lesson library, export and backup).
+
+### 12.1 Syllabus coverage
+
+- **Wave 1 — first-year common core (9 subjects):** Engineering Mathematics (fill missing chapters); Applied / Engineering Physics, complete (mechanics, oscillations and waves, optics, lasers and fibre optics, quantum and modern physics, solid state and semiconductor physics, thermodynamics, plus the existing Electricity & Magnetism, linked rather than copied); Engineering Chemistry; Basic Electrical Engineering; Basic Electronics; Engineering Mechanics; Engineering Graphics; Programming for Problem Solving (C and Python); Environmental Science.
+- **Wave 2 — CE, IT, ICT, ECE (21):** Data Structures and Algorithms, Object-Oriented Programming, DBMS, Operating Systems, Computer Networks, Computer Organisation and Architecture, Discrete Mathematics, Theory of Computation, Compiler Design, Software Engineering, Web Technologies, AI and ML basics; Digital Logic Design, Signals and Systems, Network Theory, Analog Electronics, Communication Systems, Digital Signal Processing, Microprocessors and Microcontrollers, Electromagnetic Theory, VLSI basics.
+- **Wave 3 — Electrical, Mechanical, Civil (21 unique; Circuit Theory = Network Theory):** Electrical: Circuit Theory, Electrical Machines, Power Systems, Power Electronics, Control Systems, Electrical Measurements. Mechanical: Engineering Thermodynamics, Fluid Mechanics, Strength of Materials, Theory of Machines, Machine Design, Manufacturing Processes, Heat Transfer, Engineering Materials. Civil: Structural Analysis, Surveying, Geotechnical Engineering, Concrete Technology and RCC Design, Hydraulics, Transportation Engineering, Environmental Engineering, Building Materials.
+- **Wave 4 — Chemical, Petroleum, others:** Chemical: Process Calculations, Fluid Flow Operations, Heat Transfer (shared), Mass Transfer, Chemical Reaction Engineering, Chemical Engineering Thermodynamics, Process Control. Petroleum: Petroleum Geology, Drilling Engineering, Reservoir Engineering, Production Engineering, Well Logging, Refining. Others (Aerospace, Automobile, Biotechnology, Instrumentation, Metallurgy, Mining and similar): core subjects of each at `sourced` tier.
+
+**Syllabus rules:** (1) never written from memory: chapters and topics follow the AICTE Model Curriculum and openly available university syllabi, and each subject file records its syllabus source; no reliable syllabus → say so and mark it `limited`. (2) One subject, many branches: a shared subject is stored once and linked to every branch that uses it. (3) Data, not code: each subject is a file in `src/data/subjects/` with id, name, branches, typical semester, chapters, topics, prerequisites, syllabus source, trust tier, preferred visual set and grounding sources, plus teaching hours and marks per unit wherever the syllabus source gives them (the V2.5 chapter time estimate uses them); adding a subject needs no code change. (4) **My own syllabus** (pulled forward from V-Final; reading the file in any format is built in V2.5): a student pastes or uploads their university syllabus; Prism matches it to built-in topics and shows extra or missing topics.
+
+### 12.2 Navigation for a large syllabus
+
+Picker: **Branch → Year/Semester → Subject → Chapter → Topic**, plus one search box for any subject or topic. "My branch and semester" is saved in the profile (synced), so the home page shows the student's subjects first. A subject page shows chapters, progress, weak topics and the trust badge. Planner, mock tests, flashcards and progress tracker work across many subjects.
+
+### 12.3 Accuracy for new subjects (85–90%)
+
+1. Nothing that passes may drop: a `verified` subject stays at its ≥ 95% gate.
+2. New tier **`tested`**: ≥ 85% on the subject's own golden set (90% target); ≥ 95% promotes to `verified`. The public accuracy page shows the real score, never rounded up.
+3. Tier order: `verified` (≥ 95%) → `tested` (≥ 85%) → `sourced` (grounded, not yet tested) → `limited` (weak sources). `tested` behaves like `verified` (topic-matched widgets and PhET allowed).
+4. Golden sets at scale: each `tested` subject needs ≥ 12 topics with key facts **taken from fetched trusted text** (NPTEL, OpenStax, LibreTexts, Wikipedia, MIT OCW, standard open textbooks). Each fact stores its source URL and the exact quote it came from, and a script checks the quote appears in that source. Never from a model's memory (Claude included). Three sample entries per subject are shown to the user before its eval runs.
+5. A subject below 85% stays `sourced`, with what went wrong recorded in `EVAL_LOG.md`; no endless tuning for one subject.
+6. All earlier rules stay (§6.1): no source no claim, verifier pass, arithmetic in code, regression eval on every passing subject after any prompt/schema/retrieval change; nothing ships if a passing subject drops below its gate.
+7. **Numerical subjects** (mechanics, circuits, thermodynamics, strength of materials, fluid mechanics…): worked examples and mock-test numericals are solved in code (mathjs) with unit checking; a mismatch with the stated answer blocks the lesson.
+8. **Programming subjects:** every code sample is run or statically checked before it is shown (JavaScript in a sandboxed worker, Python in Pyodide, C compile-checked via a free compiler service or a WebAssembly interpreter, else labelled "not executed"); expected outputs come from actually running the code.
+9. Grounding sources add NPTEL course pages and transcripts where openly available, LibreTexts and MIT OpenCourseWare; NPTEL lectures are recommended first in "Keep learning".
+
+### 12.4 Visuals for every engineering subject
+
+The generic toolkit everywhere (§4.1), plus: (1) pulled forward from V-Final: computer-science visualisers (sorting, searching, trees, graphs, stacks/queues, recursion, logic gates and truth tables, memory diagrams), molecules (from PubChem identifiers) and reaction-energy diagrams for chemistry, maps only where a subject needs them; (2) a preferred visual set per subject (circuits → circuit diagrams with live values, waveforms, Bode and phasor plots; mechanics and strength of materials → free-body, shear-force and bending-moment diagrams, stress-strain curves; thermodynamics and heat transfer → P-V and T-s diagrams, cycle animations; fluids → flow profiles, pipe-flow and Bernoulli explorers; signals and control → time/frequency plots, block diagrams, step response; DSA → step-through visualisers; DBMS and OS → ER diagrams, query walk-throughs, scheduling Gantt charts, page-replacement step-throughs; civil and petroleum → labelled cross-sections, process flow diagrams, sourced images); (3) 3–4 new hand-coded widgets per Wave 1 and Wave 2 core subject, each listing its exact topics; (4) PhET map extended across physics, chemistry and maths; (5) all earlier visual rules stay, and every new visual type appears in `/dev/visuals`.
+
+### 12.5 Staying free at this scale
+
+Lessons are generated on demand (first request → verified → shared library), never in bulk. Evals run one subject at a time with rate limiting and resume, spread over days, and reuse cached eval lessons. Syllabus data ships with the app as static files (not Firestore). Any step that would need a paid service stops and asks, with a free alternative.
+
+### 12.6 Steps
+
+1. Restructure the plan (versions in SPEC.md and PROGRESS.md; old V3 → V-Final; this V3)
+2. Subject data model and loader: branches and semesters, shared subjects, migration of E&M and Engineering Maths with no loss of saved progress
+3. New navigation: branch → semester → subject → chapter → topic picker, search, subject pages, "my branch" setting; mock tests spanning several chapters or subjects (built on the V2.5 chapter mock test generator)
+4. Accuracy scaffolding: `tested` tier, golden-set format with sources and quote checks, eval runner with rate limiting and resume, numerical and code checking
+5. Wave 1 syllabus and grounding, including complete Applied Physics
+6. Wave 1 visuals and widgets, then Wave 1 eval (Wave 1 must reach `tested` before moving on)
+7. Wave 2 syllabus, visuals, eval
+8. Wave 3 syllabus, visuals, eval
+9. Wave 4 syllabus, visuals, eval (other branches at `sourced`)
+10. My-own-syllabus matching (file reading built in V2.5), full regression eval, performance check, accuracy page update, deploy
+
+Each wave ships on its own and is deployed, so the live site is always working and honest.
+
+**Done when:** a student from any major B.Tech/BE branch can pick their branch and semester, open a core subject and get an accurate, visual lesson with audio, mock tests and all V2 features; every Wave 1–3 subject shows `tested` or `verified` with its real score; and E&M and Engineering Maths pass their gate (≥ 95% for `verified`).
+
+### 12.7 Pausing and resuming
+
+A "Current state" block at the top of PROGRESS.md is updated after every meaningful unit of work (version and step, sub-task, what is finished, what is half-done and where, the exact next action, any running command). Small `wip:` commits inside a step; the repo never sits broken between commits (half-built work stays behind a flag or out of the build). Network operations retry with increasing waits before stopping cleanly. On a new session or "continue": read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, say in 2–3 lines where we are, resume the recorded next action. Long-running scripts (eval, loaders) save progress after each item, detect 429/quota and network errors, wait (honouring retry-after, pausing until the daily reset if needed) and resume without redoing finished items or spending quota twice.
+
+## 13. Version Final: Universal (formerly V3; may become V4 or V5)
+
+Unchanged from the old V3 except what V2.5 and V3 pulled forward (syllabus upload, mock tests, the computer-science and chemistry toolkit items and maps where needed):
+
+1. Free-text topic input for any subject · 2. Subject-type routing (templates + preferred visual sets per field; generic toolkit part 2 items still open: §4.1 items 2, 6, 11, 14 and maps beyond engineering; high-stakes notes and the `limited` tier, §6.1 rule 9) · 3. Papers (arXiv/OpenAlex) and curated lectures · 4. Ask-a-doubt chat · 5. Adaptive learning · 6. Focus mode, Pomodoro (streaks already done in V2) · 7. Shareable lesson links (library lesson IDs) + "report a mistake" flags sent to Firestore via a server route, with the feedback loop of §6.1 rule 11 · 8. Hindi/Gujarati, PWA, accessibility · 9. Hardening: rate limits, BYO key, analytics, Lighthouse 90+, multi-subject eval, README + demo, launch checklist
 
 **Done when:** law, engineering and commerce students each get an accurate, sourced, visual lesson with audio, and the eval is ≥ 95% on the multi-subject golden set.

@@ -6,7 +6,7 @@ Read `SPEC.md` (what we're building) and `PROGRESS.md` (where we are) before doi
 
 ## Working protocol
 
-- The project runs in versions (V1–V3), each split into numbered steps (see `SPEC.md`).
+- The project runs in versions (V1, V2, V2.5, V3 All Engineering, then V-Final), each split into numbered steps (see `SPEC.md`). On every new session or "continue", start from the "Current state" block at the top of `PROGRESS.md`.
 - Build **one step at a time**. Don't jump ahead or add unrequested features.
 - Before handing a step over, run `npm run check` and `npm run build` and fix every failure.
 - End each step with a "✅ Check this" block: command, URL, what to see, how to test, and one edge case. Then stop and wait for the user to confirm.

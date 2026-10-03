@@ -2,7 +2,15 @@
 
 Update this after every step so any person or AI tool can pick up the work.
 
-**Current:** V2 steps 1–14 built. Release gate still open: Engineering Maths (and E&M) must reach ≥ 95% on `npm run eval` before V2 is called done (re-run after the free AI quota resets). User approved autonomous build through the end of V2 (2026-10-02).
+## Current state (resume here)
+
+- **Version / step:** V2.5 · Step 1 (multi-format parsers and the normalised extracted-text format): in progress.
+- **Finished:** V2.5 added to SPEC.md (§11.5) and this file; overlaps moved (chapter mock test generator from V3 · Step 3, syllabus file reading from V3 · Step 10). V3 · Step 1 (plan restructure) is done; V3 continues at Step 2 after V2.5.
+- **Half-done:** V2.5 · Step 1 code.
+- **Next action:** build the parsers in `src/lib/extract/`, wire them into the notes upload and past-paper input, test, then give the "✅ Check this" block and wait for confirmation.
+- **Running commands:** none.
+- **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` after the free quota resets; under the new tiers engg-math would qualify for `tested` (≥ 85%), em for neither yet.
+- **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, say in 2–3 lines where we are, continue from "Next action".
 
 ## Version 1: Foundation
 
@@ -40,7 +48,46 @@ Update this after every step so any person or AI tool can pick up the work.
 
 When V2 · Step 1 starts: give the user click-by-click Firebase console setup (Spark project, Google sign-in, Firestore database, web config, service account key, authorized domains).
 
+## Version 2.5: Uploads in any format and whole-chapter lessons
+
+Step protocol: "✅ Check this" block and the user's confirmation after each step (SPEC §11.5).
+
+| Step | Title                                                                                   | Status         |
+| ---- | --------------------------------------------------------------------------------------- | -------------- |
+| 1    | Multi-format parsers and the normalised extracted-text format                           | 🔄 In progress |
+| 2    | Upload experience, preview, "My materials" page, OCR option                             | ⬜ Not started |
+| 3    | Chapter and multi-topic selection, chapter load score, three time options               | ⬜ Not started |
+| 4    | Chapter lesson composition, chunked generation and streaming, library reuse             | ⬜ Not started |
+| 5    | Long-lesson reading, chapter audio, chapter extras + mock test, regression eval, deploy | ⬜ Not started |
+
+## Version 3: All Engineering
+
+Step protocol: one step at a time, "✅ Check this" block, wait for the user's confirmation. `wip:` commits inside a step; update "Current state" after each unit of work.
+
+| Step | Title                                                                                              | Status         |
+| ---- | -------------------------------------------------------------------------------------------------- | -------------- |
+| 1    | Restructure the plan                                                                               | ✅ Done        |
+| 2    | Subject data model and loader (branches, shared subjects)                                          | ⬜ Not started |
+| 3    | Navigation (branch → semester → subject …), search, mock tests                                     | ⬜ Not started |
+| 4    | Accuracy scaffolding (`tested` tier, sourced golden sets, resumable eval, numeric and code checks) | ⬜ Not started |
+| 5    | Wave 1 syllabus and grounding (incl. complete Applied Physics)                                     | ⬜ Not started |
+| 6    | Wave 1 visuals and widgets, Wave 1 eval                                                            | ⬜ Not started |
+| 7    | Wave 2 (CE/IT/ICT/ECE) syllabus, visuals, eval                                                     | ⬜ Not started |
+| 8    | Wave 3 (Electrical, Mechanical, Civil)                                                             | ⬜ Not started |
+| 9    | Wave 4 (Chemical, Petroleum, others at `sourced`)                                                  | ⬜ Not started |
+| 10   | My-own-syllabus upload, regression eval, performance, accuracy page, deploy                        | ⬜ Not started |
+
+Subjects per wave: Wave 1: 9 · Wave 2: 21 · Wave 3: 21 unique (Circuit Theory = Network Theory) · Wave 4: 12 tested candidates (Heat Transfer shared with Mechanical) + ~20 `sourced` subjects for other branches.
+
+## Version Final: Universal (formerly V3)
+
+The old V3 steps, unchanged except those pulled into V3 (syllabus upload, mock tests, computer-science and chemistry visuals, maps where needed). See SPEC §13. Not started.
+
 ## Plan changes
+
+- **2026-10-04: New V2.5** (SPEC §11.5), built before the rest of V3: uploads in any common format (PowerPoint, Word, Excel/CSV, text, images with OCR, OpenDocument; friendly message for old .ppt/.doc) and whole-chapter lessons with three computed time options. Moved here so nothing is built twice: the mock test generator (chapter scope) from V3 · Step 3, and reading a syllabus file from V3 · Step 10 (V3 keeps cross-chapter mock tests and syllabus-to-topic matching). V3 subject files gain teaching hours and marks per unit.
+
+- **2026-10-03: New V3 "All Engineering"** (SPEC §12): syllabus breadth across all major B.Tech/BE branches in four waves, a `tested` tier (≥ 85%, target 90%), golden facts stored with source quotes, numeric and code checking, resumable evals. The old V3 becomes V-Final (SPEC §13). Points raised to the user: E&M and Engineering Maths have not passed the 95% gate (they are "sourced", not "verified"); mock tests were never built (pulled into V3 Step 3); golden facts must come from fetched source text with stored quotes, since the assistant is also a model; evals for ~60 subjects will take weeks on the free quota.
 
 - **2026-10-02: Highlights and comments** (SPEC §8.1). The request placed it in "V2 Step 6 (Interaction tools)"; in our numbering Interaction tools is Step 7, already done, so it becomes a new Step 12 right after flashcards (so "Turn into flashcard" and "Add to flashcards" work from day one) and well after accounts/sync (annotations sync to `users/{uid}/annotations`). Planner is now 13, export & eval 14 (the PDF export and Last-Minute level include the "My notes" block). User asked for autonomous work through the end of V2, resuming after usage limits without waiting for confirmation.
 
