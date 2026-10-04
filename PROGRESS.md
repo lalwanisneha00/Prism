@@ -5,10 +5,10 @@ Update this after every step so any person or AI tool can pick up the work.
 ## Current state (resume here)
 
 - **Mode:** OVERNIGHT AUTONOMOUS RUN (started 2026-10-04 02:36) on branch `overnight-v2.5-v3`. Rules below; status for the user goes in `MORNING_REPORT.md`.
-- **Version / step:** V3 · Step 4 built and saved as `wip:` (not tagged); V3 · Step 5 partly written.
-- **Finished:** all of V2.5; V3 · Steps 2–3 (tags). Step 4: unit tests (407) and build passed; its 4 Playwright tests pass on desktop-light. The full 4-mode browser run was stopped by the system (low memory) before finishing.
+- **Version / step:** V3 · Step 5 (accuracy scaffolding): in progress.
+- **Finished:** all of V2.5; V3 · Steps 2–4 (tags `v3-step-2` … `v3-step-4`; Step 4 verified in all four browser modes with `E2E_SERVER=start`).
 - **Half-done:** Step 5: done in code but not wired in: `eval/quotes.ts` + `golden:check`, resumable `eval/run.ts`, `src/lib/units.ts`, `src/lib/code/codeBlocks.ts` + `runCode.ts`. Not started: `tested` tier in app (tiers.ts, TierBadge, subjects schema, accuracy page), unit check inside lesson answer checks, code-sample run/check UI in lessons.
-- **Next action:** re-run `npx playwright test` (all modes) when memory allows; if green, tag `v3-step-4`; then finish Step 5 as listed. Wave 1 syllabus sources found (GCE Kalahandi and IET Lucknow AICTE-model first-year syllabi; see MORNING_REPORT).
+- **Next action:** finish Step 5 as listed. Browser tests: build with `LLM_PROVIDER=fake npx next build`, run `E2E_SERVER=start npx playwright test --project=<mode>` one mode at a time (memory is short on this computer). Wave 1 syllabus sources found (GCE Kalahandi and IET Lucknow AICTE-model first-year syllabi; see MORNING_REPORT).
 - **Running commands:** none.
 - **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` when quota allows.
 - **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, continue from "Next action". Finish half-done work first; never restart a finished step.

@@ -45,7 +45,10 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `npx next dev -p ${PORT}`,
+    // E2E_SERVER=start serves a production build (built with LLM_PROVIDER=fake): far less
+    // memory than the dev server, for computers that are short of it.
+    command:
+      process.env.E2E_SERVER === "start" ? `npx next start -p ${PORT}` : `npx next dev -p ${PORT}`,
     url: `http://localhost:${PORT}`,
     env: { LLM_PROVIDER: "fake" },
     reuseExistingServer: false,

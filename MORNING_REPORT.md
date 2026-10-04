@@ -4,7 +4,7 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 
 ## Summary
 
-- **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`), V3 · Steps 2–3 (`v3-step-2`, `v3-step-3`). V3 · Step 4 is built and committed as `wip:` but **not tagged**: its full browser re-run was stopped by the system for low memory (see Problems).
+- **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`), V3 · Steps 2–4 (`v3-step-2`, `v3-step-3`, `v3-step-4`).
 - **In progress:** V3 · Step 5 (accuracy scaffolding: `tested` tier, golden sets with source quotes, resumable eval, numerical and code checks).
 - **Not started:** V3 · Steps 6–11 (the syllabus waves, my-own-syllabus matching, final regression and deploy).
 
@@ -12,7 +12,7 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 
 - Branch: `overnight-v2.5-v3` (pushed to GitHub; Vercel builds a preview for it if the project is linked to the repo).
 - Locally: `git checkout overnight-v2.5-v3`, `npm install`, `npm run dev`, open http://localhost:3000.
-- Automated checks: `npm run check`, `npm run build`, `npm run test:e2e` (Playwright, uses the fake AI, no quota).
+- Automated checks: `npm run check`, `npm run build`, `npm run test:e2e` (Playwright, uses the fake AI, no quota). On a computer short of memory: `LLM_PROVIDER=fake npx next build`, then `E2E_SERVER=start npx playwright test --project=desktop-light` (and the other modes one at a time).
 
 ## Finished steps and "✅ Check this"
 
@@ -170,7 +170,6 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Needs Sneha
 
-- Re-run the full browser suite for V3 · Step 4 when the computer has free memory: `npx playwright test` (it uses the installed Edge and the fake AI, about 15–40 minutes). If it passes, tag it: `git tag v3-step-4 && git push --tags`.
 - Wave 1 syllabus sources so far: [GCE Kalahandi first-year syllabus (AICTE model)](https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf) and [IET Lucknow K-series first year (AICTE model)](https://ietlucknow.ac.in/sites/default/files/syllabus/K_Series_B_Tech_1st_Year_AICTE_Model_Curriculum_EFS_2020_21_4.pdf). Programming for Problem Solving there is C only; Environmental Science still needs a source.
 
 - **Vercel preview link:** the GitHub CLI isn't signed in on this computer, so I couldn't read the preview URL. Open vercel.com → the Prism project → Deployments, and look for the `overnight-v2.5-v3` branch (if the project is linked to GitHub, every push made a preview).
@@ -178,7 +177,7 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Problems
 
-- **Full browser re-run for V3 · Step 4 was stopped by the system (computer low on memory)**, not by a test failure. Unit tests (407) and the production build passed, and the 4 new Other-subjects browser tests passed on desktop. To finish verifying: `npx playwright test` (all modes), then `git tag v3-step-4`.
+- The full browser re-run for V3 · Step 4 was first stopped by the system (computer low on memory). On resume, the browser tests were run against a production build (`E2E_SERVER=start`, much lighter than the dev server), one mode at a time: all pass in all four modes. In desktop-dark, three lesson-building tests timed out once (slow Wikipedia fetches for grounding) and passed on re-run.
 
 - The run paused once at the Claude usage limit during V2.5 · Step 4 and resumed after the reset (no work lost).
 
@@ -189,6 +188,7 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 ## Pauses
 
 - 2026-10-04 02:36: run started.
+- ~10:45: run had stopped (low memory killed the browser suite); resumed on request, verified Step 4 with the lighter production-server test mode, tagged `v3-step-4`.
 - Paused: Claude usage limit reached during V2.5 · Step 4 (server part done and committed as `wip:`). Resumed after the reset and finished Step 4.
 
 ## Next action
