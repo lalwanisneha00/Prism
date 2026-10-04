@@ -3,14 +3,8 @@
   "name": "Fluid Flow and Mechanical Operations",
   "field": "Chemical Engineering",
   "tier": "sourced",
-  "branches": [
-    "chem",
-    "petro"
-  ],
-  "semesters": [
-    4,
-    5
-  ],
+  "branches": ["chem", "petro"],
+  "semesters": [4, 5],
   "syllabusSource": {
     "kind": "aicte",
     "title": "AICTE Model Curriculum for UG Degree Courses in Chemical Engineering (2018, Vol. II): PCC-CS106 Fluid Mechanics and PCC-CS111 Particle and Fluid-Particle Processing",
@@ -31,23 +25,17 @@
         {
           "id": "pipe-fittings-friction",
           "name": "Friction in pipes and fittings; the Moody diagram",
-          "requires": [
-            "non-newtonian-fluids"
-          ]
+          "requires": ["non-newtonian-fluids"]
         },
         {
           "id": "flowmeters-process",
           "name": "Flow meters: orifice, venturi, rotameter",
-          "requires": [
-            "pipe-fittings-friction"
-          ]
+          "requires": ["pipe-fittings-friction"]
         },
         {
           "id": "pumps-compressors-process",
           "name": "Pumps, blowers and compressors; NPSH",
-          "requires": [
-            "pipe-fittings-friction"
-          ]
+          "requires": ["pipe-fittings-friction"]
         }
       ]
     },
@@ -63,23 +51,17 @@
         {
           "id": "drag-terminal-velocity",
           "name": "Drag on particles and terminal settling velocity; Stokes' law",
-          "requires": [
-            "particle-size-shape"
-          ]
+          "requires": ["particle-size-shape"]
         },
         {
           "id": "packed-bed-ergun",
           "name": "Packed beds: Ergun and Kozeny–Carman equations",
-          "requires": [
-            "drag-terminal-velocity"
-          ]
+          "requires": ["drag-terminal-velocity"]
         },
         {
           "id": "fluidisation",
           "name": "Fluidisation: minimum fluidisation velocity and bed behaviour",
-          "requires": [
-            "packed-bed-ergun"
-          ]
+          "requires": ["packed-bed-ergun"]
         }
       ]
     },
@@ -91,37 +73,27 @@
         {
           "id": "sedimentation-thickeners",
           "name": "Free and hindered settling; thickeners",
-          "requires": [
-            "drag-terminal-velocity"
-          ]
+          "requires": ["drag-terminal-velocity"]
         },
         {
           "id": "filtration-cake",
           "name": "Filtration: cake filtration and filter types",
-          "requires": [
-            "packed-bed-ergun"
-          ]
+          "requires": ["packed-bed-ergun"]
         },
         {
           "id": "cyclones-centrifuges",
           "name": "Cyclones, hydrocyclones and centrifuges",
-          "requires": [
-            "drag-terminal-velocity"
-          ]
+          "requires": ["drag-terminal-velocity"]
         },
         {
           "id": "size-reduction-laws",
           "name": "Size reduction: Rittinger, Kick and Bond laws; crushers and mills",
-          "requires": [
-            "particle-size-shape"
-          ]
+          "requires": ["particle-size-shape"]
         },
         {
           "id": "screening-mixing",
           "name": "Screening and mixing",
-          "requires": [
-            "particle-size-shape"
-          ]
+          "requires": ["particle-size-shape"]
         }
       ]
     }

@@ -65,7 +65,6 @@ describe("branches and semesters", () => {
     }
     expect(subjectsFor("ce", 1).map((s) => s.id)).toContain("em");
     expect(subjectsFor("ce", 7)).toEqual([]);
-    expect(semestersFor("petro")).toEqual([1, 2]); // only first-year subjects until Wave 4
     expect(semestersFor("me")).toContain(3);
     expect(branchesOf(findSubject("em")!)).toHaveLength(branches.length);
   });

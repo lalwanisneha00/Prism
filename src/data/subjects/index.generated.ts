@@ -5,6 +5,8 @@ import appliedPhysicsSubject from "./applied-physics.json";
 import basicElectricalSubject from "./basic-electrical.json";
 import basicElectronicsSubject from "./basic-electronics.json";
 import buildingMaterialsSubject from "./building-materials.json";
+import chemicalReactionEngineeringSubject from "./chemical-reaction-engineering.json";
+import chemicalThermodynamicsSubject from "./chemical-thermodynamics.json";
 import coaSubject from "./coa.json";
 import communicationSystemsSubject from "./communication-systems.json";
 import compilerDesignSubject from "./compiler-design.json";
@@ -29,11 +31,13 @@ import engineeringThermodynamicsSubject from "./engineering-thermodynamics.json"
 import environmentalEngineeringSubject from "./environmental-engineering.json";
 import environmentalScienceSubject from "./environmental-science.json";
 import fluidMechanicsSubject from "./fluid-mechanics.json";
+import fluidParticleOperationsSubject from "./fluid-particle-operations.json";
 import geotechnicalEngineeringSubject from "./geotechnical-engineering.json";
 import heatTransferSubject from "./heat-transfer.json";
 import hydraulicEngineeringSubject from "./hydraulic-engineering.json";
 import machineDesignSubject from "./machine-design.json";
 import manufacturingProcessesSubject from "./manufacturing-processes.json";
+import massTransferSubject from "./mass-transfer.json";
 import microprocessorsSubject from "./microprocessors.json";
 import networkTheorySubject from "./network-theory.json";
 import oopSubject from "./oop.json";
@@ -41,6 +45,8 @@ import operatingSystemsSubject from "./operating-systems.json";
 import powerElectronicsSubject from "./power-electronics.json";
 import powerSystemsSubject from "./power-systems.json";
 import ppsSubject from "./pps.json";
+import processCalculationsSubject from "./process-calculations.json";
+import processControlSubject from "./process-control.json";
 import signalsSystemsSubject from "./signals-systems.json";
 import softwareEngineeringSubject from "./software-engineering.json";
 import strengthOfMaterialsSubject from "./strength-of-materials.json";
@@ -57,6 +63,8 @@ import appliedPhysicsSources from "./applied-physics-sources.json";
 import basicElectricalSources from "./basic-electrical-sources.json";
 import basicElectronicsSources from "./basic-electronics-sources.json";
 import buildingMaterialsSources from "./building-materials-sources.json";
+import chemicalReactionEngineeringSources from "./chemical-reaction-engineering-sources.json";
+import chemicalThermodynamicsSources from "./chemical-thermodynamics-sources.json";
 import coaSources from "./coa-sources.json";
 import communicationSystemsSources from "./communication-systems-sources.json";
 import compilerDesignSources from "./compiler-design-sources.json";
@@ -81,11 +89,13 @@ import engineeringThermodynamicsSources from "./engineering-thermodynamics-sourc
 import environmentalEngineeringSources from "./environmental-engineering-sources.json";
 import environmentalScienceSources from "./environmental-science-sources.json";
 import fluidMechanicsSources from "./fluid-mechanics-sources.json";
+import fluidParticleOperationsSources from "./fluid-particle-operations-sources.json";
 import geotechnicalEngineeringSources from "./geotechnical-engineering-sources.json";
 import heatTransferSources from "./heat-transfer-sources.json";
 import hydraulicEngineeringSources from "./hydraulic-engineering-sources.json";
 import machineDesignSources from "./machine-design-sources.json";
 import manufacturingProcessesSources from "./manufacturing-processes-sources.json";
+import massTransferSources from "./mass-transfer-sources.json";
 import microprocessorsSources from "./microprocessors-sources.json";
 import networkTheorySources from "./network-theory-sources.json";
 import oopSources from "./oop-sources.json";
@@ -93,6 +103,8 @@ import operatingSystemsSources from "./operating-systems-sources.json";
 import powerElectronicsSources from "./power-electronics-sources.json";
 import powerSystemsSources from "./power-systems-sources.json";
 import ppsSources from "./pps-sources.json";
+import processCalculationsSources from "./process-calculations-sources.json";
+import processControlSources from "./process-control-sources.json";
 import signalsSystemsSources from "./signals-systems-sources.json";
 import softwareEngineeringSources from "./software-engineering-sources.json";
 import strengthOfMaterialsSources from "./strength-of-materials-sources.json";
@@ -105,7 +117,7 @@ import vlsiSources from "./vlsi-sources.json";
 import webTechnologiesSources from "./web-technologies-sources.json";
 
 /** Every subject file, in file-name order. */
-export const subjectFiles: unknown[] = [aiMlSubject, analogElectronicsSubject, appliedPhysicsSubject, basicElectricalSubject, basicElectronicsSubject, buildingMaterialsSubject, coaSubject, communicationSystemsSubject, compilerDesignSubject, computerNetworksSubject, concreteRccDesignSubject, controlSystemsSubject, dbmsSubject, digitalLogicSubject, discreteMathsSubject, dsaSubject, dspSubject, electricalMachinesSubject, electricalMeasurementsSubject, emTheorySubject, emSubject, enggChemistrySubject, enggGraphicsSubject, enggMathSubject, enggMechanicsSubject, engineeringMaterialsSubject, engineeringThermodynamicsSubject, environmentalEngineeringSubject, environmentalScienceSubject, fluidMechanicsSubject, geotechnicalEngineeringSubject, heatTransferSubject, hydraulicEngineeringSubject, machineDesignSubject, manufacturingProcessesSubject, microprocessorsSubject, networkTheorySubject, oopSubject, operatingSystemsSubject, powerElectronicsSubject, powerSystemsSubject, ppsSubject, signalsSystemsSubject, softwareEngineeringSubject, strengthOfMaterialsSubject, structuralAnalysisSubject, surveyingSubject, theoryOfComputationSubject, theoryOfMachinesSubject, transportationEngineeringSubject, vlsiSubject, webTechnologiesSubject];
+export const subjectFiles: unknown[] = [aiMlSubject, analogElectronicsSubject, appliedPhysicsSubject, basicElectricalSubject, basicElectronicsSubject, buildingMaterialsSubject, chemicalReactionEngineeringSubject, chemicalThermodynamicsSubject, coaSubject, communicationSystemsSubject, compilerDesignSubject, computerNetworksSubject, concreteRccDesignSubject, controlSystemsSubject, dbmsSubject, digitalLogicSubject, discreteMathsSubject, dsaSubject, dspSubject, electricalMachinesSubject, electricalMeasurementsSubject, emTheorySubject, emSubject, enggChemistrySubject, enggGraphicsSubject, enggMathSubject, enggMechanicsSubject, engineeringMaterialsSubject, engineeringThermodynamicsSubject, environmentalEngineeringSubject, environmentalScienceSubject, fluidMechanicsSubject, fluidParticleOperationsSubject, geotechnicalEngineeringSubject, heatTransferSubject, hydraulicEngineeringSubject, machineDesignSubject, manufacturingProcessesSubject, massTransferSubject, microprocessorsSubject, networkTheorySubject, oopSubject, operatingSystemsSubject, powerElectronicsSubject, powerSystemsSubject, ppsSubject, processCalculationsSubject, processControlSubject, signalsSystemsSubject, softwareEngineeringSubject, strengthOfMaterialsSubject, structuralAnalysisSubject, surveyingSubject, theoryOfComputationSubject, theoryOfMachinesSubject, transportationEngineeringSubject, vlsiSubject, webTechnologiesSubject];
 
 /** Grounding sources per subject id (from <id>-sources.json). */
 export const sourceFiles: Record<string, unknown> = {
@@ -115,6 +127,8 @@ export const sourceFiles: Record<string, unknown> = {
   "basic-electrical": basicElectricalSources,
   "basic-electronics": basicElectronicsSources,
   "building-materials": buildingMaterialsSources,
+  "chemical-reaction-engineering": chemicalReactionEngineeringSources,
+  "chemical-thermodynamics": chemicalThermodynamicsSources,
   "coa": coaSources,
   "communication-systems": communicationSystemsSources,
   "compiler-design": compilerDesignSources,
@@ -139,11 +153,13 @@ export const sourceFiles: Record<string, unknown> = {
   "environmental-engineering": environmentalEngineeringSources,
   "environmental-science": environmentalScienceSources,
   "fluid-mechanics": fluidMechanicsSources,
+  "fluid-particle-operations": fluidParticleOperationsSources,
   "geotechnical-engineering": geotechnicalEngineeringSources,
   "heat-transfer": heatTransferSources,
   "hydraulic-engineering": hydraulicEngineeringSources,
   "machine-design": machineDesignSources,
   "manufacturing-processes": manufacturingProcessesSources,
+  "mass-transfer": massTransferSources,
   "microprocessors": microprocessorsSources,
   "network-theory": networkTheorySources,
   "oop": oopSources,
@@ -151,6 +167,8 @@ export const sourceFiles: Record<string, unknown> = {
   "power-electronics": powerElectronicsSources,
   "power-systems": powerSystemsSources,
   "pps": ppsSources,
+  "process-calculations": processCalculationsSources,
+  "process-control": processControlSources,
   "signals-systems": signalsSystemsSources,
   "software-engineering": softwareEngineeringSources,
   "strength-of-materials": strengthOfMaterialsSources,

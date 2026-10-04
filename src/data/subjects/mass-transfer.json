@@ -3,15 +3,8 @@
   "name": "Mass Transfer Operations",
   "field": "Chemical Engineering",
   "tier": "sourced",
-  "branches": [
-    "chem",
-    "petro",
-    "biotech"
-  ],
-  "semesters": [
-    4,
-    5
-  ],
+  "branches": ["chem", "petro", "biotech"],
+  "semesters": [4, 5],
   "syllabusSource": {
     "kind": "aicte",
     "title": "AICTE Model Curriculum for UG Degree Courses in Chemical Engineering (2018, Vol. II): PCC-CS105 Mass Transfer-I and PCC-CS109 Mass Transfer-II",
@@ -32,16 +25,12 @@
         {
           "id": "mass-transfer-coefficients",
           "name": "Convective mass transfer coefficients and correlations",
-          "requires": [
-            "fick-diffusion-mt"
-          ]
+          "requires": ["fick-diffusion-mt"]
         },
         {
           "id": "film-penetration-theories",
           "name": "Film, penetration and surface-renewal theories; interphase transfer",
-          "requires": [
-            "mass-transfer-coefficients"
-          ]
+          "requires": ["mass-transfer-coefficients"]
         }
       ]
     },
@@ -53,30 +42,22 @@
         {
           "id": "equilibrium-stages-htu",
           "name": "Equilibrium stages, HTU and NTU; stage efficiency",
-          "requires": [
-            "film-penetration-theories"
-          ]
+          "requires": ["film-penetration-theories"]
         },
         {
           "id": "gas-absorption",
           "name": "Gas absorption: packed and plate columns",
-          "requires": [
-            "equilibrium-stages-htu"
-          ]
+          "requires": ["equilibrium-stages-htu"]
         },
         {
           "id": "mccabe-thiele",
           "name": "Binary distillation: McCabe–Thiele method",
-          "requires": [
-            "equilibrium-stages-htu"
-          ]
+          "requires": ["equilibrium-stages-htu"]
         },
         {
           "id": "batch-azeotropic-distillation",
           "name": "Batch, steam and azeotropic distillation",
-          "requires": [
-            "mccabe-thiele"
-          ]
+          "requires": ["mccabe-thiele"]
         }
       ]
     },
@@ -88,30 +69,22 @@
         {
           "id": "liquid-liquid-extraction",
           "name": "Liquid–liquid extraction",
-          "requires": [
-            "equilibrium-stages-htu"
-          ]
+          "requires": ["equilibrium-stages-htu"]
         },
         {
           "id": "leaching",
           "name": "Leaching and washing",
-          "requires": [
-            "equilibrium-stages-htu"
-          ]
+          "requires": ["equilibrium-stages-htu"]
         },
         {
           "id": "adsorption-breakthrough",
           "name": "Adsorption, ion exchange and breakthrough curves",
-          "requires": [
-            "film-penetration-theories"
-          ]
+          "requires": ["film-penetration-theories"]
         },
         {
           "id": "membrane-ro",
           "name": "Membrane separations: ultrafiltration and reverse osmosis",
-          "requires": [
-            "fick-diffusion-mt"
-          ]
+          "requires": ["fick-diffusion-mt"]
         }
       ]
     },
@@ -123,16 +96,12 @@
         {
           "id": "humidification-cooling-towers",
           "name": "Humidification, dehumidification and cooling towers",
-          "requires": [
-            "mass-transfer-coefficients"
-          ]
+          "requires": ["mass-transfer-coefficients"]
         },
         {
           "id": "drying",
           "name": "Drying: rate curves and dryers",
-          "requires": [
-            "mass-transfer-coefficients"
-          ]
+          "requires": ["mass-transfer-coefficients"]
         }
       ]
     }
