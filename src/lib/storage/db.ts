@@ -89,12 +89,49 @@ export type CustomSubjectRecord = SyncFields & {
 /** Where the student stopped in an audio lesson, in seconds at normal speed. */
 export type AudioPosition = SyncFields & { title: string; seconds: number };
 
+export type ImportanceBand = "high" | "medium" | "low";
+
+/** The planner's remembered choices (V3 · Step 11), so a new plan starts from them. */
+export type PlannerPrefs = {
+  rangeMin: number;
+  rangeMax: number;
+  /** Minutes per weekday, index 0 = Sunday … 6 = Saturday. */
+  weekMinutes: number[];
+  /** Which weekdays are college days (the rest are days off). */
+  collegeDays: number[];
+  collegeMinutes: number;
+  offMinutes: number;
+  sessionMinutes: number;
+  shortBreak: number;
+  longBreak: number;
+};
+
 export type AppSettings = SyncFields & {
   theme?: "light" | "dark";
   audioRate?: number;
   /** "My branch and semester" (V3 · Step 3): the student's subjects are shown first. */
   branch?: string;
   semester?: number;
+  /**
+   * The student's own importance for topics and chapters (V3 · Step 11), keyed
+   * "subject/topic" or "subject/chapter:<id>". It always wins over the estimate.
+   */
+  importanceOverrides?: Record<string, ImportanceBand>;
+  plannerPrefs?: PlannerPrefs;
+};
+
+/**
+ * Small learning signals behind the weak-topic score (V3 · Step 11): a wrong quiz answer or
+ * an "Explain simpler" request. Synced, private to the student.
+ */
+export type LearningSignalRecord = SyncFields & {
+  kind: "wrong" | "simpler";
+  subject: string;
+  topic: string;
+  /** The question (trimmed), to spot the same question answered wrong more than once. */
+  question?: string;
+  questionType?: "numerical" | "conceptual";
+  at: number;
 };
 
 /**
@@ -209,11 +246,20 @@ export type Annotation = SyncFields & {
   createdAt: number;
 };
 
-/** A backlog study plan for one subject (V2 · Step 13). */
+export type PlanItemKind = "learn" | "revise" | "flashcards" | "final-revision" | "mock-test";
+
+/**
+ * A study plan (V2 · Step 13; multi-subject with a time range, hours per weekday and sessions
+ * since V3 · Step 11). Plans made before have no `version`: `upgradePlan` converts them when
+ * they are opened, so they keep working.
+ */
 export type StudyPlan = SyncFields & {
+  /** The plan's (first) subject; v2 plans list all of them in `subjects`. */
   subject: string;
   level: string;
+  /** Legacy single lesson length; v2 plans use `range`. */
   lessonMinutes: number;
+  /** Legacy daily time; v2 plans use `weekMinutes` and `overrides`. */
   minutesPerDay: number;
   startDate: string;
   examDate?: string;
@@ -221,16 +267,40 @@ export type StudyPlan = SyncFields & {
     date: string;
     items: {
       id: string;
-      kind: "learn" | "revise" | "flashcards";
+      kind: PlanItemKind;
       topicId?: string;
+      /** The topic's subject (v2; legacy items belong to the plan's subject). */
+      subject?: string;
       minutes: number;
       done: boolean;
       doneAt?: number;
+      /** Why this topic got its time: "high-return", "weak", "tough", "done". */
+      tags?: string[];
+      /** Set when the student changed this topic's time by hand. */
+      adjusted?: boolean;
     }[];
+    /** Minutes the student set for this day (v2). */
+    available?: number;
+    /** The day's sessions: item ids and the break after each (v2). */
+    sessions?: { itemIds: string[]; breakAfter: number }[];
   }[];
-  /** Topics that didn't fit in the plan. */
+  /** Topics that didn't fit in the plan ("subject/topic" in v2, topic ids before). */
   overflow: string[];
   createdAt: number;
+  version?: 2;
+  subjects?: string[];
+  title?: string;
+  range?: { min: number; max: number };
+  weekMinutes?: number[];
+  overrides?: Record<string, number>;
+  breaks?: {
+    sessionMinutes: number;
+    shortBreak: number;
+    longBreak: number;
+    longBreakEvery: number;
+  };
+  flashcards?: boolean;
+  finalReview?: boolean;
 };
 
 /** Every collection that syncs to users/{uid}/{collection}/{id}. */
@@ -246,6 +316,7 @@ export type SyncedRecords = {
   plans: StudyPlan;
   mockResults: MockResult;
   customSubjects: CustomSubjectRecord;
+  learningSignals: LearningSignalRecord;
 };
 export type SyncedCollection = keyof SyncedRecords;
 export const SYNCED_COLLECTIONS: SyncedCollection[] = [
@@ -260,6 +331,7 @@ export const SYNCED_COLLECTIONS: SyncedCollection[] = [
   "plans",
   "mockResults",
   "customSubjects",
+  "learningSignals",
 ];
 
 /** A local change waiting to be sent to the cloud. */
@@ -285,12 +357,13 @@ interface PrismDB extends DBSchema {
   plans: { key: string; value: StudyPlan };
   mockResults: { key: string; value: MockResult; indexes: { byAt: number } };
   customSubjects: { key: string; value: CustomSubjectRecord };
+  learningSignals: { key: string; value: LearningSignalRecord; indexes: { byAt: number } };
   outbox: { key: string; value: OutboxEntry };
   meta: { key: string; value: { key: string; value: unknown } };
 }
 
 const DB_NAME = "prism";
-const DB_VERSION = 10;
+const DB_VERSION = 11;
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -344,6 +417,11 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
       // Version 10 (other subjects): the student's own subjects, synced.
       if (oldVersion < 10) {
         db.createObjectStore("customSubjects", { keyPath: "id" });
+      }
+      // Version 11 (time recommendations and planner): learning signals, synced. Existing
+      // plans and progress are untouched; old plans are converted when opened (upgradePlan).
+      if (oldVersion < 11) {
+        db.createObjectStore("learningSignals", { keyPath: "id" }).createIndex("byAt", "at");
       }
     },
   });

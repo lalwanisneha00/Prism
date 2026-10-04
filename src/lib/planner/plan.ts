@@ -119,7 +119,9 @@ export function buildPlan(input: PlanInput): { days: PlanDay[]; overflow: PlanTo
 }
 
 /** How far through the plan the student is. */
-export function planProgress(days: PlanDay[]): {
+export function planProgress(
+  days: readonly { items: readonly { done: boolean; minutes: number }[] }[],
+): {
   done: number;
   total: number;
   minutesDone: number;

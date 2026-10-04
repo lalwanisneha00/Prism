@@ -17,6 +17,8 @@ const TopicSchema = z.object({
   name: z.string().min(1),
   /** Topics to know first (same subject): the edges of the concept map. */
   requires: z.array(slug).optional(),
+  /** Underlying skills (src/data/skills.ts ids), shared across subjects (V3 · Step 11). */
+  skills: z.array(slug).max(8).optional(),
 });
 const ChapterSchema = z.object({
   id: slug,
