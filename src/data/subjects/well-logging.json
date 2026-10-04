@@ -1,0 +1,97 @@
+{
+  "id": "well-logging",
+  "name": "Well Logging and Formation Evaluation",
+  "field": "Petroleum Engineering",
+  "tier": "sourced",
+  "branches": ["petro"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.Tech Petroleum Engineering (R2017): PE8602 Well Logging",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/03.Petrol%20Engg.pdf",
+    "note": "All five units of PE8602."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "log-fundamentals",
+      "name": "Formation Parameters",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "formation-parameters",
+          "name": "Porosity, resistivity, saturation and formation factor"
+        },
+        {
+          "id": "archie-law",
+          "name": "Archie's law and water saturation",
+          "requires": ["formation-parameters"]
+        }
+      ]
+    },
+    {
+      "id": "log-types",
+      "name": "Logging Tools",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "sp-log",
+          "name": "Spontaneous potential (SP) log",
+          "requires": ["formation-parameters"]
+        },
+        {
+          "id": "resistivity-logs",
+          "name": "Resistivity and induction logs",
+          "requires": ["formation-parameters"]
+        },
+        {
+          "id": "gamma-ray-log",
+          "name": "Gamma ray log and shale volume",
+          "requires": ["formation-parameters"]
+        },
+        {
+          "id": "porosity-logs",
+          "name": "Porosity logs: density, neutron and sonic",
+          "requires": ["formation-parameters"]
+        },
+        {
+          "id": "nmr-caliper-dipmeter",
+          "name": "NMR, caliper and dipmeter logs",
+          "requires": ["formation-parameters"]
+        }
+      ]
+    },
+    {
+      "id": "interpretation",
+      "name": "Interpretation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "log-interpretation-crossplots",
+          "name": "Quick-look interpretation and cross-plots",
+          "requires": ["archie-law", "porosity-logs"]
+        },
+        {
+          "id": "log-correlation",
+          "name": "Subsurface correlation from logs",
+          "requires": ["gamma-ray-log"]
+        },
+        {
+          "id": "log-data-acquisition",
+          "name": "Recording, transmission and processing of log data (wireline and LWD)",
+          "requires": ["formation-parameters"]
+        },
+        {
+          "id": "fracture-detection-logs",
+          "name": "Fracture delineation from logs",
+          "requires": ["log-interpretation-crossplots"]
+        },
+        {
+          "id": "production-logging",
+          "name": "Production logging",
+          "requires": ["log-interpretation-crossplots"]
+        }
+      ]
+    }
+  ]
+}

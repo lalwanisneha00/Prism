@@ -1,0 +1,104 @@
+{
+  "id": "drilling-engineering",
+  "name": "Drilling Engineering",
+  "field": "Petroleum Engineering",
+  "tier": "sourced",
+  "branches": ["petro"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.Tech Petroleum Engineering (R2017): PE8601 Well Drilling Equipment and Operation and PE8604 Drilling Fluids and Cementing Techniques",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/03.Petrol%20Engg.pdf",
+    "note": "All units of PE8601 and PE8604."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "rig",
+      "name": "Rigs and Rig Systems",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "rig-types",
+          "name": "Land and offshore rig types"
+        },
+        {
+          "id": "rig-systems",
+          "name": "Rig systems: hoisting, rotating, circulating and power",
+          "requires": ["rig-types"]
+        },
+        {
+          "id": "drill-string-bha",
+          "name": "Drill string, drill collars and bottom-hole assembly",
+          "requires": ["rig-systems"]
+        },
+        {
+          "id": "drill-bits",
+          "name": "Drill bits: roller-cone and PDC",
+          "requires": ["drill-string-bha"]
+        }
+      ]
+    },
+    {
+      "id": "fluids-hydraulics",
+      "name": "Drilling Fluids and Hydraulics",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "drilling-mud-functions",
+          "name": "Drilling fluid functions and types (water-, oil-based)",
+          "requires": ["rig-systems"]
+        },
+        {
+          "id": "mud-rheology",
+          "name": "Rheology: Bingham plastic and power-law models",
+          "requires": ["drilling-mud-functions"]
+        },
+        {
+          "id": "hydrostatic-ecd",
+          "name": "Hydrostatic pressure, mud weight and ECD",
+          "requires": ["drilling-mud-functions"]
+        },
+        {
+          "id": "bit-hydraulics-hole-cleaning",
+          "name": "Bit hydraulics and hole cleaning",
+          "requires": ["mud-rheology"]
+        }
+      ]
+    },
+    {
+      "id": "well-control-direction",
+      "name": "Well Control and Directional Drilling",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "kicks-bop",
+          "name": "Kicks, blowouts and the blowout preventer",
+          "requires": ["hydrostatic-ecd"]
+        },
+        {
+          "id": "directional-horizontal",
+          "name": "Directional and horizontal drilling",
+          "requires": ["drill-string-bha"]
+        }
+      ]
+    },
+    {
+      "id": "casing-cementing",
+      "name": "Casing and Cementing",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "casing-design",
+          "name": "Casing strings and design",
+          "requires": ["hydrostatic-ecd"]
+        },
+        {
+          "id": "well-cementing",
+          "name": "Cementing: oilwell cements, slurries and placement",
+          "requires": ["casing-design"]
+        }
+      ]
+    }
+  ]
+}

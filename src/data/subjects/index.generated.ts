@@ -16,6 +16,7 @@ import controlSystemsSubject from "./control-systems.json";
 import dbmsSubject from "./dbms.json";
 import digitalLogicSubject from "./digital-logic.json";
 import discreteMathsSubject from "./discrete-maths.json";
+import drillingEngineeringSubject from "./drilling-engineering.json";
 import dsaSubject from "./dsa.json";
 import dspSubject from "./dsp.json";
 import electricalMachinesSubject from "./electrical-machines.json";
@@ -42,11 +43,15 @@ import microprocessorsSubject from "./microprocessors.json";
 import networkTheorySubject from "./network-theory.json";
 import oopSubject from "./oop.json";
 import operatingSystemsSubject from "./operating-systems.json";
+import petroleumGeologySubject from "./petroleum-geology.json";
+import petroleumProductionSubject from "./petroleum-production.json";
+import petroleumRefiningSubject from "./petroleum-refining.json";
 import powerElectronicsSubject from "./power-electronics.json";
 import powerSystemsSubject from "./power-systems.json";
 import ppsSubject from "./pps.json";
 import processCalculationsSubject from "./process-calculations.json";
 import processControlSubject from "./process-control.json";
+import reservoirEngineeringSubject from "./reservoir-engineering.json";
 import signalsSystemsSubject from "./signals-systems.json";
 import softwareEngineeringSubject from "./software-engineering.json";
 import strengthOfMaterialsSubject from "./strength-of-materials.json";
@@ -57,6 +62,7 @@ import theoryOfMachinesSubject from "./theory-of-machines.json";
 import transportationEngineeringSubject from "./transportation-engineering.json";
 import vlsiSubject from "./vlsi.json";
 import webTechnologiesSubject from "./web-technologies.json";
+import wellLoggingSubject from "./well-logging.json";
 import aiMlSources from "./ai-ml-sources.json";
 import analogElectronicsSources from "./analog-electronics-sources.json";
 import appliedPhysicsSources from "./applied-physics-sources.json";
@@ -74,6 +80,7 @@ import controlSystemsSources from "./control-systems-sources.json";
 import dbmsSources from "./dbms-sources.json";
 import digitalLogicSources from "./digital-logic-sources.json";
 import discreteMathsSources from "./discrete-maths-sources.json";
+import drillingEngineeringSources from "./drilling-engineering-sources.json";
 import dsaSources from "./dsa-sources.json";
 import dspSources from "./dsp-sources.json";
 import electricalMachinesSources from "./electrical-machines-sources.json";
@@ -100,11 +107,15 @@ import microprocessorsSources from "./microprocessors-sources.json";
 import networkTheorySources from "./network-theory-sources.json";
 import oopSources from "./oop-sources.json";
 import operatingSystemsSources from "./operating-systems-sources.json";
+import petroleumGeologySources from "./petroleum-geology-sources.json";
+import petroleumProductionSources from "./petroleum-production-sources.json";
+import petroleumRefiningSources from "./petroleum-refining-sources.json";
 import powerElectronicsSources from "./power-electronics-sources.json";
 import powerSystemsSources from "./power-systems-sources.json";
 import ppsSources from "./pps-sources.json";
 import processCalculationsSources from "./process-calculations-sources.json";
 import processControlSources from "./process-control-sources.json";
+import reservoirEngineeringSources from "./reservoir-engineering-sources.json";
 import signalsSystemsSources from "./signals-systems-sources.json";
 import softwareEngineeringSources from "./software-engineering-sources.json";
 import strengthOfMaterialsSources from "./strength-of-materials-sources.json";
@@ -115,9 +126,10 @@ import theoryOfMachinesSources from "./theory-of-machines-sources.json";
 import transportationEngineeringSources from "./transportation-engineering-sources.json";
 import vlsiSources from "./vlsi-sources.json";
 import webTechnologiesSources from "./web-technologies-sources.json";
+import wellLoggingSources from "./well-logging-sources.json";
 
 /** Every subject file, in file-name order. */
-export const subjectFiles: unknown[] = [aiMlSubject, analogElectronicsSubject, appliedPhysicsSubject, basicElectricalSubject, basicElectronicsSubject, buildingMaterialsSubject, chemicalReactionEngineeringSubject, chemicalThermodynamicsSubject, coaSubject, communicationSystemsSubject, compilerDesignSubject, computerNetworksSubject, concreteRccDesignSubject, controlSystemsSubject, dbmsSubject, digitalLogicSubject, discreteMathsSubject, dsaSubject, dspSubject, electricalMachinesSubject, electricalMeasurementsSubject, emTheorySubject, emSubject, enggChemistrySubject, enggGraphicsSubject, enggMathSubject, enggMechanicsSubject, engineeringMaterialsSubject, engineeringThermodynamicsSubject, environmentalEngineeringSubject, environmentalScienceSubject, fluidMechanicsSubject, fluidParticleOperationsSubject, geotechnicalEngineeringSubject, heatTransferSubject, hydraulicEngineeringSubject, machineDesignSubject, manufacturingProcessesSubject, massTransferSubject, microprocessorsSubject, networkTheorySubject, oopSubject, operatingSystemsSubject, powerElectronicsSubject, powerSystemsSubject, ppsSubject, processCalculationsSubject, processControlSubject, signalsSystemsSubject, softwareEngineeringSubject, strengthOfMaterialsSubject, structuralAnalysisSubject, surveyingSubject, theoryOfComputationSubject, theoryOfMachinesSubject, transportationEngineeringSubject, vlsiSubject, webTechnologiesSubject];
+export const subjectFiles: unknown[] = [aiMlSubject, analogElectronicsSubject, appliedPhysicsSubject, basicElectricalSubject, basicElectronicsSubject, buildingMaterialsSubject, chemicalReactionEngineeringSubject, chemicalThermodynamicsSubject, coaSubject, communicationSystemsSubject, compilerDesignSubject, computerNetworksSubject, concreteRccDesignSubject, controlSystemsSubject, dbmsSubject, digitalLogicSubject, discreteMathsSubject, drillingEngineeringSubject, dsaSubject, dspSubject, electricalMachinesSubject, electricalMeasurementsSubject, emTheorySubject, emSubject, enggChemistrySubject, enggGraphicsSubject, enggMathSubject, enggMechanicsSubject, engineeringMaterialsSubject, engineeringThermodynamicsSubject, environmentalEngineeringSubject, environmentalScienceSubject, fluidMechanicsSubject, fluidParticleOperationsSubject, geotechnicalEngineeringSubject, heatTransferSubject, hydraulicEngineeringSubject, machineDesignSubject, manufacturingProcessesSubject, massTransferSubject, microprocessorsSubject, networkTheorySubject, oopSubject, operatingSystemsSubject, petroleumGeologySubject, petroleumProductionSubject, petroleumRefiningSubject, powerElectronicsSubject, powerSystemsSubject, ppsSubject, processCalculationsSubject, processControlSubject, reservoirEngineeringSubject, signalsSystemsSubject, softwareEngineeringSubject, strengthOfMaterialsSubject, structuralAnalysisSubject, surveyingSubject, theoryOfComputationSubject, theoryOfMachinesSubject, transportationEngineeringSubject, vlsiSubject, webTechnologiesSubject, wellLoggingSubject];
 
 /** Grounding sources per subject id (from <id>-sources.json). */
 export const sourceFiles: Record<string, unknown> = {
@@ -138,6 +150,7 @@ export const sourceFiles: Record<string, unknown> = {
   "dbms": dbmsSources,
   "digital-logic": digitalLogicSources,
   "discrete-maths": discreteMathsSources,
+  "drilling-engineering": drillingEngineeringSources,
   "dsa": dsaSources,
   "dsp": dspSources,
   "electrical-machines": electricalMachinesSources,
@@ -164,11 +177,15 @@ export const sourceFiles: Record<string, unknown> = {
   "network-theory": networkTheorySources,
   "oop": oopSources,
   "operating-systems": operatingSystemsSources,
+  "petroleum-geology": petroleumGeologySources,
+  "petroleum-production": petroleumProductionSources,
+  "petroleum-refining": petroleumRefiningSources,
   "power-electronics": powerElectronicsSources,
   "power-systems": powerSystemsSources,
   "pps": ppsSources,
   "process-calculations": processCalculationsSources,
   "process-control": processControlSources,
+  "reservoir-engineering": reservoirEngineeringSources,
   "signals-systems": signalsSystemsSources,
   "software-engineering": softwareEngineeringSources,
   "strength-of-materials": strengthOfMaterialsSources,
@@ -179,4 +196,5 @@ export const sourceFiles: Record<string, unknown> = {
   "transportation-engineering": transportationEngineeringSources,
   "vlsi": vlsiSources,
   "web-technologies": webTechnologiesSources,
+  "well-logging": wellLoggingSources,
 };

@@ -1,0 +1,101 @@
+{
+  "id": "petroleum-production",
+  "name": "Petroleum Production Engineering",
+  "field": "Petroleum Engineering",
+  "tier": "sourced",
+  "branches": ["petro"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.Tech Petroleum Engineering (R2017): PE8701 Petroleum Production Engineering",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/03.Petrol%20Engg.pdf",
+    "note": "All units of PE8701."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "well-performance",
+      "name": "Well Performance",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "productivity-index-ipr",
+          "name": "Productivity index and inflow performance (IPR)"
+        },
+        {
+          "id": "skin-damage",
+          "name": "Near-wellbore damage and the skin factor",
+          "requires": ["productivity-index-ipr"]
+        },
+        {
+          "id": "perforation-completion",
+          "name": "Perforation and well completion",
+          "requires": ["skin-damage"]
+        },
+        {
+          "id": "horizontal-well-production",
+          "name": "Horizontal well production",
+          "requires": ["productivity-index-ipr"]
+        },
+        {
+          "id": "gas-well-deliverability",
+          "name": "Gas well deliverability and natural gas properties",
+          "requires": ["productivity-index-ipr"]
+        },
+        {
+          "id": "production-system-analysis",
+          "name": "Production system (nodal) analysis: inflow and outflow",
+          "requires": ["productivity-index-ipr"]
+        }
+      ]
+    },
+    {
+      "id": "lift",
+      "name": "Artificial Lift",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "artificial-lift-overview",
+          "name": "Why artificial lift: natural flow and its limits",
+          "requires": ["productivity-index-ipr"]
+        },
+        {
+          "id": "sucker-rod-pump",
+          "name": "Sucker-rod (beam) pumping",
+          "requires": ["artificial-lift-overview"]
+        },
+        {
+          "id": "gas-lift-esp",
+          "name": "Gas lift and electric submersible pumps",
+          "requires": ["artificial-lift-overview"]
+        }
+      ]
+    },
+    {
+      "id": "surface",
+      "name": "Surface Facilities and Flow Assurance",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "wellhead-christmas-tree",
+          "name": "Wellheads and Christmas trees"
+        },
+        {
+          "id": "separators",
+          "name": "Oil–gas separators and stage separation",
+          "requires": ["wellhead-christmas-tree"]
+        },
+        {
+          "id": "flow-assurance",
+          "name": "Production chemistry: wax, scale, hydrates and emulsions",
+          "requires": ["separators"]
+        },
+        {
+          "id": "stimulation",
+          "name": "Well stimulation: acidising and hydraulic fracturing",
+          "requires": ["skin-damage"]
+        }
+      ]
+    }
+  ]
+}

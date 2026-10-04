@@ -1,0 +1,108 @@
+{
+  "id": "reservoir-engineering",
+  "name": "Reservoir Engineering",
+  "field": "Petroleum Engineering",
+  "tier": "sourced",
+  "branches": ["petro"],
+  "semesters": [3, 5, 6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.Tech Petroleum Engineering (R2017): PE8301 Reservoir Rocks and Fluid Properties, PE8503 Reservoir Engineering I and PE8603 Reservoir Engineering II",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/03.Petrol%20Engg.pdf",
+    "note": "Rock and fluid properties (PE8301), material balance and reserves (PE8503), recovery and well testing (PE8603)."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "rock-properties",
+      "name": "Reservoir Rock Properties",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "porosity",
+          "name": "Porosity"
+        },
+        {
+          "id": "permeability-darcy-res",
+          "name": "Permeability and Darcy's law",
+          "requires": ["porosity"]
+        },
+        {
+          "id": "saturation-capillary",
+          "name": "Fluid saturation, capillary pressure and wettability",
+          "requires": ["porosity"]
+        },
+        {
+          "id": "relative-permeability",
+          "name": "Relative permeability",
+          "requires": ["permeability-darcy-res", "saturation-capillary"]
+        }
+      ]
+    },
+    {
+      "id": "fluid-properties",
+      "name": "Reservoir Fluid Properties",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "reservoir-fluid-types",
+          "name": "Oil, gas and condensate reservoirs; phase behaviour"
+        },
+        {
+          "id": "formation-volume-factor",
+          "name": "Formation volume factor and solution gas–oil ratio",
+          "requires": ["reservoir-fluid-types"]
+        },
+        {
+          "id": "gas-z-factor",
+          "name": "Natural gas properties and the z-factor",
+          "requires": ["reservoir-fluid-types"]
+        }
+      ]
+    },
+    {
+      "id": "reserves-mbe",
+      "name": "Reserves and Material Balance",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "ooip-volumetric",
+          "name": "Volumetric estimation of oil in place",
+          "requires": ["formation-volume-factor"]
+        },
+        {
+          "id": "material-balance-res",
+          "name": "The material balance equation and drive mechanisms",
+          "requires": ["ooip-volumetric"]
+        },
+        {
+          "id": "decline-curves",
+          "name": "Production decline curve analysis",
+          "requires": ["material-balance-res"]
+        }
+      ]
+    },
+    {
+      "id": "recovery",
+      "name": "Recovery and Well Testing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "waterflooding",
+          "name": "Waterflooding and sweep efficiency",
+          "requires": ["relative-permeability"]
+        },
+        {
+          "id": "eor-methods",
+          "name": "Enhanced oil recovery: chemical, gas and thermal",
+          "requires": ["waterflooding"]
+        },
+        {
+          "id": "well-testing",
+          "name": "Well testing: drawdown and build-up tests",
+          "requires": ["permeability-darcy-res"]
+        }
+      ]
+    }
+  ]
+}
