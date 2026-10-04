@@ -13,15 +13,24 @@ Notes:
 - Run 3 (prompt .4) result: em 79.8% (one lesson failed: invalid JSON after 3 tries, counted as 0), engg-math 88.5%. The free Gemini quota ran out during the run (42 rate-limit messages): five topics took ~450 s and their fact-check, including the new completeness pass, never ran ("sourced 0/n"). Where it ran it worked (the power-factor lesson gained "power factor = cos(φ)"). After allowing brackets in the cos φ pattern, run 3 re-scores at em 83.2% and engg-math 88.5%.
 - Status: neither subject has passed the 95% gate yet, so both stay "sourced". Next: re-run once the daily quota resets (so every topic gets its fact-check), then look at the remaining real gaps (e.g. the line/sheet results in Gauss's-law applications, X_L = X_C at resonance).
 
-| Date       | Subject   | Level · length           | Topics | Key facts             | Valid lessons | Visuals (issues) | Prompt       | Model                             |
-| ---------- | --------- | ------------------------ | ------ | --------------------- | ------------- | ---------------- | ------------ | --------------------------------- |
-| 2026-10-02 | em        | first-encounter · 10 min | 40     | **71.4%** (119 facts) | 40/40         | 55 (0)           | 2026-10-03.2 | gemini-flash-latest (+ fallbacks) |
-| 2026-10-02 | engg-math | first-encounter · 10 min | 18     | **78.8%** (52 facts)  | 18/18         | 26 (0)           | 2026-10-03.2 | gemini-flash-latest (+ fallbacks) |
-| 2026-10-03 | em        | first-encounter · 10 min | 40     | **79.8%** (119 facts) | 40/40         | 51 (0)           | 2026-10-03.3 | gemini-flash-latest (+ fallbacks) |
-| 2026-10-03 | engg-math | first-encounter · 10 min | 18     | **76.9%** (52 facts)  | 18/18         | 21 (0)           | 2026-10-03.3 | gemini-flash-latest (+ fallbacks) |
-| 2026-10-03 | em        | first-encounter · 10 min | 40     | **79.8%** (119 facts) | 39/40         | 60 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
-| 2026-10-03 | engg-math | first-encounter · 10 min | 18     | **88.5%** (52 facts)  | 18/18         | 27 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
-| 2026-10-04 | applied-physics | first-encounter · 10 min | 16 | **97.2%** (36 facts) | 16/16 | 22 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
-| 2026-10-04 | engg-chemistry | first-encounter · 10 min | 15 | **97.2%** (36 facts) | 15/15 | 31 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
-| 2026-10-04 | basic-electrical | first-encounter · 10 min | 13 | **88.5%** (26 facts) | 12/13 | 25 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
-| 2026-10-04 | basic-electronics | first-encounter · 10 min | 13 | **96.6%** (29 facts) | 13/13 | 23 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| Date       | Subject               | Level · length           | Topics | Key facts             | Valid lessons | Visuals (issues) | Prompt       | Model                             |
+| ---------- | --------------------- | ------------------------ | ------ | --------------------- | ------------- | ---------------- | ------------ | --------------------------------- |
+| 2026-10-02 | em                    | first-encounter · 10 min | 40     | **71.4%** (119 facts) | 40/40         | 55 (0)           | 2026-10-03.2 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-02 | engg-math             | first-encounter · 10 min | 18     | **78.8%** (52 facts)  | 18/18         | 26 (0)           | 2026-10-03.2 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-03 | em                    | first-encounter · 10 min | 40     | **79.8%** (119 facts) | 40/40         | 51 (0)           | 2026-10-03.3 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-03 | engg-math             | first-encounter · 10 min | 18     | **76.9%** (52 facts)  | 18/18         | 21 (0)           | 2026-10-03.3 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-03 | em                    | first-encounter · 10 min | 40     | **79.8%** (119 facts) | 39/40         | 60 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-03 | engg-math             | first-encounter · 10 min | 18     | **88.5%** (52 facts)  | 18/18         | 27 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | applied-physics       | first-encounter · 10 min | 16     | **97.2%** (36 facts)  | 16/16         | 22 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | engg-chemistry        | first-encounter · 10 min | 15     | **97.2%** (36 facts)  | 15/15         | 31 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | basic-electrical      | first-encounter · 10 min | 13     | **88.5%** (26 facts)  | 12/13         | 25 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | basic-electronics     | first-encounter · 10 min | 13     | **96.6%** (29 facts)  | 13/13         | 23 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | engg-mechanics        | first-encounter · 10 min | 13     | **83.3%** (24 facts)  | 11/13         | 21 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | engg-mechanics        | first-encounter · 10 min | 13     | **100%** (24 facts)   | 13/13         | 21 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | engg-graphics         | first-encounter · 10 min | 13     | **84.6%** (26 facts)  | 12/13         | 17 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | pps                   | first-encounter · 10 min | 13     | **100%** (30 facts)   | 13/13         | 25 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | environmental-science | first-encounter · 10 min | 12     | **96%** (25 facts)    | 12/12         | 33 (1)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | engg-graphics         | first-encounter · 10 min | 13     | **92.3%** (26 facts)  | 13/13         | 19 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | basic-electrical      | first-encounter · 10 min | 13     | **96.2%** (26 facts)  | 13/13         | 27 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+
+**2026-10-04, Wave 1 notes (V3 · Step 7):** Engineering Mechanics was re-run (`--fresh`) after a pipeline fix: two lessons had failed only because a visual never became valid; the final attempt now drops such a visual instead of failing the whole lesson. Engineering Graphics (1 lesson: invalid JSON three times) and Basic Electrical (1 lesson) had their failed lessons regenerated once with `--retry-failed`; lessons that generated but missed facts were never re-run. Remaining misses: standing-waves "half-wavelength spacing", nanomaterials "1–100 nm", BJT "emitter most heavily doped", first/third-angle projection (2 facts), energy pyramid "upright". A sourced chart in the deforestation lesson showed a number not in its source; such charts are now repaired or removed during generation.

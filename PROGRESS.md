@@ -5,10 +5,11 @@ Update this after every step so any person or AI tool can pick up the work.
 ## Current state (resume here)
 
 - **Mode:** AUTONOMOUS (user, 2026-10-04: "keep going step after step without confirmation… run tests on your own and move to the next step") on branch `overnight-v2.5-v3`. Status for the user goes in `MORNING_REPORT.md`.
-- **Version / step:** V3 · Step 7 (Wave 1 visuals and widgets, then Wave 1 eval): HALF-DONE.
-- **Finished:** all of V2.5; concept map fix (tag `concept-map-fix`); V3 · Steps 2–6 (tags `v3-step-2` … `v3-step-6`).
-- **Half-done:** Step 7: 29 Wave 1 widgets, PhET map, gallery and golden sets (8 subjects, 232 quoted facts, all quotes checked) are committed. Wave 1 eval: Applied Physics 97.2%, Engineering Chemistry 97.2%, Basic Electronics 96.6%, Basic Electrical 88.5% (12/13 lessons valid) are recorded. Not yet run: engg-mechanics, engg-graphics, pps, environmental-science. The background run was stopped by the system (computer low on memory); it is NOT restarted automatically: wait for the user.
-- **Next action:** with the user's go-ahead, run `npm run eval -- --subject=<id>` for the four remaining subjects one at a time (finished topics are skipped). Then set tiers (≥95% verified, ≥85% tested) after the three-sample check, write the Step 7 report, commit and tag `v3-step-7`, then Step 8 (Wave 2: AICTE CSE curriculum downloaded; ECE in aicte-ece.txt; SE/AI/ML/Web need an AICTE-model university syllabus, e.g. AKTU).
+- **Version / step:** V3 · Step 8 (Wave 2: CE, IT, ICT, ECE: 21 subjects; syllabus, grounding, widgets, golden sets, eval): not started.
+- **Finished:** all of V2.5; concept map fix (tag `concept-map-fix`); V3 · Steps 2–7 (tags `v3-step-2` … `v3-step-7`). Wave 1: 7 subjects `verified`, Engineering Graphics `tested`.
+- **Half-done:** none.
+- **Next action:** Step 8. Sources: AICTE CSE model curriculum (IIIT Delhi copy of AICTE2018-CSE-Curriculum.pdf: DSA, Discrete Maths, COA, OS, DAA, DBMS, Automata, OOP, Compilers, Networks), the ECE model curriculum (aicte-ece.txt), and an AICTE-model university syllabus for Software Engineering, Web Technologies and AI/ML (e.g. AKTU). Then Steps 9–11, then a full polish pass (user, 2026-10-04: "keep going till you finish v3 entirely then also polish all the work"). Polish list so far: accuracy table cramped at 375px (use cards); the "Sourced" tier text says the test isn't finished, wrong for E&M and Engineering Maths (measured, facts not quoted yet).
+- **Eval on this computer:** run one subject at a time in the foreground (`npm run eval -- --subject=<id>`); a long background run was once stopped by the system for low memory.
 - **Running commands:** none.
 - **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` when quota allows.
 - **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, continue from "Next action". Finish half-done work first; never restart a finished step.
@@ -83,7 +84,7 @@ Step protocol: one step at a time with a "✅ Check this" block in MORNING_REPOR
 | 4    | Other subjects (custom non-core subjects, outline from material, theory-style lessons)             | ✅ Done        |
 | 5    | Accuracy scaffolding (`tested` tier, sourced golden sets, resumable eval, numeric and code checks) | ✅ Done        |
 | 6    | Wave 1 syllabus and grounding (incl. complete Applied Physics)                                     | ✅ Done        |
-| 7    | Wave 1 visuals and widgets, Wave 1 eval                                                            | ⬜ Not started |
+| 7    | Wave 1 visuals and widgets, Wave 1 eval                                                            | ✅ Done        |
 | 8    | Wave 2 (CE/IT/ICT/ECE) syllabus, visuals, eval                                                     | ⬜ Not started |
 | 9    | Wave 3 (Electrical, Mechanical, Civil)                                                             | ⬜ Not started |
 | 10   | Wave 4 (Chemical, Petroleum, others at `sourced`)                                                  | ⬜ Not started |

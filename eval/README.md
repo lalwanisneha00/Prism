@@ -4,14 +4,15 @@ Accuracy measurement (SPEC §6.1, §12.3). Each subject's golden set (`golden/<s
 
 ## Commands
 
-| Command                                  | What it does                                                                  |
-| ---------------------------------------- | ----------------------------------------------------------------------------- |
-| `npm run eval`                           | Every subject with a golden set (needs `GEMINI_API_KEY`)                      |
-| `npm run eval -- --subject=em`           | One subject                                                                   |
-| `npm run eval -- --max-topics=10`        | At most 10 new topics this run (spread a subject over several days)           |
-| `npm run eval -- --fresh`                | Ignore saved progress                                                         |
-| `npm run eval -- --fake`                 | Dry run with the fake AI (checks the harness, no quota)                       |
-| `npm run golden:check [-- --subject=em]` | Checks every fact's source quote is on its page; prints 3 samples per subject |
+| Command                                  | What it does                                                                   |
+| ---------------------------------------- | ------------------------------------------------------------------------------ |
+| `npm run eval`                           | Every subject with a golden set (needs `GEMINI_API_KEY`)                       |
+| `npm run eval -- --subject=em`           | One subject                                                                    |
+| `npm run eval -- --max-topics=10`        | At most 10 new topics this run (spread a subject over several days)            |
+| `npm run eval -- --fresh`                | Ignore saved progress                                                          |
+| `npm run eval -- --retry-failed`         | Regenerate only lessons that failed to generate (counted as misses until then) |
+| `npm run eval -- --fake`                 | Dry run with the fake AI (checks the harness, no quota)                        |
+| `npm run golden:check [-- --subject=em]` | Checks every fact's source quote is on its page; prints 3 samples per subject  |
 
 ## Resuming (SPEC §12.7)
 

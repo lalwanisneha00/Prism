@@ -14,6 +14,7 @@ import {
 } from "@/lib/prompts/lessonPrompt";
 import { parseLesson, SectionSchema, type Lesson, type Link, type Source } from "@/lib/schema";
 import { dropBadVisuals, findVisualProblems } from "@/visuals/visualChecks";
+import { dropUnsupportedCharts, sourcedNumberProblems } from "@/visuals/generic/sourcedNumbers";
 
 export type GenerateFn = (options: GenerateOptions) => Promise<string>;
 
@@ -121,6 +122,33 @@ function wrapShortAnswers(body: unknown): unknown {
 }
 
 /** Only the fact-check pass may set a section's Sourced/Verify badge, never the writer. */
+/**
+ * Last-chance rescue: when the only schema problems left are inside sections' visuals
+ * ("sections.2.visual.sets: …"), drop those visuals. A visual is optional, so the lesson is
+ * still complete; the student just doesn't get that one picture. Returns null when other
+ * problems remain.
+ */
+export function withoutBrokenVisuals(candidate: unknown, problems: string[]): unknown | null {
+  const broken = new Set<number>();
+  for (const p of problems) {
+    const m = /^sections\.(\d+)\.visual\b/.exec(p);
+    if (!m) return null;
+    broken.add(Number(m[1]));
+  }
+  if (broken.size === 0 || !candidate || typeof candidate !== "object") return null;
+  const sections = (candidate as { sections?: unknown }).sections;
+  if (!Array.isArray(sections)) return null;
+  return {
+    ...candidate,
+    sections: sections.map((section, i) => {
+      if (!broken.has(i) || !section || typeof section !== "object") return section;
+      const copy = { ...(section as Record<string, unknown>) };
+      delete copy.visual;
+      return copy;
+    }),
+  };
+}
+
 function withoutSelfAwardedBadge(section: unknown): unknown {
   if (!section || typeof section !== "object") return section;
   const copy = { ...(section as Record<string, unknown>) };
@@ -148,6 +176,8 @@ export async function generateLesson(
   const meta = lessonMeta(request, sources, now());
   let currentPrompt = prompt;
   let lastProblems: string[] = [];
+  // Source excerpts by id: "sourced" chart numbers must be traceable to them.
+  const excerpts = Object.fromEntries(sources.map((s) => [s.id, s.excerpt ?? ""]));
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     emit(
@@ -207,11 +237,12 @@ export async function generateLesson(
       const problems = [
         ...findMathErrors(result.lesson),
         ...findVisualProblems(result.lesson),
+        ...sourcedNumberProblems(result.lesson, excerpts),
         ...findAnswerProblems(result.lesson.workedExamples),
       ];
       if (problems.length === 0) return result.lesson;
       if (attempt === maxAttempts) {
-        const lesson = dropBadVisuals(result.lesson);
+        const lesson = dropUnsupportedCharts(dropBadVisuals(result.lesson), excerpts);
         return { ...lesson, workedExamples: dropFailedChecks(lesson.workedExamples) };
       }
       lastProblems = problems;
@@ -219,6 +250,14 @@ export async function generateLesson(
       continue;
     }
 
+    if (attempt === maxAttempts) {
+      const rescued = withoutBrokenVisuals(candidate, result.problems);
+      const retry = rescued ? parseLesson(rescued) : null;
+      if (retry?.ok) {
+        const lesson = dropUnsupportedCharts(dropBadVisuals(retry.lesson), excerpts);
+        return { ...lesson, workedExamples: dropFailedChecks(lesson.workedExamples) };
+      }
+    }
     lastProblems = result.problems;
     currentPrompt = buildRepairPrompt(prompt, reply, lastProblems);
   }

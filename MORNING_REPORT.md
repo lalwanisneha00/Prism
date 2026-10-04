@@ -4,8 +4,8 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 
 ## Summary
 
-- **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`), the concept map fix (`concept-map-fix`), V3 · Steps 2–6 (`v3-step-2` … `v3-step-6`).
-- **Not started:** V3 · Steps 7–11 (the syllabus waves, my-own-syllabus matching, final regression and deploy).
+- **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`), the concept map fix (`concept-map-fix`), V3 · Steps 2–7 (`v3-step-2` … `v3-step-7`).
+- **Not started:** V3 · Steps 8–11 (the syllabus waves, my-own-syllabus matching, final regression and deploy).
 
 ## How to see it
 
@@ -14,6 +14,84 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 - Automated checks: `npm run check`, `npm run build`, `npm run test:e2e` (Playwright, uses the fake AI, no quota). On a computer short of memory: `LLM_PROVIDER=fake npx next build`, then `E2E_SERVER=start npx playwright test --project=desktop-light` (and the other modes one at a time).
 
 ## Finished steps and "✅ Check this"
+
+### V3 · Step 7: Wave 1 visuals, widgets and eval (tag `v3-step-7`)
+
+**Built:**
+
+- **29 new hand-coded widgets** for the first-year subjects, each tested (pure maths in `src/visuals/wave1/*Models.ts` with unit tests) and listing the exact topics it fits: damped/driven oscillator, standing waves, slit and grating patterns, particle in a box; Beer–Lambert, water phase diagram, Nernst cell; three-phase supply, RC/RL transients, transformer efficiency, induction-motor torque–slip; diode and rectifiers, BJT load line, op-amp, logic gates with full adder; force resultant, incline with friction, projectile; conics by eccentricity, cycloid/epicycloid/hypocycloid/involute, orthographic views; sorting step-through, binary search, recursion tree; energy pyramid, population growth, rainwater harvesting; complex mapping (with the Cauchy–Riemann check) and the residue theorem. All appear on `/dev/visuals` under "First-year subjects".
+- **PhET map extended** with 22 more simulations (each checked to exist): pendulum, springs, waves, interference, bending light, blackbody, hydrogen atom, gas properties, projectile, forces, energy skate park, balancing act, Beer's law, molecule shapes and polarity, states of matter, pH, greenhouse effect, natural selection…
+- **Golden sets for all 8 new subjects:** 108 topics, 232 key facts, every fact copied from a fetched source page (`eval/find-quotes.ts` prints the page's sentences; facts were chosen only from those), every quote checked by `npm run golden:check`, and every pattern checked not to match an unrelated lesson.
+- **Wave 1 eval (live Gemini):** Applied Physics 97.2%, Engineering Chemistry 97.2%, Basic Electronics 96.6%, Basic Electrical 96.2%, Environmental Science 96%, Engineering Mechanics 100%, Programming for Problem Solving 100% → **verified**; Engineering Graphics 92.3% → **tested**. Details and caveats in `EVAL_LOG.md`.
+- **Two pipeline fixes found by the eval:** (1) a visual that never becomes valid is now dropped on the last attempt instead of failing the whole lesson; (2) a chart marked "sourced" whose numbers are not in its source excerpt is sent back to the AI and removed if it stays wrong (it never shows made-up "real" statistics). `npm run eval -- --retry-failed` regenerates only lessons that failed to generate.
+
+**Three sample facts per subject (please spot-check):**
+
+```
+applied-physics: 16 topics, 36 facts, 36 with a source quote
+  sample · simple-harmonic-motion · Restoring force proportional to displacement, towards equilibrium
+    “restoring force whose magnitude is directly proportional to the distance of the object from an equilibrium position”
+  sample · simple-harmonic-motion · The motion is sinusoidal in time
+    “The motion is sinusoidal in time”
+  sample · damped-oscillations · Underdamped, critically damped and overdamped cases
+    “underdamped (ζ < 1) through critically damped (ζ = 1) to overdamped (ζ > 1)”
+basic-electrical: 13 topics, 26 facts, 26 with a source quote
+  sample · kirchhoffs-laws-bee · KCL: current into a node equals current out (algebraic sum zero)
+    “the sum of currents flowing into that node is equal to the sum of currents flowing out of that node”
+  sample · kirchhoffs-laws-bee · KVL: the sum of voltages around a closed loop is zero
+    “The directed sum of the potential differences (voltages) around any closed loop is zero”
+  sample · thevenin-norton · Any linear network → one voltage source in series with one resistance
+    “the theorem allows any one-port network to be reduced to a single voltage source and a single impedance”
+basic-electronics: 13 topics, 29 facts, 29 with a source quote
+  sample · pn-junction-diode · A diode conducts mainly in one direction (forward), blocking reverse
+    “conducts electric current primarily in one direction”
+  sample · pn-junction-diode · Significant current only above the forward (cut-in) voltage
+    “having a forward threshold voltage or turn-on voltage or cut-in voltage”
+  sample · pn-junction-diode · In reverse, current rises suddenly at the breakdown voltage
+    “when the reverse voltage across the diode reaches a value called the breakdown voltage”
+engg-chemistry: 15 topics, 36 facts, 36 with a source quote
+  sample · spectroscopy-principles · Absorbance is proportional to concentration
+    “the amount of light that a solution absorbs is directly proportional to the solution's concentration”
+  sample · spectroscopy-principles · ...and to the path length
+    “to the optical path length through the sample and absorptivity of the species”
+  sample · nernst-equation · E is related to the standard potential E°
+    “is the standard half-cell reduction potential”
+engg-graphics: 13 topics, 26 facts, 26 with a source quote
+  sample · projection-principles · Orthographic projection: parallel projectors perpendicular to the plane
+    “all the projection lines are orthogonal to the projection plane”
+  sample · projection-principles · Represents a 3D object in 2D views
+    “is a means of representing three-dimensional objects in two dimensions”
+  sample · projection-of-points · First-angle and third-angle projection
+    “The views are positioned relative to each other according to either of two schemes: first-angle or third-angle projection”
+engg-mechanics: 13 topics, 24 facts, 24 with a source quote
+  sample · equilibrium-coplanar · Lami's theorem: three coplanar concurrent forces in equilibrium, each ∝ sine of the opposite angle
+    “relating the magnitudes of three coplanar, concurrent and non-collinear force vectors, which keeps an object in static equilibrium”
+  sample · equilibrium-coplanar · Uses the angles directly opposite each force
+    “with the angles directly opposite to the corresponding vectors”
+  sample · moments-couples · A couple: two equal, opposite, non-collinear forces
+    “a couple is a pair of forces that are equal in magnitude but opposite in their direction of action”
+environmental-science: 12 topics, 25 facts, 25 with a source quote
+  sample · ecosystem-concept · An ecosystem links biotic (living) and abiotic (non-living) components
+    “the biotic and abiotic components are linked together through nutrient cycles and energy flows”
+  sample · ecosystem-concept · Energy enters through photosynthesis by plants
+    “Plants allow energy to enter the system through photosynthesis”
+  sample · energy-flow-food-chains · A food chain starts with a producer (autotroph)
+    “often beginning with an autotroph (such as grass or algae), also called a producer”
+pps: 13 topics, 30 facts, 30 with a source quote
+  sample · algorithms-flowcharts · An algorithm is a finite, well-defined set of steps that solves a problem
+    “any well-defined set of instructions that when followed terminates after a finite number of steps”
+  sample · algorithms-flowcharts · A flowchart shows the steps as boxes connected by arrows
+    “The flowchart shows the steps as boxes of various kinds, and their order by connecting the boxes with arrows”
+  sample · computer-system-components · A compiler translates source code (high-level) into machine/object code
+    “translate source code from a high-level programming language to a low-level programming language”
+```
+
+**✅ Check this**
+
+- http://localhost:3000/dev/visuals#wave1: drag the sliders on the oscillator, three-phase supply and phase diagram; step through bubble sort; toggle the logic-gate inputs.
+- http://localhost:3000/accuracy: seven first-year subjects show "✓ Verified subject", Engineering Graphics "🧪 Tested subject".
+- Open a lesson on Basic Electrical → "Three-phase circuits" → any topic (real Gemini): a three-phase widget can appear.
+- Edge case: on a 375px phone the widgets fit without sideways scrolling (the accuracy table scrolls sideways; on the polish list).
 
 ### V3 · Step 6: Wave 1 syllabus and grounding (tag `v3-step-6`)
 
@@ -220,7 +298,7 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Needs Sneha
 
-- Wave 1 subjects start at `sourced`. Their golden sets (facts with fetched quotes) and evals come in Step 7; three sample entries per subject will be listed here before each eval runs.
+- Wave 1 tiers were set from the measured scores without waiting for your review (you asked me not to wait). Please glance at the three sample facts per subject under Step 7; if any looks wrong, tell me and I'll fix the golden set and re-run that subject.
 
 - Wave 1 syllabus sources used: [AICTE Model Curriculum Vol. I](https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf), [GCE Kalahandi first-year syllabus (AICTE model)](https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf), [IET Lucknow K-series first year (AICTE model)](https://ietlucknow.ac.in/sites/default/files/syllabus/K_Series_B_Tech_1st_Year_AICTE_Model_Curriculum_EFS_2020_21_4.pdf), [UGC Environmental Studies core module](https://www.ugc.gov.in/pdfnews/2269552_environmentalstudies.pdf). If your college follows a different university syllabus, Step 11 ("my own syllabus") will match it to these topics.
 
@@ -239,6 +317,7 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Pauses
 
+- 2026-10-04: Wave 1 eval run stopped by the system (low memory) after 4 subjects; resumed in the foreground on your instruction.
 - 2026-10-04: paused after V3 · Step 4 at your request; concept map fix built and checked by you; resumed autonomously from Step 5 on your instruction.
 
 - 2026-10-04 02:36: run started.
@@ -247,4 +326,4 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Next action
 
-V3 · Step 7: Wave 1 visuals and widgets, then the Wave 1 eval.
+V3 · Step 8: Wave 2 (CE, IT, ICT, ECE).

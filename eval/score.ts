@@ -1,5 +1,6 @@
 import { z } from "zod";
 import type { Lesson } from "@/lib/schema";
+import { unsupportedSourcedNumbers } from "@/visuals/generic/sourcedNumbers";
 
 /*
  * Scoring for the golden set (SPEC §6.5). A fact counts as "stated" when its pattern
@@ -114,14 +115,6 @@ export function scoreLesson(lesson: Lesson, entry: GoldenTopic): TopicScore {
   return { topic: entry.topic, found, missing };
 }
 
-/** Every number written in a text (plain decimals and 1.5e3 / 1.5 × 10^3 forms). */
-function numbers(text: string): number[] {
-  const t = text.replace(/\\times|×/g, "x").replace(/[{}$\\]/g, "");
-  return [...t.matchAll(/(-?\d+(?:\.\d+)?)(?:\s*x\s*10\^\s*\(?(-?\d+)\)?|e(-?\d+))?/gi)].map(
-    (m) => Number(m[1]) * 10 ** Number(m[2] ?? m[3] ?? 0),
-  );
-}
-
 export type VisualReport = {
   /** Sections with a visual. */
   visuals: number;
@@ -140,25 +133,9 @@ export function visualReport(
   problems: string[],
   excerpts: Record<string, string>,
 ): VisualReport {
-  const text = numbers(lessonText(lesson));
-  const unsupported: string[] = [];
-  for (const section of lesson.sections) {
-    const v = section.visual;
-    if (!v || (v.type !== "chart" && v.type !== "stats") || v.data !== "sourced") continue;
-    const source = numbers(excerpts[v.sourceId ?? ""] ?? "");
-    const shown =
-      v.type === "chart"
-        ? [
-            ...(v.series ?? []).flatMap((s) => s.values),
-            ...(v.scatter ?? []).flatMap((s) => s.points.flatMap((p) => [p.x, p.y])),
-            ...(v.bins ?? []).map((b) => b.count),
-          ]
-        : (v.points ?? []).flatMap((p) => [p.x, p.y]);
-    for (const n of shown) {
-      const close = (m: number) => Math.abs(m - n) <= 1e-6 + Math.abs(n) * 0.005;
-      if (!text.some(close) && !source.some(close)) unsupported.push(`${section.id}: ${n}`);
-    }
-  }
+  const unsupported = unsupportedSourcedNumbers(lesson, excerpts).flatMap((u) =>
+    u.numbers.map((n) => `${u.sectionId}: ${n}`),
+  );
   return {
     visuals: lesson.sections.filter((s) => s.visual).length,
     invalid: problems,

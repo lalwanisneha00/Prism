@@ -99,6 +99,19 @@ describe("generateLesson", () => {
     );
   });
 
+  it("drops a visual that never becomes valid instead of failing the whole lesson", async () => {
+    const body = JSON.parse(goodReply) as { sections: Record<string, unknown>[] };
+    body.sections[0] = {
+      ...body.sections[0],
+      visual: { type: "compare", style: "venn", sets: [], caption: "Broken Venn" },
+    };
+    const broken = JSON.stringify(body);
+    const { lesson, prompts } = await run(() => broken);
+    expect(prompts).toHaveLength(3);
+    expect(lesson.sections).toHaveLength(5);
+    expect(lesson.sections[0].visual).toBeUndefined();
+  });
+
   it("builds a prompt that lists only the topic's sources and the level's approach", async () => {
     const { prompts } = await run(() => goodReply);
     for (const s of sources) expect(prompts[0]).toContain(`id: ${s.id}`);

@@ -10,6 +10,7 @@
  *   npm run eval -- --fake                    dry run with the fake AI (checks the harness)
  *   npm run eval -- --max-topics=10           at most 10 new topics this run (quota-friendly)
  *   npm run eval -- --fresh                   ignore saved progress and start again
+ *   npm run eval -- --retry-failed            regenerate only lessons that failed to generate
  *
  * Resumable (SPEC §12.7): each topic's result is saved as soon as it is done, in
  * eval/results/progress/. A rerun skips finished topics. On a rate limit it waits (30 s, 60 s,
@@ -137,6 +138,10 @@ async function runSet(set: Golden): Promise<{ percent: number; rows: Row[]; comp
   );
   const rows: Row[] = [];
   const done = loadProgress(set.subject);
+  // --retry-failed: lessons that failed to generate (not ones that missed facts) get one more go.
+  if (args["retry-failed"] === "true") {
+    for (const t of topics) if (done[t.topic] && !done[t.topic].valid) delete done[t.topic];
+  }
   const already = topics.filter((t) => done[t.topic]).length;
   if (already) console.log(`Resuming: ${already} of ${topics.length} topics already done.\n`);
 
