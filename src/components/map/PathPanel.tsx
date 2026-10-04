@@ -8,8 +8,8 @@ import type { TopicStatus } from "@/lib/conceptMap";
 import type { PrereqGraph } from "@/lib/graph/prereqGraph";
 import type { Subject } from "@/lib/subjects";
 
-/** A topic counts as done once its latest quiz was passed (mastered) or attempted well enough. */
-const isDone = (s: TopicStatus | undefined) => s === "mastered" || s === "tried";
+/** A topic counts as done once its latest quiz was passed (the legend's "Done"). */
+const isDone = (s: TopicStatus | undefined) => s === "mastered";
 
 export function topicLessonHref(subjectId: string, chapterId: string, topicId: string): string {
   return `/lesson?${new URLSearchParams({
