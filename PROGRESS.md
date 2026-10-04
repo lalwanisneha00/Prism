@@ -5,10 +5,10 @@ Update this after every step so any person or AI tool can pick up the work.
 ## Current state (resume here)
 
 - **Mode:** AUTONOMOUS (user, 2026-10-04: "keep going step after step without confirmation… run tests on your own and move to the next step") on branch `overnight-v2.5-v3`. Status for the user goes in `MORNING_REPORT.md`.
-- **Version / step:** V3 · Step 7 (Wave 1 visuals and widgets, then Wave 1 eval): not started.
+- **Version / step:** V3 · Step 7 (Wave 1 visuals and widgets, then Wave 1 eval): HALF-DONE.
 - **Finished:** all of V2.5; concept map fix (tag `concept-map-fix`); V3 · Steps 2–6 (tags `v3-step-2` … `v3-step-6`).
-- **Half-done:** none.
-- **Next action:** V3 · Step 7 (widgets for Wave 1 subjects and the new maths chapters; extend the widget-coverage test `WITH_WIDGETS`; Wave 1 golden sets from fetched quotes, three samples per subject shown in MORNING_REPORT before its eval; eval one subject at a time within the free quota). Browser tests: build with `LLM_PROVIDER=fake npx next build`, run `E2E_SERVER=start npx playwright test --project=<mode>` one mode at a time (memory is short on this computer). Wave 1 syllabus sources found (GCE Kalahandi and IET Lucknow AICTE-model first-year syllabi; see MORNING_REPORT).
+- **Half-done:** Step 7: 29 Wave 1 widgets, PhET map, gallery and golden sets (8 subjects, 232 quoted facts, all quotes checked) are committed. Wave 1 eval: Applied Physics 97.2%, Engineering Chemistry 97.2%, Basic Electronics 96.6%, Basic Electrical 88.5% (12/13 lessons valid) are recorded. Not yet run: engg-mechanics, engg-graphics, pps, environmental-science. The background run was stopped by the system (computer low on memory); it is NOT restarted automatically: wait for the user.
+- **Next action:** with the user's go-ahead, run `npm run eval -- --subject=<id>` for the four remaining subjects one at a time (finished topics are skipped). Then set tiers (≥95% verified, ≥85% tested) after the three-sample check, write the Step 7 report, commit and tag `v3-step-7`, then Step 8 (Wave 2: AICTE CSE curriculum downloaded; ECE in aicte-ece.txt; SE/AI/ML/Web need an AICTE-model university syllabus, e.g. AKTU).
 - **Running commands:** none.
 - **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` when quota allows.
 - **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, continue from "Next action". Finish half-done work first; never restart a finished step.

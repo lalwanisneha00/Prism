@@ -21,3 +21,7 @@ Notes:
 | 2026-10-03 | engg-math | first-encounter · 10 min | 18     | **76.9%** (52 facts)  | 18/18         | 21 (0)           | 2026-10-03.3 | gemini-flash-latest (+ fallbacks) |
 | 2026-10-03 | em        | first-encounter · 10 min | 40     | **79.8%** (119 facts) | 39/40         | 60 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
 | 2026-10-03 | engg-math | first-encounter · 10 min | 18     | **88.5%** (52 facts)  | 18/18         | 27 (0)           | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | applied-physics | first-encounter · 10 min | 16 | **97.2%** (36 facts) | 16/16 | 22 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | engg-chemistry | first-encounter · 10 min | 15 | **97.2%** (36 facts) | 15/15 | 31 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | basic-electrical | first-encounter · 10 min | 13 | **88.5%** (26 facts) | 12/13 | 25 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | basic-electronics | first-encounter · 10 min | 13 | **96.6%** (29 facts) | 13/13 | 23 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
