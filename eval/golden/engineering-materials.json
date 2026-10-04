@@ -1,0 +1,264 @@
+{
+  "description": "Key facts a correct lesson on each Engineering Materials topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "engineering-materials",
+  "topics": [
+    {
+      "topic": "material-classes-selection",
+      "chapter": "materials-classes",
+      "facts": [
+        {
+          "id": "classes",
+          "claim": "Main classes: metals, ceramics, polymers (and semiconductors, composites)",
+          "pattern": "metals[^.]{0,60}(ceramics|polymers)[^.]{0,60}(polymers|ceramics)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Materials_science",
+            "quote": "The main classes of materials are metals, semiconductors, ceramics and polymers"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "crystal-structures-defects",
+      "chapter": "materials-classes",
+      "facts": [
+        {
+          "id": "ordered",
+          "claim": "A crystal is an ordered, repeating arrangement of atoms",
+          "pattern": "(ordered|regular|repeating)[^.]{0,40}(arrangement|pattern)[^.]{0,40}atoms|lattice",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Crystal_structure",
+            "quote": "crystal structure is a description of the ordered arrangement of atoms, ions, or molecules in a crystalline material"
+          }
+        },
+        {
+          "id": "unit-cell",
+          "claim": "Described by a unit cell and lattice parameters",
+          "pattern": "unit cell|lattice (constants?|parameters?)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Crystal_structure",
+            "quote": "The lengths of principal axes/edges, of the unit cell and angles between them are lattice constants"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "tensile-test-curves",
+      "chapter": "mechanical-testing",
+      "facts": [
+        {
+          "id": "uts",
+          "claim": "Gives ultimate tensile strength, breaking strength, elongation, reduction in area",
+          "pattern": "ultimate (tensile )?strength|\\bUTS\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Tensile_testing",
+            "quote": "Properties that are directly measured via a tensile test are ultimate tensile strength, breaking strength, maximum elongation and reduction in area"
+          }
+        },
+        {
+          "id": "to-failure",
+          "claim": "A specimen is pulled in tension until it fails",
+          "pattern": "(until|till|to) (failure|fracture|break)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Tensile_testing",
+            "quote": "a sample is subjected to a controlled tension until failure"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "hardness-tests",
+      "chapter": "mechanical-testing",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Hardness = resistance to localised plastic deformation (indentation)",
+          "pattern": "resist[^.]{0,60}(indent|plastic deformation|scratch)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hardness",
+            "quote": "hardness (antonym: softness) is a measure of the resistance to localized plastic deformation"
+          }
+        },
+        {
+          "id": "types",
+          "claim": "Scratch, indentation and rebound hardness",
+          "pattern": "scratch|rebound|indentation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hardness",
+            "quote": "There are three main types of hardness measurements: scratch, indentation, and rebound"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fatigue-creep-fracture",
+      "chapter": "mechanical-testing",
+      "facts": [
+        {
+          "id": "fatigue",
+          "claim": "Fatigue: crack growth under cyclic loading",
+          "pattern": "cyclic|repeated|fluctuat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fatigue_(material)",
+            "quote": "fatigue is the initiation and propagation of cracks in a material due to cyclic loading"
+          }
+        },
+        {
+          "id": "toughness",
+          "claim": "Fast fracture when the stress intensity exceeds fracture toughness",
+          "pattern": "fracture toughness|stress intensity|critical (crack )?size",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fatigue_(material)",
+            "quote": "occurs when the stress intensity factor of the crack exceeds the fracture toughness of the material"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "phase-diagrams-lever-rule",
+      "chapter": "metals-alloys",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Shows which phases exist at given conditions; lines are phase boundaries",
+          "pattern": "phase boundar|(lines|boundaries)[^.]{0,60}(phases|coexist|equilibrium)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Phase_diagram",
+            "quote": "lines of equilibrium or phase boundaries, which refer to lines that mark conditions under which multiple phases can coexist at equilibrium"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "iron-carbon-diagram",
+      "chapter": "metals-alloys",
+      "facts": [
+        {
+          "id": "eutectoid",
+          "claim": "Austenite (γ, FCC) is stable above the eutectoid temperature 727 °C",
+          "pattern": "727|eutectoid",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Austenite",
+            "quote": "austenite exists above the critical eutectoid temperature of 1000 K (727 °C)"
+          }
+        },
+        {
+          "id": "fcc",
+          "claim": "Austenite is face-centred cubic and dissolves more carbon (up to ~2%)",
+          "pattern": "face[- ]cent(red|ered) cubic|\\bFCC\\b|2(\\.0[0-9])?\\s*%\\s*carbon",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Austenite",
+            "quote": "can dissolve considerably more carbon (as much as 2.03% by mass at 1,146 °C"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ttt-diagrams",
+      "chapter": "metals-alloys",
+      "facts": [
+        {
+          "id": "axes",
+          "claim": "TTT diagrams plot temperature against (log) time for isothermal transformation",
+          "pattern": "temperature[^.]{0,40}time|time[^.]{0,40}temperature|isothermal",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Isothermal_transformation_diagram",
+            "quote": "are plots of temperature versus time (usually on a logarithmic scale)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "steels-alloys",
+      "chapter": "metals-alloys",
+      "facts": [
+        {
+          "id": "chromium",
+          "claim": "Stainless steel has ≥ 10.5% chromium, forming a passive film",
+          "pattern": "10\\.5|chromium",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Stainless_steel",
+            "quote": "Stainless steel's resistance to corrosion comes from its chromium content of 10.5% or more"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "annealing-normalising",
+      "chapter": "heat-treatment",
+      "facts": [
+        {
+          "id": "purpose",
+          "claim": "Heat treatment alters properties by controlled heating and cooling",
+          "pattern": "(heating|heat)[^.]{0,40}cool",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Heat_treating",
+            "quote": "Heat treatment involves the use of heating or chilling, normally to extreme temperatures, to achieve the desired result, such as the softening or hardening"
+          }
+        },
+        {
+          "id": "quench",
+          "claim": "Quenching hardens; tempering, annealing and normalising are other treatments",
+          "pattern": "quench|anneal|temper|normali[sz]",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Heat_treating",
+            "quote": "Heat treatment techniques include annealing, case hardening, precipitation strengthening, tempering, carburizing, normalizing and quenching"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "case-hardening",
+      "chapter": "heat-treatment",
+      "facts": [
+        {
+          "id": "surface",
+          "claim": "Case hardening adds carbon to the surface: hard skin, tough core",
+          "pattern": "(hard)[^.]{0,30}(surface|case|skin)[^.]{0,80}(tough|soft|ductile)[^.]{0,20}core|(tough|soft)[^.]{0,20}core",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Case-hardening",
+            "quote": "combines much of the malleability and toughness of a low-carbon steel core with the hardness and resilience of the outer high-carbon steel skin"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "composites",
+      "chapter": "non-metals",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Two or more constituents with different properties combined",
+          "pattern": "two or more",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Composite_material",
+            "quote": "is a material which is produced from two or more constituent materials"
+          }
+        },
+        {
+          "id": "matrix",
+          "claim": "Matrix (binder) plus reinforcement (fibres or particles)",
+          "pattern": "matrix[^.]{0,60}(reinforc|fibre|fiber|filler)|(reinforc|fibre|fiber)[^.]{0,60}matrix",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Composite_material",
+            "quote": "made up of a binding agent forming the matrix and a filler material (particulates or fibres)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "smart-materials",
+      "chapter": "non-metals",
+      "facts": [
+        {
+          "id": "stimuli",
+          "claim": "Properties change in a controlled way with external stimuli",
+          "pattern": "stimul",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Smart_material",
+            "quote": "have one or more properties that can be significantly changed in a controlled fashion by external stim"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -24,7 +24,7 @@
         {
           "id": "surface",
           "claim": "AC current crowds near the conductor surface",
-          "pattern": "(near|at|toward)[^.]{0,20}(the )?(surface|outer)",
+          "pattern": "(near|close to|concentrated (at|near)|crowd[^.]{0,20})[^.]{0,20}(the )?(conductor\\'?s? )?(outer )?surface|outer (skin|layer)|skin depth",
           "source": {
             "url": "https://en.wikipedia.org/wiki/Skin_effect",
             "quote": "the current density is largest near the surface of the conductor"
@@ -111,7 +111,7 @@
         {
           "id": "insulator",
           "claim": "An insulator does not let current flow freely",
-          "pattern": "(does not|doesn'?t|cannot)[^.]{0,30}(conduct|flow)|high resistivity|non-?conduct",
+          "pattern": "(does not|doesn'?t|cannot)[^.]{0,20}(conduct|let current|allow current)|high resistivity|non-?conduct|(not|n't) flow freely",
           "source": {
             "url": "https://en.wikipedia.org/wiki/Insulator_(electricity)",
             "quote": "An electrical insulator is a material in which electric current does not flow freely"
@@ -270,7 +270,7 @@
         {
           "id": "i2r",
           "claim": "Halving current at double voltage cuts losses fourfold",
-          "pattern": "(I\\s*\\^?\\s*2\\s*R|square of (the )?current|factor of 4|four times|quarter)",
+          "pattern": "(I\\s*\\^?\\s*2\\s*R|square of (the )?current|factor of (4|four)|one[- ]quarter of the loss)",
           "source": {
             "url": "https://en.wikipedia.org/wiki/High-voltage_direct_current",
             "quote": "using half the current at double the voltage reduces the line losses by a factor of 4"

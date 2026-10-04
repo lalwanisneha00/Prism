@@ -1,0 +1,231 @@
+{
+  "description": "Key facts a correct lesson on each Concrete Technology and RCC Design topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "concrete-rcc-design",
+  "topics": [
+    {
+      "topic": "portland-cement-types",
+      "chapter": "concrete-ingredients",
+      "facts": [
+        {
+          "id": "clinker",
+          "claim": "Made by heating limestone and clay to clinker, ground with gypsum",
+          "pattern": "clinker|gypsum|limestone",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Portland_cement",
+            "quote": "produced by heating limestone and clay minerals in a kiln to form clinker, and then grinding the clinker with the addition of several percent"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "aggregates",
+      "chapter": "concrete-ingredients",
+      "facts": [
+        {
+          "id": "types",
+          "claim": "Aggregates: sand, gravel and crushed stone",
+          "pattern": "sand[^.]{0,40}(gravel|crushed)|gravel[^.]{0,40}sand",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Construction_aggregate",
+            "quote": "it includes natural materials such as sand, gravel, and crushed stone"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "admixtures",
+      "chapter": "concrete-ingredients",
+      "facts": [
+        {
+          "id": "wc",
+          "claim": "Superplasticisers lower the water–cement ratio without losing workability",
+          "pattern": "(water[- ]reduc|superplasticiz|superplasticis|plasticiz|plasticis)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Superplasticizer",
+            "quote": "Their addition allows to decrease the water-to-cement ratio of concrete or mortar without negatively affecting the workability"
+          }
+        },
+        {
+          "id": "strength",
+          "claim": "Lower w/c ratio gives higher strength",
+          "pattern": "(lower|decreas|reduc)[^.]{0,30}(water[- ](to[- ])?cement|w\\s*/\\s*c)[^.]{0,60}(strength|stronger)|strength[^.]{0,60}(lower|decreas)[^.]{0,30}(w\\s*/\\s*c|water)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Superplasticizer",
+            "quote": "The concrete strength increases when the water-to-cement ratio decreases"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "workability-slump",
+      "chapter": "concrete-properties",
+      "facts": [
+        {
+          "id": "slump",
+          "claim": "The slump test measures the consistency/workability of fresh concrete",
+          "pattern": "slump",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Concrete_slump_test",
+            "quote": "The concrete slump test measures the consistency of fresh concrete before it sets"
+          }
+        },
+        {
+          "id": "cone",
+          "claim": "The cone is filled in three layers",
+          "pattern": "three (layers|stages)|cone",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Concrete_slump_test",
+            "quote": "This cone is filled with fresh concrete in three stages"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "concrete-strength-durability",
+      "chapter": "concrete-properties",
+      "facts": [
+        {
+          "id": "tension",
+          "claim": "Concrete is strong in compression but weak in tension",
+          "pattern": "(strong|high)[^.]{0,30}compression[^.]{0,60}(weak|low)[^.]{0,30}tension|(weak|low)[^.]{0,20}tensile",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Concrete",
+            "quote": "this type of concrete can be formulated with high compressive strength, but always has lower ten"
+          }
+        },
+        {
+          "id": "composite",
+          "claim": "Concrete is aggregate bound by a cement paste",
+          "pattern": "aggregate[^.]{0,60}(cement|binder|paste)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Concrete",
+            "quote": "Concrete is a composite material composed of aggregate bound together with a fluid cement that cures to a solid"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "special-concretes",
+      "chapter": "concrete-properties",
+      "facts": [
+        {
+          "id": "scc",
+          "claim": "Self-compacting concrete flows into place without vibration",
+          "pattern": "(without|no) (vibrat|compact)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Self-consolidating_concrete",
+            "quote": "Self-consolidating concrete is designed to avoid this problem, and not require compaction"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "working-stress-method",
+      "chapter": "rcc-design",
+      "facts": [
+        {
+          "id": "steel-tension",
+          "claim": "Steel reinforcement takes the tension concrete cannot",
+          "pattern": "(steel|rebar|reinforcement)[^.]{0,80}(tension|tensile)|(tension|tensile)[^.]{0,80}(steel|rebar|reinforcement)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reinforced_concrete",
+            "quote": "concrete's relatively low tensile strength and ductility are compensated for by the inc"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "limit-state-method",
+      "chapter": "rcc-design",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "A limit state is a condition beyond which the structure no longer meets design criteria",
+          "pattern": "(no longer|beyond which|fails? to)[^.]{0,60}(fulfil|criteria|requirements|serviceab|function)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Limit_state_design",
+            "quote": "A limit state is a condition of a structure beyond which it no longer fulfills the relevant design criteria"
+          }
+        },
+        {
+          "id": "lrfd",
+          "claim": "Also called load and resistance factor design (partial safety factors)",
+          "pattern": "partial safety factors?|load and resistance factor|LRFD|factored load",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Limit_state_design",
+            "quote": "Limit State Design (LSD), also known as Load And Resistance Factor Design (LRFD)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rcc-beams-flexure",
+      "chapter": "rcc-design",
+      "facts": [
+        {
+          "id": "cracking",
+          "claim": "Reinforcement resists tensile stresses that would crack the concrete",
+          "pattern": "crack",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reinforced_concrete",
+            "quote": "Reinforcing schemes are generally designed to resist tensile stresses in particular regions of the concrete that might cause unacceptable cracking"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rcc-shear-bond",
+      "chapter": "rcc-design",
+      "facts": [
+        {
+          "id": "ribs",
+          "claim": "Rebar ribs and lugs improve bond with concrete",
+          "pattern": "(ribs?|deform(ed|ation)|lugs?)[^.]{0,60}bond|bond[^.]{0,60}(ribs?|deform)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rebar",
+            "quote": "Rebar surfaces feature a continuous series of ribs, lugs or indentations to promote a better bond with the concrete"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rcc-slabs-columns",
+      "chapter": "rcc-design",
+      "facts": [
+        {
+          "id": "slab",
+          "claim": "Slabs are flat horizontal elements for floors and ceilings (100–500 mm)",
+          "pattern": "floors?[^.]{0,30}(and|or)[^.]{0,10}(ceilings?|roofs?)|flat[^.]{0,30}horizontal",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Concrete_slab",
+            "quote": "consisting of a flat, horizontal surface made of cast concrete"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "prestressed-concrete",
+      "chapter": "rcc-design",
+      "facts": [
+        {
+          "id": "precompress",
+          "claim": "Pre-compression from tensioned tendons counters service tension",
+          "pattern": "(compress|pre-?compress)[^.]{0,80}(tension|tensile)|tendons?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Prestressed_concrete",
+            "quote": "It is substantially prestressed (compressed) during production, in a manner that strengthens it against tensile forces"
+          }
+        },
+        {
+          "id": "tendons",
+          "claim": "High-strength steel tendons provide the force",
+          "pattern": "high[- ](strength|tensile) (steel|tendons?|wires?|strands?)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Prestressed_concrete",
+            "quote": "This compression is produced by the tensioning of high-strength tendons"
+          }
+        }
+      ]
+    }
+  ]
+}

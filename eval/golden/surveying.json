@@ -1,0 +1,210 @@
+{
+  "description": "Key facts a correct lesson on each Surveying and Geomatics topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "surveying",
+  "topics": [
+    {
+      "topic": "surveying-principles",
+      "chapter": "survey-basics",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Surveying fixes positions of points from distances and angles",
+          "pattern": "(distances?|angles?)[^.]{0,40}(angles?|distances?)|positions? of points",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Surveying",
+            "quote": "determining the terrestrial positions of points based on the distances and angles between them"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bearings-traversing",
+      "chapter": "survey-basics",
+      "facts": [
+        {
+          "id": "bearing",
+          "claim": "Bearing is the horizontal angle from north, measured clockwise",
+          "pattern": "clockwise|from (true |magnetic )?north|(horizontal )?angle[^.]{0,40}north",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bearing_(navigation)",
+            "quote": "Absolute bearing refers to the clockwise angle between the magnetic north (magnetic bearing) or true north (true bearing) and an object"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "levelling-rise-fall",
+      "chapter": "levelling",
+      "facts": [
+        {
+          "id": "height",
+          "claim": "Levelling finds heights of points relative to a datum",
+          "pattern": "datum|bench ?mark|relative (height|elevation)|reduced level",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Levelling",
+            "quote": "measure the height of specified points relative to a d"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "levelling-errors",
+      "chapter": "levelling",
+      "facts": [
+        {
+          "id": "curv-refr",
+          "claim": "Over long sights, Earth's curvature and refraction must be corrected",
+          "pattern": "curvature[^.]{0,60}refraction|refraction[^.]{0,60}curvature",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Levelling",
+            "quote": "the curvature of the Earth, and the refraction of the instrument wave through the air must be taken into account"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "profile-contouring",
+      "chapter": "levelling",
+      "facts": [
+        {
+          "id": "equal",
+          "claim": "A contour joins points of equal elevation",
+          "pattern": "equal (elevation|height|level)|same (elevation|height|level)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Contour_line",
+            "quote": "a contour line (often just called a \"contour\") joins points of equal elevation (height)"
+          }
+        },
+        {
+          "id": "interval",
+          "claim": "Contour interval = elevation difference between successive contours",
+          "pattern": "contour interval",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Contour_line",
+            "quote": "The contour interval of a contour map is the difference in elevation between successive contour lines"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "theodolite-angles",
+      "chapter": "theodolite",
+      "facts": [
+        {
+          "id": "angles",
+          "claim": "A theodolite measures horizontal and vertical angles",
+          "pattern": "horizontal[^.]{0,30}vertical angles?|vertical[^.]{0,30}horizontal angles?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Theodolite",
+            "quote": "is a precision optical instrument for measuring angles between designated visible points in the horizontal and vertical planes"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "triangulation-trilateration",
+      "chapter": "theodolite",
+      "facts": [
+        {
+          "id": "triangulation",
+          "claim": "Triangulation fixes a point from angles at the ends of a known baseline",
+          "pattern": "baseline|base line|known side",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Triangulation_(surveying)",
+            "quote": "by measuring only angles to it from known points at either end of a fixed baseline"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "simple-curves",
+      "chapter": "theodolite",
+      "facts": [
+        {
+          "id": "degree",
+          "claim": "Degree of curve: central angle for a standard arc or chord length",
+          "pattern": "degree of (curve|curvature)|central angle|deflection angle",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Degree_of_curvature",
+            "quote": "The degree of curvature is defined as the central angle to the ends of an agreed length of either an arc or a chord"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "edm-total-station",
+      "chapter": "modern-survey",
+      "facts": [
+        {
+          "id": "combo",
+          "claim": "A total station = electronic theodolite + EDM",
+          "pattern": "(electronic )?theodolite[^.]{0,60}(EDM|distance)|EDM[^.]{0,60}(theodolite|angle)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Total_station",
+            "quote": "It is an electronic transit theodolite integrated with electronic distance measurement (EDM)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gps-gnss-survey",
+      "chapter": "modern-survey",
+      "facts": [
+        {
+          "id": "systems",
+          "claim": "GNSS includes GPS, GLONASS, BeiDou and Galileo",
+          "pattern": "GLONASS|Galileo|BeiDou|NavIC|IRNSS",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Satellite_navigation",
+            "quote": "There are four operational GNSS systems: the United States Global Positioning System (GPS), Russia's Global Navigation Satellite System (GLONASS)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "photogrammetry",
+      "chapter": "photo-remote",
+      "facts": [
+        {
+          "id": "measurement",
+          "claim": "Measurements from photographs (3D from overlapping images)",
+          "pattern": "(measure|information)[^.]{0,40}photograph|stereo",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Photogrammetry",
+            "quote": "obtaining reliable information about physical objects and the environment through the process of recording, measuring and interpreting photographic"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "remote-sensing",
+      "chapter": "photo-remote",
+      "facts": [
+        {
+          "id": "no-contact",
+          "claim": "Gathering information without physical contact",
+          "pattern": "without (making )?(physical )?contact|from a distance",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Remote_sensing",
+            "quote": "Remote sensing is the acquisition of information about an object or phenomenon without making physical contact with the object"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gis-basics",
+      "chapter": "photo-remote",
+      "facts": [
+        {
+          "id": "gis",
+          "claim": "A GIS stores, analyses and displays geographic (spatial) data",
+          "pattern": "(stor|manag|analy[sz])[^.]{0,60}(geographic|spatial)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Geographic_information_system",
+            "quote": "consists of integrated computer hardware and software that store, manage, analyze, edit, output, and visualize geographic data"
+          }
+        }
+      ]
+    }
+  ]
+}

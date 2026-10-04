@@ -1,0 +1,222 @@
+{
+  "description": "Key facts a correct lesson on each Hydraulic Engineering topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "hydraulic-engineering",
+  "topics": [
+    {
+      "topic": "laminar-flow-plates-annulus",
+      "chapter": "viscous-flow-hyd",
+      "facts": [
+        {
+          "id": "viscous-drop",
+          "claim": "Laminar pressure drop comes from viscosity (Hagen–Poiseuille)",
+          "pattern": "poiseuille|viscous",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hagen–Poiseuille_equation",
+            "quote": "Poiseuille's equation describes the pressure drop due to the viscosity of the fluid"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "laminar-turbulent-transition",
+      "chapter": "viscous-flow-hyd",
+      "facts": [
+        {
+          "id": "reynolds",
+          "claim": "Transition is governed by the Reynolds number",
+          "pattern": "reynolds",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Laminar–turbulent_transition",
+            "quote": "The main parameter characterizing transition is the Reynolds number"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "boundary-layer-separation",
+      "chapter": "viscous-flow-hyd",
+      "facts": [
+        {
+          "id": "thin",
+          "claim": "The boundary layer is a thin layer next to the surface where velocity is reduced",
+          "pattern": "thin layer|near(est)? (the )?(wall|surface)|no[- ]slip",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Boundary_layer",
+            "quote": "a boundary layer is the thin layer of fluid in the immediate vicinity of a bounding surface"
+          }
+        },
+        {
+          "id": "drag",
+          "claim": "Separation greatly increases pressure drag",
+          "pattern": "(pressure|form) drag|drag[^.]{0,30}(increase|rise|grow)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Boundary_layer",
+            "quote": "Such flow separation causes a large increase in the pressure drag"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "hydraulic-similitude",
+      "chapter": "viscous-flow-hyd",
+      "facts": [
+        {
+          "id": "dynamic",
+          "claim": "Dynamic similarity: force ratios are the same in model and prototype",
+          "pattern": "dynamic similarity|(force )?ratios?[^.]{0,40}(same|equal|constant)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Similitude",
+            "quote": "Dynamic similarity – ratios of all forces acting on corresponding fluid particles and boundary surfaces in the two systems are constant"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "open-channel-vs-pipe",
+      "chapter": "open-channel",
+      "facts": [
+        {
+          "id": "free-surface",
+          "claim": "Open channels have a free surface; flow is driven by gravity",
+          "pattern": "free surface",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Open-channel_flow",
+            "quote": "open-channel flow has a free surface, whereas pipe flow does not"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "manning-chezy",
+      "chapter": "open-channel",
+      "facts": [
+        {
+          "id": "manning",
+          "claim": "Manning's formula gives mean velocity from roughness n, hydraulic radius and slope",
+          "pattern": "manning|R\\s*\\^?\\s*\\(?\\s*2\\s*/\\s*3|n\\b[^.]{0,30}roughness|roughness[^.]{0,30}\\bn\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Manning_formula",
+            "quote": "The Manning formula or Manning's equation is an empirical formula estimating the average velocity of a liquid in an open channel flow"
+          }
+        },
+        {
+          "id": "roughness",
+          "claim": "n depends on surface roughness",
+          "pattern": "roughness",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Manning_formula",
+            "quote": "is an empirically derived coefficient, which is dependent on many factors, including surface roughness"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "specific-energy-critical",
+      "chapter": "open-channel",
+      "facts": [
+        {
+          "id": "froude",
+          "claim": "Froude number = inertia / gravity; critical flow at Fr = 1",
+          "pattern": "froude",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Critical_flow",
+            "quote": "the Froude number (Fr, after William Froude, ) is a dimensionless number defined as the ratio of the flow inertia to the external force field"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "hydraulic-jump",
+      "chapter": "open-channel",
+      "facts": [
+        {
+          "id": "transition",
+          "claim": "A jump changes supercritical flow to subcritical flow",
+          "pattern": "supercritical[^.]{0,40}subcritical",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hydraulic_jump",
+            "quote": "A hydraulic jump is always a transition from supercritical to subcritical flow"
+          }
+        },
+        {
+          "id": "depth",
+          "claim": "Depth rises suddenly while speed falls",
+          "pattern": "(sudden|abrupt)[^.]{0,30}(increase|rise)[^.]{0,30}depth|depth[^.]{0,40}(increase|rise)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hydraulic_jump",
+            "quote": "an abrupt increase in the depth of a fast-moving liquid stream in an open channel, which is accompanied by a decrease in speed"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pipe-networks-losses",
+      "chapter": "pipes-cfd",
+      "facts": [
+        {
+          "id": "darcy",
+          "claim": "Darcy–Weisbach gives friction head loss in pipes",
+          "pattern": "darcy|head loss",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Darcy–Weisbach_equation",
+            "quote": "the Darcy–Weisbach equation is an empirical equation that relates the head loss, or pressure loss, due to viscous shear forces"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "water-hammer",
+      "chapter": "pipes-cfd",
+      "facts": [
+        {
+          "id": "surge",
+          "claim": "Sudden valve closure causes a pressure surge (wave)",
+          "pattern": "(sudden|rapid|quick)[^.]{0,40}(clos|stop)|pressure (surge|wave|rise)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hydraulic_shock",
+            "quote": "the pressure surge or wave caused when a fluid in motion is forced to stop or change direction suddenly"
+          }
+        },
+        {
+          "id": "remedies",
+          "claim": "Reduced with surge tanks, accumulators or slow valve closure",
+          "pattern": "surge tank|accumulator|slow(ly)? clos|air chamber|relief valve",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hydraulic_shock",
+            "quote": "It is possible to reduce the effects of the water hammer pulses with accumulators, expansion tanks, surge tanks"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cfd-intro-hyd",
+      "chapter": "pipes-cfd",
+      "facts": [
+        {
+          "id": "numerical",
+          "claim": "CFD solves flow equations numerically on computers",
+          "pattern": "numerical|discreti[sz]|mesh|grid",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Computational_fluid_dynamics",
+            "quote": "uses numerical analysis and data structures to analyze and solve problems that invol"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gradually-varied-flow",
+      "chapter": "open-channel",
+      "facts": [
+        {
+          "id": "gravity",
+          "claim": "Gravity drives open-channel flow; the Froude number matters most",
+          "pattern": "gravity|froude",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Open-channel_flow",
+            "quote": "Due to the presence of a free surface, gravity is generally the most significant driver of open-channel flow"
+          }
+        }
+      ]
+    }
+  ]
+}

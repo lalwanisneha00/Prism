@@ -1,0 +1,213 @@
+{
+  "description": "Key facts a correct lesson on each Transportation Engineering topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "transportation-engineering",
+  "topics": [
+    {
+      "topic": "road-classification",
+      "chapter": "highway-planning",
+      "facts": [
+        {
+          "id": "road",
+          "claim": "A road is a way open to public traffic",
+          "pattern": "public traffic|movement of (traffic|vehicles|people)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Road",
+            "quote": "A road is a thoroughfare from one place to another, primarily used for movement of traffic"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "highway-alignment",
+      "chapter": "highway-planning",
+      "facts": [
+        {
+          "id": "planning",
+          "claim": "Highway planning estimates current and future traffic volumes",
+          "pattern": "(future|projected|design) traffic|traffic (volume|forecast)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Highway_engineering",
+            "quote": "Highway planning involves the estimation of current and future traffic volumes on a road network"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cross-section-elements",
+      "chapter": "geometric-design",
+      "facts": [
+        {
+          "id": "drainage",
+          "claim": "Good drainage raises pavement bearing capacity and life",
+          "pattern": "drainage|camber|cross[- ]slope",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Road_surface",
+            "quote": "The bearing capacity and service life of a pavement can be raised significantly by arranging good drainage"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sight-distance",
+      "chapter": "geometric-design",
+      "facts": [
+        {
+          "id": "ssd",
+          "claim": "SSD = distance during perception–reaction time plus braking distance",
+          "pattern": "(perception|reaction)[^.]{0,60}(braking|manoeuvre|maneuver)|lag distance|v\\s*\\*?\\s*t\\s*\\+\\s*v\\s*\\^?\\s*2",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Stopping_sight_distance",
+            "quote": "Stopping sight distance is the distance traveled during the two phases of stopping a vehicle: perception-reaction time (PRT), and maneuver time (MT)"
+          }
+        },
+        {
+          "id": "purpose",
+          "claim": "Enough sight distance lets a driver stop before an obstacle",
+          "pattern": "(stop|halt)[^.]{0,60}(before|in time|collid|obstacle)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Stopping_sight_distance",
+            "quote": "a near worst-case distance a vehicle driver needs to be able to see in order to have room to stop before colliding"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "superelevation-curves",
+      "chapter": "geometric-design",
+      "facts": [
+        {
+          "id": "banking",
+          "claim": "Superelevation banks the road toward the inside of the curve",
+          "pattern": "(bank|tilt|slope|inclin)[^.]{0,60}(inside|inner)|superelevation|cant",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Banked_turn",
+            "quote": "the roadbed having a transverse down-slope towards the inside of the curve"
+          }
+        },
+        {
+          "id": "rated-speed",
+          "claim": "At the design (rated) speed no friction is needed",
+          "pattern": "(rated|design|equilibrium|balancing) speed|without (relying on )?friction|e\\s*\\+\\s*f\\s*=\\s*v",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Banked_turn",
+            "quote": "The magnitude of this velocity is also known as the \"rated speed\""
+          }
+        }
+      ]
+    },
+    {
+      "topic": "vertical-curves",
+      "chapter": "geometric-design",
+      "facts": [
+        {
+          "id": "crest-sag",
+          "claim": "Crest and sag vertical curves join grades; they are parabolic",
+          "pattern": "(crest|summit)[^.]{0,40}(sag|valley)|(sag|valley)[^.]{0,40}(crest|summit)|parabol",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Vertical_curve",
+            "quote": "The profile of a road consists of road slopes, called grades, connected by parabolic vertical curves"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "traffic-flow-fundamentals",
+      "chapter": "traffic",
+      "facts": [
+        {
+          "id": "q-kv",
+          "claim": "Flow, speed and density are related (q = k × v)",
+          "pattern": "q\\s*=\\s*k\\s*\\*?\\s*v|flow\\s*=\\s*(density|speed)[^.]{0,20}(×|x|\\*|times)|speed[^.]{0,20}flow[^.]{0,20}density|flow[^.]{0,20}speed[^.]{0,20}density",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Traffic_flow",
+            "quote": "Key traffic stream variables include speed, flow, and density, which are interconnected"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "signals-intersections",
+      "chapter": "traffic",
+      "facts": [
+        {
+          "id": "colours",
+          "claim": "Red stop, amber change, green go",
+          "pattern": "red[^.]{0,40}(amber|yellow)[^.]{0,40}green|green[^.]{0,40}(amber|yellow)[^.]{0,40}red",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Traffic_light",
+            "quote": "The usual traffic light colors are red to stop traffic, amber to signal a change, and green to allow traffic to proceed"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pavement-materials",
+      "chapter": "pavements",
+      "facts": [
+        {
+          "id": "asphalt",
+          "claim": "Asphalt concrete is aggregate bound with bitumen",
+          "pattern": "aggregate[^.]{0,60}bitumen|bitumen[^.]{0,60}aggregate|bituminous",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Asphalt_concrete",
+            "quote": "It consists of mineral aggregate bound together with bitumen"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cbr-subgrade",
+      "chapter": "pavements",
+      "facts": [
+        {
+          "id": "cbr",
+          "claim": "CBR measures subgrade strength by a standard penetration test",
+          "pattern": "penetrat|plunger|piston",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/California_bearing_ratio",
+            "quote": "The CBR test is a penetration test in which a standard piston, with a diameter of 50 mm (1.969 in), is used to penetrate the soil"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "flexible-pavement-design",
+      "chapter": "pavements",
+      "facts": [
+        {
+          "id": "layers",
+          "claim": "Flexible pavements have layers (surface, base, sub-base) over the subgrade",
+          "pattern": "(surface|wearing)[^.]{0,40}(base)[^.]{0,40}(sub-?base|subgrade)|layers?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Highway_engineering",
+            "quote": "A flexible, or asphalt, or Tarmac pavement typically consists of three or four layers"
+          }
+        },
+        {
+          "id": "flexible",
+          "claim": "It bends slightly under load and recovers",
+          "pattern": "(bend|deflect|flex)[^.]{0,60}(load|recover|return)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Highway_engineering",
+            "quote": "because of the asphalts ability to bend and deform slightly, then return to its original position"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rigid-pavement-design",
+      "chapter": "pavements",
+      "facts": [
+        {
+          "id": "pcc",
+          "claim": "Rigid pavements are mostly Portland cement concrete slabs",
+          "pattern": "(portland cement )?concrete slabs?|PCC|cement concrete",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Highway_engineering",
+            "quote": "Portland cement concrete (PCC) is the most common material used in the construction of rigid pavement slabs"
+          }
+        }
+      ]
+    }
+  ]
+}

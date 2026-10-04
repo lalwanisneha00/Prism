@@ -1,0 +1,255 @@
+{
+  "description": "Key facts a correct lesson on each Geotechnical Engineering topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "geotechnical-engineering",
+  "topics": [
+    {
+      "topic": "phase-relations-soil",
+      "chapter": "soil-properties",
+      "facts": [
+        {
+          "id": "phases",
+          "claim": "Soil is solids plus pore water and air (a three-phase system)",
+          "pattern": "(solid|soil|particles?)[^.]{0,40}(water|air)[^.]{0,40}(air|water)|three[- ]phase",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Soil_mechanics",
+            "quote": "soils consist of a heterogeneous mixture of fluids (usually air and water) and particles"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "atterberg-limits",
+      "chapter": "soil-properties",
+      "facts": [
+        {
+          "id": "limits",
+          "claim": "Shrinkage, plastic and liquid limits are critical water contents",
+          "pattern": "(liquid|plastic|shrinkage) limit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Atterberg_limits",
+            "quote": "The Atterberg limits are a basic measure of the critical water contents of a fine-grained soil"
+          }
+        },
+        {
+          "id": "ll",
+          "claim": "Liquid limit: water content where soil changes from plastic to liquid",
+          "pattern": "plastic[^.]{0,30}(to|into)[^.]{0,20}liquid|liquid limit[^.]{0,80}water content",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Atterberg_limits",
+            "quote": "The liquid limit (LL) is conceptually defined as the water content at which the behavior of a clayey soil changes from the plastic state to the liquid state"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "soil-classification",
+      "chapter": "soil-properties",
+      "facts": [
+        {
+          "id": "uscs",
+          "claim": "USCS uses two-letter symbols (e.g. GW, SP, CL)",
+          "pattern": "two[- ]letter|\\b(GW|GP|SW|SP|CL|CH|ML|MH)\\b|unified soil classification|USCS|IS classification",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Unified_Soil_Classification_System",
+            "quote": "is represented by a two-letter symbol"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "darcy-permeability",
+      "chapter": "soil-water",
+      "facts": [
+        {
+          "id": "darcy",
+          "claim": "Darcy's law: flow ∝ hydraulic gradient (v = k i)",
+          "pattern": "v\\s*=\\s*k\\s*\\*?\\s*i|q\\s*=\\s*k\\s*\\*?\\s*i\\s*\\*?\\s*A|(proportional|∝)[^.]{0,40}(hydraulic )?gradient|head (difference|loss)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Darcy's_law",
+            "quote": "linearly relating the volume flow rate of the fluid to the hydraulic head difference"
+          }
+        },
+        {
+          "id": "sand",
+          "claim": "Based on experiments with water through sand",
+          "pattern": "sand|porous",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Darcy's_law",
+            "quote": "based on results of experiments on the flow of water through beds of sand"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "effective-stress",
+      "chapter": "soil-water",
+      "facts": [
+        {
+          "id": "skeleton",
+          "claim": "Effective stress is the part carried by the soil skeleton (σ' = σ − u)",
+          "pattern": "σ\\s*'\\s*=\\s*σ\\s*-\\s*u|sigma'?\\s*=\\s*sigma\\s*-\\s*u|total stress[^.]{0,40}(minus|-)[^.]{0,40}pore|soil skeleton|grain[- ]to[- ]grain",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Effective_stress",
+            "quote": "describes the portion of total stress in a soil mass that is carried by the solid soil skele"
+          }
+        },
+        {
+          "id": "controls",
+          "claim": "It controls strength and volume change",
+          "pattern": "(strength|shear strength)[^.]{0,60}(volume|deformation|settle)|controls?[^.]{0,30}(strength|behaviou?r)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Effective_stress",
+            "quote": "effective stress governs both their strength and volume change"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "seepage-flow-nets",
+      "chapter": "soil-water",
+      "facts": [
+        {
+          "id": "perpendicular",
+          "claim": "Flow lines and equipotential lines cross at right angles",
+          "pattern": "(perpendicular|right angles|orthogonal)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flow_net",
+            "quote": "stream and equipotential lines, which are everywhere perpendicular to each other"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "proctor-compaction",
+      "chapter": "compaction-consolidation",
+      "facts": [
+        {
+          "id": "air",
+          "claim": "Compaction densifies soil by expelling air",
+          "pattern": "(expel|remov|displac|driv)[^.]{0,30}air|air[^.]{0,30}(expel|remov|displac|out)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Soil_compaction",
+            "quote": "stress applied to a soil causes densification as air is displaced from the pores"
+          }
+        },
+        {
+          "id": "omc",
+          "claim": "Gives maximum dry density at the optimum moisture content",
+          "pattern": "optimum (moisture|water) content|OMC|maximum dry density|MDD",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Soil_compaction",
+            "quote": "the maximum dry density and the optimum moisture content are vital"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "terzaghi-consolidation",
+      "chapter": "compaction-consolidation",
+      "facts": [
+        {
+          "id": "water-out",
+          "claim": "Consolidation: volume decreases slowly as pore water drains",
+          "pattern": "(water|pore)[^.]{0,60}(drain|squeez|expel|escap|diffus|dissipat)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Soil_consolidation",
+            "quote": "As water diffuses away from regions of high pressure due to seepage, the soil matrix gradually takes up the pressure change and shrinks in volume"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "mohr-coulomb-shear",
+      "chapter": "stress-strength",
+      "facts": [
+        {
+          "id": "envelope",
+          "claim": "τ = c + σ tan φ (cohesion and friction angle)",
+          "pattern": "c\\s*\\+\\s*σ\\s*'?\\s*tan|c\\s*\\+\\s*sigma[^.]{0,10}tan|cohesion[^.]{0,60}(friction|φ|phi)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mohr–Coulomb_theory",
+            "quote": "is often called the cohesion and the angle"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "shear-tests",
+      "chapter": "stress-strength",
+      "facts": [
+        {
+          "id": "triaxial",
+          "claim": "Triaxial test: cylindrical sample with confining pressure and axial stress",
+          "pattern": "confining (pressure|stress)|cell pressure|cylindrical",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Triaxial_shear_test",
+            "quote": "applying fluid pressure to the specimen"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "slope-stability",
+      "chapter": "slopes-exploration",
+      "facts": [
+        {
+          "id": "fos",
+          "claim": "Factor of safety = shear strength / shear stress; < 1 means unstable",
+          "pattern": "(less than|below|<)\\s*1(\\.0)?|shear strength[^.]{0,40}(/|divided by|ratio)[^.]{0,40}(shear stress|mobili)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Slope_stability_analysis",
+            "quote": "If the value of factor of safety is less than 1.0, the slope is unstable"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "earth-pressure-rankine",
+      "chapter": "slopes-exploration",
+      "facts": [
+        {
+          "id": "lateral",
+          "claim": "Lateral earth pressure is the horizontal soil pressure on walls",
+          "pattern": "horizontal|lateral",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lateral_earth_pressure",
+            "quote": "The lateral earth pressure is the pressure that soil exerts in the horizontal direction"
+          }
+        },
+        {
+          "id": "active",
+          "claim": "Active pressure (Ka) when the wall moves away from the soil",
+          "pattern": "active[^.]{0,60}(away|\\bK_?a\\b)|active (earth )?pressure|\\bK_?a\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lateral_earth_pressure",
+            "quote": "the active earth pressure is obtained, for example, when a retaining wall moves away from the soil"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bearing-capacity",
+      "chapter": "slopes-exploration",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Maximum contact pressure without shear failure of the soil",
+          "pattern": "(maximum|ultimate)[^.]{0,40}(pressure|load)[^.]{0,60}(shear failure|fail)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bearing_capacity",
+            "quote": "the maximum average contact pressure between the foundation and the soil which should not produce shear failure in the soil"
+          }
+        },
+        {
+          "id": "depends",
+          "claim": "Depends on soil shear strength and foundation size, shape and depth",
+          "pattern": "(width|size|depth|shape)[^.]{0,60}(foundation|footing)|bearing capacity factors?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bearing_capacity",
+            "quote": "It depends upon the shear strength of soil as well as shape, size, depth and type of foundation"
+          }
+        }
+      ]
+    }
+  ]
+}

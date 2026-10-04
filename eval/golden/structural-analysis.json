@@ -1,0 +1,264 @@
+{
+  "description": "Key facts a correct lesson on each Structural Analysis topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "structural-analysis",
+  "topics": [
+    {
+      "topic": "static-kinematic-indeterminacy",
+      "chapter": "sa-theorems",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Indeterminate: equilibrium equations alone cannot find all reactions",
+          "pattern": "equilibrium equations?[^.]{0,80}(not enough|insufficient|cannot)|(more|extra) unknowns?|redundan",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Statically_indeterminate",
+            "quote": "the equilibrium equations – force and moment equilibrium conditions – are insufficient for determining the internal forces and reactions"
+          }
+        },
+        {
+          "id": "three",
+          "claim": "Three equilibrium equations in 2D (ΣFx, ΣFy, ΣM = 0)",
+          "pattern": "three (equilibrium )?equations|Σ\\s*F\\s*_?\\s*x|sum of (the )?horizontal",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Statically_indeterminate",
+            "quote": "but only three equilibrium equations"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "energy-theorems-sa",
+      "chapter": "sa-theorems",
+      "facts": [
+        {
+          "id": "virtual-work",
+          "claim": "Virtual work: work of real forces through virtual displacements",
+          "pattern": "virtual (work|displacement)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Virtual_work",
+            "quote": "The work of a force on a particle along a virtual displacement is known as the virtual work"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "conjugate-beam",
+      "chapter": "sa-deflection",
+      "facts": [
+        {
+          "id": "load",
+          "claim": "Conjugate beam is loaded by the M/EI diagram",
+          "pattern": "M\\s*/\\s*E\\s*I|M\\s*/\\s*\\(?EI",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Conjugate_beam_method",
+            "quote": "The conjugate beam is \"loaded\" with the M/EI diagram"
+          }
+        },
+        {
+          "id": "statics",
+          "claim": "Its shear and moment give slope and deflection of the real beam",
+          "pattern": "(shear)[^.]{0,60}slope|(moment)[^.]{0,60}deflection|slope[^.]{0,60}deflection",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Conjugate_beam_method",
+            "quote": "The conjugate-beam methods is an engineering method to derive the slope and displacement of a beam"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "truss-deflection",
+      "chapter": "sa-deflection",
+      "facts": [
+        {
+          "id": "two-force",
+          "claim": "Truss members are two-force members (tension or compression)",
+          "pattern": "two[- ]force|axial (forces?|members?)|tensi(le|on)[^.]{0,20}(or|and)[^.]{0,20}compressi",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Truss",
+            "quote": "consists of two-force members only"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "influence-lines-beams",
+      "chapter": "influence-lines",
+      "facts": [
+        {
+          "id": "unit-load",
+          "claim": "An influence line shows a response at one point as a unit load moves",
+          "pattern": "unit load",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Influence_line",
+            "quote": "a specific point on a beam or truss caused by a unit load place"
+          }
+        },
+        {
+          "id": "scale",
+          "claim": "Multiply ordinates by the actual load",
+          "pattern": "multipl[^.]{0,40}(load|magnitude)|ordinate",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Influence_line",
+            "quote": "the ordinate results obtained by the influence line are multiplied by the magnitude of the actual load"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "muller-breslau",
+      "chapter": "influence-lines",
+      "facts": [
+        {
+          "id": "deflected",
+          "claim": "The influence line has the scaled shape of the deflected structure",
+          "pattern": "deflect(ed|ion)[^.]{0,40}(shape|form)|(shape|form)[^.]{0,40}deflect",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Müller-Breslau's_principle",
+            "quote": "the influence lines of an action (force or moment) assumes the scaled form of the deflection displacement"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "three-hinged-arch",
+      "chapter": "arches-cables",
+      "facts": [
+        {
+          "id": "hinges",
+          "claim": "Hinges at both supports and the crown; hinges relieve stresses (e.g. thermal)",
+          "pattern": "(hinge|pin)[^.]{0,60}(crown|supports?|apex)|thermal",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Arch",
+            "quote": "many arch bridge spans are built with three hinges (one at each suppo"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "two-hinged-arch",
+      "chapter": "arches-cables",
+      "facts": [
+        {
+          "id": "compression",
+          "claim": "Arch members are mainly in compression",
+          "pattern": "compression",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Arch",
+            "quote": "Elements of the arch are mostly subject to compression"
+          }
+        },
+        {
+          "id": "thrust",
+          "claim": "Arches push outward with horizontal thrust at the supports",
+          "pattern": "(horizontal )?thrust",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Arch",
+            "quote": "the horizontal forces at the ends of an arch (so called thrust)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "suspension-cables",
+      "chapter": "arches-cables",
+      "facts": [
+        {
+          "id": "tension",
+          "claim": "Loads become tension in the main cables, anchored at the ends",
+          "pattern": "tension",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Suspension_bridge",
+            "quote": "any load applied to the bridge is transformed into tension in these main cables"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "flexibility-method",
+      "chapter": "indeterminate",
+      "facts": [
+        {
+          "id": "consistent",
+          "claim": "Flexibility (force) method = method of consistent deformations",
+          "pattern": "consistent deformations?|compatibility",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flexibility_method",
+            "quote": "the flexibility method, also called the method of consistent deformations"
+          }
+        },
+        {
+          "id": "force-unknowns",
+          "claim": "Redundant forces are the primary unknowns",
+          "pattern": "(redundant|unknown) forces?|forces[^.]{0,30}(primary )?unknowns?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flexibility_method",
+            "quote": "due to its use of member forces as the primary unknowns"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "slope-deflection",
+      "chapter": "indeterminate",
+      "facts": [
+        {
+          "id": "rotations",
+          "claim": "Unknowns are joint rotations; end moments follow",
+          "pattern": "(joint|end) rotations?|slope angles?|rotation angles?|θ\\s*_?\\s*[ABCD]\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Slope_deflection_method",
+            "quote": "the rotation angles (or the slope angles) are calculated"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "moment-distribution",
+      "chapter": "indeterminate",
+      "facts": [
+        {
+          "id": "cross",
+          "claim": "Hardy Cross's moment distribution method for indeterminate beams and frames",
+          "pattern": "hardy cross",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Moment_distribution_method",
+            "quote": "developed by Hardy Cross"
+          }
+        },
+        {
+          "id": "fixed-end",
+          "claim": "Start with all joints fixed (fixed-end moments), then distribute",
+          "pattern": "fixed[- ]end moments?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Moment_distribution_method",
+            "quote": "every joint of the structure to be analysed is fixed so as to develop the fixed-end moments"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "stiffness-matrix-method",
+      "chapter": "indeterminate",
+      "facts": [
+        {
+          "id": "computer",
+          "claim": "Direct (matrix) stiffness method suits computers",
+          "pattern": "computer|matri(x|ces)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Direct_stiffness_method",
+            "quote": "a structural analysis technique particularly suited for computer-automated analysis"
+          }
+        },
+        {
+          "id": "displacements",
+          "claim": "Solve the global stiffness equation for unknown displacements",
+          "pattern": "(unknown )?displacements?|K\\s*\\*?\\s*(d|u|Δ)\\s*=",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Direct_stiffness_method",
+            "quote": "The structure’s unknown displacements and forces can then be determined by solving this equation"
+          }
+        }
+      ]
+    }
+  ]
+}

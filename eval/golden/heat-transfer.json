@@ -1,0 +1,264 @@
+{
+  "description": "Key facts a correct lesson on each Heat Transfer topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "heat-transfer",
+  "topics": [
+    {
+      "topic": "heat-transfer-modes",
+      "chapter": "ht-intro",
+      "facts": [
+        {
+          "id": "modes",
+          "claim": "Conduction, convection and radiation",
+          "pattern": "conduction[^.]{0,40}convection[^.]{0,40}radiation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Heat_transfer",
+            "quote": "Heat transfer is classified into various mechanisms, such as thermal conduction, thermal convection, thermal radiation"
+          }
+        },
+        {
+          "id": "vacuum",
+          "claim": "Radiation needs no medium (travels through vacuum)",
+          "pattern": "(vacuum|no medium|without (a )?medium)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Heat_transfer",
+            "quote": "Thermal radiation occurs through a vacuum or any transparent medium"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fourier-law-1d",
+      "chapter": "conduction",
+      "facts": [
+        {
+          "id": "fourier",
+          "claim": "Heat flux is proportional to the negative temperature gradient",
+          "pattern": "proportional[^.]{0,60}(temperature )?gradient|-\\s*k\\s*\\*?\\s*(dT|∇T|A\\s*dT)|q\\s*=\\s*-\\s*k",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thermal_conduction",
+            "quote": "the rate of heat transfer through a material is proportional to the negative gradient in the"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "thermal-resistance-network",
+      "chapter": "conduction",
+      "facts": [
+        {
+          "id": "analogy",
+          "claim": "Heat flow ~ current, temperature difference ~ voltage (thermal circuits)",
+          "pattern": "(electrical|electric) (circuit|analog)|analog[^.]{0,40}(ohm|electric)|current[^.]{0,40}voltage",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thermal_conductance_and_resistance",
+            "quote": "The heat flow can be modelled by analogy to an electrical circuit where heat flow is represented by current, temperatures are represented by voltages"
+          }
+        },
+        {
+          "id": "units",
+          "claim": "Thermal resistance in K/W",
+          "pattern": "K\\s*/\\s*W|kelvins? per watt|°C\\s*/\\s*W",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thermal_conductance_and_resistance",
+            "quote": "It is measured in units of kelvins per watt (K/W)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fins",
+      "chapter": "conduction",
+      "facts": [
+        {
+          "id": "area",
+          "claim": "Fins extend the surface area to increase heat transfer",
+          "pattern": "(increas|extend)[^.]{0,40}(surface )?area|extended surface",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fin_(extended_surface)",
+            "quote": "fins are surfaces that extend from an object to increase the rate of heat transfer to or from the environment by increasing convection"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "lumped-biot",
+      "chapter": "conduction",
+      "facts": [
+        {
+          "id": "biot",
+          "claim": "Biot number = internal conduction resistance / surface convection resistance",
+          "pattern": "biot[^.]{0,80}(ratio|conduct|convect)|h\\s*L\\s*/\\s*k|hL\\s*/\\s*k",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lumped-element_model",
+            "quote": "Bi is defined as the ratio of the conductive heat resistance within the object to the convective heat transfer resistance"
+          }
+        },
+        {
+          "id": "lumped",
+          "claim": "Small Bi (< 0.1) allows the lumped model; temperature approaches the bath exponentially",
+          "pattern": "(Bi|biot number)\\s*(<|less than|is small)|0\\.1|exponential",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lumped-element_model",
+            "quote": "an exponential approach of the object temperature to the bath temperature"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "forced-convection",
+      "chapter": "convection",
+      "facts": [
+        {
+          "id": "external",
+          "claim": "Fluid motion driven by an external source (pump, fan)",
+          "pattern": "(pump|fan|blower|external)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Forced_convection",
+            "quote": "fluid motion is generated by an external source (like a pump, fan, suction device, etc.)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "natural-convection",
+      "chapter": "convection",
+      "facts": [
+        {
+          "id": "buoyancy",
+          "claim": "Driven by density differences (buoyancy) from heating",
+          "pattern": "(density|buoyan)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Convection",
+            "quote": "convection due to the effects of thermal expansion (change in density) and gravity/buoyancy can be assumed"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "blackbody-stefan",
+      "chapter": "radiation-ht",
+      "facts": [
+        {
+          "id": "t4",
+          "claim": "Emitted power ∝ T⁴ (Stefan–Boltzmann)",
+          "pattern": "fourth power|T\\s*\\^\\s*4|T⁴|σ\\s*T|sigma\\s*T",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Stefan–Boltzmann_law",
+            "quote": "The proportionality to the fourth power of the absolute temperature"
+          }
+        },
+        {
+          "id": "emissivity",
+          "claim": "A black body has emissivity 1; real surfaces emit less",
+          "pattern": "emissivity[^.]{0,40}(1|one|less)|ε\\s*=\\s*1|epsilon\\s*=\\s*1",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Stefan–Boltzmann_law",
+            "quote": "An emissivity of one corresponds to a black body"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "view-factor-radiosity",
+      "chapter": "radiation-ht",
+      "facts": [
+        {
+          "id": "fraction",
+          "claim": "View factor: fraction of radiation leaving one surface that reaches another",
+          "pattern": "(fraction|proportion)[^.]{0,60}(leav|radiation|reach|strik)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/View_factor",
+            "quote": "is the proportion of the radiation which leaves surface"
+          }
+        },
+        {
+          "id": "summation",
+          "claim": "All radiation leaving a surface goes somewhere (factors sum to 1)",
+          "pattern": "sum[^.]{0,30}(to )?(1|one|unity)|summation rule|conserved",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/View_factor",
+            "quote": "Radiation leaving a surface within an enclosure is conserved"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "lmtd-method",
+      "chapter": "exchangers-phase-change",
+      "facts": [
+        {
+          "id": "lmtd",
+          "claim": "The log mean temperature difference (LMTD)",
+          "pattern": "log(arithmic)? mean temperature difference|LMTD",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Heat_exchanger",
+            "quote": "In most simple systems this is the \"log mean temperature difference\" (LMTD)"
+          }
+        },
+        {
+          "id": "counter",
+          "claim": "Counter-flow is the most efficient arrangement",
+          "pattern": "counter[- ]?(current|flow)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Heat_exchanger",
+            "quote": "The counter current design is the most efficient"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ntu-effectiveness",
+      "chapter": "exchangers-phase-change",
+      "facts": [
+        {
+          "id": "max",
+          "claim": "Effectiveness = actual / maximum possible heat transfer",
+          "pattern": "(actual|q)[^.]{0,40}(/|divided by|over|ratio)[^.]{0,40}max|maximum possible",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/NTU_method",
+            "quote": "we need to find the maximum possible heat transfer that can be hypothetically achieved"
+          }
+        },
+        {
+          "id": "unknown-temps",
+          "claim": "Used when outlet temperatures are not known (LMTD needs them)",
+          "pattern": "outlet temperatures?[^.]{0,60}(unknown|not (known|given|specified))|(unknown|not known)[^.]{0,40}outlet",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/NTU_method",
+            "quote": "if the fluid inlet and outlet temperatures are specified or can be determined by simple energy balance, the LMTD method can be used"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "boiling-condensation",
+      "chapter": "exchangers-phase-change",
+      "facts": [
+        {
+          "id": "boiling",
+          "claim": "Boiling: liquid to vapour when vapour pressure equals the surrounding pressure",
+          "pattern": "vapou?r pressure[^.]{0,60}(equal|=)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Boiling",
+            "quote": "the vapour pressure of the liquid is equal to the pressure exerted on the liquid by the surrounding atmosphere"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fick-mass-diffusion",
+      "chapter": "exchangers-phase-change",
+      "facts": [
+        {
+          "id": "fick",
+          "claim": "Diffusive flux ∝ concentration gradient (Fick's first law)",
+          "pattern": "(proportional|∝)[^.]{0,40}concentration gradient|-\\s*D\\s*\\*?\\s*(dC|∇C|dc)|J\\s*=\\s*-\\s*D",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fick's_laws_of_diffusion",
+            "quote": "Movement of particles from high to low concentration (diffusive flux) is directly proportional to the particle's concentration gradient"
+          }
+        }
+      ]
+    }
+  ]
+}

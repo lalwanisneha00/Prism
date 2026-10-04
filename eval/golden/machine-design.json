@@ -1,0 +1,231 @@
+{
+  "description": "Key facts a correct lesson on each Design of Machine Elements topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "machine-design",
+  "topics": [
+    {
+      "topic": "limits-fits-tolerances",
+      "chapter": "design-basics",
+      "facts": [
+        {
+          "id": "three",
+          "claim": "Fits: clearance, transition and interference",
+          "pattern": "clearance[^.]{0,60}(transition|interference)[^.]{0,60}(interference|transition)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Engineering_fit",
+            "quote": "ISO and ANSI both group fits into three categories: clearance, location or transition, and interference"
+          }
+        },
+        {
+          "id": "interference",
+          "claim": "Interference fit: hole smaller than shaft",
+          "pattern": "hole[^.]{0,30}(smaller|less)[^.]{0,30}shaft|shaft[^.]{0,30}(larger|bigger)[^.]{0,30}hole",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Engineering_fit",
+            "quote": "The hole is smaller than the shaft"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "friction-lubrication-design",
+      "chapter": "design-basics",
+      "facts": [
+        {
+          "id": "purpose",
+          "claim": "Lubrication reduces friction and wear",
+          "pattern": "reduc[^.]{0,30}(friction|wear)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lubrication",
+            "quote": "using a lubricant to reduce friction and wear and tear in a contact between two surfaces"
+          }
+        },
+        {
+          "id": "tribology",
+          "claim": "Studied in tribology",
+          "pattern": "tribolog",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lubrication",
+            "quote": "The study of lubrication is a discipline in the field of tribology"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "power-screws",
+      "chapter": "design-basics",
+      "facts": [
+        {
+          "id": "convert",
+          "claim": "A power screw turns rotation into linear motion",
+          "pattern": "(rotat|turning)[^.]{0,40}(into )?(linear|translat)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Leadscrew",
+            "quote": "to translate turning motion into linear motion"
+          }
+        },
+        {
+          "id": "friction",
+          "claim": "Screws have large friction losses (low efficiency)",
+          "pattern": "(friction|efficien)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Leadscrew",
+            "quote": "screw threads have larger frictional energy losses compared to other linkages"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "static-failure-theories",
+      "chapter": "failure",
+      "facts": [
+        {
+          "id": "von-mises",
+          "claim": "Von Mises (distortion energy) criterion for ductile materials",
+          "pattern": "(distortion energy|von mises)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Von_Mises_yield_criterion",
+            "quote": "the maximum distortion energy criterion (also von Mises yield criterion) states that yielding of a ductile material begins"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "factor-of-safety-concentration",
+      "chapter": "failure",
+      "facts": [
+        {
+          "id": "fos",
+          "claim": "Factor of safety = strength / applied load (stress)",
+          "pattern": "(strength|failure (load|stress)|capacity)[^.]{0,40}(/|divided by|over|ratio)[^.]{0,40}(load|stress|working)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Factor_of_safety",
+            "quote": "The ratio of a structure's absolute strength (structural capability) to actual applied load"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fatigue-goodman-soderberg",
+      "chapter": "failure",
+      "facts": [
+        {
+          "id": "fatigue",
+          "claim": "Fatigue: cracks start and grow under cyclic loading",
+          "pattern": "cyclic|fluctuat|repeated|alternating",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fatigue_(material)",
+            "quote": "fatigue is the initiation and propagation of cracks in a material due to cyclic loading"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "shaft-design",
+      "chapter": "elements",
+      "facts": [
+        {
+          "id": "torsion",
+          "claim": "Shafts transmit torque and carry torsion and shear stress",
+          "pattern": "torsion|torque",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drive_shaft",
+            "quote": "drive shafts are subject to torsion and shear stress"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "springs-design",
+      "chapter": "elements",
+      "facts": [
+        {
+          "id": "helix",
+          "claim": "A helical spring returns to its length when unloaded",
+          "pattern": "(return|recover)[^.]{0,40}(original|natural) (length|shape)|elastic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Coil_spring",
+            "quote": "returns to its natural length when unloaded"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bolted-riveted-welded",
+      "chapter": "elements",
+      "facts": [
+        {
+          "id": "wedge",
+          "claim": "Tightening a threaded fastener is like driving a wedge; held by friction",
+          "pattern": "friction|wedge|preload|clamp",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Screw_thread",
+            "quote": "The tightening of a fastener's screw thread is comparable to driving a wedge into a gap until it sticks fast through friction"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bearings-design",
+      "chapter": "elements",
+      "facts": [
+        {
+          "id": "rolling",
+          "claim": "Rolling-element bearings put balls or rollers between races",
+          "pattern": "(balls?|rollers?)[^.]{0,60}(races?|rings?)|rolling elements?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rolling-element_bearing",
+            "quote": "a bearing which carries a load by placing rolling elements (such as balls, cylinders, or cones) between tw"
+          }
+        },
+        {
+          "id": "low-friction",
+          "claim": "Rolling gives low friction",
+          "pattern": "(low|little|less)[^.]{0,20}(friction|rolling resistance)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rolling-element_bearing",
+            "quote": "roll with very little rolling resistance and with little sliding"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gear-design",
+      "chapter": "elements",
+      "facts": [
+        {
+          "id": "teeth",
+          "claim": "Gears transmit torque through meshing teeth",
+          "pattern": "teeth|tooth",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gear",
+            "quote": "is a rotating machine part typically used to transmit rotational motion or torque by means of a series of \"teeth\""
+          }
+        }
+      ]
+    },
+    {
+      "topic": "belt-chain-drives",
+      "chapter": "elements",
+      "facts": [
+        {
+          "id": "belt",
+          "claim": "Belts link rotating shafts via pulleys to transmit power",
+          "pattern": "pulley",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Belt_(mechanical)",
+            "quote": "Belts are looped over pulleys"
+          }
+        },
+        {
+          "id": "crossed",
+          "claim": "A crossed belt reverses the direction of the driven shaft",
+          "pattern": "crossed|cross belt|revers",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Belt_(mechanical)",
+            "quote": "the belt may be crossed, so that the direction of the driven shaft is r"
+          }
+        }
+      ]
+    }
+  ]
+}

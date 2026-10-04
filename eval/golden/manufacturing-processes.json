@@ -1,0 +1,273 @@
+{
+  "description": "Key facts a correct lesson on each Manufacturing Processes topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "manufacturing-processes",
+  "topics": [
+    {
+      "topic": "process-classification",
+      "chapter": "mfg-intro",
+      "facts": [
+        {
+          "id": "raw",
+          "claim": "Raw materials are transformed into finished products",
+          "pattern": "raw materials?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Manufacturing",
+            "quote": "the steps through which raw materials are transformed into a final product"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sand-casting",
+      "chapter": "casting-forming",
+      "facts": [
+        {
+          "id": "sand-mould",
+          "claim": "Sand casting uses a sand mould",
+          "pattern": "sand mou?ld|mou?ld[^.]{0,30}sand",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Sand_casting",
+            "quote": "a metal casting process characterized by using sand—known as casting sand—as the mold material"
+          }
+        },
+        {
+          "id": "refractory",
+          "claim": "Sand moulds are cheap and refractory",
+          "pattern": "(cheap|inexpensive|low cost)|refractor",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Sand_casting",
+            "quote": "Molds made of sand are relatively cheap, and sufficiently refractory even for steel foundry use"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "die-investment-casting",
+      "chapter": "casting-forming",
+      "facts": [
+        {
+          "id": "pressure",
+          "claim": "Die casting forces molten metal into a mould under high pressure",
+          "pattern": "(high )?pressure",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Die_casting",
+            "quote": "Die casting is a metal casting process that is characterized by forcing molten metal under high pressure into a mold cavity"
+          }
+        },
+        {
+          "id": "non-ferrous",
+          "claim": "Mostly non-ferrous metals (zinc, aluminium, magnesium)",
+          "pattern": "non-?ferrous|zinc|alumin|magnesium",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Die_casting",
+            "quote": "Most die castings are made from non-ferrous metals"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "forging-rolling",
+      "chapter": "casting-forming",
+      "facts": [
+        {
+          "id": "compressive",
+          "claim": "Forging shapes metal with localised compressive forces",
+          "pattern": "compressive|hammer|press(ing)?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Forging",
+            "quote": "Forging is a manufacturing process involving the shaping of metal using localized compressive forces"
+          }
+        },
+        {
+          "id": "hot-cold",
+          "claim": "Cold, warm or hot forging",
+          "pattern": "(hot|cold) (forging|working)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Forging",
+            "quote": "cold forging (a type of cold working), warm forging, or hot forging"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sheet-metal-forming",
+      "chapter": "casting-forming",
+      "facts": [
+        {
+          "id": "gauge",
+          "claim": "Larger gauge number means thinner sheet",
+          "pattern": "gauge",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Sheet_metal",
+            "quote": "The larger the gauge number, the thinner the metal"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "plastics-powder-metallurgy",
+      "chapter": "casting-forming",
+      "facts": [
+        {
+          "id": "injection",
+          "claim": "Injection moulding forces molten material into a mould",
+          "pattern": "inject[^.]{0,40}(molten|melt|into)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Injection_moulding",
+            "quote": "a manufacturing process for producing parts by injecting molten material into a mould"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "turning-drilling-milling",
+      "chapter": "machining",
+      "facts": [
+        {
+          "id": "turning",
+          "claim": "Turning: a stationary tool cuts a rotating workpiece (on a lathe)",
+          "pattern": "rotating workpiece|workpiece (rotates|is rotated)|lathe",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Turning",
+            "quote": "Turning is a machining process in which a cutting tool is held nearly stationary to cut a rotating workpiece"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "orthogonal-cutting-merchant",
+      "chapter": "machining",
+      "facts": [
+        {
+          "id": "subtractive",
+          "claim": "Machining is subtractive: controlled removal of material",
+          "pattern": "subtractive|remov(e|al|ing) (of )?material",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Machining",
+            "quote": "Machining is a form of subtractive manufacturing"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "tool-life-taylor",
+      "chapter": "machining",
+      "facts": [
+        {
+          "id": "wear",
+          "claim": "Tool wear: gradual failure of cutting tools in use",
+          "pattern": "tool wear|wear",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Tool_wear",
+            "quote": "tool wear is the gradual failure of cutting tools due to regular operation"
+          }
+        },
+        {
+          "id": "temperature",
+          "claim": "Wear is worst where tool temperature is highest",
+          "pattern": "temperature",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Tool_wear",
+            "quote": "this typically occurs where the tool temperature is highest"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "unconventional-machining",
+      "chapter": "machining",
+      "facts": [
+        {
+          "id": "edm",
+          "claim": "EDM removes material with sparks between electrodes in a dielectric",
+          "pattern": "spark|electrical discharge",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Electrical_discharge_machining",
+            "quote": "a desired shape is obtained by using electrical discharges (sparks)"
+          }
+        },
+        {
+          "id": "dielectric",
+          "claim": "The electrodes are separated by a dielectric liquid",
+          "pattern": "dielectric",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Electrical_discharge_machining",
+            "quote": "separated by a dielectric liquid and subject to an electric voltage"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "additive-manufacturing",
+      "chapter": "additive-joining",
+      "facts": [
+        {
+          "id": "layers",
+          "claim": "Builds parts layer by layer from a 3D model",
+          "pattern": "layer[- ]by[- ]layer|layers?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/3D_printing",
+            "quote": "the process of building parts from 3D model data and addi"
+          }
+        },
+        {
+          "id": "cad",
+          "claim": "From a CAD / digital 3D model",
+          "pattern": "CAD|digital (3D )?model|3D model",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/3D_printing",
+            "quote": "the construction of a three-dimensional object from a CAD model or a digital 3D model"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "arc-welding",
+      "chapter": "additive-joining",
+      "facts": [
+        {
+          "id": "arc",
+          "claim": "An electric arc between electrode and base metal melts the metals",
+          "pattern": "electric arc|arc[^.]{0,60}(electrode|melt)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Arc_welding",
+            "quote": "uses a welding power supply to create an electric arc between a metal stick (\"electrode\") and the base material"
+          }
+        },
+        {
+          "id": "ac-dc",
+          "claim": "Supplies may be AC or DC; electrodes consumable or not",
+          "pattern": "consumable|\\b(AC|DC)\\b[^.]{0,20}\\b(or|and)\\b[^.]{0,20}\\b(AC|DC)\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Arc_welding",
+            "quote": "consumable or non-consumable electrodes are used"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "brazing-soldering-solid-state",
+      "chapter": "additive-joining",
+      "facts": [
+        {
+          "id": "no-melt",
+          "claim": "Brazing melts only a filler, not the base metals",
+          "pattern": "(not|without) (melt|fusing)[^.]{0,40}(base|work|parent)|filler[^.]{0,60}lower melting",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Brazing",
+            "quote": "Brazing differs from welding in that it does not involve melting the work pieces"
+          }
+        },
+        {
+          "id": "capillary",
+          "claim": "Filler flows into the joint by capillary action",
+          "pattern": "capillar",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Brazing",
+            "quote": "the filler metal flows into the gap between close-fitting parts by capillary action"
+          }
+        }
+      ]
+    }
+  ]
+}

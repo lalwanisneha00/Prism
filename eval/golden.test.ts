@@ -38,7 +38,30 @@ const WAVE2 = [
   "em-theory",
   "vlsi",
 ];
-const QUOTED = [...WAVE1, ...WAVE2];
+const WAVE3 = [
+  "electrical-machines",
+  "power-systems",
+  "power-electronics",
+  "control-systems",
+  "electrical-measurements",
+  "engineering-thermodynamics",
+  "heat-transfer",
+  "fluid-mechanics",
+  "strength-of-materials",
+  "theory-of-machines",
+  "machine-design",
+  "manufacturing-processes",
+  "engineering-materials",
+  "structural-analysis",
+  "surveying",
+  "geotechnical-engineering",
+  "concrete-rcc-design",
+  "hydraulic-engineering",
+  "transportation-engineering",
+  "environmental-engineering",
+  "building-materials",
+];
+const QUOTED = [...WAVE1, ...WAVE2, ...WAVE3];
 
 describe("golden sets", () => {
   it("only use real topics, with patterns that compile", () => {
@@ -55,7 +78,7 @@ describe("golden sets", () => {
     }
   });
 
-  it("give every Wave 1 and Wave 2 subject at least 12 topics, every fact with a source quote", () => {
+  it("give every Wave 1, 2 and 3 subject at least 12 topics, every fact with a source quote", () => {
     for (const id of QUOTED) {
       const set = sets.find((s) => s.subject === id);
       expect(set, id).toBeDefined();

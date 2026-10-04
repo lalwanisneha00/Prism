@@ -1,0 +1,240 @@
+{
+  "description": "Key facts a correct lesson on each Fluid Mechanics and Hydraulic Machines topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "fluid-mechanics",
+  "topics": [
+    {
+      "topic": "viscosity-newton",
+      "chapter": "fluid-properties",
+      "facts": [
+        {
+          "id": "resistance",
+          "claim": "Viscosity is a fluid's resistance to relative motion (shear)",
+          "pattern": "resist[^.]{0,60}(flow|shear|motion|deform)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Viscosity",
+            "quote": "viscosity is a property of a fluid that quantifies the resistance force acting on fluids when there is relative motion between fluid parcels"
+          }
+        },
+        {
+          "id": "newtonian",
+          "claim": "Newtonian fluid: shear stress ∝ strain rate",
+          "pattern": "(proportional|∝)[^.]{0,40}(strain rate|rate of (shear|strain|deformation)|velocity gradient)|μ\\s*\\*?\\s*du\\s*/\\s*dy|mu\\s*du",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Viscosity",
+            "quote": "directly proportional to the strain rate"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "buoyancy-stability",
+      "chapter": "fluid-properties",
+      "facts": [
+        {
+          "id": "archimedes",
+          "claim": "Buoyant force equals the weight of fluid displaced (Archimedes)",
+          "pattern": "weight of (the )?(fluid|liquid|water) displaced|displaced (fluid|liquid|water)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Buoyancy",
+            "quote": "is equivalent to the weight of the fluid that would otherwise occupy the submerge"
+          }
+        },
+        {
+          "id": "depth",
+          "claim": "Pressure increases with depth",
+          "pattern": "(increas)[^.]{0,30}(with )?depth|ρ\\s*g\\s*h|rho\\s*g\\s*h",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Buoyancy",
+            "quote": "The pressure of a fluid increases with depth below the fluid's surface because of the weight of the fluid above"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "flow-types-streamlines",
+      "chapter": "fluid-kinematics",
+      "facts": [
+        {
+          "id": "tangent",
+          "claim": "Streamlines are tangent to the velocity everywhere",
+          "pattern": "tangent",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Streamlines,_streaklines,_and_pathlines",
+            "quote": "Streamlines are a family of curves whose tangent vectors constitute the velocity vector field of the flow"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "continuity-equation-fm",
+      "chapter": "fluid-kinematics",
+      "facts": [
+        {
+          "id": "conserved",
+          "claim": "Continuity expresses conservation of mass",
+          "pattern": "conservation of mass|mass (is )?conserved",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Continuity_equation",
+            "quote": "Since mass, energy, momentum, electric charge and other natural quantities are conserved"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "euler-bernoulli-fm",
+      "chapter": "fluid-dynamics-eq",
+      "facts": [
+        {
+          "id": "speed-pressure",
+          "claim": "Higher speed goes with lower pressure",
+          "pattern": "(increase|higher)[^.]{0,30}(speed|velocity)[^.]{0,60}(decrease|lower|drop)[^.]{0,20}pressure|(pressure)[^.]{0,30}(decrease|drop|lower)[^.]{0,60}(speed|velocity)[^.]{0,20}(increase|higher)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bernoulli's_principle",
+            "quote": "an increase in the speed occurs simultaneously with a decrease in pressure"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "flow-measurement",
+      "chapter": "fluid-dynamics-eq",
+      "facts": [
+        {
+          "id": "venturi",
+          "claim": "In a constriction velocity rises and pressure falls (used to measure flow)",
+          "pattern": "(narrow|constrict|throat|smaller)[^.]{0,80}(velocity|speed)[^.]{0,60}pressure",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Venturi_effect",
+            "quote": "As the fluid flows into a smaller area, the fluid's velocity increases, while the static pressure decreases"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dimensional-analysis-pi",
+      "chapter": "fluid-dynamics-eq",
+      "facts": [
+        {
+          "id": "pi",
+          "claim": "Physical laws can be written with dimensionless π groups (n − k groups)",
+          "pattern": "dimensionless (groups?|parameters|numbers|products)|π\\s*groups?|pi groups?|n\\s*-\\s*(k|m|r)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Buckingham_pi_theorem",
+            "quote": "any physical law can be expressed as an identity involving only dimensionless combinations"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "laminar-pipe-flow",
+      "chapter": "pipe-flow",
+      "facts": [
+        {
+          "id": "poiseuille",
+          "claim": "Hagen–Poiseuille gives the pressure drop of laminar pipe flow",
+          "pattern": "poiseuille",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hagen–Poiseuille_equation",
+            "quote": "the Hagen–Poiseuille equation"
+          }
+        },
+        {
+          "id": "assumptions",
+          "claim": "Assumes incompressible Newtonian fluid in laminar flow",
+          "pattern": "laminar",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hagen–Poiseuille_equation",
+            "quote": "the flow is laminar through a pipe of constant circular cross-section"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "reynolds-turbulence",
+      "chapter": "pipe-flow",
+      "facts": [
+        {
+          "id": "ratio",
+          "claim": "Reynolds number = inertial / viscous forces",
+          "pattern": "inertial[^.]{0,40}viscous|ρ\\s*V\\s*D\\s*/\\s*μ|rho\\s*v\\s*D\\s*/\\s*mu",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reynolds_number",
+            "quote": "measuring the ratio between inertial and viscous forces"
+          }
+        },
+        {
+          "id": "regimes",
+          "claim": "Low Re → laminar; high Re → turbulent",
+          "pattern": "(low|small)[^.]{0,40}laminar|laminar[^.]{0,60}(below|low|less)|(high|large)[^.]{0,40}turbulent",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reynolds_number",
+            "quote": "At low Reynolds numbers, flows tend to be dominated by laminar (sheet-like) flow, while at high Reynolds numbers, flows tend to be turbulent"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "darcy-pipe-losses",
+      "chapter": "pipe-flow",
+      "facts": [
+        {
+          "id": "darcy",
+          "claim": "Darcy–Weisbach: head loss from a friction factor, length, diameter and velocity",
+          "pattern": "darcy|f\\s*\\*?\\s*\\(?\\s*L\\s*/\\s*D",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Darcy–Weisbach_equation",
+            "quote": "the Darcy–Weisbach equation is an empirical equation that relates the head loss, or pressure loss"
+          }
+        },
+        {
+          "id": "moody",
+          "claim": "Friction factor from the Moody chart",
+          "pattern": "moody",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Darcy–Weisbach_equation",
+            "quote": "combined with the Moody chart for calculating head losses in pipes"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "centrifugal-pump",
+      "chapter": "hydraulic-machines",
+      "facts": [
+        {
+          "id": "kinetic",
+          "claim": "The impeller converts rotational kinetic energy into fluid energy",
+          "pattern": "impeller",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Centrifugal_pump",
+            "quote": "by the conversion of rotational kinetic energy to the hydrodynamic energy of the fluid flow"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pelton-francis-kaplan",
+      "chapter": "hydraulic-machines",
+      "facts": [
+        {
+          "id": "impulse",
+          "claim": "Pelton wheel is an impulse turbine with jets on buckets",
+          "pattern": "impulse",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pelton_wheel",
+            "quote": "The Pelton wheel or Pelton Turbine is an impulse-type water turbine"
+          }
+        },
+        {
+          "id": "half-speed",
+          "claim": "Best when bucket speed is about half the jet speed",
+          "pattern": "half (the )?(jet )?(speed|velocity)|(bucket|blade) speed[^.]{0,40}(half|0\\.5)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pelton_wheel",
+            "quote": "when the rim ran at half the speed of the water jet"
+          }
+        }
+      ]
+    }
+  ]
+}

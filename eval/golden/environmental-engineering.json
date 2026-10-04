@@ -1,0 +1,222 @@
+{
+  "description": "Key facts a correct lesson on each Environmental Engineering topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "environmental-engineering",
+  "topics": [
+    {
+      "topic": "water-demand-quality",
+      "chapter": "water-supply",
+      "facts": [
+        {
+          "id": "supply",
+          "claim": "Public water supply delivers water via pumps and pipes",
+          "pattern": "pumps?[^.]{0,20}pipes?|pipes?[^.]{0,20}pumps?|distribution",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Water_supply",
+            "quote": "usually via a system of pumps and pipes"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "coagulation-sedimentation",
+      "chapter": "water-supply",
+      "facts": [
+        {
+          "id": "floc",
+          "claim": "Coagulation destabilises particles; flocculation forms flocs that settle",
+          "pattern": "floc",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flocculation",
+            "quote": "flocculation is a process by which colloidal particles come out of suspension to sediment in the form of floc"
+          }
+        },
+        {
+          "id": "mixing",
+          "claim": "Rapid mixing, then slow mixing, then sedimentation",
+          "pattern": "rapid mix[^.]{0,60}(slow|gentle)|flash mix",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flocculation",
+            "quote": "After the addition of flocculants, rapid mixing takes place, followed by slow mixing and later the sedimentation process"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "filtration-disinfection",
+      "chapter": "water-supply",
+      "facts": [
+        {
+          "id": "rsf",
+          "claim": "Rapid sand filters use coarse sand beds to remove particles",
+          "pattern": "rapid (sand|gravity) filter",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rapid_sand_filter",
+            "quote": "The rapid sand filter or rapid gravity filter is a type of filter used in water purification"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "water-distribution",
+      "chapter": "water-supply",
+      "facts": [
+        {
+          "id": "pressure",
+          "claim": "Distribution must keep adequate pressure in the pipes",
+          "pattern": "(adequate|sufficient|minimum) (water )?pressure",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Water_distribution_system",
+            "quote": "Hydraulic integrity is an ability to maintain adequate water pressure inside the pipes"
+          }
+        },
+        {
+          "id": "storage",
+          "claim": "Reservoirs (storage) balance demand",
+          "pattern": "reservoir|storage|tank",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Water_distribution_system",
+            "quote": "Storage facilities, or distribution reservoirs, provide clean drinking water storage"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sewage-quantity-sewers",
+      "chapter": "wastewater",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Sewage is wastewater from homes and institutions",
+          "pattern": "wastewater",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Sewage",
+            "quote": "Sewage (or domestic wastewater) consists of wastewater discharged from residences and from commercial, institutional and public facilities"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bod-cod",
+      "chapter": "wastewater",
+      "facts": [
+        {
+          "id": "bod",
+          "claim": "BOD: oxygen consumed by microbes, usually 5 days at 20 °C",
+          "pattern": "5[- ]day|five[- ]day|BOD\\s*_?\\s*5|20\\s*°\\s*C",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Biochemical_oxygen_demand",
+            "quote": "during 5 days of incubation at 20 °C"
+          }
+        },
+        {
+          "id": "organic",
+          "claim": "BOD and COD measure organic matter in water",
+          "pattern": "organic (matter|compounds|pollut|load)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Biochemical_oxygen_demand",
+            "quote": "both measure the amount of organic compounds in water"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "activated-sludge",
+      "chapter": "wastewater",
+      "facts": [
+        {
+          "id": "aeration",
+          "claim": "Aeration plus a microbial floc oxidises organic pollutants",
+          "pattern": "aerat|air[^.]{0,30}(inject|blow|supplied)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Activated_sludge",
+            "quote": "using aeration and a biological floc composed of bacteria"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "septic-sludge",
+      "chapter": "wastewater",
+      "facts": [
+        {
+          "id": "anaerobic",
+          "claim": "Septic tanks: settling and anaerobic digestion (primary treatment)",
+          "pattern": "anaerobic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Septic_tank",
+            "quote": "The term \"septic\" refers to the anaerobic bacterial environment that develops in the tank"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "air-pollutants-control",
+      "chapter": "air-noise-waste",
+      "facts": [
+        {
+          "id": "pollutants",
+          "claim": "Gases (e.g. NOx, ozone) and particles (soot, dust)",
+          "pattern": "(nitrogen oxides|NO\\s*_?\\s*x|sulphur dioxide|sulfur dioxide|SO\\s*_?\\s*2|ozone)[^.]{0,80}(particulate|particles|PM|soot|dust)|particulate matter|PM\\s*_?\\s*2\\.5",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Air_pollution",
+            "quote": "Pollutants can be gases, like ozone or nitrogen oxides, or small particles like soot and dust"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "noise-control",
+      "chapter": "air-noise-waste",
+      "facts": [
+        {
+          "id": "db",
+          "claim": "Noise is measured in decibels (logarithmic)",
+          "pattern": "decibels?|\\bdB\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Noise_pollution",
+            "quote": "Noise exposure is quantified in terms of sound pressure levels measured in decibels (dB), a logarithmic scale"
+          }
+        },
+        {
+          "id": "85",
+          "claim": "Repeated exposure above about 85 dB risks hearing loss",
+          "pattern": "85\\s*dB|hearing (loss|damage)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Noise_pollution",
+            "quote": "repeated exposure above approximately 85 dB is associated with"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "municipal-solid-waste",
+      "chapter": "air-noise-waste",
+      "facts": [
+        {
+          "id": "landfill",
+          "claim": "Most MSW ends in landfills; collection and transport come first",
+          "pattern": "landfill",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Municipal_solid_waste",
+            "quote": "the disposal of wastes by land filling or land spreading is the ultimate fate of all solid wastes"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "building-plumbing",
+      "chapter": "air-noise-waste",
+      "facts": [
+        {
+          "id": "plumbing",
+          "claim": "Plumbing conveys fluids with pipes, valves and fixtures",
+          "pattern": "pipes[^.]{0,30}(valves|fixtures|fittings)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Plumbing",
+            "quote": "Plumbing uses pipes, valves, plumbing fixtures, tanks, and other apparatuses to convey fluids"
+          }
+        }
+      ]
+    }
+  ]
+}

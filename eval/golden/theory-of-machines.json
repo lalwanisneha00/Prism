@@ -1,0 +1,258 @@
+{
+  "description": "Key facts a correct lesson on each Theory of Machines topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "theory-of-machines",
+  "topics": [
+    {
+      "topic": "kinematic-pairs-chains",
+      "chapter": "mechanisms",
+      "facts": [
+        {
+          "id": "lower-higher",
+          "claim": "Lower pairs have surface contact; higher pairs point or line contact",
+          "pattern": "(lower pair[^.]{0,80}surface|surface (contact|area)[^.]{0,80}lower)|higher pair[^.]{0,80}(point|line)|(point|line) contact",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Kinematic_pair",
+            "quote": "A lower pair is one in which there occurs a surface or area contact between two members"
+          }
+        },
+        {
+          "id": "constraint",
+          "claim": "A kinematic pair constrains relative motion of two links",
+          "pattern": "constrain[^.]{0,40}(relative )?motion|relative motion",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Kinematic_pair",
+            "quote": "a connection between two physical objects that imposes constraints on their relative movement"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "grubler-dof",
+      "chapter": "mechanisms",
+      "facts": [
+        {
+          "id": "mobility",
+          "claim": "Mobility formula counts DOF from links and joints",
+          "pattern": "(links?|n)[^.]{0,60}(joints?|j)[^.]{0,60}(degrees? of freedom|dof|mobility)|3\\s*\\(\\s*n\\s*-\\s*1\\s*\\)|M\\s*=\\s*3",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Chebychev–Grübler–Kutzbach_criterion",
+            "quote": "computes the number of parameters that define the configuration of a linkage from the number of links and joints"
+          }
+        },
+        {
+          "id": "joints-remove",
+          "claim": "Joints remove degrees of freedom",
+          "pattern": "(joints?|constraints?)[^.]{0,40}(remove|reduce|subtract)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Chebychev–Grübler–Kutzbach_criterion",
+            "quote": "Joints that connect bodies in this system remove degrees of freedom and reduce mobility"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "four-bar-grashof",
+      "chapter": "mechanisms",
+      "facts": [
+        {
+          "id": "simplest",
+          "claim": "The four-bar is the simplest closed-chain linkage",
+          "pattern": "simplest",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Four-bar_linkage",
+            "quote": "a four-bar linkage, also called a four-bar, is the simplest closed-chain movable linkage"
+          }
+        },
+        {
+          "id": "crank",
+          "claim": "A crank is a link that can make a full revolution (Grashof: s + l ≤ p + q)",
+          "pattern": "full (revolution|rotation)|complete (revolution|rotation)|s\\s*\\+\\s*l\\s*(≤|<=|<)\\s*p\\s*\\+\\s*q",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Four-bar_linkage",
+            "quote": "A link connecting to the ground by a revolute joint that can perform a complete revolution is called a crank link"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "slider-crank-quick-return",
+      "chapter": "mechanisms",
+      "facts": [
+        {
+          "id": "joints",
+          "claim": "Slider-crank: three revolute joints and one sliding (prismatic) joint",
+          "pattern": "(three|3) (revolute|turning)[^.]{0,60}(one|1) (prismatic|sliding)|prismatic|sliding pair",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Slider-crank_linkage",
+            "quote": "a four-link mechanism with three revolute joints and one prismatic (sliding) joint"
+          }
+        },
+        {
+          "id": "convert",
+          "claim": "Converts rotation of the crank into linear motion of the slider (and back)",
+          "pattern": "(rotat)[^.]{0,60}(linear|reciprocat)|(linear|reciprocat)[^.]{0,60}rotat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Slider-crank_linkage",
+            "quote": "the rotation of the crank drives the linear movement of the slider"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "instant-centre-velocity",
+      "chapter": "kinematic-analysis",
+      "facts": [
+        {
+          "id": "zero-velocity",
+          "claim": "The instantaneous centre is the point of zero velocity",
+          "pattern": "zero velocity|velocity (is )?zero|at rest",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Instant_centre_of_rotation",
+            "quote": "is a point that has zero vel"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "relative-velocity-acceleration",
+      "chapter": "kinematic-analysis",
+      "facts": [
+        {
+          "id": "coriolis",
+          "claim": "Coriolis acceleration appears for motion in a rotating frame (2ωv)",
+          "pattern": "rotating (frame|link|reference)|2\\s*\\*?\\s*(ω|omega)\\s*\\*?\\s*v|2\\s*v\\s*(ω|omega)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Coriolis_force",
+            "quote": "acts on objects in motion within a frame of reference that rotates with respect to an inertial frame"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "law-of-gearing",
+      "chapter": "gears-tom",
+      "facts": [
+        {
+          "id": "torque-speed",
+          "claim": "Gears trade torque for speed",
+          "pattern": "(torque)[^.]{0,60}(speed)|(speed)[^.]{0,60}torque",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gear",
+            "quote": "gears and gear trains can be used to trade torque for rotational speed between two axles"
+          }
+        },
+        {
+          "id": "small-drives-large",
+          "claim": "A small gear driving a larger one increases torque and reduces speed",
+          "pattern": "(small(er)?)[^.]{0,30}(gear|pinion)[^.]{0,60}(large|bigger)[^.]{0,80}(torque|speed)|(increase)[^.]{0,30}torque[^.]{0,40}(decrease|reduce)[^.]{0,20}speed",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gear",
+            "quote": "When a small gear drives a larger one, the mechanical advantage of this ideal lever causes the torque T to increase but the rotational speed"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gear-types",
+      "chapter": "gears-tom",
+      "facts": [
+        {
+          "id": "helical",
+          "claim": "Helical gear teeth are set at an angle to the axis",
+          "pattern": "helical[^.]{0,80}(angle|incline|helix)|(angle|inclined)[^.]{0,60}(axis)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gear",
+            "quote": "In a helical or dry fixed gear the tooth walls are not parallel to the axis of rotation, but are set at an angle"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "epicyclic-gear-trains",
+      "chapter": "gears-tom",
+      "facts": [
+        {
+          "id": "parts",
+          "claim": "Sun, planet (on a carrier) and ring gears",
+          "pattern": "sun[^.]{0,60}planet|planet[^.]{0,60}sun",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Epicyclic_gearing",
+            "quote": "A carrier connects the centers of the two gears and rotates to carry the planet gear(s) around the sun gear"
+          }
+        },
+        {
+          "id": "ring",
+          "claim": "Planets may mesh with an outer ring (annulus) gear",
+          "pattern": "ring gear|annulus|annular",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Epicyclic_gearing",
+            "quote": "an outer gear ring, or ring gear, sometimes called an annulus gear"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "flywheel-turning-moment",
+      "chapter": "dynamics-tom",
+      "facts": [
+        {
+          "id": "energy",
+          "claim": "A flywheel stores rotational energy ½Iω²",
+          "pattern": "(1\\s*/\\s*2|½|0\\.5)\\s*\\*?\\s*I\\s*\\*?\\s*(ω|omega)|rotational (kinetic )?energy|stores? energy",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flywheel",
+            "quote": "uses the conservation of angular momentum to store rotational energy"
+          }
+        },
+        {
+          "id": "smooth",
+          "claim": "It absorbs excess and releases energy to smooth speed fluctuations",
+          "pattern": "(absorb|store)[^.]{0,60}(release|give)|fluctuat|smooth",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flywheel",
+            "quote": "will donate a surge in power output upon a drop in power input and will conversely absorb any excess power input"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "free-forced-vibration",
+      "chapter": "dynamics-tom",
+      "facts": [
+        {
+          "id": "oscillation",
+          "claim": "Vibration is oscillation about an equilibrium",
+          "pattern": "oscillat[^.]{0,40}equilibrium|equilibrium[^.]{0,40}oscillat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Vibration",
+            "quote": "vibration (from Latin vibrāre 'to shake') is an oscillation of matter about an equilibrium point"
+          }
+        },
+        {
+          "id": "forced",
+          "claim": "Forced response occurs at the forcing frequency",
+          "pattern": "(forcing|applied|excitation) frequency",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Vibration",
+            "quote": "is equal to the frequency of the applied force or motion"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "critical-speed-shafts",
+      "chapter": "dynamics-tom",
+      "facts": [
+        {
+          "id": "natural",
+          "claim": "Critical speed = speed matching the natural frequency (resonance)",
+          "pattern": "natural frequency[^.]{0,80}(speed|resonan)|(speed|resonan)[^.]{0,80}natural frequency",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Critical_speed",
+            "quote": "When the rotational speed is equal to the natural frequency, then that speed is referred to as a critical speed"
+          }
+        }
+      ]
+    }
+  ]
+}

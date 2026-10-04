@@ -1,0 +1,240 @@
+{
+  "description": "Key facts a correct lesson on each Strength of Materials topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "strength-of-materials",
+  "topics": [
+    {
+      "topic": "hookes-law-bars",
+      "chapter": "stress-strain",
+      "facts": [
+        {
+          "id": "stress",
+          "claim": "Stress = force / area",
+          "pattern": "force[^.]{0,30}(per|/|divided by)[^.]{0,20}area|σ\\s*=\\s*F\\s*/\\s*A|sigma\\s*=\\s*F\\s*/\\s*A|P\\s*/\\s*A",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Stress_(mechanics)",
+            "quote": "The greater the force and the smaller the cross-sectional area of the body on which it acts, the greater the stress"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "principal-stresses-mohr",
+      "chapter": "stress-strain",
+      "facts": [
+        {
+          "id": "graphical",
+          "claim": "Mohr's circle is a graphical transformation of stress",
+          "pattern": "mohr",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mohr's_circle",
+            "quote": "Mohr's circle is a two-dimensional graphical representation of the transformation law for the Cauchy stress tensor"
+          }
+        },
+        {
+          "id": "principal",
+          "claim": "It finds principal planes and principal stresses",
+          "pattern": "principal (stress|plane)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mohr's_circle",
+            "quote": "Mohr's circle can also be used to find the principal planes and the principal stresses"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "thermal-stress",
+      "chapter": "stress-strain",
+      "facts": [
+        {
+          "id": "cause",
+          "claim": "Restrained thermal expansion or contraction causes stress",
+          "pattern": "(restrain|prevent|constrain)[^.]{0,60}(expan|contract)|α\\s*\\*?\\s*ΔT|alpha\\s*\\*?\\s*(delta )?T|E\\s*α\\s*ΔT",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thermal_stress",
+            "quote": "thermal stress is mechanical stress created by any change in temperature of a material"
+          }
+        },
+        {
+          "id": "coefficient",
+          "claim": "Depends on the coefficient of thermal expansion",
+          "pattern": "coefficient of (linear )?(thermal )?expansion",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thermal_stress",
+            "quote": "This type of stress is highly dependent on the thermal expansion coefficient"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sfd-bmd",
+      "chapter": "beams",
+      "facts": [
+        {
+          "id": "purpose",
+          "claim": "SFD/BMD give shear force and bending moment along the beam for design",
+          "pattern": "shear force[^.]{0,40}bending moment|bending moment[^.]{0,40}shear force",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Shear_and_moment_diagram",
+            "quote": "Shear force and bending moment diagrams are analytical tools used in conjunction with structural analysis"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bending-stress",
+      "chapter": "beams",
+      "facts": [
+        {
+          "id": "neutral",
+          "claim": "Stress is zero at the neutral axis and largest at the extreme fibres",
+          "pattern": "neutral axis",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bending",
+            "quote": "the maximum stress experienced in the section (at the furthest points from the neutral axis of the beam)"
+          }
+        },
+        {
+          "id": "perpendicular",
+          "claim": "Bending: a slender member loaded perpendicular to its axis",
+          "pattern": "(perpendicular|transverse)[^.]{0,40}(axis|load)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bending",
+            "quote": "a slender structural element subjected to an external load applied perpendicularly to a longitudinal axis"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "double-integration",
+      "chapter": "deflection",
+      "facts": [
+        {
+          "id": "integrate",
+          "claim": "Deflection is found by integrating the slope (curvature) equation",
+          "pattern": "integrat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Deflection_(engineering)",
+            "quote": "The deflection distance of a member under a load can be calculated by integrating the function that mathematically describes the slope"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "macaulay-moment-area",
+      "chapter": "deflection",
+      "facts": [
+        {
+          "id": "macaulay",
+          "claim": "Macaulay's method handles discontinuous (point) loads",
+          "pattern": "(discontinu|point loads?|singularity|bracket)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Macaulay's_method",
+            "quote": "Use of Macaulay's technique is very convenient for cases of discontinuous and/or discrete loading"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "torsion-shafts",
+      "chapter": "torsion-columns",
+      "facts": [
+        {
+          "id": "twist",
+          "claim": "Torsion: twisting by an applied torque, producing shear stress",
+          "pattern": "twist",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Torsion_(mechanics)",
+            "quote": "torsion is the twisting of an object caused by an applied torque"
+          }
+        },
+        {
+          "id": "shear",
+          "claim": "Torsional stress is a shear stress",
+          "pattern": "(torsional )?shear stress|τ\\s*=\\s*T\\s*r\\s*/\\s*J|T\\s*/\\s*J",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Torsion_(mechanics)",
+            "quote": "the resulting torsional shear stress is expressed in pascals"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "helical-springs",
+      "chapter": "torsion-columns",
+      "facts": [
+        {
+          "id": "torsion",
+          "claim": "The wire of a coil spring is in torsion",
+          "pattern": "torsion",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Coil_spring",
+            "quote": "Under tension or compression, the material (wire) of a coil spring undergoes torsion"
+          }
+        },
+        {
+          "id": "energy",
+          "claim": "Springs store and release energy",
+          "pattern": "store[^.]{0,30}energy|energy[^.]{0,30}stor",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Coil_spring",
+            "quote": "is used to store energy and subsequently release it"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "euler-buckling",
+      "chapter": "torsion-columns",
+      "facts": [
+        {
+          "id": "critical",
+          "claim": "Euler's critical load is the largest axial load a slender column carries without buckling",
+          "pattern": "critical (load|buckling load)|π\\s*\\^?\\s*2\\s*E\\s*I|pi\\s*\\^?\\s*2\\s*E\\s*I",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Buckling",
+            "quote": "the maximum axial load that a long, slender, ideal column can carry without buckling"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "thin-cylinders",
+      "chapter": "energy-vessels",
+      "facts": [
+        {
+          "id": "hoop",
+          "claim": "Internal pressure causes hoop (circumferential) stress",
+          "pattern": "hoop stress|circumferential stress",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cylinder_stress",
+            "quote": "circumferential stress, or hoop stress, a normal stress in the tangential (azimuth) direction"
+          }
+        },
+        {
+          "id": "radial",
+          "claim": "Radial stress is negligible in thin walls",
+          "pattern": "radial stress[^.]{0,60}(negligible|small|zero|ignored)|(negligible|small|ignored)[^.]{0,40}radial",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cylinder_stress",
+            "quote": "Thin sections often have negligibly small radial stress"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "strain-energy-castigliano",
+      "chapter": "energy-vessels",
+      "facts": [
+        {
+          "id": "castigliano",
+          "claim": "Displacement = partial derivative of strain energy with respect to force",
+          "pattern": "partial derivative|∂\\s*U\\s*/\\s*∂|dU\\s*/\\s*dP|derivative of (the )?(strain )?energy",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Castigliano's_method",
+            "quote": "is a method for determining the displacements of a linear-elastic system based on the partial derivatives of the energy"
+          }
+        }
+      ]
+    }
+  ]
+}

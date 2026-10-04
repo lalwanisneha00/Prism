@@ -1,0 +1,195 @@
+{
+  "description": "Key facts a correct lesson on each Building Materials and Testing topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "building-materials",
+  "topics": [
+    {
+      "topic": "bricks-stones",
+      "chapter": "materials-overview",
+      "facts": [
+        {
+          "id": "clay",
+          "claim": "Bricks are mainly clay, fired (burnt) for strength",
+          "pattern": "clay|burnt|fired|kiln",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Brick",
+            "quote": "Properly, the term brick denotes a unit primarily composed of clay"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cement-lime-mortar",
+      "chapter": "materials-overview",
+      "facts": [
+        {
+          "id": "mortar",
+          "claim": "Mortar binds masonry units; made of sand, binder and water",
+          "pattern": "sand[^.]{0,30}(binder|cement|lime)[^.]{0,30}water|binds? (bricks|stones|masonry|blocks)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mortar_(masonry)",
+            "quote": "Bricklayers typically make mortars using a mixture of sand, a binder, and water"
+          }
+        },
+        {
+          "id": "binders",
+          "claim": "Binder is usually Portland cement or lime",
+          "pattern": "(portland )?cement[^.]{0,40}lime|lime[^.]{0,40}cement",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mortar_(masonry)",
+            "quote": "The most common binder since the early 20th century is Portland cement, but the ancient binder lime"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "timber",
+      "chapter": "materials-overview",
+      "facts": [
+        {
+          "id": "hard-soft",
+          "claim": "Timber comes from hardwoods and softwoods",
+          "pattern": "hardwoods?[^.]{0,30}softwoods?|softwoods?[^.]{0,30}hardwoods?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lumber",
+            "quote": "including hardwoods and softwoods"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "structural-steel-bm",
+      "chapter": "materials-overview",
+      "facts": [
+        {
+          "id": "shapes",
+          "claim": "Rolled in standard shapes (I-sections, channels, angles)",
+          "pattern": "\\b(I|H)[- ]sections?|channel sections?|angle sections?|rolled (steel )?sections?|steel shapes",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Structural_steel",
+            "quote": "Structural steel is steel used for making construction materials in a variety of shapes"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bitumen-polymers-bm",
+      "chapter": "materials-overview",
+      "facts": [
+        {
+          "id": "petroleum",
+          "claim": "Bitumen is a viscous product of petroleum",
+          "pattern": "petroleum|crude oil",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bitumen",
+            "quote": "Bitumen (UK: BIH-chuum-in, US: bih-TEW-min, by-) is an immensely viscous constituent of petroleum"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "tension-test-bm",
+      "chapter": "mechanical-testing-bm",
+      "facts": [
+        {
+          "id": "properties",
+          "claim": "Gives ultimate tensile strength and elongation",
+          "pattern": "ultimate (tensile )?strength|elongation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Tensile_testing",
+            "quote": "ultimate tensile strength, breaking strength, maximum elongation and reduction in area"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "compression-shear-tests",
+      "chapter": "mechanical-testing-bm",
+      "facts": [
+        {
+          "id": "compressive",
+          "claim": "Compressive strength: resistance to loads that shorten the specimen",
+          "pattern": "(withstand|resist)[^.]{0,40}(compress|crush|shorten|reduce)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Compressive_strength",
+            "quote": "compressive strength (or compression strength) is the capacity of a material or structure to withstand loads tending to reduce size"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "hardness-impact",
+      "chapter": "mechanical-testing-bm",
+      "facts": [
+        {
+          "id": "hardness",
+          "claim": "Hardness: resistance to indentation (Brinell, Rockwell)",
+          "pattern": "indentation|brinell|rockwell|vickers",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hardness",
+            "quote": "Indentation hardness measures the resistance of a sample to material deformation due to a constant compression load from a sharp object"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fatigue-creep-fracture-bm",
+      "chapter": "mechanical-testing-bm",
+      "facts": [
+        {
+          "id": "fatigue",
+          "claim": "Fatigue: cracks grow under cyclic loading",
+          "pattern": "cyclic|repeated|fluctuat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fatigue_(material)",
+            "quote": "fatigue is the initiation and propagation of cracks in a material due to cyclic loading"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "aggregate-gradation",
+      "chapter": "evaluation",
+      "facts": [
+        {
+          "id": "coarse-fine",
+          "claim": "Aggregates are coarse to fine particles (sand, gravel, crushed stone)",
+          "pattern": "coarse[^.]{0,40}fine|fine[^.]{0,40}coarse|sand[^.]{0,40}gravel",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Construction_aggregate",
+            "quote": "is a broad category of coarse to medium-grained particulate material used in construction"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "concrete-tests-bm",
+      "chapter": "evaluation",
+      "facts": [
+        {
+          "id": "slump",
+          "claim": "The slump test checks workability of fresh concrete",
+          "pattern": "slump",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Concrete_slump_test",
+            "quote": "It is performed to check the workability of freshly made concrete"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "marshall-mix",
+      "chapter": "evaluation",
+      "facts": [
+        {
+          "id": "asphalt",
+          "claim": "Asphalt (bituminous) mixes are aggregate plus bitumen laid and compacted",
+          "pattern": "aggregate[^.]{0,60}bitumen|bitumen[^.]{0,60}aggregate|bituminous",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Asphalt_concrete",
+            "quote": "It consists of mineral aggregate bound together with bitumen"
+          }
+        }
+      ]
+    }
+  ]
+}
