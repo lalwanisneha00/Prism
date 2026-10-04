@@ -1,0 +1,420 @@
+{
+  "description": "Key facts a correct lesson on each Engineering Chemistry topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "engg-chemistry",
+  "topics": [
+    {
+      "topic": "spectroscopy-principles",
+      "chapter": "spectroscopy",
+      "facts": [
+        {
+          "id": "proportional",
+          "claim": "Absorbance is proportional to concentration",
+          "pattern": "proportional to (the )?(solution'?s )?concentration|A\\s*=\\s*(epsilon|varepsilon)\\s*(l|b|c)|epsilon\\s*l\\s*c|varepsilon\\s*l\\s*c",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Beer–Lambert_law",
+            "quote": "the amount of light that a solution absorbs is directly proportional to the solution's concentration"
+          }
+        },
+        {
+          "id": "path",
+          "claim": "...and to the path length",
+          "pattern": "path length|optical path|thickness",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Beer–Lambert_law",
+            "quote": "to the optical path length through the sample and absorptivity of the species"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "nernst-equation",
+      "chapter": "free-energy-equilibria",
+      "facts": [
+        {
+          "id": "standard",
+          "claim": "E is related to the standard potential E°",
+          "pattern": "standard (electrode |reduction |cell )?potential|E\\s*\\^?\\s*(°|circ|0)|E_?0",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nernst_equation",
+            "quote": "is the standard half-cell reduction potential"
+          }
+        },
+        {
+          "id": "faraday",
+          "claim": "Uses the Faraday constant F (charge per mole of electrons)",
+          "pattern": "faraday",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nernst_equation",
+            "quote": "the magnitude of charge (in coulombs) per mole of electrons"
+          }
+        },
+        {
+          "id": "quotient",
+          "claim": "Uses the reaction quotient Q",
+          "pattern": "reaction quotient|ln\\s*Q|log\\s*Q|ln\\s*\\(?\\s*Q|log_?\\s*10\\s*Q",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nernst_equation",
+            "quote": "The reaction quotient (Qr), also often called the ion activity product (IAP)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "thermodynamic-functions",
+      "chapter": "free-energy-equilibria",
+      "facts": [
+        {
+          "id": "spontaneous",
+          "claim": "A negative ΔG is needed for a spontaneous reaction",
+          "pattern": "negative[^.]{0,80}spontaneous|spontaneous[^.]{0,100}negative|Delta\\s*G\\s*<\\s*0",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gibbs_free_energy",
+            "quote": "is necessary for a reaction to be spontaneous under these conditions"
+          }
+        },
+        {
+          "id": "enthalpy",
+          "claim": "G = H − TS (enthalpy and entropy)",
+          "pattern": "G\\s*=\\s*H\\s*-\\s*T\\s*S|Delta\\s*G\\s*=\\s*Delta\\s*H\\s*-\\s*T\\s*Delta\\s*S|enthalpy",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gibbs_free_energy",
+            "quote": "is the enthalpy of the system"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gibbs-phase-rule",
+      "chapter": "phase-rule",
+      "facts": [
+        {
+          "id": "rule",
+          "claim": "F = C − P + 2",
+          "pattern": "F\\s*=\\s*C\\s*-\\s*P\\s*\\+\\s*2|C\\s*-\\s*P\\s*\\+\\s*2",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Phase_rule",
+            "quote": "it relates the number of freely varying intensive properties (F) to the number of components (C), the number of phases (P)"
+          }
+        },
+        {
+          "id": "freedom",
+          "claim": "Degrees of freedom = intensive variables that can be varied independently",
+          "pattern": "degrees? of freedom",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Phase_rule",
+            "quote": "The number of degrees of freedom (F) in this context is the number of intensive variables which are independent of each other"
+          }
+        },
+        {
+          "id": "phases",
+          "claim": "Phases are e.g. solid, liquid and gas",
+          "pattern": "solid, liquid,? (and|or) (gas|vapou?r)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Phase_rule",
+            "quote": "Typical phases are solid, liquid and gas"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "two-component-eutectic",
+      "chapter": "phase-rule",
+      "facts": [
+        {
+          "id": "lower",
+          "claim": "A eutectic mixture melts lower than its constituents",
+          "pattern": "(lower|lowest)[^.]{0,80}melting|melt[^.]{0,80}(lower|lowest)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Eutectic_system",
+            "quote": "has a melting point lower than those of the constituents"
+          }
+        },
+        {
+          "id": "point",
+          "claim": "The lowest melting temperature is the eutectic point/temperature",
+          "pattern": "eutectic (point|temperature)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Eutectic_system",
+            "quote": "The lowest possible melting point over all of the mixing ratios of the constituents is called the eutectic temperature"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "crystal-field-theory",
+      "chapter": "atomic-molecular-structure",
+      "facts": [
+        {
+          "id": "splitting",
+          "claim": "Ligands split the d-orbitals in energy",
+          "pattern": "split",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Crystal_field_theory",
+            "quote": "which results in the d-orbitals splitting in energy"
+          }
+        },
+        {
+          "id": "degenerate",
+          "claim": "The five d-orbitals lose their degeneracy",
+          "pattern": "five[^.]{0,30}d[- ]?orbitals|degenera",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Crystal_field_theory",
+            "quote": "considering energy changes of the five degenerate d-orbitals"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "molecular-orbital-theory",
+      "chapter": "atomic-molecular-structure",
+      "facts": [
+        {
+          "id": "lcao",
+          "claim": "MOs are linear combinations of atomic orbitals",
+          "pattern": "linear combination|LCAO",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Molecular_orbital_theory",
+            "quote": "as linear combinations of atomic orbitals (LCAO)"
+          }
+        },
+        {
+          "id": "types",
+          "claim": "Bonding and antibonding orbitals",
+          "pattern": "anti-?bonding",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Molecular_orbital_theory",
+            "quote": "These are often divided into three types, bonding, antibonding, and non-bonding"
+          }
+        },
+        {
+          "id": "bond-order",
+          "claim": "Bond order = (bonding − antibonding electrons)/2",
+          "pattern": "bond order",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Molecular_orbital_theory",
+            "quote": "subtracting the number of electrons in anti-bonding orbitals from the number of bonding orbitals, and the resulting number is then divided by two"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "aromaticity-pi-orbitals",
+      "chapter": "atomic-molecular-structure",
+      "facts": [
+        {
+          "id": "huckel",
+          "claim": "Hückel's rule: 4n + 2 π electrons",
+          "pattern": "4\\s*n\\s*\\+\\s*2|huckel|hückel",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Aromaticity",
+            "quote": "4n + 2 for some integer n"
+          }
+        },
+        {
+          "id": "planar",
+          "claim": "Aromatic rings are planar",
+          "pattern": "planar (ring|molecule|structure|cyclic)|ring[^.]{0,40}(planar|flat)|coplanar|flat ring|same plane",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Aromaticity",
+            "quote": "Coplanar structure, with all the contributing atoms in the same plane"
+          }
+        },
+        {
+          "id": "stable",
+          "claim": "Benzene is more stable than expected (delocalisation)",
+          "pattern": "delocali[sz]|extra stab|unusual(ly)? stab|more stable",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Aromaticity",
+            "quote": "Benzene is a more stable molecule than would be expected without accounting for charge delocalization"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "electrochemical-corrosion",
+      "chapter": "free-energy-equilibria",
+      "facts": [
+        {
+          "id": "oxide",
+          "claim": "Corrosion turns a refined metal into a more stable oxide",
+          "pattern": "oxide|oxidation|oxidi[sz]",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Corrosion",
+            "quote": "Corrosion is a natural process that converts a refined metal into a more chemically stable oxide"
+          }
+        },
+        {
+          "id": "electrochemical",
+          "claim": "It is an electrochemical process (rusting of iron is the familiar example)",
+          "pattern": "electrochemical|anode|cathode|anodic|cathodic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Corrosion",
+            "quote": "Rusting, the formation of red-orange iron oxides, is perhaps the most familiar example of electrochemical corrosion"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "corrosion-protection",
+      "chapter": "free-energy-equilibria",
+      "facts": [
+        {
+          "id": "sacrificial",
+          "claim": "A more easily corroded sacrificial metal acts as the anode",
+          "pattern": "sacrificial",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cathodic_protection",
+            "quote": "connects the metal to be protected to a more easily corroded \"sacrificial metal\" to act as the anode"
+          }
+        },
+        {
+          "id": "metals",
+          "claim": "Sacrificial anodes are zinc, magnesium or aluminium",
+          "pattern": "zinc|magnesium|alumin(i)?um",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cathodic_protection",
+            "quote": "Galvanic or sacrificial anodes are made in various shapes and sizes using alloys of zinc, magnesium, and aluminium"
+          }
+        },
+        {
+          "id": "galvanised",
+          "claim": "Galvanised steel: a zinc coating protects steel",
+          "pattern": "galvani[sz]",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cathodic_protection",
+            "quote": "in galvanized steel, in which a sacrificial coating of zinc on steel parts protects them from rust"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "knocking-octane-cetane",
+      "chapter": "fuels",
+      "facts": [
+        {
+          "id": "measure",
+          "claim": "Octane number measures resistance to knocking",
+          "pattern": "knock",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Octane_rating",
+            "quote": "a standard measure of a fuel's ability to withstand compression in an internal combustion engine without causing engine knocking"
+          }
+        },
+        {
+          "id": "reference",
+          "claim": "Defined against iso-octane (100) and n-heptane (0) blends",
+          "pattern": "iso-?octane|heptane|2,2,4-trimethylpentane",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Octane_rating",
+            "quote": "The term refers to the equivalent ratio of a blend of iso-octane and heptane that produces the same knocking characteristics"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fuel-classification-calorific-value",
+      "chapter": "fuels",
+      "facts": [
+        {
+          "id": "hhv",
+          "claim": "Gross (higher) calorific value includes condensing the water vapour",
+          "pattern": "gross calorific|higher (calorific|heating)|HCV|GCV|HHV",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Heat_of_combustion",
+            "quote": "The HHV is determined by bringing all the products of combustion back to the original pre-combustion temperature, including condensing any vapor produced"
+          }
+        },
+        {
+          "id": "lhv",
+          "claim": "Net (lower) calorific value excludes the heat used to vaporise water",
+          "pattern": "net calorific|lower (calorific|heating) value|\\b(LCV|NCV|LHV)\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Heat_of_combustion",
+            "quote": "the LHV considers energy losses such as the energy used to vaporize water"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "water-chemistry",
+      "chapter": "free-energy-equilibria",
+      "facts": [
+        {
+          "id": "ions",
+          "claim": "Hardness comes from calcium and magnesium salts",
+          "pattern": "calcium[^.]{0,60}magnesium|magnesium[^.]{0,60}calcium|Ca\\s*\\^?\\s*\\(?2\\+|Mg\\s*\\^?\\s*\\(?2\\+",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hard_water",
+            "quote": "which are largely made up of calcium and magnesium carbonates, bicarbonates and sulfates"
+          }
+        },
+        {
+          "id": "permanent",
+          "claim": "Permanent hardness is not removed by boiling",
+          "pattern": "permanent hardness|non-?carbonate hardness",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hard_water",
+            "quote": "Permanent hardness (mineral content) is generally difficult to remove by boiling"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "chirality-optical-activity",
+      "chapter": "stereochemistry",
+      "facts": [
+        {
+          "id": "mirror",
+          "claim": "A chiral molecule cannot be superposed on its mirror image",
+          "pattern": "(superimpos|superpos)[a-z]*[^.]{0,60}mirror image|mirror image[^.]{0,80}(superimpos|superpos|identical)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Chirality_(chemistry)",
+            "quote": "if it cannot be superposed on its mirror image"
+          }
+        },
+        {
+          "id": "enantiomers",
+          "claim": "Its two mirror-image forms are enantiomers",
+          "pattern": "enantiomer",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Chirality_(chemistry)",
+            "quote": "A chiral molecule or ion exists in two stereoisomers that are mirror images of each other, called enantiomers"
+          }
+        },
+        {
+          "id": "racemic",
+          "claim": "A 50:50 mixture is racemic",
+          "pattern": "racemi",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Chirality_(chemistry)",
+            "quote": "A homogeneous mixture of the two enantiomers in equal parts, a racemic mixture"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "nanomaterials-classification",
+      "chapter": "nanomaterials",
+      "facts": [
+        {
+          "id": "size",
+          "claim": "Nanomaterials are 1–100 nm in at least one dimension",
+          "pattern": "1\\s*(-|–|to|and)\\s*100\\s*(nm|nanomet)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nanomaterials",
+            "quote": "sized (in at least one dimension) between 1 and 100 nm"
+          }
+        },
+        {
+          "id": "properties",
+          "claim": "Nanoscale structure gives unusual optical, electronic or mechanical properties",
+          "pattern": "(unique|unusual|different|novel|new)[^.]{0,60}propert|propert[^.]{0,60}(change|differ|depend)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nanomaterials",
+            "quote": "Materials with structure at the nanoscale often have unique optical, electronic, thermo-physical or mechanical properties"
+          }
+        }
+      ]
+    }
+  ]
+}

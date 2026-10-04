@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { isValidExpression } from "@/visuals/expression";
+import { wave1Widgets } from "@/visuals/wave1/registry";
 
 /*
  * Every interactive widget the AI may choose (SPEC §4). The AI returns
@@ -157,6 +158,15 @@ export const widgetRegistry = {
       }),
     help: 'expression in x and a (write products with *, e.g. "exp(-a*x)*sin(3*x)"); aMin, aMax, aStart (-20..20); xRange [min,max]. Shows how the constant a reshapes the curve.',
     topics: [
+      "blackbody-radiation",
+      "photoelectric-compton",
+      "free-electron-fermi-level",
+      "time-dilation-length-contraction",
+      "relativistic-velocity-mass-energy",
+      "ideal-gas-processes",
+      "real-gases-critical",
+      "rectilinear-motion",
+      "hydrogen-wave-functions",
       "limits-continuity",
       "improper-integrals",
       "higher-order-linear-ode",
@@ -197,6 +207,7 @@ export const widgetRegistry = {
       .refine((p) => p.a < p.b, { message: "need a < b" }),
     help: 'expression in x; a < b are the limits; n rectangles (1..50, start small like 4); method "left" | "right" | "midpoint".',
     topics: [
+      "work-energy-particles",
       "definite-integrals",
       "area-volume-integrals",
       "improper-integrals",
@@ -256,6 +267,7 @@ export const widgetRegistry = {
     }),
     help: 'F = (p, q), each an expression in x and y with * for products, e.g. p "-y", q "x" (rotation); range 1..10 (half-height of the view). The student taps to read div and curl.',
     topics: [
+      "conservative-forces-potential",
       "gradient-divergence-curl",
       "directional-derivative",
       "line-integrals",
@@ -299,6 +311,7 @@ export const widgetRegistry = {
     help: 'wave: "square" | "sawtooth" (f(x) = x) | "triangle" (f(x) = |x|) on (-π, π); terms 1..40 to start with (e.g. 3).',
     topics: ["fourier-series", "half-range-series", "convergence-tests", "parsevals-theorem"],
   },
+  ...wave1Widgets,
 } as const;
 
 export type WidgetId = keyof typeof widgetRegistry;

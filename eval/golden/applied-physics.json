@@ -1,0 +1,426 @@
+{
+  "description": "Key facts a correct lesson on each Applied Physics topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "applied-physics",
+  "topics": [
+    {
+      "topic": "simple-harmonic-motion",
+      "chapter": "oscillations",
+      "facts": [
+        {
+          "id": "restoring",
+          "claim": "Restoring force proportional to displacement, towards equilibrium",
+          "pattern": "restoring force|proportional to (the )?displacement|F\\s*=\\s*-\\s*k\\s*x|-\\s*k\\s*x",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Simple_harmonic_motion",
+            "quote": "restoring force whose magnitude is directly proportional to the distance of the object from an equilibrium position"
+          }
+        },
+        {
+          "id": "sinusoidal",
+          "claim": "The motion is sinusoidal in time",
+          "pattern": "sinusoid|sin\\s*\\(?\\s*\\(?omega|cos\\s*\\(?\\s*\\(?omega|sine (wave|function|curve)|cosine",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Simple_harmonic_motion",
+            "quote": "The motion is sinusoidal in time"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "damped-oscillations",
+      "chapter": "oscillations",
+      "facts": [
+        {
+          "id": "regimes",
+          "claim": "Underdamped, critically damped and overdamped cases",
+          "pattern": "critical(ly)? damp",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Damping",
+            "quote": "underdamped (ζ < 1) through critically damped (ζ = 1) to overdamped (ζ > 1)"
+          }
+        },
+        {
+          "id": "envelope",
+          "claim": "Amplitude decays inside an exponential envelope",
+          "pattern": "exponential(ly)?|e\\^\\s*\\(?\\s*-",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Damping",
+            "quote": "the outer envelope of the successive peaks is an exponential decay curve"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "forced-oscillations-resonance",
+      "chapter": "oscillations",
+      "facts": [
+        {
+          "id": "max-amplitude",
+          "claim": "Driving at the resonant frequency gives the largest amplitude",
+          "pattern": "resonan[a-z]*[^.]{0,100}(maximum|max|large|larger|largest|greatest|biggest|peak) amplitude|amplitude[^.]{0,100}(maximum|peak|largest|greatest|biggest)|(driving|forcing|applied) frequency[^.]{0,80}(equals|matches|equal to|close to|near)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Resonance",
+            "quote": "defined as a frequency that generates a maximum amplitude response in the system"
+          }
+        },
+        {
+          "id": "natural",
+          "claim": "With little damping, resonance is near the natural frequency",
+          "pattern": "natural frequency",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Resonance",
+            "quote": "When damping is small, the resonant frequency is approximately equal to the natural frequency of the system"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "standing-waves",
+      "chapter": "waves",
+      "facts": [
+        {
+          "id": "antinodes",
+          "claim": "Nodes have zero amplitude, antinodes maximum",
+          "pattern": "anti-?nodes?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Standing_wave",
+            "quote": "the locations where the absolute value of the amplitude is maximum are called antinodes"
+          }
+        },
+        {
+          "id": "spacing",
+          "claim": "Adjacent nodes are half a wavelength apart",
+          "pattern": "half (a |the )?wavelength|(nodes?|antinodes?)[^.]{0,80}(lambda\\s*/\\s*2|frac\\s*lambda\\s*2)(?!\\s*pi)|(lambda\\s*/\\s*2|frac\\s*lambda\\s*2)(?!\\s*pi)[^.]{0,80}(apart|between|nodes?)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Standing_wave",
+            "quote": "The distance between two consecutive nodes or anti-nodes is half the wavelength"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "interference",
+      "chapter": "optics",
+      "facts": [
+        {
+          "id": "con-de",
+          "claim": "Constructive (in phase) and destructive (out of phase) interference",
+          "pattern": "destructive",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Wave_interference",
+            "quote": "may have greater amplitude (constructive interference) or lower amplitude (destructive interference)"
+          }
+        },
+        {
+          "id": "phase",
+          "claim": "Depends on phase / path difference",
+          "pattern": "path difference|phase difference",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Wave_interference",
+            "quote": "Constructive interference occurs when the phase difference between the waves is an even multiple of π"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "single-slit-diffraction",
+      "chapter": "optics",
+      "facts": [
+        {
+          "id": "far-field",
+          "claim": "Fraunhofer diffraction is viewed far away (or with a lens)",
+          "pattern": "far[- ]field|fraunhofer|large distance|far (away|from)|distant screen|parallel (rays|light|beam)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fraunhofer_diffraction",
+            "quote": "the diffraction pattern is viewed at a sufficiently long distance"
+          }
+        },
+        {
+          "id": "central",
+          "claim": "Most light falls in the central maximum between the first minima",
+          "pattern": "central (maximum|max|bright|fringe|band|peak)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fraunhofer_diffraction",
+            "quote": "Most of the diffracted light falls between the first minima"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "population-inversion-pumping",
+      "chapter": "lasers-fibre-optics",
+      "facts": [
+        {
+          "id": "more-excited",
+          "claim": "More atoms in the upper (excited) state than the lower",
+          "pattern": "more (atoms|electrons|particles|members)[^.]{0,80}(excited|higher|upper)|N_?2\\s*>\\s*N_?1|majority[^.]{0,50}(excited|upper|higher)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Population_inversion",
+            "quote": "more members of the system are in higher, excited states than in lower, unexcited energy states"
+          }
+        },
+        {
+          "id": "needed",
+          "claim": "A population inversion is necessary for laser action",
+          "pattern": "(necessary|needed|required|essential|must)[^.]{0,100}(laser|lasing|amplif)|(laser|lasing)[^.]{0,100}(necessary|needs|requires|required)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Population_inversion",
+            "quote": "the production of a population inversion is a necessary step in the workings of a standard laser"
+          }
+        },
+        {
+          "id": "ground",
+          "claim": "At thermal equilibrium most atoms are in the ground state",
+          "pattern": "ground state",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Population_inversion",
+            "quote": "the majority of the atoms will be in the ground state"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "optical-fibre-numerical-aperture",
+      "chapter": "lasers-fibre-optics",
+      "facts": [
+        {
+          "id": "acceptance",
+          "claim": "Light is accepted only within the acceptance cone/angle",
+          "pattern": "acceptance (angle|cone)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Numerical_aperture",
+            "quote": "known as the acceptance cone of the fiber"
+          }
+        },
+        {
+          "id": "cladding",
+          "claim": "Uses the refractive indices of core and cladding",
+          "pattern": "cladding",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Numerical_aperture",
+            "quote": "nclad is the refractive index of the cladding"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "time-dilation-length-contraction",
+      "chapter": "relativity",
+      "facts": [
+        {
+          "id": "slow",
+          "claim": "A moving clock is measured to tick more slowly",
+          "pattern": "clocks?[^.]{0,100}(slow|slower)|time[^.]{0,40}(slows|runs slower|dilat)|moving[^.]{0,60}slower",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Time_dilation",
+            "quote": "a clock that is moving relative to the observer will be measured to tick more slowly than a clock at rest"
+          }
+        },
+        {
+          "id": "gamma",
+          "claim": "Uses the Lorentz factor γ",
+          "pattern": "gamma|lorentz factor|sqrt\\s*\\(?\\s*1\\s*-\\s*(frac\\s*)?v\\s*\\^?\\s*2",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Time_dilation",
+            "quote": "The Lorentz factor gamma (γ) is defined as"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "photoelectric-compton",
+      "chapter": "quantum-physics",
+      "facts": [
+        {
+          "id": "threshold",
+          "claim": "Electrons are emitted only above a threshold frequency, whatever the intensity",
+          "pattern": "threshold|minimum frequency|cut-?off frequency",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Photoelectric_effect",
+            "quote": "electrons are dislodged only when the light exceeds a certain frequency"
+          }
+        },
+        {
+          "id": "photon-energy",
+          "claim": "Photon energy is proportional to frequency (E = hf)",
+          "pattern": "E\\s*=\\s*h\\s*(nu|f)|h\\s*nu|proportional to (the )?frequency|planck",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Photoelectric_effect",
+            "quote": "photon energy, which is proportional to the frequency of the light"
+          }
+        },
+        {
+          "id": "work-function",
+          "claim": "Part of the energy overcomes the work function",
+          "pattern": "work function",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Photoelectric_effect",
+            "quote": "the electron loses energy in the amount of the work function of the surface"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "de-broglie-matter-waves",
+      "chapter": "quantum-physics",
+      "facts": [
+        {
+          "id": "lambda",
+          "claim": "λ = h/p",
+          "pattern": "lambda\\s*=\\s*(frac\\s*)?h\\s*/?\\s*(p|m\\s*v)|h\\s*/\\s*(p|mv)|frac\\s*h\\s*(p|m\\s*v)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Matter_wave",
+            "quote": "the wavelength, λ, associated with a particle with momentum p through the Planck constant, h"
+          }
+        },
+        {
+          "id": "microscopy",
+          "claim": "Electron waves are used in microscopy and diffraction",
+          "pattern": "electron (microscop|diffraction)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Matter_wave",
+            "quote": "advanced microscopy and diffraction technologies"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "uncertainty-principle",
+      "chapter": "quantum-physics",
+      "facts": [
+        {
+          "id": "pair",
+          "claim": "Position and momentum cannot both be known exactly",
+          "pattern": "position and momentum|momentum and position|Delta\\s*x\\s*(cdot\\s*)?Delta\\s*p|sigma_?x\\s*sigma_?p",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Uncertainty_principle",
+            "quote": "there is a limit to the precision with which certain pairs of physical properties, such as position and momentum, can be simultaneously known"
+          }
+        },
+        {
+          "id": "hbar",
+          "claim": "Δx·Δp ≥ ħ/2 (standard deviations of position and momentum)",
+          "pattern": "hbar\\s*/\\s*2|frac\\s*hbar\\s*2|h\\s*/\\s*4\\s*pi|frac\\s*h\\s*4\\s*pi|ħ\\s*/\\s*2",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Uncertainty_principle",
+            "quote": "σx, σp are the standard deviations of position and momentum"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "particle-in-a-box",
+      "chapter": "quantum-physics",
+      "facts": [
+        {
+          "id": "discrete",
+          "claim": "Only certain (quantised) energy levels are allowed",
+          "pattern": "discrete|quanti[sz]ed|only (certain|specific|particular)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Particle_in_a_box",
+            "quote": "The particle may only occupy certain positive energy levels"
+          }
+        },
+        {
+          "id": "not-zero",
+          "claim": "The energy can never be zero",
+          "pattern": "(never|cannot|can't|not)[^.]{0,40}zero|zero-point",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Particle_in_a_box",
+            "quote": "it can never have zero energy"
+          }
+        },
+        {
+          "id": "scaling",
+          "claim": "E_n ∝ n²/(mL²)",
+          "pattern": "n\\s*\\^?\\s*2\\s*(pi\\s*\\^?\\s*2\\s*)?(hbar|h)\\s*\\^?\\s*2|n\\^2|n squared|8\\s*m\\s*L\\s*\\^?\\s*2|m\\s*L\\s*\\^?\\s*2",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Particle_in_a_box",
+            "quote": "the minimum kinetic energy of the particle in a box is inversely proportional to the mass and the square of the well width"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "braggs-law",
+      "chapter": "solid-state",
+      "facts": [
+        {
+          "id": "condition",
+          "claim": "nλ = 2d sin θ from constructive interference between planes",
+          "pattern": "2\\s*d\\s*sin|n\\s*lambda\\s*=",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bragg's_law",
+            "quote": "He proposed that the incident X-ray radiation would produce a Bragg peak if reflections off the various planes interfered constructively"
+          }
+        },
+        {
+          "id": "xrays",
+          "claim": "Wavelength comparable to atomic spacing (X-rays)",
+          "pattern": "x-?rays?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bragg's_law",
+            "quote": "Bragg diffraction occurs when radiation of a wavelength λ comparable to atomic spacings is scattered"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "first-law",
+      "chapter": "thermodynamics",
+      "facts": [
+        {
+          "id": "heat-work",
+          "claim": "ΔU = Q − W: energy enters as heat or work",
+          "pattern": "Delta\\s*U\\s*=\\s*Q\\s*[-+]\\s*W|dU\\s*=|change in (the )?internal energy",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/First_law_of_thermodynamics",
+            "quote": "the law distinguishes two principal forms of energy transfer, heat and thermodynamic work"
+          }
+        },
+        {
+          "id": "signs",
+          "claim": "Sign convention: heat supplied positive, work done by the system subtracted",
+          "pattern": "heat (added|supplied|absorbed)[^.]{0,80}positive|work done by the (system|gas)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/First_law_of_thermodynamics",
+            "quote": "heat supplied to the system is positive, but work done by the system is subtracted"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "carnot-cycle",
+      "chapter": "thermodynamics",
+      "facts": [
+        {
+          "id": "limit",
+          "claim": "Carnot efficiency is the upper limit for any heat engine",
+          "pattern": "(maximum|highest|upper limit|greatest)[^.]{0,80}efficien|efficien[^.]{0,80}(maximum|highest|upper limit|greatest)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Carnot_cycle",
+            "quote": "it provides an upper limit on the efficiency of any classical thermodynamic engine"
+          }
+        },
+        {
+          "id": "reversible",
+          "claim": "The cycle is reversible",
+          "pattern": "reversible",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Carnot_cycle",
+            "quote": "A Carnot heat-engine cycle described is a totally reversible cycle"
+          }
+        },
+        {
+          "id": "formula",
+          "claim": "η = 1 − T_C/T_H",
+          "pattern": "1\\s*-\\s*(frac\\s*)?T_?(C|c|L|l|2|cold)\\s*/?\\s*T_?(H|h|1|hot)|frac\\s*T_?(H|h)\\s*-\\s*T_?(C|c)\\s*T_?(H|h)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Carnot_cycle",
+            "quote": "W = QH(TH − TC)/TH"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -94,7 +94,123 @@ export const phetSims: PhetSim[] = [
   {
     id: "vector-addition",
     title: "Vector Addition",
-    topics: ["gradient-divergence-curl", "directional-derivative", "linear-transformations"],
+    topics: [
+      "gradient-divergence-curl",
+      "directional-derivative",
+      "linear-transformations",
+      "vectors-and-kinematics",
+      "force-resolution",
+      "resultant-force-system",
+    ],
+  },
+  // Wave 1 (V3 · Step 6–7): each id checked to exist as an HTML5 simulation.
+  {
+    id: "pendulum-lab",
+    title: "Pendulum Lab",
+    topics: ["simple-harmonic-motion", "damped-oscillations"],
+  },
+  {
+    id: "masses-and-springs",
+    title: "Masses and Springs",
+    topics: ["simple-harmonic-motion", "damped-oscillations", "forced-oscillations-resonance"],
+  },
+  { id: "normal-modes", title: "Normal Modes", topics: ["coupled-oscillations", "standing-waves"] },
+  {
+    id: "wave-on-a-string",
+    title: "Wave on a String",
+    topics: [
+      "wave-equation",
+      "waves-on-a-string",
+      "reflection-transmission-waves",
+      "standing-waves",
+    ],
+  },
+  {
+    id: "fourier-making-waves",
+    title: "Fourier: Making Waves",
+    topics: ["dispersion-group-velocity", "fourier-series"],
+  },
+  {
+    id: "wave-interference",
+    title: "Wave Interference",
+    topics: [
+      "interference",
+      "single-slit-diffraction",
+      "diffraction-grating-resolution",
+      "sound-waves",
+    ],
+  },
+  {
+    id: "bending-light",
+    title: "Bending Light",
+    topics: ["fermats-principle", "total-internal-reflection", "optical-fibre-numerical-aperture"],
+  },
+  {
+    id: "blackbody-spectrum",
+    title: "Blackbody Spectrum",
+    topics: ["blackbody-radiation"],
+  },
+  {
+    id: "models-of-the-hydrogen-atom",
+    title: "Models of the Hydrogen Atom",
+    topics: ["hydrogen-atom-spin", "hydrogen-wave-functions", "einstein-coefficients"],
+  },
+  {
+    id: "gas-properties",
+    title: "Gas Properties",
+    topics: ["ideal-gas-processes", "thermodynamic-systems", "real-gases-critical"],
+  },
+  {
+    id: "energy-forms-and-changes",
+    title: "Energy Forms and Changes",
+    topics: ["first-law", "energy-resources"],
+  },
+  {
+    id: "projectile-motion",
+    title: "Projectile Motion",
+    topics: ["curvilinear-projectile", "vectors-and-kinematics"],
+  },
+  {
+    id: "forces-and-motion-basics",
+    title: "Forces and Motion: Basics",
+    topics: ["newtons-laws", "friction-and-constraints", "laws-of-friction"],
+  },
+  {
+    id: "energy-skate-park-basics",
+    title: "Energy Skate Park: Basics",
+    topics: ["conservative-forces-potential", "work-energy-particles"],
+  },
+  {
+    id: "balancing-act",
+    title: "Balancing Act",
+    topics: ["moments-couples", "parallel-forces", "equilibrium-coplanar"],
+  },
+  { id: "beers-law-lab", title: "Beer's Law Lab", topics: ["spectroscopy-principles"] },
+  {
+    id: "molecule-shapes",
+    title: "Molecule Shapes",
+    topics: ["hsab-geometries", "isomerism"],
+  },
+  {
+    id: "molecule-polarity",
+    title: "Molecule Polarity",
+    topics: ["intermolecular-interactions", "periodic-trends"],
+  },
+  {
+    id: "states-of-matter",
+    title: "States of Matter",
+    topics: ["intermolecular-interactions", "one-component-systems", "gibbs-phase-rule"],
+  },
+  { id: "ph-scale", title: "pH Scale", topics: ["acid-base-redox-solubility", "water-chemistry"] },
+  {
+    id: "greenhouse-effect",
+    title: "The Greenhouse Effect",
+    topics: ["climate-change-ozone", "air-pollution"],
+  },
+  {
+    id: "natural-selection",
+    title: "Natural Selection",
+    topics: ["population-growth", "biodiversity-levels", "threats-to-biodiversity"],
   },
 ];
 

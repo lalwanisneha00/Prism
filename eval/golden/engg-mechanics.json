@@ -1,0 +1,300 @@
+{
+  "description": "Key facts a correct lesson on each Engineering Mechanics topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "engg-mechanics",
+  "topics": [
+    {
+      "topic": "equilibrium-coplanar",
+      "chapter": "force-systems",
+      "facts": [
+        {
+          "id": "lami",
+          "claim": "Lami's theorem: three coplanar concurrent forces in equilibrium, each ∝ sine of the opposite angle",
+          "pattern": "lami|frac\\s*(F|P)_?1\\s*sin|(F|P)_?1\\s*/\\s*sin|proportional to the sine",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lami's_theorem",
+            "quote": "relating the magnitudes of three coplanar, concurrent and non-collinear force vectors, which keeps an object in static equilibrium"
+          }
+        },
+        {
+          "id": "opposite-angles",
+          "claim": "Uses the angles directly opposite each force",
+          "pattern": "opposite|sin\\s*\\(?\\s*(alpha|beta|gamma)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lami's_theorem",
+            "quote": "with the angles directly opposite to the corresponding vectors"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "moments-couples",
+      "chapter": "force-systems",
+      "facts": [
+        {
+          "id": "couple",
+          "claim": "A couple: two equal, opposite, non-collinear forces",
+          "pattern": "equal (in magnitude )?(and|but) opposite|two equal[^.]{0,40}opposite",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Couple_(mechanics)",
+            "quote": "a couple is a pair of forces that are equal in magnitude but opposite in their direction of action"
+          }
+        },
+        {
+          "id": "moment",
+          "claim": "Moment of a couple = F × d (N·m)",
+          "pattern": "\\bF\\s*(×|times|x|cdot|\\*)\\s*d\\b|(moment|torque)[^.]{0,40}=\\s*F\\s*(×|times|cdot|\\*)?\\s*d\\b|\\bN\\s*(·|cdot|-)\\s*m\\b(?!\\s*\\^)|newton[- ]met(re|er)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Couple_(mechanics)",
+            "quote": "The magnitude of the torque is equal to F • d"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "free-body-diagrams",
+      "chapter": "force-systems",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "An FBD shows all forces, moments and reactions acting on an isolated body",
+          "pattern": "(all|every)[^.]{0,40}(force|load)s?[^.]{0,60}(act|on the body)|isolat|reactions?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Free_body_diagram",
+            "quote": "It depicts a body or connected bodies with all the applied forces and moments, and reactions, which act on the body(ies)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "laws-of-friction",
+      "chapter": "friction",
+      "facts": [
+        {
+          "id": "static-kinetic",
+          "claim": "Static friction (at rest) and kinetic friction (moving)",
+          "pattern": "static friction[^.]{0,120}(kinetic|dynamic|sliding)|(kinetic|dynamic|sliding) friction[^.]{0,120}static",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Friction",
+            "quote": "Dry friction is subdivided into static friction (\"stiction\") between non-moving surfaces, and kinetic friction between moving surfaces"
+          }
+        },
+        {
+          "id": "normal",
+          "claim": "Friction is proportional to the normal force (F = μN)",
+          "pattern": "mu\\s*(N|R)|μ\\s*(N|R)|proportional to (the )?normal|normal (force|reaction)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Friction",
+            "quote": "the macroscopic proportionality between normal force and static frictional force between dry surfaces"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "simple-trusses",
+      "chapter": "trusses-structures",
+      "facts": [
+        {
+          "id": "two-force",
+          "claim": "Truss members are two-force members joined at pins (joints)",
+          "pattern": "two-?force member|pin[- ]?joint|joints?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Truss",
+            "quote": "a truss is a structure that \"consists of two-force members only"
+          }
+        },
+        {
+          "id": "axial",
+          "claim": "Members carry only tension or compression",
+          "pattern": "tension[^.]{0,40}compression|compression[^.]{0,40}tension|axial",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Truss",
+            "quote": "result in forces in the members that are either tensile or compressive"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "centroid-simple-figures",
+      "chapter": "centroid-moment-of-inertia",
+      "facts": [
+        {
+          "id": "mean",
+          "claim": "The centroid is the mean position of all points (geometric centre)",
+          "pattern": "geometric cent(er|re)|mean position|average position",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Centroid",
+            "quote": "the centroid, also known as geometric center or center of figure, of a plane figure or solid figure is the mean position of all the points in the figure"
+          }
+        },
+        {
+          "id": "triangle",
+          "claim": "A triangle's centroid is where the medians meet",
+          "pattern": "median",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Centroid",
+            "quote": "The centroid of a triangle is the intersection of the three medians of the triangle"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "parallel-perpendicular-axis",
+      "chapter": "centroid-moment-of-inertia",
+      "facts": [
+        {
+          "id": "theorem",
+          "claim": "I = I_cm + m d² about a parallel axis at distance d",
+          "pattern": "I\\s*=\\s*I_?\\s*(cm|c|g|G|CM|0)\\s*\\+\\s*(m|M|A)\\s*d\\s*\\^?\\s*2|I_?(cm|G|c)\\s*\\+\\s*(m|M|A)\\s*(d|h)\\s*\\^?\\s*2|(m|A)\\s*d\\s*\\^?\\s*2",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Parallel_axis_theorem",
+            "quote": "which is parallel to the first axis and displaced from it by a distance d"
+          }
+        },
+        {
+          "id": "perpendicular-distance",
+          "claim": "d is the perpendicular distance between the two parallel axes",
+          "pattern": "perpendicular distance|distance between (the )?(two )?(parallel )?axes",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Parallel_axis_theorem",
+            "quote": "d is the perpendicular distance between the axes z and z"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "area-moment-of-inertia",
+      "chapter": "centroid-moment-of-inertia",
+      "facts": [
+        {
+          "id": "bending",
+          "claim": "Second moment of area measures a beam's resistance to bending",
+          "pattern": "bending|deflection|stiff",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Second_moment_of_area",
+            "quote": "provides insight into a beam's resistance to bending due to an applied moment"
+          }
+        },
+        {
+          "id": "distribution",
+          "claim": "Depends on how the area is distributed about an axis",
+          "pattern": "distribut|y\\s*\\^?\\s*2\\s*dA|int\\s*y\\s*\\^?\\s*2",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Second_moment_of_area",
+            "quote": "a geometrical property of an area which reflects how its points are distributed with regard to an arbitrary axis"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dalemberts-principle",
+      "chapter": "particle-dynamics",
+      "facts": [
+        {
+          "id": "inertia-force",
+          "claim": "Add an inertia force (−ma) to get dynamic equilibrium",
+          "pattern": "inertia(l)? force|-\\s*m\\s*a|dynamic equilibrium|reversed effective force",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/D'Alembert's_principle",
+            "quote": "introducing forces of inertia which, when added to the applied forces in a system, result in dynamic equilibrium"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "curvilinear-projectile",
+      "chapter": "particle-dynamics",
+      "facts": [
+        {
+          "id": "parabola",
+          "claim": "Without air resistance the path is a parabola",
+          "pattern": "parabol",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Projectile_motion",
+            "quote": "the object follows a parabolic path determined by its initial velocity and the constant acceleration due to gravity"
+          }
+        },
+        {
+          "id": "inputs",
+          "claim": "Depends on launch speed, launch angle and g",
+          "pattern": "(launch|projection) angle|angle of (projection|launch)|u\\s*\\^?\\s*2\\s*sin\\s*2",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Projectile_motion",
+            "quote": "neglect nearly every factor except for initial velocity, the launch angle and a gravitational acceleration assumed constant"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "impulse-momentum-impact",
+      "chapter": "particle-dynamics",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "e = relative speed of separation / relative speed of approach",
+          "pattern": "separation[^.]{0,80}approach|approach[^.]{0,80}separation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Coefficient_of_restitution",
+            "quote": "the relative speed of separation of two surfaces immediately after a collision is directly proportional to the relative speed of approach"
+          }
+        },
+        {
+          "id": "range",
+          "claim": "e = 1 perfectly elastic, e = 0 perfectly inelastic",
+          "pattern": "perfectly (elastic|inelastic)|e\\s*=\\s*1|e\\s*=\\s*0",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Coefficient_of_restitution",
+            "quote": "1 represents a perfectly elastic collision"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "principle-of-virtual-work",
+      "chapter": "virtual-work",
+      "facts": [
+        {
+          "id": "zero",
+          "claim": "In equilibrium the total virtual work of the applied forces is zero",
+          "pattern": "virtual work[^.]{0,80}zero|delta\\s*W\\s*=\\s*0|δ\\s*W\\s*=\\s*0",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Virtual_work",
+            "quote": "the principle of least action requires the virtual work of these forces to be zero"
+          }
+        },
+        {
+          "id": "displacement",
+          "claim": "Uses imagined (virtual) displacements",
+          "pattern": "virtual displacement|delta\\s*(x|r|q)|δ\\s*(x|r|q)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Virtual_work",
+            "quote": "The work of a force on a particle along a virtual displacement is known as the virtual work"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "instantaneous-centre",
+      "chapter": "rigid-body-kinetics",
+      "facts": [
+        {
+          "id": "zero-velocity",
+          "claim": "The instantaneous centre is the point with zero velocity at that instant",
+          "pattern": "zero velocity|velocity (is )?zero|at rest (at|for) th(at|e) instant",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Instant_centre_of_rotation",
+            "quote": "a point that has zero velocity at a particular instant of time"
+          }
+        },
+        {
+          "id": "rolling",
+          "claim": "For a rolling wheel it is the contact point",
+          "pattern": "(contact|touch)[^.]{0,60}(ground|road|surface)|point of contact",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Instant_centre_of_rotation",
+            "quote": "The point of contact P of the wheel with road does not slip"
+          }
+        }
+      ]
+    }
+  ]
+}

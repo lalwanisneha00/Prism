@@ -4,6 +4,7 @@ import { Container } from "@/components/Container";
 import { VisualSlot } from "@/components/lesson/VisualSlot";
 import type { VisualSpec } from "@/lib/schema";
 import { genericSamples } from "./genericSamples";
+import { wave1Samples } from "./wave1Samples";
 
 export const metadata: Metadata = {
   title: "Visual gallery (dev)",
@@ -174,6 +175,15 @@ export default function VisualGalleryPage() {
       <h2 className="text-2xl font-bold tracking-tight">Topic widgets and simulations</h2>
       {gallery.map((visual, i) => (
         <section key={i} aria-label={visual.caption}>
+          <VisualSlot visual={visual} />
+        </section>
+      ))}
+      <h2 id="wave1" className="scroll-mt-20 text-2xl font-bold tracking-tight">
+        First-year subjects (Wave 1)
+      </h2>
+      {wave1Samples.map(({ subject, visual }, i) => (
+        <section key={i} aria-label={visual.caption} className="flex flex-col gap-2">
+          <h3 className="text-sm font-semibold tracking-wide text-muted uppercase">{subject}</h3>
           <VisualSlot visual={visual} />
         </section>
       ))}

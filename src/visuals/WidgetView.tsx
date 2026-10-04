@@ -20,6 +20,33 @@ import { TangentLine } from "@/visuals/widgets/math/TangentLine";
 import { TaylorPolynomial } from "@/visuals/widgets/math/TaylorPolynomial";
 import { VectorField } from "@/visuals/widgets/math/VectorField";
 import { WireField } from "@/visuals/widgets/WireField";
+import { BeerLambert, NernstCell, PhaseDiagram } from "@/visuals/wave1/ChemistryWidgets";
+import {
+  BinarySearch,
+  ComplexMapping,
+  EnergyPyramid,
+  PopulationGrowth,
+  RainwaterHarvesting,
+  RecursionTree,
+  ResidueContour,
+  SortStepper,
+} from "@/visuals/wave1/ComputingEcologyComplexWidgets";
+import {
+  FirstOrderTransient,
+  ThreePhase,
+  TorqueSlip,
+  TransformerWidget,
+} from "@/visuals/wave1/ElectricalWidgets";
+import { DiodeRectifier, LoadLine, LogicGates, OpAmp } from "@/visuals/wave1/ElectronicsWidgets";
+import {
+  ConicEccentricity,
+  ForceResultant,
+  InclineFriction,
+  OrthographicViews,
+  ProjectileWidget,
+  RouletteCurves,
+} from "@/visuals/wave1/MechanicsGraphicsWidgets";
+import { Oscillator, QuantumBox, SlitPattern, StandingWave } from "@/visuals/wave1/PhysicsWidgets";
 
 type Props<K extends WidgetId> = z.infer<(typeof widgetRegistry)[K]["params"]> & {
   caption: string;
@@ -43,6 +70,35 @@ const components: { [K in WidgetId]: ComponentType<Props<K>> } = {
   "vector-field": VectorField,
   "slope-field": SlopeField,
   "fourier-series": FourierSeries,
+  oscillator: Oscillator,
+  "standing-wave": StandingWave,
+  "slit-pattern": SlitPattern,
+  "quantum-box": QuantumBox,
+  "beer-lambert": BeerLambert,
+  "phase-diagram": PhaseDiagram,
+  "nernst-cell": NernstCell,
+  "three-phase": ThreePhase,
+  "first-order-transient": FirstOrderTransient,
+  transformer: TransformerWidget,
+  "torque-slip": TorqueSlip,
+  "diode-rectifier": DiodeRectifier,
+  "load-line": LoadLine,
+  "op-amp": OpAmp,
+  "logic-gates": LogicGates,
+  "force-resultant": ForceResultant,
+  "incline-friction": InclineFriction,
+  projectile: ProjectileWidget,
+  "conic-eccentricity": ConicEccentricity,
+  "roulette-curves": RouletteCurves,
+  "orthographic-views": OrthographicViews,
+  "sort-stepper": SortStepper,
+  "binary-search": BinarySearch,
+  "recursion-tree": RecursionTree,
+  "energy-pyramid": EnergyPyramid,
+  "population-growth": PopulationGrowth,
+  "rainwater-harvesting": RainwaterHarvesting,
+  "complex-mapping": ComplexMapping,
+  "residue-contour": ResidueContour,
 };
 
 /** Draws a registry widget after checking its parameters; anything invalid becomes a key-idea card. */

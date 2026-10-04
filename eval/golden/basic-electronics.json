@@ -1,0 +1,345 @@
+{
+  "description": "Key facts a correct lesson on each Basic Electronics Engineering topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "basic-electronics",
+  "topics": [
+    {
+      "topic": "pn-junction-diode",
+      "chapter": "diodes",
+      "facts": [
+        {
+          "id": "one-way",
+          "claim": "A diode conducts mainly in one direction (forward), blocking reverse",
+          "pattern": "one direction|forward[- ]bias[^.]{0,80}(conduct|current)|blocks?[^.]{0,40}reverse",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Diode",
+            "quote": "conducts electric current primarily in one direction"
+          }
+        },
+        {
+          "id": "threshold",
+          "claim": "Significant current only above the forward (cut-in) voltage",
+          "pattern": "(cut-?in|knee|threshold|turn-?on|barrier|forward) (voltage|potential)|0\\.7\\s*V|0\\.3\\s*V",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Diode",
+            "quote": "having a forward threshold voltage or turn-on voltage or cut-in voltage"
+          }
+        },
+        {
+          "id": "breakdown",
+          "claim": "In reverse, current rises suddenly at the breakdown voltage",
+          "pattern": "breakdown",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Diode",
+            "quote": "when the reverse voltage across the diode reaches a value called the breakdown voltage"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "breakdown-zener",
+      "chapter": "diodes",
+      "facts": [
+        {
+          "id": "reverse",
+          "claim": "A Zener diode is used in reverse breakdown",
+          "pattern": "reverse[- ]bias|reverse breakdown|breakdown (voltage|region)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Zener_diode",
+            "quote": "A conventional solid-state diode allows significant current if it is reverse biased above its reverse-breakdown voltage"
+          }
+        },
+        {
+          "id": "regulator",
+          "claim": "Used as a voltage reference / regulator",
+          "pattern": "regulat|voltage reference|constant voltage|stabili[sz]",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Zener_diode",
+            "quote": "Zener diodes are widely used as voltage references and as shunt regulators to regulate the voltage across small circuits"
+          }
+        },
+        {
+          "id": "mechanisms",
+          "claim": "Zener effect at low voltage, avalanche breakdown at higher voltage",
+          "pattern": "avalanche",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Zener_diode",
+            "quote": "with the Zener effect predominating at lower voltages and avalanche breakdown at higher voltages"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rectifiers",
+      "chapter": "diodes",
+      "facts": [
+        {
+          "id": "ac-dc",
+          "claim": "A rectifier converts AC to DC",
+          "pattern": "(convert|change)s?[^.]{0,40}(AC|alternating)[^.]{0,40}(DC|direct)|AC to DC|AC-to-DC",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rectifier",
+            "quote": "converts alternating current (AC), which periodically reverses direction, to direct current (DC)"
+          }
+        },
+        {
+          "id": "half",
+          "claim": "Half-wave passes one half of the AC wave and blocks the other",
+          "pattern": "half[- ]wave",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rectifier",
+            "quote": "either the positive or negative half of the AC wave is passed, while the other half is blocked"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bjt-operation",
+      "chapter": "bjt",
+      "facts": [
+        {
+          "id": "regions",
+          "claim": "Three regions: emitter, base and collector",
+          "pattern": "emitter[^.]{0,40}base[^.]{0,40}collector|collector[^.]{0,40}base[^.]{0,40}emitter|base[^.]{0,40}collector[^.]{0,40}emitter|emitter[^.]{0,40}collector[^.]{0,40}base",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bipolar_junction_transistor",
+            "quote": "The regions of a BJT are called emitter, base, and collector"
+          }
+        },
+        {
+          "id": "doping",
+          "claim": "The emitter is the most heavily doped region",
+          "pattern": "(emitter|it)[^.]{0,40}(heavily|highly|most) doped|doped[^.]{0,30}heavily",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bipolar_junction_transistor",
+            "quote": "the emitter region is heavily doped compared to the other two layers"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bjt-configurations",
+      "chapter": "bjt",
+      "facts": [
+        {
+          "id": "inverted",
+          "claim": "CE output is 180° out of phase with the input",
+          "pattern": "180\\s*(°|degrees|deg)|invert|phase revers",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Common_emitter",
+            "quote": "the output signal is 180 degrees out of phase with respect to the input"
+          }
+        },
+        {
+          "id": "common",
+          "claim": "Base is the input, collector the output, emitter common to both",
+          "pattern": "emitter[^.]{0,60}common|common to both|common terminal",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Common_emitter",
+            "quote": "the base terminal of the transistor serves as the input, the collector is the output, and the emitter is common to both"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "mosfet",
+      "chapter": "fet-cmos",
+      "facts": [
+        {
+          "id": "insulated",
+          "claim": "The gate is insulated and its voltage controls conduction",
+          "pattern": "insulat|oxide layer|gate voltage[^.]{0,60}control",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/MOSFET",
+            "quote": "It has an insulated gate, the voltage of which determines the conductivity of the device"
+          }
+        },
+        {
+          "id": "channel",
+          "claim": "Gate voltage creates a channel between source and drain",
+          "pattern": "channel[^.]{0,80}(source|drain)|(source|drain)[^.]{0,80}channel|inversion layer",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/MOSFET",
+            "quote": "The inversion layer provides a channel through which current can pass between source and drain terminals"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cmos-inverter",
+      "chapter": "fet-cmos",
+      "facts": [
+        {
+          "id": "pairs",
+          "claim": "CMOS uses complementary pairs of p-type and n-type MOSFETs",
+          "pattern": "(p-?type|pMOS|PMOS|p-?channel)[^.]{0,60}(n-?type|nMOS|NMOS|n-?channel)|(n-?type|nMOS|NMOS|n-?channel)[^.]{0,60}(p-?type|pMOS|PMOS|p-?channel)|complementary",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/CMOS",
+            "quote": "uses complementary and symmetrical pairs of p-type and n-type MOSFETs for logic functions"
+          }
+        },
+        {
+          "id": "power",
+          "claim": "Very low static power consumption and high noise immunity",
+          "pattern": "(low|little|almost no|negligible|very small)[^.]{0,30}(static )?power|noise immunity|no (static|standing) current",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/CMOS",
+            "quote": "Two important characteristics of CMOS devices are high noise immunity and low static power consumption"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ideal-op-amp",
+      "chapter": "op-amps",
+      "facts": [
+        {
+          "id": "gain",
+          "claim": "A differential input and extremely high (open-loop) gain",
+          "pattern": "(very |extremely )?(high|large|infinite) (open[- ]loop )?(voltage )?gain|open[- ]loop gain",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Operational_amplifier",
+            "quote": "a DC-coupled electronic amplifier with a differential input, a (usually) single-ended output voltage, and an extremely high gain"
+          }
+        },
+        {
+          "id": "impedance",
+          "claim": "High input impedance and low output impedance",
+          "pattern": "(high|infinite|very large) input (impedance|resistance)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Operational_amplifier",
+            "quote": "high input impedance at the input terminals and low output impedance at the output terminal(s)"
+          }
+        },
+        {
+          "id": "feedback",
+          "claim": "With negative feedback, external components set the gain",
+          "pattern": "negative feedback|feedback (resistor|network|loop)|\\bR_?f\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Operational_amplifier",
+            "quote": "By using negative feedback, the characteristics of an op amp application circuit"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "universal-gates",
+      "chapter": "digital-electronics",
+      "facts": [
+        {
+          "id": "universal",
+          "claim": "NAND is a universal gate: any gate can be made from NANDs",
+          "pattern": "universal|functional(ly)? complete|any (other )?(logic )?(gate|function|boolean)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/NAND_logic",
+            "quote": "A NAND gate is a universal gate, meaning that any other gate can be represented as a combination of NAND gates"
+          }
+        },
+        {
+          "id": "not",
+          "claim": "NOT(x) = NAND(x, x)",
+          "pattern": "NOT[^.]{0,60}NAND|NAND[^.]{0,80}(inverter|NOT)|both inputs (tied|connected|joined)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/NAND_logic",
+            "quote": "the function NOT(x) may be equivalently expressed as NAND(x,x)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "boolean-algebra",
+      "chapter": "digital-electronics",
+      "facts": [
+        {
+          "id": "and",
+          "claim": "NOT(A AND B) = NOT A OR NOT B",
+          "pattern": "overline\\s*A\\s*(cdot|·)?\\s*B\\s*=\\s*overline\\s*A\\s*\\+\\s*overline\\s*B|\\(A\\s*(·|cdot|\\.)?\\s*B\\)'\\s*=\\s*A'\\s*\\+\\s*B'|NOT \\(?A AND B\\)?|not A or not B",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/De_Morgan's_laws",
+            "quote": "The negation of \"A and B\" is the same as \"not A or not B\""
+          }
+        },
+        {
+          "id": "or",
+          "claim": "NOT(A OR B) = NOT A AND NOT B",
+          "pattern": "overline\\s*A\\s*\\+\\s*B\\s*=\\s*overline\\s*A\\s*(cdot|·)?\\s*overline\\s*B|\\(A\\s*\\+\\s*B\\)'\\s*=\\s*A'\\s*(·|cdot|\\.)?\\s*B'|NOT \\(?A OR B\\)?|not A and not B",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/De_Morgan's_laws",
+            "quote": "The negation of \"A or B\" is the same as \"not A and not B\""
+          }
+        }
+      ]
+    },
+    {
+      "topic": "combinational-circuits-adders",
+      "chapter": "digital-electronics",
+      "facts": [
+        {
+          "id": "half",
+          "claim": "A half adder adds two bits (sum and carry)",
+          "pattern": "half[- ]adder",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Adder_(electronics)",
+            "quote": "The half adder adds two single binary digits"
+          }
+        },
+        {
+          "id": "full",
+          "claim": "A full adder also takes a carry-in; two half adders + OR make one",
+          "pattern": "full[- ]adder",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Adder_(electronics)",
+            "quote": "two half adders can be combined to make a full adder"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "number-systems",
+      "chapter": "digital-electronics",
+      "facts": [
+        {
+          "id": "base2",
+          "claim": "Binary is base 2, using only 0 and 1",
+          "pattern": "base[- ]?2|radix 2|only (the digits |two digits |two symbols )?0 and 1|digits 0 and 1",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_number",
+            "quote": "a method for representing numbers that uses only two symbols for the natural numbers: typically 0 (zero) and 1 (one)"
+          }
+        },
+        {
+          "id": "bit",
+          "claim": "Each binary digit is a bit",
+          "pattern": "\\bbits?\\b|binary digit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_number",
+            "quote": "Each digit is referred to as a bit, or binary digit"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "led-photodiode",
+      "chapter": "diodes",
+      "facts": [
+        {
+          "id": "recombination",
+          "claim": "In an LED electrons recombine with holes and release photons",
+          "pattern": "recombin",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Light-emitting_diode",
+            "quote": "Electrons in the semiconductor recombine with electron holes, thereby releasing energy in the form of photons"
+          }
+        },
+        {
+          "id": "colour",
+          "claim": "The band gap sets the colour (photon energy)",
+          "pattern": "band ?gap",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Light-emitting_diode",
+            "quote": "The wavelength of the light depends on the energy band gap of the semiconductors used"
+          }
+        }
+      ]
+    }
+  ]
+}

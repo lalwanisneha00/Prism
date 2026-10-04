@@ -90,20 +90,9 @@ describe("registry coverage", () => {
     }
   });
 
-  // Chapters whose widgets are built. Wave 1 subjects and the chapters added to Engineering
-  // Maths in V3 · Step 6 (complex variables, special functions) join in V3 · Step 7.
-  const WITH_WIDGETS: Record<string, string[] | "all"> = {
-    em: "all",
-    "engg-math": [
-      "differential-calculus",
-      "partial-differentiation",
-      "integral-calculus",
-      "linear-algebra",
-      "differential-equations",
-      "vector-calculus",
-      "series-and-transforms",
-    ],
-  };
+  // Subjects held to this bar. Wave 1 subjects are checked in wave1/widgets.test.tsx
+  // (at least three widgets of their own each, plus PhET and generic visuals).
+  const WITH_WIDGETS: Record<string, string[] | "all"> = { em: "all", "engg-math": "all" };
   it("has at least one fitting widget for most topics of every subject with visuals", () => {
     for (const [id, chapters] of Object.entries(WITH_WIDGETS)) {
       const subject = subjects.find((s) => s.id === id)!;

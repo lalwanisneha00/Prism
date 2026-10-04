@@ -1,0 +1,303 @@
+{
+  "description": "Key facts a correct lesson on each Environmental Science topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "environmental-science",
+  "topics": [
+    {
+      "topic": "ecosystem-concept",
+      "chapter": "ecosystems",
+      "facts": [
+        {
+          "id": "components",
+          "claim": "An ecosystem links biotic (living) and abiotic (non-living) components",
+          "pattern": "biotic[^.]{0,80}abiotic|abiotic[^.]{0,80}biotic|living and non-?living",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ecosystem",
+            "quote": "the biotic and abiotic components are linked together through nutrient cycles and energy flows"
+          }
+        },
+        {
+          "id": "photosynthesis",
+          "claim": "Energy enters through photosynthesis by plants",
+          "pattern": "photosynthe|sunlight|solar energy",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ecosystem",
+            "quote": "Plants allow energy to enter the system through photosynthesis"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "energy-flow-food-chains",
+      "chapter": "ecosystems",
+      "facts": [
+        {
+          "id": "producer",
+          "claim": "A food chain starts with a producer (autotroph)",
+          "pattern": "producers?|autotroph",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Food_chain",
+            "quote": "often beginning with an autotroph (such as grass or algae), also called a producer"
+          }
+        },
+        {
+          "id": "trophic",
+          "claim": "Energy moves through trophic levels",
+          "pattern": "trophic level",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Food_chain",
+            "quote": "This energy then moves through the trophic levels"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "producers-consumers-decomposers",
+      "chapter": "ecosystems",
+      "facts": [
+        {
+          "id": "ten-percent",
+          "claim": "Only about 10% of energy passes to the next trophic level",
+          "pattern": "10\\s*(%|percent|per cent)|ten per ?cent",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ecological_pyramid",
+            "quote": "on average only about 10% is used at each level to build biomass"
+          }
+        },
+        {
+          "id": "upright",
+          "claim": "Pyramids of energy are always upright",
+          "pattern": "upright|never inverted|cannot be inverted|always[^.]{0,30}(upright|pyramid)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ecological_pyramid",
+            "quote": "Pyramids of energy are normally upright"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "india-megadiversity-hotspots",
+      "chapter": "biodiversity",
+      "facts": [
+        {
+          "id": "criteria",
+          "claim": "A hotspot has ≥ 1,500 endemic vascular plant species and has lost most of its habitat",
+          "pattern": "1,?500",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Biodiversity_hotspot",
+            "quote": "it must contain at least 1,500 species of vascular plants (more than 0.5% of the world's total) as endemics"
+          }
+        },
+        {
+          "id": "threatened",
+          "claim": "Hotspots are rich in biodiversity and threatened by humans",
+          "pattern": "threat|endanger|habitat loss|lost[^.]{0,30}habitat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Biodiversity_hotspot",
+            "quote": "a biogeographic region with significant levels of biodiversity that is threatened by human habitation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "biogeography-india",
+      "chapter": "biodiversity",
+      "facts": [
+        {
+          "id": "seventeen",
+          "claim": "17 megadiverse countries (identified by Conservation International)",
+          "pattern": "\\b17\\b|seventeen",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Megadiverse_countries",
+            "quote": "Conservation International identified 17 megadiverse countries in 1998"
+          }
+        },
+        {
+          "id": "endemism",
+          "claim": "The main criterion is endemism",
+          "pattern": "endemi",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Megadiverse_countries",
+            "quote": "The main criterion for megadiverse countries is endemism at the level of species, genera and families"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "forest-resources",
+      "chapter": "natural-resources",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Deforestation: removal of forest and conversion of the land to non-forest use",
+          "pattern": "(removal|clearing|cutting)[^.]{0,60}(forest|trees)|(forest|trees)[^.]{0,60}(cleared|removed|cut down)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Deforestation",
+            "quote": "the removal and destruction of a forest or stand of trees from land that is then converted to non-forest use"
+          }
+        },
+        {
+          "id": "agriculture",
+          "claim": "Agriculture is the main direct cause",
+          "pattern": "agricultur|farming|cropland",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Deforestation",
+            "quote": "By far, the direct cause of most deforestation is agriculture"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "land-resources",
+      "chapter": "natural-resources",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Desertification: fertile land degrades into desert (natural + human causes)",
+          "pattern": "(degrad|turn|convert)[^.]{0,60}(desert|arid)|land degradation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Desertification",
+            "quote": "gradual land degradation of fertile land into arid desert due to a combination of natural processes and human activities"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "climate-change-ozone",
+      "chapter": "social-issues",
+      "facts": [
+        {
+          "id": "cfc",
+          "claim": "CFCs and halons cause ozone depletion",
+          "pattern": "CFCs?|chlorofluorocarbon",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ozone_depletion",
+            "quote": "chlorofluorocarbons (CFCs), HCFCs, halons"
+          }
+        },
+        {
+          "id": "montreal",
+          "claim": "The Montreal Protocol (1987) banned CFCs",
+          "pattern": "montreal",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ozone_depletion",
+            "quote": "These concerns led to the adoption of the Montreal Protocol in 1987"
+          }
+        },
+        {
+          "id": "causes",
+          "claim": "Acid rain comes from SO₂ and NOₓ forming sulfuric and nitric acids",
+          "pattern": "(sulph|sulf)ur dioxide|SO_?2|nitrogen oxides?|NO_?x",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Acid_rain",
+            "quote": "Acid rain is caused by emissions of sulfur dioxide and nitrogen oxide, which react with the water molecules in the atmosphere to produce sulfuric and nitric acids"
+          }
+        },
+        {
+          "id": "ph",
+          "claim": "Acid rain has a low pH (about 4–5)",
+          "pattern": "pH[^.]{0,30}(below|less than|lower|under|4|5)|low(er)? pH",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Acid_rain",
+            "quote": "acid rain has a pH level lower than this and ranges from 4–5 on average"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "air-pollution",
+      "chapter": "pollution",
+      "facts": [
+        {
+          "id": "pollutants",
+          "claim": "Pollutants are gases (ozone, NOₓ) or particles (soot, dust)",
+          "pattern": "particulate|PM\\s*2\\.5|PM\\s*10|soot|dust",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Air_pollution",
+            "quote": "Pollutants can be gases, like ozone or nitrogen oxides, or small particles like soot and dust"
+          }
+        },
+        {
+          "id": "deadliest",
+          "claim": "Particulate matter is the deadliest pollutant",
+          "pattern": "particulate matter[^.]{0,80}(deadl|harm|dangerous|health)|(deadl|harm|dangerous)[^.]{0,60}particulate",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Air_pollution",
+            "quote": "Particulate matter is the most deadly, both for indoor and outdoor air pollution"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "water-conservation",
+      "chapter": "social-issues",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Rainwater harvesting: collect and store rain instead of letting it run off",
+          "pattern": "collect[^.]{0,60}(rain|water)|stor(e|age)[^.]{0,40}rain",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rainwater_harvesting",
+            "quote": "Rainwater harvesting (RWH) is the collection and storage of rainwater, rather than allowing it to run off"
+          }
+        },
+        {
+          "id": "recharge",
+          "claim": "Rooftop water is led to tanks or pits to recharge ground water",
+          "pattern": "recharge|ground ?water|aquifer",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rainwater_harvesting",
+            "quote": "so that it seeps down and restores the ground water"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "conservation-in-ex-situ",
+      "chapter": "biodiversity",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Ex-situ: protecting a species outside its natural habitat",
+          "pattern": "outside[^.]{0,40}(natural )?habitat|off-?site",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ex_situ_conservation",
+            "quote": "the process of protecting an endangered species, variety, or breed of plant or animal outside its natural habitat"
+          }
+        },
+        {
+          "id": "sites",
+          "claim": "Zoos, botanical gardens and aquariums",
+          "pattern": "zoos?|botanical garden|seed bank|aquari",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ex_situ_conservation",
+            "quote": "Botanical gardens, zoos, and aquariums are the most conventional sites for ex situ conservation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "environmental-legislation",
+      "chapter": "social-issues",
+      "facts": [
+        {
+          "id": "bhopal",
+          "claim": "The Environment Protection Act, 1986 followed the Bhopal gas tragedy",
+          "pattern": "bhopal",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Environment_Protection_Act,_1986",
+            "quote": "The Act is widely considered to have been a response to the Bhopal gas leak"
+          }
+        },
+        {
+          "id": "powers",
+          "claim": "It gives the central government power to protect the environment",
+          "pattern": "central government",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Environment_Protection_Act,_1986",
+            "quote": "Section one gives the central government the power to protect and improve the environment"
+          }
+        }
+      ]
+    }
+  ]
+}

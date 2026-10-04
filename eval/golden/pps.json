@@ -1,0 +1,354 @@
+{
+  "description": "Key facts a correct lesson on each Programming for Problem Solving topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "pps",
+  "topics": [
+    {
+      "topic": "algorithms-flowcharts",
+      "chapter": "intro-programming",
+      "facts": [
+        {
+          "id": "algorithm",
+          "claim": "An algorithm is a finite, well-defined set of steps that solves a problem",
+          "pattern": "finite|well-defined|step-by-step|sequence of (steps|instructions)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Algorithm",
+            "quote": "any well-defined set of instructions that when followed terminates after a finite number of steps"
+          }
+        },
+        {
+          "id": "flowchart",
+          "claim": "A flowchart shows the steps as boxes connected by arrows",
+          "pattern": "flowchart|flow chart",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flowchart",
+            "quote": "The flowchart shows the steps as boxes of various kinds, and their order by connecting the boxes with arrows"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "computer-system-components",
+      "chapter": "intro-programming",
+      "facts": [
+        {
+          "id": "compiler",
+          "claim": "A compiler translates source code (high-level) into machine/object code",
+          "pattern": "compiler[^.]{0,80}(translat|convert)|(translat|convert)[^.]{0,80}(machine|object) code",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Compiler",
+            "quote": "translate source code from a high-level programming language to a low-level programming language"
+          }
+        },
+        {
+          "id": "interpreter",
+          "claim": "An interpreter runs source code by a different mechanism",
+          "pattern": "interpreter",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Compiler",
+            "quote": "an interpreter provides a similar function as a compiler, but via a different mechanism"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "searching",
+      "chapter": "basic-algorithms",
+      "facts": [
+        {
+          "id": "sorted",
+          "claim": "Binary search needs a sorted array",
+          "pattern": "sorted",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_search",
+            "quote": "the array must be sorted first to be able to apply binary search"
+          }
+        },
+        {
+          "id": "middle",
+          "claim": "Compare with the middle element and discard half",
+          "pattern": "middle|mid\\b|half",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_search",
+            "quote": "Binary search compares the target value to the middle element of the array"
+          }
+        },
+        {
+          "id": "log",
+          "claim": "Runs in logarithmic time, O(log n)",
+          "pattern": "log\\s*_?2?\\s*\\(?\\s*n|logarithmic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_search",
+            "quote": "Binary search runs in logarithmic time in the worst case"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "basic-sorting",
+      "chapter": "basic-algorithms",
+      "facts": [
+        {
+          "id": "swap",
+          "claim": "Bubble sort compares neighbours and swaps them if out of order",
+          "pattern": "adjacent|neighbou?r|next (element|item)|swap",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bubble_sort",
+            "quote": "comparing the current element with the one after it, swapping their values if needed"
+          }
+        },
+        {
+          "id": "n2",
+          "claim": "Bubble sort is O(n²)",
+          "pattern": "O\\s*\\(\\s*n\\s*\\^?\\s*2|n\\s*\\^\\s*2|n squared|quadratic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bubble_sort",
+            "quote": "its O(n2) complexity means that its efficiency decreases dramatically on lists of more than a small number of elements"
+          }
+        },
+        {
+          "id": "passes",
+          "claim": "Passes repeat until no swaps are needed",
+          "pattern": "no swaps|each pass|passes? (through|over) the (list|array)|after (the )?(first|each) pass",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bubble_sort",
+            "quote": "These passes through the list are repeated until no swaps have to be performed during a pass"
+          }
+        },
+        {
+          "id": "insertion",
+          "claim": "Insertion sort builds the sorted list one item at a time",
+          "pattern": "one (item|element) at a time|insert[a-z]*[^.]{0,60}(correct|right|proper) (position|place)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Insertion_sort",
+            "quote": "builds the final sorted array (or list) one item at a time by comparisons"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "recursion",
+      "chapter": "functions",
+      "facts": [
+        {
+          "id": "calls-itself",
+          "claim": "A recursive function calls itself",
+          "pattern": "calls? itself|itself",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Recursion_(computer_science)",
+            "quote": "allowing a function to call itself from within its own code"
+          }
+        },
+        {
+          "id": "base-case",
+          "claim": "A base case stops the recursion",
+          "pattern": "base case|stopping condition|terminat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Recursion_(computer_science)",
+            "quote": "they define a stopping condition that terminates the recursion"
+          }
+        },
+        {
+          "id": "overflow",
+          "claim": "Without a base case it can cause a stack overflow",
+          "pattern": "stack overflow|infinite recursion|never (stop|end)|indefinitely",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Recursion_(computer_science)",
+            "quote": "the recursion may continue indefinitely, leading to non-termination or even stack overflow errors"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pointers",
+      "chapter": "structures-pointers",
+      "facts": [
+        {
+          "id": "address",
+          "claim": "A pointer stores a memory address",
+          "pattern": "(memory )?address",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pointer_(computer_programming)",
+            "quote": "a pointer is an object in many programming languages that stores a memory address"
+          }
+        },
+        {
+          "id": "dereference",
+          "claim": "Getting the value at that address is dereferencing",
+          "pattern": "dereferenc|\\*\\s*p\\b|\\*ptr|indirection",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pointer_(computer_programming)",
+            "quote": "obtaining the value stored at that location is known as dereferencing the pointer"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "self-referential-linked-list",
+      "chapter": "structures-pointers",
+      "facts": [
+        {
+          "id": "nodes",
+          "claim": "Each node holds data and a link to the next node",
+          "pattern": "next|link",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Linked_list",
+            "quote": "each node contains data, and a reference (in other words, a link) to the next node in the sequence"
+          }
+        },
+        {
+          "id": "memory",
+          "claim": "Order is not given by placement in memory",
+          "pattern": "(not|non)[- ]?contiguous|anywhere in memory|not (stored )?(next to|together|in order)|physical placement",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Linked_list",
+            "quote": "a linear collection of data elements whose order is not given by their physical placement in memory"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "root-finding",
+      "chapter": "basic-algorithms",
+      "facts": [
+        {
+          "id": "tangent",
+          "claim": "Newton–Raphson follows the tangent line to the next guess",
+          "pattern": "tangent",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Newton's_method",
+            "quote": "approximate the function by its tangent line near the guess, and then take the root of the linear approximation as a next guess"
+          }
+        },
+        {
+          "id": "iterate",
+          "claim": "x_{n+1} = x_n − f(x_n)/f′(x_n), repeated until it converges",
+          "pattern": "x_?\\s*\\(?n\\s*\\+\\s*1\\)?\\s*=\\s*x_?\\s*n\\s*-|f\\s*\\(\\s*x_?n\\s*\\)\\s*/\\s*f\\s*'|frac\\s*f\\s*\\(?x_?n\\)?\\s*f\\s*'|iterat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Newton's_method",
+            "quote": "the method can be iterated"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "order-of-complexity",
+      "chapter": "basic-algorithms",
+      "facts": [
+        {
+          "id": "growth",
+          "claim": "Big O describes how running time grows as input size grows",
+          "pattern": "grow(s|th)?[^.]{0,60}(input|\\bn\\b|size)|(input|size)[^.]{0,60}grow|rate of growth|growth rate",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Big_O_notation",
+            "quote": "characterizes functions according to their growth rates as the variable becomes large"
+          }
+        },
+        {
+          "id": "upper",
+          "claim": "It gives an upper bound",
+          "pattern": "upper bound|worst[- ]case",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Big_O_notation",
+            "quote": "only provides an upper bound on the growth rate of the function"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dynamic-memory",
+      "chapter": "structures-pointers",
+      "facts": [
+        {
+          "id": "malloc",
+          "claim": "malloc allocates a block on the heap",
+          "pattern": "malloc",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/C_dynamic_memory_allocation",
+            "quote": "the library function malloc is used to allocate a block of memory on the heap"
+          }
+        },
+        {
+          "id": "free",
+          "claim": "free releases the memory when it is no longer needed",
+          "pattern": "free\\s*\\(|\\bfree\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/C_dynamic_memory_allocation",
+            "quote": "the pointer is passed to free which deallocates the memory"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "merge-quick-sort",
+      "chapter": "functions",
+      "facts": [
+        {
+          "id": "divide",
+          "claim": "Merge sort is a divide-and-conquer algorithm",
+          "pattern": "divide[- ]and[- ]conquer|divides?[^.]{0,40}(halves|two|sub-?lists?|sub-?arrays?)|split[^.]{0,40}(halves|two)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Merge_sort",
+            "quote": "Merge sort is a divide-and-conquer algorithm"
+          }
+        },
+        {
+          "id": "nlogn",
+          "claim": "O(n log n) comparisons",
+          "pattern": "n\\s*log\\s*n|n\\s*log_?2\\s*n",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Merge_sort",
+            "quote": "merge sort has an average and worst-case performance of O(n log n) comparisons"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "loops",
+      "chapter": "expressions-control",
+      "facts": [
+        {
+          "id": "repeat",
+          "claim": "A loop executes code repeatedly",
+          "pattern": "repeat|again and again|over and over|iterat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/For_loop",
+            "quote": "a loop is a control flow construct that allows code to be executed repeatedly"
+          }
+        },
+        {
+          "id": "counter",
+          "claim": "A loop counter controls the iterations",
+          "pattern": "counter|loop variable|control variable|i\\s*\\+\\+|i\\s*=\\s*i\\s*\\+\\s*1",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/For_loop",
+            "quote": "A loop counter is a control variable that controls the iterations of a loop"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "conditionals",
+      "chapter": "expressions-control",
+      "facts": [
+        {
+          "id": "switch",
+          "claim": "switch chooses a branch from the value of an expression",
+          "pattern": "switch",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Switch_statement",
+            "quote": "a switch statement is a selection control flow mechanism that changes execution control based on the value of an expression"
+          }
+        },
+        {
+          "id": "break",
+          "claim": "In C each case ends with break (else it falls through); default handles the rest",
+          "pattern": "break|fall[s -]?through|default",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Switch_statement",
+            "quote": "each section ends with a keyword (such as break) if that section should not fall through"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "description": "Key facts a correct lesson on each Engineering Graphics & Design topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "engg-graphics",
+  "topics": [
+    {
+      "topic": "projection-principles",
+      "chapter": "orthographic-projection",
+      "facts": [
+        {
+          "id": "parallel",
+          "claim": "Orthographic projection: parallel projectors perpendicular to the plane",
+          "pattern": "perpendicular|orthogonal|right angles?|parallel (projectors|lines|projection)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Orthographic_projection",
+            "quote": "all the projection lines are orthogonal to the projection plane"
+          }
+        },
+        {
+          "id": "3d-2d",
+          "claim": "Represents a 3D object in 2D views",
+          "pattern": "(three|3)[- ]?(dimensional|D)[^.]{0,80}(two|2)[- ]?(dimension|D)|views?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Orthographic_projection",
+            "quote": "is a means of representing three-dimensional objects in two dimensions"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "projection-of-points",
+      "chapter": "orthographic-projection",
+      "facts": [
+        {
+          "id": "schemes",
+          "claim": "First-angle and third-angle projection",
+          "pattern": "first[- ]angle",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Multiview_orthographic_projection",
+            "quote": "The views are positioned relative to each other according to either of two schemes: first-angle or third-angle projection"
+          }
+        },
+        {
+          "id": "quadrant",
+          "claim": "In first-angle projection the object is in the first quadrant",
+          "pattern": "first quadrant|quadrant",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Multiview_orthographic_projection",
+            "quote": "First-angle projection: In this type of projection, the object is imagined to be in the first quadrant"
+          }
+        },
+        {
+          "id": "views",
+          "claim": "Front view (elevation), top view (plan) and side view",
+          "pattern": "(front view|elevation)[^.]{0,80}(top view|plan)|(top view|plan)[^.]{0,80}(front view|elevation)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Multiview_orthographic_projection",
+            "quote": "These three views are known as front view (also elevation view), top view or plan view and end view"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "isometric-scale",
+      "chapter": "isometric",
+      "facts": [
+        {
+          "id": "120",
+          "claim": "The three axes appear at 120° to each other",
+          "pattern": "120\\s*(°|degrees|deg)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Isometric_projection",
+            "quote": "the angle between any two of them is 120 degrees"
+          }
+        },
+        {
+          "id": "equal-measure",
+          "claim": "Equal foreshortening on all three axes (equal measure)",
+          "pattern": "equal(ly)? (foreshorten|measure|scale)|same (scale|foreshortening)|isometric scale",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Isometric_projection",
+            "quote": "reflecting that the scale along each axis of the projection is the same"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "conic-sections-drawing",
+      "chapter": "drawing-basics",
+      "facts": [
+        {
+          "id": "eccentricity",
+          "claim": "A conic is the locus where distance to focus ÷ distance to directrix = e",
+          "pattern": "eccentricity",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Conic_section",
+            "quote": "whose distances to some particular point, called a focus, and some particular line, called a directrix, are in a fixed ratio, called the eccentricity"
+          }
+        },
+        {
+          "id": "types",
+          "claim": "Ellipse, parabola and hyperbola (the circle is a special ellipse)",
+          "pattern": "ellipse[^.]{0,60}parabola[^.]{0,60}hyperbola|parabola[^.]{0,60}ellipse|hyperbola[^.]{0,60}parabola",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Conic_section",
+            "quote": "There are three types of conics: the ellipse, parabola, and hyperbola"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cycloids-involutes",
+      "chapter": "drawing-basics",
+      "facts": [
+        {
+          "id": "cycloid",
+          "claim": "A cycloid is traced by a point on a circle rolling along a straight line",
+          "pattern": "(point|dot)[^.]{0,60}(circle|wheel)[^.]{0,60}roll|roll[^.]{0,60}straight line",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cycloid",
+            "quote": "a cycloid is the curve traced by a point on a circle as it rolls along a straight line without slipping"
+          }
+        },
+        {
+          "id": "involute",
+          "claim": "An involute is traced by the end of a taut string unwound from a circle",
+          "pattern": "(string|thread|cord)[^.]{0,80}(unwound|unwrapped|unwind|unwrap)|(unwound|unwrapped)[^.]{0,80}(string|thread|cord)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Involute",
+            "quote": "the locus of a point on a piece of taut string as the string is either unwrapped from or wrapped around the curve"
+          }
+        },
+        {
+          "id": "gears",
+          "claim": "Gear teeth profiles are involutes of a circle",
+          "pattern": "gear",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Involute",
+            "quote": "The most common profiles of modern gear teeth are involutes of a circle"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "scales",
+      "chapter": "drawing-basics",
+      "facts": [
+        {
+          "id": "vernier",
+          "claim": "A vernier scale gives a finer reading between main-scale divisions",
+          "pattern": "vernier",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Vernier_scale",
+            "quote": "a visual aid to take an accurate measurement reading between two graduation markings on a linear scale"
+          }
+        },
+        {
+          "id": "divisions",
+          "claim": "e.g. 10 vernier divisions = 9 main-scale divisions",
+          "pattern": "(10|ten) (vernier )?divisions[^.]{0,60}(9|nine)|(9|nine) (main[- ]scale )?divisions|least count",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Vernier_scale",
+            "quote": "has for instance ten divisions equal in distance to nine divisions on the main scale"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "drawing-instruments-conventions",
+      "chapter": "drawing-basics",
+      "facts": [
+        {
+          "id": "lines",
+          "claim": "Different line styles represent different features",
+          "pattern": "line (types?|styles?|conventions?)|(hidden|centre|center|construction) lines?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Engineering_drawing",
+            "quote": "A variety of line styles graphically represent physical objects"
+          }
+        },
+        {
+          "id": "dimensions",
+          "claim": "Dimensions given once, with tolerances where needed",
+          "pattern": "dimension",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Engineering_drawing",
+            "quote": "Key information such as dimensions is usually only specified in one place on a drawing"
+          }
+        },
+        {
+          "id": "standards",
+          "claim": "Standards let everyone read a drawing the same way",
+          "pattern": "standard|BIS|IS\\s*\\d|ISO",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Engineering_drawing",
+            "quote": "Standards provide rules for their specification and interpretation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "projection-of-planes",
+      "chapter": "orthographic-projection",
+      "facts": [
+        {
+          "id": "auxiliary",
+          "claim": "An auxiliary plane parallel to an inclined surface shows its true shape",
+          "pattern": "auxiliary (plane|view)|true (shape|size)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Auxiliary_view",
+            "quote": "By projecting into a plane parallel with the oblique surface, the true size and shape of the surface are shown"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "development-of-surfaces",
+      "chapter": "solids",
+      "facts": [
+        {
+          "id": "net",
+          "claim": "A development (net) unfolds the surface into a flat shape that folds back into the solid",
+          "pattern": "unfold|flat pattern|plane layout|laid out flat|fold(ed)? (up|back|along)|\\bnet of (a|the) (solid|prism|cube|pyramid|cone|cylinder|polyhedron)|development of (the )?(lateral )?surfaces?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Net_(polyhedron)",
+            "quote": "an arrangement of non-overlapping edge-joined polygons in the plane that can be folded (along edges) to become the faces of the polyhedron"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cad-interface",
+      "chapter": "cad",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "CAD uses computers to create, modify and analyse designs",
+          "pattern": "computer[- ]aided (design|drafting)|CAD",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Computer-aided_design",
+            "quote": "Computer-aided design (CAD) is the use of computers (or workstations) to aid in the creation, modification, analysis, or optimization of a design"
+          }
+        },
+        {
+          "id": "conventions",
+          "claim": "CAD output still follows drawing conventions (dimensions, tolerances)",
+          "pattern": "dimension|toleranc|layer",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Computer-aided_design",
+            "quote": "the output of CAD must convey information, such as materials, processes, dimensions, and tolerances"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "solid-modelling",
+      "chapter": "cad",
+      "facts": [
+        {
+          "id": "3d",
+          "claim": "Solid modelling represents complete 3D solids",
+          "pattern": "three-?dimensional|3-?D",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Solid_modeling",
+            "quote": "a consistent set of principles for mathematical and computer modeling of three-dimensional shapes (solids)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sections-of-solids",
+      "chapter": "solids",
+      "facts": [
+        {
+          "id": "cutting-plane",
+          "claim": "A section is where a cutting plane intersects a solid",
+          "pattern": "cutting plane|section plane|plane[^.]{0,60}(cuts|intersects|passes through)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cross_section_(geometry)",
+            "quote": "If a plane intersects a solid (a 3-dimensional object), then the region common to the plane and the solid is called a cross section of the solid"
+          }
+        },
+        {
+          "id": "internal",
+          "claim": "Sections show the internal arrangement of an object",
+          "pattern": "(internal|hidden|inside|interior) (details?|features?|shape|arrangement|parts?|construction)|(show|reveal)[^.]{0,40}(inside|internal|interior)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cross_section_(geometry)",
+            "quote": "a common tool used to depict the internal arrangement of a 3-dimensional object in two dimensions"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "projection-of-lines",
+      "chapter": "orthographic-projection",
+      "facts": [
+        {
+          "id": "true-length",
+          "claim": "A line's true length appears only in a view parallel to it",
+          "pattern": "true length",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Descriptive_geometry",
+            "quote": "is the true length of the connector"
+          }
+        },
+        {
+          "id": "projectors",
+          "claim": "Parallel projectors meet the plane of projection at right angles",
+          "pattern": "right angles?|perpendicular|parallel projectors?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Descriptive_geometry",
+            "quote": "parallel projectors emanating from an imaginary object and intersecting an imaginary plane of projection at right angles"
+          }
+        }
+      ]
+    }
+  ]
+}

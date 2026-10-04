@@ -1,0 +1,318 @@
+{
+  "description": "Key facts a correct lesson on each Basic Electrical Engineering topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "basic-electrical",
+  "topics": [
+    {
+      "topic": "kirchhoffs-laws-bee",
+      "chapter": "dc-circuits",
+      "facts": [
+        {
+          "id": "kcl",
+          "claim": "KCL: current into a node equals current out (algebraic sum zero)",
+          "pattern": "sum of (the )?currents|currents? (entering|into)[^.]{0,80}(leaving|out)|Sigma\\s*I\\s*=\\s*0|sum\\s*I_?\\w*\\s*=\\s*0",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Kirchhoff's_circuit_laws",
+            "quote": "the sum of currents flowing into that node is equal to the sum of currents flowing out of that node"
+          }
+        },
+        {
+          "id": "kvl",
+          "claim": "KVL: the sum of voltages around a closed loop is zero",
+          "pattern": "(sum of (the )?(voltages|potential differences|emfs?|voltage drops))|around (any |a )?(closed )?loop[^.]{0,60}zero|Sigma\\s*V\\s*=\\s*0",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Kirchhoff's_circuit_laws",
+            "quote": "The directed sum of the potential differences (voltages) around any closed loop is zero"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "thevenin-norton",
+      "chapter": "dc-circuits",
+      "facts": [
+        {
+          "id": "equivalent",
+          "claim": "Any linear network → one voltage source in series with one resistance",
+          "pattern": "(voltage source|V_?(th|Th|TH))[^.]{0,80}series[^.]{0,60}(resist|impedance|R_?(th|Th))|series[^.]{0,60}(resist|R_?th)[^.]{0,60}(voltage source|V_?th)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thévenin's_theorem",
+            "quote": "the theorem allows any one-port network to be reduced to a single voltage source and a single impedance"
+          }
+        },
+        {
+          "id": "rth",
+          "claim": "R_th: replace voltage sources by short circuits and current sources by open circuits",
+          "pattern": "short[- ]circuit|shorted|open[- ]circuit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thévenin's_theorem",
+            "quote": "if all ideal voltage sources in the circuit were replaced by a short circuit and all ideal current sources were replaced by an open circuit"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "superposition-theorem",
+      "chapter": "dc-circuits",
+      "facts": [
+        {
+          "id": "principle",
+          "claim": "In a linear circuit the total response is the sum of responses to each source alone",
+          "pattern": "(sum|add)[^.]{0,80}(each|individual|separate)[^.]{0,40}(source|response)|one (source )?at a time|each source[^.]{0,60}(alone|separately|acting)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Superposition_theorem",
+            "quote": "the net response caused by two or more stimuli is the sum of the responses that would have been caused by each stimulus individually"
+          }
+        },
+        {
+          "id": "linear",
+          "claim": "Applies only to linear systems",
+          "pattern": "linear",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Superposition_theorem",
+            "quote": "for all linear systems"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rl-rc-transients",
+      "chapter": "dc-circuits",
+      "facts": [
+        {
+          "id": "tau",
+          "claim": "Time constant τ = RC",
+          "pattern": "tau\\s*=\\s*R\\s*C|time constant[^.]{0,40}RC|RC[^.]{0,40}time constant|τ\\s*=\\s*RC",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/RC_circuit",
+            "quote": "τ = RC is the time constant"
+          }
+        },
+        {
+          "id": "632",
+          "claim": "After one τ the capacitor is about 63.2% charged; about 5τ to fully charge",
+          "pattern": "63(\\.2)?\\s*%|0\\.632|5\\s*(tau|τ)|five time constants",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/RC_circuit",
+            "quote": "So the capacitor will be charged to about 63.2% after τ, and is often considered fully charged (>99.3%) after about 5τ"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sinusoidal-waveforms",
+      "chapter": "ac-circuits",
+      "facts": [
+        {
+          "id": "root2",
+          "claim": "For a sine wave V_peak = √2 × V_rms (V_rms ≈ 0.707 V_peak)",
+          "pattern": "sqrt\\s*\\(?\\s*2|√2|0\\.707|1\\s*/\\s*sqrt\\s*2|1\\.414",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Root_mean_square",
+            "quote": "which implies VP = VRMS × √2, assuming the source is a pure sine wave"
+          }
+        },
+        {
+          "id": "mains",
+          "claim": "Example: 120 V mains has a peak of about 170 V",
+          "pattern": "\\brms\\b|root[- ]mean[- ]square|effective value",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Root_mean_square",
+            "quote": "Thus the peak value of the mains voltage in the USA is about 120 × √2, or about 170 volts"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ac-power-factor",
+      "chapter": "ac-circuits",
+      "facts": [
+        {
+          "id": "ratio",
+          "claim": "Power factor = real power / apparent power",
+          "pattern": "real (or active )?power[^.]{0,60}apparent power|P\\s*/\\s*S|frac\\s*P\\s*S|true power[^.]{0,40}apparent",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power_factor",
+            "quote": "The power factor is defined as the ratio of real power to apparent power"
+          }
+        },
+        {
+          "id": "apparent",
+          "claim": "Apparent power = V_rms × I_rms",
+          "pattern": "apparent power|V\\s*_?rms\\s*I\\s*_?rms|volt-?amperes?|VA\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power_factor",
+            "quote": "Apparent power is the product of root mean square (RMS) current and voltage"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "star-delta",
+      "chapter": "three-phase",
+      "facts": [
+        {
+          "id": "equivalence",
+          "claim": "Star and delta networks are equivalent when terminal impedances match",
+          "pattern": "(star|wye|Y)[- ]?(to|-)[- ]?(delta|Δ)|(delta|Δ)[- ]?(to|-)[- ]?(star|wye|Y)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Y-Δ_transform",
+            "quote": "For equivalence, the impedance between any pair of terminals must be the same for both networks"
+          }
+        },
+        {
+          "id": "names",
+          "claim": "Named after the shapes Y and Δ",
+          "pattern": "\\bstar\\b|\\bwye\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Y-Δ_transform",
+            "quote": "The name derives from the shapes of the circuit diagrams, which look respectively like the letter Y and the Greek capital letter Δ"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "three-phase-generation",
+      "chapter": "three-phase",
+      "facts": [
+        {
+          "id": "120",
+          "claim": "Phases are 120° apart",
+          "pattern": "120\\s*(°|degrees|deg)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Three-phase_electric_power",
+            "quote": "each of the three phases is offset by 120 degrees of phase shift relative to the others"
+          }
+        },
+        {
+          "id": "line-phase",
+          "claim": "Line-to-line (line) and line-to-neutral (phase) voltages",
+          "pattern": "line voltage|line-to-line|phase voltage|line-to-neutral",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Three-phase_electric_power",
+            "quote": "The voltage between any two line conductors is called line-to-line voltage"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ideal-practical-transformer",
+      "chapter": "transformers",
+      "facts": [
+        {
+          "id": "induction",
+          "claim": "A changing primary current makes a changing flux that induces an emf in the secondary",
+          "pattern": "(changing|varying|alternating) (magnetic )?flux|mutual induct|electromagnetic induction",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Transformer",
+            "quote": "A varying current in the transformer's primary winding creates a varying magnetic flux in the transformer core"
+          }
+        },
+        {
+          "id": "ratio",
+          "claim": "Voltage ratio equals turns ratio",
+          "pattern": "V_?(1|p)\\s*/\\s*V_?(2|s)\\s*=\\s*N_?(1|p)\\s*/\\s*N_?(2|s)|turns ratio|frac\\s*V_?(s|2)\\s*V_?(p|1)\\s*=\\s*frac\\s*N",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Transformer",
+            "quote": "The transformer winding voltage ratio is equal to the winding turns ratio"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "three-phase-induction-motor",
+      "chapter": "electrical-machines",
+      "facts": [
+        {
+          "id": "slower",
+          "claim": "The rotor always turns slightly slower than synchronous speed",
+          "pattern": "(slower|less) than[^.]{0,30}synchronous|below synchronous",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Induction_motor",
+            "quote": "an induction motor always operates slightly slower than synchronous speed"
+          }
+        },
+        {
+          "id": "slip",
+          "claim": "Slip: difference between synchronous and rotor speed (a few per cent)",
+          "pattern": "\\bslip\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Induction_motor",
+            "quote": "The difference, or \"slip,\" between actual and synchronous speed varies from about 0.5% to 5.0%"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dc-machines",
+      "chapter": "electrical-machines",
+      "facts": [
+        {
+          "id": "commutator",
+          "claim": "A commutator and brushes connect the rotating armature coils to the supply",
+          "pattern": "commutator",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/DC_motor",
+            "quote": "The commutator allows each armature coil to be energized in turn and connects the rotating coils with the external power supply through brushes"
+          }
+        },
+        {
+          "id": "back-emf",
+          "claim": "The spinning armature produces a back (counter) emf",
+          "pattern": "back[- ]?e\\.?m\\.?f|counter[- ]?(e\\.?m\\.?f|electromotive)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/DC_motor",
+            "quote": "the armature must turn faster to produce sufficient counter-EMF to balance the supply voltage"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "lt-switchgear",
+      "chapter": "electrical-installations",
+      "facts": [
+        {
+          "id": "leakage",
+          "claim": "An RCD/ELCB trips when it detects leakage current",
+          "pattern": "leakage|imbalance|residual current|earth fault",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Residual-current_device",
+            "quote": "RCDs are designed to disconnect the circuit if there is a leakage current"
+          }
+        },
+        {
+          "id": "30ma",
+          "claim": "Typically trips at about 30 mA within milliseconds to prevent electrocution",
+          "pattern": "30\\s*mA|milliamp",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Residual-current_device",
+            "quote": "to detect small leakage currents (typically 5–30 mA) and disconnecting quickly enough (<30 milliseconds)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "buck-boost-converters",
+      "chapter": "power-converters",
+      "facts": [
+        {
+          "id": "step-down",
+          "claim": "A buck converter steps DC voltage down",
+          "pattern": "step[- ]?down|steps down|lower (output )?voltage|reduces? (the )?voltage",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Buck_converter",
+            "quote": "A buck converter or step-down converter is a DC-to-DC converter which decreases voltage"
+          }
+        },
+        {
+          "id": "duty",
+          "claim": "Output voltage = duty cycle × input voltage",
+          "pattern": "duty (cycle|ratio)|V_?o(ut)?\\s*=\\s*D\\s*V",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Buck_converter",
+            "quote": "the output voltage of the converter varies linearly with the duty cycle for a given input voltage"
+          }
+        }
+      ]
+    }
+  ]
+}
