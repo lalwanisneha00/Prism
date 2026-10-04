@@ -17,6 +17,14 @@ export function SiteFooter() {
           </Link>
         </p>
         <p className="shrink-0">
+          {FLAGS.slidesPdf && (
+            <>
+              <Link href="/slides" className="underline underline-offset-2">
+                My slides and PDFs
+              </Link>{" "}
+              ·{" "}
+            </>
+          )}
           {FLAGS.byoKey && (
             <>
               <Link href="/settings/keys" className="underline underline-offset-2">

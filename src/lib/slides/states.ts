@@ -1,4 +1,3 @@
-import type { z } from "zod";
 import { isWidgetId, widgetRegistry } from "@/visuals/registry";
 
 /*

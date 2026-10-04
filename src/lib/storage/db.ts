@@ -246,6 +246,20 @@ export type Annotation = SyncFields & {
   createdAt: number;
 };
 
+/** A generated deck or PDF (Feature B). Local only: not synced (no cloud file storage on the free plan). */
+export type StoredSlideFile = {
+  id: string;
+  title: string;
+  subject: string;
+  purpose: string;
+  format: "pptx" | "pdf";
+  theme: string;
+  slides: number;
+  bytes: number;
+  createdAt: number;
+  blob: Blob;
+};
+
 /** One saved API key (Feature A). Deliberately NOT a SyncedRecords collection. */
 export type StoredApiKey = {
   /** The provider id ("gemini", "openai", …): one key per provider. */
@@ -371,12 +385,14 @@ interface PrismDB extends DBSchema {
   learningSignals: { key: string; value: LearningSignalRecord; indexes: { byAt: number } };
   /** The student's own API keys. On this device only: not synced, not exported, not shared. */
   apiKeys: { key: string; value: StoredApiKey };
+  /** Generated slide decks and PDFs, kept on this device so they can be downloaded again. */
+  slideFiles: { key: string; value: StoredSlideFile; indexes: { byCreatedAt: number } };
   outbox: { key: string; value: OutboxEntry };
   meta: { key: string; value: { key: string; value: unknown } };
 }
 
 const DB_NAME = "prism";
-const DB_VERSION = 12;
+const DB_VERSION = 13;
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -439,6 +455,13 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
       // Version 12: the student's own API keys (local only; existing data is untouched).
       if (oldVersion < 12) {
         db.createObjectStore("apiKeys", { keyPath: "id" });
+      }
+      // Version 13: generated slide decks and PDFs (local only).
+      if (oldVersion < 13) {
+        db.createObjectStore("slideFiles", { keyPath: "id" }).createIndex(
+          "byCreatedAt",
+          "createdAt",
+        );
       }
     },
   });

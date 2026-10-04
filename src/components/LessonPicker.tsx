@@ -8,6 +8,7 @@ import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
 import { DurationChooser } from "@/components/DurationChooser";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
 import { FieldError, FieldGroup } from "@/components/form/FieldGroup";
+import { SlidesPanel } from "@/components/slides/SlidesPanel";
 import { KeyIndicator } from "@/components/settings/KeyIndicator";
 import { NotesToggle } from "@/components/notes/NotesToggle";
 import { BranchSemesterBar } from "@/components/subjects/BranchSemesterBar";
@@ -15,6 +16,7 @@ import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { TopicSearch } from "@/components/TopicSearch";
 import { defaultDuration } from "@/data/durations";
 import { availableLevels, type LevelSlug } from "@/data/levels";
+import { FLAGS } from "@/lib/flags";
 import { chapterHref } from "@/lib/chapter/request";
 import { isCustomId } from "@/lib/custom/customSubject";
 import {
@@ -103,6 +105,13 @@ function PickerForm({
         ? chapter.topics
         : chapter.topics.filter((t) => picked.includes(t.id))
       : [];
+  // What a slide deck or PDF would cover: the topic, the whole chapter, or the ticked topics.
+  const slideTopicIds =
+    scope === "topic" ? (topicId ? [topicId] : []) : chosenTopics.map((t) => t.id);
+  const slideTitle =
+    scope === "topic"
+      ? (chapter?.topics.find((t) => t.id === topicId)?.name ?? "")
+      : (chapter?.name ?? "");
   const chosenLevel: LevelSlug | undefined = availableLevels.find((l) => l.slug === level)?.slug;
 
   function clearErrors(...fields: LessonRequestField[]) {
@@ -464,6 +473,15 @@ function PickerForm({
       >
         {submitting ? "Opening your lesson…" : "Build my lesson →"}
       </button>
+      {FLAGS.slidesPdf && !isCustomId(owner.id) && chapter && (
+        <SlidesPanel
+          subject={owner}
+          chapterId={chapter.id}
+          topicIds={slideTopicIds}
+          level={chosenLevel}
+          title={slideTitle || chapter.name}
+        />
+      )}
     </form>
   );
 }

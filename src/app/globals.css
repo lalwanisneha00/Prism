@@ -168,3 +168,26 @@ body {
     margin: 16mm;
   }
 }
+
+/*
+ * Pictures for slides and PDFs are drawn off-screen in this fixed light palette, whatever theme
+ * the student is using, so a diagram made in dark mode is still dark-on-white on paper.
+ */
+.export-light {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f4f4f1;
+  --border: #d6d4cd;
+  --fg: #14171c;
+  --muted: #555b64;
+  --primary: #1f6f78;
+  --primary-hover: #1a5c64;
+  --primary-fg: #ffffff;
+  --primary-soft: #e3f0f1;
+  --success: #15803d;
+  --warning: #b45309;
+  --danger: #c2261d;
+  color-scheme: light;
+  background: #ffffff;
+  color: #14171c;
+}
