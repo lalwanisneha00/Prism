@@ -1,0 +1,126 @@
+{
+  "id": "strength-of-materials",
+  "name": "Strength of Materials",
+  "field": "Mechanical Engineering",
+  "tier": "sourced",
+  "branches": ["me", "civil", "auto", "aero"],
+  "semesters": [3, 4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE revised Model Curriculum for UG Degree Course in Mechanical Engineering: PCC-ME 203 Mechanics of Deformable Solids",
+    "url": "https://www.aicte.gov.in/sites/default/files/Final_Mechanical%20Engg.pdf",
+    "note": "All seven modules of PCC-ME 203 (also called Strength of Materials or Mechanics of Solids)."
+  },
+  "visualSet": "mechanics",
+  "chapters": [
+    {
+      "id": "stress-strain",
+      "name": "Stress and Strain",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "hookes-law-bars",
+          "name": "Stress, strain, Hooke's law and elongation of bars"
+        },
+        {
+          "id": "elastic-constants",
+          "name": "Elastic constants and their relations; Poisson's ratio",
+          "requires": ["hookes-law-bars"]
+        },
+        {
+          "id": "principal-stresses-mohr",
+          "name": "Principal stresses, principal planes and Mohr's circle",
+          "requires": ["hookes-law-bars"]
+        },
+        {
+          "id": "thermal-stress",
+          "name": "Thermal stresses",
+          "requires": ["hookes-law-bars"]
+        }
+      ]
+    },
+    {
+      "id": "beams",
+      "name": "Shear Force, Bending Moment and Bending Stress",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "sfd-bmd",
+          "name": "Shear force and bending moment diagrams",
+          "requires": ["hookes-law-bars"]
+        },
+        {
+          "id": "bending-stress",
+          "name": "Theory of bending: flexure formula and neutral axis",
+          "requires": ["sfd-bmd"]
+        },
+        {
+          "id": "shear-stress-beams",
+          "name": "Shear stress distribution in beams",
+          "requires": ["bending-stress"]
+        }
+      ]
+    },
+    {
+      "id": "deflection",
+      "name": "Deflection of Beams",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "double-integration",
+          "name": "Slope and deflection by double integration",
+          "requires": ["bending-stress"]
+        },
+        {
+          "id": "macaulay-moment-area",
+          "name": "Macaulay's method and the moment-area method",
+          "requires": ["double-integration"]
+        }
+      ]
+    },
+    {
+      "id": "torsion-columns",
+      "name": "Torsion, Springs and Columns",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "torsion-shafts",
+          "name": "Torsion of solid and hollow circular shafts",
+          "requires": ["elastic-constants"]
+        },
+        {
+          "id": "helical-springs",
+          "name": "Stresses and deflection of helical springs",
+          "requires": ["torsion-shafts"]
+        },
+        {
+          "id": "euler-buckling",
+          "name": "Column buckling: Euler's theory and end conditions",
+          "requires": ["bending-stress"]
+        }
+      ]
+    },
+    {
+      "id": "energy-vessels",
+      "name": "Energy Methods and Pressure Vessels",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "strain-energy-castigliano",
+          "name": "Strain energy, virtual work and Castigliano's theorems",
+          "requires": ["double-integration"]
+        },
+        {
+          "id": "thin-cylinders",
+          "name": "Thin cylinders and spheres: hoop and longitudinal stress",
+          "requires": ["hookes-law-bars"]
+        },
+        {
+          "id": "thick-cylinders-lame",
+          "name": "Thick cylinders: Lamé's equations",
+          "requires": ["thin-cylinders"]
+        }
+      ]
+    }
+  ]
+}

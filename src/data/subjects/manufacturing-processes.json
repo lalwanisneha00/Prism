@@ -1,0 +1,109 @@
+{
+  "id": "manufacturing-processes",
+  "name": "Manufacturing Processes",
+  "field": "Mechanical Engineering",
+  "tier": "sourced",
+  "branches": ["me", "auto", "meta"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE revised Model Curriculum for UG Degree Course in Mechanical Engineering: PCC-ME 303 Manufacturing Processes",
+    "url": "https://www.aicte.gov.in/sites/default/files/Final_Mechanical%20Engg.pdf",
+    "note": "All seven modules of PCC-ME 303."
+  },
+  "visualSet": "mechanics",
+  "chapters": [
+    {
+      "id": "mfg-intro",
+      "name": "Classification of Processes",
+      "hours": 3,
+      "topics": [
+        {
+          "id": "process-classification",
+          "name": "Additive, subtractive and shaping processes; process selection"
+        }
+      ]
+    },
+    {
+      "id": "casting-forming",
+      "name": "Casting and Forming",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "sand-casting",
+          "name": "Sand casting: patterns, gating and risers",
+          "requires": ["process-classification"]
+        },
+        {
+          "id": "die-investment-casting",
+          "name": "Die casting and investment casting",
+          "requires": ["sand-casting"]
+        },
+        {
+          "id": "forging-rolling",
+          "name": "Bulk forming: forging, rolling, extrusion and drawing",
+          "requires": ["process-classification"]
+        },
+        {
+          "id": "sheet-metal-forming",
+          "name": "Sheet forming: shearing, bending and deep drawing",
+          "requires": ["forging-rolling"]
+        },
+        {
+          "id": "plastics-powder-metallurgy",
+          "name": "Plastics moulding and powder metallurgy",
+          "requires": ["process-classification"]
+        }
+      ]
+    },
+    {
+      "id": "machining",
+      "name": "Material Removal",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "turning-drilling-milling",
+          "name": "Turning, drilling, milling and grinding",
+          "requires": ["process-classification"]
+        },
+        {
+          "id": "orthogonal-cutting-merchant",
+          "name": "Orthogonal cutting, chip formation and Merchant's circle",
+          "requires": ["turning-drilling-milling"]
+        },
+        {
+          "id": "tool-life-taylor",
+          "name": "Tool wear and Taylor's tool life equation",
+          "requires": ["orthogonal-cutting-merchant"]
+        },
+        {
+          "id": "unconventional-machining",
+          "name": "Unconventional machining: EDM, ECM, laser, abrasive and water jet",
+          "requires": ["turning-drilling-milling"]
+        }
+      ]
+    },
+    {
+      "id": "additive-joining",
+      "name": "Additive Manufacturing and Joining",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "additive-manufacturing",
+          "name": "Additive manufacturing processes",
+          "requires": ["process-classification"]
+        },
+        {
+          "id": "arc-welding",
+          "name": "Arc and gas welding; MIG and TIG",
+          "requires": ["process-classification"]
+        },
+        {
+          "id": "brazing-soldering-solid-state",
+          "name": "Brazing, soldering, solid-state joining and adhesives",
+          "requires": ["arc-welding"]
+        }
+      ]
+    }
+  ]
+}

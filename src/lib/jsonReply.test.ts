@@ -37,6 +37,11 @@ describe("parseJsonReply", () => {
     });
   });
 
+  it("uses the first complete object when more text with braces follows it", () => {
+    expect(parseJsonReply('{"a": "x}"} and a second copy: {"a": 2}')).toEqual({ a: "x}" });
+    expect(parseJsonReply('```json\n{"a": [1]}\n```\nNote: {see above}')).toEqual({ a: [1] });
+  });
+
   it("accepts a bare list as the top level", () => {
     expect(parseJsonReply('Here: [{"id": "a"}, {"id": "b"}]')).toEqual([{ id: "a" }, { id: "b" }]);
   });

@@ -1,0 +1,119 @@
+{
+  "id": "power-electronics",
+  "name": "Power Electronics",
+  "field": "Electrical Engineering",
+  "tier": "sourced",
+  "branches": ["ee"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Electrical Engineering: PCC208 Power Electronics",
+    "url": "https://www.aicte.gov.in/downloads/msyllabus/UG/ELECTRICAL%20Engg%20Final.pdf",
+    "note": "All units of PCC208."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "pe-devices",
+      "name": "Power Semiconductor Switches",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "power-conversion-intro",
+          "name": "Why power conversion: efficient switching converters"
+        },
+        {
+          "id": "power-diodes-scr",
+          "name": "Power diodes and the SCR (thyristor)",
+          "requires": ["power-conversion-intro"]
+        },
+        {
+          "id": "power-mosfet-igbt",
+          "name": "Power BJT, MOSFET and IGBT: ratings and switching",
+          "requires": ["power-conversion-intro"]
+        },
+        {
+          "id": "snubbers-drive-protection",
+          "name": "Drive circuits, snubbers, cooling and protection",
+          "requires": ["power-diodes-scr"]
+        }
+      ]
+    },
+    {
+      "id": "dc-dc",
+      "name": "DC to DC Converters",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "buck-converter-pe",
+          "name": "Buck converter: duty cycle and continuous conduction",
+          "requires": ["power-mosfet-igbt"]
+        },
+        {
+          "id": "boost-buckboost-pe",
+          "name": "Boost and buck–boost converters",
+          "requires": ["buck-converter-pe"]
+        },
+        {
+          "id": "isolated-converters",
+          "name": "Isolated converters: forward and flyback",
+          "requires": ["boost-buckboost-pe"]
+        },
+        {
+          "id": "h-bridge-four-quadrant",
+          "name": "H-bridge and four-quadrant operation",
+          "requires": ["buck-converter-pe"]
+        }
+      ]
+    },
+    {
+      "id": "ac-dc",
+      "name": "AC to DC Converters",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "controlled-rectifiers-1ph",
+          "name": "Single-phase controlled rectifiers with R, R-L and back-emf loads",
+          "requires": ["power-diodes-scr"]
+        },
+        {
+          "id": "three-phase-rectifiers-pe",
+          "name": "Three-phase controlled rectifiers",
+          "requires": ["controlled-rectifiers-1ph"]
+        },
+        {
+          "id": "rectifier-pf-harmonics",
+          "name": "Power factor, harmonics and source inductance; dual converters",
+          "requires": ["three-phase-rectifiers-pe"]
+        }
+      ]
+    },
+    {
+      "id": "dc-ac-ac-ac",
+      "name": "Inverters and AC to AC Converters",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "vsi-csi",
+          "name": "Voltage-source and current-source inverters",
+          "requires": ["power-mosfet-igbt"]
+        },
+        {
+          "id": "pwm-inverters",
+          "name": "PWM techniques and three-phase PWM inverters",
+          "requires": ["vsi-csi"]
+        },
+        {
+          "id": "ac-voltage-regulators",
+          "name": "AC voltage controllers and static switches",
+          "requires": ["power-diodes-scr"]
+        },
+        {
+          "id": "cycloconverter",
+          "name": "Cycloconverters",
+          "requires": ["ac-voltage-regulators"]
+        }
+      ]
+    }
+  ]
+}

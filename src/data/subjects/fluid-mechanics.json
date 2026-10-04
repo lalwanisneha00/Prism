@@ -1,0 +1,141 @@
+{
+  "id": "fluid-mechanics",
+  "name": "Fluid Mechanics and Hydraulic Machines",
+  "field": "Mechanical Engineering",
+  "tier": "sourced",
+  "branches": ["me", "civil", "chem", "aero"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE revised Model Curriculum for UG Degree Course in Mechanical Engineering: PCC-ME 202 Fluid Mechanics & Hydraulic Machines",
+    "url": "https://www.aicte.gov.in/sites/default/files/Final_Mechanical%20Engg.pdf",
+    "note": "All units of PCC-ME 202."
+  },
+  "visualSet": "fluids",
+  "chapters": [
+    {
+      "id": "fluid-properties",
+      "name": "Fluid Properties and Statics",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "viscosity-newton",
+          "name": "Fluid properties and Newton's law of viscosity"
+        },
+        {
+          "id": "fluid-pressure-manometers",
+          "name": "Pressure, hydrostatics and manometers",
+          "requires": ["viscosity-newton"]
+        },
+        {
+          "id": "buoyancy-stability",
+          "name": "Buoyancy and the stability of floating bodies",
+          "requires": ["fluid-pressure-manometers"]
+        }
+      ]
+    },
+    {
+      "id": "fluid-kinematics",
+      "name": "Fluid Kinematics",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "flow-types-streamlines",
+          "name": "Types of flow; streamlines, streaklines and pathlines",
+          "requires": ["viscosity-newton"]
+        },
+        {
+          "id": "continuity-equation-fm",
+          "name": "Continuity equation and the Reynolds transport theorem",
+          "requires": ["flow-types-streamlines"]
+        },
+        {
+          "id": "stream-function-potential",
+          "name": "Stream function and velocity potential",
+          "requires": ["continuity-equation-fm"]
+        }
+      ]
+    },
+    {
+      "id": "fluid-dynamics-eq",
+      "name": "Momentum and Energy Equations",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "euler-bernoulli-fm",
+          "name": "Euler's equation and Bernoulli's equation",
+          "requires": ["continuity-equation-fm"]
+        },
+        {
+          "id": "flow-measurement",
+          "name": "Flow measurement: venturimeter, orifice, Pitot tube and notches",
+          "requires": ["euler-bernoulli-fm"]
+        },
+        {
+          "id": "navier-stokes-intro",
+          "name": "The Navier–Stokes equations (introduction)",
+          "requires": ["euler-bernoulli-fm"]
+        },
+        {
+          "id": "dimensional-analysis-pi",
+          "name": "Dimensional analysis, Buckingham π theorem and similitude",
+          "requires": ["viscosity-newton"]
+        }
+      ]
+    },
+    {
+      "id": "pipe-flow",
+      "name": "Laminar, Turbulent and Pipe Flow",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "laminar-pipe-flow",
+          "name": "Laminar flow: Hagen–Poiseuille and Couette flow",
+          "requires": ["navier-stokes-intro"]
+        },
+        {
+          "id": "reynolds-turbulence",
+          "name": "Reynolds' experiment and turbulent flow",
+          "requires": ["laminar-pipe-flow"]
+        },
+        {
+          "id": "darcy-pipe-losses",
+          "name": "Major and minor losses: Darcy–Weisbach; pipes in series and parallel",
+          "requires": ["reynolds-turbulence"]
+        },
+        {
+          "id": "boundary-layer-fm",
+          "name": "Boundary layer theory basics",
+          "requires": ["reynolds-turbulence"]
+        }
+      ]
+    },
+    {
+      "id": "hydraulic-machines",
+      "name": "Pumps and Turbines",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "velocity-triangles",
+          "name": "Euler's turbomachine equation and velocity triangles",
+          "requires": ["euler-bernoulli-fm"]
+        },
+        {
+          "id": "centrifugal-pump",
+          "name": "Centrifugal pumps: work done, performance curves and cavitation",
+          "requires": ["velocity-triangles"]
+        },
+        {
+          "id": "reciprocating-pump",
+          "name": "Reciprocating pumps",
+          "requires": ["velocity-triangles"]
+        },
+        {
+          "id": "pelton-francis-kaplan",
+          "name": "Pelton, Francis and Kaplan turbines",
+          "requires": ["velocity-triangles"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "concrete-rcc-design",
+  "name": "Concrete Technology and RCC Design",
+  "field": "Civil Engineering",
+  "tier": "sourced",
+  "branches": ["civil"],
+  "semesters": [3, 5],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Civil Engineering (2024): PCC-02 Concrete Technology and PCC-10 Structural Design-I",
+    "url": "https://www.aicte.gov.in/sites/default/files/AICTE%20Model%20Curriculum%20_UG_Civil_2024.pdf",
+    "note": "All units of PCC-02; working stress, limit state and prestressed concrete from PCC-10."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "concrete-ingredients",
+      "name": "Cement, Aggregates and Admixtures",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "portland-cement-types",
+          "name": "Portland cement: hydration and types"
+        },
+        {
+          "id": "aggregates",
+          "name": "Fine and coarse aggregates and their tests",
+          "requires": ["portland-cement-types"]
+        },
+        {
+          "id": "admixtures",
+          "name": "Admixtures and supplementary materials: fly ash, GGBS, silica fume",
+          "requires": ["portland-cement-types"]
+        }
+      ]
+    },
+    {
+      "id": "concrete-properties",
+      "name": "Fresh and Hardened Concrete",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "workability-slump",
+          "name": "Workability and the slump test; water–cement ratio",
+          "requires": ["aggregates"]
+        },
+        {
+          "id": "concrete-strength-durability",
+          "name": "Strength, durability and curing",
+          "requires": ["workability-slump"]
+        },
+        {
+          "id": "mix-design",
+          "name": "Concrete mix design",
+          "requires": ["concrete-strength-durability"]
+        },
+        {
+          "id": "special-concretes",
+          "name": "Special concretes: self-compacting, fibre-reinforced, high-performance, ready-mix",
+          "requires": ["concrete-strength-durability"]
+        },
+        {
+          "id": "concrete-ndt",
+          "name": "Non-destructive testing of concrete",
+          "requires": ["concrete-strength-durability"]
+        }
+      ]
+    },
+    {
+      "id": "rcc-design",
+      "name": "Design of Reinforced Concrete",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "working-stress-method",
+          "name": "Working stress method",
+          "requires": ["concrete-strength-durability"]
+        },
+        {
+          "id": "limit-state-method",
+          "name": "Limit state method: partial safety factors and stress block",
+          "requires": ["working-stress-method"]
+        },
+        {
+          "id": "rcc-beams-flexure",
+          "name": "Singly and doubly reinforced beams in flexure",
+          "requires": ["limit-state-method"]
+        },
+        {
+          "id": "rcc-shear-bond",
+          "name": "Shear, bond and development length",
+          "requires": ["rcc-beams-flexure"]
+        },
+        {
+          "id": "rcc-slabs-columns",
+          "name": "One- and two-way slabs, columns and footings",
+          "requires": ["rcc-beams-flexure"]
+        },
+        {
+          "id": "prestressed-concrete",
+          "name": "Prestressed concrete: principles and losses",
+          "requires": ["limit-state-method"]
+        }
+      ]
+    }
+  ]
+}

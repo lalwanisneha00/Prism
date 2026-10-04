@@ -1,0 +1,131 @@
+{
+  "id": "structural-analysis",
+  "name": "Structural Analysis",
+  "field": "Civil Engineering",
+  "tier": "sourced",
+  "branches": ["civil"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Civil Engineering (2024): PCC-08 Structural Analysis",
+    "url": "https://www.aicte.gov.in/sites/default/files/AICTE%20Model%20Curriculum%20_UG_Civil_2024.pdf",
+    "note": "All eight units of PCC-08."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "sa-theorems",
+      "name": "General Theorems and Determinacy",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "static-kinematic-indeterminacy",
+          "name": "Static and kinematic indeterminacy"
+        },
+        {
+          "id": "energy-theorems-sa",
+          "name": "Energy theorems: virtual work, Castigliano and Maxwell–Betti",
+          "requires": ["static-kinematic-indeterminacy"]
+        }
+      ]
+    },
+    {
+      "id": "sa-deflection",
+      "name": "Deflection of Determinate Structures",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "unit-load-method",
+          "name": "Deflection by the unit-load (virtual work) method",
+          "requires": ["energy-theorems-sa"]
+        },
+        {
+          "id": "conjugate-beam",
+          "name": "Conjugate beam method",
+          "requires": ["unit-load-method"]
+        },
+        {
+          "id": "truss-deflection",
+          "name": "Deflection of pin-jointed trusses",
+          "requires": ["unit-load-method"]
+        }
+      ]
+    },
+    {
+      "id": "influence-lines",
+      "name": "Influence Lines and Moving Loads",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "influence-lines-beams",
+          "name": "Influence lines for reactions, shear and moment",
+          "requires": ["static-kinematic-indeterminacy"]
+        },
+        {
+          "id": "rolling-loads",
+          "name": "Rolling loads and maximum moment",
+          "requires": ["influence-lines-beams"]
+        },
+        {
+          "id": "muller-breslau",
+          "name": "Müller-Breslau principle",
+          "requires": ["influence-lines-beams"]
+        }
+      ]
+    },
+    {
+      "id": "arches-cables",
+      "name": "Arches, Cables and Columns",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "three-hinged-arch",
+          "name": "Three-hinged arches",
+          "requires": ["static-kinematic-indeterminacy"]
+        },
+        {
+          "id": "two-hinged-arch",
+          "name": "Two-hinged arches",
+          "requires": ["three-hinged-arch"]
+        },
+        {
+          "id": "suspension-cables",
+          "name": "Suspension cables and bridges",
+          "requires": ["static-kinematic-indeterminacy"]
+        },
+        {
+          "id": "columns-struts-sa",
+          "name": "Columns and struts: Euler and Rankine formulas",
+          "requires": ["static-kinematic-indeterminacy"]
+        }
+      ]
+    },
+    {
+      "id": "indeterminate",
+      "name": "Indeterminate Structures",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "flexibility-method",
+          "name": "Force (flexibility) method",
+          "requires": ["energy-theorems-sa"]
+        },
+        {
+          "id": "slope-deflection",
+          "name": "Slope-deflection method",
+          "requires": ["flexibility-method"]
+        },
+        {
+          "id": "moment-distribution",
+          "name": "Moment distribution method",
+          "requires": ["slope-deflection"]
+        },
+        {
+          "id": "stiffness-matrix-method",
+          "name": "Stiffness (displacement) matrix method",
+          "requires": ["slope-deflection"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "id": "transportation-engineering",
+  "name": "Transportation Engineering",
+  "field": "Civil Engineering",
+  "tier": "sourced",
+  "branches": ["civil"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Civil Engineering (2024): PCC-04 Transportation Engineering",
+    "url": "https://www.aicte.gov.in/sites/default/files/AICTE%20Model%20Curriculum%20_UG_Civil_2024.pdf",
+    "note": "All six modules of PCC-04 (IRC design methods)."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "highway-planning",
+      "name": "Highway Planning and Alignment",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "road-classification",
+          "name": "Classification of roads and highway planning"
+        },
+        {
+          "id": "highway-alignment",
+          "name": "Highway alignment and engineering surveys",
+          "requires": ["road-classification"]
+        }
+      ]
+    },
+    {
+      "id": "geometric-design",
+      "name": "Geometric Design",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "cross-section-elements",
+          "name": "Cross-section elements: camber, carriageway, shoulders",
+          "requires": ["highway-alignment"]
+        },
+        {
+          "id": "sight-distance",
+          "name": "Stopping and overtaking sight distance",
+          "requires": ["cross-section-elements"]
+        },
+        {
+          "id": "superelevation-curves",
+          "name": "Horizontal curves: superelevation, extra widening, transition curves",
+          "requires": ["sight-distance"]
+        },
+        {
+          "id": "vertical-curves",
+          "name": "Vertical alignment: gradients and vertical curves",
+          "requires": ["sight-distance"]
+        }
+      ]
+    },
+    {
+      "id": "traffic",
+      "name": "Traffic Engineering",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "traffic-flow-fundamentals",
+          "name": "Traffic characteristics and the speed–flow–density relation"
+        },
+        {
+          "id": "traffic-studies-capacity",
+          "name": "Traffic studies, capacity and level of service",
+          "requires": ["traffic-flow-fundamentals"]
+        },
+        {
+          "id": "signals-intersections",
+          "name": "Intersection design and traffic signals (Webster)",
+          "requires": ["traffic-studies-capacity"]
+        },
+        {
+          "id": "accessible-transport",
+          "name": "Accessibility for differently abled people",
+          "requires": ["road-classification"]
+        }
+      ]
+    },
+    {
+      "id": "pavements",
+      "name": "Pavement Materials and Design",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "pavement-materials",
+          "name": "Pavement materials: soil, aggregates and bitumen; tests",
+          "requires": ["road-classification"]
+        },
+        {
+          "id": "cbr-subgrade",
+          "name": "Subgrade strength and the CBR test",
+          "requires": ["pavement-materials"]
+        },
+        {
+          "id": "flexible-pavement-design",
+          "name": "Flexible pavement design (IRC)",
+          "requires": ["cbr-subgrade"]
+        },
+        {
+          "id": "rigid-pavement-design",
+          "name": "Rigid pavement stresses and design (Westergaard)",
+          "requires": ["pavement-materials"]
+        }
+      ]
+    }
+  ]
+}

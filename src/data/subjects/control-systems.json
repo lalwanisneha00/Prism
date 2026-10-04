@@ -1,0 +1,129 @@
+{
+  "id": "control-systems",
+  "name": "Control Systems",
+  "field": "Electrical Engineering",
+  "tier": "sourced",
+  "branches": ["ee", "ece", "ic", "me"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Electrical Engineering: PCC207 Control Systems",
+    "url": "https://www.aicte.gov.in/downloads/msyllabus/UG/ELECTRICAL%20Engg%20Final.pdf",
+    "note": "All eleven units of PCC207."
+  },
+  "visualSet": "signals",
+  "chapters": [
+    {
+      "id": "modelling",
+      "name": "Modelling Control Systems",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "control-problem-components",
+          "name": "The control problem: open and closed loop, sensors and actuators"
+        },
+        {
+          "id": "transfer-function-models",
+          "name": "Transfer function models of mechanical, electrical and thermal systems",
+          "requires": ["control-problem-components"]
+        },
+        {
+          "id": "block-diagram-reduction",
+          "name": "Block diagram reduction",
+          "requires": ["transfer-function-models"]
+        },
+        {
+          "id": "signal-flow-mason",
+          "name": "Signal flow graphs and Mason's gain formula",
+          "requires": ["block-diagram-reduction"]
+        },
+        {
+          "id": "state-variable-models",
+          "name": "State variable models and the solution of state equations",
+          "requires": ["transfer-function-models"]
+        }
+      ]
+    },
+    {
+      "id": "time-response",
+      "name": "Time Response and Feedback",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "first-second-order-response",
+          "name": "Time response of first- and second-order systems",
+          "requires": ["transfer-function-models"]
+        },
+        {
+          "id": "time-domain-specs",
+          "name": "Time-domain specifications: rise time, overshoot, settling time",
+          "requires": ["first-second-order-response"]
+        },
+        {
+          "id": "steady-state-error",
+          "name": "Steady-state error and error constants",
+          "requires": ["first-second-order-response"]
+        },
+        {
+          "id": "sensitivity-feedback",
+          "name": "Sensitivity and the effects of feedback",
+          "requires": ["block-diagram-reduction"]
+        },
+        {
+          "id": "pid-modes",
+          "name": "Proportional, integral and derivative control",
+          "requires": ["steady-state-error"]
+        }
+      ]
+    },
+    {
+      "id": "stability",
+      "name": "Stability and Root Locus",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "bibo-stability",
+          "name": "BIBO stability and pole locations",
+          "requires": ["transfer-function-models"]
+        },
+        {
+          "id": "routh-hurwitz",
+          "name": "Routh–Hurwitz stability criterion",
+          "requires": ["bibo-stability"]
+        },
+        {
+          "id": "root-locus",
+          "name": "Root locus",
+          "requires": ["routh-hurwitz"]
+        }
+      ]
+    },
+    {
+      "id": "frequency-domain",
+      "name": "Frequency Response and Compensation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "bode-plots-control",
+          "name": "Bode plots, gain margin and phase margin",
+          "requires": ["bibo-stability"]
+        },
+        {
+          "id": "polar-nyquist",
+          "name": "Polar plots and the Nyquist stability criterion",
+          "requires": ["bode-plots-control"]
+        },
+        {
+          "id": "frequency-domain-specs",
+          "name": "Frequency-domain specifications: bandwidth and resonant peak",
+          "requires": ["bode-plots-control"]
+        },
+        {
+          "id": "lead-lag-compensation",
+          "name": "Lead, lag and lead–lag compensation",
+          "requires": ["bode-plots-control"]
+        }
+      ]
+    }
+  ]
+}

@@ -50,3 +50,13 @@ Notes:
 | 2026-10-04 | compiler-design | first-encounter · 10 min | 12 | **95.5%** (22 facts) | 12/12 | 25 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
 | 2026-10-04 | software-engineering | first-encounter · 10 min | 12 | **75%** (20 facts) | 10/12 | 18 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
 | 2026-10-04 | software-engineering | first-encounter · 10 min | 12 | **75%** (20 facts) | 10/12 | 18 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | software-engineering | first-encounter · 10 min | 12 | **95%** (20 facts) | 12/12 | 22 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | ai-ml | first-encounter · 10 min | 13 | **68%** (25 facts) | 10/13 | 19 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | web-technologies | first-encounter · 10 min | 12 | **66.7%** (21 facts) | 10/12 | 16 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | web-technologies | first-encounter · 10 min | 12 | **85.7%** (21 facts) | 12/12 | 18 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | ai-ml | first-encounter · 10 min | 13 | **84%** (25 facts) | 13/13 | 24 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | ai-ml | first-encounter · 10 min | 13 | **88%** (25 facts) | 13/13 | 24 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | oop | first-encounter · 10 min | 12 | **90.5%** (21 facts) | 12/12 | 14 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | theory-of-computation | first-encounter · 10 min | 12 | **100%** (22 facts) | 12/12 | 20 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | signals-systems | first-encounter · 10 min | 13 | **100%** (21 facts) | 13/13 | 19 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | digital-logic | first-encounter · 10 min | 12 | **90.9%** (22 facts) | 11/12 | 21 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |

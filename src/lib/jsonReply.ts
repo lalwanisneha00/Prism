@@ -7,7 +7,31 @@ export function parseJsonReply(text: string): unknown {
   const start = isArray ? arrayStart : objectStart;
   const end = text.lastIndexOf(isArray ? "]" : "}");
   if (start === -1 || end <= start) throw new Error("the reply contains no JSON object");
-  return JSON.parse(repairLatexEscapes(text.slice(start, end + 1)));
+  try {
+    return JSON.parse(repairLatexEscapes(text.slice(start, end + 1)));
+  } catch (err) {
+    // Sometimes a complete object is followed by more text containing a brace (a second copy,
+    // or chatter like "{see above}"). Then the first balanced object is the reply.
+    const firstEnd = endOfFirstValue(text, start);
+    if (firstEnd === -1 || firstEnd >= end) throw err;
+    return JSON.parse(repairLatexEscapes(text.slice(start, firstEnd + 1)));
+  }
+}
+
+/** Index of the bracket that closes the object or list opening at `start`, or -1. */
+function endOfFirstValue(text: string, start: number): number {
+  let depth = 0;
+  let inString = false;
+  for (let i = start; i < text.length; i++) {
+    const ch = text[i];
+    if (inString) {
+      if (ch === "\\") i++;
+      else if (ch === '"') inString = false;
+    } else if (ch === '"') inString = true;
+    else if (ch === "{" || ch === "[") depth++;
+    else if ((ch === "}" || ch === "]") && --depth === 0) return i;
+  }
+  return -1;
 }
 
 /*
