@@ -1,0 +1,163 @@
+{
+  "id": "discrete-maths",
+  "name": "Discrete Mathematics",
+  "field": "Mathematics",
+  "tier": "sourced",
+  "branches": ["ce", "it", "ict"],
+  "semesters": [3, 4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS401 Discrete Mathematics",
+    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
+    "note": "Modules 1–5 of PCC-CS401."
+  },
+  "visualSet": "maths",
+  "chapters": [
+    {
+      "id": "sets-relations-functions",
+      "name": "Sets, Relations and Functions",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "set-operations",
+          "name": "Sets, operations and laws; Cartesian products"
+        },
+        {
+          "id": "relations",
+          "name": "Relations: equivalence relations and partial orders",
+          "requires": ["set-operations"]
+        },
+        {
+          "id": "functions-discrete",
+          "name": "Functions: injective, surjective, bijective, inverse and composition",
+          "requires": ["set-operations"]
+        },
+        {
+          "id": "countability",
+          "name": "Countable and uncountable sets; Cantor's diagonal argument",
+          "requires": ["functions-discrete"]
+        }
+      ]
+    },
+    {
+      "id": "induction-number-theory",
+      "name": "Induction and Number Theory",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "mathematical-induction",
+          "name": "Mathematical induction and the well-ordering principle",
+          "requires": ["set-operations"]
+        },
+        {
+          "id": "division-gcd",
+          "name": "Division algorithm, GCD and Euclid's algorithm"
+        },
+        {
+          "id": "fundamental-theorem-arithmetic",
+          "name": "Prime numbers and the fundamental theorem of arithmetic",
+          "requires": ["division-gcd"]
+        }
+      ]
+    },
+    {
+      "id": "counting",
+      "name": "Counting",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "permutations-combinations",
+          "name": "Permutations and combinations"
+        },
+        {
+          "id": "inclusion-exclusion",
+          "name": "Inclusion–exclusion principle",
+          "requires": ["permutations-combinations"]
+        },
+        {
+          "id": "pigeonhole",
+          "name": "Pigeonhole principle",
+          "requires": ["permutations-combinations"]
+        }
+      ]
+    },
+    {
+      "id": "logic",
+      "name": "Propositional Logic and Proofs",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "propositional-logic",
+          "name": "Propositions, connectives and truth tables"
+        },
+        {
+          "id": "logical-equivalence",
+          "name": "Logical equivalence, implication and the laws of logic",
+          "requires": ["propositional-logic"]
+        },
+        {
+          "id": "rules-of-inference",
+          "name": "Rules of inference and quantifiers",
+          "requires": ["logical-equivalence"]
+        },
+        {
+          "id": "proof-techniques",
+          "name": "Proof techniques: direct, contradiction, contraposition",
+          "requires": ["rules-of-inference"]
+        }
+      ]
+    },
+    {
+      "id": "algebraic-structures",
+      "name": "Algebraic Structures",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "semigroups-monoids",
+          "name": "Semigroups and monoids"
+        },
+        {
+          "id": "groups",
+          "name": "Groups, subgroups and cyclic groups",
+          "requires": ["semigroups-monoids"]
+        },
+        {
+          "id": "rings-fields",
+          "name": "Rings, integral domains and fields",
+          "requires": ["groups"]
+        },
+        {
+          "id": "boolean-algebra-dm",
+          "name": "Boolean algebra; disjunctive and conjunctive normal forms",
+          "requires": ["propositional-logic"]
+        }
+      ]
+    },
+    {
+      "id": "graph-theory",
+      "name": "Graphs and Trees",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "graph-basics",
+          "name": "Graphs: degree, paths, cycles, connectivity, isomorphism"
+        },
+        {
+          "id": "euler-hamilton",
+          "name": "Eulerian and Hamiltonian walks",
+          "requires": ["graph-basics"]
+        },
+        {
+          "id": "graph-colouring-planar",
+          "name": "Graph colouring and planar graphs",
+          "requires": ["graph-basics"]
+        },
+        {
+          "id": "trees-prefix-codes",
+          "name": "Trees, weighted trees and prefix codes",
+          "requires": ["graph-basics"]
+        }
+      ]
+    }
+  ]
+}

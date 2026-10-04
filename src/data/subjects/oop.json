@@ -1,0 +1,119 @@
+{
+  "id": "oop",
+  "name": "Object-Oriented Programming",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "branches": ["ce", "it", "ict"],
+  "semesters": [3, 5],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS503 Object Oriented Programming",
+    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
+    "note": "Topics of PCC-CS503 (practised in C++ and Java); exceptions and generics as in its 'Generic types and collections' unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "adt-classes",
+      "name": "Abstract Data Types and Classes",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "abstract-data-types",
+          "name": "Abstract data types and their specification"
+        },
+        {
+          "id": "classes-objects",
+          "name": "Classes, objects, constructors and object identity",
+          "requires": ["abstract-data-types"]
+        },
+        {
+          "id": "encapsulation",
+          "name": "Encapsulation and information hiding",
+          "requires": ["classes-objects"]
+        }
+      ]
+    },
+    {
+      "id": "inheritance-polymorphism",
+      "name": "Inheritance and Polymorphism",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "inheritance",
+          "name": "Inheritance and class hierarchies",
+          "requires": ["classes-objects"]
+        },
+        {
+          "id": "polymorphism",
+          "name": "Polymorphism: overloading and overriding; dynamic dispatch",
+          "requires": ["inheritance"]
+        },
+        {
+          "id": "abstract-classes-interfaces",
+          "name": "Abstract classes and interfaces",
+          "requires": ["polymorphism"]
+        },
+        {
+          "id": "composition-vs-inheritance",
+          "name": "Composition over inheritance",
+          "requires": ["inheritance"]
+        }
+      ]
+    },
+    {
+      "id": "generics-memory",
+      "name": "Generics, Collections, Exceptions and Memory",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "generics",
+          "name": "Generic types and collections",
+          "requires": ["classes-objects"]
+        },
+        {
+          "id": "exceptions-oop",
+          "name": "Exception handling",
+          "requires": ["classes-objects"]
+        },
+        {
+          "id": "memory-management-oop",
+          "name": "Object lifetime, garbage collection and destructors",
+          "requires": ["classes-objects"]
+        }
+      ]
+    },
+    {
+      "id": "design-patterns",
+      "name": "Design Patterns and Software Development",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "design-patterns-intro",
+          "name": "Design patterns: introduction and classification",
+          "requires": ["polymorphism"]
+        },
+        {
+          "id": "iterator-pattern",
+          "name": "The iterator pattern",
+          "requires": ["design-patterns-intro"]
+        },
+        {
+          "id": "mvc",
+          "name": "Model–view–controller",
+          "requires": ["design-patterns-intro"]
+        },
+        {
+          "id": "command-pattern",
+          "name": "Commands as objects (the command pattern)",
+          "requires": ["design-patterns-intro"]
+        },
+        {
+          "id": "unit-testing-vcs",
+          "name": "Unit tests, automated builds and version control",
+          "requires": ["classes-objects"]
+        }
+      ]
+    }
+  ]
+}

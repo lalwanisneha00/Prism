@@ -45,6 +45,141 @@ export const curatedVideos: Record<string, Link[]> = {
       note: "For the complex variable chapters.",
     },
   ],
+  // Wave 2 (V3 · Step 8): each course number checked against its NPTEL syllabus or page.
+  dsa: [
+    {
+      title: "Introduction to Data Structures and Algorithms (Prof. Naveen Garg, IIT Delhi)",
+      url: "https://nptel.ac.in/courses/106102064",
+      publisher: "NPTEL",
+      note: "Lectures on every data structure in the syllabus.",
+    },
+  ],
+  "discrete-maths": [
+    {
+      title: "Discrete Mathematics (Prof. Sudarshan Iyengar, IIT Ropar)",
+      url: "https://nptel.ac.in/courses/106106183",
+      publisher: "NPTEL",
+      note: "Sets, logic, counting and graphs.",
+    },
+  ],
+  coa: [
+    {
+      title: "Computer Architecture and Organization (Prof. Indranil Sengupta, IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/106105163",
+      publisher: "NPTEL",
+      note: "From number representation to pipelines and caches.",
+    },
+  ],
+  "operating-systems": [
+    {
+      title: "Introduction to Operating Systems (Prof. Chester Rebeiro, IIT Madras)",
+      url: "https://nptel.ac.in/courses/106106144",
+      publisher: "NPTEL",
+      note: "Processes, scheduling, synchronisation and memory.",
+    },
+  ],
+  dbms: [
+    {
+      title: "Data Base Management System (Prof. Partha Pratim Das, IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/106105175",
+      publisher: "NPTEL",
+      note: "ER model, SQL, normalisation and transactions.",
+    },
+  ],
+  "computer-networks": [
+    {
+      title: "Computer Networks (IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/106105081",
+      publisher: "NPTEL",
+      note: "OSI layers, MAC protocols, routing and transport.",
+    },
+  ],
+  "theory-of-computation": [
+    {
+      title: "Theory of Computation (Prof. Raghunath Tewari, IIT Kanpur)",
+      url: "https://nptel.ac.in/courses/106104148",
+      publisher: "NPTEL",
+      note: "Automata, grammars, Turing machines and decidability.",
+    },
+  ],
+  "compiler-design": [
+    {
+      title: "Compiler Design (Prof. Santanu Chattopadhyay, IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/106105190",
+      publisher: "NPTEL",
+      note: "All phases of a compiler, with parsing in depth.",
+    },
+  ],
+  "software-engineering": [
+    {
+      title: "Software Engineering (Prof. Rajib Mall, IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/106105182",
+      publisher: "NPTEL",
+      note: "Life-cycle models, design, testing and project management.",
+    },
+  ],
+  "ai-ml": [
+    {
+      title: "Introduction to Machine Learning (Prof. Balaraman Ravindran, IIT Madras)",
+      url: "https://nptel.ac.in/courses/106106139",
+      publisher: "NPTEL",
+      note: "Regression, classification, trees, SVMs and neural networks.",
+    },
+    {
+      title: "Artificial Intelligence (IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/106105077",
+      publisher: "NPTEL",
+      note: "Search, knowledge representation and reasoning.",
+    },
+  ],
+  "digital-logic": [
+    {
+      title: "Digital Circuits (Prof. Santanu Chattopadhyay, IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/108105113",
+      publisher: "NPTEL",
+      note: "Combinational and sequential logic design.",
+    },
+  ],
+  "signals-systems": [
+    {
+      title: "Principles of Signals and Systems (Prof. Aditya K. Jagannatham, IIT Kanpur)",
+      url: "https://nptel.ac.in/courses/108104100",
+      publisher: "NPTEL",
+      note: "Convolution, Fourier, Laplace and z-transforms.",
+    },
+  ],
+  "communication-systems": [
+    {
+      title: "Analog Communication (NPTEL)",
+      url: "https://nptel.ac.in/courses/117105143",
+      publisher: "NPTEL",
+      note: "AM, FM and noise in analogue systems.",
+    },
+  ],
+  microprocessors: [
+    {
+      title: "Microprocessors and Microcontrollers (Prof. Santanu Chattopadhyay, IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/108105102",
+      publisher: "NPTEL",
+      note: "8085, 8086, 8051 and ARM.",
+    },
+  ],
+  "em-theory": [
+    {
+      title: "Electromagnetic Fields (NPTEL)",
+      url: "https://nptel.ac.in/courses/108106073",
+      publisher: "NPTEL",
+      note: "Fields, Maxwell's equations and waves.",
+    },
+  ],
+  vlsi: [
+    {
+      title: "VLSI Circuits (NPTEL)",
+      url: "https://nptel.ac.in/courses/117106092",
+      publisher: "NPTEL",
+      note: "CMOS combinational and sequential circuit design.",
+    },
+  ],
   // Wave 1 (V3 · Step 6): NPTEL first (SPEC §12.3 rule 9); every link was opened and checked.
   "applied-physics": [
     {

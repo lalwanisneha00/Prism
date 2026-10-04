@@ -1,0 +1,149 @@
+{
+  "id": "coa",
+  "name": "Computer Organisation and Architecture",
+  "field": "Computer Engineering",
+  "tier": "sourced",
+  "branches": ["ce", "it", "ict", "ece"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS402 Computer Organization & Architecture",
+    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
+    "note": "Modules 1–4 of PCC-CS402."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "basic-organisation",
+      "name": "Basic Organisation and Instruction Sets",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "functional-units",
+          "name": "Functional blocks: CPU, memory, I/O and control unit"
+        },
+        {
+          "id": "instruction-cycle",
+          "name": "Registers and the instruction execution cycle",
+          "requires": ["functional-units"]
+        },
+        {
+          "id": "addressing-modes",
+          "name": "Instruction formats and addressing modes",
+          "requires": ["instruction-cycle"]
+        }
+      ]
+    },
+    {
+      "id": "data-representation",
+      "name": "Data Representation and Arithmetic",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "signed-numbers",
+          "name": "Signed numbers: two's complement"
+        },
+        {
+          "id": "floating-point",
+          "name": "Floating-point representation (IEEE 754)",
+          "requires": ["signed-numbers"]
+        },
+        {
+          "id": "adders-coa",
+          "name": "Ripple-carry and carry-lookahead adders",
+          "requires": ["signed-numbers"]
+        },
+        {
+          "id": "booth-multiplication",
+          "name": "Multiplication: shift-and-add and Booth's algorithm",
+          "requires": ["adders-coa"]
+        },
+        {
+          "id": "division-algorithms",
+          "name": "Restoring and non-restoring division",
+          "requires": ["adders-coa"]
+        }
+      ]
+    },
+    {
+      "id": "control-unit",
+      "name": "Control Unit Design",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "hardwired-control",
+          "name": "Hardwired control"
+        },
+        {
+          "id": "microprogrammed-control",
+          "name": "Microprogrammed control",
+          "requires": ["hardwired-control"]
+        }
+      ]
+    },
+    {
+      "id": "io-organisation",
+      "name": "Input–Output Organisation",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "io-interrupts",
+          "name": "Programmed I/O and interrupt-driven I/O"
+        },
+        {
+          "id": "dma",
+          "name": "Direct memory access",
+          "requires": ["io-interrupts"]
+        }
+      ]
+    },
+    {
+      "id": "pipelining-coa",
+      "name": "Pipelining and Parallel Processing",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "instruction-pipelining",
+          "name": "Pipelining: throughput and speed-up",
+          "requires": ["instruction-cycle"]
+        },
+        {
+          "id": "pipeline-hazards",
+          "name": "Pipeline hazards: structural, data and control",
+          "requires": ["instruction-pipelining"]
+        },
+        {
+          "id": "parallel-processors",
+          "name": "Parallel processors and cache coherence",
+          "requires": ["instruction-pipelining"]
+        }
+      ]
+    },
+    {
+      "id": "memory-organisation",
+      "name": "Memory Organisation",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "memory-hierarchy",
+          "name": "Memory hierarchy and locality"
+        },
+        {
+          "id": "cache-mapping",
+          "name": "Cache memory: direct, associative and set-associative mapping",
+          "requires": ["memory-hierarchy"]
+        },
+        {
+          "id": "cache-replacement-write",
+          "name": "Cache replacement and write policies",
+          "requires": ["cache-mapping"]
+        },
+        {
+          "id": "memory-interleaving",
+          "name": "Memory interleaving and semiconductor memory",
+          "requires": ["memory-hierarchy"]
+        }
+      ]
+    }
+  ]
+}

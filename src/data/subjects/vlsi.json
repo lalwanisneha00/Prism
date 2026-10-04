@@ -1,0 +1,111 @@
+{
+  "id": "vlsi",
+  "name": "VLSI Design Basics",
+  "field": "Electronics Engineering",
+  "tier": "sourced",
+  "branches": ["ece", "ict"],
+  "semesters": [6, 7],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Electronics & Communication Engineering (2018; copy hosted by Dibrugarh University): ECEL13 CMOS Design (with the VLSI design flow of EC03)",
+    "url": "https://oldweb.dibru.ac.in/wp-content/uploads/2020/12/ECE-Model-curriculum-2018-BATCH-ONWARDS_Modified.pdf",
+    "note": "ECEL13 CMOS Design plus the VLSI design-flow unit of EC03 Digital System Design."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "mos-transistor",
+      "name": "MOS Transistor",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "mos-models",
+          "name": "MOS transistor models and non-ideal behaviour"
+        },
+        {
+          "id": "mos-switch",
+          "name": "The transistor as a switch",
+          "requires": ["mos-models"]
+        }
+      ]
+    },
+    {
+      "id": "cmos-inverter-design",
+      "name": "CMOS Inverter",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "inverter-vtc",
+          "name": "Inverter voltage transfer characteristic and noise margins",
+          "requires": ["mos-switch"]
+        },
+        {
+          "id": "cmos-power",
+          "name": "Power: dynamic and static dissipation",
+          "requires": ["inverter-vtc"]
+        }
+      ]
+    },
+    {
+      "id": "layout-delay",
+      "name": "Layout and Delay",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "design-rules-layout",
+          "name": "Integrated circuit layout and design rules; parasitics",
+          "requires": ["mos-switch"]
+        },
+        {
+          "id": "rc-delay-logical-effort",
+          "name": "RC delay model and logical effort",
+          "requires": ["inverter-vtc"]
+        },
+        {
+          "id": "interconnect",
+          "name": "Interconnect and robustness",
+          "requires": ["design-rules-layout"]
+        }
+      ]
+    },
+    {
+      "id": "cmos-logic",
+      "name": "CMOS Circuit Design",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "static-cmos-logic",
+          "name": "Static CMOS logic",
+          "requires": ["inverter-vtc"]
+        },
+        {
+          "id": "dynamic-logic",
+          "name": "Dynamic and dual-rail logic",
+          "requires": ["static-cmos-logic"]
+        },
+        {
+          "id": "latches-flipflops-cmos",
+          "name": "Latches and flip-flops in CMOS",
+          "requires": ["static-cmos-logic"]
+        }
+      ]
+    },
+    {
+      "id": "design-flow",
+      "name": "VLSI Design Flow",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "vlsi-design-flow",
+          "name": "Design entry, synthesis, simulation and FPGA implementation",
+          "requires": ["static-cmos-logic"]
+        },
+        {
+          "id": "hdl-vlsi",
+          "name": "Hardware description languages in VLSI design",
+          "requires": ["vlsi-design-flow"]
+        }
+      ]
+    }
+  ]
+}

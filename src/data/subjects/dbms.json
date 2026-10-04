@@ -1,0 +1,157 @@
+{
+  "id": "dbms",
+  "name": "Database Management Systems",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "branches": ["ce", "it", "ict"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS501 Database Management Systems",
+    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
+    "note": "Modules 1–6 of PCC-CS501; SQL details as in AKTU KCS501 (https://aktu.ac.in/pdf/syllabus/syllabus2223/B.Tech._3rd_Yr_CSE(AIML)_2022_23_revised_.pdf)."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "db-intro",
+      "name": "Database Concepts and the ER Model",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "dbms-vs-files",
+          "name": "Database systems vs file systems; architecture and data independence"
+        },
+        {
+          "id": "er-model",
+          "name": "The entity–relationship model",
+          "requires": ["dbms-vs-files"]
+        },
+        {
+          "id": "keys",
+          "name": "Keys: super, candidate, primary and foreign",
+          "requires": ["er-model"]
+        }
+      ]
+    },
+    {
+      "id": "relational-model",
+      "name": "Relational Model and Query Languages",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "relational-model-integrity",
+          "name": "The relational model and integrity constraints",
+          "requires": ["keys"]
+        },
+        {
+          "id": "relational-algebra",
+          "name": "Relational algebra",
+          "requires": ["relational-model-integrity"]
+        },
+        {
+          "id": "relational-calculus",
+          "name": "Tuple and domain relational calculus",
+          "requires": ["relational-algebra"]
+        },
+        {
+          "id": "sql-basics",
+          "name": "SQL: DDL and DML, queries and subqueries",
+          "requires": ["relational-algebra"]
+        },
+        {
+          "id": "sql-joins-aggregates",
+          "name": "Joins, aggregate functions and views",
+          "requires": ["sql-basics"]
+        }
+      ]
+    },
+    {
+      "id": "normalisation",
+      "name": "Relational Database Design",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "functional-dependencies",
+          "name": "Functional dependencies and Armstrong's axioms",
+          "requires": ["relational-model-integrity"]
+        },
+        {
+          "id": "normal-forms",
+          "name": "Normal forms: 1NF, 2NF, 3NF and BCNF",
+          "requires": ["functional-dependencies"]
+        },
+        {
+          "id": "lossless-dependency-preserving",
+          "name": "Lossless joins and dependency preservation",
+          "requires": ["normal-forms"]
+        }
+      ]
+    },
+    {
+      "id": "storage-indexing",
+      "name": "Storage, Indexing and Query Processing",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "indexing",
+          "name": "Indexes, B+ trees and hashing",
+          "requires": ["relational-model-integrity"]
+        },
+        {
+          "id": "query-optimisation",
+          "name": "Query processing and optimisation",
+          "requires": ["relational-algebra"]
+        }
+      ]
+    },
+    {
+      "id": "transactions",
+      "name": "Transactions and Concurrency Control",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "acid",
+          "name": "Transactions and the ACID properties"
+        },
+        {
+          "id": "serializability",
+          "name": "Schedules and serializability",
+          "requires": ["acid"]
+        },
+        {
+          "id": "locking-2pl",
+          "name": "Lock-based protocols and two-phase locking",
+          "requires": ["serializability"]
+        },
+        {
+          "id": "timestamp-mvcc",
+          "name": "Timestamp ordering and multiversion concurrency control",
+          "requires": ["serializability"]
+        },
+        {
+          "id": "db-recovery",
+          "name": "Database recovery: logs and checkpoints",
+          "requires": ["acid"]
+        }
+      ]
+    },
+    {
+      "id": "db-security-advanced",
+      "name": "Security and Advanced Topics",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "db-security",
+          "name": "Authentication, authorisation and SQL injection",
+          "requires": ["sql-basics"]
+        },
+        {
+          "id": "nosql-warehousing",
+          "name": "Distributed, NoSQL and data warehouses",
+          "requires": ["dbms-vs-files"]
+        }
+      ]
+    }
+  ]
+}

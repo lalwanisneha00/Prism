@@ -1,0 +1,130 @@
+{
+  "id": "analog-electronics",
+  "name": "Analog Electronics",
+  "field": "Electronics Engineering",
+  "tier": "sourced",
+  "branches": ["ece", "ict", "ee"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Electronics & Communication Engineering (2018; copy hosted by Dibrugarh University): EC09 Analog Circuits",
+    "url": "https://oldweb.dibru.ac.in/wp-content/uploads/2020/12/ECE-Model-curriculum-2018-BATCH-ONWARDS_Modified.pdf",
+    "note": "All units of EC09."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "amplifier-basics-ae",
+      "name": "Amplifier Models and Biasing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "amplifier-models",
+          "name": "Voltage, current, transconductance and transresistance amplifiers"
+        },
+        {
+          "id": "bias-stability",
+          "name": "BJT and FET biasing and bias stability",
+          "requires": ["amplifier-models"]
+        },
+        {
+          "id": "small-signal-models",
+          "name": "Small-signal models; gain and input/output resistance",
+          "requires": ["bias-stability"]
+        },
+        {
+          "id": "ce-cb-cc-configurations",
+          "name": "CE/CS, CB/CG and CC/CD stages",
+          "requires": ["small-signal-models"]
+        }
+      ]
+    },
+    {
+      "id": "frequency-power",
+      "name": "Frequency Response and Power Amplifiers",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "amplifier-frequency-response",
+          "name": "Frequency response and the cascode amplifier",
+          "requires": ["small-signal-models"]
+        },
+        {
+          "id": "power-amplifier-classes",
+          "name": "Power amplifier classes A, B, AB and C",
+          "requires": ["ce-cb-cc-configurations"]
+        }
+      ]
+    },
+    {
+      "id": "feedback-oscillators",
+      "name": "Feedback and Oscillators",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "feedback-topologies",
+          "name": "Feedback topologies and their effect on gain and bandwidth",
+          "requires": ["small-signal-models"]
+        },
+        {
+          "id": "stability-margins",
+          "name": "Stability: gain and phase margins",
+          "requires": ["feedback-topologies"]
+        },
+        {
+          "id": "barkhausen-oscillators",
+          "name": "Barkhausen criterion; RC and LC oscillators",
+          "requires": ["feedback-topologies"]
+        }
+      ]
+    },
+    {
+      "id": "differential-opamp",
+      "name": "Current Mirrors, Differential Amplifiers and Op-amps",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "current-mirror",
+          "name": "Current mirrors",
+          "requires": ["bias-stability"]
+        },
+        {
+          "id": "differential-amplifier",
+          "name": "Differential amplifiers: differential and common-mode gain, CMRR",
+          "requires": ["current-mirror"]
+        },
+        {
+          "id": "opamp-applications-ae",
+          "name": "Op-amp applications: integrator, precision rectifier, Schmitt trigger",
+          "requires": ["differential-amplifier"]
+        },
+        {
+          "id": "active-filters",
+          "name": "Active filters",
+          "requires": ["opamp-applications-ae"]
+        }
+      ]
+    },
+    {
+      "id": "data-converters",
+      "name": "Data Converters",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "dac",
+          "name": "Digital-to-analogue converters: weighted resistor and R-2R ladder"
+        },
+        {
+          "id": "adc",
+          "name": "Analogue-to-digital converters: flash, SAR, dual slope",
+          "requires": ["dac"]
+        },
+        {
+          "id": "switched-capacitor",
+          "name": "Switched-capacitor circuits",
+          "requires": ["adc"]
+        }
+      ]
+    }
+  ]
+}

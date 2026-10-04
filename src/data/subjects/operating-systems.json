@@ -1,0 +1,174 @@
+{
+  "id": "operating-systems",
+  "name": "Operating Systems",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "branches": ["ce", "it", "ict"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS403 Operating Systems",
+    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
+    "note": "Modules 1–6 of PCC-CS403."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "os-intro",
+      "name": "Introduction",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "os-types-services",
+          "name": "What an OS does; types of operating systems; system calls"
+        },
+        {
+          "id": "os-structure",
+          "name": "OS structure: monolithic, layered, microkernel; virtual machines",
+          "requires": ["os-types-services"]
+        }
+      ]
+    },
+    {
+      "id": "processes",
+      "name": "Processes and Threads",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "process-states",
+          "name": "Processes, process states and the PCB",
+          "requires": ["os-types-services"]
+        },
+        {
+          "id": "context-switch",
+          "name": "Context switching",
+          "requires": ["process-states"]
+        },
+        {
+          "id": "threads",
+          "name": "Threads and multithreading",
+          "requires": ["process-states"]
+        }
+      ]
+    },
+    {
+      "id": "cpu-scheduling",
+      "name": "CPU Scheduling",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "scheduling-criteria",
+          "name": "Scheduling criteria: throughput, turnaround, waiting and response time",
+          "requires": ["process-states"]
+        },
+        {
+          "id": "fcfs-sjf",
+          "name": "FCFS and SJF scheduling",
+          "requires": ["scheduling-criteria"]
+        },
+        {
+          "id": "round-robin",
+          "name": "Round-robin and priority scheduling",
+          "requires": ["scheduling-criteria"]
+        },
+        {
+          "id": "real-time-scheduling",
+          "name": "Real-time scheduling: RM and EDF",
+          "requires": ["round-robin"]
+        }
+      ]
+    },
+    {
+      "id": "synchronisation",
+      "name": "Inter-process Communication and Synchronisation",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "critical-section",
+          "name": "Race conditions and the critical-section problem",
+          "requires": ["threads"]
+        },
+        {
+          "id": "peterson-mutex",
+          "name": "Mutual exclusion and Peterson's solution",
+          "requires": ["critical-section"]
+        },
+        {
+          "id": "semaphores-monitors",
+          "name": "Semaphores and monitors",
+          "requires": ["critical-section"]
+        },
+        {
+          "id": "classic-ipc-problems",
+          "name": "Producer–consumer, readers–writers and dining philosophers",
+          "requires": ["semaphores-monitors"]
+        }
+      ]
+    },
+    {
+      "id": "deadlocks",
+      "name": "Deadlocks",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "deadlock-conditions",
+          "name": "Deadlock and its four necessary conditions",
+          "requires": ["critical-section"]
+        },
+        {
+          "id": "bankers-algorithm",
+          "name": "Deadlock avoidance: the banker's algorithm",
+          "requires": ["deadlock-conditions"]
+        },
+        {
+          "id": "deadlock-detection",
+          "name": "Deadlock prevention, detection and recovery",
+          "requires": ["deadlock-conditions"]
+        }
+      ]
+    },
+    {
+      "id": "memory-management",
+      "name": "Memory Management and Virtual Memory",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "contiguous-allocation",
+          "name": "Contiguous allocation and fragmentation"
+        },
+        {
+          "id": "paging",
+          "name": "Paging and page tables",
+          "requires": ["contiguous-allocation"]
+        },
+        {
+          "id": "virtual-memory",
+          "name": "Virtual memory, demand paging and page faults",
+          "requires": ["paging"]
+        },
+        {
+          "id": "page-replacement",
+          "name": "Page replacement: optimal, FIFO, LRU",
+          "requires": ["virtual-memory"]
+        }
+      ]
+    },
+    {
+      "id": "files-disks",
+      "name": "Files, I/O and Disks",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "file-systems",
+          "name": "Files, directories and allocation methods",
+          "requires": ["os-types-services"]
+        },
+        {
+          "id": "disk-scheduling",
+          "name": "Disk scheduling: FCFS, SSTF, SCAN, C-SCAN",
+          "requires": ["file-systems"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "digital-logic",
+  "name": "Digital Logic Design",
+  "field": "Electronics Engineering",
+  "tier": "sourced",
+  "branches": ["ece", "ict", "ce", "it", "ee"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Electronics & Communication Engineering (2018; copy hosted by Dibrugarh University): EC03 Digital System Design",
+    "url": "https://oldweb.dibru.ac.in/wp-content/uploads/2020/12/ECE-Model-curriculum-2018-BATCH-ONWARDS_Modified.pdf",
+    "note": "All units of EC03."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "combinational-design",
+      "name": "Logic Simplification and Combinational Design",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "boolean-sop-pos",
+          "name": "Boolean algebra, SOP and POS, canonical forms"
+        },
+        {
+          "id": "karnaugh-maps",
+          "name": "Karnaugh maps",
+          "requires": ["boolean-sop-pos"]
+        },
+        {
+          "id": "binary-codes",
+          "name": "Binary codes and code conversion (BCD, Gray, excess-3)",
+          "requires": ["boolean-sop-pos"]
+        },
+        {
+          "id": "mux-demux",
+          "name": "Multiplexers and demultiplexers",
+          "requires": ["boolean-sop-pos"]
+        },
+        {
+          "id": "encoders-decoders",
+          "name": "Encoders, decoders and comparators",
+          "requires": ["boolean-sop-pos"]
+        },
+        {
+          "id": "adders-subtractors",
+          "name": "Adders, subtractors, BCD adder and the ALU",
+          "requires": ["boolean-sop-pos"]
+        }
+      ]
+    },
+    {
+      "id": "sequential-design",
+      "name": "Sequential Logic Design",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "latches-flip-flops",
+          "name": "SR, JK, D and T flip-flops; master–slave and edge triggering",
+          "requires": ["boolean-sop-pos"]
+        },
+        {
+          "id": "counters",
+          "name": "Ripple and synchronous counters",
+          "requires": ["latches-flip-flops"]
+        },
+        {
+          "id": "shift-registers",
+          "name": "Shift registers",
+          "requires": ["latches-flip-flops"]
+        },
+        {
+          "id": "finite-state-machines",
+          "name": "Finite state machines: Moore and Mealy",
+          "requires": ["latches-flip-flops"]
+        },
+        {
+          "id": "prbs-lfsr",
+          "name": "Pseudo-random sequence generators (LFSR)",
+          "requires": ["shift-registers"]
+        }
+      ]
+    },
+    {
+      "id": "logic-families-memory",
+      "name": "Logic Families, Memories and PLDs",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "ttl-cmos-families",
+          "name": "TTL and CMOS families: noise margin, propagation delay, fan-out"
+        },
+        {
+          "id": "tristate-ecl",
+          "name": "Tri-state logic and ECL",
+          "requires": ["ttl-cmos-families"]
+        },
+        {
+          "id": "semiconductor-memories",
+          "name": "Semiconductor memories: ROM and RAM"
+        },
+        {
+          "id": "fpga-pld",
+          "name": "Programmable logic devices and FPGAs",
+          "requires": ["semiconductor-memories"]
+        }
+      ]
+    },
+    {
+      "id": "hdl",
+      "name": "Design Flow and HDL",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "vhdl-modelling",
+          "name": "VHDL: dataflow, behavioural and structural modelling",
+          "requires": ["finite-state-machines"]
+        },
+        {
+          "id": "synthesis-simulation",
+          "name": "Synthesis and simulation",
+          "requires": ["vhdl-modelling"]
+        }
+      ]
+    }
+  ]
+}

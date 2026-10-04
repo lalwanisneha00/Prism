@@ -1,0 +1,129 @@
+{
+  "id": "theory-of-computation",
+  "name": "Theory of Computation",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "branches": ["ce", "it", "ict"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS502 Formal Language & Automata Theory",
+    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
+    "note": "Module 1 of PCC-CS502."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "languages-grammars",
+      "name": "Languages and Grammars",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "alphabets-languages",
+          "name": "Alphabets, strings, languages and grammars"
+        },
+        {
+          "id": "chomsky-hierarchy",
+          "name": "The Chomsky hierarchy",
+          "requires": ["alphabets-languages"]
+        }
+      ]
+    },
+    {
+      "id": "finite-automata",
+      "name": "Regular Languages and Finite Automata",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "dfa",
+          "name": "Deterministic finite automata",
+          "requires": ["alphabets-languages"]
+        },
+        {
+          "id": "nfa",
+          "name": "Nondeterministic finite automata and subset construction",
+          "requires": ["dfa"]
+        },
+        {
+          "id": "regular-expressions",
+          "name": "Regular expressions and their equivalence with automata",
+          "requires": ["nfa"]
+        },
+        {
+          "id": "pumping-lemma-regular",
+          "name": "The pumping lemma for regular languages",
+          "requires": ["dfa"]
+        },
+        {
+          "id": "dfa-minimisation",
+          "name": "Minimisation of finite automata",
+          "requires": ["dfa"]
+        }
+      ]
+    },
+    {
+      "id": "context-free",
+      "name": "Context-free Languages and Pushdown Automata",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "cfg",
+          "name": "Context-free grammars, derivations and parse trees",
+          "requires": ["chomsky-hierarchy"]
+        },
+        {
+          "id": "ambiguity",
+          "name": "Ambiguous grammars",
+          "requires": ["cfg"]
+        },
+        {
+          "id": "normal-forms-cfg",
+          "name": "Chomsky and Greibach normal forms",
+          "requires": ["cfg"]
+        },
+        {
+          "id": "pda",
+          "name": "Pushdown automata and their equivalence with CFGs",
+          "requires": ["cfg"]
+        },
+        {
+          "id": "pumping-lemma-cfl",
+          "name": "Pumping lemma for context-free languages",
+          "requires": ["cfg"]
+        }
+      ]
+    },
+    {
+      "id": "turing-machines",
+      "name": "Turing Machines and Computability",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "turing-machine",
+          "name": "Turing machines and their variants",
+          "requires": ["pda"]
+        },
+        {
+          "id": "lba-csl",
+          "name": "Linear bounded automata and context-sensitive languages",
+          "requires": ["turing-machine"]
+        },
+        {
+          "id": "church-turing",
+          "name": "The Church–Turing thesis and the universal Turing machine",
+          "requires": ["turing-machine"]
+        },
+        {
+          "id": "decidability",
+          "name": "Decidable and undecidable problems; the halting problem",
+          "requires": ["church-turing"]
+        },
+        {
+          "id": "rices-theorem",
+          "name": "Reductions and Rice's theorem",
+          "requires": ["decidability"]
+        }
+      ]
+    }
+  ]
+}

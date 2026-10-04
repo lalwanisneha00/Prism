@@ -1,0 +1,149 @@
+{
+  "id": "computer-networks",
+  "name": "Computer Networks",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "branches": ["ce", "it", "ict", "ece"],
+  "semesters": [5, 6],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS602 Computer Networks",
+    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
+    "note": "Modules 1–5 of PCC-CS602; switching and congestion avoidance as in the ECE model curriculum (EC20)."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "network-basics",
+      "name": "Data Communication and Network Models",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "network-topologies",
+          "name": "Network components and topologies"
+        },
+        {
+          "id": "osi-tcpip-models",
+          "name": "The OSI and TCP/IP models",
+          "requires": ["network-topologies"]
+        },
+        {
+          "id": "transmission-media",
+          "name": "Transmission media",
+          "requires": ["network-topologies"]
+        },
+        {
+          "id": "multiplexing",
+          "name": "Multiplexing: FDM, TDM, WDM; spread spectrum",
+          "requires": ["transmission-media"]
+        },
+        {
+          "id": "switching",
+          "name": "Circuit switching and packet switching",
+          "requires": ["network-topologies"]
+        }
+      ]
+    },
+    {
+      "id": "data-link-layer",
+      "name": "Data Link Layer and Medium Access",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "error-detection",
+          "name": "Error detection: parity, checksum and CRC; Hamming distance"
+        },
+        {
+          "id": "flow-control-arq",
+          "name": "Stop-and-wait, Go-back-N and selective repeat ARQ",
+          "requires": ["error-detection"]
+        },
+        {
+          "id": "sliding-window",
+          "name": "Sliding window protocols",
+          "requires": ["flow-control-arq"]
+        },
+        {
+          "id": "aloha-csma",
+          "name": "Multiple access: ALOHA, CSMA/CD, CSMA/CA"
+        },
+        {
+          "id": "ethernet-lan",
+          "name": "Ethernet, LANs, switches and VLANs",
+          "requires": ["aloha-csma"]
+        }
+      ]
+    },
+    {
+      "id": "network-layer",
+      "name": "Network Layer",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "ipv4-addressing",
+          "name": "IPv4 addressing and subnetting",
+          "requires": ["osi-tcpip-models"]
+        },
+        {
+          "id": "ipv6",
+          "name": "IPv6",
+          "requires": ["ipv4-addressing"]
+        },
+        {
+          "id": "arp-dhcp",
+          "name": "ARP, RARP and DHCP",
+          "requires": ["ipv4-addressing"]
+        },
+        {
+          "id": "routing-algorithms",
+          "name": "Routing: distance vector and link state",
+          "requires": ["ipv4-addressing"]
+        }
+      ]
+    },
+    {
+      "id": "transport-layer",
+      "name": "Transport Layer",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "udp",
+          "name": "UDP",
+          "requires": ["osi-tcpip-models"]
+        },
+        {
+          "id": "tcp",
+          "name": "TCP: connection set-up, reliability and flow control",
+          "requires": ["udp"]
+        },
+        {
+          "id": "congestion-control",
+          "name": "Congestion control and QoS: leaky bucket, token bucket",
+          "requires": ["tcp"]
+        }
+      ]
+    },
+    {
+      "id": "application-layer",
+      "name": "Application Layer and Security",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "dns",
+          "name": "DNS",
+          "requires": ["udp"]
+        },
+        {
+          "id": "http-www",
+          "name": "The web and HTTP; email and FTP",
+          "requires": ["tcp"]
+        },
+        {
+          "id": "network-security-basics",
+          "name": "Firewalls and basic cryptography",
+          "requires": ["http-www"]
+        }
+      ]
+    }
+  ]
+}

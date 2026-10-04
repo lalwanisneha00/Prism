@@ -1,0 +1,146 @@
+{
+  "id": "software-engineering",
+  "name": "Software Engineering",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "branches": ["ce", "it", "ict"],
+  "semesters": [5, 6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "AKTU (AICTE model curriculum) B.Tech 3rd year CSE (AI & ML), 2022-23: KDS063 Software Engineering",
+    "url": "https://aktu.ac.in/pdf/syllabus/syllabus2223/B.Tech._3rd_Yr_CSE(AIML)_2022_23_revised_.pdf",
+    "note": "Units I–V. (The AICTE CSE curriculum lists Software Engineering as an elective without a detailed syllabus.)"
+  },
+  "visualSet": "theory",
+  "chapters": [
+    {
+      "id": "se-intro",
+      "name": "Introduction and Process Models",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "software-crisis",
+          "name": "Software, its characteristics and the software crisis"
+        },
+        {
+          "id": "sdlc",
+          "name": "The software development life cycle",
+          "requires": ["software-crisis"]
+        },
+        {
+          "id": "waterfall-prototype",
+          "name": "Waterfall and prototype models",
+          "requires": ["sdlc"]
+        },
+        {
+          "id": "spiral-iterative",
+          "name": "Spiral, evolutionary and iterative models",
+          "requires": ["waterfall-prototype"]
+        }
+      ]
+    },
+    {
+      "id": "requirements",
+      "name": "Requirements and Quality Assurance",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "requirements-engineering",
+          "name": "Requirements engineering: elicitation, analysis and SRS",
+          "requires": ["sdlc"]
+        },
+        {
+          "id": "dfd-decision-tables",
+          "name": "Data flow diagrams, ER diagrams and decision tables",
+          "requires": ["requirements-engineering"]
+        },
+        {
+          "id": "verification-validation",
+          "name": "Verification and validation; SQA",
+          "requires": ["requirements-engineering"]
+        },
+        {
+          "id": "iso-cmm",
+          "name": "ISO 9000 and the SEI CMM",
+          "requires": ["verification-validation"]
+        }
+      ]
+    },
+    {
+      "id": "software-design",
+      "name": "Software Design and Metrics",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "modular-design",
+          "name": "Architectural and modular design",
+          "requires": ["requirements-engineering"]
+        },
+        {
+          "id": "coupling-cohesion",
+          "name": "Coupling and cohesion",
+          "requires": ["modular-design"]
+        },
+        {
+          "id": "function-points-halstead",
+          "name": "Size metrics: function points and Halstead's measures",
+          "requires": ["modular-design"]
+        },
+        {
+          "id": "cyclomatic-complexity",
+          "name": "Cyclomatic complexity and control-flow graphs",
+          "requires": ["modular-design"]
+        }
+      ]
+    },
+    {
+      "id": "testing",
+      "name": "Software Testing",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "testing-levels",
+          "name": "Unit, integration, acceptance and regression testing",
+          "requires": ["modular-design"]
+        },
+        {
+          "id": "white-black-box",
+          "name": "White-box and black-box testing",
+          "requires": ["testing-levels"]
+        },
+        {
+          "id": "alpha-beta-reviews",
+          "name": "Alpha and beta testing; reviews, walkthroughs and inspections",
+          "requires": ["testing-levels"]
+        }
+      ]
+    },
+    {
+      "id": "maintenance-management",
+      "name": "Maintenance and Project Management",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "software-maintenance",
+          "name": "Maintenance types, re-engineering and reverse engineering",
+          "requires": ["testing-levels"]
+        },
+        {
+          "id": "configuration-management",
+          "name": "Configuration management and version control",
+          "requires": ["software-maintenance"]
+        },
+        {
+          "id": "cocomo",
+          "name": "Cost estimation: COCOMO",
+          "requires": ["function-points-halstead"]
+        },
+        {
+          "id": "risk-management",
+          "name": "Software risk analysis and management",
+          "requires": ["cocomo"]
+        }
+      ]
+    }
+  ]
+}

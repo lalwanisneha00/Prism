@@ -1,0 +1,126 @@
+{
+  "id": "dsp",
+  "name": "Digital Signal Processing",
+  "field": "Electronics Engineering",
+  "tier": "sourced",
+  "branches": ["ece", "ict"],
+  "semesters": [5, 6],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Electronics & Communication Engineering (2018; copy hosted by Dibrugarh University): EC17 Digital Signal Processing",
+    "url": "https://oldweb.dibru.ac.in/wp-content/uploads/2020/12/ECE-Model-curriculum-2018-BATCH-ONWARDS_Modified.pdf",
+    "note": "All units of EC17."
+  },
+  "visualSet": "signals",
+  "chapters": [
+    {
+      "id": "discrete-signals",
+      "name": "Discrete-time Signals and Systems",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "sequences",
+          "name": "Sequences and discrete-time systems"
+        },
+        {
+          "id": "z-transform-dsp",
+          "name": "The z-transform in LSI system analysis",
+          "requires": ["sequences"]
+        },
+        {
+          "id": "inverse-systems",
+          "name": "Frequency analysis and inverse systems",
+          "requires": ["z-transform-dsp"]
+        }
+      ]
+    },
+    {
+      "id": "dft-fft",
+      "name": "DFT and FFT",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "dft",
+          "name": "The discrete Fourier transform",
+          "requires": ["sequences"]
+        },
+        {
+          "id": "fft",
+          "name": "The fast Fourier transform",
+          "requires": ["dft"]
+        },
+        {
+          "id": "circular-convolution",
+          "name": "Circular convolution",
+          "requires": ["dft"]
+        }
+      ]
+    },
+    {
+      "id": "fir-filters",
+      "name": "FIR Filter Design",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "fir-basics",
+          "name": "FIR filters and linear phase",
+          "requires": ["z-transform-dsp"]
+        },
+        {
+          "id": "window-method",
+          "name": "The window method",
+          "requires": ["fir-basics"]
+        },
+        {
+          "id": "parks-mcclellan",
+          "name": "Parks–McClellan equiripple design",
+          "requires": ["fir-basics"]
+        }
+      ]
+    },
+    {
+      "id": "iir-filters",
+      "name": "IIR Filter Design",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "iir-basics",
+          "name": "IIR filters",
+          "requires": ["z-transform-dsp"]
+        },
+        {
+          "id": "butterworth-chebyshev",
+          "name": "Butterworth, Chebyshev and elliptic approximations",
+          "requires": ["iir-basics"]
+        },
+        {
+          "id": "bilinear-transform",
+          "name": "Analogue-to-digital mapping: bilinear transform",
+          "requires": ["iir-basics"]
+        }
+      ]
+    },
+    {
+      "id": "dsp-advanced",
+      "name": "Finite Word Length, Spectral Estimation and Multirate",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "finite-word-length",
+          "name": "Effects of finite register length",
+          "requires": ["fir-basics"]
+        },
+        {
+          "id": "spectral-estimation",
+          "name": "Spectral estimation",
+          "requires": ["dft"]
+        },
+        {
+          "id": "multirate",
+          "name": "Multirate processing: decimation and interpolation",
+          "requires": ["fir-basics"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "id": "compiler-design",
+  "name": "Compiler Design",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "branches": ["ce", "it", "ict"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS601 Compiler Design",
+    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
+    "note": "Module 1 of PCC-CS601."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "compiler-intro",
+      "name": "Introduction",
+      "hours": 3,
+      "topics": [
+        {
+          "id": "compiler-phases",
+          "name": "Phases of a compiler"
+        }
+      ]
+    },
+    {
+      "id": "lexical-analysis",
+      "name": "Lexical Analysis",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "lexical-analysis-tokens",
+          "name": "Tokens, lexemes and patterns",
+          "requires": ["compiler-phases"]
+        },
+        {
+          "id": "regex-to-automata",
+          "name": "From regular expressions to automata; lex/flex",
+          "requires": ["lexical-analysis-tokens"]
+        }
+      ]
+    },
+    {
+      "id": "syntax-analysis",
+      "name": "Syntax Analysis",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "top-down-parsing",
+          "name": "Top-down parsing: recursive descent and LL(1)",
+          "requires": ["lexical-analysis-tokens"]
+        },
+        {
+          "id": "first-follow",
+          "name": "FIRST and FOLLOW sets",
+          "requires": ["top-down-parsing"]
+        },
+        {
+          "id": "bottom-up-parsing",
+          "name": "Bottom-up parsing: shift-reduce, LR(0), SLR, LR(1), LALR",
+          "requires": ["top-down-parsing"]
+        },
+        {
+          "id": "yacc",
+          "name": "Parser generators: yacc and bison",
+          "requires": ["bottom-up-parsing"]
+        }
+      ]
+    },
+    {
+      "id": "semantic-analysis",
+      "name": "Semantic Analysis and Run-time Environment",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "syntax-directed-translation",
+          "name": "Attribute grammars and syntax-directed definitions",
+          "requires": ["bottom-up-parsing"]
+        },
+        {
+          "id": "symbol-table",
+          "name": "Symbol tables",
+          "requires": ["lexical-analysis-tokens"]
+        },
+        {
+          "id": "runtime-environment",
+          "name": "Activation records, parameter passing and scope",
+          "requires": ["symbol-table"]
+        },
+        {
+          "id": "type-checking",
+          "name": "Type systems and type checking",
+          "requires": ["syntax-directed-translation"]
+        }
+      ]
+    },
+    {
+      "id": "intermediate-code",
+      "name": "Intermediate Code and Optimisation",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "three-address-code",
+          "name": "Intermediate forms: three-address code",
+          "requires": ["syntax-directed-translation"]
+        },
+        {
+          "id": "data-flow-analysis",
+          "name": "Control-flow and data-flow analysis",
+          "requires": ["three-address-code"]
+        },
+        {
+          "id": "code-optimisation",
+          "name": "Local, global, loop and peephole optimisation",
+          "requires": ["data-flow-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "code-generation",
+      "name": "Code Generation",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "register-allocation",
+          "name": "Register allocation",
+          "requires": ["three-address-code"]
+        },
+        {
+          "id": "instruction-scheduling",
+          "name": "Instruction selection and scheduling",
+          "requires": ["register-allocation"]
+        }
+      ]
+    }
+  ]
+}

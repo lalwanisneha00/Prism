@@ -1,0 +1,130 @@
+{
+  "id": "em-theory",
+  "name": "Electromagnetic Theory",
+  "field": "Electronics Engineering",
+  "tier": "sourced",
+  "branches": ["ece", "ict", "ee"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Electronics & Communication Engineering (2018; copy hosted by Dibrugarh University): EC13 Electromagnetic Waves",
+    "url": "https://oldweb.dibru.ac.in/wp-content/uploads/2020/12/ECE-Model-curriculum-2018-BATCH-ONWARDS_Modified.pdf",
+    "note": "All units of EC13. Builds on Electricity & Magnetism (first year)."
+  },
+  "visualSet": "physics",
+  "chapters": [
+    {
+      "id": "transmission-lines",
+      "name": "Transmission Lines",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "tx-line-equations",
+          "name": "Telegrapher's equations; propagation constant and characteristic impedance"
+        },
+        {
+          "id": "reflection-vswr",
+          "name": "Reflection coefficient and VSWR",
+          "requires": ["tx-line-equations"]
+        },
+        {
+          "id": "smith-chart",
+          "name": "The Smith chart",
+          "requires": ["reflection-vswr"]
+        },
+        {
+          "id": "impedance-matching",
+          "name": "Impedance matching: quarter-wave transformers and stubs",
+          "requires": ["smith-chart"]
+        }
+      ]
+    },
+    {
+      "id": "maxwell-boundary",
+      "name": "Maxwell's Equations and Boundary Conditions",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "maxwell-equations-emt",
+          "name": "Maxwell's equations in differential and integral form"
+        },
+        {
+          "id": "boundary-conditions",
+          "name": "Boundary conditions at a media interface",
+          "requires": ["maxwell-equations-emt"]
+        }
+      ]
+    },
+    {
+      "id": "plane-waves",
+      "name": "Uniform Plane Waves",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "plane-wave-propagation",
+          "name": "Uniform plane waves and their propagation",
+          "requires": ["maxwell-equations-emt"]
+        },
+        {
+          "id": "polarisation",
+          "name": "Wave polarisation",
+          "requires": ["plane-wave-propagation"]
+        },
+        {
+          "id": "conducting-media-skin",
+          "name": "Waves in conductors; skin depth",
+          "requires": ["plane-wave-propagation"]
+        },
+        {
+          "id": "poynting-emt",
+          "name": "Power flow and the Poynting vector",
+          "requires": ["plane-wave-propagation"]
+        },
+        {
+          "id": "reflection-refraction-interface",
+          "name": "Reflection and refraction at interfaces",
+          "requires": ["boundary-conditions", "plane-wave-propagation"]
+        }
+      ]
+    },
+    {
+      "id": "waveguides",
+      "name": "Waveguides",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "parallel-plate-guide",
+          "name": "Parallel-plate waveguides",
+          "requires": ["plane-wave-propagation"]
+        },
+        {
+          "id": "rectangular-waveguide",
+          "name": "Rectangular waveguides: TE and TM modes, cut-off",
+          "requires": ["parallel-plate-guide"]
+        }
+      ]
+    },
+    {
+      "id": "antennas",
+      "name": "Radiation and Antennas",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "hertzian-dipole",
+          "name": "Radiation from the Hertzian dipole",
+          "requires": ["maxwell-equations-emt"]
+        },
+        {
+          "id": "antenna-parameters",
+          "name": "Antenna parameters: pattern, directivity, gain",
+          "requires": ["hertzian-dipole"]
+        },
+        {
+          "id": "monopole-dipole",
+          "name": "Monopole and dipole antennas",
+          "requires": ["antenna-parameters"]
+        }
+      ]
+    }
+  ]
+}
