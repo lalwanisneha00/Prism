@@ -61,7 +61,21 @@ const WAVE3 = [
   "environmental-engineering",
   "building-materials",
 ];
-const QUOTED = [...WAVE1, ...WAVE2, ...WAVE3];
+const WAVE4 = [
+  "process-calculations",
+  "fluid-particle-operations",
+  "mass-transfer",
+  "chemical-reaction-engineering",
+  "chemical-thermodynamics",
+  "process-control",
+  "petroleum-geology",
+  "drilling-engineering",
+  "reservoir-engineering",
+  "petroleum-production",
+  "well-logging",
+  "petroleum-refining",
+];
+const QUOTED = [...WAVE1, ...WAVE2, ...WAVE3, ...WAVE4];
 
 describe("golden sets", () => {
   it("only use real topics, with patterns that compile", () => {
@@ -78,7 +92,7 @@ describe("golden sets", () => {
     }
   });
 
-  it("give every Wave 1, 2 and 3 subject at least 12 topics, every fact with a source quote", () => {
+  it("give every quoted Wave 1–4 subject at least 12 topics, every fact with a source quote", () => {
     for (const id of QUOTED) {
       const set = sets.find((s) => s.subject === id);
       expect(set, id).toBeDefined();

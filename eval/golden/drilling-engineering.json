@@ -1,0 +1,222 @@
+{
+  "description": "Key facts a correct lesson on each Drilling Engineering topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "drilling-engineering",
+  "topics": [
+    {
+      "topic": "rig-types",
+      "chapter": "rig",
+      "facts": [
+        {
+          "id": "land-marine",
+          "claim": "Rigs are land-based or marine (offshore platforms)",
+          "pattern": "offshore|marine|jack-?up|semi-?submersible|drillship",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drilling_rig",
+            "quote": "more permanent land or marine-based structures (such as oil platforms"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rig-systems",
+      "chapter": "rig",
+      "facts": [
+        {
+          "id": "hoist",
+          "claim": "The derrick and hoist lift heavy pipe",
+          "pattern": "derrick|drawworks|hoist",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drilling_rig",
+            "quote": "Hoists in the rig, a derrick, can lift hundreds of tons of pipe"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "drill-string-bha",
+      "chapter": "rig",
+      "facts": [
+        {
+          "id": "string",
+          "claim": "The drill string carries mud and torque to the bit",
+          "pattern": "(torque|rotation)[^.]{0,60}bit|drilling fluid[^.]{0,60}(down|through)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drill_string",
+            "quote": "a column, or string, of drill pipe that transmits drilling fluid (via the mud pumps) and torque (via the kelly drive or top drive) to the drill b"
+          }
+        },
+        {
+          "id": "collars",
+          "claim": "Heavy drill collars put weight on the bit",
+          "pattern": "drill collars?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drill_string",
+            "quote": "drill collars, which are heavy, thick-walled tubes used to apply weight to"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "drill-bits",
+      "chapter": "rig",
+      "facts": [
+        {
+          "id": "rotation",
+          "claim": "Bits are rotated to cut the hole",
+          "pattern": "rotat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drill_bit",
+            "quote": "drill bits are usually mounted in a drill, which provides the rotational force needed to cut into the workpiece"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "drilling-mud-functions",
+      "chapter": "fluids-hydraulics",
+      "facts": [
+        {
+          "id": "functions",
+          "claim": "Mud gives hydrostatic pressure and carries cuttings up",
+          "pattern": "(hydrostatic pressure|formation pressure)[^.]{0,80}cuttings|cuttings[^.]{0,80}(pressure)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drilling_fluid",
+            "quote": "to exert hydrostatic pressure to prevent formation fluids from entering into the well bore, and carrying out drill cuttings"
+          }
+        },
+        {
+          "id": "barite",
+          "claim": "Weighting agents (barite) raise mud density",
+          "pattern": "bar(y|i)te|weighting agent",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drilling_fluid",
+            "quote": "A weighting agent such as baryte is added to increase the overall density of the drilling fluid"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "mud-rheology",
+      "chapter": "fluids-hydraulics",
+      "facts": [
+        {
+          "id": "bingham",
+          "claim": "Bingham plastic: no flow until the yield stress is exceeded",
+          "pattern": "yield (stress|point)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bingham_plastic",
+            "quote": "stress can be applied but it will not flow until a certain value, the yield stress, is reached"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "hydrostatic-ecd",
+      "chapter": "fluids-hydraulics",
+      "facts": [
+        {
+          "id": "balance",
+          "claim": "Hydrostatic equilibrium: pressure supports the fluid weight",
+          "pattern": "ρ\\s*g\\s*h|rho\\s*g\\s*h|0\\.052|mud weight[^.]{0,30}depth|density[^.]{0,30}depth",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hydrostatic_equilibrium",
+            "quote": "the condition of a fluid or plastic solid at rest, which occurs when external forces"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bit-hydraulics-hole-cleaning",
+      "chapter": "fluids-hydraulics",
+      "facts": [
+        {
+          "id": "cool-clean",
+          "claim": "Mud cools the bit and clears cuttings from beneath it",
+          "pattern": "cool[^.]{0,30}bit|(clean|clear|remov|lift)[^.]{0,30}cuttings",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drilling_fluid",
+            "quote": "The drilling fluid also keeps the drill bit cool and clears out cuttings beneath it during drilling"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "kicks-bop",
+      "chapter": "well-control-direction",
+      "facts": [
+        {
+          "id": "bop",
+          "claim": "A blowout preventer seals the well to stop uncontrolled flow",
+          "pattern": "blowout preventer|BOP",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Blowout_preventer",
+            "quote": "used to seal, control and monitor oil and gas wells to prevent blowouts"
+          }
+        },
+        {
+          "id": "kick",
+          "claim": "An uncontrolled kick can lead to a blowout",
+          "pattern": "kick",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Blowout_preventer",
+            "quote": "Kicks can lead to a potentially catastrophic event known as a blowout"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "directional-horizontal",
+      "chapter": "well-control-direction",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Directional drilling bores non-vertical wells",
+          "pattern": "non-?vertical|deviat|inclin",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Directional_drilling",
+            "quote": "Directional drilling (or slant drilling) is the practice of drilling non-vertical bores"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "casing-design",
+      "chapter": "casing-cementing",
+      "facts": [
+        {
+          "id": "casing",
+          "claim": "Casing pipe lines and supports the borehole, cemented in place",
+          "pattern": "cement",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Casing_(borehole)",
+            "quote": "The lower portion (and sometimes the entirety) is typically held in place with cement"
+          }
+        },
+        {
+          "id": "strings",
+          "claim": "Wells have several casing strings, each inside the previous",
+          "pattern": "(multiple|several|successive)[^.]{0,30}(casing|strings)|telescop",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Casing_(borehole)",
+            "quote": "a well contains multiple intervals of casing successively placed within the previous casing run"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "well-cementing",
+      "chapter": "casing-cementing",
+      "facts": [
+        {
+          "id": "hydraulic",
+          "claim": "Oilwell (Portland) cements set by reaction with water",
+          "pattern": "(react|hydrat)[^.]{0,30}water|hydraulic cement",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cement",
+            "quote": "Hydraulic cements such as Portland cement set and become adhesive through a chemical reaction between the dry ingredients and water"
+          }
+        }
+      ]
+    }
+  ]
+}

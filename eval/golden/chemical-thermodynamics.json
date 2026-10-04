@@ -1,0 +1,246 @@
+{
+  "description": "Key facts a correct lesson on each Chemical Engineering Thermodynamics topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "chemical-thermodynamics",
+  "topics": [
+    {
+      "topic": "laws-review-ct",
+      "chapter": "ct-foundations",
+      "facts": [
+        {
+          "id": "first",
+          "claim": "First law: conservation of energy",
+          "pattern": "conservation of energy|energy (is|cannot be) (neither )?(created|conserved)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/First_law_of_thermodynamics",
+            "quote": "The first law of thermodynamics is a formulation of the law of conservation of energy"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gibbs-chemical-potential",
+      "chapter": "ct-foundations",
+      "facts": [
+        {
+          "id": "minimum",
+          "claim": "G is minimised at equilibrium at constant T and P",
+          "pattern": "minimi[sz]|minimum[^.]{0,40}equilibrium|ΔG\\s*=\\s*0|dG\\s*=\\s*0",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gibbs_free_energy",
+            "quote": "The Gibbs energy is the thermodynamic potential that is minimized when a system reaches chemical equilibrium at constant pressure and temperature"
+          }
+        },
+        {
+          "id": "work",
+          "claim": "−ΔG is the maximum non-PV work",
+          "pattern": "maximum[^.]{0,40}(useful |non-?expansion |non-?PV )?work",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gibbs_free_energy",
+            "quote": "can be used to calculate the maximum amount of work, other than pressure–volume work"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "real-gases-eos",
+      "chapter": "ct-foundations",
+      "facts": [
+        {
+          "id": "z",
+          "claim": "Z = actual molar volume / ideal molar volume (deviation from ideal gas)",
+          "pattern": "compressibility factor|Z\\s*=\\s*P\\s*V",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Compressibility_factor",
+            "quote": "describes the deviation of a real gas from ideal gas behaviour"
+          }
+        },
+        {
+          "id": "when",
+          "claim": "Deviation grows at high pressure and low temperature",
+          "pattern": "(high|larger) pressure[^.]{0,60}(low|lower) temperature|(low|lower) temperature[^.]{0,60}(high|larger) pressure",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Compressibility_factor",
+            "quote": "the lower the temperature or the larger the pressure"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fugacity",
+      "chapter": "solutions",
+      "facts": [
+        {
+          "id": "effective-pressure",
+          "claim": "Fugacity is an effective (corrected) pressure for a real gas",
+          "pattern": "effective (partial )?pressure|corrected pressure|fugacity coefficient",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fugacity",
+            "quote": "the fugacity of a real gas is an effective partial pressure which replaces the ideal partial pressure"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "partial-molar-properties",
+      "chapter": "solutions",
+      "facts": [
+        {
+          "id": "derivative",
+          "claim": "Partial molar property = ∂(extensive property)/∂n_i at constant T, P",
+          "pattern": "partial derivative|∂[^.]{0,20}∂\\s*n|with respect to (the )?(amount|moles|number of moles)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Partial_molar_property",
+            "quote": "It is the partial derivative of the extensive property with respect to the amount (number of moles) of the component of interest"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "activity-excess-gibbs",
+      "chapter": "solutions",
+      "facts": [
+        {
+          "id": "gamma",
+          "claim": "Activity coefficient corrects for non-ideal mixtures",
+          "pattern": "activity coefficient|γ\\s*_?\\s*i|gamma",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Activity_coefficient",
+            "quote": "an activity coefficient is a factor used to account for deviation of a mixture of chemical substances from ideal behaviour"
+          }
+        },
+        {
+          "id": "raoult",
+          "claim": "γ > 1 positive and γ < 1 negative deviation from Raoult's law",
+          "pattern": "(positive|negative) deviation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Activity_coefficient",
+            "quote": "substance B shows positive and negative deviation from Raoult's law"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gibbs-energy-models",
+      "chapter": "solutions",
+      "facts": [
+        {
+          "id": "margules",
+          "claim": "Margules model for excess Gibbs energy of liquid mixtures",
+          "pattern": "margules",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Margules_activity_model",
+            "quote": "The Margules activity model is a simple thermodynamic model for the excess Gibbs free energy of a liquid mixture"
+          }
+        },
+        {
+          "id": "others",
+          "claim": "Newer models: Wilson and NRTL",
+          "pattern": "NRTL|wilson|UNIQUAC|UNIFAC",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Margules_activity_model",
+            "quote": "modern models like NRTL and Wilson cannot"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "phase-rule-vle",
+      "chapter": "phase-equilibria",
+      "facts": [
+        {
+          "id": "gibbs-rule",
+          "claim": "Gibbs phase rule governs multi-phase equilibrium (F = C − P + 2)",
+          "pattern": "F\\s*=\\s*C\\s*-\\s*P\\s*\\+\\s*2|phase rule",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Phase_rule",
+            "quote": "the phase rule is a general principle governing multi-component, multi-phase systems in thermodynamic equilibrium"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bubble-dew-flash",
+      "chapter": "phase-equilibria",
+      "facts": [
+        {
+          "id": "flash",
+          "claim": "Flash: pressure reduction partly vaporises a saturated liquid",
+          "pattern": "(pressure )?(reduction|drop|lower)[^.]{0,60}(vapori[sz]|flash)|flash[^.]{0,60}(pressure|valve)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flash_evaporation",
+            "quote": "Flash evaporation (or partial evaporation) is the partial vapor that occurs when a saturated liquid stream undergoes a reduction in pressure"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "azeotropes",
+      "chapter": "phase-equilibria",
+      "facts": [
+        {
+          "id": "same-composition",
+          "claim": "At an azeotrope the vapour has the same composition as the liquid",
+          "pattern": "same (composition|proportions)|cannot be (separated|changed) by (simple )?distillation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Azeotrope",
+            "quote": "when an azeotrope is boiled, the vapour has the same proportions of constituents as the unboiled mixture"
+          }
+        },
+        {
+          "id": "types",
+          "claim": "Minimum- and maximum-boiling (positive and negative) azeotropes",
+          "pattern": "(positive|negative|minimum[- ]boiling|maximum[- ]boiling) azeotrope",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Azeotrope",
+            "quote": "The boiling point of an azeotrope is either less than the boiling point temperatures of any of its constituents (a positive azeotrope)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "lle-sle",
+      "chapter": "phase-equilibria",
+      "facts": [
+        {
+          "id": "immiscible",
+          "claim": "LLE: two immiscible liquid phases share a solute",
+          "pattern": "immiscible",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Liquid–liquid_extraction",
+            "quote": "In solvent extraction, two immiscible liquids are shaken together"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "equilibrium-constant-gibbs",
+      "chapter": "reaction-equilibria",
+      "facts": [
+        {
+          "id": "independent",
+          "claim": "K does not depend on initial concentrations",
+          "pattern": "(independent|regardless) of[^.]{0,30}initial|ΔG\\s*°\\s*=\\s*-\\s*R\\s*T\\s*ln\\s*K|-\\s*RT\\s*ln\\s*K",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Equilibrium_constant",
+            "quote": "the equilibrium constant is independent of the initial analytical concentrations"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "vant-hoff",
+      "chapter": "reaction-equilibria",
+      "facts": [
+        {
+          "id": "relation",
+          "claim": "van 't Hoff: ln K changes with T according to ΔH°",
+          "pattern": "van'?\\s*'?t\\s*hoff",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Van_'t_Hoff_equation",
+            "quote": "The Van 't Hoff equation relates the change in the equilibrium constant, Keq, of a chemical reaction to the change in temperature"
+          }
+        }
+      ]
+    }
+  ]
+}

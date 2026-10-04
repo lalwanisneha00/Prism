@@ -1,0 +1,195 @@
+{
+  "description": "Key facts a correct lesson on each Process Dynamics and Control topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "process-control",
+  "topics": [
+    {
+      "topic": "process-control-concepts",
+      "chapter": "pc-intro",
+      "facts": [
+        {
+          "id": "setpoint",
+          "claim": "Controllers compare measurements with a set point and act",
+          "pattern": "set ?point",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Industrial_process_control",
+            "quote": "the level controller would compare the equivalent reading of a level sensor to the level setpoint"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "p-and-id",
+      "chapter": "pc-intro",
+      "facts": [
+        {
+          "id": "pid",
+          "claim": "A P&ID shows process equipment with its instruments and controls",
+          "pattern": "P\\s*&\\s*ID|piping and instrumentation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Piping_and_instrumentation_diagram",
+            "quote": "A Piping and Instrumentation Diagram (P&ID) is a detailed diagram in the process industry which shows process equipment together with the instrumentation and control devices"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "laplace-odes-pc",
+      "chapter": "pc-intro",
+      "facts": [
+        {
+          "id": "algebra",
+          "claim": "Laplace turns ODEs into algebraic equations",
+          "pattern": "algebraic|differential equations?[^.]{0,60}(algebra|easier)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Laplace_transform",
+            "quote": "converting differentiation and integration in the time domain into the algebraic operations multiplication and division"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "first-order-process",
+      "chapter": "dynamics",
+      "facts": [
+        {
+          "id": "63",
+          "claim": "In one time constant a first-order step response reaches 63.2%",
+          "pattern": "63(\\.2)?\\s*%|1\\s*-\\s*1\\s*/\\s*e|1\\s*-\\s*e\\s*\\^?\\s*\\(?\\s*-\\s*1",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Time_constant",
+            "quote": "one time constant is the time it takes the output to reach about 63% (~ 63.2%) of its final value"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "second-order-process",
+      "chapter": "dynamics",
+      "facts": [
+        {
+          "id": "zeta",
+          "claim": "ζ < 1 underdamped, = 1 critically damped, > 1 overdamped",
+          "pattern": "underdamped|overdamped|critically damped",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Damping",
+            "quote": "varies from undamped (ζ = 0), underdamped (ζ < 1) through critically damped (ζ = 1) to overdamped (ζ > 1)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "feedback-controllers-pid",
+      "chapter": "closed-loop",
+      "facts": [
+        {
+          "id": "integral",
+          "claim": "Integral action removes steady-state offset",
+          "pattern": "integral[^.]{0,100}(steady[- ]state error|offset)|(offset|steady[- ]state error)[^.]{0,100}integral",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/PID_controller",
+            "quote": "considers the cumulative sum of past errors to address any residual steady-state errors"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "control-valves",
+      "chapter": "closed-loop",
+      "facts": [
+        {
+          "id": "final-element",
+          "claim": "The control valve is the final control element",
+          "pattern": "final control element",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Control_valve",
+            "quote": "a control valve is termed a \"final control element\""
+          }
+        }
+      ]
+    },
+    {
+      "topic": "closed-loop-response",
+      "chapter": "closed-loop",
+      "facts": [
+        {
+          "id": "feedback",
+          "claim": "Closed-loop control uses feedback (unlike open-loop)",
+          "pattern": "feedback",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Closed-loop_controller",
+            "quote": "A closed-loop controller or feedback controller is a control loop which incorporates feedback"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "routh-root-locus-pc",
+      "chapter": "stability-tuning",
+      "facts": [
+        {
+          "id": "rhp",
+          "claim": "Right-half-plane poles mean instability",
+          "pattern": "right[- ]half[- ]plane|positive real parts?|sign changes?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Routh–Hurwitz_stability_criterion",
+            "quote": "The system is unstable, since it has two right-half-plane poles"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bode-nyquist-pc",
+      "chapter": "stability-tuning",
+      "facts": [
+        {
+          "id": "mag-phase",
+          "claim": "Bode plots: magnitude (dB) and phase versus frequency",
+          "pattern": "magnitude[^.]{0,60}phase|phase[^.]{0,60}magnitude",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bode_plot",
+            "quote": "a combination of a Bode magnitude plot, expressing the magnitude (usually in decibels) of the frequency response, and a Bode phase plot"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ziegler-nichols",
+      "chapter": "stability-tuning",
+      "facts": [
+        {
+          "id": "ultimate",
+          "claim": "Raise P gain (I, D off) until sustained oscillation: ultimate gain and period",
+          "pattern": "(ultimate|critical) (gain|period)|sustained oscillation|K\\s*_?\\s*u\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ziegler–Nichols_method",
+            "quote": "It is performed by setting the I (integral) and D (derivative) gains to zero"
+          }
+        },
+        {
+          "id": "quarter",
+          "claim": "Gives roughly quarter-amplitude decay",
+          "pattern": "quarter[- ](wave|amplitude|decay)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ziegler–Nichols_method",
+            "quote": "The Ziegler–Nichols tuning (represented by the 'Classic PID' equations in the table above) creates a \"quarter wave decay\""
+          }
+        }
+      ]
+    },
+    {
+      "topic": "advanced-control",
+      "chapter": "stability-tuning",
+      "facts": [
+        {
+          "id": "smith",
+          "claim": "The Smith predictor handles long time delays (dead time)",
+          "pattern": "smith predictor",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Smith_predictor",
+            "quote": "is a type of predictive controller designed to control systems with a significant feedback time delay"
+          }
+        }
+      ]
+    }
+  ]
+}

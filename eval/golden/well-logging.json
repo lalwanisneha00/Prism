@@ -1,0 +1,186 @@
+{
+  "description": "Key facts a correct lesson on each Well Logging and Formation Evaluation topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "well-logging",
+  "topics": [
+    {
+      "topic": "formation-parameters",
+      "chapter": "log-fundamentals",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "A well log records formations penetrated by a borehole",
+          "pattern": "(record|log)[^.]{0,60}(formations?|borehole)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Well_logging",
+            "quote": "Well logging, also known as borehole logging, is the practice of making a detailed record (a well log) of the geologic formations penetrated by a borehole"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "archie-law",
+      "chapter": "log-fundamentals",
+      "facts": [
+        {
+          "id": "archie",
+          "claim": "Archie's law links resistivity to porosity and water saturation",
+          "pattern": "archie",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Archie's_law",
+            "quote": "Archie's law is a purely empirical law relating the measured electrical conductivity of a porous rock to its porosity and fluid saturation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sp-log",
+      "chapter": "log-types",
+      "facts": [
+        {
+          "id": "shale-baseline",
+          "claim": "The SP log has a shale baseline and deflects opposite permeable beds",
+          "pattern": "(shale )?base ?line|deflect",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Spontaneous_potential_logging",
+            "quote": "The potential opposite shales is called the baseline"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "resistivity-logs",
+      "chapter": "log-types",
+      "facts": [
+        {
+          "id": "hydrocarbons",
+          "claim": "Hydrocarbons and fresh water are resistive; salty water conducts",
+          "pattern": "(hydrocarbons?|oil)[^.]{0,40}(resistiv|insulat|high resistance)|(salt|saline|brine)[^.]{0,40}conduct",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Resistivity_logging",
+            "quote": "Resistivity logging is a method of well logging that works by characterizing the rock or sediment in a borehole by measuring its electrical resistivity"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gamma-ray-log",
+      "chapter": "log-types",
+      "facts": [
+        {
+          "id": "shale",
+          "claim": "Shales are more radioactive, so the GR log distinguishes shale",
+          "pattern": "shales?[^.]{0,60}(radioactiv|gamma|high)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gamma_ray_logging",
+            "quote": "shales usually emit more gamma rays than other sedimentary rocks"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "porosity-logs",
+      "chapter": "log-types",
+      "facts": [
+        {
+          "id": "three",
+          "claim": "Density, neutron and sonic logs give porosity",
+          "pattern": "(density|neutron|sonic)[^.]{0,30}(density|neutron|sonic)[^.]{0,30}(density|neutron|sonic)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Density_logging",
+            "quote": "This is one of three well logging tools that are commonly used to calculate porosity, the other two being sonic logging and neutron porosity logging"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "nmr-caliper-dipmeter",
+      "chapter": "log-types",
+      "facts": [
+        {
+          "id": "nmr",
+          "claim": "NMR logging gives porosity (and permeability) independent of lithology",
+          "pattern": "(NMR|nuclear magnetic resonance)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nuclear_magnetic_resonance_logging",
+            "quote": "Nuclear magnetic resonance (NMR) logging is a type of well logging that uses the NMR response of a formation to directly determine its porosity and permeability"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "log-interpretation-crossplots",
+      "chapter": "interpretation",
+      "facts": [
+        {
+          "id": "evaluation",
+          "claim": "Formation evaluation decides whether a zone can produce oil or gas",
+          "pattern": "formation evaluation|hydrocarbon[- ]bearing",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Formation_evaluation",
+            "quote": "Formation evaluation in petroleum engineering is the process of assessing subsurface rock formations to determine their ability to produce oil and gas"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "log-data-acquisition",
+      "chapter": "interpretation",
+      "facts": [
+        {
+          "id": "lwd",
+          "claim": "Logs can be run while drilling (LWD/MWD) or by wireline later",
+          "pattern": "(LWD|MWD|logging while drilling|wireline)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Well_logging",
+            "quote": "This is known as logging while drilling (LWD) or measurement-while-drilling (MWD)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fracture-detection-logs",
+      "chapter": "interpretation",
+      "facts": [
+        {
+          "id": "fracture",
+          "claim": "A fracture is a separation in rock (joint or fault)",
+          "pattern": "joint|fault|separation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fracture_(geology)",
+            "quote": "A fracture is any separation in a geologic formation, such as a joint or a fault that divides the rock into two or more pieces"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "log-correlation",
+      "chapter": "interpretation",
+      "facts": [
+        {
+          "id": "depth",
+          "claim": "Logs are recorded against depth",
+          "pattern": "depth",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Well_logging",
+            "quote": "The acquisition and analysis of geophysical data performed as a function of well bore depth"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "production-logging",
+      "chapter": "interpretation",
+      "facts": [
+        {
+          "id": "phases",
+          "claim": "Logs can be run during drilling, completion, production or abandonment",
+          "pattern": "(producing|production)[^.]{0,40}(well|phase)|completion|abandon",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Well_logging",
+            "quote": "Some types of geophysical well logs can be done during any phase of a well's history: drilling, completing, producing, or abandoning"
+          }
+        }
+      ]
+    }
+  ]
+}

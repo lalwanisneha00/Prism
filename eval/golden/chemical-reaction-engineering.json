@@ -1,0 +1,228 @@
+{
+  "description": "Key facts a correct lesson on each Chemical Reaction Engineering topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "chemical-reaction-engineering",
+  "topics": [
+    {
+      "topic": "rate-law-order",
+      "chapter": "kinetics",
+      "facts": [
+        {
+          "id": "concentration",
+          "claim": "Rate increases with reactant concentration (rate law)",
+          "pattern": "rate (law|equation)|k\\s*\\[\\s*A\\s*\\]|k\\s*C\\s*_?\\s*A",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reaction_rate",
+            "quote": "Reaction rate increases with concentration, as described by the rate law and explained by collision theory"
+          }
+        },
+        {
+          "id": "factors",
+          "claim": "Temperature, catalyst and other effects go into the rate constant",
+          "pattern": "rate (constant|coefficient)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reaction_rate",
+            "quote": "are taken into account in the reaction rate coefficient"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "arrhenius-temperature",
+      "chapter": "kinetics",
+      "facts": [
+        {
+          "id": "arrhenius",
+          "claim": "k = A e^(−Ea/RT): temperature dependence of rate",
+          "pattern": "arrhenius|e\\s*\\^\\s*\\(?\\s*-\\s*E\\s*_?\\s*a|exp\\s*\\(\\s*-\\s*E",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Arrhenius_equation",
+            "quote": "the Arrhenius equation is a formula for the temperature dependence of reaction rates"
+          }
+        },
+        {
+          "id": "ea",
+          "claim": "Ea is the activation energy",
+          "pattern": "activation energy",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Arrhenius_equation",
+            "quote": "Ea is the molar activation energy for the reaction"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "elementary-mechanisms-ssa",
+      "chapter": "kinetics",
+      "facts": [
+        {
+          "id": "single-step",
+          "claim": "An elementary reaction occurs in a single step",
+          "pattern": "single (reaction )?step|one step",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Elementary_reaction",
+            "quote": "react directly to form products in a single reaction step and with a single transition state"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "batch-reactor-design",
+      "chapter": "ideal-reactors",
+      "facts": [
+        {
+          "id": "no-flow",
+          "claim": "In a batch reactor nothing flows in or out during reaction",
+          "pattern": "(no|not)[^.]{0,30}(flow|enter|leave)[^.]{0,30}(in|out)|closed (system|vessel)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Batch_reactor",
+            "quote": "the reactants, products and solvent do not flow in or out of the vessel during"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cstr-design",
+      "chapter": "ideal-reactors",
+      "facts": [
+        {
+          "id": "mixing",
+          "claim": "An ideal CSTR is perfectly mixed: outlet = tank contents",
+          "pattern": "(perfect|well|completely)(ly)? mixed|uniform(ly)? (mixed|composition)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Continuous_stirred-tank_reactor",
+            "quote": "The behavior of a CSTR is often approximated or modeled by that of an ideal CSTR, which assumes perfect mixing"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pfr-design",
+      "chapter": "ideal-reactors",
+      "facts": [
+        {
+          "id": "plugs",
+          "claim": "PFR: plugs move axially, mixed radially but not axially",
+          "pattern": "(radial|radially)[^.]{0,60}(axial|axially)|no (axial|back) mixing|plugs?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Plug_flow_reactor_model",
+            "quote": "the fluid is perfectly mixed in the radial direction but not in the axial direction"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "reactors-series-recycle",
+      "chapter": "ideal-reactors",
+      "facts": [
+        {
+          "id": "infinite-cstrs",
+          "claim": "Many CSTRs in series approach a PFR",
+          "pattern": "(cstrs?|tanks)[^.]{0,60}series[^.]{0,80}(pfr|plug flow)|infinite number",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Chemical_reactor",
+            "quote": "an infinite number of infinitely small CSTRs operating in series would be equivalent to a PFR"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "multiple-reactions-selectivity",
+      "chapter": "ideal-reactors",
+      "facts": [
+        {
+          "id": "terms",
+          "claim": "Conversion, selectivity and yield",
+          "pattern": "conversion[^.]{0,60}selectivity|selectivity[^.]{0,60}(yield|conversion)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Yield_(chemistry)",
+            "quote": "\"yield\", \"conversion\" and \"selectivity\" are terms used to describe ratios"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rtd",
+      "chapter": "non-ideal",
+      "facts": [
+        {
+          "id": "rtd",
+          "claim": "RTD: distribution of times fluid elements spend in the reactor",
+          "pattern": "residence time distribution|RTD|E\\s*\\(\\s*t\\s*\\)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Residence_time",
+            "quote": "which is known as residence time distribution (RTD)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "catalysis-adsorption-isotherms",
+      "chapter": "heterogeneous",
+      "facts": [
+        {
+          "id": "phase",
+          "claim": "Heterogeneous catalysts are in a different phase (often solid with gas reactants)",
+          "pattern": "(different|separate) phase|solid catalyst[^.]{0,40}(gas|liquid)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Heterogeneous_catalysis",
+            "quote": "Heterogeneous catalysis is catalysis where the phase of catalysts differs from that of the reagents or products"
+          }
+        },
+        {
+          "id": "adsorbent",
+          "claim": "The catalyst adsorbs the reactants",
+          "pattern": "adsorb",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Heterogeneous_catalysis",
+            "quote": "the catalyst is the adsorbent and the reactants are the adsorbate"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "catalytic-kinetics-lhhw",
+      "chapter": "heterogeneous",
+      "facts": [
+        {
+          "id": "langmuir",
+          "claim": "Langmuir isotherm gives surface coverage; LH mechanism for surface reactions",
+          "pattern": "langmuir",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reactions_on_surfaces",
+            "quote": "The last expression is the Langmuir isotherm for the surface coverage"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "effectiveness-thiele",
+      "chapter": "heterogeneous",
+      "facts": [
+        {
+          "id": "thiele",
+          "claim": "Thiele modulus compares reaction rate with pore diffusion",
+          "pattern": "thiele",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thiele_modulus",
+            "quote": "The Thiele Modulus was developed to describe the relationship between diffusion and reaction rates in porous catalyst pellets"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gas-solid-shrinking-core",
+      "chapter": "heterogeneous",
+      "facts": [
+        {
+          "id": "factors",
+          "claim": "Rate depends on reactant state, concentration, temperature (and catalysts)",
+          "pattern": "(concentration|temperature)[^.]{0,60}(temperature|surface area|catalyst)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Chemical_kinetics",
+            "quote": "The main factors that influence the reaction rate include: the physical state of the reactants, the concentrations of the reactants, the temperature"
+          }
+        }
+      ]
+    }
+  ]
+}

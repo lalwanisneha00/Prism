@@ -1,0 +1,204 @@
+{
+  "description": "Key facts a correct lesson on each Petroleum Refining and Petrochemicals topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "petroleum-refining",
+  "topics": [
+    {
+      "topic": "crude-composition",
+      "chapter": "crude",
+      "facts": [
+        {
+          "id": "mixture",
+          "claim": "Crude oil is mainly a mixture of hydrocarbons",
+          "pattern": "(mixture|mostly|mainly|primarily)[^.]{0,40}hydrocarbons",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Petroleum",
+            "quote": "a natural resource that appears as a yellowish-black liquid chemical mixture found in geological formations, consisting primaril"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "product-tests",
+      "chapter": "crude",
+      "facts": [
+        {
+          "id": "octane",
+          "claim": "Octane number measures a fuel's resistance to knock",
+          "pattern": "(knock|auto-?ignit)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Octane_rating",
+            "quote": "a standard measure of a fuel's ability to withstand compression in an internal combustion engine without causing engine knocking"
+          }
+        },
+        {
+          "id": "reference",
+          "claim": "Defined using iso-octane and heptane blends",
+          "pattern": "iso-?octane[^.]{0,40}heptane|heptane[^.]{0,40}iso-?octane",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Octane_rating",
+            "quote": "The term refers to the equivalent ratio of a blend of iso-octane and heptane"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "atmospheric-distillation",
+      "chapter": "separation",
+      "facts": [
+        {
+          "id": "fractions",
+          "claim": "Crude is split into fractions by boiling range",
+          "pattern": "fractions?[^.]{0,60}boiling|boiling (point|range)[^.]{0,60}fractions?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fractional_distillation",
+            "quote": "allow for the withdrawal of different fractions or products having different boiling points or boiling r"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "vacuum-distillation",
+      "chapter": "separation",
+      "facts": [
+        {
+          "id": "lower-bp",
+          "claim": "Reduced pressure lowers boiling points (heavy residue without cracking)",
+          "pattern": "(reduced|low(er)?) pressure[^.]{0,40}(lower|reduc|decrease)[^.]{0,20}boiling|boiling point[^.]{0,30}(lower|reduc)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Vacuum_distillation",
+            "quote": "Reduced pressures decrease the boiling point of compounds"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "thermal-cracking-coking",
+      "chapter": "conversion",
+      "facts": [
+        {
+          "id": "cracking",
+          "claim": "Cracking breaks large hydrocarbons into smaller ones",
+          "pattern": "(break|split)[^.]{0,40}(large|long|heavy)[^.]{0,30}(hydrocarbons|molecules)|(large|long)[^.]{0,30}(into|to)[^.]{0,20}(small|short|light)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cracking_(chemistry)",
+            "quote": "Cracking is the breakdown of large hydrocarbons into smaller, more useful alkanes and alkenes"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fcc",
+      "chapter": "conversion",
+      "facts": [
+        {
+          "id": "fcc",
+          "claim": "FCC converts heavy fractions to gasoline on a hot powdered catalyst",
+          "pattern": "(hot|powdered|zeolite)[^.]{0,30}catalyst|catalyst[^.]{0,40}(powder|fluidi[sz]ed)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fluid_catalytic_cracking",
+            "quote": "upon contact with the hot powdered catalyst"
+          }
+        },
+        {
+          "id": "gasoline",
+          "claim": "It yields high-octane gasoline",
+          "pattern": "gasoline|petrol",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fluid_catalytic_cracking",
+            "quote": "which yields greater volumes of high octane rating gaso"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "hydrocracking",
+      "chapter": "conversion",
+      "facts": [
+        {
+          "id": "hydrogen",
+          "claim": "Hydrocracking is catalytic cracking with added hydrogen (jet fuel, diesel)",
+          "pattern": "hydrogen",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cracking_(chemistry)",
+            "quote": "Hydrocracking is a catalytic cracking process assisted by the presence of added hydrogen gas"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "catalytic-reforming",
+      "chapter": "conversion",
+      "facts": [
+        {
+          "id": "octane",
+          "claim": "Reforming turns low-octane naphtha into high-octane reformate",
+          "pattern": "(low|high)[- ]octane|reformate",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Catalytic_reforming",
+            "quote": "Catalytic reforming is a chemical process used to convert naphthas from crude oil into liquid products called reformates"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "hydrodesulfurization",
+      "chapter": "treating",
+      "facts": [
+        {
+          "id": "sulfur",
+          "claim": "HDS removes sulphur (as H₂S) to cut SO₂ emissions",
+          "pattern": "H\\s*_?\\s*2\\s*S|hydrogen sulfide|hydrogen sulphide|SO\\s*_?\\s*2",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hydrodesulfurization",
+            "quote": "to reduce the sulfur dioxide (SO2) emissions that result from using those fuels"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dewaxing-solvent",
+      "chapter": "treating",
+      "facts": [
+        {
+          "id": "extraction",
+          "claim": "Solvent extraction separates by relative solubility in immiscible liquids",
+          "pattern": "(relative )?solubilit|immiscible",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Liquid–liquid_extraction",
+            "quote": "a method to separate compounds based on their relative solubilities in two different immiscible liquids"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "steam-cracking-olefins",
+      "chapter": "petrochemicals",
+      "facts": [
+        {
+          "id": "olefins",
+          "claim": "Steam cracking makes ethylene and propylene",
+          "pattern": "ethylene|ethene|propylene|propene|olefins?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Steam_cracking",
+            "quote": "It is the principal industrial method for producing the lighter alkenes (commonly called olefins), including ethene (or ethylene) and propene (or propylene)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "petrochemical-products",
+      "chapter": "petrochemicals",
+      "facts": [
+        {
+          "id": "classes",
+          "claim": "Main petrochemicals: olefins and aromatics (BTX)",
+          "pattern": "aromatics?|BTX|benzene",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Petrochemical",
+            "quote": "The two most common petrochemical classes are olefins (including ethylene and propylene) and aromatics"
+          }
+        }
+      ]
+    }
+  ]
+}

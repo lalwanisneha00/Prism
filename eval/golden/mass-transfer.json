@@ -1,0 +1,228 @@
+{
+  "description": "Key facts a correct lesson on each Mass Transfer Operations topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "mass-transfer",
+  "topics": [
+    {
+      "topic": "fick-diffusion-mt",
+      "chapter": "diffusion",
+      "facts": [
+        {
+          "id": "first",
+          "claim": "Fick's first law: flux ∝ concentration gradient",
+          "pattern": "(proportional|∝)[^.]{0,40}concentration gradient|J\\s*=\\s*-\\s*D",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fick's_laws_of_diffusion",
+            "quote": "Movement of particles from high to low concentration (diffusive flux) is directly proportional to the particle's concentration gradient"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "mass-transfer-coefficients",
+      "chapter": "diffusion",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Rate = k × area × concentration driving force",
+          "pattern": "driving force",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mass_transfer_coefficient",
+            "quote": "the mass transfer coefficient is a diffusion rate constant that relates the mass transfer rate, mass transfer area, and concentration change as driving force"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "film-penetration-theories",
+      "chapter": "diffusion",
+      "facts": [
+        {
+          "id": "examples",
+          "claim": "Mass transfer occurs in absorption, distillation, drying and membranes",
+          "pattern": "(absorption|distillation|drying|extraction)[^.]{0,60}(absorption|distillation|drying|extraction)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mass_transfer",
+            "quote": "Mass transfer occurs in many processes, such as absorption, evaporation, drying, precipitation, membrane filtration, and distillation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "equilibrium-stages-htu",
+      "chapter": "staged-columns",
+      "facts": [
+        {
+          "id": "plate",
+          "claim": "A theoretical plate is a stage where phases reach equilibrium",
+          "pattern": "(theoretical|ideal|equilibrium) (plate|stage|tray)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Theoretical_plate",
+            "quote": "a hypothetical zone or stage in which two phases, such as the liquid and vapor phases of a substance, establish an equilibrium"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gas-absorption",
+      "chapter": "staged-columns",
+      "facts": [
+        {
+          "id": "bulk",
+          "claim": "Absorption takes molecules into the bulk; adsorption onto the surface",
+          "pattern": "(bulk|volume)[^.]{0,60}surface|surface[^.]{0,60}(bulk|volume)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Absorption_(chemistry)",
+            "quote": "molecules undergoing absorption are taken up by the volume, not by the surface"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "mccabe-thiele",
+      "chapter": "staged-columns",
+      "facts": [
+        {
+          "id": "steps",
+          "claim": "Stepping between operating and equilibrium lines counts theoretical stages",
+          "pattern": "operating lines?[^.]{0,80}equilibrium (line|curve)|equilibrium (line|curve)[^.]{0,80}operating line|steps?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/McCabe–Thiele_method",
+            "quote": "The number of steps between the operating lines and the equilibrium line represents the number of theoretical plates"
+          }
+        },
+        {
+          "id": "binary",
+          "claim": "Used for binary distillation",
+          "pattern": "binary|two (substances|components)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/McCabe–Thiele_method",
+            "quote": "to model the separation of two substances by a distillation column"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "batch-azeotropic-distillation",
+      "chapter": "staged-columns",
+      "facts": [
+        {
+          "id": "batch-vs-continuous",
+          "claim": "Batch distillation processes one charge; continuous runs without interruption",
+          "pattern": "continuous distillation|without interruption|one batch",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Batch_distillation",
+            "quote": "This is in contrast with continuous distillation where the feedstock is added and the distillate drawn off without interruption"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "liquid-liquid-extraction",
+      "chapter": "other-separations",
+      "facts": [
+        {
+          "id": "immiscible",
+          "claim": "Separates by solubility in two immiscible liquids",
+          "pattern": "immiscible",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Liquid–liquid_extraction",
+            "quote": "a method to separate compounds based on their relative solubilities in two different immiscible liquids"
+          }
+        },
+        {
+          "id": "distribution",
+          "claim": "Distribution (partition) coefficient measures extraction",
+          "pattern": "(distribution|partition) (ratio|coefficient)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Liquid–liquid_extraction",
+            "quote": "a distribution ratio (D) is often quoted as a measure of how well-extracted a species is"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "leaching",
+      "chapter": "other-separations",
+      "facts": [
+        {
+          "id": "solvent",
+          "claim": "Leaching dissolves a solute out of a solid with a solvent",
+          "pattern": "solvent[^.]{0,60}(dissolv|extract)|(dissolv|extract)[^.]{0,60}solvent",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Leaching_(chemistry)",
+            "quote": "Leaching is the process of a solute becoming detached or extracted from its carrier substance by way of a solvent"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "adsorption-breakthrough",
+      "chapter": "other-separations",
+      "facts": [
+        {
+          "id": "surface",
+          "claim": "Adsorption is adhesion of molecules to a surface",
+          "pattern": "(adher|adhesion|stick)[^.]{0,40}surface|adsorbent|adsorbate",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Adsorption",
+            "quote": "Adsorption is the adhesion of atoms, ions, or molecules from a gas, liquid, or dissolved solid to a surface"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "membrane-ro",
+      "chapter": "other-separations",
+      "facts": [
+        {
+          "id": "pressure",
+          "claim": "Pressure drives liquid through the membrane into permeate and retentate",
+          "pattern": "permeate|retentate",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Membrane_technology",
+            "quote": "separated by the pressure difference between the front and back of the membrane into retentate"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "humidification-cooling-towers",
+      "chapter": "heat-mass",
+      "facts": [
+        {
+          "id": "wet-bulb",
+          "claim": "Evaporative cooling towers cool water toward the wet-bulb temperature",
+          "pattern": "wet[- ]bulb|evaporat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cooling_tower",
+            "quote": "use the evaporation of water to remove heat and cool the working fluid to near the wet-bulb air temperature"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "drying",
+      "chapter": "heat-mass",
+      "facts": [
+        {
+          "id": "evaporation",
+          "claim": "Drying removes solvent (usually water) by evaporation",
+          "pattern": "evaporat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drying",
+            "quote": "Drying is a mass transfer process consisting of the removal of water or another solvent by evaporation"
+          }
+        },
+        {
+          "id": "not-draining",
+          "claim": "Mechanical removal (filtration, centrifugation) is not drying",
+          "pattern": "(filtration|centrifug|mechanical)[^.]{0,60}(not|draining)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drying",
+            "quote": "the mechanical extraction of the solvent, e.g., water, by filtration or centrifugation, is not considered \"drying\""
+          }
+        }
+      ]
+    }
+  ]
+}

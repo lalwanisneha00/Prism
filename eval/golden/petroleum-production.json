@@ -1,0 +1,186 @@
+{
+  "description": "Key facts a correct lesson on each Petroleum Production Engineering topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "petroleum-production",
+  "topics": [
+    {
+      "topic": "productivity-index-ipr",
+      "chapter": "well-performance",
+      "facts": [
+        {
+          "id": "perforations",
+          "claim": "In cased holes, perforations let oil flow from rock into the well",
+          "pattern": "perforat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Oil_well",
+            "quote": "small perforations are made in the portion of the casing across the production zone, to provide a path for the oil to flow"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "perforation-completion",
+      "chapter": "well-performance",
+      "facts": [
+        {
+          "id": "guns",
+          "claim": "Perforating guns with shaped charges punch holes through the casing",
+          "pattern": "(perforating gun|shaped charge)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Perforation_(oil_well)",
+            "quote": "running in perforating guns, a string of shaped charges"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "artificial-lift-overview",
+      "chapter": "lift",
+      "facts": [
+        {
+          "id": "why",
+          "claim": "Needed when reservoir pressure cannot lift fluids to the surface",
+          "pattern": "(insufficient|not enough|low)[^.]{0,30}(reservoir )?pressure",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Artificial_lift",
+            "quote": "Artificial lift is needed in wells when there is insufficient pressure in the reservoir to lift the produced fluids to the surface"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sucker-rod-pump",
+      "chapter": "lift",
+      "facts": [
+        {
+          "id": "pumpjack",
+          "claim": "A beam pumpjack turns rotary motion into reciprocating rod motion",
+          "pattern": "(rotary|rotating)[^.]{0,40}(reciprocat|up[- ]and[- ]down)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pumpjack",
+            "quote": "converts the rotary motion of the motor (usually electric) to the vertical reciprocating motion"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gas-lift-esp",
+      "chapter": "lift",
+      "facts": [
+        {
+          "id": "density",
+          "claim": "Injected gas lightens the fluid column so reservoir pressure can lift it",
+          "pattern": "(reduce|lower|lighten)[^.]{0,30}(density|weight)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gas_lift",
+            "quote": "Injected gas aerates the fluid to reduce its density"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "wellhead-christmas-tree",
+      "chapter": "surface",
+      "facts": [
+        {
+          "id": "tree",
+          "claim": "The Christmas tree's valves and chokes control flow from the well",
+          "pattern": "christmas tree",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Wellhead",
+            "quote": "The surface pressure control is provided by a Christmas tree, which is installed on top of the wellhead"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "separators",
+      "chapter": "surface",
+      "facts": [
+        {
+          "id": "three-phase",
+          "claim": "Separators split well fluids into oil, gas and water",
+          "pattern": "oil[^.]{0,20}gas[^.]{0,20}(and )?water|gas[^.]{0,20}oil[^.]{0,20}(and )?water",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Separator_(oil_production)",
+            "quote": "to separate production fluids into their constituent components of oil, gas and water"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "flow-assurance",
+      "chapter": "surface",
+      "facts": [
+        {
+          "id": "deposits",
+          "claim": "Prevent hydrates, wax, asphaltenes and scale from blocking flow",
+          "pattern": "hydrates?|wax|asphaltene|scale",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flow_assurance",
+            "quote": "flow assurance involves effectively handling many solid deposits, such as, gas hydrates, asphaltene, wax, scale"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "stimulation",
+      "chapter": "surface",
+      "facts": [
+        {
+          "id": "proppant",
+          "claim": "Hydraulic fracturing: high-pressure fluid fractures rock; proppants hold fractures open",
+          "pattern": "proppant",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fracking",
+            "quote": "small grains of hydraulic fracturing proppants (either sand or aluminium oxide) hold the fractures open"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gas-well-deliverability",
+      "chapter": "well-performance",
+      "facts": [
+        {
+          "id": "methane",
+          "claim": "Natural gas is mainly methane",
+          "pattern": "methane",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Natural_gas",
+            "quote": "Typically, the gas is a mix of gaseous hydrocarbons, primarily methane (95%)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "production-system-analysis",
+      "chapter": "well-performance",
+      "facts": [
+        {
+          "id": "wells",
+          "claim": "Production starts by drilling wells into the reservoir",
+          "pattern": "drill(ing)? (a )?wells?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Extraction_of_petroleum",
+            "quote": "Extracting crude oil normally starts with drilling wells into an underground reservoir"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "horizontal-well-production",
+      "chapter": "well-performance",
+      "facts": [
+        {
+          "id": "non-vertical",
+          "claim": "Horizontal wells are drilled by directional (non-vertical) drilling",
+          "pattern": "horizontal (well|wellbore|drilling)|non-?vertical",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Directional_drilling",
+            "quote": "Directional drilling (or slant drilling) is the practice of drilling non-vertical bores"
+          }
+        }
+      ]
+    }
+  ]
+}

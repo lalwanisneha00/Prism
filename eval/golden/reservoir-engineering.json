@@ -1,0 +1,219 @@
+{
+  "description": "Key facts a correct lesson on each Reservoir Engineering topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "reservoir-engineering",
+  "topics": [
+    {
+      "topic": "porosity",
+      "chapter": "rock-properties",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Porosity = void volume / total volume",
+          "pattern": "(void|pore) volume[^.]{0,40}(/|divided by|over|to the)[^.]{0,20}(total|bulk) volume|fraction of (the )?(total |bulk )?volume",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Porosity",
+            "quote": "is a fraction of the volume of voids over the total volume"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "permeability-darcy-res",
+      "chapter": "rock-properties",
+      "facts": [
+        {
+          "id": "ability",
+          "claim": "Permeability is the ability of rock to let fluids flow",
+          "pattern": "ability[^.]{0,40}(flow|transmit)|(flow|transmit)[^.]{0,40}(through|ability)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Permeability_(porous_media)",
+            "quote": "is a measure of the ability for fluids (gas or liquid) to flow thr"
+          }
+        },
+        {
+          "id": "100md",
+          "claim": "Good reservoirs exceed about 100 millidarcies",
+          "pattern": "m(illi)?d(arcy|arcies)?\\b|darcy",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Permeability_(porous_media)",
+            "quote": "its permeability must be greater than approximately 100 md"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "saturation-capillary",
+      "chapter": "rock-properties",
+      "facts": [
+        {
+          "id": "sw",
+          "claim": "Water saturation is the fraction of pore volume filled with water",
+          "pattern": "(fraction|percentage)[^.]{0,40}pore|\\bS_w\\b|water saturation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Water_content",
+            "quote": "the water saturation or degree of saturation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "relative-permeability",
+      "chapter": "rock-properties",
+      "facts": [
+        {
+          "id": "ratio",
+          "claim": "kr = effective / absolute permeability (between 0 and 1)",
+          "pattern": "effective permeability[^.]{0,40}(/|divided by|to)[^.]{0,20}absolute|between (0|zero) and (1|one)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Relative_permeability",
+            "quote": "It is the ratio of the effective permeability of that phase to the absolute permeability"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "reservoir-fluid-types",
+      "chapter": "fluid-properties",
+      "facts": [
+        {
+          "id": "wet-dry",
+          "claim": "Dry gas is mostly methane; wet gas has heavier hydrocarbons",
+          "pattern": "(dry|wet) gas",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Petroleum_reservoir",
+            "quote": "Gas containing larger quantities of heavier hydrocarbons is generally described as “wet” gas, while gas consisting predominantly of methane is described as “dry” gas"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "formation-volume-factor",
+      "chapter": "fluid-properties",
+      "facts": [
+        {
+          "id": "gor",
+          "claim": "Gas–oil ratio: gas volume per oil volume at standard conditions",
+          "pattern": "gas[- ]oil ratio|GOR|solution gas",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gas/oil_ratio",
+            "quote": "The gas/oil ratio (GOR) is the ratio of the volume of gas (\"scf\") that comes out of solution to the volume of oil"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gas-z-factor",
+      "chapter": "fluid-properties",
+      "facts": [
+        {
+          "id": "z",
+          "claim": "Z-factor corrects the ideal gas law for real gases",
+          "pattern": "z[- ]factor|compressibility factor|PV\\s*=\\s*Z\\s*nRT",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Compressibility_factor",
+            "quote": "It is a useful thermodynamic property for modifying the ideal gas law to account for the real gas behaviour"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ooip-volumetric",
+      "chapter": "reserves-mbe",
+      "facts": [
+        {
+          "id": "formula",
+          "claim": "Oil in place = rock volume × porosity × oil saturation (÷ Bo)",
+          "pattern": "(volume|area)[^.]{0,60}porosity[^.]{0,60}saturation|7758|φ\\s*\\(?\\s*1\\s*-\\s*S",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Oil_in_place",
+            "quote": "The oil in place is calculated as the product of the volume of porous oil-bearing rock, the porosity of the rock, and its saturation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "material-balance-res",
+      "chapter": "reserves-mbe",
+      "facts": [
+        {
+          "id": "conservation",
+          "claim": "Material balance: what enters either leaves or accumulates",
+          "pattern": "(enters?|in)[^.]{0,40}(leaves?|out)[^.]{0,40}accumulat|conservation of mass",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mass_balance",
+            "quote": "The mass that enters a system must, by conservation of mass, either leave the system or accumulate within the system"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "decline-curves",
+      "chapter": "reserves-mbe",
+      "facts": [
+        {
+          "id": "predict",
+          "claim": "Decline curves predict future production from past history",
+          "pattern": "(predict|forecast)[^.]{0,60}(production|performance)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Decline_curve_analysis",
+            "quote": "Decline curve analysis is a means of predicting future oil well or gas well production based on past production history"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "waterflooding",
+      "chapter": "recovery",
+      "facts": [
+        {
+          "id": "purpose",
+          "claim": "Water injection maintains pressure and sweeps oil",
+          "pattern": "(maintain|support)[^.]{0,30}pressure|voidage|sweep",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Water_injection_(oil_production)",
+            "quote": "water is injected into the oil reservoir, to maintain the pressure (also known as voidage replacement), or to drive oi"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "eor-methods",
+      "chapter": "recovery",
+      "facts": [
+        {
+          "id": "tertiary",
+          "claim": "EOR (tertiary recovery) follows primary and secondary recovery",
+          "pattern": "tertiary",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Enhanced_oil_recovery",
+            "quote": "Enhanced oil recovery (abbreviated EOR), also called tertiary recovery"
+          }
+        },
+        {
+          "id": "methods",
+          "claim": "Thermal, gas (including CO₂) and chemical methods",
+          "pattern": "thermal[^.]{0,60}(gas|chemical|CO\\s*_?\\s*2)|chemical[^.]{0,60}(thermal|gas)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Enhanced_oil_recovery",
+            "quote": "There are four main EOR techniques: carbon dioxide (CO2) injection, gas injection, thermal EOR, and chemical EOR"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "well-testing",
+      "chapter": "recovery",
+      "facts": [
+        {
+          "id": "data",
+          "claim": "Well tests measure flow rate and pressure to characterise the reservoir",
+          "pattern": "(flow rate|rate)[^.]{0,40}pressure|pressure[^.]{0,40}(flow rate|rate)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Well_test_(oil_and_gas)",
+            "quote": "Data gathered during the test period includes volumetric flow rate and pressure observed in the selected well"
+          }
+        }
+      ]
+    }
+  ]
+}

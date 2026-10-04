@@ -1,0 +1,246 @@
+{
+  "description": "Key facts a correct lesson on each Fluid Flow and Mechanical Operations topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "fluid-particle-operations",
+  "topics": [
+    {
+      "topic": "non-newtonian-fluids",
+      "chapter": "process-fluid-flow",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Non-Newtonian fluids don't follow Newton's viscosity law: viscosity depends on shear",
+          "pattern": "(viscosity|apparent viscosity)[^.]{0,60}(depend|change|var)[^.]{0,40}shear|shear[- ](thinning|thickening)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Non-Newtonian_fluid",
+            "quote": "a fluid that does not follow Newton's law of viscosity; that is, it has variable viscosity dependent on stress"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pipe-fittings-friction",
+      "chapter": "process-fluid-flow",
+      "facts": [
+        {
+          "id": "depends",
+          "claim": "Friction factor depends on Re and relative roughness ε/D",
+          "pattern": "relative roughness|ε\\s*/\\s*D|epsilon\\s*/\\s*D",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Darcy_friction_factor_formulae",
+            "quote": "Its value depends on the flow's Reynolds number Re and on the pipe's relative roughness ε / D"
+          }
+        },
+        {
+          "id": "fanning",
+          "claim": "Darcy friction factor = 4 × Fanning friction factor",
+          "pattern": "fanning",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Darcy_friction_factor_formulae",
+            "quote": "by definition it is four times larger than the Fan"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "flowmeters-process",
+      "chapter": "process-fluid-flow",
+      "facts": [
+        {
+          "id": "types",
+          "claim": "Volumetric meters measure volume flow; mass meters measure mass flow",
+          "pattern": "volumetric[^.]{0,60}mass flow|mass flow[^.]{0,60}volumetric|positive[- ]displacement",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flow_measurement",
+            "quote": "Volumetric flow meters quantity volumetric flow rate while mass flow meters quantify mass flow rates"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pumps-compressors-process",
+      "chapter": "process-fluid-flow",
+      "facts": [
+        {
+          "id": "mechanical",
+          "claim": "A pump moves fluids by mechanical action",
+          "pattern": "mechanical action|(adds?|impart)[^.]{0,30}energy[^.]{0,30}fluid",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pump",
+            "quote": "A pump is a device that moves fluids (liquids or gases), or sometimes slurries, by mechanical action"
+          }
+        },
+        {
+          "id": "multistage",
+          "claim": "Pumps in series form a multi-stage pump",
+          "pattern": "multi-?stage|in series",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pump",
+            "quote": "When a pump contains two or more pump mechanisms with fluid being directed to flow through them in series, it is called a multi-stage pump"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "particle-size-shape",
+      "chapter": "particles",
+      "facts": [
+        {
+          "id": "equivalent-sphere",
+          "claim": "Size is reported as an equivalent sphere diameter",
+          "pattern": "equivalent (sphere|spherical|diameter)|sphericity",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Particle_size",
+            "quote": "transforms, in abstract way, the real particle shape into a simple and standardized shape, like a sphere"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "drag-terminal-velocity",
+      "chapter": "particles",
+      "facts": [
+        {
+          "id": "cd",
+          "claim": "The drag coefficient quantifies drag in a fluid",
+          "pattern": "drag coefficient|C\\s*_?\\s*D\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Drag_coefficient",
+            "quote": "is a dimensionless quantity that is used to quantify the drag or resistance of an object in a fluid environment"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "packed-bed-ergun",
+      "chapter": "particles",
+      "facts": [
+        {
+          "id": "ergun",
+          "claim": "Ergun equation gives pressure drop (friction factor) in packed beds",
+          "pattern": "ergun",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ergun_equation",
+            "quote": "The Ergun equation, derived by the Turkish chemical engineer Sabri Ergun in 1952, expresses the friction factor in a packed column"
+          }
+        },
+        {
+          "id": "kozeny",
+          "claim": "Related to the Kozeny–Carman equation for laminar flow",
+          "pattern": "kozeny",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ergun_equation",
+            "quote": "its close relationship to the simpler Kozeny-Carman equation, which describes laminar flow of fluids across packed beds"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fluidisation",
+      "chapter": "particles",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Upward fluid flow makes a particle bed behave like a fluid",
+          "pattern": "(behave|act)s? like a (fluid|liquid)|fluid-like",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fluidization",
+            "quote": "a granular material is converted from a static solid-like state to a dynamic fluid-like state"
+          }
+        },
+        {
+          "id": "drag-gravity",
+          "claim": "It starts when drag balances the bed's weight (minimum fluidisation velocity)",
+          "pattern": "(drag|pressure drop)[^.]{0,60}(weight|gravit)|minimum fluidi[sz]ation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fluidization",
+            "quote": "the aerodynamic drag forces will begin to counteract the gravitational forces"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sedimentation-thickeners",
+      "chapter": "separations-mechanical",
+      "facts": [
+        {
+          "id": "settling",
+          "claim": "Particles settle out of suspension under gravity (or centrifugal force)",
+          "pattern": "settl[^.]{0,40}(gravity|out)|gravity[^.]{0,40}settl",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Sedimentation",
+            "quote": "particles in suspension settle out of the fluid in which they are entrained"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "filtration-cake",
+      "chapter": "separations-mechanical",
+      "facts": [
+        {
+          "id": "cake",
+          "claim": "Solids retained form a filter cake; liquid passing is filtrate",
+          "pattern": "filter cake|filtrate",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Filtration",
+            "quote": "Oversize particles may form a filter cake on top of the filter"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cyclones-centrifuges",
+      "chapter": "separations-mechanical",
+      "facts": [
+        {
+          "id": "inertia",
+          "claim": "Cyclones separate by vortex: heavy particles fling to the wall",
+          "pattern": "vortex|(inertia|centrifugal)[^.]{0,60}wall",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cyclonic_separation",
+            "quote": "Larger (denser) particles in the rotating stream have too much inertia to follow the tight curve of the stream, and thus strike the outside wall"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "size-reduction-laws",
+      "chapter": "separations-mechanical",
+      "facts": [
+        {
+          "id": "comminution",
+          "claim": "Comminution reduces particle size by crushing and grinding",
+          "pattern": "comminution|crush(ing)?[^.]{0,20}(and|or)[^.]{0,20}grind",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Comminution",
+            "quote": "Comminution is the reduction of solid materials from one average particle size to a smaller average particle size"
+          }
+        },
+        {
+          "id": "laws",
+          "claim": "Energy laws relate energy to feed and product size (Kick, Rittinger, Bond)",
+          "pattern": "kick'?s|rittinger|bond'?s",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Comminution",
+            "quote": "Kick's law, which related the energy to the sizes of the feed particles and the product particles"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "screening-mixing",
+      "chapter": "separations-mechanical",
+      "facts": [
+        {
+          "id": "screening",
+          "claim": "Screening separates particles by size alone",
+          "pattern": "screen(ing|s)?[^.]{0,60}(particle )?size|size alone|sieve",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mechanical_screening",
+            "quote": "A method of separating solid particles according to size alone is called screening"
+          }
+        }
+      ]
+    }
+  ]
+}

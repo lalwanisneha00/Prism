@@ -1,0 +1,231 @@
+{
+  "description": "Key facts a correct lesson on each Petroleum Geology topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "petroleum-geology",
+  "topics": [
+    {
+      "topic": "minerals-rocks",
+      "chapter": "earth-materials",
+      "facts": [
+        {
+          "id": "three",
+          "claim": "Igneous, sedimentary and metamorphic rocks",
+          "pattern": "igneous[^.]{0,40}sedimentary[^.]{0,40}metamorphic|sedimentary[^.]{0,40}igneous[^.]{0,40}metamorphic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rock_(geology)",
+            "quote": "Rocks are usually grouped into three main groups: igneous rocks, sedimentary rocks and metamorphic rocks"
+          }
+        },
+        {
+          "id": "igneous",
+          "claim": "Igneous rocks form when magma or lava cools",
+          "pattern": "(magma|lava)[^.]{0,40}(cool|solidif)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rock_(geology)",
+            "quote": "Igneous rocks are formed when magma cools in the Earth's crust"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sedimentary-rocks-petro",
+      "chapter": "earth-materials",
+      "facts": [
+        {
+          "id": "layers",
+          "claim": "Sedimentary rocks are deposited in layers (strata, bedding)",
+          "pattern": "(layers|strata|bedding)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Sedimentary_rock",
+            "quote": "Sedimentary rocks are deposited in layers as strata, forming a structure called bedding"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "stratigraphy-time-scale",
+      "chapter": "earth-materials",
+      "facts": [
+        {
+          "id": "superposition",
+          "claim": "Law of superposition: lower layers are older",
+          "pattern": "superposition|(older|younger)[^.]{0,40}(below|above|beneath|bottom|top)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Stratigraphy",
+            "quote": "he introduced the law of superposition, the principle of original horizontality"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "source-rock-kerogen",
+      "chapter": "petroleum-system",
+      "facts": [
+        {
+          "id": "source",
+          "claim": "Source rocks are organic-rich sediments that generate hydrocarbons",
+          "pattern": "source rocks?[^.]{0,80}(generat|organic)|organic-rich",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Source_rock",
+            "quote": "source rock is a sedimentary rock which has generated hydrocarbons or which has the potential to generate hydrocarbons"
+          }
+        },
+        {
+          "id": "kerogen",
+          "claim": "Heat cracks kerogen into hydrocarbons",
+          "pattern": "kerogen",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Source_rock",
+            "quote": "This thermal degradation or cracking releases shorter chain hydrocarbons from the original large and complex molecules occurring in the kerogen"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "migration",
+      "chapter": "petroleum-system",
+      "facts": [
+        {
+          "id": "reservoir",
+          "claim": "Hydrocarbons accumulate in porous, permeable reservoir rock",
+          "pattern": "porous[^.]{0,30}permeable|permeable[^.]{0,30}porous",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Petroleum_geology",
+            "quote": "The reservoir is a porous and permeable lithological unit or set of units that holds the hydrocarbon reserves"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "reservoir-rocks-seals",
+      "chapter": "petroleum-system",
+      "facts": [
+        {
+          "id": "seal",
+          "claim": "Hydrocarbons are trapped beneath lower-permeability (cap) rock",
+          "pattern": "cap ?rock|\\bseal(s|ing)? (rock|layer)|impermeable|low(er)? permeability",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Petroleum_reservoir",
+            "quote": "are trapped by overlying rock formations with lower permeability"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "petroleum-traps",
+      "chapter": "petroleum-system",
+      "facts": [
+        {
+          "id": "types",
+          "claim": "Traps are structural or stratigraphic",
+          "pattern": "structural[^.]{0,30}stratigraphic|stratigraphic[^.]{0,30}structural",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Petroleum_trap",
+            "quote": "Traps can be of two types: stratigraphic or structural"
+          }
+        },
+        {
+          "id": "anticline",
+          "claim": "Anticlines and faults can trap hydrocarbons beneath impermeable rock",
+          "pattern": "anticline|fault trap|dome",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Petroleum_trap",
+            "quote": "If there is a layer of impermeable rock present in this dome shape, then water-insoluble hydrocarbons can accumulate at the crest"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "folds-faults",
+      "chapter": "petroleum-system",
+      "facts": [
+        {
+          "id": "fold",
+          "claim": "Folds are bent rock layers from permanent deformation",
+          "pattern": "(bent|curved|buckled)[^.]{0,40}(layers|strata|surfaces)|anticlines?[^.]{0,30}synclines?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fold_(geology)",
+            "quote": "a fold is a stack of originally planar surfaces, such as sedimentary strata, that are bent or curved"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "plate-tectonics-petro",
+      "chapter": "basins",
+      "facts": [
+        {
+          "id": "plates",
+          "claim": "The lithosphere is broken into moving plates",
+          "pattern": "lithosphere[^.]{0,60}plates|plates[^.]{0,60}lithosphere",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Plate_tectonics",
+            "quote": "Earth's lithosphere, the rigid outer shell of the planet including the crust and upper mantle, is fractured into seven or eight major plates"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sedimentary-basins",
+      "chapter": "basins",
+      "facts": [
+        {
+          "id": "subsidence",
+          "claim": "Basins form by subsidence and fill with sediments",
+          "pattern": "subsid",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Sedimentary_basin",
+            "quote": "They form when long-term subsidence creates a regional depression that provides accommodation space for accumulation of sediments"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "seismic-exploration",
+      "chapter": "exploration",
+      "facts": [
+        {
+          "id": "reflection",
+          "claim": "Seismic reflection images the subsurface from reflected waves (like sonar)",
+          "pattern": "reflect",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reflection_seismology",
+            "quote": "Reflection seismology is similar to sonar and echolocation"
+          }
+        },
+        {
+          "id": "source",
+          "claim": "A controlled source (dynamite, air gun, vibrator)",
+          "pattern": "dynamite|air ?gun|vibroseis|vibrator",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reflection_seismology",
+            "quote": "The method requires a controlled seismic source of energy, such as dynamite or Tovex blast, a specialized air gun or a seismic vibrator"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gravity-magnetic-survey",
+      "chapter": "exploration",
+      "facts": [
+        {
+          "id": "anomaly",
+          "claim": "Gravity anomalies reveal density differences underground",
+          "pattern": "(gravity )?anomal",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gravity_anomaly",
+            "quote": "This gravity anomaly can reveal the presence of subsurface structures of unusual density"
+          }
+        },
+        {
+          "id": "gravimeter",
+          "claim": "Measured with a gravimeter",
+          "pattern": "gravimeter",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gravity_anomaly",
+            "quote": "using a portable instrument called a gravimeter"
+          }
+        }
+      ]
+    }
+  ]
+}

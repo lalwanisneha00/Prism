@@ -1,0 +1,213 @@
+{
+  "description": "Key facts a correct lesson on each Process Calculations (Material and Energy Balances) topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "process-calculations",
+  "topics": [
+    {
+      "topic": "units-dimensionless-groups",
+      "chapter": "units-basis",
+      "facts": [
+        {
+          "id": "derived",
+          "claim": "Derived units come from the base quantities (e.g. speed, energy, pressure)",
+          "pattern": "derived (units|quantities)|base (units|quantities)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Unit_of_measurement",
+            "quote": "Derived units are the units of the quantities that are derived from the base quantities"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "basis-compositions",
+      "chapter": "units-basis",
+      "facts": [
+        {
+          "id": "sum",
+          "claim": "Mole fractions in a mixture add up to 1",
+          "pattern": "(sum|add up)[^.]{0,40}(mole|mol) fractions?[^.]{0,30}(1|one|unity)|mole fractions?[^.]{0,40}(sum|add up)[^.]{0,20}(to )?(1|one|unity)|Σ\\s*x\\s*_?\\s*i\\s*=\\s*1",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mole_fraction",
+            "quote": "The sum of all the mole fractions in a mixture is equal to 1"
+          }
+        },
+        {
+          "id": "vs-molarity",
+          "claim": "Mole fraction is amount/amount; molarity is amount/volume",
+          "pattern": "mol(es)? per (litre|liter)|amount (of substance )?(per|/) volume|molarity",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mole_fraction",
+            "quote": "molar concentration is a quotient of amount to volume (in units of moles per litre)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ideal-gas-pc",
+      "chapter": "units-basis",
+      "facts": [
+        {
+          "id": "pvnrt",
+          "claim": "pV = nRT",
+          "pattern": "p\\s*V\\s*=\\s*n\\s*R\\s*T|PV\\s*=\\s*nRT",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ideal_gas_law",
+            "quote": "The ideal gas law, also called the general gas equation, is the equation of state of a hypothetical ideal gas"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "mass-balance-no-reaction",
+      "chapter": "material-balances",
+      "facts": [
+        {
+          "id": "conservation",
+          "claim": "A mass balance applies conservation of mass",
+          "pattern": "conservation of mass|mass (is )?conserved",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mass_balance",
+            "quote": "a mass balance, also called a material balance, is an application of conservation of mass"
+          }
+        },
+        {
+          "id": "steady",
+          "claim": "At steady state the accumulation term is zero",
+          "pattern": "accumulation[^.]{0,40}(zero|0)|steady[- ]state[^.]{0,60}(accumulation|in\\s*=\\s*out|input\\s*=\\s*output)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mass_balance",
+            "quote": "Mass balances can be simplified with the assumption of steady state, in which the accumulation term is zero"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "reactive-balances-extent",
+      "chapter": "material-balances",
+      "facts": [
+        {
+          "id": "stoichiometry",
+          "claim": "Stoichiometry relates amounts of reactants and products (mass conserved)",
+          "pattern": "stoichiometr",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Stoichiometry",
+            "quote": "Stoichiometry ( ) is the relationships between the quantities of reactants and products before, during and after chemical reactions"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "combustion-balances",
+      "chapter": "material-balances",
+      "facts": [
+        {
+          "id": "nitrogen",
+          "claim": "With air, the nitrogen passes through unreacted into the flue gas",
+          "pattern": "nitrogen[^.]{0,80}(inert|unreacted|does not react|flue)|(79|21)\\s*%",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Combustion",
+            "quote": "the nitrogen present in the air (Atmosphere of Earth) can be added to the equation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "recycle-bypass-purge",
+      "chapter": "material-balances",
+      "facts": [
+        {
+          "id": "species",
+          "claim": "Without reaction, each species flowing in equals that flowing out at steady state",
+          "pattern": "(in|input|enter)[^.]{0,30}(=|equals?|same as)[^.]{0,30}(out|output|leav)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mass_balance",
+            "quote": "In the absence of a chemical reaction the amount of any chemical species flowing in and out will be the same"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "vapour-pressure-raoult",
+      "chapter": "phase-humidity",
+      "facts": [
+        {
+          "id": "vp",
+          "claim": "Vapour pressure: pressure of vapour in equilibrium with its liquid at a given temperature",
+          "pattern": "vapou?r pressure[^.]{0,80}equilibrium|equilibrium[^.]{0,60}vapou?r pressure",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Vapor_pressure",
+            "quote": "Vapor pressure or equilibrium vapor pressure is the pressure exerted by a vapor in thermodynamic equilibrium with its condensed phases"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "humidity-saturation",
+      "chapter": "phase-humidity",
+      "facts": [
+        {
+          "id": "rh",
+          "claim": "Relative humidity compares actual moisture with saturation at that temperature",
+          "pattern": "relative humidity",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Humidity",
+            "quote": "Relative humidity, often expressed as a percentage, indicates a present state of absolute humidity relative to a maximum humidity"
+          }
+        },
+        {
+          "id": "temp",
+          "claim": "Warmer air holds more water vapour before saturating",
+          "pattern": "(warm|higher temperature)[^.]{0,60}(hold|more)[^.]{0,30}(water|moisture|vapou?r)|saturation[^.]{0,40}increases? (as|with)[^.]{0,20}temperature",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Humidity",
+            "quote": "The amount of water vapor needed to achieve saturation increases as the temperature increases"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "crystallisation-balances",
+      "chapter": "phase-humidity",
+      "facts": [
+        {
+          "id": "supersat",
+          "claim": "Crystals nucleate and grow from a supersaturated solution",
+          "pattern": "supersaturat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Crystallization",
+            "quote": "the appearance of a crystalline phase from either a supercooled liquid or a supersaturated solvent"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "heat-capacity-enthalpy-change",
+      "chapter": "energy-balances",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Heat capacity: heat needed per unit temperature rise (J/K)",
+          "pattern": "J\\s*/\\s*K|joules? per kelvin|(heat|energy)[^.]{0,40}(raise|increase)[^.]{0,30}temperature[^.]{0,30}(one|1|unit)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Heat_capacity",
+            "quote": "defined as the amount of heat that must be supplied to an object to produce a unit change in its temperature"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "heat-of-reaction",
+      "chapter": "energy-balances",
+      "facts": [
+        {
+          "id": "products-minus",
+          "claim": "ΔH°rxn = Σ products − Σ reactants (standard states)",
+          "pattern": "products?[^.]{0,40}(minus|-|−)[^.]{0,40}reactants?|Σ[^.]{0,20}products?[^.]{0,30}Σ",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Standard_enthalpy_of_reaction",
+            "quote": "is the difference between total product and total reactant molar enthalpies, calculated for substances in their standard states"
+          }
+        }
+      ]
+    }
+  ]
+}
