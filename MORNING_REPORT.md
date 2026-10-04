@@ -4,8 +4,8 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 
 ## Summary
 
-- **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`), the concept map fix (`concept-map-fix`), V3 · Steps 2–5 (`v3-step-2` … `v3-step-5`).
-- **Not started:** V3 · Steps 6–11 (the syllabus waves, my-own-syllabus matching, final regression and deploy).
+- **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`), the concept map fix (`concept-map-fix`), V3 · Steps 2–6 (`v3-step-2` … `v3-step-6`).
+- **Not started:** V3 · Steps 7–11 (the syllabus waves, my-own-syllabus matching, final regression and deploy).
 
 ## How to see it
 
@@ -14,6 +14,28 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 - Automated checks: `npm run check`, `npm run build`, `npm run test:e2e` (Playwright, uses the fake AI, no quota). On a computer short of memory: `LLM_PROVIDER=fake npx next build`, then `E2E_SERVER=start npx playwright test --project=desktop-light` (and the other modes one at a time).
 
 ## Finished steps and "✅ Check this"
+
+### V3 · Step 6: Wave 1 syllabus and grounding (tag `v3-step-6`)
+
+**Built:**
+
+- **Eight new first-year subjects** (all branches, semesters 1–2), with chapters and topics taken from real syllabi, never from memory:
+  - **Applied Physics** (complete: mechanics, oscillations, waves, optics, lasers and fibre optics, special relativity, quantum physics, solid state and semiconductors, thermodynamics; 68 topics), with **Electricity & Magnetism linked in** (shown under Applied Physics, taught and saved under E&M, nothing copied);
+  - **Engineering Chemistry** (45 topics), **Basic Electrical Engineering** (34), **Basic Electronics Engineering** (25), **Engineering Mechanics** (28), **Engineering Graphics & Design** (17), **Programming for Problem Solving** (30, in C, plus a Python chapter), **Environmental Science** (38, taught as a theory subject).
+- **Engineering Mathematics filled to the AICTE syllabus:** three new chapters (Series Solutions and Special Functions; Complex Variable: Differentiation; Complex Variable: Integration) and six new topics (curvature and evolutes, Parseval's theorem, orthogonal matrices, Clairaut's equation, Cauchy-Euler equation, change of variables to polar). Old chapter and topic ids are unchanged, so saved progress is safe; all 303 new ids are added to the id lock.
+- **Syllabus sources** (recorded in each subject file, with a tap-to-open "How this syllabus was put together" on the subject page): the official **AICTE Model Curriculum Vol. I (Jan 2018)** for Physics, Chemistry-I, Mathematics-I/II, Basic Electrical, Graphics, Programming and Engineering Mechanics; **GCE Kalahandi** and **IET Lucknow** AICTE-model first-year syllabi for units AICTE leaves open (fibre optics, relativity, solid state, phase rule, fuels, corrosion, nanomaterials, Basic Electronics, physics thermodynamics); the **UGC core module syllabus for Environmental Studies (2003)**; and **OpenStax Introduction to Python Programming** for the Python chapter.
+- **Grounding for every topic:** 148 OpenStax sections (University Physics 1–3, Chemistry 2e, Introduction to Python Programming), each checked against OpenStax's official table of contents, and Wikipedia articles checked against Wikipedia's API (redirects resolved; titles that didn't exist were replaced).
+- **Keep learning:** free NPTEL courses listed first where they exist (Engineering Chemistry I, Basic Electrical Technology, Basic Electronics, Engineering Mechanics; each opened to confirm title and instructor), plus MIT OpenCourseWare for mechanics, waves, quantum physics, Python and complex variables.
+- **Prerequisite maps** for every new subject (no cycles, no missing topics, every topic connected), so the concept map works for all of them.
+
+**Tests:** new `wave1.test.ts` (all nine subjects present for every branch, real syllabus sources with links, every topic grounded, maps drawable, Applied Physics complete with E&M linked, maths chapters added without renaming, C + Python, theory style for EVS, NPTEL first). Older tests updated where they assumed only two subjects. Playwright: Applied Physics page with linked E&M chapters, all Wave 1 subjects listed, a new subject's concept map highlights a path; full suite in all four modes.
+
+**✅ Check this**
+
+- http://localhost:3000/subjects → choose any branch, semester 1: ten subjects appear (the nine Wave 1 subjects plus Electricity & Magnetism).
+- Open **Applied Physics**: chapters from Mechanics to Thermodynamics, then the Electricity & Magnetism chapters; tap "How this syllabus was put together" to see the sources.
+- http://localhost:3000/map?subject=applied-physics → hover **Particle in a box**: it lights up with de Broglie matter waves → Wave function → Schrödinger equation, numbered in order.
+- Edge case: open **Engineering Mathematics** on the home page picker: your old chapters are where they were, and the three new chapters come after them.
 
 ### V3 · Step 5: accuracy scaffolding (tag `v3-step-5`)
 
@@ -166,6 +188,12 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Decisions made without you
 
+- Wave 1 topic lists combine AICTE's options (e.g. all four AICTE Physics options) with the units the two AICTE-model university syllabi add, so a student from either pattern finds their topics; nothing outside these sources was added.
+- Physics thermodynamics follows GCE Kalahandi's Basics of Mechanical Engineering Module I (AICTE's Physics options have no thermodynamics unit).
+- Engineering Graphics is mostly drawing practice: its lessons explain the methods (with sources), but there are no drawing widgets yet (Step 7 decides which are worth building).
+- A new syllabus source kind `ugc` was added for the UGC Environmental Studies module.
+- The home page picker now starts on Applied Physics (subjects are listed alphabetically); E&M is one tap away.
+
 - Plan: "Other subjects" is V3 · Step 4; later V3 steps are renumbered 5–11 (SPEC §12.6, §12.8).
 - Browser tests use Playwright with the Edge already installed on Windows (no 150 MB browser download) and the fake AI.
 - Office/OpenDocument files are read with fflate (MIT) and a small XML reader instead of mammoth/SheetJS (SheetJS's npm package is outdated); one reader handles all ZIP-based formats.
@@ -192,7 +220,9 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Needs Sneha
 
-- Wave 1 syllabus sources so far: [GCE Kalahandi first-year syllabus (AICTE model)](https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf) and [IET Lucknow K-series first year (AICTE model)](https://ietlucknow.ac.in/sites/default/files/syllabus/K_Series_B_Tech_1st_Year_AICTE_Model_Curriculum_EFS_2020_21_4.pdf). Programming for Problem Solving there is C only; Environmental Science still needs a source.
+- Wave 1 subjects start at `sourced`. Their golden sets (facts with fetched quotes) and evals come in Step 7; three sample entries per subject will be listed here before each eval runs.
+
+- Wave 1 syllabus sources used: [AICTE Model Curriculum Vol. I](https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf), [GCE Kalahandi first-year syllabus (AICTE model)](https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf), [IET Lucknow K-series first year (AICTE model)](https://ietlucknow.ac.in/sites/default/files/syllabus/K_Series_B_Tech_1st_Year_AICTE_Model_Curriculum_EFS_2020_21_4.pdf), [UGC Environmental Studies core module](https://www.ugc.gov.in/pdfnews/2269552_environmentalstudies.pdf). If your college follows a different university syllabus, Step 11 ("my own syllabus") will match it to these topics.
 
 - **Vercel preview link:** the GitHub CLI isn't signed in on this computer, so I couldn't read the preview URL. Open vercel.com → the Prism project → Deployments, and look for the `overnight-v2.5-v3` branch (if the project is linked to GitHub, every push made a preview).
 - To use "Read with AI" on photos, nothing new is needed (it uses the existing `GEMINI_API_KEY`). Groq cannot read images, so if Gemini's quota is used up the button says so.
@@ -217,4 +247,4 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Next action
 
-V3 · Step 6: Wave 1 syllabus and grounding (including complete Applied Physics).
+V3 · Step 7: Wave 1 visuals and widgets, then the Wave 1 eval.

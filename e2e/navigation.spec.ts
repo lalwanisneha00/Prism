@@ -26,7 +26,8 @@ test.describe("Navigation for many subjects (V3 · Step 3)", () => {
     // Saved: the home page picker remembers it.
     await page.goto("/");
     await expect(page.getByTestId("branch-bar").getByLabel("My branch")).toHaveValue("me");
-    await expect(page.getByTestId("subject-chips").getByRole("radio")).toHaveCount(2);
+    // The first-year common core: Wave 1's nine subjects plus Electricity & Magnetism.
+    await expect(page.getByTestId("subject-chips").getByRole("radio")).toHaveCount(10);
   });
 
   test("a subject page shows its chapters and leads into lessons", async ({ page }) => {

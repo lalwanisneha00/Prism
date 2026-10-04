@@ -164,6 +164,7 @@ export const widgetRegistry = {
       "inverse-laplace",
       "power-series",
       "beta-gamma-functions",
+      "legendre-polynomials",
     ],
   },
   "tangent-line": {
@@ -243,6 +244,7 @@ export const widgetRegistry = {
       "rank-of-matrix",
       "linear-systems",
       "jacobians",
+      "orthogonal-transformations",
     ],
   },
   "vector-field": {
@@ -280,7 +282,13 @@ export const widgetRegistry = {
         { message: "start must lie inside xRange and yRange" },
       ),
     help: 'f = dy/dx as an expression in x and y (use *), e.g. "x - y"; xRange, yRange [min,max]; start [x0, y0] inside them (the initial condition).',
-    topics: ["separable-ode", "exact-equations", "linear-first-order-ode", "bernoulli-equation"],
+    topics: [
+      "separable-ode",
+      "exact-equations",
+      "linear-first-order-ode",
+      "bernoulli-equation",
+      "clairaut-equation",
+    ],
   },
   "fourier-series": {
     name: "Fourier series partial sums",
@@ -289,7 +297,7 @@ export const widgetRegistry = {
       terms: z.int().min(1).max(40),
     }),
     help: 'wave: "square" | "sawtooth" (f(x) = x) | "triangle" (f(x) = |x|) on (-π, π); terms 1..40 to start with (e.g. 3).',
-    topics: ["fourier-series", "half-range-series", "convergence-tests"],
+    topics: ["fourier-series", "half-range-series", "convergence-tests", "parsevals-theorem"],
   },
 } as const;
 

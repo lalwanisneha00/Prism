@@ -5,10 +5,10 @@ Update this after every step so any person or AI tool can pick up the work.
 ## Current state (resume here)
 
 - **Mode:** AUTONOMOUS (user, 2026-10-04: "keep going step after step without confirmation… run tests on your own and move to the next step") on branch `overnight-v2.5-v3`. Status for the user goes in `MORNING_REPORT.md`.
-- **Version / step:** V3 · Step 6 (Wave 1 syllabus and grounding, incl. complete Applied Physics): not started.
-- **Finished:** all of V2.5; concept map fix (tag `concept-map-fix`); V3 · Steps 2–5 (tags `v3-step-2` … `v3-step-5`).
+- **Version / step:** V3 · Step 7 (Wave 1 visuals and widgets, then Wave 1 eval): not started.
+- **Finished:** all of V2.5; concept map fix (tag `concept-map-fix`); V3 · Steps 2–6 (tags `v3-step-2` … `v3-step-6`).
 - **Half-done:** none.
-- **Next action:** V3 · Step 6. Browser tests: build with `LLM_PROVIDER=fake npx next build`, run `E2E_SERVER=start npx playwright test --project=<mode>` one mode at a time (memory is short on this computer). Wave 1 syllabus sources found (GCE Kalahandi and IET Lucknow AICTE-model first-year syllabi; see MORNING_REPORT).
+- **Next action:** V3 · Step 7 (widgets for Wave 1 subjects and the new maths chapters; extend the widget-coverage test `WITH_WIDGETS`; Wave 1 golden sets from fetched quotes, three samples per subject shown in MORNING_REPORT before its eval; eval one subject at a time within the free quota). Browser tests: build with `LLM_PROVIDER=fake npx next build`, run `E2E_SERVER=start npx playwright test --project=<mode>` one mode at a time (memory is short on this computer). Wave 1 syllabus sources found (GCE Kalahandi and IET Lucknow AICTE-model first-year syllabi; see MORNING_REPORT).
 - **Running commands:** none.
 - **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` when quota allows.
 - **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, continue from "Next action". Finish half-done work first; never restart a finished step.
@@ -82,7 +82,7 @@ Step protocol: one step at a time with a "✅ Check this" block in MORNING_REPOR
 | 3    | Navigation (branch → semester → subject …), search, mock tests                                     | ✅ Done        |
 | 4    | Other subjects (custom non-core subjects, outline from material, theory-style lessons)             | ✅ Done        |
 | 5    | Accuracy scaffolding (`tested` tier, sourced golden sets, resumable eval, numeric and code checks) | ✅ Done        |
-| 6    | Wave 1 syllabus and grounding (incl. complete Applied Physics)                                     | ⬜ Not started |
+| 6    | Wave 1 syllabus and grounding (incl. complete Applied Physics)                                     | ✅ Done        |
 | 7    | Wave 1 visuals and widgets, Wave 1 eval                                                            | ⬜ Not started |
 | 8    | Wave 2 (CE/IT/ICT/ECE) syllabus, visuals, eval                                                     | ⬜ Not started |
 | 9    | Wave 3 (Electrical, Mechanical, Civil)                                                             | ⬜ Not started |

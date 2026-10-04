@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { subjects } from "@/lib/subjects";
+import { findSubject } from "@/lib/subjects";
 import { normalize, searchTopics } from "@/lib/topicSearch";
 
-const em = subjects[0];
+const em = findSubject("em")!;
 const ids = (query: string) => searchTopics(em, query).map((m) => m.topic.id);
 
 describe("normalize", () => {

@@ -6,10 +6,10 @@
   "branches": ["all"],
   "semesters": [1, 2],
   "syllabusSource": {
-    "kind": "textbook",
-    "title": "OpenStax Calculus Volumes 1–3",
-    "url": "https://openstax.org/books/calculus-volume-1/pages/1-introduction",
-    "note": "Chapters and topics follow the textbooks. To be matched to the AICTE Model Curriculum (first-year mathematics) in V3 · Step 6."
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree Courses in Engineering & Technology, Vol. I (Jan 2018): Mathematics-I (Calculus and Linear Algebra) and Mathematics-II (Calculus, ODEs and Complex Variable)",
+    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf",
+    "note": "Chapters cover AICTE BSC103 and BSC104 (Laplace transforms from GCE Kalahandi's AICTE-model Mathematics-I). Grounding follows OpenStax Calculus Volumes 1-3."
   },
   "visualSet": "maths",
   "chapters": [
@@ -49,6 +49,11 @@
         {
           "id": "maxima-minima-one-variable",
           "name": "Maxima and minima of one variable",
+          "requires": ["derivatives-basics"]
+        },
+        {
+          "id": "curvature-evolutes",
+          "name": "Curvature, evolutes and involutes",
           "requires": ["derivatives-basics"]
         }
       ]
@@ -127,6 +132,11 @@
           "id": "area-volume-integrals",
           "name": "Area and volume by integration",
           "requires": ["double-integrals"]
+        },
+        {
+          "id": "change-of-variables-polar",
+          "name": "Change of variables (Cartesian to polar); centre of mass",
+          "requires": ["double-integrals"]
         }
       ]
     },
@@ -162,6 +172,11 @@
           "id": "linear-transformations",
           "name": "Linear transformations",
           "requires": ["rank-of-matrix"]
+        },
+        {
+          "id": "orthogonal-transformations",
+          "name": "Symmetric, skew-symmetric and orthogonal matrices; orthogonal transformation",
+          "requires": ["eigenvalues-eigenvectors"]
         }
       ]
     },
@@ -197,6 +212,16 @@
         {
           "id": "variation-of-parameters",
           "name": "Method of variation of parameters",
+          "requires": ["higher-order-linear-ode"]
+        },
+        {
+          "id": "clairaut-equation",
+          "name": "Equations not of first degree; Clairaut's equation",
+          "requires": ["separable-ode"]
+        },
+        {
+          "id": "cauchy-euler-equation",
+          "name": "Cauchy-Euler equation",
           "requires": ["higher-order-linear-ode"]
         }
       ]
@@ -270,6 +295,91 @@
           "id": "inverse-laplace",
           "name": "Inverse Laplace transform",
           "requires": ["laplace-transform"]
+        },
+        {
+          "id": "parsevals-theorem",
+          "name": "Parseval's theorem for Fourier series",
+          "requires": ["fourier-series"]
+        }
+      ]
+    },
+    {
+      "id": "special-functions",
+      "name": "Series Solutions and Special Functions",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "power-series-solutions",
+          "name": "Power series solutions of differential equations",
+          "requires": ["higher-order-linear-ode"]
+        },
+        {
+          "id": "legendre-polynomials",
+          "name": "Legendre equation and Legendre polynomials",
+          "requires": ["power-series-solutions"]
+        },
+        {
+          "id": "bessel-functions",
+          "name": "Bessel functions of the first kind and their properties",
+          "requires": ["power-series-solutions"]
+        }
+      ]
+    },
+    {
+      "id": "complex-differentiation",
+      "name": "Complex Variable: Differentiation",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "analytic-functions-cauchy-riemann",
+          "name": "Analytic functions and the Cauchy-Riemann equations"
+        },
+        {
+          "id": "harmonic-functions",
+          "name": "Harmonic functions and harmonic conjugates",
+          "requires": ["analytic-functions-cauchy-riemann"]
+        },
+        {
+          "id": "elementary-complex-functions",
+          "name": "Elementary analytic functions: exponential, trigonometric, logarithm",
+          "requires": ["analytic-functions-cauchy-riemann"]
+        },
+        {
+          "id": "conformal-mobius",
+          "name": "Conformal mappings and Möbius transformations",
+          "requires": ["elementary-complex-functions"]
+        }
+      ]
+    },
+    {
+      "id": "complex-integration",
+      "name": "Complex Variable: Integration",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "contour-integrals-cauchy",
+          "name": "Contour integrals, Cauchy-Goursat theorem and Cauchy's integral formula",
+          "requires": ["analytic-functions-cauchy-riemann"]
+        },
+        {
+          "id": "liouville-maximum-modulus",
+          "name": "Liouville's theorem and the maximum modulus theorem",
+          "requires": ["contour-integrals-cauchy"]
+        },
+        {
+          "id": "taylor-laurent-singularities",
+          "name": "Taylor and Laurent series; zeros and singularities",
+          "requires": ["contour-integrals-cauchy"]
+        },
+        {
+          "id": "residue-theorem",
+          "name": "Residues and the residue theorem",
+          "requires": ["taylor-laurent-singularities"]
+        },
+        {
+          "id": "real-integrals-by-residues",
+          "name": "Evaluating real integrals with residues",
+          "requires": ["residue-theorem"]
         }
       ]
     }

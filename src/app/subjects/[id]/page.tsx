@@ -59,8 +59,15 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
           ) : (
             subject.syllabusSource.title
           )}
-          {subject.syllabusSource.note ? `. ${subject.syllabusSource.note}` : ""}
         </p>
+        {subject.syllabusSource.note && (
+          <details className="text-sm text-muted">
+            <summary className="w-fit cursor-pointer font-medium">
+              How this syllabus was put together
+            </summary>
+            <p className="mt-1 max-w-2xl">{subject.syllabusSource.note}</p>
+          </details>
+        )}
         <nav aria-label="Shortcuts" className="flex flex-wrap gap-2">
           {actions.map((a, i) => (
             <Link

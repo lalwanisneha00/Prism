@@ -90,9 +90,26 @@ describe("registry coverage", () => {
     }
   });
 
-  it("has at least one fitting widget for most topics of every subject", () => {
-    for (const subject of subjects) {
-      const own = topicsOf(subject.id);
+  // Chapters whose widgets are built. Wave 1 subjects and the chapters added to Engineering
+  // Maths in V3 · Step 6 (complex variables, special functions) join in V3 · Step 7.
+  const WITH_WIDGETS: Record<string, string[] | "all"> = {
+    em: "all",
+    "engg-math": [
+      "differential-calculus",
+      "partial-differentiation",
+      "integral-calculus",
+      "linear-algebra",
+      "differential-equations",
+      "vector-calculus",
+      "series-and-transforms",
+    ],
+  };
+  it("has at least one fitting widget for most topics of every subject with visuals", () => {
+    for (const [id, chapters] of Object.entries(WITH_WIDGETS)) {
+      const subject = subjects.find((s) => s.id === id)!;
+      const own = subject.chapters
+        .filter((c) => chapters === "all" || chapters.includes(c.id))
+        .flatMap((c) => c.topics.map((t) => t.id));
       const covered = own.filter((t) => widgetsForTopic(t).length > 0);
       expect(covered.length / own.length, subject.id).toBeGreaterThan(0.75);
     }

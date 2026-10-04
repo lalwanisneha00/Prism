@@ -38,5 +38,72 @@ export const curatedVideos: Record<string, Link[]> = {
       publisher: "3Blue1Brown",
       note: "Beautiful visual intuition for derivatives and integrals.",
     },
+    {
+      title: "Complex Variables with Applications (18.04)",
+      url: "https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/",
+      publisher: "MIT OpenCourseWare",
+      note: "For the complex variable chapters.",
+    },
+  ],
+  // Wave 1 (V3 · Step 6): NPTEL first (SPEC §12.3 rule 9); every link was opened and checked.
+  "applied-physics": [
+    {
+      title: "Classical Mechanics (8.01SC), full course",
+      url: "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/",
+      publisher: "MIT OpenCourseWare",
+      note: "Free lectures and problem sets for the mechanics chapters.",
+    },
+    {
+      title: "Physics III: Vibrations and Waves (8.03SC)",
+      url: "https://ocw.mit.edu/courses/8-03sc-physics-iii-vibrations-and-waves-fall-2016/",
+      publisher: "MIT OpenCourseWare",
+      note: "Oscillations, waves and optics, with worked problems.",
+    },
+    {
+      title: "Quantum Physics I (8.04)",
+      url: "https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2016/",
+      publisher: "MIT OpenCourseWare",
+      note: "For the quantum physics chapter.",
+    },
+  ],
+  "engg-chemistry": [
+    {
+      title: "Engineering Chemistry I (Prof. B.L. Tembe and Prof. K. Mangala Sunder, IIT Bombay)",
+      url: "https://nptel.ac.in/courses/122101001",
+      publisher: "NPTEL",
+      note: "The NPTEL course behind the web-book the AICTE syllabus recommends.",
+    },
+  ],
+  "basic-electrical": [
+    {
+      title: "Basic Electrical Technology (Prof. L. Umanand, IISc Bangalore)",
+      url: "https://nptel.ac.in/courses/108108076",
+      publisher: "NPTEL",
+      note: "Free video lectures covering circuits, AC, machines and more.",
+    },
+  ],
+  "basic-electronics": [
+    {
+      title: "Basic Electronics (Prof. M.B. Patil, IIT Bombay)",
+      url: "https://nptel.ac.in/courses/108101091",
+      publisher: "NPTEL",
+      note: "Diodes, transistors, op-amps and digital circuits, with simulations.",
+    },
+  ],
+  "engg-mechanics": [
+    {
+      title: "Engineering Mechanics (Prof. Manoj K Harbola, IIT Kanpur)",
+      url: "https://nptel.ac.in/courses/122104015",
+      publisher: "NPTEL",
+      note: "Statics and dynamics lectures from the author of a textbook AICTE recommends.",
+    },
+  ],
+  pps: [
+    {
+      title: "Introduction to Computer Science and Programming in Python (6.0001)",
+      url: "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/",
+      publisher: "MIT OpenCourseWare",
+      note: "Free lectures and problem sets for the Python chapter.",
+    },
   ],
 };

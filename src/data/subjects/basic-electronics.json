@@ -1,0 +1,172 @@
+{
+  "id": "basic-electronics",
+  "name": "Basic Electronics Engineering",
+  "field": "Electronics Engineering",
+  "tier": "sourced",
+  "branches": ["all"],
+  "semesters": [1, 2],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "GCE Kalahandi first-year B.Tech syllabus (AICTE model): Basic Electronics Engineering",
+    "url": "https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf",
+    "note": "Modules 1-4 (diodes and BJTs, FETs and CMOS, op-amps, digital electronics). Amplifier feedback and oscillators follow the AICTE Model Curriculum's Basic Electronics course (https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf)."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "diodes",
+      "name": "Semiconductor Diodes",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "semiconductor-intro",
+          "name": "Introduction to semiconductors"
+        },
+        {
+          "id": "pn-junction-diode",
+          "name": "p-n junction diode: principle, V-I characteristics and diode equation",
+          "requires": ["semiconductor-intro"]
+        },
+        {
+          "id": "diode-resistance-equivalent",
+          "name": "AC and DC resistance and equivalent circuits of a diode",
+          "requires": ["pn-junction-diode"]
+        },
+        {
+          "id": "breakdown-zener",
+          "name": "Breakdown mechanisms, Zener and avalanche diodes",
+          "requires": ["pn-junction-diode"]
+        },
+        {
+          "id": "rectifiers",
+          "name": "Half-wave and full-wave rectifiers with filters",
+          "requires": ["pn-junction-diode"]
+        },
+        {
+          "id": "clippers-clampers",
+          "name": "Clipper and clamper circuits",
+          "requires": ["pn-junction-diode"]
+        },
+        {
+          "id": "led-photodiode",
+          "name": "LEDs and photodiodes",
+          "requires": ["pn-junction-diode"]
+        }
+      ]
+    },
+    {
+      "id": "bjt",
+      "name": "Bipolar Junction Transistors",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "bjt-operation",
+          "name": "Transistor operation and current equations (n-p-n and p-n-p)"
+        },
+        {
+          "id": "bjt-configurations",
+          "name": "CB, CE and CC configurations and characteristics",
+          "requires": ["bjt-operation"]
+        },
+        {
+          "id": "load-line-biasing",
+          "name": "Load line analysis and DC biasing (fixed and voltage divider)",
+          "requires": ["bjt-configurations"]
+        },
+        {
+          "id": "amplifier-basics",
+          "name": "Introduction to amplifiers: the CE amplifier",
+          "requires": ["load-line-biasing"]
+        },
+        {
+          "id": "feedback-oscillators",
+          "name": "Negative feedback and oscillators (RC phase shift, Wien bridge)",
+          "requires": ["amplifier-basics"]
+        }
+      ]
+    },
+    {
+      "id": "fet-cmos",
+      "name": "FETs and CMOS",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "jfet",
+          "name": "JFET: types, operation and characteristics"
+        },
+        {
+          "id": "mosfet",
+          "name": "MOSFET: enhancement and depletion types, characteristics",
+          "requires": ["jfet"]
+        },
+        {
+          "id": "cmos-inverter",
+          "name": "CMOS digital inverter and its VTC",
+          "requires": ["mosfet"]
+        }
+      ]
+    },
+    {
+      "id": "op-amps",
+      "name": "Operational Amplifiers",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "ideal-op-amp",
+          "name": "The ideal op-amp and virtual ground"
+        },
+        {
+          "id": "inverting-non-inverting",
+          "name": "Inverting and non-inverting amplifiers",
+          "requires": ["ideal-op-amp"]
+        },
+        {
+          "id": "op-amp-integrator-differentiator",
+          "name": "Summing amplifier, integrator and differentiator",
+          "requires": ["inverting-non-inverting"]
+        },
+        {
+          "id": "op-amp-parameters",
+          "name": "Real op-amps: CMRR, slew rate and the 741",
+          "requires": ["ideal-op-amp"]
+        }
+      ]
+    },
+    {
+      "id": "digital-electronics",
+      "name": "Digital Electronics",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "number-systems",
+          "name": "Number systems and binary arithmetic"
+        },
+        {
+          "id": "logic-gates",
+          "name": "Logic gates: NOT, AND, OR, NAND, NOR, XOR, XNOR",
+          "requires": ["number-systems"]
+        },
+        {
+          "id": "boolean-algebra",
+          "name": "Boolean algebra and De Morgan's theorems",
+          "requires": ["logic-gates"]
+        },
+        {
+          "id": "standard-forms-truth-tables",
+          "name": "Standard forms (SOP, POS) and truth tables",
+          "requires": ["boolean-algebra"]
+        },
+        {
+          "id": "universal-gates",
+          "name": "Universal NAND and NOR gates",
+          "requires": ["logic-gates"]
+        },
+        {
+          "id": "combinational-circuits-adders",
+          "name": "Combinational logic and binary adders",
+          "requires": ["standard-forms-truth-tables"]
+        }
+      ]
+    }
+  ]
+}

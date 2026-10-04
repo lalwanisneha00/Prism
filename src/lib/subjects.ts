@@ -29,7 +29,7 @@ const ChapterSchema = z.object({
 
 /** Where the chapter and topic list comes from (SPEC §12.1 rule 1: never from memory). */
 const SyllabusSourceSchema = z.object({
-  kind: z.enum(["aicte", "university", "textbook", "nptel", "none"]),
+  kind: z.enum(["aicte", "ugc", "university", "textbook", "nptel", "none"]),
   title: z.string().min(1),
   url: z.url().optional(),
   /** What was checked, and anything still to check. */

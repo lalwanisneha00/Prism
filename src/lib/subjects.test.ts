@@ -98,7 +98,7 @@ describe("catalogue checks", () => {
 
   it("shows linked chapters under their owner subject, without copying them", () => {
     const physics = minimal({
-      id: "applied-physics",
+      id: "linked-physics",
       chapters: [],
       links: [{ subject: "em", chapters: ["electrostatics"] }],
     });

@@ -1,0 +1,200 @@
+{
+  "id": "engg-mechanics",
+  "name": "Engineering Mechanics",
+  "field": "Engineering Mechanics",
+  "tier": "sourced",
+  "branches": ["all"],
+  "semesters": [1, 2],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum: Engineering Mechanics (ESC)",
+    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf",
+    "note": "Statics, trusses, centroids, moments of inertia, friction, particle and rigid-body dynamics follow the AICTE Engineering Mechanics course; virtual work, parallel forces and impact follow GCE Kalahandi's AICTE-model Engineering Mechanics (https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf)."
+  },
+  "visualSet": "mechanics",
+  "chapters": [
+    {
+      "id": "force-systems",
+      "name": "Force Systems and Equilibrium",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "force-resolution",
+          "name": "Forces: composition and resolution"
+        },
+        {
+          "id": "moments-couples",
+          "name": "Moments of a force, Varignon's theorem and couples",
+          "requires": ["force-resolution"]
+        },
+        {
+          "id": "resultant-force-system",
+          "name": "Resultant of a general force system",
+          "requires": ["moments-couples"]
+        },
+        {
+          "id": "free-body-diagrams",
+          "name": "Free body diagrams",
+          "requires": ["force-resolution"]
+        },
+        {
+          "id": "equilibrium-coplanar",
+          "name": "Equilibrium of coplanar forces; Lami's theorem",
+          "requires": ["free-body-diagrams", "moments-couples"]
+        },
+        {
+          "id": "parallel-forces",
+          "name": "Parallel forces in a plane",
+          "requires": ["moments-couples"]
+        },
+        {
+          "id": "equilibrium-3d",
+          "name": "Forces in space and equilibrium in three dimensions",
+          "requires": ["equilibrium-coplanar"]
+        }
+      ]
+    },
+    {
+      "id": "friction",
+      "name": "Friction",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "laws-of-friction",
+          "name": "Types and laws of friction; limiting friction"
+        },
+        {
+          "id": "friction-applications",
+          "name": "Friction problems: blocks, inclined planes and ladders",
+          "requires": ["laws-of-friction"]
+        }
+      ]
+    },
+    {
+      "id": "trusses-structures",
+      "name": "Trusses, Beams and Frames",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "simple-trusses",
+          "name": "Simple trusses: tension, compression and zero-force members"
+        },
+        {
+          "id": "method-of-joints",
+          "name": "Method of joints",
+          "requires": ["simple-trusses"]
+        },
+        {
+          "id": "method-of-sections",
+          "name": "Method of sections",
+          "requires": ["simple-trusses"]
+        },
+        {
+          "id": "beams-frames-machines",
+          "name": "Beams, frames and machines",
+          "requires": ["method-of-joints"]
+        }
+      ]
+    },
+    {
+      "id": "centroid-moment-of-inertia",
+      "name": "Centroid, Centre of Gravity and Moment of Inertia",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "centroid-simple-figures",
+          "name": "Centroid of simple figures and curves"
+        },
+        {
+          "id": "centroid-composite",
+          "name": "Centroid of composite sections; centre of gravity",
+          "requires": ["centroid-simple-figures"]
+        },
+        {
+          "id": "area-moment-of-inertia",
+          "name": "Area moment of inertia",
+          "requires": ["centroid-composite"]
+        },
+        {
+          "id": "parallel-perpendicular-axis",
+          "name": "Parallel and perpendicular axis theorems",
+          "requires": ["area-moment-of-inertia"]
+        },
+        {
+          "id": "mass-moment-of-inertia",
+          "name": "Mass moment of inertia of bodies",
+          "requires": ["parallel-perpendicular-axis"]
+        }
+      ]
+    },
+    {
+      "id": "virtual-work",
+      "name": "Virtual Work",
+      "hours": 2,
+      "topics": [
+        {
+          "id": "principle-of-virtual-work",
+          "name": "Principle of virtual work and equilibrium of ideal systems",
+          "requires": ["equilibrium-coplanar"]
+        }
+      ]
+    },
+    {
+      "id": "particle-dynamics",
+      "name": "Dynamics of Particles",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "rectilinear-motion",
+          "name": "Rectilinear motion"
+        },
+        {
+          "id": "curvilinear-projectile",
+          "name": "Curvilinear motion and projectiles",
+          "requires": ["rectilinear-motion"]
+        },
+        {
+          "id": "dalemberts-principle",
+          "name": "Inertial frames and D'Alembert's principle",
+          "requires": ["rectilinear-motion"]
+        },
+        {
+          "id": "work-energy-particles",
+          "name": "Work, kinetic energy, power and potential energy",
+          "requires": ["rectilinear-motion"]
+        },
+        {
+          "id": "impulse-momentum-impact",
+          "name": "Impulse, momentum and impact",
+          "requires": ["work-energy-particles"]
+        }
+      ]
+    },
+    {
+      "id": "rigid-body-kinetics",
+      "name": "Kinetics of Rigid Bodies",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "rotation-about-axis",
+          "name": "Rotation of a rigid body about a fixed axis"
+        },
+        {
+          "id": "instantaneous-centre",
+          "name": "Plane motion and the instantaneous centre of rotation",
+          "requires": ["rotation-about-axis"]
+        },
+        {
+          "id": "dalembert-plane-motion",
+          "name": "D'Alembert's principle in plane motion and connected bodies",
+          "requires": ["instantaneous-centre"]
+        },
+        {
+          "id": "angular-momentum-rigid",
+          "name": "Moment of momentum and work-energy in rotation",
+          "requires": ["rotation-about-axis"]
+        }
+      ]
+    }
+  ]
+}

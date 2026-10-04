@@ -1,0 +1,251 @@
+{
+  "id": "environmental-science",
+  "name": "Environmental Science",
+  "field": "Environmental Science",
+  "tier": "sourced",
+  "branches": ["all"],
+  "semesters": [1, 2],
+  "syllabusSource": {
+    "kind": "ugc",
+    "title": "UGC Six Months Module Syllabus for Environmental Studies for Under Graduate Courses (2003)",
+    "url": "https://www.ugc.gov.in/pdfnews/2269552_environmentalstudies.pdf",
+    "note": "Units 1-7 of the UGC core module (the course AICTE lists as the mandatory Environmental Sciences course). Unit 8 is field work and has no lessons."
+  },
+  "visualSet": "theory",
+  "teaching": "theory",
+  "chapters": [
+    {
+      "id": "multidisciplinary-nature",
+      "name": "Multidisciplinary Nature of Environmental Studies",
+      "hours": 2,
+      "topics": [
+        {
+          "id": "evs-scope-importance",
+          "name": "Definition, scope and importance; need for public awareness"
+        }
+      ]
+    },
+    {
+      "id": "natural-resources",
+      "name": "Natural Resources",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "renewable-non-renewable",
+          "name": "Renewable and non-renewable resources",
+          "requires": ["evs-scope-importance"]
+        },
+        {
+          "id": "forest-resources",
+          "name": "Forest resources: use, over-exploitation and deforestation",
+          "requires": ["renewable-non-renewable"]
+        },
+        {
+          "id": "water-resources",
+          "name": "Water resources: use, floods, drought, dams",
+          "requires": ["renewable-non-renewable"]
+        },
+        {
+          "id": "mineral-resources",
+          "name": "Mineral resources and the effects of mining",
+          "requires": ["renewable-non-renewable"]
+        },
+        {
+          "id": "food-resources",
+          "name": "Food resources and the effects of modern agriculture",
+          "requires": ["renewable-non-renewable"]
+        },
+        {
+          "id": "energy-resources",
+          "name": "Energy resources: renewable and alternative energy",
+          "requires": ["renewable-non-renewable"]
+        },
+        {
+          "id": "land-resources",
+          "name": "Land resources: degradation, soil erosion, desertification",
+          "requires": ["renewable-non-renewable"]
+        },
+        {
+          "id": "sustainable-lifestyles",
+          "name": "Role of an individual and equitable use of resources",
+          "requires": ["energy-resources"]
+        }
+      ]
+    },
+    {
+      "id": "ecosystems",
+      "name": "Ecosystems",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "ecosystem-concept",
+          "name": "Concept, structure and function of an ecosystem"
+        },
+        {
+          "id": "producers-consumers-decomposers",
+          "name": "Producers, consumers and decomposers",
+          "requires": ["ecosystem-concept"]
+        },
+        {
+          "id": "energy-flow-food-chains",
+          "name": "Energy flow, food chains, food webs and ecological pyramids",
+          "requires": ["producers-consumers-decomposers"]
+        },
+        {
+          "id": "ecological-succession",
+          "name": "Ecological succession",
+          "requires": ["ecosystem-concept"]
+        },
+        {
+          "id": "ecosystem-types",
+          "name": "Forest, grassland, desert and aquatic ecosystems",
+          "requires": ["ecosystem-concept"]
+        }
+      ]
+    },
+    {
+      "id": "biodiversity",
+      "name": "Biodiversity and its Conservation",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "biodiversity-levels",
+          "name": "Genetic, species and ecosystem diversity"
+        },
+        {
+          "id": "biogeography-india",
+          "name": "Biogeographical classification of India",
+          "requires": ["biodiversity-levels"]
+        },
+        {
+          "id": "value-of-biodiversity",
+          "name": "Value of biodiversity",
+          "requires": ["biodiversity-levels"]
+        },
+        {
+          "id": "india-megadiversity-hotspots",
+          "name": "India as a mega-diversity nation; biodiversity hotspots",
+          "requires": ["biogeography-india"]
+        },
+        {
+          "id": "threats-to-biodiversity",
+          "name": "Threats: habitat loss, poaching, human-wildlife conflict; endangered species",
+          "requires": ["value-of-biodiversity"]
+        },
+        {
+          "id": "conservation-in-ex-situ",
+          "name": "In-situ and ex-situ conservation",
+          "requires": ["threats-to-biodiversity"]
+        }
+      ]
+    },
+    {
+      "id": "pollution",
+      "name": "Environmental Pollution",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "air-pollution",
+          "name": "Air pollution: causes, effects and control",
+          "requires": ["ecosystem-concept"]
+        },
+        {
+          "id": "water-pollution",
+          "name": "Water and marine pollution",
+          "requires": ["water-resources"]
+        },
+        {
+          "id": "soil-noise-thermal-pollution",
+          "name": "Soil, noise and thermal pollution",
+          "requires": ["land-resources"]
+        },
+        {
+          "id": "nuclear-hazards",
+          "name": "Nuclear hazards",
+          "requires": ["energy-resources"]
+        },
+        {
+          "id": "solid-waste-management",
+          "name": "Solid waste management: urban and industrial waste",
+          "requires": ["evs-scope-importance"]
+        },
+        {
+          "id": "disaster-management",
+          "name": "Disaster management: floods, earthquakes, cyclones, landslides",
+          "requires": ["evs-scope-importance"]
+        }
+      ]
+    },
+    {
+      "id": "social-issues",
+      "name": "Social Issues and the Environment",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "sustainable-development",
+          "name": "From unsustainable to sustainable development; urban energy problems"
+        },
+        {
+          "id": "water-conservation",
+          "name": "Water conservation, rainwater harvesting and watershed management",
+          "requires": ["sustainable-development"]
+        },
+        {
+          "id": "resettlement-rehabilitation",
+          "name": "Resettlement and rehabilitation of people",
+          "requires": ["sustainable-development"]
+        },
+        {
+          "id": "environmental-ethics",
+          "name": "Environmental ethics; consumerism and waste",
+          "requires": ["sustainable-development"]
+        },
+        {
+          "id": "climate-change-ozone",
+          "name": "Climate change, global warming, acid rain and ozone depletion",
+          "requires": ["air-pollution"]
+        },
+        {
+          "id": "wasteland-reclamation",
+          "name": "Wasteland reclamation",
+          "requires": ["sustainable-development"]
+        },
+        {
+          "id": "environmental-legislation",
+          "name": "Environment Protection, Air, Water, Wildlife and Forest Conservation Acts"
+        },
+        {
+          "id": "public-awareness",
+          "name": "Enforcement of environmental law and public awareness",
+          "requires": ["environmental-legislation"]
+        }
+      ]
+    },
+    {
+      "id": "human-population",
+      "name": "Human Population and the Environment",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "population-growth",
+          "name": "Population growth and the population explosion; family welfare"
+        },
+        {
+          "id": "environment-health",
+          "name": "Environment and human health; HIV/AIDS",
+          "requires": ["population-growth"]
+        },
+        {
+          "id": "human-rights-value-education",
+          "name": "Human rights, value education, women and child welfare",
+          "requires": ["population-growth"]
+        },
+        {
+          "id": "it-in-environment",
+          "name": "Role of information technology in environment and health",
+          "requires": ["evs-scope-importance"]
+        }
+      ]
+    }
+  ]
+}
