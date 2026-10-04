@@ -18,7 +18,7 @@
         {
           "id": "names",
           "claim": "Physical, data link, network, transport, session, presentation, application",
-          "pattern": "physical[^.]{0,40}data[- ]link|session[^.]{0,40}presentation",
+          "pattern": "physical[^.]{0,40}data[- ]link|data[- ]link[^.]{0,40}physical|session[^.]{0,40}presentation|presentation[^.]{0,40}session",
           "source": {
             "url": "https://en.wikipedia.org/wiki/OSI_model",
             "quote": "Physical, Data Link, Network, Transport, Session, Presentation, and Application"

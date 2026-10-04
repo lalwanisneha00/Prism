@@ -5,7 +5,9 @@ import {
   GoldenSchema,
   normalizeForMatch,
   overallPercent,
+  lessonText,
   scoreLesson,
+  scoreText,
   visualReport,
 } from "./score";
 import { sampleLessons } from "@/data/sampleLessons";
@@ -71,6 +73,13 @@ describe("scoring", () => {
       found: ["statement", "closed-surface", "outside-zero"],
       missing: [],
     });
+  });
+
+  it("scores a saved lesson text the same way as the lesson itself", () => {
+    const gauss = set.topics.find((t) => t.topic === "gauss-law")!;
+    expect(scoreText(lessonText(sampleLessons[0]), gauss)).toEqual(
+      scoreLesson(sampleLessons[0], gauss),
+    );
   });
 
   it("does not credit facts a lesson never states", () => {

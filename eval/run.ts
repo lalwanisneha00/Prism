@@ -28,6 +28,7 @@ import {
   overallPercent,
   quotedShare,
   scoreLesson,
+  scoreText,
   tierForScore,
   visualReport,
   type Golden,
@@ -147,6 +148,15 @@ async function runSet(set: Golden): Promise<{ percent: number; rows: Row[]; comp
 
   for (const [i, entry] of topics.entries()) {
     if (done[entry.topic]) {
+      // A finished lesson is scored again from its saved text with the current patterns, so a
+      // scorer fix (logged in EVAL_LOG.md) needs no new AI call.
+      const saved = `eval/results/lessons/${set.subject}/${entry.topic}.txt`;
+      if (done[entry.topic].valid && existsSync(saved)) {
+        done[entry.topic] = {
+          ...done[entry.topic],
+          ...scoreText(readFileSync(saved, "utf8"), entry),
+        };
+      }
       rows.push(done[entry.topic]);
       continue;
     }

@@ -36,3 +36,15 @@ Notes:
 **2026-10-04, Wave 1 notes (V3 · Step 7):** Engineering Mechanics was re-run (`--fresh`) after a pipeline fix: two lessons had failed only because a visual never became valid; the final attempt now drops such a visual instead of failing the whole lesson. Engineering Graphics (1 lesson: invalid JSON three times) and Basic Electrical (1 lesson) had their failed lessons regenerated once with `--retry-failed`; lessons that generated but missed facts were never re-run. Remaining misses: standing-waves "half-wavelength spacing", nanomaterials "1–100 nm", BJT "emitter most heavily doped", first/third-angle projection (2 facts), energy pyramid "upright". A sourced chart in the deforestation lesson showed a number not in its source; such charts are now repaired or removed during generation.
 | 2026-10-04 | dsa | first-encounter · 10 min | 14 | **86.2%** (29 facts) | 12/14 | 21 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
 | 2026-10-04 | dsa | first-encounter · 10 min | 14 | **100%** (29 facts) | 14/14 | 25 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | discrete-maths | first-encounter · 10 min | 13 | **91.7%** (24 facts) | 13/13 | 11 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | discrete-maths | first-encounter · 10 min | 13 | **100%** (24 facts) | 13/13 | 11 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | coa | first-encounter · 10 min | 12 | **100%** (23 facts) | 12/12 | 18 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | operating-systems | first-encounter · 10 min | 12 | **100%** (23 facts) | 12/12 | 24 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | dbms | first-encounter · 10 min | 12 | **91.3%** (23 facts) | 12/12 | 20 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | computer-networks | first-encounter · 10 min | 12 | **79.2%** (24 facts) | 11/12 | 20 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | computer-networks | first-encounter · 10 min | 12 | **91.7%** (24 facts) | 12/12 | 21 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | theory-of-computation | first-encounter · 10 min | 12 | **95.5%** (22 facts) | 12/12 | 20 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | oop | first-encounter · 10 min | 12 | **85.7%** (21 facts) | 12/12 | 14 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | compiler-design | first-encounter · 10 min | 12 | **68.2%** (22 facts) | 9/12 | 19 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | compiler-design | first-encounter · 10 min | 12 | **68.2%** (22 facts) | 9/12 | 19 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | compiler-design | first-encounter · 10 min | 12 | **95.5%** (22 facts) | 12/12 | 25 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |

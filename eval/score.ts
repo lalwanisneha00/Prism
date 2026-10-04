@@ -106,7 +106,12 @@ export function normalizeForMatch(text: string): string {
 export type TopicScore = { topic: string; found: string[]; missing: string[] };
 
 export function scoreLesson(lesson: Lesson, entry: GoldenTopic): TopicScore {
-  const text = normalizeForMatch(lessonText(lesson));
+  return scoreText(lessonText(lesson), entry);
+}
+
+/** Scores a lesson's plain text (as saved in eval/results/lessons) against one golden topic. */
+export function scoreText(lessonPlainText: string, entry: GoldenTopic): TopicScore {
+  const text = normalizeForMatch(lessonPlainText);
   const found: string[] = [];
   const missing: string[] = [];
   for (const fact of entry.facts) {
