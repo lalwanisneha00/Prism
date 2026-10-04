@@ -6,6 +6,7 @@ import { useDataVersion } from "@/components/account/AuthProvider";
 import { ChapterLesson } from "@/components/chapter/ChapterLesson";
 import { ChapterPlanner } from "@/components/chapter/ChapterPlanner";
 import { LessonLoader } from "@/components/lesson/LessonLoader";
+import { SubjectGraph } from "@/components/map/SubjectGraph";
 import { MultiChapterMock } from "@/components/mock/MultiChapterMock";
 import { validateChapterRequest, type RawChapterRequest } from "@/lib/chapter/request";
 import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
@@ -159,6 +160,18 @@ export function CustomMockRoute({ id }: { id: string }) {
     <>
       <h1 className="text-3xl font-bold tracking-tight">Mock test: {loaded.subject.name}</h1>
       <MultiChapterMock subjectId={id} subject={loaded.subject} custom={loaded.payload} />
+    </>
+  );
+}
+
+export function CustomMapRoute({ id }: { id: string }) {
+  const loaded = useCustom(id);
+  if (loaded === "loading") return <Skeleton />;
+  if (!loaded) return <Missing />;
+  return (
+    <>
+      <h1 className="text-3xl font-bold tracking-tight">Concept map: {loaded.subject.name}</h1>
+      <SubjectGraph subject={loaded.subject} />
     </>
   );
 }

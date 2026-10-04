@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { SubjectMap } from "@/components/map/SubjectMap";
+import { CustomMapRoute } from "@/components/custom/CustomRoutes";
+import { SubjectGraph } from "@/components/map/SubjectGraph";
+import { isCustomId } from "@/lib/custom/customSubject";
 import { findSubject, subjects } from "@/lib/subjects";
 
 export const metadata: Metadata = { title: "Concept map" };
 
 export default async function MapPage({ searchParams }: PageProps<"/map">) {
   const { subject: raw } = await searchParams;
+  if (typeof raw === "string" && isCustomId(raw)) {
+    return (
+      <Container className="flex flex-col gap-6 py-10 sm:py-14">
+        <CustomMapRoute id={raw} />
+      </Container>
+    );
+  }
   const subject = findSubject(typeof raw === "string" ? raw : "") ?? subjects[0];
 
   return (
@@ -35,7 +44,7 @@ export default async function MapPage({ searchParams }: PageProps<"/map">) {
           </Link>
         ))}
       </nav>
-      <SubjectMap key={subject.id} subject={subject} />
+      <SubjectGraph key={subject.id} subject={subject} />
     </Container>
   );
 }

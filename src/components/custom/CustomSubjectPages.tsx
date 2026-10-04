@@ -129,6 +129,12 @@ export function ViewCustomSubject({ id }: { id: string }) {
             My materials
           </Link>
           <Link
+            href={`/map?subject=${subject.id}`}
+            className="rounded-full border border-border px-4 py-2 text-sm font-semibold hover:bg-surface-2"
+          >
+            Concept map
+          </Link>
+          <Link
             href={`/mock-test?subject=${subject.id}`}
             className="rounded-full border border-border px-4 py-2 text-sm font-semibold hover:bg-surface-2"
           >

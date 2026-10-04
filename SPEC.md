@@ -298,6 +298,15 @@ A short version between V2 and V3. All existing rules apply (step protocol with 
 
 **Done when:** a student uploads a mix of `.pptx`, `.docx`, PDF and a photo of notes, sees what Prism read from each, and gets lessons citing "Unit 3.pptx, slide 14"; and picks a whole chapter in E&M or Engineering Maths, chooses one of three honest time options, starts reading while later topics generate, plays the audio, closes the tab and resumes at the same place.
 
+## 11.6 Subject concept map fix (plan update 2026-10-04, done before V3 · Step 5)
+
+The subject-level concept map must make "what comes before this topic, in what order" obvious.
+
+1. **Hover, focus and pin:** hovering, focusing (Tab, arrow keys) or tapping a topic highlights it, every topic before it (all the way back) and the arrows between them, numbered 1, 2, 3… in a valid study order ending at the topic; everything else fades. Click/tap pins it; a second click/tap opens the topic; Esc or a click on empty space clears it.
+2. **Side panel:** "Before this topic, study these in order" with ticks for topics already done, "Start with the first unfinished one", "Study this whole path" (one multi-topic lesson per chapter on the path), and, in a lighter style, "This topic unlocks".
+3. **Less clutter:** columns by prerequisite depth (left to right; top to bottom on phones) so arrows flow one way; a shaded, labelled band per chapter that can be collapsed into one box; redundant arrows (A → C when A → B → C) removed; topics in a column ordered to reduce crossings; thin muted lines; fixed spacing so labels never overlap; zoom, pan, fit to screen and search; status colours with a legend, distinct from the highlight.
+4. **Technical:** drawn with the app's own HTML/SVG layout (no new library needed); links come only from the subject data files; each subject's graph is validated (no cycles, no missing topics) and problems are reported instead of a broken map. Works for every subject including custom ones, 100+ topics, dark/light, 375px and reduced motion.
+
 ## 12. Version 3: All Engineering (plan update 2026-10-03)
 
 V3 adds **syllabus breadth, not new features**: the major subjects of every B.Tech/BE branch commonly taught in India. Every feature up to V2.5 must work for every new subject exactly as today (6 levels, audio, interactive and static visuals, uploads and PYQ mode, flashcards, mock tests, weak-topic tracking, backlog planner, highlights and comments, accounts and sync, shared lesson library, export and backup).
