@@ -102,24 +102,41 @@ describe("provider chain", () => {
     );
   });
 
-  it("surfaces the last error when every provider fails", async () => {
+  it("reports 'busy' when every provider fails and one of them was only rate-limited", async () => {
+    // Waiting helps with a rate limit; the backup's own error would look like a dead end.
     await expect(
       generateJsonWithFallback([failing("rate-limit", "A"), failing("unavailable", "B")], {
+        system: "",
+        prompt: "",
+      }),
+    ).rejects.toSatisfy((e) => e instanceof LlmError && e.kind === "rate-limit");
+  });
+
+  it("surfaces the last error when every provider fails for other reasons", async () => {
+    await expect(
+      generateJsonWithFallback([failing("blocked", "A"), failing("unavailable", "B")], {
         system: "",
         prompt: "",
       }),
     ).rejects.toSatisfy((e) => e instanceof LlmError && e.kind === "unavailable");
   });
 
-  it("builds the main Gemini model, its backups, then Groq", () => {
-    const names = providersFromEnv(env({ GEMINI_API_KEY: "a", GROQ_API_KEY: "b" })).map(
-      (p) => p.name,
-    );
+  it("builds the main Gemini model, its backups, then Groq, Mistral and OpenRouter", () => {
+    const names = providersFromEnv(
+      env({
+        GEMINI_API_KEY: "a",
+        GROQ_API_KEY: "b",
+        MISTRAL_API_KEY: "c",
+        OPENROUTER_API_KEY: "d",
+      }),
+    ).map((p) => p.name);
     expect(names).toEqual([
       "Gemini (gemini-flash-latest)",
       "Gemini (gemini-flash-lite-latest)",
       "Gemini (gemini-3.1-flash-lite)",
       "Groq",
+      "Mistral",
+      "OpenRouter",
     ]);
     expect(providersFromEnv(env({}))).toEqual([]);
   });

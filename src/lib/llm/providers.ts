@@ -4,6 +4,7 @@
  */
 import { GeminiProvider } from "@/lib/llm/gemini";
 import { GroqProvider } from "@/lib/llm/groq";
+import { mistral, openRouter } from "@/lib/llm/openaiCompatible";
 import { LlmError, type GenerateOptions, type LlmProvider } from "@/lib/llm/types";
 
 export { LlmError } from "@/lib/llm/types";
@@ -31,7 +32,13 @@ export function providersFromEnv(env: NodeJS.ProcessEnv = process.env): LlmProvi
     for (const model of models) providers.push(new GeminiProvider(env.GEMINI_API_KEY, model));
   }
   if (env.GROQ_API_KEY) {
-    providers.push(new GroqProvider(env.GROQ_API_KEY, env.GROQ_MODEL || "llama-3.3-70b-versatile"));
+    providers.push(new GroqProvider(env.GROQ_API_KEY, env.GROQ_MODEL || undefined));
+  }
+  if (env.MISTRAL_API_KEY) {
+    providers.push(mistral(env.MISTRAL_API_KEY, env.MISTRAL_MODEL || undefined));
+  }
+  if (env.OPENROUTER_API_KEY) {
+    providers.push(openRouter(env.OPENROUTER_API_KEY, env.OPENROUTER_MODEL || undefined));
   }
   return providers;
 }
@@ -73,6 +80,7 @@ export async function generateJsonWithFallback(
   const resting = able.filter((p) => (busyUntil.get(p.name) ?? 0) > t);
 
   let lastError: unknown;
+  let rateLimited: LlmError | undefined;
   for (const provider of [...ready, ...resting]) {
     try {
       const text = await provider.generateJson(options);
@@ -82,11 +90,14 @@ export async function generateJsonWithFallback(
       if (options.signal?.aborted) throw err;
       lastError = err;
       if (!(err instanceof LlmError) || !fallbackKinds.has(err.kind)) throw err;
+      if (err.kind === "rate-limit") rateLimited ??= err;
       // A blocked reply is about this request, not the provider, so it is not marked busy.
       if (err.kind !== "auth" && err.kind !== "blocked")
         busyUntil.set(provider.name, now() + BUSY_MS);
       console.warn(`[llm] ${provider.name} unavailable (${err.kind}); trying the next one.`);
     }
   }
-  throw lastError;
+  // If any provider only said "busy", report that: waiting a minute will help, whereas a later
+  // backup's network error or retired model would wrongly look like a dead end.
+  throw rateLimited ?? lastError;
 }

@@ -48,3 +48,5 @@ Notes:
 | 2026-10-04 | compiler-design | first-encounter · 10 min | 12 | **68.2%** (22 facts) | 9/12 | 19 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
 | 2026-10-04 | compiler-design | first-encounter · 10 min | 12 | **68.2%** (22 facts) | 9/12 | 19 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
 | 2026-10-04 | compiler-design | first-encounter · 10 min | 12 | **95.5%** (22 facts) | 12/12 | 25 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | software-engineering | first-encounter · 10 min | 12 | **75%** (20 facts) | 10/12 | 18 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | software-engineering | first-encounter · 10 min | 12 | **75%** (20 facts) | 10/12 | 18 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |

@@ -11,6 +11,9 @@
  *   npm run eval -- --max-topics=10           at most 10 new topics this run (quota-friendly)
  *   npm run eval -- --fresh                   ignore saved progress and start again
  *   npm run eval -- --retry-failed            regenerate only lessons that failed to generate
+ *   npm run eval -- --subject=dsa,dbms --parallel=2   two subjects at once in one process
+ *     (most of a lesson's time is spent waiting for the AI, so this is quicker without needing
+ *     a second Node process's memory; the providers' rate limits still apply)
  *
  * Resumable (SPEC §12.7): each topic's result is saved as soon as it is done, in
  * eval/results/progress/. A rerun skips finished topics. On a rate limit it waits (30 s, 60 s,
@@ -63,7 +66,11 @@ const delayMs = Number(args.delay ?? (fake ? 0 : 4000));
 const maxTopics = Number(args["max-topics"] ?? Infinity);
 const fresh = args.fresh === "true";
 const allSets: Golden[] = loadGoldenSets();
-const sets = allSets.filter((s) => !args.subject || s.subject === args.subject);
+const wanted = args.subject ? args.subject.split(",").map((s) => s.trim()) : null;
+const sets = allSets.filter((s) => !wanted || wanted.includes(s.subject));
+const parallel = Math.max(1, Number(args.parallel ?? 1));
+/** With --parallel, each printed line says which subject it belongs to. */
+const tag = (subject: string) => (parallel > 1 ? `[${subject}] ` : "");
 
 function chainFor(sources: ReturnType<typeof sourcesForTopic>, topic: string): LlmProvider[] {
   if (!fake) return providersFromEnv();
@@ -144,7 +151,10 @@ async function runSet(set: Golden): Promise<{ percent: number; rows: Row[]; comp
     for (const t of topics) if (done[t.topic] && !done[t.topic].valid) delete done[t.topic];
   }
   const already = topics.filter((t) => done[t.topic]).length;
-  if (already) console.log(`Resuming: ${already} of ${topics.length} topics already done.\n`);
+  if (already)
+    console.log(
+      `${tag(set.subject)}Resuming: ${already} of ${topics.length} topics already done.\n`,
+    );
 
   for (const [i, entry] of topics.entries()) {
     if (done[entry.topic]) {
@@ -209,7 +219,7 @@ async function runSet(set: Golden): Promise<{ percent: number; rows: Row[]; comp
       done[entry.topic] = row;
       saveProgress(set.subject, done);
       console.log(
-        `${String(i + 1).padStart(2)}. ${entry.topic.padEnd(28)} facts ${score.found.length}/${entry.facts.length}` +
+        `${tag(set.subject)}${String(i + 1).padStart(2)}. ${entry.topic.padEnd(28)} facts ${score.found.length}/${entry.facts.length}` +
           `  sourced ${sourced}/${lesson.sections.length}  visuals ${visuals.visuals}${visualIssues.length ? ` (${visualIssues.length} issues)` : ""}` +
           `  fixes ${applied}  ${((Date.now() - started) / 1000).toFixed(0)}s` +
           (score.missing.length ? `  missing: ${score.missing.join(", ")}` : ""),
@@ -237,7 +247,7 @@ async function runSet(set: Golden): Promise<{ percent: number; rows: Row[]; comp
       done[entry.topic] = failedRow;
       saveProgress(set.subject, done);
       console.log(
-        `${String(i + 1).padStart(2)}. ${entry.topic.padEnd(28)} FAILED: ${String(err).slice(0, 120)}`,
+        `${tag(set.subject)}${String(i + 1).padStart(2)}. ${entry.topic.padEnd(28)} FAILED: ${String(err).slice(0, 120)}`,
       );
     }
     if (delayMs && i < topics.length - 1) await new Promise((r) => setTimeout(r, delayMs));
@@ -259,12 +269,21 @@ async function main() {
   const date = now.toISOString();
   const model = process.env.GEMINI_MODEL || "gemini-flash-latest (+ fallbacks)";
   const results: { subject: string; percent: number; rows: Row[]; complete: boolean }[] = [];
-  try {
-    for (const set of sets) results.push({ subject: set.subject, ...(await runSet(set)) });
-  } catch (err) {
-    if (err instanceof QuotaExhausted) process.exit(2);
-    throw err;
-  }
+  // A small worker pool: `parallel` subjects at a time, each taking the next one when done.
+  let next = 0;
+  let quotaExhausted = false;
+  const worker = async () => {
+    while (!quotaExhausted && next < sets.length) {
+      const set = sets[next++];
+      try {
+        results.push({ subject: set.subject, ...(await runSet(set)) });
+      } catch (err) {
+        if (!(err instanceof QuotaExhausted)) throw err;
+        quotaExhausted = true;
+      }
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(parallel, sets.length) }, worker));
 
   mkdirSync("eval/results", { recursive: true });
   for (const r of results) {
@@ -321,6 +340,8 @@ async function main() {
     writeFileSync(accuracyPath, `${JSON.stringify(accuracy, null, 2)}\n`);
     console.log("Recorded in EVAL_LOG.md and src/data/accuracy.json");
   }
+  // Subjects finished before the quota ran out are recorded above; the rest resume next time.
+  if (quotaExhausted) process.exit(2);
   const failed = results.some((r) => r.percent < 95);
   process.exit(failed && !fake ? 1 : 0);
 }
