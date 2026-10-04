@@ -1,3 +1,22 @@
+# Morning report: overnight FINAL run (started 2026-10-05)
+
+Branch `overnight-v3-final` (tag `before-overnight-final`). Check-in cron 1e92bc34 scheduled (session-only, 7-day expiry).
+
+## Summary (tonight)
+
+- In progress: F1 finish V3 Step 11. Not started: F2-F6. Feature flags: none yet.
+
+## Decisions made without me
+
+- Feature D (Community branches) is not started: the run goal says stop after final polish.
+- Evals restart one at a time (the earlier "wait for go ahead" rule is overridden by this run's "never ask").
+
+## Needs Sneha / Problems / Interruptions
+
+- (none yet)
+
+---
+
 # Morning report: overnight run (V2.5, then V3)
 
 Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `main`).

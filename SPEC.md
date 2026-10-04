@@ -394,3 +394,18 @@ Unchanged from the old V3 except what V2.5 and V3 pulled forward (syllabus uploa
 1. Free-text topic input for any subject · 2. Subject-type routing (templates + preferred visual sets per field; generic toolkit part 2 items still open: §4.1 items 2, 6, 11, 14 and maps beyond engineering; high-stakes notes and the `limited` tier, §6.1 rule 9) · 3. Papers (arXiv/OpenAlex) and curated lectures · 4. Ask-a-doubt chat · 5. Adaptive learning · 6. Focus mode, Pomodoro (streaks already done in V2) · 7. Shareable lesson links (library lesson IDs) + "report a mistake" flags sent to Firestore via a server route, with the feedback loop of §6.1 rule 11 · 8. Hindi/Gujarati, PWA, accessibility · 9. Hardening: rate limits, BYO key, analytics, Lighthouse 90+, multi-subject eval, README + demo, launch checklist
 
 **Done when:** law, engineering and commerce students each get an accurate, sourced, visual lesson with audio, and the eval is ≥ 95% on the multi-subject golden set.
+
+## 11.9 Overnight final run (plan update 2026-10-05, source: PRISM_OVERNIGHT_FINAL.md)
+
+Branch `overnight-v3-final` (tag `before-overnight-final`). Steps in strict order; each new feature behind its own flag in `src/lib/flags.ts`.
+
+| Step | Title |
+| ---- | ----- |
+| F1 | Finish V3 (Step 11 time recommendations + planner UI, remaining evals as quota allows, Step 12) |
+| F2 | Feature A: bring your own API key (keys only in IndexedDB) |
+| F3 | Feature B: slides (.pptx) and PDF generator, four designed themes |
+| F4 | Feature C: interface redesign ("Classic" kept behind flag) |
+| F5 | Feature D: community branches (NOT started tonight: goal says stop after final polish) |
+| F6 | Final polish, README, DEPLOY_CHECKLIST.md |
+
+Full requirements: PRISM_OVERNIGHT_FINAL.md (sections 4-8).

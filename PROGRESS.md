@@ -4,6 +4,8 @@ Update this after every step so any person or AI tool can pick up the work.
 
 ## Current state (resume here)
 
+- **OVERNIGHT FINAL RUN (2026-10-05):** branch `overnight-v3-final`, steps F1-F6 in SPEC §11.9 (requirements: PRISM_OVERNIGHT_FINAL.md). Check-in cron 1e92bc34 every 30 min. Now: F1 (finish Step 11 UI). Stop after F6; Feature D NOT started.
+- (older state below, still valid for Step 11 / evals)
 - **Mode:** AUTONOMOUS (user, 2026-10-04: "keep going step after step without confirmation… run tests on your own and move to the next step") on branch `overnight-v2.5-v3`. Status for the user goes in `MORNING_REPORT.md`.
 - **Version / step:** V3 · Steps 8–11 in progress at the same time (2026-10-05 01:45 IST). Steps 8–10 data and golden sets are done and committed; their evals are waiting for AI quota. Step 11 (time recommendations and planner, SPEC §12.9) is being built: engine and storage done, UI not started.
 - **Finished:** all of V2.5; concept map fix (tag `concept-map-fix`); V3 · Steps 2–7 (tags `v3-step-2` … `v3-step-7`). Wave 1: 7 subjects `verified`, Engineering Graphics `tested`. Not yet tagged: `v3-step-8` … `v3-step-11` (each needs its evals and/or UI first).
