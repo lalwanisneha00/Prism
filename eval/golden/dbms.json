@@ -1,0 +1,285 @@
+{
+  "description": "Key facts a correct lesson on each Database Management Systems topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "dbms",
+  "topics": [
+    {
+      "topic": "er-model",
+      "chapter": "db-intro",
+      "facts": [
+        {
+          "id": "parts",
+          "claim": "Entities, relationships and attributes",
+          "pattern": "entit(y|ies)[^.]{0,80}relationship",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Entity–relationship_model",
+            "quote": "A basic ER model is composed of entity types (which classify the things of interest) and specifies relationships that can exist between entities"
+          }
+        },
+        {
+          "id": "chen",
+          "claim": "Introduced by Peter Chen (1976)",
+          "pattern": "chen|1976",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Entity–relationship_model",
+            "quote": "Entity–relationship modeling was developed for database and design by Peter Chen"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "keys",
+      "chapter": "db-intro",
+      "facts": [
+        {
+          "id": "minimal",
+          "claim": "A candidate key is a minimal superkey",
+          "pattern": "minimal",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Candidate_key",
+            "quote": "A candidate key is a minimal superkey"
+          }
+        },
+        {
+          "id": "unique",
+          "claim": "Key values are unique for each row",
+          "pattern": "unique(ly)?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Candidate_key",
+            "quote": "any set of columns that have a unique combination of values in each row"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "relational-model-integrity",
+      "chapter": "relational-model",
+      "facts": [
+        {
+          "id": "tuples",
+          "claim": "Data as tuples grouped into relations (tables)",
+          "pattern": "tuple",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Relational_model",
+            "quote": "all data are represented in terms of tuples, grouped into relations"
+          }
+        },
+        {
+          "id": "codd",
+          "claim": "Proposed by E. F. Codd",
+          "pattern": "codd",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Relational_model",
+            "quote": "first described in 1969 by English computer scientist Edgar F."
+          }
+        }
+      ]
+    },
+    {
+      "topic": "relational-algebra",
+      "chapter": "relational-model",
+      "facts": [
+        {
+          "id": "projection",
+          "claim": "Projection (π) picks columns",
+          "pattern": "projection",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Relational_algebra",
+            "quote": "A projection (Π) is a unary operation written as"
+          }
+        },
+        {
+          "id": "selection",
+          "claim": "Selection (σ) picks rows",
+          "pattern": "selection",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Relational_algebra",
+            "quote": "A selection (sometimes called a restriction"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sql-basics",
+      "chapter": "relational-model",
+      "facts": [
+        {
+          "id": "language",
+          "claim": "SQL manages data in relational databases",
+          "pattern": "structured query language|relational database",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/SQL",
+            "quote": "is a domain-specific language used to manage data, especially in a relational database management system"
+          }
+        },
+        {
+          "id": "sublanguages",
+          "claim": "Sublanguages: data query, definition and manipulation",
+          "pattern": "\\bDDL\\b|\\bDML\\b|data definition|data manipulation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/SQL",
+            "quote": "data query language (DQ"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sql-joins-aggregates",
+      "chapter": "relational-model",
+      "facts": [
+        {
+          "id": "inner",
+          "claim": "An inner join needs matching values in both tables",
+          "pattern": "inner join[^.]{0,80}match|match[^.]{0,80}both",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Join_(SQL)",
+            "quote": "An inner join (or join) requires each row in the two joined tables to have matching column values"
+          }
+        },
+        {
+          "id": "outer",
+          "claim": "Outer joins keep rows without a match (with NULLs)",
+          "pattern": "outer join|left join|null",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Join_(SQL)",
+            "quote": "A left outer join can usually be substituted for an inner join"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "functional-dependencies",
+      "chapter": "normalisation",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "X → Y: values of X determine values of Y",
+          "pattern": "determin",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Functional_dependency",
+            "quote": "values in one set (the determinant set) determine the values of the other set"
+          }
+        },
+        {
+          "id": "normalisation",
+          "claim": "FDs are used in normalisation",
+          "pattern": "normali[sz]",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Functional_dependency",
+            "quote": "The determination of functional dependencies is an important part of designing databases in the relational model, and in database normalization"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "normal-forms",
+      "chapter": "normalisation",
+      "facts": [
+        {
+          "id": "purpose",
+          "claim": "Normalisation reduces redundancy and improves integrity",
+          "pattern": "redundan",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Database_normalization",
+            "quote": "to reduce data redundancy and improve data integrity"
+          }
+        },
+        {
+          "id": "codd",
+          "claim": "Codd defined 1NF, 2NF and 3NF",
+          "pattern": "(2NF|second normal form)[^.]{0,80}(3NF|third normal form)|1NF|first normal form",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Database_normalization",
+            "quote": "Codd went on to define the second normal form (2NF) and third normal form (3NF) in 1971"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "acid",
+      "chapter": "transactions",
+      "facts": [
+        {
+          "id": "acronym",
+          "claim": "Atomicity, consistency, isolation, durability",
+          "pattern": "atomicity[^.]{0,40}consistency[^.]{0,40}isolation[^.]{0,40}durability",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/ACID",
+            "quote": "ACID is an acronym for atomicity, consistency, isolation, and durability"
+          }
+        },
+        {
+          "id": "atomic",
+          "claim": "Atomicity: all or nothing",
+          "pattern": "all[- ]or[- ]nothing|as a whole or not at all|entirely or not at all",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/ACID",
+            "quote": "atomicity requires the transfer to take effect as a whole or not at all"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "serializability",
+      "chapter": "transactions",
+      "facts": [
+        {
+          "id": "equivalent",
+          "claim": "A schedule is serializable if equivalent to a serial schedule",
+          "pattern": "equivalent to (a |some )?serial",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Database_transaction_schedule",
+            "quote": "A schedule is serializable if it is equivalent (in its outcome) to a serial schedule"
+          }
+        },
+        {
+          "id": "concurrent",
+          "claim": "It is the correctness criterion for concurrent transactions",
+          "pattern": "concurren|interleav",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Database_transaction_schedule",
+            "quote": "It is the major criterion for the correctness of concurrent transactions' schedule"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "locking-2pl",
+      "chapter": "transactions",
+      "facts": [
+        {
+          "id": "phases",
+          "claim": "Growing phase (acquire locks) then shrinking phase (release)",
+          "pattern": "growing|expanding",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Two-phase_locking",
+            "quote": "Expanding phase (aka Growing phase): locks are acquired and no locks are released"
+          }
+        },
+        {
+          "id": "shrink",
+          "claim": "In the shrinking phase no new locks are acquired",
+          "pattern": "shrinking",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Two-phase_locking",
+            "quote": "Shrinking phase: locks are released and no locks are acquired"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "indexing",
+      "chapter": "storage-indexing",
+      "facts": [
+        {
+          "id": "speed",
+          "claim": "An index speeds up retrieval at the cost of storage and writes",
+          "pattern": "(speed|faster)[^.]{0,80}(retriev|look ?up|search|quer)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Database_index",
+            "quote": "improves the speed of data retrieval operations on a database table at the cost of additional writes and storage space"
+          }
+        }
+      ]
+    }
+  ]
+}

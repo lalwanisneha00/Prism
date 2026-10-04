@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { generateLesson, stripCitationTags, wrapBareMath } from "@/lib/generateLesson";
+import {
+  generateLesson,
+  OWN_WORDS_RULE,
+  stripCitationTags,
+  wrapBareMath,
+} from "@/lib/generateLesson";
 import type { LessonEvent } from "@/lib/lessonEvents";
 import { validateLessonRequest } from "@/lib/lessonRequest";
 import { FakeProvider, type FakeResponder } from "@/lib/llm/fake";
@@ -91,6 +96,16 @@ describe("generateLesson", () => {
     bad.sections[0].sourceIds = ["wikipedia-made-up"];
     const { prompts } = await run((_, call) => (call === 0 ? JSON.stringify(bad) : goodReply));
     expect(prompts[1]).toContain('unknown source "wikipedia-made-up"');
+  });
+
+  it("asks again in its own words when the provider stops a reply as recited text", async () => {
+    const { lesson, prompts } = await run((_, call) => {
+      if (call === 0) throw new LlmError("blocked", "Gemini stopped early (RECITATION).");
+      return goodReply;
+    });
+    expect(lesson.sections).toHaveLength(5);
+    expect(prompts[0]).not.toContain(OWN_WORDS_RULE);
+    expect(prompts[1]).toContain(OWN_WORDS_RULE);
   });
 
   it("gives up with a clear error after three bad replies", async () => {

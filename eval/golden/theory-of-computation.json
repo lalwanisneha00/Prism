@@ -1,0 +1,276 @@
+{
+  "description": "Key facts a correct lesson on each Theory of Computation topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "theory-of-computation",
+  "topics": [
+    {
+      "topic": "chomsky-hierarchy",
+      "chapter": "languages-grammars",
+      "facts": [
+        {
+          "id": "inclusions",
+          "claim": "Regular ⊂ context-free ⊂ context-sensitive ⊂ recursively enumerable",
+          "pattern": "regular[^.]{0,80}context-free[^.]{0,80}context-sensitive|type[- ]?(0|3)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Chomsky_hierarchy",
+            "quote": "Every regular language is context-free, every context-free language is context-sensitive"
+          }
+        },
+        {
+          "id": "type0",
+          "claim": "Type-0 grammars generate recursively enumerable languages",
+          "pattern": "recursively enumerable|type[- ]?0|unrestricted",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Chomsky_hierarchy",
+            "quote": "Recursively enumerable (Type-0) grammars"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dfa",
+      "chapter": "finite-automata",
+      "facts": [
+        {
+          "id": "deterministic",
+          "claim": "A DFA has exactly one transition per state and symbol",
+          "pattern": "(exactly|only) one (transition|next state)|one transition",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Deterministic_finite_automaton",
+            "quote": "Upon reading a symbol, a DFA jumps deterministically from one state to another by following the transition arrow"
+          }
+        },
+        {
+          "id": "finite",
+          "claim": "Finitely many states",
+          "pattern": "finite (number of |set of )?states",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Deterministic_finite_automaton",
+            "quote": "deterministic finite automaton (DFA)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "nfa",
+      "chapter": "finite-automata",
+      "facts": [
+        {
+          "id": "subset",
+          "claim": "Every NFA converts to an equivalent DFA (subset construction)",
+          "pattern": "subset construction|powerset construction|equivalent DFA",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton",
+            "quote": "Using the subset construction algorithm, each NFA can be translated to an equivalent DFA"
+          }
+        },
+        {
+          "id": "dfa-is-nfa",
+          "claim": "Every DFA is also an NFA",
+          "pattern": "every DFA is (also )?an NFA|DFA is a special case",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton",
+            "quote": "In particular, every DFA is also an NFA"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "regular-expressions",
+      "chapter": "finite-automata",
+      "facts": [
+        {
+          "id": "pattern",
+          "claim": "A regular expression specifies a pattern of strings",
+          "pattern": "pattern",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Regular_expression",
+            "quote": "is a sequence of characters that specifies a match pattern in text"
+          }
+        },
+        {
+          "id": "ops",
+          "claim": "Operations: union (|), concatenation and star",
+          "pattern": "union|alternation|concatenation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Regular_expression",
+            "quote": "(alternation) (R|S) denotes the set union of sets described by R and S"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pumping-lemma-regular",
+      "chapter": "finite-automata",
+      "facts": [
+        {
+          "id": "pump",
+          "claim": "Long strings can have a middle part repeated (pumped)",
+          "pattern": "pump|repeat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pumping_lemma_for_regular_languages",
+            "quote": "all sufficiently long strings in a regular language may be pumped"
+          }
+        },
+        {
+          "id": "use",
+          "claim": "Used to prove a language is not regular",
+          "pattern": "not regular|non-?regular",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pumping_lemma_for_regular_languages",
+            "quote": "The pumping lemma is useful for proving that a specific language is not a regular language"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cfg",
+      "chapter": "context-free",
+      "facts": [
+        {
+          "id": "rule",
+          "claim": "Each production replaces a single nonterminal",
+          "pattern": "(single|one) non-?terminal|left[- ]hand side",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Context-free_grammar",
+            "quote": "can be applied to a nonterminal symbol regardless of its context"
+          }
+        },
+        {
+          "id": "terminals",
+          "claim": "Rules produce strings of terminals and nonterminals",
+          "pattern": "terminals?[^.]{0,40}non-?terminals?|non-?terminals?[^.]{0,40}terminals?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Context-free_grammar",
+            "quote": "a string of terminals and/or nonterminals"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pda",
+      "chapter": "context-free",
+      "facts": [
+        {
+          "id": "stack",
+          "claim": "A pushdown automaton uses a stack",
+          "pattern": "stack",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pushdown_automaton",
+            "quote": "a type of automaton that employs a stack"
+          }
+        },
+        {
+          "id": "cfl",
+          "claim": "NPDAs recognise exactly the context-free languages",
+          "pattern": "context-free",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pushdown_automaton",
+            "quote": "nondeterministic ones can recognize all context-free languages"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "turing-machine",
+      "chapter": "turing-machines",
+      "facts": [
+        {
+          "id": "tape",
+          "claim": "An infinite tape divided into cells, read by a head",
+          "pattern": "tape",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Turing_machine",
+            "quote": "The machine operates on an infinite memory tape divided into discrete cells"
+          }
+        },
+        {
+          "id": "rules",
+          "claim": "It follows a table of rules (transition function)",
+          "pattern": "table of rules|transition function|states?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Turing_machine",
+            "quote": "manipulates symbols on a strip of tape according to a table of rules"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "church-turing",
+      "chapter": "turing-machines",
+      "facts": [
+        {
+          "id": "thesis",
+          "claim": "Effectively calculable = computable by a Turing machine",
+          "pattern": "effective(ly)?[^.]{0,80}Turing machine|Turing machine[^.]{0,80}(effective|algorithm)|computable",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Church–Turing_thesis",
+            "quote": "a function on the natural numbers can be calculated by an effective method if and only if it is computable by a Turing machine"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "decidability",
+      "chapter": "turing-machines",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Decidable: an effective method always gives the right yes/no answer",
+          "pattern": "(algorithm|effective method)[^.]{0,80}(always|halts|terminat)|decidable",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Decidability_(logic)",
+            "quote": "a true/false decision problem is decidable if there exists an effective method for deriving the correct answer"
+          }
+        },
+        {
+          "id": "undecidable",
+          "claim": "Many important problems are undecidable",
+          "pattern": "undecidable|halting problem",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Decidability_(logic)",
+            "quote": "Many important problems are undecidable"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ambiguity",
+      "chapter": "context-free",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Ambiguous: some string has more than one parse tree / leftmost derivation",
+          "pattern": "(more than one|two|multiple) (different )?(parse trees?|leftmost derivations?)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ambiguous_grammar",
+            "quote": "there exists a string that can have more than one leftmost derivation or parse tree"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rices-theorem",
+      "chapter": "turing-machines",
+      "facts": [
+        {
+          "id": "statement",
+          "claim": "All non-trivial semantic properties of programs are undecidable",
+          "pattern": "non-?trivial",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rice's_theorem",
+            "quote": "all non-trivial semantic properties of programs are undecidable"
+          }
+        },
+        {
+          "id": "semantic",
+          "claim": "Semantic = about the program's behaviour, not its syntax",
+          "pattern": "semantic|behaviou?r",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rice's_theorem",
+            "quote": "A semantic property is one about the program's behavior"
+          }
+        }
+      ]
+    }
+  ]
+}

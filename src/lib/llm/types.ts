@@ -4,6 +4,7 @@ export type LlmErrorKind =
   | "auth" // key rejected
   | "rate-limit" // free quota used up for now
   | "unavailable" // provider down, timeout or network error
+  | "blocked" // provider stopped its reply (e.g. it looked like recited text)
   | "bad-response"; // reply could not be used even after retries
 
 export class LlmError extends Error {

@@ -1,0 +1,351 @@
+{
+  "description": "Key facts a correct lesson on each Data Structures and Algorithms topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "dsa",
+  "topics": [
+    {
+      "topic": "asymptotic-notation",
+      "chapter": "ds-basics",
+      "facts": [
+        {
+          "id": "upper",
+          "claim": "Big O gives an upper bound on the growth rate",
+          "pattern": "upper bound|at most|worst[- ]case",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Big_O_notation",
+            "quote": "only provides an upper bound on the growth rate of the function"
+          }
+        },
+        {
+          "id": "growth",
+          "claim": "It classifies functions by growth rate as n becomes large",
+          "pattern": "growth rate|rate of growth|large (inputs?|n)|as n (increases|grows|becomes large)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Big_O_notation",
+            "quote": "characterizes functions according to their growth rates as the variable becomes large"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "linear-binary-search",
+      "chapter": "ds-basics",
+      "facts": [
+        {
+          "id": "sorted",
+          "claim": "Binary search needs a sorted array",
+          "pattern": "sorted",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_search",
+            "quote": "the array must be sorted first to be able to apply binary search"
+          }
+        },
+        {
+          "id": "middle",
+          "claim": "It compares with the middle element",
+          "pattern": "middle|mid\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_search",
+            "quote": "Binary search compares the target value to the middle element of the array"
+          }
+        },
+        {
+          "id": "log",
+          "claim": "It runs in logarithmic time",
+          "pattern": "log\\s*_?2?\\s*\\(?\\s*n|logarithmic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_search",
+            "quote": "Binary search runs in logarithmic time in the worst case"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "stack-adt",
+      "chapter": "stacks-queues",
+      "facts": [
+        {
+          "id": "lifo",
+          "claim": "Last in, first out (LIFO)",
+          "pattern": "LIFO|last[- ]in,? first[- ]out",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Stack_(abstract_data_type)",
+            "quote": "last in, first out, referred to by the acronym LIFO"
+          }
+        },
+        {
+          "id": "pop",
+          "claim": "Pop removes the most recently added element",
+          "pattern": "\\bpop\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Stack_(abstract_data_type)",
+            "quote": "Pop, which removes the most recently added element"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "queue-types",
+      "chapter": "stacks-queues",
+      "facts": [
+        {
+          "id": "fifo",
+          "claim": "First in, first out (FIFO)",
+          "pattern": "FIFO|first[- ]in,? first[- ]out",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Queue_(abstract_data_type)",
+            "quote": "the first element added to the queue is the first one removed"
+          }
+        },
+        {
+          "id": "ends",
+          "claim": "Enqueue at the rear, dequeue from the front",
+          "pattern": "enqueue[^.]{0,80}rear|rear[^.]{0,80}enqueue|dequeue[^.]{0,80}front|front[^.]{0,80}dequeue",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Queue_(abstract_data_type)",
+            "quote": "Enqueue, which adds one element to the rear of the queue"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "singly-linked-list",
+      "chapter": "linked-lists",
+      "facts": [
+        {
+          "id": "node",
+          "claim": "Each node holds data and a link to the next node",
+          "pattern": "\\bnext\\b|link|pointer",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Linked_list",
+            "quote": "each node contains data, and a reference (in other words, a link) to the next node in the sequence"
+          }
+        },
+        {
+          "id": "insert",
+          "claim": "Efficient insertion or removal anywhere during iteration",
+          "pattern": "insert|delet|remov",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Linked_list",
+            "quote": "allows for efficient insertion or removal of elements from any position in the sequence"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "binary-search-tree",
+      "chapter": "trees",
+      "facts": [
+        {
+          "id": "ordering",
+          "claim": "Left subtree keys are smaller, right subtree keys larger",
+          "pattern": "left[^.]{0,60}(smaller|less)|(smaller|less)[^.]{0,60}left|right[^.]{0,60}(greater|larger)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_search_tree",
+            "quote": "If the key is less than that of the root, the search proceeds by examining the left subtree"
+          }
+        },
+        {
+          "id": "balance",
+          "claim": "Height must stay logarithmic (balanced) for fast operations",
+          "pattern": "balanc|log\\s*n|O\\s*\\(\\s*h\\s*\\)|height",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_search_tree",
+            "quote": "maintain the tree height to the binary logarithmic complexity"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "avl-tree",
+      "chapter": "trees",
+      "facts": [
+        {
+          "id": "heights",
+          "claim": "Subtree heights differ by at most one",
+          "pattern": "(differ|difference)[^.]{0,60}(one|1)|balance factor|-1, 0,? (or|and) \\+?1",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/AVL_tree",
+            "quote": "the heights of the two child subtrees of any node differ by not more than one"
+          }
+        },
+        {
+          "id": "rotations",
+          "claim": "Rebalancing uses rotations",
+          "pattern": "rotation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/AVL_tree",
+            "quote": "Insertions and deletions may require the tree to be rebalanced by one or more tree rotations"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "heap-structure",
+      "chapter": "trees",
+      "facts": [
+        {
+          "id": "property",
+          "claim": "Heap property: parent ≥ (or ≤) its children",
+          "pattern": "heap property|(parent|root)[^.]{0,80}(greater|smaller|less|larger)[^.]{0,40}child",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_heap",
+            "quote": "the key stored in each node is either greater than or equal to"
+          }
+        },
+        {
+          "id": "complete",
+          "claim": "A binary heap is a complete binary tree (stored in an array)",
+          "pattern": "complete binary tree|array",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary_heap",
+            "quote": "a binary heap is a complete binary tree"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "quick-sort",
+      "chapter": "sorting-hashing",
+      "facts": [
+        {
+          "id": "pivot",
+          "claim": "Choose a pivot and partition around it",
+          "pattern": "pivot",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Quicksort",
+            "quote": "It works by selecting a \"pivot\" element from the array and partitioning the other elements into two sub-arrays"
+          }
+        },
+        {
+          "id": "worst",
+          "claim": "Worst case O(n²) (e.g. already sorted with a bad pivot)",
+          "pattern": "O\\s*\\(\\s*n\\s*\\^?\\s*2|n\\s*\\^\\s*2|n squared|quadratic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Quicksort",
+            "quote": "The complexity of Quicksort with this scheme degrades to O(n2) when the array is already in order"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "hashing",
+      "chapter": "sorting-hashing",
+      "facts": [
+        {
+          "id": "index",
+          "claim": "A hash function computes an index into an array of buckets",
+          "pattern": "hash function",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hash_table",
+            "quote": "A hash table uses a hash function to compute an index, also called a hash code, into an array of buckets or slots"
+          }
+        },
+        {
+          "id": "collisions",
+          "claim": "Collisions are handled by chaining or open addressing",
+          "pattern": "chaining|open addressing|probing",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hash_table",
+            "quote": "Common strategies to handle hash collisions include separate chaining"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bfs-dfs",
+      "chapter": "graphs-dsa",
+      "facts": [
+        {
+          "id": "queue",
+          "claim": "BFS uses a queue",
+          "pattern": "queue",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Breadth-first_search",
+            "quote": "it uses a queue (First In First Out) instead of a stack"
+          }
+        },
+        {
+          "id": "levels",
+          "claim": "BFS explores level by level",
+          "pattern": "level[- ]by[- ]level|same (depth|level)|nearest|layer",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Breadth-first_search",
+            "quote": "explores all nodes at the present depth prior to moving on to the nodes at the next depth level"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "shortest-paths",
+      "chapter": "graphs-dsa",
+      "facts": [
+        {
+          "id": "nonnegative",
+          "claim": "Dijkstra needs non-negative edge weights",
+          "pattern": "non-?negative|negative (edge )?weights?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Dijkstra's_algorithm",
+            "quote": "Although Dijkstra's algorithm is optimal for graphs with non-negative edge weights"
+          }
+        },
+        {
+          "id": "pq",
+          "claim": "It uses a (min-)priority queue",
+          "pattern": "priority queue|min-?heap",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Dijkstra's_algorithm",
+            "quote": "The algorithm uses a min-priority queue data structure for selecting the shortest paths known so far"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "minimum-spanning-tree",
+      "chapter": "graphs-dsa",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Connects all vertices, no cycles, minimum total weight",
+          "pattern": "(no|without) cycles?|all (the )?vertices|minimum (total )?weight",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Minimum_spanning_tree",
+            "quote": "connects all the vertices together, without any cycles"
+          }
+        },
+        {
+          "id": "sum",
+          "claim": "Sum of edge weights as small as possible",
+          "pattern": "sum|total (edge )?weight",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Minimum_spanning_tree",
+            "quote": "a spanning tree whose sum of edge weights is as small as possible"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dynamic-programming",
+      "chapter": "algorithm-design",
+      "facts": [
+        {
+          "id": "properties",
+          "claim": "Needs optimal substructure and overlapping sub-problems",
+          "pattern": "overlapping sub-?problems|optimal substructure",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Dynamic_programming",
+            "quote": "optimal substructure and overlapping sub-problems"
+          }
+        },
+        {
+          "id": "memo",
+          "claim": "Stores solutions to sub-problems (memoization / table)",
+          "pattern": "memoi[sz]|table|stor(e|ing) (the )?(results|solutions)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Dynamic_programming",
+            "quote": "This technique of saving values that have already been calculated is called memoization"
+          }
+        }
+      ]
+    }
+  ]
+}

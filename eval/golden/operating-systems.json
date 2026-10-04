@@ -1,0 +1,285 @@
+{
+  "description": "Key facts a correct lesson on each Operating Systems topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "operating-systems",
+  "topics": [
+    {
+      "topic": "os-types-services",
+      "chapter": "os-intro",
+      "facts": [
+        {
+          "id": "manages",
+          "claim": "An OS manages hardware and software resources and provides services",
+          "pattern": "manag[^.]{0,60}(resources|hardware)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Operating_system",
+            "quote": "system software that manages computer hardware and software resources, and provides common services for computer programs"
+          }
+        },
+        {
+          "id": "intermediary",
+          "claim": "It is an intermediary between programs and hardware",
+          "pattern": "intermediary|interface between|between (the )?(user|programs?|applications?) and (the )?hardware",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Operating_system",
+            "quote": "the operating system acts as an intermediary between programs and the computer hardware"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "process-states",
+      "chapter": "processes",
+      "facts": [
+        {
+          "id": "states",
+          "claim": "Running, ready and waiting/blocked states",
+          "pattern": "\\bready\\b[^.]{0,80}\\b(running|waiting|blocked)\\b|\\brunning\\b[^.]{0,80}\\b(ready|waiting|blocked)\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Process_(computing)",
+            "quote": "changes the state to \"running\" while the previously \"running\" process is stored in a \"waiting\" state"
+          }
+        },
+        {
+          "id": "blocked",
+          "claim": "A process waiting for I/O is blocked",
+          "pattern": "block|waiting",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Process_(computing)",
+            "quote": "If a process requests something for which it must wait, it will be blocked"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "context-switch",
+      "chapter": "processes",
+      "facts": [
+        {
+          "id": "save-restore",
+          "claim": "Save the running process's state and load the next one's",
+          "pattern": "sav(e|ing)[^.]{0,60}(state|context|registers)|(state|context)[^.]{0,60}sav",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Context_switch",
+            "quote": "the operating system must save the state of the currently running process, followed by loading the next process state"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "threads",
+      "chapter": "processes",
+      "facts": [
+        {
+          "id": "smallest",
+          "claim": "A thread is the smallest unit the scheduler manages",
+          "pattern": "smallest|lightweight|light-weight",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thread_(computing)",
+            "quote": "a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler"
+          }
+        },
+        {
+          "id": "share",
+          "claim": "Threads of a process share its memory and resources",
+          "pattern": "share (the )?(same )?(memory|address space|code|data|resources)|shared (memory|address space)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thread_(computing)",
+            "quote": "sharing resources such as memory, while different processes do not share these resources"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "round-robin",
+      "chapter": "cpu-scheduling",
+      "facts": [
+        {
+          "id": "quantum",
+          "claim": "Each process gets a time slice (quantum) in circular order",
+          "pattern": "time (slice|quantum)|quantum",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Round-robin_scheduling",
+            "quote": "time slices (also known as time quanta) are assigned to each process in equal portions and in circular order"
+          }
+        },
+        {
+          "id": "starvation",
+          "claim": "Round robin is starvation-free",
+          "pattern": "starvation|fair",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Round-robin_scheduling",
+            "quote": "Round-robin scheduling is simple, easy to implement, and starvation-free"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "critical-section",
+      "chapter": "synchronisation",
+      "facts": [
+        {
+          "id": "mutex",
+          "claim": "A critical section needs mutual exclusion",
+          "pattern": "mutual exclusion|mutex|one (process|thread) at a time",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Critical_section",
+            "quote": "A critical section is a piece of a program that requires mutual exclusion of access"
+          }
+        },
+        {
+          "id": "shared",
+          "claim": "It is where shared resources are accessed",
+          "pattern": "shared (resource|data|variable)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Critical_section",
+            "quote": "the parts of the program where the shared resource is accessed need to be protected"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "semaphores-monitors",
+      "chapter": "synchronisation",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "A semaphore controls access to a shared resource by many processes",
+          "pattern": "semaphore",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Semaphore_(programming)",
+            "quote": "a semaphore is a synchronization device used to control access to a common resource by multiple threads or processes"
+          }
+        },
+        {
+          "id": "counter",
+          "claim": "It records how many units of a resource are available",
+          "pattern": "(integer|counter|count) (value|variable)|wait\\s*\\(|signal\\s*\\(|\\bP\\s*\\(|\\bV\\s*\\(",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Semaphore_(programming)",
+            "quote": "a record of how many units of a particular resource are available"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "deadlock-conditions",
+      "chapter": "deadlocks",
+      "facts": [
+        {
+          "id": "four",
+          "claim": "Mutual exclusion, hold and wait, no preemption, circular wait",
+          "pattern": "hold and wait",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Deadlock_(computer_science)",
+            "quote": "Hold and wait or resource holding: a process is currently holding at least one resource and requesting additional resources"
+          }
+        },
+        {
+          "id": "circular",
+          "claim": "Circular wait",
+          "pattern": "circular wait",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Deadlock_(computer_science)",
+            "quote": "Circular wait: each process must be waiting for a resource which is being held by another process"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bankers-algorithm",
+      "chapter": "deadlocks",
+      "facts": [
+        {
+          "id": "safe",
+          "claim": "Banker's algorithm avoids deadlock by keeping the system in a safe state",
+          "pattern": "safe state|safe sequence",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Banker's_algorithm",
+            "quote": "the bank never leaves a safe state"
+          }
+        },
+        {
+          "id": "max",
+          "claim": "Each process declares its maximum need in advance",
+          "pattern": "maximum (need|demand|claim|resources)|\\bmax\\b (matrix|need)|\\bneed\\b (matrix|=)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Banker's_algorithm",
+            "quote": "it must declare the maximum number of instances of each resource type that it may ever claim"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "paging",
+      "chapter": "memory-management",
+      "facts": [
+        {
+          "id": "pages-frames",
+          "claim": "Memory is split into fixed-size pages and frames",
+          "pattern": "frame",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Memory_paging",
+            "quote": "the operating system retrieves data from secondary storage in blocks of the same size (pages)"
+          }
+        },
+        {
+          "id": "table",
+          "claim": "A page table maps pages to frames",
+          "pattern": "page table",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Memory_paging",
+            "quote": "use either a set of page address registers or in-memory page tables"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "page-replacement",
+      "chapter": "memory-management",
+      "facts": [
+        {
+          "id": "fault",
+          "claim": "A page fault happens when the page is not in memory",
+          "pattern": "page fault",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Page_replacement_algorithm",
+            "quote": "Page replacement happens when a requested page is not in memory (page fault)"
+          }
+        },
+        {
+          "id": "lru-fifo",
+          "claim": "LRU and FIFO are common replacement policies",
+          "pattern": "LRU|least recently used",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Page_replacement_algorithm",
+            "quote": "LRU (least recently used) approximations"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "virtual-memory",
+      "chapter": "memory-management",
+      "facts": [
+        {
+          "id": "mapping",
+          "claim": "Virtual addresses are mapped to physical addresses",
+          "pattern": "virtual address[^.]{0,80}physical|logical address[^.]{0,80}physical|map",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Virtual_memory",
+            "quote": "maps memory addresses used by a program, called virtual addresses, into physical addresses in computer memory"
+          }
+        },
+        {
+          "id": "disk",
+          "claim": "Disk extends memory beyond the size of RAM",
+          "pattern": "disk|secondary storage|swap",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Virtual_memory",
+            "quote": "utilizing, e.g., disk storage, to provide a virtual address space that can exceed the capacity of real memory"
+          }
+        }
+      ]
+    }
+  ]
+}

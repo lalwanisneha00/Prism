@@ -1,0 +1,285 @@
+{
+  "description": "Key facts a correct lesson on each Computer Organisation and Architecture topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "coa",
+  "topics": [
+    {
+      "topic": "functional-units",
+      "chapter": "basic-organisation",
+      "facts": [
+        {
+          "id": "units",
+          "claim": "Control unit, arithmetic unit, memory and I/O",
+          "pattern": "control unit[^.]{0,120}(ALU|arithmetic)|(ALU|arithmetic)[^.]{0,120}control unit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Von_Neumann_architecture",
+            "quote": "A central control unit to sequence operations performed by the machine"
+          }
+        },
+        {
+          "id": "stored-program",
+          "claim": "Memory stores both data and instructions",
+          "pattern": "(data and instructions|instructions and data)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Von_Neumann_architecture",
+            "quote": "Memory that stores data and instructions"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "instruction-cycle",
+      "chapter": "basic-organisation",
+      "facts": [
+        {
+          "id": "stages",
+          "claim": "Fetch, decode, execute",
+          "pattern": "fetch[^.]{0,40}decode[^.]{0,40}execute",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Instruction_cycle",
+            "quote": "It is composed of three main stages: the fetch stage, the decode stage, and the execute stage"
+          }
+        },
+        {
+          "id": "ir",
+          "claim": "The instruction register holds the instruction being decoded",
+          "pattern": "instruction register|\\bIR\\b|program counter|\\bPC\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Instruction_cycle",
+            "quote": "is where the instruction is temporarily held, for the CPU to decode it"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "addressing-modes",
+      "chapter": "basic-organisation",
+      "facts": [
+        {
+          "id": "operand",
+          "claim": "Addressing modes say how an instruction finds its operand",
+          "pattern": "operand",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Addressing_mode",
+            "quote": "Addressing modes define how the machine language instructions in that architecture identify the operand(s) of each instruction"
+          }
+        },
+        {
+          "id": "ea",
+          "claim": "They compute the effective address",
+          "pattern": "effective address",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Addressing_mode",
+            "quote": "An addressing mode specifies how to calculate the effective memory address of an operand"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "signed-numbers",
+      "chapter": "data-representation",
+      "facts": [
+        {
+          "id": "invert-add",
+          "claim": "Two's complement: invert the bits and add one",
+          "pattern": "invert[^.]{0,60}add(ing)? (one|1)|complement[^.]{0,60}add(ing)? (one|1)|flip[^.]{0,60}add(ing)? (one|1)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Two's_complement",
+            "quote": "inverting gives all ones, and adding one changes the ones back to zeros"
+          }
+        },
+        {
+          "id": "range",
+          "claim": "One zero; n bits range −2ⁿ⁻¹ … 2ⁿ⁻¹ − 1 (4 bits: −8 … +7)",
+          "pattern": "-\\s*8[^.]{0,20}(\\+?\\s*7)|only one (representation of )?zero|-\\s*2\\s*\\^\\s*\\(?n\\s*-\\s*1|-128[^.]{0,20}127",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Two's_complement",
+            "quote": "the two's complement scheme has only one representation for zero"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "floating-point",
+      "chapter": "data-representation",
+      "facts": [
+        {
+          "id": "parts",
+          "claim": "Sign, significand (mantissa) and exponent",
+          "pattern": "(sign|mantissa|significand)[^.]{0,60}exponent|exponent[^.]{0,60}(mantissa|significand|fraction)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/IEEE_754",
+            "quote": "s = a sign (zero or one), c = a significand (also called a coefficient or mantissa)"
+          }
+        },
+        {
+          "id": "hidden-bit",
+          "claim": "Normalised significand has an implicit leading 1",
+          "pattern": "(implicit|hidden|implied)[^.]{0,30}(1|one|bit)|leading 1",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/IEEE_754",
+            "quote": "this bit is not explicitly stored in the representation, but is left implicit"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "booth-multiplication",
+      "chapter": "data-representation",
+      "facts": [
+        {
+          "id": "signed",
+          "claim": "Booth's algorithm multiplies signed two's complement numbers",
+          "pattern": "two'?s complement|signed",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Booth's_multiplication_algorithm",
+            "quote": "Booth's multiplication algorithm is a multiplication algorithm that multiplies two signed binary numbers in two's complement notation"
+          }
+        },
+        {
+          "id": "pairs",
+          "claim": "It examines pairs of adjacent bits (with an extra bit Q₋₁)",
+          "pattern": "(pair|two) (of )?(adjacent )?bits|Q\\s*_?\\s*\\(?-\\s*1|Q_?\\{?-1|q\\s*-\\s*1|10[^.]{0,30}01",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Booth's_multiplication_algorithm",
+            "quote": "Booth's algorithm examines adjacent pairs of bits of the N-bit multiplier"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "microprogrammed-control",
+      "chapter": "control-unit",
+      "facts": [
+        {
+          "id": "microcode",
+          "claim": "Microcode: low-level instructions that implement the instruction set",
+          "pattern": "micro-?(code|instruction|program)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Microcode",
+            "quote": "microcode is a layer of low-level control data or instructions used to implement a processor's instruction set architecture"
+          }
+        },
+        {
+          "id": "control-unit",
+          "claim": "The control unit turns an instruction into internal actions",
+          "pattern": "control unit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Microcode",
+            "quote": "Converting a single instruction read from memory into the sequence of internal actions is the duty of the control unit"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dma",
+      "chapter": "io-organisation",
+      "facts": [
+        {
+          "id": "independent",
+          "claim": "DMA lets devices access memory without the CPU",
+          "pattern": "(without|independent(ly)? of|bypass)[^.]{0,40}(CPU|processor)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Direct_memory_access",
+            "quote": "allows certain hardware subsystems to access main system memory independently of the central processing unit"
+          }
+        },
+        {
+          "id": "interrupt",
+          "claim": "The CPU starts the transfer and gets an interrupt when it is done",
+          "pattern": "interrupt",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Direct_memory_access",
+            "quote": "it finally receives an interrupt from the direct memory access controller"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "instruction-pipelining",
+      "chapter": "pipelining-coa",
+      "facts": [
+        {
+          "id": "ilp",
+          "claim": "Pipelining gives instruction-level parallelism by overlapping stages",
+          "pattern": "overlap|parallel|stage",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Instruction_pipelining",
+            "quote": "instruction pipelining is a technique for implementing instruction-level parallelism within a single processor"
+          }
+        },
+        {
+          "id": "throughput",
+          "claim": "It increases throughput (not the latency of one instruction)",
+          "pattern": "throughput",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Instruction_pipelining",
+            "quote": "Pipelining typically reduces the processor's cycle time and increases the throughput of instructions"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pipeline-hazards",
+      "chapter": "pipelining-coa",
+      "facts": [
+        {
+          "id": "three",
+          "claim": "Data, structural and control hazards",
+          "pattern": "structural[^.]{0,80}(control|branch)|data hazards?[^.]{0,80}structural",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hazard_(computer_architecture)",
+            "quote": "Three common types of hazards are data hazards, structural hazards, and control hazards"
+          }
+        },
+        {
+          "id": "structural",
+          "claim": "Structural hazard: two instructions need the same resource",
+          "pattern": "same (hardware )?resource|resource conflict",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hazard_(computer_architecture)",
+            "quote": "A structural hazard occurs when two (or more) instructions which are already in a pipeline need the same resource"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "memory-hierarchy",
+      "chapter": "memory-organisation",
+      "facts": [
+        {
+          "id": "smaller-faster",
+          "claim": "Higher levels are smaller and faster",
+          "pattern": "smaller[^.]{0,30}faster|faster[^.]{0,30}smaller|fast(er)?[^.]{0,60}(expensive|cost)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Memory_hierarchy",
+            "quote": "each member mi is typically smaller and faster than the next highest member"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cache-mapping",
+      "chapter": "memory-organisation",
+      "facts": [
+        {
+          "id": "direct",
+          "claim": "Direct-mapped: each block has exactly one place",
+          "pattern": "direct[- ]mapp",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/CPU_cache",
+            "quote": "if each entry in the main memory can go in just one place in the cache, the cache is direct-mapped"
+          }
+        },
+        {
+          "id": "set-assoc",
+          "claim": "N-way set associative: any one of N places",
+          "pattern": "set[- ]associative|fully associative",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/CPU_cache",
+            "quote": "are described as N-way set associative"
+          }
+        }
+      ]
+    }
+  ]
+}

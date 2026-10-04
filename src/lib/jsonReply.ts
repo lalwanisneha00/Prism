@@ -51,9 +51,11 @@ export function repairLatexEscapes(json: string): string {
     }
     const next = json[i + 1] ?? "";
     const word = /^[a-zA-Z]+/.exec(json.slice(i + 1))?.[0] ?? "";
-    const validEscape = /["\\/bfnrtu]/.test(next);
+    const validEscape =
+      /["\\/bfnrt]/.test(next) || (next === "u" && /^u[0-9a-fA-F]{4}/.test(json.slice(i + 1)));
     const isLatex = word.length > 0 && (!validEscape || AMBIGUOUS_LATEX.has(word));
-    if (isLatex) {
+    // Anything else that isn't a JSON escape (\( \' \0 \{ in code or maths) is a literal backslash.
+    if (isLatex || !validEscape) {
       out += "\\\\"; // a LaTeX command: keep the backslash as a real character
     } else {
       out += ch + next; // a genuine escape, copied as-is (including \\ and \")

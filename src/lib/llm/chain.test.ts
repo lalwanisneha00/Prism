@@ -43,6 +43,16 @@ describe("provider chain", () => {
     ).rejects.toMatchObject({ kind: "not-configured" });
   });
 
+  it("tries the next provider after a blocked reply, without resting the first one", async () => {
+    const blocking = failing("blocked", "Blocking");
+    const backup = new FakeProvider(() => "{}");
+    expect(await generateJsonWithFallback([blocking, backup], { system: "", prompt: "" })).toBe(
+      "{}",
+    );
+    await generateJsonWithFallback([blocking, backup], { system: "", prompt: "" });
+    expect(blocking.calls).toBe(2); // asked first again: it isn't marked busy
+  });
+
   it("falls back to the next provider when the first is overloaded", async () => {
     const text = await generateJsonWithFallback(
       [failing("unavailable"), new FakeProvider(() => "{}")],

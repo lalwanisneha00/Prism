@@ -1,0 +1,267 @@
+{
+  "description": "Key facts a correct lesson on each Microprocessors and Microcontrollers topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "microprocessors",
+  "topics": [
+    {
+      "topic": "microcomputer-blocks",
+      "chapter": "microcomputer-basics",
+      "facts": [
+        {
+          "id": "cpu",
+          "claim": "The microprocessor holds the CPU's arithmetic, logic and control",
+          "pattern": "ALU|arithmetic[^.]{0,30}logic|control unit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Microprocessor",
+            "quote": "The microprocessor contains the arithmetic, logic, and control circuitry required to perform the functions of a computer's central processing unit"
+          }
+        },
+        {
+          "id": "ic",
+          "claim": "A CPU on a single integrated circuit",
+          "pattern": "single (integrated circuit|chip|IC)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Microprocessor",
+            "quote": "is included on a single integrated circuit (IC), or a small number of ICs"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "memory-interfacing",
+      "chapter": "microcomputer-basics",
+      "facts": [
+        {
+          "id": "decoder",
+          "claim": "An address decoder selects the device or memory chip",
+          "pattern": "address decod|chip select|\\bCS\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Address_decoder",
+            "quote": "When the address for a particular device appears on the address inputs, the decoder asserts the selection output for that device"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "interrupts-dma-mp",
+      "chapter": "microcomputer-basics",
+      "facts": [
+        {
+          "id": "isr",
+          "claim": "On an interrupt the processor saves state and runs an ISR",
+          "pattern": "interrupt service routine|ISR|interrupt handler",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Interrupt",
+            "quote": "the processor will suspend its current activities, save its state, and execute a function called an interrupt handler"
+          }
+        },
+        {
+          "id": "resume",
+          "claim": "Then it resumes the interrupted program",
+          "pattern": "resum|return(s)? to",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Interrupt",
+            "quote": "allowing the software to resume normal activities after the interrupt handler finishes"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "intel-8085",
+      "chapter": "8085-8086",
+      "facts": [
+        {
+          "id": "8bit",
+          "claim": "The 8085 is an 8-bit microprocessor",
+          "pattern": "8-bit|8 bit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Intel_8085",
+            "quote": "is an 8-bit microprocessor produced by Intel"
+          }
+        },
+        {
+          "id": "trap",
+          "claim": "TRAP cannot be disabled; EI/DI enable and disable the others",
+          "pattern": "TRAP|\\bEI\\b|\\bDI\\b|non-?maskable",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Intel_8085",
+            "quote": "All interrupts except TRAP are enabled by the EI instruction and disabled by the DI instruction"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "intel-8086",
+      "chapter": "8085-8086",
+      "facts": [
+        {
+          "id": "16bit",
+          "claim": "The 8086 is a 16-bit microprocessor",
+          "pattern": "16-bit|16 bit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Intel_8086",
+            "quote": "is a 16-bit, complex instruction set microprocessor designed by Intel"
+          }
+        },
+        {
+          "id": "segment",
+          "claim": "Memory is accessed through segmentation",
+          "pattern": "segment",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Intel_8086",
+            "quote": "This address space is addressed by means of internal memory \"segmentation\""
+          }
+        }
+      ]
+    },
+    {
+      "topic": "assembly-programming",
+      "chapter": "8085-8086",
+      "facts": [
+        {
+          "id": "mnemonics",
+          "claim": "Assembly uses mnemonics for machine instructions",
+          "pattern": "mnemonic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Assembly_language",
+            "quote": "Assembly language uses mnemonics to represent low-level machine instructions (opcodes)"
+          }
+        },
+        {
+          "id": "assembler",
+          "claim": "An assembler converts it to machine code",
+          "pattern": "assembler",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Assembly_language",
+            "quote": "Assembly code is converted into executable machine code by a utility program referred to as an assembler"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "timers-serial-parallel",
+      "chapter": "peripherals",
+      "facts": [
+        {
+          "id": "pit",
+          "claim": "A programmable timer is a counter that signals at a programmed count",
+          "pattern": "programmed count|count(s|ing)? (down|up)|terminal count|counter",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Programmable_interval_timer",
+            "quote": "a programmable interval timer (PIT) is a counter that generates an output signal when it reaches a programmed count"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "intel-8051",
+      "chapter": "microcontrollers",
+      "facts": [
+        {
+          "id": "mcu",
+          "claim": "The 8051 is a single-chip microcontroller",
+          "pattern": "microcontroller",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Intel_MCS-51",
+            "quote": "is a single-chip microcontroller (MCU) series developed by Intel"
+          }
+        },
+        {
+          "id": "8bit",
+          "claim": "8-bit ALU, accumulator and data bus",
+          "pattern": "8-bit|8 bit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Intel_MCS-51",
+            "quote": "8-bit arithmetic logic unit (ALU) and accumulator, 8-bit registers"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "risc",
+      "chapter": "advanced-processors",
+      "facts": [
+        {
+          "id": "simple",
+          "claim": "RISC uses simple instructions and few addressing modes",
+          "pattern": "simple (instructions|addressing)|fewer (instructions|addressing)|few[^.]{0,30}addressing modes",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reduced_instruction_set_computer",
+            "quote": "RISC computers few and simple addressing modes and predictable instruction times"
+          }
+        },
+        {
+          "id": "pipeline",
+          "claim": "Speed per instruction via pipelining",
+          "pattern": "pipelin",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reduced_instruction_set_computer",
+            "quote": "in particular by implementing an instruction pipeline"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "arm-microcontrollers",
+      "chapter": "microcontrollers",
+      "facts": [
+        {
+          "id": "risc",
+          "claim": "ARM is a family of RISC architectures",
+          "pattern": "RISC",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/ARM_architecture_family",
+            "quote": "ARM (stylised in lowercase as arm) is a family of RISC instruction set architectures"
+          }
+        },
+        {
+          "id": "power",
+          "claim": "Low power suits battery devices",
+          "pattern": "low power|battery|power[- ]efficien",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/ARM_architecture_family",
+            "quote": "Due to their low costs, low power consumption, and low heat generation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "coprocessors",
+      "chapter": "peripherals",
+      "facts": [
+        {
+          "id": "8087",
+          "claim": "The 8087 was the floating-point coprocessor for the 8086",
+          "pattern": "8087|floating[- ]point",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Intel_8087",
+            "quote": "The Intel 8087, announced in 1980, was the first floating-point coprocessor for the 8086 line"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "adc-dac-interfacing",
+      "chapter": "peripherals",
+      "facts": [
+        {
+          "id": "adc",
+          "claim": "An ADC converts an analog voltage to a digital number",
+          "pattern": "analog[^.]{0,40}(in)?to (a )?digital",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Analog-to-digital_converter",
+            "quote": "converts an analog input voltage or current to a digital number"
+          }
+        },
+        {
+          "id": "dac",
+          "claim": "A DAC does the reverse",
+          "pattern": "digital[^.]{0,40}(in)?to (an )?analog|DAC",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Analog-to-digital_converter",
+            "quote": "A digital-to-analog converter (DAC) performs the reverse function"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "description": "Key facts a correct lesson on each Digital Signal Processing topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "dsp",
+  "topics": [
+    {
+      "topic": "sequences",
+      "chapter": "discrete-signals",
+      "facts": [
+        {
+          "id": "sequence",
+          "claim": "A discrete-time signal is a sequence of values",
+          "pattern": "sequence of (numbers|values|samples)|x\\s*\\[\\s*n\\s*\\]",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Discrete_time_and_continuous_time",
+            "quote": "A discrete signal or discrete-time signal is a time series consisting of a sequence of quantities"
+          }
+        },
+        {
+          "id": "sampling",
+          "claim": "Sampling at uniform times gives a sampling rate",
+          "pattern": "sampl",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Discrete_time_and_continuous_time",
+            "quote": "When a discrete-time signal is obtained by sampling a sequence at uniformly spaced times, it has an associated sampling rate"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "z-transform-dsp",
+      "chapter": "discrete-signals",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Converts a discrete-time sequence to the z-domain",
+          "pattern": "z-domain|complex (frequency|variable|plane)|z\\s*\\^\\s*\\(?\\s*-\\s*n",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Z-transform",
+            "quote": "into a complex valued frequency-domain (the z-domai"
+          }
+        },
+        {
+          "id": "laplace",
+          "claim": "Discrete-time counterpart of the Laplace transform",
+          "pattern": "laplace",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Z-transform",
+            "quote": "It can be considered a discrete-time counterpart of the Laplace transform"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dft",
+      "chapter": "dft-fft",
+      "facts": [
+        {
+          "id": "finite",
+          "claim": "DFT maps a finite sequence to a sequence of the same length",
+          "pattern": "(same length|N (points|samples|values))|finite",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Discrete_Fourier_transform",
+            "quote": "converts a finite sequence of numbers into another sequence of the same length"
+          }
+        },
+        {
+          "id": "inverse",
+          "claim": "The inverse DFT recovers the original sequence",
+          "pattern": "inverse (DFT|discrete Fourier)|IDFT",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Discrete_Fourier_transform",
+            "quote": "The inverse discrete Fourier transform reverses this process and recovers the original sequence"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fft",
+      "chapter": "dft-fft",
+      "facts": [
+        {
+          "id": "algorithm",
+          "claim": "An FFT is a fast algorithm for the DFT",
+          "pattern": "DFT|discrete Fourier transform",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fast_Fourier_transform",
+            "quote": "A fast Fourier transform (FFT) is an algorithm that computes the discrete Fourier transform (DFT)"
+          }
+        },
+        {
+          "id": "cooley",
+          "claim": "Cooley–Tukey (1965)",
+          "pattern": "cooley|tukey|butterfly|radix",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fast_Fourier_transform",
+            "quote": "James Cooley and John Tukey independently rediscovered these earlier algorithms"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "circular-convolution",
+      "chapter": "dft-fft",
+      "facts": [
+        {
+          "id": "periodic",
+          "claim": "Circular convolution is periodic convolution",
+          "pattern": "periodic convolution|modulo\\s*N|\\(\\s*\\(\\s*n|wraps? around|circular shift",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Circular_convolution",
+            "quote": "Circular convolution, also known as cyclic convolution, is a special case of periodic convolution"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fir-basics",
+      "chapter": "fir-filters",
+      "facts": [
+        {
+          "id": "finite",
+          "claim": "FIR impulse response settles to zero in finite time",
+          "pattern": "finite (duration|length|number)|settles to zero",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Finite_impulse_response",
+            "quote": "is a filter whose impulse response (or response to any finite length input) is of finite duration"
+          }
+        },
+        {
+          "id": "no-feedback",
+          "claim": "IIR filters may have feedback; FIR filters need none",
+          "pattern": "feedback|recursive|non-?recursive",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Finite_impulse_response",
+            "quote": "This is in contrast to infinite impulse response (IIR) filters, which may have internal feedback"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "window-method",
+      "chapter": "fir-filters",
+      "facts": [
+        {
+          "id": "zero",
+          "claim": "A window is zero outside a chosen interval",
+          "pattern": "zero[- ]valued outside|zero outside|outside (the|an|some) interval",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Window_function",
+            "quote": "is a mathematical function that is zero-valued outside of some chosen"
+          }
+        },
+        {
+          "id": "taper",
+          "claim": "Windows taper away from the middle",
+          "pattern": "taper",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Window_function",
+            "quote": "approach a maximum in the middle, and taper away from the middle"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "iir-basics",
+      "chapter": "iir-filters",
+      "facts": [
+        {
+          "id": "feedback",
+          "claim": "Feedback creates an infinite impulse response",
+          "pattern": "feedback|recursive",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Infinite_impulse_response",
+            "quote": "The presence of feedback in the topology of a discrete-time filter (such as the block diagram shown below) generally creates an IIR response"
+          }
+        },
+        {
+          "id": "infinite",
+          "claim": "The impulse response continues indefinitely",
+          "pattern": "infinite(ly)?|indefinitely|never (becomes|settles)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Infinite_impulse_response",
+            "quote": "thus an impulse response which continues infinitely"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "butterworth-chebyshev",
+      "chapter": "iir-filters",
+      "facts": [
+        {
+          "id": "flat",
+          "claim": "Butterworth is maximally flat in the passband",
+          "pattern": "maximally flat|flat[^.]{0,40}passband|no ripple",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Butterworth_filter",
+            "quote": "It is also referred to as a maximally flat magnitude filter"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bilinear-transform",
+      "chapter": "iir-filters",
+      "facts": [
+        {
+          "id": "map",
+          "claim": "Maps a continuous-time filter to discrete time",
+          "pattern": "(continuous|analog)[^.]{0,80}(discrete|digital)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bilinear_transform",
+            "quote": "to transform continuous-time system repr"
+          }
+        },
+        {
+          "id": "stability",
+          "claim": "Preserves stability",
+          "pattern": "stab",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bilinear_transform",
+            "quote": "The transform preserves stability"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "multirate",
+      "chapter": "dsp-advanced",
+      "facts": [
+        {
+          "id": "decimation",
+          "claim": "Decimation by M keeps every M-th sample",
+          "pattern": "every (M|tenth|\\w+)[- ]?(th)? sample|keep(ing|s)? (only )?every",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Downsampling_(signal_processing)",
+            "quote": "decimation by a factor of 10 actually means keeping only every tenth sample"
+          }
+        },
+        {
+          "id": "filter",
+          "claim": "Reduce bandwidth (filter) before reducing the sample rate",
+          "pattern": "(low-?pass|anti-?alias|filter)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Downsampling_(signal_processing)",
+            "quote": "an entire process of bandwidth reduction (filtering) and sample-rate reduction"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "spectral-estimation",
+      "chapter": "dsp-advanced",
+      "facts": [
+        {
+          "id": "psd",
+          "claim": "Estimates the power spectral density from samples",
+          "pattern": "power spectral density|PSD",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Spectral_density_estimation",
+            "quote": "is to estimate the spectral density (also known as the power spectral densit"
+          }
+        },
+        {
+          "id": "content",
+          "claim": "It describes the frequency content of the signal",
+          "pattern": "frequency content|versus frequency|distribution of power",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Spectral_density_estimation",
+            "quote": "the spectral density characterizes the frequency content of the signal"
+          }
+        }
+      ]
+    }
+  ]
+}

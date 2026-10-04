@@ -1,0 +1,300 @@
+{
+  "description": "Key facts a correct lesson on each Discrete Mathematics topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "discrete-maths",
+  "topics": [
+    {
+      "topic": "relations",
+      "chapter": "sets-relations-functions",
+      "facts": [
+        {
+          "id": "equivalence",
+          "claim": "An equivalence relation is reflexive, symmetric and transitive",
+          "pattern": "reflexive[^.]{0,40}symmetric[^.]{0,40}transitive",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Equivalence_relation",
+            "quote": "an equivalence relation is a binary relation that is reflexive, symmetric, and transitive"
+          }
+        },
+        {
+          "id": "example",
+          "claim": "≥ is reflexive and transitive but not symmetric (a partial order idea)",
+          "pattern": "partial order|antisymmetric|not symmetric",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Equivalence_relation",
+            "quote": "The relation \"≥\" between real numbers is reflexive and transitive, but not symmetric"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "functions-discrete",
+      "chapter": "sets-relations-functions",
+      "facts": [
+        {
+          "id": "bijective",
+          "claim": "Bijective = injective and surjective",
+          "pattern": "bijecti|one-to-one correspondence",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bijection",
+            "quote": "A function is bijective if and only if it is both injective (or one-to-one)"
+          }
+        },
+        {
+          "id": "inverse",
+          "claim": "A bijection has an inverse",
+          "pattern": "inverse (function|of f)|f\\s*\\^\\s*\\{?\\s*-\\s*1",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bijection",
+            "quote": "the inverse of f, such that each of the two ways for composing the two functions produces an identity function"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "countability",
+      "chapter": "sets-relations-functions",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Countable = finite or in one-to-one correspondence with ℕ",
+          "pattern": "natural numbers|one-to-one correspondence|bijection with",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Countable_set",
+            "quote": "can be put in one to one correspondence with the set of natural numbers"
+          }
+        },
+        {
+          "id": "reals",
+          "claim": "The real numbers are uncountable (Cantor)",
+          "pattern": "real numbers[^.]{0,60}uncountable|uncountable[^.]{0,60}real|cantor",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Countable_set",
+            "quote": "who proved the existence of uncountable sets"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "mathematical-induction",
+      "chapter": "induction-number-theory",
+      "facts": [
+        {
+          "id": "base",
+          "claim": "Base case proves the first value",
+          "pattern": "base case|basis",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mathematical_induction",
+            "quote": "The first, the base case, proves the statement for"
+          }
+        },
+        {
+          "id": "step",
+          "claim": "Inductive step: if true for n then true for n + 1",
+          "pattern": "n\\s*\\+\\s*1|k\\s*\\+\\s*1|inductive step|induction step",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mathematical_induction",
+            "quote": "prove that for every n, if the statement holds for n, then it holds for n + 1"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "division-gcd",
+      "chapter": "induction-number-theory",
+      "facts": [
+        {
+          "id": "euclid",
+          "claim": "Euclid's algorithm computes the GCD",
+          "pattern": "euclid",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Euclidean_algorithm",
+            "quote": "the Euclidean algorithm, or Euclid's algorithm, is an efficient method for computing the greatest common divisor (GCD)"
+          }
+        },
+        {
+          "id": "remainder",
+          "claim": "Replace the larger number by the remainder",
+          "pattern": "remainder|mod\\b|\\bmod\\s",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Euclidean_algorithm",
+            "quote": "replacing the larger of the two numbers by its remainder when divided by the smaller of the two"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fundamental-theorem-arithmetic",
+      "chapter": "induction-number-theory",
+      "facts": [
+        {
+          "id": "unique",
+          "claim": "Every integer > 1 is a product of primes in exactly one way",
+          "pattern": "unique(ly)?|exactly one way|only one way",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic",
+            "quote": "every integer greater than 1 is either prime or can be represented uniquely as a prod"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "permutations-combinations",
+      "chapter": "counting",
+      "facts": [
+        {
+          "id": "factorial",
+          "claim": "n distinct objects have n! permutations",
+          "pattern": "n\\s*!|factorial",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Permutation",
+            "quote": "The number of permutations of n distinct objects is n factorial"
+          }
+        },
+        {
+          "id": "order",
+          "claim": "A permutation is an ordering (arrangement)",
+          "pattern": "(order(ing|ed)?|arrangements?) (of|matters)|ordered arrangement",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Permutation",
+            "quote": "It can be interpreted as a new order of the members of a sequence"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pigeonhole",
+      "chapter": "counting",
+      "facts": [
+        {
+          "id": "statement",
+          "claim": "n items in m < n containers → some container has two or more",
+          "pattern": "(more|greater) than (one|1)|at least (two|2)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pigeonhole_principle",
+            "quote": "if n items are put into m containers, with n > m, then at least one container must contain more than one item"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "propositional-logic",
+      "chapter": "logic",
+      "facts": [
+        {
+          "id": "truth",
+          "claim": "Propositions are true or false",
+          "pattern": "true or false",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Propositional_logic",
+            "quote": "It deals with propositions (which can be true or false)"
+          }
+        },
+        {
+          "id": "connectives",
+          "claim": "Connectives: conjunction, disjunction, implication, biconditional, negation",
+          "pattern": "conjunction|disjunction|negation|implication|biconditional",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Propositional_logic",
+            "quote": "logical connectives representing the truth functions of conjunction, disjunction, implication, biconditional, and negation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "proof-techniques",
+      "chapter": "logic",
+      "facts": [
+        {
+          "id": "contradiction",
+          "claim": "Proof by contradiction: assume the opposite and reach a contradiction",
+          "pattern": "contradiction",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reductio_ad_absurdum",
+            "quote": "In mathematics, the technique is called proof by contradiction"
+          }
+        },
+        {
+          "id": "assume",
+          "claim": "Assume P is false and show that leads to falsehood",
+          "pattern": "assum",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reductio_ad_absurdum",
+            "quote": "We assume P to be false"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "groups",
+      "chapter": "algebraic-structures",
+      "facts": [
+        {
+          "id": "axioms",
+          "claim": "A group: associative, identity, inverses (plus closure)",
+          "pattern": "identity[^.]{0,80}inverse|inverse[^.]{0,80}identity|associativ",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Group_(mathematics)",
+            "quote": "the operation is associative, it has an identity element, and every element of the set has an inverse element"
+          }
+        },
+        {
+          "id": "integers",
+          "claim": "Integers under addition: identity 0",
+          "pattern": "identity (element )?(is )?(0|zero)|(0|zero) is the (additive )?identity",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Group_(mathematics)",
+            "quote": "Zero is called the identity element of addition"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "euler-hamilton",
+      "chapter": "graph-theory",
+      "facts": [
+        {
+          "id": "euler",
+          "claim": "An Eulerian trail uses every edge exactly once",
+          "pattern": "every edge[^.]{0,30}exactly once|each edge[^.]{0,30}exactly once",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Eulerian_path",
+            "quote": "visits every edge exactly once"
+          }
+        },
+        {
+          "id": "even",
+          "claim": "Euler cycle iff every vertex has even degree (connected graph)",
+          "pattern": "even (degree|number)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Eulerian_path",
+            "quote": "A connected graph has an Euler cycle if and only if every vertex has an even number of incident edges"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "graph-colouring-planar",
+      "chapter": "graph-theory",
+      "facts": [
+        {
+          "id": "adjacent",
+          "claim": "No two adjacent vertices share a colour",
+          "pattern": "adjacent[^.]{0,60}(same|different) colou?r|no two adjacent",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Graph_coloring",
+            "quote": "no two adjacent vertices are of the same color"
+          }
+        },
+        {
+          "id": "chromatic",
+          "claim": "The chromatic number is the fewest colours needed",
+          "pattern": "chromatic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Graph_coloring",
+            "quote": "the chromatic number problem"
+          }
+        }
+      ]
+    }
+  ]
+}

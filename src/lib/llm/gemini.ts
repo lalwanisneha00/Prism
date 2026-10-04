@@ -63,7 +63,7 @@ export class GeminiProvider implements LlmProvider {
       }
     }
     if (finishReason === "SAFETY" || finishReason === "RECITATION") {
-      throw new LlmError("bad-response", `Gemini stopped early (${finishReason}).`);
+      throw new LlmError("blocked", `Gemini stopped early (${finishReason}).`);
     }
     return text;
   }

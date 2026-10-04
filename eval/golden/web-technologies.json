@@ -1,0 +1,267 @@
+{
+  "description": "Key facts a correct lesson on each Web Technologies topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "web-technologies",
+  "topics": [
+    {
+      "topic": "internet-web-history",
+      "chapter": "web-intro",
+      "facts": [
+        {
+          "id": "tbl",
+          "claim": "The Web was invented by Tim Berners-Lee at CERN (1989)",
+          "pattern": "berners-?lee|CERN",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/World_Wide_Web",
+            "quote": "The Web was invented by English computer scientist Tim Berners-Lee while at CERN in 1989"
+          }
+        },
+        {
+          "id": "http-html",
+          "claim": "Pages in HTML, fetched with HTTP by browsers",
+          "pattern": "HTTP|HTML",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/World_Wide_Web",
+            "quote": "It facilitates access to documents and other web resources according to specific rules of the Hypertext Transfer Protocol (HTTP)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "http-protocol",
+      "chapter": "web-intro",
+      "facts": [
+        {
+          "id": "rr",
+          "claim": "HTTP is a request–response protocol (client–server)",
+          "pattern": "request[^.]{0,40}response",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/HTTP",
+            "quote": "HTTP is a request–response protocol in the client–server model"
+          }
+        },
+        {
+          "id": "stateless",
+          "claim": "HTTP is stateless",
+          "pattern": "stateless",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/HTTP",
+            "quote": "HTTP is a stateless application-level protocol"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "html-basics",
+      "chapter": "web-page-design",
+      "facts": [
+        {
+          "id": "markup",
+          "claim": "HTML is the markup language for web pages",
+          "pattern": "markup",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/HTML",
+            "quote": "Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser"
+          }
+        },
+        {
+          "id": "tags",
+          "claim": "Elements are delimited by tags in angle brackets",
+          "pattern": "tags?|angle brackets|<\\s*\\w+\\s*>",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/HTML",
+            "quote": "HTML elements are delineated by tags, written using angle brackets"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "css",
+      "chapter": "web-page-design",
+      "facts": [
+        {
+          "id": "separation",
+          "claim": "CSS separates presentation from content",
+          "pattern": "separat[^.]{0,60}(content|presentation|style)|presentation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/CSS",
+            "quote": "CSS is designed to enable the separation of content and presentation"
+          }
+        },
+        {
+          "id": "cascade",
+          "claim": "The cascade decides which rule wins",
+          "pattern": "cascad|specificity|priority",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/CSS",
+            "quote": "The name cascading comes from the specified priority scheme to determine which declaration applies"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "xml-dtd",
+      "chapter": "web-page-design",
+      "facts": [
+        {
+          "id": "readable",
+          "claim": "XML is both human-readable and machine-readable",
+          "pattern": "human-readable|machine-readable|self-describing",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/XML",
+            "quote": "a format that is both human-readable and machine-readable"
+          }
+        },
+        {
+          "id": "purpose",
+          "claim": "XML stores and transports data",
+          "pattern": "stor(e|ing)|transport|transmit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/XML",
+            "quote": "a markup language and file format for storing, transmitting, and reconstructing data"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dom-sax",
+      "chapter": "web-page-design",
+      "facts": [
+        {
+          "id": "tree",
+          "claim": "The DOM treats a document as a tree of nodes",
+          "pattern": "tree",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Document_Object_Model",
+            "quote": "treats an HTML or XML document as a tree structure wherein each node is an object"
+          }
+        },
+        {
+          "id": "access",
+          "claim": "DOM methods change structure, style and content",
+          "pattern": "(change|modify|update|manipulat)[^.]{0,60}(structure|content|style|document)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Document_Object_Model",
+            "quote": "with them one can change the structure, style or content of a document"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "javascript-basics",
+      "chapter": "scripting",
+      "facts": [
+        {
+          "id": "core",
+          "claim": "JavaScript is a core web technology with HTML and CSS",
+          "pattern": "HTML[^.]{0,40}CSS|client[- ]side",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/JavaScript",
+            "quote": "JavaScript (JS) is a programming language and core technology of the Web, alongside HTML and CSS"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ajax",
+      "chapter": "scripting",
+      "facts": [
+        {
+          "id": "async",
+          "claim": "Ajax fetches data asynchronously without reloading the page",
+          "pattern": "asynchron|without (re)?loading|in the background",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ajax_(programming)",
+            "quote": "web applications can send and retrieve data from a server asynchronously (in the background) without interfering with the display"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sessions-cookies",
+      "chapter": "server-side",
+      "facts": [
+        {
+          "id": "cookie",
+          "claim": "A cookie is a small piece of data from the server stored by the browser",
+          "pattern": "cookie",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/HTTP_cookie",
+            "quote": "a small block of data created by a web server while a user is browsing a website"
+          }
+        },
+        {
+          "id": "state",
+          "claim": "Cookies let servers keep state (e.g. a shopping cart)",
+          "pattern": "state|session|shopping (cart|basket)|log(ged)? in",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/HTTP_cookie",
+            "quote": "They enable web servers to store stateful information (such as items added in the shopping cart"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sockets-urls",
+      "chapter": "server-side",
+      "facts": [
+        {
+          "id": "url",
+          "claim": "A URL locates a resource and how to fetch it",
+          "pattern": "URL|uniform resource locator",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/URL",
+            "quote": "A URL specifies the location of a resource on a computer network and a mechanism for retrieving it"
+          }
+        },
+        {
+          "id": "parts",
+          "claim": "Protocol, hostname and path",
+          "pattern": "(protocol|scheme)[^.]{0,60}(host|domain)|host(name)?[^.]{0,60}path",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/URL",
+            "quote": "indicates protocol https, hostname www.example.com, and file name index.html"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "database-connectivity",
+      "chapter": "server-side",
+      "facts": [
+        {
+          "id": "jdbc",
+          "claim": "JDBC is the Java API for accessing databases",
+          "pattern": "JDBC|Java Database Connectivity",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Java_Database_Connectivity",
+            "quote": "is an application programming interface (API) for the Java programming language which defines how a client may access a database"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "servlets-lifecycle",
+      "chapter": "server-side",
+      "facts": [
+        {
+          "id": "servlet",
+          "claim": "A servlet is Java code that extends a server to answer requests",
+          "pattern": "servlet",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Jakarta_Servlet",
+            "quote": "is a Java software component that extends the capabilities of a server"
+          }
+        },
+        {
+          "id": "http",
+          "claim": "Most often used with HTTP",
+          "pattern": "HTTP|doGet|doPost",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Jakarta_Servlet",
+            "quote": "Servlets could in principle communicate over any client–server protocol, but they are most often used with HTTP"
+          }
+        }
+      ]
+    }
+  ]
+}

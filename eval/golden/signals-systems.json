@@ -1,0 +1,273 @@
+{
+  "description": "Key facts a correct lesson on each Signals and Systems topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "signals-systems",
+  "topics": [
+    {
+      "topic": "system-properties",
+      "chapter": "signal-basics",
+      "facts": [
+        {
+          "id": "superposition",
+          "claim": "Linearity = superposition",
+          "pattern": "superposition|additiv|homogene",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Linear_time-invariant_system",
+            "quote": "The latter condition is often referred to as the superposition principle"
+          }
+        },
+        {
+          "id": "impulse",
+          "claim": "An LTI system is fully described by its impulse response",
+          "pattern": "impulse response",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Linear_time-invariant_system",
+            "quote": "LTI systems can be characterized entirely by a single function called the system's impulse response"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "impulse-response",
+      "chapter": "lti-systems",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Output when the input is an impulse",
+          "pattern": "impulse",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Impulse_response",
+            "quote": "of a dynamic system is its output when presented with a brief input signal"
+          }
+        },
+        {
+          "id": "any-input",
+          "claim": "Output for any input follows from input and impulse response",
+          "pattern": "convol|any input",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Impulse_response",
+            "quote": "for any input, the output can be calculated in terms of the input and the impulse response"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "convolution",
+      "chapter": "lti-systems",
+      "facts": [
+        {
+          "id": "flip-shift",
+          "claim": "Integral of the product after one is reflected and shifted",
+          "pattern": "(reflect|flip|revers|fold)[^.]{0,80}shift|shift[^.]{0,80}(reflect|flip|revers|fold)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Convolution",
+            "quote": "the integral of the product of the two functions after one is reflected about the y-axis and shifted"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fourier-series-signals",
+      "chapter": "fourier-analysis",
+      "facts": [
+        {
+          "id": "periodic",
+          "claim": "A periodic signal is a sum of sines and cosines",
+          "pattern": "(sum|series) of (sines?|cosines?|sinusoids|harmonics|complex exponentials)|sines? and cosines?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fourier_series",
+            "quote": "A Fourier series () is a series expansion of a periodic function into a sum of trigonometric functions"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fourier-transform",
+      "chapter": "fourier-analysis",
+      "facts": [
+        {
+          "id": "frequency",
+          "claim": "Output is a (complex) function of frequency",
+          "pattern": "frequency",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fourier_transform",
+            "quote": "The output of the transform is a complex valued function of frequency"
+          }
+        },
+        {
+          "id": "uncertainty",
+          "claim": "Narrow in time means spread out in frequency",
+          "pattern": "(narrow|short|localized)[^.]{0,80}(wide|broad|spread)|uncertainty",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Fourier_transform",
+            "quote": "Functions that are localized in the time domain have Fourier transforms that are spread out across the frequency domain and vice versa"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "frequency-response",
+      "chapter": "fourier-analysis",
+      "facts": [
+        {
+          "id": "mag-phase",
+          "claim": "Magnitude and phase of the output versus frequency",
+          "pattern": "magnitude[^.]{0,60}phase|phase[^.]{0,60}magnitude|gain[^.]{0,60}phase",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Frequency_response",
+            "quote": "the quantitative measure of the magnitude and phase of the output as a function of input"
+          }
+        },
+        {
+          "id": "db",
+          "claim": "Magnitude often in decibels",
+          "pattern": "decibels?|\\bdB\\b|bode",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Frequency_response",
+            "quote": "typically in decibels (dB)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "laplace-systems",
+      "chapter": "laplace-z",
+      "facts": [
+        {
+          "id": "s-domain",
+          "claim": "Laplace transform maps time to the complex s-domain",
+          "pattern": "s-domain|s-plane|complex (frequency|variable)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Laplace_transform",
+            "quote": "(in the complex-valued frequency domain, also known as s-domain or s-plane)"
+          }
+        },
+        {
+          "id": "ode",
+          "claim": "Turns differential equations into algebra",
+          "pattern": "differential equations?[^.]{0,80}algebra|algebraic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Laplace_transform",
+            "quote": "mostly as a tool for solving linear differential equations and dynamical systems"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "z-transform",
+      "chapter": "laplace-z",
+      "facts": [
+        {
+          "id": "discrete",
+          "claim": "Converts a discrete-time sequence into the z-domain",
+          "pattern": "discrete[- ]time",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Z-transform",
+            "quote": "the Z-transform converts a discrete-time signal, which is a sequence of real or complex numbers"
+          }
+        },
+        {
+          "id": "counterpart",
+          "claim": "Discrete-time counterpart of the Laplace transform",
+          "pattern": "laplace",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Z-transform",
+            "quote": "It can be considered a discrete-time counterpart of the Laplace transform"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sampling-theorem",
+      "chapter": "sampling",
+      "facts": [
+        {
+          "id": "nyquist",
+          "claim": "Sample at more than twice the highest frequency (Nyquist)",
+          "pattern": "twice|2\\s*f\\s*_?\\s*(max|m|h)|nyquist",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nyquist–Shannon_sampling_theorem",
+            "quote": "An important consequence of the sampling theorem is the concept of Nyquist frequency"
+          }
+        },
+        {
+          "id": "bandlimited",
+          "claim": "Applies to band-limited signals",
+          "pattern": "band-?limited|bandwidth",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nyquist–Shannon_sampling_theorem",
+            "quote": "the class of functions that are band-limited to a given bandwidth"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "aliasing",
+      "chapter": "sampling",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Reconstructed signal differs from the original (distortion)",
+          "pattern": "distort|alias",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Aliasing",
+            "quote": "It also often refers to the distortion or artifact that results when a signal reconstructed from samples is different from the original continuous signal"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dtft-dft",
+      "chapter": "fourier-analysis",
+      "facts": [
+        {
+          "id": "dtft",
+          "claim": "The DTFT applies to a sequence of discrete values",
+          "pattern": "discrete[- ]time fourier|DTFT",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Discrete-time_Fourier_transform",
+            "quote": "the discrete-time Fourier transform (DTFT) is a form of Fourier analysis that is applicable to a sequence of discrete values"
+          }
+        },
+        {
+          "id": "periodic",
+          "claim": "The DTFT is periodic in frequency",
+          "pattern": "periodic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Discrete-time_Fourier_transform",
+            "quote": "it produces a function of frequency that is a periodic summation of the continuous Fourier transform"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "state-space",
+      "chapter": "laplace-z",
+      "facts": [
+        {
+          "id": "state-vars",
+          "claim": "State variables with first-order differential equations",
+          "pattern": "state variables?|first[- ]order",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/State-space_representation",
+            "quote": "a mathematical model of a physical system that uses state variables to track how inputs shape system behavior over time"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "reconstruction",
+      "chapter": "sampling",
+      "facts": [
+        {
+          "id": "zoh",
+          "claim": "A zero-order hold keeps each sample value for one sample interval",
+          "pattern": "hold(s|ing)? (each|the) sample|zero[- ]order hold|ZOH",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Zero-order_hold",
+            "quote": "by holding each sample value for one sample interval"
+          }
+        }
+      ]
+    }
+  ]
+}

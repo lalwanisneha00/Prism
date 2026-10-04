@@ -1,0 +1,276 @@
+{
+  "description": "Key facts a correct lesson on each Compiler Design topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "compiler-design",
+  "topics": [
+    {
+      "topic": "compiler-phases",
+      "chapter": "compiler-intro",
+      "facts": [
+        {
+          "id": "front-end",
+          "claim": "Front end: lexical, syntax and semantic analysis",
+          "pattern": "lexical analysis[^.]{0,80}(syntax|pars)|syntax analysis[^.]{0,80}semantic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Compiler",
+            "quote": "Aspects of the front end include lexical analysis, syntax analysis, and semantic analysis"
+          }
+        },
+        {
+          "id": "phases",
+          "claim": "Phases include parsing, semantic analysis, optimisation and code generation",
+          "pattern": "code generation|intermediate (code|representation)|optimi[sz]",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Compiler",
+            "quote": "often called phases: preprocessing, lexical analysis, parsing, semantic analysis"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "lexical-analysis-tokens",
+      "chapter": "lexical-analysis",
+      "facts": [
+        {
+          "id": "tokens",
+          "claim": "The lexer turns text into tokens",
+          "pattern": "token",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lexical_analysis",
+            "quote": "Lexical tokenization is conversion of a text into (semantically or syntactically) meaningful lexical tokens"
+          }
+        },
+        {
+          "id": "lexemes",
+          "claim": "Scanning groups characters into lexemes",
+          "pattern": "lexeme",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lexical_analysis",
+            "quote": "the scanning, which segments the input string into syntactic units called lexemes"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "top-down-parsing",
+      "chapter": "syntax-analysis",
+      "facts": [
+        {
+          "id": "rd",
+          "claim": "Recursive descent: one procedure per nonterminal",
+          "pattern": "recursive descent|procedure for each|function for each",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Recursive_descent_parser",
+            "quote": "a recursive descent parser is a kind of top-down parser built from a set of mutually recursive procedures"
+          }
+        },
+        {
+          "id": "no-left-rec",
+          "claim": "LL grammars cannot be ambiguous or left-recursive",
+          "pattern": "left recursion|left-recursive|left recursive",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Recursive_descent_parser",
+            "quote": "The LL(k) grammars therefore exclude all ambiguous grammars, as well as all grammars that contain left recursion"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bottom-up-parsing",
+      "chapter": "syntax-analysis",
+      "facts": [
+        {
+          "id": "shift-reduce",
+          "claim": "Shift-reduce parsing is table-driven and bottom-up",
+          "pattern": "shift[- ]reduce|\\bshift\\b[^.]{0,40}\\breduce\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Shift-reduce_parser",
+            "quote": "A shift-reduce parser is a class of efficient, table-driven bottom-up parsing methods"
+          }
+        },
+        {
+          "id": "lr",
+          "claim": "LR parsing is a shift-reduce method",
+          "pattern": "\\bLR\\b|LALR|SLR",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Shift-reduce_parser",
+            "quote": "LR parsing and its variations, are shift-reduce methods"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "yacc",
+      "chapter": "syntax-analysis",
+      "facts": [
+        {
+          "id": "lalr",
+          "claim": "Yacc is an LALR parser generator",
+          "pattern": "LALR|parser generator",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Yacc",
+            "quote": "It is a lookahead left-to-right rightmost derivation (LALR) parser generator"
+          }
+        },
+        {
+          "id": "actions",
+          "claim": "Grammar rules carry C code actions",
+          "pattern": "action",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Yacc",
+            "quote": "The input to Yacc is a grammar with snippets of C code (called \"actions\") attached to its rules"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "syntax-directed-translation",
+      "chapter": "semantic-analysis",
+      "facts": [
+        {
+          "id": "attributes",
+          "claim": "Attributes attached to grammar symbols carry semantic information",
+          "pattern": "attribute",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Attribute_grammar",
+            "quote": "Semantic information is stored in attributes associated with terminal and nonterminal symbols of the grammar"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "symbol-table",
+      "chapter": "semantic-analysis",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "A symbol table stores each identifier with its information",
+          "pattern": "identifier|symbol",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Symbol_table",
+            "quote": "a symbol table is a data structure where each identifier or symbol"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "runtime-environment",
+      "chapter": "semantic-analysis",
+      "facts": [
+        {
+          "id": "return",
+          "claim": "Calls push a return address on the call stack",
+          "pattern": "return address",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Call_stack",
+            "quote": "the return address, is pushed onto the top of the call stack as part of each call"
+          }
+        },
+        {
+          "id": "locals",
+          "claim": "Stack frames hold local variables",
+          "pattern": "local variables|activation record|stack frame",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Call_stack",
+            "quote": "A subroutine frequently needs memory space for storing the values of local variables"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "three-address-code",
+      "chapter": "intermediate-code",
+      "facts": [
+        {
+          "id": "three",
+          "claim": "Each instruction has at most three operands",
+          "pattern": "(at most|up to) three (operands|addresses)|three operands|three addresses",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Three-address_code",
+            "quote": "Each TAC instruction has at most three operands"
+          }
+        },
+        {
+          "id": "intermediate",
+          "claim": "It is an intermediate code for optimising compilers",
+          "pattern": "intermediate",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Three-address_code",
+            "quote": "is an intermediate code used by optimizing compilers"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "code-optimisation",
+      "chapter": "intermediate-code",
+      "facts": [
+        {
+          "id": "goals",
+          "claim": "Optimisation reduces execution time, memory or size",
+          "pattern": "(execution|running) time|faster|memory usage|code size",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Optimizing_compiler",
+            "quote": "minimizing program execution time, memory usage, storage size, and power consumption"
+          }
+        },
+        {
+          "id": "equivalent",
+          "claim": "Transformations keep the program's meaning",
+          "pattern": "(same|equivalent) (meaning|semantics|result|output)|semantically equivalent",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Optimizing_compiler",
+            "quote": "algorithms that transform code to produce semantically equivalent code"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "register-allocation",
+      "chapter": "code-generation",
+      "facts": [
+        {
+          "id": "assign",
+          "claim": "Assign variables to a limited number of registers",
+          "pattern": "limited number of (processor )?registers|registers",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Register_allocation",
+            "quote": "assigning local automatic variables and expression results to a limited number of processor registers"
+          }
+        },
+        {
+          "id": "spill",
+          "claim": "When registers run out, values are spilled to memory",
+          "pattern": "spill",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Register_allocation",
+            "quote": "This process is called \"spilling\" the registers"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "data-flow-analysis",
+      "chapter": "intermediate-code",
+      "facts": [
+        {
+          "id": "cfg",
+          "claim": "Uses the control-flow graph",
+          "pattern": "control[- ]flow graph",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Data-flow_analysis",
+            "quote": "A program's control-flow graph (CFG) is used to determine those parts of a program to which a particular value assigned to a variable might propagate"
+          }
+        },
+        {
+          "id": "purpose",
+          "claim": "Information is used for optimisation",
+          "pattern": "optimi[sz]",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Data-flow_analysis",
+            "quote": "The information gathered is often used by compilers when optimizing a program"
+          }
+        }
+      ]
+    }
+  ]
+}

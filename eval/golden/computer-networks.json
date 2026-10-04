@@ -1,0 +1,294 @@
+{
+  "description": "Key facts a correct lesson on each Computer Networks topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "computer-networks",
+  "topics": [
+    {
+      "topic": "osi-tcpip-models",
+      "chapter": "network-basics",
+      "facts": [
+        {
+          "id": "seven",
+          "claim": "The OSI model has seven layers",
+          "pattern": "seven layers|7 layers",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/OSI_model",
+            "quote": "The recommendation X.200 describes seven layers, labelled 1 to 7"
+          }
+        },
+        {
+          "id": "names",
+          "claim": "Physical, data link, network, transport, session, presentation, application",
+          "pattern": "physical[^.]{0,40}data[- ]link|session[^.]{0,40}presentation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/OSI_model",
+            "quote": "Physical, Data Link, Network, Transport, Session, Presentation, and Application"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "network-topologies",
+      "chapter": "network-basics",
+      "facts": [
+        {
+          "id": "kinds",
+          "claim": "Common topologies: ring, bus, mesh and star",
+          "pattern": "\\bbus\\b[^.]{0,60}\\bstar\\b|\\bstar\\b[^.]{0,60}\\b(bus|ring|mesh)\\b|\\bring\\b[^.]{0,60}\\b(bus|star|mesh)\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Network_topology",
+            "quote": "A wide variety of physical topologies have been used in LANs, including ring, bus, mesh and star"
+          }
+        },
+        {
+          "id": "logical-physical",
+          "claim": "Logical topology can differ from physical",
+          "pattern": "logical (topology|bus|ring)|physical topology",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Network_topology",
+            "quote": "the original twisted pair Ethernet using repeater hubs was a logical bus topology carried on a physical star topology"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "switching",
+      "chapter": "network-basics",
+      "facts": [
+        {
+          "id": "circuit",
+          "claim": "Circuit switching sets up a dedicated channel first",
+          "pattern": "dedicated",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Circuit_switching",
+            "quote": "two network nodes establish a dedicated communications channel (circuit) through the network"
+          }
+        },
+        {
+          "id": "delay",
+          "claim": "Circuit delay is constant; packet queues add varying delay",
+          "pattern": "(packet|queu)[^.]{0,80}(delay|vary|variable)|store[- ]and[- ]forward",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Circuit_switching",
+            "quote": "In circuit switching, the bit delay is constant during a connection"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "error-detection",
+      "chapter": "data-link-layer",
+      "facts": [
+        {
+          "id": "methods",
+          "claim": "Detection with parity, checksums or CRC",
+          "pattern": "parity|checksum|CRC|cyclic redundancy",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Error_detection_and_correction",
+            "quote": "Error detection is most commonly realized using a suitable hash function (or specifically, a checksum, cyclic redundancy check"
+          }
+        },
+        {
+          "id": "check-bits",
+          "claim": "Check bits derived from the data are added",
+          "pattern": "redundan|check bits?|parity bits?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Error_detection_and_correction",
+            "quote": "attaches a fixed number of check bits (or parity data), which are derived from the data bits"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sliding-window",
+      "chapter": "data-link-layer",
+      "facts": [
+        {
+          "id": "seq",
+          "claim": "Each packet gets a sequence number; ACKs return it",
+          "pattern": "sequence number",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Sliding_window_protocol",
+            "quote": "Each packet receives a sequence number, and the ACKs send back that number"
+          }
+        },
+        {
+          "id": "ack",
+          "claim": "The receiver acknowledges with an ACK",
+          "pattern": "acknowledg|\\bACK",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Sliding_window_protocol",
+            "quote": "it sends an acknowledgment signal, or ACK, back to the sender"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "aloha-csma",
+      "chapter": "data-link-layer",
+      "facts": [
+        {
+          "id": "slotted",
+          "claim": "Slotted ALOHA doubles throughput to about 36.8%",
+          "pattern": "36\\.8|18\\.4|slotted",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/ALOHAnet",
+            "quote": "improving throughput to 36.8%"
+          }
+        },
+        {
+          "id": "csma",
+          "claim": "CSMA: listen before sending",
+          "pattern": "listen before|sense[s]? the (channel|medium|carrier)|carrier sense",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/ALOHAnet",
+            "quote": "a listen before send random-access protocol"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ethernet-lan",
+      "chapter": "data-link-layer",
+      "facts": [
+        {
+          "id": "frames",
+          "claim": "Ethernet sends data in frames",
+          "pattern": "frame",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ethernet",
+            "quote": "Systems communicating over Ethernet divide a stream of data into shorter pieces called frames"
+          }
+        },
+        {
+          "id": "mac",
+          "claim": "Each adapter has a unique 48-bit MAC address",
+          "pattern": "48[- ]bit|MAC address",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ethernet",
+            "quote": "each adapter comes programmed with a globally unique 48-bit MAC address"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ipv4-addressing",
+      "chapter": "network-layer",
+      "facts": [
+        {
+          "id": "32",
+          "claim": "IPv4 addresses are 32 bits",
+          "pattern": "32[- ]bits?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/IPv4",
+            "quote": "IPv4 uses a 32-bit address space which provides 4,294,967,296 (232) unique addresses"
+          }
+        },
+        {
+          "id": "dotted",
+          "claim": "Written in dotted-decimal notation",
+          "pattern": "dotted",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/IPv4",
+            "quote": "the quad-dotted IP address in the illustration (172.16.254.1) represents the 32-bit decimal number 2886794753"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "routing-algorithms",
+      "chapter": "network-layer",
+      "facts": [
+        {
+          "id": "bellman",
+          "claim": "Distance-vector routing uses Bellman–Ford",
+          "pattern": "bellman",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Distance-vector_routing_protocol",
+            "quote": "Distance-vector routing protocols use the Bellman–Ford algorithm to calculate the best route"
+          }
+        },
+        {
+          "id": "hops",
+          "claim": "Distance measured in hops; neighbours exchange tables",
+          "pattern": "\\bhops?\\b|neighbou?r",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Distance-vector_routing_protocol",
+            "quote": "Distance-vector routing protocols measure the distance by the number of routers a packet has to pass; one router counts as one hop"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "tcp",
+      "chapter": "transport-layer",
+      "facts": [
+        {
+          "id": "connection",
+          "claim": "TCP is connection-oriented with a three-way handshake",
+          "pattern": "three[- ]way handshake|SYN",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Transmission_Control_Protocol",
+            "quote": "they do this through a three-way handshake procedure"
+          }
+        },
+        {
+          "id": "reliable",
+          "claim": "Reliable, ordered, error-checked delivery",
+          "pattern": "reliable",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Transmission_Control_Protocol",
+            "quote": "providing reliable, ordered, and error-checked delivery of a stream of octets"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "udp",
+      "chapter": "transport-layer",
+      "facts": [
+        {
+          "id": "connectionless",
+          "claim": "UDP is connectionless",
+          "pattern": "connectionless|no connection",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/User_Datagram_Protocol",
+            "quote": "UDP is a connectionless protocol"
+          }
+        },
+        {
+          "id": "no-guarantee",
+          "claim": "No guarantee of delivery, ordering or duplicate protection",
+          "pattern": "(no|not|doesn'?t) guarantee|unreliable|best[- ]effort",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/User_Datagram_Protocol",
+            "quote": "there is no guarantee of delivery, ordering, or duplicate protection"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dns",
+      "chapter": "application-layer",
+      "facts": [
+        {
+          "id": "translate",
+          "claim": "DNS translates domain names to IP addresses",
+          "pattern": "(domain )?names?[^.]{0,60}IP address|IP address[^.]{0,60}(domain )?name",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Domain_Name_System",
+            "quote": "it translates readily memorized domain names to the numerical IP addresses"
+          }
+        },
+        {
+          "id": "hierarchical",
+          "claim": "A hierarchical, distributed system",
+          "pattern": "hierarch|distributed",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Domain_Name_System",
+            "quote": "The Domain Name System (DNS) is a hierarchical and distributed name service"
+          }
+        }
+      ]
+    }
+  ]
+}

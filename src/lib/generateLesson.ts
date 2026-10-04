@@ -160,6 +160,10 @@ function withoutSelfAwardedBadge(section: unknown): unknown {
  * Writes a lesson with the AI and returns it only once it passes the lesson schema.
  * Invalid replies are sent back with the list of problems, up to `maxAttempts` times.
  */
+/** Added to the prompt after a provider stopped a reply for looking like recited text. */
+export const OWN_WORDS_RULE =
+  "IMPORTANT: Write every sentence and every code example in your own words. Do not reproduce text or code verbatim from any book, website or library; use your own variable names and wording.";
+
 export async function generateLesson(
   request: LessonRequest,
   {
@@ -207,7 +211,19 @@ export async function generateLesson(
           }
         : undefined;
 
-    const reply = await generate({ system, prompt: currentPrompt, onText, signal });
+    let reply: string;
+    try {
+      reply = await generate({ system, prompt: currentPrompt, onText, signal });
+    } catch (err) {
+      // Every provider cut the reply short (Gemini "RECITATION": it looked like copied text,
+      // common for textbook code). Ask again for the same lesson in the AI's own words.
+      if (!(err instanceof LlmError) || err.kind !== "blocked" || attempt === maxAttempts) {
+        throw err;
+      }
+      lastProblems = [err.message];
+      currentPrompt = `${prompt}\n\n${OWN_WORDS_RULE}`;
+      continue;
+    }
 
     let body: unknown;
     try {

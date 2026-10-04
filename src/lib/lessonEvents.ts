@@ -38,6 +38,10 @@ export const errorCopy: Record<LessonErrorKind, { title: string; message: string
     title: "The AI service didn't answer",
     message: "It may be down for a moment. Try again in a few seconds.",
   },
+  blocked: {
+    title: "The AI stopped part-way",
+    message: "Its safety filter cut the answer short. Try again; the next attempt usually works.",
+  },
   "bad-response": {
     title: "That lesson didn't pass our checks",
     message:

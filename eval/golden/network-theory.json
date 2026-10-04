@@ -1,0 +1,258 @@
+{
+  "description": "Key facts a correct lesson on each Network Theory topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "network-theory",
+  "topics": [
+    {
+      "topic": "nodal-mesh-matrix",
+      "chapter": "network-analysis",
+      "facts": [
+        {
+          "id": "kcl",
+          "claim": "Nodal analysis applies KCL at each node",
+          "pattern": "KCL|Kirchhoff'?s current law",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nodal_analysis",
+            "quote": "Nodal analysis is essentially a systematic application of Kirchhoff's current law (KCL)"
+          }
+        },
+        {
+          "id": "zero",
+          "claim": "Branch currents at a node sum to zero",
+          "pattern": "sum to zero|sum of[^.]{0,60}(is|equals?) zero|(sum|Σ|sum_)\\s*I[^.]{0,20}=\\s*0",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nodal_analysis",
+            "quote": "the branch currents incident at a node must sum to zero"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "thevenin-norton-ac",
+      "chapter": "network-theorems",
+      "facts": [
+        {
+          "id": "reduce",
+          "claim": "Any linear one-port reduces to one source and one impedance",
+          "pattern": "single (voltage )?source[^.]{0,80}(single )?(impedance|resistance)|voltage source in series",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thévenin's_theorem",
+            "quote": "the theorem allows any one-port network to be reduced to a single voltage source and a single impedance"
+          }
+        },
+        {
+          "id": "vth",
+          "claim": "Vth is the open-circuit voltage",
+          "pattern": "open[- ]circuit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thévenin's_theorem",
+            "quote": "The equivalent voltage Vth is the voltage obtained at terminals A–B of the network with terminals A–B open circuited"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "max-power-transfer",
+      "chapter": "network-theorems",
+      "facts": [
+        {
+          "id": "match",
+          "claim": "Maximum power when load resistance equals source resistance",
+          "pattern": "(equal|match)[^.]{0,60}(source|internal|thevenin|th[eé]venin) (resistance|impedance)|R\\s*_?\\s*L\\s*=\\s*R\\s*_?\\s*(th|s|source|int)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Maximum_power_transfer_theorem",
+            "quote": "the resistance of the load must "
+          }
+        },
+        {
+          "id": "efficiency",
+          "claim": "Larger load raises efficiency but lowers power",
+          "pattern": "efficien|50\\s*%",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Maximum_power_transfer_theorem",
+            "quote": "If the load resistance is made larger than the source resistance, then efficiency increases"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "reciprocity-tellegen",
+      "chapter": "network-theorems",
+      "facts": [
+        {
+          "id": "statement",
+          "claim": "Swap source and response points: the current is the same",
+          "pattern": "interchang|swap|(same|unchanged)[^.]{0,60}(current|reading|ammeter)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reciprocity_(electrical_networks)",
+            "quote": "the current at one point in a circuit due to a voltage at a second point is the same as the current at the second point"
+          }
+        },
+        {
+          "id": "passive",
+          "claim": "Valid for (almost all) passive networks",
+          "pattern": "passive|linear",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reciprocity_(electrical_networks)",
+            "quote": "The reciprocity theorem is valid for almost all passive networks"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "laplace-circuits",
+      "chapter": "laplace-transients",
+      "facts": [
+        {
+          "id": "algebra",
+          "claim": "Differentiation and integration become multiplication and division",
+          "pattern": "multipl[^.]{0,30}by s\\b|algebraic|impedance (of )?s\\s*L|\\bsL\\b|1\\s*/\\s*\\(?\\s*s\\s*C",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Laplace_transform",
+            "quote": "converting differentiation and integration in the time domain into the algebraic operations multiplication and division"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "transfer-functions",
+      "chapter": "laplace-transients",
+      "facts": [
+        {
+          "id": "ratio",
+          "claim": "Models the output for each input (ratio of output to input)",
+          "pattern": "(ratio of|output[^.]{0,30}(over|divided by|to))[^.]{0,30}(output|input)|output\\s*/\\s*input|Y\\s*\\(\\s*s\\s*\\)\\s*/\\s*X|V\\s*_?\\s*out\\s*/\\s*V\\s*_?\\s*in",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Transfer_function",
+            "quote": "a mathematical function that models the system's output f"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "two-port-parameters",
+      "chapter": "two-port-resonance",
+      "facts": [
+        {
+          "id": "ports",
+          "claim": "Two pairs of terminals",
+          "pattern": "two pairs of terminals|four terminals|four-terminal|input port[^.]{0,60}output port",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Two-port_network",
+            "quote": "with two pairs of terminals"
+          }
+        },
+        {
+          "id": "params",
+          "claim": "z, y, h, g and ABCD parameters",
+          "pattern": "(z|y|h|ABCD)[- ]parameters",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Two-port_network",
+            "quote": "The common models that are used are referred to as z-parameters, y-parameters, h-parameters, g-parameters, and ABCD-parameters"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "series-parallel-resonance",
+      "chapter": "two-port-resonance",
+      "facts": [
+        {
+          "id": "cancel",
+          "claim": "At resonance inductive and capacitive reactances cancel",
+          "pattern": "(reactances?|X\\s*_?\\s*L)[^.]{0,60}cancel|cancel[^.]{0,60}reactance|X\\s*_?\\s*L\\s*=\\s*X\\s*_?\\s*C|equal (and|but) opposite",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/RLC_circuit",
+            "quote": "the impedances of the inductor and capacitor at resonant frequency are equal but of opposite sign and cancel out"
+          }
+        },
+        {
+          "id": "energy",
+          "claim": "Energy swaps between electric and magnetic fields",
+          "pattern": "electric field[^.]{0,80}magnetic field|magnetic field[^.]{0,80}electric field",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/RLC_circuit",
+            "quote": "in an electric field as the capacitor is charged and in a magnetic field"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "passive-filters",
+      "chapter": "two-port-resonance",
+      "facts": [
+        {
+          "id": "lowpass",
+          "claim": "Low-pass passes frequencies below the cutoff",
+          "pattern": "low-?pass[^.]{0,80}(below|lower)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Low-pass_filter",
+            "quote": "A low-pass filter is a filter that passes signals with a frequency lower than a selected cutoff frequency"
+          }
+        },
+        {
+          "id": "3db",
+          "claim": "At cutoff, power is halved (−3 dB)",
+          "pattern": "3\\s*dB|half[- ]power|1\\s*/\\s*sqrt\\s*\\(?\\s*2|0\\.707",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Low-pass_filter",
+            "quote": "at the cutoff frequency, the filter attenuates the input power by half or 3 dB"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "unbalanced-three-phase",
+      "chapter": "fourier-nonsinusoidal",
+      "facts": [
+        {
+          "id": "symmetrical",
+          "claim": "Symmetrical components analyse unbalanced systems",
+          "pattern": "symmetrical components|positive[- ]sequence|negative[- ]sequence|zero[- ]sequence",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Three-phase_electric_power",
+            "quote": "The method of symmetrical components is used to analyze unbalanced systems"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "source-transformation",
+      "chapter": "network-analysis",
+      "facts": [
+        {
+          "id": "swap",
+          "claim": "Voltage source in series ↔ current source in parallel",
+          "pattern": "(voltage source[^.]{0,60}series[^.]{0,120}current source[^.]{0,60}parallel)|(current source[^.]{0,60}parallel[^.]{0,120}voltage source[^.]{0,60}series)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Source_transformation",
+            "quote": "take an existing voltage source in series with a resistance, and replacing it with a current source in parallel"
+          }
+        },
+        {
+          "id": "ohm",
+          "claim": "Uses Ohm's law (I = V/R)",
+          "pattern": "ohm'?s law|I\\s*_?\\s*s?\\s*=\\s*V\\s*_?\\s*s?\\s*/\\s*R",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Source_transformation",
+            "quote": "Performing a source transformation consists of using Ohm's law"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "initial-conditions",
+      "chapter": "laplace-transients",
+      "facts": [
+        {
+          "id": "impulse",
+          "claim": "The unit impulse is the derivative of the unit step",
+          "pattern": "derivative of the (unit )?step|(unit )?step[^.]{0,60}integral of the (unit )?impulse",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Dirac_delta_function",
+            "quote": "it is the distributional derivative of the Heaviside step function"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -356,7 +356,8 @@ Lessons are generated on demand (first request → verified → shared library),
 8. Wave 2 syllabus, visuals, eval
 9. Wave 3 syllabus, visuals, eval
 10. Wave 4 syllabus, visuals, eval (other branches at `sourced`)
-11. My-own-syllabus matching (file reading built in V2.5), full regression eval, performance check, accuracy page update, deploy
+11. Personalised time recommendations and planner (plan update 2026-10-04, §12.9): one on-device priority engine in `src/lib/priority/` (topic importance, weak and predicted-tough topics, recommended lesson length, planner with a time range, up to 8 h/day, sessions and breaks)
+12. My-own-syllabus matching (file reading built in V2.5), full regression eval, performance check, accuracy page update, deploy
 
 Each wave ships on its own and is deployed, so the live site is always working and honest.
 
@@ -375,6 +376,16 @@ Non-core courses of the early semesters (Indian Knowledge System, Environmental 
 3. **Building the subject:** given topics are the structure, and uploaded material is matched to each topic. Without topics, a proposed outline (units → topics) is built from the material and previous-year papers, labelled "Outline built from your material", and the student can edit, reorder, rename, merge or delete topics before saving. With only a name and a few topics, lessons are grounded in trusted free sources and the subject is `sourced` or `limited` per the accuracy rules, with a prompt to upload material. Uploaded faculty material is the first source and is labelled; disagreements show both. Previous-year papers drive exam emphasis (frequent topics, typical question types).
 4. **Lessons:** single topic, several topics or a whole unit, then level and length, with audio for the same length; whole units use the V2.5 Quick / Standard / Thorough options and "Why these timings?". Every existing feature works unchanged. Theory style: prefer mind maps, timelines, comparison tables, flowcharts and labelled images; Exam Prep adds answer-writing help (model answers sized for 2, 5 and 10 marks, examiner key points, structure of a long answer); mock tests include descriptive questions with a self-check list. Skill subjects (English Communication) include practice activities (grammar and vocabulary exercises, letter, email and report formats with examples).
 5. **Storage and privacy:** a custom subject belongs to its student: local-first storage, synced to their own account (structure, progress, small data; originals and full text stay on the device). Lessons from private uploads never go to the shared library. "My subjects" lists custom subjects next to the engineering ones with edit, duplicate and delete, and they are part of export/import backup. Environmental Science stays in the Wave 1 built-in list too.
+
+### 12.9 Personalised time recommendations and planner (plan update 2026-10-04)
+
+Placed as V3 · Step 11, before the final regression-and-deploy step (now Step 12). One shared, pure, AI-free engine in `src/lib/priority/` (weights in one config file, unit-tested) is used by the topic picker, chapter lessons, dashboard, subject page, concept map and planner:
+
+1. **Importance ("return"):** High / Medium / Low per topic from previous-year papers, syllabus marks or hours, the number of later topics that depend on it, coverage in faculty material, and the student's own override ("set by you"). No evidence → Medium, labelled "importance not known yet". There is always a "Why?" note. It rolls up to chapters and subjects and replaces the V2.5 chapter weightage.
+2. **Weak and predicted-tough topics:** a weak score per topic from quizzes, mock tests, repeated wrong answers, "didn't understand", abandoned lessons and "simpler" requests, with recent results counting more (it decays). Predictions come from prerequisites, shared `skills` tags (also across subjects) and the kind of mistake, with minimum evidence, a confidence level, kind wording ("may need extra time") and a prerequisite revision offer.
+3. **Recommended lesson length:** three or four options with one marked Recommended (level, importance, size and difficulty, the student), plus "Other length" and "Why this time?", with sensible limits, for all six levels and every subject including custom ones. Chapter Quick / Standard / Thorough use the same engine.
+4. **Planner:** a time range per topic (presets Light 5–20, Balanced 10–30, Deep 15–60, or custom) set by priority; hours per weekday up to 8 ("College day" and "Day off" presets) plus date overrides; sessions with breaks and mixed subjects; prerequisite order; revision and flashcard slots for weak topics; a buffer and a final revision or mock test. If the plan doesn't fit, it says so plainly with choices and shows exactly what would be dropped; spare time is offered for revision. Rebalancing happens only when asked. Each item opens the lesson at the planned level and length, and an overview shows time per subject and per band.
+5. Everything is stored on the device through `src/lib/storage/`, with a migration (old plans still open) and sync like other progress. It works at 375px, in dark and light mode, and from the keyboard.
 
 ## 13. Version Final: Universal (formerly V3; may become V4 or V5)
 

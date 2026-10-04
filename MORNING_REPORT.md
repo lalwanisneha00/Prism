@@ -5,7 +5,7 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 ## Summary
 
 - **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`), the concept map fix (`concept-map-fix`), V3 · Steps 2–7 (`v3-step-2` … `v3-step-7`).
-- **Not started:** V3 · Steps 8–11 (the syllabus waves, my-own-syllabus matching, final regression and deploy).
+- **Not started:** V3 · Steps 8–12 (the syllabus waves; Step 11 = personalised time recommendations and planner, added 2026-10-04; Step 12 = my-own-syllabus matching, final regression and deploy).
 
 ## How to see it
 
@@ -300,7 +300,7 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 - Wave 1 tiers were set from the measured scores without waiting for your review (you asked me not to wait). Please glance at the three sample facts per subject under Step 7; if any looks wrong, tell me and I'll fix the golden set and re-run that subject.
 
-- Wave 1 syllabus sources used: [AICTE Model Curriculum Vol. I](https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf), [GCE Kalahandi first-year syllabus (AICTE model)](https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf), [IET Lucknow K-series first year (AICTE model)](https://ietlucknow.ac.in/sites/default/files/syllabus/K_Series_B_Tech_1st_Year_AICTE_Model_Curriculum_EFS_2020_21_4.pdf), [UGC Environmental Studies core module](https://www.ugc.gov.in/pdfnews/2269552_environmentalstudies.pdf). If your college follows a different university syllabus, Step 11 ("my own syllabus") will match it to these topics.
+- Wave 1 syllabus sources used: [AICTE Model Curriculum Vol. I](https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf), [GCE Kalahandi first-year syllabus (AICTE model)](https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf), [IET Lucknow K-series first year (AICTE model)](https://ietlucknow.ac.in/sites/default/files/syllabus/K_Series_B_Tech_1st_Year_AICTE_Model_Curriculum_EFS_2020_21_4.pdf), [UGC Environmental Studies core module](https://www.ugc.gov.in/pdfnews/2269552_environmentalstudies.pdf). If your college follows a different university syllabus, Step 12 ("my own syllabus") will match it to these topics.
 
 - **Vercel preview link:** the GitHub CLI isn't signed in on this computer, so I couldn't read the preview URL. Open vercel.com → the Prism project → Deployments, and look for the `overnight-v2.5-v3` branch (if the project is linked to GitHub, every push made a preview).
 - To use "Read with AI" on photos, nothing new is needed (it uses the existing `GEMINI_API_KEY`). Groq cannot read images, so if Gemini's quota is used up the button says so.

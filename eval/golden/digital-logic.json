@@ -1,0 +1,276 @@
+{
+  "description": "Key facts a correct lesson on each Digital Logic Design topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "digital-logic",
+  "topics": [
+    {
+      "topic": "karnaugh-maps",
+      "chapter": "combinational-design",
+      "facts": [
+        {
+          "id": "gray",
+          "claim": "Rows and columns follow Gray code",
+          "pattern": "gray code",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Karnaugh_map",
+            "quote": "The row and column indices (shown across the top and down the left side of the Karnaugh map) are ordered in Gray code"
+          }
+        },
+        {
+          "id": "adjacent",
+          "claim": "Group adjacent 1s to simplify",
+          "pattern": "adjacent|group",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Karnaugh_map",
+            "quote": "Adjacent 1s in the Karnaugh map represent opportunities to simplify the expression"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "mux-demux",
+      "chapter": "combinational-design",
+      "facts": [
+        {
+          "id": "mux",
+          "claim": "A multiplexer selects one of several inputs using select lines",
+          "pattern": "select lines?|selection lines?|data selector",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Multiplexer",
+            "quote": "The selection is directed by a separate set of digital inputs known as select lines"
+          }
+        },
+        {
+          "id": "demux",
+          "claim": "A demultiplexer sends one input to one of several outputs",
+          "pattern": "demultiplexer|demux",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Multiplexer",
+            "quote": "a demultiplexer (or demux) is a device that takes a single input signal and selectively forwards it to one of several output lines"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "adders-subtractors",
+      "chapter": "combinational-design",
+      "facts": [
+        {
+          "id": "full",
+          "claim": "A full adder adds a carry in as well",
+          "pattern": "carry[- ]in|\\bC\\s*_?\\s*in\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Adder_(electronics)",
+            "quote": "A full adder adds binary numbers and accounts for values carried in as well as out"
+          }
+        },
+        {
+          "id": "two-half",
+          "claim": "Two half adders plus an OR gate make a full adder",
+          "pattern": "two half adders|half adders?[^.]{0,60}OR gate",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Adder_(electronics)",
+            "quote": "two half adders can be combined to make a full adder"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "latches-flip-flops",
+      "chapter": "sequential-design",
+      "facts": [
+        {
+          "id": "bistable",
+          "claim": "Two stable states; stores one bit",
+          "pattern": "two stable states|bistable|one bit|single bit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flip-flop_(electronics)",
+            "quote": "flip-flops and latches are circuits that have two stable states"
+          }
+        },
+        {
+          "id": "edge",
+          "claim": "Flip-flops change on a clock edge; latches are level-triggered",
+          "pattern": "edge[- ]triggered|level[- ]triggered|clock edge",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flip-flop_(electronics)",
+            "quote": "an edge-triggered flip-flop's output only changes on a clock edge"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "counters",
+      "chapter": "sequential-design",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "A counter counts clock transitions, built from flip-flops",
+          "pattern": "flip-flops?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Counter_(digital)",
+            "quote": "A counter typically consists of flip-flops, which store a value representing the current count"
+          }
+        },
+        {
+          "id": "modulus",
+          "claim": "Number of flip-flops sets the maximum modulus",
+          "pattern": "2\\s*\\^\\s*n|modulus|mod-?\\s*\\d+",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Counter_(digital)",
+            "quote": "The maximum possible modulus of a counter is determined by the number of flip-flops"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "shift-registers",
+      "chapter": "sequential-design",
+      "facts": [
+        {
+          "id": "cascade",
+          "claim": "A cascade of flip-flops, each output feeding the next input",
+          "pattern": "cascade|output of (one|each) flip-flop|chain of flip-flops",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Shift_register",
+            "quote": "using a cascade of flip-flops where the output of one flip-flop is connected to the input of the next"
+          }
+        },
+        {
+          "id": "clock",
+          "claim": "A shared clock shifts the data one place",
+          "pattern": "(each|every|one) clock (pulse|cycle|edge)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Shift_register",
+            "quote": "They share a single clock signal, which causes the data stored in the system to shift from one location to the next"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "finite-state-machines",
+      "chapter": "sequential-design",
+      "facts": [
+        {
+          "id": "one-state",
+          "claim": "An FSM is in exactly one of a finite number of states",
+          "pattern": "finite number of states|one state at a time|exactly one",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Finite-state_machine",
+            "quote": "It is an abstract machine that can be in exactly one of a finite number of states at any given time"
+          }
+        },
+        {
+          "id": "transition",
+          "claim": "Moving between states is a transition",
+          "pattern": "transition",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Finite-state_machine",
+            "quote": "the change from one state to another is called a transition"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ttl-cmos-families",
+      "chapter": "logic-families-memory",
+      "facts": [
+        {
+          "id": "ttl",
+          "claim": "TTL is built from bipolar junction transistors",
+          "pattern": "bipolar|BJT",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Transistor–transistor_logic",
+            "quote": "Transistor–transistor logic (TTL) is a logic family built from bipolar junction transistors (BJTs)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fpga-pld",
+      "chapter": "logic-families-memory",
+      "facts": [
+        {
+          "id": "programmable",
+          "claim": "An FPGA is reprogrammable after manufacturing",
+          "pattern": "after manufactur|reprogramm|in the field|field-programmable",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Field-programmable_gate_array",
+            "quote": "is a type of configurable integrated circuit that can be repeatedly programmed after manufacturing"
+          }
+        },
+        {
+          "id": "blocks",
+          "claim": "Made of configurable logic blocks",
+          "pattern": "logic blocks|CLBs?|look-?up tables?|LUTs?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Field-programmable_gate_array",
+            "quote": "They consist of a grid-connected array of programmable logic blocks"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "binary-codes",
+      "chapter": "combinational-design",
+      "facts": [
+        {
+          "id": "bcd",
+          "claim": "BCD codes each decimal digit in four bits",
+          "pattern": "(four|4)[- ]bits?|nibble",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Binary-coded_decimal",
+            "quote": "each decimal digit is represented by its corresponding four-bit binary value"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "semiconductor-memories",
+      "chapter": "logic-families-memory",
+      "facts": [
+        {
+          "id": "rom",
+          "claim": "ROM is non-volatile",
+          "pattern": "non-?volatile",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Read-only_memory",
+            "quote": "Read-only memory (ROM) is a form of non-volatile memory"
+          }
+        },
+        {
+          "id": "ram",
+          "claim": "RAM is volatile: it loses data when power is off",
+          "pattern": "volatile[^.]{0,80}(power|lose|lost)|(loses?|lost)[^.]{0,60}power",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Read-only_memory",
+            "quote": "RAM, or random access memory, is a temporary, volatile storage medium that loses data when the system powers down"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "vhdl-modelling",
+      "chapter": "hdl",
+      "facts": [
+        {
+          "id": "hdl",
+          "claim": "VHDL is a hardware description language",
+          "pattern": "hardware description language|\\bHDL\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/VHDL",
+            "quote": "VHDL (VHSIC hardware description language) is a hardware description language"
+          }
+        },
+        {
+          "id": "simulate",
+          "claim": "Designs are simulated before synthesis",
+          "pattern": "simulat|synthes",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/VHDL",
+            "quote": "allows the behavior of the required system to be described (modeled) and verified (simulated) before synthesis"
+          }
+        }
+      ]
+    }
+  ]
+}

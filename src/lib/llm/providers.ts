@@ -37,7 +37,7 @@ export function providersFromEnv(env: NodeJS.ProcessEnv = process.env): LlmProvi
 }
 
 /** Errors worth trying the next provider for (a different provider may still work). */
-const fallbackKinds = new Set(["rate-limit", "unavailable", "auth"]);
+const fallbackKinds = new Set(["rate-limit", "unavailable", "auth", "blocked"]);
 
 /** How long to skip a provider after it says it is busy, so later calls don't wait on it. */
 const BUSY_MS = 60_000;
@@ -82,7 +82,9 @@ export async function generateJsonWithFallback(
       if (options.signal?.aborted) throw err;
       lastError = err;
       if (!(err instanceof LlmError) || !fallbackKinds.has(err.kind)) throw err;
-      if (err.kind !== "auth") busyUntil.set(provider.name, now() + BUSY_MS);
+      // A blocked reply is about this request, not the provider, so it is not marked busy.
+      if (err.kind !== "auth" && err.kind !== "blocked")
+        busyUntil.set(provider.name, now() + BUSY_MS);
       console.warn(`[llm] ${provider.name} unavailable (${err.kind}); trying the next one.`);
     }
   }

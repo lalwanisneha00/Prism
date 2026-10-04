@@ -1,0 +1,267 @@
+{
+  "description": "Key facts a correct lesson on each VLSI Design Basics topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "vlsi",
+  "topics": [
+    {
+      "topic": "mos-models",
+      "chapter": "mos-transistor",
+      "facts": [
+        {
+          "id": "gate",
+          "claim": "Gate voltage controls conductivity (insulated gate)",
+          "pattern": "gate voltage|V\\s*_?\\s*GS|insulated gate",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/MOSFET",
+            "quote": "It has an insulated gate, the voltage of which determines the conductivity of the device"
+          }
+        },
+        {
+          "id": "channel",
+          "claim": "An inversion layer forms a channel between source and drain",
+          "pattern": "inversion (layer|channel)|channel",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/MOSFET",
+            "quote": "creates an inversion layer or channel"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "mos-switch",
+      "chapter": "mos-transistor",
+      "facts": [
+        {
+          "id": "complementary",
+          "claim": "CMOS uses complementary pairs of p- and n-type MOSFETs",
+          "pattern": "complementary|pMOS[^.]{0,40}nMOS|nMOS[^.]{0,40}pMOS|PMOS[^.]{0,40}NMOS|NMOS[^.]{0,40}PMOS",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/CMOS",
+            "quote": "uses complementary and sy"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "inverter-vtc",
+      "chapter": "cmos-inverter-design",
+      "facts": [
+        {
+          "id": "not",
+          "claim": "An inverter outputs the opposite bit",
+          "pattern": "(opposite|inverts?|complement|negation)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Inverter_(logic_gate)",
+            "quote": "It outputs a bit whose value is opposite of the input bit's value"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cmos-power",
+      "chapter": "cmos-inverter-design",
+      "facts": [
+        {
+          "id": "static",
+          "claim": "CMOS has low static power",
+          "pattern": "(low|negligible|near(ly)? zero)[^.]{0,30}static power|static power[^.]{0,30}(low|small|negligible)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/CMOS",
+            "quote": "low static power consumption"
+          }
+        },
+        {
+          "id": "switching",
+          "claim": "Power is drawn mainly while switching",
+          "pattern": "switching|dynamic power",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/CMOS",
+            "quote": "draws significant power only momentarily during switching between on and off states"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "design-rules-layout",
+      "chapter": "layout-delay",
+      "facts": [
+        {
+          "id": "layout",
+          "claim": "Layout = planar geometric shapes for the chip's layers",
+          "pattern": "geometric|polygons?|shapes",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Integrated_circuit_layout",
+            "quote": "is the representation of an integrated circuit in terms of planar geometric shapes"
+          }
+        },
+        {
+          "id": "masks",
+          "claim": "Layout data becomes photomasks",
+          "pattern": "mask|photolithograph",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Integrated_circuit_layout",
+            "quote": "The foundry converts the data into mask data and uses it to generate the photomasks"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rc-delay-logical-effort",
+      "chapter": "layout-delay",
+      "facts": [
+        {
+          "id": "method",
+          "claim": "Logical effort estimates delay in CMOS circuits",
+          "pattern": "logical effort",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Logical_effort",
+            "quote": "is a straightforward technique used to estimate delay in a CMOS circuit"
+          }
+        },
+        {
+          "id": "electrical",
+          "claim": "Electrical effort accounts for the load",
+          "pattern": "electrical effort|fan-?out|load capacitance",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Logical_effort",
+            "quote": "we have the term \"electrical effort\" which takes the load into account"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "static-cmos-logic",
+      "chapter": "cmos-logic",
+      "facts": [
+        {
+          "id": "pull",
+          "claim": "PMOS pull-up and NMOS pull-down networks",
+          "pattern": "pull-?up[^.]{0,80}pull-?down|pull-?down[^.]{0,80}pull-?up",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/CMOS",
+            "quote": "the (PMOS) pull-up transistors have low resistance when switched on"
+          }
+        },
+        {
+          "id": "no-standing",
+          "claim": "CMOS has no standing current (unlike NMOS logic)",
+          "pattern": "no (static|standing|direct) (current|path)|(never|not) (both )?on at the same time|one[^.]{0,30}always off",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/CMOS",
+            "quote": "CMOS devices do not produce as much waste heat as other forms of logic"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dynamic-logic",
+      "chapter": "cmos-logic",
+      "facts": [
+        {
+          "id": "phases",
+          "claim": "Precharge phase then evaluation phase",
+          "pattern": "precharge|pre-charge",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Dynamic_logic_(digital_electronics)",
+            "quote": "is called the setup phase or the precharge phase, and the second phase, when Clock is high, is called the evaluation phase"
+          }
+        },
+        {
+          "id": "capacitance",
+          "claim": "Stores information temporarily on capacitances",
+          "pattern": "capacit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Dynamic_logic_(digital_electronics)",
+            "quote": "exploiting temporary storage of information in stray and gate capacitances"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "vlsi-design-flow",
+      "chapter": "design-flow",
+      "facts": [
+        {
+          "id": "vlsi",
+          "claim": "VLSI puts millions or billions of MOS transistors on one chip",
+          "pattern": "(millions|billions)[^.]{0,40}transistors|transistors[^.]{0,40}single chip",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Very-large-scale_integration",
+            "quote": "by combining millions or billions of MOS transistors onto a single chip"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "hdl-vlsi",
+      "chapter": "design-flow",
+      "facts": [
+        {
+          "id": "two",
+          "claim": "VHDL and Verilog are the two major HDLs",
+          "pattern": "verilog",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hardware_description_language",
+            "quote": "Two major hardware description languages exist: VHDL and Verilog"
+          }
+        },
+        {
+          "id": "simulate",
+          "claim": "HDLs allow automated analysis and simulation",
+          "pattern": "simulat|synthes",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hardware_description_language",
+            "quote": "allows for the automated analysis and simulation of the circuit"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "latches-flipflops-cmos",
+      "chapter": "cmos-logic",
+      "facts": [
+        {
+          "id": "edge",
+          "claim": "Flip-flops change on a clock edge; latches are level-triggered (transparent)",
+          "pattern": "edge[- ]triggered|transparent|level[- ](sensitive|triggered)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flip-flop_(electronics)",
+            "quote": "When a level-triggered latch is enabled, it becomes transparent"
+          }
+        },
+        {
+          "id": "bit",
+          "claim": "Each stores a single bit",
+          "pattern": "(single|one) bit|bistable|two stable states",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flip-flop_(electronics)",
+            "quote": "used as data storage elements to store a single bit"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "interconnect",
+      "chapter": "layout-delay",
+      "facts": [
+        {
+          "id": "layers",
+          "claim": "Top metal layers are thick and wide (low resistance, small RC)",
+          "pattern": "(thick|wide)[^.]{0,80}(resistance|RC)|RC (delay|time constant)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Interconnect_(integrated_circuits)",
+            "quote": "the least resistance and smallest RC time con"
+          }
+        },
+        {
+          "id": "connect",
+          "claim": "Interconnects wire circuit elements together",
+          "pattern": "connect",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Interconnect_(integrated_circuits)",
+            "quote": "interconnects are structures that connect two or more circuit elements"
+          }
+        }
+      ]
+    }
+  ]
+}

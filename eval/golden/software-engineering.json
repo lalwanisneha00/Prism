@@ -1,0 +1,258 @@
+{
+  "description": "Key facts a correct lesson on each Software Engineering topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "software-engineering",
+  "topics": [
+    {
+      "topic": "sdlc",
+      "chapter": "se-intro",
+      "facts": [
+        {
+          "id": "acceptance",
+          "claim": "System/acceptance testing checks the whole system against requirements",
+          "pattern": "acceptance testing|system testing",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Systems_development_life_cycle",
+            "quote": "The acceptance phase (a.k.a. system testing) is about testing the complete system"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "waterfall-prototype",
+      "chapter": "se-intro",
+      "facts": [
+        {
+          "id": "sequential",
+          "claim": "Waterfall runs the phases in sequence",
+          "pattern": "sequential|one after (the )?other|linear",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Waterfall_model",
+            "quote": "the typical software development life cycle (SDLC) phases in sequential order"
+          }
+        },
+        {
+          "id": "complete",
+          "claim": "Each phase is completed before the next starts",
+          "pattern": "(complete|finish)[^.]{0,40}before (the )?next",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Waterfall_model",
+            "quote": "Each phase is completed before the next is started"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "spiral-iterative",
+      "chapter": "se-intro",
+      "facts": [
+        {
+          "id": "risk",
+          "claim": "The spiral model is risk-driven",
+          "pattern": "risk",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Spiral_model",
+            "quote": "The spiral model is a risk-driven software development process model"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "requirements-engineering",
+      "chapter": "requirements",
+      "facts": [
+        {
+          "id": "elicitation",
+          "claim": "Elicitation: developers and stakeholders meet to find needs",
+          "pattern": "elicit|stakeholder",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Requirements_engineering",
+            "quote": "Developers and stakeholders meet; the latter are inquired concerning their needs and wants"
+          }
+        },
+        {
+          "id": "first",
+          "claim": "In waterfall, requirements engineering is the first phase",
+          "pattern": "first (phase|step|stage)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Requirements_engineering",
+            "quote": "requirements engineering is presented as the first phase of the software development process"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "verification-validation",
+      "chapter": "requirements",
+      "facts": [
+        {
+          "id": "validation",
+          "claim": "Validation: meets the needs of users and stakeholders",
+          "pattern": "(meets|meet) the (needs|requirements)|right product|intended use",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Verification_and_validation",
+            "quote": "The assurance that a product, service, or system meets the needs of the customer and other identified stakeholders"
+          }
+        },
+        {
+          "id": "verification",
+          "claim": "Verification: complies with the specification",
+          "pattern": "specification|built (it|the product) right|right(ly)? built",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Verification_and_validation",
+            "quote": "complies with a regulation, requirement, specification, or imposed condition"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "coupling-cohesion",
+      "chapter": "software-design",
+      "facts": [
+        {
+          "id": "coupling",
+          "claim": "Coupling = interdependence between modules",
+          "pattern": "interdependen|dependen(ce|cy) between (modules|components)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Coupling_(computer_programming)",
+            "quote": "coupling is the degree of interdependence between software modules"
+          }
+        },
+        {
+          "id": "goal",
+          "claim": "Aim for low coupling and high cohesion",
+          "pattern": "low coupling[^.]{0,60}high cohesion|high cohesion[^.]{0,60}low coupling|loose(ly)? coupl",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Coupling_(computer_programming)",
+            "quote": "Low coupling often correlates with high cohesion"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cyclomatic-complexity",
+      "chapter": "software-design",
+      "facts": [
+        {
+          "id": "paths",
+          "claim": "Number of linearly independent paths",
+          "pattern": "independent paths",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cyclomatic_complexity",
+            "quote": "the number of linearly independent paths through a program's source code"
+          }
+        },
+        {
+          "id": "decisions",
+          "claim": "Equals decision points + 1 (for one entry, one exit)",
+          "pattern": "decision (points?|statements?)|predicate nodes?|E\\s*-\\s*N\\s*\\+\\s*2",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cyclomatic_complexity",
+            "quote": "is equal to the number of decision points"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "white-black-box",
+      "chapter": "testing",
+      "facts": [
+        {
+          "id": "white",
+          "claim": "White-box testing tests internal structure",
+          "pattern": "internal (structure|logic|workings|code)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/White-box_testing",
+            "quote": "a method of software testing that tests internal structures or workings"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "testing-levels",
+      "chapter": "testing",
+      "facts": [
+        {
+          "id": "pyramid",
+          "claim": "Most tests are unit tests, fewer integration and end-to-end",
+          "pattern": "unit[^.]{0,80}integration[^.]{0,80}(system|end-to-end|acceptance)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Software_testing",
+            "quote": "most of the tests are unit tests, followed by a smaller set of integration tests"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "software-maintenance",
+      "chapter": "maintenance-management",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Maintenance is modifying software after delivery",
+          "pattern": "after (delivery|release|deployment)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Software_maintenance",
+            "quote": "Software maintenance is the modification of software after delivery"
+          }
+        },
+        {
+          "id": "types",
+          "claim": "Corrective, adaptive, perfective and preventive maintenance",
+          "pattern": "corrective|adaptive|perfective|preventive",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Software_maintenance",
+            "quote": "Corrective maintenance: modification of software to fix a bug"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cocomo",
+      "chapter": "maintenance-management",
+      "facts": [
+        {
+          "id": "boehm",
+          "claim": "COCOMO (Boehm, 1981) estimates effort, cost and schedule",
+          "pattern": "boehm|effort",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/COCOMO",
+            "quote": "a model for estimating effort, cost, and schedule for software projects"
+          }
+        },
+        {
+          "id": "kloc",
+          "claim": "Effort in person-months from thousands of lines of code",
+          "pattern": "KLOC|KSLOC|thousands? (of )?lines|person-months?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/COCOMO",
+            "quote": "where E is the effort applied in person-months, KSLOC is the estimated number of thousands of source lines of code"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "iso-cmm",
+      "chapter": "requirements",
+      "facts": [
+        {
+          "id": "five",
+          "claim": "CMM has five maturity levels",
+          "pattern": "five (maturity )?levels|5 (maturity )?levels|level 5",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Capability_Maturity_Model",
+            "quote": "at each of the five maturity levels"
+          }
+        },
+        {
+          "id": "purpose",
+          "claim": "Its aim is to improve development processes",
+          "pattern": "improv",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Capability_Maturity_Model",
+            "quote": "The model's aim is to improve existing software development processes"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "description": "Key facts a correct lesson on each Object-Oriented Programming topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "oop",
+  "topics": [
+    {
+      "topic": "abstract-data-types",
+      "chapter": "adt-classes",
+      "facts": [
+        {
+          "id": "behaviour",
+          "claim": "An ADT is defined by its behaviour/operations, not its implementation",
+          "pattern": "behaviou?r|operations",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Abstract_data_type",
+            "quote": "defined by its behavior (semantics) from the point of view of a user of the data"
+          }
+        },
+        {
+          "id": "example",
+          "claim": "e.g. a stack (push/pop) implemented by an array or a linked list",
+          "pattern": "array|linked list",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Abstract_data_type",
+            "quote": "can be concretely implemented using either a linked list or an array"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "classes-objects",
+      "chapter": "adt-classes",
+      "facts": [
+        {
+          "id": "blueprint",
+          "claim": "A class is a blueprint for objects",
+          "pattern": "blueprint|template",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Class_(programming)",
+            "quote": "is a syntactic structure, or blueprint, of all objects of a specific type"
+          }
+        },
+        {
+          "id": "state-behaviour",
+          "claim": "State (variables) and behaviour (methods)",
+          "pattern": "(attributes|fields|variables|data)[^.]{0,60}methods|state[^.]{0,40}behaviou?r",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Class_(programming)",
+            "quote": "state (variables) and behavior (methods)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "encapsulation",
+      "chapter": "adt-classes",
+      "facts": [
+        {
+          "id": "bundling",
+          "claim": "Bundling data with the methods that operate on it",
+          "pattern": "bundl|together",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)",
+            "quote": "the bundling of data with the mechanisms or methods that operate on the data"
+          }
+        },
+        {
+          "id": "hiding",
+          "claim": "Restricting direct access to an object's data",
+          "pattern": "(hid(e|ing)|restrict|private)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)",
+            "quote": "the limiting of direct access to some of that data"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "inheritance",
+      "chapter": "inheritance-polymorphism",
+      "facts": [
+        {
+          "id": "subclass",
+          "claim": "A subclass inherits from a superclass (base class)",
+          "pattern": "subclass|derived class|child class",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)",
+            "quote": "An inherited class is called a subclass of its parent class or super class"
+          }
+        },
+        {
+          "id": "reuse",
+          "claim": "Inheritance lets you reuse code",
+          "pattern": "reus",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)",
+            "quote": "to reuse code"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "polymorphism",
+      "chapter": "inheritance-polymorphism",
+      "facts": [
+        {
+          "id": "types",
+          "claim": "One function or interface works with values of different types",
+          "pattern": "different (types|classes|forms)|many forms",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Polymorphism_(computer_science)",
+            "quote": "A function that can evaluate to or be applied to values of different types is known as a polymorphic function"
+          }
+        },
+        {
+          "id": "ad-hoc",
+          "claim": "Ad hoc polymorphism (overloading)",
+          "pattern": "overload|ad[- ]hoc",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Polymorphism_(computer_science)",
+            "quote": "Christopher Strachey chose the term ad hoc polymorphism"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "abstract-classes-interfaces",
+      "chapter": "inheritance-polymorphism",
+      "facts": [
+        {
+          "id": "no-instance",
+          "claim": "An abstract class cannot be instantiated",
+          "pattern": "cannot be instantiated|can'?t (create|make) (an )?(object|instance)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Abstract_type",
+            "quote": "cannot be instantiated directly"
+          }
+        },
+        {
+          "id": "subtype",
+          "claim": "It is used through concrete subclasses",
+          "pattern": "concrete (sub)?class|subclass",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Abstract_type",
+            "quote": "Instantiation of an abstract type can occur only indirectly, via a concrete subtype"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "generics",
+      "chapter": "generics-memory",
+      "facts": [
+        {
+          "id": "later",
+          "claim": "Types specified later as type parameters",
+          "pattern": "type parameters?|<\\s*T\\s*>|template",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Generic_programming",
+            "quote": "algorithms are written in terms of data types to-be-specified-later"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "exceptions-oop",
+      "chapter": "generics-memory",
+      "facts": [
+        {
+          "id": "flow",
+          "claim": "An exception breaks normal flow and runs a handler",
+          "pattern": "handler|catch (block|clause)|try[^.]{0,20}catch",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Exception_handling",
+            "quote": "an exception breaks the normal flow of execution and executes a pre-registered exception handler"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "memory-management-oop",
+      "chapter": "generics-memory",
+      "facts": [
+        {
+          "id": "gc",
+          "claim": "Garbage collection reclaims memory no longer referenced",
+          "pattern": "(no longer|not) (referenced|reachable|used)|unreachable",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)",
+            "quote": "The garbage collector attempts to reclaim memory that was allocated by the program, but is no longer referenced"
+          }
+        },
+        {
+          "id": "automatic",
+          "claim": "It is automatic memory management",
+          "pattern": "automatic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)",
+            "quote": "garbage collection (GC) is a form of automatic memory management"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "design-patterns-intro",
+      "chapter": "design-patterns",
+      "facts": [
+        {
+          "id": "reusable",
+          "claim": "A reusable solution to a common design problem",
+          "pattern": "reusable|common(ly)? (occurring|recurring) (problem|design)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Software_design_pattern",
+            "quote": "A software design pattern describes a reusable solution to a commonly needed behavior in software"
+          }
+        },
+        {
+          "id": "gof",
+          "claim": "Popularised by the Gang of Four book (1994)",
+          "pattern": "gang of four|GoF|1994",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Software_design_pattern",
+            "quote": "after the book Design Patterns: Elements of Reusable Object-Oriented Software was published in 1994"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "mvc",
+      "chapter": "design-patterns",
+      "facts": [
+        {
+          "id": "parts",
+          "claim": "Model, view and controller",
+          "pattern": "model[^.]{0,40}view[^.]{0,40}controller",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Model–view–controller",
+            "quote": "divides the related program logic into three interconnected elements"
+          }
+        },
+        {
+          "id": "roles",
+          "claim": "View presents information; controller links model and view",
+          "pattern": "view[^.]{0,80}(present|display|show)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Model–view–controller",
+            "quote": "the view, the interface that presents information to and accepts it from the user"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "unit-testing-vcs",
+      "chapter": "design-patterns",
+      "facts": [
+        {
+          "id": "unit",
+          "claim": "Unit tests check small isolated parts of the code",
+          "pattern": "isolat|smallest|individual (units|functions|methods)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Unit_testing",
+            "quote": "isolated source code is tested to validate expected behavior"
+          }
+        }
+      ]
+    }
+  ]
+}

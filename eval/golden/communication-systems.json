@@ -1,0 +1,276 @@
+{
+  "description": "Key facts a correct lesson on each Communication Systems topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "communication-systems",
+  "topics": [
+    {
+      "topic": "am-dsb",
+      "chapter": "amplitude-modulation",
+      "facts": [
+        {
+          "id": "amplitude",
+          "claim": "Carrier amplitude varies with the message",
+          "pattern": "amplitude[^.]{0,80}(vari|chang|proportion)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Amplitude_modulation",
+            "quote": "the instantaneous amplitude of the wave is varied in proportion to that of the message signal"
+          }
+        },
+        {
+          "id": "sidebands",
+          "claim": "Standard AM has sidebands on both sides of the carrier",
+          "pattern": "sidebands?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Amplitude_modulation",
+            "quote": "the standard method produces sidebands on either side of the carrier frequency"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ssb-vsb",
+      "chapter": "amplitude-modulation",
+      "facts": [
+        {
+          "id": "bw",
+          "claim": "AM bandwidth is twice the highest message frequency",
+          "pattern": "twice|2\\s*f\\s*_?\\s*m|2\\s*W|2\\s*B",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Single-sideband_modulation",
+            "quote": "Amplitude modulation produces an output signal the bandwidth of which is twice the maximum frequency of the original baseband signal"
+          }
+        },
+        {
+          "id": "efficient",
+          "claim": "SSB saves bandwidth and carrier power",
+          "pattern": "(half|less|saves?|reduc)[^.]{0,60}(bandwidth|power)|bandwidth[^.]{0,60}(half|f\\s*_?\\s*m)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Single-sideband_modulation",
+            "quote": "Single-sideband modulation avoids this bandwidth increase, and the power wasted on a carrier"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fm-pm",
+      "chapter": "angle-modulation",
+      "facts": [
+        {
+          "id": "fm",
+          "claim": "FM varies the instantaneous frequency with the message",
+          "pattern": "(instantaneous )?frequency[^.]{0,80}(vari|chang|proportion)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Frequency_modulation",
+            "quote": "a carrier wave is varied in its instantaneous frequency in proportion to a property"
+          }
+        },
+        {
+          "id": "fsk",
+          "claim": "Digital FM is frequency-shift keying",
+          "pattern": "FSK|frequency[- ]shift keying|phase modulation|PM",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Frequency_modulation",
+            "quote": "a form of frequency modulation known as frequency-shift keying (FSK)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "fm-bandwidth",
+      "chapter": "angle-modulation",
+      "facts": [
+        {
+          "id": "carson",
+          "claim": "Carson's rule: B ≈ 2(Δf + fm)",
+          "pattern": "carson",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Carson_bandwidth_rule",
+            "quote": "the Carson's bandwidth rule defines the approximate bandwidth requirements"
+          }
+        },
+        {
+          "id": "deviation",
+          "claim": "Uses peak frequency deviation and highest modulating frequency",
+          "pattern": "deviation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Carson_bandwidth_rule",
+            "quote": "is the peak frequency deviation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "noise-gaussian",
+      "chapter": "noise",
+      "facts": [
+        {
+          "id": "white",
+          "claim": "White noise has a flat (uniform) power spectral density",
+          "pattern": "(uniform|flat|constant) power spectral density|(uniform|flat) (spectrum|PSD)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Additive_white_Gaussian_noise",
+            "quote": "White refers to the idea that it has uniform power spectral density across the frequency band"
+          }
+        },
+        {
+          "id": "gaussian",
+          "claim": "Gaussian: normal distribution with zero mean",
+          "pattern": "normal distribution|zero mean|mean (of )?zero|Gaussian distribution",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Additive_white_Gaussian_noise",
+            "quote": "Gaussian because it has a normal distribution in the time domain with an average time domain value of zero"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pam-pcm",
+      "chapter": "pulse-modulation",
+      "facts": [
+        {
+          "id": "pcm",
+          "claim": "PAM has been largely replaced by pulse-code modulation",
+          "pattern": "pulse[- ]code modulation|PCM",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pulse-amplitude_modulation",
+            "quote": "non-baseband applications having been largely replaced by pulse-code modulation"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dpcm-delta",
+      "chapter": "pulse-modulation",
+      "facts": [
+        {
+          "id": "diff",
+          "claim": "DPCM encodes changes between consecutive samples",
+          "pattern": "difference|changes? between",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Differential_pulse-code_modulation",
+            "quote": "encodes changes between consecutive samples of a signal, rather than the signal's value directly"
+          }
+        },
+        {
+          "id": "predict",
+          "claim": "Both ends predict the value from the previous signal",
+          "pattern": "predict",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Differential_pulse-code_modulation",
+            "quote": "Both the transmitter and the receiver make an estimate or prediction of the signal's value"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "tdm-comm",
+      "chapter": "pulse-modulation",
+      "facts": [
+        {
+          "id": "slots",
+          "claim": "Time divided into recurring fixed time slots, one per channel",
+          "pattern": "time slots?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Time-division_multiplexing",
+            "quote": "The time domain is divided into several recurrent time slots of fixed length, one for each sub-channel"
+          }
+        },
+        {
+          "id": "t1",
+          "claim": "T1 carries 24 channels at 1.544 Mbit/s",
+          "pattern": "1\\.544|24 (voice )?channels|64\\s*kb",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Time-division_multiplexing",
+            "quote": "The discrete signals on the trunk line carried 1.544 Mbit/s"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "matched-filter",
+      "chapter": "digital-modulation",
+      "facts": [
+        {
+          "id": "snr",
+          "claim": "The matched filter maximises SNR",
+          "pattern": "maximi[sz][^.]{0,40}(SNR|signal-to-noise)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Matched_filter",
+            "quote": "The matched filter is the optimal linear filter for maximizing the signal-to-noise ratio"
+          }
+        },
+        {
+          "id": "template",
+          "claim": "Correlates a known template with the received signal",
+          "pattern": "correlat|time-reversed|template|known signal",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Matched_filter",
+            "quote": "correlating a known delayed signal, or template, with an unknown signal"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "isi-nyquist",
+      "chapter": "digital-modulation",
+      "facts": [
+        {
+          "id": "isi",
+          "claim": "ISI: one symbol interferes with later symbols",
+          "pattern": "(symbols?)[^.]{0,60}(interfer|overlap|spread|blur)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Intersymbol_interference",
+            "quote": "one symbol interferes with subsequent symbols"
+          }
+        },
+        {
+          "id": "fix",
+          "claim": "Countered by equalisation (and pulse shaping)",
+          "pattern": "equali[sz]|pulse shaping|raised cosine|nyquist",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Intersymbol_interference",
+            "quote": "Ways to alleviate intersymbol interference include adaptive equalization"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "psk-fsk-qam",
+      "chapter": "digital-modulation",
+      "facts": [
+        {
+          "id": "psk",
+          "claim": "PSK changes the phase of a constant-frequency carrier",
+          "pattern": "phase[^.]{0,60}carrier|carrier[^.]{0,60}phase",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Phase-shift_keying",
+            "quote": "conveys data by changing (modulating) the phase of a constant frequency carrier wave"
+          }
+        },
+        {
+          "id": "finite",
+          "claim": "Digital modulation uses a finite set of distinct signals",
+          "pattern": "finite (number|set)|distinct (signals|symbols|phases)|constellation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Phase-shift_keying",
+            "quote": "Any digital modulation scheme uses a finite number of distinct signals to represent digital data"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "snr-preemphasis",
+      "chapter": "noise",
+      "facts": [
+        {
+          "id": "ratio",
+          "claim": "SNR = signal power / noise power, often in dB",
+          "pattern": "signal power[^.]{0,40}noise power|P\\s*_?\\s*(signal|s)\\s*/\\s*P\\s*_?\\s*(noise|n)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Signal-to-noise_ratio",
+            "quote": "SNR is defined as the ratio of signal power to noise power, often expressed in decibels"
+          }
+        }
+      ]
+    }
+  ]
+}

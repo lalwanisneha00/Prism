@@ -15,6 +15,30 @@ const WAVE1 = [
   "pps",
   "environmental-science",
 ];
+const WAVE2 = [
+  "dsa",
+  "discrete-maths",
+  "coa",
+  "operating-systems",
+  "dbms",
+  "computer-networks",
+  "theory-of-computation",
+  "oop",
+  "compiler-design",
+  "software-engineering",
+  "web-technologies",
+  "ai-ml",
+  "digital-logic",
+  "signals-systems",
+  "network-theory",
+  "analog-electronics",
+  "communication-systems",
+  "dsp",
+  "microprocessors",
+  "em-theory",
+  "vlsi",
+];
+const QUOTED = [...WAVE1, ...WAVE2];
 
 describe("golden sets", () => {
   it("only use real topics, with patterns that compile", () => {
@@ -31,8 +55,8 @@ describe("golden sets", () => {
     }
   });
 
-  it("give every Wave 1 subject at least 12 topics, every fact with a source quote", () => {
-    for (const id of WAVE1) {
+  it("give every Wave 1 and Wave 2 subject at least 12 topics, every fact with a source quote", () => {
+    for (const id of QUOTED) {
       const set = sets.find((s) => s.subject === id);
       expect(set, id).toBeDefined();
       const share = quotedShare(set!);
@@ -45,7 +69,7 @@ describe("golden sets", () => {
   it("don't count facts that an unrelated lesson (Gauss's law) would already 'state'", () => {
     const text = normalizeForMatch(lessonText(sampleLessons[0]));
     const loose: string[] = [];
-    for (const id of WAVE1) {
+    for (const id of QUOTED) {
       for (const t of sets.find((s) => s.subject === id)!.topics) {
         for (const f of t.facts)
           if (new RegExp(f.pattern, "i").test(text)) loose.push(`${id}/${t.topic}/${f.id}`);

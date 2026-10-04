@@ -1,0 +1,276 @@
+{
+  "description": "Key facts a correct lesson on each Analog Electronics topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "analog-electronics",
+  "topics": [
+    {
+      "topic": "amplifier-models",
+      "chapter": "amplifier-basics-ae",
+      "facts": [
+        {
+          "id": "gain",
+          "claim": "Gain is the ratio of output to input",
+          "pattern": "gain[^.]{0,80}ratio|ratio[^.]{0,80}(output|input)|A\\s*_?\\s*v\\s*=\\s*V",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Amplifier",
+            "quote": "The amount of amplification provided by an amplifier is measured by its gain: the ratio of output voltage, current, or power to input"
+          }
+        },
+        {
+          "id": "two-port",
+          "claim": "An amplifier is a two-port that uses supply power to enlarge a signal",
+          "pattern": "two-port|power supply|supply",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Amplifier",
+            "quote": "It is a two-port electronic circuit that uses electric power from a power supply to increase the amplitude"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "small-signal-models",
+      "chapter": "amplifier-basics-ae",
+      "facts": [
+        {
+          "id": "linearise",
+          "claim": "Nonlinear devices replaced by linear elements around the bias point",
+          "pattern": "lineari[sz]|linear (approximation|elements|model)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Small-signal_model",
+            "quote": "the nonlinear circuit elements are replaced by linear elements whose values are given by the first-order (linear) approximation"
+          }
+        },
+        {
+          "id": "small",
+          "claim": "Valid when AC signals are small relative to DC bias",
+          "pattern": "small (relative|compared)|bias|operating point|Q-point",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Small-signal_model",
+            "quote": "the AC signals (i.e., the time-varying currents and voltages in the circuit) are small relative to the DC bias currents and voltages"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "power-amplifier-classes",
+      "chapter": "frequency-power",
+      "facts": [
+        {
+          "id": "class-a",
+          "claim": "Class A has poor efficiency and runs hot",
+          "pattern": "class[- ]A[^.]{0,80}(efficien|25\\s*%|50\\s*%|heat)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power_amplifier_classes",
+            "quote": "class-A amplifiers have poor efficiency and heat is generated in the transistor"
+          }
+        },
+        {
+          "id": "ab",
+          "claim": "Class AB is between class A and class B",
+          "pattern": "class[- ]AB",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power_amplifier_classes",
+            "quote": "Class AB is between class A and class B"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "feedback-topologies",
+      "chapter": "feedback-oscillators",
+      "facts": [
+        {
+          "id": "subtract",
+          "claim": "Negative feedback subtracts part of the output from the input",
+          "pattern": "subtract|opposes|negative feedback",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Negative-feedback_amplifier",
+            "quote": "subtracts a fraction of its output from its input"
+          }
+        },
+        {
+          "id": "benefits",
+          "claim": "It stabilises gain and improves linearity and bandwidth",
+          "pattern": "(stabili[sz]|stable)[^.]{0,60}gain|gain stability|linearity|bandwidth",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Negative-feedback_amplifier",
+            "quote": "The applied negative feedback can improve its performance (gain stability, linearity, frequency response, step response)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "barkhausen-oscillators",
+      "chapter": "feedback-oscillators",
+      "facts": [
+        {
+          "id": "phase",
+          "claim": "Loop phase shift is 0 or a multiple of 2π (360°)",
+          "pattern": "(0|zero|360)\\s*(°|\\^?\\s*circ|degrees?)[^.]{0,40}(phase|loop)|(phase|loop)[^.]{0,60}(0|zero|360)\\s*(°|\\^?\\s*circ|degrees?)|multiple of (2\\s*(π|pi)|360)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Barkhausen_stability_criterion",
+            "quote": "The phase shift around the loop is zero or an integer multiple of 2π"
+          }
+        },
+        {
+          "id": "loop-gain",
+          "claim": "Loop gain βA (|βA| = 1)",
+          "pattern": "loop gain|\\|?\\s*(beta|β)\\s*A\\s*\\|?\\s*=\\s*1|A\\s*(beta|β)\\s*=\\s*1",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Barkhausen_stability_criterion",
+            "quote": "so βA is the loop gain around the feedback loop"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "current-mirror",
+      "chapter": "differential-opamp",
+      "facts": [
+        {
+          "id": "copy",
+          "claim": "A current mirror copies a current through another device",
+          "pattern": "cop(y|ies|ying)|mirror",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Current_mirror",
+            "quote": "A current mirror is a circuit designed to copy a current through one active device by controlling the current in another active device"
+          }
+        },
+        {
+          "id": "active",
+          "claim": "The output transistor must stay in the active region",
+          "pattern": "active (mode|region)|saturation",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Current_mirror",
+            "quote": "keep the output transistor of the mirror in active mode"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "differential-amplifier",
+      "chapter": "differential-opamp",
+      "facts": [
+        {
+          "id": "difference",
+          "claim": "Amplifies the difference between two inputs, rejects what is common",
+          "pattern": "difference between (the )?two",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Differential_amplifier",
+            "quote": "amplifies the difference between two input voltages but suppresses any voltage common to the two inputs"
+          }
+        },
+        {
+          "id": "cm",
+          "claim": "Low common-mode gain is wanted (high CMRR)",
+          "pattern": "common-mode|CMRR",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Differential_amplifier",
+            "quote": "a low common-mode gain is usually desired"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "active-filters",
+      "chapter": "differential-opamp",
+      "facts": [
+        {
+          "id": "active",
+          "claim": "Active filters use amplifiers (op-amps)",
+          "pattern": "amplifiers?|op-?amps?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Active_filter",
+            "quote": "An active filter is a type of analog circuit implementing an electronic filter using active components, typically an amplifier"
+          }
+        },
+        {
+          "id": "buffer",
+          "claim": "The amplifier isolates the filter from the load",
+          "pattern": "load|buffer|isolat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Active_filter",
+            "quote": "An amplifier prevents the load impedance of the following stage from affecting the characteristics of the filter"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dac",
+      "chapter": "data-converters",
+      "facts": [
+        {
+          "id": "convert",
+          "claim": "A DAC converts a digital signal into analog",
+          "pattern": "digital[^.]{0,30}(signal|value|input|number|code)?[^.]{0,30}(in)?to (an )?analog",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Digital-to-analog_converter",
+            "quote": "is a system that converts a digital signal into an analog signal"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "adc",
+      "chapter": "data-converters",
+      "facts": [
+        {
+          "id": "convert",
+          "claim": "An ADC converts an analog signal into a digital number",
+          "pattern": "analog[^.]{0,40}(in)?to (a )?digital",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Analog-to-digital_converter",
+            "quote": "converts an analog input voltage or current to a digital number"
+          }
+        },
+        {
+          "id": "proportional",
+          "claim": "Digital output is proportional to the input",
+          "pattern": "proportional to the (analog )?input|digital (output|code|value)[^.]{0,60}proportional",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Analog-to-digital_converter",
+            "quote": "the digital output is a two's complement binary number that is proportional to the input"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "opamp-applications-ae",
+      "chapter": "differential-opamp",
+      "facts": [
+        {
+          "id": "comparator",
+          "claim": "An op-amp can act as a comparator",
+          "pattern": "comparator",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Operational_amplifier_applications",
+            "quote": "An operational amplifier can, if necessary, be forced to act as a comparator"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "amplifier-frequency-response",
+      "chapter": "frequency-power",
+      "facts": [
+        {
+          "id": "bode",
+          "claim": "Bode plots show magnitude and phase against frequency",
+          "pattern": "bode",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Frequency_response",
+            "quote": "Bode plots graph magnitude and phase against frequency"
+          }
+        },
+        {
+          "id": "db",
+          "claim": "Magnitude is usually in decibels",
+          "pattern": "decibels?|\\bdB\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Frequency_response",
+            "quote": "typically in decibels (dB)"
+          }
+        }
+      ]
+    }
+  ]
+}

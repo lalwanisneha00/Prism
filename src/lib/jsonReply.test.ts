@@ -28,6 +28,15 @@ describe("parseJsonReply", () => {
     });
   });
 
+  it("keeps stray backslashes from code and maths instead of failing the whole reply", () => {
+    // \( \) maths delimiters, \' and \0 from C code, \usepackage (a \u that isn't a code point).
+    const reply = String.raw`{"code": "putchar('\0'); printf(\'hi\')", "math": "\(x\) and \{1\} \usepackage"}`;
+    expect(parseJsonReply(reply)).toEqual({
+      code: String.raw`putchar('\0'); printf(\'hi\')`,
+      math: String.raw`\(x\) and \{1\} \usepackage`,
+    });
+  });
+
   it("accepts a bare list as the top level", () => {
     expect(parseJsonReply('Here: [{"id": "a"}, {"id": "b"}]')).toEqual([{ id: "a" }, { id: "b" }]);
   });

@@ -1,0 +1,309 @@
+{
+  "description": "Key facts a correct lesson on each Artificial Intelligence and Machine Learning topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "ai-ml",
+  "topics": [
+    {
+      "topic": "ai-definition",
+      "chapter": "ai-intro",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "AI: machines doing tasks associated with human intelligence",
+          "pattern": "human intelligence|intelligent (behaviou?r|agents?|machines?)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+            "quote": "is the capability of computational systems to perform tasks typically associated with human intelligence"
+          }
+        },
+        {
+          "id": "goals",
+          "claim": "Goals include learning, reasoning, planning and perception",
+          "pattern": "reasoning|knowledge representation|planning",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+            "quote": "The traditional goals of AI research include learning, reasoning, knowledge representation, planning"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "intelligent-agents",
+      "chapter": "ai-intro",
+      "facts": [
+        {
+          "id": "sensors",
+          "claim": "An agent perceives through sensors and acts through actuators",
+          "pattern": "sensors?[^.]{0,80}actuators?|actuators?[^.]{0,80}sensors?|percept",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Intelligent_agent",
+            "quote": "an agent is anything that perceives its environment through sensors and acts upon that environment through actuators"
+          }
+        },
+        {
+          "id": "goals",
+          "claim": "It acts to achieve goals",
+          "pattern": "goals?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Intelligent_agent",
+            "quote": "takes actions autonomously to achieve goals"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "informed-search",
+      "chapter": "search",
+      "facts": [
+        {
+          "id": "heuristic",
+          "claim": "A* uses a heuristic to guide search",
+          "pattern": "heuristic|h\\s*\\(\\s*n\\s*\\)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/A*_search_algorithm",
+            "quote": "A* achieves better performance by using heuristics to guide its search"
+          }
+        },
+        {
+          "id": "best-first",
+          "claim": "A* is a best-first search for least-cost paths",
+          "pattern": "best-first|least[- ]cost|lowest (total )?cost|f\\s*\\(\\s*n\\s*\\)\\s*=\\s*g",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/A*_search_algorithm",
+            "quote": "A* is an informed search algorithm, or a best-first search"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "minimax-alpha-beta",
+      "chapter": "search",
+      "facts": [
+        {
+          "id": "rule",
+          "claim": "Minimax minimises the possible loss in the worst case",
+          "pattern": "minimi[sz]e[^.]{0,60}(maximum|worst|loss)|maximi[sz]e[^.]{0,60}minimum|MAX[^.]{0,80}MIN",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Minimax",
+            "quote": "for minimizing t"
+          }
+        },
+        {
+          "id": "maximin",
+          "claim": "Maximin: maximise the minimum gain",
+          "pattern": "maximi[sz]e the minimum|maximin|best worst",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Minimax",
+            "quote": "to maximize the minimum gain"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "types-of-learning",
+      "chapter": "ml-intro",
+      "facts": [
+        {
+          "id": "data",
+          "claim": "ML algorithms learn from data and generalise to unseen data",
+          "pattern": "generali[sz]e|unseen|learn(s|ing)? from (the )?data",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Machine_learning",
+            "quote": "statistical algorithms that can learn from data and generalize to unseen"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "overfitting-validation",
+      "chapter": "ml-intro",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Overfitting fits training data too closely and fails on new data",
+          "pattern": "too (closely|well)|memori[sz]|noise",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Overfitting",
+            "quote": "corresponds too closely or exactly to a particular set of data"
+          }
+        },
+        {
+          "id": "unseen",
+          "claim": "Judge a model by performance on unseen data",
+          "pattern": "unseen|new data|validation|test (set|data)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Overfitting",
+            "quote": "its ability to perform well on unseen data"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "linear-regression-ml",
+      "chapter": "regression-bayes-svm",
+      "facts": [
+        {
+          "id": "relationship",
+          "claim": "Models the relationship between a response and explanatory variables",
+          "pattern": "dependent variable|independent variables?|explanatory|response",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Linear_regression",
+            "quote": "estimates the relationship between a scalar response (dependent variable) and one or more explanatory variables"
+          }
+        },
+        {
+          "id": "simple",
+          "claim": "One explanatory variable = simple linear regression",
+          "pattern": "simple linear regression|multiple linear regression",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Linear_regression",
+            "quote": "A linear model with exactly one explanatory variable is a simple linear regression"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "logistic-regression",
+      "chapter": "regression-bayes-svm",
+      "facts": [
+        {
+          "id": "log-odds",
+          "claim": "Models the log-odds as a linear combination of inputs",
+          "pattern": "log[- ]odds|logit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Logistic_regression",
+            "quote": "models the log-odds of an event as a linear combination of one or more independent variables"
+          }
+        },
+        {
+          "id": "binary",
+          "claim": "Binary outcome coded 0 and 1",
+          "pattern": "binary|0 (and|or) 1|two (classes|values)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Logistic_regression",
+            "quote": "In binary logistic regression there is a single binary dependent variable"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "decision-trees-id3",
+      "chapter": "trees-instance",
+      "facts": [
+        {
+          "id": "split",
+          "claim": "A tree is built by splitting the data into subsets",
+          "pattern": "split",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Decision_tree_learning",
+            "quote": "A tree is built by splitting the source set, constituting the root node of the tree, into subsets"
+          }
+        },
+        {
+          "id": "supervised",
+          "claim": "Decision tree learning is supervised",
+          "pattern": "supervised|classification",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Decision_tree_learning",
+            "quote": "Decision tree learning is a supervised learning approach"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "k-means",
+      "chapter": "trees-instance",
+      "facts": [
+        {
+          "id": "partition",
+          "claim": "Partition n observations into k clusters by nearest mean",
+          "pattern": "nearest (mean|centroid|cluster cent(er|re))|closest (mean|centroid)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/K-means_clustering",
+            "quote": "aims to partition n observations into k clusters in which each observation belongs to the c"
+          }
+        },
+        {
+          "id": "variance",
+          "claim": "Minimises within-cluster variance (squared distances)",
+          "pattern": "within-cluster|squared (euclidean )?distance|sum of squares",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/K-means_clustering",
+            "quote": "k-means clustering minimizes within-cluster variances (squared Euclidean distances)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "gradient-descent",
+      "chapter": "neural-networks",
+      "facts": [
+        {
+          "id": "direction",
+          "claim": "Step opposite to the gradient (steepest descent)",
+          "pattern": "opposite|negative (of the )?gradient|steepest descent|-\\s*(eta|alpha|η|α)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gradient_descent",
+            "quote": "take repeated steps in the opposite direction of the gradient"
+          }
+        },
+        {
+          "id": "rate",
+          "claim": "Step size is the learning rate",
+          "pattern": "learning rate|step size",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Gradient_descent",
+            "quote": "for a small enough step size or learning rate"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "backpropagation",
+      "chapter": "neural-networks",
+      "facts": [
+        {
+          "id": "chain",
+          "claim": "Backpropagation applies the chain rule",
+          "pattern": "chain rule",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Backpropagation",
+            "quote": "It is an efficient application of the chain rule to neural networks"
+          }
+        },
+        {
+          "id": "gradient",
+          "claim": "It computes the gradient of the loss with respect to the weights",
+          "pattern": "gradient",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Backpropagation",
+            "quote": "Backpropagation efficiently computes the gradient of the loss with respect to the network weights"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cnn",
+      "chapter": "neural-networks",
+      "facts": [
+        {
+          "id": "filters",
+          "claim": "CNNs learn filters (kernels) that slide over the input",
+          "pattern": "filters?|kernels?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Convolutional_neural_network",
+            "quote": "learns features via filter (or kernel) optimization"
+          }
+        },
+        {
+          "id": "shared",
+          "claim": "Shared weights make them shift-invariant",
+          "pattern": "shared[- ]weights?|weight sharing|shift[- ]invariant|translation[- ]invarian",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Convolutional_neural_network",
+            "quote": "based on the shared-weight architecture of the convolution kernels or filters"
+          }
+        }
+      ]
+    }
+  ]
+}
