@@ -1,0 +1,273 @@
+{
+  "description": "Key facts a correct lesson on each Power Electronics topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "power-electronics",
+  "topics": [
+    {
+      "topic": "power-conversion-intro",
+      "chapter": "pe-devices",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "Power electronics controls and converts electric power",
+          "pattern": "(control|conver)[^.]{0,30}(electric(al)? )?power",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power_electronics",
+            "quote": "Power electronics is the application of electronics to the control and conversion of electric power"
+          }
+        },
+        {
+          "id": "switching",
+          "claim": "Devices work as switches, so little power is lost",
+          "pattern": "switch(es|ing)?[^.]{0,80}(efficien|loss)|(on|off)[^.]{0,30}(on|off)[^.]{0,60}(loss|efficien)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power_electronics",
+            "quote": "most power electronic applications rely on switching devices on and off, which makes systems very efficient"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "power-mosfet-igbt",
+      "chapter": "pe-devices",
+      "facts": [
+        {
+          "id": "mosfet",
+          "claim": "Power MOSFETs switch fast and are efficient at low voltages",
+          "pattern": "(fast|high)[- ]switching|switching speed|low voltage",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power_MOSFET",
+            "quote": "its main advantages are high switching speed and good efficiency at low voltages"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "snubbers-drive-protection",
+      "chapter": "pe-devices",
+      "facts": [
+        {
+          "id": "purpose",
+          "claim": "A snubber suppresses voltage transients when inductive current is switched off",
+          "pattern": "(transient|spike|surge|dv\\s*/\\s*dt)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Snubber",
+            "quote": "Snubbers are frequently used in electrical systems with an inductive load where the sudden interruption of current flow leads to a large counter-electromotive force"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "buck-converter-pe",
+      "chapter": "dc-dc",
+      "facts": [
+        {
+          "id": "step-down",
+          "claim": "A buck converter steps voltage down",
+          "pattern": "step[- ]down|steps? (the )?voltage down|lower(s)? (the )?(output )?voltage|V\\s*_?\\s*o(ut)?\\s*<\\s*V",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Buck_converter",
+            "quote": "A buck converter or step-down converter is a DC-to-DC converter which decreases voltage"
+          }
+        },
+        {
+          "id": "duty",
+          "claim": "Vout = D × Vin (duty cycle)",
+          "pattern": "V\\s*_?\\s*o(ut)?\\s*=\\s*D\\s*\\*?\\s*V|duty cycle",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Buck_converter",
+            "quote": "the output voltage of the converter varies linearly with the duty cycle"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "boost-buckboost-pe",
+      "chapter": "dc-dc",
+      "facts": [
+        {
+          "id": "step-up",
+          "claim": "A boost converter steps voltage up",
+          "pattern": "step[- ]up|higher than (the )?(input|source)|V\\s*_?\\s*o(ut)?\\s*>\\s*V|1\\s*/\\s*\\(\\s*1\\s*-\\s*D",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Boost_converter",
+            "quote": "In a boost converter, the output voltage is always higher than the input voltage"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "isolated-converters",
+      "chapter": "dc-dc",
+      "facts": [
+        {
+          "id": "flyback",
+          "claim": "A flyback is a buck–boost converter with the inductor split into a transformer",
+          "pattern": "buck[- ]boost|coupled inductor",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flyback_converter",
+            "quote": "The flyback converter is a buck–boost converter with the inductor split to form a transformer"
+          }
+        },
+        {
+          "id": "isolation",
+          "claim": "It gives galvanic isolation",
+          "pattern": "(galvanic |electrical )?isolat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Flyback_converter",
+            "quote": "with galvanic isolation between the input and any outputs"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "h-bridge-four-quadrant",
+      "chapter": "dc-dc",
+      "facts": [
+        {
+          "id": "four",
+          "claim": "An H-bridge has four switches",
+          "pattern": "four switches|4 switches|S\\s*_?\\s*1[^.]{0,60}S\\s*_?\\s*4",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/H-bridge",
+            "quote": "An H-bridge is built with four switches"
+          }
+        },
+        {
+          "id": "reverse",
+          "claim": "It reverses the polarity, so a DC motor can run both ways",
+          "pattern": "revers|forward[^.]{0,20}backward|both directions|polarity",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/H-bridge",
+            "quote": "allow DC motors to run forwards or backwards"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "controlled-rectifiers-1ph",
+      "chapter": "ac-dc",
+      "facts": [
+        {
+          "id": "ac-dc",
+          "claim": "A rectifier converts AC to DC",
+          "pattern": "(AC|alternating current)[^.]{0,40}(to|into)[^.]{0,10}(DC|direct current)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rectifier",
+            "quote": "A rectifier is an electrical device that converts alternating current (AC), which periodically reverses direction, to direct current (DC)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rectifier-pf-harmonics",
+      "chapter": "ac-dc",
+      "facts": [
+        {
+          "id": "thd",
+          "claim": "THD compares harmonic content with the fundamental",
+          "pattern": "(total harmonic distortion|THD)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Total_harmonic_distortion",
+            "quote": "The total harmonic distortion (THD or THDi) is a measurement of the harmonic distortion present in a signal"
+          }
+        },
+        {
+          "id": "fundamental",
+          "claim": "Defined relative to the fundamental component",
+          "pattern": "fundamental",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Total_harmonic_distortion",
+            "quote": "is the RMS value of the fundamental component"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "vsi-csi",
+      "chapter": "dc-ac-ac-ac",
+      "facts": [
+        {
+          "id": "dc-ac",
+          "claim": "An inverter converts DC to AC",
+          "pattern": "(DC|direct current)[^.]{0,40}(to|into)[^.]{0,10}(AC|alternating current)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power_inverter",
+            "quote": "is a power electronic device or circuitry that changes direct current (DC) to alternating current (AC)"
+          }
+        },
+        {
+          "id": "no-power",
+          "claim": "The inverter produces no power; the DC source supplies it",
+          "pattern": "(source|supply|DC)[^.]{0,40}(provides?|supplies)[^.]{0,20}(the )?power|does not (produce|generate)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power_inverter",
+            "quote": "The inverter does not produce any power; the power is provided by the DC source"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pwm-inverters",
+      "chapter": "dc-ac-ac-ac",
+      "facts": [
+        {
+          "id": "duty",
+          "claim": "PWM varies the duty cycle of a rectangular wave",
+          "pattern": "duty cycle|pulse width",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pulse-width_modulation",
+            "quote": "is any method of representing a signal as a rectangular wave with a varying duty cycle"
+          }
+        },
+        {
+          "id": "average",
+          "claim": "Fast switching controls the average voltage or power",
+          "pattern": "average (value|voltage|power)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Pulse-width_modulation",
+            "quote": "PWM is useful for controlling the average power or amplitude delivered by an electrical signal"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ac-voltage-regulators",
+      "chapter": "dc-ac-ac-ac",
+      "facts": [
+        {
+          "id": "triac",
+          "claim": "A TRIAC conducts in either direction once triggered",
+          "pattern": "(either|both) direction|bidirectional",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/TRIAC",
+            "quote": "a three-terminal electronic component that conducts current in either direction when triggered"
+          }
+        },
+        {
+          "id": "holding",
+          "claim": "Once triggered it conducts until current drops below the holding current",
+          "pattern": "holding current|latch",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/TRIAC",
+            "quote": "continue to conduct, even if the gate current ceases, until the main current drops below a certain level called the holding current"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "cycloconverter",
+      "chapter": "dc-ac-ac-ac",
+      "facts": [
+        {
+          "id": "lower-freq",
+          "claim": "A cycloconverter changes AC at one frequency into AC at a lower frequency directly",
+          "pattern": "(lower|reduced) frequency|frequency[^.]{0,40}(lower|less|reduc)|AC[^.]{0,20}(to|into)[^.]{0,20}AC",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Cycloconverter",
+            "quote": "converts a constant-amplitude, constant-frequency AC waveform to another AC waveform of a lower frequency"
+          }
+        }
+      ]
+    }
+  ]
+}

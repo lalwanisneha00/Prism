@@ -1,0 +1,306 @@
+{
+  "description": "Key facts a correct lesson on each Engineering Thermodynamics topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "engineering-thermodynamics",
+  "topics": [
+    {
+      "topic": "systems-properties-state",
+      "chapter": "thermo-laws-recap",
+      "facts": [
+        {
+          "id": "types",
+          "claim": "Open systems exchange matter and energy; isolated systems exchange neither",
+          "pattern": "open system[^.]{0,80}(mass|matter)|isolated[^.]{0,80}(neither|no|not)|closed system[^.]{0,80}(no|not)[^.]{0,20}(mass|matter)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thermodynamic_system",
+            "quote": "An isolated system does not exchange matter or energy with its surroundings"
+          }
+        },
+        {
+          "id": "surroundings",
+          "claim": "The system is separated from its surroundings by a boundary",
+          "pattern": "boundary|surroundings",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Thermodynamic_system",
+            "quote": "A wall is a boundary restricting the transfer of some or all forms of matter or energy"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "first-law-control-volume",
+      "chapter": "thermo-laws-recap",
+      "facts": [
+        {
+          "id": "conservation",
+          "claim": "First law = conservation of energy",
+          "pattern": "conservation of energy|energy (is|can be) (neither )?(conserved|created)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/First_law_of_thermodynamics",
+            "quote": "The first law of thermodynamics is a formulation of the law of conservation of energy"
+          }
+        },
+        {
+          "id": "heat-work",
+          "claim": "Energy crosses as heat and work",
+          "pattern": "heat[^.]{0,40}work|work[^.]{0,40}heat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/First_law_of_thermodynamics",
+            "quote": "the law distinguishes two principal forms of energy transfer, heat and thermodynamic work"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "second-law-entropy-engg",
+      "chapter": "thermo-laws-recap",
+      "facts": [
+        {
+          "id": "entropy",
+          "claim": "Entropy of an isolated system never decreases",
+          "pattern": "entropy[^.]{0,80}(never decreases|increases|cannot decrease|always increase)|ΔS\\s*≥\\s*0|dS\\s*≥",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Second_law_of_thermodynamics",
+            "quote": "the entropy of isolated systems left to spontaneous evolution cannot decrease"
+          }
+        },
+        {
+          "id": "hot-cold",
+          "claim": "Heat flows spontaneously from hot to cold",
+          "pattern": "(hot|higher temperature)[^.]{0,40}(cold|lower temperature)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Second_law_of_thermodynamics",
+            "quote": "heat always flows spontaneously from hotter to colder regions of matter"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "combustion-stoichiometry",
+      "chapter": "fuels-combustion",
+      "facts": [
+        {
+          "id": "redox",
+          "claim": "Combustion: exothermic reaction of a fuel with an oxidant (usually oxygen)",
+          "pattern": "exothermic|fuel[^.]{0,40}(oxygen|oxidant|air)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Combustion",
+            "quote": "Combustion, or burning, is a high-temperature exothermic redox chemical reaction between a fuel (the reductant) and an oxidant"
+          }
+        },
+        {
+          "id": "stoich",
+          "claim": "Complete (stoichiometric) combustion leaves no fuel or oxidant",
+          "pattern": "stoichiometric|complete combustion|theoretical air",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Combustion",
+            "quote": "Complete combustion is stoichiometric concerning the fuel, where there is no remaining fuel, and ideally, no residual oxidant"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "adiabatic-flame-temperature",
+      "chapter": "fuels-combustion",
+      "facts": [
+        {
+          "id": "upper-bound",
+          "claim": "Adiabatic flame temperature is the upper limit for real flames",
+          "pattern": "(maximum|upper (bound|limit)|highest)[^.]{0,60}temperature|no heat (loss|transfer)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Adiabatic_flame_temperature",
+            "quote": "It is an upper bound of the temperature that is reached in actual processes"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "rankine-cycle",
+      "chapter": "power-cycles",
+      "facts": [
+        {
+          "id": "components",
+          "claim": "Boiler, turbine, condenser and pump; water/steam working fluid",
+          "pattern": "boiler[^.]{0,80}(turbine|condenser|pump)|(pump|turbine|condenser)[^.]{0,80}boiler",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rankine_cycle",
+            "quote": "Heat energy is supplied to the system via a boiler where the working fluid (typically water) is converted to a high-pressure gaseous state (steam) in order to turn a turbine"
+          }
+        },
+        {
+          "id": "power-plants",
+          "claim": "Model of steam power plants",
+          "pattern": "steam (power )?plant|thermal power|power station",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Rankine_cycle",
+            "quote": "The Rankine cycle closely describes the process by which steam engines commonly found in thermal power generation plants"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "otto-diesel-dual",
+      "chapter": "power-cycles",
+      "facts": [
+        {
+          "id": "otto",
+          "claim": "Otto cycle models spark-ignition engines",
+          "pattern": "spark[- ]ignition|petrol|gasoline",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Otto_cycle",
+            "quote": "describes the functioning of a typical spark ignition piston engine"
+          }
+        },
+        {
+          "id": "isentropic",
+          "claim": "Compression and expansion are isentropic",
+          "pattern": "isentropic|adiabatic (compression|expansion)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Otto_cycle",
+            "quote": "The isentropic process of compression or expansion"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "brayton-cycle",
+      "chapter": "power-cycles",
+      "facts": [
+        {
+          "id": "gas",
+          "claim": "Brayton (Joule) cycle for gas turbines and jet engines",
+          "pattern": "gas turbine|jet engine",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Brayton_cycle",
+            "quote": "The most common current application is in airbreathing jet engines and gas turbine engines"
+          }
+        },
+        {
+          "id": "joule",
+          "claim": "Also called the Joule cycle",
+          "pattern": "joule cycle",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Brayton_cycle",
+            "quote": "also known as the Joule cycle"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "combined-cycle",
+      "chapter": "power-cycles",
+      "facts": [
+        {
+          "id": "exhaust",
+          "claim": "Hot gas-turbine exhaust drives a steam cycle",
+          "pattern": "(exhaust|waste heat)[^.]{0,80}(steam|second|HRSG|heat recovery)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Combined-cycle_power_plant",
+            "quote": "after completing its cycle in the first (usually gas turbine) engine, the working fluid (the exhaust) is still hot enough that a second subsequent heat engine can extract ene"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "vapour-compression-refrigeration",
+      "chapter": "power-cycles",
+      "facts": [
+        {
+          "id": "four",
+          "claim": "Compressor, condenser, expansion valve and evaporator",
+          "pattern": "compressor[^.]{0,80}condenser[^.]{0,80}(expansion|throttl)[^.]{0,80}evaporator",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Vapor-compression_refrigeration",
+            "quote": "All such systems have four components: a compressor, a condenser, a thermal expansion valve (also called a throttle valve), and an evaporator"
+          }
+        },
+        {
+          "id": "refrigerant",
+          "claim": "A refrigerant absorbs heat and rejects it elsewhere",
+          "pattern": "refrigerant",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Vapor-compression_refrigeration",
+            "quote": "uses a circulating fluid refrigerant as the medium which absorbs and removes heat from the space to be cooled"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "psychrometric-chart",
+      "chapter": "psychrometry",
+      "facts": [
+        {
+          "id": "temps",
+          "claim": "Dry-bulb, wet-bulb and dew-point temperatures",
+          "pattern": "dry[- ]bulb[^.]{0,60}(wet[- ]bulb|dew)|wet[- ]bulb[^.]{0,60}(dry|dew)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Psychrometrics",
+            "quote": "The term dry-bulb is customarily added to temperature to distinguish it from wet-bulb and dew point temperature"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "nozzle-choked-flow",
+      "chapter": "nozzles-machines",
+      "facts": [
+        {
+          "id": "mach1",
+          "claim": "Choking happens at sonic speed (Mach 1) at the throat",
+          "pattern": "mach (number )?(of )?1\\b|sonic|speed of sound",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Choked_flow",
+            "quote": "the exit plane velocity is at sonic conditions; i.e., at a Mach number of 1"
+          }
+        },
+        {
+          "id": "limit",
+          "claim": "Mass flow cannot increase by lowering downstream pressure further",
+          "pattern": "(mass flow|flow rate)[^.]{0,80}(cannot|does not|no longer|maximum)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Choked_flow",
+            "quote": "the mass flow cannot increase with a further decrease in the downstream pressure environment"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "reciprocating-compressor",
+      "chapter": "nozzles-machines",
+      "facts": [
+        {
+          "id": "positive",
+          "claim": "A positive-displacement compressor with crank-driven pistons",
+          "pattern": "positive[- ]displacement|piston",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reciprocating_compressor",
+            "quote": "is a positive-displacement compressor that uses pistons driven by a crankshaft to deliver gases at high pressure"
+          }
+        },
+        {
+          "id": "multistage",
+          "claim": "Multistaging (with intercooling) reaches high pressures",
+          "pattern": "multi-?stag|intercool",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Reciprocating_compressor",
+            "quote": "are commonly produced by multistage reciprocating compressors"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "steam-turbine-compounding",
+      "chapter": "nozzles-machines",
+      "facts": [
+        {
+          "id": "work",
+          "claim": "A steam turbine turns steam's thermal energy into shaft work",
+          "pattern": "(thermal energy|enthalpy|pressure)[^.]{0,80}(work|rotat|shaft)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Steam_turbine",
+            "quote": "extracts thermal energy from pressurized steam and uses it to do mechanical work utilising a rotating output shaft"
+          }
+        }
+      ]
+    }
+  ]
+}

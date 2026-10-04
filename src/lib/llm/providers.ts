@@ -59,10 +59,14 @@ export function resetBusyProviders() {
  * Tries each provider in turn; moves on when one is busy, down or misconfigured.
  * Providers that were busy in the last minute go to the back of the queue.
  */
+/** Longest wait for one provider's whole reply; a normal lesson streams in 20–60 s. */
+export const PROVIDER_TIMEOUT_MS = 180_000;
+
 export async function generateJsonWithFallback(
   providers: LlmProvider[],
   options: GenerateOptions,
   now: () => number = Date.now,
+  timeoutMs: number = PROVIDER_TIMEOUT_MS,
 ): Promise<string> {
   if (providers.length === 0) {
     throw new LlmError(
@@ -82,12 +86,19 @@ export async function generateJsonWithFallback(
   let lastError: unknown;
   let rateLimited: LlmError | undefined;
   for (const provider of [...ready, ...resting]) {
+    // A stalled connection or stream must not hang the lesson forever: give up on this
+    // provider after timeoutMs and try the next one.
+    const timeout = AbortSignal.timeout(timeoutMs);
+    const signal = options.signal ? AbortSignal.any([options.signal, timeout]) : timeout;
     try {
-      const text = await provider.generateJson(options);
+      const text = await provider.generateJson({ ...options, signal });
       busyUntil.delete(provider.name);
       return text;
-    } catch (err) {
-      if (options.signal?.aborted) throw err;
+    } catch (caught) {
+      if (options.signal?.aborted) throw caught;
+      const err = timeout.aborted
+        ? new LlmError("unavailable", `${provider.name}: no reply within ${timeoutMs / 1000} s`)
+        : caught;
       lastError = err;
       if (!(err instanceof LlmError) || !fallbackKinds.has(err.kind)) throw err;
       if (err.kind === "rate-limit") rateLimited ??= err;

@@ -1,0 +1,255 @@
+{
+  "description": "Key facts a correct lesson on each Electrical Measurements and Instrumentation topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "electrical-measurements",
+  "topics": [
+    {
+      "topic": "measurement-characteristics",
+      "chapter": "measurement-basics",
+      "facts": [
+        {
+          "id": "acc-prec",
+          "claim": "Accuracy = closeness to the true value; precision = closeness to each other",
+          "pattern": "(accura)[^.]{0,80}true value|close[^.]{0,30}(to )?(each other|one another)|repeatab",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Accuracy_and_precision",
+            "quote": "accuracy is how close a given set of measurements is to the true value and precision is how close the measurements are to each other"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "measurement-errors",
+      "chapter": "measurement-basics",
+      "facts": [
+        {
+          "id": "types",
+          "claim": "Systematic and random errors",
+          "pattern": "systematic[^.]{0,60}random|random[^.]{0,60}systematic",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Observational_error",
+            "quote": "two distinct types of errors, systematic errors on the one hand, and random on the other hand"
+          }
+        },
+        {
+          "id": "repeat",
+          "claim": "Random errors are reduced by repeating measurements",
+          "pattern": "(repeat|averag)[^.]{0,60}(random|reduce)|random[^.]{0,80}(repeat|averag)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Observational_error",
+            "quote": "The effects of random errors can be mitigated by repeated measurements"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "galvanometer-pmmc",
+      "chapter": "measurement-basics",
+      "facts": [
+        {
+          "id": "principle",
+          "claim": "A coil in a permanent magnet's field deflects a pointer with current",
+          "pattern": "(coil|current)[^.]{0,80}(magnet|magnetic field)[^.]{0,80}(deflect|pointer|torque)|deflect",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Galvanometer",
+            "quote": "Galvanometers work by deflecting a pointer in response to an electric current flowing through a coil in a constant magnetic field"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ammeter-voltmeter-extension",
+      "chapter": "v-i-measurement",
+      "facts": [
+        {
+          "id": "series",
+          "claim": "An ammeter is connected in series and has low resistance",
+          "pattern": "ammeter[^.]{0,60}series|series[^.]{0,60}ammeter",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ammeter",
+            "quote": "Ammeters must be connected in series with the circuit to be measured"
+          }
+        },
+        {
+          "id": "low-r",
+          "claim": "Low resistance so it barely changes the circuit",
+          "pattern": "low (internal )?resistance|small resistance|shunt",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ammeter",
+            "quote": "An ammeter usually has low resistance so that it does not cause a significant voltage drop"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "wheatstone-bridge-measure",
+      "chapter": "v-i-measurement",
+      "facts": [
+        {
+          "id": "balance",
+          "claim": "Balanced when no current flows through the galvanometer",
+          "pattern": "(no|zero) current[^.]{0,60}galvanometer|galvanometer[^.]{0,60}(zero|null|no current)|balanced",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Wheatstone_bridge",
+            "quote": "The resistance R2 is adjusted until the bridge is \"balanced\" and no current flows through the galvanometer"
+          }
+        },
+        {
+          "id": "unknown",
+          "claim": "It measures an unknown resistance",
+          "pattern": "unknown resistance|R\\s*_?\\s*x",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Wheatstone_bridge",
+            "quote": "used to measure an unknown electrical resistance by balancing two legs of a bridge circuit"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ac-bridges",
+      "chapter": "v-i-measurement",
+      "facts": [
+        {
+          "id": "maxwell",
+          "claim": "Maxwell bridge measures an unknown inductance",
+          "pattern": "maxwell[^.]{0,60}inductance|inductance[^.]{0,60}maxwell",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Maxwell_bridge",
+            "quote": "A Maxwell bridge is a modification to a Wheatstone bridge used to measure an unknown inductance"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "electrodynamometer-wattmeter",
+      "chapter": "power-energy",
+      "facts": [
+        {
+          "id": "coils",
+          "claim": "Fixed current coils and a moving potential (pressure) coil",
+          "pattern": "current coil[^.]{0,80}(potential|pressure|voltage) coil|(potential|pressure|voltage) coil[^.]{0,80}current coil",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Wattmeter",
+            "quote": "a pair of fixed coils, known as current coils, and a movable coil known as the potential coil"
+          }
+        },
+        {
+          "id": "vicos",
+          "claim": "It reads average power V I cos φ",
+          "pattern": "V\\s*_?\\s*(rms)?\\s*I\\s*_?\\s*(rms)?\\s*cos|VI\\s*cos|average power",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Wattmeter",
+            "quote": "which in sinusoidal steady-state reduces to Vrms Irms cos(φ)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "energy-meter",
+      "chapter": "power-energy",
+      "facts": [
+        {
+          "id": "kwh",
+          "claim": "Energy meters read in kilowatt-hours",
+          "pattern": "kilowatt[- ]hours?|kWh",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Electricity_meter",
+            "quote": "the most common one being the kilowatt hour (kWh)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dc-ac-potentiometer",
+      "chapter": "potentiometers-it",
+      "facts": [
+        {
+          "id": "comparison",
+          "claim": "A potentiometer compares an unknown voltage with a known reference (null method)",
+          "pattern": "(compar|null|balanc)[^.]{0,80}(known|reference|standard)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Potentiometer_(measuring_instrument)",
+            "quote": "by comparison of an unknown voltage with a known reference voltage"
+          }
+        },
+        {
+          "id": "no-current",
+          "claim": "At balance it draws (almost) no current from the source",
+          "pattern": "(no|negligible|very little|zero) current",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Potentiometer_(measuring_instrument)",
+            "quote": "very little current is drawn from the source of the unknown voltage"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ct-vt",
+      "chapter": "potentiometers-it",
+      "facts": [
+        {
+          "id": "proportional",
+          "claim": "A CT gives a secondary current proportional to the primary current",
+          "pattern": "proportional|ratio",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Current_transformer",
+            "quote": "producing a current in its secondary which is proportional to the current in its primary"
+          }
+        },
+        {
+          "id": "scale",
+          "claim": "Instrument transformers scale large values to small standard ones",
+          "pattern": "(step(s)? down|scale|reduce)[^.]{0,60}(current|voltage)|(small|standard)[^.]{0,30}(values|range)|5\\s*A|1\\s*A",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Current_transformer",
+            "quote": "scale the large values of voltage or current to small, standardized values"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "adc-measurement",
+      "chapter": "digital-instrumentation",
+      "facts": [
+        {
+          "id": "convert",
+          "claim": "An ADC converts an analog voltage to a digital number",
+          "pattern": "analog[^.]{0,40}(in)?to (a )?digital",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Analog-to-digital_converter",
+            "quote": "converts an analog input voltage or current to a digital number"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "digital-multimeter-dso",
+      "chapter": "digital-instrumentation",
+      "facts": [
+        {
+          "id": "vra",
+          "claim": "A multimeter measures voltage, current and resistance",
+          "pattern": "voltage[^.]{0,40}current[^.]{0,40}resistance|voltage[^.]{0,40}resistance[^.]{0,40}current",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Multimeter",
+            "quote": "A typical multimeter can measure voltage, resistance, and current"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "transducers-intro",
+      "chapter": "digital-instrumentation",
+      "facts": [
+        {
+          "id": "convert",
+          "claim": "A transducer converts energy (signal) from one form to another",
+          "pattern": "convert[^.]{0,60}(one form|another form|electrical signal)|(physical quantity)[^.]{0,60}electrical",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Transducer",
+            "quote": "A transducer is a device that usefully converts energy from one form to another"
+          }
+        }
+      ]
+    }
+  ]
+}

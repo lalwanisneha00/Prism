@@ -1,0 +1,145 @@
+{
+  "id": "chemical-thermodynamics",
+  "name": "Chemical Engineering Thermodynamics",
+  "field": "Chemical Engineering",
+  "tier": "sourced",
+  "branches": [
+    "chem",
+    "petro"
+  ],
+  "semesters": [
+    4
+  ],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree Courses in Chemical Engineering (2018, Vol. II): PCC-CS103 Thermodynamics-II",
+    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol2.pdf",
+    "note": "All eight units of PCC-CS103."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "ct-foundations",
+      "name": "Laws and Property Relations",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "laws-review-ct",
+          "name": "Review of the first and second laws"
+        },
+        {
+          "id": "gibbs-chemical-potential",
+          "name": "Fundamental property relations, Gibbs energy and chemical potential",
+          "requires": [
+            "laws-review-ct"
+          ]
+        },
+        {
+          "id": "real-gases-eos",
+          "name": "Real gases: compressibility factor and cubic equations of state",
+          "requires": [
+            "laws-review-ct"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solutions",
+      "name": "Solution Thermodynamics",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "fugacity",
+          "name": "Fugacity and the fugacity coefficient",
+          "requires": [
+            "gibbs-chemical-potential"
+          ]
+        },
+        {
+          "id": "partial-molar-properties",
+          "name": "Partial molar properties and the Gibbs–Duhem equation",
+          "requires": [
+            "gibbs-chemical-potential"
+          ]
+        },
+        {
+          "id": "activity-excess-gibbs",
+          "name": "Ideal solutions, excess properties and activity coefficients",
+          "requires": [
+            "fugacity"
+          ]
+        },
+        {
+          "id": "gibbs-energy-models",
+          "name": "Margules, Wilson, NRTL, UNIQUAC and UNIFAC models",
+          "requires": [
+            "activity-excess-gibbs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase-equilibria",
+      "name": "Phase Equilibria",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "phase-rule-vle",
+          "name": "Phase rule and VLE by Raoult's and modified Raoult's law",
+          "requires": [
+            "fugacity"
+          ]
+        },
+        {
+          "id": "bubble-dew-flash",
+          "name": "Bubble point, dew point and flash calculations",
+          "requires": [
+            "phase-rule-vle"
+          ]
+        },
+        {
+          "id": "azeotropes",
+          "name": "Azeotropes",
+          "requires": [
+            "phase-rule-vle"
+          ]
+        },
+        {
+          "id": "lle-sle",
+          "name": "Liquid–liquid and solid–liquid equilibria",
+          "requires": [
+            "activity-excess-gibbs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reaction-equilibria",
+      "name": "Chemical Reaction Equilibria",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "equilibrium-constant-gibbs",
+          "name": "Equilibrium criterion and the equilibrium constant",
+          "requires": [
+            "gibbs-chemical-potential"
+          ]
+        },
+        {
+          "id": "vant-hoff",
+          "name": "Temperature dependence: the van 't Hoff equation",
+          "requires": [
+            "equilibrium-constant-gibbs"
+          ]
+        },
+        {
+          "id": "equilibrium-conversion",
+          "name": "Equilibrium conversion for single and multiple reactions",
+          "requires": [
+            "equilibrium-constant-gibbs"
+          ]
+        }
+      ]
+    }
+  ]
+}

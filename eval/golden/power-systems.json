@@ -1,0 +1,282 @@
+{
+  "description": "Key facts a correct lesson on each Power Systems topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "power-systems",
+  "topics": [
+    {
+      "topic": "line-inductance-gmd",
+      "chapter": "line-parameters",
+      "facts": [
+        {
+          "id": "hv",
+          "claim": "Voltage is stepped up for transmission to cut losses",
+          "pattern": "(step(ped)?[- ]up|increas|high)[^.]{0,40}voltage[^.]{0,80}(loss|efficien)|(loss|efficien)[^.]{0,80}high voltage",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Electric_power_transmission",
+            "quote": "the voltage is often increased for transmission, then reduced for local distribution"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "skin-proximity-effect",
+      "chapter": "line-parameters",
+      "facts": [
+        {
+          "id": "surface",
+          "claim": "AC current crowds near the conductor surface",
+          "pattern": "(near|at|toward)[^.]{0,20}(the )?(surface|outer)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Skin_effect",
+            "quote": "the current density is largest near the surface of the conductor"
+          }
+        },
+        {
+          "id": "frequency",
+          "claim": "Higher frequency → smaller skin depth",
+          "pattern": "(higher|increas)[^.]{0,40}frequenc[^.]{0,80}(smaller|less|decreas|thinner|more concentrated)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Skin_effect",
+            "quote": "as frequency increases, current flow becomes more concentrated near the surface, resulting in less skin depth"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "ferranti-surge-impedance",
+      "chapter": "line-performance",
+      "facts": [
+        {
+          "id": "ferranti",
+          "claim": "Ferranti effect: receiving-end voltage rises above sending end on a long lightly loaded line",
+          "pattern": "receiving[- ]end voltage[^.]{0,80}(higher|greater|exceed|rise)|(rise|increase)[^.]{0,60}receiving",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ferranti_effect",
+            "quote": "the Ferranti effect is the increase in voltage occurring at the receiving end of a very long"
+          }
+        },
+        {
+          "id": "capacitance",
+          "claim": "It is due to line capacitance (charging current)",
+          "pattern": "capacit|charging current",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Ferranti_effect",
+            "quote": "both line inductance and capacitance are responsible for this phenomenon"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "abcd-constants",
+      "chapter": "line-performance",
+      "facts": [
+        {
+          "id": "two-port",
+          "claim": "A line is modelled as a two-port network",
+          "pattern": "two-port|two port|four-terminal",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Two-port_network",
+            "quote": "a two-port network (a kind of four-terminal network or quadripole)"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "sag-tension",
+      "chapter": "line-mechanical",
+      "facts": [
+        {
+          "id": "catenary",
+          "claim": "A conductor hanging between supports forms a catenary (approximated by a parabola)",
+          "pattern": "catenary|parabol",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Overhead_power_line",
+            "quote": "Flexible conductors supported at their ends approximate the form of a catenary"
+          }
+        },
+        {
+          "id": "supports",
+          "claim": "Conductors are carried by towers or poles",
+          "pattern": "towers?|poles?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Overhead_power_line",
+            "quote": "suspended by towers or poles"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "insulators-string-efficiency",
+      "chapter": "line-mechanical",
+      "facts": [
+        {
+          "id": "insulator",
+          "claim": "An insulator does not let current flow freely",
+          "pattern": "(does not|doesn'?t|cannot)[^.]{0,30}(conduct|flow)|high resistivity|non-?conduct",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Insulator_(electricity)",
+            "quote": "An electrical insulator is a material in which electric current does not flow freely"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "underground-cables",
+      "chapter": "line-mechanical",
+      "facts": [
+        {
+          "id": "cable",
+          "claim": "A power cable has insulated conductors in a sheath",
+          "pattern": "insulat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power_cable",
+            "quote": "usually held together in a single bundle with an insulating sheath"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "per-unit-system",
+      "chapter": "system-analysis",
+      "facts": [
+        {
+          "id": "base",
+          "claim": "Per-unit = actual value / base value",
+          "pattern": "base (value|quantit)|actual[^.]{0,30}/\\s*base|fraction of (a|the) base",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Per-unit_system",
+            "quote": "the expression of system quantities as fractions of a defined base unit quantity"
+          }
+        },
+        {
+          "id": "transformer",
+          "claim": "Per-unit values are the same on both sides of a transformer",
+          "pattern": "(same|unchanged|do(es)? not change)[^.]{0,60}(both sides|either side|side of (a|the) transformer)|transformer[^.]{0,60}(same|eliminat)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Per-unit_system",
+            "quote": "quantities expressed as per-unit do not change when they are referred from one side of a transformer to the other"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "load-flow-gauss-seidel",
+      "chapter": "system-analysis",
+      "facts": [
+        {
+          "id": "outputs",
+          "claim": "Load flow finds bus voltage magnitudes and angles, and line flows",
+          "pattern": "(magnitude|\\|V\\|)[^.]{0,40}(phase )?angle|voltage[^.]{0,30}angle",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power-flow_study",
+            "quote": "the magnitude and phase angle of the voltage at each bus"
+          }
+        },
+        {
+          "id": "nonlinear",
+          "claim": "The equations are non-linear, so iterative methods are used",
+          "pattern": "non-?linear|iterat",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Power-flow_study",
+            "quote": "The problem is non-linear because the power flow into load impedances is a function of the square of the applied voltages"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "symmetrical-faults",
+      "chapter": "system-analysis",
+      "facts": [
+        {
+          "id": "symmetric",
+          "claim": "A symmetrical fault affects all three phases equally",
+          "pattern": "(all|three) phases[^.]{0,30}(equally|balanced|symmetric)|symmetrical fault|balanced fault|three-phase fault",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Electrical_fault",
+            "quote": "a fault may affect all phases equally, which is a \"symmetric fault\""
+          }
+        },
+        {
+          "id": "asymmetric",
+          "claim": "Faults on some phases are asymmetrical and harder to analyse",
+          "pattern": "(un|a)symmetric(al)?|line-to-ground|single line",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Electrical_fault",
+            "quote": "If only some phases are affected, the resulting \"asymmetric fault\" becomes more complicated to analyse"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "swing-equation-equal-area",
+      "chapter": "system-control",
+      "facts": [
+        {
+          "id": "rotor-angle",
+          "claim": "The power (rotor, torque) angle",
+          "pattern": "(power|rotor|torque|load) angle|δ|delta",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Swing_equation",
+            "quote": "The angle between the two is known as the power angle, torque angle, or rotor angle"
+          }
+        },
+        {
+          "id": "inertia",
+          "claim": "Rotor inertia governs the swing",
+          "pattern": "inertia|\\bH\\b constant|M\\s*d\\s*\\^?\\s*2",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Swing_equation",
+            "quote": "is the total moment of inertia of the rotor mass"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "economic-dispatch",
+      "chapter": "system-control",
+      "facts": [
+        {
+          "id": "min-cost",
+          "claim": "Economic dispatch minimises generation cost",
+          "pattern": "minimi[sz][^.]{0,40}(cost|fuel)|least cost|lowest cost",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Merit_order",
+            "quote": "Dispatching power generation in this way, known as economic dispatch, minimizes the cost of production of electricity"
+          }
+        },
+        {
+          "id": "marginal",
+          "claim": "Units with the lowest marginal (incremental) cost are loaded first",
+          "pattern": "(incremental|marginal) cost",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Merit_order",
+            "quote": "those with the lowest marginal costs are the first sources to be brought online"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "hvdc-basics",
+      "chapter": "system-control",
+      "facts": [
+        {
+          "id": "long-distance",
+          "claim": "HVDC suits long distances: fewer conductors, lower losses",
+          "pattern": "(long|large)[- ]distance|lower losses|fewer conductors",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/High-voltage_direct_current",
+            "quote": "HVDC lines are commonly used for long-distance power transmission, since they require fewer conductors and incur less power loss"
+          }
+        },
+        {
+          "id": "i2r",
+          "claim": "Halving current at double voltage cuts losses fourfold",
+          "pattern": "(I\\s*\\^?\\s*2\\s*R|square of (the )?current|factor of 4|four times|quarter)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/High-voltage_direct_current",
+            "quote": "using half the current at double the voltage reduces the line losses by a factor of 4"
+          }
+        }
+      ]
+    }
+  ]
+}

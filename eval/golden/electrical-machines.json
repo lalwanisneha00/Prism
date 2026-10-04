@@ -1,0 +1,309 @@
+{
+  "description": "Key facts a correct lesson on each Electrical Machines topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "electrical-machines",
+  "topics": [
+    {
+      "topic": "magnetic-circuits",
+      "chapter": "machine-fundamentals",
+      "facts": [
+        {
+          "id": "hopkinson",
+          "claim": "MMF = flux × reluctance (Hopkinson's law, like Ohm's law)",
+          "pattern": "hopkinson|reluctance[^.]{0,80}(ohm|resistance)|(ohm|resistance)[^.]{0,80}reluctance|F\\s*=\\s*(Φ|phi)\\s*\\*?\\s*R|mmf\\s*=",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Magnetic_circuit",
+            "quote": "can be described by Hopkinson's law, which bears a superficial resemblance to Ohm's law"
+          }
+        },
+        {
+          "id": "mmf-drives",
+          "claim": "MMF drives flux as EMF drives current",
+          "pattern": "magnetomotive force|\\bmmf\\b",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Magnetic_circuit",
+            "quote": "magnetomotive force (MMF) 'drives' magnetic flux through magnetic circuits"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "emf-induction-machines",
+      "chapter": "machine-fundamentals",
+      "facts": [
+        {
+          "id": "faraday",
+          "claim": "Induced emf equals the rate of change of flux linkage",
+          "pattern": "rate of change[^.]{0,40}(flux|linkage)|d\\s*(Φ|phi|λ|lambda)\\s*/\\s*dt",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Faraday's_law_of_induction",
+            "quote": "the electromotive force (emf) around a closed circuit is equal to the negative rate of change of the ma"
+          }
+        },
+        {
+          "id": "lenz",
+          "claim": "The induced current opposes the change in flux (Lenz)",
+          "pattern": "oppos",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Faraday's_law_of_induction",
+            "quote": "its magnetic field opposes the change in the original magnetic flux"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "transformer-phasors-regulation",
+      "chapter": "transformers-em",
+      "facts": [
+        {
+          "id": "turns-ratio",
+          "claim": "Voltage ratio equals turns ratio",
+          "pattern": "turns ratio|N\\s*_?\\s*1\\s*/\\s*N\\s*_?\\s*2|V\\s*_?\\s*1\\s*/\\s*V\\s*_?\\s*2\\s*=\\s*N",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Transformer",
+            "quote": "The transformer winding voltage ratio is equal to the winding turns ratio"
+          }
+        },
+        {
+          "id": "mutual-flux",
+          "claim": "Varying primary current creates a varying core flux linking the secondary",
+          "pattern": "(varying|alternating|changing) (magnetic )?flux|mutual flux",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Transformer",
+            "quote": "A varying current in the transformer's primary winding creates a varying magnetic flux in the transformer core"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "oc-sc-tests",
+      "chapter": "transformers-em",
+      "facts": [
+        {
+          "id": "oc",
+          "claim": "The open-circuit (no-load) test gives the excitation branch (core loss)",
+          "pattern": "open[- ]circuit test|no[- ]load test",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Open-circuit_test",
+            "quote": "The open-circuit test, or no-load test, is one of the methods used in electrical engineering to determine the no-load impedance in the excitation branch"
+          }
+        },
+        {
+          "id": "sc",
+          "claim": "The short-circuit test gives the series impedance (copper loss)",
+          "pattern": "short[- ]circuit test",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Open-circuit_test",
+            "quote": "Another method of determining the series impedance of a real transformer is the short-circuit test"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "three-phase-transformer-groups",
+      "chapter": "transformers-em",
+      "facts": [
+        {
+          "id": "delta-star",
+          "claim": "Windings are connected in delta (Δ) or star (Y)",
+          "pattern": "delta[^.]{0,40}(star|wye)|(star|wye)[^.]{0,40}delta|Δ\\s*-\\s*Y|Y\\s*-\\s*Δ",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Three-phase_electric_power",
+            "quote": "Transformer windings consist of either delta (often symbolised as 'Δ') or star (often symbolised as 'Y') configurations"
+          }
+        },
+        {
+          "id": "120",
+          "claim": "Three phases are 120° apart",
+          "pattern": "120\\s*(°|degrees|\\^?\\s*circ)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Three-phase_electric_power",
+            "quote": "each of the three phases is offset by 120 degrees of phase shift relative to the others"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "autotransformer",
+      "chapter": "transformers-em",
+      "facts": [
+        {
+          "id": "single-winding",
+          "claim": "An autotransformer has a single winding with a tap",
+          "pattern": "single (continuous )?winding|one winding",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Autotransformer",
+            "quote": "An autotransformer has a single winding with two end terminals and one or more terminals at intermediate tap points"
+          }
+        },
+        {
+          "id": "conducted",
+          "claim": "Part of the power is transferred directly (conductively), not all by induction",
+          "pattern": "(direct(ly)?|conduct)[^.]{0,80}(induct|transform)|common (section|winding|portion)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Autotransformer",
+            "quote": "part of the output current flows directly from the input to the output (through the series section), and only part is transferred inductively"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "slip-equivalent-circuit",
+      "chapter": "induction-machines",
+      "facts": [
+        {
+          "id": "slip",
+          "claim": "Slip = (synchronous speed − rotor speed) / synchronous speed",
+          "pattern": "slip[^.]{0,80}synchronous|\\(\\s*N\\s*_?\\s*s\\s*-\\s*N|n\\s*_?\\s*s\\s*-\\s*n",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Induction_motor",
+            "quote": "The difference, or \"slip,\" between actual and synchronous speed"
+          }
+        },
+        {
+          "id": "below-sync",
+          "claim": "The rotor always runs slightly slower than synchronous speed",
+          "pattern": "(slower|less) than (the )?synchronous|below synchronous",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Induction_motor",
+            "quote": "an induction motor always operates slightly slower than synchronous speed"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "torque-slip-characteristic",
+      "chapter": "induction-machines",
+      "facts": [
+        {
+          "id": "induced",
+          "claim": "Rotor current (and torque) comes from induction by the stator field",
+          "pattern": "induc[^.]{0,60}rotor|rotor[^.]{0,60}induc",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Induction_motor",
+            "quote": "the electric current in the rotor that produces torque is obtained by electromagnetic induction"
+          }
+        },
+        {
+          "id": "slip-torque",
+          "claim": "More slip induces more rotor current and more torque",
+          "pattern": "(more|greater|higher|increas)[^.]{0,30}slip[^.]{0,80}torque|torque[^.]{0,60}(increase|rise)s?[^.]{0,30}slip",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Induction_motor",
+            "quote": "As the speed of the rotor drops below synchronous speed, the rotation rate of the magnetic field in the rotor increases, inducing more current in the windings and creating more torque"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "single-phase-motors-em",
+      "chapter": "induction-machines",
+      "facts": [
+        {
+          "id": "not-self-start",
+          "claim": "A single-phase induction motor needs an auxiliary (starting) winding",
+          "pattern": "auxiliary|starting winding|not self[- ]starting|capacitor[- ]start|split[- ]phase",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Induction_motor",
+            "quote": "Larger single phase motors are split-phase motors and have a second stator winding fed with out-of-phase current"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "universal-motor",
+      "chapter": "induction-machines",
+      "facts": [
+        {
+          "id": "ac-dc",
+          "claim": "A universal motor runs on AC or DC",
+          "pattern": "(AC|alternating)[^.]{0,20}(or|and)[^.]{0,20}(DC|direct)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Universal_motor",
+            "quote": "can operate on either AC or DC power"
+          }
+        },
+        {
+          "id": "series",
+          "claim": "It is a series-wound commutator motor",
+          "pattern": "series[- ]wound|in series",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Universal_motor",
+            "quote": "It is a commutated series-wound motor"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "dc-armature-windings-emf",
+      "chapter": "dc-machines-em",
+      "facts": [
+        {
+          "id": "commutator",
+          "claim": "The commutator and brushes connect the rotating armature coils",
+          "pattern": "commutator",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/DC_motor",
+            "quote": "The commutator allows each armature coil to be energized in turn and connects the rotating coils with the external power supply through brushes"
+          }
+        },
+        {
+          "id": "speed-control",
+          "claim": "Speed is controlled by armature voltage or field current",
+          "pattern": "(armature|supply) voltage[^.]{0,80}field|field (current|flux|control)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/DC_motor",
+            "quote": "using either a variable supply voltage or by changing the strength of current in its field windings"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "alternator-phasors-excitation",
+      "chapter": "synchronous-machines",
+      "facts": [
+        {
+          "id": "synchronous",
+          "claim": "An alternator is a synchronous generator converting mechanical to AC electrical energy",
+          "pattern": "synchronous generator|alternator",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Alternator",
+            "quote": "An alternator (or synchronous generator) is an electrical generator that converts mechanical energy to electrical energy"
+          }
+        },
+        {
+          "id": "rotating-field",
+          "claim": "Usually a rotating field and stationary armature",
+          "pattern": "rotating (magnetic )?field|stationary armature|rotor[^.]{0,40}(field|DC)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Alternator",
+            "quote": "most alternators use a rotating magnetic field with a stationary armature"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "synchronous-motor-v-curves",
+      "chapter": "synchronous-machines",
+      "facts": [
+        {
+          "id": "pf",
+          "claim": "Excitation sets lagging, unity or leading power factor",
+          "pattern": "(lagging|leading)[^.]{0,40}(leading|lagging|unity)|over-?excit|under-?excit",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Synchronous_motor",
+            "quote": "By varying the excitation of a synchronous motor, it can be made to operate at lagging, leading and unity power factor"
+          }
+        },
+        {
+          "id": "sync",
+          "claim": "It runs at synchronous speed (no slip)",
+          "pattern": "synchronous speed|no slip|constant speed",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Synchronous_motor",
+            "quote": "At synchronous speed the rotor poles lock to the rotating magnetic field"
+          }
+        }
+      ]
+    }
+  ]
+}

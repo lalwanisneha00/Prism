@@ -1,0 +1,264 @@
+{
+  "description": "Key facts a correct lesson on each Control Systems topic must state. Every fact was taken from the fetched text of the source page named with it (the quote is checked by `npm run golden:check`). Patterns are case-insensitive regular expressions matched against the lesson text after LaTeX backslashes and braces are removed.",
+  "subject": "control-systems",
+  "topics": [
+    {
+      "topic": "transfer-function-models",
+      "chapter": "modelling",
+      "facts": [
+        {
+          "id": "definition",
+          "claim": "A transfer function models the output for each input (Laplace domain)",
+          "pattern": "transfer function[^.]{0,80}(output|ratio)|output[^.]{0,30}/[^.]{0,30}input|C\\s*\\(\\s*s\\s*\\)\\s*/\\s*R\\s*\\(\\s*s\\s*\\)|Y\\s*\\(\\s*s\\s*\\)\\s*/\\s*(U|X|R)\\s*\\(\\s*s",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Transfer_function",
+            "quote": "is a mathematical function that models the system's output for each po"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "block-diagram-reduction",
+      "chapter": "modelling",
+      "facts": [
+        {
+          "id": "blocks",
+          "claim": "Parts are blocks joined by lines showing their relationships",
+          "pattern": "blocks?[^.]{0,60}(lines|arrows|connected)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Block_diagram",
+            "quote": "the principal parts or functions are represented by blocks connected by lines that show the relationships of the blocks"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "signal-flow-mason",
+      "chapter": "modelling",
+      "facts": [
+        {
+          "id": "nodes-branches",
+          "claim": "Nodes (variables) joined by directed branches with gains (transmittances)",
+          "pattern": "nodes?[^.]{0,80}branch|branch[^.]{0,80}nodes?|transmittance",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Signal-flow_graph",
+            "quote": "A linear SFG consists of nodes indicated by dots and weighted directional branches indicated by arrows"
+          }
+        },
+        {
+          "id": "mason",
+          "claim": "Named after Mason (Mason graph / gain formula)",
+          "pattern": "mason",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Signal-flow_graph",
+            "quote": "often called a Mason graph after Samuel Jefferson Mason"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "state-variable-models",
+      "chapter": "modelling",
+      "facts": [
+        {
+          "id": "matrix",
+          "claim": "LTI state equations are written in matrix form",
+          "pattern": "matri(x|ces)|\\bA\\s*x\\s*\\+\\s*B\\s*u|x\\s*'\\s*=|ẋ",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/State-space_representation",
+            "quote": "the equations can be written in matrix form"
+          }
+        },
+        {
+          "id": "state-vars",
+          "claim": "State variables track how inputs shape behaviour over time",
+          "pattern": "state variables?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/State-space_representation",
+            "quote": "uses state variables to track how inputs shape system behavior over"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "first-second-order-response",
+      "chapter": "time-response",
+      "facts": [
+        {
+          "id": "step",
+          "claim": "Step response: output when the input jumps from 0 to 1",
+          "pattern": "step (input|response)|unit step",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Step_response",
+            "quote": "step response is the time behaviour of the outputs of a general system when its inputs change from zero to one in a very short time"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "time-domain-specs",
+      "chapter": "time-response",
+      "facts": [
+        {
+          "id": "overshoot",
+          "claim": "Overshoot: the output exceeds its final steady-state value",
+          "pattern": "(exceed|above|beyond)[^.]{0,40}(final|steady)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Overshoot_(signal)",
+            "quote": "overshoot refers to an output exceeding its final, steady-state value"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "pid-modes",
+      "chapter": "time-response",
+      "facts": [
+        {
+          "id": "integral",
+          "claim": "Integral action removes steady-state error",
+          "pattern": "integral[^.]{0,100}(steady[- ]state error|offset)|(steady[- ]state error|offset)[^.]{0,100}integral",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/PID_controller",
+            "quote": "The integral (I) component, in turn, considers the cumulative sum of past errors to address any residual steady-state errors"
+          }
+        },
+        {
+          "id": "derivative",
+          "claim": "Derivative action uses the rate of change of error, reducing overshoot",
+          "pattern": "derivative[^.]{0,100}(rate of change|overshoot|predict|damp)",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/PID_controller",
+            "quote": "the derivative (D) component predicts future error trend by assessing the rate of change of the error"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bibo-stability",
+      "chapter": "stability",
+      "facts": [
+        {
+          "id": "bibo",
+          "claim": "Every bounded input gives a bounded output",
+          "pattern": "bounded[- ]input[^.]{0,30}bounded[- ]output|bounded input[^.]{0,60}bounded output|every bounded input",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/BIBO_stability",
+            "quote": "the output will be bounded for every input to the system that is bounded"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "routh-hurwitz",
+      "chapter": "stability",
+      "facts": [
+        {
+          "id": "left-half",
+          "claim": "Stable when all roots lie in the left half-plane",
+          "pattern": "left[- ]half|negative real parts?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Routh–Hurwitz_stability_criterion",
+            "quote": "a polynomial has all roots in the open left half-plane if and only if all first-column elements of the Routh array have the same sign"
+          }
+        },
+        {
+          "id": "first-column",
+          "claim": "Check sign changes in the first column of the Routh array",
+          "pattern": "first column|sign changes?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Routh–Hurwitz_stability_criterion",
+            "quote": "all first-column elements of the Routh array have the same sign"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "root-locus",
+      "chapter": "stability",
+      "facts": [
+        {
+          "id": "poles-gain",
+          "claim": "Root locus plots closed-loop poles as the gain varies",
+          "pattern": "(closed[- ]loop )?poles?[^.]{0,80}gain|gain[^.]{0,80}poles?",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Root_locus_analysis",
+            "quote": "The root locus plots the poles of the closed loop transfer function in the complex s-plane as a function of a gain parameter"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "bode-plots-control",
+      "chapter": "frequency-domain",
+      "facts": [
+        {
+          "id": "mag-phase",
+          "claim": "Magnitude (dB) and phase plots versus frequency",
+          "pattern": "magnitude[^.]{0,60}phase|phase[^.]{0,60}magnitude",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bode_plot",
+            "quote": "a combination of a Bode magnitude plot, expressing the magnitude (usually in decibels) of the frequency response, and a Bode phase plot"
+          }
+        },
+        {
+          "id": "asymptotes",
+          "claim": "Straight-line asymptotic approximations",
+          "pattern": "asymptot|straight[- ]line",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Bode_plot",
+            "quote": "the plot is an asymptotic approximation of the frequency response, using straight line segments"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "polar-nyquist",
+      "chapter": "frequency-domain",
+      "facts": [
+        {
+          "id": "encircle",
+          "claim": "Stability from encirclements of the −1 point",
+          "pattern": "encircle|\\(\\s*-\\s*1\\s*,\\s*0\\s*\\)|-1 point|minus one",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nyquist_stability_criterion",
+            "quote": "Stability is determined by looking at the number of encirclements of the point (−1, 0)"
+          }
+        },
+        {
+          "id": "open-loop",
+          "claim": "It uses the open-loop frequency response",
+          "pattern": "open[- ]loop",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Nyquist_stability_criterion",
+            "quote": "it only looks at the Nyquist plot of the open loop systems"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "lead-lag-compensation",
+      "chapter": "frequency-domain",
+      "facts": [
+        {
+          "id": "lead",
+          "claim": "Lead adds phase at high frequencies; lag acts at low frequencies",
+          "pattern": "phase lead|lead compensat[^.]{0,80}phase|(adds?|provides?)[^.]{0,30}phase",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lead–lag_compensator",
+            "quote": "The lead compensator provides phase lead at high frequencies"
+          }
+        },
+        {
+          "id": "pole-zero",
+          "claim": "Each adds a pole–zero pair",
+          "pattern": "pole[^.]{0,10}zero|zero[^.]{0,10}pole",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Lead–lag_compensator",
+            "quote": "Both lead compensators and lag compensators introduce a pole–zero pair into the open loop transfer function"
+          }
+        }
+      ]
+    }
+  ]
+}

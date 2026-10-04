@@ -268,36 +268,23 @@ async function main() {
   const day = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
   const date = now.toISOString();
   const model = process.env.GEMINI_MODEL || "gemini-flash-latest (+ fallbacks)";
-  const results: { subject: string; percent: number; rows: Row[]; complete: boolean }[] = [];
-  // A small worker pool: `parallel` subjects at a time, each taking the next one when done.
-  let next = 0;
-  let quotaExhausted = false;
-  const worker = async () => {
-    while (!quotaExhausted && next < sets.length) {
-      const set = sets[next++];
-      try {
-        results.push({ subject: set.subject, ...(await runSet(set)) });
-      } catch (err) {
-        if (!(err instanceof QuotaExhausted)) throw err;
-        quotaExhausted = true;
-      }
-    }
-  };
-  await Promise.all(Array.from({ length: Math.min(parallel, sets.length) }, worker));
+  type Result = { subject: string; percent: number; rows: Row[]; complete: boolean };
+  const results: Result[] = [];
 
-  mkdirSync("eval/results", { recursive: true });
-  for (const r of results) {
+  /**
+   * Saves one subject's result as soon as it finishes, so a long run that is stopped later
+   * (quota, low memory, a closed laptop) keeps everything finished so far. A full real run
+   * (not --topics, not --fake) whose every topic is done goes into the regression log and the
+   * public accuracy page. Reading and writing happen synchronously, so parallel subjects
+   * cannot overwrite each other.
+   */
+  const record = (r: Result) => {
+    mkdirSync("eval/results", { recursive: true });
     writeFileSync(
-      `eval/results/${r.subject}.json`,
+      `eval/results/${r.subject}${fake ? "-fake" : ""}.json`,
       JSON.stringify({ date, level, duration, fake, percent: r.percent, rows: r.rows }, null, 2),
     );
-  }
-
-  // A full real run (not --topics, not --fake) is recorded for the regression log and the
-  // public accuracy page.
-  // Only subjects whose every topic is done are recorded.
-  const finished = results.filter((r) => r.complete);
-  if (!fake && !args.topics && finished.length > 0) {
+    if (fake || args.topics || !r.complete) return;
     if (!existsSync("EVAL_LOG.md")) {
       writeFileSync(
         "EVAL_LOG.md",
@@ -308,39 +295,55 @@ async function main() {
     const accuracy = JSON.parse(readFileSync(accuracyPath, "utf8")) as {
       subjects: Record<string, unknown>;
     };
-    for (const r of finished) {
-      const set = sets.find((s) => s.subject === r.subject)!;
-      const share = quotedShare(set);
-      const recommendedTier = tierForScore(r.percent, { topics: set.topics.length, ...share });
-      const facts = set.topics.reduce((s, t) => s + t.facts.length, 0);
-      const valid = r.rows.filter((x) => x.valid).length;
-      const visuals = r.rows.reduce((s, x) => s + x.visuals, 0);
-      const issues = r.rows.reduce((s, x) => s + x.visualIssues.length, 0);
-      appendFileSync(
-        "EVAL_LOG.md",
-        `| ${day} | ${r.subject} | ${level} · ${duration} min | ${set.topics.length} | **${r.percent}%** (${facts} facts) | ${valid}/${r.rows.length} | ${visuals} (${issues}) | ${PROMPT_VERSION} | ${model} |\n`,
-      );
-      accuracy.subjects[r.subject] = {
-        goldenTopics: set.topics.length,
-        facts,
-        percent: r.percent,
-        validLessons: valid,
-        lessons: r.rows.length,
-        date: day,
-        level,
-        promptVersion: PROMPT_VERSION,
-        quotedFacts: share.quoted,
-        // What the score earns under SPEC §12.3; a person reviews samples before it is applied.
-        recommendedTier,
-      };
-      console.log(
-        `${r.subject}: recommended tier "${recommendedTier}" (${share.quoted}/${share.total} facts have source quotes)`,
-      );
-    }
+    const set = sets.find((s) => s.subject === r.subject)!;
+    const share = quotedShare(set);
+    const recommendedTier = tierForScore(r.percent, { topics: set.topics.length, ...share });
+    const facts = set.topics.reduce((s, t) => s + t.facts.length, 0);
+    const valid = r.rows.filter((x) => x.valid).length;
+    const visuals = r.rows.reduce((s, x) => s + x.visuals, 0);
+    const issues = r.rows.reduce((s, x) => s + x.visualIssues.length, 0);
+    appendFileSync(
+      "EVAL_LOG.md",
+      `| ${day} | ${r.subject} | ${level} · ${duration} min | ${set.topics.length} | **${r.percent}%** (${facts} facts) | ${valid}/${r.rows.length} | ${visuals} (${issues}) | ${PROMPT_VERSION} | ${model} |\n`,
+    );
+    accuracy.subjects[r.subject] = {
+      goldenTopics: set.topics.length,
+      facts,
+      percent: r.percent,
+      validLessons: valid,
+      lessons: r.rows.length,
+      date: day,
+      level,
+      promptVersion: PROMPT_VERSION,
+      quotedFacts: share.quoted,
+      // What the score earns under SPEC §12.3; a person reviews samples before it is applied.
+      recommendedTier,
+    };
     writeFileSync(accuracyPath, `${JSON.stringify(accuracy, null, 2)}\n`);
-    console.log("Recorded in EVAL_LOG.md and src/data/accuracy.json");
-  }
-  // Subjects finished before the quota ran out are recorded above; the rest resume next time.
+    console.log(
+      `${r.subject}: recommended tier "${recommendedTier}" (${share.quoted}/${share.total} facts have source quotes). Recorded in EVAL_LOG.md and src/data/accuracy.json`,
+    );
+  };
+
+  // A small worker pool: `parallel` subjects at a time, each taking the next one when done.
+  let next = 0;
+  let quotaExhausted = false;
+  const worker = async () => {
+    while (!quotaExhausted && next < sets.length) {
+      const set = sets[next++];
+      try {
+        const result = { subject: set.subject, ...(await runSet(set)) };
+        results.push(result);
+        record(result);
+      } catch (err) {
+        if (!(err instanceof QuotaExhausted)) throw err;
+        quotaExhausted = true;
+      }
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(parallel, sets.length) }, worker));
+
+  // Subjects finished before the quota ran out were recorded as they finished.
   if (quotaExhausted) process.exit(2);
   const failed = results.some((r) => r.percent < 95);
   process.exit(failed && !fake ? 1 : 0);

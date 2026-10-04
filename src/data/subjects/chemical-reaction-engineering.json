@@ -1,0 +1,163 @@
+{
+  "id": "chemical-reaction-engineering",
+  "name": "Chemical Reaction Engineering",
+  "field": "Chemical Engineering",
+  "tier": "sourced",
+  "branches": [
+    "chem",
+    "petro",
+    "biotech"
+  ],
+  "semesters": [
+    5,
+    6
+  ],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree Courses in Chemical Engineering (2018, Vol. II): PCC-CS108 Chemical Reaction Engineering-I and PCC-CS112 Chemical Reaction Engineering-II",
+    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol2.pdf",
+    "note": "All units of PCC-CS108 and PCC-CS112."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "kinetics",
+      "name": "Reaction Kinetics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "rate-law-order",
+          "name": "Reaction rate, rate law, order and the rate constant"
+        },
+        {
+          "id": "arrhenius-temperature",
+          "name": "Temperature dependence: the Arrhenius equation",
+          "requires": [
+            "rate-law-order"
+          ]
+        },
+        {
+          "id": "elementary-mechanisms-ssa",
+          "name": "Elementary reactions, mechanisms and the steady-state approximation",
+          "requires": [
+            "rate-law-order"
+          ]
+        },
+        {
+          "id": "kinetic-data-analysis",
+          "name": "Integral and differential analysis of kinetic data",
+          "requires": [
+            "rate-law-order"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ideal-reactors",
+      "name": "Ideal Reactors",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "batch-reactor-design",
+          "name": "Batch reactor design equation",
+          "requires": [
+            "rate-law-order"
+          ]
+        },
+        {
+          "id": "cstr-design",
+          "name": "Continuous stirred-tank reactor (CSTR)",
+          "requires": [
+            "batch-reactor-design"
+          ]
+        },
+        {
+          "id": "pfr-design",
+          "name": "Plug flow reactor (PFR)",
+          "requires": [
+            "batch-reactor-design"
+          ]
+        },
+        {
+          "id": "reactors-series-recycle",
+          "name": "Reactors in series and parallel; recycle reactors",
+          "requires": [
+            "cstr-design",
+            "pfr-design"
+          ]
+        },
+        {
+          "id": "multiple-reactions-selectivity",
+          "name": "Multiple reactions: series, parallel, yield and selectivity",
+          "requires": [
+            "cstr-design",
+            "pfr-design"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "non-ideal",
+      "name": "Non-Ideal Flow",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "rtd",
+          "name": "Residence time distribution",
+          "requires": [
+            "pfr-design"
+          ]
+        },
+        {
+          "id": "non-ideal-models",
+          "name": "Dispersion and tanks-in-series models",
+          "requires": [
+            "rtd"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heterogeneous",
+      "name": "Catalysis and Heterogeneous Reactions",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "catalysis-adsorption-isotherms",
+          "name": "Catalysis; adsorption isotherms and BET surface area",
+          "requires": [
+            "rate-law-order"
+          ]
+        },
+        {
+          "id": "catalytic-kinetics-lhhw",
+          "name": "Kinetics of solid-catalysed reactions",
+          "requires": [
+            "catalysis-adsorption-isotherms"
+          ]
+        },
+        {
+          "id": "effectiveness-thiele",
+          "name": "Pore diffusion: Thiele modulus and effectiveness factor",
+          "requires": [
+            "catalytic-kinetics-lhhw"
+          ]
+        },
+        {
+          "id": "gas-solid-shrinking-core",
+          "name": "Non-catalytic gas–solid reactions: shrinking core model",
+          "requires": [
+            "rate-law-order"
+          ]
+        },
+        {
+          "id": "gas-liquid-reactions",
+          "name": "Gas–liquid reactions and the enhancement factor",
+          "requires": [
+            "rate-law-order"
+          ]
+        }
+      ]
+    }
+  ]
+}

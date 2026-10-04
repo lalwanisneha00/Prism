@@ -1,0 +1,139 @@
+{
+  "id": "process-control",
+  "name": "Process Dynamics and Control",
+  "field": "Chemical Engineering",
+  "tier": "sourced",
+  "branches": [
+    "chem",
+    "petro",
+    "ic"
+  ],
+  "semesters": [
+    6
+  ],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree Courses in Chemical Engineering (2018, Vol. II): PCC-CS114 Process Control",
+    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol2.pdf",
+    "note": "All twelve units of PCC-CS114."
+  },
+  "visualSet": "signals",
+  "chapters": [
+    {
+      "id": "pc-intro",
+      "name": "Introduction and Process Models",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "process-control-concepts",
+          "name": "Need for control; servo and regulatory problems; feedback and feedforward"
+        },
+        {
+          "id": "p-and-id",
+          "name": "Process and instrumentation diagrams",
+          "requires": [
+            "process-control-concepts"
+          ]
+        },
+        {
+          "id": "laplace-odes-pc",
+          "name": "Laplace transforms for solving process ODEs",
+          "requires": [
+            "process-control-concepts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dynamics",
+      "name": "Dynamic Response",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "first-order-process",
+          "name": "First-order processes: time constant and step response",
+          "requires": [
+            "laplace-odes-pc"
+          ]
+        },
+        {
+          "id": "second-order-process",
+          "name": "Second-order and higher-order processes",
+          "requires": [
+            "first-order-process"
+          ]
+        },
+        {
+          "id": "dead-time",
+          "name": "Transportation lag and dead time",
+          "requires": [
+            "first-order-process"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "closed-loop",
+      "name": "Closed-Loop Control",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "feedback-controllers-pid",
+          "name": "Feedback controllers: P, PI and PID",
+          "requires": [
+            "first-order-process"
+          ]
+        },
+        {
+          "id": "control-valves",
+          "name": "Final control elements: control valves",
+          "requires": [
+            "feedback-controllers-pid"
+          ]
+        },
+        {
+          "id": "closed-loop-response",
+          "name": "Closed-loop response and offset",
+          "requires": [
+            "feedback-controllers-pid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stability-tuning",
+      "name": "Stability, Frequency Response and Tuning",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "routh-root-locus-pc",
+          "name": "Routh stability criterion and root locus",
+          "requires": [
+            "closed-loop-response"
+          ]
+        },
+        {
+          "id": "bode-nyquist-pc",
+          "name": "Bode and Nyquist stability criteria",
+          "requires": [
+            "routh-root-locus-pc"
+          ]
+        },
+        {
+          "id": "ziegler-nichols",
+          "name": "Controller tuning: Ziegler–Nichols and Cohen–Coon",
+          "requires": [
+            "closed-loop-response"
+          ]
+        },
+        {
+          "id": "advanced-control",
+          "name": "Cascade, ratio and feedforward control; Smith predictor, IMC and MPC",
+          "requires": [
+            "closed-loop-response"
+          ]
+        }
+      ]
+    }
+  ]
+}

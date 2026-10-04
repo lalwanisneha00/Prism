@@ -95,6 +95,25 @@ describe("provider chain", () => {
     expect(exhausted.calls).toBe(1);
   });
 
+  it("gives up on a provider that never answers and moves to the next one", async () => {
+    const silent: LlmProvider = {
+      name: "Silent",
+      generateJson: ({ signal }) =>
+        new Promise((_, reject) => signal?.addEventListener("abort", () => reject(signal.reason))),
+    };
+    const backup = new FakeProvider(() => "{}");
+    const text = await generateJsonWithFallback(
+      [silent, backup],
+      { system: "", prompt: "" },
+      Date.now,
+      20,
+    );
+    expect(text).toBe("{}");
+    await expect(
+      generateJsonWithFallback([silent], { system: "", prompt: "" }, Date.now, 20),
+    ).rejects.toSatisfy((e) => e instanceof LlmError && /no reply within/.test(e.message));
+  });
+
   it("still uses a resting provider if nothing else is left", async () => {
     let clock = 0;
     const flaky = {
