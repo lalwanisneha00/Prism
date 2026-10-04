@@ -4,7 +4,7 @@ Update this after every step so any person or AI tool can pick up the work.
 
 ## Current state (resume here)
 
-- **OVERNIGHT FINAL RUN (2026-10-05):** branch `overnight-v3-final`, steps F1-F6 in SPEC §11.9 (requirements: PRISM_OVERNIGHT_FINAL.md). Check-in cron 1e92bc34 every 30 min. Now: F1 (finish Step 11 UI). Stop after F6; Feature D NOT started.
+- **OVERNIGHT FINAL RUN (2026-10-05):** branch `overnight-v3-final`, steps F1-F6 in SPEC §11.9 (requirements: PRISM_OVERNIGHT_FINAL.md). Check-in cron 1e92bc34 every 30 min. **Done:** F1 Step 11 (tag `v3-step-11`), F2 Feature A own API keys (tag `final-feature-a`, flag `byoKey`). **Next action:** F1 leftovers (Step 12 syllabus matching is built and tested but not yet shown in a browser test; evals wait on quota), then F3 Feature B slides/PDF, F4 Feature C redesign, F6 polish + README + DEPLOY_CHECKLIST.md. Stop after F6; Feature D NOT started.
 - (older state below, still valid for Step 11 / evals)
 - **Mode:** AUTONOMOUS (user, 2026-10-04: "keep going step after step without confirmation… run tests on your own and move to the next step") on branch `overnight-v2.5-v3`. Status for the user goes in `MORNING_REPORT.md`.
 - **Version / step:** V3 · Steps 8–11 in progress at the same time (2026-10-05 01:45 IST). Steps 8–10 data and golden sets are done and committed; their evals are waiting for AI quota. Step 11 (time recommendations and planner, SPEC §12.9) is being built: engine and storage done, UI not started.

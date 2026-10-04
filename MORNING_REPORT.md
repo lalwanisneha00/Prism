@@ -4,7 +4,10 @@ Branch `overnight-v3-final` (tag `before-overnight-final`). Check-in cron 1e92bc
 
 ## Summary (tonight)
 
-- In progress: F1 finish V3 Step 11. Not started: F2-F6. Feature flags: none yet.
+- **Done:** V3 Step 11 (planner + time recommendations, tag `v3-step-11`); Feature A bring-your-own-key (tag `final-feature-a`, flag `NEXT_PUBLIC_FLAG_BYO_KEY`, default on).
+- **In progress:** Step 12 leftovers, then Feature B.
+- **Not started:** B, C, polish. Feature D is deliberately not started (goal says stop after polish).
+- Flags (`src/lib/flags.ts`): byoKey on, slidesPdf on (not built), redesign on (not built), community off.
 
 ## Decisions made without me
 
