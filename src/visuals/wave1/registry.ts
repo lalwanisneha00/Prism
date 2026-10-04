@@ -101,6 +101,7 @@ export const wave1Widgets = {
     }),
     help: 'lineVoltage V (100..11000, e.g. 400); impedance per phase Ω (1..1000); pfAngleDeg (0..80); connection "star" or "delta".',
     topics: [
+      "unbalanced-three-phase",
       "three-phase-generation",
       "star-delta",
       "balanced-three-phase",
@@ -117,7 +118,7 @@ export const wave1Widgets = {
       reactiveValue: num(1, 1000),
     }),
     help: 'circuit "RC" or "RL"; supplyV (1..240); resistance Ω (10..10000); reactiveValue = capacitance in µF for RC or inductance in mH for RL (1..1000).',
-    topics: ["rl-rc-transients", "circuit-elements-sources"],
+    topics: ["initial-conditions", "rl-rc-transients", "circuit-elements-sources"],
   },
   transformer: {
     name: "Transformer: turns ratio and efficiency",
@@ -175,7 +176,14 @@ export const wave1Widgets = {
       beta: num(20, 400),
     }),
     help: "vcc V; rc, re, r1, r2 in Ω (voltage-divider bias); beta current gain (20..400).",
-    topics: ["load-line-biasing", "bjt-configurations", "bjt-operation", "amplifier-basics"],
+    topics: [
+      "bias-stability",
+      "ce-cb-cc-configurations",
+      "load-line-biasing",
+      "bjt-configurations",
+      "bjt-operation",
+      "amplifier-basics",
+    ],
   },
   "op-amp": {
     name: "Inverting / non-inverting op-amp",
@@ -187,6 +195,7 @@ export const wave1Widgets = {
     }),
     help: 'mode "inverting" or "non-inverting"; rf feedback Ω; rin input Ω; rail supply volts (5..18) where the output clips.',
     topics: [
+      "opamp-applications-ae",
       "ideal-op-amp",
       "inverting-non-inverting",
       "op-amp-parameters",
@@ -200,6 +209,7 @@ export const wave1Widgets = {
     }),
     help: 'gate: one of "AND","OR","NOT","NAND","NOR","XOR","XNOR","FULL-ADDER". Students toggle inputs and see the truth table.',
     topics: [
+      "adders-subtractors",
       "logic-gates",
       "boolean-algebra",
       "universal-gates",
@@ -262,7 +272,7 @@ export const wave1Widgets = {
       values: z.array(z.int().min(1).max(99)).min(3).max(10),
     }),
     help: 'algorithm "bubble", "insertion" or "selection"; values 3-10 integers (1..99), e.g. [29, 10, 14, 37, 13].',
-    topics: ["basic-sorting", "order-of-complexity", "one-d-arrays"],
+    topics: ["simple-sorts-dsa", "basic-sorting", "order-of-complexity", "one-d-arrays"],
   },
   "binary-search": {
     name: "Binary search step by step",
@@ -271,13 +281,20 @@ export const wave1Widgets = {
       target: z.int().min(0).max(999),
     }),
     help: "values 4-16 integers (0..999; sorted for the student); target integer to find.",
-    topics: ["searching", "order-of-complexity"],
+    topics: ["linear-binary-search", "searching", "order-of-complexity"],
   },
   "recursion-tree": {
     name: "Recursion tree (factorial / Fibonacci)",
     params: z.object({ fn: z.enum(["factorial", "fibonacci"]), n: z.int().min(1).max(8) }),
     help: 'fn "factorial" (n 1..8) or "fibonacci" (n 1..6): shows every call and why naive Fibonacci repeats work.',
-    topics: ["recursion", "python-recursion", "merge-quick-sort", "functions-basics"],
+    topics: [
+      "recurrences-master-theorem",
+      "divide-and-conquer",
+      "recursion",
+      "python-recursion",
+      "merge-quick-sort",
+      "functions-basics",
+    ],
   },
   "energy-pyramid": {
     name: "Pyramid of energy",

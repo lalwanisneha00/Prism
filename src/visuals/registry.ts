@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { isValidExpression } from "@/visuals/expression";
 import { wave1Widgets } from "@/visuals/wave1/registry";
+import { wave2Widgets } from "@/visuals/wave2/registry";
 
 /*
  * Every interactive widget the AI may choose (SPEC §4). The AI returns
@@ -309,9 +310,17 @@ export const widgetRegistry = {
       terms: z.int().min(1).max(40),
     }),
     help: 'wave: "square" | "sawtooth" (f(x) = x) | "triangle" (f(x) = |x|) on (-π, π); terms 1..40 to start with (e.g. 3).',
-    topics: ["fourier-series", "half-range-series", "convergence-tests", "parsevals-theorem"],
+    topics: [
+      "fourier-series-signals",
+      "fourier-network-response",
+      "fourier-series",
+      "half-range-series",
+      "convergence-tests",
+      "parsevals-theorem",
+    ],
   },
   ...wave1Widgets,
+  ...wave2Widgets,
 } as const;
 
 export type WidgetId = keyof typeof widgetRegistry;
