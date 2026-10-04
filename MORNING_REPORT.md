@@ -4,9 +4,9 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 
 ## Summary
 
-- **Finished:** V2.5 · Step 1 (before tonight), Step 2 (tag `v2.5-step-2`), Step 3 (tag `v2.5-step-3`).
-- **In progress:** V2.5 · Step 4 (building the chapter lesson: composition, streaming, library reuse).
-- **Not started:** V2.5 · Step 5, V3 · Steps 2–11.
+- **Finished:** V2.5 · Step 1 (before tonight), Step 2 (tag `v2.5-step-2`), Step 3 (tag `v2.5-step-3`), Step 4 (tag `v2.5-step-4`).
+- **In progress:** V2.5 · Step 5 (long-lesson reading, chapter audio, chapter extras and mock test, regression eval).
+- **Not started:** V3 · Steps 2–11.
 
 ## How to see it
 
@@ -15,6 +15,19 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 - Automated checks: `npm run check`, `npm run build`, `npm run test:e2e` (Playwright, uses the fake AI, no quota).
 
 ## Finished steps and "✅ Check this"
+
+### V2.5 · Step 4: building the chapter lesson (tag `v2.5-step-4`)
+
+**Built:** "Start the lesson" on the plan page opens `/chapter/lesson`. It first shows the chapter's **introduction** ("Why this chapter matters", "How the topics fit together"), then builds **one topic at a time** in the plan's order, so you can read topic 1 while the rest are prepared ("2 of 8 topics ready: you can start reading now"). Each topic is a normal topic lesson from `/api/lesson`, so it is **reused from the shared library** when one exists and otherwise goes through grounding and the fact-check pass; its length is the lesson size closest to the minutes it got. Short **bridges** link each topic to the next and a **wrap-up** ends the chapter. The introduction/bridges/wrap-up come from a new `/api/chapter-parts` (one AI call, told not to add facts, Zod-validated, retried once) and are **cached in the shared library** by chapter, level, minutes and topics (they never contain your notes). Each topic is wrapped like a single-topic lesson, so highlights, comments and "Explain simpler" work and are shared with that topic's own page; each has "Open this topic as its own lesson". Every finished topic is **saved on the device** (new local store, database version 8), so closing the tab and coming back continues with only the missing topics. If the AI quota runs out, the stopped topic says so with "Try again" and the finished topics stay.
+
+**Tests:** 369 unit tests (new: intro/bridges/wrap-up schema and fallbacks, prompt rules, lesson-length rounding, library cache and stale versions, local store resume). Playwright: 43 checks pass, including plan → start → intro → three topics → bridges → wrap-up, and a reload that shows everything instantly without rebuilding, at desktop/375px × light/dark.
+
+**✅ Check this**
+
+- http://localhost:3000 → Electricity & Magnetism → Electrostatics → **Choose topics**: Electric flux, Gauss's law, Applications of Gauss's law → First Encounter → Build my lesson → **Start the lesson**.
+- You should see the introduction first, then "1 of 3 topics ready…" while topic 2 is prepared; scroll and read topic 1 meanwhile. Between topics there is a short grey bridge; at the end "Wrapping up the chapter".
+- Highlight a sentence in topic 2, then open "Open this topic as its own lesson": the highlight is there too.
+- Edge case: close the tab while topic 2 is still being prepared, reopen the same link (browser history): topic 1 appears at once and only the remaining topics are built.
 
 ### V2.5 · Step 3: whole-chapter / several-topic selection and the three time options (tag `v2.5-step-3`)
 
@@ -59,6 +72,8 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 - OCR on the device downloads English language data from the free jsDelivr CDN on first use (the picture itself never leaves the device).
 - Chapter time estimate: when the subject data has no syllabus hours (true for both current subjects), size comes from topic count and prerequisite depth; papers raise it by up to 25% when the chapter is often asked. Deep Dive is 1.2× the first-time times, Exam Prep 0.67×, Last-Minute 0.45×. "Completed" = latest quiz score ≥ 60%; "weak" = below 60% or marked "Didn't understand".
 - Plan adjustments change a topic by 2 minutes per press (minimum 3 minutes per topic).
+- Chapter lessons show each topic's explanation, worked examples and common mistakes; the combined quiz, revision sheet and formula list are chapter-level extras in Step 5 (not repeated per topic). A topic marked "short recap" (already done well) skips worked examples and mistakes.
+- Topic lessons inside a chapter use the standard lesson sizes (5/10/15/30… min), rounded to the nearest, so library copies are shared with single-topic lessons.
 
 ## Needs Sneha
 
@@ -66,7 +81,7 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Problems
 
-- The overnight run stopped early at the Claude usage limit, during V2.5 · Step 4. "Start the lesson" on the chapter plan page leads to `/chapter/lesson`, which isn't built yet (404 for now).
+- The run paused once at the Claude usage limit during V2.5 · Step 4 and resumed after the reset (no work lost).
 
 ## Accuracy
 
@@ -75,8 +90,8 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 ## Pauses
 
 - 2026-10-04 02:36: run started.
-- Paused: Claude usage limit reached during V2.5 · Step 4 (server part done and committed as `wip:`; the `/chapter/lesson` page is next).
+- Paused: Claude usage limit reached during V2.5 · Step 4 (server part done and committed as `wip:`). Resumed after the reset and finished Step 4.
 
 ## Next action
 
-Build V2.5 · Step 4 (chapter lesson: intro, topic sections with bridges, wrap-up; library reuse; generate topic by topic and stream).
+Build V2.5 · Step 5 (sticky table of contents with ticks, progress and time left, continue where you left off, break markers, chapter audio, combined quiz, revision sheet, formula list, concept map, chapter mock test, regression eval).

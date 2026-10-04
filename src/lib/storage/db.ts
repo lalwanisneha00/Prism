@@ -85,6 +85,29 @@ export type StoredNote = {
 /** The original uploaded file, kept on this device so pictures can be read (OCR) later. */
 export type NoteFile = { id: string; bytes: ArrayBuffer; mime: string };
 
+/**
+ * A whole-chapter (or several-topic) lesson as it is built, topic by topic (V2.5 · Step 4).
+ * Local only: closing the tab keeps what is done, and the rest continues next time.
+ */
+export type ChapterLessonRecord = {
+  id: string;
+  subject: string;
+  chapter: string;
+  level: string;
+  minutes: number;
+  /** Topics in lesson order with their minutes (skipped topics left out). */
+  order: { id: string; minutes: number }[];
+  notes: boolean;
+  parts?: unknown;
+  /** Finished topic lessons by topic id. */
+  lessons: Record<string, { lesson: Lesson; libraryKey?: string }>;
+  /** Where the student was reading, and the topics they finished (V2.5 · Step 5). */
+  position?: string;
+  done?: string[];
+  createdAt: number;
+  updatedAt: number;
+};
+
 /** What syncs about an uploaded note: its name and a short summary, never the text. */
 export type NoteSummary = SyncFields & {
   name: string;
@@ -211,6 +234,7 @@ interface PrismDB extends DBSchema {
   noteSummaries: { key: string; value: NoteSummary };
   notes: { key: string; value: StoredNote };
   noteFiles: { key: string; value: NoteFile };
+  chapterLessons: { key: string; value: ChapterLessonRecord };
   flashcards: { key: string; value: Flashcard };
   annotations: { key: string; value: Annotation; indexes: { byLesson: string } };
   plans: { key: string; value: StudyPlan };
@@ -219,7 +243,7 @@ interface PrismDB extends DBSchema {
 }
 
 const DB_NAME = "prism";
-const DB_VERSION = 7;
+const DB_VERSION = 8;
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -261,6 +285,10 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
       // Version 7 (uploads in any format): original files, local only. Nothing else changes.
       if (oldVersion < 7) {
         db.createObjectStore("noteFiles", { keyPath: "id" });
+      }
+      // Version 8 (whole-chapter lessons): built chapter lessons, local only.
+      if (oldVersion < 8) {
+        db.createObjectStore("chapterLessons", { keyPath: "id" });
       }
     },
   });
