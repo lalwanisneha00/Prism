@@ -4,9 +4,9 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 
 ## Summary
 
-- **Finished:** V2.5 · Step 1 (before tonight), Step 2 (tag `v2.5-step-2`), Step 3 (tag `v2.5-step-3`), Step 4 (tag `v2.5-step-4`).
-- **In progress:** V2.5 · Step 5 (long-lesson reading, chapter audio, chapter extras and mock test, regression eval).
-- **Not started:** V3 · Steps 2–11.
+- **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`).
+- **In progress:** V3 · Step 2 (subject data model: branches, semesters, shared subjects).
+- **Not started:** V3 · Steps 3–11.
 
 ## How to see it
 
@@ -15,6 +15,32 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 - Automated checks: `npm run check`, `npm run build`, `npm run test:e2e` (Playwright, uses the fake AI, no quota).
 
 ## Finished steps and "✅ Check this"
+
+### V2.5 · Step 5: reading a long lesson, chapter audio, chapter extras, mock test (tag `v2.5-step-5`)
+
+**Built (chapter lessons):**
+
+- **Sticky reading bar**: "2 of 8 topics done · about 25 min left", a progress bar, and a drop-down of every topic with minutes and ✓ ticks; tap one to jump there.
+- A topic is marked **finished** when you read to its end (saved on the device; the topic also goes to "Recent topics"). Your **reading position** is saved too: reopening shows "Continue where you left off: Gauss's law · Jump there". The dashboard has a **"Continue your chapter lesson"** card.
+- **"☕ Good moment for a 5-minute break"** markers about every 25 minutes (between topics).
+- **Concept map** of the lesson's topics (opens each as its own lesson).
+- **Chapter audio**: "play the short version now" (each topic's built-in narration plus the intro, bridges and wrap-up, no AI), or "Create my N-minute chapter audio", written topic by topic through the existing audio service with a chapter per topic; you can listen while the rest is written, and the position is saved and synced.
+- After the last topic: a **mixed quiz** (questions from every topic interleaved; each topic's score updates weak topics like a normal quiz), one **chapter revision sheet with all formulas** (no repeats), and the **chapter mock test**.
+- Each topic has its own **Flashcards** button; highlights and comments already work per topic (Step 4).
+- **Mock test** (moved from V3): choose 15/30/45 minutes (~1 mark per minute) → a timed paper with multiple choice, short, long and numerical questions written **only from the chapter's fact-checked revision points**, in the style of your uploaded previous-year papers if any. **Numerical answers are re-calculated by the server and a question whose answer doesn't check out is dropped.** Countdown with auto hand-in; multiple choice is marked automatically; for written answers you see the model answer and tick the examiner's points you covered. "Save my result" stores it (synced to your account); the dashboard shows **Recent mock tests**.
+
+**Tests:** 379 unit tests (new: merged revision sheet, interleaved quiz and per-topic scores, break points, minutes left, mock-test schema rules, numerical re-check dropping wrong answers, prompt limits, self-marking, synced results). Playwright: 47 checks pass, including reading to the end of each topic (3 of 3 done), resume banner after reload, revision sheet and quiz present, taking and marking a mock test, and the result on the dashboard, at desktop/375px × light/dark.
+
+**Regression eval:** not re-run tonight. The lesson prompt, lesson schema, verifier and grounding did not change in V2.5 (the eval doesn't use uploads), so the earlier scores still describe the lesson pipeline (E&M 83.2%, Engineering Maths 88.5%). A full regression run is planned with V3 · Step 5's resumable eval runner, to protect the free quota.
+
+**✅ Check this**
+
+- Open a chapter lesson (Step 4 check), read to the end of a topic: the bar shows "1 of N topics done" and the topic gets ✓ in the drop-down.
+- Scroll to the middle of topic 2, wait 2 seconds, close the tab, reopen it from History: "Continue where you left off" appears. The dashboard shows "Continue your chapter lesson".
+- Press **or play the short version now** in Chapter audio: it reads through every topic with chapters per topic.
+- At the end: answer the mixed quiz; open the dashboard: weak topics/quiz scores update per topic.
+- **Chapter mock test** → 15 min → Start: a timer counts down; answer, **Hand in my answers**, tick points for the written ones, **Save my result**: the dashboard's "Recent mock tests" shows it.
+- Edge case: leave the test running until the timer ends: it hands itself in.
 
 ### V2.5 · Step 4: building the chapter lesson (tag `v2.5-step-4`)
 
@@ -74,9 +100,13 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 - Plan adjustments change a topic by 2 minutes per press (minimum 3 minutes per topic).
 - Chapter lessons show each topic's explanation, worked examples and common mistakes; the combined quiz, revision sheet and formula list are chapter-level extras in Step 5 (not repeated per topic). A topic marked "short recap" (already done well) skips worked examples and mistakes.
 - Topic lessons inside a chapter use the standard lesson sizes (5/10/15/30… min), rounded to the nearest, so library copies are shared with single-topic lessons.
+- A topic counts as "finished" when its end scrolls into view (no extra button), so it works the same on phone and desktop.
+- Mock tests: ~1 mark per minute; written answers are self-marked from the examiner points (marks rounded); numerical questions must come with a calculation the server re-runs (within 1%), otherwise they are dropped. Mock results are a new synced collection (`mockResults`, database version 9, no existing data touched; the existing per-user Firestore rules already cover it).
+- The regression eval was not re-run for V2.5 because nothing on the lesson-generation path changed; it will run with V3's resumable runner.
 
 ## Needs Sneha
 
+- **Vercel preview link:** the GitHub CLI isn't signed in on this computer, so I couldn't read the preview URL. Open vercel.com → the Prism project → Deployments, and look for the `overnight-v2.5-v3` branch (if the project is linked to GitHub, every push made a preview).
 - To use "Read with AI" on photos, nothing new is needed (it uses the existing `GEMINI_API_KEY`). Groq cannot read images, so if Gemini's quota is used up the button says so.
 
 ## Problems
@@ -94,4 +124,4 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Next action
 
-Build V2.5 · Step 5 (sticky table of contents with ticks, progress and time left, continue where you left off, break markers, chapter audio, combined quiz, revision sheet, formula list, concept map, chapter mock test, regression eval).
+Build V3 · Step 2 (subject data model and loader: branches, semesters, shared subjects; E&M and Engineering Maths migrated without losing saved progress).

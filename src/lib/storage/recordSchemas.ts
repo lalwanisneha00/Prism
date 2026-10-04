@@ -34,6 +34,20 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     at: z.number(),
   }),
   audioPositions: z.object({ ...syncFields, title: z.string(), seconds: z.number() }),
+  mockResults: z.object({
+    ...syncFields,
+    subject: z.string().max(80),
+    chapter: z.string().max(80),
+    level: z.string().max(40),
+    minutes: z.number(),
+    title: z.string().max(300),
+    score: z.number(),
+    total: z.number(),
+    byTopic: z
+      .array(z.object({ topic: z.string().max(80), score: z.number(), total: z.number() }))
+      .max(40),
+    at: z.number(),
+  }),
   settings: z.object({
     ...syncFields,
     theme: z.enum(["light", "dark"]).optional(),

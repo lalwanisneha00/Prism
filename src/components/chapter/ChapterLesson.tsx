@@ -1,10 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ChapterAudio } from "@/components/chapter/ChapterAudio";
+import { ChapterExtras } from "@/components/chapter/ChapterExtras";
+import { ChapterMap } from "@/components/chapter/ChapterMap";
 import { TopicBlock } from "@/components/chapter/TopicBlock";
 import { Markdown } from "@/components/lesson/Markdown";
 import type { LevelSlug } from "@/data/levels";
 import { planTopics } from "@/lib/chapter/estimate";
+import { breakPoints, minutesLeft, type TopicLesson } from "@/lib/chapter/extras";
 import { fetchChapterParts, fetchTopicLesson } from "@/lib/chapter/fetchTopic";
 import {
   ChapterPartsSchema,
@@ -12,12 +16,18 @@ import {
   topicDuration,
   type ChapterParts,
 } from "@/lib/chapter/parts";
-import { openChapterLesson, saveChapterParts, saveTopicLesson } from "@/lib/chapter/store";
+import {
+  openChapterLesson,
+  saveChapterParts,
+  saveChapterProgress,
+  saveTopicLesson,
+} from "@/lib/chapter/store";
 import { studentContext } from "@/lib/chapter/studentContext";
 import { errorCopy, type LessonErrorKind } from "@/lib/lessonEvents";
 import { toPassages } from "@/lib/notes/notesSources";
 import { findRelevantPassages } from "@/lib/notes/store";
 import type { Lesson } from "@/lib/schema";
+import { recordRecent } from "@/lib/storage/library";
 import { findChapter, findSubject } from "@/lib/subjects";
 
 export type ChapterLessonProps = {
@@ -58,6 +68,10 @@ export function ChapterLesson(props: ChapterLessonProps) {
   const [topics, setTopics] = useState<TopicState[]>([]);
   const [parts, setParts] = useState<PartsState>({ status: "loading" });
   const [attempt, setAttempt] = useState(0);
+  // Reading progress (V2.5 · Step 5): which topics are finished, where the student was.
+  const [recordId, setRecordId] = useState<string | null>(null);
+  const [done, setDone] = useState<Set<string>>(new Set());
+  const [resumeAt, setResumeAt] = useState<string | null>(null);
   const planKey = JSON.stringify([props.topicIds, props.plan ?? null]);
 
   useEffect(() => {
@@ -97,6 +111,12 @@ export function ChapterLesson(props: ChapterLessonProps) {
       };
       const record = await openChapterLesson(key).catch(() => null);
       if (signal.aborted) return;
+      if (record) {
+        setRecordId(record.id);
+        setDone(new Set(record.done ?? []));
+        // Offer to jump back only when the student had moved past the first topic.
+        if (record.position && record.position !== order[0]?.id) setResumeAt(record.position);
+      }
       setTopics(
         order.map((p) => {
           const done = record?.lessons[p.id]?.lesson;
@@ -187,7 +207,7 @@ export function ChapterLesson(props: ChapterLessonProps) {
           topics.map((t) => ({ id: t.id, name: t.name })),
         )
       : [];
-  const topicHref = (t: TopicState) =>
+  const topicHref = (t: { id: string; minutes: number }) =>
     `/lesson?${new URLSearchParams({
       subject: subject.id,
       chapter: chapter.id,
@@ -196,6 +216,11 @@ export function ChapterLesson(props: ChapterLessonProps) {
       duration: String(topicDuration(t.minutes)),
       ...(props.notes ? { notes: "1" } : {}),
     })}`;
+  const breaks = new Set(breakPoints(topics));
+  const built: TopicLesson[] = topics
+    .filter((t) => t.status === "ready" && t.lesson)
+    .map((t) => ({ topicId: t.id, name: t.name, minutes: t.minutes, lesson: t.lesson! }));
+  const allReady = topics.length > 0 && ready === topics.length;
 
   return (
     <div className="flex flex-col gap-8">
@@ -229,41 +254,73 @@ export function ChapterLesson(props: ChapterLessonProps) {
             <progress className="h-2 w-full accent-primary" max={topics.length} value={ready} />
           </div>
         )}
-        {topics.length > 0 && (
-          <nav aria-label="Topics in this lesson" className="text-sm">
-            <ol className="flex flex-wrap gap-2">
-              {topics.map((t, i) => (
-                <li key={t.id}>
-                  <a
-                    href={`#topic-${t.id}`}
-                    className="inline-block rounded-full border border-border bg-surface px-3 py-1 hover:bg-surface-2"
-                  >
-                    {i + 1}. {t.name} · {t.minutes} min{t.status === "ready" ? "" : " …"}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </nav>
+        {resumeAt && topics.some((t) => t.id === resumeAt) && (
+          <p
+            className="flex flex-wrap items-center gap-2 rounded-xl border border-primary/30 bg-primary-soft px-4 py-2 text-sm"
+            data-testid="resume"
+          >
+            <span>
+              Continue where you left off:{" "}
+              <strong>{topics.find((t) => t.id === resumeAt)?.name}</strong>
+            </span>
+            <a
+              href={`#topic-${resumeAt}`}
+              onClick={() => setResumeAt(null)}
+              className="font-semibold text-primary underline"
+            >
+              Jump there
+            </a>
+          </p>
         )}
       </header>
 
+      {topics.length > 0 && <ReadingBar topics={topics} done={done} />}
+
       <Glue parts={parts} kind="intro" onRetry={() => setAttempt((a) => a + 1)} />
+
+      {topics.length > 1 && (
+        <details className="rounded-2xl border border-border bg-surface p-4">
+          <summary className="cursor-pointer font-semibold">Concept map of this lesson</summary>
+          <div className="mt-4">
+            <ChapterMap
+              subject={subject}
+              topicIds={topics.map((t) => t.id)}
+              hrefFor={(id) => topicHref(topics.find((t) => t.id === id) ?? { id, minutes: 10 })}
+            />
+          </div>
+        </details>
+      )}
+
+      {recordId && built.length > 0 && (
+        <ChapterAudio
+          key={`${recordId}-${allReady ? "all" : "some"}`}
+          id={recordId}
+          title={chapter.name}
+          minutes={props.minutes}
+          parts={parts.status === "ready" ? parts.parts : null}
+          topics={built}
+        />
+      )}
 
       {topics.map((t, i) => (
         <section
           key={t.id}
           id={`topic-${t.id}`}
-          className="scroll-mt-24"
+          data-topic-section={t.id}
+          className="scroll-mt-28"
           data-testid="chapter-topic"
         >
           {t.status === "ready" && t.lesson ? (
-            <TopicBlock
-              lesson={t.lesson}
-              index={i}
-              minutes={t.minutes}
-              recap={t.recap}
-              href={topicHref(t)}
-            />
+            <>
+              <TopicBlock
+                lesson={t.lesson}
+                index={i}
+                minutes={t.minutes}
+                recap={t.recap}
+                href={topicHref(t)}
+              />
+              <TopicEnd topicId={t.id} done={done.has(t.id)} />
+            </>
           ) : (
             <div className="flex flex-col gap-2 rounded-2xl border border-dashed border-border p-5">
               <p className="text-sm font-semibold text-primary">
@@ -299,14 +356,180 @@ export function ChapterLesson(props: ChapterLessonProps) {
               <Markdown>{bridges[i].text}</Markdown>
             </div>
           )}
+          {breaks.has(i) && (
+            <p
+              className="mt-6 rounded-xl border border-dashed border-primary/40 px-4 py-3 text-center text-sm font-semibold text-primary"
+              data-testid="break-marker"
+            >
+              ☕ Good moment for a 5-minute break. Your place is saved.
+            </p>
+          )}
         </section>
       ))}
 
-      {topics.length > 0 && ready === topics.length && (
-        <Glue parts={parts} kind="wrapUp" onRetry={() => setAttempt((a) => a + 1)} />
+      {allReady && <Glue parts={parts} kind="wrapUp" onRetry={() => setAttempt((a) => a + 1)} />}
+
+      {allReady && (
+        <ChapterExtras
+          subjectId={subject.id}
+          chapterId={chapter.id}
+          chapterName={chapter.name}
+          level={props.level}
+          topics={built}
+        />
+      )}
+
+      {recordId && (
+        <ProgressTracker
+          recordId={recordId}
+          topics={topics}
+          onDone={(id) => {
+            setDone((d) => new Set(d).add(id));
+            const t = topics.find((x) => x.id === id);
+            if (t) {
+              void recordRecent({
+                subject: subject.id,
+                chapter: chapter.id,
+                topic: t.id,
+                level: props.level,
+                duration: topicDuration(t.minutes),
+                title: t.name,
+                chapterName: chapter.name,
+              }).catch(() => undefined);
+            }
+          }}
+        />
       )}
     </div>
   );
+}
+
+/** A marker at the end of each topic: reaching it marks the topic as finished. */
+function TopicEnd({ topicId, done }: { topicId: string; done: boolean }) {
+  return (
+    <p data-topic-end={topicId} className="mt-4 text-sm text-muted">
+      {done ? "✓ Topic finished" : ""}
+    </p>
+  );
+}
+
+/**
+ * The sticky bar at the top while reading: progress, time left, and every topic with its
+ * minutes and a tick once finished, to jump to any of them.
+ */
+function ReadingBar({
+  topics,
+  done,
+}: {
+  topics: { id: string; name: string; minutes: number; status: string }[];
+  done: ReadonlySet<string>;
+}) {
+  const finished = topics.filter((t) => done.has(t.id)).length;
+  const left = minutesLeft(topics, done);
+  return (
+    <nav
+      aria-label="Topics in this lesson"
+      className="sticky top-0 z-20 -mx-4 border-b border-border bg-bg/95 px-4 py-2 backdrop-blur sm:mx-0 sm:rounded-xl sm:border"
+      data-testid="reading-bar"
+    >
+      <details>
+        <summary className="flex cursor-pointer flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+          <span className="font-semibold">
+            {finished} of {topics.length} topics done
+          </span>
+          <span className="text-muted">about {left} min left</span>
+          <progress
+            className="h-2 min-w-24 flex-1 accent-primary"
+            max={topics.length}
+            value={finished}
+            aria-label="Reading progress"
+          />
+          <span className="text-primary">Topics ▾</span>
+        </summary>
+        <ol className="mt-2 flex max-h-72 flex-col gap-1 overflow-auto text-sm">
+          {topics.map((t, i) => (
+            <li key={t.id}>
+              <a
+                href={`#topic-${t.id}`}
+                className="flex items-center gap-2 rounded-lg px-2 py-1 hover:bg-surface-2"
+              >
+                <span aria-hidden="true" className="w-4">
+                  {done.has(t.id) ? "✓" : ""}
+                </span>
+                <span className="min-w-0 flex-1">
+                  {i + 1}. {t.name}
+                  {done.has(t.id) && <span className="sr-only"> (finished)</span>}
+                </span>
+                <span className="text-muted tabular-nums">
+                  {t.minutes} min{t.status === "ready" ? "" : " …"}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </details>
+    </nav>
+  );
+}
+
+/**
+ * Watches the page: the topic in view is saved as the reading position, and a topic whose
+ * end marker scrolls into view is marked finished. Saves are spaced out (not every scroll).
+ */
+function ProgressTracker({
+  recordId,
+  topics,
+  onDone,
+}: {
+  recordId: string;
+  topics: { id: string; status: string }[];
+  onDone: (id: string) => void;
+}) {
+  const latest = useRef(onDone);
+  useEffect(() => {
+    latest.current = onDone;
+  });
+  const readyKey = topics
+    .filter((t) => t.status === "ready")
+    .map((t) => t.id)
+    .join(",");
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const seen = new Set<string>();
+    const ends = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        const id = (e.target as HTMLElement).dataset.topicEnd;
+        if (e.isIntersecting && id && !seen.has(id)) {
+          seen.add(id);
+          void saveChapterProgress(recordId, { done: id }).catch(() => undefined);
+          latest.current(id);
+        }
+      }
+    });
+    const sections = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find((e) => e.isIntersecting);
+        const id = visible && (visible.target as HTMLElement).dataset.topicSection;
+        if (!id) return;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          void saveChapterProgress(recordId, { position: id }).catch(() => undefined);
+        }, 1500);
+      },
+      { rootMargin: "-30% 0px -60% 0px" },
+    );
+    document.querySelectorAll<HTMLElement>("[data-topic-end]").forEach((el) => ends.observe(el));
+    document
+      .querySelectorAll<HTMLElement>("[data-topic-section]")
+      .forEach((el) => sections.observe(el));
+    return () => {
+      clearTimeout(timer);
+      ends.disconnect();
+      sections.disconnect();
+    };
+  }, [recordId, readyKey]);
+  return null;
 }
 
 function Glue({

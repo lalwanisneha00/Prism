@@ -1,5 +1,6 @@
 "use client";
 
+import { DashboardChapterCards } from "@/components/chapter/DashboardChapterCards";
 import { ChapterProgressBars, TodayAndStreak } from "@/components/planner/ProgressTracker";
 import { annotationHref, confusedTopics, listAllAnnotations } from "@/lib/annotations/store";
 import type { Annotation } from "@/lib/storage/db";
@@ -225,6 +226,8 @@ export function Dashboard() {
         <Card title="Chapter progress">
           <ChapterProgressBars />
         </Card>
+
+        <DashboardChapterCards Card={Card} />
       </div>
     </div>
   );

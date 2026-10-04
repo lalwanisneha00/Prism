@@ -9,7 +9,7 @@ import { lessonId } from "@/lib/storage/library";
 import { recordQuizAttempt } from "@/lib/storage/progress";
 
 /** What the student did with one question: picked an option, or self-marked a written answer. */
-type Attempt = { picked?: string; correct: boolean };
+export type Attempt = { picked?: string; correct: boolean };
 
 const difficultyStyle: Record<QuizQuestion["difficulty"], string> = {
   easy: "text-success",
@@ -81,7 +81,7 @@ export function Quiz({ questions, meta }: { questions: QuizQuestion[]; meta?: Le
   );
 }
 
-function QuestionCard({
+export function QuestionCard({
   question,
   index,
   attempt,

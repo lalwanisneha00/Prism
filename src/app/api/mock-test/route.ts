@@ -1,0 +1,105 @@
+import { z } from "zod";
+import { validateChapterRequest } from "@/lib/chapter/request";
+import { errorCopy } from "@/lib/lessonEvents";
+import { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
+import {
+  checkQuestions,
+  fakeMockTest,
+  mockPrompt,
+  MockTestSchema,
+  type MockTest,
+} from "@/lib/mock/mockTest";
+import { evaluateCheck } from "@/lib/safeMath";
+
+/*
+ * POST { subject, chapter, topics, level, minutes, facts, pyqs? } → { ok, test, dropped }.
+ * A chapter mock test (V2.5 · Step 5). "facts" are the revision points of the chapter's
+ * fact-checked topic lessons (sent by the browser, checked here for shape and size).
+ */
+
+export const maxDuration = 60;
+
+const RequestSchema = z.object({
+  subject: z.string().max(80),
+  chapter: z.string().max(80),
+  topics: z.array(z.string().max(80)).min(1).max(40),
+  level: z.string().max(40),
+  minutes: z.union([z.literal(15), z.literal(30), z.literal(45)]),
+  facts: z.array(z.string().trim().min(1).max(400)).min(1).max(80),
+  pyqs: z.array(z.string().trim().min(1).max(500)).max(20).default([]),
+});
+
+type Reply =
+  { ok: true; test: MockTest; dropped: number } | { ok: false; kind: string; message: string };
+const reply = (body: Reply, status = 200) => Response.json(body, { status });
+
+export async function POST(req: Request) {
+  const body = RequestSchema.safeParse(await req.json().catch(() => null));
+  const checked = body.success
+    ? validateChapterRequest({
+        subject: body.data.subject,
+        chapter: body.data.chapter,
+        topics: body.data.topics.join(","),
+        level: body.data.level,
+        minutes: String(body.data.minutes),
+      })
+    : null;
+  if (!body.success || !checked?.ok) {
+    return reply({ ok: false, kind: "invalid-request", message: "That request isn't valid." }, 400);
+  }
+  const { subject, chapter, topics, level } = checked.request;
+  const ids = new Set(topics.map((t) => t.id));
+
+  if (process.env.LLM_PROVIDER === "fake") {
+    const test = checkQuestions(fakeMockTest(topics, body.data.facts), ids, evaluateCheck);
+    return reply({ ok: true, test: test.test, dropped: test.dropped.length });
+  }
+
+  const { system, prompt } = mockPrompt({
+    subject,
+    chapter,
+    topics,
+    level,
+    minutes: body.data.minutes,
+    facts: body.data.facts,
+    pyqs: body.data.pyqs,
+  });
+  try {
+    let result: { test: MockTest; dropped: string[] } | null = null;
+    let problems = "";
+    for (let attempt = 0; attempt < 2 && !result; attempt++) {
+      const raw = await generateJsonWithFallback(providersFromEnv(), {
+        system,
+        prompt: problems ? `${prompt}\n\nYour last reply was not valid: ${problems}` : prompt,
+        temperature: 0.4,
+        signal: req.signal,
+      });
+      const parsed = MockTestSchema.safeParse(JSON.parse(raw));
+      if (!parsed.success) {
+        problems = parsed.error.issues
+          .slice(0, 8)
+          .map((i) => `${i.path.join(".")}: ${i.message}`)
+          .join("; ");
+        continue;
+      }
+      const kept = checkQuestions(parsed.data, ids, evaluateCheck);
+      // Too few safe questions left: ask once more, naming what went wrong.
+      if (kept.test.questions.length < 3) {
+        problems = kept.dropped.join("; ");
+        continue;
+      }
+      result = kept;
+    }
+    if (!result) throw new LlmError("bad-response", `mock test: ${problems}`);
+    if (result.dropped.length) console.warn("[api/mock-test] dropped:", result.dropped.join(" | "));
+    return reply({ ok: true, test: result.test, dropped: result.dropped.length });
+  } catch (err) {
+    const error =
+      err instanceof LlmError
+        ? err
+        : new LlmError(err instanceof SyntaxError ? "bad-response" : "unavailable", String(err));
+    console.error("[api/mock-test]", error.message);
+    const status = error.kind === "rate-limit" ? 429 : 503;
+    return reply({ ok: false, kind: error.kind, message: errorCopy[error.kind].message }, status);
+  }
+}

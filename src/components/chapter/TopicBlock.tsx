@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { InteractiveLesson } from "@/components/explain/InteractiveLesson";
+import { MakeFlashcardsButton } from "@/components/flashcards/MakeFlashcardsButton";
 import { Markdown } from "@/components/lesson/Markdown";
 import { SectionView } from "@/components/lesson/SectionView";
 import { Misconceptions } from "@/components/lesson/StaticBlocks";
@@ -33,7 +34,10 @@ export function TopicBlock({
           <p className="text-sm font-semibold text-primary">
             Topic {index + 1} · {minutes} min{recap ? " · short recap" : ""}
           </p>
-          <h2 className="text-2xl font-bold tracking-tight">{lesson.meta.title}</h2>
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <h2 className="text-2xl font-bold tracking-tight">{lesson.meta.title}</h2>
+            <MakeFlashcardsButton lesson={lesson} />
+          </div>
           <Markdown className="text-muted">{lesson.hook}</Markdown>
         </header>
         {lesson.sections.map((s, i) => (

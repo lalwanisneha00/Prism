@@ -48,6 +48,20 @@ export type QuizAttempt = SyncFields & {
   at: number;
 };
 
+/** A finished mock test (V2.5 · Step 5): the score per topic, synced like quiz attempts. */
+export type MockResult = SyncFields & {
+  subject: string;
+  chapter: string;
+  level: string;
+  minutes: number;
+  title: string;
+  score: number;
+  total: number;
+  /** Marks per topic id, so weak topics can be spotted. */
+  byTopic: { topic: string; score: number; total: number }[];
+  at: number;
+};
+
 /** Where the student stopped in an audio lesson, in seconds at normal speed. */
 export type AudioPosition = SyncFields & { title: string; seconds: number };
 
@@ -203,6 +217,7 @@ export type SyncedRecords = {
   flashcards: Flashcard;
   annotations: Annotation;
   plans: StudyPlan;
+  mockResults: MockResult;
 };
 export type SyncedCollection = keyof SyncedRecords;
 export const SYNCED_COLLECTIONS: SyncedCollection[] = [
@@ -215,6 +230,7 @@ export const SYNCED_COLLECTIONS: SyncedCollection[] = [
   "flashcards",
   "annotations",
   "plans",
+  "mockResults",
 ];
 
 /** A local change waiting to be sent to the cloud. */
@@ -238,12 +254,13 @@ interface PrismDB extends DBSchema {
   flashcards: { key: string; value: Flashcard };
   annotations: { key: string; value: Annotation; indexes: { byLesson: string } };
   plans: { key: string; value: StudyPlan };
+  mockResults: { key: string; value: MockResult; indexes: { byAt: number } };
   outbox: { key: string; value: OutboxEntry };
   meta: { key: string; value: { key: string; value: unknown } };
 }
 
 const DB_NAME = "prism";
-const DB_VERSION = 8;
+const DB_VERSION = 9;
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -289,6 +306,10 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
       // Version 8 (whole-chapter lessons): built chapter lessons, local only.
       if (oldVersion < 8) {
         db.createObjectStore("chapterLessons", { keyPath: "id" });
+      }
+      // Version 9 (mock tests): results, synced like quiz attempts.
+      if (oldVersion < 9) {
+        db.createObjectStore("mockResults", { keyPath: "id" }).createIndex("byAt", "at");
       }
     },
   });

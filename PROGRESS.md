@@ -5,10 +5,10 @@ Update this after every step so any person or AI tool can pick up the work.
 ## Current state (resume here)
 
 - **Mode:** OVERNIGHT AUTONOMOUS RUN (started 2026-10-04 02:36) on branch `overnight-v2.5-v3`. Rules below; status for the user goes in `MORNING_REPORT.md`.
-- **Version / step:** V2.5 · Step 5 (long-lesson reading, chapter audio, chapter extras and mock test, regression eval, deploy): starting.
-- **Finished:** V2.5 · Steps 1–4 (tags `v2.5-step-2`…`v2.5-step-4`); plan updated with "Other subjects" (V3 · Step 4) and tonight's rules.
+- **Version / step:** V3 · Step 2 (subject data model and loader: branches, semesters, shared subjects): starting.
+- **Finished:** all of V2.5 (tags `v2.5-step-2`…`v2.5-step-5`); plan updated with "Other subjects" (V3 · Step 4) and tonight's rules.
 - **Half-done:** nothing.
-- **Next action:** build V2.5 · Step 5 on top of `src/components/chapter/ChapterLesson.tsx` and `src/lib/chapter/store.ts` (position/done already stored).
+- **Next action:** build V3 · Step 2 (keep subject/topic ids of E&M and Engineering Maths unchanged so saved progress, library keys and annotations keep working).
 - **Running commands:** none.
 - **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` when quota allows.
 - **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, continue from "Next action". Finish half-done work first; never restart a finished step.
@@ -63,13 +63,13 @@ When V2 · Step 1 starts: give the user click-by-click Firebase console setup (S
 
 Step protocol: "✅ Check this" block and the user's confirmation after each step (SPEC §11.5).
 
-| Step | Title                                                                                   | Status         |
-| ---- | --------------------------------------------------------------------------------------- | -------------- |
-| 1    | Multi-format parsers and the normalised extracted-text format                           | ✅ Done        |
-| 2    | Upload experience, preview, "My materials" page, OCR option                             | ✅ Done        |
-| 3    | Chapter and multi-topic selection, chapter load score, three time options               | ✅ Done        |
-| 4    | Chapter lesson composition, chunked generation and streaming, library reuse             | ✅ Done        |
-| 5    | Long-lesson reading, chapter audio, chapter extras + mock test, regression eval, deploy | ⬜ Not started |
+| Step | Title                                                                                   | Status  |
+| ---- | --------------------------------------------------------------------------------------- | ------- |
+| 1    | Multi-format parsers and the normalised extracted-text format                           | ✅ Done |
+| 2    | Upload experience, preview, "My materials" page, OCR option                             | ✅ Done |
+| 3    | Chapter and multi-topic selection, chapter load score, three time options               | ✅ Done |
+| 4    | Chapter lesson composition, chunked generation and streaming, library reuse             | ✅ Done |
+| 5    | Long-lesson reading, chapter audio, chapter extras + mock test, regression eval, deploy | ✅ Done |
 
 ## Version 3: All Engineering
 
