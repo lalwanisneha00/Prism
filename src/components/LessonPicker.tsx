@@ -5,13 +5,14 @@ import { useRouter } from "next/navigation";
 import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
 import { useId, useRef, useState, type FormEvent } from "react";
 import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
+import { DurationChooser } from "@/components/DurationChooser";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
 import { FieldError, FieldGroup } from "@/components/form/FieldGroup";
 import { NotesToggle } from "@/components/notes/NotesToggle";
 import { BranchSemesterBar } from "@/components/subjects/BranchSemesterBar";
 import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { TopicSearch } from "@/components/TopicSearch";
-import { defaultDuration, durations } from "@/data/durations";
+import { defaultDuration } from "@/data/durations";
 import { availableLevels, type LevelSlug } from "@/data/levels";
 import { chapterHref } from "@/lib/chapter/request";
 import { isCustomId } from "@/lib/custom/customSubject";
@@ -439,23 +440,16 @@ function PickerForm({
             </p>
           )
         ) : (
-          <div className="grid grid-cols-4 gap-2 sm:grid-cols-7">
-            {durations.map((d) => (
-              <ChoiceCard
-                key={d.minutes}
-                name="duration"
-                value={String(d.minutes)}
-                checked={duration === String(d.minutes)}
-                onSelect={(v) => {
-                  setDuration(v);
-                  clearErrors("duration");
-                }}
-                title={d.label}
-                description={d.hint}
-                compact
-              />
-            ))}
-          </div>
+          <DurationChooser
+            subject={owner}
+            topicId={topicId}
+            level={level}
+            value={duration}
+            onSelect={(v) => {
+              setDuration(v);
+              clearErrors("duration");
+            }}
+          />
         )}
       </FieldGroup>
 

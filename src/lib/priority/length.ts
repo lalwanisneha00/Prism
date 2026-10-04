@@ -91,3 +91,20 @@ export function recommendLength(input: LengthInput): LengthAdvice {
     certain: input.importance.known,
   };
 }
+
+/** How many earlier topics a topic rests on, directly or further back (cycles are safe). */
+export function prerequisiteDepth(
+  topics: readonly { id: string; requires?: readonly string[] }[],
+  topicId: string,
+): number {
+  const byId = new Map(topics.map((t) => [t.id, t]));
+  const seen = new Set<string>();
+  const stack = [...(byId.get(topicId)?.requires ?? [])];
+  while (stack.length) {
+    const id = stack.pop()!;
+    if (seen.has(id) || id === topicId) continue;
+    seen.add(id);
+    stack.push(...(byId.get(id)?.requires ?? []));
+  }
+  return seen.size;
+}

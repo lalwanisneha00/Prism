@@ -7,7 +7,7 @@ import {
   topicImportance,
   whyImportance,
 } from "@/lib/priority/importance";
-import { difficultyOf, recommendLength } from "@/lib/priority/length";
+import { difficultyOf, recommendLength, prerequisiteDepth } from "@/lib/priority/length";
 import { predictTough, type TopicNode } from "@/lib/priority/predict";
 import { minutesInRange, topicPriority } from "@/lib/priority/priority";
 import { mistakeProfile, weakness, type LearningSignal } from "@/lib/priority/weakness";
@@ -266,5 +266,22 @@ describe("time range", () => {
     expect(high.tags).toEqual(["high-return", "weak"]);
     // One topic (or all equal) gets the middle of the range.
     expect(minutesInRange([mid], 10, 30).get("b")).toBe(20);
+  });
+});
+
+describe("prerequisiteDepth", () => {
+  const topics = [
+    { id: "a" },
+    { id: "b", requires: ["a"] },
+    { id: "c", requires: ["b", "a"] },
+    { id: "loop1", requires: ["loop2"] },
+    { id: "loop2", requires: ["loop1"] },
+  ];
+  it("counts every earlier topic once", () => {
+    expect(prerequisiteDepth(topics, "a")).toBe(0);
+    expect(prerequisiteDepth(topics, "c")).toBe(2);
+  });
+  it("survives a cycle in the data", () => {
+    expect(prerequisiteDepth(topics, "loop1")).toBe(1);
   });
 });
