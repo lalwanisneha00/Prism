@@ -1,0 +1,82 @@
+{
+  "id": "bioprocess-engineering",
+  "name": "Bioprocess Engineering",
+  "field": "Biotechnology",
+  "tier": "sourced",
+  "branches": ["biotech", "chem"],
+  "semesters": [4, 7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.Tech Biotechnology (R2017): BT8404 Bioprocess Principles and BT8751 Downstream Processing",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/06.%20Biotech.pdf",
+    "note": "All units of BT8404 and BT8751."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "fermentation",
+      "name": "Fermentation Processes",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "fermenter-design",
+          "name": "Fermenters and their parameters"
+        },
+        {
+          "id": "media-design",
+          "name": "Media design for fermentation",
+          "requires": ["fermenter-design"]
+        },
+        {
+          "id": "sterilisation-kinetics",
+          "name": "Sterilisation kinetics: thermal death and filter sterilisation",
+          "requires": ["fermenter-design"]
+        }
+      ]
+    },
+    {
+      "id": "kinetics",
+      "name": "Growth Stoichiometry and Kinetics",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "yield-coefficients",
+          "name": "Stoichiometry of growth and yield coefficients",
+          "requires": ["media-design"]
+        },
+        {
+          "id": "monod-kinetics",
+          "name": "Microbial growth kinetics: the Monod model",
+          "requires": ["yield-coefficients"]
+        },
+        {
+          "id": "batch-continuous-culture",
+          "name": "Batch, fed-batch and continuous culture (chemostat)",
+          "requires": ["monod-kinetics"]
+        }
+      ]
+    },
+    {
+      "id": "downstream",
+      "name": "Downstream Processing",
+      "hours": 27,
+      "topics": [
+        {
+          "id": "cell-disruption",
+          "name": "Cell disruption and solid–liquid separation",
+          "requires": ["fermenter-design"]
+        },
+        {
+          "id": "protein-purification-chromatography",
+          "name": "Product isolation and purification: extraction, membranes, chromatography",
+          "requires": ["cell-disruption"]
+        },
+        {
+          "id": "lyophilisation",
+          "name": "Crystallisation, drying and freeze-drying",
+          "requires": ["protein-purification-chromatography"]
+        }
+      ]
+    }
+  ]
+}

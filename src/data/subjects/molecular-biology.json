@@ -1,0 +1,65 @@
+{
+  "id": "molecular-biology",
+  "name": "Molecular Biology",
+  "field": "Biotechnology",
+  "tier": "sourced",
+  "branches": ["biotech"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.Tech Biotechnology (R2017): BT8402 Molecular Biology",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/06.%20Biotech.pdf",
+    "note": "All five units of BT8402."
+  },
+  "visualSet": "chemistry",
+  "chapters": [
+    {
+      "id": "nucleic-acids",
+      "name": "Nucleic Acids and Replication",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "dna-rna-structure",
+          "name": "Structure of DNA and RNA"
+        },
+        {
+          "id": "central-dogma",
+          "name": "The central dogma",
+          "requires": ["dna-rna-structure"]
+        },
+        {
+          "id": "dna-replication",
+          "name": "DNA replication: semi-conservative, Okazaki fragments",
+          "requires": ["dna-rna-structure"]
+        },
+        {
+          "id": "dna-repair",
+          "name": "DNA damage and repair",
+          "requires": ["dna-replication"]
+        }
+      ]
+    },
+    {
+      "id": "expression",
+      "name": "Gene Expression",
+      "hours": 27,
+      "topics": [
+        {
+          "id": "transcription",
+          "name": "Transcription: promoters, RNA polymerase and processing",
+          "requires": ["central-dogma"]
+        },
+        {
+          "id": "genetic-code-translation",
+          "name": "The genetic code and translation",
+          "requires": ["transcription"]
+        },
+        {
+          "id": "lac-trp-operons",
+          "name": "Gene regulation in prokaryotes: lac and trp operons",
+          "requires": ["transcription"]
+        }
+      ]
+    }
+  ]
+}

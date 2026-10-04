@@ -1,0 +1,60 @@
+{
+  "id": "mine-environment-ventilation",
+  "name": "Mine Environmental Engineering (Ventilation)",
+  "field": "Mining Engineering",
+  "tier": "sourced",
+  "branches": ["mining"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "JNTU Hyderabad B.Tech Mining Engineering (R22): MN403PC Mine Environmental Engineering",
+    "url": "https://jntuh.ac.in/uploads/academics/R22B.Tech.MiningCourseStructureSyllabus.pdf",
+    "note": "All five units of MN403PC."
+  },
+  "visualSet": "fluids",
+  "chapters": [
+    {
+      "id": "gases-climate",
+      "name": "Mine Gases and Climate",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "mine-gases",
+          "name": "Mine gases and damps; methane drainage"
+        },
+        {
+          "id": "mine-climate-heat",
+          "name": "Mine climate: heat, humidity and heat stress",
+          "requires": ["mine-gases"]
+        }
+      ]
+    },
+    {
+      "id": "ventilation",
+      "name": "Mine Ventilation",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "natural-ventilation",
+          "name": "Natural ventilation pressure",
+          "requires": ["mine-climate-heat"]
+        },
+        {
+          "id": "atkinson-law",
+          "name": "Atkinson's law and airflow resistance",
+          "requires": ["natural-ventilation"]
+        },
+        {
+          "id": "mine-fans",
+          "name": "Mechanical ventilation: fans, characteristics and fan laws",
+          "requires": ["atkinson-law"]
+        },
+        {
+          "id": "ventilation-planning",
+          "name": "Ventilation planning for bord-and-pillar and longwall mines",
+          "requires": ["mine-fans"]
+        }
+      ]
+    }
+  ]
+}

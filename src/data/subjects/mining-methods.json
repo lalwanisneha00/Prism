@@ -1,0 +1,71 @@
+{
+  "id": "mining-methods",
+  "name": "Mining Methods (Surface and Underground)",
+  "field": "Mining Engineering",
+  "tier": "sourced",
+  "branches": ["mining"],
+  "semesters": [4, 5, 6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "JNTU Hyderabad B.Tech Mining Engineering (R22): MN405PC Underground Coal Mining Technology, Surface Mining Technology and MN602PC Underground Metal Mining Technology",
+    "url": "https://jntuh.ac.in/uploads/academics/R22B.Tech.MiningCourseStructureSyllabus.pdf",
+    "note": "Main units of the three mining-technology courses."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "access",
+      "name": "Access and Development",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "mine-entry-shaft-incline",
+          "name": "Mine entries: shafts, inclines and adits"
+        }
+      ]
+    },
+    {
+      "id": "underground-coal",
+      "name": "Underground Coal Mining",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "bord-and-pillar",
+          "name": "Bord and pillar (room and pillar) mining",
+          "requires": ["mine-entry-shaft-incline"]
+        },
+        {
+          "id": "longwall",
+          "name": "Longwall mining",
+          "requires": ["mine-entry-shaft-incline"]
+        }
+      ]
+    },
+    {
+      "id": "metal-surface",
+      "name": "Metal and Surface Mining",
+      "hours": 24,
+      "topics": [
+        {
+          "id": "stoping-methods",
+          "name": "Underground metal mining: stoping methods",
+          "requires": ["mine-entry-shaft-incline"]
+        },
+        {
+          "id": "surface-mining-stripping",
+          "name": "Surface mining and the stripping ratio"
+        },
+        {
+          "id": "pit-slopes-dumps",
+          "name": "Pit slopes, haul roads and waste dumps",
+          "requires": ["surface-mining-stripping"]
+        },
+        {
+          "id": "excavation-equipment",
+          "name": "Excavation and transport equipment",
+          "requires": ["surface-mining-stripping"]
+        }
+      ]
+    }
+  ]
+}

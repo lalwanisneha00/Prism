@@ -1,0 +1,76 @@
+{
+  "id": "analytical-instruments",
+  "name": "Analytical Instruments",
+  "field": "Instrumentation Engineering",
+  "tier": "sourced",
+  "branches": ["ic", "biotech", "chem"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.E. Instrumentation and Control Engineering (R2017): EI8551 Analytical Instruments",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/03.%20B.E.ICE.pdf",
+    "note": "All five units of EI8551."
+  },
+  "visualSet": "chemistry",
+  "chapters": [
+    {
+      "id": "spectroscopy",
+      "name": "Spectrophotometry",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "beer-lambert-ai",
+          "name": "Beer–Lambert law and UV–visible spectroscopy"
+        },
+        {
+          "id": "ir-ftir",
+          "name": "IR and FTIR spectrophotometry",
+          "requires": ["beer-lambert-ai"]
+        },
+        {
+          "id": "atomic-absorption",
+          "name": "Atomic absorption and flame emission spectroscopy",
+          "requires": ["beer-lambert-ai"]
+        }
+      ]
+    },
+    {
+      "id": "separation",
+      "name": "Chromatography",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "chromatography-principles",
+          "name": "Chromatography principles; gas chromatography"
+        },
+        {
+          "id": "hplc",
+          "name": "High-performance liquid chromatography",
+          "requires": ["chromatography-principles"]
+        }
+      ]
+    },
+    {
+      "id": "analyzers",
+      "name": "Analyzers and Spectrometers",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "gas-analyzers",
+          "name": "Industrial gas analyzers and pollution monitoring",
+          "requires": ["ir-ftir"]
+        },
+        {
+          "id": "ph-conductivity",
+          "name": "pH, conductivity and dissolved-oxygen measurement",
+          "requires": ["beer-lambert-ai"]
+        },
+        {
+          "id": "nmr-mass-spec",
+          "name": "NMR and mass spectrometry",
+          "requires": ["beer-lambert-ai"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "phase-transformations",
+  "name": "Phase Transformations",
+  "field": "Metallurgical Engineering",
+  "tier": "sourced",
+  "branches": ["meta"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Metallurgical Engineering and Materials Science (2018, Vol. II): PCC-MM203 Phase Transformations",
+    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol2.pdf",
+    "note": "All nine modules of PCC-MM203."
+  },
+  "visualSet": "chemistry",
+  "chapters": [
+    {
+      "id": "diffusion-pt",
+      "name": "Diffusion",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "fick-laws-solids",
+          "name": "Fick's laws of diffusion in solids"
+        },
+        {
+          "id": "kirkendall",
+          "name": "Diffusion mechanisms and the Kirkendall effect",
+          "requires": ["fick-laws-solids"]
+        }
+      ]
+    },
+    {
+      "id": "nucleation-growth",
+      "name": "Nucleation and Growth",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "nucleation",
+          "name": "Homogeneous and heterogeneous nucleation",
+          "requires": ["fick-laws-solids"]
+        },
+        {
+          "id": "recrystallisation-grain-growth",
+          "name": "Recovery, recrystallisation and grain growth",
+          "requires": ["nucleation"]
+        },
+        {
+          "id": "precipitation-hardening",
+          "name": "Precipitation from solid solution; age hardening",
+          "requires": ["nucleation"]
+        }
+      ]
+    },
+    {
+      "id": "diffusionless",
+      "name": "Diffusionless and Other Transformations",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "martensitic-transformation",
+          "name": "Martensitic transformation",
+          "requires": ["nucleation"]
+        },
+        {
+          "id": "order-disorder",
+          "name": "Order–disorder transformations",
+          "requires": ["fick-laws-solids"]
+        },
+        {
+          "id": "spinodal-decomposition",
+          "name": "Spinodal decomposition",
+          "requires": ["fick-laws-solids"]
+        }
+      ]
+    }
+  ]
+}

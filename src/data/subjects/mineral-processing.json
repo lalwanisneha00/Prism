@@ -1,0 +1,65 @@
+{
+  "id": "mineral-processing",
+  "name": "Mineral Processing",
+  "field": "Mining Engineering",
+  "tier": "sourced",
+  "branches": ["mining", "meta"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "JNTU Hyderabad B.Tech Mining Engineering (R22): MN702PC Mineral Processing",
+    "url": "https://jntuh.ac.in/uploads/academics/R22B.Tech.MiningCourseStructureSyllabus.pdf",
+    "note": "All five units of MN702PC."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "comminution-mp",
+      "name": "Comminution and Sizing",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "ore-sorting-flowsheets",
+          "name": "Mineral processing flowsheets and ore sorting"
+        },
+        {
+          "id": "crushing-grinding",
+          "name": "Crushing and grinding; reduction ratio",
+          "requires": ["ore-sorting-flowsheets"]
+        },
+        {
+          "id": "screening-classification",
+          "name": "Screening, classification and sampling",
+          "requires": ["crushing-grinding"]
+        }
+      ]
+    },
+    {
+      "id": "concentration",
+      "name": "Concentration",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "gravity-concentration",
+          "name": "Gravity concentration: jigs, tables and spirals",
+          "requires": ["screening-classification"]
+        },
+        {
+          "id": "froth-flotation",
+          "name": "Froth flotation",
+          "requires": ["screening-classification"]
+        },
+        {
+          "id": "magnetic-electrostatic-separation",
+          "name": "Magnetic and electrostatic separation",
+          "requires": ["screening-classification"]
+        },
+        {
+          "id": "leaching-tailings",
+          "name": "Leaching, cyanidation and tailings disposal",
+          "requires": ["froth-flotation"]
+        }
+      ]
+    }
+  ]
+}

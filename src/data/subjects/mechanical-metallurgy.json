@@ -1,0 +1,82 @@
+{
+  "id": "mechanical-metallurgy",
+  "name": "Mechanical Metallurgy",
+  "field": "Metallurgical Engineering",
+  "tier": "sourced",
+  "branches": ["meta"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Metallurgical Engineering and Materials Science (2018, Vol. II): PCC-MM202 Mechanical Properties of Materials",
+    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol2.pdf",
+    "note": "All five modules of PCC-MM202."
+  },
+  "visualSet": "mechanics",
+  "chapters": [
+    {
+      "id": "dislocations",
+      "name": "Crystal Defects and Dislocations",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "dislocation-theory",
+          "name": "Dislocations: edge, screw and the Burgers vector"
+        },
+        {
+          "id": "slip-systems",
+          "name": "Slip systems in FCC, BCC and HCP crystals",
+          "requires": ["dislocation-theory"]
+        }
+      ]
+    },
+    {
+      "id": "strengthening",
+      "name": "Plastic Deformation and Strengthening",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "strain-hardening",
+          "name": "Strain hardening and cold work",
+          "requires": ["slip-systems"]
+        },
+        {
+          "id": "hall-petch",
+          "name": "Grain-boundary strengthening (Hall–Petch)",
+          "requires": ["strain-hardening"]
+        },
+        {
+          "id": "yield-point-strain-ageing",
+          "name": "Yield point phenomenon and strain ageing",
+          "requires": ["strain-hardening"]
+        },
+        {
+          "id": "solid-solution-strengthening",
+          "name": "Solid-solution and precipitation strengthening",
+          "requires": ["slip-systems"]
+        }
+      ]
+    },
+    {
+      "id": "failure",
+      "name": "Creep, Fatigue and Fracture",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "creep-mechanisms",
+          "name": "Creep",
+          "requires": ["dislocation-theory"]
+        },
+        {
+          "id": "fatigue-mm",
+          "name": "Fatigue and the S–N curve",
+          "requires": ["strain-hardening"]
+        },
+        {
+          "id": "fracture-mechanics",
+          "name": "Fracture mechanics and fracture toughness",
+          "requires": ["fatigue-mm"]
+        }
+      ]
+    }
+  ]
+}

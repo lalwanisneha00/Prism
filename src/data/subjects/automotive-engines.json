@@ -1,0 +1,82 @@
+{
+  "id": "automotive-engines",
+  "name": "Automotive Engines (SI and CI)",
+  "field": "Automobile Engineering",
+  "tier": "sourced",
+  "branches": ["auto", "me"],
+  "semesters": [3, 4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.E. Automobile Engineering (R2017): AT8301 Spark Ignition Engines and AT8401 Compression Ignition Engines",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/2.%20B.E.%20Auto.pdf",
+    "note": "All units of AT8301 and AT8401."
+  },
+  "visualSet": "thermal",
+  "chapters": [
+    {
+      "id": "si-engines",
+      "name": "Spark Ignition Engines",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "four-stroke-cycle",
+          "name": "Four-stroke and two-stroke cycles"
+        },
+        {
+          "id": "fuel-injection-si",
+          "name": "Carburettors and petrol fuel injection",
+          "requires": ["four-stroke-cycle"]
+        },
+        {
+          "id": "ignition-systems",
+          "name": "Ignition systems and spark plugs",
+          "requires": ["four-stroke-cycle"]
+        },
+        {
+          "id": "si-combustion-knock",
+          "name": "SI combustion and knock; octane number",
+          "requires": ["ignition-systems"]
+        }
+      ]
+    },
+    {
+      "id": "ci-engines",
+      "name": "Compression Ignition Engines",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "diesel-injection",
+          "name": "Diesel injection: in-line, rotary and common-rail systems",
+          "requires": ["four-stroke-cycle"]
+        },
+        {
+          "id": "ci-combustion-delay",
+          "name": "CI combustion, ignition delay and cetane number",
+          "requires": ["diesel-injection"]
+        },
+        {
+          "id": "turbocharging",
+          "name": "Intake, exhaust and turbocharging",
+          "requires": ["four-stroke-cycle"]
+        }
+      ]
+    },
+    {
+      "id": "emissions",
+      "name": "Fuels and Emissions",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "alternative-fuels",
+          "name": "Alternative fuels: CNG, LPG, hydrogen and biofuels",
+          "requires": ["four-stroke-cycle"]
+        },
+        {
+          "id": "engine-emissions-control",
+          "name": "Emissions (CO, HC, NOx, particulates) and their control",
+          "requires": ["si-combustion-knock", "ci-combustion-delay"]
+        }
+      ]
+    }
+  ]
+}

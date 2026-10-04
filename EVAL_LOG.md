@@ -60,3 +60,4 @@ Notes:
 | 2026-10-04 | theory-of-computation | first-encounter · 10 min | 12 | **100%** (22 facts) | 12/12 | 20 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
 | 2026-10-04 | signals-systems | first-encounter · 10 min | 13 | **100%** (21 facts) | 13/13 | 19 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
 | 2026-10-04 | digital-logic | first-encounter · 10 min | 12 | **90.9%** (22 facts) | 11/12 | 21 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |
+| 2026-10-04 | analog-electronics | first-encounter · 10 min | 12 | **86.4%** (22 facts) | 12/12 | 18 (0) | 2026-10-03.4 | gemini-flash-latest (+ fallbacks) |

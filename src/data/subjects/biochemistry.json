@@ -1,0 +1,87 @@
+{
+  "id": "biochemistry",
+  "name": "Biochemistry",
+  "field": "Biotechnology",
+  "tier": "sourced",
+  "branches": ["biotech"],
+  "semesters": [2, 3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.Tech Biotechnology (R2017): BT8251 Biochemistry",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/06.%20Biotech.pdf",
+    "note": "All five units of BT8251."
+  },
+  "visualSet": "chemistry",
+  "chapters": [
+    {
+      "id": "biomolecules",
+      "name": "Biomolecules",
+      "hours": 20,
+      "topics": [
+        {
+          "id": "water-ph-buffers",
+          "name": "Water, pH and biological buffers"
+        },
+        {
+          "id": "carbohydrates",
+          "name": "Carbohydrates: mono-, di- and polysaccharides",
+          "requires": ["water-ph-buffers"]
+        },
+        {
+          "id": "lipids",
+          "name": "Lipids: fatty acids, phospholipids and steroids",
+          "requires": ["water-ph-buffers"]
+        },
+        {
+          "id": "amino-acids-proteins",
+          "name": "Amino acids, peptides and protein structure",
+          "requires": ["water-ph-buffers"]
+        },
+        {
+          "id": "enzymes-intro",
+          "name": "Enzymes as biocatalysts",
+          "requires": ["amino-acids-proteins"]
+        }
+      ]
+    },
+    {
+      "id": "metabolism",
+      "name": "Metabolism",
+      "hours": 20,
+      "topics": [
+        {
+          "id": "glycolysis",
+          "name": "Glycolysis",
+          "requires": ["carbohydrates", "enzymes-intro"]
+        },
+        {
+          "id": "tca-cycle",
+          "name": "The citric acid (TCA) cycle",
+          "requires": ["glycolysis"]
+        },
+        {
+          "id": "oxidative-phosphorylation",
+          "name": "Electron transport chain and ATP synthesis",
+          "requires": ["tca-cycle"]
+        },
+        {
+          "id": "fatty-acid-amino-metabolism",
+          "name": "Fatty acid oxidation and amino acid metabolism; urea cycle",
+          "requires": ["lipids", "amino-acids-proteins"]
+        }
+      ]
+    },
+    {
+      "id": "protein-fate",
+      "name": "Protein Targeting and Degradation",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "protein-folding-degradation",
+          "name": "Protein folding, chaperones, targeting and degradation",
+          "requires": ["amino-acids-proteins"]
+        }
+      ]
+    }
+  ]
+}

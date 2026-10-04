@@ -1,0 +1,72 @@
+{
+  "id": "genetic-engineering",
+  "name": "Genetic Engineering",
+  "field": "Biotechnology",
+  "tier": "sourced",
+  "branches": ["biotech"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.Tech Biotechnology (R2017): BT8601 Genetic Engineering",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/06.%20Biotech.pdf",
+    "note": "All five units of BT8601."
+  },
+  "visualSet": "chemistry",
+  "chapters": [
+    {
+      "id": "rdna",
+      "name": "Recombinant DNA Technology",
+      "hours": 24,
+      "topics": [
+        {
+          "id": "restriction-enzymes",
+          "name": "Restriction enzymes and DNA ligase"
+        },
+        {
+          "id": "cloning-vectors",
+          "name": "Cloning and expression vectors: plasmids and phages",
+          "requires": ["restriction-enzymes"]
+        },
+        {
+          "id": "dna-libraries",
+          "name": "Genomic and cDNA libraries; BACs and YACs",
+          "requires": ["cloning-vectors"]
+        }
+      ]
+    },
+    {
+      "id": "analysis",
+      "name": "Sequencing and Amplification",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "pcr",
+          "name": "PCR and its variants; real-time PCR",
+          "requires": ["restriction-enzymes"]
+        },
+        {
+          "id": "sanger-ngs",
+          "name": "Sanger sequencing and next-generation sequencing",
+          "requires": ["pcr"]
+        }
+      ]
+    },
+    {
+      "id": "genomics",
+      "name": "Genomes and Functional Genomics",
+      "hours": 24,
+      "topics": [
+        {
+          "id": "genome-mapping",
+          "name": "Genome organisation, genetic and physical maps",
+          "requires": ["sanger-ngs"]
+        },
+        {
+          "id": "microarrays-functional-genomics",
+          "name": "Functional genomics: microarrays and two-hybrid systems",
+          "requires": ["genome-mapping"]
+        }
+      ]
+    }
+  ]
+}
