@@ -15,10 +15,11 @@
     "check": "npm run typecheck && npm run lint && npm run format:check && npm run test",
     "eval": "tsx --tsconfig tsconfig.json eval/run.ts",
     "test:firebase": "tsx --tsconfig tsconfig.json scripts/test-firebase.ts",
-    "postinstall": "node scripts/copy-pdf-worker.mjs",
-    "predev": "node scripts/copy-pdf-worker.mjs",
-    "prebuild": "node scripts/copy-pdf-worker.mjs",
-    "test:e2e": "playwright test"
+    "postinstall": "node scripts/copy-pdf-worker.mjs && node scripts/build-subject-index.mjs",
+    "predev": "node scripts/copy-pdf-worker.mjs && node scripts/build-subject-index.mjs",
+    "prebuild": "node scripts/copy-pdf-worker.mjs && node scripts/build-subject-index.mjs",
+    "test:e2e": "playwright test",
+    "pretest": "node scripts/build-subject-index.mjs"
   },
   "dependencies": {
     "fflate": "^0.8.3",

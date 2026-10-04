@@ -5,10 +5,10 @@ Update this after every step so any person or AI tool can pick up the work.
 ## Current state (resume here)
 
 - **Mode:** OVERNIGHT AUTONOMOUS RUN (started 2026-10-04 02:36) on branch `overnight-v2.5-v3`. Rules below; status for the user goes in `MORNING_REPORT.md`.
-- **Version / step:** V3 · Step 2 (subject data model and loader: branches, semesters, shared subjects): starting.
-- **Finished:** all of V2.5 (tags `v2.5-step-2`…`v2.5-step-5`); plan updated with "Other subjects" (V3 · Step 4) and tonight's rules.
+- **Version / step:** V3 · Step 3 (navigation, search, subject pages, "my branch", multi-chapter mock tests): starting.
+- **Finished:** all of V2.5; V3 · Step 2 (tag `v3-step-2`).
 - **Half-done:** nothing.
-- **Next action:** build V3 · Step 2 (keep subject/topic ids of E&M and Engineering Maths unchanged so saved progress, library keys and annotations keep working).
+- **Next action:** build V3 · Step 3 using `subjectsFor`, `semestersFor`, `chaptersOf` in `src/lib/subjects.ts`; "my branch and semester" goes into synced settings.
 - **Running commands:** none.
 - **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` when quota allows.
 - **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, continue from "Next action". Finish half-done work first; never restart a finished step.
@@ -78,7 +78,7 @@ Step protocol: one step at a time, "✅ Check this" block, wait for the user's c
 | Step | Title                                                                                              | Status         |
 | ---- | -------------------------------------------------------------------------------------------------- | -------------- |
 | 1    | Restructure the plan                                                                               | ✅ Done        |
-| 2    | Subject data model and loader (branches, shared subjects)                                          | ⬜ Not started |
+| 2    | Subject data model and loader (branches, shared subjects)                                          | ✅ Done        |
 | 3    | Navigation (branch → semester → subject …), search, mock tests                                     | ⬜ Not started |
 | 4    | Other subjects (custom non-core subjects, outline from material, theory-style lessons)             | ⬜ Not started |
 | 5    | Accuracy scaffolding (`tested` tier, sourced golden sets, resumable eval, numeric and code checks) | ⬜ Not started |

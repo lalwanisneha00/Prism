@@ -1,6 +1,5 @@
 import { z } from "zod";
-import emSources from "@/data/subjects/em-sources.json";
-import mathSources from "@/data/subjects/engg-math-sources.json";
+import { sourceFiles } from "@/data/subjects/index.generated";
 import type { Source } from "@/lib/schema";
 
 /*
@@ -29,10 +28,10 @@ const SourceMapSchema = z.object({
 });
 type SourceMap = z.infer<typeof SourceMapSchema>;
 
-const sourceMaps: Record<string, SourceMap> = {
-  em: SourceMapSchema.parse(emSources),
-  "engg-math": SourceMapSchema.parse(mathSources),
-};
+/** Every subject's sources, from its "<id>-sources.json" file (picked up automatically). */
+const sourceMaps: Record<string, SourceMap> = Object.fromEntries(
+  Object.entries(sourceFiles).map(([id, file]) => [id, SourceMapSchema.parse(file)]),
+);
 
 /** The book and page slug a section key points at. */
 function resolveSection(map: SourceMap, key: string): { url: string; title: string; slug: string } {
