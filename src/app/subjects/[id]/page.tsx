@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { TierBadge } from "@/components/lesson/TierBadge";
+import { TopicImportance } from "@/components/subjects/TopicImportance";
 import { SubjectProgress } from "@/components/subjects/SubjectProgress";
 import { branchesOf, findSubject, subjects } from "@/lib/subjects";
 
@@ -85,6 +86,7 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
         </nav>
       </div>
       <SubjectProgress subjectId={subject.id} />
+      <TopicImportance subjectId={subject.id} />
     </Container>
   );
 }

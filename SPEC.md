@@ -399,13 +399,13 @@ Unchanged from the old V3 except what V2.5 and V3 pulled forward (syllabus uploa
 
 Branch `overnight-v3-final` (tag `before-overnight-final`). Steps in strict order; each new feature behind its own flag in `src/lib/flags.ts`.
 
-| Step | Title |
-| ---- | ----- |
-| F1 | Finish V3 (Step 11 time recommendations + planner UI, remaining evals as quota allows, Step 12) |
-| F2 | Feature A: bring your own API key (keys only in IndexedDB) |
-| F3 | Feature B: slides (.pptx) and PDF generator, four designed themes |
-| F4 | Feature C: interface redesign ("Classic" kept behind flag) |
-| F5 | Feature D: community branches (NOT started tonight: goal says stop after final polish) |
-| F6 | Final polish, README, DEPLOY_CHECKLIST.md |
+| Step | Title                                                                                           |
+| ---- | ----------------------------------------------------------------------------------------------- |
+| F1   | Finish V3 (Step 11 time recommendations + planner UI, remaining evals as quota allows, Step 12) |
+| F2   | Feature A: bring your own API key (keys only in IndexedDB)                                      |
+| F3   | Feature B: slides (.pptx) and PDF generator, four designed themes                               |
+| F4   | Feature C: interface redesign ("Classic" kept behind flag)                                      |
+| F5   | Feature D: community branches (NOT started tonight: goal says stop after final polish)          |
+| F6   | Final polish, README, DEPLOY_CHECKLIST.md                                                       |
 
 Full requirements: PRISM_OVERNIGHT_FINAL.md (sections 4-8).
