@@ -1,3 +1,4 @@
+import { retryAfterMs } from "@/lib/llm/http";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { GeminiProvider } from "@/lib/llm/gemini";
 import { GroqProvider } from "@/lib/llm/groq";
@@ -85,5 +86,15 @@ describe("GroqProvider", () => {
     );
     const text = await new GroqProvider("KEY", "llama").generateJson({ system: "", prompt: "" });
     expect(text).toBe('{"ok":true}');
+  });
+});
+
+describe("retryAfterMs", () => {
+  it("reads Gemini's retryDelay from the body, or a Retry-After header", () => {
+    const body = '{"error":{"details":[{"retryDelay":"25680s"}]}}';
+    expect(retryAfterMs(new Response(null, { status: 429 }), body)).toBe(25_680_000);
+    const res = new Response(null, { status: 429, headers: { "retry-after": "30" } });
+    expect(retryAfterMs(res, "")).toBe(30_000);
+    expect(retryAfterMs(new Response(null, { status: 429 }), "")).toBeUndefined();
   });
 });

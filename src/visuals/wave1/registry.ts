@@ -17,6 +17,7 @@ export const wave1Widgets = {
     params: z.object({ omega0: num(1, 6), gamma: num(0, 8), view: z.enum(["time", "resonance"]) }),
     help: 'omega0 rad/s (1..6); gamma = b/2m (0..8; equal to omega0 is critical damping); view "time" (decaying motion) or "resonance" (amplitude against driving frequency).',
     topics: [
+      "free-forced-vibration",
       "simple-harmonic-motion",
       "damped-oscillations",
       "forced-oscillations-resonance",
@@ -101,6 +102,8 @@ export const wave1Widgets = {
     }),
     help: 'lineVoltage V (100..11000, e.g. 400); impedance per phase Ω (1..1000); pfAngleDeg (0..80); connection "star" or "delta".',
     topics: [
+      "three-phase-transformer-groups",
+      "rotating-field-winding",
       "unbalanced-three-phase",
       "three-phase-generation",
       "star-delta",
@@ -118,7 +121,12 @@ export const wave1Widgets = {
       reactiveValue: num(1, 1000),
     }),
     help: 'circuit "RC" or "RL"; supplyV (1..240); resistance Ω (10..10000); reactiveValue = capacitance in µF for RC or inductance in mH for RL (1..1000).',
-    topics: ["initial-conditions", "rl-rc-transients", "circuit-elements-sources"],
+    topics: [
+      "first-second-order-response",
+      "initial-conditions",
+      "rl-rc-transients",
+      "circuit-elements-sources",
+    ],
   },
   transformer: {
     name: "Transformer: turns ratio and efficiency",
@@ -132,6 +140,9 @@ export const wave1Widgets = {
     }),
     help: "primaryV; primaryTurns and secondaryTurns (integers); ratedKva; coreLossW (iron loss); fullLoadCuLossW (copper loss at full load).",
     topics: [
+      "transformer-phasors-regulation",
+      "oc-sc-tests",
+      "all-day-efficiency",
       "ideal-practical-transformer",
       "transformer-equivalent-circuit",
       "transformer-losses-efficiency",
@@ -148,6 +159,8 @@ export const wave1Widgets = {
     }),
     help: "rotorResistance R₂ Ω (0.02..1.5); rotorReactance X₂ Ω (0.2..5); poles (even, 2..12); frequency Hz (25..60).",
     topics: [
+      "slip-equivalent-circuit",
+      "torque-slip-characteristic",
       "three-phase-induction-motor",
       "induction-motor-starting-speed",
       "single-phase-induction-motor",

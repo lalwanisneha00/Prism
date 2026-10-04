@@ -11,6 +11,8 @@ export class LlmError extends Error {
   constructor(
     public readonly kind: LlmErrorKind,
     message: string,
+    /** For a rate limit: how long the provider asked us to wait (e.g. until a daily reset). */
+    public readonly retryAfterMs?: number,
   ) {
     super(message);
     this.name = "LlmError";

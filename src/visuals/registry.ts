@@ -98,6 +98,7 @@ export const widgetRegistry = {
     }),
     help: "turns 10..500 (integer); speed 0.5..3 (relative).",
     topics: [
+      "emf-induction-machines",
       "magnetic-flux",
       "faradays-law",
       "lenzs-law",

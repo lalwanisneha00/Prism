@@ -92,8 +92,10 @@ export async function generateJsonWithFallback(
       if (!(err instanceof LlmError) || !fallbackKinds.has(err.kind)) throw err;
       if (err.kind === "rate-limit") rateLimited ??= err;
       // A blocked reply is about this request, not the provider, so it is not marked busy.
+      // Rest it for a minute, or as long as it asked (a model whose daily free quota is used
+      // up says how long until the reset, so later calls don't waste time on it).
       if (err.kind !== "auth" && err.kind !== "blocked")
-        busyUntil.set(provider.name, now() + BUSY_MS);
+        busyUntil.set(provider.name, now() + Math.max(BUSY_MS, err.retryAfterMs ?? 0));
       console.warn(`[llm] ${provider.name} unavailable (${err.kind}); trying the next one.`);
     }
   }

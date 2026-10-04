@@ -49,7 +49,7 @@ export const phetSims: PhetSim[] = [
   {
     id: "faradays-law",
     title: "Faraday's Law",
-    topics: ["faradays-law", "lenzs-law", "magnetic-flux"],
+    topics: ["emf-induction-machines", "faradays-law", "lenzs-law", "magnetic-flux"],
   },
   {
     id: "faradays-electromagnetic-lab",
@@ -59,9 +59,25 @@ export const phetSims: PhetSim[] = [
   {
     id: "magnets-and-electromagnets",
     title: "Magnets and Electromagnets",
-    topics: ["solenoid-toroid", "biot-savart-law", "amperes-law", "magnetic-materials"],
+    topics: [
+      "magnetic-circuits",
+      "solenoid-toroid",
+      "biot-savart-law",
+      "amperes-law",
+      "magnetic-materials",
+    ],
   },
-  { id: "generator", title: "Generator", topics: ["ac-generator", "faradays-law", "motional-emf"] },
+  {
+    id: "generator",
+    title: "Generator",
+    topics: [
+      "dc-armature-windings-emf",
+      "alternator-phasors-excitation",
+      "ac-generator",
+      "faradays-law",
+      "motional-emf",
+    ],
+  },
   // Engineering Mathematics (V2 · Step 6)
   {
     id: "calculus-grapher",
@@ -112,7 +128,13 @@ export const phetSims: PhetSim[] = [
   {
     id: "masses-and-springs",
     title: "Masses and Springs",
-    topics: ["simple-harmonic-motion", "damped-oscillations", "forced-oscillations-resonance"],
+    topics: [
+      "helical-springs",
+      "free-forced-vibration",
+      "simple-harmonic-motion",
+      "damped-oscillations",
+      "forced-oscillations-resonance",
+    ],
   },
   { id: "normal-modes", title: "Normal Modes", topics: ["coupled-oscillations", "standing-waves"] },
   {
@@ -158,12 +180,18 @@ export const phetSims: PhetSim[] = [
   {
     id: "gas-properties",
     title: "Gas Properties",
-    topics: ["ideal-gas-processes", "thermodynamic-systems", "real-gases-critical"],
+    topics: [
+      "systems-properties-state",
+      "first-law-control-volume",
+      "ideal-gas-processes",
+      "thermodynamic-systems",
+      "real-gases-critical",
+    ],
   },
   {
     id: "energy-forms-and-changes",
     title: "Energy Forms and Changes",
-    topics: ["first-law", "energy-resources"],
+    topics: ["heat-transfer-modes", "first-law", "energy-resources"],
   },
   {
     id: "projectile-motion",
@@ -212,6 +240,10 @@ export const phetSims: PhetSim[] = [
     title: "Natural Selection",
     topics: ["population-growth", "biodiversity-levels", "threats-to-biodiversity"],
   },
+  { id: "under-pressure", title: "Under Pressure", topics: ["fluid-pressure-manometers"] },
+  { id: "buoyancy", title: "Buoyancy", topics: ["buoyancy-stability"] },
+  { id: "density", title: "Density", topics: ["phase-relations-soil", "viscosity-newton"] },
+  { id: "hookes-law", title: "Hooke's Law", topics: ["hookes-law-bars", "springs-design"] },
 ];
 
 export const PHET_ATTRIBUTION = "PhET Interactive Simulations, University of Colorado Boulder";

@@ -45,6 +45,169 @@ export const curatedVideos: Record<string, Link[]> = {
       note: "For the complex variable chapters.",
     },
   ],
+  // Wave 3 (V3 · Step 9): each course number checked against its NPTEL syllabus PDF.
+  "electrical-machines": [
+    {
+      title: "Electrical Machines I (NPTEL)",
+      url: "https://nptel.ac.in/courses/108105017",
+      publisher: "NPTEL",
+      note: "Transformers, induction, DC and synchronous machines.",
+    },
+  ],
+  "power-systems": [
+    {
+      title: "Computer Aided Power System Analysis (Prof. Biswarup Das, IIT Roorkee)",
+      url: "https://nptel.ac.in/courses/108107127",
+      publisher: "NPTEL",
+      note: "Per-unit modelling, load flow, faults and stability.",
+    },
+  ],
+  "power-electronics": [
+    {
+      title: "Power Electronics (NPTEL)",
+      url: "https://nptel.ac.in/courses/108101038",
+      publisher: "NPTEL",
+      note: "Devices, rectifiers, choppers and inverters.",
+    },
+  ],
+  "control-systems": [
+    {
+      title: "Control Engineering (Prof. Ramkrishna Pasumarthy, IIT Madras)",
+      url: "https://nptel.ac.in/courses/108106098",
+      publisher: "NPTEL",
+      note: "Modelling, time response, stability and frequency response.",
+    },
+  ],
+  "electrical-measurements": [
+    {
+      title:
+        "Electrical Measurement and Electronic Instruments (Prof. Avishek Chatterjee, IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/108105153",
+      publisher: "NPTEL",
+      note: "Instruments, bridges, power and energy measurement.",
+    },
+  ],
+  "engineering-thermodynamics": [
+    {
+      title: "Concepts of Thermodynamics (IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/112105266",
+      publisher: "NPTEL",
+      note: "Laws of thermodynamics, properties and cycles.",
+    },
+  ],
+  "heat-transfer": [
+    {
+      title: "Heat and Mass Transfer (NPTEL)",
+      url: "https://nptel.ac.in/courses/112101097",
+      publisher: "NPTEL",
+      note: "Conduction, convection, radiation and heat exchangers.",
+    },
+  ],
+  "fluid-mechanics": [
+    {
+      title: "Fluid Mechanics (NPTEL)",
+      url: "https://nptel.ac.in/courses/112105171",
+      publisher: "NPTEL",
+      note: "Statics, kinematics, dynamics and pipe flow.",
+    },
+  ],
+  "strength-of-materials": [
+    {
+      title: "Strength of Materials (Prof. Sriman Kumar Bhattacharyya, IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/105105108",
+      publisher: "NPTEL",
+      note: "Stress, strain, beams, torsion and columns.",
+    },
+  ],
+  "theory-of-machines": [
+    {
+      title: "Kinematics of Mechanisms and Machines (Prof. Anirvan DasGupta, IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/112105268",
+      publisher: "NPTEL",
+      note: "Mechanisms, velocity analysis, cams and gears.",
+    },
+  ],
+  "machine-design": [
+    {
+      title: "Design of Machine Elements I (NPTEL)",
+      url: "https://nptel.ac.in/courses/112105124",
+      publisher: "NPTEL",
+      note: "Design philosophy, failure theories and machine elements.",
+    },
+  ],
+  "manufacturing-processes": [
+    {
+      title: "Fundamentals of Manufacturing Processes (Prof. D.K. Dwivedi, IIT Roorkee)",
+      url: "https://nptel.ac.in/courses/112107219",
+      publisher: "NPTEL",
+      note: "Casting, forming, machining and joining.",
+    },
+  ],
+  "engineering-materials": [
+    {
+      title: "Introduction to Materials Science and Engineering (Prof. Rajesh Prasad, IIT Delhi)",
+      url: "https://nptel.ac.in/courses/113102080",
+      publisher: "NPTEL",
+      note: "Structure, properties, phase diagrams and heat treatment.",
+    },
+  ],
+  "structural-analysis": [
+    {
+      title: "Structural Analysis I (Prof. Amit Shaw, IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/105105166",
+      publisher: "NPTEL",
+      note: "Determinate and indeterminate structures.",
+    },
+  ],
+  surveying: [
+    {
+      title: "Surveying (NPTEL)",
+      url: "https://nptel.ac.in/courses/105104101",
+      publisher: "NPTEL",
+      note: "Levelling, theodolite, curves and modern surveying.",
+    },
+  ],
+  "geotechnical-engineering": [
+    {
+      title:
+        "Soil Mechanics / Geotechnical Engineering I (Prof. Dilip Kumar Baidya, IIT Kharagpur)",
+      url: "https://nptel.ac.in/courses/105105168",
+      publisher: "NPTEL",
+      note: "Soil properties, permeability, consolidation and shear strength.",
+    },
+  ],
+  "concrete-rcc-design": [
+    {
+      title: "Concrete Technology (Prof. B. Bhattacharjee, IIT Delhi)",
+      url: "https://nptel.ac.in/courses/105102012",
+      publisher: "NPTEL",
+      note: "Ingredients, fresh and hardened concrete, mix design.",
+    },
+  ],
+  "hydraulic-engineering": [
+    {
+      title: "Hydraulics (NPTEL)",
+      url: "https://nptel.ac.in/courses/105103096",
+      publisher: "NPTEL",
+      note: "Open channel flow, specific energy and hydraulic jump.",
+    },
+  ],
+  "environmental-engineering": [
+    {
+      title: "Water Supply Engineering (NPTEL)",
+      url: "https://nptel.ac.in/courses/105105201",
+      publisher: "NPTEL",
+      note: "Water demand, treatment and distribution.",
+    },
+  ],
+  "building-materials": [
+    {
+      title: "Building Materials and Construction (NPTEL, IIT Delhi)",
+      url: "https://nptel.ac.in/courses/105102088",
+      publisher: "NPTEL",
+      note: "Bricks, cement, concrete, timber and steel.",
+    },
+  ],
   // Wave 2 (V3 · Step 8): each course number checked against its NPTEL syllabus or page.
   dsa: [
     {

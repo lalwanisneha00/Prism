@@ -77,6 +77,24 @@ describe("provider chain", () => {
     expect(busy.calls).toBe(2); // tried again after the rest period
   });
 
+  it("rests a provider for as long as it asked, e.g. until its daily quota resets", async () => {
+    const exhausted = {
+      name: "Exhausted",
+      calls: 0,
+      async generateJson(): Promise<string> {
+        this.calls++;
+        throw new LlmError("rate-limit", "daily quota", 7 * 3600_000);
+      },
+    };
+    const backup = new FakeProvider(() => "{}");
+    let clock = 0;
+    const now = () => clock;
+    await generateJsonWithFallback([exhausted, backup], { system: "", prompt: "" }, now);
+    clock = 2 * 3600_000; // two hours later: still resting
+    await generateJsonWithFallback([exhausted, backup], { system: "", prompt: "" }, now);
+    expect(exhausted.calls).toBe(1);
+  });
+
   it("still uses a resting provider if nothing else is left", async () => {
     let clock = 0;
     const flaky = {
