@@ -15,8 +15,10 @@ import {
   writeToLibrary,
   type LibraryStore,
 } from "@/lib/library/sharedLibrary";
+import { CustomSubjectPayloadSchema, toSubject } from "@/lib/custom/customSubject";
+import { searchWikipedia } from "@/lib/grounding/wikipedia";
 import { parsePassages, passagesToSources } from "@/lib/notes/notesSources";
-import { sourcesForTopic } from "@/lib/sources";
+import { searchedSources, sourcesForTopic } from "@/lib/sources";
 import { verifyLesson } from "@/lib/verify";
 import { visualPromptRules } from "@/visuals/visualChecks";
 
@@ -51,8 +53,13 @@ function sharedLibrary(): LibraryStore | null {
  */
 export async function POST(req: Request) {
   const raw: unknown = await req.json().catch(() => null);
+  // A student's own subject (V3 · Step 4) travels with the request; it is checked like the rest.
+  const custom = CustomSubjectPayloadSchema.safeParse(
+    raw && typeof raw === "object" ? (raw as { custom?: unknown }).custom : undefined,
+  );
   const result = validateLessonRequest(
     raw && typeof raw === "object" ? (raw as RawLessonRequest) : {},
+    custom.success ? [toSubject(custom.data)] : [],
   );
   if (!result.ok) {
     const event: LessonEvent = {
@@ -68,7 +75,8 @@ export async function POST(req: Request) {
   const fresh = Boolean(body.fresh);
   // Passages from the student's own notes: such lessons are personal, never shared.
   const notes = passagesToSources(parsePassages(body.notes));
-  const personal = notes.length > 0;
+  // Lessons from the student's notes or own subject are personal, never shared.
+  const personal = notes.length > 0 || custom.success;
   const key = libraryKey({
     subject: request.subject.id,
     topic: request.topic.id,
@@ -110,9 +118,15 @@ export async function POST(req: Request) {
         send({ type: "stage", stage: "sources", message: "Reading trusted sources…" });
         const sources = [
           ...notes,
-          ...(await groundSources(sourcesForTopic(request.subject.id, request.topic.id), {
-            signal: req.signal,
-          })),
+          ...(await groundSources(
+            custom.success
+              ? // No curated sources for a student's own subject: search trusted free ones.
+                await searchedSources(request.topic.name, request.subject.name, (q, limit) =>
+                  searchWikipedia(q, limit, { signal: req.signal }),
+                )
+              : sourcesForTopic(request.subject.id, request.topic.id),
+            { signal: req.signal },
+          )),
         ];
         const chain = providers(sources, request.topic.id);
         const generate = (options: GenerateOptions) => generateJsonWithFallback(chain, options);

@@ -67,7 +67,7 @@ export async function getSettings(): Promise<AppSettings | undefined> {
 }
 
 export async function updateSettings(
-  changes: Partial<Pick<AppSettings, "theme" | "audioRate">>,
+  changes: Partial<Pick<AppSettings, "theme" | "audioRate" | "branch" | "semester">>,
   now = Date.now(),
 ): Promise<void> {
   const current = await getSettings();

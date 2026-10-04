@@ -62,12 +62,39 @@ export type MockResult = SyncFields & {
   at: number;
 };
 
+/** A subject the student set up themselves ("Other subjects", V3 · Step 4). Synced. */
+export type CustomSubjectRecord = SyncFields & {
+  name: string;
+  teaching: "theory" | "skill";
+  chapters: {
+    id: string;
+    name: string;
+    hours?: number;
+    topics: { id: string; name: string }[];
+  }[];
+  details: {
+    examDate?: string;
+    marksPattern?: string;
+    examStyle?: "theory" | "mcq" | "mixed";
+    examKind?: "internal" | "end-sem";
+    nextExam?: string[];
+    semester?: number;
+    language?: string;
+  };
+  /** Where the outline came from: typed, read from a syllabus, or built from their material. */
+  outlineFrom: "typed" | "syllabus" | "material";
+  createdAt: number;
+};
+
 /** Where the student stopped in an audio lesson, in seconds at normal speed. */
 export type AudioPosition = SyncFields & { title: string; seconds: number };
 
 export type AppSettings = SyncFields & {
   theme?: "light" | "dark";
   audioRate?: number;
+  /** "My branch and semester" (V3 · Step 3): the student's subjects are shown first. */
+  branch?: string;
+  semester?: number;
 };
 
 /**
@@ -218,6 +245,7 @@ export type SyncedRecords = {
   annotations: Annotation;
   plans: StudyPlan;
   mockResults: MockResult;
+  customSubjects: CustomSubjectRecord;
 };
 export type SyncedCollection = keyof SyncedRecords;
 export const SYNCED_COLLECTIONS: SyncedCollection[] = [
@@ -231,6 +259,7 @@ export const SYNCED_COLLECTIONS: SyncedCollection[] = [
   "annotations",
   "plans",
   "mockResults",
+  "customSubjects",
 ];
 
 /** A local change waiting to be sent to the cloud. */
@@ -255,12 +284,13 @@ interface PrismDB extends DBSchema {
   annotations: { key: string; value: Annotation; indexes: { byLesson: string } };
   plans: { key: string; value: StudyPlan };
   mockResults: { key: string; value: MockResult; indexes: { byAt: number } };
+  customSubjects: { key: string; value: CustomSubjectRecord };
   outbox: { key: string; value: OutboxEntry };
   meta: { key: string; value: { key: string; value: unknown } };
 }
 
 const DB_NAME = "prism";
-const DB_VERSION = 9;
+const DB_VERSION = 10;
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -310,6 +340,10 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
       // Version 9 (mock tests): results, synced like quiz attempts.
       if (oldVersion < 9) {
         db.createObjectStore("mockResults", { keyPath: "id" }).createIndex("byAt", "at");
+      }
+      // Version 10 (other subjects): the student's own subjects, synced.
+      if (oldVersion < 10) {
+        db.createObjectStore("customSubjects", { keyPath: "id" });
       }
     },
   });

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { CustomChapterSchema, CustomDetailsSchema } from "@/lib/custom/customSubject";
 import type { SyncedCollection } from "@/lib/storage/db";
 
 /*
@@ -34,6 +35,15 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     at: z.number(),
   }),
   audioPositions: z.object({ ...syncFields, title: z.string(), seconds: z.number() }),
+  customSubjects: z.object({
+    ...syncFields,
+    name: z.string().max(120),
+    teaching: z.enum(["theory", "skill"]),
+    chapters: z.array(CustomChapterSchema).max(30),
+    details: CustomDetailsSchema,
+    outlineFrom: z.enum(["typed", "syllabus", "material"]),
+    createdAt: z.number(),
+  }),
   mockResults: z.object({
     ...syncFields,
     subject: z.string().max(80),
@@ -52,6 +62,8 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     ...syncFields,
     theme: z.enum(["light", "dark"]).optional(),
     audioRate: z.number().min(0.5).max(3).optional(),
+    branch: z.string().max(40).optional(),
+    semester: z.int().min(1).max(8).optional(),
   }),
   flashcards: z.object({
     ...syncFields,

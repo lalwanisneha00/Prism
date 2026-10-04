@@ -2,6 +2,7 @@ import { Container } from "@/components/Container";
 import { LessonPicker } from "@/components/LessonPicker";
 import { PrismArt } from "@/components/PrismArt";
 import { RecentTopics } from "@/components/RecentTopics";
+import { GlobalSearch } from "@/components/subjects/GlobalSearch";
 import { site } from "@/lib/site";
 import { subjects } from "@/lib/subjects";
 
@@ -20,7 +21,9 @@ const steps = [
   },
 ];
 
-export default function Home() {
+export default async function Home({ searchParams }: PageProps<"/">) {
+  const params = await searchParams;
+  const pick = (v: string | string[] | undefined) => (typeof v === "string" ? v : undefined);
   return (
     <>
       <section className="py-12 sm:py-20">
@@ -73,8 +76,18 @@ export default function Home() {
       <section id="start" className="scroll-mt-20 py-12">
         <Container>
           <div className="flex flex-col gap-6">
+            <GlobalSearch />
             <RecentTopics />
-            <LessonPicker subjects={subjects} />
+            <LessonPicker
+              // A new choice from search or a subject page starts the picker afresh.
+              key={`${pick(params.subject)}-${pick(params.chapter)}-${pick(params.topic)}`}
+              subjects={subjects}
+              initial={{
+                subject: pick(params.subject),
+                chapter: pick(params.chapter),
+                topic: pick(params.topic),
+              }}
+            />
           </div>
         </Container>
       </section>

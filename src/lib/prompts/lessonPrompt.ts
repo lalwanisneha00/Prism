@@ -99,6 +99,26 @@ ${jsonShape}`;
 LIMITED SOURCES: almost no source text was found for this topic. Write a SHORT lesson (half the usual size), keep to core textbook definitions, and say clearly in the first section which parts could not be verified.
 `
     : "";
+  // Theory and skill subjects (a student's own subject, V3 · Step 4) are taught differently.
+  const styleRule =
+    request.subject.teaching === "theory"
+      ? `
+THEORY SUBJECT: this subject is descriptive.
+- Prefer visuals that organise ideas: Mermaid "mindmap", "flowchart LR" or "gantt" (as a timeline), and "compare" tables. Use formulas only if the sources contain them.
+- Worked examples become short case studies or model answers (omit "check").${
+          request.level.slug === "exam-prep"
+            ? `
+- ANSWER-WRITING HELP: in "workedExamples" give model answers sized to the marks: a 2-mark answer (2-3 sentences), a 5-mark answer (short, structured) and, if time allows, a 10-mark answer outline (introduction, 4-6 headed points, conclusion). Put the question with its marks in "problem", the points an examiner looks for in "steps", and the model answer in "answer". Add one section on how to structure a long answer on this topic.`
+            : ""
+        }
+`
+      : request.subject.teaching === "skill"
+        ? `
+SKILL SUBJECT: teach by practice, not only explanation.
+- In the sections, include practice exercises with answers (grammar or vocabulary items), and where it fits a format with a complete example the student can follow (letter, email, report, notice).
+- "workedExamples" are worked practice items; quiz questions are practice items too.
+`
+        : "";
   const hasNotes = sources.some((s) => s.kind === "notes");
   const notesRule = hasNotes
     ? `
@@ -128,7 +148,7 @@ SIZE:
 
 SOURCES (cite only these ids):
 ${sourceList}
-${notesRule}${limitedRule}`;
+${notesRule}${limitedRule}${styleRule}`;
 
   return { system, prompt };
 }

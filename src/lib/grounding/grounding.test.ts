@@ -1,3 +1,5 @@
+import { searchedSources } from "@/lib/sources";
+import { searchWikipedia } from "@/lib/grounding/wikipedia";
 import { describe, expect, it, vi } from "vitest";
 import { groundSources, wikipediaTitleFromUrl } from "@/lib/grounding/groundSources";
 import { trimExtract, USER_AGENT } from "@/lib/grounding/wikipedia";
@@ -55,5 +57,42 @@ describe("groundSources", () => {
     const grounded = await groundSources(sources, { fetchImpl });
     expect(grounded.map((s) => s.id)).toEqual(sources.map((s) => s.id));
     expect(grounded.every((s) => !s.excerpt)).toBe(true);
+  });
+});
+
+describe("searching Wikipedia for a student's own subject", () => {
+  const reply = (titles: string[]) =>
+    (async () =>
+      new Response(
+        JSON.stringify({ query: { search: titles.map((title) => ({ title })) } }),
+      )) as unknown as typeof fetch;
+
+  it("returns the best titles, skipping disambiguation pages", async () => {
+    const titles = await searchWikipedia("Upanishads Indian Knowledge System", 2, {
+      fetchImpl: reply(["Upanishads (disambiguation)", "Upanishads", "Vedanta"]),
+    });
+    expect(titles).toEqual(["Upanishads", "Vedanta"]);
+  });
+
+  it("returns nothing when Wikipedia can't be reached", async () => {
+    const failing = (async () => {
+      throw new Error("offline");
+    }) as unknown as typeof fetch;
+    expect(await searchWikipedia("x", 2, { fetchImpl: failing })).toEqual([]);
+  });
+
+  it("turns search results into citable Wikipedia sources, retrying with the topic alone", async () => {
+    const calls: string[] = [];
+    const sources = await searchedSources("Tridosha theory", "Ayurveda basics", async (q) => {
+      calls.push(q);
+      return calls.length === 1 ? [] : ["Dosha"];
+    });
+    expect(calls).toEqual(["Tridosha theory Ayurveda basics", "Tridosha theory"]);
+    expect(sources).toEqual([
+      expect.objectContaining({
+        id: "wikipedia-dosha",
+        url: "https://en.wikipedia.org/wiki/Dosha",
+      }),
+    ]);
   });
 });

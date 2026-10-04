@@ -26,13 +26,14 @@ type Answer = { picked?: string; written?: string; ticked: number[] };
  */
 export function MockTestPanel({
   subjectId,
-  chapterId,
+  chapterIds,
   chapterName,
   level,
   topics,
 }: {
   subjectId: string;
-  chapterId: string;
+  /** One chapter (a chapter lesson) or several (the subject's mock test page). */
+  chapterIds: string[];
   chapterName: string;
   level: LevelSlug;
   topics: TopicLesson[];
@@ -65,7 +66,7 @@ export function MockTestPanel({
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           subject: subjectId,
-          chapter: chapterId,
+          chapters: chapterIds,
           topics: topics.map((t) => t.topicId),
           level,
           minutes,
@@ -130,7 +131,7 @@ export function MockTestPanel({
     const total = test.questions.reduce((s, q) => s + q.marks, 0);
     await recordMockResult({
       subject: subjectId,
-      chapter: chapterId,
+      chapter: chapterIds.length === 1 ? chapterIds[0] : "multiple",
       level,
       minutes,
       title: chapterName,

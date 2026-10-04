@@ -88,7 +88,8 @@ export function checkQuestions(
 
 export function mockPrompt(input: {
   subject: Subject;
-  chapter: Chapter;
+  /** The chapter, or several chapters' names joined ("Electrostatics, Magnetism"). */
+  chapter: Pick<Chapter, "name">;
   topics: readonly Topic[];
   level: Level;
   minutes: number;

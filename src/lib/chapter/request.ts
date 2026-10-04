@@ -39,9 +39,14 @@ function first(value: string | string[] | undefined): string {
 export type ChapterValidation =
   { ok: true; request: ChapterRequest } | { ok: false; errors: string[] };
 
-export function validateChapterRequest(raw: RawChapterRequest): ChapterValidation {
+export function validateChapterRequest(
+  raw: RawChapterRequest,
+  /** Subjects that aren't built in (a student's own subject), checked the same way. */
+  extra: readonly Subject[] = [],
+): ChapterValidation {
   const errors: string[] = [];
-  const subject = findSubject(first(raw.subject));
+  const subjectId = first(raw.subject);
+  const subject = extra.find((s) => s.id === subjectId) ?? findSubject(subjectId);
   if (!subject) errors.push("That subject isn't available.");
   const chapter = subject ? findChapter(subject, first(raw.chapter)) : undefined;
   if (subject && !chapter) errors.push("Choose a chapter of this subject.");

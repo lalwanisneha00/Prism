@@ -6,6 +6,8 @@ import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
 import { FieldError, FieldGroup } from "@/components/form/FieldGroup";
 import { NotesToggle } from "@/components/notes/NotesToggle";
+import { BranchSemesterBar } from "@/components/subjects/BranchSemesterBar";
+import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { TopicSearch } from "@/components/TopicSearch";
 import { defaultDuration, durations } from "@/data/durations";
 import { availableLevels, type LevelSlug } from "@/data/levels";
@@ -16,19 +18,40 @@ import {
   type LessonRequestErrors,
   type LessonRequestField,
 } from "@/lib/lessonRequest";
-import type { Subject } from "@/lib/subjects";
+import { chaptersOf, subjectsFor, type Subject } from "@/lib/subjects";
 
 const fieldOrder: LessonRequestField[] = ["chapter", "topic", "level", "duration"];
 
-export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
+export type PickerInitial = { subject?: string; chapter?: string; topic?: string };
+
+export function LessonPicker({
+  subjects,
+  initial = {},
+}: {
+  subjects: readonly Subject[];
+  /** A choice made elsewhere (search, a subject page), from the URL. */
+  initial?: PickerInitial;
+}) {
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
   const id = useId();
 
-  const [subjectId, setSubjectId] = useState(subjects[0].id);
+  // "My branch and semester": their subjects come first (V3 · Step 3).
+  const { mine, save: saveMine } = useMyBranch();
+  const [showAll, setShowAll] = useState(false);
+  const mineList = mine.branch ? subjectsFor(mine.branch, mine.semester) : [];
+  const shown = mine.branch && !showAll && mineList.length > 0 ? mineList : subjects;
+
+  const start = subjects.find((s) => s.id === initial.subject) ?? subjects[0];
+  const [subjectId, setSubjectId] = useState(start.id);
   const subject = subjects.find((s) => s.id === subjectId) ?? subjects[0];
-  const [chapterId, setChapterId] = useState("");
-  const [topicId, setTopicId] = useState("");
+  const startChapter = chaptersOf(start).find((o) => o.chapter.id === initial.chapter);
+  // A chapter linked from another subject is taught and saved under its owner.
+  const [chapterId, setChapterId] = useState(startChapter?.chapter.id ?? "");
+  const [ownerId, setOwnerId] = useState(startChapter?.owner.id ?? "");
+  const [topicId, setTopicId] = useState(
+    startChapter?.chapter.topics.some((t) => t.id === initial.topic) ? (initial.topic ?? "") : "",
+  );
   const [level, setLevel] = useState("");
   const [duration, setDuration] = useState(String(defaultDuration));
   const [errors, setErrors] = useState<LessonRequestErrors>({});
@@ -39,7 +62,12 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
   const [picked, setPicked] = useState<string[]>([]);
   const [chapterMinutes, setChapterMinutes] = useState<number | null>(null);
 
-  const chapter = subject.chapters.find((c) => c.id === chapterId);
+  const chapterOptions = chaptersOf(subject);
+  const selected = chapterOptions.find(
+    (o) => o.chapter.id === chapterId && o.owner.id === (ownerId || subject.id),
+  );
+  const chapter = selected?.chapter;
+  const owner = selected?.owner ?? subject;
   const chosenTopics =
     chapter && scope !== "topic"
       ? scope === "chapter"
@@ -60,7 +88,7 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
     event.preventDefault();
     if (scope !== "topic") return submitChapter();
     const result = validateLessonRequest({
-      subject: subject.id,
+      subject: owner.id,
       chapter: chapterId,
       topic: topicId,
       level,
@@ -92,7 +120,7 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
     setSubmitting(true);
     router.push(
       chapterHref("/chapter", {
-        subject: subject.id,
+        subject: owner.id,
         chapter: chapter.id,
         topics: scope === "topics" ? chosenTopics.map((t) => t.id) : undefined,
         level: chosenLevel,
@@ -117,10 +145,18 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
         <p className="mt-1 text-muted">Tell us what you need. It takes about 20 seconds.</p>
       </div>
 
+      <BranchSemesterBar
+        mine={mine}
+        onChange={(next) => {
+          saveMine(next);
+          setShowAll(false);
+        }}
+      />
+
       <fieldset className="flex flex-col gap-2">
         <legend className="mb-2 font-semibold">Subject</legend>
-        <div className="flex flex-wrap gap-2">
-          {subjects.map((s) => (
+        <div className="flex flex-wrap gap-2" data-testid="subject-chips">
+          {shown.map((s) => (
             <label
               key={s.id}
               className={`cursor-pointer rounded-full border px-4 py-2 text-sm font-semibold transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-primary ${
@@ -138,6 +174,7 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
                   setSubjectId(s.id);
                   // A new subject has its own chapters: start the choice again.
                   setChapterId("");
+                  setOwnerId("");
                   setTopicId("");
                   clearErrors("chapter", "topic");
                 }}
@@ -148,6 +185,20 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
             </label>
           ))}
         </div>
+        {mine.branch && mineList.length > 0 && (
+          <button
+            type="button"
+            onClick={() => setShowAll((v) => !v)}
+            className="w-fit text-sm font-semibold text-primary underline underline-offset-2"
+          >
+            {showAll ? "Show only my subjects" : `Show all ${subjects.length} subjects`}
+          </button>
+        )}
+        {mine.branch && mineList.length === 0 && (
+          <p className="text-sm text-muted">
+            No subjects for that semester yet: showing every subject.
+          </p>
+        )}
       </fieldset>
 
       <TopicSearch
@@ -155,6 +206,7 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
         subject={subject}
         onPick={({ chapter, topic }) => {
           setChapterId(chapter.id);
+          setOwnerId("");
           setTopicId(topic.id);
           setScope("topic");
           clearErrors("chapter", "topic");
@@ -168,9 +220,18 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
         <select
           id={`${id}-chapter`}
           name="chapter"
-          value={chapterId}
+          value={
+            chapterId
+              ? ownerId && ownerId !== subject.id
+                ? `${ownerId}:${chapterId}`
+                : chapterId
+              : ""
+          }
           onChange={(e) => {
-            setChapterId(e.target.value);
+            // Linked chapters are "owner:chapter"; the subject's own chapters are plain ids.
+            const [a, b] = e.target.value.split(":");
+            setOwnerId(b ? a : "");
+            setChapterId(b ?? a);
             setTopicId("");
             setPicked([]);
             clearErrors("chapter", "topic");
@@ -182,9 +243,10 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
           <option value="" disabled>
             Choose a chapter…
           </option>
-          {subject.chapters.map((c, i) => (
-            <option key={c.id} value={c.id}>
+          {chapterOptions.map(({ chapter: c, owner: o }, i) => (
+            <option key={`${o.id}:${c.id}`} value={o.id === subject.id ? c.id : `${o.id}:${c.id}`}>
               {i + 1}. {c.name}
+              {o.id === subject.id ? "" : ` (from ${o.name})`}
             </option>
           ))}
         </select>
@@ -325,7 +387,7 @@ export function LessonPicker({ subjects }: { subjects: readonly Subject[] }) {
         {scope !== "topic" && chapter ? (
           chosenLevel && chosenTopics.length > 0 ? (
             <ChapterTimeOptions
-              subject={subject}
+              subject={owner}
               chapter={chapter}
               topics={chosenTopics}
               level={chosenLevel}

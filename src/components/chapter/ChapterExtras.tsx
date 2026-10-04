@@ -61,7 +61,7 @@ export function ChapterExtras({
         </h2>
         <MockTestPanel
           subjectId={subjectId}
-          chapterId={chapterId}
+          chapterIds={[chapterId]}
           chapterName={chapterName}
           level={level}
           topics={topics}

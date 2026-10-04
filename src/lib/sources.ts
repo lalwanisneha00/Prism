@@ -93,3 +93,24 @@ export function sourcesForTopic(subjectId: string, topicId: string): Source[] {
 export function topicsWithSources(subjectId: string): string[] {
   return Object.keys(sourceMaps[subjectId]?.topics ?? {});
 }
+
+/**
+ * Sources for a topic without curated ones (a student's own subject): the best-matching
+ * Wikipedia articles for the topic within its subject. Their text is fetched as grounding.
+ */
+export async function searchedSources(
+  topicName: string,
+  subjectName: string,
+  search: (query: string, limit: number) => Promise<string[]>,
+): Promise<Source[]> {
+  const titles = await search(`${topicName} ${subjectName}`, 2);
+  const fallback = titles.length ? [] : await search(topicName, 2);
+  return [...new Set([...titles, ...fallback])].map((title) => ({
+    id: `wikipedia-${slugify(title)}`,
+    title,
+    url: wikipediaUrl(title),
+    publisher: "Wikipedia",
+    kind: "encyclopedia",
+    license: "CC BY-SA 4.0",
+  }));
+}

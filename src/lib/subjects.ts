@@ -63,6 +63,8 @@ export const SubjectSchema = z.object({
   semesters: z.array(z.int().min(1).max(8)).min(1),
   syllabusSource: SyllabusSourceSchema,
   visualSet: z.enum(VISUAL_SETS).optional(),
+  /** How it is taught: "theory" (descriptive) or "skill" (practice activities). Optional. */
+  teaching: z.enum(["theory", "skill"]).optional(),
   /**
    * Chapters of another subject that also belong to this one (shown here, but taught and
    * saved under their own subject, so nothing is copied). E.g. Applied Physics → E&M.

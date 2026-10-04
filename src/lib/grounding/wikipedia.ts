@@ -55,3 +55,39 @@ export async function fetchWikipediaExtract(
     return null;
   }
 }
+
+type SearchReply = { query?: { search?: { title: string }[] } };
+
+/**
+ * Article titles that best match a search (for subjects without curated sources, such as a
+ * student's own subject). Empty when Wikipedia can't be reached: grounding is best-effort.
+ */
+export async function searchWikipedia(
+  query: string,
+  limit = 2,
+  { signal, fetchImpl = fetch }: { signal?: AbortSignal; fetchImpl?: typeof fetch } = {},
+): Promise<string[]> {
+  const params = new URLSearchParams({
+    action: "query",
+    list: "search",
+    srsearch: query,
+    srlimit: String(limit),
+    srnamespace: "0",
+    format: "json",
+    formatversion: "2",
+  });
+  try {
+    const timeout = AbortSignal.timeout(8000);
+    const res = await fetchImpl(`https://en.wikipedia.org/w/api.php?${params}`, {
+      headers: { "user-agent": USER_AGENT, "api-user-agent": USER_AGENT },
+      signal: signal ? AbortSignal.any([signal, timeout]) : timeout,
+    });
+    if (!res.ok) return [];
+    return (((await res.json()) as SearchReply).query?.search ?? [])
+      .map((r) => r.title)
+      .filter((t) => !/\(disambiguation\)$/i.test(t))
+      .slice(0, limit);
+  } catch {
+    return [];
+  }
+}

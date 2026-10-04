@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { validateChapterRequest } from "@/lib/chapter/request";
+import { findLevel } from "@/data/levels";
 import { errorCopy } from "@/lib/lessonEvents";
 import { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
 import {
@@ -10,6 +10,7 @@ import {
   type MockTest,
 } from "@/lib/mock/mockTest";
 import { evaluateCheck } from "@/lib/safeMath";
+import { findChapter, findSubject } from "@/lib/subjects";
 
 /*
  * POST { subject, chapter, topics, level, minutes, facts, pyqs? } → { ok, test, dropped }.
@@ -21,7 +22,8 @@ export const maxDuration = 60;
 
 const RequestSchema = z.object({
   subject: z.string().max(80),
-  chapter: z.string().max(80),
+  /** One chapter (a chapter lesson) or several (V3 · Step 3). */
+  chapters: z.array(z.string().max(80)).min(1).max(12),
   topics: z.array(z.string().max(80)).min(1).max(40),
   level: z.string().max(40),
   minutes: z.union([z.literal(15), z.literal(30), z.literal(45)]),
@@ -35,19 +37,24 @@ const reply = (body: Reply, status = 200) => Response.json(body, { status });
 
 export async function POST(req: Request) {
   const body = RequestSchema.safeParse(await req.json().catch(() => null));
-  const checked = body.success
-    ? validateChapterRequest({
-        subject: body.data.subject,
-        chapter: body.data.chapter,
-        topics: body.data.topics.join(","),
-        level: body.data.level,
-        minutes: String(body.data.minutes),
-      })
-    : null;
-  if (!body.success || !checked?.ok) {
+  const subject = body.success ? findSubject(body.data.subject) : undefined;
+  const chapters =
+    body.success && subject ? body.data.chapters.map((id) => findChapter(subject, id)) : [];
+  const level = body.success ? findLevel(body.data.level) : undefined;
+  const topics = chapters
+    .flatMap((c) => c?.topics ?? [])
+    .filter((t) => body.success && body.data.topics.includes(t.id));
+  if (
+    !body.success ||
+    !subject ||
+    !level ||
+    chapters.length === 0 ||
+    chapters.some((c) => !c) ||
+    topics.length !== new Set(body.data.topics).size
+  ) {
     return reply({ ok: false, kind: "invalid-request", message: "That request isn't valid." }, 400);
   }
-  const { subject, chapter, topics, level } = checked.request;
+  const chapter = { name: chapters.map((c) => c!.name).join(", ") };
   const ids = new Set(topics.map((t) => t.id));
 
   if (process.env.LLM_PROVIDER === "fake") {

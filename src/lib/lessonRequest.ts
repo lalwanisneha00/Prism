@@ -36,10 +36,18 @@ function first(value: string | string[] | undefined): string {
 
 const durationList = durations.map((d) => d.minutes).join(", ");
 
-export function validateLessonRequest(raw: RawLessonRequest): ValidationResult {
+/**
+ * Checks a request against the data files. `extra` adds subjects that aren't built in (a
+ * student's own subject, V3 · Step 4), checked the same way.
+ */
+export function validateLessonRequest(
+  raw: RawLessonRequest,
+  extra: readonly Subject[] = [],
+): ValidationResult {
   const errors: LessonRequestErrors = {};
 
-  const subject = findSubject(first(raw.subject));
+  const subjectId = first(raw.subject);
+  const subject = extra.find((s) => s.id === subjectId) ?? findSubject(subjectId);
   if (!subject) errors.subject = "That subject isn't available yet.";
 
   const chapterId = first(raw.chapter);
