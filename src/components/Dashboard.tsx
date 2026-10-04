@@ -1,6 +1,7 @@
 "use client";
 
 import { DashboardChapterCards } from "@/components/chapter/DashboardChapterCards";
+import { StudyInsights } from "@/components/StudyInsights";
 import { ChapterProgressBars, TodayAndStreak } from "@/components/planner/ProgressTracker";
 import { annotationHref, confusedTopics, listAllAnnotations } from "@/lib/annotations/store";
 import type { Annotation } from "@/lib/storage/db";
@@ -198,6 +199,8 @@ export function Dashboard() {
             </Empty>
           )}
         </Card>
+
+        <StudyInsights Card={Card} />
 
         <Card title="Recent quiz scores">
           {data.attempts.length ? (

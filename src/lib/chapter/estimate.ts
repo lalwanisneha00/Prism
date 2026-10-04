@@ -48,6 +48,8 @@ export type LoadInput = {
   materialPassages?: number;
   completed?: ReadonlySet<string>;
   weak?: ReadonlySet<string>;
+  /** Topics the engine expects to be tough (they build on something the student found hard). */
+  tough?: ReadonlySet<string>;
 };
 
 export type ChapterEstimate = {
@@ -111,6 +113,7 @@ export function loadScore(input: LoadInput): number {
     let w = 1 + Math.min(depth, 6) * 0.06; // deeper topics are harder
     if (completed.has(t.id) && !weak.has(t.id)) w *= 0.4; // a short recap
     if (weak.has(t.id)) w *= 1.3;
+    else if (input.tough?.has(t.id)) w *= 1.15;
     score += w;
   }
   // Syllabus hours, when known, are the teacher's own estimate of size: blend them in.
@@ -164,6 +167,8 @@ export function estimateChapter(input: LoadInput): ChapterEstimate {
   if (deepest > 0) factors.push(`builds on up to ${plural(deepest, "earlier topic")}`);
   if (completed) factors.push(`${plural(completed, "topic")} you've studied (short recap)`);
   if (weak) factors.push(`${plural(weak, "weak topic")} (more time)`);
+  const tough = input.topics.filter((t) => input.tough?.has(t.id) && !input.weak?.has(t.id)).length;
+  if (tough) factors.push(`${plural(tough, "topic")} that may need extra time`);
   if (input.materialPassages) {
     factors.push(`your materials cover it (${plural(input.materialPassages, "passage")})`);
   }

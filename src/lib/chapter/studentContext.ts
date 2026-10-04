@@ -1,6 +1,8 @@
 import { paperStats, type LoadInput } from "@/lib/chapter/estimate";
 import { confusedTopics, listAllAnnotations } from "@/lib/annotations/store";
 import { sectionText } from "@/lib/extract/types";
+import { loadStudyModel, topicKey } from "@/lib/priority/model";
+import { subjects } from "@/lib/subjects";
 import { findRelevantPassages, listLocalNotes } from "@/lib/notes/store";
 import { listQuizAttempts, weakTopics } from "@/lib/storage/progress";
 import type { Subject, Topic } from "@/lib/subjects";
@@ -13,12 +15,13 @@ import type { Subject, Topic } from "@/lib/subjects";
 export async function studentContext(
   subject: Subject,
   topics: readonly Topic[],
-): Promise<Pick<LoadInput, "completed" | "weak" | "papers" | "materialPassages">> {
+): Promise<Pick<LoadInput, "completed" | "weak" | "tough" | "papers" | "materialPassages">> {
   const ids = new Set(topics.map((t) => t.id));
-  const [attempts, annotations, notes] = await Promise.all([
+  const [attempts, annotations, notes, model] = await Promise.all([
     listQuizAttempts().catch(() => []),
     listAllAnnotations().catch(() => []),
     listLocalNotes().catch(() => []),
+    loadStudyModel(subjects).catch(() => undefined),
   ]);
   const mine = attempts.filter((a) => a.subject === subject.id && ids.has(a.topic));
 
@@ -27,7 +30,12 @@ export async function studentContext(
     ...confusedTopics(annotations)
       .map((c) => c.topic)
       .filter((t) => ids.has(t)),
+    // Also what the engine knows: wrong answers, "explain simpler" taps and so on.
+    ...topics.filter((t) => model?.weakness.get(topicKey(subject.id, t.id))?.weak).map((t) => t.id),
   ]);
+  const tough = new Set(
+    topics.filter((t) => model?.predictions.has(topicKey(subject.id, t.id))).map((t) => t.id),
+  );
   const completed = new Set(
     mine
       .filter((a) => a.total > 0 && a.score / a.total >= 0.6 && !weak.has(a.topic))
@@ -50,6 +58,7 @@ export async function studentContext(
   return {
     completed,
     weak,
+    tough,
     ...(papers.length > 0
       ? { papers: paperStats(papers.map(excludedText), topics, subject.chapters) }
       : {}),
