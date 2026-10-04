@@ -1,4 +1,5 @@
 import { evaluateCheck } from "@/lib/safeMath";
+import { statesUnit } from "@/lib/units";
 
 /*
  * Checks worked-example answers with a computer (SPEC §6.1 rule 7). The AI writes, next to
@@ -9,7 +10,8 @@ import { evaluateCheck } from "@/lib/safeMath";
 
 export { evaluateCheck };
 
-export type AnswerCheck = { expression: string; answer: number };
+/** `unit` (optional, SPEC §12.3 rule 7): the SI unit the answer must be given in, e.g. "N/C". */
+export type AnswerCheck = { expression: string; answer: number; unit?: string };
 
 /** True when two numbers agree to about 3 significant figures (answers are usually rounded). */
 export function closeEnough(a: number, b: number, rel = 5e-3): boolean {
@@ -105,6 +107,9 @@ export function answerCheckProblems(check: AnswerCheck, writtenAnswer: string): 
   if (!statesValue(writtenAnswer, check.answer)) {
     problems.push(`the written answer does not contain the checked value ${check.answer}`);
   }
+  if (check.unit && !statesUnit(writtenAnswer, check.unit)) {
+    problems.push(`the written answer does not give the unit ${check.unit} after the value`);
+  }
   return problems;
 }
 
@@ -133,7 +138,10 @@ export function dropFailedChecks<T extends CheckedExample>(examples: T[]): T[] {
       delete copy.check;
       return [copy];
     }
-    const agrees = closeEnough(value, w.check.answer) && statesValue(w.answer, w.check!.answer);
+    const agrees =
+      closeEnough(value, w.check.answer) &&
+      statesValue(w.answer, w.check.answer) &&
+      (!w.check.unit || statesUnit(w.answer, w.check.unit));
     return agrees ? [w] : [];
   });
 }

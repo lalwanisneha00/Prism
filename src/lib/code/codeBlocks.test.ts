@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { findCodeSamples, languageOf, sameOutput } from "@/lib/code/codeBlocks";
+import { codeVerdict, findCodeSamples, languageOf, sameOutput } from "@/lib/code/codeBlocks";
 
 describe("code samples in lessons", () => {
   it("finds samples with their claimed output", () => {
@@ -42,5 +42,28 @@ describe("code samples in lessons", () => {
   it("compares outputs, ignoring trailing spaces and blank edges", () => {
     expect(sameOutput("0\n1 \n2\n\n", "0\n1\n2")).toBe(true);
     expect(sameOutput("0\n1", "0\n2")).toBe(false);
+  });
+});
+
+describe("code check verdicts", () => {
+  const sample = { language: "python" as const, code: "print(1+1)", expected: "2" };
+  it("passes matching output and flags different output", () => {
+    expect(codeVerdict(sample, { status: "ran", output: "2\n" }).tone).toBe("success");
+    const differs = codeVerdict(sample, { status: "ran", output: "3" });
+    expect(differs.tone).toBe("danger");
+    expect(differs.text).toContain("differs");
+  });
+  it("labels samples that were not run, errors and endless loops", () => {
+    expect(codeVerdict(sample, { status: "idle" }).text).toContain("Not run yet");
+    expect(codeVerdict(sample, { status: "not-executed", reason: "C isn't run." }).tone).toBe(
+      "warning",
+    );
+    expect(codeVerdict(sample, { status: "error", output: "", error: "NameError" }).text).toContain(
+      "NameError",
+    );
+    expect(codeVerdict(sample, { status: "timeout", output: "" }).tone).toBe("danger");
+    expect(
+      codeVerdict({ ...sample, expected: undefined }, { status: "ran", output: "" }).tone,
+    ).toBe("success");
   });
 });

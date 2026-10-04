@@ -34,6 +34,16 @@ describe("chapter mock test", () => {
     expect(checked.dropped[1]).toContain("not 8");
   });
 
+  it("drops a numerical answer that doesn't give the unit its check names", () => {
+    const test = MockTestSchema.parse(fakeMockTest(topics, []));
+    test.questions[2].check = { expression: "2*3.5", answer: 7, unit: "N" };
+    test.questions[2].answer = "7 J";
+    const checked = checkQuestions(test, ids, evaluateCheck);
+    expect(checked.dropped[0]).toContain("unit N");
+    test.questions[2].answer = "7 N";
+    expect(checkQuestions(test, ids, evaluateCheck).dropped).toEqual([]);
+  });
+
   it("rejects multiple choice without the answer among the options, and written answers without points", () => {
     const mcq = {
       type: "mcq",

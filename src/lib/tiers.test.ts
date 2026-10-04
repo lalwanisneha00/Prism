@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { subjects } from "@/lib/subjects";
-import { effectiveTier } from "@/lib/tiers";
+import { effectiveTier, tierCopy, TIERS } from "@/lib/tiers";
 
 const source = { id: "s", title: "S", publisher: "P", kind: "encyclopedia" as const };
 
@@ -14,6 +14,12 @@ describe("trust tiers", () => {
   });
 
   it("starts every subject as sourced until its golden set passes", () => {
-    for (const s of subjects) expect(["verified", "sourced", "limited"]).toContain(s.tier);
+    for (const s of subjects) expect(TIERS).toContain(s.tier);
+  });
+
+  it("has the tested tier between verified and sourced, with its own badge", () => {
+    expect(TIERS).toEqual(["verified", "tested", "sourced", "limited"]);
+    expect(tierCopy.tested.explain).toContain("85%");
+    expect(effectiveTier("tested", [])).toBe("limited");
   });
 });

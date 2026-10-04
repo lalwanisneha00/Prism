@@ -1,3 +1,4 @@
+import { TIERS } from "@/lib/tiers";
 import { z } from "zod";
 import { levels, type LevelSlug } from "@/data/levels";
 import {
@@ -148,7 +149,7 @@ export const LessonSchema = z
       createdAt: z.iso.datetime(),
       sources: z.array(SourceSchema).min(1),
       /** How far this lesson can be trusted (SPEC §6.1); set by the app, never by the AI. */
-      tier: z.enum(["verified", "sourced", "limited"]).optional(),
+      tier: z.enum(TIERS).optional(),
       /** True when the lesson was grounded in the student's uploaded notes. */
       fromNotes: z.boolean().optional(),
     }),
@@ -163,7 +164,12 @@ export const LessonSchema = z
         answer: text,
         /** A calculation that reproduces a numeric answer, re-run by the server (SPEC §6.1 rule 7). */
         check: z
-          .object({ expression: z.string().trim().min(1).max(300), answer: z.number() })
+          .object({
+            expression: z.string().trim().min(1).max(300),
+            answer: z.number(),
+            /** The SI unit the answer must state (checked in code, SPEC §12.3 rule 7). */
+            unit: z.string().trim().min(1).max(40).optional(),
+          })
           .optional(),
       }),
     ),

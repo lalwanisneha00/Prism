@@ -4,11 +4,11 @@ Update this after every step so any person or AI tool can pick up the work.
 
 ## Current state (resume here)
 
-- **Mode:** OVERNIGHT AUTONOMOUS RUN (started 2026-10-04 02:36) on branch `overnight-v2.5-v3`. Rules below; status for the user goes in `MORNING_REPORT.md`.
-- **Version / step:** Concept map fix (SPEC §11.6), requested before V3 · Step 5: built; after it is committed and pushed, PAUSE until the user says to start V3 · Step 5.
-- **Finished:** all of V2.5; V3 · Steps 2–4 (tags `v3-step-2` … `v3-step-4`; Step 4 verified in all four browser modes with `E2E_SERVER=start`).
-- **Half-done:** Step 5: done in code but not wired in: `eval/quotes.ts` + `golden:check`, resumable `eval/run.ts`, `src/lib/units.ts`, `src/lib/code/codeBlocks.ts` + `runCode.ts`. Not started: `tested` tier in app (tiers.ts, TierBadge, subjects schema, accuracy page), unit check inside lesson answer checks, code-sample run/check UI in lessons.
-- **Next action:** finish Step 5 as listed. Browser tests: build with `LLM_PROVIDER=fake npx next build`, run `E2E_SERVER=start npx playwright test --project=<mode>` one mode at a time (memory is short on this computer). Wave 1 syllabus sources found (GCE Kalahandi and IET Lucknow AICTE-model first-year syllabi; see MORNING_REPORT).
+- **Mode:** AUTONOMOUS (user, 2026-10-04: "keep going step after step without confirmation… run tests on your own and move to the next step") on branch `overnight-v2.5-v3`. Status for the user goes in `MORNING_REPORT.md`.
+- **Version / step:** V3 · Step 6 (Wave 1 syllabus and grounding, incl. complete Applied Physics): not started.
+- **Finished:** all of V2.5; concept map fix (tag `concept-map-fix`); V3 · Steps 2–5 (tags `v3-step-2` … `v3-step-5`).
+- **Half-done:** none.
+- **Next action:** V3 · Step 6. Browser tests: build with `LLM_PROVIDER=fake npx next build`, run `E2E_SERVER=start npx playwright test --project=<mode>` one mode at a time (memory is short on this computer). Wave 1 syllabus sources found (GCE Kalahandi and IET Lucknow AICTE-model first-year syllabi; see MORNING_REPORT).
 - **Running commands:** none.
 - **Open from V2:** release gate not passed (best runs: em 83.2%, engg-math 88.5%; both shown as "sourced"). Re-run `npm run eval` when quota allows.
 - **Resume protocol (SPEC §12.7):** read PROGRESS.md and SPEC.md, `git status`, `git log -5`, check the build, continue from "Next action". Finish half-done work first; never restart a finished step.
@@ -73,15 +73,15 @@ Step protocol: "✅ Check this" block and the user's confirmation after each ste
 
 ## Version 3: All Engineering
 
-Step protocol: one step at a time, "✅ Check this" block, wait for the user's confirmation (tonight: autonomous, see the rules above). `wip:` commits inside a step; update "Current state" after each unit of work.
+Step protocol: one step at a time with a "✅ Check this" block in MORNING_REPORT.md; autonomous from Step 5 on (user, 2026-10-04). `wip:` commits inside a step; update "Current state" after each unit of work.
 
 | Step | Title                                                                                              | Status         |
 | ---- | -------------------------------------------------------------------------------------------------- | -------------- |
 | 1    | Restructure the plan                                                                               | ✅ Done        |
 | 2    | Subject data model and loader (branches, shared subjects)                                          | ✅ Done        |
 | 3    | Navigation (branch → semester → subject …), search, mock tests                                     | ✅ Done        |
-| 4    | Other subjects (custom non-core subjects, outline from material, theory-style lessons)             | ⬜ Not started |
-| 5    | Accuracy scaffolding (`tested` tier, sourced golden sets, resumable eval, numeric and code checks) | ⬜ Not started |
+| 4    | Other subjects (custom non-core subjects, outline from material, theory-style lessons)             | ✅ Done        |
+| 5    | Accuracy scaffolding (`tested` tier, sourced golden sets, resumable eval, numeric and code checks) | ✅ Done        |
 | 6    | Wave 1 syllabus and grounding (incl. complete Applied Physics)                                     | ⬜ Not started |
 | 7    | Wave 1 visuals and widgets, Wave 1 eval                                                            | ⬜ Not started |
 | 8    | Wave 2 (CE/IT/ICT/ECE) syllabus, visuals, eval                                                     | ⬜ Not started |

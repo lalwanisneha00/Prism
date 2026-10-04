@@ -20,9 +20,18 @@ const components: Components = {
   ul: ({ children }) => <ul className="list-disc space-y-1 pl-5">{children}</ul>,
   ol: ({ children }) => <ol className="list-decimal space-y-1 pl-5">{children}</ol>,
   strong: ({ children }) => <strong className="font-semibold text-fg">{children}</strong>,
-  code: ({ children }) => (
-    <code className="rounded bg-surface-2 px-1 py-0.5 font-mono text-[0.9em]">{children}</code>
+  // A fenced code block (V3 · Step 5): scrolls sideways on phones instead of widening the page.
+  pre: ({ children }) => (
+    <pre className="overflow-x-auto rounded-xl border border-border bg-surface-2 p-3 font-mono text-sm leading-relaxed">
+      {children}
+    </pre>
   ),
+  code: ({ children, className }) =>
+    className?.startsWith("language-") ? (
+      <code className={className}>{children}</code>
+    ) : (
+      <code className="rounded bg-surface-2 px-1 py-0.5 font-mono text-[0.9em]">{children}</code>
+    ),
 };
 
 /**

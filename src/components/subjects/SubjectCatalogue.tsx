@@ -1,15 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import type { TrustTier } from "@/lib/tiers";
 import { BranchSemesterBar } from "@/components/subjects/BranchSemesterBar";
 import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { chaptersOf, findBranch, subjects, subjectsFor, type Subject } from "@/lib/subjects";
 
-const tierLabel = {
+const tierLabel: Record<TrustTier, string> = {
   verified: "✅ Verified",
+  tested: "🧪 Tested",
   sourced: "📚 Sourced",
   limited: "⚠️ Limited",
-} as const;
+};
 
 function SubjectCard({ subject }: { subject: Subject }) {
   const chapters = chaptersOf(subject);

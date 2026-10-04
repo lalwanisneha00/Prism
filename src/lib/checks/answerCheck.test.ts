@@ -105,3 +105,17 @@ describe("statesValue", () => {
     expect(statesValue("C = 88.5 pF", 9.5e-11)).toBe(false);
   });
 });
+
+describe("unit checks (V3 · Step 5)", () => {
+  const check = { expression: "8.99e9*2e-6/0.05^2", answer: 7192000, unit: "N/C" };
+  it("accepts the right unit written any usual way", () => {
+    expect(answerCheckProblems(check, "E = 7.19 × 10^6 N/C")).toEqual([]);
+    expect(answerCheckProblems(check, "E = 7.192e6 newtons per coulomb")).toEqual([]);
+  });
+  it("flags a wrong or missing unit, and drops that example if it can't be fixed", () => {
+    expect(answerCheckProblems(check, "E = 7.19 × 10^6 V")[0]).toContain("unit N/C");
+    const bad = { problem: "p", answer: "E = 7.19 × 10^6 J", check };
+    const good = { problem: "p", answer: "E = 7.19 × 10^6 N/C", check };
+    expect(dropFailedChecks([bad, good])).toEqual([good]);
+  });
+});

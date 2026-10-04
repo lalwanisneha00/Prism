@@ -5,13 +5,20 @@ import type { GroundingSource } from "@/lib/prompts/lessonPrompt";
  * a lesson has been checked, so they know when to double-check against their textbook.
  */
 
-export type TrustTier = "verified" | "sourced" | "limited";
+/** Most trusted first (SPEC §12.3 rule 3). */
+export const TIERS = ["verified", "tested", "sourced", "limited"] as const;
+export type TrustTier = (typeof TIERS)[number];
 
 export const tierCopy: Record<TrustTier, { badge: string; explain: string }> = {
   verified: {
     badge: "✓ Verified subject",
     explain:
       "This subject has its own test set of key facts, and our lessons score at least 95% on it.",
+  },
+  tested: {
+    badge: "🧪 Tested subject",
+    explain:
+      "This subject has its own test set of key facts taken from trusted sources, and our lessons score at least 85% on it (the exact score is on the accuracy page).",
   },
   sourced: {
     badge: "📚 Sourced",

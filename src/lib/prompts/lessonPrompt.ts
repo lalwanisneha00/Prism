@@ -119,6 +119,7 @@ SKILL SUBJECT: teach by practice, not only explanation.
 - "workedExamples" are worked practice items; quiz questions are practice items too.
 `
         : "";
+  const subjectRule = subjectKindRule(request.subject.visualSet);
   const hasNotes = sources.some((s) => s.kind === "notes");
   const notesRule = hasNotes
     ? `
@@ -148,9 +149,42 @@ SIZE:
 
 SOURCES (cite only these ids):
 ${sourceList}
-${notesRule}${limitedRule}${styleRule}`;
+${notesRule}${limitedRule}${styleRule}${subjectRule}`;
 
   return { system, prompt };
+}
+
+/** Visual sets whose worked examples are numerical with SI units (SPEC §12.3 rule 7). */
+const NUMERICAL_SETS = new Set([
+  "circuits",
+  "mechanics",
+  "thermal",
+  "fluids",
+  "civil",
+  "process",
+  "chemistry",
+  "signals",
+]);
+
+/**
+ * Extra rules for programming and numerical engineering subjects (V3 · Step 5). Physics and
+ * maths subjects get none, so the prompts measured by their golden sets stay exactly the same.
+ */
+export function subjectKindRule(visualSet: string | undefined): string {
+  if (visualSet === "computing") {
+    return `
+PROGRAMMING SUBJECT (code is run by the app before students rely on it):
+- Put every code sample in a fenced block tagged with its language (\`\`\`c, \`\`\`python or \`\`\`javascript), complete and runnable on its own: standard library only, no input(), no files, no network.
+- Right after a sample that prints something, give its exact output in a block tagged \`\`\`output. The app runs Python and JavaScript samples and compares, so the output must be character-for-character what the code prints.
+- Keep samples short (under 30 lines). Don't put code inside worked-example "check" fields.
+`;
+  }
+  if (visualSet && NUMERICAL_SETS.has(visualSet)) {
+    return `
+NUMERICAL SUBJECT: every worked example with a numerical answer must have "check" with "unit": the SI unit of the answer (e.g. "N/C", "kN m", "W", "Pa"). The written answer must give the value followed by that unit; the app checks both.
+`;
+  }
+  return "";
 }
 
 /** The follow-up prompt when a reply fails validation: show the problems, ask for a full fix. */

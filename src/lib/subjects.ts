@@ -1,3 +1,4 @@
+import { TIERS } from "@/lib/tiers";
 import { z } from "zod";
 import branchData from "@/data/branches.json";
 import { subjectFiles } from "@/data/subjects/index.generated";
@@ -55,8 +56,8 @@ export const SubjectSchema = z.object({
   id: slug,
   name: z.string().min(1),
   field: z.string().min(1),
-  /** Trust tier (SPEC §6.1); "tested" (§12.3) arrives with V3 · Step 5. */
-  tier: z.enum(["verified", "sourced", "limited"]),
+  /** Trust tier (SPEC §6.1, §12.3). */
+  tier: z.enum(TIERS),
   /** Branch ids that study it, or "all" for the first-year common core. */
   branches: z.array(z.string().min(1)).min(1),
   /** The semesters it is usually taught in (1–8). */

@@ -4,8 +4,7 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 
 ## Summary
 
-- **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`), V3 · Steps 2–4 (`v3-step-2`, `v3-step-3`, `v3-step-4`).
-- **In progress:** V3 · Step 5 (accuracy scaffolding: `tested` tier, golden sets with source quotes, resumable eval, numerical and code checks).
+- **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`), the concept map fix (`concept-map-fix`), V3 · Steps 2–5 (`v3-step-2` … `v3-step-5`).
 - **Not started:** V3 · Steps 6–11 (the syllabus waves, my-own-syllabus matching, final regression and deploy).
 
 ## How to see it
@@ -15,6 +14,28 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 - Automated checks: `npm run check`, `npm run build`, `npm run test:e2e` (Playwright, uses the fake AI, no quota). On a computer short of memory: `LLM_PROVIDER=fake npx next build`, then `E2E_SERVER=start npx playwright test --project=desktop-light` (and the other modes one at a time).
 
 ## Finished steps and "✅ Check this"
+
+### V3 · Step 5: accuracy scaffolding (tag `v3-step-5`)
+
+**Built:**
+
+- **`tested` tier** (SPEC §12.3): ≥ 85% on a subject's own golden set whose facts all carry fetched source quotes (≥ 12 topics); ≥ 95% → `verified`. New badge "🧪 Tested subject" with its explanation, in the subject schema, lesson metadata, subject catalogue and the accuracy page (which now explains both thresholds and colours 85–95% scores differently; the real score is shown, never rounded). `eval/run.ts` reports the tier each subject has earned (`tierForScore`).
+- **Golden sets with sources:** each fact can store its source URL and the exact quote; `npm run golden:check` fetches the page and confirms the quote is there (built earlier in this step, now documented). The eval runner is rate-limited (waits 30 s → 4 min on quota errors), caches lessons, and resumes where it stopped (`--max-topics`, `--fresh`).
+- **Units in numerical answers:** a worked-example or mock-test check can name the answer's SI unit (`"unit": "N/C"`); the app checks the written answer gives the value **and** that unit (written any usual way: "N/C", "N C⁻¹", "newtons per coulomb"). A lesson example with a wrong unit goes back to the AI for repair, and is removed if it can't be fixed; a mock question with a wrong unit is dropped.
+- **Code samples checked by running them:** under any lesson section with code, a "Code checked by running it" panel runs each sample in a sandboxed browser worker and compares the real output with the lesson's claimed output (✓ matches / ✗ differs, with the real output shown). JavaScript runs at once; Python runs on "Run and check" (it downloads Pyodide, a few MB, the first time); C is labelled "Not executed". Code blocks now scroll sideways on phones.
+- **Prompt rules** only for programming subjects (runnable code blocks plus an exact ```output block) and numerical engineering subjects (circuits, mechanics, thermal, fluids, civil, process, chemistry, signals: every numerical example states its unit). Physics and maths subjects get no new text, so the E&M and Engineering Maths prompts measured by their golden sets are unchanged (`PROMPT_VERSION` stays `2026-10-03.4`, no new regression eval needed).
+
+**Tests:** unit tests for the tier order and badge, unit checks (right unit in different spellings, wrong unit flagged and the example dropped, mock question dropped), the prompt rules (and that E&M's prompt is unchanged), code verdicts (match, differ, error, endless loop, not executed), and code block rendering. Playwright: `/dev/code` runs the JavaScript samples in the browser (one matches, one shows the real `0.30000000000000004`), Python waits for a tap, C is "Not executed", no sideways scroll, in all four modes. A real Python run through Pyodide was also checked once (output matched).
+
+**✅ Check this**
+
+- http://localhost:3000/dev/code: sample 1 says "✓ Ran: the output matches the lesson"; sample 2 says the real output differs and shows `0.30000000000000004`; tap **Run and check** on sample 3 (Python): after a few seconds "✓ Ran: the output matches the lesson"; sample 4 (C) says "Not executed".
+- http://localhost:3000/accuracy: the tiers list now has "🧪 Tested subject" between Verified and Sourced.
+- Edge case: on a 375px-wide window, the code blocks scroll sideways inside their box; the page itself doesn't.
+
+### Concept map fix (before V3 · Step 5, tag `concept-map-fix`)
+
+- `/map?subject=em`: hover, Tab to or tap a topic to light up every topic before it, numbered in study order, with its arrows; the rest fades. Click pins; a second click opens the topic; Esc or empty space clears. Side panel with the ordered path (ticks for done topics), "Start with the first unfinished one", whole-path lessons and "This topic unlocks". Columns by depth, collapsible chapter bands, redundant arrows removed, zoom/pan/fit, search, legend, graph validation, custom subjects. Checked by you on 2026-10-04.
 
 ### V3 · Step 4: Other subjects (tag `v3-step-4`)
 
@@ -159,7 +180,8 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 - Mock tests: ~1 mark per minute; written answers are self-marked from the examiner points (marks rounded); numerical questions must come with a calculation the server re-runs (within 1%), otherwise they are dropped. Mock results are a new synced collection (`mockResults`, database version 9, no existing data touched; the existing per-user Firestore rules already cover it).
 - The regression eval was not re-run for V2.5 because nothing on the lesson-generation path changed; it will run with V3's resumable runner.
 - Subject index: generated by a script (bundlers can't list a folder at runtime), committed, and excluded from Prettier; a test keeps it in step with the folder.
-- The `tested` tier is not in the subject schema yet: it comes with its badge and behaviour in V3 · Step 5.
+- Unit checks and the programming rule apply only to engineering subjects with those visual sets; physics and maths prompts are untouched so measured scores stay valid.
+- Code samples: JavaScript runs automatically; Python waits for a tap (Pyodide is a few MB); C is labelled "Not executed" (no free compile service is used yet).
 - First-year common subjects use `branches: ["all"]` rather than listing all 15 branches.
 - Multi-chapter mock tests only use lessons already on the device (saved lessons and chapter lessons), never new AI-written facts; chapters without studied material can't be chosen.
 - Search results for a topic open the home page picker (not a lesson straight away), so the student still chooses level and time.
@@ -187,10 +209,12 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Pauses
 
+- 2026-10-04: paused after V3 · Step 4 at your request; concept map fix built and checked by you; resumed autonomously from Step 5 on your instruction.
+
 - 2026-10-04 02:36: run started.
 - ~10:45: run had stopped (low memory killed the browser suite); resumed on request, verified Step 4 with the lighter production-server test mode, tagged `v3-step-4`.
 - Paused: Claude usage limit reached during V2.5 · Step 4 (server part done and committed as `wip:`). Resumed after the reset and finished Step 4.
 
 ## Next action
 
-Build V3 · Step 5 (accuracy scaffolding: `tested` tier and badge, golden-set format with source URL + exact quote and a quote checker, resumable rate-limited eval runner, numerical answers with units, code checking).
+V3 · Step 6: Wave 1 syllabus and grounding (including complete Applied Physics).

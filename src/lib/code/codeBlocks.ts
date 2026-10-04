@@ -69,3 +69,42 @@ export function sameOutput(actual: string, expected: string): boolean {
       .trim();
   return clean(actual) === clean(expected);
 }
+
+/** The result of running a sample (mirrors runCode's RunResult), or not run yet. */
+export type CodeCheckState =
+  | { status: "idle" }
+  | { status: "running" }
+  | { status: "ran"; output: string }
+  | { status: "error"; output: string; error: string }
+  | { status: "timeout"; output: string }
+  | { status: "not-executed"; reason: string };
+
+/** What to tell the student about one sample after (or before) running it. */
+export function codeVerdict(
+  sample: CodeSample,
+  state: CodeCheckState,
+): { tone: "muted" | "success" | "warning" | "danger"; text: string } {
+  switch (state.status) {
+    case "idle":
+      return { tone: "muted", text: "Not run yet: run it to check the output." };
+    case "running":
+      return { tone: "muted", text: "Running…" };
+    case "not-executed":
+      return { tone: "warning", text: `Not executed. ${state.reason}` };
+    case "timeout":
+      return {
+        tone: "danger",
+        text: "Stopped: the sample ran for too long (it may loop forever).",
+      };
+    case "error":
+      return { tone: "danger", text: `The sample stops with an error: ${state.error}` };
+    case "ran":
+      if (sample.expected === undefined) return { tone: "success", text: "✓ Ran without errors." };
+      return sameOutput(state.output, sample.expected)
+        ? { tone: "success", text: "✓ Ran: the output matches the lesson." }
+        : {
+            tone: "danger",
+            text: "✗ The real output differs from the lesson's. Trust the real output below.",
+          };
+  }
+}

@@ -1,3 +1,4 @@
+import { statesUnit } from "@/lib/units";
 import { z } from "zod";
 import type { Level } from "@/data/levels";
 import type { Chapter, Subject, Topic } from "@/lib/subjects";
@@ -25,7 +26,11 @@ export const MockQuestionSchema = z
     points: z.array(text.max(300)).max(10).default([]),
     /** For numerical questions: a calculation reproducing the answer (re-run by the server). */
     check: z
-      .object({ expression: z.string().trim().min(1).max(300), answer: z.number() })
+      .object({
+        expression: z.string().trim().min(1).max(300),
+        answer: z.number(),
+        unit: z.string().trim().min(1).max(40).optional(),
+      })
       .optional(),
   })
   .refine((q) => q.type !== "mcq" || (q.options && new Set(q.options).size >= 2), {
@@ -76,8 +81,15 @@ export function checkQuestions(
       const value = evaluate(q.check.expression);
       const ok =
         Math.abs(value - q.check.answer) <= Math.max(1e-9, Math.abs(q.check.answer) * 0.01);
-      if (!ok) dropped.push(`question ${i + 1}: calculation gives ${value}, not ${q.check.answer}`);
-      return ok;
+      if (!ok) {
+        dropped.push(`question ${i + 1}: calculation gives ${value}, not ${q.check.answer}`);
+        return false;
+      }
+      if (q.check.unit && !statesUnit(q.answer, q.check.unit)) {
+        dropped.push(`question ${i + 1}: the answer doesn't give the unit ${q.check.unit}`);
+        return false;
+      }
+      return true;
     } catch {
       dropped.push(`question ${i + 1}: calculation could not be run`);
       return false;
@@ -101,7 +113,7 @@ export function mockPrompt(input: {
 Rules:
 - Ask ONLY about what the SOURCE FACTS below state. Never test anything they don't contain.
 - About ${marks} marks in total for a ${input.minutes}-minute test: a mix of "mcq" (1 mark, exactly 4 options, the answer copied exactly from the options), "short" (2-3 marks), "long" (5-10 marks) and, when the facts contain formulas, "numerical" (3-5 marks).
-- Every "numerical" question must include "check": {"expression": a plain calculation with numbers only (mathjs syntax, e.g. "8.99e9*2e-6/0.05^2"), "answer": the number it gives}. The answer text must state that number with units.
+- Every "numerical" question must include "check": {"expression": a plain calculation with numbers only (mathjs syntax, e.g. "8.99e9*2e-6/0.05^2"), "answer": the number it gives, "unit": its SI unit, e.g. "N/C" (omit for pure numbers)}. The answer text must state that number followed by that unit.
 - For "short", "long" and "numerical", list in "points" the 2-6 points an examiner looks for (the student ticks them to mark themselves). Size model answers to the marks.
 - Spread questions across all topics; use each question's topic id from the list.${input.pyqs.length ? "\n- Match the style, wording and marks of the PREVIOUS-YEAR QUESTIONS below (do not copy them)." : ""}
 - Markdown and KaTeX ($...$) allowed; no HTML.

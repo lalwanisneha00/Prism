@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import accuracy from "@/data/accuracy.json";
 import { subjects } from "@/lib/subjects";
-import { tierCopy, type TrustTier } from "@/lib/tiers";
+import { TIERS, tierCopy } from "@/lib/tiers";
 
 export const metadata: Metadata = { title: "How accurate is Prism?" };
 
@@ -18,7 +18,6 @@ type SubjectScore = {
 };
 
 const scores = (accuracy as { subjects: Record<string, SubjectScore> }).subjects;
-const tiers: TrustTier[] = ["verified", "sourced", "limited"];
 
 /** The public accuracy page (SPEC §6.1 rule 12): each subject's tier and latest measured score. */
 export default function AccuracyPage() {
@@ -30,7 +29,8 @@ export default function AccuracyPage() {
           We don&apos;t just hope lessons are right; we measure it. Each subject has a{" "}
           <b>golden set</b>: topics with key facts taken from the free textbooks the lessons cite.
           We generate a real lesson for every topic and count how many of those facts it states
-          correctly. A subject is <b>verified</b> only when it scores at least 95%.
+          correctly. A subject is <b>tested</b> when it scores at least 85% and <b>verified</b> at
+          95% or more; we show the real score, never rounded up.
         </p>
       </div>
 
@@ -77,7 +77,9 @@ export default function AccuracyPage() {
                           className={
                             score.percent >= 95
                               ? "font-bold text-success"
-                              : "font-bold text-warning"
+                              : score.percent >= 85
+                                ? "font-bold text-primary"
+                                : "font-bold text-warning"
                           }
                         >
                           {score.percent}%
@@ -106,7 +108,7 @@ export default function AccuracyPage() {
       <section className="flex flex-col gap-3">
         <h2 className="text-xl font-bold">What the tiers mean</h2>
         <ul className="flex flex-col gap-2">
-          {tiers.map((t) => (
+          {TIERS.map((t) => (
             <li key={t} className="rounded-xl border border-border bg-surface p-3 text-sm">
               <span className="font-semibold">{tierCopy[t].badge}</span>: {tierCopy[t].explain}
             </li>

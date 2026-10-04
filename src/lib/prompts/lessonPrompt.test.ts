@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { chaptersFromDraft, toSubject } from "@/lib/custom/customSubject";
 import { validateLessonRequest } from "@/lib/lessonRequest";
-import { buildLessonPrompt } from "@/lib/prompts/lessonPrompt";
+import { buildLessonPrompt, subjectKindRule } from "@/lib/prompts/lessonPrompt";
 
 const source = {
   id: "s1",
@@ -65,5 +65,25 @@ describe("lesson prompt for theory and skill subjects", () => {
         duration: "10",
       }).ok,
     ).toBe(false);
+  });
+});
+
+describe("programming and numerical subjects (V3 · Step 5)", () => {
+  it("asks programming subjects for runnable code with exact output blocks", () => {
+    const rule = subjectKindRule("computing");
+    expect(rule).toContain("PROGRAMMING SUBJECT");
+    expect(rule).toContain("```output");
+  });
+  it("asks numerical engineering subjects for checked SI units", () => {
+    expect(subjectKindRule("circuits")).toContain('"unit"');
+    expect(subjectKindRule("mechanics")).toContain("NUMERICAL SUBJECT");
+  });
+  it("adds nothing for physics and maths, so measured prompts stay the same", () => {
+    expect(subjectKindRule("physics")).toBe("");
+    expect(subjectKindRule("maths")).toBe("");
+    expect(subjectKindRule(undefined)).toBe("");
+    const p = prompt(null, "first-encounter");
+    expect(p).not.toContain("PROGRAMMING SUBJECT");
+    expect(p).not.toContain("NUMERICAL SUBJECT");
   });
 });

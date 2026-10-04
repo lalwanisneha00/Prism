@@ -3,6 +3,7 @@ import { tierCopy, type TrustTier } from "@/lib/tiers";
 
 const tierStyle: Record<TrustTier, string> = {
   verified: "border-success/40 bg-success/10 text-success",
+  tested: "border-success/30 bg-success/5 text-success",
   sourced: "border-primary/30 bg-primary-soft text-primary",
   limited: "border-warning/40 bg-warning/10 text-warning",
 };

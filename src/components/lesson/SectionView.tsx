@@ -3,6 +3,8 @@ import { Markdown } from "@/components/lesson/Markdown";
 import { BlockNoteButton, BlockNotes } from "@/components/annotations/BlockNotes";
 import { SectionHelp } from "@/components/explain/SectionHelp";
 import { VisualSlot } from "@/components/lesson/VisualSlot";
+import { CodeChecks } from "@/components/lesson/CodeChecks";
+import { findCodeSamples } from "@/lib/code/codeBlocks";
 import type { GlossaryEntry } from "@/lib/glossary";
 import type { Section, Source } from "@/lib/schema";
 
@@ -81,6 +83,7 @@ export function SectionView({
       <div data-anno-block={`section:${section.id}`} data-section-id={section.id}>
         <Markdown glossary={glossary}>{section.body}</Markdown>
       </div>
+      {section.body.includes("```") && <CodeChecks samples={findCodeSamples(section.body)} />}
       {interactive && <BlockNotes block={`section:${section.id}`} />}
       {section.visual && (
         <div
