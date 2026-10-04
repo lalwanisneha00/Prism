@@ -6,7 +6,7 @@ import { extractFile } from "@/lib/extract/extractFile";
 import { ExtractError, MAX_FILE_BYTES, unitName } from "@/lib/extract/types";
 import { guessChapter, guessKind, kindLabel } from "@/lib/notes/kinds";
 import { addNote } from "@/lib/notes/store";
-import { subjects } from "@/lib/subjects";
+import type { Subject } from "@/lib/subjects";
 
 /** At most this many files in one go, so a slip of the mouse can't freeze the page. */
 export const MAX_FILES_PER_UPLOAD = 20;
@@ -23,10 +23,13 @@ type Item = {
 
 /** Drag-and-drop or pick several files of any supported format; each is read on this device. */
 export function UploadBox({
+  subjects,
   subject,
   onSubjectChange,
   onAdded,
 }: {
+  /** Built-in subjects and the student's own. */
+  subjects: readonly Subject[];
   subject: string;
   onSubjectChange: (id: string) => void;
   onAdded: () => void;

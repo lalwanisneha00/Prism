@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "katex/dist/katex.min.css";
 import { Container } from "@/components/Container";
+import { CustomLessonRoute } from "@/components/custom/CustomRoutes";
 import { LessonLoader } from "@/components/lesson/LessonLoader";
+import { isCustomId } from "@/lib/custom/customSubject";
 import { validateLessonRequest, type LessonRequest } from "@/lib/lessonRequest";
 
 export async function generateMetadata({ searchParams }: PageProps<"/lesson">): Promise<Metadata> {
@@ -12,6 +14,17 @@ export async function generateMetadata({ searchParams }: PageProps<"/lesson">): 
 
 export default async function LessonPage({ searchParams }: PageProps<"/lesson">) {
   const params = await searchParams;
+  // A student's own subject lives in their browser: it is loaded there (V3 · Step 4).
+  if (typeof params.subject === "string" && isCustomId(params.subject)) {
+    return (
+      <Container className="py-10 sm:py-14">
+        <div className="flex flex-col gap-10">
+          <CustomLessonRoute params={params} useNotes={params.notes === "1"} />
+          <BackLink>Choose a different topic</BackLink>
+        </div>
+      </Container>
+    );
+  }
   const result = validateLessonRequest(params);
 
   return (

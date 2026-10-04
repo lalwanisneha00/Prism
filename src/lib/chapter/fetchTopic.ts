@@ -1,4 +1,5 @@
 import { ChapterPartsSchema, type ChapterParts } from "@/lib/chapter/parts";
+import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
 import type { LessonErrorKind, LessonEvent } from "@/lib/lessonEvents";
 import type { NotePassage } from "@/lib/notes/notesSources";
 import { readLessonStream } from "@/lib/readLessonStream";
@@ -21,6 +22,7 @@ export async function fetchTopicLesson(
     level: string;
     duration: number;
     notes?: NotePassage[];
+    custom?: CustomSubjectPayload;
   },
   onStage: (message: string) => void,
   signal: AbortSignal,
@@ -65,6 +67,7 @@ export async function fetchChapterParts(
     level: string;
     minutes: number;
     order: { id: string; minutes: number }[];
+    custom?: CustomSubjectPayload;
   },
   signal: AbortSignal,
 ): Promise<PartsResult> {

@@ -13,9 +13,11 @@ import {
 } from "@/lib/chapter/estimate";
 import { chapterHref } from "@/lib/chapter/request";
 import { studentContext } from "@/lib/chapter/studentContext";
-import { findChapter, findSubject } from "@/lib/subjects";
+import { findChapter, findSubject, type Subject } from "@/lib/subjects";
 
 export type PlannerProps = {
+  /** A subject that isn't built in (a student's own); otherwise looked up by id. */
+  subject?: Subject;
   subjectId: string;
   chapterId: string;
   topicIds: string[];
@@ -35,7 +37,7 @@ const EXAM_LEVELS = new Set<LevelSlug>(["exam-prep", "last-minute"]);
  * give a topic more or less time, or skip it; the total stays the option they chose.
  */
 export function ChapterPlanner(props: PlannerProps) {
-  const subject = findSubject(props.subjectId)!;
+  const subject = props.subject ?? findSubject(props.subjectId)!;
   const chapter = findChapter(subject, props.chapterId)!;
   const topics = chapter.topics.filter((t) => props.topicIds.includes(t.id));
   const [plan, setPlan] = useState<TopicPlan[] | null>(null);

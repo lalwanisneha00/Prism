@@ -4,9 +4,9 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 
 ## Summary
 
-- **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`), V3 · Step 2 (`v3-step-2`), V3 · Step 3 (`v3-step-3`).
-- **In progress:** V3 · Step 4 ("Other subjects": your own non-core subjects).
-- **Not started:** V3 · Steps 5–11.
+- **Finished:** **all of V2.5** (Steps 1–5; tags `v2.5-step-2` … `v2.5-step-5`), V3 · Steps 2–3 (`v3-step-2`, `v3-step-3`). V3 · Step 4 is built and committed as `wip:` but **not tagged**: its full browser re-run was stopped by the system for low memory (see Problems).
+- **In progress:** V3 · Step 5 (accuracy scaffolding: `tested` tier, golden sets with source quotes, resumable eval, numerical and code checks).
+- **Not started:** V3 · Steps 6–11 (the syllabus waves, my-own-syllabus matching, final regression and deploy).
 
 ## How to see it
 
@@ -15,6 +15,27 @@ Newest status at the top. Branch: `overnight-v2.5-v3` (nothing was merged into `
 - Automated checks: `npm run check`, `npm run build`, `npm run test:e2e` (Playwright, uses the fake AI, no quota).
 
 ## Finished steps and "✅ Check this"
+
+### V3 · Step 4: Other subjects (tag `v3-step-4`)
+
+**Built:**
+
+- **Entry points:** an **Other subjects** section on the Subjects page, a "+ Other subject" chip in the home picker, and **My subjects** (`/my-subjects`). One-tap suggestions (Indian Knowledge System, Environmental Science, Universal Human Values, Organisational Behaviour, English Communication, Constitution of India, Professional Ethics, Economics for Engineers, Principles of Management) fill in the name only, plus "Add my own subject".
+- **Setup form:** name; theory or skill subject (guessed from the name, editable); **units and topics, optional**: type them, paste a syllabus, or upload the syllabus file (any V2.5 format); "Check my outline" reads it into units and topics (no AI: understands "Unit 2: Title (8 hours) – topic, topic" and lists); **your material, optional and recommended** (any format, stays on the device); **exam details, optional**: exam date, marks per question, written/MCQ, internal/end-semester, semester, language, units in the next exam. With no topics, syllabus or material it asks for one, never a generic lesson.
+- **Outline built from your material:** with files but no topics, Prism proposes units → topics (one AI call to tidy it; a free on-device version is used if the AI isn't available), labelled "Outline built from your material", and the **outline editor** lets you rename, reorder, merge a unit into the one above, delete and add. Topics keep their ids when renamed elsewhere, so progress isn't lost.
+- **Lessons:** a custom subject works everywhere a built-in one does: single topic, several topics or a whole unit (with the Quick/Standard/Thorough options and "Why these timings?"), levels, audio, quiz, flashcards, highlights, chapter lessons, chapter and multi-chapter mock tests. Its lessons are grounded in **your material first**, then **Wikipedia articles found for each topic**; it is `limited` until you upload material, then `sourced`, and the subject page says so with an upload prompt. **Theory style:** mind maps, timelines, comparison tables; in **Exam Prep**, model answers for 2, 5 and 10 marks with the points examiners look for and how to structure a long answer. **Skill subjects** get practice exercises and formats (letters, emails, reports) with examples. These rules apply only to custom subjects, so built-in lessons and library copies are unchanged.
+- **Subject page** (`/my-subjects/view?id=…`): tier, exam date countdown, pattern, units in the next exam, shortcuts (Start a lesson, My materials, Mock test, Edit), chapters with progress. Uploaded **previous-year papers mark the topics asked most** ("asked 3×"), on built-in subject pages too.
+- **Storage and privacy:** your subjects sync to your account (new `customSubjects` collection, database version 10, no existing data touched; existing Firestore rules already cover it) and are in export/import backups. Files and their text stay on the device. Lessons from custom subjects or private uploads are **never** written to the shared library. **My subjects** has open, edit, duplicate and delete.
+
+**Tests:** new unit tests: syllabus reading (units, hours, bullets, round trip), ids that survive edits, skill/theory guess, custom subject as an ordinary subject (passes the catalogue checks; limited without material, sourced with it), saved/synced/edited/duplicated/deleted, outline from material and excerpts, Wikipedia search sources with fallback, prompt rules only for custom subjects, request validation with a custom subject. Playwright: suggestion → pasted syllabus → outline edit → exam details → saved → subject page → topic lesson → whole-unit lesson through plan and build; "add topics or material" message; outline from an uploaded deck (labelled) and the file kept in My materials; duplicate and delete, at desktop/375px × light/dark.
+
+**✅ Check this**
+
+- http://localhost:3000/subjects → Other subjects → **Indian Knowledge System** → paste:
+  `Unit 1: Vedic literature – The four Vedas, Upanishads` / `Unit 2: Indian mathematics – Zero and the decimal system, Aryabhata` → **Check my outline** → rename a topic → Exam details: "2, 5 and 10 marks" → **Save my subject**.
+- The subject page shows "Limited" with "Upload your slides or notes"; tap a topic → the picker opens with it chosen → **Exam Prep** → the lesson has model answers sized for marks (with real Gemini).
+- **Add my own subject** → name "Environmental Science" → add a slide deck only → Save: "Outline built from your material" appears for you to edit; save again: the subject is "Sourced" and the deck is in My materials for it.
+- Edge case: name only, no topics or files → Save: the friendly "Add your topics, paste your syllabus, or upload…" message.
 
 ### V3 · Step 3: navigation for many subjects (tag `v3-step-3`)
 
@@ -142,13 +163,22 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 - First-year common subjects use `branches: ["all"]` rather than listing all 15 branches.
 - Multi-chapter mock tests only use lessons already on the device (saved lessons and chapter lessons), never new AI-written facts; chapters without studied material can't be chosen.
 - Search results for a topic open the home page picker (not a lesson straight away), so the student still chooses level and time.
+- Custom subjects: sources are the student's material plus Wikipedia articles found by searching "topic + subject name" (2 per topic, the topic alone if nothing is found). Tier: `limited` without uploaded material, `sourced` with it.
+- Custom subject pages live at `/my-subjects/view?id=…` (their ids exist only in the student's account, so they can't be pre-built pages like `/subjects/em`).
+- The outline-from-material AI call is one request per subject set-up; if it fails (quota, offline) the on-device outline is shown instead.
+- Exam details are stored and shown on the subject page; using the marks pattern inside generated mock tests is left for later (mock tests already follow uploaded previous-year papers).
 
 ## Needs Sneha
+
+- Re-run the full browser suite for V3 · Step 4 when the computer has free memory: `npx playwright test` (it uses the installed Edge and the fake AI, about 15–40 minutes). If it passes, tag it: `git tag v3-step-4 && git push --tags`.
+- Wave 1 syllabus sources so far: [GCE Kalahandi first-year syllabus (AICTE model)](https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf) and [IET Lucknow K-series first year (AICTE model)](https://ietlucknow.ac.in/sites/default/files/syllabus/K_Series_B_Tech_1st_Year_AICTE_Model_Curriculum_EFS_2020_21_4.pdf). Programming for Problem Solving there is C only; Environmental Science still needs a source.
 
 - **Vercel preview link:** the GitHub CLI isn't signed in on this computer, so I couldn't read the preview URL. Open vercel.com → the Prism project → Deployments, and look for the `overnight-v2.5-v3` branch (if the project is linked to GitHub, every push made a preview).
 - To use "Read with AI" on photos, nothing new is needed (it uses the existing `GEMINI_API_KEY`). Groq cannot read images, so if Gemini's quota is used up the button says so.
 
 ## Problems
+
+- **Full browser re-run for V3 · Step 4 was stopped by the system (computer low on memory)**, not by a test failure. Unit tests (407) and the production build passed, and the 4 new Other-subjects browser tests passed on desktop. To finish verifying: `npx playwright test` (all modes), then `git tag v3-step-4`.
 
 - The run paused once at the Claude usage limit during V2.5 · Step 4 and resumed after the reset (no work lost).
 
@@ -163,4 +193,4 @@ Also fixed: the "Parsing CSS source code failed … ::highlight" warning on ever
 
 ## Next action
 
-Build V3 · Step 4 ("Other subjects": entry point with suggestions, setup form, outline from material, theory-style lessons and answer-writing help, My subjects with edit/duplicate/delete, backup).
+Build V3 · Step 5 (accuracy scaffolding: `tested` tier and badge, golden-set format with source URL + exact quote and a quote checker, resumable rate-limited eval runner, numerical answers with units, code checking).

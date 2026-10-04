@@ -4,6 +4,7 @@ import { ChapterQuiz } from "@/components/chapter/ChapterQuiz";
 import { RevisionSheet } from "@/components/lesson/StaticBlocks";
 import { MockTestPanel } from "@/components/mock/MockTestPanel";
 import type { LevelSlug } from "@/data/levels";
+import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
 import { mergeRevision, mixedQuiz, type TopicLesson } from "@/lib/chapter/extras";
 
 /**
@@ -11,12 +12,14 @@ import { mergeRevision, mixedQuiz, type TopicLesson } from "@/lib/chapter/extras
  * formulas, and a timed mock test. All built from the topic lessons already on the page.
  */
 export function ChapterExtras({
+  custom,
   subjectId,
   chapterId,
   chapterName,
   level,
   topics,
 }: {
+  custom?: CustomSubjectPayload;
   subjectId: string;
   chapterId: string;
   chapterName: string;
@@ -60,6 +63,7 @@ export function ChapterExtras({
           Chapter mock test
         </h2>
         <MockTestPanel
+          custom={custom}
           subjectId={subjectId}
           chapterIds={[chapterId]}
           chapterName={chapterName}

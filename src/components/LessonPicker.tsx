@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
 import { useId, useRef, useState, type FormEvent } from "react";
 import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
@@ -12,6 +14,7 @@ import { TopicSearch } from "@/components/TopicSearch";
 import { defaultDuration, durations } from "@/data/durations";
 import { availableLevels, type LevelSlug } from "@/data/levels";
 import { chapterHref } from "@/lib/chapter/request";
+import { isCustomId } from "@/lib/custom/customSubject";
 import {
   lessonHref,
   validateLessonRequest,
@@ -24,11 +27,33 @@ const fieldOrder: LessonRequestField[] = ["chapter", "topic", "level", "duration
 
 export type PickerInitial = { subject?: string; chapter?: string; topic?: string };
 
-export function LessonPicker({
+/**
+ * The lesson picker. The student's own subjects ("Other subjects", V3 · Step 4) live in their
+ * browser, so they are loaded first when the link asks for one of them.
+ */
+export function LessonPicker(props: { subjects: readonly Subject[]; initial?: PickerInitial }) {
+  const custom = useCustomSubjects();
+  const wantsCustom = props.initial?.subject ? isCustomId(props.initial.subject) : false;
+  if (wantsCustom && !custom.loaded) {
+    return <div className="h-96 animate-pulse rounded-2xl bg-surface-2" aria-busy="true" />;
+  }
+  return (
+    <PickerForm
+      {...props}
+      subjects={[...props.subjects, ...custom.subjects]}
+      ownCount={custom.subjects.length}
+    />
+  );
+}
+
+function PickerForm({
   subjects,
   initial = {},
+  ownCount = 0,
 }: {
   subjects: readonly Subject[];
+  /** How many of the subjects (at the end of the list) are the student's own. */
+  ownCount?: number;
   /** A choice made elsewhere (search, a subject page), from the URL. */
   initial?: PickerInitial;
 }) {
@@ -40,7 +65,9 @@ export function LessonPicker({
   const { mine, save: saveMine } = useMyBranch();
   const [showAll, setShowAll] = useState(false);
   const mineList = mine.branch ? subjectsFor(mine.branch, mine.semester) : [];
-  const shown = mine.branch && !showAll && mineList.length > 0 ? mineList : subjects;
+  const own = ownCount ? subjects.slice(-ownCount) : [];
+  // Built-in subjects for my branch (if set), then my own subjects.
+  const shown = mine.branch && !showAll && mineList.length > 0 ? [...mineList, ...own] : subjects;
 
   const start = subjects.find((s) => s.id === initial.subject) ?? subjects[0];
   const [subjectId, setSubjectId] = useState(start.id);
@@ -87,13 +114,17 @@ export function LessonPicker({
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (scope !== "topic") return submitChapter();
-    const result = validateLessonRequest({
-      subject: owner.id,
-      chapter: chapterId,
-      topic: topicId,
-      level,
-      duration,
-    });
+    const result = validateLessonRequest(
+      {
+        subject: owner.id,
+        chapter: chapterId,
+        topic: topicId,
+        level,
+        duration,
+      },
+      // A student's own subject is checked against itself (it isn't in the catalogue).
+      isCustomId(owner.id) ? [owner] : [],
+    );
     if (!result.ok) {
       setErrors(result.errors);
       // Move focus to the first problem so keyboard and screen-reader users land on it.
@@ -184,6 +215,12 @@ export function LessonPicker({
               <span className="font-normal text-muted"> · {s.field}</span>
             </label>
           ))}
+          <Link
+            href="/my-subjects"
+            className="rounded-full border border-dashed border-border px-4 py-2 text-sm font-semibold hover:bg-surface-2"
+          >
+            + Other subject
+          </Link>
         </div>
         {mine.branch && mineList.length > 0 && (
           <button
@@ -191,7 +228,7 @@ export function LessonPicker({
             onClick={() => setShowAll((v) => !v)}
             className="w-fit text-sm font-semibold text-primary underline underline-offset-2"
           >
-            {showAll ? "Show only my subjects" : `Show all ${subjects.length} subjects`}
+            {showAll ? "Show only my subjects" : `Show all ${subjects.length - ownCount} subjects`}
           </button>
         )}
         {mine.branch && mineList.length === 0 && (

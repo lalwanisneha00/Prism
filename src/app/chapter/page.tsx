@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChapterPlanner } from "@/components/chapter/ChapterPlanner";
+import { CustomChapterRoute } from "@/components/custom/CustomRoutes";
+import { isCustomId } from "@/lib/custom/customSubject";
 import { Container } from "@/components/Container";
 import { validateChapterRequest } from "@/lib/chapter/request";
 
@@ -8,7 +10,15 @@ export const metadata: Metadata = { title: "Plan a chapter lesson" };
 
 /** The plan for a whole-chapter or several-topic lesson, before it is built (V2.5 · Step 3). */
 export default async function ChapterPage({ searchParams }: PageProps<"/chapter">) {
-  const result = validateChapterRequest(await searchParams);
+  const params = await searchParams;
+  if (typeof params.subject === "string" && isCustomId(params.subject)) {
+    return (
+      <Container className="py-10 sm:py-14">
+        <CustomChapterRoute params={params} page="plan" />
+      </Container>
+    );
+  }
+  const result = validateChapterRequest(params);
   return (
     <Container className="py-10 sm:py-14">
       {result.ok ? (

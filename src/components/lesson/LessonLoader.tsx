@@ -6,6 +6,7 @@ import { LessonHeader } from "@/components/lesson/LessonHeader";
 import { LessonSkeleton } from "@/components/lesson/LessonSkeleton";
 import { LessonView } from "@/components/lesson/LessonView";
 import { SectionView } from "@/components/lesson/SectionView";
+import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
 import type { LessonErrorKind, LessonEvent } from "@/lib/lessonEvents";
 import type { LessonRequest } from "@/lib/lessonRequest";
 import { toPassages, type NotePassage } from "@/lib/notes/notesSources";
@@ -28,9 +29,12 @@ const initial: State = { status: "loading", stage: "Getting started…", section
 export function LessonLoader({
   request,
   useNotes = false,
+  custom,
 }: {
   request: LessonRequest;
   useNotes?: boolean;
+  /** A student's own subject (V3 · Step 4): sent with the request so the server can teach it. */
+  custom?: CustomSubjectPayload;
 }) {
   const [state, setState] = useState<State>(initial);
   const [attempt, setAttempt] = useState(0);
@@ -104,6 +108,7 @@ export function LessonLoader({
             duration: String(request.duration),
             fresh: skipLibrary,
             ...(notes.length > 0 ? { notes } : {}),
+            ...(custom ? { custom } : {}),
           }),
           signal: controller.signal,
         });
@@ -126,7 +131,7 @@ export function LessonLoader({
     })();
 
     return () => controller.abort();
-  }, [request, attempt, skipLibrary, useNotes]);
+  }, [request, attempt, skipLibrary, useNotes, custom]);
 
   // Every lesson opened goes to the top of "Recent topics" on the home page.
   const readyLesson = state.status === "ready" ? state.lesson : null;

@@ -8,23 +8,31 @@
  *   npm run eval -- --topics=gauss-law,ohms-law
  *   npm run eval -- --level=last-minute --duration=5
  *   npm run eval -- --fake                    dry run with the fake AI (checks the harness)
+ *   npm run eval -- --max-topics=10           at most 10 new topics this run (quota-friendly)
+ *   npm run eval -- --fresh                   ignore saved progress and start again
+ *
+ * Resumable (SPEC §12.7): each topic's result is saved as soon as it is done, in
+ * eval/results/progress/. A rerun skips finished topics. On a rate limit it waits (30 s, 60 s,
+ * 2 min, 4 min); if the quota is still used up it saves and stops, saying to resume later.
+ * Scores are recorded only once every topic of a subject is done.
  *
  * Needs GEMINI_API_KEY (or GROQ_API_KEY) in .env.local. Free-tier friendly: it pauses
  * between topics. Each real run appends its scores to EVAL_LOG.md, writes
  * eval/results/<subject>.json and updates src/data/accuracy.json (the /accuracy page).
  */
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import emGolden from "./golden/em.json";
-import mathGolden from "./golden/engg-math.json";
+import { loadGoldenSets } from "./golden";
 import {
-  GoldenSchema,
   lessonText,
   overallPercent,
+  quotedShare,
   scoreLesson,
+  tierForScore,
   visualReport,
   type Golden,
   type TopicScore,
 } from "./score";
+import { LlmError } from "@/lib/llm/types";
 import { generateLesson } from "@/lib/generateLesson";
 import { groundSources } from "@/lib/grounding/groundSources";
 import { validateLessonRequest } from "@/lib/lessonRequest";
@@ -50,7 +58,9 @@ const level = args.level ?? "first-encounter";
 const duration = args.duration ?? "10";
 const fake = args.fake === "true";
 const delayMs = Number(args.delay ?? (fake ? 0 : 4000));
-const allSets: Golden[] = [GoldenSchema.parse(emGolden), GoldenSchema.parse(mathGolden)];
+const maxTopics = Number(args["max-topics"] ?? Infinity);
+const fresh = args.fresh === "true";
+const allSets: Golden[] = loadGoldenSets();
 const sets = allSets.filter((s) => !args.subject || s.subject === args.subject);
 
 function chainFor(sources: ReturnType<typeof sourcesForTopic>, topic: string): LlmProvider[] {
@@ -77,7 +87,47 @@ type Row = TopicScore & {
   error?: string;
 };
 
-async function runSet(set: Golden): Promise<{ percent: number; rows: Row[] }> {
+/** Waits between attempts after a rate limit; after the last one the run stops for today. */
+const RATE_LIMIT_WAITS_MS = [30_000, 60_000, 120_000, 240_000];
+class QuotaExhausted extends Error {}
+let newTopicsThisRun = 0;
+
+function progressPath(subject: string): string {
+  return `eval/results/progress/${subject}-${level}-${duration}-${PROMPT_VERSION}${fake ? "-fake" : ""}.json`;
+}
+
+function loadProgress(subject: string): Record<string, Row> {
+  const file = progressPath(subject);
+  if (fresh || !existsSync(file)) return {};
+  try {
+    return JSON.parse(readFileSync(file, "utf8")) as Record<string, Row>;
+  } catch {
+    return {};
+  }
+}
+
+function saveProgress(subject: string, done: Record<string, Row>) {
+  mkdirSync("eval/results/progress", { recursive: true });
+  writeFileSync(progressPath(subject), JSON.stringify(done, null, 2));
+}
+
+/** Runs one call, waiting and retrying on rate limits; throws QuotaExhausted when it gives up. */
+async function withRateLimitRetry<T>(work: () => Promise<T>): Promise<T> {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return await work();
+    } catch (err) {
+      const limited = err instanceof LlmError && err.kind === "rate-limit";
+      if (!limited) throw err;
+      if (attempt >= RATE_LIMIT_WAITS_MS.length) throw new QuotaExhausted(String(err));
+      const wait = RATE_LIMIT_WAITS_MS[attempt];
+      console.log(`   rate limited: waiting ${wait / 1000} s before trying again…`);
+      await new Promise((r) => setTimeout(r, wait));
+    }
+  }
+}
+
+async function runSet(set: Golden): Promise<{ percent: number; rows: Row[]; complete: boolean }> {
   const topics = args.topics
     ? set.topics.filter((t) => args.topics.split(",").includes(t.topic))
     : set.topics;
@@ -86,8 +136,20 @@ async function runSet(set: Golden): Promise<{ percent: number; rows: Row[] }> {
     `\n${subject.name} · ${topics.length} topics · level ${level} · ${duration} min${fake ? " · FAKE AI" : ""}\n`,
   );
   const rows: Row[] = [];
+  const done = loadProgress(set.subject);
+  const already = topics.filter((t) => done[t.topic]).length;
+  if (already) console.log(`Resuming: ${already} of ${topics.length} topics already done.\n`);
 
   for (const [i, entry] of topics.entries()) {
+    if (done[entry.topic]) {
+      rows.push(done[entry.topic]);
+      continue;
+    }
+    if (newTopicsThisRun >= maxTopics) {
+      console.log(`Stopping after ${maxTopics} new topics (--max-topics). Run again to continue.`);
+      return { percent: overallPercent(rows), rows, complete: false };
+    }
+    newTopicsThisRun++;
     const request = validateLessonRequest({
       subject: set.subject,
       chapter: entry.chapter,
@@ -100,7 +162,8 @@ async function runSet(set: Golden): Promise<{ percent: number; rows: Row[] }> {
     try {
       const sources = await groundSources(sourcesForTopic(set.subject, entry.topic));
       const chain = chainFor(sources, entry.topic);
-      const generate = (o: GenerateOptions) => generateJsonWithFallback(chain, o);
+      const generate = (o: GenerateOptions) =>
+        withRateLimitRetry(() => generateJsonWithFallback(chain, o));
       const draft = await generateLesson(request.request, {
         generate,
         emit: () => {},
@@ -119,14 +182,17 @@ async function runSet(set: Golden): Promise<{ percent: number; rows: Row[] }> {
       const visuals = visualReport(lesson, findVisualProblems(lesson), excerpts);
       const visualIssues = [...visuals.invalid, ...visuals.unsupportedNumbers];
       const sourced = lesson.sections.filter((s) => s.check?.status === "sourced").length;
-      rows.push({
+      const row: Row = {
         ...score,
         valid: true,
         sourced: `${sourced}/${lesson.sections.length}`,
         corrections: applied,
         visuals: visuals.visuals,
         visualIssues,
-      });
+      };
+      rows.push(row);
+      done[entry.topic] = row;
+      saveProgress(set.subject, done);
       console.log(
         `${String(i + 1).padStart(2)}. ${entry.topic.padEnd(28)} facts ${score.found.length}/${entry.facts.length}` +
           `  sourced ${sourced}/${lesson.sections.length}  visuals ${visuals.visuals}${visualIssues.length ? ` (${visualIssues.length} issues)` : ""}` +
@@ -134,7 +200,13 @@ async function runSet(set: Golden): Promise<{ percent: number; rows: Row[] }> {
           (score.missing.length ? `  missing: ${score.missing.join(", ")}` : ""),
       );
     } catch (err) {
-      rows.push({
+      if (err instanceof QuotaExhausted) {
+        console.log(
+          `\nThe free AI quota is used up for now. Progress is saved (${Object.keys(done).length} of ${topics.length} topics); run the same command later to continue.`,
+        );
+        throw err;
+      }
+      const failedRow: Row = {
         topic: entry.topic,
         found: [],
         missing: entry.facts.map((f) => f.id),
@@ -144,7 +216,11 @@ async function runSet(set: Golden): Promise<{ percent: number; rows: Row[] }> {
         visuals: 0,
         visualIssues: [],
         error: String(err),
-      });
+      };
+      rows.push(failedRow);
+      // A lesson that failed for another reason counts as a miss, and is saved like any result.
+      done[entry.topic] = failedRow;
+      saveProgress(set.subject, done);
       console.log(
         `${String(i + 1).padStart(2)}. ${entry.topic.padEnd(28)} FAILED: ${String(err).slice(0, 120)}`,
       );
@@ -158,7 +234,7 @@ async function runSet(set: Golden): Promise<{ percent: number; rows: Row[] }> {
   console.log(
     `\n${subject.name}: key facts stated ${percent}%  ·  valid lessons ${valid}/${rows.length}  ·  visual issues ${issues}  ·  target ≥ 95%`,
   );
-  return { percent, rows };
+  return { percent, rows, complete: true };
 }
 
 async function main() {
@@ -167,8 +243,13 @@ async function main() {
   const day = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
   const date = now.toISOString();
   const model = process.env.GEMINI_MODEL || "gemini-flash-latest (+ fallbacks)";
-  const results: { subject: string; percent: number; rows: Row[] }[] = [];
-  for (const set of sets) results.push({ subject: set.subject, ...(await runSet(set)) });
+  const results: { subject: string; percent: number; rows: Row[]; complete: boolean }[] = [];
+  try {
+    for (const set of sets) results.push({ subject: set.subject, ...(await runSet(set)) });
+  } catch (err) {
+    if (err instanceof QuotaExhausted) process.exit(2);
+    throw err;
+  }
 
   mkdirSync("eval/results", { recursive: true });
   for (const r of results) {
@@ -180,7 +261,9 @@ async function main() {
 
   // A full real run (not --topics, not --fake) is recorded for the regression log and the
   // public accuracy page.
-  if (!fake && !args.topics) {
+  // Only subjects whose every topic is done are recorded.
+  const finished = results.filter((r) => r.complete);
+  if (!fake && !args.topics && finished.length > 0) {
     if (!existsSync("EVAL_LOG.md")) {
       writeFileSync(
         "EVAL_LOG.md",
@@ -191,8 +274,10 @@ async function main() {
     const accuracy = JSON.parse(readFileSync(accuracyPath, "utf8")) as {
       subjects: Record<string, unknown>;
     };
-    for (const r of results) {
+    for (const r of finished) {
       const set = sets.find((s) => s.subject === r.subject)!;
+      const share = quotedShare(set);
+      const recommendedTier = tierForScore(r.percent, { topics: set.topics.length, ...share });
       const facts = set.topics.reduce((s, t) => s + t.facts.length, 0);
       const valid = r.rows.filter((x) => x.valid).length;
       const visuals = r.rows.reduce((s, x) => s + x.visuals, 0);
@@ -210,7 +295,13 @@ async function main() {
         date: day,
         level,
         promptVersion: PROMPT_VERSION,
+        quotedFacts: share.quoted,
+        // What the score earns under SPEC §12.3; a person reviews samples before it is applied.
+        recommendedTier,
       };
+      console.log(
+        `${r.subject}: recommended tier "${recommendedTier}" (${share.quoted}/${share.total} facts have source quotes)`,
+      );
     }
     writeFileSync(accuracyPath, `${JSON.stringify(accuracy, null, 2)}\n`);
     console.log("Recorded in EVAL_LOG.md and src/data/accuracy.json");

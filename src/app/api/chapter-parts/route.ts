@@ -9,6 +9,7 @@ import {
   type ChapterParts,
 } from "@/lib/chapter/parts";
 import { validateChapterRequest } from "@/lib/chapter/request";
+import { CustomSubjectPayloadSchema, toSubject } from "@/lib/custom/customSubject";
 import { getAdmin } from "@/lib/firebase/admin";
 import { errorCopy } from "@/lib/lessonEvents";
 import { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
@@ -32,6 +33,8 @@ const RequestSchema = z.object({
     .array(z.object({ id: z.string().max(80), minutes: z.number().int().min(0).max(240) }))
     .min(1)
     .max(40),
+  /** A student's own subject (V3 · Step 4). Its parts are never put in the shared library. */
+  custom: CustomSubjectPayloadSchema.optional(),
 });
 
 function sharedLibrary(): LibraryStore | null {
@@ -47,13 +50,16 @@ const reply = (body: Reply, status = 200) => Response.json(body, { status });
 export async function POST(req: Request) {
   const body = RequestSchema.safeParse(await req.json().catch(() => null));
   const checked = body.success
-    ? validateChapterRequest({
-        subject: body.data.subject,
-        chapter: body.data.chapter,
-        level: body.data.level,
-        minutes: String(body.data.minutes),
-        topics: body.data.order.map((o) => o.id).join(","),
-      })
+    ? validateChapterRequest(
+        {
+          subject: body.data.subject,
+          chapter: body.data.chapter,
+          level: body.data.level,
+          minutes: String(body.data.minutes),
+          topics: body.data.order.map((o) => o.id).join(","),
+        },
+        body.data.custom ? [toSubject(body.data.custom)] : [],
+      )
     : null;
   if (!body.success || !checked?.ok) {
     return reply({ ok: false, kind: "invalid-request", message: "That request isn't valid." }, 400);
@@ -85,7 +91,7 @@ export async function POST(req: Request) {
     });
   }
 
-  const library = sharedLibrary();
+  const library = body.data.custom ? null : sharedLibrary();
   if (library) {
     const stored = await readParts(library, key).catch(() => null);
     if (stored) return reply({ ok: true, parts: stored, cached: true });

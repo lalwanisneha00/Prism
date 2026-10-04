@@ -19,7 +19,8 @@
     "predev": "node scripts/copy-pdf-worker.mjs && node scripts/build-subject-index.mjs",
     "prebuild": "node scripts/copy-pdf-worker.mjs && node scripts/build-subject-index.mjs",
     "test:e2e": "playwright test",
-    "pretest": "node scripts/build-subject-index.mjs"
+    "pretest": "node scripts/build-subject-index.mjs",
+    "golden:check": "tsx --tsconfig tsconfig.json eval/check-quotes.ts"
   },
   "dependencies": {
     "fflate": "^0.8.3",

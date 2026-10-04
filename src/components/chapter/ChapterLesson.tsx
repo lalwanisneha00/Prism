@@ -28,9 +28,14 @@ import { toPassages } from "@/lib/notes/notesSources";
 import { findRelevantPassages } from "@/lib/notes/store";
 import type { Lesson } from "@/lib/schema";
 import { recordRecent } from "@/lib/storage/library";
-import { findChapter, findSubject } from "@/lib/subjects";
+import { findChapter, findSubject, type Subject } from "@/lib/subjects";
+import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
 
 export type ChapterLessonProps = {
+  /** A subject that isn't built in (a student's own); otherwise looked up by id. */
+  subject?: Subject;
+  /** Sent with each request for a student's own subject (V3 · Step 4). */
+  custom?: CustomSubjectPayload;
   subjectId: string;
   chapterId: string;
   topicIds: string[];
@@ -63,7 +68,7 @@ type PartsState =
  * every finished topic is saved on this device, so leaving and coming back continues.
  */
 export function ChapterLesson(props: ChapterLessonProps) {
-  const subject = findSubject(props.subjectId)!;
+  const subject = props.subject ?? findSubject(props.subjectId)!;
   const chapter = findChapter(subject, props.chapterId)!;
   const [topics, setTopics] = useState<TopicState[]>([]);
   const [parts, setParts] = useState<PartsState>({ status: "loading" });
@@ -143,6 +148,7 @@ export function ChapterLesson(props: ChapterLessonProps) {
             level: props.level,
             minutes: props.minutes,
             order: key.order,
+            ...(props.custom ? { custom: props.custom } : {}),
           },
           signal,
         );
@@ -173,6 +179,7 @@ export function ChapterLesson(props: ChapterLessonProps) {
             level: props.level,
             duration: topicDuration(p.minutes),
             notes,
+            ...(props.custom ? { custom: props.custom } : {}),
           },
           (stage) => patch(p.id, { stage }),
           signal,
@@ -371,6 +378,7 @@ export function ChapterLesson(props: ChapterLessonProps) {
 
       {allReady && (
         <ChapterExtras
+          custom={props.custom}
           subjectId={subject.id}
           chapterId={chapter.id}
           chapterName={chapter.name}

@@ -11,6 +11,7 @@ import {
 } from "@/lib/mock/mockTest";
 import { evaluateCheck } from "@/lib/safeMath";
 import { findChapter, findSubject } from "@/lib/subjects";
+import { CustomSubjectPayloadSchema, toSubject } from "@/lib/custom/customSubject";
 
 /*
  * POST { subject, chapter, topics, level, minutes, facts, pyqs? } → { ok, test, dropped }.
@@ -29,6 +30,7 @@ const RequestSchema = z.object({
   minutes: z.union([z.literal(15), z.literal(30), z.literal(45)]),
   facts: z.array(z.string().trim().min(1).max(400)).min(1).max(80),
   pyqs: z.array(z.string().trim().min(1).max(500)).max(20).default([]),
+  custom: CustomSubjectPayloadSchema.optional(),
 });
 
 type Reply =
@@ -37,7 +39,12 @@ const reply = (body: Reply, status = 200) => Response.json(body, { status });
 
 export async function POST(req: Request) {
   const body = RequestSchema.safeParse(await req.json().catch(() => null));
-  const subject = body.success ? findSubject(body.data.subject) : undefined;
+  const custom = body.success && body.data.custom ? toSubject(body.data.custom) : undefined;
+  const subject = body.success
+    ? custom?.id === body.data.subject
+      ? custom
+      : findSubject(body.data.subject)
+    : undefined;
   const chapters =
     body.success && subject ? body.data.chapters.map((id) => findChapter(subject, id)) : [];
   const level = body.success ? findLevel(body.data.level) : undefined;

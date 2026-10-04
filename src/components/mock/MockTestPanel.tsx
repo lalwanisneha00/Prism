@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Markdown } from "@/components/lesson/Markdown";
 import type { LevelSlug } from "@/data/levels";
+import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
 import { mergeRevision, type TopicLesson } from "@/lib/chapter/extras";
 import { sectionText } from "@/lib/extract/types";
 import { errorCopy, type LessonErrorKind } from "@/lib/lessonEvents";
@@ -25,12 +26,15 @@ type Answer = { picked?: string; written?: string; ticked: number[] };
  * and numerical answers the student ticks the points an examiner looks for.
  */
 export function MockTestPanel({
+  custom,
   subjectId,
   chapterIds,
   chapterName,
   level,
   topics,
 }: {
+  /** A student's own subject (sent so the server can check the request). */
+  custom?: CustomSubjectPayload;
   subjectId: string;
   /** One chapter (a chapter lesson) or several (the subject's mock test page). */
   chapterIds: string[];
@@ -72,6 +76,7 @@ export function MockTestPanel({
           minutes,
           facts,
           pyqs,
+          ...(custom ? { custom } : {}),
         }),
       });
       const body: unknown = await res.json().catch(() => null);

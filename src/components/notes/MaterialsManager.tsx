@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/components/account/AuthProvider";
+import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
 import { MaterialCard } from "@/components/notes/MaterialCard";
 import { UploadBox } from "@/components/notes/UploadBox";
 import { kindLabel } from "@/lib/notes/kinds";
 import { deleteNote, listLocalNotes, listRemoteOnlyNotes } from "@/lib/notes/store";
 import type { NoteSummary, StoredNote } from "@/lib/storage/db";
-import { subjects } from "@/lib/subjects";
+import { isCustomId } from "@/lib/custom/customSubject";
+import { subjects as builtIn, type Subject } from "@/lib/subjects";
 
 type State =
   | { status: "loading" }
@@ -19,8 +21,13 @@ export function MaterialsManager({ initialSubject = "" }: { initialSubject?: str
   const { dataVersion } = useAuth();
   const [state, setState] = useState<State>({ status: "loading" });
   const [version, setVersion] = useState(0);
+  const custom = useCustomSubjects();
+  // Built-in subjects and the student's own ("Other subjects", V3 · Step 4).
+  const subjects = [...builtIn, ...custom.subjects];
   const [filter, setFilter] = useState(
-    subjects.some((s) => s.id === initialSubject) ? initialSubject : "",
+    builtIn.some((s) => s.id === initialSubject) || isCustomId(initialSubject)
+      ? initialSubject
+      : "",
   );
 
   useEffect(() => {
@@ -42,6 +49,7 @@ export function MaterialsManager({ initialSubject = "" }: { initialSubject?: str
   return (
     <div className="flex flex-col gap-6">
       <UploadBox
+        subjects={subjects}
         subject={filter}
         onSubjectChange={setFilter}
         onAdded={() => setVersion((v) => v + 1)}
@@ -63,7 +71,13 @@ export function MaterialsManager({ initialSubject = "" }: { initialSubject?: str
           </button>
         ))}
       </div>
-      <MaterialsList state={state} filter={filter} onChange={replace} onRemove={remove} />
+      <MaterialsList
+        state={state}
+        filter={filter}
+        subjects={subjects}
+        onChange={replace}
+        onRemove={remove}
+      />
     </div>
   );
 }
@@ -71,11 +85,13 @@ export function MaterialsManager({ initialSubject = "" }: { initialSubject?: str
 function MaterialsList({
   state,
   filter,
+  subjects,
   onChange,
   onRemove,
 }: {
   state: State;
   filter: string;
+  subjects: readonly Subject[];
   onChange: (note: StoredNote) => void;
   onRemove: (id: string) => void;
 }) {
@@ -107,7 +123,13 @@ function MaterialsList({
       {local.length > 0 && (
         <ul className="flex flex-col gap-3" data-testid="materials-list">
           {local.map((n) => (
-            <MaterialCard key={n.id} note={n} onChange={onChange} onRemove={onRemove} />
+            <MaterialCard
+              key={n.id}
+              note={n}
+              subjects={subjects}
+              onChange={onChange}
+              onRemove={onRemove}
+            />
           ))}
         </ul>
       )}

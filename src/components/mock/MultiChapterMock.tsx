@@ -5,14 +5,24 @@ import { useEffect, useState } from "react";
 import { MockTestPanel } from "@/components/mock/MockTestPanel";
 import type { TopicLesson } from "@/lib/chapter/extras";
 import { lessonsByChapter } from "@/lib/mock/deviceLessons";
-import { findSubject } from "@/lib/subjects";
+import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
+import { findSubject, type Subject } from "@/lib/subjects";
 
 /**
  * A mock test across several chapters of one subject (V3 · Step 3). Only chapters with
  * fact-checked lessons on this device can be chosen; the test is written from those.
  */
-export function MultiChapterMock({ subjectId }: { subjectId: string }) {
-  const subject = findSubject(subjectId)!;
+export function MultiChapterMock({
+  subjectId,
+  subject: given,
+  custom,
+}: {
+  subjectId: string;
+  /** A student's own subject (V3 · Step 4) and what the server needs to check it. */
+  subject?: Subject;
+  custom?: CustomSubjectPayload;
+}) {
+  const subject = given ?? findSubject(subjectId)!;
   const [byChapter, setByChapter] = useState<Map<string, TopicLesson[]> | null>(null);
   const [chosen, setChosen] = useState<string[]>([]);
   const [started, setStarted] = useState(false);
@@ -105,6 +115,7 @@ export function MultiChapterMock({ subjectId }: { subjectId: string }) {
             </button>
           </p>
           <MockTestPanel
+            custom={custom}
             subjectId={subject.id}
             chapterIds={chosen}
             chapterName={names.join(", ")}

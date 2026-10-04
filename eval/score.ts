@@ -7,6 +7,23 @@ import type { Lesson } from "@/lib/schema";
  * present and written in their standard form, alongside the schema, maths and fact-check.
  */
 
+/**
+ * Where a key fact comes from (SPEC §12.3 rule 4): a trusted page and the exact words on it.
+ * `npm run golden:check` fetches the page and confirms the quote is really there, so no fact
+ * is written from a model's memory. Golden sets made before V3 have no quotes yet.
+ */
+export const FactSourceSchema = z.object({
+  url: z.url(),
+  quote: z.string().trim().min(12).max(600),
+});
+
+export const GoldenFactSchema = z.object({
+  id: z.string(),
+  claim: z.string(),
+  pattern: z.string(),
+  source: FactSourceSchema.optional(),
+});
+
 export const GoldenSchema = z.object({
   description: z.string(),
   subject: z.string(),
@@ -15,7 +32,7 @@ export const GoldenSchema = z.object({
       z.object({
         topic: z.string(),
         chapter: z.string(),
-        facts: z.array(z.object({ id: z.string(), claim: z.string(), pattern: z.string() })).min(1),
+        facts: z.array(GoldenFactSchema).min(1),
       }),
     )
     .min(1),
@@ -154,4 +171,23 @@ export function overallPercent(scores: TopicScore[]): number {
   const total = scores.reduce((s, t) => s + t.found.length + t.missing.length, 0);
   const found = scores.reduce((s, t) => s + t.found.length, 0);
   return total === 0 ? 0 : Math.round((found / total) * 1000) / 10;
+}
+
+/** Share of facts that carry a source quote (a `tested` subject needs all of them). */
+export function quotedShare(golden: Golden): { quoted: number; total: number } {
+  const facts = golden.topics.flatMap((t) => t.facts);
+  return { quoted: facts.filter((f) => f.source).length, total: facts.length };
+}
+
+/** The trust tier a measured score earns (SPEC §12.3): it is recommended, never set silently. */
+export function tierForScore(
+  percent: number,
+  golden: { topics: number; quoted: number; total: number },
+): "verified" | "tested" | "sourced" {
+  // A tested or verified subject needs ≥ 12 topics whose facts all come with fetched quotes.
+  const eligible = golden.topics >= 12 && golden.total > 0 && golden.quoted === golden.total;
+  if (!eligible) return "sourced";
+  if (percent >= 95) return "verified";
+  if (percent >= 85) return "tested";
+  return "sourced";
 }

@@ -105,3 +105,21 @@ describe("custom subjects", () => {
     expect(loaded?.payload.hasMaterial).toBe(true);
   });
 });
+
+describe("editing an outline", () => {
+  it("keeps the ids of units and topics whose names didn't change", () => {
+    const before = chaptersFromDraft([
+      { name: "Vedic literature", topics: ["The four Vedas", "Upanishads"] },
+    ]);
+    const after = chaptersFromDraft(
+      [
+        { name: "Introduction", topics: ["What is IKS"] },
+        { name: "Vedic literature", topics: ["Upanishads", "The Vedas"] },
+      ],
+      before,
+    );
+    expect(after[1].id).toBe(before[0].id);
+    expect(after[1].topics[0].id).toBe(before[0].topics[1].id);
+    expect(after[1].topics[1].id).not.toBe(before[0].topics[0].id);
+  });
+});

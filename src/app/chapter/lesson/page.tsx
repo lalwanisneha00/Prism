@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChapterLesson } from "@/components/chapter/ChapterLesson";
+import { CustomChapterRoute } from "@/components/custom/CustomRoutes";
+import { isCustomId } from "@/lib/custom/customSubject";
 import { Container } from "@/components/Container";
 import { validateChapterRequest } from "@/lib/chapter/request";
 
@@ -8,7 +10,15 @@ export const metadata: Metadata = { title: "Chapter lesson" };
 
 /** A whole-chapter or several-topic lesson, built topic by topic (V2.5 · Step 4). */
 export default async function ChapterLessonPage({ searchParams }: PageProps<"/chapter/lesson">) {
-  const result = validateChapterRequest(await searchParams);
+  const params = await searchParams;
+  if (typeof params.subject === "string" && isCustomId(params.subject)) {
+    return (
+      <Container className="py-10 sm:py-14">
+        <CustomChapterRoute params={params} page="lesson" />
+      </Container>
+    );
+  }
+  const result = validateChapterRequest(params);
   return (
     <Container className="py-10 sm:py-14">
       {result.ok ? (

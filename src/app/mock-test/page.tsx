@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { CustomMockRoute } from "@/components/custom/CustomRoutes";
 import { MultiChapterMock } from "@/components/mock/MultiChapterMock";
+import { isCustomId } from "@/lib/custom/customSubject";
 import { findSubject, subjects } from "@/lib/subjects";
 
 export const metadata: Metadata = { title: "Mock test" };
@@ -9,6 +11,13 @@ export const metadata: Metadata = { title: "Mock test" };
 /** A mock test across several chapters of a subject (V3 · Step 3). */
 export default async function MockTestPage({ searchParams }: PageProps<"/mock-test">) {
   const { subject: raw } = await searchParams;
+  if (typeof raw === "string" && isCustomId(raw)) {
+    return (
+      <Container className="flex flex-col gap-6 py-10 sm:py-14">
+        <CustomMockRoute id={raw} />
+      </Container>
+    );
+  }
   const subject = findSubject(typeof raw === "string" ? raw : "") ?? subjects[0];
   return (
     <Container className="flex flex-col gap-6 py-10 sm:py-14">

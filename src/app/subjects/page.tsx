@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
+import { MySubjectsList, OtherSubjectsStart } from "@/components/custom/MySubjects";
 import { GlobalSearch } from "@/components/subjects/GlobalSearch";
 import { SubjectCatalogue } from "@/components/subjects/SubjectCatalogue";
 
@@ -18,6 +19,13 @@ export default function SubjectsPage() {
       </div>
       <GlobalSearch />
       <SubjectCatalogue />
+      <section aria-labelledby="other-title" className="flex flex-col gap-4">
+        <h2 id="other-title" className="text-xl font-semibold">
+          Other subjects
+        </h2>
+        <OtherSubjectsStart />
+        <MySubjectsList />
+      </section>
     </Container>
   );
 }

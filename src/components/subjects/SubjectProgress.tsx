@@ -6,7 +6,10 @@ import { useTopicStatuses } from "@/components/map/useTopicStatuses";
 import type { TopicStatus } from "@/lib/conceptMap";
 import { listQuizAttempts, weakTopics } from "@/lib/storage/progress";
 import type { QuizAttempt } from "@/lib/storage/db";
-import { chaptersOf, findSubject } from "@/lib/subjects";
+import { paperStats } from "@/lib/chapter/estimate";
+import { sectionText } from "@/lib/extract/types";
+import { listLocalNotes } from "@/lib/notes/store";
+import { chaptersOf, findSubject, type Subject } from "@/lib/subjects";
 
 const dot: Record<TopicStatus, string> = {
   mastered: "bg-success",
@@ -16,15 +19,39 @@ const dot: Record<TopicStatus, string> = {
 };
 
 /** A subject's chapters with the student's progress, and its weak topics. */
-export function SubjectProgress({ subjectId }: { subjectId: string }) {
-  const subject = findSubject(subjectId)!;
+export function SubjectProgress({
+  subjectId,
+  subject: given,
+}: {
+  subjectId: string;
+  subject?: Subject;
+}) {
+  const subject = given ?? findSubject(subjectId)!;
   const statuses = useTopicStatuses();
   const [weak, setWeak] = useState<QuizAttempt[]>([]);
+  // How often each topic comes up in the student's previous-year papers (exam emphasis).
+  const [asked, setAsked] = useState<{ papers: number; hits: Record<string, number> }>({
+    papers: 0,
+    hits: {},
+  });
   useEffect(() => {
     listQuizAttempts()
       .then((all) => setWeak(weakTopics(all).filter((a) => a.subject === subjectId)))
       .catch(() => setWeak([]));
-  }, [subjectId]);
+    listLocalNotes()
+      .then((notes) => {
+        const papers = notes
+          .filter((n) => n.kind === "pyq" && n.subject === subjectId && n.sections?.length)
+          .map((n) => (n.sections ?? []).map(sectionText).join("\n"));
+        if (papers.length === 0) return;
+        const topics = subject.chapters.flatMap((c) => c.topics);
+        setAsked({
+          papers: papers.length,
+          hits: paperStats(papers, topics, subject.chapters).topicHits,
+        });
+      })
+      .catch(() => undefined);
+  }, [subjectId, subject]);
 
   const pickHref = (owner: string, chapter: string, topic?: string) =>
     `/?${new URLSearchParams({ subject: owner, chapter, ...(topic ? { topic } : {}) })}#start`;
@@ -52,6 +79,12 @@ export function SubjectProgress({ subjectId }: { subjectId: string }) {
             ))}
           </ul>
         </section>
+      )}
+      {asked.papers > 0 && (
+        <p className="text-sm text-muted" data-testid="exam-emphasis">
+          ⭐ Topics marked “asked N×” come up in your {asked.papers} uploaded previous-year{" "}
+          {asked.papers === 1 ? "paper" : "papers"}: give them extra time.
+        </p>
       )}
       <ol className="flex flex-col gap-4" data-testid="subject-chapters">
         {chaptersOf(subject).map(({ chapter, owner }, i) => {
@@ -90,6 +123,14 @@ export function SubjectProgress({ subjectId }: { subjectId: string }) {
                     >
                       <span aria-hidden="true" className={`size-2 rounded-full ${dot[s[k]]}`} />
                       {t.name}
+                      {asked.hits[t.id] ? (
+                        <span
+                          className="rounded-full bg-warning/15 px-1.5 text-xs font-semibold text-warning"
+                          title="Questions on this topic in your previous-year papers"
+                        >
+                          asked {asked.hits[t.id]}×
+                        </span>
+                      ) : null}
                     </Link>
                   </li>
                 ))}

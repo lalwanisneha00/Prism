@@ -80,19 +80,38 @@ export function slugify(text: string, taken: Set<string> = new Set()): string {
 /** Turns an edited outline into chapters with stable ids. */
 export function chaptersFromDraft(
   draft: readonly DraftChapter[],
+  /** The chapters before an edit: a unit or topic that keeps its name keeps its id (and progress). */
+  previous: CustomSubjectPayload["chapters"] = [],
 ): CustomSubjectPayload["chapters"] {
   const chapterIds = new Set<string>();
   const topicIds = new Set<string>();
+  const oldChapter = new Map(previous.map((c) => [c.name.trim().toLowerCase(), c.id]));
+  const oldTopic = new Map(
+    previous.flatMap((c) => c.topics.map((t) => [t.name.trim().toLowerCase(), t.id] as const)),
+  );
+  const reuse = (map: Map<string, string>, name: string, taken: Set<string>) => {
+    const id = map.get(name.trim().toLowerCase());
+    if (id && !taken.has(id)) {
+      taken.add(id);
+      return id;
+    }
+    return slugify(name, taken);
+  };
   return draft
-    .filter((c) => c.topics.length > 0)
+    .map((c) => ({
+      ...c,
+      name: c.name.trim(),
+      topics: c.topics.map((t) => t.trim()).filter(Boolean),
+    }))
+    .filter((c) => c.name && c.topics.length > 0)
     .slice(0, 30)
     .map((c) => ({
-      id: slugify(c.name, chapterIds),
+      id: reuse(oldChapter, c.name, chapterIds),
       name: c.name.slice(0, 120),
       ...(c.hours ? { hours: c.hours } : {}),
       topics: c.topics
         .slice(0, 40)
-        .map((t) => ({ id: slugify(t, topicIds), name: t.slice(0, 120) })),
+        .map((t) => ({ id: reuse(oldTopic, t, topicIds), name: t.slice(0, 120) })),
     }));
 }
 

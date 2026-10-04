@@ -6,16 +6,18 @@ import { unitName } from "@/lib/extract/types";
 import { isMaterialKind, kindLabel, MATERIAL_KINDS } from "@/lib/notes/kinds";
 import { updateNoteMeta } from "@/lib/notes/store";
 import type { StoredNote } from "@/lib/storage/db";
-import { subjects } from "@/lib/subjects";
+import type { Subject } from "@/lib/subjects";
 
 const selectClass = "rounded-lg border border-border bg-bg px-2 py-1.5 text-sm";
 
 /** One uploaded file: its type, subject and chapter (editable), preview and delete. */
 export function MaterialCard({
+  subjects,
   note,
   onChange,
   onRemove,
 }: {
+  subjects: readonly Subject[];
   note: StoredNote;
   onChange: (note: StoredNote) => void;
   onRemove: (id: string) => void;
