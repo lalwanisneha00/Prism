@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/byok/apiFetch";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AudioPlayer } from "@/components/audio/AudioPlayer";
 import { speechSupported } from "@/components/audio/useSpeechPlayer";
@@ -68,7 +69,7 @@ export function AudioLesson({ lesson }: { lesson: Lesson }) {
   const written = useRef<AudioChapter[]>([]);
 
   async function call(body: AudioRequest, signal: AbortSignal): Promise<AudioResponse> {
-    const res = await fetch("/api/audio", {
+    const res = await apiFetch("/api/audio", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(body),

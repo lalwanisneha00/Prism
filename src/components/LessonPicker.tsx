@@ -8,6 +8,7 @@ import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
 import { DurationChooser } from "@/components/DurationChooser";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
 import { FieldError, FieldGroup } from "@/components/form/FieldGroup";
+import { KeyIndicator } from "@/components/settings/KeyIndicator";
 import { NotesToggle } from "@/components/notes/NotesToggle";
 import { BranchSemesterBar } from "@/components/subjects/BranchSemesterBar";
 import { useMyBranch } from "@/components/subjects/useMyBranch";
@@ -454,6 +455,7 @@ function PickerForm({
       </FieldGroup>
 
       <NotesToggle checked={useNotes} onChange={setUseNotes} />
+      <KeyIndicator />
 
       <button
         type="submit"

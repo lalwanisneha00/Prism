@@ -95,3 +95,42 @@ describe("POST /api/lesson", () => {
     },
   );
 });
+
+describe("POST /api/lesson with the student's own key", () => {
+  const KEY = "sk-own-key-abcdefghijklmnop9876";
+  const withKey = (provider: string) =>
+    POST(
+      new Request("http://localhost/api/lesson", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-prism-provider": provider,
+          "x-prism-key": KEY,
+        },
+        body: JSON.stringify(faraday),
+      }),
+    );
+
+  it("uses only that key, says whose key failed, and never leaks it", async () => {
+    vi.stubEnv("LLM_PROVIDER", "");
+    const calls: string[] = [];
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (url: string) => {
+        calls.push(String(url));
+        if (String(url).includes("wikipedia")) {
+          return Response.json({ query: { pages: [{ title: "x", extract: "Faraday." }] } });
+        }
+        return new Response(`Incorrect API key provided: ${KEY}`, { status: 401 });
+      }),
+    );
+    const res = await withKey("openai");
+    const text = await res.text();
+    const last = JSON.parse(text.trim().split("\n").at(-1)!) as LessonEvent;
+    expect(last).toMatchObject({ type: "error", kind: "auth", usedUserKey: "OpenAI" });
+    expect(text).not.toContain(KEY);
+    // The shared providers were not tried behind the student's back.
+    expect(calls.filter((u) => u.includes("api.openai.com"))).toHaveLength(1);
+    expect(calls.some((u) => u.includes("generativelanguage") || u.includes("groq"))).toBe(false);
+  });
+});

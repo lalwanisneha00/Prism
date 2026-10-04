@@ -2,6 +2,7 @@
 
 import { Children, useEffect, useState, type ReactNode } from "react";
 import { LessonHeader } from "@/components/lesson/LessonHeader";
+import { KeyIndicator } from "@/components/settings/KeyIndicator";
 import type { LessonRequest } from "@/lib/lessonRequest";
 
 const funMessages = [
@@ -34,6 +35,7 @@ export function LessonSkeleton({
   return (
     <div className="flex flex-col gap-8" aria-busy="true">
       <LessonHeader request={request} />
+      <KeyIndicator />
 
       <div
         role="status"

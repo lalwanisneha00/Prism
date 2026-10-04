@@ -246,6 +246,17 @@ export type Annotation = SyncFields & {
   createdAt: number;
 };
 
+/** One saved API key (Feature A). Deliberately NOT a SyncedRecords collection. */
+export type StoredApiKey = {
+  /** The provider id ("gemini", "openai", …): one key per provider. */
+  id: string;
+  key: string;
+  model: string;
+  /** The key used for lessons (at most one is active). */
+  active: boolean;
+  savedAt: number;
+};
+
 export type PlanItemKind = "learn" | "revise" | "flashcards" | "final-revision" | "mock-test";
 
 /**
@@ -358,12 +369,14 @@ interface PrismDB extends DBSchema {
   mockResults: { key: string; value: MockResult; indexes: { byAt: number } };
   customSubjects: { key: string; value: CustomSubjectRecord };
   learningSignals: { key: string; value: LearningSignalRecord; indexes: { byAt: number } };
+  /** The student's own API keys. On this device only: not synced, not exported, not shared. */
+  apiKeys: { key: string; value: StoredApiKey };
   outbox: { key: string; value: OutboxEntry };
   meta: { key: string; value: { key: string; value: unknown } };
 }
 
 const DB_NAME = "prism";
-const DB_VERSION = 11;
+const DB_VERSION = 12;
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -422,6 +435,10 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
       // plans and progress are untouched; old plans are converted when opened (upgradePlan).
       if (oldVersion < 11) {
         db.createObjectStore("learningSignals", { keyPath: "id" }).createIndex("byAt", "at");
+      }
+      // Version 12: the student's own API keys (local only; existing data is untouched).
+      if (oldVersion < 12) {
+        db.createObjectStore("apiKeys", { keyPath: "id" });
       }
     },
   });

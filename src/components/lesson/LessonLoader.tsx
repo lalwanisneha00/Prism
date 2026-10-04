@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch, sharedKeyForNextRequest } from "@/lib/byok/apiFetch";
 import { useEffect, useState } from "react";
 import { LessonError } from "@/components/lesson/LessonError";
 import { LessonHeader } from "@/components/lesson/LessonHeader";
@@ -18,7 +19,7 @@ import { getSavedLesson, lessonId, recordRecent } from "@/lib/storage/library";
 type State =
   | { status: "loading"; stage: string; sections: Section[] }
   | { status: "ready"; lesson: Lesson; fromLibrary: boolean; libraryKey?: string }
-  | { status: "error"; kind: LessonErrorKind };
+  | { status: "error"; kind: LessonErrorKind; ownKey?: string };
 
 const initial: State = { status: "loading", stage: "Getting started…", sections: [] };
 
@@ -53,7 +54,8 @@ export function LessonLoader({
             fromLibrary: false,
             libraryKey: event.libraryKey,
           };
-        if (event.type === "error") return { status: "error", kind: event.kind };
+        if (event.type === "error")
+          return { status: "error", kind: event.kind, ownKey: event.usedUserKey };
         if (prev.status !== "loading") return prev;
         if (event.type === "stage") return { ...prev, stage: event.message };
         return { ...prev, sections: [...prev.sections, event.section] };
@@ -97,7 +99,7 @@ export function LessonLoader({
         setNotesMissing(notes.length === 0);
       }
       try {
-        const res = await fetch("/api/lesson", {
+        const res = await apiFetch("/api/lesson", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({
@@ -185,6 +187,12 @@ export function LessonLoader({
         <LessonHeader request={request} />
         <LessonError
           kind={state.kind}
+          ownKey={state.ownKey}
+          onUseShared={() => {
+            sharedKeyForNextRequest();
+            setState(initial);
+            setAttempt((a) => a + 1);
+          }}
           onRetry={() => {
             setState(initial);
             setAttempt((a) => a + 1);

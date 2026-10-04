@@ -51,7 +51,7 @@ function generatedBy(
   const open = name.indexOf("(");
   return {
     provider: ownKey ?? (open > 0 ? name.slice(0, open).trim() : name),
-    model: open > 0 ? name.slice(open + 1).replace(/\)$/, "") : "",
+    model: ownKey ? ownModel : open > 0 ? name.slice(open + 1).replace(/\)$/, "") : "",
     ownKey: Boolean(ownKey),
   };
 }

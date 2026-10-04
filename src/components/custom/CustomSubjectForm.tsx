@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/byok/apiFetch";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useId, useState } from "react";
@@ -125,7 +126,7 @@ export function CustomSubjectForm({
     setBusy("Building an outline from your material…");
     let built: DraftChapter[] = local;
     try {
-      const res = await fetch("/api/outline", {
+      const res = await apiFetch("/api/outline", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({

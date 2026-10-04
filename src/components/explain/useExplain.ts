@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/byok/apiFetch";
 import { createContext, useCallback, useContext, useRef, useState } from "react";
 import type { ExplainInput } from "@/lib/explain/explain";
 import { errorCopy, type LessonErrorKind } from "@/lib/lessonEvents";
@@ -28,7 +29,7 @@ export function useExplain(lesson: Lesson | null) {
       controller.current = current;
       setState({ status: "loading" });
       try {
-        const res = await fetch("/api/explain", {
+        const res = await apiFetch("/api/explain", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ lesson, input }),

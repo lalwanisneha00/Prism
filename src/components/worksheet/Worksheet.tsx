@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/byok/apiFetch";
 import { useState } from "react";
 import { PastPaperInput } from "@/components/worksheet/PastPaperInput";
 import { WorksheetQuestionCard } from "@/components/worksheet/WorksheetQuestionCard";
@@ -52,7 +53,7 @@ export function Worksheet({ lesson }: { lesson: Lesson }) {
     setState({ status: "loading", mode: mode.mode });
     setMarks({});
     try {
-      const res = await fetch("/api/worksheet", {
+      const res = await apiFetch("/api/worksheet", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ lesson, mode }),

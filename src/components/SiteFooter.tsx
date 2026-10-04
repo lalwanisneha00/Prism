@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { FLAGS } from "@/lib/flags";
 import { site } from "@/lib/site";
 
 export function SiteFooter() {
@@ -15,7 +16,17 @@ export function SiteFooter() {
             How accurate is Prism?
           </Link>
         </p>
-        <p className="shrink-0">© {site.name}</p>
+        <p className="shrink-0">
+          {FLAGS.byoKey && (
+            <>
+              <Link href="/settings/keys" className="underline underline-offset-2">
+                Your API keys
+              </Link>{" "}
+              ·{" "}
+            </>
+          )}
+          © {site.name}
+        </p>
       </Container>
     </footer>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import { apiFetch } from "@/lib/byok/apiFetch";
 import { useEffect, useRef, useState } from "react";
 import { Markdown } from "@/components/lesson/Markdown";
 import type { LevelSlug } from "@/data/levels";
@@ -65,7 +66,7 @@ export function MockTestPanel({
       .map((q) => q.slice(0, 500))
       .slice(0, 20);
     try {
-      const res = await fetch("/api/mock-test", {
+      const res = await apiFetch("/api/mock-test", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({

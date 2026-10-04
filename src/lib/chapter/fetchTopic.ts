@@ -1,3 +1,4 @@
+import { apiFetch } from "@/lib/byok/apiFetch";
 import { ChapterPartsSchema, type ChapterParts } from "@/lib/chapter/parts";
 import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
 import type { LessonErrorKind, LessonEvent } from "@/lib/lessonEvents";
@@ -36,7 +37,7 @@ export async function fetchTopicLesson(
     } else if (event.type === "error") result = { ok: false, kind: event.kind };
   };
   try {
-    const res = await fetch("/api/lesson", {
+    const res = await apiFetch("/api/lesson", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
@@ -72,7 +73,7 @@ export async function fetchChapterParts(
   signal: AbortSignal,
 ): Promise<PartsResult> {
   try {
-    const res = await fetch("/api/chapter-parts", {
+    const res = await apiFetch("/api/chapter-parts", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(body),

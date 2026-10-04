@@ -1,3 +1,4 @@
+import { apiFetch } from "@/lib/byok/apiFetch";
 import { unzipSync } from "fflate";
 import type { ExtractedSection } from "@/lib/extract/types";
 import { cleanOcrText } from "@/lib/ocr/cleanText";
@@ -105,7 +106,7 @@ export type AiReadResult =
 
 /** Reads one picture with the AI (uses the free AI quota; the student asks for it each time). */
 export async function readWithAi(image: Blob, signal?: AbortSignal): Promise<AiReadResult> {
-  const res = await fetch("/api/read-image", {
+  const res = await apiFetch("/api/read-image", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ image: await toJpegBase64(image), mimeType: "image/jpeg" }),
