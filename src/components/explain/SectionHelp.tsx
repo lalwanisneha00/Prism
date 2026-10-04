@@ -25,11 +25,13 @@ export function SectionHelp({ sectionId }: { sectionId: string }) {
     setShown(seen);
     setAction(next);
     if (next === "simpler" && lesson) {
-      void recordSignal({ kind: "simpler", subject: lesson.meta.subject, topic: lesson.meta.topic }).catch(
-        () => {
-          // Storage unavailable: the signal is just not remembered.
-        },
-      );
+      void recordSignal({
+        kind: "simpler",
+        subject: lesson.meta.subject,
+        topic: lesson.meta.topic,
+      }).catch(() => {
+        // Storage unavailable: the signal is just not remembered.
+      });
     }
     void run({ action: next, sectionId, avoid: next === "analogy" ? seen : undefined });
   }

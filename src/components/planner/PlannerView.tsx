@@ -4,80 +4,90 @@ import { useCallback, useEffect, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
 import { PlanDays } from "@/components/planner/PlanDays";
 import { PlanSetup } from "@/components/planner/PlanSetup";
-import { deletePlan, getPlan } from "@/lib/planner/store";
+import { deletePlan, listPlans } from "@/lib/planner/store";
+import { upgradePlan } from "@/lib/planner/upgrade";
 import type { StudyPlan } from "@/lib/storage/db";
-import { subjects } from "@/lib/subjects";
+import { findSubject } from "@/lib/subjects";
 
-type State =
-  { status: "loading" } | { status: "error" } | { status: "ready"; plan: StudyPlan | null };
+type State = { status: "loading" } | { status: "error" } | { status: "ready"; plans: StudyPlan[] };
 
-/** The backlog planner: set it up once, then tick things off day by day (synced). */
+const planName = (p: StudyPlan) =>
+  p.title ?? (p.subjects ?? [p.subject]).map((s) => findSubject(s)?.name ?? s).join(", ");
+
+/** The planner: set it up once (any subjects), then tick things off day by day (synced). */
 export function PlannerView() {
   const dataVersion = useDataVersion();
-  const [subjectId, setSubjectId] = useState(subjects[0].id);
   const [state, setState] = useState<State>({ status: "loading" });
+  const [activeId, setActiveId] = useState<string | null>(null);
   const [editing, setEditing] = useState(false);
 
   const load = useCallback(() => {
-    getPlan(subjectId)
-      .then((plan) => setState({ status: "ready", plan }))
+    listPlans()
+      .then((plans) =>
+        setState({
+          status: "ready",
+          plans: plans.map(upgradePlan).sort((a, b) => b.createdAt - a.createdAt),
+        }),
+      )
       .catch(() => setState({ status: "error" }));
-  }, [subjectId]);
+  }, []);
   useEffect(load, [load, dataVersion]);
 
-  const subject = subjects.find((s) => s.id === subjectId)!;
+  if (state.status === "loading")
+    return <div className="h-64 animate-pulse rounded-2xl bg-surface-2" aria-busy="true" />;
+  if (state.status === "error")
+    return (
+      <p role="alert" className="rounded-2xl border border-border bg-surface p-5">
+        This browser is blocking storage, so a plan can&apos;t be kept here.
+      </p>
+    );
+
+  const { plans } = state;
+  const active = plans.find((p) => p.id === activeId) ?? plans[0];
+
+  if (!active || editing) {
+    return (
+      <PlanSetup
+        replacing={Boolean(active)}
+        onCancel={active ? () => setEditing(false) : undefined}
+        onCreated={(plan) => {
+          setEditing(false);
+          setActiveId(plan.id);
+          setState({ status: "ready", plans: [plan, ...plans.filter((p) => p.id !== plan.id)] });
+        }}
+      />
+    );
+  }
 
   return (
     <div className="flex flex-col gap-6">
-      <nav aria-label="Subject" className="flex flex-wrap gap-2">
-        {subjects.map((s) => (
-          <button
-            key={s.id}
-            type="button"
-            aria-pressed={s.id === subjectId}
-            onClick={() => {
-              setSubjectId(s.id);
-              setEditing(false);
-              setState({ status: "loading" });
-            }}
-            className={`rounded-full border px-4 py-2 text-sm font-semibold ${s.id === subjectId ? "border-primary bg-primary-soft text-primary" : "border-border hover:bg-surface-2"}`}
-          >
-            {s.name}
-          </button>
-        ))}
-      </nav>
-
-      {state.status === "loading" && (
-        <div className="h-64 animate-pulse rounded-2xl bg-surface-2" aria-busy="true" />
+      {plans.length > 1 && (
+        <nav aria-label="Your plans" className="flex flex-wrap gap-2">
+          {plans.map((p) => (
+            <button
+              key={p.id}
+              type="button"
+              aria-pressed={p.id === active.id}
+              onClick={() => setActiveId(p.id)}
+              className={`rounded-full border px-4 py-2 text-sm font-semibold ${p.id === active.id ? "border-primary bg-primary-soft text-primary" : "border-border hover:bg-surface-2"}`}
+            >
+              {planName(p)}
+            </button>
+          ))}
+        </nav>
       )}
-      {state.status === "error" && (
-        <p role="alert" className="rounded-2xl border border-border bg-surface p-5">
-          This browser is blocking storage, so a plan can&apos;t be kept here.
-        </p>
-      )}
-      {state.status === "ready" &&
-        (state.plan && !editing ? (
-          <PlanDays
-            plan={state.plan}
-            subject={subject}
-            onChange={(plan) => setState({ status: "ready", plan })}
-            onReplan={() => setEditing(true)}
-            onDelete={async () => {
-              await deletePlan(state.plan!);
-              setState({ status: "ready", plan: null });
-            }}
-          />
-        ) : (
-          <PlanSetup
-            subject={subject}
-            replacing={Boolean(state.plan)}
-            onCancel={state.plan ? () => setEditing(false) : undefined}
-            onCreated={(plan) => {
-              setEditing(false);
-              setState({ status: "ready", plan });
-            }}
-          />
-        ))}
+      <PlanDays
+        plan={active}
+        onChange={(plan) =>
+          setState({ status: "ready", plans: plans.map((p) => (p.id === plan.id ? plan : p)) })
+        }
+        onReplan={() => setEditing(true)}
+        onDelete={async () => {
+          await deletePlan(active);
+          setActiveId(null);
+          setState({ status: "ready", plans: plans.filter((p) => p.id !== active.id) });
+        }}
+      />
     </div>
   );
 }

@@ -74,9 +74,7 @@ export function TodayAndStreak() {
         ) : (
           <ul className="flex flex-col gap-1.5">
             {todays.map(({ plan, item }) => {
-              const subject = subjects.find((x) => x.id === plan.subject);
-              if (!subject) return null;
-              const link = itemLink(plan, subject, item);
+              const link = itemLink(plan, item);
               return (
                 <li key={`${plan.id}-${item.id}`} className="flex items-center gap-3 text-sm">
                   <input
