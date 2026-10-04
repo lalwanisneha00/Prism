@@ -6,6 +6,7 @@ import { Card } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
 import type { Lesson, QuizQuestion } from "@/lib/schema";
 import { lessonId } from "@/lib/storage/library";
+import { questionTypeOf, recordSignal } from "@/lib/priority/signals";
 import { recordQuizAttempt } from "@/lib/storage/progress";
 
 /** What the student did with one question: picked an option, or self-marked a written answer. */
@@ -28,6 +29,17 @@ export function Quiz({ questions, meta }: { questions: QuizQuestion[]; meta?: Le
     if (attempts[i]) return;
     const next = { ...attempts, [i]: attempt };
     setAttempts(next);
+    if (meta && !attempt.correct) {
+      void recordSignal({
+        kind: "wrong",
+        subject: meta.subject,
+        topic: meta.topic,
+        question: questions[i].question,
+        questionType: questionTypeOf(questions[i].answer),
+      }).catch(() => {
+        // Storage unavailable: the signal is just not remembered.
+      });
+    }
     // A finished quiz is saved (and synced) so the dashboard can spot weak topics.
     if (meta && Object.keys(next).length === questions.length) {
       void recordQuizAttempt({

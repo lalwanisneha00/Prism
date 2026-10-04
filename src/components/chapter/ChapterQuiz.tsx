@@ -5,6 +5,7 @@ import { Card } from "@/components/lesson/BlockHeading";
 import { QuestionCard, type Attempt } from "@/components/lesson/Quiz";
 import { scoresByTopic, type MixedQuestion, type TopicLesson } from "@/lib/chapter/extras";
 import { lessonId } from "@/lib/storage/library";
+import { questionTypeOf, recordSignal } from "@/lib/priority/signals";
 import { recordQuizAttempt } from "@/lib/storage/progress";
 
 /**
@@ -27,6 +28,18 @@ export function ChapterQuiz({
     if (attempts[i]) return;
     const next = { ...attempts, [i]: attempt };
     setAttempts(next);
+    const wrongTopic = topics.find((x) => x.topicId === questions[i].topicId);
+    if (wrongTopic && !attempt.correct) {
+      void recordSignal({
+        kind: "wrong",
+        subject: wrongTopic.lesson.meta.subject,
+        topic: wrongTopic.lesson.meta.topic,
+        question: questions[i].question.question,
+        questionType: questionTypeOf(questions[i].question.answer),
+      }).catch(() => {
+        // Storage unavailable: the signal is just not remembered.
+      });
+    }
     if (Object.keys(next).length !== questions.length) return;
     const correct = questions.map((_, k) => Boolean(next[k]?.correct));
     for (const s of scoresByTopic(questions, correct)) {

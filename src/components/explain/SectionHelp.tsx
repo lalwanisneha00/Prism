@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ExplainAnswer } from "@/components/explain/ExplainAnswer";
 import { useExplain, useLesson } from "@/components/explain/useExplain";
 import type { ExplainAction } from "@/lib/explain/explain";
+import { recordSignal } from "@/lib/priority/signals";
 
 /** "Explain simpler" and "Another analogy" under a section (SPEC §8). */
 export function SectionHelp({ sectionId }: { sectionId: string }) {
@@ -23,6 +24,13 @@ export function SectionHelp({ sectionId }: { sectionId: string }) {
       action === "analogy" && state.status === "ready" ? [...shown, state.text].slice(-5) : shown;
     setShown(seen);
     setAction(next);
+    if (next === "simpler" && lesson) {
+      void recordSignal({ kind: "simpler", subject: lesson.meta.subject, topic: lesson.meta.topic }).catch(
+        () => {
+          // Storage unavailable: the signal is just not remembered.
+        },
+      );
+    }
     void run({ action: next, sectionId, avoid: next === "analogy" ? seen : undefined });
   }
 
