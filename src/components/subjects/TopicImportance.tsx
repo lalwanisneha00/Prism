@@ -29,6 +29,7 @@ export function TopicImportance({ subjectId }: { subjectId: string }) {
   const [overrides, setOverrides] = useState<Record<string, Band>>({});
   const [papers, setPapers] = useState<Awaited<ReturnType<typeof subjectImportance>> | null>(null);
   const [error, setError] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   useEffect(() => {
     loadStudyModel(subjects)
@@ -46,9 +47,11 @@ export function TopicImportance({ subjectId }: { subjectId: string }) {
     if (value === "auto") delete next[key];
     else next[key] = value;
     setOverrides(next);
+    setSaved(false);
     try {
       await updateSettings({ importanceOverrides: next });
       setError(false);
+      setSaved(true);
     } catch {
       setError(true);
     }
@@ -68,6 +71,11 @@ export function TopicImportance({ subjectId }: { subjectId: string }) {
           better.
         </p>
       </div>
+      {saved && !error && (
+        <p role="status" className="text-sm text-muted">
+          Saved on this device.
+        </p>
+      )}
       {error && (
         <p role="alert" className="text-sm text-danger">
           Couldn&apos;t save: this browser is blocking storage.

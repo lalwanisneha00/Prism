@@ -4,7 +4,8 @@ import { generateLesson } from "@/lib/generateLesson";
 import { groundSources } from "@/lib/grounding/groundSources";
 import { errorCopy, type LessonEvent } from "@/lib/lessonEvents";
 import { validateLessonRequest, type RawLessonRequest } from "@/lib/lessonRequest";
-import { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
+import { findProvider, KEY_HEADERS } from "@/lib/byok/catalogue";
+import { chainFor, generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
 import { FakeProvider } from "@/lib/llm/fake";
 import { fakeLessonBody, fakeVerification } from "@/lib/llm/fakeLesson";
 import type { GenerateOptions, LlmProvider } from "@/lib/llm/types";
@@ -40,6 +41,21 @@ function providers(sources: ReturnType<typeof sourcesForTopic>, topicId: string)
   return providersFromEnv();
 }
 
+/** Who wrote a lesson, from the provider that answered ("Gemini (gemini-flash-latest)"). */
+function generatedBy(
+  writer: LlmProvider | undefined,
+  ownKey: string | undefined,
+  ownModel: string,
+) {
+  const name = writer?.name ?? "AI";
+  const open = name.indexOf("(");
+  return {
+    provider: ownKey ?? (open > 0 ? name.slice(0, open).trim() : name),
+    model: open > 0 ? name.slice(open + 1).replace(/\)$/, "") : "",
+    ownKey: Boolean(ownKey),
+  };
+}
+
 /** The shared lesson library, or null when Firebase Admin isn't configured (or in fake mode). */
 function sharedLibrary(): LibraryStore | null {
   if (process.env.LLM_PROVIDER === "fake") return null;
@@ -70,6 +86,11 @@ export async function POST(req: Request) {
     return Response.json(event, { status: 400 });
   }
   const request = result.request;
+  // The student's own key, if they sent one: only the provider's name is kept (never the key).
+  const ownModel = req.headers.get(KEY_HEADERS.model) ?? "";
+  const ownKey = req.headers.has(KEY_HEADERS.key)
+    ? (findProvider(req.headers.get(KEY_HEADERS.provider) ?? "")?.name ?? "your provider")
+    : undefined;
   // "Write a fresh version" skips the shared library copy.
   const body = raw && typeof raw === "object" ? (raw as { fresh?: unknown; notes?: unknown }) : {};
   const fresh = Boolean(body.fresh);
@@ -128,8 +149,13 @@ export async function POST(req: Request) {
             { signal: req.signal },
           )),
         ];
-        const chain = providers(sources, request.topic.id);
-        const generate = (options: GenerateOptions) => generateJsonWithFallback(chain, options);
+        const chain = chainFor(req, () => providers(sources, request.topic.id));
+        // Which provider wrote the lesson is recorded on it (and shown as "Using: …").
+        let writer: LlmProvider | undefined;
+        const generate = (options: GenerateOptions) =>
+          generateJsonWithFallback(chain, options, undefined, undefined, (p) => {
+            writer = p;
+          });
 
         const draft = await generateLesson(request, {
           generate,
@@ -143,7 +169,12 @@ export async function POST(req: Request) {
         });
 
         send({ type: "stage", stage: "checking", message: "Fact-checking against the sources…" });
-        const { lesson, checked } = await verifyLesson(draft, sources, generate, req.signal);
+        const verified = await verifyLesson(draft, sources, generate, req.signal);
+        const { checked } = verified;
+        const lesson = {
+          ...verified.lesson,
+          meta: { ...verified.lesson.meta, generatedBy: generatedBy(writer, ownKey, ownModel) },
+        };
 
         // Only lessons that went through the fact-check are shared with other students.
         let stored = false;
@@ -158,7 +189,12 @@ export async function POST(req: Request) {
         if (req.signal.aborted) return;
         const error = err instanceof LlmError ? err : new LlmError("unavailable", String(err));
         console.error(`[api/lesson] ${request.topic.id}/${request.level.slug}:`, error.message);
-        send({ type: "error", kind: error.kind, message: errorCopy[error.kind].message });
+        send({
+          type: "error",
+          kind: error.kind,
+          message: errorCopy[error.kind].message,
+          ...(ownKey ? { usedUserKey: ownKey } : {}),
+        });
       } finally {
         try {
           controller.close();

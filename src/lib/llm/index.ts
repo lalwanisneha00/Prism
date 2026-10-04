@@ -3,3 +3,4 @@ import "server-only";
 
 export { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm/providers";
 export type { LlmProvider } from "@/lib/llm/providers";
+export { chainFor, hasUserKey, userKeyFromHeaders } from "@/lib/llm/userKey";

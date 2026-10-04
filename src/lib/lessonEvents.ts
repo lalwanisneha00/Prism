@@ -15,7 +15,13 @@ export type LessonEvent =
       /** Set when the lesson is in the shared library, so saved copies can sync as a reference. */
       libraryKey?: string;
     }
-  | { type: "error"; kind: LlmErrorKind | "invalid-request"; message: string };
+  | {
+      type: "error";
+      kind: LlmErrorKind | "invalid-request";
+      message: string;
+      /** Set when the student's own key was used: the provider's name, so the page can offer the shared key. */
+      usedUserKey?: string;
+    };
 
 export type LessonErrorKind = Extract<LessonEvent, { type: "error" }>["kind"] | "offline";
 

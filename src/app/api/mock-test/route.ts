@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { findLevel } from "@/data/levels";
 import { errorCopy } from "@/lib/lessonEvents";
-import { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
+import { chainFor, generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
 import {
   checkQuestions,
   fakeMockTest,
@@ -82,7 +82,7 @@ export async function POST(req: Request) {
     let result: { test: MockTest; dropped: string[] } | null = null;
     let problems = "";
     for (let attempt = 0; attempt < 2 && !result; attempt++) {
-      const raw = await generateJsonWithFallback(providersFromEnv(), {
+      const raw = await generateJsonWithFallback(chainFor(req, providersFromEnv), {
         system,
         prompt: problems ? `${prompt}\n\nYour last reply was not valid: ${problems}` : prompt,
         temperature: 0.4,

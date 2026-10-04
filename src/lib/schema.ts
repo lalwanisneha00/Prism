@@ -152,6 +152,10 @@ export const LessonSchema = z
       tier: z.enum(TIERS).optional(),
       /** True when the lesson was grounded in the student's uploaded notes. */
       fromNotes: z.boolean().optional(),
+      /** Which AI wrote it (the student's own key or Prism's shared one); set by the app. */
+      generatedBy: z
+        .object({ provider: z.string().max(100), model: z.string().max(120), ownKey: z.boolean() })
+        .optional(),
     }),
     hook: text,
     prerequisites: z.array(z.object({ concept: text, oneLiner: text })),

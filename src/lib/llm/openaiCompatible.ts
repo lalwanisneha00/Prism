@@ -14,6 +14,7 @@ export class OpenAiCompatibleProvider implements LlmProvider {
     private readonly url: string,
     private readonly apiKey: string,
     private readonly model: string,
+    private readonly options: { omitTemperature?: boolean } = {},
   ) {}
 
   async generateJson({ system, prompt, temperature = 0.4, onText, signal }: GenerateOptions) {
@@ -23,7 +24,7 @@ export class OpenAiCompatibleProvider implements LlmProvider {
       headers: { "content-type": "application/json", authorization: `Bearer ${this.apiKey}` },
       body: JSON.stringify({
         model: this.model,
-        temperature,
+        ...(this.options.omitTemperature ? {} : { temperature }),
         stream: true,
         response_format: { type: "json_object" },
         messages: [

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { errorCopy } from "@/lib/lessonEvents";
-import { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
+import { chainFor, generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
 import { FakeProvider } from "@/lib/llm/fake";
 import type { LlmProvider } from "@/lib/llm/types";
 
@@ -57,7 +57,7 @@ export async function POST(req: Request) {
     );
   }
   try {
-    const raw = await generateJsonWithFallback(providers(), {
+    const raw = await generateJsonWithFallback(chainFor(req, providers), {
       system: SYSTEM,
       prompt: "Copy all the text in this picture.",
       temperature: 0,

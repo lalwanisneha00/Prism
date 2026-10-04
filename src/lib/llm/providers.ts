@@ -67,6 +67,7 @@ export async function generateJsonWithFallback(
   options: GenerateOptions,
   now: () => number = Date.now,
   timeoutMs: number = PROVIDER_TIMEOUT_MS,
+  onUsed?: (provider: LlmProvider) => void,
 ): Promise<string> {
   if (providers.length === 0) {
     throw new LlmError(
@@ -93,6 +94,7 @@ export async function generateJsonWithFallback(
     try {
       const text = await provider.generateJson({ ...options, signal });
       busyUntil.delete(provider.name);
+      onUsed?.(provider);
       return text;
     } catch (caught) {
       if (options.signal?.aborted) throw caught;

@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { explain, ExplainInputSchema, type ExplainResponse } from "@/lib/explain/explain";
 import { errorCopy } from "@/lib/lessonEvents";
-import { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
+import { chainFor, generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
 import { FakeProvider } from "@/lib/llm/fake";
 import type { GenerateOptions, LlmProvider } from "@/lib/llm/types";
 import { parseLesson } from "@/lib/schema";
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
   if (!body.success || !lesson?.ok) {
     return reply({ ok: false, kind: "invalid-request", message: "That request isn't valid." }, 400);
   }
-  const chain = providers();
+  const chain = chainFor(req, providers);
   const generate = (o: GenerateOptions) => generateJsonWithFallback(chain, o);
   try {
     return reply({

@@ -12,7 +12,7 @@ import { validateChapterRequest } from "@/lib/chapter/request";
 import { CustomSubjectPayloadSchema, toSubject } from "@/lib/custom/customSubject";
 import { getAdmin } from "@/lib/firebase/admin";
 import { errorCopy } from "@/lib/lessonEvents";
-import { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
+import { chainFor, generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
 import { adminLibraryStore } from "@/lib/library/adminStore";
 import type { LibraryStore } from "@/lib/library/sharedLibrary";
 
@@ -103,7 +103,7 @@ export async function POST(req: Request) {
     let problems = "";
     // Up to two tries: a reply with the wrong shape is sent back once with the problems.
     for (let attempt = 0; attempt < 2 && !parts; attempt++) {
-      const raw = await generateJsonWithFallback(providersFromEnv(), {
+      const raw = await generateJsonWithFallback(chainFor(req, providersFromEnv), {
         system,
         prompt: problems ? `${prompt}\n\nYour last reply was not valid: ${problems}` : prompt,
         temperature: 0.5,

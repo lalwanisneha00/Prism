@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { OutlineSchema, outlinePrompt } from "@/lib/custom/outline";
 import { errorCopy } from "@/lib/lessonEvents";
-import { generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
+import { chainFor, generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
 
 /*
  * POST { name, excerpts, pyqs? } → { ok, chapters }: a proposed outline for a student's own
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
   }
   const { system, prompt } = outlinePrompt(body.data.name, body.data.excerpts, body.data.pyqs);
   try {
-    const raw = await generateJsonWithFallback(providersFromEnv(), {
+    const raw = await generateJsonWithFallback(chainFor(req, providersFromEnv), {
       system,
       prompt,
       temperature: 0.2,

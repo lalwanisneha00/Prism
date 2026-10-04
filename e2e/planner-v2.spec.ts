@@ -3,13 +3,11 @@ import { expectNoSidewaysScroll } from "./helpers/layout";
 
 test.describe("Time recommendations and planner (V3 · Step 11)", () => {
   test("the lesson picker marks a Recommended length and says why", async ({ page }) => {
-    await page.goto("/?subject=em#start");
-    await page
-      .getByLabel(/chapter/i)
-      .first()
-      .selectOption({ index: 1 });
-    await page.getByLabel(/topic/i).first().selectOption({ index: 1 });
-    await page.getByRole("radio", { name: /Building blocks/i }).check({ force: true });
+    await page.goto("/");
+    await page.getByTestId("subject-chips").getByText("Electricity & Magnetism").click();
+    await page.getByLabel("Or browse by chapter").selectOption("electrostatics");
+    await page.getByText("Gauss's law", { exact: true }).click();
+    await page.getByText("Building Blocks", { exact: true }).click();
     await expect(page.getByTestId("length-why")).toContainText("Recommended");
     await expect(page.getByText("Recommended", { exact: true }).first()).toBeVisible();
     await page.getByRole("button", { name: "Other length" }).click();
@@ -26,8 +24,8 @@ test.describe("Time recommendations and planner (V3 · Step 11)", () => {
     await page.getByRole("button", { name: /Custom/ }).click();
     await page.getByLabel("From").fill("5");
     await page.getByLabel(/^to/).fill("30");
-    await page.getByLabel("Sun").selectOption("480");
-    await page.getByLabel("Sat").selectOption("480");
+    await page.locator("label", { hasText: /^Sun/ }).locator("select").selectOption("480");
+    await page.locator("label", { hasText: /^Sat/ }).locator("select").selectOption("480");
     await page.getByLabel("Number of days").selectOption("7");
     await expect(page.getByRole("region", { name: "Plan overview" })).toContainText("7 days");
     await page.getByRole("button", { name: /Save my 7-day plan/ }).click();
@@ -50,6 +48,7 @@ test.describe("Time recommendations and planner (V3 · Step 11)", () => {
     const select = page.getByLabel(/Importance of/).first();
     await select.selectOption("high");
     await expect(page.getByText("High return").first()).toBeVisible();
+    await expect(page.getByText("Saved on this device.")).toBeVisible();
     await page.reload();
     await expect(page.getByLabel(/Importance of/).first()).toHaveValue("high");
   });

@@ -1,11 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useId, useState } from "react";
 import { OutlineEditor } from "@/components/custom/OutlineEditor";
 import { chaptersFromDraft, guessTeaching, SUGGESTED_NAMES } from "@/lib/custom/customSubject";
 import { outlineExcerpts, outlineFromMaterial } from "@/lib/custom/outline";
 import { createCustomSubject, updateCustomSubject } from "@/lib/custom/store";
+import { matchSyllabus } from "@/lib/custom/matchSyllabus";
+import { subjects as builtIn } from "@/lib/subjects";
 import { draftToText, parseSyllabusText, type DraftChapter } from "@/lib/custom/syllabusText";
 import { ACCEPT } from "@/lib/extract/detect";
 import { extractFile } from "@/lib/extract/extractFile";
@@ -211,6 +214,8 @@ export function CustomSubjectForm({
   }
 
   const units = draft ?? [];
+  // Built-in subjects that cover most of these topics (with verified material and visuals).
+  const matches = matchSyllabus(units, builtIn);
   return (
     <form
       onSubmit={(e) => {
@@ -287,6 +292,31 @@ export function CustomSubjectForm({
         </p>
         {draft ? (
           <>
+            {matches.length > 0 && (
+              <div
+                role="status"
+                className="rounded-xl border border-border bg-bg p-3 text-sm"
+                data-testid="syllabus-match"
+              >
+                <p className="font-semibold">Prism already teaches much of this.</p>
+                <ul className="mt-1 flex flex-col gap-1">
+                  {matches.map((m) => (
+                    <li key={m.subject.id}>
+                      <Link
+                        href={`/subjects/${m.subject.id}`}
+                        className="font-semibold text-primary underline"
+                      >
+                        {m.subject.name}
+                      </Link>{" "}
+                      <span className="text-muted">
+                        covers {m.matched} of your {m.total} topics
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-1 text-muted">You can still save your own subject below.</p>
+              </div>
+            )}
             <OutlineEditor
               value={units}
               onChange={setDraft}
