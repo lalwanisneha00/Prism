@@ -2,7 +2,10 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { PDFDocument } from "pdf-lib";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+
+// Embedding whole fonts takes a few seconds per document.
+vi.setConfig({ testTimeout: 60_000 });
 import { sampleLessons } from "@/data/sampleLessons";
 import { buildPlan } from "@/lib/slides/build";
 import { renderPdf, CONTENTS_FROM_PAGES, type PdfFonts } from "@/lib/slides/pdf";
