@@ -70,7 +70,15 @@ export async function updateSettings(
   changes: Partial<
     Pick<
       AppSettings,
-      "theme" | "audioRate" | "branch" | "semester" | "importanceOverrides" | "mySubjects"
+      | "theme"
+      | "audioRate"
+      | "branch"
+      | "semester"
+      | "importanceOverrides"
+      | "mySubjects"
+      | "universityScope"
+      | "universityName"
+      | "universityOff"
     >
   >,
   now = Date.now(),

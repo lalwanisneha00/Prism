@@ -123,6 +123,15 @@ export type AppSettings = SyncFields & {
    * their own). Colleges differ, so the student chooses; it shapes "My subjects" and the picker.
    */
   mySubjects?: Record<string, string[]>;
+  /**
+   * The student's university syllabus applied to built-in subjects: subject id → chapter id → the
+   * topic ids their university teaches. A chapter that is missing is not taught there.
+   */
+  universityScope?: Record<string, Record<string, string[]>>;
+  /** Shown in the notice ("Applied: Anna University, Mechanical"). */
+  universityName?: string;
+  /** True when the student chose "show everything again" (the scope is kept but not used). */
+  universityOff?: boolean;
 };
 
 /**

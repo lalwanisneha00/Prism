@@ -71,6 +71,15 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     mySubjects: z
       .record(z.string().regex(/^[1-8]$/), z.array(z.string().max(120)).max(40))
       .optional(),
+    universityScope: z
+      .record(
+        z.string().max(120),
+        z.record(z.string().max(120), z.array(z.string().max(120)).max(300)),
+      )
+      .refine((s) => Object.keys(s).length <= 120)
+      .optional(),
+    universityName: z.string().max(160).optional(),
+    universityOff: z.boolean().optional(),
     plannerPrefs: z
       .object({
         rangeMin: z.number().min(1).max(240),
