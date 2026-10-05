@@ -393,6 +393,10 @@ interface PrismDB extends DBSchema {
 
 const DB_NAME = "prism";
 const DB_VERSION = 13;
+
+/** Fired on window when the database upgrade is waiting for another Prism tab, and when it opens. */
+export const DB_BLOCKED_EVENT = "prism-db-blocked";
+export const DB_OPEN_EVENT = "prism-db-open";
 let dbPromise: Promise<IDBPDatabase<PrismDB>> | null = null;
 
 export function getDb(): Promise<IDBPDatabase<PrismDB>> {
@@ -464,6 +468,23 @@ export function getDb(): Promise<IDBPDatabase<PrismDB>> {
         );
       }
     },
+    // An older tab holds the database open at the previous version, so this upgrade has to wait
+    // for it. Without saying so, every page would sit on its loading skeleton forever.
+    blocked() {
+      if (typeof window !== "undefined") window.dispatchEvent(new Event(DB_BLOCKED_EVENT));
+    },
+    // This tab is the old one and a newer tab wants to upgrade: step aside at once.
+    blocking() {
+      const old = dbPromise;
+      dbPromise = null;
+      void old?.then((db) => db.close());
+    },
+    terminated() {
+      dbPromise = null;
+    },
+  });
+  void dbPromise.then(() => {
+    if (typeof window !== "undefined") window.dispatchEvent(new Event(DB_OPEN_EVENT));
   });
   return dbPromise;
 }

@@ -95,3 +95,15 @@ describe("recent topics", () => {
     expect(r).toMatchObject({ id: "em:gauss-law", updatedAt: 42, deleted: false });
   });
 });
+
+describe("opening the database next to another tab", () => {
+  it("steps aside when a newer version wants to upgrade (no tab is left waiting)", async () => {
+    const { openDB } = await import("idb");
+    await getDb(); // this tab, at the current version
+    const upgraded = await Promise.race([
+      openDB("prism", 99).then(() => true),
+      new Promise<boolean>((r) => setTimeout(() => r(false), 2000)),
+    ]);
+    expect(upgraded).toBe(true);
+  });
+});
