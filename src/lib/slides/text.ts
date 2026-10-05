@@ -134,9 +134,9 @@ const SUB: Record<string, string> = {
 
 function script(text: string, map: Record<string, string>, mark: string): string {
   const mapped = [...text].map((c) => map[c]);
-  return mapped.every(Boolean)
-    ? mapped.join("")
-    : `${mark}(${text})`.replace(/\(([^()]{1})\)$/, "$1");
+  if (mapped.every(Boolean)) return mapped.join("");
+  // Not all of it has a Unicode form: keep it readable (Q_enc, x^(n+1)).
+  return /^[A-Za-z0-9]+$/.test(text) ? `${mark}${text}` : `${mark}(${text})`;
 }
 
 /** Finds the matching closing brace for the "{" at `start`; returns its index (or -1). */
@@ -192,6 +192,9 @@ export function latexToPlain(latex: string): string {
     }
     s = s.slice(0, m.index) + out + s.slice(after);
   }
+  // Degrees: 60^\circ → 60°.
+  s = s.replace(/\^\s*\{?\s*\\(?:circ|degree)\s*\}?/g, "°");
+  s = s.replace(/\\ /g, " ");
   s = s.replace(/\\([A-Za-z]+|[,;!])/g, (_, name: string) => GREEK[name] ?? SYMBOLS[name] ?? name);
   // Superscripts and subscripts: x^{2}, x^2, E_0, E_{ab}.
   s = s.replace(/\^\{([^{}]*)\}|\^([A-Za-z0-9+\-−])/g, (_, a?: string, b?: string) =>
@@ -203,6 +206,7 @@ export function latexToPlain(latex: string): string {
   return s
     .replace(/[{}]/g, "")
     .replace(/\\\\/g, "; ")
+    .replace(/\\/g, "")
     .replace(/&/g, " ")
     .replace(/~/g, " ")
     .replace(/\s+/g, " ")

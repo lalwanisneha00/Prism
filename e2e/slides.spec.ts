@@ -64,3 +64,25 @@ test.describe("Slides and PDF generator (Feature B)", () => {
     expect(bytes.length).toBeGreaterThan(20_000);
   });
 });
+
+for (const [theme, purpose, label] of [
+  ["Chalkboard", "To study from", "study"],
+  ["Ink & Paper", "For revision", "revise"],
+  ["Spectrum", "Practice sheet", "practice"],
+] as const) {
+  test(`${theme} · ${label}: a deck in each look opens and has content`, async ({ page }, info) => {
+    test.setTimeout(180_000);
+    await openPanel(page);
+    await page.getByText(purpose, { exact: true }).click();
+    await page.getByText("PowerPoint (.pptx)", { exact: true }).click();
+    await page.getByText(theme, { exact: true }).first().click();
+    const download = page.waitForEvent("download", { timeout: 150_000 });
+    await page.getByRole("button", { name: "Make my file" }).click();
+    const file = await download;
+    const path = info.outputPath(`${label}-${file.suggestedFilename()}`);
+    await file.saveAs(path);
+    const files = unzipSync(new Uint8Array(await readFile(path)));
+    const slides = Object.keys(files).filter((f) => /^ppt\/slides\/slide\d+\.xml$/.test(f));
+    expect(slides.length).toBeGreaterThanOrEqual(3);
+  });
+}

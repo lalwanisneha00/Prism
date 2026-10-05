@@ -601,6 +601,12 @@ export function buildPlan(lessons: Lesson[], opts: BuildOptions): SlidePlan {
   const many = lessons.length > 1;
   const candidates: Candidate[] = [];
   const topicNames = lessons.map((l) => l.meta.title);
+  // Every deck credits the sources of the lessons it is made from.
+  for (const l of lessons) {
+    for (const s of l.meta.sources) {
+      b.credits.add(`${s.title}, ${s.publisher}${s.license ? ` (${s.license})` : ""}`);
+    }
+  }
 
   if (opts.purpose === "summary") {
     const points = lessons.flatMap((l) => l.revisionSheet.keyPoints).slice(0, 5);

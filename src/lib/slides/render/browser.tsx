@@ -42,13 +42,78 @@ function newHost(): HTMLDivElement {
   return host;
 }
 
-async function snapshotHost(host: HTMLElement): Promise<RenderedImage> {
+/** woff2 files already fetched and turned into base64, by URL. */
+const fontData = new Map<string, Promise<string>>();
+
+function toBase64(bytes: Uint8Array): string {
+  let bin = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) {
+    bin += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  }
+  return btoa(bin);
+}
+
+/**
+ * The KaTeX fonts a formula actually uses, as a small piece of CSS with the font files inlined
+ * (woff2 only). Letting the picture library gather every format of every font makes a file so
+ * large the browser refuses to load it; a formula without its font is drawn in the wrong glyphs.
+ */
+async function katexFontCss(host: HTMLElement): Promise<string> {
+  const used = new Set<string>();
+  for (const el of host.querySelectorAll("*")) {
+    const style = getComputedStyle(el);
+    const family = style.fontFamily.split(",")[0].replace(/['"\s]/g, "");
+    if (family.startsWith("KaTeX")) used.add(`${family}|${style.fontWeight}|${style.fontStyle}`);
+  }
+  const css: string[] = [];
+  for (const sheet of [...document.styleSheets]) {
+    let rules: CSSRule[];
+    try {
+      rules = [...sheet.cssRules];
+    } catch {
+      continue; // a sheet from another site cannot be read
+    }
+    for (const rule of rules) {
+      if (!(rule instanceof CSSFontFaceRule)) continue;
+      const family = rule.style.getPropertyValue("font-family").replace(/['"\s]/g, "");
+      const weight = rule.style.getPropertyValue("font-weight") || "400";
+      const style = rule.style.getPropertyValue("font-style") || "normal";
+      const bold = weight === "700" || weight === "bold" ? "700" : "400";
+      const wanted = [...used].some(
+        (u) => u === `${family}|${bold}|${style}` || u === `${family}|${weight}|${style}`,
+      );
+      if (!family.startsWith("KaTeX") || !wanted) continue;
+      const url = /url\(\s*["']?([^"')]+\.woff2)["']?\s*\)/.exec(
+        rule.style.getPropertyValue("src"),
+      );
+      if (!url) continue;
+      const href = new URL(url[1], sheet.href ?? location.href).href;
+      if (!fontData.has(href)) {
+        fontData.set(
+          href,
+          fetch(href)
+            .then((r) => r.arrayBuffer())
+            .then((buf) => toBase64(new Uint8Array(buf))),
+        );
+      }
+      css.push(
+        `@font-face{font-family:${family};font-style:${style};font-weight:${weight};src:url(data:font/woff2;base64,${await fontData.get(href)}) format("woff2");}`,
+      );
+    }
+  }
+  return css.join("");
+}
+
+async function snapshotHost(host: HTMLElement, fontEmbedCSS?: string): Promise<RenderedImage> {
   const { toPng } = await import("html-to-image");
   const rect = host.getBoundingClientRect();
   const dataUrl = await toPng(host, {
     pixelRatio: PIXEL_RATIO,
     backgroundColor: "#ffffff",
     cacheBust: true,
+    ...(fontEmbedCSS !== undefined ? { fontEmbedCSS } : {}),
+    // The host sits off-screen; the copy being drawn must not.
+    style: { position: "static", left: "0", top: "0" },
   });
   return {
     dataUrl,
@@ -61,18 +126,36 @@ async function drawLatex(latex: string, signal?: AbortSignal): Promise<RenderedI
   const katex = (await import("katex")).default;
   const host = newHost();
   try {
-    host.style.width = "auto";
+    host.style.width = "max-content";
     host.style.maxWidth = `${WIDTH}px`;
-    host.style.fontSize = "30px";
+    host.style.fontSize = "26px";
     host.style.display = "inline-block";
     host.innerHTML = katex.renderToString(latex, {
       displayMode: true,
       throwOnError: false,
       output: "html",
     });
+    // No page-style margins around the formula: the picture is cropped to it.
+    for (const el of host.querySelectorAll<HTMLElement>(".katex-display")) el.style.margin = "0";
     await document.fonts?.ready;
     await settle(host, signal);
-    return await snapshotHost(host);
+    const css = await katexFontCss(host);
+    try {
+      return await snapshotHost(host, css);
+    } catch (err) {
+      const r = host.getBoundingClientRect();
+      const src = err instanceof Event ? ((err.target as HTMLImageElement | null)?.src ?? "") : "";
+      console.warn(
+        "[slides] latex snapshot",
+        r.width,
+        r.height,
+        css.length,
+        src.length,
+        src.slice(0, 120),
+        host.innerHTML.length,
+      );
+      throw err;
+    }
   } finally {
     host.remove();
   }
@@ -90,6 +173,7 @@ async function drawMermaid(code: string): Promise<RenderedImage> {
   const { svg } = await mermaid.render(`export-${Math.random().toString(36).slice(2)}`, code);
   const host = newHost();
   try {
+    host.style.width = "max-content";
     host.innerHTML = svg;
     await settle(host);
     return await snapshotHost(host);
@@ -147,6 +231,7 @@ export async function renderImages(
             : await drawVisual(request.spec, signal);
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") throw err;
+      console.warn("[slides] a picture could not be drawn:", key, err);
       failed.push(key);
     }
     done++;

@@ -733,10 +733,10 @@ export async function renderPdf(
   doc.setCreator("Prism");
   doc.setProducer("Prism");
   const [sans, sansBold, serif, serifBold] = await Promise.all([
-    doc.embedFont(fonts.sans, { subset: true }),
-    doc.embedFont(fonts.sansBold, { subset: true }),
-    doc.embedFont(fonts.serif, { subset: true }),
-    doc.embedFont(fonts.serifBold, { subset: true }),
+    doc.embedFont(fonts.sans, { subset: false }),
+    doc.embedFont(fonts.sansBold, { subset: false }),
+    doc.embedFont(fonts.serif, { subset: false }),
+    doc.embedFont(fonts.serifBold, { subset: false }),
   ]);
   const hex = (h: string) => {
     const n = Number.parseInt(h.replace("#", "").slice(0, 6), 16);

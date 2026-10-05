@@ -132,19 +132,23 @@ function decorate(ctx: Ctx, s: Sld, index: number, total: number, quiet = false)
 
 function titleBar(ctx: Ctx, s: Sld, title: string, width = CW) {
   const t = ctx.theme;
-  textBox(
-    ctx,
-    s,
-    heading(ctx, title),
-    { x: M, y: 0.7, w: width, h: 0.95 },
-    {
-      max: 34,
-      min: 22,
-      font: t.headingFont,
-      bold: true,
-      valign: "middle",
-    },
-  );
+  const text = heading(ctx, title);
+  // One line at a good size if it fits, otherwise two lines a little smaller.
+  const one = fitFont([text], { w: width, h: 0.62 }, 34, 26);
+  const pt = one.overflow ? fitFont([text], { w: width, h: 0.95 }, 26, 18).pt : one.pt;
+  s.addText(text, {
+    x: M,
+    y: 0.7,
+    w: width,
+    h: 0.95,
+    margin: 0,
+    fontFace: t.headingFont,
+    fontSize: pt,
+    bold: true,
+    color: hex(t.ink),
+    valign: "bottom",
+    fit: "shrink",
+  });
   // The title style: a short accent rule under it (a thicker "chalk" stroke on the chalkboard).
   s.addShape(ctx.pres.ShapeType.rect, {
     x: M,
@@ -696,6 +700,7 @@ function drawSlide(ctx: Ctx, slide: Slide, index: number, total: number) {
           fontFace: t.labelFont,
           fontSize: 22,
           color: hex(t.accent),
+          valign: "top",
         });
         textBox(
           ctx,
