@@ -93,7 +93,11 @@ function PickerForm({
   const hasMine = chosenList.length > 0 || Boolean(mine.branch);
   const own = ownCount ? subjects.slice(-ownCount) : [];
   // Built-in subjects for my branch (if set), then my own subjects.
-  const shown = hasMine && !showAll && mineList.length > 0 ? [...mineList, ...own] : subjects;
+  // (Deduplicated: an own subject that is also in the semester list must show once.)
+  const seen = new Set<string>();
+  const shown = (
+    hasMine && !showAll && mineList.length > 0 ? [...mineList, ...own] : subjects
+  ).filter((s) => !seen.has(s.id) && seen.add(s.id));
 
   const start = subjects.find((s) => s.id === initial.subject) ?? subjects[0];
   const [subjectId, setSubjectId] = useState(start.id);

@@ -2,7 +2,12 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
-import { picksFor, withPick, type SemesterPicks } from "@/lib/semester/mySemester";
+import {
+  picksFor,
+  SEMESTER_CHANGED_EVENT,
+  withPick,
+  type SemesterPicks,
+} from "@/lib/semester/mySemester";
 import { getSettings, updateSettings } from "@/lib/storage/progress";
 
 /**
@@ -22,6 +27,13 @@ export function useMySemester(): {
   const [semester, setSem] = useState<number | undefined>();
   const [all, setAll] = useState<SemesterPicks>({});
   const [loaded, setLoaded] = useState(false);
+  // Bumped when something else (the syllabus upload) changed the semester or its subjects.
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const on = () => setTick((t) => t + 1);
+    window.addEventListener(SEMESTER_CHANGED_EVENT, on);
+    return () => window.removeEventListener(SEMESTER_CHANGED_EVENT, on);
+  }, []);
   // A choice made on this page wins over a load that was still on its way.
   const chosenAt = useRef(0);
 
@@ -35,7 +47,7 @@ export function useMySemester(): {
       })
       .catch(() => undefined)
       .finally(() => setLoaded(true));
-  }, [dataVersion]);
+  }, [dataVersion, tick]);
 
   const setSemester = useCallback((n: number | undefined) => {
     chosenAt.current = Date.now();

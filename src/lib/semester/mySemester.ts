@@ -80,3 +80,6 @@ export async function saveMySubjects(picks: SemesterPicks): Promise<void> {
 export async function addSubjectToSemester(semester: number, subjectId: string): Promise<void> {
   await saveMySubjects(withPick(await getMySubjects(), semester, subjectId, true));
 }
+
+/** Fired on window after the semester or its subjects were changed outside the picker, so open panels reload. */
+export const SEMESTER_CHANGED_EVENT = "prism-semester-changed";
