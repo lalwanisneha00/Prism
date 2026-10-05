@@ -1,3 +1,4 @@
+import { levelColor } from "@/lib/levelColor";
 import type { LessonRequest } from "@/lib/lessonRequest";
 
 /** Breadcrumb, topic title and level/time pills, shown while a lesson loads or fails. */
@@ -11,7 +12,12 @@ export function LessonHeader({ request }: { request: LessonRequest }) {
         {request.topic.name}
       </h1>
       <ul className="flex flex-wrap gap-2 text-sm">
-        <li className="rounded-full bg-primary-soft px-3 py-1 font-medium text-primary">
+        <li className="flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 font-medium">
+          <span
+            aria-hidden="true"
+            className="size-2.5 rounded-full"
+            style={{ background: levelColor(request.level.slug) }}
+          />
           {request.level.name}
         </li>
         <li className="rounded-full border border-border bg-surface px-3 py-1">

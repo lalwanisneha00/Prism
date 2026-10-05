@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Geist, Geist_Mono, Source_Sans_3 } from "next/font/google";
 import { AuthProvider } from "@/components/account/AuthProvider";
 import { KeyboardShortcuts } from "@/components/KeyboardShortcuts";
+import { FLAGS } from "@/lib/flags";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { TestModeBanner } from "@/components/TestModeBanner";
@@ -13,6 +14,10 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
+// The reading face for the whole interface and the display face for headings (Feature C).
+const sourceSans = Source_Sans_3({ variable: "--font-source", subsets: ["latin"] });
+const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"], axes: ["opsz"] });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -26,8 +31,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8f7fc" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f0d1a" },
+    { media: "(prefers-color-scheme: light)", color: "#f4efe4" },
+    { media: "(prefers-color-scheme: dark)", color: "#14181f" },
   ],
 };
 
@@ -36,11 +41,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme="light"
+      data-look={FLAGS.redesign ? "new" : "classic"}
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${sourceSans.variable} ${fraunces.variable} h-full antialiased`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: themeScript(FLAGS.redesign) }} />
       </head>
       <body className="flex min-h-full flex-col font-sans">
         <a

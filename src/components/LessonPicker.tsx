@@ -16,6 +16,7 @@ import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { TopicSearch } from "@/components/TopicSearch";
 import { defaultDuration } from "@/data/durations";
 import { availableLevels, type LevelSlug } from "@/data/levels";
+import { levelColor } from "@/lib/levelColor";
 import { FLAGS } from "@/lib/flags";
 import { chapterHref } from "@/lib/chapter/request";
 import { isCustomId } from "@/lib/custom/customSubject";
@@ -422,6 +423,7 @@ function PickerForm({
               }}
               title={l.name}
               description={l.forWho}
+              accent={levelColor(l.slug)}
             />
           ))}
         </div>

@@ -6,8 +6,67 @@
 /*
  * Design tokens. Components use these names (bg-surface, text-muted, …),
  * never raw colours, so a re-theme is a change in this file only.
+ *
+ * The look (Feature C): a calm, paper-and-ink interface. Colour is information, not decoration:
+ * the six learning levels each own one spectrum colour (--level-*), used wherever a level shows.
+ * Everything else is neutral, with one ink-teal for actions. "Classic" (the earlier purple look)
+ * is kept below, behind [data-look="classic"], so it can be switched back.
  */
 :root {
+  /* Warm paper and deep ink. */
+  --bg: #f4efe4;
+  --surface: #fbf8f1;
+  --surface-2: #ece5d6;
+  --border: #d3c9b4;
+  --fg: #1c2230;
+  --muted: #565c6b;
+  --primary: #1e5e66;
+  --primary-hover: #174a51;
+  --primary-fg: #fbf8f1;
+  --primary-soft: #dde9e4;
+  --success: #2c6a3b;
+  --warning: #84560a;
+  --danger: #a32b22;
+  /* The six levels, in spectrum order (first encounter … last minute). */
+  --level-first-encounter: #c9402a;
+  --level-building-blocks: #b9740a;
+  --level-second-chance: #5f8a1c;
+  --level-deep-dive: #17837d;
+  --level-exam-prep: #2f5f9e;
+  --level-last-minute: #7a4a93;
+  --r-control: 0.375rem;
+  --r-card: 0.5rem;
+  --ui-font: var(--font-source), system-ui, sans-serif;
+  --display-font: var(--font-fraunces), Georgia, serif;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  /* Deep ink, not black and not purple. */
+  --bg: #14181f;
+  --surface: #1b2029;
+  --surface-2: #242b37;
+  --border: #36404f;
+  --fg: #ece7db;
+  --muted: #a6acba;
+  --primary: #72c4c9;
+  --primary-hover: #92d4d8;
+  --primary-fg: #10171b;
+  --primary-soft: #1f3438;
+  --success: #72cc87;
+  --warning: #e6b65a;
+  --danger: #f28b82;
+  --level-first-encounter: #f07a62;
+  --level-building-blocks: #e8a948;
+  --level-second-chance: #a2c85a;
+  --level-deep-dive: #4cc4bb;
+  --level-exam-prep: #7ba7e0;
+  --level-last-minute: #b98fd0;
+  color-scheme: dark;
+}
+
+/* Classic: the earlier purple look, one switch away (footer: "Classic look"). */
+[data-look="classic"][data-theme="light"] {
   --bg: #f8f7fc;
   --surface: #ffffff;
   --surface-2: #f1eff9;
@@ -21,10 +80,12 @@
   --success: #15803d;
   --warning: #b45309;
   --danger: #c2261d;
-  color-scheme: light;
+  --r-control: 0.75rem;
+  --r-card: 1rem;
+  --ui-font: var(--font-geist-sans), system-ui, sans-serif;
+  --display-font: var(--font-geist-sans), system-ui, sans-serif;
 }
-
-[data-theme="dark"] {
+[data-look="classic"][data-theme="dark"] {
   --bg: #0f0d1a;
   --surface: #181527;
   --surface-2: #221e36;
@@ -38,7 +99,10 @@
   --success: #4ade80;
   --warning: #fbbf24;
   --danger: #f87171;
-  color-scheme: dark;
+  --r-control: 0.75rem;
+  --r-card: 1rem;
+  --ui-font: var(--font-geist-sans), system-ui, sans-serif;
+  --display-font: var(--font-geist-sans), system-ui, sans-serif;
 }
 
 @theme inline {
@@ -55,8 +119,40 @@
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-danger: var(--danger);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--ui-font);
+  --font-display: var(--display-font);
   --font-mono: var(--font-geist-mono);
+  --radius-xl: var(--r-control);
+  --radius-2xl: var(--r-card);
+}
+
+/* Headings in the display face; everything else in the reading face. */
+h1,
+h2,
+h3 {
+  font-family: var(--display-font);
+}
+h1,
+h2 {
+  letter-spacing: -0.01em;
+}
+
+/* A clear keyboard focus everywhere, in the action colour. */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Motion is only for meaning, and off for anyone who asks. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 body {
@@ -64,12 +160,26 @@ body {
   color: var(--fg);
 }
 
-/* The prism "spectrum": used sparingly for brand moments. */
+/* The one emphasised phrase in the hero: italic, in the action colour. No gradient text. */
 .text-spectrum {
-  background: linear-gradient(90deg, #e1306c, #f59e0b, #10b981, #3b82f6, #8b5cf6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-style: italic;
+  color: var(--primary);
+}
+
+/*
+ * Lessons read like a well-set textbook page: a comfortable measure, generous line height and
+ * room between paragraphs.
+ */
+.markdown {
+  line-height: 1.75;
+}
+.markdown > p,
+.markdown > ul,
+.markdown > ol {
+  max-width: 68ch;
+}
+.markdown p + p {
+  margin-top: 0.9em;
 }
 
 /* Display maths: long formulas scroll sideways on small screens instead of overflowing. */

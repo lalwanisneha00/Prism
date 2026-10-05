@@ -438,7 +438,7 @@ function ReadingBar({
   return (
     <nav
       aria-label="Topics in this lesson"
-      className="sticky top-0 z-20 -mx-4 border-b border-border bg-bg/95 px-4 py-2 backdrop-blur sm:mx-0 sm:rounded-xl sm:border"
+      className="sticky top-0 z-20 -mx-4 border-b border-border bg-bg px-4 py-2 sm:mx-0 sm:rounded-xl sm:border"
       data-testid="reading-bar"
     >
       <details>

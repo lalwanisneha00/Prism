@@ -7,7 +7,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-bg/85 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-border bg-bg">
       <Container className="flex h-16 items-center justify-between">
         <Logo />
         <nav aria-label="Main" className="flex items-center gap-0.5 sm:gap-2">

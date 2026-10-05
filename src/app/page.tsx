@@ -3,6 +3,8 @@ import { LessonPicker } from "@/components/LessonPicker";
 import { PrismArt } from "@/components/PrismArt";
 import { RecentTopics } from "@/components/RecentTopics";
 import { GlobalSearch } from "@/components/subjects/GlobalSearch";
+import { levels } from "@/data/levels";
+import { levelColor } from "@/lib/levelColor";
 import { site } from "@/lib/site";
 import { subjects } from "@/lib/subjects";
 
@@ -29,8 +31,8 @@ export default async function Home({ searchParams }: PageProps<"/">) {
       <section className="py-12 sm:py-20">
         <Container className="grid items-center gap-10 md:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="mb-4 inline-flex rounded-full bg-primary-soft px-3 py-1 text-sm font-medium text-primary">
-              Now teaching: {subjects.map((s) => s.name).join(" · ")}
+            <p className="mb-4 text-sm font-semibold tracking-wide text-muted uppercase">
+              {subjects.length} engineering subjects · six ways in
             </p>
             <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl">
               The topic your professor rushed,{" "}
@@ -52,7 +54,24 @@ export default async function Home({ searchParams }: PageProps<"/">) {
               </a>
             </div>
           </div>
-          <PrismArt className="mx-auto w-full max-w-sm" />
+          <div className="flex flex-col gap-5">
+            <PrismArt className="mx-auto w-full max-w-sm" />
+            <ul
+              aria-label="The six learning levels"
+              className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm"
+            >
+              {levels.map((l) => (
+                <li key={l.slug} className="flex items-center gap-2">
+                  <span
+                    aria-hidden="true"
+                    className="h-3 w-1.5 rounded-sm"
+                    style={{ background: levelColor(l.slug) }}
+                  />
+                  {l.name}
+                </li>
+              ))}
+            </ul>
+          </div>
         </Container>
       </section>
 

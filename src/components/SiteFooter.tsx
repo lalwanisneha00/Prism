@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { LookToggle } from "@/components/LookToggle";
 import { FLAGS } from "@/lib/flags";
 import { site } from "@/lib/site";
 
@@ -31,6 +32,11 @@ export function SiteFooter() {
                 Your API keys
               </Link>{" "}
               ·{" "}
+            </>
+          )}
+          {FLAGS.redesign && (
+            <>
+              <LookToggle /> ·{" "}
             </>
           )}
           © {site.name}

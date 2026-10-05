@@ -1,39 +1,47 @@
-const bands = ["#e1306c", "#f97316", "#f59e0b", "#10b981", "#3b82f6", "#8b5cf6"];
+/** Decorative hero art, drawn flat: white light enters a prism and leaves as the six level colours. */
+const levels = [
+  "var(--level-first-encounter)",
+  "var(--level-building-blocks)",
+  "var(--level-second-chance)",
+  "var(--level-deep-dive)",
+  "var(--level-exam-prep)",
+  "var(--level-last-minute)",
+];
 
-/** Decorative hero art: a beam of light entering a prism and leaving as a spectrum. */
 export function PrismArt({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 320 220" className={className} aria-hidden="true">
+    <svg viewBox="0 0 360 240" className={className} aria-hidden="true">
+      {/* The incoming beam: one plain line. */}
       <line
-        x1="0"
-        y1="138"
-        x2="118"
-        y2="112"
-        className="stroke-fg"
-        strokeWidth="4"
+        x1="8"
+        y1="142"
+        x2="128"
+        y2="118"
+        stroke="var(--fg)"
+        strokeWidth="3"
         strokeLinecap="round"
       />
-      {bands.map((color, i) => (
-        <polygon
+      {/* The six bands leaving the prism, each a level colour. */}
+      {levels.map((color, i) => (
+        <line
           key={color}
-          points={`196,${104 + i * 4} 196,${108 + i * 4} 320,${70 + i * 22} 320,${48 + i * 22}`}
-          fill={color}
-          opacity="0.9"
+          x1="204"
+          y1={108 + i * 3}
+          x2="352"
+          y2={50 + i * 26}
+          stroke={color}
+          strokeWidth="9"
+          strokeLinecap="butt"
         />
       ))}
+      {/* The prism: a flat outline on paper. */}
       <path
-        d="M160 30 220 170H100Z"
-        className="fill-surface stroke-border"
-        strokeWidth="3"
+        d="M166 36 232 176H100Z"
+        fill="var(--surface)"
+        stroke="var(--fg)"
+        strokeWidth="2.5"
         strokeLinejoin="round"
       />
-      <path d="M160 30 220 170H100Z" fill="url(#prism-glass)" />
-      <defs>
-        <linearGradient id="prism-glass" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#8b5cf6" stopOpacity="0.25" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0.05" />
-        </linearGradient>
-      </defs>
     </svg>
   );
 }

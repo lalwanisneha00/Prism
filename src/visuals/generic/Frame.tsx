@@ -2,7 +2,8 @@
 
 import type { ReactNode } from "react";
 
-export const palette = ["var(--primary)", "#f59e0b", "#10b981", "#e1306c", "#3b82f6", "#a855f7"];
+/** Okabe–Ito colours: told apart by people with every common kind of colour blindness. */
+export const palette = ["var(--primary)", "#e69f00", "#009e73", "#d55e00", "#0072b2", "#cc79a7"];
 
 /** Where a visual's numbers come from (SPEC §4.1): always said under the visual. */
 export function DataNote({ data, sourceId }: { data?: string; sourceId?: string }) {
