@@ -88,6 +88,14 @@ export function SemesterSubjects() {
         </p>
       </div>
 
+      <p className="text-sm">
+        Have your official syllabus?{" "}
+        <Link href="/subjects/university" className="font-semibold text-primary underline">
+          Add my university syllabus
+        </Link>{" "}
+        and Prism fills this in and hides the subjects and chapters your university does not teach.
+      </p>
+
       <label className="flex w-fit flex-col gap-1 text-sm" htmlFor={`${id}-sem`}>
         <span className="font-semibold">My semester</span>
         <select

@@ -28,6 +28,8 @@ export type ReviewEntry = {
   choice: ReviewChoice;
   /** Chapter ids of the built-in subject the student unticked in the review. */
   hiddenChapters?: string[];
+  /** Chapter ids the syllabus did not mention but the student says their university teaches. */
+  includedChapters?: string[];
 };
 
 export type ApplyPlan = {
@@ -71,6 +73,15 @@ export function planApply(
       scope = Object.fromEntries(
         Object.entries(base).filter(([chapterId]) => !hidden.has(chapterId)),
       );
+    }
+    // Chapters the student added back although the syllabus did not mention them.
+    const added = list.flatMap((e) => e.includedChapters ?? []);
+    if (scope && added.length > 0) {
+      for (const chapter of subject.chapters) {
+        if (added.includes(chapter.id) && !hidden.has(chapter.id)) {
+          scope = { ...scope, [chapter.id]: chapter.topics.map((t) => t.id) };
+        }
+      }
     }
     if (scope && Object.keys(scope).length > 0) scopes[id] = scope;
   }
