@@ -2,6 +2,14 @@
 
 Branch `overnight-v3-final` (tag `before-overnight-final`), pushed to GitHub so Vercel can build a preview. Nothing was merged into `main`; production and live Firebase were not touched.
 
+## Update 2026-10-06: three changes from your feedback (all pushed, tag `final-semester-syllabus`)
+
+1. **Slides and PDFs.** No slide numbers in the PowerPoint (PDF page numbers stay). No more lines cut off with "…". Much fuller content: every sentence of each part, agenda, key terms, all analogies, examples that continue over two slides, "Keep learning", fuller speaker notes. The class activity is now "Think, pair, share" on the lesson's hardest question with 5–8 minutes and three steps for how to work on it, plus "True or false? Defend it" from a real common mistake. ✅ Check this: make a teaching deck for Gauss's law and read the activity slide and the notes pane.
+2. **Subjects by semester.** `/subjects` → "My subjects this semester": choose your semester, tick the subjects your college teaches then, add non-core ones (Indian Knowledge System, Organisational Behaviour, Environmental Science …). They come first in the lesson maker. ✅ Check this: choose semester 2, tick two subjects, open the home page.
+3. **University syllabus.** `/subjects/university`: upload or paste your official syllabus, Prism reads it (or "Read it with AI"), shows what it found per semester, matches subjects to Prism's, lets you untick chapters your university doesn't teach, then applies it: subjects by semester, hidden chapters and topics everywhere (picker, subject pages, planner), and subjects of your own for anything Prism doesn't teach. "Show everything" and "Remove it" undo it. ✅ Check this: paste `test-fixtures/university-syllabus-sample.txt`, review, apply, open Applied Physics.
+   Also fixed: pages that stayed on loading skeletons when an old Prism tab was open (close old tabs; a banner now explains), and quick settings changes overwriting each other.
+   Screens: `docs/redesign/new-features/`.
+
 ## 1. Summary
 
 | Step                                          | State                                                           | Tag                    | Flag (default)                     |

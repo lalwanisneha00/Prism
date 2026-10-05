@@ -1,6 +1,6 @@
 # HANDOFF: how to continue Prism exactly according to plan
 
-Written for a new AI (or person) picking this repo up cold. Read this first, then `CLAUDE.md`, `AGENTS.md`, `SPEC.md`, `PROGRESS.md`, `MORNING_REPORT.md`, `DEPLOY_CHECKLIST.md` and `docs/PRISM_OVERNIGHT_FINAL.md` (the owner's original overnight brief). Last updated 2026-10-06.
+Written for a new AI (or person) picking this repo up cold. Read this first, then `CLAUDE.md`, `AGENTS.md`, `SPEC.md`, `PROGRESS.md`, `MORNING_REPORT.md`, `DEPLOY_CHECKLIST.md` and `docs/PRISM_OVERNIGHT_FINAL.md` (the owner's original overnight brief). Last updated 2026-10-06 (after the semester, university-syllabus and slide-quality work).
 
 ## 1. What Prism is
 
@@ -29,43 +29,30 @@ A free, visual, sourced study guide for engineering students (Next.js 16, React 
 | DB-lock fix                                 | Done (`e2b8aca`): older tabs holding IndexedDB open used to freeze pages; now they step aside and a notice shows.                                                         |
 | Last full browser regression                | Not completed (stopped on request). 58 tests passed; `chapter-reading` desktop-dark failed once during a system sleep and has not been re-run alone.                      |
 
-## 4. THE CURRENT TASK LIST (from the owner, 2026-10-06). Do these in order; each is a separate commit
+## 4. The owner's latest requests (2026-10-06): all three are BUILT, pushed and tested; waiting for the owner's review
 
-### 4.1 Slides and PDF quality (in progress)
+### 4.1 Slides and PDF quality: done
 
-The owner's complaints about generated decks/PDFs and what was decided:
+- No slide numbers in the PowerPoint (a PDF keeps page numbers). No line ends with an ellipsis: `clip()` in `src/lib/slides/text.ts` cuts at whole sentences, and long content is split over "(continued)" slides, never cut.
+- Depth: every sentence of each section, agenda slide, prerequisites, key terms (glossary), all analogies, worked examples (continued on a second slide), misconceptions, "Keep learning", richer speaker notes. Class activities are now "Think, pair, share" on the lesson's hardest question (5–8 min, with three "how to work on it" hints) and "True or false? Defend it" from a real misconception (4 min). Source lessons are made longer (`lessonMinutesFor`: about slides × 2.4 min per topic).
+- Tests: `src/lib/slides/*.test.ts`, `e2e/slides.spec.ts`. Decks were opened in PowerPoint and checked by eye.
+- Known: a deck's length is still capped by the asked slide count (optional slides are dropped first); interactive widgets still show their slider controls in pictures.
 
-1. **Content was too basic** (e.g. an activity "discuss the SI unit of charge", 3 minutes). Required: decks must be as good as the web lessons. Done so far in `src/lib/slides/build.ts` (`lessonCandidates`, `activitySlides`, `chunkPoints`, `hardestQuestion`): every sentence of a section kept and split over slides (not cut), agenda slide, prerequisites, glossary "Key terms" slides, "Keep learning" slide, all analogies/examples/misconceptions chunked, worked examples continue on a second slide, richer speaker notes, and the class activity is now "Think, pair, share" on the lesson's hardest quiz question (5–8 min, with three working hints) plus a "True or false? Defend it" task from a real misconception (4 min).
-2. **Remove slide numbers from the PowerPoint** (editing slides would force renumbering). TODO: delete the `label` text box in `decorate()` in `src/lib/slides/pptx.ts` (the "n / total" and blueprint "FIG. NN"). PDF page numbers stay (a PDF is not edited).
-3. **No incomplete lines ending in "…".** Done: `clip()` in `src/lib/slides/text.ts` now cuts at a whole sentence/clause/word and never adds an ellipsis; schema limits in `src/lib/slides/plan.ts` raised about 2.2×; `build.ts` has a wrapper `clip` with generous body limits. TODO: confirm no "…" appears anywhere in generated output (add a test that scans every slide string for "…" except the glossary/maths).
-4. **TODO (needed to finish 1):** the `activity` slide now has `hints: string[]` (schema + builder). Render it in `pptx.ts` (`case "activity"`: prompt card left/top, "How to work on it" numbered hints below or beside, minutes label) and `pdf.ts` (`case "activity"`), update `overflowRisks()` and the tests (`build.test.ts` expects an activity and a recap; `pptx.test.ts`/`pdf.test.ts` must still pass; add a test that activity minutes are 4–8 and hints exist). Update `lessonMinutesFor()` in `src/lib/slides/generate.ts` so the source lessons are richer (about `slides × 2.4` minutes per topic, capped at 60).
-5. After the changes: rebuild, generate each purpose in PowerPoint and PDF, open the .pptx in PowerPoint (COM `Presentations.Open` + `Export` to PNG works on the owner's machine, see §6) and look at the slides; fix overflow.
+### 4.2 Subjects by semester and non-core subjects: done
 
-### 4.2 Subjects by semester and non-core subjects (in progress, code written, untested in browser)
+Student picks their semester and ticks the subjects their college teaches (any subject can sit in any semester), plus non-core subjects (Indian Knowledge System, Organisational Behaviour, Environmental Science …). Built-in non-core ones tick directly; others open the own-subject form with `?semester=N` and join that semester on save. Chosen subjects come first in the lesson maker. Code: `src/lib/semester/mySemester.ts`, `src/components/subjects/SemesterSubjects.tsx`, `useMySemester.ts`; settings field `mySubjects`. Tests: `mySemester.test.ts`, `e2e/semester-subjects.spec.ts`.
+Bug found and fixed on the way: two quick settings saves could overwrite each other; `updateSettings` now queues writes (`settings.test.ts`).
 
-Colleges teach the same subject in different semesters, so the student picks. Built:
+### 4.3 University / college syllabus: done
 
-- Settings field `mySubjects: Record<"1".."8", string[]>` (`src/lib/storage/db.ts`, `recordSchemas.ts`, `progress.ts`).
-- Pure helpers + test: `src/lib/semester/mySemester.ts` (`withPick`, `picksFor`, `usuallyInSemester`, `NON_CORE`, `addSubjectToSemester`).
-- Hook `src/components/subjects/useMySemester.ts`; UI `src/components/subjects/SemesterSubjects.tsx` (semester selector, chosen list, searchable checklist grouped by field, "usually taught this semester" hints, non-core list: built-in ones tick directly, others open `/my-subjects/new?name=…&semester=N` and the new own-subject joins that semester when saved).
-- Wired into `SubjectCatalogue.tsx` (top of `/subjects`) and `LessonPicker.tsx` (chosen subjects come first; falls back to branch/semester). `CustomSubjectForm` accepts `addToSemester`.
-- TODO: run `npm run check`; write an e2e test (`e2e/semester-subjects.spec.ts`: choose semester 2, tick two subjects, see them first in the picker, add a non-core subject via the form, reload and check they persist); view it at desktop and 375px, light and dark; handle the Classic look.
+`/subjects/university` ("Add my university syllabus", linked from the semester panel): upload (PDF, Word, slides, photo; read on the device) or paste; "Read my syllabus" (rule-based parser `src/lib/university/parse.ts`) or "Read it with AI" (`/api/syllabus`, Zod-checked, chunked; uses the student's key if set). Then a review screen: per semester, each university subject is matched to a built-in subject (`match.ts`: name similarity ignoring filler words like "Engineering"/"Applied"/"I", plus topic overlap), or kept as the student's own subject, or skipped; chapters the university does not teach are unticked and can be ticked back. Apply (`apply.ts`) saves `mySubjects` per semester, `universityScope` (subject → chapter → topic ids), creates own subjects for what Prism does not teach. The scope is enforced in the lesson picker, subject pages and the planner via `useScopedSubjects` (`src/components/university/`); a notice offers "Show everything" / "Edit my syllabus"; "Remove it" clears it. Fixture: `test-fixtures/university-syllabus-sample.txt`. Tests: `src/lib/university/*.test.ts`, `e2e/university.spec.ts`.
+Not yet scoped: the concept map page and chapter-lesson pages that load a subject directly by id (they still show every chapter). Matching is word-based, so a differently worded syllabus may leave chapters in; the review screen is where the student corrects that.
 
-### 4.3 University / college syllabus upload that customises subjects and chapters (NOT started; design agreed)
+### 4.4 What is next (only when the owner says)
 
-The owner wants to add their official college or university syllabus for their branch; Prism analyses it and customises the **subjects, and the chapters/topics inside each subject**, to what that university actually teaches (some universities skip subjects or chapters). Plan:
-
-1. `src/lib/university/parse.ts` (pure, tested): turn pasted/extracted syllabus text into `{ semesters: [{ number, subjects: [{ name, code?, units: [{ name, topics[] }] }] }] }`. Heuristics: lines like "Semester III / SEM-3 / Third Semester" switch semester; course headings ("BT101 Engineering Biology", "Course Title: …"); units via the existing `parseSyllabusText` in `src/lib/custom/syllabusText.ts`. Fixtures in `test-fixtures/`.
-2. Optional AI structuring for messy PDFs: `/api/syllabus` route (use `chainFor(req, providersFromEnv)`, validate with Zod, chunk long text, `LLM_PROVIDER=fake` canned reply for tests), client tries the deterministic parser first.
-3. `src/lib/university/match.ts` (pure, tested): match each parsed subject to a catalogue subject (name word overlap + `sameTopic` coverage from `matchSyllabus.ts`), and compute per-subject **scope**: which catalogue chapters/topics the university syllabus covers (a topic is kept if it matches a university topic or unit name; apply only when the university lists at least 4 topics for that subject; keep all otherwise). Unmatched university subjects become the student's own subjects (`chaptersFromDraft`, `createCustomSubject`).
-4. Review screen (before anything is applied): per semester a table of detected subjects with match status (built-in X / new own subject / skip), "covers 5 of 7 chapters", toggles per subject/chapter/topic. Apply = save `mySubjects` per semester + `subjectScope` in settings (new field; migration-free optional field; sync like other settings), with "Show everything again" to undo.
-5. Enforce scope everywhere subjects are listed: a pure `applyScope(subject, scope)` plus a hook; use it in the lesson picker's subject list, `SubjectProgress` (subject page chapters), the planner (`PlanSetup` topics), concept map and chapter lessons. Show a small notice "Your university syllabus is applied (N topics hidden)".
-6. Files: reuse `extractFile` / `docText` (`src/lib/extract/*`) as `CustomSubjectForm` does. Everything stays on the device except structure saved in synced settings; never upload the file.
-7. Tests: unit (parse, match, scope), e2e with a fixture syllabus, 375px check.
-
-### 4.4 After 4.1–4.3
-
-Update `MORNING_REPORT.md` and `PROGRESS.md`, push, tag (`final-semester-syllabus`), and wait for the owner. Then, only if told: re-enable evals (command in `PROGRESS.md`), Feature D, remaining polish.
+1. The owner reviews the preview and the three items above and gives feedback.
+2. Re-run the full four-mode browser regression once (it has not finished since the redesign: 58 passed, `chapter-reading` desktop-dark needs a solo re-run).
+3. Evals (paused by the owner), Feature D (community branches), Lighthouse/bundle checks, concept-map scoping.
 
 ## 5. How to run and verify
 

@@ -7,9 +7,11 @@ I am asleep. You are working alone until morning. I have to deploy this web app 
 ## 0. First actions, in this order
 
 1. **Schedule your own check-in.** Create a recurring scheduled task that fires **every 30 minutes** with exactly this prompt:
+
    > Overnight check-in. Read the "Current state" block in PROGRESS.md and run `git status` and `git log -3`. If work is in progress and healthy, continue it. If work stopped for any reason, find out why (usage limit, network error, failed command, out of memory, crashed process), fix or route around it, and resume from the recorded next action in PRISM_OVERNIGHT_FINAL.md. Never start a finished step again. Do not ask me anything.
 
    Confirm the task ID in one line. If scheduling fails, say so in `MORNING_REPORT.md` and carry on.
+
 2. Create a new branch `overnight-v3-final` from the current working branch, and tag the starting point `before-overnight-final`.
 3. Start a fresh section at the top of `MORNING_REPORT.md` for tonight.
 4. Add the new work in this file to `SPEC.md` and `PROGRESS.md` as numbered steps, then begin.
@@ -82,6 +84,7 @@ When many people use Prism at once, my shared key runs out. Each user should be 
 Add an optional panel in the "make my lesson" section: **"Make slides or a PDF instead"**. When it is chosen, produce only that file (no lesson page), though it is built from the same grounded, verified lesson content.
 
 ### Options
+
 1. **Purpose:**
    - **For teaching:** a presentation for a teacher or a student presenting to class. Clear slides, speaker notes on every slide (what to say, a question to ask the class, rough timing), an activity or discussion slide, and a recap.
    - **To study from:** fuller explanations, analogies, worked examples step by step, common mistakes.
@@ -93,6 +96,7 @@ Add an optional panel in the "make my lesson" section: **"Make slides or a PDF i
 5. **Look:** the user picks one of the designed themes (below).
 
 ### Content
+
 1. Everything a lesson has: explanations, analogies, the concept map, worked examples, misconceptions, charts, diagrams, images and a sources slide with citations and image licences.
 2. **Interactive visuals become a sequence of still images.** For each interactive widget or simulation, render several fixed states to images (for example: the starting position, a changed value, the limiting case), each with a caption saying what changed and what to notice, so the stills teach what the interaction taught.
 3. Charts, plots, Mermaid diagrams and formulas are rendered to crisp images or native shapes. Check that every formula renders correctly.
@@ -100,6 +104,7 @@ Add an optional panel in the "make my lesson" section: **"Make slides or a PDF i
 5. The slide plan is a validated JSON outline produced first (slide type, title, content, visual), then rendered. Reuse the visual rules: the AI never draws, data is computed, sourced or labelled illustrative.
 
 ### Design: it must look made by a person
+
 1. Build **four distinct, carefully designed themes**, not default templates. Each has its own colour palette, type pairing, title style, spacing and a small recurring design detail. No default purple or blue gradients, no stock template look, no clip-art, no emoji as icons.
 2. Vary the layouts through a deck: title, section opener, big statement, image-led, two-column, step-by-step, comparison table, diagram full-width, worked example, quiz, recap. Never the same title-and-bullets layout slide after slide.
 3. Consistent margins and alignment, real visual hierarchy, good contrast, readable from the back of a classroom.
@@ -108,6 +113,7 @@ Add an optional panel in the "make my lesson" section: **"Make slides or a PDF i
 6. PDFs are laid out as designed pages with selectable text, page numbers and a contents page for long ones. The PDF is not a print of the web page.
 
 ### Technical
+
 1. Generate in the browser with free libraries (for example pptxgenjs for .pptx and a real PDF layout library for PDF). Lazy-load them.
 2. Show progress while building, and save generated files to a "My slides and PDFs" list so they can be downloaded again.
 3. Test: generate each purpose in both formats, open the .pptx output programmatically to confirm slide count is within range, notes exist for teaching decks, no empty slides, no overflowing text, and all images are present.
@@ -119,6 +125,7 @@ Add an optional panel in the "make my lesson" section: **"Make slides or a PDF i
 The current look (purple-toned, in light and dark mode) is generic and reads as AI-made. Redesign the look completely. **Change only how it looks. Do not change any feature, behaviour, data or logic.**
 
 ### How to do it safely
+
 1. Do it through the design layer: design tokens (colours, type, spacing, radius, shadows), shared UI components and layout styles. Do not rewrite feature logic, storage, API routes or state.
 2. Before starting, capture screenshots of every main screen. After finishing, capture them again and put both sets in `MORNING_REPORT.md`.
 3. All existing automated flow tests must pass unchanged. If a test needs changing because of a selector, keep its meaning identical.
@@ -126,6 +133,7 @@ The current look (purple-toned, in light and dark mode) is generic and reads as 
 5. Commit the redesign as its own series of commits so it can be reverted without losing other work.
 
 ### Design direction
+
 Make it look like a product designer built it for students, with a clear point of view. If you have a frontend design skill, use it.
 
 1. **Identity from the name.** Prism: white light split into a spectrum. Use a calm, mostly neutral interface where the spectrum appears only with meaning: the six learning levels each own one spectrum colour, used consistently everywhere that level appears. Colour as information, not decoration.
@@ -144,9 +152,11 @@ Make it look like a product designer built it for students, with a clear point o
 Prism's built-in syllabus covers the common Indian B.Tech and B.E. branches. Students elsewhere, or in branches we don't list, should be able to build their own branch section, share it, and form a community around it. The best-rated, most-used version of a branch should be the one recommended to others.
 
 ### 7.1 What is shared
+
 Only the **syllabus structure**: branch → years or terms → subjects → chapters → topics, with prerequisite links and optional importance marks, plus a description and optional links to openly available resources. **Never** shared: uploaded files, text extracted from them, lessons built from private uploads, or any personal progress. Say this clearly at the publish step, with a reminder not to paste copyrighted course material.
 
 ### 7.2 Creating a branch (guided, in steps)
+
 1. **Basics:** branch name, degree, country, university (optional), language, and how the course is divided (semesters, terms, years, or none) and how many.
 2. **Add subjects**, any mix of:
    - **Paste or upload a syllabus** (any supported format); Prism turns it into subjects, chapters and topics for the user to review and edit
@@ -157,26 +167,31 @@ Only the **syllabus structure**: branch → years or terms → subjects → chap
 4. **Publish as:** Private (only me), Invite link (anyone with the link), or Public (listed in the directory).
 
 ### 7.3 Community
+
 1. Anyone signed in can **join** a branch. Joining adds it to their subjects; later updates by the maintainers reach members, who see what changed.
 2. **Roles:** owner, co-maintainers the owner invites, members. Members can **suggest edits** (add or fix topics); maintainers accept or decline. A version history lists changes.
 3. **Make my own copy:** anyone can copy a branch and adapt it, with credit to the original.
 4. A branch page shows: description, university and country, member count, rating, number of subjects and topics, last updated, maintainers' display names, and reviews.
 
 ### 7.4 Ratings and reviews
+
 1. Signed-in members can rate 1 to 5 and write a short review. One review per person per branch, editable. To review, the member must have used the branch (generated at least one lesson from it).
 2. Reviews show a display name the user chooses, never an email address.
 3. Each review and each branch has a **Report** button.
 
 ### 7.5 Search and recommendation
+
 1. A directory with search by branch name, university, country and subject, with similar-name matching (for example "printing engineering" also finds "print technology").
 2. **Ranking:** when several communities cover the same or a similar branch, rank them by a fair score combining rating, number of reviews and number of members, so one five-star review cannot outrank a well-reviewed large community. Use a weighted (Bayesian) average, with a small boost for recent activity and for an exact match on university or country. The top one is marked **Recommended**; the others remain visible beneath it.
 3. Show the built-in branches alongside community ones, clearly labelled "Official" and "Community".
 
 ### 7.6 Accuracy and trust
+
 1. Lessons for community subjects use the normal pipeline. They start at the `sourced` or `limited` tier and are never shown as `tested` or `verified`.
 2. Mark community content clearly as made by students, not checked by Prism.
 
 ### 7.7 Abuse protection (required before this can be public)
+
 1. All text is stored and shown as plain text. No HTML, no scripts. Length limits everywhere. Links are allowed only in the resources field and are validated.
 2. Per-user limits: a few new branches per day, a cap on edits and reviews per hour, enforced on the server.
 3. A basic blocked-words filter on names, descriptions and reviews.
@@ -185,6 +200,7 @@ Only the **syllabus structure**: branch → years or terms → subjects → chap
 6. A short community guidelines note, shown when publishing and reviewing.
 
 ### 7.8 Technical
+
 1. Store in Firestore within the free limits: a small document per branch (details plus counters), subjects as separate documents under it (each under 1 MiB), and separate collections for members, reviews, suggestions and reports.
 2. **All community writes go through our Vercel API routes** using the Admin SDK: verify the Firebase sign-in token, validate, rate-limit, and update the counters (member count, rating total, review count) in a transaction. Clients cannot write these directly.
 3. Keep reads low: paginate the directory (20 at a time), cache results, load a branch's subjects only when opened, and use stored counters instead of counting documents.
