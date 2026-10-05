@@ -12,6 +12,7 @@ import { SlidesPanel } from "@/components/slides/SlidesPanel";
 import { KeyIndicator } from "@/components/settings/KeyIndicator";
 import { NotesToggle } from "@/components/notes/NotesToggle";
 import { BranchSemesterBar } from "@/components/subjects/BranchSemesterBar";
+import { useMySemester } from "@/components/subjects/useMySemester";
 import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { TopicSearch } from "@/components/TopicSearch";
 import { defaultDuration } from "@/data/durations";
@@ -69,10 +70,17 @@ function PickerForm({
   // "My branch and semester": their subjects come first (V3 · Step 3).
   const { mine, save: saveMine } = useMyBranch();
   const [showAll, setShowAll] = useState(false);
-  const mineList = mine.branch ? subjectsFor(mine.branch, mine.semester) : [];
+  // The subjects the student chose for their semester come first; otherwise their branch's.
+  const sem = useMySemester();
+  const chosenList = sem.picks
+    .map((pid) => subjects.find((s) => s.id === pid))
+    .filter((s): s is Subject => Boolean(s));
+  const mineList =
+    chosenList.length > 0 ? chosenList : mine.branch ? subjectsFor(mine.branch, mine.semester) : [];
+  const hasMine = chosenList.length > 0 || Boolean(mine.branch);
   const own = ownCount ? subjects.slice(-ownCount) : [];
   // Built-in subjects for my branch (if set), then my own subjects.
-  const shown = mine.branch && !showAll && mineList.length > 0 ? [...mineList, ...own] : subjects;
+  const shown = hasMine && !showAll && mineList.length > 0 ? [...mineList, ...own] : subjects;
 
   const start = subjects.find((s) => s.id === initial.subject) ?? subjects[0];
   const [subjectId, setSubjectId] = useState(start.id);
@@ -234,7 +242,7 @@ function PickerForm({
             + Other subject
           </Link>
         </div>
-        {mine.branch && mineList.length > 0 && (
+        {hasMine && mineList.length > 0 && (
           <button
             type="button"
             onClick={() => setShowAll((v) => !v)}

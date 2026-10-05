@@ -2,7 +2,7 @@
 
 # Prism: rules for AI coding assistants
 
-Read `SPEC.md` (what we're building) and `PROGRESS.md` (where we are) before doing anything.
+Read `HANDOFF.md` (full context and the ordered task list), `SPEC.md` (what we're building) and `PROGRESS.md` (where we are) before doing anything.
 
 ## Working protocol
 

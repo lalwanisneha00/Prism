@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { evalStatusCopy, evalStatusOf } from "@/lib/evalStatus";
 import type { TrustTier } from "@/lib/tiers";
+import { SemesterSubjects } from "@/components/subjects/SemesterSubjects";
 import { BranchSemesterBar } from "@/components/subjects/BranchSemesterBar";
 import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { chaptersOf, findBranch, subjects, subjectsFor, type Subject } from "@/lib/subjects";
@@ -52,6 +53,7 @@ export function SubjectCatalogue() {
 
   return (
     <div className="flex flex-col gap-8">
+      <SemesterSubjects />
       <BranchSemesterBar mine={mine} onChange={save} />
       {loaded && branch && (
         <section

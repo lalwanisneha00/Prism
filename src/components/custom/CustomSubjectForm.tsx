@@ -1,6 +1,7 @@
 "use client";
 
 import { Icon } from "@/components/Icon";
+import { addSubjectToSemester } from "@/lib/semester/mySemester";
 import { apiFetch } from "@/lib/byok/apiFetch";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -34,9 +35,12 @@ const label = "flex flex-col gap-1 text-sm";
 export function CustomSubjectForm({
   existing,
   initialName = "",
+  addToSemester,
 }: {
   existing?: CustomSubjectRecord;
   initialName?: string;
+  /** Opened from "My subjects this semester": the new subject joins that semester's list. */
+  addToSemester?: number;
 }) {
   const router = useRouter();
   const id = useId();
@@ -205,7 +209,9 @@ export function CustomSubjectForm({
           { bytes: f.bytes, mime: f.mime },
         );
       }
-      router.push(`/my-subjects/view?id=${record.id}`);
+      if (addToSemester && !existing)
+        await addSubjectToSemester(addToSemester, record.id).catch(() => undefined);
+      router.push(addToSemester ? "/subjects" : `/my-subjects/view?id=${record.id}`);
     } catch {
       setBusy(null);
       setMessage({

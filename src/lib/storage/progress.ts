@@ -68,7 +68,10 @@ export async function getSettings(): Promise<AppSettings | undefined> {
 
 export async function updateSettings(
   changes: Partial<
-    Pick<AppSettings, "theme" | "audioRate" | "branch" | "semester" | "importanceOverrides">
+    Pick<
+      AppSettings,
+      "theme" | "audioRate" | "branch" | "semester" | "importanceOverrides" | "mySubjects"
+    >
   >,
   now = Date.now(),
 ): Promise<void> {

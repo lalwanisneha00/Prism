@@ -8,7 +8,14 @@ import {
   type VisualRequest,
 } from "@/lib/slides/plan";
 import { widgetStates } from "@/lib/slides/states";
-import { clip, displayFormulas, keyPoints, plainText, sentences } from "@/lib/slides/text";
+import { clip as cut, displayFormulas, keyPoints, plainText, sentences } from "@/lib/slides/text";
+
+/**
+ * Body text limits are generous (room for whole sentences, never cut mid-thought and never ended
+ * with an ellipsis); titles keep their short limit. Text that still does not fit is split over slides.
+ */
+const clip = (text: string, max: number) =>
+  cut(text, max >= 100 ? Math.round(max * 2.2) : max === 70 ? 150 : max, max >= 100 || max === 70);
 
 /*
  * Lessons → a slide plan (Feature B). No AI is involved: every slide is made from a lesson that
@@ -53,7 +60,8 @@ class Builder {
   }
 }
 
-const sectionPoints = (s: Section, n: number, max = 120) => keyPoints(plainText(s.body), n, max);
+const sectionPoints = (s: Section, n: number, max = 120) =>
+  keyPoints(plainText(s.body), n, Math.round(max * 2.2));
 
 /** The part of a section's text not already on the slide: what a teacher would say. */
 function spoken(s: Section, skip: number, sentencesToKeep = 6): string {
@@ -221,6 +229,94 @@ function quizSlide(b: Builder, l: Lesson, i: number, showAnswer: boolean, notes:
   };
 }
 
+/** Splits points over several slides so none holds more than a slide can show (never cutting text). */
+export function chunkPoints(points: string[], maxPoints = 4, maxChars = 640): string[][] {
+  const chunks: string[][] = [];
+  let current: string[] = [];
+  let chars = 0;
+  for (const p of points) {
+    if (current.length > 0 && (current.length >= maxPoints || chars + p.length > maxChars)) {
+      chunks.push(current);
+      current = [];
+      chars = 0;
+    }
+    current.push(p);
+    chars += p.length;
+  }
+  if (current.length > 0) chunks.push(current);
+  return chunks;
+}
+
+const RANK = { easy: 0, medium: 1, hard: 2 } as const;
+
+/** The question that makes students think hardest: highest difficulty, then the longest wording. */
+export function hardestQuestion(l: Lesson): number {
+  let best = 0;
+  l.quiz.forEach((q, i) => {
+    const b = l.quiz[best];
+    if (
+      RANK[q.difficulty] > RANK[b.difficulty] ||
+      (RANK[q.difficulty] === RANK[b.difficulty] && q.question.length > b.question.length)
+    )
+      best = i;
+  });
+  return best;
+}
+
+/**
+ * Class tasks that ask for thinking, not recall: predict-then-explain on the lesson's hardest
+ * question, and "true or false? defend it" on one of the lesson's own common mistakes. Each says
+ * how to work, which part of the lesson to look back at, and how long it deserves.
+ */
+function activitySlides(b: Builder, l: Lesson, many: boolean): Candidate[] {
+  const out: Candidate[] = [];
+  const lookBack = l.sections[Math.min(l.sections.length - 1, Math.floor(l.sections.length / 2))];
+  const hi = hardestQuestion(l);
+  const q = l.quiz[hi];
+  const options =
+    q.options && q.options.length > 0
+      ? `  ${q.options.map((o, i) => `${String.fromCharCode(65 + i)}) ${plainText(o)}`).join("   ")}`
+      : "";
+  const minutes = q.difficulty === "hard" ? 8 : q.difficulty === "medium" ? 6 : 5;
+  out.push({
+    slide: {
+      id: b.id(),
+      layout: "activity",
+      title: many ? `Think, pair, share: ${l.meta.title}` : "Think, pair, share",
+      prompt: clip(`${plainText(q.question)}${options}`, 120 * 5),
+      hints: [
+        "Alone (2 min): decide your answer and write down the reason, not only the result.",
+        "With a partner: compare reasons. If you disagree, find the exact step where you split.",
+        `Check yourselves against “${plainText(lookBack.title)}” before the answer is shown.`,
+      ],
+      minutes,
+      notes: `Run it in three beats: individual thinking, pair discussion, then cold-call two pairs. Do not reveal the answer until at least one pair has defended each option. Answer: ${plainText(q.answer)}. ${plainText(q.explanation)} Common wrong turn to listen for: ${l.misconceptions[0] ? plainText(l.misconceptions[0].wrong) : "answering from a formula without checking the situation"}.`,
+    },
+    priority: 3,
+    required: true,
+  });
+  const m = l.misconceptions[0];
+  if (m) {
+    out.push({
+      slide: {
+        id: b.id(),
+        layout: "activity",
+        title: "True or false? Defend it",
+        prompt: clip(`“${plainText(m.wrong)}”`, 120 * 4),
+        hints: [
+          "Vote first: true or false, silently, on your own.",
+          "Then convince someone who voted the other way, using a reason from the lesson.",
+          "Say what situation would make the statement true, if there is one.",
+        ],
+        minutes: 4,
+        notes: `This is a common mistake, so expect a split vote. The statement is wrong because: ${plainText(m.why)} The correct idea: ${plainText(m.right)}`,
+      },
+      priority: 4,
+    });
+  }
+  return out;
+}
+
 function lessonCandidates(b: Builder, l: Lesson, opts: BuildOptions, many: boolean): Candidate[] {
   const out: Candidate[] = [];
   const study = opts.purpose === "study";
@@ -239,9 +335,7 @@ function lessonCandidates(b: Builder, l: Lesson, opts: BuildOptions, many: boole
         layout: "section",
         title: clip(l.meta.title, 90),
         kicker: l.meta.sources.length ? "Next topic" : "",
-        notes: teach
-          ? `Introduce the next topic: ${l.meta.title}. ${clip(plainText(l.hook), 300)}`
-          : "",
+        notes: teach ? `Introduce the next topic: ${l.meta.title}. ${plainText(l.hook)}` : "",
       },
       2,
     );
@@ -254,24 +348,39 @@ function lessonCandidates(b: Builder, l: Lesson, opts: BuildOptions, many: boole
         layout: "statement",
         label: "Why it matters",
         text: clip(plainText(l.hook), 190),
-        notes: `Open with this and pause. ${plainText(l.hook)} Ask: what do you already know about ${l.meta.title}? (about 1 minute)`,
+        notes: `Open with this and pause. ${plainText(l.hook)} Ask: what do you already know about ${l.meta.title}, and where have you met it outside class? Take two or three answers (about 2 minutes).`,
       },
       1,
       true,
     );
-    if (l.prerequisites.length > 0) {
+    if (l.sections.length >= 2) {
       push(
         {
           id: b.id(),
           layout: "bullets",
-          title: "Before we start",
-          points: l.prerequisites
-            .slice(0, 5)
-            .map((p) => clip(`${plainText(p.concept)}: ${plainText(p.oneLiner)}`, 150)),
-          notes:
-            "Check these are familiar before moving on. If not, spend two minutes on whichever one is missing.",
+          title: "What we will cover",
+          points: l.sections.slice(0, 5).map((s) => clip(plainText(s.title), 150)),
+          notes: `Give the route before the details: ${l.sections.map((s) => plainText(s.title)).join(", then ")}. Say which part is usually hardest so students know where to concentrate.`,
         },
         3,
+      );
+    }
+    if (l.prerequisites.length > 0) {
+      const prereqs = l.prerequisites.map((p) =>
+        clip(`${plainText(p.concept)}: ${plainText(p.oneLiner)}`, 150),
+      );
+      chunkPoints(prereqs, 4, 720).forEach((chunk, ci) =>
+        push(
+          {
+            id: b.id(),
+            layout: "bullets",
+            title: ci === 0 ? "Before we start" : "Before we start (continued)",
+            points: chunk,
+            notes:
+              "Check these are familiar before moving on, with a quick show of hands for each. If one is missing, spend two minutes on it now: everything after builds on it.",
+          },
+          3,
+        ),
       );
     }
   }
@@ -280,35 +389,43 @@ function lessonCandidates(b: Builder, l: Lesson, opts: BuildOptions, many: boole
     const side = i % 2 === 0 ? "right" : "left";
     const formulas = displayFormulas(s.body);
     if (revise) return;
-    const points = sectionPoints(s, study ? 5 : 3, study ? 150 : 110);
-    if (points.length > 0) {
-      const oneIdea = points.length === 1 || sentences(plainText(s.body)).length <= 2;
-      if (oneIdea && !study) {
-        push(
-          {
-            id: b.id(),
-            layout: "statement",
-            label: clip(s.title, 50),
-            text: clip(points[0] ?? plainText(s.body), 190),
-            notes:
-              `${spoken(s, 0)} ${teach ? "Ask the class: can someone put this in their own words?" : ""}`.trim(),
-          },
-          2,
-        );
-      } else {
+    const text = plainText(s.body);
+    const sentenceCount = sentences(text).length;
+    // Every sentence of the section is kept (study: all of them; teaching: the first eight, the
+    // rest in the speaker notes), split over slides rather than cut.
+    const all = keyPoints(text, study ? 16 : 8, 300);
+    const oneIdea = sentenceCount <= 2;
+    if (oneIdea && !study && all.length > 0) {
+      push(
+        {
+          id: b.id(),
+          layout: "statement",
+          label: clip(s.title, 50),
+          text: clip(all.join(" "), 190),
+          notes:
+            `${spoken(s, 0, 12)}${teach ? " Ask the class: can someone put this in their own words, and what would change if the situation were different?" : ""}`.trim(),
+        },
+        2,
+      );
+    } else {
+      chunkPoints(all, 4, 640).forEach((chunk, ci) =>
         push(
           {
             id: b.id(),
             layout: "bullets",
-            title: clip(s.title, 90),
-            points,
+            title: ci === 0 ? clip(s.title, 90) : clip(`${s.title} (continued)`, 90),
+            points: chunk,
             notes:
-              `${spoken(s, study ? 0 : points.length, 7)}${teach ? " Ask: which of these would you expect to change if the setup changed?" : ""}`.trim(),
+              `${ci === 0 ? spoken(s, 0, 24) : "Continue the same idea: take the points one at a time and give an example for each."}${
+                teach && ci === 0
+                  ? " Ask: which of these would you expect to change if the setup changed, and why?"
+                  : ""
+              }`.trim(),
           },
-          i === 0 ? 1 : 2,
-          i === 0,
-        );
-      }
+          i === 0 && ci === 0 ? 1 : ci === 0 ? 2 : 3,
+          i === 0 && ci === 0,
+        ),
+      );
     }
     if (formulas.length > 0) {
       const shown = formulas.slice(0, study ? 3 : 2);
@@ -322,7 +439,7 @@ function lessonCandidates(b: Builder, l: Lesson, opts: BuildOptions, many: boole
             caption: "",
             alt: clip(plainText(`$${f}$`), 200),
           })),
-          notes: `Write the formula up and name every symbol: ${shown.map((f) => plainText(`$${f}$`)).join("; ")}.`,
+          notes: `Write the formula up and name every symbol, with its unit: ${shown.map((f) => plainText(`$${f}$`)).join("; ")}. Then ask: what happens to the left side if one quantity on the right doubles?`,
         },
         2,
       );
@@ -331,18 +448,18 @@ function lessonCandidates(b: Builder, l: Lesson, opts: BuildOptions, many: boole
   });
 
   if (l.analogies.length > 0 && !revise) {
-    l.analogies.slice(0, study ? 3 : 1).forEach((a, i) => {
+    l.analogies.slice(0, study ? 4 : 2).forEach((a, i) => {
       push(
         {
           id: b.id(),
           layout: "two-column",
           title: clip(`An analogy: ${plainText(a.concept)}`, 90),
-          left: { heading: "The analogy", points: keyPoints(plainText(a.analogy), 3, 130) },
+          left: { heading: "The analogy", points: keyPoints(plainText(a.analogy), 4, 260) },
           right: {
             heading: "Where it breaks",
-            points: keyPoints(plainText(a.whereItBreaks), 3, 130),
+            points: keyPoints(plainText(a.whereItBreaks), 4, 260),
           },
-          notes: `${plainText(a.analogy)} Be honest about the limit: ${plainText(a.whereItBreaks)}`,
+          notes: `${plainText(a.analogy)} Be honest about the limit: ${plainText(a.whereItBreaks)} Ask students to find one more place the analogy fails.`,
         },
         i === 0 ? 3 : 5,
       );
@@ -350,57 +467,92 @@ function lessonCandidates(b: Builder, l: Lesson, opts: BuildOptions, many: boole
   }
 
   if (!revise) {
-    l.workedExamples.slice(0, study ? 4 : 2).forEach((ex, i) => {
+    l.workedExamples.slice(0, study ? 6 : 3).forEach((ex, i) => {
+      const title = `Worked example${l.workedExamples.length > 1 ? ` ${i + 1}` : ""}`;
+      const steps = ex.steps.map((st) => clip(plainText(st), 150));
+      const first = steps.slice(0, 5);
+      const rest = steps.slice(5);
       push(
         {
           id: b.id(),
           layout: "example",
-          title: clip(`Worked example${l.workedExamples.length > 1 ? ` ${i + 1}` : ""}`, 90),
+          title,
           problem: clip(plainText(ex.problem), 260),
-          steps: ex.steps.slice(0, 6).map((st) => clip(plainText(st), 170)),
-          answer: clip(plainText(ex.answer), 160),
-          notes:
-            `Read the problem, then let students try the first step before you show it. ${teach ? "Allow about 4 minutes." : ""}`.trim(),
+          steps: first,
+          answer: rest.length > 0 ? "See the next slide." : clip(plainText(ex.answer), 160),
+          notes: `Read the problem, then let students try the first step before you show it${teach ? " (allow about 5 minutes for the whole example)" : ""}. Ask: which formula applies, and what is given and what is asked?`,
         },
         i === 0 ? 2 : 4,
       );
+      if (rest.length > 0) {
+        push(
+          {
+            id: b.id(),
+            layout: "steps",
+            title: `${title} (continued)`,
+            steps: [...rest, `Answer: ${clip(plainText(ex.answer), 150)}`].slice(0, 6),
+            notes:
+              "Finish the example, then check the answer's units and whether its size is sensible.",
+          },
+          i === 0 ? 2 : 4,
+        );
+      }
     });
   }
 
   if (l.misconceptions.length > 0 && !revise) {
-    push(
-      {
-        id: b.id(),
-        layout: "comparison",
-        title: "Common mistakes",
-        columns: ["The mistake", "The fix"],
-        rows: l.misconceptions
-          .slice(0, 4)
-          .map((m) => [clip(plainText(m.wrong), 70), clip(plainText(m.right), 70)]),
-        notes: l.misconceptions
-          .slice(0, 4)
-          .map((m) => `${plainText(m.wrong)} Why it is wrong: ${plainText(m.why)}`)
-          .join(" "),
-      },
-      3,
-    );
+    for (let i = 0; i < l.misconceptions.length; i += 3) {
+      const group = l.misconceptions.slice(i, i + 3);
+      push(
+        {
+          id: b.id(),
+          layout: "comparison",
+          title: i === 0 ? "Common mistakes" : "Common mistakes (continued)",
+          columns: ["The mistake", "The fix"],
+          rows: group.map((m) => [clip(plainText(m.wrong), 70), clip(plainText(m.right), 70)]),
+          notes: group
+            .map((m) => `${plainText(m.wrong)} Why it is wrong: ${plainText(m.why)}`)
+            .join(" "),
+        },
+        3,
+      );
+    }
+  }
+
+  const glossary = l.glossary ?? [];
+  if (glossary.length > 0 && !opts.purpose.startsWith("practice")) {
+    for (let i = 0; i < glossary.length; i += 5) {
+      push(
+        {
+          id: b.id(),
+          layout: "comparison",
+          title: i === 0 ? "Key terms" : "Key terms (continued)",
+          columns: ["Term", "Meaning"],
+          rows: glossary
+            .slice(i, i + 5)
+            .map((g) => [clip(plainText(g.term), 40), clip(plainText(g.definition), 70)]),
+          notes: "Have students say each definition in their own words before reading it out.",
+        },
+        revise ? 2 : 4,
+      );
+    }
   }
 
   if (revise) {
-    const pts = l.revisionSheet.keyPoints;
-    for (let i = 0; i < pts.length; i += 5) {
+    const pts = l.revisionSheet.keyPoints.map((p) => clip(plainText(p), 150));
+    chunkPoints(pts, 5, 760).forEach((chunk, ci) =>
       push(
         {
           id: b.id(),
           layout: "bullets",
-          title: i === 0 ? `Key points: ${clip(l.meta.title, 60)}` : "Key points (continued)",
-          points: pts.slice(i, i + 5).map((p) => clip(plainText(p), 140)),
+          title: ci === 0 ? `Key points: ${clip(l.meta.title, 60)}` : "Key points (continued)",
+          points: chunk,
           notes: "",
         },
-        i === 0 ? 1 : 2,
-        i === 0,
-      );
-    }
+        ci === 0 ? 1 : 2,
+        ci === 0,
+      ),
+    );
   }
 
   const sheetFormulas = l.revisionSheet.formulas;
@@ -462,29 +614,18 @@ function lessonCandidates(b: Builder, l: Lesson, opts: BuildOptions, many: boole
     );
   }
 
-  if (teach) {
-    push(
-      {
-        id: b.id(),
-        layout: "activity",
-        title: "Discuss with a partner",
-        prompt: clip(plainText(l.quiz[0].question), 260),
-        minutes: 3,
-        notes: `Give pairs three minutes. Walk around; do not give the answer yet. The answer is: ${plainText(l.quiz[0].answer)}. ${plainText(l.quiz[0].explanation)}`,
-      },
-      3,
-      // A teaching deck always has something for the class to do.
-      true,
-    );
-  }
+  if (teach) out.push(...activitySlides(b, l, many));
 
   const quizCount = revise
-    ? Math.min(l.quiz.length, 6)
+    ? Math.min(l.quiz.length, 8)
     : study
       ? l.quiz.length
-      : Math.min(l.quiz.length, 3);
+      : Math.min(l.quiz.length, 4);
   if (opts.purpose !== "practice") {
-    for (let i = teach ? 1 : 0; i < quizCount; i++) {
+    // The question used for the class activity is not asked again.
+    const used = teach ? hardestQuestion(l) : -1;
+    for (let i = 0; i < quizCount; i++) {
+      if (i === used) continue;
       push(
         quizSlide(
           b,
@@ -492,7 +633,7 @@ function lessonCandidates(b: Builder, l: Lesson, opts: BuildOptions, many: boole
           i,
           !teach,
           teach
-            ? `Let students answer first. Answer: ${plainText(l.quiz[i].answer)}. ${plainText(l.quiz[i].explanation)}`
+            ? `Give a minute to think, then take answers before revealing. Answer: ${plainText(l.quiz[i].answer)}. ${plainText(l.quiz[i].explanation)}`
             : "",
         ),
         revise ? 2 : 4,
@@ -501,16 +642,35 @@ function lessonCandidates(b: Builder, l: Lesson, opts: BuildOptions, many: boole
   }
 
   if (teach || study) {
+    const keyPts = l.revisionSheet.keyPoints.map((p) => clip(plainText(p), 150));
+    chunkPoints(keyPts, 5, 760).forEach((chunk, ci) =>
+      push(
+        {
+          id: b.id(),
+          layout: "recap",
+          title:
+            (many ? `Recap: ${clip(l.meta.title, 70)}` : "Recap") + (ci > 0 ? " (continued)" : ""),
+          points: chunk,
+          notes:
+            "Ask students to say the three most important things before you show these, then set one question to answer for next time.",
+        },
+        ci === 0 ? 1 : 3,
+        ci === 0,
+      ),
+    );
+  }
+
+  const more = [...l.furtherLearning.readings, ...l.furtherLearning.videos].slice(0, 5);
+  if ((teach || study) && more.length > 0) {
     push(
       {
         id: b.id(),
-        layout: "recap",
-        title: many ? `Recap: ${clip(l.meta.title, 70)}` : "Recap",
-        points: l.revisionSheet.keyPoints.slice(0, 5).map((p) => clip(plainText(p), 150)),
-        notes: "Ask students to say the three most important things before you show these.",
+        layout: "bullets",
+        title: "Keep learning",
+        points: more.map((m) => clip(`${plainText(m.title)} (${plainText(m.publisher)})`, 150)),
+        notes: `Where to go next: ${more.map((m) => `${plainText(m.title)} at ${m.url}`).join("; ")}.`,
       },
-      1,
-      true,
+      5,
     );
   }
   return out;

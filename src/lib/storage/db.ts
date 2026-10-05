@@ -118,6 +118,11 @@ export type AppSettings = SyncFields & {
    */
   importanceOverrides?: Record<string, ImportanceBand>;
   plannerPrefs?: PlannerPrefs;
+  /**
+   * The subjects the student's college teaches each semester ("1"…"8" → subject ids, built-in or
+   * their own). Colleges differ, so the student chooses; it shapes "My subjects" and the picker.
+   */
+  mySubjects?: Record<string, string[]>;
 };
 
 /**

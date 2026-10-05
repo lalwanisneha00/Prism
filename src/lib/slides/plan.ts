@@ -32,8 +32,8 @@ export const FORMATS = ["pptx", "pdf"] as const;
 export type Format = (typeof FORMATS)[number];
 
 const short = (max: number) => z.string().trim().min(1).max(max);
-const line = short(160);
-const notes = z.string().trim().max(1600);
+const line = short(360);
+const notes = z.string().trim().max(4000);
 
 const base = { id: z.string().min(1).max(60), notes };
 
@@ -61,7 +61,7 @@ export const SlideSchema = z.discriminatedUnion("layout", [
   z.object({
     ...base,
     layout: z.literal("statement"),
-    text: short(190),
+    text: short(420),
     label: z.string().trim().max(50),
   }),
   z.object({
@@ -81,7 +81,7 @@ export const SlideSchema = z.discriminatedUnion("layout", [
     ...base,
     layout: z.literal("steps"),
     title: short(90),
-    steps: z.array(short(150)).min(1).max(6),
+    steps: z.array(short(340)).min(1).max(6),
   }),
   z.object({
     ...base,
@@ -89,7 +89,7 @@ export const SlideSchema = z.discriminatedUnion("layout", [
     title: short(90),
     columns: z.array(short(40)).min(2).max(4),
     rows: z
-      .array(z.array(short(70)))
+      .array(z.array(short(170)))
       .min(1)
       .max(6),
   }),
@@ -113,26 +113,28 @@ export const SlideSchema = z.discriminatedUnion("layout", [
     ...base,
     layout: z.literal("example"),
     title: short(90),
-    problem: short(260),
-    steps: z.array(short(170)).min(1).max(6),
-    answer: short(160),
+    problem: short(620),
+    steps: z.array(short(340)).min(1).max(6),
+    answer: short(340),
   }),
   z.object({
     ...base,
     layout: z.literal("quiz"),
     title: short(90),
-    question: short(260),
-    options: z.array(short(110)).max(6),
+    question: short(620),
+    options: z.array(short(260)).max(6),
     /** Shown on the slide only for study and revision material. */
-    answer: z.string().trim().max(220),
-    explanation: z.string().trim().max(300),
+    answer: z.string().trim().max(500),
+    explanation: z.string().trim().max(700),
     showAnswer: z.boolean(),
   }),
   z.object({
     ...base,
     layout: z.literal("activity"),
     title: short(90),
-    prompt: short(260),
+    prompt: short(700),
+    /** How to work on it, in order (think alone, compare, check against the lesson). */
+    hints: z.array(line).max(4),
     minutes: z.int().min(1).max(30),
   }),
   z.object({
@@ -146,7 +148,7 @@ export const SlideSchema = z.discriminatedUnion("layout", [
     layout: z.literal("questions"),
     title: short(90),
     items: z
-      .array(z.object({ n: z.int().min(1), text: short(260) }))
+      .array(z.object({ n: z.int().min(1), text: short(620) }))
       .min(1)
       .max(5),
   }),
@@ -155,7 +157,7 @@ export const SlideSchema = z.discriminatedUnion("layout", [
     layout: z.literal("answers"),
     title: short(90),
     items: z
-      .array(z.object({ n: z.int().min(1), answer: short(220), why: z.string().trim().max(300) }))
+      .array(z.object({ n: z.int().min(1), answer: short(500), why: z.string().trim().max(700) }))
       .min(1)
       .max(5),
   }),
@@ -164,7 +166,7 @@ export const SlideSchema = z.discriminatedUnion("layout", [
     layout: z.literal("sources"),
     title: short(90),
     items: z
-      .array(z.object({ label: short(120), detail: z.string().trim().max(200) }))
+      .array(z.object({ label: short(260), detail: z.string().trim().max(200) }))
       .min(1)
       .max(10),
   }),
@@ -174,7 +176,7 @@ export const SlideSchema = z.discriminatedUnion("layout", [
     title: short(100),
     points: z.array(line).min(1).max(5),
     formulas: z.array(picture).max(3),
-    mnemonic: z.string().trim().max(200),
+    mnemonic: z.string().trim().max(420),
   }),
 ]);
 export type Slide = z.infer<typeof SlideSchema>;

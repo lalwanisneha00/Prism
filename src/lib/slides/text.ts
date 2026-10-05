@@ -252,12 +252,26 @@ export function sentences(text: string): string[] {
     .filter((s) => s.length > 0);
 }
 
-/** Cuts text to at most `max` characters at a word boundary, adding "…" when it was cut. */
-export function clip(text: string, max: number): string {
+/**
+ * Fits text into at most `max` characters without ever ending in an ellipsis: the whole text if it
+ * fits, otherwise cut at the last full sentence, then the last clause, then the last word (a body
+ * cut gets a full stop; a title does not).
+ */
+export function clip(text: string, max: number, body = true): string {
   if (text.length <= max) return text;
-  const cut = text.slice(0, max - 1);
-  const space = cut.lastIndexOf(" ");
-  return `${(space > max * 0.6 ? cut.slice(0, space) : cut).replace(/[,;:\s]+$/, "")}…`;
+  const head = text.slice(0, max);
+  const end = Math.max(head.lastIndexOf(". "), head.lastIndexOf("? "), head.lastIndexOf("! "));
+  if (end >= max * 0.45) return head.slice(0, end + 1).trim();
+  const clause = Math.max(
+    head.lastIndexOf("; "),
+    head.lastIndexOf(": "),
+    head.lastIndexOf(", "),
+    head.lastIndexOf(" — "),
+  );
+  const space = head.lastIndexOf(" ");
+  const at = clause >= max * 0.6 ? clause : space > max * 0.5 ? space : max;
+  const cutText = head.slice(0, at).replace(/[\s,;:\-–—]+$/, "");
+  return body && !/[.!?)]$/.test(cutText) ? cutText + "." : cutText;
 }
 
 /** The first `n` sentences, each clipped to `max` characters: the "short points" of a section. */
