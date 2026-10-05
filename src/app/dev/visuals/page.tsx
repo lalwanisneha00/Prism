@@ -1,3 +1,4 @@
+import { devOnly } from "../guard";
 import type { Metadata } from "next";
 import "katex/dist/katex.min.css";
 import { Container } from "@/components/Container";
@@ -165,6 +166,7 @@ const gallery: VisualSpec[] = [
 ];
 
 export default function VisualGalleryPage() {
+  devOnly();
   return (
     <Container className="flex flex-col gap-8 py-10">
       <div>

@@ -47,7 +47,30 @@ export default function AccuracyPage() {
 
       <section className="flex flex-col gap-3">
         <h2 className="text-xl font-bold">Subjects</h2>
-        <div className="overflow-x-auto rounded-2xl border border-border">
+        <ul className="flex flex-col gap-2 md:hidden" aria-label="Subjects">
+          {subjects.map((s) => {
+            const score = scores[s.id];
+            return (
+              <li key={s.id} className="rounded-xl border border-border bg-surface p-3 text-sm">
+                <p className="font-semibold">{s.name}</p>
+                <p className="text-muted">{tierCopy[s.tier].badge}</p>
+                <p>
+                  {score ? (
+                    <>
+                      <b>{score.percent}%</b> on {score.goldenTopics} topics · {score.facts} facts
+                      <span className="block text-xs text-muted">
+                        Measured {score.date} · {score.level.replace(/-/g, " ")}
+                      </span>
+                    </>
+                  ) : (
+                    <span className="text-warning">{evalStatusCopy[evalStatusOf(s.id)].short}</span>
+                  )}
+                </p>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="overflow-x-auto rounded-2xl border border-border max-md:hidden">
           <table className="w-full min-w-[34rem] text-left text-sm">
             <thead className="bg-surface-2">
               <tr>

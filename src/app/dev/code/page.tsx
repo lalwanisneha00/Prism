@@ -1,3 +1,4 @@
+import { devOnly } from "../guard";
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { CodeChecks } from "@/components/lesson/CodeChecks";
@@ -41,6 +42,7 @@ const body = [
 ].join("\n");
 
 export default function CodeChecksPage() {
+  devOnly();
   return (
     <Container className="flex flex-col gap-4 py-10">
       <h1 className="text-2xl font-bold">Code checks (dev)</h1>

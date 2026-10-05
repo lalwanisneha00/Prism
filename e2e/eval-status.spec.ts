@@ -7,7 +7,7 @@ test.describe("Subjects whose accuracy test hasn't been run", () => {
     await expect(page.getByTestId("eval-pending")).toContainText("Test not run yet");
     await page.goto("/accuracy");
     await expect(page.getByText("Testing is still in progress.")).toBeVisible();
-    await expect(page.getByText("Test not run yet").first()).toBeVisible();
+    await expect(page.locator("text=Test not run yet >> visible=true").first()).toBeVisible();
     await expectNoSidewaysScroll(page);
   });
   test("a measured subject has no such notice", async ({ page }) => {

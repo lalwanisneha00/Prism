@@ -22,8 +22,8 @@ Every new feature can be switched off without touching code: set `NEXT_PUBLIC_FL
 
 ## Screens
 
-| Lesson (dark)                                             | Dashboard                                                  | Phone                                                |
-| --------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
+| Lesson (dark)                                          | Dashboard                                                     | Phone                                                   |
+| ------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------------------------- |
 | ![Lesson](docs/redesign/after/lesson-desktop-dark.jpg) | ![Dashboard](docs/redesign/after/dashboard-desktop-light.jpg) | ![Planner](docs/redesign/after/planner-phone-light.jpg) |
 
 ## Run it on your computer

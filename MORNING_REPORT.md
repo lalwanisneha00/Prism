@@ -1,22 +1,86 @@
-# Morning report: overnight FINAL run (started 2026-10-05)
+# Morning report: overnight FINAL run (2026-10-05)
 
-Branch `overnight-v3-final` (tag `before-overnight-final`). Check-in cron 1e92bc34 scheduled (session-only, 7-day expiry).
+Branch `overnight-v3-final` (tag `before-overnight-final`), pushed to GitHub so Vercel can build a preview. Nothing was merged into `main`; production and live Firebase were not touched.
 
-## Summary (tonight)
+## 1. Summary
 
-- **Done:** V3 Step 11 (planner + time recommendations, tag `v3-step-11`); Feature A bring-your-own-key (tag `final-feature-a`, flag `NEXT_PUBLIC_FLAG_BYO_KEY`, default on).
-- **In progress:** Step 12 leftovers, then Feature B.
-- **Not started:** B, C, polish. Feature D is deliberately not started (goal says stop after polish).
-- Flags (`src/lib/flags.ts`): byoKey on, slidesPdf on (not built), redesign on (not built), community off.
+| Step                                          | State                                                           | Tag                    | Flag (default)                     |
+| --------------------------------------------- | --------------------------------------------------------------- | ---------------------- | ---------------------------------- |
+| F1 V3 Step 11: time recommendations + planner | Done                                                            | `v3-step-11`           | none                               |
+| F1 V3 Step 12: syllabus matching              | Done (unit tested)                                              | (in `final-feature-c`) | none                               |
+| F1 V3 Steps 8–10 accuracy evals               | **Paused by you**                                               | not tagged             | none                               |
+| F2 Feature A: your own API key                | Done                                                            | `final-feature-a`      | `NEXT_PUBLIC_FLAG_BYO_KEY` (on)    |
+| F3 Feature B: slides and PDF generator        | Done                                                            | `final-feature-b`      | `NEXT_PUBLIC_FLAG_SLIDES_PDF` (on) |
+| F4 Feature C: interface redesign              | Done                                                            | `final-feature-c`      | `NEXT_PUBLIC_FLAG_REDESIGN` (on)   |
+| F5 Feature D: community branches              | **Not started** (the run goal says stop after the final polish) | none                   | `NEXT_PUBLIC_FLAG_COMMUNITY` (off) |
+| F6 Final polish, README, DEPLOY_CHECKLIST.md  | Done (see Problems for what was not possible)                   | `final-polish`         | none                               |
 
-## Decisions made without me
+Evals: as you asked, the remaining subject evals are on pause. The app now says so: the accuracy page, each subject page and the subject list show **"Test not run yet"** for subjects whose test set is ready but unrun, and **"No test set yet"** for the rest. Nothing was shown as tested that wasn't.
 
-- Feature D (Community branches) is not started: the run goal says stop after final polish.
-- Evals restart one at a time (the earlier "wait for go ahead" rule is overridden by this run's "never ask").
+## 2. How to see it
 
-## Needs Sneha / Problems / Interruptions
+- Branch `overnight-v3-final`; open the Vercel preview for it (Vercel → Deployments).
+- Locally: `git checkout overnight-v3-final`, `npm install`, `npm run dev`, open http://localhost:3000.
+- Checks: `npm run check`, `npm run build`, and `LLM_PROVIDER=fake npx next build` then `E2E_SERVER=start npx playwright test` (fake AI, no quota).
+- Deploy steps and flag advice: `DEPLOY_CHECKLIST.md`.
 
-- (none yet)
+## 3. What was built, and "✅ Check this"
+
+**V3 Step 11 (planner and time recommendations).** The lesson picker marks a Recommended length with a "why" note and "Other length"; wrong answers and "Explain simpler" taps feed the weak-topic score; the dashboard has "My weak areas" and "May need extra time"; each subject page shows High / Medium / Low return per topic with your own override; the planner is rebuilt (several subjects, Light / Balanced / Deep or a custom minutes range, hours per weekday up to 8 h with presets, date overrides, sessions and breaks, an overview, offers when things don't fit or time is spare, "re-plan what's left"). Old plans still open (migration `upgradePlan`).
+✅ Check this: open Gauss's law in the picker → "Recommended N min: …"; on `/subjects/em` set a topic to High and reload; `/planner` → add Engineering Mathematics, 7 days, Sunday and Saturday 8 h → Save.
+
+**Step 12 (own syllabus).** Pasting a syllabus into "Other subjects" now offers the built-in subjects that cover most of its topics.
+✅ Check this: `/my-subjects/new` → paste 4+ topics copied from Electricity & Magnetism → "Prism already teaches much of this".
+
+**Feature A (own API key).** `/settings/keys` (footer link): Gemini, Groq, OpenAI, Anthropic, xAI, OpenRouter, each with a key field, model picker, Test key, Remove key, link to get a key and a free-tier note. Keys live only in IndexedDB (not synced, not exported, not in shared links). A key travels in request headers for one request and is never stored or logged; every error text has it removed. If the key fails you get a clear message and a "Retry with Prism's shared free key" button. The page says plainly that chat subscriptions (Claude Pro/Max, ChatGPT Plus, paid Gemini app) are not API keys. Each lesson records the provider and model that wrote it, and "Using: …" shows where lessons are made.
+✅ Check this: save and test a key, make a lesson, confirm "Using: your … key"; try a wrong key and use the shared-key retry button.
+
+**Feature B (slides and PDF).** In the lesson maker, "Make slides or a PDF instead": purpose (teach / study / revise / practice sheet / one-page summary), PowerPoint or PDF, rough length (up to ±6 slides), four designed looks (Ink & Paper, Chalkboard, Blueprint, Spectrum). Decks are built from the same checked lesson (a validated JSON outline first), with real text boxes, tables and speaker notes; interactive visuals become labelled stills (start, one setting changed, limiting case); formulas are typeset pictures; PDFs have a cover, contents page (long ones), page numbers and selectable text in embedded fonts. Files are kept in "My slides and PDFs" (`/slides`). I opened decks in PowerPoint and fixed what looked wrong.
+✅ Check this: make one deck of each purpose, open in PowerPoint, look at the notes pane; make a PDF and select some text.
+
+**Feature C (redesign).** Warm paper and deep ink (light) / deep ink (dark); the six levels each own a spectrum colour used in the level cards, lesson header and hero; Fraunces for headings and Source Sans 3 for reading; one line-icon set instead of emoji; no gradients, glass or gradient text; flat prism logo and hero; colour-blind-safe chart palette; reduced-motion respected; contrast checked by a unit test in both looks and modes. "Classic look" (the earlier purple one) is in the footer, and the flag turns the new look off for everyone.
+✅ Check this: before and after pictures are in `docs/redesign/before` and `docs/redesign/after` (12 screens × desktop light, desktop dark, phone light). Toggle dark mode and "Classic look".
+
+## 4. Decisions made without me
+
+- Feature D not started: your goal said stop after the final polish.
+- Feature flags are environment variables (`NEXT_PUBLIC_FLAG_*`), so you can switch a feature off in Vercel without code.
+- Slides: PowerPoint uses fonts that exist on Windows, macOS and Google Slides; PDFs embed Noto Sans/Serif (2.2 MB of fonts in `public/fonts`, SIL OFL). A PDF page holds about two slides' worth.
+- Keys travel in request headers, not the body; the test-key route is rate-limited per visitor.
+- Widget "stills" vary a widget's own parameter limits (never invented values).
+- Emoji ✓ ✗ ★ ☆ used as plain typography were kept; pictograph emoji became line icons.
+- Evals: paused as you asked. No live AI call was made overnight (all tests use mocked or fake AI).
+- `/dev/*` pages 404 on the live site (they stay on the test server).
+- "Sourced" tier text was reworded so it is true for subjects with a measured score under 85% (Electricity & Magnetism, Engineering Mathematics).
+
+## 5. Needs Sneha
+
+1. Look at the Vercel preview and run the smoke test in `DEPLOY_CHECKLIST.md`.
+2. Add your production and preview domains under Firebase → Authentication → Authorized domains (steps in `DEPLOY_CHECKLIST.md`).
+3. When you want evals again, say so; command in `PROGRESS.md`.
+4. Optional: decide whether to build Feature D (community branches) later; it needs Firestore rules applied by you before it can be turned on.
+
+## 6. Problems
+
+- The machine slept several times overnight, so some browser tests recorded very long times; the ones that failed during those spells passed when re-run alone (highlights, other-subjects, chapter-plan).
+- A leftover test server on port 3210 blocked one run; stopped it.
+- Interactive widgets in slide pictures still show their slider controls.
+- Lighthouse and bundle-size measurements were not taken (no time to run them reliably on this computer); heavy libraries (pptxgenjs, pdf-lib, html-to-image) load only when a file is made.
+- **Final regression, honestly:** `npm run check` pieces all pass (typecheck, lint, format, 686 unit tests) and the production build passes. The full four-mode browser run was stopped at your request after 58 tests had passed; one test (`chapter-reading` in desktop dark) failed in a run where the computer had gone to sleep (it was recorded as taking 2.1 hours) and has not been re-run alone yet. Earlier in the night every spec was run in desktop light and phone dark, and the spells that failed when the computer slept passed when re-run alone.
+
+## 7. Accuracy
+
+Unchanged from before tonight (no evals run): Wave 1 verified (7 subjects) / tested (Engineering Graphics); Wave 2 partly recorded; Wave 3, Wave 4 core and a few Wave 2 subjects waiting. Electricity & Magnetism 79.8% and Engineering Mathematics 88.5% are the last measured scores and are shown as "Sourced", not tested. The release gate (95%) for those two has not been passed; re-run when you allow.
+
+## 8. Interruptions
+
+- Several system sleeps and one session restart overnight (background jobs lost once; re-run). No usage limit or network drop affected the work; pushes succeeded.
+
+## 9. Next action
+
+Review the preview, apply the checklist, then (if you want) say "run the evals" and "start Feature D".
+
+---
 
 ---
 

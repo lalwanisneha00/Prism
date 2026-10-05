@@ -35,12 +35,12 @@ Already used before tonight (keep as they are):
 
 New tonight (all optional; leave unset to use the default shown):
 
-| Variable                      | Default | What it does                                          |
-| ----------------------------- | ------- | ----------------------------------------------------- |
-| `NEXT_PUBLIC_FLAG_BYO_KEY`    | on (1)  | "Your API keys" page and use of your own key          |
+| Variable                      | Default | What it does                                            |
+| ----------------------------- | ------- | ------------------------------------------------------- |
+| `NEXT_PUBLIC_FLAG_BYO_KEY`    | on (1)  | "Your API keys" page and use of your own key            |
 | `NEXT_PUBLIC_FLAG_SLIDES_PDF` | on (1)  | "Make slides or a PDF instead" and "My slides and PDFs" |
-| `NEXT_PUBLIC_FLAG_REDESIGN`   | on (1)  | The new look (off = everyone sees the Classic look)   |
-| `NEXT_PUBLIC_FLAG_COMMUNITY`  | off (0) | Community branches: **not built**, leave off          |
+| `NEXT_PUBLIC_FLAG_REDESIGN`   | on (1)  | The new look (off = everyone sees the Classic look)     |
+| `NEXT_PUBLIC_FLAG_COMMUNITY`  | off (0) | Community branches: **not built**, leave off            |
 
 Changing a flag needs a redeploy (Deployments → ⋯ → Redeploy).
 
@@ -52,18 +52,18 @@ Changing a flag needs a redeploy (Deployments → ⋯ → Redeploy).
 
 ## 5. Flags: my recommendation at launch
 
-| Feature                | Recommendation | Why                                                                                                                      |
-| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Your API keys          | **On**         | Tested end to end with mocked providers. Takes pressure off the shared key. Live providers were not called overnight.     |
-| Slides and PDFs        | **On**         | Both formats tested in four themes and checked by opening the decks in PowerPoint. Heavy libraries load only when used.  |
-| Redesign               | **On**         | Classic stays one click away in the footer. Switch off the flag only if you see a layout problem you don't want to ship. |
-| Community branches     | **Off**        | Not built.                                                                                                               |
+| Feature            | Recommendation | Why                                                                                                                      |
+| ------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Your API keys      | **On**         | Tested end to end with mocked providers. Takes pressure off the shared key. Live providers were not called overnight.    |
+| Slides and PDFs    | **On**         | Both formats tested in four themes and checked by opening the decks in PowerPoint. Heavy libraries load only when used.  |
+| Redesign           | **On**         | Classic stays one click away in the footer. Switch off the flag only if you see a layout problem you don't want to ship. |
+| Community branches | **Off**        | Not built.                                                                                                               |
 
 ## 6. Five-minute smoke test on the live site
 
 1. Home page loads, no console errors, hero and six level colours show. Toggle dark mode and back.
 2. Pick **Electricity & Magnetism → Electrostatics → Gauss's law**, level Building Blocks. A length is marked **Recommended**; press **Build my lesson**; the lesson streams in and the quiz works.
-3. Open **Make slides or a PDF instead**, choose *For teaching*, PowerPoint, 10 slides, a theme. A file downloads; open it in PowerPoint and check the speaker notes pane. Repeat with PDF.
+3. Open **Make slides or a PDF instead**, choose _For teaching_, PowerPoint, 10 slides, a theme. A file downloads; open it in PowerPoint and check the speaker notes pane. Repeat with PDF.
 4. Footer → **Your API keys**: paste a free Gemini key, press **Test key** (it should say it works), save, make one lesson and check "Using: your Google Gemini key" shows; then **Remove key**.
 5. **Planner**: add Engineering Mathematics, set 7 days, save. Open **Dashboard** and tick one item.
 6. Phone width (375px): repeat steps 1 and 2.
