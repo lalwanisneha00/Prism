@@ -1,3 +1,4 @@
+import { Icon } from "@/components/Icon";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
@@ -15,13 +16,13 @@ export default function DashboardPage() {
             href="/map"
             className="rounded-full border border-border px-4 py-2 text-sm font-semibold hover:bg-surface-2"
           >
-            🗺️ Concept map
+            <Icon name="map" /> Concept map
           </Link>
           <Link
             href="/my-notes"
             className="rounded-full border border-border px-4 py-2 text-sm font-semibold hover:bg-surface-2"
           >
-            📝 My Notes
+            <Icon name="note" /> My Notes
           </Link>
         </div>
       </div>

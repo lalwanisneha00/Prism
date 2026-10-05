@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import { useState } from "react";
 import { addCards, cardsFromLesson } from "@/lib/flashcards/cards";
@@ -33,7 +34,7 @@ export function MakeFlashcardsButton({ lesson }: { lesson: Lesson }) {
         aria-label={`Make ${drafts.length} flashcards from this lesson`}
         className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-semibold whitespace-nowrap hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       >
-        🃏 Flashcards ({drafts.length})
+        <Icon name="library" /> Flashcards ({drafts.length})
       </button>
       {result && (
         <span aria-live="polite" className="text-sm text-muted">

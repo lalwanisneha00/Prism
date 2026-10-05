@@ -31,7 +31,7 @@ export function TierBadge({ tier }: { tier: TrustTier }) {
 export function LimitedBanner() {
   return (
     <p role="note" className="rounded-xl border border-warning/40 bg-warning/10 px-4 py-3 text-sm">
-      <span className="font-semibold">⚠ Limited sources, please verify.</span> We found very little
+      <span className="font-semibold">Limited sources, please verify.</span> We found very little
       trusted source text for this topic, so this lesson is short and parts may be unchecked.
       Compare it with your textbook, or{" "}
       <Link href="/notes" className="font-semibold text-primary underline">

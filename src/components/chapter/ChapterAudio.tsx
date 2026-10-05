@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { apiFetch } from "@/lib/byok/apiFetch";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AudioPlayer } from "@/components/audio/AudioPlayer";
@@ -161,7 +162,7 @@ export function ChapterAudio({
       data-testid="chapter-audio"
     >
       <h2 id="chapter-audio" className="text-xl font-bold tracking-tight">
-        <span aria-hidden="true">🎧 </span>Chapter audio
+        <Icon name="audio" /> Chapter audio
         <span className="ml-2 text-sm font-normal text-muted">about {minutes} min</span>
       </h2>
       {!supported ? (

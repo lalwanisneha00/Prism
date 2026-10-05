@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { useState } from "react";
 import { describeBlock } from "@/components/annotations/AnnotationEditor";
 import { useAnnotations } from "@/components/annotations/AnnotationsProvider";
@@ -21,8 +22,8 @@ export function MyNotesList({ compact = false }: { compact?: boolean }) {
   if (anno.placed.length === 0) {
     return (
       <p className="text-sm text-muted">
-        No highlights yet. Select any text in the lesson and pick a colour, or press 📝 on a
-        section, example or question to add a note.
+        No highlights yet. Select any text in the lesson and pick a colour, or press{" "}
+        <Icon name="note" /> on a section, example or question to add a note.
       </p>
     );
   }
@@ -49,7 +50,9 @@ export function MyNotesList({ compact = false }: { compact?: boolean }) {
                 <span className="text-muted">Note on {describeBlock(a.block)}</span>
               )}
               {a.comment.trim() && (
-                <span className="mt-1 block whitespace-pre-wrap text-muted">💬 {a.comment}</span>
+                <span className="mt-1 block whitespace-pre-wrap text-muted">
+                  <Icon name="comment" /> {a.comment}
+                </span>
               )}
               {a.anchor && !range && (
                 <span className="mt-1 block text-xs text-warning">
@@ -80,7 +83,7 @@ export function MyNotesPanel() {
           onClick={() => setOpen((o) => !o)}
           className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-semibold whitespace-nowrap hover:bg-surface-2"
         >
-          📝 My notes ({count})
+          <Icon name="note" /> My notes ({count})
         </button>
         {count > 0 && (
           <label className="flex items-center gap-2 text-sm">

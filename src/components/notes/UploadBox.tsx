@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { useId, useRef, useState } from "react";
 import { ACCEPT, FORMAT_NAMES } from "@/lib/extract/detect";
 import { extractFile } from "@/lib/extract/extractFile";
@@ -169,8 +170,8 @@ export function UploadBox({
         <span className="text-sm text-muted">or drop them here</span>
       </div>
       <p className="text-sm text-muted">
-        🔒 Files are read in your browser and stay on this device; only their names, types and a
-        short summary sync to your account. Works with {FORMAT_NAMES}. Up to{" "}
+        <Icon name="lock" /> Files are read in your browser and stay on this device; only their
+        names, types and a short summary sync to your account. Works with {FORMAT_NAMES}. Up to{" "}
         {MAX_FILE_BYTES / 1024 / 1024} MB and {MAX_FILES_PER_UPLOAD} files at a time.
       </p>
       {notice && <p className="text-sm text-warning">{notice}</p>}

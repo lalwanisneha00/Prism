@@ -1,3 +1,4 @@
+import { Icon } from "@/components/Icon";
 import { Card } from "@/components/lesson/BlockHeading";
 import { Formula, Markdown } from "@/components/lesson/Markdown";
 import type { Lesson, Link, Source } from "@/lib/schema";
@@ -165,7 +166,9 @@ export function SourceList({ sources }: { sources: Source[] }) {
                 {s.title}
               </a>
             ) : (
-              <span className="font-medium">📒 {s.title}</span>
+              <span className="font-medium">
+                <Icon name="book" /> {s.title}
+              </span>
             )}
             <span className="text-muted">
               {" "}

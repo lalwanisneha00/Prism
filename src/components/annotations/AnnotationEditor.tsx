@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { useAnnotations } from "@/components/annotations/AnnotationsProvider";
@@ -90,7 +91,9 @@ function Editor({ annotation }: { annotation: Annotation }) {
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="font-semibold">📝 {title}</p>
+          <p className="font-semibold">
+            <Icon name="note" /> {title}
+          </p>
           {quote ? (
             <p className="mt-1 line-clamp-3 text-sm text-muted">“{quote}”</p>
           ) : (
@@ -162,7 +165,7 @@ function Editor({ annotation }: { annotation: Annotation }) {
             onClick={() => void explain.run({ action: "explain", selection: quote })}
             className={`rounded-full border px-3 py-1.5 font-semibold hover:bg-surface-2 ${annotation.color === "confused" ? "border-primary text-primary" : "border-border"}`}
           >
-            🪶 Explain this simpler
+            <Icon name="feather" /> Explain this simpler
           </button>
         )}
         <button
@@ -170,7 +173,7 @@ function Editor({ annotation }: { annotation: Annotation }) {
           onClick={makeCard}
           className="rounded-full border border-border px-3 py-1.5 font-semibold hover:bg-surface-2"
         >
-          🃏 Turn into flashcard
+          <Icon name="library" /> Turn into flashcard
         </button>
         <button
           type="button"

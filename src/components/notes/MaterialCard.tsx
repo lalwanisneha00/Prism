@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { useState } from "react";
 import { MaterialPreview } from "@/components/notes/MaterialPreview";
 import { unitName } from "@/lib/extract/types";
@@ -39,7 +40,9 @@ export function MaterialCard({
     <li className="flex flex-col gap-3 rounded-2xl border border-border bg-surface p-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="font-semibold break-words">📒 {note.name}</p>
+          <p className="font-semibold break-words">
+            <Icon name="book" /> {note.name}
+          </p>
           <p className="text-sm text-muted">
             {unitName(note.format, note.pages)} · {note.chunks.length}{" "}
             {note.chunks.length === 1 ? "passage" : "passages"}

@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { MapEdge, MapNode, TopicStatus } from "@/lib/conceptMap";
@@ -160,7 +161,7 @@ export function ConceptMap({
                           aria-current="page"
                           className="flex items-center gap-2 rounded-xl border-2 border-primary bg-primary-soft px-3 py-2 text-sm font-semibold text-primary"
                         >
-                          <span aria-hidden="true">📍</span>
+                          <Icon name="pin" />
                           {node.name}
                         </span>
                       ) : (

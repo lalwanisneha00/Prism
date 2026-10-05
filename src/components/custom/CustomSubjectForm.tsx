@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { apiFetch } from "@/lib/byok/apiFetch";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -380,7 +381,7 @@ export function CustomSubjectForm({
         </p>
         <p className="text-sm text-muted">
           Faculty slides and notes, previous-year papers, worksheets: any format. Exams follow these
-          closely, so lessons use them first. 🔒 They stay on this device.
+          closely, so lessons use them first. <Icon name="lock" /> They stay on this device.
         </p>
         <label className="w-fit cursor-pointer rounded-full border border-border px-4 py-2 text-sm font-semibold hover:bg-surface-2">
           Add files
@@ -403,7 +404,9 @@ export function CustomSubjectForm({
                 key={`${i}-${f.name}`}
                 className="flex items-center justify-between gap-2 rounded-lg bg-surface-2 px-3 py-1.5"
               >
-                <span className="min-w-0 truncate">📒 {f.name}</span>
+                <span className="min-w-0 truncate">
+                  <Icon name="book" /> {f.name}
+                </span>
                 <button
                   type="button"
                   onClick={() => setFiles((list) => list.filter((_, k) => k !== i))}

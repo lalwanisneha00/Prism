@@ -82,7 +82,7 @@ export function SubjectProgress({
       )}
       {asked.papers > 0 && (
         <p className="text-sm text-muted" data-testid="exam-emphasis">
-          ⭐ Topics marked “asked N×” come up in your {asked.papers} uploaded previous-year{" "}
+          Topics marked “asked N×” come up in your {asked.papers} uploaded previous-year{" "}
           {asked.papers === 1 ? "paper" : "papers"}: give them extra time.
         </p>
       )}

@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { DashboardChapterCards } from "@/components/chapter/DashboardChapterCards";
 import { StudyInsights } from "@/components/StudyInsights";
 import { ChapterProgressBars, TodayAndStreak } from "@/components/planner/ProgressTracker";
@@ -55,7 +56,11 @@ function FlashcardsDue({ cards }: { cards: Flashcard[] }) {
   if (cards.length === 0) {
     return (
       <Empty>
-        No cards yet. Open a lesson and press <b>🃏 Flashcards</b>.
+        No cards yet. Open a lesson and press{" "}
+        <b>
+          <Icon name="library" /> Flashcards
+        </b>
+        .
       </Empty>
     );
   }
@@ -142,7 +147,7 @@ export function Dashboard() {
               </span>
               {lastAudio && (
                 <span className="mt-1 text-sm">
-                  🎧 Audio stopped at {formatClock(lastAudio.seconds)}
+                  <Icon name="audio" /> Audio stopped at {formatClock(lastAudio.seconds)}
                 </span>
               )}
             </Link>
@@ -194,7 +199,7 @@ export function Dashboard() {
               {confused.length
                 ? "Open one above: each “didn't understand” highlight has an “Explain this simpler” button."
                 : data.attempts.length
-                  ? "No weak topics: every latest quiz score is 60% or more. 🎉"
+                  ? "No weak topics: every latest quiz score is 60% or more."
                   : "Finish a lesson quiz and topics you found hard will appear here."}
             </Empty>
           )}

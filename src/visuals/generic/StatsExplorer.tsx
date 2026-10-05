@@ -141,7 +141,7 @@ function SamplingDemo({ spec }: { spec: StatsSpec }) {
                 {p === population ? `● ${p}` : p}
               </WidgetButton>
             ))}
-            <WidgetButton onClick={() => setSeed((s) => s + 1)}>🎲 Draw again</WidgetButton>
+            <WidgetButton onClick={() => setSeed((s) => s + 1)}>Draw again</WidgetButton>
           </div>
         </>
       }

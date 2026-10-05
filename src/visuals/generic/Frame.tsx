@@ -24,7 +24,7 @@ export function DataNote({ data, sourceId }: { data?: string; sourceId?: string 
     );
   }
   if (data === "computed") {
-    return <p className="text-xs text-muted">📐 Computed in code, not hand-drawn.</p>;
+    return <p className="text-xs text-muted">Computed in code, not hand-drawn.</p>;
   }
   return null;
 }
@@ -50,7 +50,6 @@ export function GenericFrame({
   return (
     <figure className="flex flex-col gap-3 rounded-xl border border-border bg-surface-2 p-3 sm:p-4">
       <p className="text-sm font-semibold">
-        <span aria-hidden="true">{icon} </span>
         {title}
         {interactive && <span className="font-normal text-muted"> · interactive</span>}
       </p>

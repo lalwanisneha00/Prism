@@ -74,7 +74,7 @@ export function Quiz({ questions, meta }: { questions: QuizQuestion[]; meta?: Le
         <p className="font-semibold">
           {answered < questions.length
             ? `Answered ${answered} of ${questions.length}`
-            : `You scored ${score} out of ${questions.length}${score === questions.length ? " 🎉" : ""}`}
+            : `You scored ${score} out of ${questions.length}${score === questions.length ? "!" : ""}`}
         </p>
         {answered > 0 && (
           <button

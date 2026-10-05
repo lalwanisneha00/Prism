@@ -166,8 +166,8 @@ export function Worksheet({ lesson }: { lesson: Lesson }) {
       <div role="tablist" aria-label="Worksheet type" className="flex flex-wrap gap-2">
         {(
           [
-            ["practice", "📝 Practice worksheet"],
-            ["pyq", "📄 Solve my past paper"],
+            ["practice", "Practice worksheet"],
+            ["pyq", "Solve my past paper"],
           ] as const
         ).map(([value, label]) => (
           <button

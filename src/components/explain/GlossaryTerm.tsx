@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 
 /**
@@ -88,7 +89,9 @@ export function GlossaryTerm({
           }}
           className="fixed z-50 block rounded-xl border border-border bg-surface p-3 text-left text-sm shadow-lg"
         >
-          <span className="block font-semibold text-primary">📖 {term}</span>
+          <span className="block font-semibold text-primary">
+            <Icon name="book" /> {term}
+          </span>
           <span className="mt-1 block text-fg">{definition}</span>
         </span>
       )}

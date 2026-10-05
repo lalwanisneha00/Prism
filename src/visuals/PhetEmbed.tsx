@@ -16,9 +16,7 @@ export function PhetEmbed({ sim, caption }: { sim: string; caption: string }) {
 
   return (
     <figure className="flex flex-col gap-2 rounded-xl border border-border bg-surface-2 p-3 sm:p-4">
-      <p className="text-sm font-semibold">
-        <span aria-hidden="true">🧪 </span>Simulation: {info.title}
-      </p>
+      <p className="text-sm font-semibold">Simulation: {info.title}</p>
       {open ? (
         <div className="aspect-[16/10] w-full overflow-hidden rounded-lg border border-border bg-black">
           <iframe

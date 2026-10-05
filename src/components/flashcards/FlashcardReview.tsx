@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
@@ -124,9 +125,12 @@ export function FlashcardReview() {
         <div className="flex flex-col items-start gap-3 rounded-2xl border border-dashed border-border bg-surface-2 p-6">
           <p className="font-semibold">No flashcards yet</p>
           <p className="text-muted">
-            Open any lesson and press <span className="font-semibold">🃏 Flashcards</span>, or
-            select text in a lesson and choose <span className="font-semibold">＋ Flashcard</span>.
-            You can also add your own below.
+            Open any lesson and press{" "}
+            <span className="font-semibold">
+              <Icon name="library" /> Flashcards
+            </span>
+            , or select text in a lesson and choose{" "}
+            <span className="font-semibold">＋ Flashcard</span>. You can also add your own below.
           </p>
           <Link
             href="/#start"
@@ -180,7 +184,9 @@ export function FlashcardReview() {
         </section>
       ) : (
         <div className="rounded-2xl border border-border bg-surface p-6 text-center">
-          <p className="text-lg font-semibold">🎉 All caught up!</p>
+          <p className="text-lg font-semibold">
+            <Icon name="done" /> All caught up!
+          </p>
           <p className="mt-1 text-muted">
             {nextDue
               ? `Your next card is due ${new Date(nextDue.srs.due).toLocaleString(undefined, { weekday: "short", hour: "2-digit", minute: "2-digit" })}.`

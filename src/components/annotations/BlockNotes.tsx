@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { useAnnotations } from "@/components/annotations/AnnotationsProvider";
 import { swatchClass } from "@/components/annotations/ColorSwatch";
 
@@ -24,7 +25,7 @@ export function BlockNoteButton({
       title="Add a note"
       className="rounded-full px-2 py-1 text-sm text-muted hover:bg-surface-2 hover:text-fg focus-visible:outline-2 focus-visible:outline-primary"
     >
-      📝
+      <Icon name="note" />
     </button>
   );
 }
@@ -54,7 +55,8 @@ export function BlockNotes({
     <ul data-anno-skip="" className="flex flex-col gap-1.5">
       {unanchoredSection && (
         <li className="text-xs font-semibold text-warning">
-          📌 Notes from an earlier version of this lesson (their text changed):
+          <Icon name="bookmark" /> Notes from an earlier version of this lesson (their text
+          changed):
         </li>
       )}
       {items.map(({ annotation: a, range }) => (
@@ -110,7 +112,7 @@ export function CommentMarkers({ container }: { container: HTMLElement | null })
             style={{ top: rect.top - base.top - 2 }}
             className="pointer-events-auto absolute -right-12 rounded-full border border-border bg-surface px-1.5 py-0.5 text-sm shadow-sm hover:border-primary"
           >
-            💬
+            <Icon name="comment" />
           </button>
         );
       })}

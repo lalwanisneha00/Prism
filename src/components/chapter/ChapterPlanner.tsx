@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { LevelSlug } from "@/data/levels";
@@ -134,7 +135,7 @@ export function ChapterPlanner(props: PlannerProps) {
               <li key={t.id} className="flex flex-col gap-2">
                 {split > 0 && activeIndex === split && (
                   <p className="rounded-lg bg-primary-soft px-3 py-2 text-center text-sm font-semibold text-primary">
-                    ☕ Part 2 starts here: take a break
+                    <Icon name="break" /> Part 2 starts here: take a break
                   </p>
                 )}
                 <div

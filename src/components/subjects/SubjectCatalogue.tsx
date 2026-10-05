@@ -7,10 +7,10 @@ import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { chaptersOf, findBranch, subjects, subjectsFor, type Subject } from "@/lib/subjects";
 
 const tierLabel: Record<TrustTier, string> = {
-  verified: "✅ Verified",
-  tested: "🧪 Tested",
-  sourced: "📚 Sourced",
-  limited: "⚠️ Limited",
+  verified: "Verified",
+  tested: "Tested",
+  sourced: "Sourced",
+  limited: "Limited",
 };
 
 function SubjectCard({ subject }: { subject: Subject }) {

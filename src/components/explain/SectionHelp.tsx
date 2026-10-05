@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { useState } from "react";
 import { ExplainAnswer } from "@/components/explain/ExplainAnswer";
 import { useExplain, useLesson } from "@/components/explain/useExplain";
@@ -44,10 +45,10 @@ export function SectionHelp({ sectionId }: { sectionId: string }) {
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap gap-2">
         <button type="button" className={button} disabled={busy} onClick={() => ask("simpler")}>
-          🪶 Explain simpler
+          <Icon name="feather" /> Explain simpler
         </button>
         <button type="button" className={button} disabled={busy} onClick={() => ask("analogy")}>
-          🔄 {hasAnalogy ? "Another analogy" : "Give me an analogy"}
+          <Icon name="again" /> {hasAnalogy ? "Another analogy" : "Give me an analogy"}
         </button>
       </div>
       {state.status !== "idle" && (

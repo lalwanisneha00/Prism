@@ -1,3 +1,4 @@
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import { AccountMenu } from "@/components/account/AccountMenu";
 import { Container } from "@/components/Container";
@@ -14,28 +15,28 @@ export function SiteHeader() {
             href="/subjects"
             className="rounded-full px-2 py-2 text-sm font-semibold hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-3"
           >
-            <span aria-hidden="true">🎓</span>
+            <Icon name="study" />
             <span className="max-sm:sr-only"> Subjects</span>
           </Link>
           <Link
             href="/library"
             className="rounded-full px-2 py-2 text-sm font-semibold hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-3"
           >
-            <span aria-hidden="true">📚</span>
+            <Icon name="library" />
             <span className="max-sm:sr-only"> Library</span>
           </Link>
           <Link
             href="/notes"
             className="rounded-full px-2 py-2 text-sm font-semibold hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-3"
           >
-            <span aria-hidden="true">📒</span>
+            <Icon name="book" />
             <span className="max-sm:sr-only"> Uploads</span>
           </Link>
           <Link
             href="/dashboard"
             className="rounded-full px-2 py-2 text-sm font-semibold hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-3"
           >
-            <span aria-hidden="true">📊</span>
+            <Icon name="chart" />
             <span className="max-sm:sr-only"> Dashboard</span>
           </Link>
           <ThemeToggle />

@@ -69,7 +69,7 @@ export function FunctionGraph({ spec }: { spec: GraphSpec }) {
       caption={spec.caption}
       note={
         <p className="text-xs text-muted">
-          📐 Drawn from the equations in code.
+          Drawn from the equations in code.
           {area !== null && ` Shaded area ≈ ${fmt(area, 4)}.`}
           {tangent && ` Tangent slope at x = ${fmt(tangent.x)} is ${fmt(tangent.m)}.`}
         </p>

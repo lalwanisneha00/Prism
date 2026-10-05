@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { apiFetch } from "@/lib/byok/apiFetch";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AudioPlayer } from "@/components/audio/AudioPlayer";
@@ -137,7 +138,7 @@ export function AudioLesson({ lesson }: { lesson: Lesson }) {
       className="scroll-mt-20 rounded-2xl border border-border bg-surface p-5 sm:p-6"
     >
       <h2 id="audio-title" className="text-xl font-bold tracking-tight">
-        <span aria-hidden="true">🎧 </span>Audio lesson
+        <Icon name="audio" /> Audio lesson
         <span className="ml-2 text-sm font-normal text-muted">about {durationMin} min</span>
       </h2>
 

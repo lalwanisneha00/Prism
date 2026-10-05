@@ -84,9 +84,7 @@ export function Plot({
 
   return (
     <figure className="flex flex-col gap-2 rounded-xl border border-border bg-surface-2 p-3 sm:p-4">
-      <p className="text-sm font-semibold">
-        <span aria-hidden="true">📈 </span>Graph
-      </p>
+      <p className="text-sm font-semibold">Graph</p>
       <div className="rounded-lg border border-border bg-surface">
         <svg
           viewBox={`0 0 ${W} ${H}`}

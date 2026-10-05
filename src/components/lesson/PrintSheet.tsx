@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { useAnnotations } from "@/components/annotations/AnnotationsProvider";
@@ -19,7 +20,7 @@ export function ExportPdfButton() {
       onClick={() => window.print()}
       className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-semibold whitespace-nowrap hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
     >
-      🖨️ Revision PDF
+      <Icon name="print" /> Revision PDF
     </button>
   );
 }

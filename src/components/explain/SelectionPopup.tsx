@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { useAnnotations } from "@/components/annotations/AnnotationsProvider";
 import { ColorSwatch } from "@/components/annotations/ColorSwatch";
@@ -117,7 +118,7 @@ export function SelectionPopup({ container }: { container: RefObject<HTMLElement
                 }}
                 className="ml-auto rounded-full px-2.5 py-1.5 text-sm font-semibold hover:bg-surface-2"
               >
-                💬 Comment
+                <Icon name="comment" /> Comment
               </button>
             </div>
           )}
@@ -127,14 +128,14 @@ export function SelectionPopup({ container }: { container: RefObject<HTMLElement
               onClick={() => ask("explain", selected.text)}
               className="rounded-full px-3 py-1.5 text-sm font-semibold hover:bg-surface-2"
             >
-              💡 Explain
+              <Icon name="idea" /> Explain
             </button>
             <button
               type="button"
               onClick={() => ask("define", selected.text)}
               className="rounded-full px-3 py-1.5 text-sm font-semibold hover:bg-surface-2"
             >
-              📖 Define
+              <Icon name="book" /> Define
             </button>
             <button
               type="button"
@@ -161,11 +162,19 @@ export function SelectionPopup({ container }: { container: RefObject<HTMLElement
           <div className="mb-2 flex items-start justify-between gap-3">
             <p className="text-sm">
               <span className="font-semibold text-primary">
-                {asked.action === "card"
-                  ? "🃏 New flashcard"
-                  : asked.action === "define"
-                    ? "📖 Define"
-                    : "💡 Explain"}
+                {asked.action === "card" ? (
+                  <>
+                    <Icon name="library" /> New flashcard
+                  </>
+                ) : asked.action === "define" ? (
+                  <>
+                    <Icon name="book" /> Define
+                  </>
+                ) : (
+                  <>
+                    <Icon name="idea" /> Explain
+                  </>
+                )}
                 :
               </span>{" "}
               <span className="text-muted">

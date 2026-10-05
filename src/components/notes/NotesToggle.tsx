@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { listLocalNotes } from "@/lib/notes/store";
@@ -24,7 +25,7 @@ export function NotesToggle({
   if (count === 0) {
     return (
       <p className="text-sm text-muted">
-        📒 Have college notes?{" "}
+        <Icon name="book" /> Have college notes?{" "}
         <Link href="/notes" className="font-semibold text-primary underline underline-offset-2">
           Add a PDF
         </Link>{" "}
@@ -42,7 +43,9 @@ export function NotesToggle({
         className="mt-1 size-4 accent-primary"
       />
       <span>
-        <span className="font-semibold">📒 Use my uploaded notes</span>
+        <span className="font-semibold">
+          <Icon name="book" /> Use my uploaded notes
+        </span>
         <span className="block text-sm text-muted">
           Prism searches your {count} {count === 1 ? "file" : "files"} on this device and follows
           the matching pages.{" "}

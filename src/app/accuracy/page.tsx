@@ -121,7 +121,7 @@ export default function AccuracyPage() {
         <ul className="list-disc space-y-1 pl-5">
           <li>Sources: every section cites the trusted pages it was written from.</li>
           <li>
-            A fact-check pass that compares the lesson with those sources (Sourced ✓ / Verify ⚠
+            A fact-check pass that compares the lesson with those sources (“Sourced” / “Verify”
             badges).
           </li>
           <li>

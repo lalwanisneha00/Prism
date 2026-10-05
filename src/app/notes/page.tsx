@@ -12,7 +12,7 @@ export default async function NotesPage({ searchParams }: PageProps<"/notes">) {
         <h1 className="text-3xl font-bold tracking-tight">My materials</h1>
         <p className="mt-2 text-muted">
           Add your college notes, slides and previous-year papers, and Prism will follow them: same
-          order, same notation, with “📒 From your notes” on the parts that use them.
+          order, same notation, with “From your notes” on the parts that use them.
         </p>
       </div>
       <MaterialsManager initialSubject={typeof subject === "string" ? subject : ""} />

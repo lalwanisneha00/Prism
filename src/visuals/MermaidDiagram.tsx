@@ -42,9 +42,7 @@ export function MermaidDiagram({ code, caption }: { code: string; caption: strin
 
   return (
     <figure className="flex flex-col gap-2 rounded-xl border border-border bg-surface-2 p-3 sm:p-4">
-      <p className="text-sm font-semibold">
-        <span aria-hidden="true">🧭 </span>Diagram
-      </p>
+      <p className="text-sm font-semibold">Diagram</p>
       <div className="overflow-x-auto rounded-lg border border-border bg-surface p-3">
         {state.status === "loading" ? (
           <div className="h-40 animate-pulse rounded bg-surface-2" aria-label="Loading diagram" />

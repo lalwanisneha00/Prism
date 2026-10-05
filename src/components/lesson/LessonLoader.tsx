@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { apiFetch, sharedKeyForNextRequest } from "@/lib/byok/apiFetch";
 import { useEffect, useState } from "react";
 import { LessonError } from "@/components/lesson/LessonError";
@@ -157,13 +158,15 @@ export function LessonLoader({
       <div className="flex flex-col gap-4">
         {notesMissing && (
           <p className="rounded-xl border border-warning/30 bg-warning/10 px-4 py-2 text-sm">
-            📒 None of your uploaded notes mention this topic, so this lesson uses the standard
-            sources only.
+            <Icon name="book" /> None of your uploaded notes mention this topic, so this lesson uses
+            the standard sources only.
           </p>
         )}
         {state.fromLibrary && (
           <p className="flex flex-wrap items-center gap-2 rounded-xl border border-border bg-surface px-4 py-2 text-sm">
-            <span>📚 Opened from your saved lessons. It works offline.</span>
+            <span>
+              <Icon name="library" /> Opened from your saved lessons. It works offline.
+            </span>
             <button
               type="button"
               onClick={() => {

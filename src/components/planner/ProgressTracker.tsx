@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
@@ -43,7 +44,11 @@ export function TodayAndStreak() {
     <div className="grid gap-4 md:grid-cols-[auto_1fr]">
       <div className="flex items-center gap-3 rounded-2xl border border-border bg-surface p-5">
         <span className="text-4xl" aria-hidden="true">
-          {s.days > 0 ? "🔥" : "🌱"}
+          {s.days > 0 ? (
+            <Icon name="flame" className="size-9" />
+          ) : (
+            <Icon name="grow" className="size-9" />
+          )}
         </span>
         <div>
           <p className="text-2xl font-bold">
@@ -68,7 +73,7 @@ export function TodayAndStreak() {
         {todays.length === 0 ? (
           <p className="text-sm text-muted">
             {plans.length
-              ? "Nothing planned for today. 🎉"
+              ? "Nothing planned for today."
               : "Behind on a subject? The backlog planner turns it into a day-by-day plan."}
           </p>
         ) : (
@@ -147,9 +152,15 @@ export function ChapterProgressBars() {
         </div>
       ))}
       <p className="flex flex-wrap gap-x-3 text-xs text-muted">
-        <span>🟩 mastered (≥ 80%)</span>
-        <span>🟨 tried</span>
-        <span>🟥 weak (&lt; 60%)</span>
+        <span>
+          <i className="mr-1 inline-block size-2.5 rounded-sm bg-success" /> mastered (≥ 80%)
+        </span>
+        <span>
+          <i className="mr-1 inline-block size-2.5 rounded-sm bg-warning" /> tried
+        </span>
+        <span>
+          <i className="mr-1 inline-block size-2.5 rounded-sm bg-danger" /> weak (&lt; 60%)
+        </span>
       </p>
     </div>
   );

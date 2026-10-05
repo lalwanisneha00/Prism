@@ -1,3 +1,4 @@
+import { Icon } from "@/components/Icon";
 import { Card } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
 import { BlockNoteButton, BlockNotes } from "@/components/annotations/BlockNotes";
@@ -20,7 +21,13 @@ function CheckBadge({ check }: { check: NonNullable<Section["check"]> }) {
           : "border-warning/40 bg-warning/10 text-warning"
       }`}
     >
-      {sourced ? "Sourced ✓" : "Verify ⚠"}
+      {sourced ? (
+        "Sourced ✓"
+      ) : (
+        <>
+          Verify <Icon name="warn" />
+        </>
+      )}
     </span>
   );
 }
@@ -69,12 +76,12 @@ export function SectionView({
           {section.check && <CheckBadge check={section.check} />}
           {fromNotes && (
             <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold whitespace-nowrap text-primary">
-              📒 From your notes
+              <Icon name="book" /> From your notes
             </span>
           )}
           {outside && (
             <span className="rounded-full bg-surface-2 px-2 py-0.5 text-xs font-semibold whitespace-nowrap text-muted">
-              📚 {fromNotes ? "+ outside sources" : "Outside sources"}
+              <Icon name="library" /> {fromNotes ? "+ outside sources" : "Outside sources"}
             </span>
           )}
         </div>

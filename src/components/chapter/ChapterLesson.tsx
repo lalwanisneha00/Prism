@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import { useEffect, useRef, useState } from "react";
 import { ChapterAudio } from "@/components/chapter/ChapterAudio";
 import { ChapterExtras } from "@/components/chapter/ChapterExtras";
@@ -368,7 +369,7 @@ export function ChapterLesson(props: ChapterLessonProps) {
               className="mt-6 rounded-xl border border-dashed border-primary/40 px-4 py-3 text-center text-sm font-semibold text-primary"
               data-testid="break-marker"
             >
-              ☕ Good moment for a 5-minute break. Your place is saved.
+              <Icon name="break" /> Good moment for a 5-minute break. Your place is saved.
             </p>
           )}
         </section>

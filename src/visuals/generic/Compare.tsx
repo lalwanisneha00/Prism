@@ -50,12 +50,12 @@ export function Compare({ spec }: { spec: CompareSpec }) {
           {(
             [
               [
-                spec.leftLabel ?? (spec.style === "pros-cons" ? "👍 Pros" : "Before"),
+                spec.leftLabel ?? (spec.style === "pros-cons" ? "Pros" : "Before"),
                 spec.left ?? [],
                 "text-success",
               ],
               [
-                spec.rightLabel ?? (spec.style === "pros-cons" ? "👎 Cons" : "After"),
+                spec.rightLabel ?? (spec.style === "pros-cons" ? "Cons" : "After"),
                 spec.right ?? [],
                 "text-danger",
               ],

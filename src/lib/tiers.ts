@@ -16,17 +16,17 @@ export const tierCopy: Record<TrustTier, { badge: string; explain: string }> = {
       "This subject has its own test set of key facts, and our lessons score at least 95% on it.",
   },
   tested: {
-    badge: "🧪 Tested subject",
+    badge: "Tested subject",
     explain:
       "This subject has its own test set of key facts taken from trusted sources, and our lessons score at least 85% on it (the exact score is on the accuracy page).",
   },
   sourced: {
-    badge: "📚 Sourced",
+    badge: "Sourced",
     explain:
       "Every section cites trusted sources and is fact-checked, but this subject's accuracy test isn't finished yet.",
   },
   limited: {
-    badge: "⚠ Limited sources",
+    badge: "Limited sources",
     explain:
       "We found little source text for this topic, so this lesson is shorter. Please verify it against your textbook.",
   },

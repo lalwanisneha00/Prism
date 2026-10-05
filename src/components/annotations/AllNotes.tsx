@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import { useEffect, useId, useMemo, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
@@ -69,8 +70,9 @@ export function AllNotes() {
       <div className="flex flex-col items-start gap-3 rounded-2xl border border-dashed border-border bg-surface-2 p-6">
         <p className="font-semibold">No highlights or comments yet</p>
         <p className="text-muted">
-          In any lesson, select text and tap a colour to highlight it, or 💬 to comment. Press 📝 on
-          a section, worked example, chart or quiz question to add a note.
+          In any lesson, select text and tap a colour to highlight it, or <Icon name="comment" /> to
+          comment. Press <Icon name="note" /> on a section, worked example, chart or quiz question
+          to add a note.
         </p>
         <HighlightLegend />
         <Link
@@ -193,7 +195,7 @@ export function AllNotes() {
                       )}
                       {n.comment.trim() && (
                         <span className="mt-1 block whitespace-pre-wrap text-muted">
-                          💬 {n.comment}
+                          <Icon name="comment" /> {n.comment}
                         </span>
                       )}
                       <span className="mt-1 block text-xs text-muted">
