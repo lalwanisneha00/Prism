@@ -66,7 +66,26 @@ export async function getSettings(): Promise<AppSettings | undefined> {
   return getRecord("settings", SETTINGS_ID);
 }
 
-export async function updateSettings(
+/**
+ * Settings changes are applied one after another: two quick changes (ticking two boxes in a row)
+ * each read the saved settings and write them back, and without a queue the slower one could
+ * overwrite the other.
+ */
+let settingsQueue: Promise<unknown> = Promise.resolve();
+
+export function updateSettings(
+  changes: Parameters<typeof writeSettings>[0],
+  now = Date.now(),
+): Promise<void> {
+  const run = settingsQueue.then(
+    () => writeSettings(changes, now),
+    () => writeSettings(changes, now),
+  );
+  settingsQueue = run.catch(() => undefined);
+  return run;
+}
+
+async function writeSettings(
   changes: Partial<
     Pick<
       AppSettings,
