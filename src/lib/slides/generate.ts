@@ -47,7 +47,7 @@ export class GenerateError extends Error {
 /** How long each topic's lesson should be, so the deck has enough to say. */
 export function lessonMinutesFor(slides: number, topics: number): number {
   return nearestDuration(
-    Math.min(60, Math.max(10, Math.round((slides * 1.6) / Math.max(1, topics)))),
+    Math.min(60, Math.max(10, Math.round((slides * 2.4) / Math.max(1, topics)))),
   );
 }
 

@@ -78,6 +78,54 @@ describe("buildPlan", () => {
   });
 });
 
+describe("deck quality", () => {
+  const strings = (v: unknown): string[] =>
+    typeof v === "string"
+      ? [v]
+      : Array.isArray(v)
+        ? v.flatMap(strings)
+        : v && typeof v === "object"
+          ? Object.values(v).flatMap(strings)
+          : [];
+
+  it("never leaves a line cut off with an ellipsis", () => {
+    for (const purpose of PURPOSES) {
+      const plan = buildPlan([lesson], opts(purpose, 30));
+      for (const text of plan.slides.flatMap((s) => strings(s))) {
+        // An ellipsis is fine only when the lesson itself wrote it (an open-ended question).
+        if (text.endsWith("…") || text.endsWith("...")) {
+          expect(JSON.stringify(lesson), text).toContain(text.slice(-24));
+        }
+      }
+    }
+  });
+
+  it("class activities ask for thinking and take a sensible time", () => {
+    const plan = buildPlan([lesson], opts("teach", 20));
+    const acts = plan.slides.filter((s) => s.layout === "activity");
+    expect(acts.length).toBeGreaterThanOrEqual(1);
+    for (const a of acts) {
+      if (a.layout !== "activity") continue;
+      expect(a.minutes).toBeGreaterThanOrEqual(4);
+      expect(a.minutes).toBeLessThanOrEqual(10);
+      expect(a.hints.length).toBeGreaterThanOrEqual(2);
+      expect(a.prompt.length).toBeGreaterThan(40);
+    }
+  });
+
+  it("covers the lesson's whole explanation, with an agenda and key terms when the lesson has them", () => {
+    const plan = buildPlan([lesson], opts("study", 40));
+    const layouts = plan.slides.map((s) => s.layout);
+    expect(layouts).toContain("example");
+    expect(
+      plan.slides.some((s) => s.layout === "bullets" && s.title === "What we will cover"),
+    ).toBe(true);
+    // Every section of the lesson appears on some slide.
+    const text = JSON.stringify(plan.slides);
+    for (const s of lesson.sections) expect(text).toContain(s.title.slice(0, 20));
+  });
+});
+
 describe("fitLength", () => {
   it("never drops a required slide", () => {
     const c = Array.from({ length: 30 }, (_, i) => ({

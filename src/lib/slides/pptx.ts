@@ -105,19 +105,6 @@ function decorate(ctx: Ctx, s: Sld, index: number, total: number, quiet = false)
       break;
   }
   if (quiet) return;
-  const label =
-    t.id === "blueprint" ? `FIG. ${String(index + 1).padStart(2, "0")}` : `${index + 1} / ${total}`;
-  s.addText(label, {
-    x: SLIDE_W - M - 2,
-    y: SLIDE_H - 0.55,
-    w: 2,
-    h: 0.3,
-    margin: 0,
-    fontFace: t.labelFont,
-    fontSize: 11,
-    color: hex(t.muted),
-    align: "right",
-  });
   s.addText(ctx.plan.title, {
     x: M,
     y: SLIDE_H - 0.55,
@@ -628,32 +615,52 @@ function drawSlide(ctx: Ctx, slide: Slide, index: number, total: number) {
     }
     case "activity": {
       decorate(ctx, s, index, total);
-      label(`Activity · ${slide.minutes} min`, M, 1.5);
+      label(`Activity · ${slide.minutes} min`, M, 1.2);
       textBox(
         ctx,
         s,
         heading(ctx, slide.title),
-        { x: M, y: 1.95, w: CW, h: 0.9 },
-        {
-          max: 34,
-          min: 24,
-          font: t.headingFont,
-          bold: true,
-        },
+        { x: M, y: 1.6, w: CW, h: 0.8 },
+        { max: 34, min: 22, font: t.headingFont, bold: true },
       );
-      card(ctx, s, M, 3.1, CW, 3.0);
+      const hasHints = slide.hints.length > 0;
+      const leftW = hasHints ? CW * 0.58 : CW;
+      card(ctx, s, M, 2.65, leftW, 3.85);
       textBox(
         ctx,
         s,
         slide.prompt,
-        { x: M + 0.5, y: 3.3, w: CW - 1, h: 2.6 },
-        {
-          max: 30,
-          min: 16,
-          font: t.headingFont,
-          valign: "middle",
-        },
+        { x: M + 0.4, y: 2.85, w: leftW - 0.8, h: 3.45 },
+        { max: 26, min: 13, font: t.headingFont, valign: "middle" },
       );
+      if (hasHints) {
+        const hx = M + leftW + 0.4;
+        const hw = CW - leftW - 0.4;
+        label("How to work on it", hx, 2.65, hw);
+        const rowH = Math.min(1.15, 3.4 / slide.hints.length);
+        slide.hints.forEach((hint, i) => {
+          const y = 3.1 + i * rowH;
+          s.addText(String(i + 1), {
+            x: hx,
+            y,
+            w: 0.4,
+            h: rowH - 0.1,
+            margin: 0,
+            bold: true,
+            fontFace: t.labelFont,
+            fontSize: 18,
+            color: hex(t.accent),
+            valign: "top",
+          });
+          textBox(
+            ctx,
+            s,
+            hint,
+            { x: hx + 0.5, y, w: hw - 0.5, h: rowH - 0.1 },
+            { max: 15, min: 10, valign: "top" },
+          );
+        });
+      }
       break;
     }
     case "questions": {
@@ -829,7 +836,7 @@ export function overflowRisks(plan: SlidePlan): string[] {
         check("question", [s.question], CW, s.options.length ? 1.5 : 2.4, 16);
         break;
       case "activity":
-        check("prompt", [s.prompt], CW - 1, 2.6, 16);
+        check("prompt", [s.prompt], CW * 0.58 - 0.8, 3.45, 13);
         break;
       default:
         break;

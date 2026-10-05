@@ -479,7 +479,20 @@ function block(c: Ctx, page: Page, s: Slide, x: number, y: number, w: number): n
         size: 13,
         color: p.ink,
       });
-      return h + ph + 24;
+      h += ph + 24;
+      if (s.hints.length > 0) {
+        h += 8 + label(c, page, "How to work on it", x, y + h + 8, w) + 2;
+        h += numbered(
+          c,
+          page,
+          s.hints.map((t, i) => ({ n: `${i + 1}`, text: t })),
+          x,
+          y + h,
+          w,
+          10.5,
+        );
+      }
+      return h;
     }
     case "questions": {
       h += heading(c, page, s.title, x, y, w);

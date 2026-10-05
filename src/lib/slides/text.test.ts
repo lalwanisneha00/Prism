@@ -53,7 +53,11 @@ describe("sentences and keyPoints", () => {
     for (const p of pts) expect(p.length).toBeLessThanOrEqual(20);
   });
   it("clips at a word boundary", () => {
-    expect(clip("one two three four", 10)).toBe("one two…");
+    expect(clip("one two three four", 10)).toBe("one two.");
+    expect(clip("A full sentence here. And a second one follows it.", 30)).toBe(
+      "A full sentence here.",
+    );
+    expect(clip("A long title that is cut", 12, false)).not.toMatch(/[.…]$/);
     expect(clip("short", 10)).toBe("short");
   });
 });
