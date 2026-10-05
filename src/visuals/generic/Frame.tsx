@@ -32,7 +32,6 @@ export function DataNote({ data, sourceId }: { data?: string; sourceId?: string 
 
 /** The frame every generic visual sits in: title, picture, controls, caption, data note. */
 export function GenericFrame({
-  icon,
   title,
   caption,
   children,
@@ -40,7 +39,8 @@ export function GenericFrame({
   note,
   interactive = false,
 }: {
-  icon: string;
+  /** No longer drawn (emoji icons were replaced by the title alone); callers may still pass one. */
+  icon?: string;
   title: string;
   caption: string;
   children: ReactNode;

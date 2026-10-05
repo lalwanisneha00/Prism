@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { evalStatusCopy, evalStatusOf } from "@/lib/evalStatus";
 import type { TrustTier } from "@/lib/tiers";
 import { BranchSemesterBar } from "@/components/subjects/BranchSemesterBar";
 import { useMyBranch } from "@/components/subjects/useMyBranch";
@@ -27,7 +28,11 @@ function SubjectCard({ subject }: { subject: Subject }) {
           {subject.field} · {chapters.length} chapters · {topics} topics
         </span>
         <span className="text-xs text-muted">
-          {tierLabel[subject.tier]} ·{" "}
+          {tierLabel[subject.tier]}
+          {evalStatusOf(subject.id) === "measured"
+            ? ""
+            : ` (${evalStatusCopy[evalStatusOf(subject.id)].short.toLowerCase()})`}{" "}
+          ·{" "}
           {subject.branches.includes("all")
             ? "All branches"
             : subject.branches.map((b) => findBranch(b)?.short ?? b).join(", ")}{" "}

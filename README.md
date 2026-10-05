@@ -1,18 +1,30 @@
 # Prism
 
-A visual, sourced study guide for college students. Pick a topic, how well you know it and how much time you have, and get a lesson with interactive physics visuals, worked examples, a quiz, a revision sheet, an audio narration and a source for every claim.
+A visual, sourced study guide for engineering students. Pick a subject, chapter and topic, say how well you know it and how much time you have, and get a lesson with interactive visuals, worked examples, a quiz, a revision sheet, an audio narration and a source for every claim. The same checked lesson can instead become a PowerPoint deck or a PDF.
 
-**Version 1** teaches Electricity & Magnetism (43 topics, 7 chapters) at three levels: First Encounter, Second Chance and Last-Minute Revision. **Version 2** (in progress) adds Engineering Mathematics (44 topics), all six levels, accounts with cloud sync, long audio, lessons from your own PDF notes and exam worksheets. See [SPEC.md](SPEC.md) for the full plan and [PROGRESS.md](PROGRESS.md) for status.
+![The home page in the new look](docs/redesign/after/home-desktop-light.jpg)
 
-## What's inside
+## What it does
 
-| Feature  | How it works                                                                                                                                                                                                                                                                        |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Lessons  | Gemini writes structured JSON; Zod checks it; broken replies are sent back with the problems (up to 3 tries). Groq is the fallback when Gemini's free quota is busy.                                                                                                                |
-| Accuracy | Facts are grounded in Wikipedia text fetched on the server; the AI may only cite verified OpenStax/Wikipedia sources; every formula must typeset; a second fact-check pass recomputes examples. Sections show **Sourced ✓** or **Verify ⚠**.                                        |
-| Visuals  | 8 hand-coded, unit-tested widgets (field lines, Coulomb force, Gauss surface, capacitor, wire field, Faraday induction, DC circuit, AC wave), 11 PhET simulations, safe graphs, Mermaid diagrams and Wikimedia images. The AI only chooses from this list. Gallery: `/dev/visuals`. |
-| Audio    | Narration written chapter by chapter to fill 5, 10 or 15 minutes (≈140 words/min), read by the browser's built-in voice with ±15 s, speed, voice choice, chapters, highlighted transcript and resume.                                                                               |
-| Library  | Save lessons on the device (IndexedDB); they reopen instantly and offline without using AI quota. Recent topics on the home page.                                                                                                                                                   |
+- **Lessons at six levels**, from First Encounter to Last-Minute Revision, at any length from 5 to 90 minutes. Each level owns one colour of the spectrum, used everywhere that level appears.
+- **84 engineering subjects** across the common B.Tech / B.E. branches, with syllabus data, golden sets of key facts and a trust tier (`verified`, `tested`, `sourced`, `limited`) shown honestly on every subject. See [the accuracy page](/accuracy) in the app and `EVAL_LOG.md`.
+- **Accuracy by design:** grounding in fetched sources, a separate fact-check pass, numerical answers re-computed in code, code samples run before they are shown, every formula typeset or rejected, and AI output validated with Zod before anything is drawn.
+- **Visuals the AI cannot invent:** it only chooses from hand-coded, unit-tested widgets, PhET simulations, validated Mermaid diagrams, plots and Wikimedia images (with licence and credit). Gallery at `/dev/visuals`.
+- **Whole chapters, your own notes and subjects:** upload PDFs, images, slides or text; build a lesson for a whole chapter; add subjects Prism doesn't list.
+- **Personal study tools:** audio lessons, highlights and comments, flashcards, mock tests, a priority engine (topic importance, weak and tough topics, recommended lesson length) and a multi-subject planner with sessions, breaks and an 8-hour day cap.
+- **Bring your own API key** (Gemini, Groq, OpenAI, Anthropic, xAI, OpenRouter): kept only on your device, used for one request at a time, never stored or logged by the server.
+- **Slides and PDFs:** four designed themes, editable `.pptx` with speaker notes, PDFs with selectable text, a contents page and page numbers. Interactive visuals become labelled still images.
+- **Accounts and sync** (Firebase free plan): progress follows you across devices; guests keep everything on the device.
+
+## Feature flags
+
+Every new feature can be switched off without touching code: set `NEXT_PUBLIC_FLAG_BYO_KEY`, `NEXT_PUBLIC_FLAG_SLIDES_PDF`, `NEXT_PUBLIC_FLAG_REDESIGN` or `NEXT_PUBLIC_FLAG_COMMUNITY` to `0` or `1` and redeploy. See `src/lib/flags.ts` and `DEPLOY_CHECKLIST.md`. With the redesign flag off, everyone sees the earlier "Classic" look; with it on, the footer has a "Classic look" switch.
+
+## Screens
+
+| Lesson (dark)                                             | Dashboard                                                  | Phone                                                |
+| --------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
+| ![Lesson](docs/redesign/after/lesson-desktop-dark.jpg) | ![Dashboard](docs/redesign/after/dashboard-desktop-light.jpg) | ![Planner](docs/redesign/after/planner-phone-light.jpg) |
 
 ## Run it on your computer
 

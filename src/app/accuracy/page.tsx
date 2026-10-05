@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import accuracy from "@/data/accuracy.json";
+import { evalStatusCopy, evalStatusOf } from "@/lib/evalStatus";
 import { subjects } from "@/lib/subjects";
 import { TIERS, tierCopy } from "@/lib/tiers";
 
@@ -33,6 +34,16 @@ export default function AccuracyPage() {
           95% or more; we show the real score, never rounded up.
         </p>
       </div>
+
+      <p
+        role="note"
+        className="max-w-2xl rounded-xl border border-warning/40 bg-warning/10 p-4 text-sm"
+      >
+        <b>Testing is still in progress.</b> Many subjects below have their test set ready but the
+        accuracy test hasn&apos;t been run yet (it waits for free AI quota). Those show &ldquo;Test
+        not run yet&rdquo; instead of a score, and stay at the &ldquo;Sourced&rdquo; tier until they
+        are tested.
+      </p>
 
       <section className="flex flex-col gap-3">
         <h2 className="text-xl font-bold">Subjects</h2>
@@ -69,7 +80,7 @@ export default function AccuracyPage() {
                     <td className="px-4 py-3">
                       {score
                         ? `${score.goldenTopics} topics · ${score.facts} facts`
-                        : "Not yet measured"}
+                        : evalStatusCopy[evalStatusOf(s.id)].short}
                     </td>
                     <td className="px-4 py-3">
                       {score ? (

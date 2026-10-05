@@ -56,18 +56,18 @@ export default async function Home({ searchParams }: PageProps<"/">) {
           </div>
           <div className="flex flex-col gap-5">
             <PrismArt className="mx-auto w-full max-w-sm" />
-            <ul
-              aria-label="The six learning levels"
-              className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm"
-            >
+            <ul aria-hidden="true" className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
               {levels.map((l) => (
-                <li key={l.slug} className="flex items-center gap-2">
+                <li
+                  key={l.slug}
+                  className="flex items-center gap-2 after:content-[attr(data-label)]"
+                  data-label={l.name}
+                >
                   <span
                     aria-hidden="true"
                     className="h-3 w-1.5 rounded-sm"
                     style={{ background: levelColor(l.slug) }}
                   />
-                  {l.name}
                 </li>
               ))}
             </ul>

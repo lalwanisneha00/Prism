@@ -23,7 +23,7 @@ export const tierCopy: Record<TrustTier, { badge: string; explain: string }> = {
   sourced: {
     badge: "Sourced",
     explain:
-      "Every section cites trusted sources and is fact-checked, but this subject's accuracy test isn't finished yet.",
+      "Every section cites trusted sources and is fact-checked. This subject's accuracy test either hasn't been run yet or hasn't reached 85% yet: the accuracy page shows which, and its score if it has one.",
   },
   limited: {
     badge: "Limited sources",

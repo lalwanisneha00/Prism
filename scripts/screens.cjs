@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 // Captures the main screens (desktop light/dark, phone light) for before/after comparison.
 const { chromium } = require("@playwright/test");
 const { spawn } = require("node:child_process");

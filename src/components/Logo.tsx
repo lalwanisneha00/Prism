@@ -1,20 +1,35 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 
-/** A triangle (the prism) with a spectrum edge. */
+/** A prism outline with the six level colours leaving it: flat, no gradient. */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id="logo-spectrum" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#e1306c" />
-          <stop offset="0.35" stopColor="#f59e0b" />
-          <stop offset="0.6" stopColor="#10b981" />
-          <stop offset="1" stopColor="#8b5cf6" />
-        </linearGradient>
-      </defs>
-      <path d="M16 3 29 27H3Z" fill="url(#logo-spectrum)" />
-      <path d="M16 9.5 23.6 24H8.4Z" className="fill-surface" />
+      <path
+        d="M13 4 25 26H1Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinejoin="round"
+      />
+      {[
+        "first-encounter",
+        "building-blocks",
+        "second-chance",
+        "deep-dive",
+        "exam-prep",
+        "last-minute",
+      ].map((level, i) => (
+        <line
+          key={level}
+          x1="20"
+          y1={13 + i * 2.2}
+          x2="31"
+          y2={8 + i * 3.6}
+          stroke={`var(--level-${level})`}
+          strokeWidth="1.8"
+        />
+      ))}
     </svg>
   );
 }

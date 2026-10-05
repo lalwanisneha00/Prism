@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { levelColor } from "@/lib/levelColor";
 import { AudioLesson } from "@/components/audio/AudioLesson";
 import { InteractiveLesson } from "@/components/explain/InteractiveLesson";
 import { MakeFlashcardsButton } from "@/components/flashcards/MakeFlashcardsButton";
@@ -97,7 +98,12 @@ export function LessonView({
         </h1>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <ul className="flex flex-wrap gap-2 text-sm">
-            <li className="rounded-full bg-primary-soft px-3 py-1 font-medium text-primary">
+            <li className="flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 font-medium">
+              <span
+                aria-hidden="true"
+                className="size-2.5 rounded-full"
+                style={{ background: levelColor(request.level.slug) }}
+              />
               {request.level.name}
             </li>
             <li className="rounded-full border border-border bg-surface px-3 py-1">

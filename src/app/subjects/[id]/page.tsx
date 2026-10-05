@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import { TierBadge } from "@/components/lesson/TierBadge";
 import { TopicImportance } from "@/components/subjects/TopicImportance";
 import { SubjectProgress } from "@/components/subjects/SubjectProgress";
+import { evalStatusCopy, evalStatusOf } from "@/lib/evalStatus";
 import { branchesOf, findSubject, subjects } from "@/lib/subjects";
 
 export function generateStaticParams() {
@@ -46,6 +47,19 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
           {branchNames} · usually semester {subject.semesters.join(" or ")}
         </p>
         <TierBadge tier={subject.tier} />
+        {evalStatusOf(subject.id) !== "measured" && (
+          <p
+            role="note"
+            data-testid="eval-pending"
+            className="max-w-2xl rounded-xl border border-warning/40 bg-warning/10 px-4 py-3 text-sm"
+          >
+            <b>{evalStatusCopy[evalStatusOf(subject.id)].short}.</b>{" "}
+            {evalStatusCopy[evalStatusOf(subject.id)].long}{" "}
+            <Link href="/accuracy" className="font-semibold text-primary underline">
+              How we measure accuracy
+            </Link>
+          </p>
+        )}
         <p className="text-sm text-muted">
           Syllabus source:{" "}
           {subject.syllabusSource.url ? (
