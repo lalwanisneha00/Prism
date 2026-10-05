@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useMemo, useState } from "react";
+import { useScopedSubjects } from "@/components/university/useUniversityScope";
 import { PlanOverview } from "@/components/planner/PlanOverview";
 import { SubjectPicker } from "@/components/planner/SubjectPicker";
 import { TimeSettings, WEEK_PRESETS } from "@/components/planner/TimeSettings";
@@ -67,10 +68,12 @@ export function PlanSetup({
       .catch(() => undefined);
   }, []);
 
-  const chosenSubjects = useMemo(
+  const chosenBuiltIn = useMemo(
     () => chosen.map((s) => findSubject(s)).filter((s): s is Subject => Boolean(s)),
     [chosen],
   );
+  // Only the chapters and topics the student's university teaches, when a syllabus is applied.
+  const chosenSubjects = useScopedSubjects(chosenBuiltIn).subjects;
   useEffect(() => {
     let live = true;
     Promise.all(

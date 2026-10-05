@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
-import { useId, useRef, useState, type FormEvent } from "react";
+import { useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
 import { DurationChooser } from "@/components/DurationChooser";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
 import { FieldError, FieldGroup } from "@/components/form/FieldGroup";
 import { SlidesPanel } from "@/components/slides/SlidesPanel";
+import { ScopeNotice } from "@/components/university/ScopeNotice";
+import { useScopedSubjects } from "@/components/university/useUniversityScope";
 import { KeyIndicator } from "@/components/settings/KeyIndicator";
 import { NotesToggle } from "@/components/notes/NotesToggle";
 import { BranchSemesterBar } from "@/components/subjects/BranchSemesterBar";
@@ -39,16 +41,27 @@ export type PickerInitial = { subject?: string; chapter?: string; topic?: string
  */
 export function LessonPicker(props: { subjects: readonly Subject[]; initial?: PickerInitial }) {
   const custom = useCustomSubjects();
+  const all = useMemo(
+    () => [...props.subjects, ...custom.subjects],
+    [props.subjects, custom.subjects],
+  );
+  // Only what the student's university teaches, when they have applied its syllabus.
+  const scoped = useScopedSubjects(all);
   const wantsCustom = props.initial?.subject ? isCustomId(props.initial.subject) : false;
   if (wantsCustom && !custom.loaded) {
     return <div className="h-96 animate-pulse rounded-2xl bg-surface-2" aria-busy="true" />;
   }
   return (
-    <PickerForm
-      {...props}
-      subjects={[...props.subjects, ...custom.subjects]}
-      ownCount={custom.subjects.length}
-    />
+    <div className="flex flex-col gap-4">
+      {scoped.active && (
+        <ScopeNotice
+          hidden={scoped.hidden}
+          name={scoped.name}
+          onShowAll={() => scoped.setOff(true)}
+        />
+      )}
+      <PickerForm {...props} subjects={scoped.subjects} ownCount={custom.subjects.length} />
+    </div>
   );
 }
 

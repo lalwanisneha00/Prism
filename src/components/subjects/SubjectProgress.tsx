@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { ScopeNotice } from "@/components/university/ScopeNotice";
+import { useScopedSubjects } from "@/components/university/useUniversityScope";
 import { useTopicStatuses } from "@/components/map/useTopicStatuses";
 import type { TopicStatus } from "@/lib/conceptMap";
 import { listQuizAttempts, weakTopics } from "@/lib/storage/progress";
@@ -26,7 +28,10 @@ export function SubjectProgress({
   subjectId: string;
   subject?: Subject;
 }) {
-  const subject = given ?? findSubject(subjectId)!;
+  const base = given ?? findSubject(subjectId)!;
+  const baseList = useMemo(() => [base], [base]);
+  const scoped = useScopedSubjects(baseList);
+  const subject = scoped.subjects[0];
   const statuses = useTopicStatuses();
   const [weak, setWeak] = useState<QuizAttempt[]>([]);
   // How often each topic comes up in the student's previous-year papers (exam emphasis).
@@ -58,6 +63,13 @@ export function SubjectProgress({
 
   return (
     <div className="flex flex-col gap-6">
+      {scoped.active && (
+        <ScopeNotice
+          hidden={scoped.hidden}
+          name={scoped.name}
+          onShowAll={() => scoped.setOff(true)}
+        />
+      )}
       {weak.length > 0 && (
         <section
           aria-labelledby="weak-title"
