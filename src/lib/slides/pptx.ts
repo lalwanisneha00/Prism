@@ -657,7 +657,7 @@ function drawSlide(ctx: Ctx, slide: Slide, index: number, total: number) {
             s,
             hint,
             { x: hx + 0.5, y, w: hw - 0.5, h: rowH - 0.1 },
-            { max: 15, min: 10, valign: "top" },
+            { max: 18, min: 11, valign: "top" },
           );
         });
       }
