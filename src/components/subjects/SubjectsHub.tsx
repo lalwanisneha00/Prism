@@ -360,6 +360,7 @@ export function SubjectsHub() {
       <details
         className="rounded-2xl border border-border bg-surface p-4"
         data-testid="all-subjects"
+        suppressHydrationWarning
       >
         <summary className="cursor-pointer text-lg font-semibold">
           All other subjects on Prism{" "}

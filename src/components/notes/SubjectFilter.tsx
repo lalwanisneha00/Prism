@@ -61,6 +61,7 @@ export function SubjectFilter({
       ref={details}
       className="w-full max-w-md rounded-xl border border-border bg-surface"
       data-testid="materials-subject-filter"
+      suppressHydrationWarning
     >
       <summary className="cursor-pointer list-none px-4 py-2.5 text-sm font-semibold">
         Choose subject

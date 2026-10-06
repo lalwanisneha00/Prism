@@ -48,6 +48,7 @@ export function MapSubjectPicker({ currentId }: { currentId: string }) {
       ref={details}
       className="relative w-full max-w-md rounded-xl border border-border bg-surface"
       data-testid="map-subject-picker"
+      suppressHydrationWarning
     >
       <summary className="cursor-pointer list-none px-4 py-2.5 text-sm font-semibold">
         Choose subject
