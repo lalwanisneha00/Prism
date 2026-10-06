@@ -27,7 +27,9 @@ export function AllSubjectsList({
       .map((fid) => subjects.find((s) => s.id === fid))
       .filter((s): s is Option => Boolean(s));
     const rest = subjects.filter((s) => !firstIds.includes(s.id));
-    return [...first, ...rest].filter(ok);
+    // Each subject once, even if it is in both lists or repeated in the data.
+    const seen = new Set<string>();
+    return [...first, ...rest].filter((s) => ok(s) && !seen.has(s.id) && seen.add(s.id));
   }, [subjects, query, firstIds]);
 
   return (

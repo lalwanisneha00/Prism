@@ -103,7 +103,7 @@ function PickerForm({
   // Only the chosen subject shows on top; every subject (the student's own first) is in the
   // collapsed list below.
   const shown = [subject];
-  const mineIds = [...mineList, ...own].map((x) => x.id);
+  const mineIds = [...new Set([...mineList, ...own].map((x) => x.id))];
   const startChapter = chaptersOf(start).find((o) => o.chapter.id === initial.chapter);
   // A chapter linked from another subject is taught and saved under its owner.
   const [chapterId, setChapterId] = useState(startChapter?.chapter.id ?? "");
