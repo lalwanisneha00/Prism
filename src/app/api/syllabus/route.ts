@@ -37,6 +37,8 @@ export async function POST(req: Request) {
           {
             name: "Test subject (test AI)",
             semester: 1,
+            outcomes: [],
+            unclear: [],
             units: [{ name: "Unit 1", topics: ["Waves", "Optics", "Heat", "Sound"] }],
           },
         ],

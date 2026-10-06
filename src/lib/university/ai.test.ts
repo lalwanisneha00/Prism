@@ -34,19 +34,35 @@ describe("AI syllabus reading helpers", () => {
 
   it("merges the same subject found in two chunks", () => {
     const a = {
-      subjects: [{ name: "Physics", semester: 1, units: [{ name: "Waves", topics: ["a"] }] }],
+      subjects: [
+        {
+          name: "Physics",
+          semester: 1,
+          outcomes: [],
+          unclear: [],
+          units: [{ name: "Waves", topics: ["a"] }],
+        },
+      ],
     };
     const b = {
       subjects: [
         {
           name: "physics",
           semester: 1,
+          outcomes: [],
+          unclear: [],
           units: [
             { name: "Waves", topics: ["a"] },
             { name: "Heat", topics: ["b"] },
           ],
         },
-        { name: "Chemistry", semester: 1, units: [{ name: "Bonds", topics: ["c"] }] },
+        {
+          name: "Chemistry",
+          semester: 1,
+          outcomes: [],
+          unclear: [],
+          units: [{ name: "Bonds", topics: ["c"] }],
+        },
       ],
     };
     const merged = mergeSyllabi([a, b]);

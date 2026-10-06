@@ -73,3 +73,85 @@ describe("parseUniversitySyllabus", () => {
     expect(parseUniversitySyllabus("Hello there. Nothing to see.").subjects).toEqual([]);
   });
 });
+
+/*
+ * The real thing: B.Tech Computer Engineering, semester 1, from Pandit Deendayal Energy University's
+ * published syllabus (https://api.pdeu.ac.in/pdpu/resources/btech-ce-syllabus-2025.pdf), as Prism's
+ * own PDF reader extracts it (pages separated by a form feed). Messy on purpose: titles split over
+ * lines, a heading at the foot of its page, wrapped outcomes, hours on their own lines.
+ */
+describe("a real university syllabus (PDEU, Computer Engineering semester 1)", () => {
+  const pdeu = parseUniversitySyllabus(
+    readFileSync(
+      path.join(process.cwd(), "test-fixtures", "pdeu-computer-engineering-sem1-syllabus.txt"),
+      "utf8",
+    ),
+  );
+  const by = (name: string) => pdeu.subjects.find((s) => s.name === name)!;
+
+  it("finds the seven theory subjects of semester 1, with codes", () => {
+    expect(pdeu.subjects.map((s) => [s.code, s.name])).toEqual([
+      ["24HS101T", "English Communication"],
+      ["24MA101T", "Mathematics – I"],
+      ["24PH101T", "Applied Physics"],
+      ["24CV101T", "Environmental Science"],
+      ["24BT101T", "Biological Systems for Engineers"],
+      ["24CP101T", "Computer Programming-I"],
+      ["24HS102T", "Universal Human Values"],
+    ]);
+    for (const s of pdeu.subjects) expect(s.semester).toBe(1);
+  });
+
+  it("sets laboratory and practical courses apart instead of making them subjects", () => {
+    expect(pdeu.labs).toEqual([
+      "Applied Physics Laboratory",
+      "Workshop Practice",
+      "Computer Programming – I Laboratory",
+    ]);
+  });
+
+  it("reads each subject's four units and their topics, not the objectives or books", () => {
+    for (const s of pdeu.subjects) {
+      expect(s.units, s.name).toHaveLength(4);
+      for (const u of s.units) expect(u.topics.length, `${s.name}: ${u.name}`).toBeGreaterThan(0);
+      const all = s.units.flatMap((u) => u.topics).join(" ");
+      expect(all).not.toMatch(/Teaching Scheme|COURSE OBJECTIVES|Griffith|Kernighan|Hrs\./);
+    }
+    expect(by("Mathematics – I").units[0].name).toBe("Differential Calculus and Its Applications");
+    expect(by("Applied Physics").units.flatMap((u) => u.topics)).toContain("Fermat’s principle");
+    expect(by("Computer Programming-I").units[3].topics.join(" ")).toMatch(/File handling in C/);
+  });
+
+  it("reads all six course outcomes of every subject, word for word, even when they wrap", () => {
+    for (const s of pdeu.subjects) expect(s.outcomes, s.name).toHaveLength(6);
+    expect(by("Mathematics – I").outcomes[0]).toBe(
+      "Identify the use of convergence of infinite series in engineering aspects.",
+    );
+    // Wrapped over two lines in the PDF.
+    expect(by("English Communication").outcomes[1]).toBe(
+      "Apply grammatical rules accurately in written and spoken communication to enhance clarity, coherence, and precision.",
+    );
+    // "CO2 -" with the text on the following lines.
+    expect(by("Universal Human Values").outcomes[1]).toMatch(/^Appraise the meaning of happiness/);
+    // "CO-1:" style.
+    expect(by("Environmental Science").outcomes[0]).toMatch(
+      /^Demonstrate comprehension of sustainable/,
+    );
+  });
+
+  it("reads credits from the teaching-scheme table, wherever the heading sits", () => {
+    expect(pdeu.subjects.map((s) => s.credits)).toEqual([2, 4, 3, 2, 2, 1, 1]);
+  });
+
+  it("flags nothing as unclear when everything was readable", () => {
+    for (const s of pdeu.subjects) expect(s.unclear, s.name).toEqual([]);
+  });
+
+  it("flags what cannot be read instead of guessing", () => {
+    const odd = parseUniversitySyllabus(
+      "Semester I\nXY101 Mysterious Course\nSome text that has no units at all in it\n",
+    );
+    expect(odd.subjects[0].unclear).toContain("units");
+    expect(odd.subjects[0].units).toEqual([]);
+  });
+});

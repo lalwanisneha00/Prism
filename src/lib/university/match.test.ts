@@ -60,6 +60,8 @@ describe("scope", () => {
   it("changes nothing when the syllabus lists too little to say", () => {
     const thin: UniSubject = {
       name: "Applied Physics",
+      outcomes: [],
+      unclear: [],
       units: [{ name: "Unit 1", topics: ["Waves"] }],
     };
     expect(scopeFor(physics, [thin])).toBeUndefined();

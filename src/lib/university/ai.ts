@@ -14,6 +14,11 @@ export const AiSyllabusSchema = z.object({
         name: z.string().trim().min(2).max(120),
         code: z.string().trim().max(24).optional(),
         semester: z.int().min(1).max(8).optional(),
+        credits: z.number().min(0.5).max(30).optional(),
+        /** The course outcomes (COs), copied as written. */
+        outcomes: z.array(z.string().trim().min(6).max(400)).max(12).default([]),
+        /** What could not be read ("name", "units", "outcomes"): flagged, never guessed. */
+        unclear: z.array(z.string().trim().max(40)).max(6).default([]),
         units: z
           .array(
             z.object({
@@ -21,8 +26,8 @@ export const AiSyllabusSchema = z.object({
               topics: z.array(z.string().trim().min(1).max(160)).max(40),
             }),
           )
-          .min(1)
-          .max(30),
+          .max(30)
+          .default([]),
       }),
     )
     .max(80),
@@ -31,10 +36,12 @@ export const AiSyllabusSchema = z.object({
 export const SYLLABUS_SYSTEM = [
   "You read a university syllabus and copy its structure into JSON. Never invent, add, rename or",
   "reorder anything: only subjects, units and topics that are written in the text.",
-  'Reply with one JSON object: {"subjects":[{"name","code"?,"semester"?,"units":[{"name","topics":[...]}]}]}.',
+  'Reply with one JSON object: {"subjects":[{"name","code"?,"semester"?,"credits"?,"outcomes":[...],"unclear":[...],"units":[{"name","topics":[...]}]}]}.',
   "semester is 1 to 8 when the text says which semester a subject belongs to, otherwise leave it out.",
+  "credits is a number only when the text prints it. outcomes are the course outcomes (COs) copied word for word, if listed.",
+  'If something is unclear, cut off or unreadable, add its name ("name", "units" or "outcomes") to the subject\'s "unclear" list and leave it out instead of guessing.',
   "A subject is a course (it has a title, often a code). A unit is a module or chapter of that course;",
-  "its topics are the items listed under it. Skip book lists, marks schemes, credits and outcomes.",
+  "its topics are the items listed under it. Skip book lists and marks schemes.",
 ].join(" ");
 
 /** Splits long text at line breaks into chunks the model can read (never cutting a line). */
