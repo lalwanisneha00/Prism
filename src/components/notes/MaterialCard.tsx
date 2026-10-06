@@ -7,7 +7,7 @@ import { unitName } from "@/lib/extract/types";
 import { isMaterialKind, kindLabel, MATERIAL_KINDS } from "@/lib/notes/kinds";
 import { updateNoteMeta } from "@/lib/notes/store";
 import type { StoredNote } from "@/lib/storage/db";
-import type { Subject } from "@/lib/subjects";
+import { chaptersOf, type Subject } from "@/lib/subjects";
 
 const selectClass = "rounded-lg border border-border bg-bg px-2 py-1.5 text-sm";
 
@@ -111,8 +111,8 @@ export function MaterialCard({
               onChange={(e) => void retag({ chapter: e.target.value })}
             >
               <option value="">Whole subject</option>
-              {subject.chapters.map((c) => (
-                <option key={c.id} value={c.id}>
+              {chaptersOf(subject).map(({ chapter: c, owner }) => (
+                <option key={`${owner.id}/${c.id}`} value={c.id}>
                   {c.name}
                 </option>
               ))}

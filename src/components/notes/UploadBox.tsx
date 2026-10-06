@@ -7,7 +7,7 @@ import { extractFile } from "@/lib/extract/extractFile";
 import { ExtractError, MAX_FILE_BYTES, unitName } from "@/lib/extract/types";
 import { guessChapter, guessKind, kindLabel } from "@/lib/notes/kinds";
 import { addNote } from "@/lib/notes/store";
-import type { Subject } from "@/lib/subjects";
+import { chaptersOf, type Subject } from "@/lib/subjects";
 
 /** At most this many files in one go, so a slip of the mouse can't freeze the page. */
 export const MAX_FILES_PER_UPLOAD = 20;
@@ -72,7 +72,12 @@ export function UploadBox({
           update(key, { progress: `page ${done} of ${total}` }),
         );
         const kind = guessKind(file.name, doc);
-        const chapter = chosen ? guessChapter(chosen.chapters, doc) : undefined;
+        const chapter = chosen
+          ? guessChapter(
+              chaptersOf(chosen).map((o) => o.chapter),
+              doc,
+            )
+          : undefined;
         const bytes = await file.arrayBuffer();
         await addNote(
           file,
