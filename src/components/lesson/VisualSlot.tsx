@@ -2,19 +2,54 @@
 
 import type { VisualSpec } from "@/lib/schema";
 import dynamic from "next/dynamic";
-import { CommonsImage } from "@/visuals/CommonsImage";
-import { ChartView } from "@/visuals/generic/ChartView";
-import { Compare } from "@/visuals/generic/Compare";
-import { FunctionGraph } from "@/visuals/generic/FunctionGraph";
-import { StatsExplorer } from "@/visuals/generic/StatsExplorer";
-import { StepThrough } from "@/visuals/generic/StepThrough";
-import { Derivation } from "@/visuals/Derivation";
 import { KeyIdeaCard } from "@/visuals/KeyIdeaCard";
-import { MermaidDiagram } from "@/visuals/MermaidDiagram";
-import { PhetEmbed } from "@/visuals/PhetEmbed";
-import { Plot } from "@/visuals/Plot";
 import { visualProblem } from "@/visuals/visualChecks";
 import { WidgetView } from "@/visuals/WidgetView";
+
+/** A visual's code is fetched only when a lesson uses that kind of visual (charts, maths, diagrams…). */
+const placeholder = () => (
+  <div className="h-72 animate-pulse rounded-xl bg-surface-2" aria-busy="true" role="status" />
+);
+const CommonsImage = dynamic(() => import("@/visuals/CommonsImage").then((m) => m.CommonsImage), {
+  ssr: false,
+  loading: placeholder,
+});
+const ChartView = dynamic(() => import("@/visuals/generic/ChartView").then((m) => m.ChartView), {
+  ssr: false,
+  loading: placeholder,
+});
+const Compare = dynamic(() => import("@/visuals/generic/Compare").then((m) => m.Compare), {
+  ssr: false,
+  loading: placeholder,
+});
+const FunctionGraph = dynamic(
+  () => import("@/visuals/generic/FunctionGraph").then((m) => m.FunctionGraph),
+  { ssr: false, loading: placeholder },
+);
+const StatsExplorer = dynamic(
+  () => import("@/visuals/generic/StatsExplorer").then((m) => m.StatsExplorer),
+  { ssr: false, loading: placeholder },
+);
+const StepThrough = dynamic(
+  () => import("@/visuals/generic/StepThrough").then((m) => m.StepThrough),
+  { ssr: false, loading: placeholder },
+);
+const Derivation = dynamic(() => import("@/visuals/Derivation").then((m) => m.Derivation), {
+  ssr: false,
+  loading: placeholder,
+});
+const MermaidDiagram = dynamic(
+  () => import("@/visuals/MermaidDiagram").then((m) => m.MermaidDiagram),
+  { ssr: false, loading: placeholder },
+);
+const PhetEmbed = dynamic(() => import("@/visuals/PhetEmbed").then((m) => m.PhetEmbed), {
+  ssr: false,
+  loading: placeholder,
+});
+const Plot = dynamic(() => import("@/visuals/Plot").then((m) => m.Plot), {
+  ssr: false,
+  loading: placeholder,
+});
 
 // The formula explorer brings mathjs, so it is only downloaded when a lesson uses one.
 const FormulaExplorer = dynamic(() => import("@/visuals/generic/FormulaExplorer"), {

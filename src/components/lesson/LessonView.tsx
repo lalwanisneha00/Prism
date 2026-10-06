@@ -1,16 +1,15 @@
+import dynamic from "next/dynamic";
 import type { ReactNode } from "react";
 import { levelColor } from "@/lib/levelColor";
-import { AudioLesson } from "@/components/audio/AudioLesson";
 import { InteractiveLesson } from "@/components/explain/InteractiveLesson";
 import { MakeFlashcardsButton } from "@/components/flashcards/MakeFlashcardsButton";
-import { LessonConceptMap } from "@/components/map/LessonConceptMap";
 import { MyNotesList, MyNotesPanel } from "@/components/annotations/MyNotesPanel";
 import { LessonBlockShell } from "@/components/lesson/BlockHeading";
 import { Markdown } from "@/components/lesson/Markdown";
 import { Quiz } from "@/components/lesson/Quiz";
 import { SaveLessonButton } from "@/components/lesson/SaveLessonButton";
 import { SectionView } from "@/components/lesson/SectionView";
-import { ExportPdfButton, PrintSheet } from "@/components/lesson/PrintSheet";
+import { ExportPdfButton } from "@/components/lesson/PrintSheet";
 import { LimitedBanner, TierBadge } from "@/components/lesson/TierBadge";
 import {
   Analogies,
@@ -21,10 +20,23 @@ import {
   SourceList,
 } from "@/components/lesson/StaticBlocks";
 import { WorkedExample } from "@/components/lesson/WorkedExample";
-import { Worksheet } from "@/components/worksheet/Worksheet";
 import { blockTitle, levelLayouts, type LessonBlock } from "@/data/levelLayouts";
 import type { LessonRequest } from "@/lib/lessonRequest";
 import type { Lesson } from "@/lib/schema";
+
+/** Below-the-fold and on-demand parts load after the lesson text, not before it. */
+const AudioLesson = dynamic(() =>
+  import("@/components/audio/AudioLesson").then((m) => m.AudioLesson),
+);
+const LessonConceptMap = dynamic(() =>
+  import("@/components/map/LessonConceptMap").then((m) => m.LessonConceptMap),
+);
+const Worksheet = dynamic(() =>
+  import("@/components/worksheet/Worksheet").then((m) => m.Worksheet),
+);
+const PrintSheet = dynamic(() =>
+  import("@/components/lesson/PrintSheet").then((m) => m.PrintSheet),
+);
 
 /** A full lesson page. The order and headings of its blocks come from the level's layout. */
 export function LessonView({
