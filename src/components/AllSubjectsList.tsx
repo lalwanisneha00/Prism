@@ -8,20 +8,27 @@ type Option = { id: string; name: string; field: string };
 export function AllSubjectsList({
   subjects,
   currentId,
+  firstIds = [],
   onSelect,
 }: {
   subjects: readonly Option[];
   currentId: string;
+  /** Subjects to list first (the student's own, their branch and semester). */
+  firstIds?: readonly string[];
   onSelect: (id: string) => void;
 }) {
   const id = useId();
   const [query, setQuery] = useState("");
   const shown = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return subjects.filter(
-      (s) => !q || s.name.toLowerCase().includes(q) || s.field.toLowerCase().includes(q),
-    );
-  }, [subjects, query]);
+    const ok = (s: Option) =>
+      !q || s.name.toLowerCase().includes(q) || s.field.toLowerCase().includes(q);
+    const first = firstIds
+      .map((fid) => subjects.find((s) => s.id === fid))
+      .filter((s): s is Option => Boolean(s));
+    const rest = subjects.filter((s) => !firstIds.includes(s.id));
+    return [...first, ...rest].filter(ok);
+  }, [subjects, query, firstIds]);
 
   return (
     <details

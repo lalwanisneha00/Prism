@@ -100,12 +100,10 @@ function PickerForm({
   const start = subjects.find((s) => s.id === initial.subject) ?? subjects[0];
   const [subjectId, setSubjectId] = useState(start.id);
   const subject = subjects.find((s) => s.id === subjectId) ?? subjects[0];
-  // Only the student's own subjects show as buttons (or just the chosen one); every subject is in
-  // the collapsed list below. (Deduplicated: a subject in both lists shows once.)
-  const seen = new Set<string>();
-  const shown = (mineList.length > 0 ? [...mineList, ...own] : [subject, ...own]).filter(
-    (s) => !seen.has(s.id) && seen.add(s.id),
-  );
+  // Only the chosen subject shows on top; every subject (the student's own first) is in the
+  // collapsed list below.
+  const shown = [subject];
+  const mineIds = [...mineList, ...own].map((x) => x.id);
   const startChapter = chaptersOf(start).find((o) => o.chapter.id === initial.chapter);
   // A chapter linked from another subject is taught and saved under its owner.
   const [chapterId, setChapterId] = useState(startChapter?.chapter.id ?? "");
@@ -268,6 +266,7 @@ function PickerForm({
         <AllSubjectsList
           subjects={subjects}
           currentId={subject.id}
+          firstIds={mineIds}
           onSelect={(sid) => {
             setSubjectId(sid);
             // A new subject has its own chapters: start the choice again.

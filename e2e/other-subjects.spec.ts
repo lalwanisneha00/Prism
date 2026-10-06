@@ -57,7 +57,11 @@ test.describe("Other subjects (V3 · Step 4)", () => {
 
     // A whole-unit lesson with the three time options.
     await page.goto("/");
-    await page.getByTestId("subject-chips").getByText("Indian Knowledge System").click();
+    await page.getByTestId("all-subjects-list").locator("summary").click();
+    await page
+      .getByTestId("all-subjects-list")
+      .getByRole("button", { name: /Indian Knowledge System/ })
+      .click();
     await page.getByLabel("Or browse by chapter").selectOption("indian-mathematics");
     await page.getByRole("radio", { name: "Study the whole chapter" }).click();
     await page.getByText("Exam Prep", { exact: true }).click();
