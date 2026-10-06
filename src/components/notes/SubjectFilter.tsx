@@ -38,17 +38,16 @@ export function SubjectFilter({
     };
   }, [picks, query, subjects]);
 
-  const choose = (next: string) => {
-    onChange(next);
-    setQuery("");
-    if (details.current) details.current.open = false;
-  };
   const item = (s: Option) => (
     <li key={s.id}>
       <button
         type="button"
         aria-pressed={value === s.id}
-        onClick={() => choose(s.id)}
+        onClick={() => {
+          onChange(s.id);
+          setQuery("");
+          if (details.current) details.current.open = false;
+        }}
         className={`block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-surface-2 ${value === s.id ? "font-semibold text-primary" : ""}`}
       >
         {s.name}
