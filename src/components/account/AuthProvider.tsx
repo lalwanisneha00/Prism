@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  signInWithPopup,
-  signInWithRedirect,
-  signOut as firebaseSignOut,
-  type User,
-} from "firebase/auth";
-import { FirebaseError } from "firebase/app";
+import type { User } from "firebase/auth";
 import {
   createContext,
   useCallback,
@@ -18,13 +10,15 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { getClientServices } from "@/lib/firebase/client";
 import { firebaseConfig } from "@/lib/firebase/config";
 import { THEME_STORAGE_KEY } from "@/lib/theme";
 import { getSettings } from "@/lib/storage/progress";
 import { clearLocalData, onLocalChange, setMeta } from "@/lib/storage/records";
-import { firestoreAdapter, indexedDbAdapter } from "@/lib/sync/adapters";
-import { SyncEngine, type SyncStatus } from "@/lib/sync/engine";
+import type { SyncEngine, SyncStatus } from "@/lib/sync/engine";
+
+/** The Firebase code, fetched when first needed (never in the first page load). */
+type Runtime = typeof import("@/lib/firebase/runtime");
+const loadRuntime = () => import("@/lib/firebase/runtime");
 
 export type AuthStatus = "loading" | "signed-out" | "signed-in" | "unavailable";
 
@@ -103,75 +97,100 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const engine = useRef<SyncEngine | null>(null);
 
   useEffect(() => {
-    const services = getClientServices();
-    if (!services) return;
-    let cleanupSync: (() => void) | null = null;
-
-    const unsubscribe = onAuthStateChanged(services.auth, (next) => {
-      cleanupSync?.();
-      cleanupSync = null;
-      engine.current?.stop();
-      engine.current = null;
-      setUser(next);
-      setStatus(next ? "signed-in" : "signed-out");
-      setSync(null);
-      if (!next) return;
-
-      const e = new SyncEngine({
-        uid: next.uid,
-        local: indexedDbAdapter,
-        remote: firestoreAdapter(services.db, next.uid),
-        onStatus: setSync,
-        isOnline: () => navigator.onLine,
-        session: sessionPulls,
+    if (!firebaseConfig()) return;
+    let stopped = false;
+    let teardown: (() => void) | undefined;
+    // Let the page paint and become usable first; the sign-in state follows a moment later.
+    const idle = (cb: () => void) =>
+      typeof window.requestIdleCallback === "function"
+        ? window.requestIdleCallback(cb, { timeout: 1500 })
+        : window.setTimeout(cb, 300);
+    idle(() => {
+      void loadRuntime().then((rt) => {
+        if (!stopped) teardown = begin(rt);
       });
-      engine.current = e;
-      e.start()
-        .then(applySyncedSettings)
-        .then(() => setDataVersion((v) => v + 1))
-        .catch((err: unknown) => console.warn("[sync] start failed", err));
-
-      // Upload shortly after changes (batched), when back online, and when leaving the page.
-      let timer: ReturnType<typeof setTimeout> | undefined;
-      const stopListening = onLocalChange(() => {
-        clearTimeout(timer);
-        timer = setTimeout(() => void e.flush(), FLUSH_DELAY_MS);
-      });
-      const flushNow = () => void e.flush();
-      const onHidden = () => document.visibilityState === "hidden" && flushNow();
-      const onOffline = () => setSync("offline");
-      const retry = setInterval(flushNow, 60_000);
-      window.addEventListener("online", flushNow);
-      window.addEventListener("offline", onOffline);
-      document.addEventListener("visibilitychange", onHidden);
-      cleanupSync = () => {
-        clearTimeout(timer);
-        clearInterval(retry);
-        stopListening();
-        window.removeEventListener("online", flushNow);
-        window.removeEventListener("offline", onOffline);
-        document.removeEventListener("visibilitychange", onHidden);
-      };
     });
-
     return () => {
-      unsubscribe();
-      cleanupSync?.();
-      engine.current?.stop();
+      stopped = true;
+      teardown?.();
     };
+
+    function begin(rt: Runtime): (() => void) | undefined {
+      const services = rt.getClientServices();
+      if (!services) return undefined;
+      return listen(rt, services);
+    }
+
+    function listen(rt: Runtime, services: NonNullable<ReturnType<Runtime["getClientServices"]>>) {
+      let cleanupSync: (() => void) | null = null;
+
+      const unsubscribe = rt.onAuthStateChanged(services.auth, (next) => {
+        cleanupSync?.();
+        cleanupSync = null;
+        engine.current?.stop();
+        engine.current = null;
+        setUser(next);
+        setStatus(next ? "signed-in" : "signed-out");
+        setSync(null);
+        if (!next) return;
+
+        const e = new rt.SyncEngine({
+          uid: next.uid,
+          local: rt.indexedDbAdapter,
+          remote: rt.firestoreAdapter(services.db, next.uid),
+          onStatus: setSync,
+          isOnline: () => navigator.onLine,
+          session: sessionPulls,
+        });
+        engine.current = e;
+        e.start()
+          .then(applySyncedSettings)
+          .then(() => setDataVersion((v) => v + 1))
+          .catch((err: unknown) => console.warn("[sync] start failed", err));
+
+        // Upload shortly after changes (batched), when back online, and when leaving the page.
+        let timer: ReturnType<typeof setTimeout> | undefined;
+        const stopListening = onLocalChange(() => {
+          clearTimeout(timer);
+          timer = setTimeout(() => void e.flush(), FLUSH_DELAY_MS);
+        });
+        const flushNow = () => void e.flush();
+        const onHidden = () => document.visibilityState === "hidden" && flushNow();
+        const onOffline = () => setSync("offline");
+        const retry = setInterval(flushNow, 60_000);
+        window.addEventListener("online", flushNow);
+        window.addEventListener("offline", onOffline);
+        document.addEventListener("visibilitychange", onHidden);
+        cleanupSync = () => {
+          clearTimeout(timer);
+          clearInterval(retry);
+          stopListening();
+          window.removeEventListener("online", flushNow);
+          window.removeEventListener("offline", onOffline);
+          document.removeEventListener("visibilitychange", onHidden);
+        };
+      });
+
+      return () => {
+        unsubscribe();
+        cleanupSync?.();
+        engine.current?.stop();
+      };
+    }
   }, []);
 
   const signIn = useCallback(async () => {
-    const services = getClientServices();
+    const rt = await loadRuntime();
+    const services = rt.getClientServices();
     if (!services) return;
     setError(null);
-    const provider = new GoogleAuthProvider();
+    const provider = new rt.GoogleAuthProvider();
     provider.setCustomParameters({ prompt: "select_account" });
     try {
-      await signInWithPopup(services.auth, provider);
+      await rt.signInWithPopup(services.auth, provider);
     } catch (err) {
-      const code = err instanceof FirebaseError ? err.code : "";
-      if (code === "auth/popup-blocked") return signInWithRedirect(services.auth, provider);
+      const code = err instanceof rt.FirebaseError ? err.code : "";
+      if (code === "auth/popup-blocked") return rt.signInWithRedirect(services.auth, provider);
       if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") return;
       setError(
         code === "auth/unauthorized-domain"
@@ -182,7 +201,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signOut = useCallback(async () => {
-    const services = getClientServices();
+    const rt = await loadRuntime();
+    const services = rt.getClientServices();
     if (!services) return;
     // Give pending changes a moment to reach the cloud, then clear this device for privacy.
     await Promise.race([engine.current?.flush(), new Promise((r) => setTimeout(r, 4000))]);
@@ -190,12 +210,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     engine.current = null;
     await clearLocalData();
     await setMeta("ownerUid", null);
-    await firebaseSignOut(services.auth);
+    await rt.signOut(services.auth);
     setDataVersion((v) => v + 1);
   }, []);
 
   const deleteAccount = useCallback(async () => {
-    const current = getClientServices()?.auth.currentUser;
+    const rt = await loadRuntime();
+    const current = rt.getClientServices()?.auth.currentUser;
     if (!current) return { ok: false, error: "Not signed in." };
     try {
       const token = await current.getIdToken(true);
@@ -211,7 +232,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       engine.current = null;
       await clearLocalData();
       await setMeta("ownerUid", null);
-      await firebaseSignOut(getClientServices()!.auth);
+      await rt.signOut(rt.getClientServices()!.auth);
       return { ok: true };
     } catch {
       return { ok: false, error: "Could not reach the server. Check your connection." };

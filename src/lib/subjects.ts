@@ -160,8 +160,13 @@ function loadCatalogue(files: readonly unknown[]): Subject[] {
   return list;
 }
 
-/** Every subject the app teaches, checked when the app loads. */
-export const subjects: readonly Subject[] = loadCatalogue(subjectFiles);
+/**
+ * Every subject the app teaches. The files are checked in full on the server and in the tests (a
+ * test proves checking them changes nothing), so the browser skips that work: it would only delay
+ * the first screen on a phone.
+ */
+export const subjects: readonly Subject[] =
+  typeof window === "undefined" ? loadCatalogue(subjectFiles) : (subjectFiles as Subject[]);
 
 export function findSubject(id: string): Subject | undefined {
   return subjects.find((s) => s.id === id);

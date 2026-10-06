@@ -109,3 +109,10 @@ describe("catalogue checks", () => {
     expect(list[0].chapter.id).toBe("electrostatics");
   });
 });
+
+describe("the browser skips catalogue validation", () => {
+  it("checking the files changes nothing, so the shortcut is safe", async () => {
+    const { subjectFiles } = await import("@/data/subjects/index.generated");
+    expect(JSON.parse(JSON.stringify(subjects))).toEqual(JSON.parse(JSON.stringify(subjectFiles)));
+  });
+});
