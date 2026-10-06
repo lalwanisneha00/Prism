@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { SyllabusByTermSchema } from "@/lib/syllabus/types";
 import { CustomChapterSchema, CustomDetailsSchema } from "@/lib/custom/customSubject";
 import type { SyncedCollection } from "@/lib/storage/db";
 
@@ -78,6 +79,7 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
       )
       .refine((s) => Object.keys(s).length <= 120)
       .optional(),
+    syllabus: SyllabusByTermSchema.optional(),
     universityName: z.string().max(160).optional(),
     universityOff: z.boolean().optional(),
     plannerPrefs: z

@@ -128,6 +128,12 @@ export type AppSettings = SyncFields & {
    * topic ids their university teaches. A chapter that is missing is not taught there.
    */
   universityScope?: Record<string, Record<string, string[]>>;
+  /**
+   * The student's uploaded semester syllabi (subject matches, covered topics, course outcomes),
+   * by semester. Personal: stored on the device and synced to their account; Prism's own subject
+   * data is never changed by it.
+   */
+  syllabus?: Record<string, import("@/lib/syllabus/types").StoredSemester>;
   /** Shown in the notice ("Applied: Anna University, Mechanical"). */
   universityName?: string;
   /** True when the student chose "show everything again" (the scope is kept but not used). */

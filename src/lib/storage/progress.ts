@@ -96,6 +96,7 @@ async function writeSettings(
       | "importanceOverrides"
       | "mySubjects"
       | "universityScope"
+      | "syllabus"
       | "universityName"
       | "universityOff"
     >
