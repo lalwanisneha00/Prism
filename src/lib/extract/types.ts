@@ -169,3 +169,8 @@ function tidy(text: string): string {
     .replace(/\n{3,}/g, "\n\n")
     .replace(/^\s+|\s+$/g, "");
 }
+
+/** Like docText, but with a form feed between pages, so a reader can tell where each page ends. */
+export function pagedText(doc: ExtractedDoc): string {
+  return doc.sections.map(sectionText).join("\f");
+}

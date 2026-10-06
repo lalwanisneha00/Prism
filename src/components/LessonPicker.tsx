@@ -14,6 +14,8 @@ import { useScopedSubjects } from "@/components/university/useUniversityScope";
 import { KeyIndicator } from "@/components/settings/KeyIndicator";
 import { NotesToggle } from "@/components/notes/NotesToggle";
 import { BranchSemesterBar } from "@/components/subjects/BranchSemesterBar";
+import { useSyllabus } from "@/components/subjects/useSyllabus";
+import { coverageFor } from "@/lib/syllabus/coverage";
 import { useMySemester } from "@/components/subjects/useMySemester";
 import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { TopicSearch } from "@/components/TopicSearch";
@@ -99,6 +101,7 @@ function PickerForm({
     hasMine && !showAll && mineList.length > 0 ? [...mineList, ...own] : subjects
   ).filter((s) => !seen.has(s.id) && seen.add(s.id));
 
+  const { syllabus } = useSyllabus();
   const start = subjects.find((s) => s.id === initial.subject) ?? subjects[0];
   const [subjectId, setSubjectId] = useState(start.id);
   const subject = subjects.find((s) => s.id === subjectId) ?? subjects[0];
@@ -125,6 +128,9 @@ function PickerForm({
   );
   const chapter = selected?.chapter;
   const owner = selected?.owner ?? subject;
+  // What the student's uploaded syllabus says about a topic (a note, or nothing).
+  const coverage = coverageFor(subject.id, syllabus);
+  const syllabusNote = (topic: string) => coverage?.noteOf(`${owner.id}/${topic}`) ?? null;
   const chosenTopics =
     chapter && scope !== "topic"
       ? scope === "chapter"
@@ -375,6 +381,7 @@ function PickerForm({
                       clearErrors("topic");
                     }}
                     title={t.name}
+                    description={syllabusNote(t.id) ?? undefined}
                   />
                 ))}
               </div>
@@ -416,7 +423,12 @@ function PickerForm({
                           clearErrors("topic");
                         }}
                       />
-                      <span className="font-semibold">{t.name}</span>
+                      <span className="flex flex-col">
+                        <span className="font-semibold">{t.name}</span>
+                        {syllabusNote(t.id) && (
+                          <span className="text-sm text-muted">{syllabusNote(t.id)}</span>
+                        )}
+                      </span>
                     </label>
                   ))}
                 </div>

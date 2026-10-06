@@ -1,4 +1,5 @@
 import { curatedVideos } from "@/data/curatedLinks";
+import type { Emphasis } from "@/lib/syllabus/emphasis";
 import { dropFailedChecks, findAnswerProblems } from "@/lib/checks/answerCheck";
 import { effectiveTier } from "@/lib/tiers";
 import { findMathErrors } from "@/lib/checks/mathCheck";
@@ -23,6 +24,8 @@ export type GenerateLessonOptions = {
   emit: (event: LessonEvent) => void;
   sources: GroundingSource[];
   visualRules?: string;
+  /** The student's course outcomes, when their syllabus covers this topic. */
+  emphasis?: Emphasis | null;
   signal?: AbortSignal;
   maxAttempts?: number;
   now?: () => Date;
@@ -171,12 +174,13 @@ export async function generateLesson(
     emit,
     sources,
     visualRules = defaultVisualRules,
+    emphasis,
     signal,
     maxAttempts = 3,
     now = () => new Date(),
   }: GenerateLessonOptions,
 ): Promise<Lesson> {
-  const { system, prompt } = buildLessonPrompt(request, sources, visualRules);
+  const { system, prompt } = buildLessonPrompt(request, sources, visualRules, emphasis);
   const meta = lessonMeta(request, sources, now());
   let currentPrompt = prompt;
   let lastProblems: string[] = [];

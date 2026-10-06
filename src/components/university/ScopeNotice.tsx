@@ -25,7 +25,7 @@ export function ScopeNotice({
       <button type="button" onClick={onShowAll} className="font-semibold text-primary underline">
         Show everything
       </button>
-      <Link href="/subjects/university" className="font-semibold text-primary underline">
+      <Link href="/subjects" className="font-semibold text-primary underline">
         Edit my syllabus
       </Link>
     </p>

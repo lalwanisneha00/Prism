@@ -7,7 +7,9 @@ import { useTopicStatuses } from "@/components/map/useTopicStatuses";
 import type { TopicStatus } from "@/lib/conceptMap";
 import { layoutGraph, type LaidNode } from "@/lib/graph/layout";
 import { graphOf, graphProblems, studyOrder, unlocks } from "@/lib/graph/prereqGraph";
+import { useSyllabus } from "@/components/subjects/useSyllabus";
 import type { Subject } from "@/lib/subjects";
+import { coverageFor } from "@/lib/syllabus/coverage";
 
 /*
  * The subject concept map (fix before V3 · Step 5). Hover, focus or tap a topic: it and every
@@ -44,6 +46,9 @@ function useNarrow(): boolean {
 export function SubjectGraph({ subject }: { subject: Subject }) {
   const router = useRouter();
   const statuses = useTopicStatuses();
+  // With an uploaded syllabus, topics outside it get a quiet marker (they stay on the map).
+  const { syllabus } = useSyllabus();
+  const coverage = useMemo(() => coverageFor(subject.id, syllabus), [subject.id, syllabus]);
   const problems = useMemo(() => graphProblems(subject), [subject]);
   const graph = useMemo(() => graphOf(subject), [subject]);
   const vertical = useNarrow();
@@ -473,6 +478,10 @@ export function SubjectGraph({ subject }: { subject: Subject }) {
               const state = nodeState(n.id);
               const status = n.kind === "topic" ? (statuses.get(n.id) ?? "new") : null;
               const num = number.get(n.id);
+              const outside =
+                n.kind === "topic" &&
+                coverage !== null &&
+                coverage.stateOf(`${subject.id}/${n.id}`).state !== "in";
               return (
                 <button
                   key={n.id}
@@ -493,7 +502,7 @@ export function SubjectGraph({ subject }: { subject: Subject }) {
                   aria-label={
                     n.kind === "chapter"
                       ? `${n.label}: ${n.count} topics (collapsed). Expand.`
-                      : `${n.label}${num ? `, step ${num} of ${order.length}` : ""}${status ? `, ${statusStyle[status].label}` : ""}`
+                      : `${n.label}${num ? `, step ${num} of ${order.length}` : ""}${status ? `, ${statusStyle[status].label}` : ""}${outside ? ", not in your syllabus" : ""}`
                   }
                   className={`absolute flex items-center gap-2 rounded-xl border bg-surface px-2.5 text-left text-xs leading-tight shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary motion-safe:transition-opacity ${
                     state === "active"
@@ -517,6 +526,15 @@ export function SubjectGraph({ subject }: { subject: Subject }) {
                       aria-hidden="true"
                     />
                   ) : null}
+                  {outside && (
+                    <span
+                      data-testid="not-in-syllabus"
+                      aria-hidden="true"
+                      className="absolute -top-2 right-2 rounded-full border border-border bg-surface-2 px-1.5 text-[10px] leading-4 text-muted"
+                    >
+                      Not in your syllabus
+                    </span>
+                  )}
                   <span className="line-clamp-3 min-w-0">
                     {n.label}
                     {n.kind === "chapter" ? ` (${n.count} topics)` : ""}

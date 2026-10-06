@@ -1,4 +1,5 @@
 import { findSampleLesson } from "@/data/sampleLessons";
+import { parseEmphasis } from "@/lib/syllabus/emphasis";
 import { getAdmin } from "@/lib/firebase/admin";
 import { generateLesson } from "@/lib/generateLesson";
 import { groundSources } from "@/lib/grounding/groundSources";
@@ -92,12 +93,17 @@ export async function POST(req: Request) {
     ? (findProvider(req.headers.get(KEY_HEADERS.provider) ?? "")?.name ?? "your provider")
     : undefined;
   // "Write a fresh version" skips the shared library copy.
-  const body = raw && typeof raw === "object" ? (raw as { fresh?: unknown; notes?: unknown }) : {};
+  const body =
+    raw && typeof raw === "object"
+      ? (raw as { fresh?: unknown; notes?: unknown; emphasis?: unknown })
+      : {};
+  // The student's course outcomes (checked): they shape the lesson, so it is personal too.
+  const emphasis = parseEmphasis(body.emphasis);
   const fresh = Boolean(body.fresh);
   // Passages from the student's own notes: such lessons are personal, never shared.
   const notes = passagesToSources(parsePassages(body.notes));
   // Lessons from the student's notes or own subject are personal, never shared.
-  const personal = notes.length > 0 || custom.success;
+  const personal = notes.length > 0 || custom.success || emphasis !== null;
   const key = libraryKey({
     subject: request.subject.id,
     topic: request.topic.id,
@@ -161,6 +167,7 @@ export async function POST(req: Request) {
           generate,
           emit: send,
           sources,
+          emphasis,
           visualRules: visualPromptRules(request.topic.id, {
             field: request.subject.field,
             level: request.level.slug,

@@ -1,4 +1,5 @@
 import type { LessonRequest } from "@/lib/lessonRequest";
+import { emphasisRule, type Emphasis } from "@/lib/syllabus/emphasis";
 import { levelGuides } from "@/lib/prompts/levelGuides";
 import type { Source } from "@/lib/schema";
 import { effectiveTier } from "@/lib/tiers";
@@ -55,6 +56,7 @@ export function buildLessonPrompt(
   request: LessonRequest,
   sources: GroundingSource[],
   visualRules: string = defaultVisualRules,
+  emphasis?: Emphasis | null,
 ) {
   const guide = levelGuides[request.level.slug];
 
@@ -149,7 +151,7 @@ SIZE:
 
 SOURCES (cite only these ids):
 ${sourceList}
-${notesRule}${limitedRule}${styleRule}${subjectRule}`;
+${notesRule}${emphasisRule(emphasis)}${limitedRule}${styleRule}${subjectRule}`;
 
   return { system, prompt };
 }

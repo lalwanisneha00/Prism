@@ -22,7 +22,10 @@ const pages = [
   ["subjects", "/subjects"],
   ["subject page", "/subjects/em"],
   ["concept map", "/map?subject=em"],
-  ["lesson (sample)", "/lesson?subject=em&chapter=electrostatics&topic=gauss-law&level=first-encounter&duration=10"],
+  [
+    "lesson (sample)",
+    "/lesson?subject=em&chapter=electrostatics&topic=gauss-law&level=first-encounter&duration=10",
+  ],
   ["dashboard", "/dashboard"],
   ["planner", "/planner"],
   ["library", "/library"],
@@ -31,7 +34,11 @@ const pages = [
 ];
 
 async function setup(browser) {
-  const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, isMobile: true, hasTouch: true });
+  const ctx = await browser.newContext({
+    viewport: { width: 375, height: 812 },
+    isMobile: true,
+    hasTouch: true,
+  });
   const page = await ctx.newPage();
   const cdp = await ctx.newCDPSession(page);
   await cdp.send("Network.enable");
@@ -58,7 +65,9 @@ async function contentReady(page, t0) {
   await page.waitForFunction(
     () => {
       const m = document.querySelector("main");
-      return Boolean(m && (m.textContent ?? "").trim().length > 80 && !m.querySelector('[aria-busy="true"]'));
+      return Boolean(
+        m && (m.textContent ?? "").trim().length > 80 && !m.querySelector('[aria-busy="true"]'),
+      );
     },
     null,
     { timeout: 60000 },
@@ -74,7 +83,13 @@ async function contentReady(page, t0) {
   });
   await new Promise((r) => setTimeout(r, 9000));
   const browser = await chromium.launch({ channel: "msedge" });
-  const result = { cpuSlowdown: CPU, network: "slow 4G (1.6 Mbps, 150 ms)", viewport: "375x812", pages: [], clicks: [] };
+  const result = {
+    cpuSlowdown: CPU,
+    network: "slow 4G (1.6 Mbps, 150 ms)",
+    viewport: "375x812",
+    pages: [],
+    clicks: [],
+  };
 
   for (const [name, url] of pages) {
     const { ctx, page, stats } = await setup(browser);
@@ -91,8 +106,24 @@ async function contentReady(page, t0) {
     const ready = await contentReady(page, t0).catch(() => -1);
     await page.waitForTimeout(1500);
     const blocked = await page.evaluate(() => Math.round(window.__blocked));
-    result.pages.push({ name, url, jsKB: Math.round(stats.js / 1024), totalKB: Math.round(stats.all / 1024), contentMs: ready, blockedMs: blocked });
-    console.log(name, "js", Math.round(stats.js / 1024), "KB; content", ready, "ms; blocked", blocked, "ms");
+    result.pages.push({
+      name,
+      url,
+      jsKB: Math.round(stats.js / 1024),
+      totalKB: Math.round(stats.all / 1024),
+      contentMs: ready,
+      blockedMs: blocked,
+    });
+    console.log(
+      name,
+      "js",
+      Math.round(stats.js / 1024),
+      "KB; content",
+      ready,
+      "ms; blocked",
+      blocked,
+      "ms",
+    );
     await ctx.close();
   }
 
@@ -101,11 +132,47 @@ async function contentReady(page, t0) {
   await page.goto(BASE + "/", { waitUntil: "load", timeout: 90000 });
   await page.waitForTimeout(2500);
   const clicks = [
-    ["home → Subjects (nav)", async () => page.getByRole("link", { name: /Subjects/ }).first().click(), () => page.getByRole("heading", { name: "Subjects", exact: true }).waitFor()],
-    ["Subjects → a subject page", async () => page.locator('a[href^="/subjects/"]').nth(2).click(), () => page.locator("h1").first().waitFor()],
-    ["→ Dashboard (nav)", async () => page.getByRole("link", { name: /Dashboard/ }).first().click(), () => page.getByRole("heading", { name: /study dashboard/i }).waitFor()],
-    ["→ Library (nav)", async () => page.getByRole("link", { name: /Library/ }).first().click(), () => page.getByRole("heading", { name: /library/i }).first().waitFor()],
-    ["→ Concept map", async () => page.goto(BASE + "/map?subject=em", { waitUntil: "commit" }), () => page.locator("[data-node]").first().waitFor({ timeout: 60000 })],
+    [
+      "home → Subjects (nav)",
+      async () =>
+        page
+          .getByRole("link", { name: /Subjects/ })
+          .first()
+          .click(),
+      () => page.getByRole("heading", { name: "Subjects", exact: true }).waitFor(),
+    ],
+    [
+      "Subjects → a subject page",
+      async () => page.locator('a[href^="/subjects/"]').nth(2).click(),
+      () => page.locator("h1").first().waitFor(),
+    ],
+    [
+      "→ Dashboard (nav)",
+      async () =>
+        page
+          .getByRole("link", { name: /Dashboard/ })
+          .first()
+          .click(),
+      () => page.getByRole("heading", { name: /study dashboard/i }).waitFor(),
+    ],
+    [
+      "→ Library (nav)",
+      async () =>
+        page
+          .getByRole("link", { name: /Library/ })
+          .first()
+          .click(),
+      () =>
+        page
+          .getByRole("heading", { name: /library/i })
+          .first()
+          .waitFor(),
+    ],
+    [
+      "→ Concept map",
+      async () => page.goto(BASE + "/map?subject=em", { waitUntil: "commit" }),
+      () => page.locator("[data-node]").first().waitFor({ timeout: 60000 }),
+    ],
   ];
   for (const [name, act, done] of clicks) {
     const t = Date.now();

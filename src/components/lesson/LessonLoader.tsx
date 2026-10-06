@@ -1,6 +1,7 @@
 "use client";
 
 import { Icon } from "@/components/Icon";
+import { emphasisForRequest } from "@/lib/syllabus/emphasisClient";
 import { apiFetch, sharedKeyForNextRequest } from "@/lib/byok/apiFetch";
 import { useEffect, useState } from "react";
 import { LessonError } from "@/components/lesson/LessonError";
@@ -99,6 +100,12 @@ export function LessonLoader({
         if (controller.signal.aborted) return;
         setNotesMissing(notes.length === 0);
       }
+      // The student's course outcomes for this topic, if their uploaded syllabus covers it.
+      const emphasis = await emphasisForRequest(
+        request.subject,
+        request.chapter.id,
+        request.topic.id,
+      );
       try {
         const res = await apiFetch("/api/lesson", {
           method: "POST",
@@ -112,6 +119,7 @@ export function LessonLoader({
             fresh: skipLibrary,
             ...(notes.length > 0 ? { notes } : {}),
             ...(custom ? { custom } : {}),
+            ...(emphasis ? { emphasis } : {}),
           }),
           signal: controller.signal,
         });

@@ -10,7 +10,15 @@ import { useEffect, useState } from "react";
  */
 export function NavProgress() {
   const pathname = usePathname();
-  const [pending, setPending] = useState<string | null>(null);
+  // The page the student was on when they pressed a link; the bar shows until the path changes.
+  const [from, setFrom] = useState<string | null>(null);
+  const [seen, setSeen] = useState(pathname);
+  // The new page arrived: forget the press (adjusting state while rendering, as React advises).
+  if (seen !== pathname) {
+    setSeen(pathname);
+    setFrom(null);
+  }
+  const pending = from !== null && from === pathname;
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -27,19 +35,15 @@ export function NavProgress() {
         return;
       const to = new URL(href, location.href);
       if (to.pathname + to.search === location.pathname + location.search) return;
-      setPending(to.pathname + to.search);
+      setFrom(location.pathname);
     };
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
   }, []);
 
-  // The new page is here: hide the bar. (A page that never arrives hides it after a while.)
-  useEffect(() => {
-    setPending(null);
-  }, [pathname]);
   useEffect(() => {
     if (!pending) return;
-    const t = setTimeout(() => setPending(null), 15_000);
+    const t = setTimeout(() => setFrom(null), 15_000);
     return () => clearTimeout(t);
   }, [pending]);
 
