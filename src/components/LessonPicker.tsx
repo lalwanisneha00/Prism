@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
 import { useId, useMemo, useRef, useState, type FormEvent } from "react";
+import { AllSubjectsList } from "@/components/AllSubjectsList";
 import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
 import { DurationChooser } from "@/components/DurationChooser";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
@@ -265,6 +266,18 @@ function PickerForm({
             + Other subject
           </Link>
         </div>
+        <AllSubjectsList
+          subjects={subjects}
+          currentId={subject.id}
+          onSelect={(sid) => {
+            setSubjectId(sid);
+            // A new subject has its own chapters: start the choice again.
+            setChapterId("");
+            setOwnerId("");
+            setTopicId("");
+            clearErrors("chapter", "topic");
+          }}
+        />
         {hasMine && mineList.length > 0 && (
           <button
             type="button"
