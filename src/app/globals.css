@@ -301,3 +301,25 @@ body {
   background: #ffffff;
   color: #14171c;
 }
+
+/* Pressing anything gives an immediate visual answer, before any page or data has arrived. */
+a:active,
+button:not(:disabled):active,
+label:has(input):active,
+summary:active {
+  opacity: 0.8;
+  transition: none;
+}
+
+/* The navigation bar: a short block sliding across (still, under reduced motion). */
+.nav-progress-bar {
+  animation: nav-progress 1s ease-in-out infinite;
+}
+@keyframes nav-progress {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(300%);
+  }
+}

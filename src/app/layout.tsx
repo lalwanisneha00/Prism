@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Geist, Geist_Mono, Source_Sans_3 } from "next/font/google";
 import { AuthProvider } from "@/components/account/AuthProvider";
 import { DbBlockedNotice } from "@/components/DbBlockedNotice";
+import { NavProgress } from "@/components/NavProgress";
 import { KeyboardShortcuts } from "@/components/KeyboardShortcuts";
 import { FLAGS } from "@/lib/flags";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <TestModeBanner />
         <AuthProvider>
+          <NavProgress />
           <DbBlockedNotice />
           <SiteHeader />
           <main id="main" className="flex-1">
