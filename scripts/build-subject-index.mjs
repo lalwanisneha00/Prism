@@ -36,3 +36,4 @@ try {
   // first run
 }
 if (current !== next) writeFileSync(out, next);
+await import("./build-subject-light.mjs");
