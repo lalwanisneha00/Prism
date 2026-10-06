@@ -85,7 +85,6 @@ function PickerForm({
 
   // "My branch and semester": their subjects come first (V3 · Step 3).
   const { mine, save: saveMine } = useMyBranch();
-  const [showAll, setShowAll] = useState(false);
   // The subjects the student chose for their semester come first; otherwise their branch's.
   const sem = useMySemester();
   const chosenList = sem.picks
@@ -93,19 +92,20 @@ function PickerForm({
     .filter((s): s is Subject => Boolean(s));
   const mineList =
     chosenList.length > 0 ? chosenList : mine.branch ? subjectsFor(mine.branch, mine.semester) : [];
-  const hasMine = chosenList.length > 0 || Boolean(mine.branch);
   const own = ownCount ? subjects.slice(-ownCount) : [];
   // Built-in subjects for my branch (if set), then my own subjects.
   // (Deduplicated: an own subject that is also in the semester list must show once.)
-  const seen = new Set<string>();
-  const shown = (
-    hasMine && !showAll && mineList.length > 0 ? [...mineList, ...own] : subjects
-  ).filter((s) => !seen.has(s.id) && seen.add(s.id));
 
   const { syllabus } = useSyllabus();
   const start = subjects.find((s) => s.id === initial.subject) ?? subjects[0];
   const [subjectId, setSubjectId] = useState(start.id);
   const subject = subjects.find((s) => s.id === subjectId) ?? subjects[0];
+  // Only the student's own subjects show as buttons (or just the chosen one); every subject is in
+  // the collapsed list below. (Deduplicated: a subject in both lists shows once.)
+  const seen = new Set<string>();
+  const shown = (mineList.length > 0 ? [...mineList, ...own] : [subject, ...own]).filter(
+    (s) => !seen.has(s.id) && seen.add(s.id),
+  );
   const startChapter = chaptersOf(start).find((o) => o.chapter.id === initial.chapter);
   // A chapter linked from another subject is taught and saved under its owner.
   const [chapterId, setChapterId] = useState(startChapter?.chapter.id ?? "");
@@ -224,7 +224,6 @@ function PickerForm({
         mine={mine}
         onChange={(next) => {
           saveMine(next);
-          setShowAll(false);
         }}
       />
 
@@ -278,20 +277,6 @@ function PickerForm({
             clearErrors("chapter", "topic");
           }}
         />
-        {hasMine && mineList.length > 0 && (
-          <button
-            type="button"
-            onClick={() => setShowAll((v) => !v)}
-            className="w-fit text-sm font-semibold text-primary underline underline-offset-2"
-          >
-            {showAll ? "Show only my subjects" : `Show all ${subjects.length - ownCount} subjects`}
-          </button>
-        )}
-        {mine.branch && mineList.length === 0 && (
-          <p className="text-sm text-muted">
-            No subjects for that semester yet: showing every subject.
-          </p>
-        )}
       </fieldset>
 
       <TopicSearch

@@ -6,7 +6,11 @@ const fixture = (name: string) => path.join(__dirname, "..", "test-fixtures", na
 
 async function pickChapter(page: Page) {
   await page.goto("/");
-  await page.getByTestId("subject-chips").getByText("Electricity & Magnetism").click();
+  await page.getByTestId("all-subjects-list").locator("summary").click();
+  await page
+    .getByTestId("all-subjects-list")
+    .getByRole("button", { name: /Electricity & Magnetism/ })
+    .click();
   await page.getByLabel("Or browse by chapter").selectOption("electrostatics");
 }
 

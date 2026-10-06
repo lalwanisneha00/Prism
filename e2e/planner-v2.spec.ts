@@ -4,7 +4,11 @@ import { expectNoSidewaysScroll } from "./helpers/layout";
 test.describe("Time recommendations and planner (V3 · Step 11)", () => {
   test("the lesson picker marks a Recommended length and says why", async ({ page }) => {
     await page.goto("/");
-    await page.getByTestId("subject-chips").getByText("Electricity & Magnetism").click();
+    await page.getByTestId("all-subjects-list").locator("summary").click();
+    await page
+      .getByTestId("all-subjects-list")
+      .getByRole("button", { name: /Electricity & Magnetism/ })
+      .click();
     await page.getByLabel("Or browse by chapter").selectOption("electrostatics");
     await page.getByText("Gauss's law", { exact: true }).click();
     await page.getByText("Building Blocks", { exact: true }).click();

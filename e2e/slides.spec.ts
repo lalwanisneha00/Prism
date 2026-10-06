@@ -5,7 +5,11 @@ import { expectNoSidewaysScroll } from "./helpers/layout";
 
 async function openPanel(page: Page) {
   await page.goto("/");
-  await page.getByTestId("subject-chips").getByText("Electricity & Magnetism").click();
+  await page.getByTestId("all-subjects-list").locator("summary").click();
+  await page
+    .getByTestId("all-subjects-list")
+    .getByRole("button", { name: /Electricity & Magnetism/ })
+    .click();
   await page.getByLabel("Or browse by chapter").selectOption("electrostatics");
   await page.getByText("Gauss's law", { exact: true }).click();
   await page.getByText("Building Blocks", { exact: true }).click();
