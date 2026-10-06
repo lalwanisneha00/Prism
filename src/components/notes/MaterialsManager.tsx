@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/components/account/AuthProvider";
 import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
 import { MaterialCard } from "@/components/notes/MaterialCard";
+import { SubjectFilter } from "@/components/notes/SubjectFilter";
 import { UploadBox } from "@/components/notes/UploadBox";
 import { kindLabel } from "@/lib/notes/kinds";
 import { deleteNote, listLocalNotes, listRemoteOnlyNotes } from "@/lib/notes/store";
@@ -54,23 +55,7 @@ export function MaterialsManager({ initialSubject = "" }: { initialSubject?: str
         onSubjectChange={setFilter}
         onAdded={() => setVersion((v) => v + 1)}
       />
-      <div role="group" aria-label="Show materials for" className="flex flex-wrap gap-2">
-        {[{ id: "", name: "All subjects" }, ...subjects].map((s) => (
-          <button
-            key={s.id || "all"}
-            type="button"
-            aria-pressed={filter === s.id}
-            onClick={() => setFilter(s.id)}
-            className={`rounded-full border px-3 py-1.5 text-sm font-semibold ${
-              filter === s.id
-                ? "border-primary bg-primary/15 text-primary"
-                : "border-border hover:bg-surface-2"
-            }`}
-          >
-            {s.name}
-          </button>
-        ))}
-      </div>
+      <SubjectFilter subjects={subjects} value={filter} onChange={setFilter} />
       <MaterialsList
         state={state}
         filter={filter}
