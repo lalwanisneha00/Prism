@@ -1,5 +1,5 @@
 import { subjects as allSubjects, type Chapter, type Subject, type Topic } from "@/lib/subjects";
-import { normalize } from "@/lib/topicSearch";
+import { matchScore, normalize } from "@/lib/topicSearch";
 
 /*
  * One search box for everything (V3 · Step 3): subjects, chapters and topics across every
@@ -11,15 +11,7 @@ export type CatalogueMatch =
   | { kind: "chapter"; subject: Subject; chapter: Chapter }
   | { kind: "topic"; subject: Subject; chapter: Chapter; topic: Topic };
 
-/** 3: starts with the query · 2: every word starts a word · 1: every word appears. */
-function score(query: string, words: string[], name: string, context = ""): number {
-  const both = `${name} ${context}`;
-  if (!words.every((w) => both.includes(w))) return 0;
-  if (name.startsWith(query)) return 3;
-  const nameWords = name.split(" ");
-  if (words.every((w) => nameWords.some((n) => n.startsWith(w)))) return 2;
-  return 1;
-}
+const score = matchScore;
 
 export function searchCatalogue(
   rawQuery: string,

@@ -284,9 +284,10 @@ function PickerForm({
       <TopicSearch
         key={subject.id}
         subject={subject}
-        onPick={({ chapter, topic }) => {
+        onPick={({ chapter, topic, owner }) => {
           setChapterId(chapter.id);
-          setOwnerId("");
+          // A chapter linked from another subject is taught under its owner.
+          setOwnerId(owner && owner.id !== subject.id ? owner.id : "");
           setTopicId(topic.id);
           setScope("topic");
           clearErrors("chapter", "topic");
