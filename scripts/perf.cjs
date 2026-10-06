@@ -143,7 +143,14 @@ async function contentReady(page, t0) {
     ],
     [
       "Subjects → a subject page",
-      async () => page.locator('a[href^="/subjects/"]').nth(2).click(),
+      async () => {
+        // The full subject list is collapsed on /subjects: open it, then open a subject.
+        await page.evaluate(() => {
+          const d = document.querySelector('[data-testid="all-subjects"]');
+          if (d) d.open = true;
+        });
+        await page.locator('[data-testid="all-subjects"] a[href^="/subjects/"]').nth(2).click();
+      },
       () => page.locator("h1").first().waitFor(),
     ],
     [

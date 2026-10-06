@@ -264,3 +264,7 @@ The old V3 steps, unchanged except those pulled into V3 (syllabus upload, mock t
 - `npm run eval`: harness verified with `-- --fake`. Real accuracy number still to be measured once GEMINI_API_KEY is set; prompts may need tuning to reach ≥ 95%.
 - Real Gemini calls have only been tested with a mocked network and an invalid key; the first real lesson should be checked by eye.
 - Not in V1 by design: "report a mistake" button (§6.6), sleep timer and watch-along audio (V2), 30–90 min audio (V2).
+
+## Round: My subjects redesign + perf + map picker (this session)
+
+Done: see CHANGES.md and PERF_REPORT.md. Open: perf targets not met (migrate list pages to `@/lib/catalogue`, split map graph), golden gates not re-run, awaiting user feedback.

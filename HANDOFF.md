@@ -88,3 +88,7 @@ Playwright uses Edge (`channel: msedge`), one worker, port 3210. If a run is kil
 ## 8. If you are resuming and unsure
 
 Read `PROGRESS.md` "Current state", run `git status` and `git log -5`, run `npm run check`, read §4 above, continue the first unfinished item, commit after each unit of work, push, and update `PROGRESS.md`. Never restart a finished step; never merge to `main`; never ask the owner a question you can answer from these files.
+
+## Latest round (My subjects / syllabus personalisation)
+
+New code: `src/lib/syllabus/*` (types, propose, coverage, store, emphasis), `src/lib/university/parse.ts` (page-aware), `src/components/subjects/SubjectsHub.tsx`, `SyllabusUpload.tsx`, `src/components/map/MapSubjectPicker.tsx`. Real fixture: PDEU CE Sem 1 (`test-fixtures/pdeu-*`). Read CHANGES.md and PERF_REPORT.md. Waiting for user feedback; do not start Feature D.
