@@ -181,7 +181,7 @@ export function SubjectsHub() {
       );
     }
     if (out.length === 0) {
-      for (const s of subjectsInSemester(semester, mine.branch).slice(0, 8)) {
+      for (const s of subjectsInSemester(semester, mine.branch).slice(0, 12)) {
         out.push({
           id: s.id,
           name: s.name,
@@ -282,6 +282,7 @@ export function SubjectsHub() {
             semester={semester}
             onDone={(m) => {
               setDone(m);
+              custom.reload();
               setUploadOpen(false);
             }}
           />
@@ -404,6 +405,13 @@ export function SubjectsHub() {
           </ul>
         </div>
       </details>
+      <p className="text-sm text-muted">
+        Non-core subjects such as Indian Knowledge System, or one that is not listed?{" "}
+        <Link href="/my-subjects" className="font-semibold text-primary underline">
+          Add a subject of your own
+        </Link>
+        .
+      </p>
       <p className="sr-only">
         {NOTE_OUTSIDE} {NOTE_LATER}
       </p>

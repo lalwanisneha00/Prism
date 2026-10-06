@@ -8,7 +8,7 @@ const SYLLABUS = `Unit 1: Vedic literature – The four Vedas, Upanishads
 Unit 2: Indian mathematics – Zero and the decimal system, Aryabhata`;
 
 async function createFromSyllabus(page: Page) {
-  await page.goto("/subjects");
+  await page.goto("/my-subjects");
   await page
     .getByTestId("other-subjects")
     .getByRole("link", { name: "Indian Knowledge System" })

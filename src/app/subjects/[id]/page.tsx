@@ -8,6 +8,9 @@ import { SubjectProgress } from "@/components/subjects/SubjectProgress";
 import { evalStatusCopy, evalStatusOf } from "@/lib/evalStatus";
 import { branchesOf, findSubject, subjects } from "@/lib/subjects";
 
+// Only the known subjects exist: anything else is a real 404 (not a streamed 200 page).
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return subjects.map((s) => ({ id: s.id }));
 }

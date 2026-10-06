@@ -15,6 +15,8 @@ test.describe("Wave 1 subjects (V3 · Step 6)", () => {
 
   test("every Wave 1 subject is listed for a first-year student", async ({ page }) => {
     await page.goto("/subjects");
+    // The full list is collapsed by default: open it.
+    await page.getByTestId("all-subjects").locator("summary").click();
     for (const name of [
       "Applied Physics",
       "Engineering Chemistry",

@@ -19,7 +19,7 @@ test.describe("Navigation for many subjects (V3 · Step 3)", () => {
     await bar.getByLabel("My branch").selectOption("me");
     await bar.getByLabel("Semester").selectOption("1");
     const mine = page.getByTestId("my-subjects");
-    await expect(mine).toContainText("Mechanical Engineering, semester 1");
+    await expect(mine).toContainText("My subjects, semester 1");
     await expect(mine.getByRole("link", { name: /Electricity & Magnetism/ })).toBeVisible();
     await expectNoSidewaysScroll(page);
 

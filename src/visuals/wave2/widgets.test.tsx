@@ -1,5 +1,8 @@
-import { renderToStaticMarkup } from "react-dom/server";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+import { renderSettled, suspendingDynamic } from "@/visuals/renderSettled";
+
+// Widgets load on demand (next/dynamic); in tests they are awaited so the real widget is checked.
+vi.mock("next/dynamic", () => suspendingDynamic());
 import { wave2Samples } from "@/app/dev/visuals/wave2Samples";
 import { VisualSpecSchema } from "@/lib/schema";
 import { findSubject } from "@/lib/subjects";
@@ -32,7 +35,7 @@ const WAVE2 = [
 ];
 
 describe("Wave 2 widgets", () => {
-  it("each has a valid gallery sample that draws without crashing", () => {
+  it("each has a valid gallery sample that draws without crashing", async () => {
     const shown = new Set(
       wave2Samples.map((s) => (s.visual.type === "widget" ? s.visual.widget : "")),
     );
@@ -41,7 +44,7 @@ describe("Wave 2 widgets", () => {
       expect(VisualSpecSchema.safeParse(visual).success).toBe(true);
       if (visual.type !== "widget") continue;
       expect(widgetProblem(visual.widget, visual.params), visual.widget).toBeNull();
-      const html = renderToStaticMarkup(
+      const html = await renderSettled(
         <WidgetView widget={visual.widget} params={visual.params} caption={visual.caption} />,
       );
       expect(html, visual.widget).toContain("interactive");
