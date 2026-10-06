@@ -1,4 +1,5 @@
 import { findProvider, looksLikeKey, validModel } from "@/lib/byok/catalogue";
+import { announceKeysChanged } from "@/lib/byok/events";
 import { getDb, type StoredApiKey } from "@/lib/storage/db";
 
 /*
@@ -36,6 +37,7 @@ export async function saveApiKey(
     savedAt: now,
   };
   await db.put("apiKeys", record);
+  announceKeysChanged();
   return record;
 }
 
@@ -48,11 +50,13 @@ export async function setActiveKey(provider: string | null): Promise<void> {
     if (k.active !== active) await tx.store.put({ ...k, active });
   }
   await tx.done;
+  announceKeysChanged();
 }
 
 export async function removeApiKey(provider: string): Promise<void> {
   const db = await getDb();
   await db.delete("apiKeys", provider);
+  announceKeysChanged();
 }
 
 /** Shows only the end of a key ("…a1b2"), so it can be recognised without being exposed. */

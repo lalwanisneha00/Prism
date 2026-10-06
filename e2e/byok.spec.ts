@@ -4,7 +4,7 @@ import { expectNoSidewaysScroll } from "./helpers/layout";
 test.describe("Your API keys (Feature A)", () => {
   test("save, test, use and remove a key; it goes only to our lesson route", async ({ page }) => {
     await page.goto("/settings/keys");
-    await expect(page.getByRole("heading", { name: "Your API keys" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Add your API key" })).toBeVisible();
     await expect(page.getByText(/not.*an API key/i).first()).toBeVisible();
     await expect(page.getByTestId("key-indicator")).toContainText("Prism's shared key");
     await expectNoSidewaysScroll(page);
