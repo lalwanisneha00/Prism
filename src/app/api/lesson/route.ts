@@ -58,9 +58,9 @@ function generatedBy(
 }
 
 /** The shared lesson library, or null when Firebase Admin isn't configured (or in fake mode). */
-function sharedLibrary(): LibraryStore | null {
+async function sharedLibrary(): Promise<LibraryStore | null> {
   if (process.env.LLM_PROVIDER === "fake") return null;
-  const admin = getAdmin();
+  const admin = await getAdmin();
   return admin ? adminLibraryStore(admin.db) : null;
 }
 
@@ -130,7 +130,7 @@ export async function POST(req: Request) {
         }
 
         // The shared library first: an instant, consistent answer that uses no AI quota.
-        const library = personal ? null : sharedLibrary();
+        const library = personal ? null : await sharedLibrary();
         if (library && !fresh) {
           const stored = await readFromLibrary(library, key).catch((err: unknown) => {
             console.warn("[api/lesson] library read failed:", String(err));

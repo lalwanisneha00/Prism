@@ -6,7 +6,7 @@ import { getAdmin } from "@/lib/firebase/admin";
  * the sign-in account itself. The shared lesson library is not personal data and stays.
  */
 export async function DELETE(req: Request) {
-  const admin = getAdmin();
+  const admin = await getAdmin();
   if (!admin) return Response.json({ error: "Accounts are not configured." }, { status: 503 });
 
   const token = req.headers.get("authorization")?.replace(/^Bearer /, "");

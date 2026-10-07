@@ -37,9 +37,9 @@ const RequestSchema = z.object({
   custom: CustomSubjectPayloadSchema.optional(),
 });
 
-function sharedLibrary(): LibraryStore | null {
+async function sharedLibrary(): Promise<LibraryStore | null> {
   if (process.env.LLM_PROVIDER === "fake") return null;
-  const admin = getAdmin();
+  const admin = await getAdmin();
   return admin ? adminLibraryStore(admin.db) : null;
 }
 
@@ -91,7 +91,7 @@ export async function POST(req: Request) {
     });
   }
 
-  const library = body.data.custom ? null : sharedLibrary();
+  const library = body.data.custom ? null : await sharedLibrary();
   if (library) {
     const stored = await readParts(library, key).catch(() => null);
     if (stored) return reply({ ok: true, parts: stored, cached: true });
