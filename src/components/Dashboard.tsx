@@ -154,7 +154,7 @@ export function Dashboard() {
           ) : (
             <Empty>
               Nothing yet.{" "}
-              <Link href="/#start" className="font-semibold text-primary underline">
+              <Link href="/start" className="font-semibold text-primary underline">
                 Start a lesson
               </Link>
               .

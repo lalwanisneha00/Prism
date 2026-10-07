@@ -65,7 +65,7 @@ function InvalidRequest({ problems }: { problems: string[] }) {
 function BackLink({ children }: { children: string }) {
   return (
     <Link
-      href="/#start"
+      href="/start"
       className="w-fit rounded-full border border-border bg-surface px-5 py-2.5 font-semibold transition-colors hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
     >
       ← {children}

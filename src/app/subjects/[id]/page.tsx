@@ -31,7 +31,7 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
         .map((b) => b.name)
         .join(", ");
   const actions = [
-    { href: `/?subject=${subject.id}#start`, label: "Start a lesson" },
+    { href: `/start?subject=${subject.id}`, label: "Start a lesson" },
     { href: `/mock-test?subject=${subject.id}`, label: "Mock test (several chapters)" },
     { href: `/map?subject=${subject.id}`, label: "Concept map" },
     { href: `/notes?subject=${subject.id}`, label: "My materials" },

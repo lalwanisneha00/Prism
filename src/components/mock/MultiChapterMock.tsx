@@ -49,7 +49,7 @@ export function MultiChapterMock({
         A mock test is written from the lessons you have studied, so it only asks about checked
         material. Study a few topics (or a whole chapter) of {subject.name} first, then come back.{" "}
         <Link
-          href={`/?subject=${subject.id}#start`}
+          href={`/start?subject=${subject.id}`}
           className="font-semibold text-primary underline"
         >
           Start a lesson

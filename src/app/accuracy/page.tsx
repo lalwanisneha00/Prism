@@ -170,7 +170,7 @@ export default function AccuracyPage() {
         <p>
           AI can still make mistakes. If something looks wrong, compare it with the cited source or
           your textbook.{" "}
-          <Link href="/#start" className="font-semibold text-primary underline">
+          <Link href="/start" className="font-semibold text-primary underline">
             Start a lesson
           </Link>
         </p>

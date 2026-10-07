@@ -74,7 +74,7 @@ export function MySubjectsList() {
             <div className="flex flex-wrap gap-2 text-sm">
               {r.chapters.length > 0 && (
                 <Link
-                  href={`/?subject=${r.id}#start`}
+                  href={`/start?subject=${r.id}`}
                   className="rounded-full bg-primary px-3 py-1.5 font-semibold text-primary-fg"
                 >
                   Start a lesson

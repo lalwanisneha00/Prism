@@ -76,7 +76,7 @@ export function AllNotes() {
         </p>
         <HighlightLegend />
         <Link
-          href="/#start"
+          href="/start"
           className="rounded-full bg-primary px-5 py-2.5 font-semibold text-primary-fg hover:bg-primary-hover"
         >
           Start a lesson

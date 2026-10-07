@@ -95,7 +95,7 @@ test.describe("PDEU's syllabus: My subjects", () => {
   test("the lesson picker shows the upload message for a non-core subject instead of a lesson button", async ({
     page,
   }) => {
-    await page.goto("/?subject=pdeu-universal-human-values-ce#start");
+    await page.goto("/start?subject=pdeu-universal-human-values-ce");
     await expect(page.getByTestId("upload-material-note")).toContainText(
       "Upload material given by faculty to generate lessons for this subject.",
     );

@@ -12,7 +12,7 @@ export function SiteHeader() {
         <Logo />
         <nav aria-label="Main" className="flex items-center gap-0 sm:gap-2">
           <Link
-            href="/#start"
+            href="/start"
             className="rounded-full px-1.5 py-2 text-sm font-semibold hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-3"
             data-testid="nav-start-lesson"
           >

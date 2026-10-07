@@ -130,7 +130,7 @@ export function ViewCustomSubject({ id }: { id: string }) {
         <nav aria-label="Shortcuts" className="flex flex-wrap gap-2">
           {record.chapters.length > 0 && (
             <Link
-              href={`/?subject=${subject.id}#start`}
+              href={`/start?subject=${subject.id}`}
               className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-fg hover:bg-primary-hover"
             >
               Start a lesson

@@ -51,7 +51,7 @@ export function LessonError({
           </Link>
         )}
         <Link
-          href="/#start"
+          href="/start"
           className="rounded-full border border-border px-5 py-2.5 font-semibold hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           Choose a different topic

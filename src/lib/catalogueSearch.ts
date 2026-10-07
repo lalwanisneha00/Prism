@@ -67,5 +67,5 @@ export function searchCatalogue(
 export function matchHref(m: CatalogueMatch): string {
   if (m.kind === "subject") return `/subjects/${m.subject.id}`;
   if (m.kind === "chapter") return `/subjects/${m.subject.id}#chapter-${m.chapter.id}`;
-  return `/?${new URLSearchParams({ subject: m.subject.id, chapter: m.chapter.id, topic: m.topic.id })}#start`;
+  return `/start?${new URLSearchParams({ subject: m.subject.id, chapter: m.chapter.id, topic: m.topic.id })}`;
 }

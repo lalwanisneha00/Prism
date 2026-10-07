@@ -59,7 +59,7 @@ export function SubjectProgress({
   }, [subjectId, subject]);
 
   const pickHref = (owner: string, chapter: string, topic?: string) =>
-    `/?${new URLSearchParams({ subject: owner, chapter, ...(topic ? { topic } : {}) })}#start`;
+    `/start?${new URLSearchParams({ subject: owner, chapter, ...(topic ? { topic } : {}) })}`;
 
   return (
     <div className="flex flex-col gap-6">

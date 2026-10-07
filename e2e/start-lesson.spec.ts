@@ -13,14 +13,17 @@ test.describe("Start a lesson", () => {
   test("the top bar has Start a lesson, and it opens the lesson maker", async ({ page }) => {
     await page.goto("/subjects");
     const link = page.getByTestId("nav-start-lesson");
-    await expect(link).toHaveAttribute("href", "/#start");
+    await expect(link).toHaveAttribute("href", "/start");
     await link.click();
-    await expect(page).toHaveURL(/\/#start$/);
+    await expect(page).toHaveURL(/\/start$/);
+    // The lesson maker itself, not the home page.
+    await expect(page.getByRole("heading", { name: "Start a lesson", level: 1 })).toBeVisible();
+    await expect(page.getByText(/topics you got stuck on/)).toHaveCount(0);
     await expect(page.getByTestId("subject-chips")).toBeVisible();
   });
 
   test("choosing a subject folds the list away again", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/start");
     const list = await openList(page);
     await expect(list).toHaveAttribute("open", "");
     await list
@@ -33,7 +36,7 @@ test.describe("Start a lesson", () => {
 
   test("Back from a lesson brings the same choices back", async ({ page }) => {
     test.setTimeout(180_000);
-    await page.goto("/");
+    await page.goto("/start");
     const list = await openList(page);
     await list
       .getByRole("button", { name: /^Applied Physics/ })
@@ -49,7 +52,7 @@ test.describe("Start a lesson", () => {
     await expect(page).toHaveURL(/\/lesson\?/, { timeout: 60_000 });
 
     await page.getByTestId("back-button").click();
-    await expect(page).toHaveURL(/\/(\?.*)?(#start)?$/);
+    await expect(page).toHaveURL(/\/start/);
     await expect(page.getByRole("radio", { name: /^Applied Physics/ })).toBeChecked();
     await expect(page.getByLabel("Or browse by chapter")).toHaveValue("electricity-and-magnetism");
     await expect(page.getByRole("radio", { name: /Faraday/ })).toBeChecked();
@@ -65,7 +68,7 @@ test.describe("Start a lesson", () => {
     await form.getByRole("button", { name: "Save my subject" }).click();
     await expect(page).toHaveURL(/\/my-subjects\/view\?id=custom-/, { timeout: 30_000 });
 
-    await page.goto("/");
+    await page.goto("/start");
     const list = await openList(page);
     await expect(list.getByRole("button").first()).toContainText("Zebra Studies");
   });

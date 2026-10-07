@@ -48,7 +48,7 @@ export function LibraryList() {
           lessons open instantly and work without internet.
         </p>
         <Link
-          href="/#start"
+          href="/start"
           className="rounded-full bg-primary px-5 py-2.5 font-semibold text-primary-fg hover:bg-primary-hover"
         >
           Start a lesson

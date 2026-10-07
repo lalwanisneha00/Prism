@@ -30,7 +30,7 @@ describe("searching the whole catalogue", () => {
       (m) => m.kind === "topic" && m.subject.id === "pdeu-applied-physics",
     )!;
     expect(matchHref(topic)).toBe(
-      "/?subject=pdeu-applied-physics&chapter=electricity-and-magnetism&topic=faradays-law#start",
+      "/start?subject=pdeu-applied-physics&chapter=electricity-and-magnetism&topic=faradays-law",
     );
     const [subject] = searchCatalogue("applied physics");
     expect(matchHref(subject)).toBe("/subjects/pdeu-applied-physics");

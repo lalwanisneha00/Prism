@@ -40,7 +40,7 @@ export function MySlides() {
     return (
       <p className="rounded-2xl border border-dashed border-border p-6 text-muted">
         Nothing here yet. Open the{" "}
-        <Link href="/#start" className="font-semibold text-primary underline">
+        <Link href="/start" className="font-semibold text-primary underline">
           lesson maker
         </Link>{" "}
         and choose &ldquo;Make slides or a PDF instead&rdquo;.
