@@ -349,6 +349,18 @@ export function SubjectsHub() {
             ))}
           </ul>
         )}
+        <div className="flex flex-col gap-1" data-testid="add-own-subject">
+          <Link
+            href={semester ? `/my-subjects/new?semester=${semester}` : "/my-subjects/new"}
+            className="w-fit rounded-full border border-primary px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            + Add a subject that isn&apos;t on Prism
+          </Link>
+          <p className="text-xs text-muted">
+            For a subject your college teaches that Prism doesn&apos;t have, for example Indian
+            Knowledge System or Organisational Behaviour. You can add as many as you like, any time.
+          </p>
+        </div>
         {syllabus && term && term.labs.length > 0 && (
           <p className="text-xs text-muted">
             Lab courses in your syllabus: {term.labs.join(", ")}.
