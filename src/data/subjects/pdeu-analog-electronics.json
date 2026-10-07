@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ECE): Analog Electronics",
-    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "chapters": [
     {
@@ -144,14 +144,14 @@
           "requires": ["design-of-single-stage-and-multistage-rc-coupled-amplifier"]
         },
         {
-          "id": "cascode-amplifier",
+          "id": "amplifier-frequency-response",
           "name": "Cascode amplifier",
           "requires": ["analysis-of-cascaded-rc-coupled-amplifiers"]
         },
         {
           "id": "darlington-pair",
           "name": "Darlington pair",
-          "requires": ["cascode-amplifier"]
+          "requires": ["amplifier-frequency-response"]
         },
         {
           "id": "current-mirror",
@@ -195,14 +195,14 @@
           "requires": ["concept-of-feedback"]
         },
         {
-          "id": "effect-on-gain",
+          "id": "feedback-topologies",
           "name": "effect on gain",
           "requires": ["feedback-topology"]
         },
         {
           "id": "bandwidth",
           "name": "bandwidth",
-          "requires": ["effect-on-gain"]
+          "requires": ["feedback-topologies"]
         },
         {
           "id": "input-and-output-resistance",

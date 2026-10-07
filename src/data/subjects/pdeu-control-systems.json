@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ECE): Control Systems",
-    "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "signals",
   "chapters": [
@@ -98,13 +98,13 @@
       "hours": 12,
       "topics": [
         {
-          "id": "nyquist-stability-criterion",
-          "name": "Nyquist stability criterion"
+          "id": "polar-nyquist",
+          "name": "Nyquist stability criterion",
+          "requires": ["bode-plots-control"]
         },
         {
           "id": "bode-plots-control",
-          "name": "Gain and Phase margins, Bode plots, Frequency domain specifications and their correlations with time response, Design and performance goals",
-          "requires": ["nyquist-stability-criterion"]
+          "name": "Gain and Phase margins, Bode plots, Frequency domain specifications and their correlations with time response, Design and performance goals"
         },
         {
           "id": "steady-state-transient-and-robustness-specifications",
@@ -138,14 +138,14 @@
           "requires": ["canonical-state-variable-model"]
         },
         {
-          "id": "solution-of-state-equations",
+          "id": "state-variable-models",
           "name": "Solution of state equations",
           "requires": ["equivalence-to-transfer-function-model-and-conversions"]
         },
         {
           "id": "concepts-of-controllability-and-observability",
           "name": "Concepts of Controllability and Observability",
-          "requires": ["solution-of-state-equations"]
+          "requires": ["state-variable-models"]
         },
         {
           "id": "introduction-to-modern-control-systems-and-way-forward",

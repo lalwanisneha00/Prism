@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ECE): Digital Signal Processing",
-    "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 9 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "signals",
   "chapters": [
@@ -66,19 +66,19 @@
           "requires": ["z-transform"]
         },
         {
-          "id": "poles-zeros",
+          "id": "laplace-systems",
           "name": "Poles- Zeros",
           "requires": ["roc-and-properties"]
         },
         {
-          "id": "inverse-z-transform",
+          "id": "inverse-laplace",
           "name": "Inverse z-transform",
-          "requires": ["poles-zeros"]
+          "requires": ["laplace-transform"]
         },
         {
           "id": "lti-system-analysis-using-z-transform",
           "name": "LTI System Analysis using Z-transform",
-          "requires": ["inverse-z-transform"]
+          "requires": ["inverse-laplace"]
         },
         {
           "id": "dft",

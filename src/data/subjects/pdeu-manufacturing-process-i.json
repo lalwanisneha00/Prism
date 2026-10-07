@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (Mech): Manufacturing Process I",
-    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "mechanics",
   "chapters": [
@@ -140,14 +140,14 @@
           "requires": ["sand-casting"]
         },
         {
-          "id": "investment-casting",
+          "id": "die-investment-casting",
           "name": "investment casting",
-          "requires": ["permanent-casting"]
+          "requires": ["sand-casting"]
         },
         {
           "id": "die-casting",
           "name": "die casting",
-          "requires": ["investment-casting"]
+          "requires": ["die-investment-casting"]
         },
         {
           "id": "centrifugal-casting",
@@ -357,19 +357,19 @@
           "requires": ["soldering-and-brazing-classification-of-welding"]
         },
         {
-          "id": "gas-welding",
+          "id": "arc-welding",
           "name": "gas welding",
           "requires": ["welding-energy-sources-and-their-characteristics"]
         },
         {
-          "id": "arc-welding",
+          "id": "arc-welding-2",
           "name": "ARC welding",
-          "requires": ["gas-welding"]
+          "requires": ["arc-welding"]
         },
         {
           "id": "fluxes-and-coatings",
           "name": "fluxes and coatings",
-          "requires": ["arc-welding"]
+          "requires": ["arc-welding-2"]
         },
         {
           "id": "mig-welding",

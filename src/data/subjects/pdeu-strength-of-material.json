@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (Mech): Strength of Material",
-    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "mechanics",
   "chapters": [
@@ -277,14 +277,14 @@
           "requires": ["determination-of-slope-and-deflection-for-cantilever-and"]
         },
         {
-          "id": "moment-area-method",
+          "id": "macaulay-moment-area",
           "name": "Moment area method",
           "requires": ["u-d-l-uniformly-varying-load-mohrs-theorems"]
         },
         {
           "id": "application-to-simple-cases-including-overhanging-beams",
           "name": "application to simple cases including overhanging beams",
-          "requires": ["moment-area-method"]
+          "requires": ["macaulay-moment-area"]
         },
         {
           "id": "principal-stresses-and-strains-stresses-on-an-inclined",
@@ -373,14 +373,14 @@
           "requires": ["columns-with-other-support-conditions"]
         },
         {
-          "id": "rankines-formula",
+          "id": "columns-struts-sa",
           "name": "Rankine’s Formula",
           "requires": ["limitations-of-eulers-formula"]
         },
         {
           "id": "columns-with-eccentric-axial-loads",
           "name": "Columns with eccentric Axial Loads",
-          "requires": ["rankines-formula"]
+          "requires": ["columns-struts-sa"]
         },
         {
           "id": "secant-formula",

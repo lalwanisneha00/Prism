@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (Mech): Mathematics - II",
-    "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 9 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
   "chapters": [
@@ -45,14 +45,14 @@
           "requires": ["complex-numbers"]
         },
         {
-          "id": "analytic-function",
+          "id": "analytic-functions-cauchy-riemann",
           "name": "Analytic function",
           "requires": ["function-of-a-complex-variable"]
         },
         {
           "id": "cauchy-riemann-equations",
           "name": "Cauchy-Riemann equations",
-          "requires": ["analytic-function"]
+          "requires": ["analytic-functions-cauchy-riemann"]
         },
         {
           "id": "conformal-mapping-and-its-type",
@@ -70,14 +70,14 @@
           "requires": ["some-standard-and-special-conformal-mappings"]
         },
         {
-          "id": "cauchys-integral-theorem",
+          "id": "contour-integrals-cauchy",
           "name": "Cauchy’s integral theorem",
-          "requires": ["line-integrals"]
+          "requires": ["analytic-functions-cauchy-riemann"]
         },
         {
           "id": "cauchys-integral-formula",
           "name": "Cauchy’s Integral formula",
-          "requires": ["cauchys-integral-theorem"]
+          "requires": ["contour-integrals-cauchy"]
         },
         {
           "id": "residue-theorem",

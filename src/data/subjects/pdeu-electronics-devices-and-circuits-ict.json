@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ICT): Electronics Devices and Circuits",
-    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "circuits",
   "chapters": [
@@ -63,14 +63,14 @@
           "requires": ["cut-in-voltage"]
         },
         {
-          "id": "half-wave",
+          "id": "rectifiers",
           "name": "half-wave",
           "requires": ["v-i-characteristics-diode-applications-rectification"]
         },
         {
           "id": "full-wave-and-bridge-rectifier-and-design",
           "name": "full-wave and bridge rectifier and design",
-          "requires": ["half-wave"]
+          "requires": ["rectifiers"]
         },
         {
           "id": "filters",
@@ -205,14 +205,14 @@
           "requires": ["scaling-and-averaging-amplifiers-linear-applications"]
         },
         {
-          "id": "differentiators-and-integrators",
+          "id": "op-amp-integrator-differentiator",
           "name": "Differentiators & Integrators",
-          "requires": ["v-i-and-i-v-converters"]
+          "requires": ["inverting-non-inverting"]
         },
         {
           "id": "active-filters",
           "name": "Active filters Non-linear Applications: Precision Rectifiers",
-          "requires": ["differentiators-and-integrators"]
+          "requires": ["op-amp-integrator-differentiator"]
         },
         {
           "id": "wave-shaping-circuits",

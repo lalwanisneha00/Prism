@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (CE): Operating System",
-    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
   "chapters": [
@@ -136,19 +136,19 @@
           "requires": ["principles-of-concurrency"]
         },
         {
-          "id": "race-condition",
+          "id": "critical-section",
           "name": "Race Condition",
           "requires": ["interprocess-communication-shared-and-message-passing"]
         },
         {
-          "id": "mutual-exclusion",
+          "id": "peterson-mutex",
           "name": "Mutual Exclusion",
-          "requires": ["race-condition"]
+          "requires": ["critical-section"]
         },
         {
           "id": "the-critical-section-problem",
           "name": "the critical section problem",
-          "requires": ["mutual-exclusion"]
+          "requires": ["peterson-mutex"]
         },
         {
           "id": "petersons-solution",

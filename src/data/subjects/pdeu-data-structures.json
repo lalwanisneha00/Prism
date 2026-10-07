@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (CE): Data Structures",
-    "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
   "chapters": [
@@ -117,24 +117,24 @@
           "requires": ["memory-representation"]
         },
         {
-          "id": "traversal-pre-order-in-order-post-order",
+          "id": "binary-tree-traversal",
           "name": "Traversal: pre-order, in-order, post-order",
           "requires": ["types-of-trees-binary-complete-binary-full-perfect"]
         },
         {
           "id": "binary-search-tree",
           "name": "Binary Search Trees",
-          "requires": ["traversal-pre-order-in-order-post-order"]
+          "requires": ["binary-tree-traversal"]
         },
         {
-          "id": "avl-trees",
+          "id": "avl-tree",
           "name": "AVL trees",
           "requires": ["binary-search-tree"]
         },
         {
           "id": "min-max-heap-tree-with-insert-and-delete-operations-for-all",
           "name": "Min-Max Heap tree (with insert and delete operations for all trees)",
-          "requires": ["avl-trees"]
+          "requires": ["avl-tree"]
         },
         {
           "id": "graphs-definition-and-concept",

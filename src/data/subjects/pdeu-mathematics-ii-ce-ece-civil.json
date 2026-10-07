@@ -44,7 +44,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (CE, ECE, Civil): Mathematics - II",
-    "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 9 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
   "chapters": [
@@ -68,14 +68,14 @@
           "requires": ["continuity"]
         },
         {
-          "id": "analytic-function",
+          "id": "analytic-functions-cauchy-riemann",
           "name": "Analytic function",
           "requires": ["differentiability-of-the-function-of-a-complex-variable"]
         },
         {
           "id": "cauchy-riemann-equation-in-cartesian-coordinates",
           "name": "Cauchy-Riemann equation (in Cartesian coordinates)",
-          "requires": ["analytic-function"]
+          "requires": ["analytic-functions-cauchy-riemann"]
         },
         {
           "id": "harmonic-function-and-its-significance",
@@ -98,14 +98,14 @@
           "requires": ["line-integrals"]
         },
         {
-          "id": "cauchy-integral-theorem",
+          "id": "contour-integrals-cauchy",
           "name": "Cauchy integral theorem",
-          "requires": ["contour-integrals"]
+          "requires": ["analytic-functions-cauchy-riemann"]
         },
         {
           "id": "cauchy-integral-formula-cif",
           "name": "Cauchy Integral formula (CIF)",
-          "requires": ["cauchy-integral-theorem"]
+          "requires": ["contour-integrals-cauchy"]
         },
         {
           "id": "cif-for-derivatives",
@@ -113,19 +113,19 @@
           "requires": ["cauchy-integral-formula-cif"]
         },
         {
-          "id": "taylors-series-and-laurent-series",
+          "id": "taylor-laurent-singularities",
           "name": "Taylor’s series and Laurent Series",
-          "requires": ["cif-for-derivatives"]
+          "requires": ["contour-integrals-cauchy"]
         },
         {
           "id": "calculation-of-residues",
           "name": "Calculation of residues",
-          "requires": ["taylors-series-and-laurent-series"]
+          "requires": ["taylor-laurent-singularities"]
         },
         {
           "id": "residue-theorem",
           "name": "Cauchy Residue theorem",
-          "requires": ["calculation-of-residues"]
+          "requires": ["taylor-laurent-singularities"]
         },
         {
           "id": "applications-of-residues-to-evaluate-real-definite-integrals",

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { SourceSchema } from "@/lib/schema";
-import { sourcesForTopic, topicsWithSources, wikipediaUrl } from "@/lib/sources";
+import { searchedSources, sourcesForTopic, topicsWithSources, wikipediaUrl } from "@/lib/sources";
 import { allSubjects as subjects } from "@/lib/subjects";
 
 describe("source map", () => {
@@ -30,6 +30,23 @@ describe("source map", () => {
     expect(wikipediaUrl("Biot–Savart law")).toBe(
       "https://en.wikipedia.org/wiki/Biot%E2%80%93Savart_law",
     );
+  });
+
+  it("searches with the unit as context so the right meaning of a topic is found", async () => {
+    const asked: string[] = [];
+    const found = await searchedSources(
+      "Euler's theorem",
+      "Mathematics - I",
+      async (q) => {
+        asked.push(q);
+        return q.includes("Differential Calculus") ? ["Homogeneous function"] : ["Euler's theorem"];
+      },
+      "Differential Calculus and its Applications",
+    );
+    expect(asked[0]).toBe(
+      "Euler's theorem Differential Calculus and its Applications Mathematics - I",
+    );
+    expect(found.map((f) => f.title)).toContain("Homogeneous function");
   });
 
   it("returns nothing for unknown topics", () => {

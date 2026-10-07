@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (CE): Compiler Design",
-    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "chapters": [
     {
@@ -137,13 +137,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "syntax-directed-definition",
+          "id": "syntax-directed-translation",
           "name": "Syntax Directed Definition"
         },
         {
           "id": "s-attributed-and-l-attributed-definitions",
           "name": "S-attributed and L-attributed Definitions",
-          "requires": ["syntax-directed-definition"]
+          "requires": ["syntax-directed-translation"]
         },
         {
           "id": "evaluation-order",
@@ -182,14 +182,14 @@
           "name": "Storage allocation strategies"
         },
         {
-          "id": "parameter-passing",
+          "id": "runtime-environment",
           "name": "Parameter passing",
           "requires": ["storage-allocation-strategies"]
         },
         {
           "id": "type-checking",
           "name": "Type checking",
-          "requires": ["parameter-passing"]
+          "requires": ["syntax-directed-translation"]
         },
         {
           "id": "data-flow-analysis-basic-blocks-and-flow-graphs",

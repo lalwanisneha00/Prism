@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ICT): Fundamentals of Signal Processing & Communication",
-    "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "signals",
   "chapters": [
@@ -66,7 +66,7 @@
         {
           "id": "fourier-transform",
           "name": "Fourier transform",
-          "requires": ["convergence-and-truncation"]
+          "requires": ["fourier-series-signals"]
         },
         {
           "id": "signal-spectra",
@@ -223,7 +223,8 @@
       "topics": [
         {
           "id": "sampling-theorem",
-          "name": "Sampling and Sampling theorem"
+          "name": "Sampling and Sampling theorem",
+          "requires": ["fourier-transform"]
         },
         {
           "id": "reconstruction",
@@ -256,14 +257,14 @@
           "requires": ["convolution-sum"]
         },
         {
-          "id": "stability-and-causality",
+          "id": "system-properties",
           "name": "Stability and causality",
           "requires": ["linear-constant-co-efficient-difference-equation"]
         },
         {
           "id": "discrete-time-vs-digital-signal-processing",
           "name": "Discrete time vs. digital signal processing",
-          "requires": ["stability-and-causality"]
+          "requires": ["system-properties"]
         },
         {
           "id": "concept-of-quantization",

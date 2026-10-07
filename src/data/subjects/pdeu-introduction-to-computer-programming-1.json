@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (Civil): Introduction to Computer Programming - 1",
-    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
   "chapters": [
@@ -68,14 +68,14 @@
           "requires": ["float"]
         },
         {
-          "id": "types-of-operators",
+          "id": "operators-precedence",
           "name": "types of Operators",
           "requires": ["char"]
         },
         {
           "id": "operator-precedence-and-associativity",
           "name": "Operator precedence and associativity",
-          "requires": ["types-of-operators"]
+          "requires": ["operators-precedence"]
         }
       ]
     },
@@ -89,14 +89,14 @@
           "name": "Control Structures – if"
         },
         {
-          "id": "if-else",
+          "id": "conditionals",
           "name": "if-else",
-          "requires": ["control-structures-if"]
+          "requires": ["operators-precedence"]
         },
         {
           "id": "if-elseif-ladder",
           "name": "if-elseif ladder",
-          "requires": ["if-else"]
+          "requires": ["conditionals"]
         },
         {
           "id": "nested-if",
@@ -109,14 +109,14 @@
           "requires": ["nested-if"]
         },
         {
-          "id": "while-loop",
+          "id": "loops",
           "name": "while loop",
-          "requires": ["switch-statement-and-loop-structure-for-loop"]
+          "requires": ["conditionals"]
         },
         {
           "id": "do-while-loop-built-in-functions",
           "name": "do-while loop. Built-in functions",
-          "requires": ["while-loop"]
+          "requires": ["loops"]
         },
         {
           "id": "user-defined-functions",
@@ -155,19 +155,19 @@
           "requires": ["declaration-and-initialization-of-arrays"]
         },
         {
-          "id": "one-dimensional",
+          "id": "one-d-arrays",
           "name": "One-dimensional",
           "requires": ["accessing-array-elements"]
         },
         {
           "id": "two-dimensional-and-three-dimensional-arrays",
           "name": "Two-dimensional and Three-dimensional arrays",
-          "requires": ["one-dimensional"]
+          "requires": ["one-d-arrays"]
         },
         {
           "id": "strings-c",
           "name": "String operations on Character arrays",
-          "requires": ["two-dimensional-and-three-dimensional-arrays"]
+          "requires": ["one-d-arrays"]
         },
         {
           "id": "in-built-string-functions",
@@ -211,14 +211,14 @@
           "requires": ["declaring-a-structure"]
         },
         {
-          "id": "array-of-structures",
+          "id": "structures-unions",
           "name": "Array of Structures",
           "requires": ["accessing-structure-elements"]
         },
         {
           "id": "basic-file-operations",
           "name": "Basic file operations",
-          "requires": ["array-of-structures"]
+          "requires": ["structures-unions"]
         },
         {
           "id": "file-creation",

@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ICT): Theory of Computation & Compiler Design",
-    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 8 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
   "chapters": [
@@ -43,24 +43,24 @@
           "requires": ["fundamentals-of-formal-languages-grammars-and-computation"]
         },
         {
-          "id": "finite-automata",
+          "id": "dfa",
           "name": "Finite Automata",
           "requires": ["compiler-phases"]
         },
         {
           "id": "regular-language-and-regular-expressions",
           "name": "Regular Language and Regular Expressions",
-          "requires": ["finite-automata"]
+          "requires": ["dfa"]
         },
         {
-          "id": "dfa",
+          "id": "deterministic-and-non-deterministic-finite-automata",
           "name": "Deterministic and Non-deterministic Finite Automata",
           "requires": ["regular-language-and-regular-expressions"]
         },
         {
           "id": "minimization-of-dfa",
           "name": "Minimization of DFA",
-          "requires": ["dfa"]
+          "requires": ["deterministic-and-non-deterministic-finite-automata"]
         },
         {
           "id": "conversion-of-re-to-dfa-using-ardens-formula",
@@ -68,14 +68,14 @@
           "requires": ["minimization-of-dfa"]
         },
         {
-          "id": "pumping-lemma",
+          "id": "pumping-lemma-regular",
           "name": "Pumping Lemma",
-          "requires": ["conversion-of-re-to-dfa-using-ardens-formula"]
+          "requires": ["dfa"]
         },
         {
           "id": "design-lexical-analyser-using-finite-automata",
           "name": "Design Lexical Analyser using Finite Automata",
-          "requires": ["pumping-lemma"]
+          "requires": ["pumping-lemma-regular"]
         }
       ]
     },
@@ -119,14 +119,14 @@
           "requires": ["parse-tress"]
         },
         {
-          "id": "normal-forms",
+          "id": "normal-forms-cfg",
           "name": "Normal Forms",
           "requires": ["ambiguity-in-languages"]
         },
         {
           "id": "context-free-language-cfl",
           "name": "Context Free Language (CFL)",
-          "requires": ["normal-forms"]
+          "requires": ["normal-forms-cfg"]
         },
         {
           "id": "pumping-lemma-for-cfl",
@@ -166,13 +166,13 @@
       "hours": 9,
       "topics": [
         {
-          "id": "turing-machines",
+          "id": "turing-machine",
           "name": "Turing Machines"
         },
         {
           "id": "recursive-and-recursively-enumerable-languages",
           "name": "Recursive and recursively enumerable languages",
-          "requires": ["turing-machines"]
+          "requires": ["turing-machine"]
         },
         {
           "id": "chomsky-hierarchy",
@@ -180,19 +180,19 @@
           "requires": ["recursive-and-recursively-enumerable-languages"]
         },
         {
-          "id": "halting-problem",
+          "id": "decidability",
           "name": "Halting problem",
-          "requires": ["chomsky-hierarchy"]
+          "requires": ["church-turing"]
         },
         {
-          "id": "universal-turing-machine",
+          "id": "church-turing",
           "name": "Universal Turing Machine",
-          "requires": ["halting-problem"]
+          "requires": ["turing-machine"]
         },
         {
           "id": "the-classes-p-and-np",
           "name": "The Classes P and NP",
-          "requires": ["universal-turing-machine"]
+          "requires": ["church-turing"]
         },
         {
           "id": "an-np-complete-problem",

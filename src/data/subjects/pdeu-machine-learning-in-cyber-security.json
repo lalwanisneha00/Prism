@@ -27,7 +27,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (CE): Machine Learning in Cyber Security",
-    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
   "chapters": [
@@ -213,14 +213,14 @@
           "requires": ["machine-learning-applications-in-cyber-security-and-cyber"]
         },
         {
-          "id": "supervised-learning",
+          "id": "types-of-learning",
           "name": "Supervised Learning",
           "requires": ["classification-and-clustering"]
         },
         {
           "id": "unsupervised-learning",
           "name": "Unsupervised Learning",
-          "requires": ["supervised-learning"]
+          "requires": ["types-of-learning"]
         },
         {
           "id": "evaluation-metrics",
@@ -243,24 +243,24 @@
           "requires": ["naive-bayes"]
         },
         {
-          "id": "support-vector-machine",
+          "id": "svm",
           "name": "Support Vector Machine",
           "requires": ["logistic-regression"]
         },
         {
           "id": "random-forest",
           "name": "Random Forest",
-          "requires": ["support-vector-machine"]
+          "requires": ["svm"]
         },
         {
           "id": "knn",
           "name": "K Nearest Neighbour Classifier",
-          "requires": ["random-forest"]
+          "requires": ["types-of-learning"]
         },
         {
           "id": "k-means",
           "name": "K-mean Clustering",
-          "requires": ["knn"]
+          "requires": ["types-of-learning"]
         },
         {
           "id": "pca",

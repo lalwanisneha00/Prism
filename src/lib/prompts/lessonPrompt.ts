@@ -132,12 +132,14 @@ THE STUDENT'S OWN NOTES:
 `
     : "";
 
+  const syllabusContext = syllabusContextFor(request);
+
   const prompt = `Write a lesson.
 
 SUBJECT: ${request.subject.name} (${request.subject.field})
 CHAPTER: ${request.chapter.name}
 TOPIC: ${request.topic.name}
-LEVEL: ${request.level.name} (${request.level.forWho})
+${syllabusContext}LEVEL: ${request.level.name} (${request.level.forWho})
 TIME BUDGET: ${request.duration} minutes
 
 SIZE:
@@ -207,4 +209,25 @@ PREVIOUS REPLY:
 ${previousReply.slice(0, 30000)}
 
 Return the complete corrected JSON object, fixing every problem above.`;
+}
+
+/**
+ * Where the topic sits in the student's course. A topic name alone can mean several things ("Euler's
+ * theorem" is a calculus result on homogeneous functions, a number-theory result and more), so the
+ * lesson is told the unit and its neighbouring topics, and to teach the meaning that belongs there.
+ */
+export function syllabusContextFor(request: LessonRequest): string {
+  const others = request.chapter.topics
+    .filter((t) => t.id !== request.topic.id)
+    .map((t) => t.name)
+    .slice(0, 25);
+  const where =
+    request.subject.university === "pdeu"
+      ? `This topic is a line of the syllabus of the course "${request.subject.name}" at Pandit Deendayal Energy University (PDEU).`
+      : `This topic belongs to the subject "${request.subject.name}".`;
+  return `SYLLABUS CONTEXT (stay on it):
+- ${where} It is in the unit "${request.chapter.name}"${others.length ? `, taught together with: ${others.join("; ")}` : ""}.
+- Teach the meaning of the topic that belongs in this unit and subject. If the name could mean something else elsewhere (another field, or another chapter of mathematics), do not teach that other meaning, and do not stray into the other topics of the unit.
+- Cover what the syllabus line names, the way a lecturer of this course would teach it to these students, using the notation of the SOURCES.
+`;
 }

@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (Petro): Mathematics - I",
-    "note": "Units and topics are PDEU's, copied from the handbook. 12 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 14 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
   "chapters": [
@@ -40,19 +40,19 @@
           "name": "Partial derivative and its application"
         },
         {
-          "id": "eulers-theorem",
+          "id": "eulers-theorem-homogeneous",
           "name": "Euler’s theorem",
           "requires": ["partial-derivatives"]
         },
         {
-          "id": "total-derivatives",
+          "id": "total-derivative-chain-rule",
           "name": "Total derivatives",
-          "requires": ["eulers-theorem"]
+          "requires": ["partial-derivatives"]
         },
         {
           "id": "jacobians",
           "name": "Jacobians",
-          "requires": ["total-derivatives"]
+          "requires": ["total-derivative-chain-rule"]
         },
         {
           "id": "maxima-minima-two-variables",

@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ECE): Electromagnetics and Transmission Lines",
-    "note": "Units and topics are PDEU's, copied from the handbook. 8 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 11 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "physics",
   "chapters": [
@@ -40,14 +40,14 @@
           "name": "Co-ordinate systems"
         },
         {
-          "id": "coulomb-s-law",
+          "id": "coulombs-law",
           "name": "Coulomb„s law",
           "requires": ["co-ordinate-systems"]
         },
         {
           "id": "electric-field-intensity",
           "name": "Electric field Intensity",
-          "requires": ["coulomb-s-law"]
+          "requires": ["coulombs-law"]
         },
         {
           "id": "fields-due-to-different-charge-distributions",
@@ -358,14 +358,14 @@
           "requires": ["illustrative-problems-input-impedance-relations"]
         },
         {
-          "id": "reflection-coefficient",
+          "id": "reflection-vswr",
           "name": "Reflection Coefficient",
           "requires": ["sc-and-oc-lines"]
         },
         {
           "id": "vswr",
           "name": "VSWR",
-          "requires": ["reflection-coefficient"]
+          "requires": ["reflection-vswr"]
         },
         {
           "id": "uhf-lines-as-circuit-elements",
@@ -390,7 +390,7 @@
         {
           "id": "smith-chart",
           "name": "Smith Chart-Configuration and Applications",
-          "requires": ["significance-of-zmin-and-zmax"]
+          "requires": ["reflection-vswr"]
         },
         {
           "id": "single-and-double-stub-matching",

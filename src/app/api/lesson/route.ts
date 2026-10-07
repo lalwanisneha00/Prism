@@ -153,8 +153,9 @@ export async function POST(req: Request) {
               ? curated
               : await searchedSources(
                   request.topic.name.slice(0, 120),
-                  request.subject.name,
+                  request.subject.name.replace(/\s*\(.*$/, ""),
                   (q, limit) => searchWikipedia(q, limit, { signal: req.signal }),
+                  request.chapter.name,
                 ),
             { signal: req.signal },
           )),

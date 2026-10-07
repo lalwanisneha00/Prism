@@ -214,6 +214,35 @@ function analyse(c, core) {
       ot: keys.size / (subjectTotals.get(id) || 1),
     }))
     .sort((a, b) => b.n - a.n);
+  // Second pass, in the course's own context: a PDEU topic that is only a shortened form of an existing
+  // topic of a subject this course draws on ("Euler's theorem" in Mathematics I is the existing
+  // "Euler's theorem on homogeneous functions") reuses that topic. Only subjects already matched to the
+  // course are searched, so a short name is never matched to an unrelated subject.
+  const candidateIds = new Set(ranked.filter((r) => r.n >= 2).slice(0, 3).map((r) => r.id));
+  for (const sub of subjects.values()) {
+    const a = new Set(nameKey(sub.name).split(" ").filter(Boolean));
+    const b = new Set(nameKey(c.name).split(" ").filter(Boolean));
+    const inter = [...a].filter((x) => b.has(x)).length;
+    if (a.size && b.size && inter / new Set([...a, ...b]).size >= 0.6) candidateIds.add(sub.id);
+  }
+  for (const u of unitsOut) {
+    for (const t of u.topics) {
+      if (t.existing.length > 0) continue;
+      const tw = [...new Set(words(t.name))];
+      if (tw.length < 2) continue;
+      const hit = bank.filter(
+        (o) =>
+          candidateIds.has(o.subject) &&
+          tw.every((w) => o.words.includes(w)) &&
+          o.words.length <= tw.length + 3,
+      );
+      if (hit.length > 0) {
+        t.existing = [...new Set(hit.map((h) => h.key))].slice(0, 2);
+        t.contextual = true;
+        matched++;
+      }
+    }
+  }
   const best = ranked[0];
   const second = ranked[1];
   const pt = total ? matched / total : 0;

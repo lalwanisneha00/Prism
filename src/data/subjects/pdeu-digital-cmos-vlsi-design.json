@@ -2,7 +2,7 @@
   "id": "pdeu-digital-cmos-vlsi-design",
   "name": "Digital CMOS VLSI Design",
   "field": "Electronics Engineering",
-  "tier": "limited",
+  "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
   "branches": ["ece"],
@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ECE): Digital CMOS VLSI Design",
-    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "circuits",
   "chapters": [
@@ -60,13 +60,13 @@
       "hours": 12,
       "topics": [
         {
-          "id": "rc-delay-model",
+          "id": "rc-delay-logical-effort",
           "name": "RC Delay Model"
         },
         {
           "id": "linear-delay-model",
           "name": "Linear Delay Model",
-          "requires": ["rc-delay-model"]
+          "requires": ["rc-delay-logical-effort"]
         },
         {
           "id": "logical-effort",
@@ -89,14 +89,14 @@
           "requires": ["delay-in-a-logic-gate"]
         },
         {
-          "id": "dynamic-power",
+          "id": "cmos-power",
           "name": "Dynamic Power",
           "requires": ["delay-in-multistage-logic-networks-timing-analysis-delay"]
         },
         {
           "id": "static-power",
           "name": "Static Power",
-          "requires": ["dynamic-power"]
+          "requires": ["cmos-power"]
         },
         {
           "id": "energy-delay-optimization",

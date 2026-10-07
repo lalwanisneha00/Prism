@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ECE): Linear Integrated Circuits and Applications",
-    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "circuits",
   "chapters": [
@@ -68,7 +68,7 @@
           "requires": ["ideal-voltage-transfer-curve"]
         },
         {
-          "id": "virtual-ground",
+          "id": "ideal-op-amp",
           "name": "Virtual ground",
           "requires": ["op-amp-ac-and-dc-parameters"]
         }
@@ -81,7 +81,8 @@
       "topics": [
         {
           "id": "inverting-non-inverting",
-          "name": "Inverting and non- inverting amplifiers"
+          "name": "Inverting and non- inverting amplifiers",
+          "requires": ["ideal-op-amp"]
         },
         {
           "id": "voltage-follower",

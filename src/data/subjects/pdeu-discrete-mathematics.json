@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (CE): Discrete Mathematics",
-    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
   "chapters": [
@@ -202,14 +202,14 @@
           "requires": ["labeled-and-weighted-graphs-complete"]
         },
         {
-          "id": "planar-graphs",
+          "id": "graph-colouring-planar",
           "name": "Planar graphs",
           "requires": ["regular-and-bipartite-graphs"]
         },
         {
           "id": "graph-coloring-four-color-problem-directed-graphs",
           "name": "Graph coloring. Four color problem. Directed graphs",
-          "requires": ["planar-graphs"]
+          "requires": ["graph-colouring-planar"]
         },
         {
           "id": "strongly-and-weakly-connected-graphs",
@@ -283,14 +283,14 @@
           "requires": ["order-of-a-group"]
         },
         {
-          "id": "cyclic-group",
+          "id": "groups",
           "name": "Cyclic Group",
           "requires": ["order-of-its-elements"]
         },
         {
           "id": "generator",
           "name": "Generator",
-          "requires": ["cyclic-group"]
+          "requires": ["groups"]
         },
         {
           "id": "lagranges-theorem-ring",
@@ -303,14 +303,14 @@
           "requires": ["lagranges-theorem-ring"]
         },
         {
-          "id": "integral-domain",
+          "id": "rings-fields",
           "name": "Integral Domain",
-          "requires": ["properties-of-rings"]
+          "requires": ["groups"]
         },
         {
           "id": "field",
           "name": "Field",
-          "requires": ["integral-domain"]
+          "requires": ["rings-fields"]
         }
       ]
     }

@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (Petro): Mathematics - II",
-    "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 9 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
   "chapters": [
@@ -50,14 +50,14 @@
           "requires": ["continuity"]
         },
         {
-          "id": "analytic-function",
+          "id": "analytic-functions-cauchy-riemann",
           "name": "Analytic function",
           "requires": ["differentiability-of-the-function-of-a-complex-variable"]
         },
         {
           "id": "cauchy-riemann-equation-in-cartesian-coordinates",
           "name": "Cauchy-Riemann equation (in Cartesian coordinates)",
-          "requires": ["analytic-function"]
+          "requires": ["analytic-functions-cauchy-riemann"]
         },
         {
           "id": "harmonic-function-and-its-significance",
@@ -70,14 +70,14 @@
           "requires": ["harmonic-function-and-its-significance"]
         },
         {
-          "id": "taylors-series",
+          "id": "taylor-maclaurin",
           "name": "Taylor’s series",
           "requires": ["singularities"]
         },
         {
           "id": "line-integrals",
           "name": "Definition of a Complex line integral",
-          "requires": ["taylors-series"]
+          "requires": ["taylor-maclaurin"]
         },
         {
           "id": "contour-integrals",
@@ -85,14 +85,14 @@
           "requires": ["line-integrals"]
         },
         {
-          "id": "cauchy-integral-theorem",
+          "id": "contour-integrals-cauchy",
           "name": "Cauchy integral theorem",
-          "requires": ["contour-integrals"]
+          "requires": ["analytic-functions-cauchy-riemann"]
         },
         {
           "id": "cauchy-integral-formula-cif",
           "name": "Cauchy Integral formula (CIF)",
-          "requires": ["cauchy-integral-theorem"]
+          "requires": ["contour-integrals-cauchy"]
         },
         {
           "id": "cif-for-derivatives",

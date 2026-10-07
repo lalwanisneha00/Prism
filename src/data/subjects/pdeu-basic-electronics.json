@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (Mech): Basic Electronics",
-    "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 10 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "circuits",
   "chapters": [
@@ -65,14 +65,14 @@
           "requires": ["pn-junction-physics"]
         },
         {
-          "id": "v-i-characteristics-of-diode",
+          "id": "pn-junction-diode",
           "name": "V/I Characteristics of Diode",
-          "requires": ["biasing-of-p-n-junction-diode"]
+          "requires": ["semiconductor-intro"]
         },
         {
           "id": "diode-rectifier-circuits-half-wave-and-full-wave",
           "name": "Diode Rectifier Circuits (Half Wave and Full Wave)",
-          "requires": ["v-i-characteristics-of-diode"]
+          "requires": ["pn-junction-diode"]
         },
         {
           "id": "diode-rectifiers-with-capacitor-filter",
@@ -80,14 +80,14 @@
           "requires": ["diode-rectifier-circuits-half-wave-and-full-wave"]
         },
         {
-          "id": "zener-diode",
+          "id": "breakdown-zener",
           "name": "Zener Diode",
-          "requires": ["diode-rectifiers-with-capacitor-filter"]
+          "requires": ["pn-junction-diode"]
         },
         {
           "id": "v-i-characteristic-of-zener-diode",
           "name": "V/I Characteristic of Zener diode",
-          "requires": ["zener-diode"]
+          "requires": ["breakdown-zener"]
         },
         {
           "id": "voltage-regulators",
@@ -146,14 +146,14 @@
           "requires": ["mos-switch"]
         },
         {
-          "id": "ce-and-cc-configurations",
+          "id": "bjt-configurations",
           "name": "CE and CC Configurations",
           "requires": ["transistor-as-an-amplifier-cb"]
         },
         {
           "id": "input-and-output-characteristics",
           "name": "Input and Output Characteristics",
-          "requires": ["ce-and-cc-configurations"]
+          "requires": ["bjt-configurations"]
         },
         {
           "id": "transistor-biasing",
@@ -184,7 +184,7 @@
         {
           "id": "inverting-non-inverting",
           "name": "Inverting and Non- Inverting Amplifier",
-          "requires": ["concept-of-feedback"]
+          "requires": ["ideal-op-amp"]
         },
         {
           "id": "differential-amplifier",
@@ -192,14 +192,13 @@
           "requires": ["inverting-non-inverting"]
         },
         {
-          "id": "virtual-ground",
-          "name": "Virtual Ground",
-          "requires": ["differential-amplifier"]
+          "id": "ideal-op-amp",
+          "name": "Virtual Ground"
         },
         {
           "id": "adder",
           "name": "Adder",
-          "requires": ["virtual-ground"]
+          "requires": ["ideal-op-amp"]
         },
         {
           "id": "subtractor",
@@ -212,14 +211,14 @@
           "requires": ["subtractor"]
         },
         {
-          "id": "integrator-and-differentiator",
+          "id": "op-amp-integrator-differentiator",
           "name": "Integrator and Differentiator",
-          "requires": ["comparator"]
+          "requires": ["inverting-non-inverting"]
         },
         {
           "id": "zero-crossing-detector",
           "name": "Zero Crossing Detector",
-          "requires": ["integrator-and-differentiator"]
+          "requires": ["op-amp-integrator-differentiator"]
         },
         {
           "id": "voltage-follower",
@@ -268,14 +267,14 @@
           "requires": ["implementation-of-boolean-expressions-using-logic-gates"]
         },
         {
-          "id": "pos-and-sop-forms",
+          "id": "standard-forms-truth-tables",
           "name": "POS and SOP forms",
           "requires": ["standard-and-canonical-forms-of-boolean-expression"]
         },
         {
           "id": "simplification-of-boolean-expressions-using-k-map",
           "name": "Simplification of Boolean expressions using K-map",
-          "requires": ["pos-and-sop-forms"]
+          "requires": ["standard-forms-truth-tables"]
         },
         {
           "id": "basics-of-flip-flops-and-its-applications",

@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ICT): Data Structures and Algorithms",
-    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
   "chapters": [
@@ -53,24 +53,24 @@
           "requires": ["deletion"]
         },
         {
-          "id": "asymptotic-notations",
+          "id": "asymptotic-notation",
           "name": "Asymptotic Notations",
           "requires": ["traversal-etc-analysis-of-an-algorithm"]
         },
         {
           "id": "linear-binary-search",
           "name": "Time-Space trade off Searching: Linear Search and Binary Search Techniques and their complexity analysis",
-          "requires": ["asymptotic-notations"]
+          "requires": ["asymptotic-notation"]
         },
         {
-          "id": "stacks-and-queues",
+          "id": "linked-stack-queue",
           "name": "Stacks and Queues",
           "requires": ["linear-binary-search"]
         },
         {
           "id": "applications-of-stacks-expression-conversion-and-evaluation",
           "name": "Applications of Stacks: Expression Conversion and evaluation corresponding algorithms and complexity analysis",
-          "requires": ["stacks-and-queues"]
+          "requires": ["linked-stack-queue"]
         }
       ]
     },
@@ -109,14 +109,14 @@
           "requires": ["polish-expression"]
         },
         {
-          "id": "circular-queue",
+          "id": "queue-types",
           "name": "Circular Queue",
           "requires": ["reverse-polish-expression-and-their-compilation-queue"]
         },
         {
           "id": "priority-queue",
           "name": "Priority Queue",
-          "requires": ["circular-queue"]
+          "requires": ["queue-types"]
         },
         {
           "id": "array-representation-of-priority-queue",
@@ -134,14 +134,14 @@
           "requires": ["double-ended-queue"]
         },
         {
-          "id": "circular-linked-list",
+          "id": "doubly-circular-lists",
           "name": "Circular linked list",
           "requires": ["applications-of-queue-linked-list-singly-and-doubly-linked"]
         },
         {
           "id": "linked-implementation-of-stack",
           "name": "Linked implementation of Stack",
-          "requires": ["circular-linked-list"]
+          "requires": ["doubly-circular-lists"]
         },
         {
           "id": "linked-implementation-of-queue",

@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (CE): Computer Organization and Architecture",
-    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
   "chapters": [
@@ -105,14 +105,14 @@
           "requires": ["microcontroller"]
         },
         {
-          "id": "instruction-set-architecture",
+          "id": "intel-8085",
           "name": "Instruction Set Architecture",
           "requires": ["comparison-with-microprocessor"]
         },
         {
           "id": "mips-instructions-format",
           "name": "MIPS Instructions format",
-          "requires": ["instruction-set-architecture"]
+          "requires": ["intel-8085"]
         }
       ]
     },
@@ -141,14 +141,14 @@
           "requires": ["register-configuration-of-2s-complement-addition-subtraction"]
         },
         {
-          "id": "booths-multiplication-algorithm",
+          "id": "booth-multiplication",
           "name": "Booth’s multiplication algorithm",
           "requires": ["signed-magnitude-multiplication-algorithm"]
         },
         {
           "id": "addressing-modes",
           "name": "Addressing Modes",
-          "requires": ["booths-multiplication-algorithm"]
+          "requires": ["booth-multiplication"]
         },
         {
           "id": "immediate",
@@ -243,14 +243,14 @@
           "requires": ["case-studies-and-examples-showcasing-real-world-applications"]
         },
         {
-          "id": "language-programming",
+          "id": "assembly-programming",
           "name": "language programming",
-          "requires": ["tutorial-2-real-world-examples-and-applications-of-different"]
+          "requires": ["intel-8085"]
         },
         {
           "id": "numerical-problem-solving-on-different-addressing-modes",
           "name": "Numerical problem solving on different addressing modes",
-          "requires": ["language-programming"]
+          "requires": ["assembly-programming"]
         },
         {
           "id": "exercises-to-implement-subroutine-calls-using-various",

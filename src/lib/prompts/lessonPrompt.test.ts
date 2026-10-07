@@ -87,3 +87,22 @@ describe("programming and numerical subjects (V3 · Step 5)", () => {
     expect(p).not.toContain("NUMERICAL SUBJECT");
   });
 });
+
+describe("syllabus context (on-point lessons)", () => {
+  it("tells the lesson the unit, the neighbouring topics and to keep the meaning of this course", () => {
+    const r = validateLessonRequest({
+      subject: "pdeu-mathematics-i-ce-ece-civil",
+      chapter: "differential-calculus-and-its-applications",
+      topic: "eulers-theorem-homogeneous",
+      level: "exam-prep",
+      duration: "10",
+    });
+    if (!r.ok) throw new Error(JSON.stringify(r.errors));
+    const p = buildLessonPrompt(r.request, [source]).prompt;
+    expect(p).toContain("SYLLABUS CONTEXT");
+    expect(p).toContain("Pandit Deendayal Energy University");
+    expect(p).toContain('unit "Differential Calculus and its Applications"');
+    expect(p).toContain("Jacobians");
+    expect(p).toContain("do not teach that other meaning");
+  });
+});

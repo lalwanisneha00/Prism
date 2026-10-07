@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (Petro): Petroleum Refinery Engineering",
-    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "process",
   "chapters": [
@@ -113,13 +113,14 @@
       "hours": 10,
       "topics": [
         {
-          "id": "thermal-cracking",
-          "name": "Thermal cracking"
+          "id": "thermal-cracking-coking",
+          "name": "Thermal cracking",
+          "requires": ["vacuum-distillation"]
         },
         {
           "id": "processes-operating-parameters-feed-stock-selection-and",
           "name": "Processes, operating parameters, feed stock selection and product yields, Advantages –Types and functions of secondary processing",
-          "requires": ["thermal-cracking"]
+          "requires": ["thermal-cracking-coking"]
         },
         {
           "id": "visbreaking",
@@ -134,7 +135,7 @@
         {
           "id": "fcc",
           "name": "Fluid catalytic cracking –processes, operating parameters, feed stock selection and product yields –Advantages",
-          "requires": ["processes-operating-parameters-and-advantages-coking"]
+          "requires": ["thermal-cracking-coking"]
         }
       ]
     },

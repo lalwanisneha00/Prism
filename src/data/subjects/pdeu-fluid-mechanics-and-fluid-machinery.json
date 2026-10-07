@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (Mech): Fluid Mechanics and Fluid Machinery",
-    "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "fluids",
   "chapters": [
@@ -75,14 +75,14 @@
           "requires": ["convective"]
         },
         {
-          "id": "velocity-potential",
+          "id": "stream-function-potential",
           "name": "velocity potential",
           "requires": ["local-and-total-acceleration"]
         },
         {
           "id": "stream-function",
           "name": "stream function",
-          "requires": ["velocity-potential"]
+          "requires": ["stream-function-potential"]
         },
         {
           "id": "navier-stokes-intro",
@@ -332,14 +332,14 @@
           "requires": ["performance-characteristics-propeller-and-kaplan-turbines"]
         },
         {
-          "id": "kaplan-turbine",
+          "id": "pelton-francis-kaplan",
           "name": "Kaplan turbine",
           "requires": ["construction-and-operation-of-a-propeller"]
         },
         {
           "id": "differences-between-the-francis-and-kaplan-turbines",
           "name": "differences between the Francis and Kaplan turbines",
-          "requires": ["kaplan-turbine"]
+          "requires": ["pelton-francis-kaplan"]
         },
         {
           "id": "draft-tube-its-function-and-different-forms",

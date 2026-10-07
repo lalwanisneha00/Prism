@@ -102,10 +102,22 @@ export async function searchedSources(
   topicName: string,
   subjectName: string,
   search: (query: string, limit: number) => Promise<string[]>,
+  /** The unit (chapter) the topic is in: it tells the search which meaning of the topic is meant. */
+  unitName?: string,
 ): Promise<Source[]> {
-  const titles = await search(`${topicName} ${subjectName}`, 2);
-  const fallback = titles.length ? [] : await search(topicName, 2);
-  return [...new Set([...titles, ...fallback])].map((title) => ({
+  // Most specific first: topic + unit + subject finds "Homogeneous function" for "Euler's theorem"
+  // in a calculus unit, where the topic alone finds number theory.
+  const queries = [
+    ...(unitName ? [`${topicName} ${unitName} ${subjectName}`] : []),
+    `${topicName} ${subjectName}`,
+  ];
+  const titles: string[] = [];
+  for (const q of queries) {
+    for (const t of await search(q, 2)) if (!titles.includes(t)) titles.push(t);
+    if (titles.length >= 2) break;
+  }
+  if (titles.length === 0) titles.push(...(await search(topicName, 2)));
+  return titles.slice(0, 3).map((title) => ({
     id: `wikipedia-${slugify(title)}`,
     title,
     url: wikipediaUrl(title),

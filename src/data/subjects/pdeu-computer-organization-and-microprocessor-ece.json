@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ECE): Computer Organization and Microprocessor",
-    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "chapters": [
     {
@@ -59,14 +59,14 @@
           "requires": ["register-transfer-language"]
         },
         {
-          "id": "instruction-format",
+          "id": "addressing-modes",
           "name": "instruction format",
-          "requires": ["stored-program-organization"]
+          "requires": ["instruction-cycle"]
         },
         {
           "id": "common-bus-system",
           "name": "common bus system",
-          "requires": ["instruction-format"]
+          "requires": ["addressing-modes"]
         },
         {
           "id": "instruction-set-completeness-timing-and-control",
@@ -75,8 +75,7 @@
         },
         {
           "id": "instruction-cycle",
-          "name": "instruction cycle",
-          "requires": ["instruction-set-completeness-timing-and-control"]
+          "name": "instruction cycle"
         },
         {
           "id": "types-of-instructions",
@@ -146,14 +145,14 @@
           "requires": ["evolution-of-microprocessor"]
         },
         {
-          "id": "instruction-set",
+          "id": "intel-8085",
           "name": "instruction set",
           "requires": ["pin-diagram-signals-and-register-set-of-8086-addressing"]
         },
         {
           "id": "assembly-programming",
           "name": "assembly language programming",
-          "requires": ["instruction-set"]
+          "requires": ["intel-8085"]
         },
         {
           "id": "counters-and-time-delays",

@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ECE): Electronics Devices and Circuits",
-    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "chapters": [
     {
@@ -37,14 +37,14 @@
           "name": "Evolution and scope of semiconductor devices and technology"
         },
         {
-          "id": "drift-velocity",
+          "id": "current-drift-velocity",
           "name": "Drift velocity",
           "requires": ["evolution-and-scope-of-semiconductor-devices-and-technology"]
         },
         {
           "id": "einstein-relation",
           "name": "Einstein relation",
-          "requires": ["drift-velocity"]
+          "requires": ["current-drift-velocity"]
         },
         {
           "id": "conductivity",
@@ -102,9 +102,9 @@
           "requires": ["temperature-dependence-on-carrier-concentrations"]
         },
         {
-          "id": "carrier-generation-and-recombination",
+          "id": "carrier-transport",
           "name": "Carrier generation and recombination",
-          "requires": ["mobility"]
+          "requires": ["intrinsic-extrinsic-semiconductors"]
         }
       ]
     },
@@ -115,7 +115,8 @@
       "topics": [
         {
           "id": "pn-junction-physics",
-          "name": "Junctions: Metal/Semiconductor (Schottky barrier height, rectifying and ohmic contacts)"
+          "name": "Junctions: Metal/Semiconductor (Schottky barrier height, rectifying and ohmic contacts)",
+          "requires": ["carrier-transport"]
         },
         {
           "id": "mathematical-derivation-of-the-potential-barrier",

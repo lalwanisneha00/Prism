@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (Civil): Physics",
-    "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 10 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "physics",
   "chapters": [
@@ -48,14 +48,14 @@
           "requires": ["vector-fields-and-scalar-fields"]
         },
         {
-          "id": "divergence-and-curl",
+          "id": "gradient-divergence-curl",
           "name": "Divergence and Curl",
           "requires": ["concepts-of-gradient"]
         },
         {
           "id": "divergence-theorem",
           "name": "Gauss-Divergence Theorem",
-          "requires": ["divergence-and-curl"]
+          "requires": ["gradient-divergence-curl"]
         },
         {
           "id": "stokes-theorem",
@@ -159,14 +159,14 @@
           "requires": ["wiede-mann-franz-law"]
         },
         {
-          "id": "insulator-and-semiconductor",
+          "id": "metals-semiconductors-insulators",
           "name": "insulator and semiconductor",
           "requires": ["band-structure-of-conductor"]
         },
         {
           "id": "intrinsic-extrinsic-semiconductors",
           "name": "Intrinsic and extrinsic semiconductor",
-          "requires": ["insulator-and-semiconductor"]
+          "requires": ["metals-semiconductors-insulators"]
         },
         {
           "id": "conductivity-of-semiconductors",
@@ -235,14 +235,14 @@
           "requires": ["damped-simple-harmonic-motion"]
         },
         {
-          "id": "forced-oscillation",
+          "id": "forced-oscillations-resonance",
           "name": "Forced oscillation",
           "requires": ["types-of-damping"]
         },
         {
           "id": "resonance",
           "name": "Resonance",
-          "requires": ["forced-oscillation"]
+          "requires": ["forced-oscillations-resonance"]
         },
         {
           "id": "energy-transport-in-wave-motion-acoustics-and-ultrasonic",
@@ -361,14 +361,14 @@
           "requires": ["thermal-radiation-emission-and-absorption-radiation"]
         },
         {
-          "id": "black-body-radiation",
+          "id": "blackbody-radiation",
           "name": "Black body radiation",
           "requires": ["emissive-power"]
         },
         {
           "id": "stefans-laws",
           "name": "Stefan’s laws",
-          "requires": ["black-body-radiation"]
+          "requires": ["blackbody-radiation"]
         },
         {
           "id": "wiens-law-max-42-hrs",

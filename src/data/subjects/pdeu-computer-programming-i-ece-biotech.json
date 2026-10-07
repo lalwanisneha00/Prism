@@ -34,7 +34,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ECE, Biotech): Computer Programming - I",
-    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
   "chapters": [
@@ -53,14 +53,14 @@
           "requires": ["introduction-to-computer-programming"]
         },
         {
-          "id": "structure-of-c-program",
+          "id": "first-c-program",
           "name": "Structure of C program",
           "requires": ["features-of-c-language"]
         },
         {
           "id": "program-execution-flow",
           "name": "program execution flow",
-          "requires": ["structure-of-c-program"]
+          "requires": ["first-c-program"]
         },
         {
           "id": "c-tokens",
@@ -98,14 +98,14 @@
           "requires": ["switch"]
         },
         {
-          "id": "do-while",
+          "id": "loops",
           "name": "do-while",
           "requires": ["go-to-statement-loop-control-structures-while"]
         },
         {
           "id": "for-loop",
           "name": "for loop",
-          "requires": ["do-while"]
+          "requires": ["loops"]
         },
         {
           "id": "break-statement",
@@ -190,14 +190,14 @@
           "requires": ["introduction-to-user-defined-functions"]
         },
         {
-          "id": "call-by-value-call-by-reference",
+          "id": "parameter-passing",
           "name": "Call by value-call by reference",
           "requires": ["types-of-functions"]
         },
         {
           "id": "recursion",
           "name": "recursion",
-          "requires": ["call-by-value-call-by-reference"]
+          "requires": ["parameter-passing"]
         },
         {
           "id": "pointers-to-functions",
@@ -210,14 +210,14 @@
           "requires": ["pointers-to-functions"]
         },
         {
-          "id": "array-of-structure",
+          "id": "structures-unions",
           "name": "Array of Structure",
           "requires": ["structures"]
         },
         {
           "id": "union",
           "name": "Union",
-          "requires": ["array-of-structure"]
+          "requires": ["structures-unions"]
         }
       ]
     },

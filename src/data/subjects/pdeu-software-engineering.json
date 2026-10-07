@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (CE): Software Engineering",
-    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "theory",
   "chapters": [
@@ -40,14 +40,14 @@
           "name": "Introduction"
         },
         {
-          "id": "characteristics-of-software",
+          "id": "software-crisis",
           "name": "Characteristics of Software",
           "requires": ["introduction"]
         },
         {
           "id": "need-for-software-engineering",
           "name": "need for software engineering",
-          "requires": ["characteristics-of-software"]
+          "requires": ["software-crisis"]
         },
         {
           "id": "software-quality-attributes",
@@ -62,17 +62,17 @@
         {
           "id": "sdlc",
           "name": "Software Development Life Cycle and Process: Waterfall",
-          "requires": ["software-product-pipelines"]
+          "requires": ["software-crisis"]
         },
         {
-          "id": "iterative-models",
+          "id": "spiral-iterative",
           "name": "Iterative models",
           "requires": ["sdlc"]
         },
         {
           "id": "exploratory-models",
           "name": "Exploratory models",
-          "requires": ["iterative-models"]
+          "requires": ["spiral-iterative"]
         },
         {
           "id": "rad",
@@ -85,14 +85,14 @@
           "requires": ["rad"]
         },
         {
-          "id": "requirement-analysis",
+          "id": "requirements-engineering",
           "name": "Requirement Analysis",
-          "requires": ["agile-and-scrum"]
+          "requires": ["sdlc"]
         },
         {
           "id": "functional-and-non-functional-requirements",
           "name": "Functional and non-functional requirements",
-          "requires": ["requirement-analysis"]
+          "requires": ["requirements-engineering"]
         },
         {
           "id": "the-software-requirements-document-and-srs-standards",
@@ -258,14 +258,14 @@
           "requires": ["maintenance-and-reengineering"]
         },
         {
-          "id": "software-risks",
+          "id": "risk-management",
           "name": "software risks",
           "requires": ["risk-management-reactive-vs-proactive-risk-strategies"]
         },
         {
           "id": "risk-identification",
           "name": "Risk identification",
-          "requires": ["software-risks"]
+          "requires": ["risk-management"]
         },
         {
           "id": "risk-projection",

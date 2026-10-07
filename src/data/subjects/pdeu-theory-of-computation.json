@@ -26,7 +26,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (CE): Theory of Computation",
-    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 11 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
   "chapters": [
@@ -45,14 +45,14 @@
           "requires": ["regular-languages-alphabets"]
         },
         {
-          "id": "regular-expression",
+          "id": "regular-expressions",
           "name": "Regular Expression",
           "requires": ["language"]
         },
         {
           "id": "definitions-of-finite-state-automata",
           "name": "Definitions of Finite State automata",
-          "requires": ["regular-expression"]
+          "requires": ["regular-expressions"]
         },
         {
           "id": "transition-graphs",
@@ -132,13 +132,14 @@
       "hours": 12,
       "topics": [
         {
-          "id": "context-free-grammar",
-          "name": "Context Free Grammar"
+          "id": "cfg",
+          "name": "Context Free Grammar",
+          "requires": ["chomsky-hierarchy"]
         },
         {
           "id": "derivation-tree-and-ambiguity",
           "name": "Derivation tree and Ambiguity",
-          "requires": ["context-free-grammar"]
+          "requires": ["cfg"]
         },
         {
           "id": "removing-ambiguity",
@@ -198,7 +199,7 @@
         {
           "id": "pumping-lemma-cfl",
           "name": "Pumping Lemma for Context-Free Languages",
-          "requires": ["non-equivalence-of-npdas-and-dpdas"]
+          "requires": ["cfg"]
         },
         {
           "id": "ogdens-lemma",
@@ -208,7 +209,7 @@
         {
           "id": "normal-forms-cfg",
           "name": "Normal Forms for CFG’s: Chomsky Normal Form and Greibach Normal form",
-          "requires": ["ogdens-lemma"]
+          "requires": ["cfg"]
         },
         {
           "id": "context-sensitive-grammars",
@@ -216,7 +217,7 @@
           "requires": ["normal-forms-cfg"]
         },
         {
-          "id": "linear-bounded-automata",
+          "id": "lba-csl",
           "name": "Linear Bounded Automata",
           "requires": ["context-sensitive-grammars"]
         }
@@ -228,13 +229,13 @@
       "hours": 9,
       "topics": [
         {
-          "id": "universal-turing-machine",
+          "id": "church-turing",
           "name": "Universal Turing Machine"
         },
         {
           "id": "post-machine",
           "name": "Post Machine",
-          "requires": ["universal-turing-machine"]
+          "requires": ["church-turing"]
         },
         {
           "id": "deterministic-turing-machines",
@@ -267,14 +268,14 @@
           "requires": ["decidable-and-recognizable-languages"]
         },
         {
-          "id": "halting-problem",
+          "id": "decidability",
           "name": "Halting Problem",
-          "requires": ["post-correspondence-problem"]
+          "requires": ["church-turing"]
         },
         {
           "id": "turing-enumerability",
           "name": "Turing enumerability",
-          "requires": ["halting-problem"]
+          "requires": ["decidability"]
         },
         {
           "id": "turing-machines-acceptability-decidabilities-and",
@@ -289,7 +290,7 @@
         {
           "id": "rices-theorem",
           "name": "Rice’s Theorem",
-          "requires": ["unsolvable-problems-about-turing-machines"]
+          "requires": ["decidability"]
         },
         {
           "id": "the-church-turing-thesis",

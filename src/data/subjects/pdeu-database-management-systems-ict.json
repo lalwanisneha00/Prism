@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ICT): Database Management Systems",
-    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
   "chapters": [
@@ -61,7 +61,8 @@
       "topics": [
         {
           "id": "relational-algebra",
-          "name": "Relational algebra operators: selection"
+          "name": "Relational algebra operators: selection",
+          "requires": ["relational-model-integrity"]
         },
         {
           "id": "projection",
@@ -94,14 +95,14 @@
           "requires": ["example-queries"]
         },
         {
-          "id": "domain-relational-calculus",
+          "id": "relational-calculus",
           "name": "domain relational calculus",
-          "requires": ["tuple-relation-calculus"]
+          "requires": ["relational-algebra"]
         },
         {
           "id": "introduction-to-sql",
           "name": "Introduction to SQL",
-          "requires": ["domain-relational-calculus"]
+          "requires": ["relational-calculus"]
         },
         {
           "id": "data-definition-of-sql",
@@ -129,14 +130,14 @@
           "requires": ["set-operations"]
         },
         {
-          "id": "aggregate-functions",
+          "id": "sql-joins-aggregates",
           "name": "Aggregate functions",
           "requires": ["null-values"]
         },
         {
           "id": "nested-subqueries",
           "name": "Nested Subqueries",
-          "requires": ["aggregate-functions"]
+          "requires": ["sql-joins-aggregates"]
         },
         {
           "id": "modification-of-database",
@@ -154,14 +155,13 @@
           "requires": ["join-expressions"]
         },
         {
-          "id": "integrity-constraints",
-          "name": "Integrity constraints",
-          "requires": ["views"]
+          "id": "relational-model-integrity",
+          "name": "Integrity constraints"
         },
         {
           "id": "data-types-and-schemas",
           "name": "Data types and Schemas",
-          "requires": ["integrity-constraints"]
+          "requires": ["relational-model-integrity"]
         },
         {
           "id": "authorization",

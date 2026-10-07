@@ -24,7 +24,7 @@
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU B.Tech curriculum handbook (ICT): Software Engineering Methodology",
-    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "chapters": [
     {
@@ -72,14 +72,14 @@
           "requires": ["iterative-waterfall-model"]
         },
         {
-          "id": "evolutionary-model",
+          "id": "spiral-iterative",
           "name": "evolutionary model",
           "requires": ["prototyping-mode"]
         },
         {
           "id": "spiral-model",
           "name": "spiral model",
-          "requires": ["evolutionary-model"]
+          "requires": ["spiral-iterative"]
         },
         {
           "id": "rad-model",
@@ -174,14 +174,14 @@
           "requires": ["code-review"]
         },
         {
-          "id": "black-box-testing",
+          "id": "white-black-box",
           "name": "Black-box Testing",
-          "requires": ["documentation-testing-unit-testing"]
+          "requires": ["testing-levels"]
         },
         {
           "id": "whitebox-testing",
           "name": "Whitebox testing",
-          "requires": ["black-box-testing"]
+          "requires": ["white-black-box"]
         },
         {
           "id": "cyclomatic-complexity-measure",
@@ -204,14 +204,13 @@
           "requires": ["mutation-testing"]
         },
         {
-          "id": "integration-testing",
-          "name": "Integration testing",
-          "requires": ["debugging-techniques"]
+          "id": "testing-levels",
+          "name": "Integration testing"
         },
         {
           "id": "system-testing",
           "name": "System testing",
-          "requires": ["integration-testing"]
+          "requires": ["testing-levels"]
         },
         {
           "id": "regression-testing",

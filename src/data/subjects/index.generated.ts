@@ -426,6 +426,7 @@ import pdeuAnalogIcDesignVlsiEmbeddedSources from "./pdeu-analog-ic-design-vlsi-
 import pdeuAppliedPhysicsSources from "./pdeu-applied-physics-sources.json";
 import pdeuBasicElectronicsSources from "./pdeu-basic-electronics-sources.json";
 import pdeuBiologyForEngineersBiotechSources from "./pdeu-biology-for-engineers-biotech-sources.json";
+import pdeuChemistryTheoryMeSources from "./pdeu-chemistry-theory-me-sources.json";
 import pdeuCompilerDesignSources from "./pdeu-compiler-design-sources.json";
 import pdeuComputerAidedDrugDesignSources from "./pdeu-computer-aided-drug-design-sources.json";
 import pdeuComputerAndCommunicationNetworksSources from "./pdeu-computer-and-communication-networks-sources.json";
@@ -461,13 +462,17 @@ import pdeuDesignAndKinematicsOfMachinesSources from "./pdeu-design-and-kinemati
 import pdeuDesignOfRccStructuresSources from "./pdeu-design-of-rcc-structures-sources.json";
 import pdeuDigitalCircuitsEceSources from "./pdeu-digital-circuits-ece-sources.json";
 import pdeuDigitalCircuitsIctSources from "./pdeu-digital-circuits-ict-sources.json";
+import pdeuDigitalCmosAndVlsiDesignSources from "./pdeu-digital-cmos-and-vlsi-design-sources.json";
+import pdeuDigitalCmosVlsiDesignSources from "./pdeu-digital-cmos-vlsi-design-sources.json";
 import pdeuDigitalCommunicationEceSources from "./pdeu-digital-communication-ece-sources.json";
 import pdeuDigitalCommunicationIctSources from "./pdeu-digital-communication-ict-sources.json";
 import pdeuDigitalImageProcessingSources from "./pdeu-digital-image-processing-sources.json";
+import pdeuDigitalLogicAndDesignSources from "./pdeu-digital-logic-and-design-sources.json";
 import pdeuDigitalSignalProcessingEceSources from "./pdeu-digital-signal-processing-ece-sources.json";
 import pdeuDigitalSignalProcessingIctSources from "./pdeu-digital-signal-processing-ict-sources.json";
 import pdeuDiscreteMathematicalStructuresSources from "./pdeu-discrete-mathematical-structures-sources.json";
 import pdeuDiscreteMathematicsSources from "./pdeu-discrete-mathematics-sources.json";
+import pdeuDrillingEngineeringSources from "./pdeu-drilling-engineering-sources.json";
 import pdeuDronesDesignTheoryAndApplicationsControlSources from "./pdeu-drones-design-theory-and-applications-control-sources.json";
 import pdeuDynamicsOfMachineSources from "./pdeu-dynamics-of-machine-sources.json";
 import pdeuEarthquakeEngineeringSources from "./pdeu-earthquake-engineering-sources.json";
@@ -485,7 +490,9 @@ import pdeuEngineeringGeologyAndSoilMechanicsWithLabSources from "./pdeu-enginee
 import pdeuEngineeringGraphicsCePetroSources from "./pdeu-engineering-graphics-ce-petro-sources.json";
 import pdeuEngineeringGraphicsEceCivilBiotechSources from "./pdeu-engineering-graphics-ece-civil-biotech-sources.json";
 import pdeuEngineeringGraphicsIctSources from "./pdeu-engineering-graphics-ict-sources.json";
+import pdeuEngineeringGraphicsMeSources from "./pdeu-engineering-graphics-me-sources.json";
 import pdeuEngineeringMetallurgySources from "./pdeu-engineering-metallurgy-sources.json";
+import pdeuEnvironmentalEngineeringWithLabSources from "./pdeu-environmental-engineering-with-lab-sources.json";
 import pdeuFluidMechanicsAndFluidMachinerySources from "./pdeu-fluid-mechanics-and-fluid-machinery-sources.json";
 import pdeuFluidMechanicsWithLabSources from "./pdeu-fluid-mechanics-with-lab-sources.json";
 import pdeuFundamentalsOfFluidMechanicsForPetroleumSources from "./pdeu-fundamentals-of-fluid-mechanics-for-petroleum-sources.json";
@@ -648,6 +655,7 @@ export const sourceFiles: Record<string, unknown> = {
   "pdeu-applied-physics": pdeuAppliedPhysicsSources,
   "pdeu-basic-electronics": pdeuBasicElectronicsSources,
   "pdeu-biology-for-engineers-biotech": pdeuBiologyForEngineersBiotechSources,
+  "pdeu-chemistry-theory-me": pdeuChemistryTheoryMeSources,
   "pdeu-compiler-design": pdeuCompilerDesignSources,
   "pdeu-computer-aided-drug-design": pdeuComputerAidedDrugDesignSources,
   "pdeu-computer-and-communication-networks": pdeuComputerAndCommunicationNetworksSources,
@@ -683,13 +691,17 @@ export const sourceFiles: Record<string, unknown> = {
   "pdeu-design-of-rcc-structures": pdeuDesignOfRccStructuresSources,
   "pdeu-digital-circuits-ece": pdeuDigitalCircuitsEceSources,
   "pdeu-digital-circuits-ict": pdeuDigitalCircuitsIctSources,
+  "pdeu-digital-cmos-and-vlsi-design": pdeuDigitalCmosAndVlsiDesignSources,
+  "pdeu-digital-cmos-vlsi-design": pdeuDigitalCmosVlsiDesignSources,
   "pdeu-digital-communication-ece": pdeuDigitalCommunicationEceSources,
   "pdeu-digital-communication-ict": pdeuDigitalCommunicationIctSources,
   "pdeu-digital-image-processing": pdeuDigitalImageProcessingSources,
+  "pdeu-digital-logic-and-design": pdeuDigitalLogicAndDesignSources,
   "pdeu-digital-signal-processing-ece": pdeuDigitalSignalProcessingEceSources,
   "pdeu-digital-signal-processing-ict": pdeuDigitalSignalProcessingIctSources,
   "pdeu-discrete-mathematical-structures": pdeuDiscreteMathematicalStructuresSources,
   "pdeu-discrete-mathematics": pdeuDiscreteMathematicsSources,
+  "pdeu-drilling-engineering": pdeuDrillingEngineeringSources,
   "pdeu-drones-design-theory-and-applications-control": pdeuDronesDesignTheoryAndApplicationsControlSources,
   "pdeu-dynamics-of-machine": pdeuDynamicsOfMachineSources,
   "pdeu-earthquake-engineering": pdeuEarthquakeEngineeringSources,
@@ -707,7 +719,9 @@ export const sourceFiles: Record<string, unknown> = {
   "pdeu-engineering-graphics-ce-petro": pdeuEngineeringGraphicsCePetroSources,
   "pdeu-engineering-graphics-ece-civil-biotech": pdeuEngineeringGraphicsEceCivilBiotechSources,
   "pdeu-engineering-graphics-ict": pdeuEngineeringGraphicsIctSources,
+  "pdeu-engineering-graphics-me": pdeuEngineeringGraphicsMeSources,
   "pdeu-engineering-metallurgy": pdeuEngineeringMetallurgySources,
+  "pdeu-environmental-engineering-with-lab": pdeuEnvironmentalEngineeringWithLabSources,
   "pdeu-fluid-mechanics-and-fluid-machinery": pdeuFluidMechanicsAndFluidMachinerySources,
   "pdeu-fluid-mechanics-with-lab": pdeuFluidMechanicsWithLabSources,
   "pdeu-fundamentals-of-fluid-mechanics-for-petroleum": pdeuFundamentalsOfFluidMechanicsForPetroleumSources,
