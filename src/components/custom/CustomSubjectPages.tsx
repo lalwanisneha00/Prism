@@ -83,7 +83,8 @@ export function ViewCustomSubject({ id }: { id: string }) {
             data-testid="needs-setup"
           >
             <p className="font-semibold">
-              Upload your syllabus and material to make lessons and study this subject.
+              Upload the material given by your faculty to study this subject here. This is optional
+              and you can do it any time.
             </p>
             <p className="text-muted">
               Your subject is saved. Add its units and topics, or upload your slides, notes or

@@ -125,7 +125,7 @@ function SubjectCard({
       {data.own && (
         <Note tone="info">
           {data.empty
-            ? "Upload your syllabus and material to make lessons and study this subject."
+            ? "Upload the material given by your faculty to study this subject here. This is optional and you can do it any time."
             : "Upload the material given by your faculty to study this subject here. This is optional and you can do it any time."}
           <Link href={data.href} className="mt-1 block font-semibold text-primary underline">
             {data.empty ? "Add syllabus or material" : "Open this subject"}

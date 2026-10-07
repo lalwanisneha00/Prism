@@ -82,7 +82,7 @@ test.describe("Other subjects (V3 · Step 4)", () => {
     await form.getByRole("button", { name: "Save my subject" }).click();
     await expect(page).toHaveURL(/\/my-subjects\/view\?id=custom-/, { timeout: 30_000 });
     await expect(page.getByTestId("needs-setup")).toContainText(
-      "Upload your syllabus and material to make lessons and study this subject.",
+      "Upload the material given by your faculty to study this subject here. This is optional and you can do it any time.",
     );
     // Nothing is made up: there is no lesson shortcut until it has topics.
     await expect(page.getByRole("link", { name: "Start a lesson" })).toHaveCount(0);
