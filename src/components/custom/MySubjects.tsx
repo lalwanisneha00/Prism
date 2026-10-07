@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { NeedsMaterialNote } from "@/components/custom/NeedsMaterialNote";
 import { useState } from "react";
 import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
 import { SUGGESTED_NAMES } from "@/lib/custom/customSubject";
@@ -69,13 +70,16 @@ export function MySubjectsList() {
                 {r.details.examDate ? ` · exam ${r.details.examDate}` : ""}
               </span>
             </Link>
+            {r.chapters.length === 0 && <NeedsMaterialNote subjectId={r.id} />}
             <div className="flex flex-wrap gap-2 text-sm">
-              <Link
-                href={`/?subject=${r.id}#start`}
-                className="rounded-full bg-primary px-3 py-1.5 font-semibold text-primary-fg"
-              >
-                Start a lesson
-              </Link>
+              {r.chapters.length > 0 && (
+                <Link
+                  href={`/?subject=${r.id}#start`}
+                  className="rounded-full bg-primary px-3 py-1.5 font-semibold text-primary-fg"
+                >
+                  Start a lesson
+                </Link>
+              )}
               <Link
                 href={`/my-subjects/edit?id=${r.id}`}
                 className="rounded-full border border-border px-3 py-1.5 font-semibold hover:bg-surface-2"

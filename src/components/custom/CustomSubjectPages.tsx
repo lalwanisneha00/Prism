@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { NeedsMaterialNote } from "@/components/custom/NeedsMaterialNote";
 import { useEffect, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
 import { CustomSubjectForm } from "@/components/custom/CustomSubjectForm";
@@ -77,35 +78,7 @@ export function ViewCustomSubject({ id }: { id: string }) {
         </p>
         <h1 className="text-3xl font-bold tracking-tight">{subject.name}</h1>
         <TierBadge tier={subject.tier} />
-        {record.chapters.length === 0 && (
-          <div
-            className="flex flex-col gap-2 rounded-xl border border-primary/40 bg-primary-soft px-4 py-3 text-sm"
-            data-testid="needs-setup"
-          >
-            <p className="font-semibold">
-              Upload the material given by your faculty to study this subject here. This is optional
-              and you can do it any time.
-            </p>
-            <p className="text-muted">
-              Your subject is saved. Add its units and topics, or upload your slides, notes or
-              previous-year papers, whenever you are ready to study it.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <Link
-                href={`/my-subjects/edit?id=${subject.id}`}
-                className="rounded-full bg-primary px-4 py-2 font-semibold text-primary-fg hover:bg-primary-hover"
-              >
-                Add syllabus or topics
-              </Link>
-              <Link
-                href={`/notes?subject=${subject.id}`}
-                className="rounded-full border border-border px-4 py-2 font-semibold hover:bg-surface-2"
-              >
-                Upload material
-              </Link>
-            </div>
-          </div>
-        )}
+        {record.chapters.length === 0 && <NeedsMaterialNote subjectId={subject.id} />}
         {subject.tier === "limited" && record.chapters.length > 0 && (
           <p className="rounded-xl border border-warning/30 bg-warning/10 px-4 py-2 text-sm">
             Lessons use free trusted sources only, so they may not match your course closely.{" "}

@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { NeedsMaterialNote } from "@/components/custom/NeedsMaterialNote";
 import Link from "next/link";
 import { useId, useMemo, useState } from "react";
 import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
@@ -122,13 +123,13 @@ function SubjectCard({
           </Link>
         </details>
       )}
-      {data.own && (
+      {data.own && data.empty && <NeedsMaterialNote subjectId={data.id} />}
+      {data.own && !data.empty && (
         <Note tone="info">
-          {data.empty
-            ? "Upload the material given by your faculty to study this subject here. This is optional and you can do it any time."
-            : "Upload the material given by your faculty to study this subject here. This is optional and you can do it any time."}
+          Upload the material given by your faculty to study this subject here. This is optional and
+          you can do it any time.
           <Link href={data.href} className="mt-1 block font-semibold text-primary underline">
-            {data.empty ? "Add syllabus or material" : "Open this subject"}
+            Open this subject
           </Link>
         </Note>
       )}
