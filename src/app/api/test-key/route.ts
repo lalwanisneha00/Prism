@@ -66,6 +66,18 @@ export async function POST(req: Request) {
     console.warn("[api/test-key]", error.kind, redact(error.message, key));
     // The provider's own reason (the key removed, cut short) so a student can see what went wrong.
     const reason = redact(error.message, key).replace(/s+/g, " ").slice(0, 220);
+    // 503 / "high demand": the provider is busy, which says nothing against the key.
+    if (
+      error.kind === "unavailable" &&
+      /HTTP 50[023]|high demand|overloaded/i.test(error.message)
+    ) {
+      return reply({
+        ok: false,
+        kind: "busy",
+        message:
+          "Google is very busy right now (high demand), so it could not answer the test. Your key is probably fine: click Save key, then try again in a few minutes, or pick a different model (for example Flash-Lite).",
+      });
+    }
     const base = COPY[error.kind] ?? COPY.unavailable;
     return reply({
       ok: false,
