@@ -99,6 +99,7 @@ async function writeSettings(
       | "syllabus"
       | "universityName"
       | "universityOff"
+      | "apiKeys"
     >
   >,
   now = Date.now(),

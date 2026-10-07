@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useDataVersion } from "@/components/account/AuthProvider";
 import { KEYS_CHANGED_EVENT } from "@/lib/byok/events";
 import { listApiKeys } from "@/lib/byok/store";
 import { FLAGS } from "@/lib/flags";
@@ -13,6 +14,8 @@ import { FLAGS } from "@/lib/flags";
 export function AddKeyBar() {
   // null = not checked yet (nothing is shown, so the bar never flashes for people who have a key).
   const [hasKey, setHasKey] = useState<boolean | null>(null);
+  // Changes when sync brings this device the account's data (keys added on another device).
+  const dataVersion = useDataVersion();
 
   useEffect(() => {
     let live = true;
@@ -27,7 +30,7 @@ export function AddKeyBar() {
       live = false;
       window.removeEventListener(KEYS_CHANGED_EVENT, check);
     };
-  }, []);
+  }, [dataVersion]);
 
   if (!FLAGS.byoKey || hasKey !== false) return null;
   return (

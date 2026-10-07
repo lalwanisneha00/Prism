@@ -2,7 +2,8 @@ import "fake-indexeddb/auto";
 import { IDBFactory } from "fake-indexeddb";
 import { beforeEach, describe, expect, it } from "vitest";
 import { exportBackup } from "@/lib/storage/backup";
-import { resetDbForTests, SYNCED_COLLECTIONS } from "@/lib/storage/db";
+import { getDb, resetDbForTests } from "@/lib/storage/db";
+import { getSettings } from "@/lib/storage/progress";
 import {
   getActiveKey,
   listApiKeys,
@@ -46,9 +47,18 @@ describe("API key store", () => {
     ).rejects.toThrow();
   });
 
-  it("is never synced or exported", async () => {
+  it("is never exported, but follows the account through the settings", async () => {
     await saveApiKey({ provider: "openai", key: KEY, model: "gpt-4.1-mini" });
-    expect(SYNCED_COLLECTIONS).not.toContain("apiKeys" as never);
     expect(JSON.stringify(await exportBackup())).not.toContain(KEY);
+    // The copy in the account settings is what another device restores from.
+    expect((await getSettings())?.apiKeys?.[0]?.key).toBe(KEY);
+  });
+  it("restores the account's keys on a device that has none", async () => {
+    await saveApiKey({ provider: "openai", key: KEY, model: "gpt-4.1-mini" });
+    // A fresh device: the settings came down from the account, the key store is empty.
+    const db = await getDb();
+    await db.clear("apiKeys");
+    expect((await getActiveKey())?.key).toBe(KEY);
+    expect(await listApiKeys()).toHaveLength(1);
   });
 });

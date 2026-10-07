@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useState } from "react";
+import { useDataVersion } from "@/components/account/AuthProvider";
 import {
   KEY_HEADERS,
   PROVIDERS,
@@ -207,7 +208,8 @@ export function ApiKeys() {
       .then(setKeys)
       .catch(() => setFailed(true));
   }, []);
-  useEffect(load, [load]);
+  const dataVersion = useDataVersion();
+  useEffect(load, [load, dataVersion]);
 
   const active = keys?.find((k) => k.active);
   const activeName = PROVIDERS.find((p) => p.id === active?.id)?.name;
@@ -219,10 +221,11 @@ export function ApiKeys() {
         className="flex flex-col gap-2 rounded-2xl border border-border bg-surface-2 p-5 text-sm"
       >
         <p>
-          <strong>Your key stays on this device.</strong> It is saved only in this browser. It is
-          never sent to our database, never included in backups, exports or shared links, and never
-          written to a log. When you make a lesson, it travels over HTTPS with that one request, is
-          used once and forgotten.
+          <strong>Your key follows your account.</strong> When you are signed in, it is saved in
+          your private account (only you can read it) so it works on every phone and computer you
+          sign in on. It is never included in backups, downloads or shared links, and never written
+          to a log. When you make a lesson, it travels over HTTPS with that one request, is used
+          once and forgotten. Signing out removes it from that device.
         </p>
         <p>
           <strong>Only API keys work here.</strong> A paid chat subscription (Claude Pro or Max,

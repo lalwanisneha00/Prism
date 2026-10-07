@@ -82,7 +82,15 @@ export async function setMeta(key: string, value: unknown): Promise<void> {
 /** Wipes this device's copy (on sign-out, or when a different account signs in). */
 export async function clearLocalData(): Promise<void> {
   const db = await getDb();
-  const stores = [...SYNCED_COLLECTIONS, "notes", "noteFiles", "chapterLessons", "outbox"] as const;
+  const stores = [
+    ...SYNCED_COLLECTIONS,
+    "notes",
+    "noteFiles",
+    "chapterLessons",
+    "outbox",
+    // Signing out (or switching account) removes the keys from this device; they come back at sign-in.
+    "apiKeys",
+  ] as const;
   const tx = db.transaction([...stores], "readwrite");
   await Promise.all(stores.map((s) => tx.objectStore(s).clear()));
   await tx.done;

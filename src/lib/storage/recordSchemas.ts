@@ -82,6 +82,18 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     syllabus: SyllabusByTermSchema.optional(),
     universityName: z.string().max(160).optional(),
     universityOff: z.boolean().optional(),
+    apiKeys: z
+      .array(
+        z.object({
+          id: z.string().max(40),
+          key: z.string().min(8).max(400),
+          model: z.string().max(100),
+          active: z.boolean(),
+          savedAt: z.number(),
+        }),
+      )
+      .max(10)
+      .optional(),
     plannerPrefs: z
       .object({
         rangeMin: z.number().min(1).max(240),

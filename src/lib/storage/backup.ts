@@ -22,7 +22,14 @@ export type Backup = {
 export async function exportBackup(now = new Date()): Promise<Backup> {
   const collections = {} as Backup["collections"];
   for (const c of SYNCED_COLLECTIONS) {
-    (collections as Record<string, unknown>)[c] = await getAllRecords(c);
+    const records = await getAllRecords(c);
+    // API keys travel with the account, never in a file that could be shared by mistake.
+    (collections as Record<string, unknown>)[c] =
+      c === "settings"
+        ? (records as object[]).map((r) =>
+            Object.fromEntries(Object.entries(r).filter(([k]) => k !== "apiKeys")),
+          )
+        : records;
   }
   return { app: BACKUP_APP, version: BACKUP_VERSION, exportedAt: now.toISOString(), collections };
 }

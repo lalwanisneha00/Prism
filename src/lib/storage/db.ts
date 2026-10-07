@@ -119,6 +119,11 @@ export type AppSettings = SyncFields & {
   importanceOverrides?: Record<string, ImportanceBand>;
   plannerPrefs?: PlannerPrefs;
   /**
+   * The student's own API keys, kept in their private account so they follow them to every device.
+   * Never part of a downloaded backup (see exportBackup).
+   */
+  apiKeys?: StoredApiKey[];
+  /**
    * The subjects the student's college teaches each semester ("1"…"8" → subject ids, built-in or
    * their own). Colleges differ, so the student chooses; it shapes "My subjects" and the picker.
    */

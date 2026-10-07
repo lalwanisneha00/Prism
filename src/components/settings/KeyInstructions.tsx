@@ -68,7 +68,8 @@ export function KeyInstructions() {
       >
         <ul className="flex list-disc flex-col gap-2 pl-5">
           <li>
-            <strong>Your key stays on your own device.</strong> Prism does not keep it on a server.
+            <strong>Your key goes with your account.</strong> Sign in on any device and it is there.
+            It is private to you, and Prism only uses it for your own lessons.
           </li>
           <li>
             <strong>Do not share your key</strong> with anyone, and do not post it online.
@@ -80,10 +81,6 @@ export function KeyInstructions() {
           <li>
             Only a real <strong>API key</strong> works. A paid chat plan (ChatGPT Plus, Claude Pro,
             Gemini Advanced) is not an API key.
-          </li>
-          <li>
-            If you use another device or browser, add your key there too, because it is saved only
-            where you add it.
           </li>
         </ul>
       </section>
