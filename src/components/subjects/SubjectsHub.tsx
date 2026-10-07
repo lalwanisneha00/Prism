@@ -29,6 +29,8 @@ type CardData = {
   name: string;
   href: string;
   own: boolean;
+  /** An own subject saved with just a name (no units or material yet). */
+  empty?: boolean;
   suggested: boolean;
   stored?: StoredSubject;
 };
@@ -122,10 +124,11 @@ function SubjectCard({
       )}
       {data.own && (
         <Note tone="info">
-          Upload the material given by your faculty to study this subject here. This is optional and
-          you can do it any time.
-          <Link href={`${data.href}`} className="mt-1 block font-semibold text-primary underline">
-            Open this subject
+          {data.empty
+            ? "Upload your syllabus and material to make lessons and study this subject."
+            : "Upload the material given by your faculty to study this subject here. This is optional and you can do it any time."}
+          <Link href={data.href} className="mt-1 block font-semibold text-primary underline">
+            {data.empty ? "Add syllabus or material" : "Open this subject"}
           </Link>
         </Note>
       )}
@@ -169,6 +172,7 @@ export function SubjectsHub() {
               own: true,
               suggested: false,
               stored,
+              empty: rec.chapters.length === 0,
             }
           : {
               id: pid,

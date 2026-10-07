@@ -169,7 +169,10 @@ export function CustomSubjectForm({
 
   async function save() {
     if (!name.trim()) return setMessage({ kind: "error", text: "Give your subject a name." });
-    let outline = draft;
+    // Only the name is required. Units and material can be added later, when the student wants to
+    // study the subject.
+    const hasDraft = Boolean(draft && draft.length > 0);
+    let outline = hasDraft ? draft : null;
     if (!outline && syllabus.trim())
       outline = checkOutline(syllabus, outlineFrom === "syllabus" ? "syllabus" : "typed");
     if (!outline && files.length > 0) {
@@ -177,14 +180,8 @@ export function CustomSubjectForm({
       await buildFromMaterial();
       return;
     }
-    if (!outline) {
-      return setMessage({
-        kind: "error",
-        text: "Add your topics, paste your syllabus, or upload some of your material, so Prism can build lessons that match your course.",
-      });
-    }
-    const chapters = chaptersFromDraft(outline, existing?.chapters ?? []);
-    if (chapters.length === 0)
+    const chapters = chaptersFromDraft(outline ?? [], existing?.chapters ?? []);
+    if (outline && outline.length > 0 && chapters.length === 0)
       return setMessage({ kind: "error", text: "Every unit needs at least one topic." });
     setBusy("Saving…");
     try {
@@ -261,6 +258,10 @@ export function CustomSubjectForm({
         )}
         <p className="text-xs text-muted">
           Suggestions only fill in the name: your course&apos;s own syllabus is what Prism follows.
+        </p>
+        <p className="rounded-xl bg-surface-2 px-3 py-2 text-sm" data-testid="name-only-hint">
+          <strong>Only the name is needed to save.</strong> Units, topics and files are optional:
+          add them whenever you want to study this subject.
         </p>
       </div>
 
