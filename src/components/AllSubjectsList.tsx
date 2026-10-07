@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
+import { useId, useMemo, useRef, useState } from "react";
 import type { Offering } from "@/lib/subjects";
 
 type Option = { id: string; name: string; field: string; offerings?: readonly Offering[] };
@@ -20,6 +20,7 @@ export function AllSubjectsList({
 }) {
   const id = useId();
   const [query, setQuery] = useState("");
+  const details = useRef<HTMLDetailsElement>(null);
   const shown = useMemo(() => {
     const q = query.trim().toLowerCase();
     const ok = (s: Option) =>
@@ -35,6 +36,7 @@ export function AllSubjectsList({
 
   return (
     <details
+      ref={details}
       className="rounded-xl border border-border bg-surface"
       data-testid="all-subjects-list"
       suppressHydrationWarning
@@ -64,7 +66,12 @@ export function AllSubjectsList({
               <button
                 type="button"
                 aria-pressed={s.id === currentId}
-                onClick={() => onSelect(s.id)}
+                onClick={() => {
+                  onSelect(s.id);
+                  // Back to the collapsed list once a subject is chosen.
+                  setQuery("");
+                  if (details.current) details.current.open = false;
+                }}
                 className={`block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-surface-2 ${s.id === currentId ? "font-semibold text-primary" : ""}`}
               >
                 {s.name}

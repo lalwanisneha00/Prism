@@ -79,6 +79,8 @@ export function LessonPicker(props: { subjects: readonly Subject[]; initial?: Pi
   );
 }
 
+const PICKER_MEMORY = "prism-picker-last";
+
 function PickerForm({
   subjects,
   initial = {},
@@ -137,7 +139,8 @@ function PickerForm({
   // Only the chosen subject shows on top; every subject (the student's own first) is in the
   // collapsed list below.
   const shown = [subject];
-  const mineIds = [...new Set([...mineList, ...own].map((x) => x.id))];
+  // The student's own subjects (made or uploaded in "Subjects you added yourself") come first.
+  const mineIds = [...new Set([...own, ...mineList].map((x) => x.id))];
   const startChapter = chaptersOf(start).find((o) => o.chapter.id === initial.chapter);
   // A chapter linked from another subject is taught and saved under its owner.
   const [chapterId, setChapterId] = useState(startChapter?.chapter.id ?? "");
@@ -155,6 +158,57 @@ function PickerForm({
   const [submitting, setSubmitting] = useState(false);
   const [useNotesChoice, setUseNotes] = useState(false);
   const useNotes = needsMaterial || useNotesChoice;
+
+  // Remember the last choice on this device: coming Back from a lesson (or opening the page again)
+  // brings the same subject, chapter, topic, level and time back, as long as nothing in the address
+  // says otherwise.
+  const [restored, setRestored] = useState(false);
+  useEffect(() => {
+    // After mount, not during it: the saved choice differs from what the server drew.
+    void Promise.resolve().then(() => {
+      if (!initial.subject) {
+        try {
+          const saved = JSON.parse(localStorage.getItem(PICKER_MEMORY) ?? "null") as {
+            subjectId?: string;
+            chapterId?: string;
+            ownerId?: string;
+            topicId?: string;
+            level?: string;
+            duration?: string;
+          } | null;
+          const sub = saved?.subjectId ? subjects.find((s) => s.id === saved.subjectId) : undefined;
+          if (saved && sub) {
+            const ch = chaptersOf(sub).find((o) => o.chapter.id === saved.chapterId);
+            setSubjectId(sub.id);
+            if (ch) {
+              setChapterId(ch.chapter.id);
+              setOwnerId(ch.owner.id);
+              if (ch.chapter.topics.some((t) => t.id === saved.topicId))
+                setTopicId(saved.topicId ?? "");
+            }
+            if (availableLevels.some((l) => l.slug === saved.level)) setLevel(saved.level ?? "");
+            if (isDuration(Number(saved.duration))) setDuration(String(saved.duration));
+          }
+        } catch {
+          // No saved choice, or storage is blocked: start fresh.
+        }
+      }
+      setRestored(true);
+    });
+    // Once, when the page opens.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    if (!restored) return;
+    try {
+      localStorage.setItem(
+        PICKER_MEMORY,
+        JSON.stringify({ subjectId, chapterId, ownerId, topicId, level, duration }),
+      );
+    } catch {
+      // Storage is blocked: the address still keeps the choice.
+    }
+  }, [restored, subjectId, chapterId, ownerId, topicId, level, duration]);
 
   // Keep the choice in the address as it is made (without adding history entries), so leaving to
   // upload a file and coming Back brings the same subject, chapter, topic, level and time back.
