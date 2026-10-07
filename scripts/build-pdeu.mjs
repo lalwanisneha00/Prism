@@ -29,28 +29,43 @@ const BRANCH_IDS = {
   "Mechanical Engineering": { id: "me", short: "Mech" },
 };
 
+// The PDF prints "Page N" at the foot of each page: a line is on the page of the next footer.
+const pageOfLine = new Array(lines.length).fill(0);
+{
+  let next = 0;
+  for (let i = lines.length - 1; i >= 0; i--) {
+    const m = /^\s*Page (\d+)\s*$/.exec(lines[i]);
+    if (m) next = Number(m[1]);
+    pageOfLine[i] = next;
+  }
+}
+const SOURCE_FILE = "PDEU_BTech_All_Branches_Syllabus.pdf";
+
 const isHeaderOrFooter = (l) => /^\s*Page \d+\s*$/.test(l) || /^PDEU B\.Tech syllabus/.test(l);
 
 /** Splits a topic paragraph into topics: on ";" when used, otherwise on commas outside brackets. */
 function splitTopics(text) {
   const clean = text.replace(/\s+/g, " ").trim();
   if (!clean) return [];
-  const sep = clean.includes(";") ? ";" : ",";
+  // Separators in order of preference: ";", then spaced dashes ("A - B - C") when the list uses them
+  // at least twice, then commas outside brackets.
+  const dashes = clean.match(/\s[-–—]\s/g)?.length ?? 0;
   const parts = [];
-  let depth = 0;
-  let cur = "";
-  for (const ch of clean) {
-    if (ch === "(" || ch === "[") depth++;
-    if (ch === ")" || ch === "]") depth = Math.max(0, depth - 1);
-    if (ch === sep && depth === 0) {
-      parts.push(cur);
-      cur = "";
-    } else cur += ch;
-  }
-  parts.push(cur);
+  if (clean.includes(";")) parts.push(...splitOutside(clean, (ch) => ch === ";"));
+  else if (dashes >= 2) {
+    // A dash inside brackets ("(Cartesian – Polar form)") is not a separator.
+    let depth = 0;
+    let masked = "";
+    for (const ch of clean) {
+      if (ch === "(" || ch === "[") depth++;
+      if (ch === ")" || ch === "]") depth = Math.max(0, depth - 1);
+      masked += depth > 0 && (ch === "–" || ch === "—" || ch === "-") ? "‑" : ch;
+    }
+    parts.push(...masked.split(/\s[-–—]\s/).map((x) => x.replace(/‑/g, "-")));
+  } else parts.push(...splitOutside(clean, (ch) => ch === ","));
   const out = [];
   const pieces = parts.flatMap((p) =>
-    p.trim().length > 140 ? p.split(/(?<=[a-z)])\.\s+(?=[A-Z])|\s[–—]\s/) : [p],
+    p.trim().length > 90 ? p.split(/(?<=[a-z)])\.\s+(?=[A-Z])|\s[–—]\s/) : [p],
   );
   for (let p of pieces) {
     p = p
@@ -59,11 +74,35 @@ function splitTopics(text) {
       .replace(/[.\s]+$/, "")
       .trim();
     if (!p) continue;
+    // "A, B, and C" inside one phrase ("theorems of Gradient, Curls, and Divergence"): a part that
+    // starts with "and"/"or" joins the part before it, and a single-word part before that too.
+    if (/^(and|or|&)\s/i.test(p) && out.length > 0) {
+      const last = out.pop();
+      if (/^\S{1,14}$/.test(last) && out.length > 0) out.push(`${out.pop()}, ${last}, ${p}`);
+      else out.push(`${last}, ${p}`);
+      continue;
+    }
     // Very short fragments ("etc", "and") belong to the previous topic.
     if (p.length < 3 && out.length > 0) out[out.length - 1] += `, ${p}`;
     else out.push(p);
   }
   return out;
+}
+
+function splitOutside(text, isSep) {
+  const parts = [];
+  let depth = 0;
+  let cur = "";
+  for (const ch of text) {
+    if (ch === "(" || ch === "[") depth++;
+    if (ch === ")" || ch === "]") depth = Math.max(0, depth - 1);
+    if (isSep(ch) && depth === 0) {
+      parts.push(cur);
+      cur = "";
+    } else cur += ch;
+  }
+  parts.push(cur);
+  return parts;
 }
 
 /** "Unit 1: Title (8 hrs) – topics" and "Unit 1 (8 hrs) – Title: topics" → { title, hours, topics }. */
@@ -229,7 +268,10 @@ const branches = [];
 for (let b = 0; b < branchStarts.length; b++) {
   const start = branchStarts[b];
   const end = b + 1 < branchStarts.length ? branchStarts[b + 1] : lines.length;
-  const block = lines.slice(start, end).filter((l) => !isHeaderOrFooter(l));
+  const kept = [];
+  for (let i = start; i < end; i++) if (!isHeaderOrFooter(lines[i])) kept.push(i);
+  const block = kept.map((i) => lines[i]);
+  const blockPage = kept.map((i) => pageOfLine[i]);
   let name = block[0].replace(/^B\.Tech\.\s*/, "").trim();
   if (
     block[1] &&
@@ -337,6 +379,7 @@ for (let b = 0; b < branchStarts.length; b++) {
       body.slice(it.line + 1, stop).filter((l) => !/^\s*Options available in Semester/.test(l)),
     );
     const subject = {
+      page: blockPage[firstSection + it.nameLine],
       ...(meta.code ? { code: meta.code } : {}),
       name: rawName.replace(/\s+/g, " "),
       category: meta.category,
@@ -477,4 +520,93 @@ for (const b of branches) {
   );
   console.log(`${b.id}: ${n} courses, ${topics} topics`);
 }
+// ---- one combined file: branch -> semester -> courses, with the source page of every course ----
+const ROMANS = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
+const stripLab = (n) =>
+  n
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, " ")
+    .replace(/(laboratory|lab|practical|practicals|workshop)/g, " ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+const combined = { source: SOURCE_FILE, branches: {} };
+const report = [];
+for (const b of branches) {
+  const bySem = {};
+  for (let sem = 1; sem <= 8; sem++) {
+    const list = b.subjects.filter((c) => c.semester === sem);
+    const theory = list.filter((c) => !(c.experiments?.length && !c.units.length));
+    bySem[`semester-${sem}`] = list.map((c) => {
+      const isLab = (c.experiments?.length ?? 0) > 0 && c.units.length === 0;
+      const pair = isLab
+        ? theory.find((t) => stripLab(t.name) === stripLab(c.name) && stripLab(c.name) !== "")
+        : undefined;
+      const { key, ...rest } = c;
+      return {
+        key,
+        ...rest,
+        type: isLab
+          ? "lab"
+          : c.options
+            ? "elective-slot"
+            : c.units.length
+              ? "theory"
+              : "no-syllabus",
+        ...(pair ? { pairedTheory: pair.name } : {}),
+        sourceFile: SOURCE_FILE,
+        ...(c.options
+          ? { options: c.options.map((o) => ({ ...o, sourceFile: SOURCE_FILE })) }
+          : {}),
+      };
+    });
+    // validation
+    const codes = new Map();
+    for (const c of list) {
+      const all = [c, ...(c.options ?? [])];
+      for (const x of all) {
+        if (x.units.some((u) => u.topics.length === 0)) {
+          report.push(
+            `${b.id} sem ${sem}: "${x.name}" has a unit with no topics (a lab-style or free-text unit)`,
+          );
+        }
+        if (x.code && !/x/i.test(x.code) && !c.options) {
+          codes.set(x.code, (codes.get(x.code) ?? 0) + 1);
+        }
+      }
+    }
+    for (const [code, n] of codes) {
+      if (n > 1) report.push(`${b.id} sem ${sem}: course code ${code} appears ${n} times`);
+    }
+  }
+  combined.branches[b.id] = { name: b.name, handbook: b.handbook, semesters: bySem };
+}
+const dataDir = join(root, "data", "university", "pdeu");
+mkdirSync(dataDir, { recursive: true });
+writeFileSync(
+  join(dataDir, "syllabus-extracted.json"),
+  `${JSON.stringify(combined, null, 2)}
+`,
+);
+const counts = [];
+for (const b of branches) {
+  const row = [b.id];
+  for (let sem = 1; sem <= 8; sem++) {
+    const n = b.subjects.filter((c) => c.semester === sem).length;
+    row.push(`S${ROMANS[sem]}:${n}`);
+  }
+  counts.push(row.join(" "));
+}
+writeFileSync(
+  join(dataDir, "extraction-report.txt"),
+  [
+    "Courses per branch and semester (elective options not counted)",
+    ...counts,
+    "",
+    "Notes",
+    ...report,
+    "",
+  ].join(String.fromCharCode(10)),
+);
+console.log(counts.join(String.fromCharCode(10)));
+console.log(`${report.length} validation note(s), see data/university/pdeu/extraction-report.txt`);
 console.log(problems === 0 ? "credit tables all match" : `${problems} semester(s) differ`);
