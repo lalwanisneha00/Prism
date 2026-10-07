@@ -156,7 +156,7 @@ const nameKey = (n) =>
 
 // Non-core is what PDEU itself tags non-core (humanities, open electives, internships). These are
 // the courses whose category is not clear-cut, so the owner decides.
-const OVERRIDES = JSON.parse(readFileSync(join(DIR, "overrides.json"), "utf8"));
+const OVERRIDES = JSON.parse(readFileSync("src/data/pdeu/overrides.json", "utf8"));
 const UNSURE = []; // nothing is unsure any more: the owner decided (overrides.json)
 
 function typeOf(c) {

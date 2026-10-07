@@ -22,7 +22,7 @@ test.describe("PDEU's own syllabus", () => {
     await choose(page, "ce", "1");
     await expect(page.getByTestId("pdeu-semester")).toBeVisible();
     await expect(page.getByTestId("pdeu-credit-total")).toContainText(
-      "20 credits this semester: 15 core + 5 not core",
+      "19 credits this semester: 12 core + 7 not core",
     );
 
     const core = page.getByTestId("pdeu-core");

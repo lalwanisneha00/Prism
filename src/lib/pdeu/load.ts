@@ -1,3 +1,4 @@
+import overridesData from "@/data/pdeu/overrides.json";
 import { PdeuBranchSchema, type PdeuBranch } from "@/lib/pdeu/types";
 
 /** The branches PDEU's handbook covers here. Others are shown the usual Prism way. */
@@ -19,13 +20,48 @@ const loaders: Record<PdeuBranchId, () => Promise<{ default: unknown }>> = {
   me: () => import("@/data/pdeu/me.json"),
 };
 
+type Overrides = {
+  exclude: { branch: string; semester: number; code?: string; name?: string }[];
+  categories: { match: string; category: "core" | "non-core" }[];
+};
+const overrides = overridesData as unknown as Overrides;
+
+/** The owner's decisions (src/data/pdeu/overrides.json): courses left out, and core / non-core calls. */
+export function applyOverrides(branch: PdeuBranch): PdeuBranch {
+  const rules = overrides.categories.map((r) => ({
+    re: new RegExp(r.match, "i"),
+    core: r.category === "core",
+  }));
+  const excluded = (semester: number, c: { code?: string; name: string }) =>
+    overrides.exclude.some(
+      (e) =>
+        e.branch === branch.id &&
+        e.semester === semester &&
+        (e.code ? e.code === c.code : e.name === c.name),
+    );
+  return {
+    ...branch,
+    subjects: branch.subjects
+      .filter((s) => !excluded(s.semester, s))
+      .map((s) => {
+        const rule = rules.find((r) => r.re.test(s.name));
+        return rule ? { ...s, core: rule.core } : s;
+      }),
+  };
+}
+
 const cache = new Map<string, Promise<PdeuBranch>>();
 
-/** A branch's whole PDEU syllabus, checked against its schema the first time it is loaded. */
+/** A branch exactly as the handbook prints it (for checks against the PDF). */
+export function loadRawPdeuBranch(id: PdeuBranchId): Promise<PdeuBranch> {
+  return loaders[id]().then((m) => PdeuBranchSchema.parse(m.default));
+}
+
+/** A branch's PDEU syllabus with the owner's decisions applied, checked against its schema. */
 export function loadPdeuBranch(id: PdeuBranchId): Promise<PdeuBranch> {
   const have = cache.get(id);
   if (have) return have;
-  const p = loaders[id]().then((m) => PdeuBranchSchema.parse(m.default));
+  const p = loadRawPdeuBranch(id).then(applyOverrides);
   cache.set(id, p);
   return p;
 }

@@ -7,13 +7,11 @@ export function coursesOf(branch: PdeuBranch, semester: number, core: boolean): 
   return branch.subjects.filter((s) => s.semester === semester && s.core === core);
 }
 
-/** Credits the handbook's table gives for the semester, and what the listed courses add up to. */
+/** What the listed courses of the semester add up to (the handbook's table, less any course the owner left out). */
 export function semesterCredits(
   branch: PdeuBranch,
   semester: number,
 ): { core: number; notCore: number; total: number } {
-  const printed = branch.credits[String(semester)];
-  if (printed) return printed;
   const core = coursesOf(branch, semester, true).reduce((n, s) => n + s.credits, 0);
   const notCore = coursesOf(branch, semester, false).reduce((n, s) => n + s.credits, 0);
   return { core, notCore, total: core + notCore };

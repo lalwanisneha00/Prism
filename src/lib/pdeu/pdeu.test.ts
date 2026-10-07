@@ -9,7 +9,7 @@ import {
   semesterCredits,
   toDraftChapters,
 } from "@/lib/pdeu/helpers";
-import { loadPdeuBranch, PDEU_BRANCH_IDS, isPdeuBranch } from "@/lib/pdeu/load";
+import { loadPdeuBranch, loadRawPdeuBranch, PDEU_BRANCH_IDS, isPdeuBranch } from "@/lib/pdeu/load";
 
 describe("PDEU syllabus data", () => {
   it("every branch passes its schema and has all eight semesters", async () => {
@@ -33,9 +33,9 @@ describe("PDEU syllabus data", () => {
     }
   });
 
-  it("the credits of the listed courses add up to the handbook's table", async () => {
+  it("the credits of the listed courses add up to the handbook's table (before the owner's decisions)", async () => {
     for (const id of PDEU_BRANCH_IDS) {
-      const b = await loadPdeuBranch(id);
+      const b = await loadRawPdeuBranch(id);
       for (let sem = 1; sem <= 8; sem++) {
         const printed = b.credits[String(sem)];
         const core = coursesOf(b, sem, true).reduce((n, s) => n + s.credits, 0);
@@ -50,6 +50,19 @@ describe("PDEU syllabus data", () => {
         });
       }
     }
+  });
+
+  it("applies the owner's decisions: Workshop Practices is out of CE semester 1, EVS is non-core", async () => {
+    const ce = await loadPdeuBranch("ce");
+    const sem1 = ce.subjects.filter((c) => c.semester === 1);
+    expect(sem1.some((c) => c.name === "Workshop Practices")).toBe(false);
+    expect(sem1.find((c) => c.name === "Environment Science")?.core).toBe(false);
+    expect(semesterCredits(ce, 1)).toEqual({ core: 12, notCore: 7, total: 19 });
+    // The same course stays in the other branches.
+    const ict = await loadPdeuBranch("ict");
+    expect(ict.subjects.some((c) => c.semester === 1 && c.name === "Workshop Practices")).toBe(
+      true,
+    );
   });
 
   it("an elective slot either lists its options or says where they are", async () => {
@@ -90,7 +103,7 @@ describe("PDEU helpers", () => {
     const physics = ce.subjects.find((s) => s.name === "Applied Physics");
     expect(physics?.credits).toBe(3);
     expect(codeText(physics!)).toBe("24PH101T");
-    expect(semesterCredits(ce, 1).total).toBe(20);
+    expect(semesterCredits(ce, 1).total).toBe(19);
     const chapters = toDraftChapters(physics!);
     expect(chapters).toHaveLength(4);
     expect(chapters[0].name).toBe("Electricity and Magnetism");
