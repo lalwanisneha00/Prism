@@ -22,6 +22,8 @@ export type UserKeyRequest = {
   model: string;
   /** The provider to call (wraps the real one so its errors never contain the key). */
   provider: LlmProvider;
+  /** The same key on the provider's other models, tried when the chosen one is busy (Gemini). */
+  fallbacks: LlmProvider[];
 };
 
 /** Wraps a provider so any error text is stripped of the key before anyone can log it. */
@@ -70,10 +72,21 @@ export function userKeyFromHeaders(headers: Headers): UserKeyRequest | null {
   }
   const model = headers.get(KEY_HEADERS.model) || info.defaultModel;
   if (!validModel(model)) throw new LlmError("auth", "The model name sent isn't valid.");
+  const safe = (m: string, label: string) => new KeySafeProvider(build(info, m, key), key, label);
+  // Google's models are often "busy" (HTTP 503) for a while: the same key then tries its other models.
+  const fallbacks =
+    info.kind === "gemini"
+      ? info.models
+          .map((m) => m.id)
+          .filter((m) => m !== model)
+          .sort((a, b) => Number(/lite/.test(b)) - Number(/lite/.test(a)))
+          .map((m) => safe(m, `Your ${info.name} key (${m})`))
+      : [];
   return {
     info,
     model,
-    provider: new KeySafeProvider(build(info, model, key), key, `Your ${info.name} key`),
+    provider: safe(model, `Your ${info.name} key`),
+    fallbacks,
   };
 }
 
@@ -92,7 +105,7 @@ export function chainFor(req: Request, shared: () => LlmProvider[]): LlmProvider
     };
     return [failing];
   }
-  return user ? [user.provider] : shared();
+  return user ? [user.provider, ...user.fallbacks] : shared();
 }
 
 /** True when this request came with a key of the student's own. */
