@@ -80,7 +80,7 @@ test.describe("Other subjects (V3 · Step 4)", () => {
     await expect(form.getByTestId("name-only-hint")).toContainText("Only the name is needed");
     await form.getByLabel("Subject name").fill("Professional Ethics");
     await form.getByRole("button", { name: "Save my subject" }).click();
-    await expect(page).toHaveURL(//my-subjects/view?id=custom-/, { timeout: 30_000 });
+    await expect(page).toHaveURL(/\/my-subjects\/view\?id=custom-/, { timeout: 30_000 });
     await expect(page.getByTestId("needs-setup")).toContainText(
       "Upload your syllabus and material to make lessons and study this subject.",
     );
