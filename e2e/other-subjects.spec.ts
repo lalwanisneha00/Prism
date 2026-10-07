@@ -86,7 +86,9 @@ test.describe("Other subjects (V3 · Step 4)", () => {
       "Upload the material given by your faculty to study this subject here. This is optional and you can do it any time.",
     );
     // Nothing is made up: there is no lesson shortcut until it has topics.
-    await expect(page.getByRole("link", { name: "Start a lesson" })).toHaveCount(0);
+    await expect(
+      page.getByTestId("custom-subject-view").getByRole("link", { name: "Start a lesson" }),
+    ).toHaveCount(0);
   });
 
   test("builds an outline from uploaded material, labelled, and keeps the files", async ({
