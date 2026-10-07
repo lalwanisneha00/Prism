@@ -70,7 +70,7 @@ export function MySubjectsList() {
                 {r.details.examDate ? ` · exam ${r.details.examDate}` : ""}
               </span>
             </Link>
-            {r.chapters.length === 0 && <NeedsMaterialNote subjectId={r.id} />}
+            <NeedsMaterialNote subjectId={r.id} />
             <div className="flex flex-wrap gap-2 text-sm">
               {r.chapters.length > 0 && (
                 <Link

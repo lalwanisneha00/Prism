@@ -123,16 +123,7 @@ function SubjectCard({
           </Link>
         </details>
       )}
-      {data.own && data.empty && <NeedsMaterialNote subjectId={data.id} />}
-      {data.own && !data.empty && (
-        <Note tone="info">
-          Upload the material given by your faculty to study this subject here. This is optional and
-          you can do it any time.
-          <Link href={data.href} className="mt-1 block font-semibold text-primary underline">
-            Open this subject
-          </Link>
-        </Note>
-      )}
+      {data.own && <NeedsMaterialNote subjectId={data.id} />}
     </li>
   );
 }
