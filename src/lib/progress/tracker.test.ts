@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { chapterProgress, localDate, streak } from "@/lib/progress/tracker";
-import { subjects } from "@/lib/subjects";
+import { allSubjects as subjects } from "@/lib/subjects";
 
 const at = (y: number, m: number, d: number) => new Date(y, m - 1, d, 15).getTime();
 

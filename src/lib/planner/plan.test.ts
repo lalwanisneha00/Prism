@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { addDays, buildPlan, planProgress, studyOrder, type PlanTopic } from "@/lib/planner/plan";
-import { subjects } from "@/lib/subjects";
+import { allSubjects as subjects } from "@/lib/subjects";
 
 const t = (id: string, requires: string[] = [], weak = false): PlanTopic => ({
   id,

@@ -1,0 +1,317 @@
+{
+  "id": "pdeu-probability-and-statistics-theory",
+  "name": "Probability and Statistics Theory",
+  "field": "Probability and Statistics Theory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [4],
+  "code": "24CS206T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s4-probability-and-statistics-theory",
+      "code": "24CS206T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Probability and Statistics Theory",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "fundamentals-of-probability",
+      "name": "Fundamentals Of Probability",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "sample-space",
+          "name": "Sample space"
+        },
+        {
+          "id": "axiomatic-definition-and-properties",
+          "name": "Axiomatic definition and properties",
+          "requires": ["sample-space"]
+        },
+        {
+          "id": "probability-set-function",
+          "name": "Probability set function",
+          "requires": ["axiomatic-definition-and-properties"]
+        },
+        {
+          "id": "conditional-probability",
+          "name": "Conditional probability",
+          "requires": ["probability-set-function"]
+        },
+        {
+          "id": "bayes-rule-and-independence-of-events",
+          "name": "Bayes' rule and independence of events",
+          "requires": ["conditional-probability"]
+        },
+        {
+          "id": "random-variables",
+          "name": "Random variables",
+          "requires": ["bayes-rule-and-independence-of-events"]
+        },
+        {
+          "id": "distribution-function",
+          "name": "Distribution function",
+          "requires": ["random-variables"]
+        },
+        {
+          "id": "probability-mass-and-density-functions",
+          "name": "Probability mass and density functions",
+          "requires": ["distribution-function"]
+        },
+        {
+          "id": "expectation",
+          "name": "Expectation",
+          "requires": ["probability-mass-and-density-functions"]
+        },
+        {
+          "id": "variance",
+          "name": "Variance",
+          "requires": ["expectation"]
+        },
+        {
+          "id": "moments",
+          "name": "moments",
+          "requires": ["variance"]
+        },
+        {
+          "id": "moment-generating-function",
+          "name": "Moment generating function",
+          "requires": ["moments"]
+        },
+        {
+          "id": "chebyshevs-inequality",
+          "name": "Chebyshev's inequality",
+          "requires": ["moment-generating-function"]
+        }
+      ]
+    },
+    {
+      "id": "random-variable-distributions",
+      "name": "Random Variable Distributions",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "uniform",
+          "name": "Uniform"
+        },
+        {
+          "id": "bernoulli",
+          "name": "Bernoulli",
+          "requires": ["uniform"]
+        },
+        {
+          "id": "binomial",
+          "name": "Binomial",
+          "requires": ["bernoulli"]
+        },
+        {
+          "id": "geometric",
+          "name": "Geometric",
+          "requires": ["binomial"]
+        },
+        {
+          "id": "negative-binomial",
+          "name": "Negative binomial",
+          "requires": ["geometric"]
+        },
+        {
+          "id": "hypergeometric",
+          "name": "Hypergeometric",
+          "requires": ["negative-binomial"]
+        },
+        {
+          "id": "poisson",
+          "name": "Poisson",
+          "requires": ["hypergeometric"]
+        },
+        {
+          "id": "exponential",
+          "name": "Exponential",
+          "requires": ["poisson"]
+        },
+        {
+          "id": "gamma",
+          "name": "Gamma",
+          "requires": ["exponential"]
+        },
+        {
+          "id": "weibull",
+          "name": "Weibull",
+          "requires": ["gamma"]
+        },
+        {
+          "id": "beta",
+          "name": "Beta",
+          "requires": ["weibull"]
+        },
+        {
+          "id": "cauchy",
+          "name": "Cauchy",
+          "requires": ["beta"]
+        },
+        {
+          "id": "double-exponential",
+          "name": "Double exponential",
+          "requires": ["cauchy"]
+        },
+        {
+          "id": "normal",
+          "name": "Normal",
+          "requires": ["double-exponential"]
+        },
+        {
+          "id": "joint-distributions",
+          "name": "Joint distributions",
+          "requires": ["normal"]
+        },
+        {
+          "id": "marginal-and-conditional-distributions",
+          "name": "Marginal and Conditional distributions",
+          "requires": ["joint-distributions"]
+        },
+        {
+          "id": "weak-law-of-large-numbers-and-central-limit-theorems",
+          "name": "Weak Law of large numbers and Central limit theorems",
+          "requires": ["marginal-and-conditional-distributions"]
+        }
+      ]
+    },
+    {
+      "id": "statistical-inference",
+      "name": "Statistical Inference",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "sampling-techniques-and-estimation-population",
+          "name": "Sampling Techniques and Estimation: Population"
+        },
+        {
+          "id": "sample",
+          "name": "Sample",
+          "requires": ["sampling-techniques-and-estimation-population"]
+        },
+        {
+          "id": "parameters",
+          "name": "Parameters",
+          "requires": ["sample"]
+        },
+        {
+          "id": "random-sampling-with-and-without-replacement",
+          "name": "Random sampling with and without replacement",
+          "requires": ["parameters"]
+        },
+        {
+          "id": "point-estimation",
+          "name": "Point estimation",
+          "requires": ["random-sampling-with-and-without-replacement"]
+        },
+        {
+          "id": "maximum-likelihood-estimation-mle-and-method-of-moments",
+          "name": "Maximum likelihood estimation (MLE) and method of moments",
+          "requires": ["point-estimation"]
+        },
+        {
+          "id": "confidence-intervals-for-population-parameters",
+          "name": "Confidence intervals for population parameters",
+          "requires": ["maximum-likelihood-estimation-mle-and-method-of-moments"]
+        },
+        {
+          "id": "hypothesis-testing-null-and-alternative-hypotheses",
+          "name": "Hypothesis Testing: Null and alternative hypotheses",
+          "requires": ["confidence-intervals-for-population-parameters"]
+        },
+        {
+          "id": "type-i-and-type-ii-errors",
+          "name": "Type I and Type II errors",
+          "requires": ["hypothesis-testing-null-and-alternative-hypotheses"]
+        },
+        {
+          "id": "common-hypothesis-tests-t-tests",
+          "name": "Common hypothesis tests: t-tests",
+          "requires": ["type-i-and-type-ii-errors"]
+        },
+        {
+          "id": "chi-squared-tests-and-anova",
+          "name": "chi-squared tests, and ANOVA",
+          "requires": ["common-hypothesis-tests-t-tests"]
+        }
+      ]
+    },
+    {
+      "id": "curve-fitting-and-regression-analysis",
+      "name": "Curve Fitting And Regression Analysis",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "independence-of-random-variables",
+          "name": "Independence of random variables"
+        },
+        {
+          "id": "covariance",
+          "name": "Covariance",
+          "requires": ["independence-of-random-variables"]
+        },
+        {
+          "id": "functions-of-random-variables",
+          "name": "Functions of random variables",
+          "requires": ["covariance"]
+        },
+        {
+          "id": "measure-of-central-tendency",
+          "name": "Measure of central tendency",
+          "requires": ["functions-of-random-variables"]
+        },
+        {
+          "id": "curve-fitting",
+          "name": "Curve Fitting",
+          "requires": ["measure-of-central-tendency"]
+        },
+        {
+          "id": "correlation",
+          "name": "Correlation",
+          "requires": ["curve-fitting"]
+        },
+        {
+          "id": "simple-correlation",
+          "name": "Simple Correlation",
+          "requires": ["correlation"]
+        },
+        {
+          "id": "partial-correlation",
+          "name": "Partial Correlation",
+          "requires": ["simple-correlation"]
+        },
+        {
+          "id": "linear-regression-ml",
+          "name": "Linear regression",
+          "requires": ["partial-correlation"]
+        },
+        {
+          "id": "multiple-regression",
+          "name": "Multiple regression",
+          "requires": ["linear-regression-ml"]
+        },
+        {
+          "id": "residual-analysis-and-diagnostics",
+          "name": "Residual analysis and diagnostics",
+          "requires": ["multiple-regression"]
+        }
+      ]
+    }
+  ]
+}

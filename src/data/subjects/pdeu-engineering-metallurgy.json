@@ -1,0 +1,338 @@
+{
+  "id": "pdeu-engineering-metallurgy",
+  "name": "Engineering Metallurgy",
+  "field": "Mechanical Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [4],
+  "code": "16MI207T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s4-engineering-metallurgy",
+      "code": "16MI207T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Engineering Metallurgy",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "chemistry",
+  "chapters": [
+    {
+      "id": "structure-property-relation",
+      "name": "Structure Property Relation",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "engineering-metals-and-alloys",
+          "name": "Engineering metals and alloys"
+        },
+        {
+          "id": "elastic-and-plastic-deformation",
+          "name": "Elastic and plastic deformation",
+          "requires": ["engineering-metals-and-alloys"]
+        },
+        {
+          "id": "deformation-in-a-single-crystal-and-polycrystalline-metal",
+          "name": "deformation in a single crystal and polycrystalline metal",
+          "requires": ["elastic-and-plastic-deformation"]
+        },
+        {
+          "id": "critical-resolved-shear-stress",
+          "name": "Critical resolved shear stress",
+          "requires": ["deformation-in-a-single-crystal-and-polycrystalline-metal"]
+        },
+        {
+          "id": "plastic-deformation-mechanisms-slip-and-twin",
+          "name": "plastic deformation mechanisms-slip and twin",
+          "requires": ["critical-resolved-shear-stress"]
+        },
+        {
+          "id": "effect-of-defects-on-deformation-mechanism",
+          "name": "effect of defects on deformation mechanism",
+          "requires": ["plastic-deformation-mechanisms-slip-and-twin"]
+        },
+        {
+          "id": "work-hardening",
+          "name": "work hardening",
+          "requires": ["effect-of-defects-on-deformation-mechanism"]
+        },
+        {
+          "id": "fracture-in-metals",
+          "name": "fracture in metals",
+          "requires": ["work-hardening"]
+        },
+        {
+          "id": "changes-in-properties-due-to-deformation",
+          "name": "changes in properties due to deformation",
+          "requires": ["fracture-in-metals"]
+        },
+        {
+          "id": "re-crystallization",
+          "name": "re-crystallization",
+          "requires": ["changes-in-properties-due-to-deformation"]
+        },
+        {
+          "id": "cold-working-and-hard-working-testing-of-metals-concept-of",
+          "name": "cold working and hard working. Testing of metals: concept of stress and strain",
+          "requires": ["re-crystallization"]
+        },
+        {
+          "id": "strength",
+          "name": "strength",
+          "requires": ["cold-working-and-hard-working-testing-of-metals-concept-of"]
+        },
+        {
+          "id": "elasticity",
+          "name": "elasticity",
+          "requires": ["strength"]
+        },
+        {
+          "id": "plasticity",
+          "name": "plasticity",
+          "requires": ["elasticity"]
+        },
+        {
+          "id": "stiffness",
+          "name": "stiffness",
+          "requires": ["plasticity"]
+        },
+        {
+          "id": "resilience",
+          "name": "resilience",
+          "requires": ["stiffness"]
+        },
+        {
+          "id": "toughness",
+          "name": "toughness",
+          "requires": ["resilience"]
+        },
+        {
+          "id": "malleability-ductility-and-brittleness",
+          "name": "malleability, ductility, and brittleness",
+          "requires": ["toughness"]
+        },
+        {
+          "id": "destructive-tests-tension-test-engineering-and-true-stress",
+          "name": "Destructive Tests: Tension Test- Engineering and True stress-strain curves",
+          "requires": ["malleability-ductility-and-brittleness"]
+        },
+        {
+          "id": "their-conversion-relationships",
+          "name": "their conversion relationships",
+          "requires": ["destructive-tests-tension-test-engineering-and-true-stress"]
+        }
+      ]
+    },
+    {
+      "id": "unit-2",
+      "name": "Unit 2",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "numericals-based-on-tension-test-engineering-stress",
+          "name": "Numericals based on tension test, engineering stress"
+        },
+        {
+          "id": "strain-diagram-for-ductile-and-brittle-materials-compression",
+          "name": "strain diagram for ductile and brittle materials, compression test. Hardness test",
+          "requires": ["numericals-based-on-tension-test-engineering-stress"]
+        },
+        {
+          "id": "brinell-poldi-vickers-rockwell-rockwell-superficial",
+          "name": "Brinell, Poldi, Vickers, Rockwell, Rockwell superficial",
+          "requires": ["strain-diagram-for-ductile-and-brittle-materials-compression"]
+        },
+        {
+          "id": "micro-hardness-tests",
+          "name": "Micro hardness tests",
+          "requires": ["brinell-poldi-vickers-rockwell-rockwell-superficial"]
+        },
+        {
+          "id": "impact-tests",
+          "name": "Impact tests",
+          "requires": ["micro-hardness-tests"]
+        },
+        {
+          "id": "fatigue-creep-fracture-bm",
+          "name": "Charpy and izod, fatigue and creep test, Erichsen cupping test, concept of fracture toughness testing",
+          "requires": ["impact-tests"]
+        },
+        {
+          "id": "ndt-methods",
+          "name": "Introduction to Non Destructive Testing, visual inspection, dye penetration test, ultra sonic test",
+          "requires": ["fatigue-creep-fracture-bm"]
+        },
+        {
+          "id": "ferrous-metals-and-designation-wrought-and-cast-components",
+          "name": "Ferrous metals and Designation: Wrought and cast components, allotropy of iron, iron-carbon diagram, plain carbon steels, limitations of plain carbon steel, and advantages of alloy steels",
+          "requires": ["ndt-methods"]
+        },
+        {
+          "id": "effect-of-alloying-elements-on-mechanical-properties-of",
+          "name": "Effect of alloying elements on mechanical properties of steel, alloy steels, tool steels, stainless steels, cast irons",
+          "requires": ["ferrous-metals-and-designation-wrought-and-cast-components"]
+        },
+        {
+          "id": "designation-of-steels-and-cast-iron",
+          "name": "Designation of steels and cast iron",
+          "requires": ["effect-of-alloying-elements-on-mechanical-properties-of"]
+        }
+      ]
+    },
+    {
+      "id": "heat-treatment",
+      "name": "Heat Treatment",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "effect-of-non-equilibrium-cooling-on-microstructure-and",
+          "name": "Effect of non- equilibrium cooling on microstructure and properties of steel"
+        },
+        {
+          "id": "ttt-diagram-for-0-8-carbon-steel-only",
+          "name": "TTT diagram for 0.8% carbon steel only",
+          "requires": ["effect-of-non-equilibrium-cooling-on-microstructure-and"]
+        },
+        {
+          "id": "isothermal-treatments",
+          "name": "Isothermal treatments",
+          "requires": ["ttt-diagram-for-0-8-carbon-steel-only"]
+        },
+        {
+          "id": "continuous-cooling-transformation-curves",
+          "name": "continuous cooling transformation curves",
+          "requires": ["isothermal-treatments"]
+        },
+        {
+          "id": "critical-cooling-rate-and-heat-treatments-like-annealing",
+          "name": "critical cooling rate & heat treatments like annealing",
+          "requires": ["continuous-cooling-transformation-curves"]
+        },
+        {
+          "id": "normalizing",
+          "name": "normalizing",
+          "requires": ["critical-cooling-rate-and-heat-treatments-like-annealing"]
+        },
+        {
+          "id": "hardening-and-tempering-hardenability-of-steels",
+          "name": "hardening and tempering. Hardenability of steels",
+          "requires": ["normalizing"]
+        },
+        {
+          "id": "jominey-end-quench-test",
+          "name": "jominey end quench test",
+          "requires": ["hardening-and-tempering-hardenability-of-steels"]
+        },
+        {
+          "id": "surface-hardening-treatment-scarburizing-nitriding",
+          "name": "surface hardening treatment scarburizing. Nitriding",
+          "requires": ["jominey-end-quench-test"]
+        },
+        {
+          "id": "carbonitriding",
+          "name": "carbonitriding",
+          "requires": ["surface-hardening-treatment-scarburizing-nitriding"]
+        },
+        {
+          "id": "tufftride",
+          "name": "tufftride",
+          "requires": ["carbonitriding"]
+        },
+        {
+          "id": "sursulf",
+          "name": "sursulf",
+          "requires": ["tufftride"]
+        },
+        {
+          "id": "induction-hardening-and-flame-hardening",
+          "name": "induction hardening and flame hardening",
+          "requires": ["sursulf"]
+        },
+        {
+          "id": "introduction-to-powder-metallurgy-and-applications-non",
+          "name": "Introduction to powder metallurgy & applications: Non- ferrous metals and alloys- Copper and its alloys",
+          "requires": ["induction-hardening-and-flame-hardening"]
+        },
+        {
+          "id": "aluminium-and-its-alloys",
+          "name": "Aluminium and its alloys",
+          "requires": ["introduction-to-powder-metallurgy-and-applications-non"]
+        },
+        {
+          "id": "babbits-introduction-to-advanced-materials-types-and",
+          "name": "babbits. Introduction to advanced Materials: Types and properties of composite materials",
+          "requires": ["aluminium-and-its-alloys"]
+        },
+        {
+          "id": "high-temperature-materials-and-cryogenic-materials-glass-and",
+          "name": "high temperature materials & cryogenic materials. Glass and Rubber",
+          "requires": ["babbits-introduction-to-advanced-materials-types-and"]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "name": "Unit 4",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "numericals-based-on-engineering-stress-vs-engineering-strain",
+          "name": "Numericals based on engineering stress vs. engineering strain curve"
+        },
+        {
+          "id": "true-stress-vs-true-strain-curve",
+          "name": "true stress vs. true strain curve",
+          "requires": ["numericals-based-on-engineering-stress-vs-engineering-strain"]
+        },
+        {
+          "id": "impact-energy-vs-temperature-curve",
+          "name": "impact energy vs. temperature curve",
+          "requires": ["true-stress-vs-true-strain-curve"]
+        },
+        {
+          "id": "stress-amplitude-vs-number-of-cycles-in-fatigue-test",
+          "name": "stress amplitude vs. number of cycles in fatigue test",
+          "requires": ["impact-energy-vs-temperature-curve"]
+        },
+        {
+          "id": "calculation-of-fatigue-life-and-strength-evaluating-number",
+          "name": "calculation of fatigue life and strength. Evaluating number of phases",
+          "requires": ["stress-amplitude-vs-number-of-cycles-in-fatigue-test"]
+        },
+        {
+          "id": "composition-of-phase-and-amount-of-phases-for-the-given",
+          "name": "composition of phase and amount of phases for the given condition using lever rule",
+          "requires": ["calculation-of-fatigue-life-and-strength-evaluating-number"]
+        },
+        {
+          "id": "determination-of-astm-grain-size-number",
+          "name": "Determination of ASTM grain size number",
+          "requires": ["composition-of-phase-and-amount-of-phases-for-the-given"]
+        },
+        {
+          "id": "recent-advances-in-engineering-metallurgy-astm-standards-for",
+          "name": "recent advances in engineering metallurgy. ASTM standards for mechanical testing",
+          "requires": ["determination-of-astm-grain-size-number"]
+        },
+        {
+          "id": "study-of-few-important-standards",
+          "name": "study of few important standards",
+          "requires": ["recent-advances-in-engineering-metallurgy-astm-standards-for"]
+        }
+      ]
+    }
+  ]
+}

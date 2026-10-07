@@ -2,6 +2,8 @@
  * PhET Interactive Simulations (University of Colorado Boulder), licensed CC BY 4.0.
  * Each id below was checked to exist as an embeddable HTML5 simulation.
  */
+import { visualTopicIds } from "@/visuals/topicAliases";
+
 export type PhetSim = { id: string; title: string; topics: string[] };
 
 export const phetSims: PhetSim[] = [
@@ -49,7 +51,7 @@ export const phetSims: PhetSim[] = [
   {
     id: "faradays-law",
     title: "Faraday's Law",
-    topics: ["emf-induction-machines", "faradays-law", "lenzs-law", "magnetic-flux"],
+    topics: ["faradays-law", "lenzs-law", "magnetic-flux"],
   },
   {
     id: "faradays-electromagnetic-lab",
@@ -59,24 +61,12 @@ export const phetSims: PhetSim[] = [
   {
     id: "magnets-and-electromagnets",
     title: "Magnets and Electromagnets",
-    topics: [
-      "magnetic-circuits",
-      "solenoid-toroid",
-      "biot-savart-law",
-      "amperes-law",
-      "magnetic-materials",
-    ],
+    topics: ["solenoid-toroid", "biot-savart-law", "amperes-law", "magnetic-materials"],
   },
   {
     id: "generator",
     title: "Generator",
-    topics: [
-      "dc-armature-windings-emf",
-      "alternator-phasors-excitation",
-      "ac-generator",
-      "faradays-law",
-      "motional-emf",
-    ],
+    topics: ["ac-generator", "faradays-law", "motional-emf"],
   },
   // Engineering Mathematics (V2 · Step 6)
   {
@@ -258,5 +248,6 @@ export function phetEmbedUrl(id: string): string {
 }
 
 export function phetSimsForTopic(topicId: string): PhetSim[] {
-  return phetSims.filter((s) => s.topics.includes(topicId));
+  const ids = visualTopicIds(topicId);
+  return phetSims.filter((s) => ids.some((t) => s.topics.includes(t)));
 }

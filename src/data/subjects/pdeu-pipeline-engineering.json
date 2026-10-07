@@ -1,0 +1,197 @@
+{
+  "id": "pdeu-pipeline-engineering",
+  "name": "Pipeline Engineering",
+  "field": "Pipeline Engineering",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [6],
+  "code": "24PE336T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s6-program-elective-b-choose-one-3-credits--pipeline-engineering",
+      "code": "24PE336T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Pipeline Engineering",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-to-oil-and-gas-pipeline",
+      "name": "Introduction to Oil And Gas Pipeline",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "modes-and-comparison-among-different-modes-of-transportation",
+          "name": "Modes and comparison among different modes of transportation of petroleum products"
+        },
+        {
+          "id": "advantages-and-limitations-of-pipelines-modes",
+          "name": "Advantages and limitations of pipelines modes",
+          "requires": ["modes-and-comparison-among-different-modes-of-transportation"]
+        },
+        {
+          "id": "introduction-to-pipeline-project",
+          "name": "Introduction to pipeline project",
+          "requires": ["advantages-and-limitations-of-pipelines-modes"]
+        },
+        {
+          "id": "economics-and-cost-structure-of-pipeline-project",
+          "name": "Economics and cost structure of Pipeline project",
+          "requires": ["introduction-to-pipeline-project"]
+        },
+        {
+          "id": "economic-pipe-diameter",
+          "name": "Economic pipe diameter",
+          "requires": ["economics-and-cost-structure-of-pipeline-project"]
+        }
+      ]
+    },
+    {
+      "id": "pipeline-construction-processes-and-design-factors",
+      "name": "Pipeline Construction, Processes and Design Factors",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "introduction-to-outline-for-design-and-construction-of",
+          "name": "Introduction to outline for Design & construction of onshore-offshore pipelines"
+        },
+        {
+          "id": "pipeline-codes-and-standards",
+          "name": "Pipeline codes and standards",
+          "requires": ["introduction-to-outline-for-design-and-construction-of"]
+        },
+        {
+          "id": "overview-of-o-and-g-field-processes",
+          "name": "Overview of O & G field Processes",
+          "requires": ["pipeline-codes-and-standards"]
+        },
+        {
+          "id": "types-of-onshore-offshore-pipelines",
+          "name": "Types of Onshore/ Offshore Pipelines",
+          "requires": ["overview-of-o-and-g-field-processes"]
+        },
+        {
+          "id": "factors-affecting-pipeline-design-external-fluid-properties",
+          "name": "Factors affecting pipeline design (External, fluid properties, pipeline parameters and Fluid flow considerations",
+          "requires": ["types-of-onshore-offshore-pipelines"]
+        },
+        {
+          "id": "loop-lines",
+          "name": "Loop- lines",
+          "requires": ["factors-affecting-pipeline-design-external-fluid-properties"]
+        }
+      ]
+    },
+    {
+      "id": "designing-of-liquid-and-gas-pipeline",
+      "name": "Designing of Liquid & Gas Pipeline",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "design-of-liquid-pipelines-hydraulic-analysis",
+          "name": "Design of Liquid pipelines: Hydraulic Analysis"
+        },
+        {
+          "id": "relevant-pipeline-parameters",
+          "name": "Relevant Pipeline Parameters",
+          "requires": ["design-of-liquid-pipelines-hydraulic-analysis"]
+        },
+        {
+          "id": "types-of-fluids",
+          "name": "Types of fluids",
+          "requires": ["relevant-pipeline-parameters"]
+        },
+        {
+          "id": "pressure-loss-calculations",
+          "name": "Pressure Loss calculations",
+          "requires": ["types-of-fluids"]
+        },
+        {
+          "id": "maximum-allowable-operating-pressure",
+          "name": "Maximum allowable operating Pressure",
+          "requires": ["pressure-loss-calculations"]
+        },
+        {
+          "id": "pipeline-sizing",
+          "name": "Pipeline sizing",
+          "requires": ["maximum-allowable-operating-pressure"]
+        },
+        {
+          "id": "diameter-sizing",
+          "name": "Diameter sizing",
+          "requires": ["pipeline-sizing"]
+        },
+        {
+          "id": "determination-of-wall-thickness",
+          "name": "Determination of wall Thickness",
+          "requires": ["diameter-sizing"]
+        },
+        {
+          "id": "station-spacing-pumping-power-calculations",
+          "name": "Station Spacing Pumping Power calculations",
+          "requires": ["determination-of-wall-thickness"]
+        },
+        {
+          "id": "design-of-gas-pipelines-factors-affecting-gas-pipeline",
+          "name": "Design of Gas Pipelines: Factors affecting Gas Pipeline Design",
+          "requires": ["station-spacing-pumping-power-calculations"]
+        },
+        {
+          "id": "gas-pipeline-hydraulic-calculations",
+          "name": "Gas pipeline Hydraulic Calculations",
+          "requires": ["design-of-gas-pipelines-factors-affecting-gas-pipeline"]
+        },
+        {
+          "id": "as-compression-power-requirement",
+          "name": "as Compression / Power requirement",
+          "requires": ["gas-pipeline-hydraulic-calculations"]
+        }
+      ]
+    },
+    {
+      "id": "commissioning-inspection-and-maintenance-of",
+      "name": "Commissioning, Inspection and Maintenance of Pipeline",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "commissioning-of-pipeline-pipeline-operations",
+          "name": "Commissioning of pipeline. Pipeline Operations"
+        },
+        {
+          "id": "pigging",
+          "name": "Pigging",
+          "requires": ["commissioning-of-pipeline-pipeline-operations"]
+        },
+        {
+          "id": "integrity-assessment-by-intelligent-pigging-and",
+          "name": "integrity assessment by Intelligent pigging and Instrumentation",
+          "requires": ["pigging"]
+        },
+        {
+          "id": "monitoring-and-control-thru-scada-application",
+          "name": "Monitoring and Control Thru SCADA application",
+          "requires": ["integrity-assessment-by-intelligent-pigging-and"]
+        },
+        {
+          "id": "corrosion-and-control-cathodic-protection",
+          "name": "Corrosion and control/ Cathodic Protection",
+          "requires": ["monitoring-and-control-thru-scada-application"]
+        }
+      ]
+    }
+  ]
+}

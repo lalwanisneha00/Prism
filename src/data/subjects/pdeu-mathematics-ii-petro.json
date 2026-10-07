@@ -1,0 +1,223 @@
+{
+  "id": "pdeu-mathematics-ii-petro",
+  "name": "Mathematics - II (Petro)",
+  "field": "Mathematics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [2],
+  "code": "24MA103T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s2-mathematics-ii",
+      "code": "24MA103T",
+      "category": "Basic Science",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 2,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Mathematics - II",
+    "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "maths",
+  "chapters": [
+    {
+      "id": "complex-differentiation",
+      "name": "Complex Differentiation",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "limit",
+          "name": "Limit"
+        },
+        {
+          "id": "continuity",
+          "name": "Continuity",
+          "requires": ["limit"]
+        },
+        {
+          "id": "differentiability-of-the-function-of-a-complex-variable",
+          "name": "Differentiability of the function of a complex variable",
+          "requires": ["continuity"]
+        },
+        {
+          "id": "analytic-function",
+          "name": "Analytic function",
+          "requires": ["differentiability-of-the-function-of-a-complex-variable"]
+        },
+        {
+          "id": "cauchy-riemann-equation-in-cartesian-coordinates",
+          "name": "Cauchy-Riemann equation (in Cartesian coordinates)",
+          "requires": ["analytic-function"]
+        },
+        {
+          "id": "harmonic-function-and-its-significance",
+          "name": "Harmonic function and its significance",
+          "requires": ["cauchy-riemann-equation-in-cartesian-coordinates"]
+        },
+        {
+          "id": "singularities",
+          "name": "Singularities",
+          "requires": ["harmonic-function-and-its-significance"]
+        },
+        {
+          "id": "taylors-series",
+          "name": "Taylor’s series",
+          "requires": ["singularities"]
+        },
+        {
+          "id": "line-integrals",
+          "name": "Definition of a Complex line integral",
+          "requires": ["taylors-series"]
+        },
+        {
+          "id": "contour-integrals",
+          "name": "Contour integrals",
+          "requires": ["line-integrals"]
+        },
+        {
+          "id": "cauchy-integral-theorem",
+          "name": "Cauchy integral theorem",
+          "requires": ["contour-integrals"]
+        },
+        {
+          "id": "cauchy-integral-formula-cif",
+          "name": "Cauchy Integral formula (CIF)",
+          "requires": ["cauchy-integral-theorem"]
+        },
+        {
+          "id": "cif-for-derivatives",
+          "name": "CIF for derivatives",
+          "requires": ["cauchy-integral-formula-cif"]
+        },
+        {
+          "id": "calculation-of-residues",
+          "name": "Calculation of residues",
+          "requires": ["cif-for-derivatives"]
+        },
+        {
+          "id": "residue-theorem",
+          "name": "Cauchy Residue theorem",
+          "requires": ["calculation-of-residues"]
+        },
+        {
+          "id": "applications-of-residues-to-evaluate-real-definite-integrals",
+          "name": "Applications of residues to evaluate real definite integrals",
+          "requires": ["residue-theorem"]
+        }
+      ]
+    },
+    {
+      "id": "matrix-algebra-and-its-applications",
+      "name": "Matrix Algebra and its Applications",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "solution-of-system-of-algebraic-equation",
+          "name": "Solution of system of algebraic equation"
+        },
+        {
+          "id": "rank-of-matrix",
+          "name": "Rank of a matrix, consistency of system of equation",
+          "requires": ["solution-of-system-of-algebraic-equation"]
+        },
+        {
+          "id": "characteristic-equation-of-a-square-matrix-eigen-values-and",
+          "name": "Characteristic equation of a square matrix- Eigen values and Eigenvectors of a real matrix",
+          "requires": ["rank-of-matrix"]
+        },
+        {
+          "id": "properties-of-eigen-values-and-eigen-vectors",
+          "name": "Properties of Eigen values and Eigen vectors",
+          "requires": ["characteristic-equation-of-a-square-matrix-eigen-values-and"]
+        },
+        {
+          "id": "cayley-hamilton",
+          "name": "Cayley-Hamilton theorem (without proof)",
+          "requires": ["properties-of-eigen-values-and-eigen-vectors"]
+        },
+        {
+          "id": "finding-inverse-of-a-matrix",
+          "name": "finding inverse of a matrix",
+          "requires": ["cayley-hamilton"]
+        },
+        {
+          "id": "diagonalization-of-a-matrix-using-orthogonal-transformation",
+          "name": "Diagonalization of a matrix using orthogonal transformation",
+          "requires": ["finding-inverse-of-a-matrix"]
+        }
+      ]
+    },
+    {
+      "id": "ordinary-differential-equations-with-applications",
+      "name": "Ordinary Differential Equations with Applications",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "higher-order-linear-ode",
+          "name": "Differential equations of the first order and higher degree, Higher-order differential equations with constant coefficients, Rules for finding C.F. and P.I., Method of variation of parameters, Cauchy "
+        },
+        {
+          "id": "simultaneous-linear-equations-with-constant-coefficients",
+          "name": "Simultaneous linear equations with constant coefficients, applications of higher-order differential equations in solving engineering problems",
+          "requires": ["higher-order-linear-ode"]
+        }
+      ]
+    },
+    {
+      "id": "fourier-series",
+      "name": "Fourier Series",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "periodic-functions",
+          "name": "Periodic functions"
+        },
+        {
+          "id": "odd-and-even-functions",
+          "name": "Odd and even functions",
+          "requires": ["periodic-functions"]
+        },
+        {
+          "id": "fourier-series",
+          "name": "Euler’s formulae for Fourier series in an interval of length 2 pi",
+          "requires": ["odd-and-even-functions"]
+        },
+        {
+          "id": "change-of-interval",
+          "name": "Change of interval",
+          "requires": ["fourier-series"]
+        },
+        {
+          "id": "dirichlets-conditions",
+          "name": "Dirichlet’s conditions",
+          "requires": ["change-of-interval"]
+        },
+        {
+          "id": "half-range-sine-and-cosine-series",
+          "name": "Half range Sine and Cosine series",
+          "requires": ["dirichlets-conditions"]
+        },
+        {
+          "id": "complex-fourier-series",
+          "name": "Complex Fourier series",
+          "requires": ["half-range-sine-and-cosine-series"]
+        },
+        {
+          "id": "parsevals-identity-and-its-applications",
+          "name": "Parseval’s identity and its applications",
+          "requires": ["complex-fourier-series"]
+        }
+      ]
+    }
+  ]
+}

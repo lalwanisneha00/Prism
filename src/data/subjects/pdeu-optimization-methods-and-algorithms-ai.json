@@ -1,0 +1,285 @@
+{
+  "id": "pdeu-optimization-methods-and-algorithms-ai",
+  "name": "Optimization Methods and Algorithms (AI)",
+  "field": "Optimization Methods and Algorithms",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [5],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s5-program-elective-1--optimization-methods-and-algorithms-ai",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Optimization Methods and Algorithms (AI)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-and-mathematical-preliminaries",
+      "name": "Introduction and Mathematical Preliminaries",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "introduction-to-optimization-and-engineering-optimization",
+          "name": "Introduction to optimization and engineering optimization problems"
+        },
+        {
+          "id": "classification-of-optimization-problems-and-algorithms",
+          "name": "Classification of optimization problems and algorithms",
+          "requires": ["introduction-to-optimization-and-engineering-optimization"]
+        },
+        {
+          "id": "simple-application-examples",
+          "name": "Simple application examples",
+          "requires": ["classification-of-optimization-problems-and-algorithms"]
+        },
+        {
+          "id": "univariate-and-multi-variate-general-nonlinear-optimization",
+          "name": "Univariate and multi variate general (nonlinear) optimization problem formulations: Maxima and Minima",
+          "requires": ["simple-application-examples"]
+        },
+        {
+          "id": "mathematical-preliminaries-vectors",
+          "name": "Mathematical Preliminaries: vectors",
+          "requires": ["univariate-and-multi-variate-general-nonlinear-optimization"]
+        },
+        {
+          "id": "norm",
+          "name": "norm",
+          "requires": ["mathematical-preliminaries-vectors"]
+        },
+        {
+          "id": "inner-product",
+          "name": "inner product",
+          "requires": ["norm"]
+        },
+        {
+          "id": "matrices",
+          "name": "matrices",
+          "requires": ["inner-product"]
+        },
+        {
+          "id": "eigen-values-and-vectors",
+          "name": "eigen values and vectors",
+          "requires": ["matrices"]
+        },
+        {
+          "id": "definiteness",
+          "name": "Definiteness",
+          "requires": ["eigen-values-and-vectors"]
+        },
+        {
+          "id": "multi-variate-linear",
+          "name": "Multi-variate linear",
+          "requires": ["definiteness"]
+        },
+        {
+          "id": "affine-and-quadratic-functions",
+          "name": "affine and quadratic functions",
+          "requires": ["multi-variate-linear"]
+        },
+        {
+          "id": "gradient-vector-and-hessian-matrix",
+          "name": "Gradient vector and Hessian matrix",
+          "requires": ["affine-and-quadratic-functions"]
+        },
+        {
+          "id": "matrix-calculus",
+          "name": "Matrix calculus",
+          "requires": ["gradient-vector-and-hessian-matrix"]
+        },
+        {
+          "id": "convex-concave-set-and-functions",
+          "name": "Convex/Concave set and functions",
+          "requires": ["matrix-calculus"]
+        }
+      ]
+    },
+    {
+      "id": "multivariate-optimization-methods-and-algorithms",
+      "name": "Multivariate Optimization Methods and Algorithms",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "multi-variate-non-linear-optimization-methods-without",
+          "name": "Multi-variate non-linear optimization methods without constraints: Optimality conditions"
+        },
+        {
+          "id": "gradient-based-optimization-algorithms-newtons-method",
+          "name": "Gradient based optimization algorithms: Newton’s method",
+          "requires": ["multi-variate-non-linear-optimization-methods-without"]
+        },
+        {
+          "id": "steepest-descent",
+          "name": "steepest descent",
+          "requires": ["gradient-based-optimization-algorithms-newtons-method"]
+        },
+        {
+          "id": "line-search",
+          "name": "line search",
+          "requires": ["steepest-descent"]
+        },
+        {
+          "id": "conjugate-gradient",
+          "name": "conjugate gradient",
+          "requires": ["line-search"]
+        },
+        {
+          "id": "gradient-free-and-approximation-algorithms-downhill-simplex",
+          "name": "Gradient free and approximation algorithms: Downhill Simplex",
+          "requires": ["conjugate-gradient"]
+        },
+        {
+          "id": "bfgs-and-trust-region-algorithms",
+          "name": "BFGS and Trust region algorithms",
+          "requires": ["gradient-free-and-approximation-algorithms-downhill-simplex"]
+        },
+        {
+          "id": "lagrange-multipliers",
+          "name": "Equality constraints: Lagrange Multiplier method",
+          "requires": ["bfgs-and-trust-region-algorithms"]
+        },
+        {
+          "id": "inequality-constraints-kkt-conditions",
+          "name": "Inequality constraints: KKT conditions",
+          "requires": ["lagrange-multipliers"]
+        },
+        {
+          "id": "convex-optimization-methods-quadratic-programming",
+          "name": "Convex optimization methods: Quadratic programming",
+          "requires": ["inequality-constraints-kkt-conditions"]
+        },
+        {
+          "id": "least-square-problem",
+          "name": "Least square problem",
+          "requires": ["convex-optimization-methods-quadratic-programming"]
+        },
+        {
+          "id": "penalty-function",
+          "name": "Penalty function",
+          "requires": ["least-square-problem"]
+        },
+        {
+          "id": "minimax-optimization",
+          "name": "Minimax optimization",
+          "requires": ["penalty-function"]
+        },
+        {
+          "id": "solution-using-kkt-conditions",
+          "name": "Solution using KKT conditions",
+          "requires": ["minimax-optimization"]
+        },
+        {
+          "id": "newtons-method",
+          "name": "Newton’s method",
+          "requires": ["solution-using-kkt-conditions"]
+        },
+        {
+          "id": "barrier-functions-and-interior-point-methods",
+          "name": "Barrier functions and interior point methods",
+          "requires": ["newtons-method"]
+        },
+        {
+          "id": "sequential-quadratic-programming",
+          "name": "Sequential quadratic programming",
+          "requires": ["barrier-functions-and-interior-point-methods"]
+        },
+        {
+          "id": "separable-programming",
+          "name": "Separable programming",
+          "requires": ["sequential-quadratic-programming"]
+        }
+      ]
+    },
+    {
+      "id": "linear-and-integer-programming-methods-and",
+      "name": "Linear and Integer Programming Methods and Algorithms",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "linear-programming-graphical-method",
+          "name": "Linear programming: Graphical method"
+        },
+        {
+          "id": "simplex-algorithm",
+          "name": "Simplex algorithm",
+          "requires": ["linear-programming-graphical-method"]
+        },
+        {
+          "id": "duality-and-applications",
+          "name": "Duality and applications",
+          "requires": ["simplex-algorithm"]
+        },
+        {
+          "id": "integer-linear-programming",
+          "name": "Integer linear programming",
+          "requires": ["duality-and-applications"]
+        },
+        {
+          "id": "cutting-plane-and-branch-and-bound-methods",
+          "name": "Cutting plane and Branch and bound methods",
+          "requires": ["integer-linear-programming"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["cutting-plane-and-branch-and-bound-methods"]
+        }
+      ]
+    },
+    {
+      "id": "modern-methods-of-optimization-meta-heuristic",
+      "name": "Modern Methods of Optimization – Meta-heuristic Techniques",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "introduction-to-nature-inspired-optimization",
+          "name": "Introduction to nature inspired optimization"
+        },
+        {
+          "id": "genetic-algorithms",
+          "name": "Genetic Algorithms",
+          "requires": ["introduction-to-nature-inspired-optimization"]
+        },
+        {
+          "id": "simulated-annealing",
+          "name": "Simulated Annealing",
+          "requires": ["genetic-algorithms"]
+        },
+        {
+          "id": "particle-swarm-optimization",
+          "name": "Particle Swarm Optimization",
+          "requires": ["simulated-annealing"]
+        },
+        {
+          "id": "ant-colony-optimization",
+          "name": "Ant Colony Optimization",
+          "requires": ["particle-swarm-optimization"]
+        },
+        {
+          "id": "applications-2",
+          "name": "Applications",
+          "requires": ["ant-colony-optimization"]
+        },
+        {
+          "id": "introduction-to-multi-objective-optimization",
+          "name": "Introduction to multi-objective optimization",
+          "requires": ["applications-2"]
+        }
+      ]
+    }
+  ]
+}

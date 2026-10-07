@@ -1,0 +1,206 @@
+{
+  "id": "pdeu-data-structures-and-algorithms",
+  "name": "Data Structures and Algorithms",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [3],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s3-data-structures-and-algorithms",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Data Structures and Algorithms",
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction-to-data-structure",
+      "name": "Introduction to Data Structure",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-basic-terminologies-elementary-data",
+          "name": "Introduction: Basic Terminologies: Elementary Data Organizations"
+        },
+        {
+          "id": "data-structure-operations-insertion",
+          "name": "Data Structure Operations: insertion",
+          "requires": ["introduction-basic-terminologies-elementary-data"]
+        },
+        {
+          "id": "deletion",
+          "name": "deletion",
+          "requires": ["data-structure-operations-insertion"]
+        },
+        {
+          "id": "traversal-etc-analysis-of-an-algorithm",
+          "name": "traversal etc. Analysis of an Algorithm",
+          "requires": ["deletion"]
+        },
+        {
+          "id": "asymptotic-notations",
+          "name": "Asymptotic Notations",
+          "requires": ["traversal-etc-analysis-of-an-algorithm"]
+        },
+        {
+          "id": "linear-binary-search",
+          "name": "Time-Space trade off Searching: Linear Search and Binary Search Techniques and their complexity analysis",
+          "requires": ["asymptotic-notations"]
+        },
+        {
+          "id": "stacks-and-queues",
+          "name": "Stacks and Queues",
+          "requires": ["linear-binary-search"]
+        },
+        {
+          "id": "applications-of-stacks-expression-conversion-and-evaluation",
+          "name": "Applications of Stacks: Expression Conversion and evaluation corresponding algorithms and complexity analysis",
+          "requires": ["stacks-and-queues"]
+        }
+      ]
+    },
+    {
+      "id": "linear-data-structure",
+      "name": "Linear Data Structure",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "array",
+          "name": "Array"
+        },
+        {
+          "id": "sparse-matrix-and-its-representation-stacks",
+          "name": "sparse matrix, and its representation. Stacks",
+          "requires": ["array"]
+        },
+        {
+          "id": "operations",
+          "name": "Operations",
+          "requires": ["sparse-matrix-and-its-representation-stacks"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["operations"]
+        },
+        {
+          "id": "polish-expression",
+          "name": "Polish Expression",
+          "requires": ["applications"]
+        },
+        {
+          "id": "reverse-polish-expression-and-their-compilation-queue",
+          "name": "Reverse Polish Expression, and Their Compilation. Queue: Representation",
+          "requires": ["polish-expression"]
+        },
+        {
+          "id": "circular-queue",
+          "name": "Circular Queue",
+          "requires": ["reverse-polish-expression-and-their-compilation-queue"]
+        },
+        {
+          "id": "priority-queue",
+          "name": "Priority Queue",
+          "requires": ["circular-queue"]
+        },
+        {
+          "id": "array-representation-of-priority-queue",
+          "name": "Array Representation of Priority Queue",
+          "requires": ["priority-queue"]
+        },
+        {
+          "id": "double-ended-queue",
+          "name": "Double-Ended Queue",
+          "requires": ["array-representation-of-priority-queue"]
+        },
+        {
+          "id": "applications-of-queue-linked-list-singly-and-doubly-linked",
+          "name": "Applications of Queue Linked List: Singly & Doubly Linked list",
+          "requires": ["double-ended-queue"]
+        },
+        {
+          "id": "circular-linked-list",
+          "name": "Circular linked list",
+          "requires": ["applications-of-queue-linked-list-singly-and-doubly-linked"]
+        },
+        {
+          "id": "linked-implementation-of-stack",
+          "name": "Linked implementation of Stack",
+          "requires": ["circular-linked-list"]
+        },
+        {
+          "id": "linked-implementation-of-queue",
+          "name": "Linked implementation of Queue",
+          "requires": ["linked-implementation-of-stack"]
+        },
+        {
+          "id": "applications-of-linked-list",
+          "name": "Applications of linked list",
+          "requires": ["linked-implementation-of-queue"]
+        }
+      ]
+    },
+    {
+      "id": "non-linear-data-structure",
+      "name": "Non-linear Data Structure",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "binary-search-tree",
+          "name": "Trees: Basic Tree Terminologies, Different types of Trees: Binary Tree, Threaded Binary Tree, Binary Search Tree, AVL Tree"
+        },
+        {
+          "id": "tree-operations-on-each-of-the-trees-and-their-algorithms",
+          "name": "Tree operations on each of the trees and their algorithms with complexity analysis",
+          "requires": ["binary-search-tree"]
+        },
+        {
+          "id": "applications-of-binary-trees",
+          "name": "Applications of Binary Trees",
+          "requires": ["tree-operations-on-each-of-the-trees-and-their-algorithms"]
+        },
+        {
+          "id": "b-tree-b-tree-definitions-algorithms-and-analysis",
+          "name": "B Tree, B+ Tree: definitions, algorithms and analysis",
+          "requires": ["applications-of-binary-trees"]
+        },
+        {
+          "id": "graph-basic-terminologies-and-representations-graph-search",
+          "name": "Graph: Basic Terminologies and Representations, Graph search and traversal algorithms and complexity analysis",
+          "requires": ["b-tree-b-tree-definitions-algorithms-and-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "sorting-and-searching-and-hashing",
+      "name": "Sorting and Searching and Hashing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "basic-sorting",
+          "name": "Sorting and Hashing: Objective and properties of different sorting algorithms: Selection Sort, Bubble Sort, Insertion Sort, Quick Sort, Merge Sort, Heap Sort Note: The detailed syllabus page for this "
+        },
+        {
+          "id": "the-credits-shown-here-follow-the-official-course-structure",
+          "name": "the credits shown here follow the official course structure table",
+          "requires": ["basic-sorting"]
+        }
+      ]
+    }
+  ]
+}

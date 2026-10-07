@@ -1,0 +1,218 @@
+{
+  "id": "pdeu-mathematics-i-me",
+  "name": "Mathematics - I (Mech)",
+  "field": "Mathematics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [1],
+  "code": "16MA101T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s1-mathematics-i",
+      "code": "16MA101T",
+      "category": "Basic Science",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 1,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Mathematics - I",
+    "note": "Units and topics are PDEU's, copied from the handbook. 11 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "maths",
+  "chapters": [
+    {
+      "id": "calculus-for-single-variable",
+      "name": "Calculus for single variable",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "successive-differentiation",
+          "name": "Successive differentiation"
+        },
+        {
+          "id": "leibnitz-theorem-without-proof",
+          "name": "Leibnitz theorem (without proof)",
+          "requires": ["successive-differentiation"]
+        },
+        {
+          "id": "taylors-and-maclaurins-expansion-of-functions-of-single",
+          "name": "Taylor’s and Maclaurin's expansion of functions of single variable",
+          "requires": ["leibnitz-theorem-without-proof"]
+        },
+        {
+          "id": "fundamental-theorem-of-integral-calculus",
+          "name": "Fundamental theorem of Integral calculus",
+          "requires": ["taylors-and-maclaurins-expansion-of-functions-of-single"]
+        },
+        {
+          "id": "application-of-integrals-to-length",
+          "name": "Application of integrals to length",
+          "requires": ["fundamental-theorem-of-integral-calculus"]
+        },
+        {
+          "id": "area",
+          "name": "area",
+          "requires": ["application-of-integrals-to-length"]
+        },
+        {
+          "id": "volume-and-surface-area-of-revolution-curve-tracing",
+          "name": "volume and surface area of revolution. Curve Tracing: Asymptotes",
+          "requires": ["area"]
+        },
+        {
+          "id": "cartesian",
+          "name": "Cartesian",
+          "requires": ["volume-and-surface-area-of-revolution-curve-tracing"]
+        },
+        {
+          "id": "polar-and-parametric-forms",
+          "name": "polar and parametric forms",
+          "requires": ["cartesian"]
+        }
+      ]
+    },
+    {
+      "id": "calculus-for-of-several-variable",
+      "name": "Calculus for of Several variable",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "partial-derivatives",
+          "name": "Partial derivatives"
+        },
+        {
+          "id": "eulers-theorem",
+          "name": "Euler's theorem",
+          "requires": ["partial-derivatives"]
+        },
+        {
+          "id": "directional-derivative",
+          "name": "directional derivative and gradient",
+          "requires": ["eulers-theorem"]
+        },
+        {
+          "id": "taylors-and-maclaurins-expansion-of-functions-of-several",
+          "name": "Taylor's and Maclaurin's expansion of functions of several variables",
+          "requires": ["directional-derivative"]
+        },
+        {
+          "id": "mamixa-and-minima-of-functions-of-several-variables",
+          "name": "Mamixa and minima of functions of several variables",
+          "requires": ["taylors-and-maclaurins-expansion-of-functions-of-several"]
+        },
+        {
+          "id": "lagrange-multipliers",
+          "name": "Lagrange's method of undetermined multipliers",
+          "requires": ["mamixa-and-minima-of-functions-of-several-variables"]
+        },
+        {
+          "id": "double-integrals",
+          "name": "Multiple Integrals — double and triple",
+          "requires": ["partial-derivatives"]
+        },
+        {
+          "id": "jacobians",
+          "name": "Jacobian",
+          "requires": ["double-integrals"]
+        },
+        {
+          "id": "change-of-order",
+          "name": "Change of order of integration",
+          "requires": ["double-integrals"]
+        },
+        {
+          "id": "change-of-coordinates",
+          "name": "change of coordinates",
+          "requires": ["change-of-order"]
+        },
+        {
+          "id": "evaluation-of-area",
+          "name": "evaluation of area",
+          "requires": ["change-of-coordinates"]
+        },
+        {
+          "id": "volumes-of-solids",
+          "name": "volumes of solids",
+          "requires": ["evaluation-of-area"]
+        },
+        {
+          "id": "mass",
+          "name": "Mass",
+          "requires": ["volumes-of-solids"]
+        },
+        {
+          "id": "center-of-gravity-and-moment-of-inertia",
+          "name": "center of gravity and moment of inertia",
+          "requires": ["mass"]
+        }
+      ]
+    },
+    {
+      "id": "infinite-series-and-improper-integrals",
+      "name": "Infinite Series & Improper Integrals",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "convergence-tests",
+          "name": "Convergence and divergence of Infinite series"
+        },
+        {
+          "id": "comparison-test-d-alemberts-ratio-test-raabes-test",
+          "name": "Comparison test, D' Alembert's ratio test, Raabe's test, logarithmic test, Cauchy's root test",
+          "requires": ["convergence-tests"]
+        },
+        {
+          "id": "alternating-series",
+          "name": "Alternating series",
+          "requires": ["comparison-test-d-alemberts-ratio-test-raabes-test"]
+        },
+        {
+          "id": "power-series",
+          "name": "Leibnitz test, power series",
+          "requires": ["convergence-tests"]
+        },
+        {
+          "id": "beta-gamma-functions",
+          "name": "Convergence of improper integrals, Beta and Gamma functions and its properties",
+          "requires": ["power-series"]
+        }
+      ]
+    },
+    {
+      "id": "vector-calculus",
+      "name": "Vector Calculus",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "scalar-and-vector-fields",
+          "name": "Scalar and vector fields"
+        },
+        {
+          "id": "line-integrals",
+          "name": "Line and surface Integrals",
+          "requires": ["scalar-and-vector-fields"]
+        },
+        {
+          "id": "gradient-divergent-curl",
+          "name": "Gradient divergent curl",
+          "requires": ["line-integrals"]
+        },
+        {
+          "id": "greens-theorem",
+          "name": "Green’s Theorem and stoke’s theorem (without proof) with application and physical significance",
+          "requires": ["line-integrals", "double-integrals"]
+        }
+      ]
+    }
+  ]
+}

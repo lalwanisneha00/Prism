@@ -1,0 +1,381 @@
+{
+  "id": "pdeu-physics-civil",
+  "name": "Physics (Civil)",
+  "field": "Applied Physics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [1],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s1-physics",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 1,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Physics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "physics",
+  "chapters": [
+    {
+      "id": "mechanics",
+      "name": "Mechanics",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-to-vector-algebra",
+          "name": "Introduction to vector algebra"
+        },
+        {
+          "id": "vector-fields-and-scalar-fields",
+          "name": "Vector fields and scalar fields",
+          "requires": ["introduction-to-vector-algebra"]
+        },
+        {
+          "id": "concepts-of-gradient",
+          "name": "Concepts of gradient",
+          "requires": ["vector-fields-and-scalar-fields"]
+        },
+        {
+          "id": "divergence-and-curl",
+          "name": "Divergence and Curl",
+          "requires": ["concepts-of-gradient"]
+        },
+        {
+          "id": "divergence-theorem",
+          "name": "Gauss-Divergence Theorem",
+          "requires": ["divergence-and-curl"]
+        },
+        {
+          "id": "stokes-theorem",
+          "name": "Stokes' theorem and its applications",
+          "requires": ["divergence-theorem"]
+        },
+        {
+          "id": "the-everyday-forces-of-physics",
+          "name": "The everyday forces of Physics",
+          "requires": ["stokes-theorem"]
+        },
+        {
+          "id": "work-energy-theorem",
+          "name": "Work-energy theorem",
+          "requires": ["the-everyday-forces-of-physics"]
+        },
+        {
+          "id": "rigid-body-motion-and-the-conservation-of-angular-momentum",
+          "name": "Rigid body motion and the conservation of angular momentum",
+          "requires": ["work-energy-theorem"]
+        },
+        {
+          "id": "center-of-mass",
+          "name": "Center of mass",
+          "requires": ["rigid-body-motion-and-the-conservation-of-angular-momentum"]
+        },
+        {
+          "id": "center-of-gravity",
+          "name": "Center of gravity",
+          "requires": ["center-of-mass"]
+        },
+        {
+          "id": "moment-of-inertia-definition",
+          "name": "Moment of inertia: Definition",
+          "requires": ["center-of-gravity"]
+        },
+        {
+          "id": "moment-of-inertia-of-simple-planar-laminas",
+          "name": "Moment of inertia of simple planar laminas",
+          "requires": ["moment-of-inertia-definition"]
+        }
+      ]
+    },
+    {
+      "id": "physics-of-solids",
+      "name": "Physics of Solids",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "elasticity",
+          "name": "Elasticity"
+        },
+        {
+          "id": "stress-and-strain",
+          "name": "Stress & Strain",
+          "requires": ["elasticity"]
+        },
+        {
+          "id": "hooks-law",
+          "name": "Hook’s law",
+          "requires": ["stress-and-strain"]
+        },
+        {
+          "id": "youngs-modulus",
+          "name": "Young’s modulus",
+          "requires": ["hooks-law"]
+        },
+        {
+          "id": "poissons-ratio",
+          "name": "Poisson’s ratio",
+          "requires": ["youngs-modulus"]
+        },
+        {
+          "id": "rigidity-modulus",
+          "name": "Rigidity modulus",
+          "requires": ["poissons-ratio"]
+        },
+        {
+          "id": "relationship-between-elastic-constants",
+          "name": "Relationship between elastic constants",
+          "requires": ["rigidity-modulus"]
+        },
+        {
+          "id": "properties-of-solids",
+          "name": "Properties of solids",
+          "requires": ["relationship-between-elastic-constants"]
+        },
+        {
+          "id": "electrical-conductivity",
+          "name": "electrical conductivity",
+          "requires": ["properties-of-solids"]
+        },
+        {
+          "id": "wiede-mann-franz-law",
+          "name": "Wiede-mann Franz Law",
+          "requires": ["electrical-conductivity"]
+        },
+        {
+          "id": "band-structure-of-conductor",
+          "name": "Band structure of conductor",
+          "requires": ["wiede-mann-franz-law"]
+        },
+        {
+          "id": "insulator-and-semiconductor",
+          "name": "insulator and semiconductor",
+          "requires": ["band-structure-of-conductor"]
+        },
+        {
+          "id": "intrinsic-extrinsic-semiconductors",
+          "name": "Intrinsic and extrinsic semiconductor",
+          "requires": ["insulator-and-semiconductor"]
+        },
+        {
+          "id": "conductivity-of-semiconductors",
+          "name": "Conductivity of semiconductors",
+          "requires": ["intrinsic-extrinsic-semiconductors"]
+        },
+        {
+          "id": "charge-concentrations",
+          "name": "charge concentrations",
+          "requires": ["conductivity-of-semiconductors"]
+        },
+        {
+          "id": "hall-effect",
+          "name": "Hall effect",
+          "requires": ["intrinsic-extrinsic-semiconductors"]
+        },
+        {
+          "id": "led-and-solar-cells",
+          "name": "LED and Solar cells",
+          "requires": ["hall-effect"]
+        },
+        {
+          "id": "magnetism-and-its-origin",
+          "name": "Magnetism and its origin",
+          "requires": ["led-and-solar-cells"]
+        },
+        {
+          "id": "magnetic-properties-of-solids",
+          "name": "Magnetic properties of solids",
+          "requires": ["magnetism-and-its-origin"]
+        },
+        {
+          "id": "physics-of-superconductors",
+          "name": "Physics of superconductors",
+          "requires": ["magnetic-properties-of-solids"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["physics-of-superconductors"]
+        }
+      ]
+    },
+    {
+      "id": "waves-oscillations-and-acoustics",
+      "name": "Waves, Oscillations and Acoustics",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "waves-and-oscillations-types-of-waves",
+          "name": "Waves and oscillations: Types of waves"
+        },
+        {
+          "id": "simple-harmonic-motion",
+          "name": "Simple harmonic motion",
+          "requires": ["waves-and-oscillations-types-of-waves"]
+        },
+        {
+          "id": "damped-simple-harmonic-motion",
+          "name": "Damped simple harmonic motion",
+          "requires": ["simple-harmonic-motion"]
+        },
+        {
+          "id": "types-of-damping",
+          "name": "types of damping",
+          "requires": ["damped-simple-harmonic-motion"]
+        },
+        {
+          "id": "forced-oscillation",
+          "name": "Forced oscillation",
+          "requires": ["types-of-damping"]
+        },
+        {
+          "id": "resonance",
+          "name": "Resonance",
+          "requires": ["forced-oscillation"]
+        },
+        {
+          "id": "energy-transport-in-wave-motion-acoustics-and-ultrasonic",
+          "name": "Energy Transport in Wave motion. Acoustics & Ultrasonic: Introduction to Sound",
+          "requires": ["resonance"]
+        },
+        {
+          "id": "sabines-reverberation-theory",
+          "name": "Sabine’s reverberation theory",
+          "requires": ["energy-transport-in-wave-motion-acoustics-and-ultrasonic"]
+        },
+        {
+          "id": "acoustical-defects-and-their-remedies",
+          "name": "Acoustical defects and their remedies",
+          "requires": ["sabines-reverberation-theory"]
+        },
+        {
+          "id": "doppler-effect",
+          "name": "Doppler Effect",
+          "requires": ["acoustical-defects-and-their-remedies"]
+        },
+        {
+          "id": "ultrasonic-waves",
+          "name": "Ultrasonic waves",
+          "requires": ["doppler-effect"]
+        },
+        {
+          "id": "methods-of-their-generation-and-detection",
+          "name": "Methods of their generation and detection",
+          "requires": ["ultrasonic-waves"]
+        },
+        {
+          "id": "properties-and-applications-of-ultrasonic-waves",
+          "name": "Properties and applications of ultrasonic waves",
+          "requires": ["methods-of-their-generation-and-detection"]
+        }
+      ]
+    },
+    {
+      "id": "thermal-physics",
+      "name": "Thermal Physics",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "thermodynamic-systems-closed-and-open",
+          "name": "Thermodynamic systems (closed and open)"
+        },
+        {
+          "id": "thermodynamic-properties-and-equilibrium",
+          "name": "Thermodynamic properties and equilibrium",
+          "requires": ["thermodynamic-systems-closed-and-open"]
+        },
+        {
+          "id": "concepts-of-heat-and-work",
+          "name": "Concepts of heat and work",
+          "requires": ["thermodynamic-properties-and-equilibrium"]
+        },
+        {
+          "id": "laws-of-thermodynamics",
+          "name": "Laws of thermodynamics",
+          "requires": ["concepts-of-heat-and-work"]
+        },
+        {
+          "id": "carnot-cycle",
+          "name": "Carnot cycle",
+          "requires": ["laws-of-thermodynamics"]
+        },
+        {
+          "id": "heat-transfer-thermal-expansion-of-solids-and-liquids",
+          "name": "Heat transfer-thermal expansion of solids and liquids",
+          "requires": ["carnot-cycle"]
+        },
+        {
+          "id": "conduction-in-solids",
+          "name": "Conduction in solids",
+          "requires": ["heat-transfer-thermal-expansion-of-solids-and-liquids"]
+        },
+        {
+          "id": "thermal-conductivity",
+          "name": "Thermal conductivity",
+          "requires": ["conduction-in-solids"]
+        },
+        {
+          "id": "forbes-method",
+          "name": "Forbe’s method",
+          "requires": ["thermal-conductivity"]
+        },
+        {
+          "id": "lees-disc-method",
+          "name": "Lees’ disc method",
+          "requires": ["forbes-method"]
+        },
+        {
+          "id": "thermal-insulation-and-its-applications",
+          "name": "Thermal insulation and its applications",
+          "requires": ["lees-disc-method"]
+        },
+        {
+          "id": "thermal-convection-and-its-applications",
+          "name": "Thermal Convection and its applications",
+          "requires": ["thermal-insulation-and-its-applications"]
+        },
+        {
+          "id": "newtons-law-of-cooling",
+          "name": "Newton’s law of cooling",
+          "requires": ["thermal-convection-and-its-applications"]
+        },
+        {
+          "id": "thermal-radiation-emission-and-absorption-radiation",
+          "name": "Thermal Radiation – emission and absorption radiation",
+          "requires": ["newtons-law-of-cooling"]
+        },
+        {
+          "id": "emissive-power",
+          "name": "emissive power",
+          "requires": ["thermal-radiation-emission-and-absorption-radiation"]
+        },
+        {
+          "id": "black-body-radiation",
+          "name": "Black body radiation",
+          "requires": ["emissive-power"]
+        },
+        {
+          "id": "stefans-laws",
+          "name": "Stefan’s laws",
+          "requires": ["black-body-radiation"]
+        },
+        {
+          "id": "wiens-law-max-42-hrs",
+          "name": "Wien’s law. Max. <42> Hrs",
+          "requires": ["stefans-laws"]
+        }
+      ]
+    }
+  ]
+}

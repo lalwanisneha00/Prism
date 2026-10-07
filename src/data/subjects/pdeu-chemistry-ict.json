@@ -1,0 +1,142 @@
+{
+  "id": "pdeu-chemistry-ict",
+  "name": "Chemistry (ICT)",
+  "field": "Chemistry",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [2],
+  "code": "24CH101T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s2-chemistry",
+      "code": "24CH101T",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Chemistry",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "chemistry-of-engineering-materials",
+      "name": "Chemistry of Engineering Materials",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "traditional-materials-introduction-and-classification-of",
+          "name": "Traditional Materials: Introduction and classification of materials"
+        },
+        {
+          "id": "metallic-materials-polymeric-ceramic-materials-advanced",
+          "name": "metallic materials, polymeric, ceramic materials Advanced Materials: Introduction to nanomaterials: Properties and application",
+          "requires": ["traditional-materials-introduction-and-classification-of"]
+        },
+        {
+          "id": "carbonaceous-materials-fullerene-carbon-nanotube-graphene",
+          "name": "Carbonaceous materials (fullerene, carbon nanotube, graphene, etc.)",
+          "requires": ["metallic-materials-polymeric-ceramic-materials-advanced"]
+        },
+        {
+          "id": "composite-materials",
+          "name": "Composite materials",
+          "requires": ["carbonaceous-materials-fullerene-carbon-nanotube-graphene"]
+        },
+        {
+          "id": "liquid-crystals-classification-and-application",
+          "name": "Liquid crystals: Classification and Application",
+          "requires": ["composite-materials"]
+        }
+      ]
+    },
+    {
+      "id": "modern-analytical-techniques",
+      "name": "Modern Analytical Techniques",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "instrumentation-principle-and-characterization-of-materials",
+          "name": "Instrumentation, principle and characterization of materials: X-ray diffraction (XRD), Electro analytical techniques"
+        },
+        {
+          "id": "ftir-uv-visible-spectroscopy",
+          "name": "FTIR, UV- visible spectroscopy",
+          "requires": ["instrumentation-principle-and-characterization-of-materials"]
+        },
+        {
+          "id": "thermal-analysis-tga-dta-dsc",
+          "name": "Thermal analysis (TGA-DTA-DSC)",
+          "requires": ["ftir-uv-visible-spectroscopy"]
+        },
+        {
+          "id": "chromatographic-techniques-gc-hplc",
+          "name": "Chromatographic techniques (GC, HPLC)",
+          "requires": ["thermal-analysis-tga-dta-dsc"]
+        }
+      ]
+    },
+    {
+      "id": "adsorption-catalysis-and-kinetics",
+      "name": "Adsorption, Catalysis and Kinetics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "adsorption-characteristics-classification-application",
+          "name": "Adsorption - Characteristics, Classification, Application , Adsorption isotherms- Freundlich, Langmuir & BET Chemical Kinetics - Rate law, Arrhenius equation, Transition state theory, Collision theory"
+        },
+        {
+          "id": "complex-reactions-catalysis-homogeneous-and-heterogeneous",
+          "name": "Complex reactions Catalysis - Homogeneous and Heterogeneous Catalysis",
+          "requires": ["adsorption-characteristics-classification-application"]
+        },
+        {
+          "id": "mechanism-of-catalysis",
+          "name": "Mechanism of Catalysis",
+          "requires": ["complex-reactions-catalysis-homogeneous-and-heterogeneous"]
+        },
+        {
+          "id": "industrial-applications-of-catalysts",
+          "name": "Industrial Applications of catalysts",
+          "requires": ["mechanism-of-catalysis"]
+        }
+      ]
+    },
+    {
+      "id": "chemistry-of-energy-devices",
+      "name": "Chemistry of Energy Devices",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "principles-of-primary-and-secondary-batteries-fuel-cells-and",
+          "name": "Principles of primary and secondary batteries, Fuel Cells and their operation principles, Principles and uses of supercapacitors"
+        },
+        {
+          "id": "photocatalytic-hydrogen-production-principles-and-challenges",
+          "name": "Photocatalytic hydrogen production: Principles and challenges",
+          "requires": ["principles-of-primary-and-secondary-batteries-fuel-cells-and"]
+        },
+        {
+          "id": "traditional-and-new-generation-solar-cells",
+          "name": "Traditional and new generation solar cells",
+          "requires": ["photocatalytic-hydrogen-production-principles-and-challenges"]
+        },
+        {
+          "id": "note-this-branchs-handbook-does-not-print-the-detailed",
+          "name": "Note: This branch's handbook does not print the detailed syllabus for this course, so the topics are taken from the same common course in the Computer Engineering handbook",
+          "requires": ["traditional-and-new-generation-solar-cells"]
+        }
+      ]
+    }
+  ]
+}

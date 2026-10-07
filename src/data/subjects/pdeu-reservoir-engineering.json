@@ -1,0 +1,173 @@
+{
+  "id": "pdeu-reservoir-engineering",
+  "name": "Reservoir Engineering",
+  "field": "Petroleum Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [4],
+  "code": "24PE208T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s4-reservoir-engineering",
+      "code": "24PE208T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Reservoir Engineering",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "rock-properties",
+      "name": "Rock Properties",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "introduction-to-reservoir-media-porous-and-fracture-medium",
+          "name": "Introduction to reservoir media–porous and fracture medium"
+        },
+        {
+          "id": "porosity",
+          "name": "concept of porosity fluid saturation",
+          "requires": ["introduction-to-reservoir-media-porous-and-fracture-medium"]
+        },
+        {
+          "id": "wettability",
+          "name": "wettability",
+          "requires": ["porosity"]
+        },
+        {
+          "id": "relative-permeability",
+          "name": "capillary pressure and relative permeability for understanding multiphase flow behavior in reservoir system",
+          "requires": ["wettability"]
+        },
+        {
+          "id": "salient-features-of-gas-oil-and-water-oil-relative",
+          "name": "Salient features of Gas-Oil and Water-Oil relative permeability Curves",
+          "requires": ["relative-permeability"]
+        },
+        {
+          "id": "factors-affecting-relative-permeability",
+          "name": "Factors affecting relative permeability",
+          "requires": ["salient-features-of-gas-oil-and-water-oil-relative"]
+        },
+        {
+          "id": "three-phase-relative-permeability",
+          "name": "Three phase relative permeability",
+          "requires": ["factors-affecting-relative-permeability"]
+        },
+        {
+          "id": "basic-laboratory-core-data-analysis-for-understanding",
+          "name": "basic laboratory core data analysis for understanding petrophysical parameters",
+          "requires": ["three-phase-relative-permeability"]
+        }
+      ]
+    },
+    {
+      "id": "flow-through-porous-media",
+      "name": "Flow Through Porous Media",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "fundamentals-of-flow-in-porous-media",
+          "name": "Fundamentals of flow in porous media"
+        },
+        {
+          "id": "classification-of-flow-system-in-porous-media",
+          "name": "Classification of flow system in porous media",
+          "requires": ["fundamentals-of-flow-in-porous-media"]
+        },
+        {
+          "id": "single-phase-and-multiphase-fluid-flow-in-different-state",
+          "name": "Single phase and multiphase fluid flow in different state (steady and unsteady) and different systems (linear, radial, turbulent, spherical) considering compressible",
+          "requires": ["classification-of-flow-system-in-porous-media"]
+        },
+        {
+          "id": "slightly-compressible-and-incompressible-fluid",
+          "name": "slightly compressible and incompressible fluid",
+          "requires": ["single-phase-and-multiphase-fluid-flow-in-different-state"]
+        },
+        {
+          "id": "diffusivity-equation-and-its-application-for-reservoir-flow",
+          "name": "Diffusivity equation and its application for reservoir flow system",
+          "requires": ["slightly-compressible-and-incompressible-fluid"]
+        }
+      ]
+    },
+    {
+      "id": "reservoir-drive-mechanism-and-reserves-estimation",
+      "name": "Reservoir Drive Mechanism and Reserves Estimation",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "reservoir-field-operation-data-acquisition-basic-data-of",
+          "name": "Reservoir Field operation data acquisition, Basic data of reservoir engineering"
+        },
+        {
+          "id": "pvt-data-core-data-well-logging-and-transient-well-testing",
+          "name": "PVT data, Core data, Well logging and transient well testing information",
+          "requires": ["reservoir-field-operation-data-acquisition-basic-data-of"]
+        },
+        {
+          "id": "reservoir-drive-mechanism-application-of-reservoir",
+          "name": "Reservoir Drive Mechanism, Application of reservoir engineering principles: volumetric, material balance and decline curve analysis",
+          "requires": ["pvt-data-core-data-well-logging-and-transient-well-testing"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-water-injection-and-performance",
+      "name": "Introduction to Water Injection and Performance Analysis",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "water-injection-concept",
+          "name": "Water injection concept"
+        },
+        {
+          "id": "fractional-flow-equation",
+          "name": "Fractional flow equation",
+          "requires": ["water-injection-concept"]
+        },
+        {
+          "id": "buckley-leverett-equation",
+          "name": "Buckley Leverett equation",
+          "requires": ["fractional-flow-equation"]
+        },
+        {
+          "id": "pattern-flooding",
+          "name": "Pattern flooding",
+          "requires": ["buckley-leverett-equation"]
+        },
+        {
+          "id": "reservoir-performance-analysis",
+          "name": "Reservoir performance analysis",
+          "requires": ["pattern-flooding"]
+        },
+        {
+          "id": "preparation-of-development-schemes",
+          "name": "Preparation of development schemes",
+          "requires": ["reservoir-performance-analysis"]
+        },
+        {
+          "id": "ior-eor-and-workover-jobs-for-reservoir",
+          "name": "IOR/EOR and workover jobs for reservoir",
+          "requires": ["preparation-of-development-schemes"]
+        }
+      ]
+    }
+  ]
+}

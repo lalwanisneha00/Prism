@@ -1,0 +1,207 @@
+{
+  "id": "pdeu-general-microbiology",
+  "name": "General Microbiology",
+  "field": "General Microbiology",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [3],
+  "code": "24BT205T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s3-general-microbiology",
+      "code": "24BT205T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): General Microbiology",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "history-and-classification",
+      "name": "History and Classification",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "concepts-of-species-and-hierarchical-taxa",
+          "name": "Concepts of species and hierarchical taxa"
+        },
+        {
+          "id": "bergey-s-system-of-classification",
+          "name": "Bergey. 's system of classification",
+          "requires": ["concepts-of-species-and-hierarchical-taxa"]
+        },
+        {
+          "id": "classification-of-bacteria-fungi-and-viruses",
+          "name": "Classification of Bacteria, Fungi, and Viruses",
+          "requires": ["bergey-s-system-of-classification"]
+        },
+        {
+          "id": "modern-methods-to-study-microbial-diversity-ngs-miseq",
+          "name": "Modern methods to study microbial diversity: NGS. MiSeq",
+          "requires": ["classification-of-bacteria-fungi-and-viruses"]
+        },
+        {
+          "id": "molecular-taxonomy-16s-rrna-gene-sequencing-phylogenetic",
+          "name": "Molecular Taxonomy- 16S rRNA gene sequencing, Phylogenetic grouping",
+          "requires": ["modern-methods-to-study-microbial-diversity-ngs-miseq"]
+        },
+        {
+          "id": "fatty-acid-methyl-ester-fame-analysis-its",
+          "name": "Fatty Acid Methyl Ester (FAME) analysis, ITS",
+          "requires": ["molecular-taxonomy-16s-rrna-gene-sequencing-phylogenetic"]
+        },
+        {
+          "id": "methods-to-study-microbial-community-dgge-sscp-t-rflp",
+          "name": "Methods to study microbial community: DGGE, SSCP, T-RFLP",
+          "requires": ["fatty-acid-methyl-ester-fame-analysis-its"]
+        }
+      ]
+    },
+    {
+      "id": "microscopy-and-staining",
+      "name": "Microscopy and Staining",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "amino-acids-and-proteins-classification",
+          "name": "Amino acids and Proteins: Classification"
+        },
+        {
+          "id": "structure-and-biological-importance-of-amino-acids",
+          "name": "structure and biological importance of amino acids",
+          "requires": ["amino-acids-and-proteins-classification"]
+        },
+        {
+          "id": "acid-base-chemistry-and-stereochemistry-of-amino-acids",
+          "name": "acid–base chemistry and stereochemistry of amino acids. Proteins: Primary",
+          "requires": ["structure-and-biological-importance-of-amino-acids"]
+        },
+        {
+          "id": "secondary",
+          "name": "secondary",
+          "requires": ["acid-base-chemistry-and-stereochemistry-of-amino-acids"]
+        },
+        {
+          "id": "tertiary",
+          "name": "tertiary",
+          "requires": ["secondary"]
+        },
+        {
+          "id": "quaternary-and-domain-structure-of-proteins",
+          "name": "quaternary & domain structure of proteins",
+          "requires": ["tertiary"]
+        },
+        {
+          "id": "protein-denaturation-and-renaturation",
+          "name": "Protein denaturation and renaturation",
+          "requires": ["quaternary-and-domain-structure-of-proteins"]
+        },
+        {
+          "id": "enzyme-and-its-classification",
+          "name": "Enzyme and its classification",
+          "requires": ["protein-denaturation-and-renaturation"]
+        }
+      ]
+    },
+    {
+      "id": "subcellular-structures",
+      "name": "Subcellular Structures",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "microbial-cell-ultrastructure-of-bacteria-subcellular",
+          "name": "Microbial cell: Ultrastructure of bacteria, subcellular structures and cell envelope"
+        },
+        {
+          "id": "slime-capsule-cell-wall-pili-flagella-cell-inclusions",
+          "name": "slime, capsule, cell wall, pili, flagella, cell inclusions, biosynthesis of bacterial cell wall, cell membrane",
+          "requires": ["microbial-cell-ultrastructure-of-bacteria-subcellular"]
+        },
+        {
+          "id": "bio-membrane-liposomes",
+          "name": "Bio-membrane, liposomes",
+          "requires": ["slime-capsule-cell-wall-pili-flagella-cell-inclusions"]
+        },
+        {
+          "id": "membrane-transport",
+          "name": "membrane transport",
+          "requires": ["bio-membrane-liposomes"]
+        },
+        {
+          "id": "diffusion-active-and-passive-transport-and-osmoregulation",
+          "name": "diffusion, active and passive transport and osmoregulation",
+          "requires": ["membrane-transport"]
+        }
+      ]
+    },
+    {
+      "id": "sterilization-and-media-and-techniques",
+      "name": "Sterilization & Media and Techniques",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "sterilization-and-disinfection-principles-methods-of",
+          "name": "Sterilization and Disinfection- principles -methods of sterilization- physical methods"
+        },
+        {
+          "id": "dry-heat-moistheat-radiation",
+          "name": "Dry heat- Moistheat- Radiation",
+          "requires": ["sterilization-and-disinfection-principles-methods-of"]
+        },
+        {
+          "id": "filtration-membrane-and-hepa",
+          "name": "Filtration (Membrane and HEPA)",
+          "requires": ["dry-heat-moistheat-radiation"]
+        },
+        {
+          "id": "chemical-sterilization-chemical-agents-mode-of-action-phenol",
+          "name": "Chemical sterilization- Chemical agents- mode of action- phenol coefficient test sterility testing",
+          "requires": ["filtration-membrane-and-hepa"]
+        },
+        {
+          "id": "culture-and-media-preparation",
+          "name": "Culture and media preparation",
+          "requires": ["chemical-sterilization-chemical-agents-mode-of-action-phenol"]
+        },
+        {
+          "id": "solid-and-liquid",
+          "name": "solid and liquid",
+          "requires": ["culture-and-media-preparation"]
+        },
+        {
+          "id": "types-of-media-semi-synthetic-synthetic-enriched-enrichment",
+          "name": "Types of media- Semi synthetic, Synthetic, Enriched, Enrichment, Selective and Differential media",
+          "requires": ["solid-and-liquid"]
+        },
+        {
+          "id": "pure-culture-techniques",
+          "name": "Pure culture techniques",
+          "requires": ["types-of-media-semi-synthetic-synthetic-enriched-enrichment"]
+        },
+        {
+          "id": "tube-dilution-pour-spread-streak-plate",
+          "name": "Tube dilution, Pour, Spread, Streak plate",
+          "requires": ["pure-culture-techniques"]
+        },
+        {
+          "id": "anaerobic-culture-technique-wrights-tube-roll-tube-method",
+          "name": "Anaerobic culture technique Wright's Tube, Roll tube method, Anaerobic Jar",
+          "requires": ["tube-dilution-pour-spread-streak-plate"]
+        }
+      ]
+    }
+  ]
+}

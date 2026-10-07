@@ -1,0 +1,134 @@
+{
+  "id": "pdeu-data-communication",
+  "name": "Data Communication",
+  "field": "Electronics Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [5],
+  "code": "24CS334T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-program-elective-1--data-communication",
+      "code": "24CS334T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core",
+      "track": "Communication track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Data Communication",
+    "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "signals",
+  "chapters": [
+    {
+      "id": "data-communication-overview-and-physical-layer",
+      "name": "Data Communication Overview and Physical Layer",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "process-of-data-communication-transmitter-receiver-medium",
+          "name": "Process of Data Communication, Transmitter, Receiver, Medium and Message Protocol, Protocols, Standards and Standard organizations, Bandwidth, Data Transmission Rate, Baud rate and Bits per second, mo",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "signals-analog-digital-analog-vs",
+          "name": "Signals, Analog, Digital, Analog vs",
+          "requires": ["process-of-data-communication-transmitter-receiver-medium"]
+        },
+        {
+          "id": "digital-transmission-impairment-data-rate-limits-noiseless",
+          "name": "Digital, Transmission impairment, Data Rate Limits, Noiseless and Noisy channel, Performance",
+          "requires": ["signals-analog-digital-analog-vs"]
+        }
+      ]
+    },
+    {
+      "id": "data-transmission-and-signal-encoding-techniques",
+      "name": "Data Transmission and Signal Encoding Techniques",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "analog-transmission",
+          "name": "Analog Transmission"
+        },
+        {
+          "id": "psk-fsk-qam",
+          "name": "Analog to Analog conversion: Amplitude Modulation, Frequency Modulation, and Phase Modulation, Digital to Analog conversion: ASK, FSK, PSK, and QAM. Digital Transmission",
+          "requires": ["analog-transmission"]
+        },
+        {
+          "id": "analog-to-digital-conversion-digitization-pcm-transmission",
+          "name": "Analog to digital conversion, Digitization, PCM, Transmission Modes, Line Coding (Unipolar, Polar, Biphase), Block Coding (4B/5B Encoding), DTE-DCE Interface, Modems, 56K Modems, Cable Modems",
+          "requires": ["psk-fsk-qam"]
+        }
+      ]
+    },
+    {
+      "id": "transmission-media",
+      "name": "Transmission Media",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "transmission-media",
+          "name": "Transmission Media – Guided Media: Twisted Pair cable"
+        },
+        {
+          "id": "coaxial-cable-and-fiber-optic-cable",
+          "name": "Coaxial cable, and Fiber optic cable",
+          "requires": ["transmission-media"]
+        },
+        {
+          "id": "unguided-media-radio-waves-microwaves-and-infrared-satellite",
+          "name": "Unguided Media: Radio Waves, Microwaves, and Infrared satellite",
+          "requires": ["coaxial-cable-and-fiber-optic-cable"]
+        },
+        {
+          "id": "line-of-site-transmission-point-to-point-and-broadcast",
+          "name": "Line-of-site transmission: point-to-point and broadcast",
+          "requires": ["unguided-media-radio-waves-microwaves-and-infrared-satellite"]
+        }
+      ]
+    },
+    {
+      "id": "multiplexing",
+      "name": "Multiplexing",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "multiplexing",
+          "name": "Multiplexing"
+        },
+        {
+          "id": "tdm-comm",
+          "name": "FDM, WDM, Synchronous TDM (time slots & frames, interleaving, data rate management), Statistical Time Division Multiplexing, Spread Spectrum",
+          "requires": ["multiplexing"]
+        },
+        {
+          "id": "switching",
+          "name": "FHSS, DSSS, Switching: Circuit-Switched Networks, Datagram networks, Concept of Virtual circuit networks, structure of circuit and packet switch",
+          "requires": ["tdm-comm"]
+        },
+        {
+          "id": "concepts-of-dsl-and-adsl",
+          "name": "Concepts of DSL and ADSL",
+          "requires": ["switching"]
+        }
+      ]
+    }
+  ]
+}

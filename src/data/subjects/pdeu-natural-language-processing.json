@@ -1,0 +1,208 @@
+{
+  "id": "pdeu-natural-language-processing",
+  "name": "Natural Language Processing",
+  "field": "Natural Language Processing",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [7],
+  "code": "24CS433T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s7-program-elective-4--natural-language-processing",
+      "code": "24CS433T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core",
+      "track": "Speech, Vision & Text track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Natural Language Processing",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-to-natural-language-processing",
+      "name": "Introduction to Natural Language Processing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "building-blocks-of-nlp-nlp-and-ambiguity",
+          "name": "Building Blocks of NLP- NLP and Ambiguity"
+        },
+        {
+          "id": "pos-tagging",
+          "name": "POS Tagging",
+          "requires": ["building-blocks-of-nlp-nlp-and-ambiguity"]
+        },
+        {
+          "id": "named-entity-recognition",
+          "name": "Named Entity Recognition",
+          "requires": ["pos-tagging"]
+        },
+        {
+          "id": "word-sense-disambiguation",
+          "name": "Word Sense Disambiguation",
+          "requires": ["named-entity-recognition"]
+        },
+        {
+          "id": "wordnet-and-lexical-resources",
+          "name": "Wordnet and Lexical Resources",
+          "requires": ["word-sense-disambiguation"]
+        },
+        {
+          "id": "syntax-constituency-parsing",
+          "name": "Syntax – Constituency Parsing",
+          "requires": ["wordnet-and-lexical-resources"]
+        },
+        {
+          "id": "dependency-parsing",
+          "name": "Dependency Parsing",
+          "requires": ["syntax-constituency-parsing"]
+        },
+        {
+          "id": "distributional-semantics",
+          "name": "Distributional Semantics",
+          "requires": ["dependency-parsing"]
+        },
+        {
+          "id": "lexical-semantics",
+          "name": "Lexical Semantics",
+          "requires": ["distributional-semantics"]
+        }
+      ]
+    },
+    {
+      "id": "classical-text-processing",
+      "name": "Classical Text Processing",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "basic-text-processing",
+          "name": "Basic Text Processing"
+        },
+        {
+          "id": "language-modelling",
+          "name": "Language Modelling",
+          "requires": ["basic-text-processing"]
+        },
+        {
+          "id": "advanced-smoothing-for-language-modelling",
+          "name": "Advanced smoothing for language modelling",
+          "requires": ["language-modelling"]
+        },
+        {
+          "id": "minimum-edit-distance",
+          "name": "Minimum Edit Distance",
+          "requires": ["advanced-smoothing-for-language-modelling"]
+        },
+        {
+          "id": "spelling-correction",
+          "name": "Spelling Correction",
+          "requires": ["minimum-edit-distance"]
+        },
+        {
+          "id": "models-for-sequential-tagging-maxent",
+          "name": "Models for Sequential Tagging – MaxEnt",
+          "requires": ["spelling-correction"]
+        },
+        {
+          "id": "crf",
+          "name": "CRF",
+          "requires": ["models-for-sequential-tagging-maxent"]
+        },
+        {
+          "id": "naivebayes",
+          "name": "NaiveBayes",
+          "requires": ["crf"]
+        }
+      ]
+    },
+    {
+      "id": "deep-learning-for-nlp-and-llm",
+      "name": "Deep Learning for NLP & LLM",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "representation-discovery-word-vectors",
+          "name": "Representation Discovery: Word vectors"
+        },
+        {
+          "id": "word2vec-and-glove",
+          "name": "Word2Vec & GloVe",
+          "requires": ["representation-discovery-word-vectors"]
+        },
+        {
+          "id": "rnns-for-variable-length-sequences",
+          "name": "RNNs for Variable Length Sequences",
+          "requires": ["word2vec-and-glove"]
+        },
+        {
+          "id": "transformers",
+          "name": "Attention & Transformer",
+          "requires": ["rnns-for-variable-length-sequences"]
+        },
+        {
+          "id": "neural-and-pre-trained-language-models",
+          "name": "Neural & Pre-Trained Language Models",
+          "requires": ["transformers"]
+        },
+        {
+          "id": "advanced-pre-training-for-language-models",
+          "name": "Advanced Pre- training for Language Models",
+          "requires": ["neural-and-pre-trained-language-models"]
+        },
+        {
+          "id": "gpt3-and-beyond-few-shot-learning",
+          "name": "GPT3 & Beyond: Few-Shot Learning",
+          "requires": ["advanced-pre-training-for-language-models"]
+        },
+        {
+          "id": "prompt-learning",
+          "name": "Prompt Learning",
+          "requires": ["gpt3-and-beyond-few-shot-learning"]
+        }
+      ]
+    },
+    {
+      "id": "nlp-applications",
+      "name": "NLP Applications",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "sentiment-analysis-and-opinion-mining",
+          "name": "Sentiment Analysis and Opinion Mining"
+        },
+        {
+          "id": "text-summarization",
+          "name": "Text Summarization",
+          "requires": ["sentiment-analysis-and-opinion-mining"]
+        },
+        {
+          "id": "sarcasm-detection",
+          "name": "Sarcasm Detection",
+          "requires": ["text-summarization"]
+        },
+        {
+          "id": "information-retrieval",
+          "name": "Information Retrieval",
+          "requires": ["sarcasm-detection"]
+        },
+        {
+          "id": "question-answer-system",
+          "name": "Question Answer System",
+          "requires": ["information-retrieval"]
+        }
+      ]
+    }
+  ]
+}

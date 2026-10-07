@@ -9,7 +9,7 @@ import {
   unlocks,
   withoutShortcuts,
 } from "@/lib/graph/prereqGraph";
-import { findSubject, subjects, SubjectSchema, type Subject } from "@/lib/subjects";
+import { findSubject, allSubjects as subjects, SubjectSchema, type Subject } from "@/lib/subjects";
 
 const em = findSubject("em")!;
 const g = graphOf(em);

@@ -1,0 +1,233 @@
+{
+  "id": "pdeu-introduction-to-artificial-intelligence-petro",
+  "name": "Introduction to Artificial Intelligence (Petro)",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [3],
+  "code": "24PE201T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Engineering Science",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s3-introduction-to-artificial-intelligence",
+      "code": "24PE201T",
+      "category": "Engineering Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Introduction to Artificial Intelligence",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "fundamentals-of-artificial-intelligence",
+      "name": "Fundamentals of Artificial Intelligence",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-ai",
+          "name": "Introduction to AI"
+        },
+        {
+          "id": "machine-learning-ml-vs-deep-learning-dl",
+          "name": "Machine Learning (ML) vs. Deep Learning (DL)",
+          "requires": ["introduction-to-ai"]
+        },
+        {
+          "id": "bridging-python-programming",
+          "name": "Bridging Python Programming",
+          "requires": ["machine-learning-ml-vs-deep-learning-dl"]
+        },
+        {
+          "id": "linear-regression-ml",
+          "name": "Supervised Learning: Algorithms (linear regression, decision trees)",
+          "requires": ["bridging-python-programming"]
+        },
+        {
+          "id": "unsupervised-learning-techniques-clustering-dimensionality",
+          "name": "Unsupervised Learning: Techniques (clustering, dimensionality reduction)",
+          "requires": ["linear-regression-ml"]
+        },
+        {
+          "id": "reinforcement-learning",
+          "name": "Reinforcement Learning",
+          "requires": ["unsupervised-learning-techniques-clustering-dimensionality"]
+        },
+        {
+          "id": "data-preprocessing-techniques-for-cleaning-transforming-and",
+          "name": "Data Preprocessing: Techniques for cleaning, transforming, and preparing data for AI models",
+          "requires": ["reinforcement-learning"]
+        }
+      ]
+    },
+    {
+      "id": "ai-model-evaluation",
+      "name": "AI Model Evaluation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "accuracy",
+          "name": "Accuracy"
+        },
+        {
+          "id": "precision",
+          "name": "Precision",
+          "requires": ["accuracy"]
+        },
+        {
+          "id": "recall",
+          "name": "Recall",
+          "requires": ["precision"]
+        },
+        {
+          "id": "f1-score",
+          "name": "F1-Score",
+          "requires": ["recall"]
+        },
+        {
+          "id": "confusion-matrix",
+          "name": "Confusion Matrix",
+          "requires": ["f1-score"]
+        },
+        {
+          "id": "root-mean-squared-error-rmse",
+          "name": "Root Mean Squared Error (RMSE)",
+          "requires": ["confusion-matrix"]
+        },
+        {
+          "id": "mean-absolute-error-mae",
+          "name": "Mean Absolute Error (MAE)",
+          "requires": ["root-mean-squared-error-rmse"]
+        },
+        {
+          "id": "r-squared-coefficient-of-determination",
+          "name": "R-Squared (Coefficient of Determination)",
+          "requires": ["mean-absolute-error-mae"]
+        },
+        {
+          "id": "area-under-the-roc-curve-auc-roc-examples-water-cut",
+          "name": "Area Under the ROC Curve (AUC-ROC). Examples: water-cut prediction accuracy",
+          "requires": ["r-squared-coefficient-of-determination"]
+        },
+        {
+          "id": "net-present-value-npv-improvement-from-reservoir-management",
+          "name": "Net Present Value (NPV) improvement from reservoir management strategies, or drilling cost reduction achieved through AI-powered optimization",
+          "requires": ["area-under-the-roc-curve-auc-roc-examples-water-cut"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-artificial-neural-networks-ann",
+      "name": "Introduction to Artificial Neural Networks (Ann)",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "biological-inspiration",
+          "name": "Biological Inspiration"
+        },
+        {
+          "id": "artificial-neurons",
+          "name": "Artificial Neurons",
+          "requires": ["biological-inspiration"]
+        },
+        {
+          "id": "network-architectures",
+          "name": "Network Architectures",
+          "requires": ["artificial-neurons"]
+        },
+        {
+          "id": "activation-functions",
+          "name": "Activation Functions",
+          "requires": ["network-architectures"]
+        },
+        {
+          "id": "learning-processes",
+          "name": "Learning Processes",
+          "requires": ["activation-functions"]
+        },
+        {
+          "id": "loss-functions",
+          "name": "Loss Functions",
+          "requires": ["learning-processes"]
+        },
+        {
+          "id": "overfitting-and-underfitting",
+          "name": "Overfitting and Underfitting",
+          "requires": ["loss-functions"]
+        },
+        {
+          "id": "deep-learning-architectures-and-optimization-algorithms",
+          "name": "Deep Learning Architectures, and Optimization Algorithms",
+          "requires": ["overfitting-and-underfitting"]
+        },
+        {
+          "id": "ann-applications-in-petroleum-engineering-reservoir-property",
+          "name": "ANN applications in Petroleum Engineering: Reservoir property prediction using CNNs",
+          "requires": ["deep-learning-architectures-and-optimization-algorithms"]
+        },
+        {
+          "id": "production-forecasting-with-rnns-or-wellbore-stability",
+          "name": "production forecasting with RNNs, or wellbore stability analysis with MLPs",
+          "requires": ["ann-applications-in-petroleum-engineering-reservoir-property"]
+        }
+      ]
+    },
+    {
+      "id": "time-series-analysis-and-ethics",
+      "name": "Time Series Analysis and Ethics",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "artificial-time-series-analysis",
+          "name": "Artificial time series analysis"
+        },
+        {
+          "id": "application-of-time-series-prediction-in-oil-and-gas",
+          "name": "Application of time series prediction in oil and gas industry",
+          "requires": ["artificial-time-series-analysis"]
+        },
+        {
+          "id": "ethical-considerations-of-ai",
+          "name": "Ethical considerations of AI",
+          "requires": ["application-of-time-series-prediction-in-oil-and-gas"]
+        },
+        {
+          "id": "explainability-and-transparency",
+          "name": "Explainability and Transparency",
+          "requires": ["ethical-considerations-of-ai"]
+        },
+        {
+          "id": "environmental-impact",
+          "name": "Environmental Impact",
+          "requires": ["explainability-and-transparency"]
+        },
+        {
+          "id": "data-privacy-and-security",
+          "name": "Data Privacy and Security",
+          "requires": ["environmental-impact"]
+        },
+        {
+          "id": "long-term-sustainability",
+          "name": "Long-term Sustainability",
+          "requires": ["data-privacy-and-security"]
+        },
+        {
+          "id": "the-future-of-ai-ethics",
+          "name": "The Future of AI Ethics",
+          "requires": ["long-term-sustainability"]
+        }
+      ]
+    }
+  ]
+}

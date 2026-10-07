@@ -1,0 +1,238 @@
+{
+  "id": "pdeu-fundamentals-of-fluid-mechanics-for-petroleum",
+  "name": "Fundamentals of Fluid Mechanics for Petroleum Engineers",
+  "field": "Mechanical Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [3],
+  "code": "25PE201T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s3-fundamentals-of-fluid-mechanics-for-petroleum-engineers",
+      "code": "25PE201T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Fundamentals of Fluid Mechanics for Petroleum Engineers",
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "fluids",
+  "chapters": [
+    {
+      "id": "fundamentals-of-fluid-mechanics-introduction-and",
+      "name": "Fundamentals of Fluid Mechanics (Introduction and Fluid Statics)",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "definition-and-classification-of-fluids-real-and-ideal",
+          "name": "Definition and Classification of Fluids-Real and ideal fluids"
+        },
+        {
+          "id": "continuum-hypothesis",
+          "name": "continuum hypothesis",
+          "requires": ["definition-and-classification-of-fluids-real-and-ideal"]
+        },
+        {
+          "id": "viscosity",
+          "name": "viscosity",
+          "requires": ["continuum-hypothesis"]
+        },
+        {
+          "id": "compressibility-fluid-properties-density",
+          "name": "compressibility. Fluid Properties: Density",
+          "requires": ["viscosity"]
+        },
+        {
+          "id": "specific-gravity",
+          "name": "specific gravity",
+          "requires": ["compressibility-fluid-properties-density"]
+        },
+        {
+          "id": "surface-tension",
+          "name": "surface tension",
+          "requires": ["specific-gravity"]
+        },
+        {
+          "id": "vapour-pressure-and-compressibility-factor",
+          "name": "vapour pressure, and compressibility factor",
+          "requires": ["surface-tension"]
+        },
+        {
+          "id": "fluid-statics-pressure-and-its-measurement-manometers",
+          "name": "Fluid Statics: Pressure and its measurement (manometers, Bourdon gauge, piezometer)",
+          "requires": ["vapour-pressure-and-compressibility-factor"]
+        },
+        {
+          "id": "variation-of-pressure-with-depth",
+          "name": "Variation of pressure with depth",
+          "requires": ["fluid-statics-pressure-and-its-measurement-manometers"]
+        },
+        {
+          "id": "hydrostatic-forces-on-submerged-plane-and-curved-surfaces",
+          "name": "Hydrostatic forces on submerged plane and curved surfaces",
+          "requires": ["variation-of-pressure-with-depth"]
+        },
+        {
+          "id": "buoyancy",
+          "name": "Buoyancy",
+          "requires": ["hydrostatic-forces-on-submerged-plane-and-curved-surfaces"]
+        },
+        {
+          "id": "stability-of-floating-bodies",
+          "name": "stability of floating bodies",
+          "requires": ["buoyancy"]
+        }
+      ]
+    },
+    {
+      "id": "fluid-kinematics-and-dynamics",
+      "name": "Fluid Kinematics and Dynamics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "kinematics-of-fluid-flow-types-of-flow-steady-unsteady",
+          "name": "Kinematics of Fluid Flow: Types of flow – steady/unsteady"
+        },
+        {
+          "id": "uniform-non-uniform",
+          "name": "uniform/non-uniform",
+          "requires": ["kinematics-of-fluid-flow-types-of-flow-steady-unsteady"]
+        },
+        {
+          "id": "laminar-turbulent",
+          "name": "laminar/turbulent",
+          "requires": ["uniform-non-uniform"]
+        },
+        {
+          "id": "euler-bernoulli-fm",
+          "name": "rotational/irrotational. Streamlines, Pathlines, and Streaklines. Continuity Equation. Euler’s and Bernoulli’s Equations: Derivation, assumptions, and practical applications",
+          "requires": ["laminar-turbulent"]
+        },
+        {
+          "id": "energy-and-momentum-principles-momentum-equation-and",
+          "name": "Energy and Momentum Principles: Momentum equation and applications (nozzle, diffuser, bend, and jet impingement)",
+          "requires": ["euler-bernoulli-fm"]
+        }
+      ]
+    },
+    {
+      "id": "fluid-flow-through-pipes-and-porous-media",
+      "name": "Fluid Flow Through Pipes and Porous Media",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "flow-in-pipes-laminar-and-turbulent-flow-in-circular-pipes",
+          "name": "Flow in Pipes: Laminar and turbulent flow in circular pipes"
+        },
+        {
+          "id": "hagen-poiseuille-and-darcy-weisbach-equations",
+          "name": "Hagen–Poiseuille and Darcy–Weisbach equations",
+          "requires": ["flow-in-pipes-laminar-and-turbulent-flow-in-circular-pipes"]
+        },
+        {
+          "id": "friction-factor-correlations",
+          "name": "Friction factor correlations",
+          "requires": ["hagen-poiseuille-and-darcy-weisbach-equations"]
+        },
+        {
+          "id": "minor-losses",
+          "name": "Minor losses",
+          "requires": ["friction-factor-correlations"]
+        },
+        {
+          "id": "fittings",
+          "name": "fittings",
+          "requires": ["minor-losses"]
+        },
+        {
+          "id": "bends",
+          "name": "bends",
+          "requires": ["fittings"]
+        },
+        {
+          "id": "expansions",
+          "name": "expansions",
+          "requires": ["bends"]
+        },
+        {
+          "id": "permeability-darcy-res",
+          "name": "contractions. Flow Through Porous Media: Darcy’s Law, permeability, and porosity concepts",
+          "requires": ["expansions"]
+        },
+        {
+          "id": "non-darcy-forchheimer-flow",
+          "name": "Non-Darcy (Forchheimer) flow",
+          "requires": ["permeability-darcy-res"]
+        },
+        {
+          "id": "relative-permeability",
+          "name": "Capillary pressure and relative permeability",
+          "requires": ["permeability-darcy-res"]
+        },
+        {
+          "id": "measurement-of-permeability-in-core-samples",
+          "name": "Measurement of permeability in core samples",
+          "requires": ["relative-permeability"]
+        }
+      ]
+    },
+    {
+      "id": "flow-measurement-in-petroleum-systems",
+      "name": "Flow Measurement in Petroleum Systems",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "principles-and-importance-of-flow-measurement-in-petroleum",
+          "name": "Principles and importance of flow measurement in petroleum operations"
+        },
+        {
+          "id": "types-of-flow-meters-and-measuring-devices",
+          "name": "types of flow meters and measuring devices",
+          "requires": ["principles-and-importance-of-flow-measurement-in-petroleum"]
+        },
+        {
+          "id": "venturimeter-orifice-meter-rotameter-turbine-and-positive",
+          "name": "Venturimeter, Orifice meter, Rotameter, Turbine and Positive Displacement meters",
+          "requires": ["types-of-flow-meters-and-measuring-devices"]
+        },
+        {
+          "id": "construction-working-principles-calibration-and-applications",
+          "name": "construction, working principles, calibration, and applications",
+          "requires": ["venturimeter-orifice-meter-rotameter-turbine-and-positive"]
+        },
+        {
+          "id": "valves",
+          "name": "Valves",
+          "requires": ["construction-working-principles-calibration-and-applications"]
+        },
+        {
+          "id": "types-gate-globe-ball-check-butterfly-functions-and-flow",
+          "name": "types (gate, globe, ball, check, butterfly), functions, and flow control characteristics",
+          "requires": ["valves"]
+        },
+        {
+          "id": "pumps-and-compressors",
+          "name": "Pumps and compressors",
+          "requires": ["types-gate-globe-ball-check-butterfly-functions-and-flow"]
+        },
+        {
+          "id": "classification-working-principles-performance",
+          "name": "classification, working principles, performance characteristics, and selection criteria for petroleum",
+          "requires": ["pumps-and-compressors"]
+        }
+      ]
+    }
+  ]
+}

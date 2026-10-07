@@ -1,0 +1,386 @@
+{
+  "id": "pdeu-computer-aided-manufacturing-cam-major-in-house",
+  "name": "Computer Aided Manufacturing (CAM) [Major in-house project route only]",
+  "field": "Computer Aided Manufacturing",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [8],
+  "credits": 4,
+  "ltp": "4-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s8-computer-aided-manufacturing-cam-major-in-house-project-rout",
+      "category": "Program Core",
+      "ltp": "4-0-0",
+      "credits": 4,
+      "semester": 8,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Computer Aided Manufacturing (CAM) [Major in-house project route only]",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "13",
+      "name": "13",
+      "topics": [
+        {
+          "id": "introduction-introduction-to-cam",
+          "name": "Introduction: Introduction to CAM"
+        },
+        {
+          "id": "concepts-and-scope-of-cam",
+          "name": "Concepts & scope of CAM",
+          "requires": ["introduction-introduction-to-cam"]
+        },
+        {
+          "id": "nature-and-type-of-manufacturing-system",
+          "name": "Nature & type of manufacturing system",
+          "requires": ["concepts-and-scope-of-cam"]
+        },
+        {
+          "id": "evolution",
+          "name": "Evolution",
+          "requires": ["nature-and-type-of-manufacturing-system"]
+        },
+        {
+          "id": "benefits-of-cam",
+          "name": "Benefits of CAM",
+          "requires": ["evolution"]
+        },
+        {
+          "id": "constructional-details",
+          "name": "Constructional details",
+          "requires": ["benefits-of-cam"]
+        },
+        {
+          "id": "of-cnc-machines-basis-and-need-of-cnc-machines-nc",
+          "name": "of CNC machines: Basis and need of CNC machines: NC",
+          "requires": ["constructional-details"]
+        },
+        {
+          "id": "cnc-and-dnc-systems-machine-structures",
+          "name": "CNC and DNC systems. Machine structures",
+          "requires": ["of-cnc-machines-basis-and-need-of-cnc-machines-nc"]
+        },
+        {
+          "id": "slide-ways",
+          "name": "slide ways",
+          "requires": ["cnc-and-dnc-systems-machine-structures"]
+        },
+        {
+          "id": "motion-transmission-elements",
+          "name": "motion transmission elements",
+          "requires": ["slide-ways"]
+        },
+        {
+          "id": "chip-removal-and-safety-considerations",
+          "name": "Chip removal and safety considerations",
+          "requires": ["motion-transmission-elements"]
+        },
+        {
+          "id": "automatic-tool-changers-and-multiple-pallet-systems",
+          "name": "Automatic tool changers and multiple pallet systems",
+          "requires": ["chip-removal-and-safety-considerations"]
+        },
+        {
+          "id": "sensors-and-feedback-devices-in-cnc-machines",
+          "name": "Sensors and feedback devices in CNC machines",
+          "requires": ["automatic-tool-changers-and-multiple-pallet-systems"]
+        },
+        {
+          "id": "constructional-details-of-cnc-turning-center",
+          "name": "Constructional details of CNC turning center",
+          "requires": ["sensors-and-feedback-devices-in-cnc-machines"]
+        },
+        {
+          "id": "classification-of-cnc-control-systems",
+          "name": "Classification of CNC control systems",
+          "requires": ["constructional-details-of-cnc-turning-center"]
+        },
+        {
+          "id": "applications-of-cnc-machines-in-manufacturing",
+          "name": "Applications of CNC machines in manufacturing",
+          "requires": ["classification-of-cnc-control-systems"]
+        },
+        {
+          "id": "advantages-of-cnc-machine",
+          "name": "advantages of CNC machine",
+          "requires": ["applications-of-cnc-machines-in-manufacturing"]
+        }
+      ]
+    },
+    {
+      "id": "13-2",
+      "name": "13",
+      "topics": [
+        {
+          "id": "cnc-part-programming-axis-identification-and-coordinate",
+          "name": "CNC part programming: Axis identification and coordinate systems"
+        },
+        {
+          "id": "structure-of-cnc-part-program",
+          "name": "structure of CNC part program",
+          "requires": ["cnc-part-programming-axis-identification-and-coordinate"]
+        },
+        {
+          "id": "programming-formats",
+          "name": "Programming formats",
+          "requires": ["structure-of-cnc-part-program"]
+        },
+        {
+          "id": "nc-programming-codes",
+          "name": "NC programming codes",
+          "requires": ["programming-formats"]
+        },
+        {
+          "id": "programming-for-2-axis-control-systems-manual-part",
+          "name": "Programming for 2 axis control systems: Manual part programming for a turning center",
+          "requires": ["nc-programming-codes"]
+        },
+        {
+          "id": "programming-using-tool-nose-radius-compensation",
+          "name": "programming using tool nose radius compensation",
+          "requires": ["programming-for-2-axis-control-systems-manual-part"]
+        },
+        {
+          "id": "do-loop",
+          "name": "do loop",
+          "requires": ["programming-using-tool-nose-radius-compensation"]
+        },
+        {
+          "id": "sub-routines-and-fixed-cycles",
+          "name": "sub routines and fixed cycles",
+          "requires": ["do-loop"]
+        },
+        {
+          "id": "programming-for-cnc-wire-cut-machines",
+          "name": "Programming for CNC wire-cut machines",
+          "requires": ["sub-routines-and-fixed-cycles"]
+        },
+        {
+          "id": "programming-for-3-axis-control-system-manual-part",
+          "name": "Programming for 3 axis control system: Manual part programming for CNC machining center programming using tool radius compensation tool offsets",
+          "requires": ["programming-for-cnc-wire-cut-machines"]
+        },
+        {
+          "id": "subroutines-and-fixed-cycles",
+          "name": "subroutines and fixed cycles",
+          "requires": ["programming-for-3-axis-control-system-manual-part"]
+        },
+        {
+          "id": "computer-aided-cnc-part-programming-using-apt-language-cad",
+          "name": "COMPUTER AIDED CNC PART PROGRAMMING: Using APT language CAD/CAM Aided CNC part programming",
+          "requires": ["subroutines-and-fixed-cycles"]
+        },
+        {
+          "id": "tooling-for-cnc-machines-tooling-requirements-of-cnc-machine",
+          "name": "Tooling for CNC machines: Tooling requirements of CNC machine",
+          "requires": ["computer-aided-cnc-part-programming-using-apt-language-cad"]
+        },
+        {
+          "id": "preset-and-qualified-tools",
+          "name": "preset and qualified tools",
+          "requires": ["tooling-for-cnc-machines-tooling-requirements-of-cnc-machine"]
+        },
+        {
+          "id": "work-and-tool-holding-devices-in-cnc-machines",
+          "name": "work and tool holding devices in CNC machines",
+          "requires": ["preset-and-qualified-tools"]
+        }
+      ]
+    },
+    {
+      "id": "13-3",
+      "name": "13",
+      "topics": [
+        {
+          "id": "fms-introduction-and-component-of-fms",
+          "name": "FMS: Introduction & Component of FMS"
+        },
+        {
+          "id": "needs-of-fms",
+          "name": "Needs of FMS",
+          "requires": ["fms-introduction-and-component-of-fms"]
+        },
+        {
+          "id": "general-fms-consideration",
+          "name": "general FMS consideration",
+          "requires": ["needs-of-fms"]
+        },
+        {
+          "id": "objectives",
+          "name": "Objectives",
+          "requires": ["general-fms-consideration"]
+        },
+        {
+          "id": "types-of-fms",
+          "name": "Types of FMS",
+          "requires": ["objectives"]
+        },
+        {
+          "id": "advantages-of-fms",
+          "name": "advantages of FMS",
+          "requires": ["types-of-fms"]
+        },
+        {
+          "id": "automated-material-movement-agvs-rgv-etc-and-as-rs",
+          "name": "Automated material movement (AGVS, RGV etc.) & AS/RS",
+          "requires": ["advantages-of-fms"]
+        },
+        {
+          "id": "cellular-and-flexible-manufacturing",
+          "name": "Cellular & Flexible manufacturing",
+          "requires": ["automated-material-movement-agvs-rgv-etc-and-as-rs"]
+        },
+        {
+          "id": "cutting-tools-and-tool-management",
+          "name": "Cutting tools and tool management",
+          "requires": ["cellular-and-flexible-manufacturing"]
+        },
+        {
+          "id": "tool-supply-system",
+          "name": "Tool supply system",
+          "requires": ["cutting-tools-and-tool-management"]
+        },
+        {
+          "id": "tool-monitoring-system",
+          "name": "Tool Monitoring System",
+          "requires": ["tool-supply-system"]
+        },
+        {
+          "id": "flexibility",
+          "name": "Flexibility",
+          "requires": ["tool-monitoring-system"]
+        },
+        {
+          "id": "fms-scheduling",
+          "name": "FMS scheduling",
+          "requires": ["flexibility"]
+        },
+        {
+          "id": "sequencing",
+          "name": "sequencing",
+          "requires": ["fms-scheduling"]
+        },
+        {
+          "id": "fms-lay-out-and-essentials",
+          "name": "FMS lay out and essentials",
+          "requires": ["sequencing"]
+        },
+        {
+          "id": "flexible-fixturing",
+          "name": "Flexible Fixturing",
+          "requires": ["fms-lay-out-and-essentials"]
+        },
+        {
+          "id": "automatic-identification-and-data-capture-overview-of",
+          "name": "Automatic Identification And Data Capture: Overview of Automatic Identification Methods",
+          "requires": ["flexible-fixturing"]
+        },
+        {
+          "id": "bar-code-technology",
+          "name": "Bar Code Technology",
+          "requires": ["automatic-identification-and-data-capture-overview-of"]
+        },
+        {
+          "id": "radio-frequency-identification",
+          "name": "Radio Frequency Identification",
+          "requires": ["bar-code-technology"]
+        },
+        {
+          "id": "other-aidc-technologies-automated-production-lines",
+          "name": "Other AIDC Technologies Automated Production Lines: Fundamentals of Automated Production Lines",
+          "requires": ["radio-frequency-identification"]
+        },
+        {
+          "id": "applications-of-automated-production-lines",
+          "name": "Applications of Automated Production Lines",
+          "requires": ["other-aidc-technologies-automated-production-lines"]
+        },
+        {
+          "id": "analysis-of-transfer-lines",
+          "name": "Analysis of Transfer Lines",
+          "requires": ["applications-of-automated-production-lines"]
+        }
+      ]
+    },
+    {
+      "id": "13-4",
+      "name": "13",
+      "topics": [
+        {
+          "id": "group-technology-and-cellular-manufacturing-introduction",
+          "name": "Group Technology and Cellular Manufacturing: Introduction"
+        },
+        {
+          "id": "part-families",
+          "name": "part families",
+          "requires": ["group-technology-and-cellular-manufacturing-introduction"]
+        },
+        {
+          "id": "part-classification-and-coding",
+          "name": "part classification and coding",
+          "requires": ["part-families"]
+        },
+        {
+          "id": "machining-cells",
+          "name": "machining cells",
+          "requires": ["part-classification-and-coding"]
+        },
+        {
+          "id": "benefits-of-group-technology",
+          "name": "benefits of group Technology",
+          "requires": ["machining-cells"]
+        },
+        {
+          "id": "production-flow-analysis",
+          "name": "production flow analysis",
+          "requires": ["benefits-of-group-technology"]
+        },
+        {
+          "id": "cellular-manufacturing-computer-aided-production-management",
+          "name": "Cellular Manufacturing Computer Aided Production management: Introduction",
+          "requires": ["production-flow-analysis"]
+        },
+        {
+          "id": "ppc-fundamentals",
+          "name": "PPC fundamentals",
+          "requires": ["cellular-manufacturing-computer-aided-production-management"]
+        },
+        {
+          "id": "problems-with-traditional-ppc",
+          "name": "Problems with traditional PPC",
+          "requires": ["ppc-fundamentals"]
+        },
+        {
+          "id": "use-of-computer-in-ppc-such-as-capp",
+          "name": "use of computer in PPC such as CAPP",
+          "requires": ["problems-with-traditional-ppc"]
+        },
+        {
+          "id": "mrpi",
+          "name": "MRPI",
+          "requires": ["use-of-computer-in-ppc-such-as-capp"]
+        },
+        {
+          "id": "mrpii",
+          "name": "MRPII",
+          "requires": ["mrpi"]
+        },
+        {
+          "id": "cagc-etc",
+          "name": "CAGC etc",
+          "requires": ["mrpii"]
+        }
+      ]
+    }
+  ]
+}

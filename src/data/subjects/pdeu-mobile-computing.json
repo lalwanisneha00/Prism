@@ -1,0 +1,203 @@
+{
+  "id": "pdeu-mobile-computing",
+  "name": "Mobile Computing",
+  "field": "Mobile Computing",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [6],
+  "code": "24CS340T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s6-program-elective-2--mobile-computing",
+      "code": "24CS340T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core",
+      "track": "Communication track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Mobile Computing",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-mobile-computing",
+          "name": "Introduction to Mobile Computing"
+        },
+        {
+          "id": "applications-of-mobile-computing",
+          "name": "Applications of Mobile Computing",
+          "requires": ["introduction-to-mobile-computing"]
+        },
+        {
+          "id": "generations-of-mobile-communication-technologies-and-their",
+          "name": "Generations of Mobile Communication Technologies and their technical specification",
+          "requires": ["applications-of-mobile-computing"]
+        },
+        {
+          "id": "multiplexing-mac-protocols-sdma-tdma-fdma-cdma",
+          "name": "Multiplexing -MAC Protocols SDMA- TDMA- FDMA- CDMA",
+          "requires": ["generations-of-mobile-communication-technologies-and-their"]
+        }
+      ]
+    },
+    {
+      "id": "cellular-mobile-wireless-system",
+      "name": "Cellular Mobile Wireless System",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-to-cellular-systems",
+          "name": "Introduction to Cellular Systems"
+        },
+        {
+          "id": "gsm-multiple-access-scheme",
+          "name": "GSM- Multiple Access Scheme",
+          "requires": ["introduction-to-cellular-systems"]
+        },
+        {
+          "id": "gsm-protocols-and-signalling",
+          "name": "GSM Protocols and Signalling",
+          "requires": ["gsm-multiple-access-scheme"]
+        },
+        {
+          "id": "connection-establishment-frequency-allocation",
+          "name": "Connection Establishment Frequency Allocation",
+          "requires": ["gsm-protocols-and-signalling"]
+        },
+        {
+          "id": "routing",
+          "name": "Routing",
+          "requires": ["connection-establishment-frequency-allocation"]
+        },
+        {
+          "id": "mobility-management",
+          "name": "Mobility Management",
+          "requires": ["routing"]
+        },
+        {
+          "id": "gprs-protocols",
+          "name": "GPRS- Protocols",
+          "requires": ["mobility-management"]
+        },
+        {
+          "id": "network-architecture",
+          "name": "Network Architecture",
+          "requires": ["gprs-protocols"]
+        },
+        {
+          "id": "umts-network-protocol-architecture",
+          "name": "UMTS- Network Protocol Architecture",
+          "requires": ["network-architecture"]
+        }
+      ]
+    },
+    {
+      "id": "mobile-ad-hoc-network",
+      "name": "Mobile Ad-Hoc Network",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "mobile-ip-operations",
+          "name": "Mobile IP- Operations"
+        },
+        {
+          "id": "registration",
+          "name": "Registration",
+          "requires": ["mobile-ip-operations"]
+        },
+        {
+          "id": "tunnelling",
+          "name": "Tunnelling",
+          "requires": ["registration"]
+        },
+        {
+          "id": "proactive-protocol-destination-sequenced-distance-vector",
+          "name": "Proactive protocol- Destination-Sequenced Distance-Vector Routing",
+          "requires": ["tunnelling"]
+        },
+        {
+          "id": "reactive-routing-protocols-dynamic-source-routing",
+          "name": "Reactive Routing Protocols- Dynamic Source Routing",
+          "requires": ["proactive-protocol-destination-sequenced-distance-vector"]
+        },
+        {
+          "id": "ad-hoc-on-demand-distance-vector",
+          "name": "Ad hoc On- Demand Distance Vector",
+          "requires": ["reactive-routing-protocols-dynamic-source-routing"]
+        },
+        {
+          "id": "hybrid-routing-zone-routing-protocol",
+          "name": "Hybrid routing- Zone Routing Protocol",
+          "requires": ["ad-hoc-on-demand-distance-vector"]
+        },
+        {
+          "id": "multicast-routing-on-demand-multicast-routing-protocol",
+          "name": "Multicast Routing- On- Demand Multicast Routing Protocol",
+          "requires": ["hybrid-routing-zone-routing-protocol"]
+        },
+        {
+          "id": "vehicular-ad-hoc-networks",
+          "name": "Vehicular Ad Hoc Networks",
+          "requires": ["multicast-routing-on-demand-multicast-routing-protocol"]
+        },
+        {
+          "id": "manet-vs-vanet",
+          "name": "MANET Vs VANET",
+          "requires": ["vehicular-ad-hoc-networks"]
+        }
+      ]
+    },
+    {
+      "id": "mobile-transport-and-application-layer",
+      "name": "Mobile Transport and Application Layer",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "mobile-tcp",
+          "name": "Mobile TCP"
+        },
+        {
+          "id": "wireless-application-protocol",
+          "name": "Wireless Application Protocol",
+          "requires": ["mobile-tcp"]
+        },
+        {
+          "id": "wireless-transport-layer-security",
+          "name": "Wireless Transport Layer Security",
+          "requires": ["wireless-application-protocol"]
+        },
+        {
+          "id": "wireless-transaction-protocol",
+          "name": "Wireless Transaction Protocol",
+          "requires": ["wireless-transport-layer-security"]
+        },
+        {
+          "id": "wireless-application-environment",
+          "name": "Wireless Application Environment",
+          "requires": ["wireless-transaction-protocol"]
+        },
+        {
+          "id": "wireless-telephony-application",
+          "name": "Wireless Telephony Application",
+          "requires": ["wireless-application-environment"]
+        }
+      ]
+    }
+  ]
+}

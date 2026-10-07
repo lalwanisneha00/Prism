@@ -102,8 +102,6 @@ export const wave1Widgets = {
     }),
     help: 'lineVoltage V (100..11000, e.g. 400); impedance per phase Ω (1..1000); pfAngleDeg (0..80); connection "star" or "delta".',
     topics: [
-      "three-phase-transformer-groups",
-      "rotating-field-winding",
       "unbalanced-three-phase",
       "three-phase-generation",
       "star-delta",
@@ -140,9 +138,6 @@ export const wave1Widgets = {
     }),
     help: "primaryV; primaryTurns and secondaryTurns (integers); ratedKva; coreLossW (iron loss); fullLoadCuLossW (copper loss at full load).",
     topics: [
-      "transformer-phasors-regulation",
-      "oc-sc-tests",
-      "all-day-efficiency",
       "ideal-practical-transformer",
       "transformer-equivalent-circuit",
       "transformer-losses-efficiency",
@@ -159,8 +154,6 @@ export const wave1Widgets = {
     }),
     help: "rotorResistance R₂ Ω (0.02..1.5); rotorReactance X₂ Ω (0.2..5); poles (even, 2..12); frequency Hz (25..60).",
     topics: [
-      "slip-equivalent-circuit",
-      "torque-slip-characteristic",
       "three-phase-induction-motor",
       "induction-motor-starting-speed",
       "single-phase-induction-motor",

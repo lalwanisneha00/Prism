@@ -1,0 +1,176 @@
+{
+  "id": "pdeu-digital-cmos-vlsi-design",
+  "name": "Digital CMOS VLSI Design",
+  "field": "Electronics Engineering",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [7],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s7-digital-cmos-vlsi-design",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Digital CMOS VLSI Design",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "introduction-to-digital-cmos-vlsi",
+      "name": "Introduction to Digital CMOS VLSI",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "trends-in-vlsi-semiconductor-industry-related-to-technology",
+          "name": "Trends in VLSI/Semiconductor industry, related to technology (Moore‟s) scaling"
+        },
+        {
+          "id": "itrs-roadmap",
+          "name": "ITRS Roadmap",
+          "requires": ["trends-in-vlsi-semiconductor-industry-related-to-technology"]
+        },
+        {
+          "id": "overview-of-semiconductor-devices-inherent-in-the-mosfet",
+          "name": "Overview of semiconductor devices inherent in the MOSFET: MOSFET I/V Characteristics, MOSFET C/V Characteristics, Second Order Effects",
+          "requires": ["itrs-roadmap"]
+        },
+        {
+          "id": "dc-transfer-characteristics-cmos-inverter-dc-characteristics",
+          "name": "DC Transfer Characteristics: CMOS inverter DC Characteristics, Beta Ratio Effects, Noise Margins, Pass Transistor DC Characteristics",
+          "requires": ["overview-of-semiconductor-devices-inherent-in-the-mosfet"]
+        }
+      ]
+    },
+    {
+      "id": "circuit-characterization-and-performance",
+      "name": "Circuit Characterization and Performance Estimation",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "rc-delay-model",
+          "name": "RC Delay Model"
+        },
+        {
+          "id": "linear-delay-model",
+          "name": "Linear Delay Model",
+          "requires": ["rc-delay-model"]
+        },
+        {
+          "id": "logical-effort",
+          "name": "Logical Effort",
+          "requires": ["linear-delay-model"]
+        },
+        {
+          "id": "parasitic-delay",
+          "name": "Parasitic Delay",
+          "requires": ["logical-effort"]
+        },
+        {
+          "id": "delay-in-a-logic-gate",
+          "name": "Delay in a Logic Gate",
+          "requires": ["parasitic-delay"]
+        },
+        {
+          "id": "delay-in-multistage-logic-networks-timing-analysis-delay",
+          "name": "Delay in Multistage Logic Networks. Timing analysis delay models Power: Sources of power",
+          "requires": ["delay-in-a-logic-gate"]
+        },
+        {
+          "id": "dynamic-power",
+          "name": "Dynamic Power",
+          "requires": ["delay-in-multistage-logic-networks-timing-analysis-delay"]
+        },
+        {
+          "id": "static-power",
+          "name": "Static Power",
+          "requires": ["dynamic-power"]
+        },
+        {
+          "id": "energy-delay-optimization",
+          "name": "Energy-Delay optimization",
+          "requires": ["static-power"]
+        },
+        {
+          "id": "low-power-design-techniques",
+          "name": "Low-power design techniques",
+          "requires": ["energy-delay-optimization"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-digital-cmos-vlsi-standard-and-compound",
+      "name": "Design of Digital CMOS VLSI Standard and Compound Gates",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "combinational-design-circuit-families-pass-transistor-tree",
+          "name": "Combinational Design: Circuit Families: Pass-transistor tree-based logic gates (and similar other logic styles"
+        },
+        {
+          "id": "cpl-transmission-gates-dpl-etc",
+          "name": "CPL, transmission gates, DPL, etc)",
+          "requires": ["combinational-design-circuit-families-pass-transistor-tree"]
+        },
+        {
+          "id": "pseudo-nmos-logic",
+          "name": "Pseudo-NMOS logic",
+          "requires": ["cpl-transmission-gates-dpl-etc"]
+        },
+        {
+          "id": "cvls-logic",
+          "name": "CVLS logic",
+          "requires": ["pseudo-nmos-logic"]
+        },
+        {
+          "id": "dynamic-logic-domino-np-domino-zipper",
+          "name": "Dynamic logic (domino, NP domino, Zipper)",
+          "requires": ["cvls-logic"]
+        },
+        {
+          "id": "hybrid-logic-style-and-examples-full-adder-mux-xor-pitfalls",
+          "name": "Hybrid logic style and examples (Full-Adder, MUX, XOR), Pitfalls of various families, Stick diagram",
+          "requires": ["dynamic-logic-domino-np-domino-zipper"]
+        },
+        {
+          "id": "sequential-design-sequencing-static-circuits-max-delay",
+          "name": "Sequential Design: Sequencing Static Circuits, Max-Delay Constraints, Min-Delay Constraints, Time Borrowing, Clock Skew, Circuit Design of Latches and Flip-Flops",
+          "requires": ["hybrid-logic-style-and-examples-full-adder-mux-xor-pitfalls"]
+        }
+      ]
+    },
+    {
+      "id": "datapath-and-array-subsystem-design",
+      "name": "Datapath and array subsystem design",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "carry-ripple-adder-carry-look-ahead-adder-manchester-carry",
+          "name": "Carry ripple adder, carry look ahead adder, Manchester carry chain adder, carry skip adder, carry select adder, shifters, multipliers, SRAM, DRAM, and other memories"
+        },
+        {
+          "id": "note-the-detailed-syllabus-page-for-this-course-prints-l-t-p",
+          "name": "Note: The detailed syllabus page for this course prints L-T-P-C as 3-0-0-0",
+          "requires": ["carry-ripple-adder-carry-look-ahead-adder-manchester-carry"]
+        },
+        {
+          "id": "the-credits-shown-here-follow-the-official-course-structure",
+          "name": "the credits shown here follow the official course structure table",
+          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"]
+        }
+      ]
+    }
+  ]
+}

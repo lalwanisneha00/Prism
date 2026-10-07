@@ -1,0 +1,282 @@
+{
+  "id": "pdeu-introduction-to-robotics-control",
+  "name": "Introduction to Robotics (Control)",
+  "field": "Introduction to Robotics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [6],
+  "code": "24ECExxxT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s6-program-elective-2--introduction-to-robotics-control",
+      "code": "24ECExxxT",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Introduction to Robotics (Control)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "robotic-systems-and-types",
+      "name": "Robotic Systems and Types",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "introduction-to-robotics-and-autonomous-systems",
+          "name": "Introduction to robotics and autonomous systems"
+        },
+        {
+          "id": "common-laws-of-robotics",
+          "name": "Common laws of robotics",
+          "requires": ["introduction-to-robotics-and-autonomous-systems"]
+        },
+        {
+          "id": "sensors-and-actuators",
+          "name": "Sensors and actuators",
+          "requires": ["common-laws-of-robotics"]
+        },
+        {
+          "id": "perception-and-vision",
+          "name": "Perception and vision",
+          "requires": ["sensors-and-actuators"]
+        },
+        {
+          "id": "control-systems-and-coordination-approaches-with-real-world",
+          "name": "Control systems and coordination approaches with real-world applications",
+          "requires": ["perception-and-vision"]
+        },
+        {
+          "id": "path-and-trajectory-generation",
+          "name": "Path and trajectory generation",
+          "requires": ["control-systems-and-coordination-approaches-with-real-world"]
+        },
+        {
+          "id": "navigation-and-mapping-types-of-robots-stationary-and-mobile",
+          "name": "Navigation and mapping. Types of robots: Stationary and Mobile robots",
+          "requires": ["path-and-trajectory-generation"]
+        },
+        {
+          "id": "manipulators-and-industrial-robots",
+          "name": "Manipulators and Industrial Robots",
+          "requires": ["navigation-and-mapping-types-of-robots-stationary-and-mobile"]
+        },
+        {
+          "id": "unmanned-ground-vehicles-ugv",
+          "name": "Unmanned Ground Vehicles (UGV)",
+          "requires": ["manipulators-and-industrial-robots"]
+        },
+        {
+          "id": "wheeled-mobile-robots",
+          "name": "Wheeled mobile robots",
+          "requires": ["unmanned-ground-vehicles-ugv"]
+        },
+        {
+          "id": "unmanned-aerial-vehicles-uavs-drones-fixed-wing-and",
+          "name": "Unmanned Aerial Vehicles (UAVs)/Drones: Fixed-wing & multirotor drones",
+          "requires": ["wheeled-mobile-robots"]
+        },
+        {
+          "id": "autonomous-underwater-vehicles-auv",
+          "name": "Autonomous Underwater Vehicles (AUV)",
+          "requires": ["unmanned-aerial-vehicles-uavs-drones-fixed-wing-and"]
+        },
+        {
+          "id": "bio-mimicking-robots",
+          "name": "Bio- mimicking robots",
+          "requires": ["autonomous-underwater-vehicles-auv"]
+        }
+      ]
+    },
+    {
+      "id": "robot-modelling",
+      "name": "Robot Modelling",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "basics-configuration-space-dofs-fully-actuated-underactuated",
+          "name": "Basics: Configuration space, DOFs, Fully actuated, underactuated & overactuated robots"
+        },
+        {
+          "id": "kinematic-modeling-motions-in-3d-positions-and-rotations",
+          "name": "Kinematic modeling: Motions in 3D, Positions & rotations, Coordinate frames & transformations, Euler angles, Forward & inverse kinematics",
+          "requires": ["basics-configuration-space-dofs-fully-actuated-underactuated"]
+        },
+        {
+          "id": "dynamical-modeling-kinetic-and-potential-energy-robot",
+          "name": "Dynamical modeling: Kinetic & potential energy, Robot motions using Euler-Lagrange formulation",
+          "requires": ["kinematic-modeling-motions-in-3d-positions-and-rotations"]
+        },
+        {
+          "id": "modelling-examples-2-link-robotic-manipulators-inverted",
+          "name": "Modelling examples: 2-link robotic manipulators, Inverted pendulum on a cart, Slosh-container",
+          "requires": ["dynamical-modeling-kinetic-and-potential-energy-robot"]
+        },
+        {
+          "id": "input-output-modeling-transfer-functions",
+          "name": "Input-Output modeling: Transfer functions",
+          "requires": ["modelling-examples-2-link-robotic-manipulators-inverted"]
+        },
+        {
+          "id": "linear-systems",
+          "name": "State-space modeling: State variables, Linear & nonlinear system equations, Eigen structure",
+          "requires": ["input-output-modeling-transfer-functions"]
+        }
+      ]
+    },
+    {
+      "id": "planning-and-control-techniques-for-robots",
+      "name": "Planning and Control Techniques for Robots",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "controls-disturbance-effects",
+          "name": "Controls: Disturbance effects"
+        },
+        {
+          "id": "uncertainties-in-models",
+          "name": "Uncertainties in models",
+          "requires": ["controls-disturbance-effects"]
+        },
+        {
+          "id": "linear-systems-stability-and-time-domain-analysis",
+          "name": "Linear systems: Stability & time domain analysis",
+          "requires": ["uncertainties-in-models"]
+        },
+        {
+          "id": "state-feedback-control",
+          "name": "State-feedback control",
+          "requires": ["linear-systems-stability-and-time-domain-analysis"]
+        },
+        {
+          "id": "regulation-and-tracking",
+          "name": "Regulation & tracking",
+          "requires": ["state-feedback-control"]
+        },
+        {
+          "id": "nonlinear-systems-stability",
+          "name": "Nonlinear systems stability",
+          "requires": ["regulation-and-tracking"]
+        },
+        {
+          "id": "lyapunov-based-control-design",
+          "name": "Lyapunov based control design",
+          "requires": ["nonlinear-systems-stability"]
+        },
+        {
+          "id": "robust-control-designs",
+          "name": "Robust control designs",
+          "requires": ["lyapunov-based-control-design"]
+        },
+        {
+          "id": "optimization-problems",
+          "name": "Optimization problems",
+          "requires": ["robust-control-designs"]
+        },
+        {
+          "id": "estimation-techniques",
+          "name": "Estimation techniques",
+          "requires": ["optimization-problems"]
+        },
+        {
+          "id": "control-in-cps-and-iot-systems",
+          "name": "Control in CPS & IoT systems",
+          "requires": ["estimation-techniques"]
+        },
+        {
+          "id": "using-ai-ml-for-control-systems-motion-planning-motivating",
+          "name": "Using AI/ML for control systems. Motion Planning: Motivating examples",
+          "requires": ["control-in-cps-and-iot-systems"]
+        },
+        {
+          "id": "basic-ingredients-of-planning",
+          "name": "Basic ingredients of planning",
+          "requires": ["using-ai-ml-for-control-systems-motion-planning-motivating"]
+        },
+        {
+          "id": "algorithms",
+          "name": "Algorithms",
+          "requires": ["basic-ingredients-of-planning"]
+        },
+        {
+          "id": "trajectory-v-s-path-planning",
+          "name": "Trajectory v/s path planning",
+          "requires": ["algorithms"]
+        },
+        {
+          "id": "sensor-based-motion-planning",
+          "name": "Sensor-based motion planning",
+          "requires": ["trajectory-v-s-path-planning"]
+        },
+        {
+          "id": "motion-planning-via-decomposition",
+          "name": "Motion planning via decomposition",
+          "requires": ["sensor-based-motion-planning"]
+        },
+        {
+          "id": "search-algorithms-using-graph-theory",
+          "name": "Search algorithms using Graph theory",
+          "requires": ["motion-planning-via-decomposition"]
+        },
+        {
+          "id": "shortest-path-and-logic-based-planning",
+          "name": "Shortest path & logic-based planning",
+          "requires": ["search-algorithms-using-graph-theory"]
+        },
+        {
+          "id": "collision-detection-and-avoidance",
+          "name": "Collision detection & avoidance",
+          "requires": ["shortest-path-and-logic-based-planning"]
+        }
+      ]
+    },
+    {
+      "id": "experiencing-the-robotics-world-simulations",
+      "name": "Experiencing the Robotics World: Simulations, Experiments &",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "simulations-2dof-underactuated-robot-quadrotor-drone",
+          "name": "Simulations: 2DOF underactuated robot, Quadrotor drone"
+        },
+        {
+          "id": "experimental-robotics-how-to-build-a-robot-using-arduino",
+          "name": "Experimental robotics: How to build a robot using Arduino like microcontrollers, Practical aspects for ground & flying robots/drones",
+          "requires": ["simulations-2dof-underactuated-robot-quadrotor-drone"]
+        },
+        {
+          "id": "introduction-to-spark-v-and-firebird-robots",
+          "name": "Introduction to Spark V and Firebird robots",
+          "requires": ["experimental-robotics-how-to-build-a-robot-using-arduino"]
+        },
+        {
+          "id": "programming-and-simulators-introduction-to-ros-concepts-and",
+          "name": "Programming & simulators: Introduction to ROS: Concepts & basic programming, Introduction to Gazebo Simulator: The environment, Building a simple robot in Gazebo",
+          "requires": ["introduction-to-spark-v-and-firebird-robots"]
+        },
+        {
+          "id": "multiple-robots-based-applications-multi-agent-systems",
+          "name": "Multiple robots based applications: Multi-agent systems, Surveillance, Monitoring, Package delivery, Agriculture, Smart solutions",
+          "requires": ["programming-and-simulators-introduction-to-ros-concepts-and"]
+        },
+        {
+          "id": "problem-statements-and-challenges",
+          "name": "Problem statements & challenges",
+          "requires": ["multiple-robots-based-applications-multi-agent-systems"]
+        }
+      ]
+    }
+  ]
+}

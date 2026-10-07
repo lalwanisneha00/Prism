@@ -1,0 +1,240 @@
+{
+  "id": "pdeu-blockchain-technology-software-and-networks-ict",
+  "name": "Blockchain Technology (Software & Networks) (ICT)",
+  "field": "Blockchain Technology",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [7],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s7-program-elective-4--blockchain-technology-software-and-networks",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Blockchain Technology (Software & Networks)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "blockchain-introduction",
+      "name": "Blockchain Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "history-of-blockchain",
+          "name": "History of blockchain"
+        },
+        {
+          "id": "growth-of-blockchain-technology",
+          "name": "Growth of blockchain technology",
+          "requires": ["history-of-blockchain"]
+        },
+        {
+          "id": "types-of-blockchain",
+          "name": "Types of blockchain",
+          "requires": ["growth-of-blockchain-technology"]
+        },
+        {
+          "id": "digital-money-to-distributed-ledgers",
+          "name": "Digital Money to Distributed Ledgers",
+          "requires": ["types-of-blockchain"]
+        },
+        {
+          "id": "smart-contracts",
+          "name": "Smart contracts",
+          "requires": ["digital-money-to-distributed-ledgers"]
+        },
+        {
+          "id": "blockchain-architecture",
+          "name": "Blockchain Architecture",
+          "requires": ["smart-contracts"]
+        },
+        {
+          "id": "use-cases",
+          "name": "Use cases",
+          "requires": ["blockchain-architecture"]
+        },
+        {
+          "id": "blockchain-vs-shared-database",
+          "name": "Blockchain vs shared Database",
+          "requires": ["use-cases"]
+        },
+        {
+          "id": "introduction-to-cryptocurrencies",
+          "name": "Introduction to cryptocurrencies",
+          "requires": ["blockchain-vs-shared-database"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["introduction-to-cryptocurrencies"]
+        }
+      ]
+    },
+    {
+      "id": "bitcoin",
+      "name": "Bitcoin",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "concept-of-double-spending",
+          "name": "Concept of Double Spending"
+        },
+        {
+          "id": "hashing",
+          "name": "Hashing",
+          "requires": ["concept-of-double-spending"]
+        },
+        {
+          "id": "proof-of-work-introducing-bitcoin",
+          "name": "Proof of work. Introducing Bitcoin",
+          "requires": ["hashing"]
+        },
+        {
+          "id": "bitcoin-digital-keys-and-addresses",
+          "name": "Bitcoin digital keys and addresses",
+          "requires": ["proof-of-work-introducing-bitcoin"]
+        },
+        {
+          "id": "transactions",
+          "name": "Transactions",
+          "requires": ["bitcoin-digital-keys-and-addresses"]
+        },
+        {
+          "id": "blockchain-mining-bitcoin-network-and-payments",
+          "name": "Blockchain mining. Bitcoin Network and payments",
+          "requires": ["transactions"]
+        },
+        {
+          "id": "bitcoin-network",
+          "name": "Bitcoin network",
+          "requires": ["blockchain-mining-bitcoin-network-and-payments"]
+        },
+        {
+          "id": "wallets",
+          "name": "Wallets",
+          "requires": ["bitcoin-network"]
+        },
+        {
+          "id": "bitcoin-payments",
+          "name": "Bitcoin payments",
+          "requires": ["wallets"]
+        },
+        {
+          "id": "innovation-in-bitcoin",
+          "name": "Innovation in Bitcoin",
+          "requires": ["bitcoin-payments"]
+        },
+        {
+          "id": "bitcoin-clients-and-apis-alternative-coins-limitations-of",
+          "name": "Bitcoin Clients and APIs. Alternative Coins. Limitations of Bitcoin",
+          "requires": ["innovation-in-bitcoin"]
+        }
+      ]
+    },
+    {
+      "id": "blockchain-platforms",
+      "name": "Blockchain Platforms",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "ethereum",
+          "name": "Ethereum"
+        },
+        {
+          "id": "hyperledger",
+          "name": "Hyperledger",
+          "requires": ["ethereum"]
+        },
+        {
+          "id": "iota",
+          "name": "IOTA",
+          "requires": ["hyperledger"]
+        },
+        {
+          "id": "eos",
+          "name": "EOS",
+          "requires": ["iota"]
+        },
+        {
+          "id": "multichain",
+          "name": "Multichain",
+          "requires": ["eos"]
+        },
+        {
+          "id": "bigchain",
+          "name": "Bigchain",
+          "requires": ["multichain"]
+        },
+        {
+          "id": "etc-advantages-and-disadvantages",
+          "name": "etc. Advantages and Disadvantages",
+          "requires": ["bigchain"]
+        },
+        {
+          "id": "ethereumvs-bitcoin",
+          "name": "Ethereumvs Bitcoin",
+          "requires": ["etc-advantages-and-disadvantages"]
+        },
+        {
+          "id": "design-a-new-blockchain",
+          "name": "Design a new blockchain",
+          "requires": ["ethereumvs-bitcoin"]
+        },
+        {
+          "id": "potential-for-disruption",
+          "name": "Potential for disruption",
+          "requires": ["design-a-new-blockchain"]
+        },
+        {
+          "id": "design-a-distributed-application",
+          "name": "Design a distributed application",
+          "requires": ["potential-for-disruption"]
+        },
+        {
+          "id": "blockchain-applications",
+          "name": "Blockchain applications",
+          "requires": ["design-a-distributed-application"]
+        }
+      ]
+    },
+    {
+      "id": "privacy-security-issues-in-blockchain",
+      "name": "Privacy, Security Issues in Blockchain",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "pseudo-anonymity-vs-anonymity-zcash-and-zk-snarks-for",
+          "name": "Pseudo-anonymity vs. anonymity, Zcash and Zk-SNARKS for anonymity preservation, attacks on Blockchains"
+        },
+        {
+          "id": "such-as-sybil-attacks-selfish-mining-and-51-attacks",
+          "name": "such as Sybil attacks, selfish mining and 51% attacks",
+          "requires": ["pseudo-anonymity-vs-anonymity-zcash-and-zk-snarks-for"]
+        },
+        {
+          "id": "sharding-based-consensus-algorithms",
+          "name": "Sharding based consensus algorithms",
+          "requires": ["such-as-sybil-attacks-selfish-mining-and-51-attacks"]
+        },
+        {
+          "id": "case-studies-of-blockchain-in-finance-management-and",
+          "name": "Case Studies of blockchain in Finance, Management and Government",
+          "requires": ["sharding-based-consensus-algorithms"]
+        }
+      ]
+    }
+  ]
+}

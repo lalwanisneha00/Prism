@@ -20,6 +20,8 @@ const subjects = new Map();
 for (const f of readdirSync("src/data/subjects")) {
   if (!f.endsWith(".json") || f.endsWith("-sources.json")) continue;
   const s = JSON.parse(readFileSync(join("src/data/subjects", f), "utf8"));
+  // Only the existing topic bank: the PDEU layer built from this mapping must not match itself.
+  if (s.university === "pdeu") continue;
   subjects.set(s.id, s);
 }
 
@@ -267,7 +269,10 @@ function categoryOf(c, coreFlag) {
   return { category: coreFlag ? "core" : "non-core" };
 }
 const excluded = (bid, sem, x) =>
-  OVERRIDES.exclude.some((e) => e.branch === bid && e.semester === sem && (e.code ? e.code === x.code : e.name === x.name));
+  OVERRIDES.exclude.some(
+    (e) =>
+      e.branch === bid && e.semester === sem && (e.code ? e.code === x.code : e.name === x.name),
+  );
 
 const summary = { courses: 0, full: 0, partly: 0, none: 0, unsure: [], byType: {} };
 let md = "";
@@ -284,7 +289,7 @@ for (const [bid, branch] of Object.entries(extracted.branches)) {
         if (excluded(bid, sem, x)) continue;
         const isOption = Boolean(x._slot);
         const cat = categoryOf(x, c.core);
-        const labByName = /(lab|laboratory|practical|practicals|workshop)/i.test(x.name);
+        const labByName = /\b(lab|laboratory|practical|practicals|workshop)\b/i.test(x.name);
         // A practical-only course whose name is not a lab (Engineering Graphics) is matched on its experiments.
         const forAnalysis =
           x.type === "lab" && !labByName

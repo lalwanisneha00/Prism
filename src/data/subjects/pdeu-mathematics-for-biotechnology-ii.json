@@ -1,0 +1,158 @@
+{
+  "id": "pdeu-mathematics-for-biotechnology-ii",
+  "name": "Mathematics for Biotechnology - II",
+  "field": "Mathematics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [2],
+  "code": "24MA104T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s2-mathematics-for-biotechnology-ii",
+      "code": "24MA104T",
+      "category": "Basic Science",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 2,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Mathematics for Biotechnology - II",
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "maths",
+  "chapters": [
+    {
+      "id": "functions-of-several-variables",
+      "name": "Functions of Several Variables",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "functions-of-two-variables",
+          "name": "Functions of two variables"
+        },
+        {
+          "id": "limits-continuity",
+          "name": "Limits and Continuity",
+          "requires": ["functions-of-two-variables"]
+        },
+        {
+          "id": "partial-derivatives",
+          "name": "Partial derivatives",
+          "requires": ["limits-continuity"]
+        },
+        {
+          "id": "total-derivatives",
+          "name": "Total derivatives",
+          "requires": ["partial-derivatives"]
+        },
+        {
+          "id": "maxima-and-minima",
+          "name": "Maxima and minima",
+          "requires": ["total-derivatives"]
+        },
+        {
+          "id": "lagrange-multipliers",
+          "name": "Lagrange multipliers method",
+          "requires": ["maxima-and-minima"]
+        }
+      ]
+    },
+    {
+      "id": "multiple-integrals",
+      "name": "Multiple Integrals",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "double-integrals",
+          "name": "Definition Evaluation of double integral (Cartesian - Polar form), Change of orders, Change of variables, Evaluation of triple integral, change of variables (Cartesian to spherical - and cylindrical),",
+          "requires": ["partial-derivatives"]
+        }
+      ]
+    },
+    {
+      "id": "ordinary-differential-equations",
+      "name": "Ordinary Differential Equations",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "differential-equations-of-first-order-and-first-degree",
+          "name": "Differential equations of first order and first degree"
+        },
+        {
+          "id": "exact-equations",
+          "name": "Exact differential equations",
+          "requires": ["partial-derivatives"]
+        },
+        {
+          "id": "integrating-factors",
+          "name": "Integrating factors",
+          "requires": ["exact-equations"]
+        },
+        {
+          "id": "higher-order-differential-equations-with-constant",
+          "name": "Higher order differential equations with constant coefficients",
+          "requires": ["integrating-factors"]
+        },
+        {
+          "id": "rules-for-finding-c-f-and-p-i",
+          "name": "Rules for finding C.F. and P.I",
+          "requires": ["higher-order-differential-equations-with-constant"]
+        },
+        {
+          "id": "cauchy-and-legendres-linear-equations",
+          "name": "Cauchy and Legendre's linear equations",
+          "requires": ["rules-for-finding-c-f-and-p-i"]
+        },
+        {
+          "id": "applications-of-higher-order-differential-equations-in",
+          "name": "Applications of higher order differential equations in solving biotechnology problems",
+          "requires": ["cauchy-and-legendres-linear-equations"]
+        }
+      ]
+    },
+    {
+      "id": "probability-and-distribution",
+      "name": "Probability and Distribution",
+      "topics": [
+        {
+          "id": "sample-space-and-events",
+          "name": "Sample Space and Events"
+        },
+        {
+          "id": "axioms-interpretations-and-properties-of-probability",
+          "name": "Axioms, Interpretations and Properties of Probability",
+          "requires": ["sample-space-and-events"]
+        },
+        {
+          "id": "expectation",
+          "name": "Expectation",
+          "requires": ["axioms-interpretations-and-properties-of-probability"]
+        },
+        {
+          "id": "conditional-probability",
+          "name": "conditional Probability",
+          "requires": ["expectation"]
+        },
+        {
+          "id": "total-probability-bayes-rule-random-variables",
+          "name": "Total probability, Bayes’ Rule, Random variables",
+          "requires": ["conditional-probability"]
+        },
+        {
+          "id": "measures-of-central-tendency-and-dispersion",
+          "name": "Measures of central tendency and dispersion",
+          "requires": ["total-probability-bayes-rule-random-variables"]
+        }
+      ]
+    }
+  ]
+}

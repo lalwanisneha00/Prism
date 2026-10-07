@@ -75,7 +75,10 @@ const WAVE4 = [
   "well-logging",
   "petroleum-refining",
 ];
-const QUOTED = [...WAVE1, ...WAVE2, ...WAVE3, ...WAVE4];
+// Subjects of branches PDEU does not teach were removed with their golden sets.
+const QUOTED = [...WAVE1, ...WAVE2, ...WAVE3, ...WAVE4].filter((id) =>
+  sets.some((s) => s.subject === id),
+);
 
 describe("golden sets", () => {
   it("only use real topics, with patterns that compile", () => {

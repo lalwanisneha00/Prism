@@ -1,0 +1,242 @@
+{
+  "id": "pdeu-metabolic-engineering",
+  "name": "Metabolic Engineering",
+  "field": "Metabolic Engineering",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [7],
+  "code": "24BT433T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s7-program-elective-4-choose-one--metabolic-engineering",
+      "code": "24BT433T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Metabolic Engineering",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "hrs-induction-jacob-monod-model",
+          "name": "Hrs. Induction-Jacob Monod Model"
+        },
+        {
+          "id": "catabolite-regulation",
+          "name": "catabolite regulation",
+          "requires": ["hrs-induction-jacob-monod-model"]
+        },
+        {
+          "id": "glucose-effect",
+          "name": "glucose effect",
+          "requires": ["catabolite-regulation"]
+        },
+        {
+          "id": "camp-deficiency",
+          "name": "camp deficiency",
+          "requires": ["glucose-effect"]
+        },
+        {
+          "id": "feedback-regulation",
+          "name": "feedback regulation",
+          "requires": ["camp-deficiency"]
+        },
+        {
+          "id": "regulation-in-branched-pathways",
+          "name": "regulation in branched pathways",
+          "requires": ["feedback-regulation"]
+        },
+        {
+          "id": "differential-regulation-by-isoenzymes",
+          "name": "differential regulation by isoenzymes",
+          "requires": ["regulation-in-branched-pathways"]
+        },
+        {
+          "id": "concerted-feedback-regulation",
+          "name": "concerted feedback regulation",
+          "requires": ["differential-regulation-by-isoenzymes"]
+        },
+        {
+          "id": "cumulative-feedback-regulation",
+          "name": "cumulative feedback regulation",
+          "requires": ["concerted-feedback-regulation"]
+        },
+        {
+          "id": "amino-acid-regulation-of-rna-synthesis",
+          "name": "amino acid regulation of RNA synthesis",
+          "requires": ["cumulative-feedback-regulation"]
+        },
+        {
+          "id": "energy-charge",
+          "name": "energy charge",
+          "requires": ["amino-acid-regulation-of-rna-synthesis"]
+        },
+        {
+          "id": "permeability-control-passive-diffusion",
+          "name": "permeability control passive diffusion",
+          "requires": ["energy-charge"]
+        },
+        {
+          "id": "facilitated-diffusion",
+          "name": "facilitated diffusion",
+          "requires": ["permeability-control-passive-diffusion"]
+        },
+        {
+          "id": "active-transport-group-transportation",
+          "name": "active transport group transportation",
+          "requires": ["facilitated-diffusion"]
+        }
+      ]
+    },
+    {
+      "id": "synthesis-of-primary-metabolites",
+      "name": "Synthesis of Primary Metabolites",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "hrs-alteration-of-feedback-regulation",
+          "name": "Hrs. Alteration of feedback regulation"
+        },
+        {
+          "id": "limiting-accumulation-of-end-products",
+          "name": "limiting accumulation of end products",
+          "requires": ["hrs-alteration-of-feedback-regulation"]
+        },
+        {
+          "id": "feedback",
+          "name": "feedback",
+          "requires": ["limiting-accumulation-of-end-products"]
+        },
+        {
+          "id": "resistant-mutants",
+          "name": "resistant mutants",
+          "requires": ["feedback"]
+        },
+        {
+          "id": "alteration-of-permeability",
+          "name": "alteration of permeability",
+          "requires": ["resistant-mutants"]
+        }
+      ]
+    },
+    {
+      "id": "biosynthesis-of-secondary-metabolites",
+      "name": "Biosynthesis of Secondary Metabolites",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "hrs-precursor-effects",
+          "name": "Hrs. Precursor effects"
+        },
+        {
+          "id": "prophophase",
+          "name": "prophophase",
+          "requires": ["hrs-precursor-effects"]
+        },
+        {
+          "id": "idiophase-relationships",
+          "name": "idiophase relationships",
+          "requires": ["prophophase"]
+        },
+        {
+          "id": "enzyme-induction",
+          "name": "enzyme induction",
+          "requires": ["idiophase-relationships"]
+        },
+        {
+          "id": "feedback-regulation-2",
+          "name": "feedback regulation",
+          "requires": ["enzyme-induction"]
+        },
+        {
+          "id": "catabolite-regulation-by-passing-control-of-secondary",
+          "name": "catabolite regulation by passing control of secondary metabolism",
+          "requires": ["feedback-regulation-2"]
+        },
+        {
+          "id": "producers-of-secondary-metabolites",
+          "name": "producers of secondary metabolites",
+          "requires": ["catabolite-regulation-by-passing-control-of-secondary"]
+        }
+      ]
+    },
+    {
+      "id": "bioconversions",
+      "name": "Bioconversions",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "hrs-advantages-of-bioconversions",
+          "name": "Hrs. Advantages of Bioconversions"
+        },
+        {
+          "id": "specificity",
+          "name": "specificity",
+          "requires": ["hrs-advantages-of-bioconversions"]
+        },
+        {
+          "id": "yields",
+          "name": "yields",
+          "requires": ["specificity"]
+        },
+        {
+          "id": "factors-important-to-bioconversions",
+          "name": "factors important to bioconversions",
+          "requires": ["yields"]
+        },
+        {
+          "id": "regulation-of-enzyme-synthesis",
+          "name": "regulation of enzyme synthesis",
+          "requires": ["factors-important-to-bioconversions"]
+        },
+        {
+          "id": "mutation",
+          "name": "mutation",
+          "requires": ["regulation-of-enzyme-synthesis"]
+        },
+        {
+          "id": "permeability",
+          "name": "permeability",
+          "requires": ["mutation"]
+        },
+        {
+          "id": "co-metabolism",
+          "name": "co-metabolism",
+          "requires": ["permeability"]
+        },
+        {
+          "id": "avoidance-of-product-inhibition",
+          "name": "avoidance of product inhibition",
+          "requires": ["co-metabolism"]
+        },
+        {
+          "id": "mixed-or-sequential-bioconversions",
+          "name": "mixed or sequential bioconversions",
+          "requires": ["avoidance-of-product-inhibition"]
+        },
+        {
+          "id": "conversion-of-insoluble-substances-otal",
+          "name": "conversion of insoluble substances. OTAL",
+          "requires": ["mixed-or-sequential-bioconversions"]
+        }
+      ]
+    }
+  ]
+}

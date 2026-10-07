@@ -1,0 +1,93 @@
+{
+  "id": "pdeu-engineering-graphics-ce-petro",
+  "name": "Engineering Graphics (CE, Petro)",
+  "field": "Engineering Graphics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce", "petro"],
+  "semesters": [1],
+  "code": "24ME102T",
+  "credits": 2,
+  "ltp": "0-0-4",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s1-engineering-graphics",
+      "code": "24ME102T",
+      "category": "Basic Science",
+      "ltp": "0-0-4",
+      "credits": 2,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "petro",
+      "key": "s1-engineering-graphics",
+      "code": "24ME102P",
+      "category": "Engineering Science",
+      "ltp": "0-0-4",
+      "credits": 2,
+      "semester": 1,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE, Petro): Engineering Graphics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "engineering-graphics",
+      "name": "Engineering Graphics",
+      "topics": [
+        {
+          "id": "principles-of-engineering-graphics-and-their-significance",
+          "name": "Principles of engineering graphics and their significance, drawing instruments & accessories, lettering and numbering, types of lines, dimensioning methods, basic geometric drawing, reading a drawing"
+        },
+        {
+          "id": "introduction-to-projection-types-of-projection-1-st-angle",
+          "name": "Introduction to projection, types of projection, 1 st angle and 3rd angle projection",
+          "requires": ["principles-of-engineering-graphics-and-their-significance"]
+        },
+        {
+          "id": "isometric-scale",
+          "name": "Principles of isometric projection – isometric scale, isometric views, conventions, conversion of isometric views to orthographic views and vice-versa",
+          "requires": ["introduction-to-projection-types-of-projection-1-st-angle"]
+        },
+        {
+          "id": "projection-of-solids",
+          "name": "Classification of solids, projections of solids like cylinder, cone, pyramid, and prism with its inclination to reference plane, development of surfaces of right regular solids - prism, pyramid, cylin",
+          "requires": ["isometric-scale"]
+        },
+        {
+          "id": "cad-interface",
+          "name": "Demonstrating knowledge of the theory of CAD software, use of software in drawing, CAD software user interface, commands, Coordinate System, menus and toolbars, planes, dimensioning, saving of files, ",
+          "requires": ["projection-of-solids"]
+        },
+        {
+          "id": "sketch-entities-using-tools-origin-points-lines-circle-arcs",
+          "name": "Sketch entities using tools – origin, points, lines, circle, arcs, polygons, fillets and chamfer, trim, extend and offset, copy, cut, delete and others",
+          "requires": ["cad-interface"]
+        },
+        {
+          "id": "sketching-entities-using-relation-constrains-mirror",
+          "name": "Sketching entities using relation constrains, Mirror, Patterning, full definition of drawing and others",
+          "requires": ["sketch-entities-using-tools-origin-points-lines-circle-arcs"]
+        },
+        {
+          "id": "extrude-cut-drawing-on-different-planes-editing-symmetric",
+          "name": "Extrude, cut, drawing on different planes, editing, symmetric, revolving, and others",
+          "requires": ["sketching-entities-using-relation-constrains-mirror"]
+        },
+        {
+          "id": "preparing-drawing-sheets-creating-different-views-section",
+          "name": "Preparing drawing sheets, creating different views, section view, drawing templates, and others",
+          "requires": ["extrude-cut-drawing-on-different-planes-editing-symmetric"]
+        }
+      ]
+    }
+  ]
+}

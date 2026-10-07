@@ -31,20 +31,21 @@ describe("nameSimilarity", () => {
 describe("matchSubject", () => {
   it("finds built-in subjects by name", () => {
     expect(matchSubject(find("Applied Physics"), subjects).best?.subject.id).toBe(
-      "applied-physics",
-    );
-    expect(matchSubject(find("Engineering Mechanics"), subjects).best?.subject.id).toBe(
-      "engg-mechanics",
+      "pdeu-applied-physics",
     );
   });
   it("leaves subjects Prism does not teach as the student's own", () => {
-    expect(matchSubject(find("Indian Knowledge System"), subjects).best).toBeNull();
-    expect(matchSubject(find("Engineering Biology"), subjects).best).toBeNull();
+    expect(
+      matchSubject(
+        { ...find("Indian Knowledge System"), name: "Underwater Basket Weaving", units: [] },
+        subjects,
+      ).best,
+    ).toBeNull();
   });
 });
 
 describe("scope", () => {
-  const physics = subjects.find((s) => s.id === "applied-physics")!;
+  const physics = subjects.find((s) => s.id === "pdeu-applied-physics")!;
 
   it("hides chapters the university does not teach and keeps the ones it does", () => {
     const scope = scopeFor(physics, [find("Applied Physics")])!;

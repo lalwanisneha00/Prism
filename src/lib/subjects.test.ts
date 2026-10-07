@@ -8,7 +8,8 @@ import {
   chaptersOf,
   findSubject,
   semestersFor,
-  subjects,
+  allSubjects as subjects,
+  subjects as listedSubjects,
   subjectsFor,
   SubjectSchema,
   type Subject,
@@ -57,16 +58,13 @@ describe("subject catalogue", () => {
 });
 
 describe("branches and semesters", () => {
-  it("gives every branch the first-year common subjects", () => {
-    for (const b of branches) {
-      expect(subjectsFor(b.id).map((s) => s.id)).toEqual(
-        expect.arrayContaining(["em", "engg-math"]),
-      );
-    }
-    expect(subjectsFor("ce", 1).map((s) => s.id)).toContain("em");
-    expect(subjectsFor("ce", 7)).toEqual([]);
+  it("gives each PDEU branch its own subjects per semester", () => {
+    expect(subjectsFor("ce", 1).map((s) => s.id)).toContain("pdeu-applied-physics");
+    expect(subjectsFor("ce", 8)).toEqual([]);
     expect(semestersFor("me")).toContain(3);
-    expect(branchesOf(findSubject("em")!)).toHaveLength(branches.length);
+    expect(branchesOf(findSubject("pdeu-applied-physics")!).map((b) => b.id)).toEqual(["ce"]);
+    // The older topic-bank subjects are not listed.
+    expect(listedSubjects.every((s) => s.university === "pdeu")).toBe(true);
   });
 });
 

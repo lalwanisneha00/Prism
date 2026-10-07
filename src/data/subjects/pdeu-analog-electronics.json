@@ -1,0 +1,255 @@
+{
+  "id": "pdeu-analog-electronics",
+  "name": "Analog Electronics",
+  "field": "Analog Electronics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [4],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s4-analog-electronics",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Analog Electronics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "bjt-amplifier",
+      "name": "BJT Amplifier",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "introduction-to-biasing-of-bjt",
+          "name": "Introduction to biasing of BJT"
+        },
+        {
+          "id": "operating-point",
+          "name": "operating point",
+          "requires": ["introduction-to-biasing-of-bjt"]
+        },
+        {
+          "id": "bias-stability-for-different-circuits",
+          "name": "bias stability for different circuits",
+          "requires": ["operating-point"]
+        },
+        {
+          "id": "stabilization-against-vbe",
+          "name": "stabilization against VBE",
+          "requires": ["bias-stability-for-different-circuits"]
+        },
+        {
+          "id": "ico-and",
+          "name": "ICO and β",
+          "requires": ["stabilization-against-vbe"]
+        },
+        {
+          "id": "bias-compensation-techniques",
+          "name": "bias compensation techniques",
+          "requires": ["ico-and"]
+        },
+        {
+          "id": "thermal-runaway",
+          "name": "thermal runaway",
+          "requires": ["bias-compensation-techniques"]
+        },
+        {
+          "id": "thermal-stability",
+          "name": "thermal stability",
+          "requires": ["thermal-runaway"]
+        }
+      ]
+    },
+    {
+      "id": "small-signal-model",
+      "name": "Small Signal Model",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "two-port-device-and-hybrid-model",
+          "name": "Two port device and Hybrid model"
+        },
+        {
+          "id": "analysis-of-ce-cc-and-cb-amplifiers",
+          "name": "Analysis of CE, CC, and CB Amplifiers",
+          "requires": ["two-port-device-and-hybrid-model"]
+        },
+        {
+          "id": "ce-amplifier-with-emitter-resistance",
+          "name": "CE Amplifier with emitter resistance",
+          "requires": ["analysis-of-ce-cc-and-cb-amplifiers"]
+        },
+        {
+          "id": "low-frequency-response-of-bjt-amplifiers",
+          "name": "low frequency response of BJT Amplifiers",
+          "requires": ["ce-amplifier-with-emitter-resistance"]
+        },
+        {
+          "id": "miller-s-theorem",
+          "name": "Miller‟s Theorem",
+          "requires": ["low-frequency-response-of-bjt-amplifiers"]
+        },
+        {
+          "id": "dual-of-miller-s-theorem",
+          "name": "Dual of Miller‟s theorem",
+          "requires": ["miller-s-theorem"]
+        },
+        {
+          "id": "differential-amplifier-using-bjt",
+          "name": "Differential amplifier using BJT",
+          "requires": ["dual-of-miller-s-theorem"]
+        }
+      ]
+    },
+    {
+      "id": "multistage-amplifier",
+      "name": "Multistage Amplifier",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "multistage-amplifier",
+          "name": "Multistage amplifier"
+        },
+        {
+          "id": "coupling-mechanism",
+          "name": "coupling mechanism",
+          "requires": ["multistage-amplifier"]
+        },
+        {
+          "id": "effect-of-coupling-and-bypass-capacitors",
+          "name": "effect of coupling and bypass capacitors",
+          "requires": ["coupling-mechanism"]
+        },
+        {
+          "id": "design-of-single-stage-and-multistage-rc-coupled-amplifier",
+          "name": "Design of single stage and multistage RC coupled amplifier",
+          "requires": ["effect-of-coupling-and-bypass-capacitors"]
+        },
+        {
+          "id": "analysis-of-cascaded-rc-coupled-amplifiers",
+          "name": "Analysis of Cascaded RC Coupled amplifiers",
+          "requires": ["design-of-single-stage-and-multistage-rc-coupled-amplifier"]
+        },
+        {
+          "id": "cascode-amplifier",
+          "name": "Cascode amplifier",
+          "requires": ["analysis-of-cascaded-rc-coupled-amplifiers"]
+        },
+        {
+          "id": "darlington-pair",
+          "name": "Darlington pair",
+          "requires": ["cascode-amplifier"]
+        },
+        {
+          "id": "current-mirror",
+          "name": "Current mirrors",
+          "requires": ["darlington-pair"]
+        },
+        {
+          "id": "high-frequency-pi-model",
+          "name": "High frequency pi Model",
+          "requires": ["current-mirror"]
+        },
+        {
+          "id": "high-frequency-analysis",
+          "name": "High frequency analysis",
+          "requires": ["high-frequency-pi-model"]
+        }
+      ]
+    },
+    {
+      "id": "feedback-amplifier-and-oscillators",
+      "name": "Feedback Amplifier and Oscillators",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "types-of-amplifier",
+          "name": "types of amplifier",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "concept-of-feedback",
+          "name": "concept of feedback",
+          "requires": ["types-of-amplifier"]
+        },
+        {
+          "id": "feedback-topology",
+          "name": "feedback topology",
+          "requires": ["concept-of-feedback"]
+        },
+        {
+          "id": "effect-on-gain",
+          "name": "effect on gain",
+          "requires": ["feedback-topology"]
+        },
+        {
+          "id": "bandwidth",
+          "name": "bandwidth",
+          "requires": ["effect-on-gain"]
+        },
+        {
+          "id": "input-and-output-resistance",
+          "name": "input and output resistance",
+          "requires": ["bandwidth"]
+        },
+        {
+          "id": "use-of-positive-feedback",
+          "name": "Use of positive feedback",
+          "requires": ["input-and-output-resistance"]
+        },
+        {
+          "id": "barkhausen-criterion-for-oscillations",
+          "name": "Barkhausen criterion for oscillations",
+          "requires": ["use-of-positive-feedback"]
+        },
+        {
+          "id": "sinusoidal-oscillators",
+          "name": "sinusoidal oscillators",
+          "requires": ["barkhausen-criterion-for-oscillations"]
+        },
+        {
+          "id": "phase-shift",
+          "name": "phase shift",
+          "requires": ["sinusoidal-oscillators"]
+        },
+        {
+          "id": "resonant-circuit-oscillators",
+          "name": "resonant circuit oscillators",
+          "requires": ["phase-shift"]
+        },
+        {
+          "id": "crystal-oscillator-different-oscillator-circuits-tuned",
+          "name": "crystal oscillator. Different oscillator circuits-tuned collector",
+          "requires": ["resonant-circuit-oscillators"]
+        },
+        {
+          "id": "hartley-colpitts",
+          "name": "Hartley Colpitts",
+          "requires": ["crystal-oscillator-different-oscillator-circuits-tuned"]
+        },
+        {
+          "id": "wien-s-bridge-and-crystal-oscillator",
+          "name": "Wien‟s bridge, and crystal oscillator",
+          "requires": ["hartley-colpitts"]
+        }
+      ]
+    }
+  ]
+}

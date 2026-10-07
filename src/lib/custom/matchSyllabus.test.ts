@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { matchSyllabus, sameTopic } from "@/lib/custom/matchSyllabus";
-import { subjects } from "@/lib/subjects";
+import { allSubjects as subjects } from "@/lib/subjects";
 
 describe("sameTopic", () => {
   it("ignores case, punctuation and filler words", () => {

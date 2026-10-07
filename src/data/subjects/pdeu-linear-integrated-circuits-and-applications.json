@@ -1,0 +1,266 @@
+{
+  "id": "pdeu-linear-integrated-circuits-and-applications",
+  "name": "Linear Integrated Circuits and Applications",
+  "field": "Electronics Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [5],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s5-linear-integrated-circuits-and-applications",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Linear Integrated Circuits and Applications",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "basics-of-opamp",
+      "name": "Basics of Opamp",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "introduction-to-op-amp-differential-amplifier-using-bjt",
+          "name": "Introduction to Op-Amp: Differential amplifier using BJT"
+        },
+        {
+          "id": "block-diagram-of-op-amp",
+          "name": "Block diagram of op-amp",
+          "requires": ["introduction-to-op-amp-differential-amplifier-using-bjt"]
+        },
+        {
+          "id": "pin-diagram-of-741-ic",
+          "name": "pin diagram of 741 IC",
+          "requires": ["block-diagram-of-op-amp"]
+        },
+        {
+          "id": "characteristics-of-ideal-op-amp",
+          "name": "characteristics of ideal Op-Amp",
+          "requires": ["pin-diagram-of-741-ic"]
+        },
+        {
+          "id": "equivalent-circuit-of-op-amp",
+          "name": "equivalent circuit of Op-Amp",
+          "requires": ["characteristics-of-ideal-op-amp"]
+        },
+        {
+          "id": "ideal-voltage-transfer-curve",
+          "name": "ideal voltage transfer curve",
+          "requires": ["equivalent-circuit-of-op-amp"]
+        },
+        {
+          "id": "op-amp-ac-and-dc-parameters",
+          "name": "Op-Amp ac and dc parameters",
+          "requires": ["ideal-voltage-transfer-curve"]
+        },
+        {
+          "id": "virtual-ground",
+          "name": "Virtual ground",
+          "requires": ["op-amp-ac-and-dc-parameters"]
+        }
+      ]
+    },
+    {
+      "id": "opamp-applications",
+      "name": "Opamp Applications",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "inverting-non-inverting",
+          "name": "Inverting and non- inverting amplifiers"
+        },
+        {
+          "id": "voltage-follower",
+          "name": "Voltage follower",
+          "requires": ["inverting-non-inverting"]
+        },
+        {
+          "id": "differential-amplifier-using-single-and-two-op-amp",
+          "name": "Differential amplifier using single and two op-amp",
+          "requires": ["voltage-follower"]
+        },
+        {
+          "id": "instrumentation-amplifier-using-op-amp",
+          "name": "Instrumentation amplifier using Op-Amp",
+          "requires": ["differential-amplifier-using-single-and-two-op-amp"]
+        },
+        {
+          "id": "adder",
+          "name": "Adder",
+          "requires": ["instrumentation-amplifier-using-op-amp"]
+        },
+        {
+          "id": "voltage-to-current-with-floating-and-grounded-load",
+          "name": "Voltage to current with floating & grounded load",
+          "requires": ["adder"]
+        },
+        {
+          "id": "current-to-voltage-converter",
+          "name": "current to voltage converter",
+          "requires": ["voltage-to-current-with-floating-and-grounded-load"]
+        },
+        {
+          "id": "practical-integrator-and-differentiator",
+          "name": "practical integrator & differentiator",
+          "requires": ["current-to-voltage-converter"]
+        },
+        {
+          "id": "clipping-and-clamping-circuits",
+          "name": "Clipping & Clamping circuits",
+          "requires": ["practical-integrator-and-differentiator"]
+        },
+        {
+          "id": "comparators",
+          "name": "Comparators",
+          "requires": ["clipping-and-clamping-circuits"]
+        },
+        {
+          "id": "log-antilog-circuits-using-op-amps",
+          "name": "log/antilog circuits using Op-Amps",
+          "requires": ["comparators"]
+        },
+        {
+          "id": "precision-rectifiers-half-and-full-wave",
+          "name": "precision rectifiers (half & full wave)",
+          "requires": ["log-antilog-circuits-using-op-amps"]
+        },
+        {
+          "id": "peak-detector",
+          "name": "Peak detector",
+          "requires": ["precision-rectifiers-half-and-full-wave"]
+        },
+        {
+          "id": "inverting-and-non-inverting-schmitt-trigger-circuit",
+          "name": "Inverting & non inverting Schmitt trigger circuit",
+          "requires": ["peak-detector"]
+        },
+        {
+          "id": "active-filters",
+          "name": "Active RC Filters: Idealistic & Realistic response of filters (Low pass, High pass, Band pass and Band reject)",
+          "requires": ["inverting-and-non-inverting-schmitt-trigger-circuit"]
+        },
+        {
+          "id": "notch-filter",
+          "name": "Notch Filter",
+          "requires": ["active-filters"]
+        }
+      ]
+    },
+    {
+      "id": "waveform-generators",
+      "name": "Waveform Generators",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "barkhausen-criteria-of-oscillations",
+          "name": "Barkhausen criteria of oscillations"
+        },
+        {
+          "id": "conditions-for-oscillation",
+          "name": "conditions for oscillation",
+          "requires": ["barkhausen-criteria-of-oscillations"]
+        },
+        {
+          "id": "sine-wave-generator-phase-shift-wein-bridge-hartley-colpitts",
+          "name": "Sine wave generator (Phase shift, Wein bridge, Hartley, Colpitts, and Crystal oscillator)",
+          "requires": ["conditions-for-oscillation"]
+        },
+        {
+          "id": "square-and-triangular-waveform-generators-period-and",
+          "name": "Square and triangular waveform generators (period and frequency analysis)",
+          "requires": ["sine-wave-generator-phase-shift-wein-bridge-hartley-colpitts"]
+        },
+        {
+          "id": "saw-tooth-wave-generator",
+          "name": "Saw tooth wave generator",
+          "requires": ["square-and-triangular-waveform-generators-period-and"]
+        },
+        {
+          "id": "astable",
+          "name": "Astable",
+          "requires": ["saw-tooth-wave-generator"]
+        },
+        {
+          "id": "monostable-and-bistable-multivibrators",
+          "name": "Monostable and Bistable Multivibrators",
+          "requires": ["astable"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-lics",
+      "name": "ADVANCED LICs",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "555-timer-ic-pin-diagram-of-555-timer-ic",
+          "name": "555 Timer IC: Pin-Diagram of 555 Timer IC"
+        },
+        {
+          "id": "functional-block-diagram-of-555-timer",
+          "name": "Functional block diagram of 555 Timer",
+          "requires": ["555-timer-ic-pin-diagram-of-555-timer-ic"]
+        },
+        {
+          "id": "application-of-555-timer-as-astable",
+          "name": "Application of 555 Timer as Astable",
+          "requires": ["functional-block-diagram-of-555-timer"]
+        },
+        {
+          "id": "bistable-and-monostable-multivibrators-introduction-to-ota",
+          "name": "Bistable and Monostable Multivibrators. Introduction to OTA",
+          "requires": ["application-of-555-timer-as-astable"]
+        },
+        {
+          "id": "ota-as-integrator-and-differentiator",
+          "name": "OTA as Integrator & Differentiator",
+          "requires": ["bistable-and-monostable-multivibrators-introduction-to-ota"]
+        },
+        {
+          "id": "ic-analog-multiplier",
+          "name": "IC Analog Multiplier",
+          "requires": ["ota-as-integrator-and-differentiator"]
+        },
+        {
+          "id": "ic-phase-locked-loops",
+          "name": "IC phase locked loops",
+          "requires": ["ic-analog-multiplier"]
+        },
+        {
+          "id": "ic-voltage-regulators",
+          "name": "IC Voltage Regulators",
+          "requires": ["ic-phase-locked-loops"]
+        },
+        {
+          "id": "ic-vco",
+          "name": "IC VCO",
+          "requires": ["ic-voltage-regulators"]
+        },
+        {
+          "id": "analog-to-digital-converter",
+          "name": "Analog-to-Digital Converter",
+          "requires": ["ic-vco"]
+        },
+        {
+          "id": "digital-to-analog-converter",
+          "name": "Digital-to-Analog Converter",
+          "requires": ["analog-to-digital-converter"]
+        }
+      ]
+    }
+  ]
+}

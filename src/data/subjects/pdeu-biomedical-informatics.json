@@ -1,0 +1,157 @@
+{
+  "id": "pdeu-biomedical-informatics",
+  "name": "Biomedical Informatics",
+  "field": "Biomedical Informatics",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "non-core",
+  "branches": ["biotech"],
+  "semesters": [4],
+  "code": "24BT221T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Open Elective",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s4-biomedical-informatics",
+      "code": "24BT221T",
+      "category": "Open Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4,
+      "kind": "non-core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Biomedical Informatics",
+    "note": "Skeleton only: units and topics are PDEU's, copied from the handbook. Lessons are built from the material the student uploads (given by their faculty)."
+  },
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "biomedical-informatics-the-science-and-the-pragmatics",
+          "name": "Biomedical Informatics: The Science and the Pragmatics"
+        },
+        {
+          "id": "biomedical-data-their-acquisition-storage-and-use",
+          "name": "Biomedical Data: Their Acquisition, Storage, and Use",
+          "requires": ["biomedical-informatics-the-science-and-the-pragmatics"]
+        },
+        {
+          "id": "biomedical-decision-making-probabilistic-clinical-reasoning",
+          "name": "Biomedical Decision Making: Probabilistic Clinical Reasoning",
+          "requires": ["biomedical-data-their-acquisition-storage-and-use"]
+        },
+        {
+          "id": "cognitive-science-and-biomedical-informatics",
+          "name": "Cognitive Science and Biomedical Informatics",
+          "requires": ["biomedical-decision-making-probabilistic-clinical-reasoning"]
+        }
+      ]
+    },
+    {
+      "id": "computer-architecture-and-standards-in-biomedical",
+      "name": "Computer Architecture and Standards in Biomedical Informatics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "computer-architectures-for-health-care-and-biomedicine",
+          "name": "Computer Architectures for Health Care and Biomedicine"
+        },
+        {
+          "id": "software-engineering-for-health-care-and-biomedicine",
+          "name": "Software Engineering for Health Care and Biomedicine",
+          "requires": ["computer-architectures-for-health-care-and-biomedicine"]
+        },
+        {
+          "id": "standards-in-biomedical-informatics",
+          "name": "Standards in Biomedical Informatics",
+          "requires": ["software-engineering-for-health-care-and-biomedicine"]
+        },
+        {
+          "id": "natural-language-processing-in-health-care-and-biomedicine",
+          "name": "Natural Language Processing in Health Care and Biomedicine",
+          "requires": ["standards-in-biomedical-informatics"]
+        }
+      ]
+    },
+    {
+      "id": "health-information-resources",
+      "name": "Health Information Resources",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "biomedical-imaging-informatics",
+          "name": "Biomedical Imaging Informatics"
+        },
+        {
+          "id": "ethics-in-biomedical-and-health-informatics-users-standards",
+          "name": "Ethics in Biomedical and Health Informatics: Users, Standards, and Outcomes",
+          "requires": ["biomedical-imaging-informatics"]
+        },
+        {
+          "id": "biomedical-and-health-information-resources",
+          "name": "Biomedical and Health Information Resources",
+          "requires": ["ethics-in-biomedical-and-health-informatics-users-standards"]
+        },
+        {
+          "id": "management-of-information-in-health-care-organizations",
+          "name": "Management of Information in Health Care Organizations",
+          "requires": ["biomedical-and-health-information-resources"]
+        },
+        {
+          "id": "patient-centered-care-systems",
+          "name": "Patient-Centered Care Systems",
+          "requires": ["management-of-information-in-health-care-organizations"]
+        },
+        {
+          "id": "public-health-informatics",
+          "name": "Public Health Informatics",
+          "requires": ["patient-centered-care-systems"]
+        }
+      ]
+    },
+    {
+      "id": "health-care-management",
+      "name": "Health Care Management",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "telehealth",
+          "name": "Telehealth"
+        },
+        {
+          "id": "patient-monitoring-systems",
+          "name": "Patient Monitoring Systems",
+          "requires": ["telehealth"]
+        },
+        {
+          "id": "imaging-systems-in-radiology",
+          "name": "Imaging Systems in Radiology",
+          "requires": ["patient-monitoring-systems"]
+        },
+        {
+          "id": "information-retrieval-and-digital-libraries",
+          "name": "Information Retrieval and Digital Libraries",
+          "requires": ["imaging-systems-in-radiology"]
+        },
+        {
+          "id": "clinical-decision-support-systems",
+          "name": "Clinical Decision-Support Systems",
+          "requires": ["information-retrieval-and-digital-libraries"]
+        },
+        {
+          "id": "computers-in-health-care-education",
+          "name": "Computers in Health Care Education",
+          "requires": ["clinical-decision-support-systems"]
+        }
+      ]
+    }
+  ]
+}

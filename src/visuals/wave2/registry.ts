@@ -509,7 +509,7 @@ export const wave2Widgets = {
     name: "SAR ADC and DAC",
     params: z.object({ bits: int(2, 10), vref: num(1, 10), vin: num(0, 10) }),
     help: "bits 2..10; vref 1..10 V; vin 0..vref.",
-    topics: ["adc-measurement", "adc", "dac", "adc-dac-interfacing", "switched-capacitor"],
+    topics: ["adc", "dac", "adc-dac-interfacing", "switched-capacitor"],
   },
   modulation: {
     name: "AM and FM waveforms",
@@ -578,14 +578,7 @@ export const wave2Widgets = {
     name: "Transmission line standing waves",
     params: z.object({ loadOhms: num(0, 300), z0: num(25, 150) }),
     help: "loadOhms: load resistance (0..300); z0: characteristic impedance (25..150).",
-    topics: [
-      "short-medium-long-lines",
-      "ferranti-surge-impedance",
-      "reflection-vswr",
-      "tx-line-equations",
-      "impedance-matching",
-      "smith-chart",
-    ],
+    topics: ["reflection-vswr", "tx-line-equations", "impedance-matching", "smith-chart"],
   },
   polarisation: {
     name: "Wave polarisation",
@@ -603,7 +596,7 @@ export const wave2Widgets = {
     name: "Skin depth against frequency",
     params: z.object({}),
     help: "no parameters: the student picks the metal and the frequency.",
-    topics: ["skin-proximity-effect", "conducting-media-skin", "poynting-emt"],
+    topics: ["conducting-media-skin", "poynting-emt"],
   },
   "mosfet-iv": {
     name: "NMOS I–V characteristics",

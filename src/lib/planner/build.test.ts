@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { buildV2Plan } from "@/lib/planner/build";
 import { EMPTY_MODEL, topicKey } from "@/lib/priority/model";
-import { subjects } from "@/lib/subjects";
+import { allSubjects as subjects } from "@/lib/subjects";
 
 const em = subjects.find((s) => s.id === "em")!;
 const all = new Set(em.chapters.flatMap((c) => c.topics.map((t) => topicKey(em.id, t.id))));

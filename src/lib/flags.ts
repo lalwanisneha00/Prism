@@ -19,6 +19,8 @@ export const FLAGS = {
   /** The redesigned look (the "Classic" look stays available either way). */
   redesign: flag(process.env.NEXT_PUBLIC_FLAG_REDESIGN, true),
   /** Community branches: not built yet; stays off until its Firestore rules are applied. */
+  /** PDEU's syllabus: its Core / Non-core sections on the subjects page (default on). */
+  pdeuSyllabus: flag(process.env.NEXT_PUBLIC_FLAG_PDEU_SYLLABUS, true),
   community: flag(process.env.NEXT_PUBLIC_FLAG_COMMUNITY, false),
 } as const;
 

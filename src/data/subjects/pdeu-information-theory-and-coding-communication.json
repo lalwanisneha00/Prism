@@ -1,0 +1,280 @@
+{
+  "id": "pdeu-information-theory-and-coding-communication",
+  "name": "Information Theory and Coding (Communication Systems)",
+  "field": "Information Theory and Coding",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [6],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s6-program-elective-2--information-theory-and-coding-communication-systems",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Information Theory and Coding (Communication Systems)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "information-theory-and-source-coding",
+      "name": "Information Theory & Source Coding",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "concept-and-measure-of-information",
+          "name": "Concept & Measure of information"
+        },
+        {
+          "id": "entropy",
+          "name": "Entropy",
+          "requires": ["concept-and-measure-of-information"]
+        },
+        {
+          "id": "source-coding",
+          "name": "Source Coding",
+          "requires": ["entropy"]
+        },
+        {
+          "id": "huffman-and-shanon-fano-coding",
+          "name": "Huffman and Shanon Fano coding",
+          "requires": ["source-coding"]
+        },
+        {
+          "id": "uniqueness-property",
+          "name": "Uniqueness Property",
+          "requires": ["huffman-and-shanon-fano-coding"]
+        },
+        {
+          "id": "channel-models",
+          "name": "Channel Models",
+          "requires": ["uniqueness-property"]
+        },
+        {
+          "id": "error-free-communication-over-a-noisy-channel",
+          "name": "Error Free Communication Over a noisy channel",
+          "requires": ["channel-models"]
+        },
+        {
+          "id": "shannon-s-theorem",
+          "name": "Shannon‟s Theorem",
+          "requires": ["error-free-communication-over-a-noisy-channel"]
+        },
+        {
+          "id": "differential-entropy-and-mutual-information",
+          "name": "Differential Entropy and Mutual information",
+          "requires": ["shannon-s-theorem"]
+        },
+        {
+          "id": "channel-capacity",
+          "name": "Channel Capacity",
+          "requires": ["differential-entropy-and-mutual-information"]
+        },
+        {
+          "id": "practical-communication-system-in-light-of-shannon-s",
+          "name": "Practical Communication System In Light of Shannon‟s Equation",
+          "requires": ["channel-capacity"]
+        },
+        {
+          "id": "introduction-to-mimo-communication-and-channel-capacity-for",
+          "name": "Introduction to MIMO communication and Channel Capacity for MIMO Systems",
+          "requires": ["practical-communication-system-in-light-of-shannon-s"]
+        },
+        {
+          "id": "random-selection-of-codes",
+          "name": "Random Selection of Codes",
+          "requires": ["introduction-to-mimo-communication-and-channel-capacity-for"]
+        }
+      ]
+    },
+    {
+      "id": "error-control-coding-channel-coding",
+      "name": "Error Control Coding (channel Coding)",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "linear-block-codes",
+          "name": "Linear block codes",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "matrix-description",
+          "name": "Matrix Description",
+          "requires": ["linear-block-codes"]
+        },
+        {
+          "id": "syndrome-decoding",
+          "name": "Syndrome Decoding",
+          "requires": ["matrix-description"]
+        },
+        {
+          "id": "error-probability",
+          "name": "Error Probability",
+          "requires": ["syndrome-decoding"]
+        },
+        {
+          "id": "hamming-distance",
+          "name": "Hamming distance",
+          "requires": ["error-probability"]
+        },
+        {
+          "id": "perfect-codes-and-hamming-codes",
+          "name": "Perfect codes and Hamming codes",
+          "requires": ["hamming-distance"]
+        },
+        {
+          "id": "low-density-parity-check-ldpc-codes",
+          "name": "Low Density Parity Check (LDPC) codes",
+          "requires": ["perfect-codes-and-hamming-codes"]
+        },
+        {
+          "id": "cyclic-codes",
+          "name": "Cyclic codes",
+          "requires": ["low-density-parity-check-ldpc-codes"]
+        },
+        {
+          "id": "polynomial-representation",
+          "name": "Polynomial representation",
+          "requires": ["cyclic-codes"]
+        },
+        {
+          "id": "generation-and-decoding-of-cyclic-codes",
+          "name": "Generation and Decoding of Cyclic codes",
+          "requires": ["polynomial-representation"]
+        },
+        {
+          "id": "burst-error-correcting-and-detecting-code",
+          "name": "Burst Error Correcting and detecting code",
+          "requires": ["generation-and-decoding-of-cyclic-codes"]
+        },
+        {
+          "id": "golay-codes",
+          "name": "Golay Codes",
+          "requires": ["burst-error-correcting-and-detecting-code"]
+        },
+        {
+          "id": "cyclic-redundancy-check-crc-codes",
+          "name": "Cyclic Redundancy Check (CRC) Codes",
+          "requires": ["golay-codes"]
+        },
+        {
+          "id": "circuit-implementation-of-cyclic-codes",
+          "name": "Circuit Implementation of Cyclic Codes",
+          "requires": ["cyclic-redundancy-check-crc-codes"]
+        },
+        {
+          "id": "introduction-to-bch-codes",
+          "name": "Introduction to BCH codes",
+          "requires": ["circuit-implementation-of-cyclic-codes"]
+        },
+        {
+          "id": "reed-solomon-codes",
+          "name": "Reed-Solomon Codes",
+          "requires": ["introduction-to-bch-codes"]
+        }
+      ]
+    },
+    {
+      "id": "convolution-codes-and-trellis-coded-modulation",
+      "name": "Convolution Codes & Trellis Coded Modulation",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "tree-codes-and-trellis-codes",
+          "name": "Tree Codes and Trellis Codes"
+        },
+        {
+          "id": "polynomial-description",
+          "name": "Polynomial Description",
+          "requires": ["tree-codes-and-trellis-codes"]
+        },
+        {
+          "id": "generating-function",
+          "name": "Generating Function",
+          "requires": ["polynomial-description"]
+        },
+        {
+          "id": "matrix-descriptions",
+          "name": "Matrix Descriptions",
+          "requires": ["generating-function"]
+        },
+        {
+          "id": "viterbi-decoding-algorithms",
+          "name": "Viterbi Decoding Algorithms",
+          "requires": ["matrix-descriptions"]
+        },
+        {
+          "id": "distance-bounds",
+          "name": "Distance Bounds",
+          "requires": ["viterbi-decoding-algorithms"]
+        },
+        {
+          "id": "performance-bounds",
+          "name": "Performance Bounds",
+          "requires": ["distance-bounds"]
+        },
+        {
+          "id": "turbo-codes-and-decoding",
+          "name": "Turbo Codes and Decoding",
+          "requires": ["performance-bounds"]
+        },
+        {
+          "id": "trellis-coded-modulation",
+          "name": "Trellis Coded Modulation",
+          "requires": ["turbo-codes-and-decoding"]
+        },
+        {
+          "id": "decoder-and-performance",
+          "name": "Decoder and Performance",
+          "requires": ["trellis-coded-modulation"]
+        }
+      ]
+    },
+    {
+      "id": "coding-for-secure-communications",
+      "name": "Coding for Secure Communications",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "introduction-to-cryptography",
+          "name": "Introduction to Cryptography"
+        },
+        {
+          "id": "an-overview-of-encryption-techniques",
+          "name": "An Overview of Encryption Techniques",
+          "requires": ["introduction-to-cryptography"]
+        },
+        {
+          "id": "symmetric-and-asymmetric-algorithms",
+          "name": "Symmetric and Asymmetric Algorithms",
+          "requires": ["an-overview-of-encryption-techniques"]
+        },
+        {
+          "id": "introduction-to-advance-algorithms",
+          "name": "Introduction to Advance Algorithms",
+          "requires": ["symmetric-and-asymmetric-algorithms"]
+        },
+        {
+          "id": "cryptanalysis",
+          "name": "Cryptanalysis",
+          "requires": ["introduction-to-advance-algorithms"]
+        }
+      ]
+    }
+  ]
+}

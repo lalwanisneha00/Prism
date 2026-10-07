@@ -1,0 +1,272 @@
+{
+  "id": "pdeu-satellite-communication-communication-systems",
+  "name": "Satellite Communication (Communication Systems)",
+  "field": "Satellite Communication",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [6],
+  "code": "24ICxxxT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s6-program-elective-2--satellite-communication-communication-systems",
+      "code": "24ICxxxT",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Satellite Communication (Communication Systems)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-to-satellite-communication",
+      "name": "Introduction to Satellite Communication",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "history",
+          "name": "History"
+        },
+        {
+          "id": "overview-of-satellite-communication",
+          "name": "Overview of Satellite Communication",
+          "requires": ["history"]
+        },
+        {
+          "id": "types-of-satellite",
+          "name": "Types of Satellite",
+          "requires": ["overview-of-satellite-communication"]
+        },
+        {
+          "id": "types-of-orbits",
+          "name": "Types of Orbits",
+          "requires": ["types-of-satellite"]
+        },
+        {
+          "id": "satellite-services",
+          "name": "Satellite services",
+          "requires": ["types-of-orbits"]
+        },
+        {
+          "id": "advantages-and-applications-of-satellite-communication",
+          "name": "Advantages & Applications of Satellite communication",
+          "requires": ["satellite-services"]
+        },
+        {
+          "id": "satellite-life-phases",
+          "name": "Satellite Life phases",
+          "requires": ["advantages-and-applications-of-satellite-communication"]
+        },
+        {
+          "id": "space-debris",
+          "name": "Space Debris",
+          "requires": ["satellite-life-phases"]
+        },
+        {
+          "id": "introduction-to-geo-synchronous-and-geo-stationary",
+          "name": "Introduction to Geo-synchronous and Geo-stationary satellites. Orbital Mechanics",
+          "requires": ["space-debris"]
+        },
+        {
+          "id": "kepler-s-three-laws-of-planetary-motion",
+          "name": "Kepler‟s Three Laws of Planetary Motion",
+          "requires": ["introduction-to-geo-synchronous-and-geo-stationary"]
+        },
+        {
+          "id": "developing-the-equations-of-the-orbit",
+          "name": "Developing the Equations of the orbit",
+          "requires": ["kepler-s-three-laws-of-planetary-motion"]
+        },
+        {
+          "id": "look-angle-determination",
+          "name": "Look Angle Determination",
+          "requires": ["developing-the-equations-of-the-orbit"]
+        },
+        {
+          "id": "earth-stations",
+          "name": "Earth Stations",
+          "requires": ["look-angle-determination"]
+        },
+        {
+          "id": "orbital-perturbations",
+          "name": "Orbital Perturbations",
+          "requires": ["earth-stations"]
+        },
+        {
+          "id": "orbital-effects-in-communication-system-performance",
+          "name": "Orbital effects in Communication system performance",
+          "requires": ["orbital-perturbations"]
+        }
+      ]
+    },
+    {
+      "id": "optimal-design-of-digital-receiver-and-waveform",
+      "name": "Optimal Design of Digital Receiver and Waveform Coding Techniques",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "seven-segments-of-satellite-communication",
+          "name": "Seven segments of Satellite communication"
+        },
+        {
+          "id": "attitude-and-orbit-control-systems",
+          "name": "Attitude and Orbit control systems",
+          "requires": ["seven-segments-of-satellite-communication"]
+        },
+        {
+          "id": "telemetry",
+          "name": "Telemetry",
+          "requires": ["attitude-and-orbit-control-systems"]
+        },
+        {
+          "id": "tracking-and-command-control-system-and-power-supply-system",
+          "name": "Tracking and command control system, and Power supply system. Satellite Link Design: Basic transmission theory",
+          "requires": ["telemetry"]
+        },
+        {
+          "id": "system-noise-temperature-and-g-t-ratio",
+          "name": "System noise temperature and G/T ratio",
+          "requires": ["tracking-and-command-control-system-and-power-supply-system"]
+        },
+        {
+          "id": "design-of-downlink-and-uplink",
+          "name": "Design of downlink and uplink",
+          "requires": ["system-noise-temperature-and-g-t-ratio"]
+        },
+        {
+          "id": "design-of-satellite-links-for-specified-c-n",
+          "name": "Design of satellite links for specified C/N",
+          "requires": ["design-of-downlink-and-uplink"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-digital-communication-transceiver-system",
+      "name": "Design of Digital Communication Transceiver System",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "vsat",
+          "name": "VSAT"
+        },
+        {
+          "id": "direct-broadcast-satellite-television-and-radio",
+          "name": "Direct broadcast satellite television, and radio",
+          "requires": ["vsat"]
+        },
+        {
+          "id": "satellite-navigation-and-the-global-positioning-systems",
+          "name": "Satellite navigation and the Global positioning systems",
+          "requires": ["direct-broadcast-satellite-television-and-radio"]
+        },
+        {
+          "id": "gps-position-location-principle",
+          "name": "GPS position location principle",
+          "requires": ["satellite-navigation-and-the-global-positioning-systems"]
+        },
+        {
+          "id": "gps-receivers-and-codes",
+          "name": "GPS receivers and codes",
+          "requires": ["gps-position-location-principle"]
+        },
+        {
+          "id": "satellite-signal-acquisition",
+          "name": "Satellite Signal Acquisition",
+          "requires": ["gps-receivers-and-codes"]
+        },
+        {
+          "id": "gps-navigation-message",
+          "name": "GPS navigation Message",
+          "requires": ["satellite-signal-acquisition"]
+        },
+        {
+          "id": "gps-signal-levels",
+          "name": "GPS Signal Levels",
+          "requires": ["gps-navigation-message"]
+        },
+        {
+          "id": "timing-accuracy",
+          "name": "Timing Accuracy",
+          "requires": ["gps-signal-levels"]
+        },
+        {
+          "id": "gps-receiver-operation",
+          "name": "GPS Receiver Operation",
+          "requires": ["timing-accuracy"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-concepts-and-way-forward",
+      "name": "Advanced Concepts and Way Forward",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "mechanism-of-satellite-launching",
+          "name": "Mechanism of Satellite launching"
+        },
+        {
+          "id": "launch-vehicles",
+          "name": "Launch Vehicles",
+          "requires": ["mechanism-of-satellite-launching"]
+        },
+        {
+          "id": "advanced-launching-techs-like-space-x",
+          "name": "Advanced launching techs like Space X",
+          "requires": ["launch-vehicles"]
+        },
+        {
+          "id": "intelligent-testing",
+          "name": "Intelligent Testing",
+          "requires": ["advanced-launching-techs-like-space-x"]
+        },
+        {
+          "id": "control-and-decision-making-for-space",
+          "name": "Control and Decision making for Space",
+          "requires": ["intelligent-testing"]
+        },
+        {
+          "id": "inter-satellite-link",
+          "name": "Inter Satellite Link",
+          "requires": ["control-and-decision-making-for-space"]
+        },
+        {
+          "id": "indian-satellite-systems-history-and-overview-of-indian",
+          "name": "Indian Satellite Systems: History and Overview of Indian Satellite System",
+          "requires": ["inter-satellite-link"]
+        },
+        {
+          "id": "achievements",
+          "name": "Achievements",
+          "requires": ["indian-satellite-systems-history-and-overview-of-indian"]
+        },
+        {
+          "id": "gslv",
+          "name": "GSLV",
+          "requires": ["achievements"]
+        },
+        {
+          "id": "pslv",
+          "name": "PSLV",
+          "requires": ["gslv"]
+        },
+        {
+          "id": "satellite-in-cellular-communication-max-hrs-42",
+          "name": "Satellite in Cellular Communication. Max. Hrs.: 42",
+          "requires": ["pslv"]
+        }
+      ]
+    }
+  ]
+}

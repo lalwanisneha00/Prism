@@ -1,0 +1,248 @@
+{
+  "id": "pdeu-elements-of-electrical-and-electronics-engineering-ce",
+  "name": "Elements of Electrical & Electronics Engineering (CE)",
+  "field": "Electrical Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [2],
+  "code": "24EE101T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Engineering Science",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s2-elements-of-electrical-and-electronics-engineering",
+      "code": "24EE101T",
+      "category": "Engineering Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Elements of Electrical & Electronics Engineering",
+    "note": "Units and topics are PDEU's, copied from the handbook. 12 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "dc-circuits",
+      "name": "DC Circuits",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "electrical-circuit-elements-r-l-and-c",
+          "name": "Electrical circuit elements (R, L and C)"
+        },
+        {
+          "id": "voltage-and-current-sources",
+          "name": "voltage and current sources",
+          "requires": ["electrical-circuit-elements-r-l-and-c"]
+        },
+        {
+          "id": "dependent-and-independent-sources",
+          "name": "dependent and independent sources",
+          "requires": ["voltage-and-current-sources"]
+        },
+        {
+          "id": "ohms-law",
+          "name": "Ohms Law",
+          "requires": ["dependent-and-independent-sources"]
+        },
+        {
+          "id": "temperature-co-efficient-of-resistance",
+          "name": "temperature co-efficient of resistance",
+          "requires": ["ohms-law"]
+        },
+        {
+          "id": "kirchhoffs-laws",
+          "name": "Kirchhoff current and voltage laws",
+          "requires": ["temperature-co-efficient-of-resistance"]
+        },
+        {
+          "id": "voltage-and-current-divider-circuit",
+          "name": "voltage and current divider circuit",
+          "requires": ["kirchhoffs-laws"]
+        },
+        {
+          "id": "thevenin-norton",
+          "name": "Thevenin and Norton Theorems and their equivalents",
+          "requires": ["voltage-and-current-divider-circuit"]
+        },
+        {
+          "id": "max-power-transfer",
+          "name": "maximum power transfer and superposition theorems",
+          "requires": ["thevenin-norton"]
+        },
+        {
+          "id": "nodal-and-mesh-analysis",
+          "name": "nodal and mesh analysis",
+          "requires": ["max-power-transfer"]
+        },
+        {
+          "id": "star-delta-transformation",
+          "name": "star-delta transformation",
+          "requires": ["nodal-and-mesh-analysis"]
+        },
+        {
+          "id": "rl-rc-transients",
+          "name": "Time domain analysis/natural response of first order RL and RC Circuit",
+          "requires": ["star-delta-transformation"]
+        }
+      ]
+    },
+    {
+      "id": "ac-circuits",
+      "name": "AC Circuits",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "generation-of-ac-voltage",
+          "name": "Generation of AC voltage"
+        },
+        {
+          "id": "representation-of-sinusoidal-waveforms",
+          "name": "representation of sinusoidal waveforms",
+          "requires": ["generation-of-ac-voltage"]
+        },
+        {
+          "id": "rms-values-of-different-sinusoidal-waveforms",
+          "name": "RMS values of different sinusoidal waveforms",
+          "requires": ["representation-of-sinusoidal-waveforms"]
+        },
+        {
+          "id": "phasors",
+          "name": "Rectangular and Polar representation of phasor",
+          "requires": ["rms-values-of-different-sinusoidal-waveforms"]
+        },
+        {
+          "id": "sinusoid-representation-in-time-and-frequency-domain",
+          "name": "Sinusoid representation in time and frequency domain",
+          "requires": ["phasors"]
+        },
+        {
+          "id": "analysis-of-single-phase-ac-series-circuits-consisting-of-r",
+          "name": "Analysis of single-phase ac series circuits consisting of R, L, C, RL, RC",
+          "requires": ["sinusoid-representation-in-time-and-frequency-domain"]
+        },
+        {
+          "id": "rlc-combinations",
+          "name": "RLC combinations",
+          "requires": ["analysis-of-single-phase-ac-series-circuits-consisting-of-r"]
+        },
+        {
+          "id": "instantaneous-power",
+          "name": "instantaneous power",
+          "requires": ["rlc-combinations"]
+        },
+        {
+          "id": "average-power-and-reactive-power",
+          "name": "average power and reactive power",
+          "requires": ["instantaneous-power"]
+        },
+        {
+          "id": "power-factor",
+          "name": "complex power and power factor.AC parallel circuit and its solution in admittance form",
+          "requires": ["average-power-and-reactive-power"]
+        },
+        {
+          "id": "ac-resonance",
+          "name": "resonance in AC series and parallel circuits",
+          "requires": ["power-factor"]
+        },
+        {
+          "id": "polyphase-circuits",
+          "name": "polyphase circuits",
+          "requires": ["ac-resonance"]
+        },
+        {
+          "id": "star-and-delta-representation-of-polyphase-circuits",
+          "name": "star and delta representation of polyphase circuits",
+          "requires": ["polyphase-circuits"]
+        },
+        {
+          "id": "power-measurement-in-polyphase-circuits",
+          "name": "power measurement in polyphase circuits",
+          "requires": ["star-and-delta-representation-of-polyphase-circuits"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-electrical-machines-and-electrical",
+      "name": "Introduction to Electrical Machines and Electrical Installation",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "faradays-law",
+          "name": "Magnetic materials and its B-H characteristic, Faraday’s Law of Electromagnetic Induction"
+        },
+        {
+          "id": "ideal-practical-transformer",
+          "name": "Single Phase Transformers: Construction, working principle, types, EMF equation, ideal transformer, practical transformer, Operation of transformer on no- load and load, Induction Machine: constructio",
+          "requires": ["faradays-law"]
+        },
+        {
+          "id": "lt-switchgear",
+          "name": "Components of LT Switchgear: Switch Fuse Unit (SFU), MCB, ELCB, MCCB, Types of Wires and Cables, Earthing, Types of Batteries, Important Characteristics for Batteries",
+          "requires": ["ideal-practical-transformer"]
+        },
+        {
+          "id": "elementary-calculations-for-energy-consumption-electrical",
+          "name": "Elementary calculations for energy consumption, Electrical safety rules",
+          "requires": ["lt-switchgear"]
+        }
+      ]
+    },
+    {
+      "id": "basic-of-electronics-and-electrical-installation",
+      "name": "Basic of Electronics and Electrical Installation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "rectifiers",
+          "name": "Semiconductor Diodes and Applications, Diode as a Switch, Diode as a Rectifier, Half Wave and Full Wave Rectifiers with and without Filters"
+        },
+        {
+          "id": "breakdown-mechanisms-zener-diode-operation-and-applications",
+          "name": "Breakdown Mechanisms, Zener Diode – Operation and Applications",
+          "requires": ["rectifiers"]
+        },
+        {
+          "id": "opto-electronic-devices-leds-photo-diode-and-applications",
+          "name": "Opto-Electronic Devices–LEDs, Photo Diode and Applications",
+          "requires": ["breakdown-mechanisms-zener-diode-operation-and-applications"]
+        },
+        {
+          "id": "silicon-controlled-rectifier-scr",
+          "name": "Silicon Controlled Rectifier (SCR)",
+          "requires": ["opto-electronic-devices-leds-photo-diode-and-applications"]
+        },
+        {
+          "id": "operation-construction-characteristics-ratings-applications",
+          "name": "Operation, Construction, Characteristics, Ratings, Applications",
+          "requires": ["silicon-controlled-rectifier-scr"]
+        },
+        {
+          "id": "pn-junction-physics",
+          "name": "Transistor Characteristics covering, Bipolar Junction Transistor (BJT)",
+          "requires": ["operation-construction-characteristics-ratings-applications"]
+        },
+        {
+          "id": "construction-operation-amplifying-action-common-base-common",
+          "name": "Construction, Operation, Amplifying Action, Common Base, Common Emitter and Common Collector Configurations, Field Effect Transistor (FET)",
+          "requires": ["pn-junction-physics"]
+        },
+        {
+          "id": "construction-characteristics-of-junction-fet",
+          "name": "Construction, Characteristics of Junction FET",
+          "requires": ["construction-operation-amplifying-action-common-base-common"]
+        }
+      ]
+    }
+  ]
+}

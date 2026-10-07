@@ -1,0 +1,165 @@
+{
+  "id": "pdeu-biology-for-engineers-ict",
+  "name": "Biology for Engineers (ICT)",
+  "field": "Biology for Engineers",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [1],
+  "credits": 2,
+  "ltp": "2-0-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s1-biology-for-engineers",
+      "category": "Basic Science",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 1,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Biology for Engineers",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-to-biomolecules",
+      "name": "Introduction to Biomolecules",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "cell-as-a-basic-unit-of-life-prokaryotic-and-eukaryotic",
+          "name": "Cell as a basic unit of life, prokaryotic and eukaryotic cells, microbes, plant and animal cells"
+        },
+        {
+          "id": "cell-organelles-structure-and-function",
+          "name": "Cell organelles – structure and function",
+          "requires": ["cell-as-a-basic-unit-of-life-prokaryotic-and-eukaryotic"]
+        },
+        {
+          "id": "cell-membrane",
+          "name": "Cell membrane",
+          "requires": ["cell-organelles-structure-and-function"]
+        },
+        {
+          "id": "vitamins-and-minerals-carbohydrates-lipids-amino-acids-and",
+          "name": "Vitamins and Minerals, Carbohydrates, Lipids, Amino Acids and proteins, Nucleic Acids (DNA and RNA)",
+          "requires": ["cell-membrane"]
+        }
+      ]
+    },
+    {
+      "id": "nature-bioinspired-mechanisms",
+      "name": "Nature-bioinspired Mechanisms",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "brain-as-a-cpu-system-architecture-cns-and-peripheral",
+          "name": "Brain as a CPU system (architecture, CNS and Peripheral Nervous System, signal transmission, EEG, Robotic arms for prosthetics)"
+        },
+        {
+          "id": "the-eye-functions-as-a-camera",
+          "name": "The eye functions as a camera",
+          "requires": ["brain-as-a-cpu-system-architecture-cns-and-peripheral"]
+        },
+        {
+          "id": "heart-as-a-pump-system",
+          "name": "Heart as a pump system",
+          "requires": ["the-eye-functions-as-a-camera"]
+        },
+        {
+          "id": "the-ear-and-nose-as-signal-transmission-models-lungs-operate",
+          "name": "The ear and nose as signal transmission models. Lungs operate as an exchange model",
+          "requires": ["heart-as-a-pump-system"]
+        },
+        {
+          "id": "kidneys-function-as-a-filtration-system-echolocation",
+          "name": "kidneys function as a filtration system. Echolocation (ultrasonography, sonars)",
+          "requires": ["the-ear-and-nose-as-signal-transmission-models-lungs-operate"]
+        },
+        {
+          "id": "photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying",
+          "name": "Photosynthesis (photovoltaic cells, bionic leaf). Bird flying (GPS and aircrafts)",
+          "requires": ["kidneys-function-as-a-filtration-system-echolocation"]
+        },
+        {
+          "id": "lotus-leaf-effect-super-hydrophobic-and-self-cleaning",
+          "name": "Lotus leaf effect (Super hydrophobic and self-cleaning surfaces)",
+          "requires": ["photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying"]
+        },
+        {
+          "id": "plant-burrs-velcro",
+          "name": "Plant burrs (Velcro)",
+          "requires": ["lotus-leaf-effect-super-hydrophobic-and-self-cleaning"]
+        }
+      ]
+    },
+    {
+      "id": "trends-in-bioengineering",
+      "name": "Trends in Bioengineering",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "stem-cell-and-its-applications",
+          "name": "Stem cell and its applications"
+        },
+        {
+          "id": "bio-printing-techniques-and-materials-applications-of",
+          "name": "Bio printing techniques and materials. Applications of Bioinformatics",
+          "requires": ["stem-cell-and-its-applications"]
+        },
+        {
+          "id": "artificial-intelligence-for-diagnosis-and-detection-of",
+          "name": "Artificial Intelligence for diagnosis and detection of communicable and non-communicable diseases",
+          "requires": ["bio-printing-techniques-and-materials-applications-of"]
+        },
+        {
+          "id": "biosensors-in-healthcare",
+          "name": "Biosensors in healthcare",
+          "requires": ["artificial-intelligence-for-diagnosis-and-detection-of"]
+        },
+        {
+          "id": "environmental-monitoring",
+          "name": "Environmental monitoring",
+          "requires": ["biosensors-in-healthcare"]
+        },
+        {
+          "id": "food-safety-and-biosecurity",
+          "name": "Food Safety and Biosecurity",
+          "requires": ["environmental-monitoring"]
+        }
+      ]
+    },
+    {
+      "id": "engineering-perspectives-of-biological-sciences",
+      "name": "Engineering Perspectives of Biological Sciences",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "biology-and-engineering-crosstalk",
+          "name": "Biology and engineering crosstalk"
+        },
+        {
+          "id": "at-cell-level-hybridoma-technology-at-tissue-level-plant",
+          "name": "At cell level: Hybridoma technology, At tissue level: Plant Tissue Culture, Animal Tissue Culture",
+          "requires": ["biology-and-engineering-crosstalk"]
+        },
+        {
+          "id": "tissue-engineering-introduction-to-biomimetics-and",
+          "name": "Tissue Engineering, Introduction to Biomimetics and Biomimicry, Nanobiotechnology, Introduction to Radiology, High- throughput diagnostics in clinics: Molecular Diagnostics (PCR), DNA chips",
+          "requires": ["at-cell-level-hybridoma-technology-at-tissue-level-plant"]
+        },
+        {
+          "id": "note-this-branchs-handbook-does-not-print-the-detailed",
+          "name": "Note: This branch's handbook does not print the detailed syllabus for this course, so the topics are taken from the same common course in the ECE handbook",
+          "requires": ["tissue-engineering-introduction-to-biomimetics-and"]
+        }
+      ]
+    }
+  ]
+}

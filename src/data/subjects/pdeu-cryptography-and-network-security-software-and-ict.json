@@ -1,0 +1,227 @@
+{
+  "id": "pdeu-cryptography-and-network-security-software-and-ict",
+  "name": "Cryptography and Network Security (Software & Networks) (ICT)",
+  "field": "Cryptography and Network Security",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [7],
+  "code": "24ICxxxT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s7-program-elective-4--cryptography-and-network-security-software-and-networks",
+      "code": "24ICxxxT",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Cryptography and Network Security (Software & Networks)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-and-background",
+      "name": "Introduction and Background",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-to-cryptography",
+          "name": "Introduction to Cryptography"
+        },
+        {
+          "id": "security-threats",
+          "name": "Security Threats",
+          "requires": ["introduction-to-cryptography"]
+        },
+        {
+          "id": "vulnerability",
+          "name": "Vulnerability",
+          "requires": ["security-threats"]
+        },
+        {
+          "id": "active-and-passive-attacks",
+          "name": "Active and Passive attacks",
+          "requires": ["vulnerability"]
+        },
+        {
+          "id": "security-services-and-mechanism",
+          "name": "Security services and mechanism",
+          "requires": ["active-and-passive-attacks"]
+        },
+        {
+          "id": "conventional-encryption-model",
+          "name": "Conventional Encryption Model",
+          "requires": ["security-services-and-mechanism"]
+        },
+        {
+          "id": "cia-model",
+          "name": "CIA model",
+          "requires": ["conventional-encryption-model"]
+        },
+        {
+          "id": "classical-cryptographic-techniques",
+          "name": "Classical Cryptographic Techniques",
+          "requires": ["cia-model"]
+        },
+        {
+          "id": "introduction-to-modular-arithmetic-and-number-theory",
+          "name": "Introduction to Modular Arithmetic and Number Theory",
+          "requires": ["classical-cryptographic-techniques"]
+        }
+      ]
+    },
+    {
+      "id": "symmetric-and-asymmetric-key-cryptography",
+      "name": "Symmetric and Asymmetric Key Cryptography",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "block-ciphers-des-aes-feistal-cipher-structure",
+          "name": "Block Ciphers (DES, AES) : Feistal Cipher Structure"
+        },
+        {
+          "id": "simplifies-des",
+          "name": "Simplifies DES",
+          "requires": ["block-ciphers-des-aes-feistal-cipher-structure"]
+        },
+        {
+          "id": "des",
+          "name": "DES",
+          "requires": ["simplifies-des"]
+        },
+        {
+          "id": "double-and-triple-des",
+          "name": "Double and Triple DES",
+          "requires": ["des"]
+        },
+        {
+          "id": "block-cipher-design-principles",
+          "name": "Block Cipher design Principles",
+          "requires": ["double-and-triple-des"]
+        },
+        {
+          "id": "aes",
+          "name": "AES",
+          "requires": ["block-cipher-design-principles"]
+        },
+        {
+          "id": "modes-of-operations",
+          "name": "Modes of Operations",
+          "requires": ["aes"]
+        },
+        {
+          "id": "public-key-cryptography-principles-of-public-key",
+          "name": "Public-Key Cryptography : Principles Of Public-Key Cryptography",
+          "requires": ["modes-of-operations"]
+        },
+        {
+          "id": "rsa-algorithm",
+          "name": "RSA Algorithm",
+          "requires": ["public-key-cryptography-principles-of-public-key"]
+        },
+        {
+          "id": "diffie-hellman-key-exchange",
+          "name": "Diffie- Hellman Key Exchange",
+          "requires": ["rsa-algorithm"]
+        }
+      ]
+    },
+    {
+      "id": "hash-function-and-digital-signature",
+      "name": "Hash Function and Digital Signature",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "authentication-requirement",
+          "name": "Authentication Requirement"
+        },
+        {
+          "id": "functions",
+          "name": "Functions",
+          "requires": ["authentication-requirement"]
+        },
+        {
+          "id": "message-authentication-code",
+          "name": "Message Authentication Code",
+          "requires": ["functions"]
+        },
+        {
+          "id": "hash-functions",
+          "name": "Hash Functions",
+          "requires": ["message-authentication-code"]
+        },
+        {
+          "id": "security-of-hash-functions-and-macs",
+          "name": "Security Of Hash Functions And Macs",
+          "requires": ["hash-functions"]
+        },
+        {
+          "id": "md5-message-digest-algorithm",
+          "name": "MD5 Message Digest Algorithm",
+          "requires": ["security-of-hash-functions-and-macs"]
+        },
+        {
+          "id": "secure-hash-algorithm",
+          "name": "Secure Hash Algorithm",
+          "requires": ["md5-message-digest-algorithm"]
+        },
+        {
+          "id": "digital-signatures",
+          "name": "Digital Signatures",
+          "requires": ["secure-hash-algorithm"]
+        },
+        {
+          "id": "key-management",
+          "name": "Key Management",
+          "requires": ["digital-signatures"]
+        }
+      ]
+    },
+    {
+      "id": "security-in-networks",
+      "name": "Security in Networks",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "threats-in-networks",
+          "name": "Threats in networks"
+        },
+        {
+          "id": "electronic-mail-security",
+          "name": "Electronic mail Security",
+          "requires": ["threats-in-networks"]
+        },
+        {
+          "id": "ip-security",
+          "name": "IP Security",
+          "requires": ["electronic-mail-security"]
+        },
+        {
+          "id": "web-security",
+          "name": "Web security",
+          "requires": ["ip-security"]
+        },
+        {
+          "id": "system-security",
+          "name": "System Security",
+          "requires": ["web-security"]
+        },
+        {
+          "id": "firewall",
+          "name": "Firewall",
+          "requires": ["system-security"]
+        }
+      ]
+    }
+  ]
+}

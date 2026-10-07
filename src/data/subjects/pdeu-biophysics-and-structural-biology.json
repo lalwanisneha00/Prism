@@ -1,0 +1,222 @@
+{
+  "id": "pdeu-biophysics-and-structural-biology",
+  "name": "Biophysics and Structural Biology",
+  "field": "Biophysics and Structural Biology",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [3],
+  "code": "24BT201T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s3-biophysics-and-structural-biology",
+      "code": "24BT201T",
+      "category": "Basic Science",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Biophysics and Structural Biology",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "levels-of-structures-in-biological-macromolecules",
+          "name": "Levels of structures in biological macromolecules"
+        },
+        {
+          "id": "basic-strategies-in-biophysics",
+          "name": "basic strategies in biophysics",
+          "requires": ["levels-of-structures-in-biological-macromolecules"]
+        },
+        {
+          "id": "principles-and-concepts-used-in-biophysical-analysis-of-life",
+          "name": "Principles and concepts used in biophysical analysis of life processes",
+          "requires": ["basic-strategies-in-biophysics"]
+        },
+        {
+          "id": "biomolecules-and-their-interactions",
+          "name": "biomolecules and their interactions",
+          "requires": ["principles-and-concepts-used-in-biophysical-analysis-of-life"]
+        },
+        {
+          "id": "size-and-shape-of-macromolecules",
+          "name": "size and shape of macromolecules",
+          "requires": ["biomolecules-and-their-interactions"]
+        }
+      ]
+    },
+    {
+      "id": "conformational-analysis-of-proteins",
+      "name": "Conformational Analysis of Proteins",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "basic-problems",
+          "name": "Basic problems"
+        },
+        {
+          "id": "polypeptide-chains-geometrics",
+          "name": "polypeptide chains geometrics",
+          "requires": ["basic-problems"]
+        },
+        {
+          "id": "potential-energy-calculations",
+          "name": "potential energy calculations",
+          "requires": ["polypeptide-chains-geometrics"]
+        },
+        {
+          "id": "observed-values-for-rotation-angles",
+          "name": "observed values for rotation angles",
+          "requires": ["potential-energy-calculations"]
+        },
+        {
+          "id": "hydrogen-bonding",
+          "name": "hydrogen bonding",
+          "requires": ["observed-values-for-rotation-angles"]
+        },
+        {
+          "id": "hydrophobic-interactions-and-water-structures",
+          "name": "hydrophobic interactions and water structures",
+          "requires": ["hydrogen-bonding"]
+        },
+        {
+          "id": "ionic-interactions-and-disulphide-bonds",
+          "name": "ionic interactions and disulphide bonds",
+          "requires": ["hydrophobic-interactions-and-water-structures"]
+        },
+        {
+          "id": "prediction-of-proteins-structure",
+          "name": "Prediction of proteins structure",
+          "requires": ["ionic-interactions-and-disulphide-bonds"]
+        }
+      ]
+    },
+    {
+      "id": "conformational-analysis-of-nucleic-acids",
+      "name": "Conformational Analysis of Nucleic Acids",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "general-characteristics-of-nucleic-acid-structure",
+          "name": "General characteristics of nucleic acid structure"
+        },
+        {
+          "id": "geometrics",
+          "name": "geometrics",
+          "requires": ["general-characteristics-of-nucleic-acid-structure"]
+        },
+        {
+          "id": "glycosidic-bond",
+          "name": "glycosidic bond",
+          "requires": ["geometrics"]
+        },
+        {
+          "id": "rotational-isomers-and-those-puckering",
+          "name": "rotational isomers and those puckering",
+          "requires": ["glycosidic-bond"]
+        },
+        {
+          "id": "backbone-rotational-angles-and-steric-hindrances",
+          "name": "backbone rotational angles and steric hindrances",
+          "requires": ["rotational-isomers-and-those-puckering"]
+        },
+        {
+          "id": "forces-stabilizing-ordered-forms",
+          "name": "forces stabilizing ordered forms",
+          "requires": ["backbone-rotational-angles-and-steric-hindrances"]
+        },
+        {
+          "id": "base-pairing",
+          "name": "base pairing",
+          "requires": ["forces-stabilizing-ordered-forms"]
+        },
+        {
+          "id": "base-stacking",
+          "name": "base stacking",
+          "requires": ["base-pairing"]
+        },
+        {
+          "id": "tertiary-structure-of-nucleic-acids",
+          "name": "tertiary structure of nucleic acids",
+          "requires": ["base-stacking"]
+        }
+      ]
+    },
+    {
+      "id": "techniques-for-the-study-of-biological-structure",
+      "name": "Techniques for the Study of Biological Structure and Function",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "size-and-shape-of-macromolecules-2",
+          "name": "Size and shape of macromolecules"
+        },
+        {
+          "id": "methods-of-direct-visualisation",
+          "name": "methods of direct visualisation",
+          "requires": ["size-and-shape-of-macromolecules-2"]
+        },
+        {
+          "id": "macromolecules-as-hydrodynamic-particles",
+          "name": "macromolecules as hydrodynamic particles",
+          "requires": ["methods-of-direct-visualisation"]
+        },
+        {
+          "id": "macromolecular-diffusion",
+          "name": "macromolecular diffusion",
+          "requires": ["macromolecules-as-hydrodynamic-particles"]
+        },
+        {
+          "id": "ultracentrifugation",
+          "name": "ultracentrifugation",
+          "requires": ["macromolecular-diffusion"]
+        },
+        {
+          "id": "viscometer",
+          "name": "viscometer",
+          "requires": ["ultracentrifugation"]
+        },
+        {
+          "id": "x-ray-crystallography-x-ray-diffraction",
+          "name": "X-ray crystallography: X–ray diffraction",
+          "requires": ["viscometer"]
+        },
+        {
+          "id": "determination-of-molecular-structures",
+          "name": "determination of molecular structures",
+          "requires": ["x-ray-crystallography-x-ray-diffraction"]
+        },
+        {
+          "id": "electron-microscopy",
+          "name": "electron microscopy",
+          "requires": ["determination-of-molecular-structures"]
+        },
+        {
+          "id": "neutron-scattering",
+          "name": "neutron scattering",
+          "requires": ["electron-microscopy"]
+        },
+        {
+          "id": "light-scattering",
+          "name": "light scattering",
+          "requires": ["neutron-scattering"]
+        }
+      ]
+    }
+  ]
+}

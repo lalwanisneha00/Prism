@@ -54,6 +54,22 @@ export const VISUAL_SETS = [
   "theory",
 ] as const;
 
+const OfferingSchema = z.object({
+  branch: z.string().min(1),
+  /** Key of the course in src/data/pdeu/<branch>.json. */
+  key: z.string().min(1),
+  code: z.string().optional(),
+  category: z.string(),
+  ltp: z.string().optional(),
+  credits: z.number(),
+  creditsNote: z.string().optional(),
+  semester: z.int().min(1).max(8),
+  track: z.string().optional(),
+  /** Core or non-core for this branch. */
+  kind: z.enum(["core", "non-core"]).optional(),
+});
+export type Offering = z.infer<typeof OfferingSchema>;
+
 export const SubjectSchema = z.object({
   id: slug,
   name: z.string().min(1),
@@ -65,6 +81,16 @@ export const SubjectSchema = z.object({
   /** The semesters it is usually taught in (1–8). */
   semesters: z.array(z.int().min(1).max(8)).min(1),
   syllabusSource: SyllabusSourceSchema,
+  /** "pdeu" for the university's own courses (the layer over the older topic bank). */
+  university: z.literal("pdeu").optional(),
+  courseCategory: z.enum(["core", "non-core"]).optional(),
+  /** PDEU course details shown beside the name (the first branch's; see `offerings` for each branch). */
+  code: z.string().optional(),
+  credits: z.number().optional(),
+  ltp: z.string().optional(),
+  category: z.string().optional(),
+  /** Where PDEU teaches it: per branch the semester, credits, code and the PDEU page key. */
+  offerings: z.array(OfferingSchema).optional(),
   visualSet: z.enum(VISUAL_SETS).optional(),
   /** How it is taught: "theory" (descriptive) or "skill" (practice activities). Optional. */
   teaching: z.enum(["theory", "skill"]).optional(),
@@ -165,11 +191,24 @@ function loadCatalogue(files: readonly unknown[]): Subject[] {
  * test proves checking them changes nothing), so the browser skips that work: it would only delay
  * the first screen on a phone.
  */
-export const subjects: readonly Subject[] =
+const everySubject: readonly Subject[] =
   typeof window === "undefined" ? loadCatalogue(subjectFiles) : (subjectFiles as Subject[]);
 
+/** Every subject Prism lists: PDEU's courses. */
+export const subjects: readonly Subject[] = everySubject.filter((s) => s.university === "pdeu");
+
+/**
+ * The older subjects (before the PDEU layer) are the topic bank: PDEU subjects reuse their topic ids,
+ * saved progress and library lessons are keyed by them, and the accuracy tests belong to them. They
+ * are not listed anywhere, but a lookup by id still finds them.
+ */
+/** Everything, bank included (tests and migration code). */
+export const allSubjects: readonly Subject[] = everySubject;
+
+export const bankSubjects: readonly Subject[] = everySubject.filter((s) => s.university !== "pdeu");
+
 export function findSubject(id: string): Subject | undefined {
-  return subjects.find((s) => s.id === id);
+  return everySubject.find((s) => s.id === id);
 }
 
 export function findChapter(subject: Subject, chapterId: string): Chapter | undefined {
@@ -196,6 +235,42 @@ export function subjectsFor(branchId: string, semester?: number): Subject[] {
 /** The semesters in which a branch has at least one subject. */
 export function semestersFor(branchId: string): number[] {
   return [...new Set(subjectsFor(branchId).flatMap((s) => s.semesters))].sort((a, b) => a - b);
+}
+
+/** The PDEU details of a subject for a branch (its own branch's code and credits when it has them). */
+export function offeringFor(
+  subject: { offerings?: readonly Offering[] },
+  branchId?: string,
+): Offering | undefined {
+  const list = subject.offerings ?? [];
+  return list.find((o) => o.branch === branchId) ?? list[0];
+}
+
+/** "24PH101T · Basic Science · 3 credits · L-T-P 3-0-0": the details shown beside a subject's name. */
+export function detailsLine(
+  subject: { offerings?: readonly Offering[] },
+  branchId?: string,
+): string {
+  const o = offeringFor(subject, branchId);
+  if (!o) return "";
+  return [
+    o.code,
+    o.category,
+    `${o.credits} credit${o.credits === 1 ? "" : "s"}`,
+    o.ltp ? `L-T-P ${o.ltp}` : undefined,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+}
+
+/** "3 credits · 24PH101T": the short form beside a subject's name in lists. */
+export function detailsShort(
+  subject: { offerings?: readonly Offering[] },
+  branchId?: string,
+): string {
+  const o = offeringFor(subject, branchId);
+  if (!o) return "";
+  return [`${o.credits} credit${o.credits === 1 ? "" : "s"}`, o.code].filter(Boolean).join(" · ");
 }
 
 /** The branches that study a subject ("all" expands to every branch). */

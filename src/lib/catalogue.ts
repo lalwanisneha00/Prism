@@ -1,6 +1,6 @@
 import { subjectIndexData } from "@/data/subjects/index.light.generated";
 import { subjectLoaders } from "@/data/subjects/loaders.generated";
-import type { Subject } from "@/lib/subjects";
+import type { Offering, Subject } from "@/lib/subjects";
 
 /*
  * The light catalogue: every subject WITHOUT its topics (names, fields, branches, semesters, chapters
@@ -20,14 +20,22 @@ export type IndexedSubject = {
   visualSet?: string;
   teaching?: "theory" | "skill";
   links?: readonly { subject: string; chapters?: readonly string[] }[];
+  offerings?: readonly Offering[];
+  university?: "pdeu";
+  courseCategory?: "core" | "non-core";
   chapters: readonly IndexedChapter[];
 };
 
-export const subjectIndex: readonly IndexedSubject[] =
-  subjectIndexData as unknown as IndexedSubject[];
+const everyIndexed = subjectIndexData as unknown as IndexedSubject[];
 
+/** The subjects Prism lists: PDEU's. The older subjects stay as a topic bank (lookups only). */
+export const subjectIndex: readonly IndexedSubject[] = everyIndexed.filter(
+  (s) => s.university === "pdeu",
+);
+
+/** Any subject by id, including the older topic-bank subjects (saved progress still finds them). */
 export function indexedSubject(id: string): IndexedSubject | undefined {
-  return subjectIndex.find((s) => s.id === id);
+  return everyIndexed.find((s) => s.id === id);
 }
 
 /** Chapters and topics of a subject, counting chapters linked in from other subjects. */

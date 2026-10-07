@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { sampleLessons } from "@/data/sampleLessons";
-import { subjects } from "@/lib/subjects";
+import { allSubjects as subjects } from "@/lib/subjects";
 import { widgetRegistry, widgetsForTopic } from "@/visuals/registry";
 import {
   dropBadVisuals,

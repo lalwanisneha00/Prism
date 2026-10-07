@@ -1,0 +1,328 @@
+{
+  "id": "pdeu-database-management-system",
+  "name": "Database Management System",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [3],
+  "code": "24CS202T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s3-database-management-system",
+      "code": "24CS202T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Database Management System",
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction-and-database-models",
+      "name": "Introduction And Database Models",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "file-structure-concepts-of-fields",
+          "name": "File Structure: Concepts of fields"
+        },
+        {
+          "id": "records-and-files",
+          "name": "records and files",
+          "requires": ["file-structure-concepts-of-fields"]
+        },
+        {
+          "id": "conventional-file-system",
+          "name": "Conventional file system",
+          "requires": ["records-and-files"]
+        },
+        {
+          "id": "advantages-of-database-management-system",
+          "name": "Advantages of Database management system",
+          "requires": ["conventional-file-system"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["advantages-of-database-management-system"]
+        },
+        {
+          "id": "data-abstraction",
+          "name": "Data abstraction",
+          "requires": ["applications"]
+        },
+        {
+          "id": "data-independence",
+          "name": "Data independence",
+          "requires": ["data-abstraction"]
+        },
+        {
+          "id": "three-levels-of-the-architecture",
+          "name": "Three levels of the architecture",
+          "requires": ["data-independence"]
+        },
+        {
+          "id": "er-model",
+          "name": "Database Users. Entity-Relationship Model",
+          "requires": ["three-levels-of-the-architecture"]
+        },
+        {
+          "id": "relational-data-model",
+          "name": "Relational Data Model",
+          "requires": ["er-model"]
+        },
+        {
+          "id": "relational-algebra",
+          "name": "Relational algebra operators and syntax",
+          "requires": ["relational-data-model"]
+        }
+      ]
+    },
+    {
+      "id": "sql",
+      "name": "SQL",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "basics-of-sql",
+          "name": "Basics of SQL"
+        },
+        {
+          "id": "ddl",
+          "name": "DDL",
+          "requires": ["basics-of-sql"]
+        },
+        {
+          "id": "dml",
+          "name": "DML",
+          "requires": ["ddl"]
+        },
+        {
+          "id": "dcl",
+          "name": "DCL",
+          "requires": ["dml"]
+        },
+        {
+          "id": "primary-key",
+          "name": "Primary key",
+          "requires": ["dcl"]
+        },
+        {
+          "id": "foreign-key",
+          "name": "foreign key",
+          "requires": ["primary-key"]
+        },
+        {
+          "id": "unique",
+          "name": "unique",
+          "requires": ["foreign-key"]
+        },
+        {
+          "id": "not-null",
+          "name": "not null",
+          "requires": ["unique"]
+        },
+        {
+          "id": "check",
+          "name": "check",
+          "requires": ["not-null"]
+        },
+        {
+          "id": "in-operator",
+          "name": "IN operator",
+          "requires": ["check"]
+        },
+        {
+          "id": "functions",
+          "name": "Functions",
+          "requires": ["in-operator"]
+        },
+        {
+          "id": "set-operations",
+          "name": "set operations",
+          "requires": ["functions"]
+        },
+        {
+          "id": "sub-queries",
+          "name": "sub queries",
+          "requires": ["set-operations"]
+        },
+        {
+          "id": "correlated-sub-queries",
+          "name": "correlated sub-queries",
+          "requires": ["sub-queries"]
+        },
+        {
+          "id": "use-of-group-by",
+          "name": "Use of group by",
+          "requires": ["correlated-sub-queries"]
+        },
+        {
+          "id": "having",
+          "name": "having",
+          "requires": ["use-of-group-by"]
+        },
+        {
+          "id": "order-by",
+          "name": "order by",
+          "requires": ["having"]
+        },
+        {
+          "id": "join-and-its-types",
+          "name": "join and its types",
+          "requires": ["order-by"]
+        },
+        {
+          "id": "exist",
+          "name": "Exist",
+          "requires": ["join-and-its-types"]
+        },
+        {
+          "id": "any",
+          "name": "Any",
+          "requires": ["exist"]
+        },
+        {
+          "id": "all",
+          "name": "All",
+          "requires": ["any"]
+        },
+        {
+          "id": "view-and-its-type",
+          "name": "view and its type",
+          "requires": ["all"]
+        }
+      ]
+    },
+    {
+      "id": "normalization-and-file-organization",
+      "name": "Normalization And File Organization",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "importance-of-a-good-schema-design",
+          "name": "Importance of a good schema design"
+        },
+        {
+          "id": "problems-encountered-with-bad-schema-designs",
+          "name": "Problems encountered with bad schema designs",
+          "requires": ["importance-of-a-good-schema-design"]
+        },
+        {
+          "id": "dependency-theory-functional-dependencies",
+          "name": "dependency theory - functional dependencies",
+          "requires": ["problems-encountered-with-bad-schema-designs"]
+        },
+        {
+          "id": "armstrongs-axioms-for-fds",
+          "name": "Armstrong's axioms for FD's",
+          "requires": ["dependency-theory-functional-dependencies"]
+        },
+        {
+          "id": "minimal-covers",
+          "name": "Minimal covers",
+          "requires": ["armstrongs-axioms-for-fds"]
+        },
+        {
+          "id": "1nf",
+          "name": "1NF",
+          "requires": ["minimal-covers"]
+        },
+        {
+          "id": "2nf",
+          "name": "2NF",
+          "requires": ["1nf"]
+        },
+        {
+          "id": "3nf-and-bcnf-file-organization-sequential",
+          "name": "3NF and BCNF. File Organization: Sequential",
+          "requires": ["2nf"]
+        },
+        {
+          "id": "indexed-and-random-file-organization",
+          "name": "Indexed and Random File Organization",
+          "requires": ["3nf-and-bcnf-file-organization-sequential"]
+        },
+        {
+          "id": "indexing-structure-for-index-files",
+          "name": "indexing structure for index files",
+          "requires": ["indexed-and-random-file-organization"]
+        },
+        {
+          "id": "hashing-for-direct-files",
+          "name": "hashing for direct files",
+          "requires": ["indexing-structure-for-index-files"]
+        },
+        {
+          "id": "multi-key-file-organization-and-access-methods",
+          "name": "multi-key file organization and access methods",
+          "requires": ["hashing-for-direct-files"]
+        },
+        {
+          "id": "storage-strategies-indices",
+          "name": "Storage strategies: Indices",
+          "requires": ["multi-key-file-organization-and-access-methods"]
+        },
+        {
+          "id": "b-and-b-trees",
+          "name": "B and B+ trees",
+          "requires": ["storage-strategies-indices"]
+        },
+        {
+          "id": "hashing",
+          "name": "hashing",
+          "requires": ["b-and-b-trees"]
+        }
+      ]
+    },
+    {
+      "id": "transactions-query-processing-security",
+      "name": "Transactions, Query Processing, Security",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "serializability",
+          "name": "ACID properties, Schedules, Serializability, Concurrency control protocols, measures of query cost, selection operation, sorting, join"
+        },
+        {
+          "id": "security-discretionary-and-mandatory-access-control",
+          "name": "Security: Discretionary and Mandatory Access Control",
+          "requires": ["serializability"]
+        },
+        {
+          "id": "audit-trails",
+          "name": "Audit Trails",
+          "requires": ["security-discretionary-and-mandatory-access-control"]
+        },
+        {
+          "id": "multi-level-security",
+          "name": "Multi-Level Security",
+          "requires": ["audit-trails"]
+        },
+        {
+          "id": "statistical-databases",
+          "name": "Statistical Databases",
+          "requires": ["multi-level-security"]
+        },
+        {
+          "id": "data-encryption-introduction-to-nosql-databases",
+          "name": "Data Encryption. Introduction to NOSQL Databases",
+          "requires": ["statistical-databases"]
+        }
+      ]
+    }
+  ]
+}

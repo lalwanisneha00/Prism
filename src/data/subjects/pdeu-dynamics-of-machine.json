@@ -1,0 +1,358 @@
+{
+  "id": "pdeu-dynamics-of-machine",
+  "name": "Dynamics of Machine",
+  "field": "Mechanical Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [5],
+  "code": "18ME304T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s5-dynamics-of-machine",
+      "code": "18ME304T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Dynamics of Machine",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "mechanics",
+  "chapters": [
+    {
+      "id": "static-force-analysis",
+      "name": "Static Force Analysis",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "static-equilibrium",
+          "name": "Static equilibrium"
+        },
+        {
+          "id": "equilibrium-for-two-force-and-three-force-members",
+          "name": "equilibrium for two force and three force members",
+          "requires": ["static-equilibrium"]
+        },
+        {
+          "id": "torque",
+          "name": "torque",
+          "requires": ["equilibrium-for-two-force-and-three-force-members"]
+        },
+        {
+          "id": "force-convention",
+          "name": "Force convention",
+          "requires": ["torque"]
+        },
+        {
+          "id": "free-body-diagrams",
+          "name": "Free body diagrams",
+          "requires": ["force-convention"]
+        },
+        {
+          "id": "superposition",
+          "name": "Superposition",
+          "requires": ["free-body-diagrams"]
+        },
+        {
+          "id": "virtual-work",
+          "name": "Virtual work",
+          "requires": ["superposition"]
+        },
+        {
+          "id": "friction-in-mechanisms-dynamic-force-analysis-dalemberts",
+          "name": "Friction in mechanisms. Dynamic Force Analysis: D’Alemberts Principle",
+          "requires": ["virtual-work"]
+        },
+        {
+          "id": "dynamic-analysis-of-four-link",
+          "name": "Dynamic analysis of four link",
+          "requires": ["friction-in-mechanisms-dynamic-force-analysis-dalemberts"]
+        },
+        {
+          "id": "slider-crank",
+          "name": "slider crank",
+          "requires": ["dynamic-analysis-of-four-link"]
+        },
+        {
+          "id": "velocity-and-acceleration-of-automobile-components",
+          "name": "Velocity and acceleration of automobile components",
+          "requires": ["slider-crank"]
+        },
+        {
+          "id": "turning-moment",
+          "name": "Turning moment",
+          "requires": ["velocity-and-acceleration-of-automobile-components"]
+        },
+        {
+          "id": "dynamically-equivalent-system",
+          "name": "Dynamically equivalent system",
+          "requires": ["turning-moment"]
+        },
+        {
+          "id": "determination-of-inertia-forces-in-connecting-rods",
+          "name": "determination of Inertia forces in connecting rods",
+          "requires": ["dynamically-equivalent-system"]
+        },
+        {
+          "id": "engines-turning-moment-diagrams",
+          "name": "engines. Turning Moment Diagrams",
+          "requires": ["determination-of-inertia-forces-in-connecting-rods"]
+        },
+        {
+          "id": "fluctuation-of-energy",
+          "name": "Fluctuation of energy",
+          "requires": ["engines-turning-moment-diagrams"]
+        },
+        {
+          "id": "flywheels",
+          "name": "Flywheels",
+          "requires": ["fluctuation-of-energy"]
+        }
+      ]
+    },
+    {
+      "id": "gears",
+      "name": "Gears",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "laws-of-gearing",
+          "name": "Laws of gearing"
+        },
+        {
+          "id": "gears-terminology",
+          "name": "gears terminology",
+          "requires": ["laws-of-gearing"]
+        },
+        {
+          "id": "tooth-form",
+          "name": "tooth form",
+          "requires": ["gears-terminology"]
+        },
+        {
+          "id": "standard-interchangeable-tooth-profile",
+          "name": "standard interchangeable tooth profile",
+          "requires": ["tooth-form"]
+        },
+        {
+          "id": "minimum-number-of-teeth-on-pinion-in-contact-with-a-gear",
+          "name": "minimum number of teeth on pinion in contact with a gear",
+          "requires": ["standard-interchangeable-tooth-profile"]
+        },
+        {
+          "id": "interference-and-under-cutting",
+          "name": "interference and under cutting",
+          "requires": ["minimum-number-of-teeth-on-pinion-in-contact-with-a-gear"]
+        },
+        {
+          "id": "bevel",
+          "name": "bevel",
+          "requires": ["interference-and-under-cutting"]
+        },
+        {
+          "id": "helical-and-spiral-gears-gear-trains-simple",
+          "name": "helical and spiral gears. Gear Trains: Simple",
+          "requires": ["bevel"]
+        },
+        {
+          "id": "compound",
+          "name": "compound",
+          "requires": ["helical-and-spiral-gears-gear-trains-simple"]
+        },
+        {
+          "id": "reverted-and-epicyclic-gear-trains",
+          "name": "reverted and epicyclic gear trains",
+          "requires": ["compound"]
+        },
+        {
+          "id": "analytical-and-tabular-methods",
+          "name": "analytical and tabular methods",
+          "requires": ["reverted-and-epicyclic-gear-trains"]
+        },
+        {
+          "id": "torques-in-epicyclic-train",
+          "name": "torques in epicyclic train",
+          "requires": ["analytical-and-tabular-methods"]
+        },
+        {
+          "id": "differential-gear-box",
+          "name": "differential gear box",
+          "requires": ["torques-in-epicyclic-train"]
+        },
+        {
+          "id": "gear-boxes-sliding-and-constant-mesh-gear-box-for",
+          "name": "gear boxes-sliding and constant mesh gear box for automobiles. Gyroscope: Angular velocity",
+          "requires": ["differential-gear-box"]
+        },
+        {
+          "id": "angular-acceleration",
+          "name": "angular acceleration",
+          "requires": ["gear-boxes-sliding-and-constant-mesh-gear-box-for"]
+        },
+        {
+          "id": "gyroscopic-torque",
+          "name": "gyroscopic torque",
+          "requires": ["angular-acceleration"]
+        },
+        {
+          "id": "gyroscopic-effect-on-naval-ships-and-aeroplanes",
+          "name": "gyroscopic effect on naval ships and aeroplanes",
+          "requires": ["gyroscopic-torque"]
+        },
+        {
+          "id": "stability-of-an-automobile",
+          "name": "stability of an automobile",
+          "requires": ["gyroscopic-effect-on-naval-ships-and-aeroplanes"]
+        },
+        {
+          "id": "two-wheel-vehicle",
+          "name": "two-wheel vehicle",
+          "requires": ["stability-of-an-automobile"]
+        },
+        {
+          "id": "rigid-disc-at-an-angle-fixed-to-a-rotating-shaft",
+          "name": "rigid disc at an angle fixed to a rotating shaft",
+          "requires": ["two-wheel-vehicle"]
+        }
+      ]
+    },
+    {
+      "id": "brakes-and-dynamometers",
+      "name": "Brakes and Dynamometers",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "general-description-and-study-of-operation-principle",
+          "name": "General description and study of operation principle",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "balancing-balancing-of-rotating-masses-single-and-multiple",
+          "name": "Balancing: Balancing of rotating masses Single and multiple single and different planes",
+          "requires": ["general-description-and-study-of-operation-principle"]
+        },
+        {
+          "id": "balancing-of-reciprocating-masses-primary-and-secondary",
+          "name": "Balancing of Reciprocating Masses: Primary and secondary balancing of reciprocating masses",
+          "requires": ["balancing-balancing-of-rotating-masses-single-and-multiple"]
+        },
+        {
+          "id": "analytical-and-graphical-methods",
+          "name": "Analytical and graphical methods",
+          "requires": ["balancing-of-reciprocating-masses-primary-and-secondary"]
+        },
+        {
+          "id": "unbalanced-forces-and-couples-examination-of-v",
+          "name": "Unbalanced forces and couples examination of “V”",
+          "requires": ["analytical-and-graphical-methods"]
+        },
+        {
+          "id": "multi-cylinder-in-line-and-radial-engines-for-primary-and",
+          "name": "multi cylinder in line and radial engines for primary and secondary balancing",
+          "requires": ["unbalanced-forces-and-couples-examination-of-v"]
+        }
+      ]
+    },
+    {
+      "id": "vibration",
+      "name": "Vibration",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction-and-basic-terminology",
+          "name": "Introduction and basic terminology"
+        },
+        {
+          "id": "types-of-vibration",
+          "name": "types of vibration",
+          "requires": ["introduction-and-basic-terminology"]
+        },
+        {
+          "id": "causes-of-vibrations-single-and-multi-degree",
+          "name": "causes of vibrations (single and multi- degree)",
+          "requires": ["types-of-vibration"]
+        },
+        {
+          "id": "effects-of-vibrations",
+          "name": "effects of vibrations",
+          "requires": ["causes-of-vibrations-single-and-multi-degree"]
+        },
+        {
+          "id": "displacement",
+          "name": "displacement",
+          "requires": ["effects-of-vibrations"]
+        },
+        {
+          "id": "velocity-and-acceleration-calculation",
+          "name": "velocity and acceleration calculation",
+          "requires": ["displacement"]
+        },
+        {
+          "id": "free-vibration-without-damping-and-with-damping",
+          "name": "Free vibration without damping and with damping",
+          "requires": ["velocity-and-acceleration-calculation"]
+        },
+        {
+          "id": "logarithmic-decrement",
+          "name": "logarithmic decrement",
+          "requires": ["free-vibration-without-damping-and-with-damping"]
+        },
+        {
+          "id": "types-of-damping",
+          "name": "types of damping",
+          "requires": ["logarithmic-decrement"]
+        },
+        {
+          "id": "forced-vibration",
+          "name": "forced vibration",
+          "requires": ["types-of-damping"]
+        },
+        {
+          "id": "forced-damped-vibration",
+          "name": "forced damped vibration",
+          "requires": ["forced-vibration"]
+        },
+        {
+          "id": "resonance",
+          "name": "resonance",
+          "requires": ["forced-damped-vibration"]
+        },
+        {
+          "id": "vibration-isolation-and-transmissibility",
+          "name": "Vibration isolation and transmissibility",
+          "requires": ["resonance"]
+        },
+        {
+          "id": "whirling-of-shaft",
+          "name": "Whirling of shaft",
+          "requires": ["vibration-isolation-and-transmissibility"]
+        },
+        {
+          "id": "torsional-system",
+          "name": "Torsional system",
+          "requires": ["whirling-of-shaft"]
+        },
+        {
+          "id": "time-domain-and-frequency-domain-signal-interpretation-and",
+          "name": "Time domain and Frequency domain signal interpretation and applications",
+          "requires": ["torsional-system"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,320 @@
+{
+  "id": "pdeu-radar-and-navigation-systems-communication-systems",
+  "name": "Radar and Navigation Systems (Communication Systems)",
+  "field": "Radar and Navigation Systems",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [7],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s7-program-elective-4--radar-and-navigation-systems-communication-systems",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Radar and Navigation Systems (Communication Systems)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "1radar-fundamentals",
+      "name": "1radar Fundamentals",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-radar-basic-radar",
+          "name": "Introduction to Radar: Basic Radar"
+        },
+        {
+          "id": "the-origins-of-radar-radar-system-block-diagrams-radar-range",
+          "name": "The Origins of Radar, radar system (block diagrams), Radar range Equation, Applications of Radar",
+          "requires": ["introduction-to-radar-basic-radar"]
+        },
+        {
+          "id": "radar-types-mti-doppler-and-pulse-prf-delay-line-cancellers",
+          "name": "Radar types: MTI, Doppler and Pulse, PRF, Delay, Line Cancellers, Staggered Pulse Repetition Frequencies, Doppler Filter Banks, Digital MTI Processing, Moving Target Detector, Limitations to MTI Perfo",
+          "requires": ["the-origins-of-radar-radar-system-block-diagrams-radar-range"]
+        },
+        {
+          "id": "tracking-with-radar-monopulse-tracking-conical-scan-and",
+          "name": "Tracking with Radar-Monopulse Tracking, Conical Scan and Sequential Lobing, Limitations to Tracking Accuracy, Low-Angle Tracking",
+          "requires": ["radar-types-mti-doppler-and-pulse-prf-delay-line-cancellers"]
+        },
+        {
+          "id": "tracking-in-range-comparison-of-trackers-automatic-tracking",
+          "name": "Tracking in Range, Comparison of Trackers, Automatic Tracking with Surveillance Radars",
+          "requires": ["tracking-with-radar-monopulse-tracking-conical-scan-and"]
+        }
+      ]
+    },
+    {
+      "id": "radar-receivers",
+      "name": "Radar Receivers",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "superheterodyne-receiver",
+          "name": "Superheterodyne Receiver",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "receiver-noise-figure",
+          "name": "Receiver noise Figure",
+          "requires": ["superheterodyne-receiver"]
+        },
+        {
+          "id": "duplexers-and-receiver-protectors",
+          "name": "Duplexers and Receiver Protectors",
+          "requires": ["receiver-noise-figure"]
+        },
+        {
+          "id": "radar-displays-matched-filter-receiver",
+          "name": "Radar Displays. Matched Filter Receiver",
+          "requires": ["duplexers-and-receiver-protectors"]
+        },
+        {
+          "id": "detection-criteria",
+          "name": "Detection Criteria",
+          "requires": ["radar-displays-matched-filter-receiver"]
+        },
+        {
+          "id": "detectors",
+          "name": "Detectors",
+          "requires": ["detection-criteria"]
+        },
+        {
+          "id": "automatic-detector",
+          "name": "Automatic Detector",
+          "requires": ["detectors"]
+        },
+        {
+          "id": "integrators",
+          "name": "Integrators",
+          "requires": ["automatic-detector"]
+        },
+        {
+          "id": "constant-false-alarm-rate-receivers",
+          "name": "Constant-False-Alarm Rate Receivers",
+          "requires": ["integrators"]
+        },
+        {
+          "id": "the-radar-operator",
+          "name": "The Radar operator",
+          "requires": ["constant-false-alarm-rate-receivers"]
+        },
+        {
+          "id": "signal-management",
+          "name": "Signal Management",
+          "requires": ["the-radar-operator"]
+        },
+        {
+          "id": "propagation-radar-waves",
+          "name": "Propagation Radar Waves",
+          "requires": ["signal-management"]
+        },
+        {
+          "id": "atmospheric-refraction",
+          "name": "Atmospheric Refraction",
+          "requires": ["propagation-radar-waves"]
+        },
+        {
+          "id": "standard-propagation",
+          "name": "Standard propagation",
+          "requires": ["atmospheric-refraction"]
+        },
+        {
+          "id": "nonstandard-propagation",
+          "name": "Nonstandard Propagation",
+          "requires": ["standard-propagation"]
+        },
+        {
+          "id": "the-radar-antenna",
+          "name": "The Radar Antenna",
+          "requires": ["nonstandard-propagation"]
+        },
+        {
+          "id": "reflector-antennas",
+          "name": "Reflector Antennas",
+          "requires": ["the-radar-antenna"]
+        },
+        {
+          "id": "electronically-steered-phased-array-antennas",
+          "name": "Electronically Steered Phased Array Antennas",
+          "requires": ["reflector-antennas"]
+        },
+        {
+          "id": "phase-shifters",
+          "name": "Phase Shifters",
+          "requires": ["electronically-steered-phased-array-antennas"]
+        },
+        {
+          "id": "frequency-scan-arrays",
+          "name": "Frequency- Scan Arrays",
+          "requires": ["phase-shifters"]
+        }
+      ]
+    },
+    {
+      "id": "radar-transmitters-and-signal-detection",
+      "name": "Radar Transmitters and Signal Detection",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-linear-beam-power-tubes",
+          "name": "Introduction –Linear Beam Power Tubes"
+        },
+        {
+          "id": "solid-state-rf-power-sources",
+          "name": "Solid State RF Power Sources",
+          "requires": ["introduction-linear-beam-power-tubes"]
+        },
+        {
+          "id": "magnetron-crossed-field-amplifiers",
+          "name": "Magnetron -Crossed Field Amplifiers",
+          "requires": ["solid-state-rf-power-sources"]
+        },
+        {
+          "id": "other-rf-power-sources",
+          "name": "Other RF Power Sources",
+          "requires": ["magnetron-crossed-field-amplifiers"]
+        },
+        {
+          "id": "other-aspects-of-radar-transmitter",
+          "name": "Other aspects of Radar Transmitter",
+          "requires": ["other-rf-power-sources"]
+        },
+        {
+          "id": "detection-of-signals-in-noise-detection-of-signals-in-noise",
+          "name": "Detection of Signals in Noise –Detection of Signals in Noise, Receiver Noise and the Signal-to-Noise Ratio, Probability Density Functions, Probabilities of Detection and False Alarm, Integration of Ra",
+          "requires": ["other-aspects-of-radar-transmitter"]
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "name": "Navigation",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-2",
+          "name": "Introduction"
+        },
+        {
+          "id": "four-methods-of-navigation",
+          "name": "Four methods of Navigation",
+          "requires": ["introduction-2"]
+        },
+        {
+          "id": "radio-direction-finding",
+          "name": "Radio Direction Finding",
+          "requires": ["four-methods-of-navigation"]
+        },
+        {
+          "id": "the-loop-antenna",
+          "name": "The Loop Antenna",
+          "requires": ["radio-direction-finding"]
+        },
+        {
+          "id": "loop-input-circuits",
+          "name": "Loop Input Circuits",
+          "requires": ["the-loop-antenna"]
+        },
+        {
+          "id": "an-aural-null-direction-finder",
+          "name": "An Aural Null Direction Finder",
+          "requires": ["loop-input-circuits"]
+        },
+        {
+          "id": "the-goniometer",
+          "name": "The Goniometer",
+          "requires": ["an-aural-null-direction-finder"]
+        },
+        {
+          "id": "errors-in-direction-finding",
+          "name": "Errors in Direction Finding",
+          "requires": ["the-goniometer"]
+        },
+        {
+          "id": "adcock-direction-finders",
+          "name": "Adcock Direction Finders",
+          "requires": ["errors-in-direction-finding"]
+        },
+        {
+          "id": "direction-finding-at-very-high-frequencies",
+          "name": "Direction Finding at Very High Frequencies",
+          "requires": ["adcock-direction-finders"]
+        },
+        {
+          "id": "automatic-direction-finders",
+          "name": "Automatic Direction Finders",
+          "requires": ["direction-finding-at-very-high-frequencies"]
+        },
+        {
+          "id": "the-commutated-aerial-direction-finder",
+          "name": "The Commutated Aerial Direction Finder",
+          "requires": ["automatic-direction-finders"]
+        },
+        {
+          "id": "range-and-accuracy-of-direction-finders",
+          "name": "Range and Accuracy of Direction Finders",
+          "requires": ["the-commutated-aerial-direction-finder"]
+        },
+        {
+          "id": "radio-ranges",
+          "name": "Radio Ranges",
+          "requires": ["range-and-accuracy-of-direction-finders"]
+        },
+        {
+          "id": "doppler-navigation",
+          "name": "Doppler Navigation",
+          "requires": ["radio-ranges"]
+        },
+        {
+          "id": "component",
+          "name": "component",
+          "requires": ["doppler-navigation"]
+        },
+        {
+          "id": "beam-configurations",
+          "name": "Beam Configurations",
+          "requires": ["component"]
+        },
+        {
+          "id": "track-stabilization",
+          "name": "Track Stabilization",
+          "requires": ["beam-configurations"]
+        },
+        {
+          "id": "introduction-to-satellite-navigation-system",
+          "name": "introduction to Satellite Navigation System",
+          "requires": ["track-stabilization"]
+        },
+        {
+          "id": "global-positioning-system-gps-instrument-landing-system",
+          "name": "Global Positioning System(GPS).Instrument landing system",
+          "requires": ["introduction-to-satellite-navigation-system"]
+        },
+        {
+          "id": "microwave-landing-system",
+          "name": "microwave landing system",
+          "requires": ["global-positioning-system-gps-instrument-landing-system"]
+        }
+      ]
+    }
+  ]
+}

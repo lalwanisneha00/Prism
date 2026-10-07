@@ -1,0 +1,207 @@
+{
+  "id": "pdeu-drilling-engineering",
+  "name": "Drilling Engineering",
+  "field": "Drilling Engineering",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [4],
+  "code": "24PE207T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s4-drilling-engineering",
+      "code": "24PE207T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Drilling Engineering",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "drilling-rig-and-drilling-fluids",
+      "name": "Drilling Rig and Drilling Fluids",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "evolution-of-well-drilling-processes",
+          "name": "Evolution of Well Drilling Processes"
+        },
+        {
+          "id": "drilling-operations",
+          "name": "Drilling Operations",
+          "requires": ["evolution-of-well-drilling-processes"]
+        },
+        {
+          "id": "drilling-rig-components-systems-power-derrick-and-sub",
+          "name": "Drilling Rig Components/Systems: Power, Derrick & Sub-structure, Hoisting System, Rotary systems, Circulation & Mud treatment, Rig control system",
+          "requires": ["drilling-operations"]
+        },
+        {
+          "id": "drilling-fluids-basics-functions-properties-and-nature",
+          "name": "Drilling Fluids: Basics, Functions, Properties and Nature",
+          "requires": ["drilling-rig-components-systems-power-derrick-and-sub"]
+        },
+        {
+          "id": "classification-of-drilling-fluids-viz",
+          "name": "Classification of drilling fluids viz",
+          "requires": ["drilling-fluids-basics-functions-properties-and-nature"]
+        },
+        {
+          "id": "pneumatic-drilling-fluid-water-based-drilling-fluids-oil",
+          "name": "Pneumatic drilling fluid, Water-based drilling fluids, Oil-based drilling fluids",
+          "requires": ["classification-of-drilling-fluids-viz"]
+        },
+        {
+          "id": "latest-advances-and-emerging-trends-in-drilling-fluids-viz",
+          "name": "Latest advances and emerging trends in drilling fluids viz. use of NDDF, Inhibitive, and Non-inhibitive",
+          "requires": ["pneumatic-drilling-fluid-water-based-drilling-fluids-oil"]
+        },
+        {
+          "id": "balanced-underbalanced-drilling",
+          "name": "Balanced/Underbalanced drilling",
+          "requires": ["latest-advances-and-emerging-trends-in-drilling-fluids-viz"]
+        },
+        {
+          "id": "rheological-models-of-drilling-fluids-bingham-plastic-model",
+          "name": "Rheological models of drilling fluids: Bingham Plastic Model, Power law model, Herschel-Buckley model, Mud weight Calculations",
+          "requires": ["balanced-underbalanced-drilling"]
+        },
+        {
+          "id": "well-planning-and-geo-technical-order-gto",
+          "name": "Well Planning and Geo-Technical Order (GTO)",
+          "requires": ["rheological-models-of-drilling-fluids-bingham-plastic-model"]
+        },
+        {
+          "id": "pore-pressure-prediction-fracture-pressure-overburden",
+          "name": "Pore Pressure prediction, Fracture pressure, Overburden Pressure, and Abnormal pressure",
+          "requires": ["well-planning-and-geo-technical-order-gto"]
+        }
+      ]
+    },
+    {
+      "id": "drill-string-casing-and-bit-design",
+      "name": "Drill String, Casing, and Bit Design",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "drill-string-components-and-functions",
+          "name": "Drill String: Components and functions"
+        },
+        {
+          "id": "drill-string-design",
+          "name": "Drill String design",
+          "requires": ["drill-string-components-and-functions"]
+        },
+        {
+          "id": "drill-string-fatigue-failure",
+          "name": "Drill String fatigue failure",
+          "requires": ["drill-string-design"]
+        },
+        {
+          "id": "drill-bits-types-performance-and-criteria-for-design-bit",
+          "name": "Drill Bits: Types, Performance and Criteria for design, Bit Nozzle size selection, Rig Hydraulics",
+          "requires": ["drill-string-fatigue-failure"]
+        },
+        {
+          "id": "bit-failure",
+          "name": "Bit failure",
+          "requires": ["drill-bits-types-performance-and-criteria-for-design-bit"]
+        },
+        {
+          "id": "casing-functions-configuration-types-properties-casing",
+          "name": "Casing: Functions, Configuration, Types, Properties, Casing setting depth and hole sizes, Casing handling practices",
+          "requires": ["bit-failure"]
+        },
+        {
+          "id": "casing-design-criteria",
+          "name": "Casing design criteria",
+          "requires": ["casing-functions-configuration-types-properties-casing"]
+        },
+        {
+          "id": "casing-and-liner-design",
+          "name": "Casing and Liner design",
+          "requires": ["casing-design-criteria"]
+        }
+      ]
+    },
+    {
+      "id": "cementing-techniques",
+      "name": "Cementing Techniques",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction-to-cementing-cement-and-cement-slurry",
+          "name": "Introduction to Cementing, Cement and Cement Slurry: Objectives of cementing, Classification of cement, Slurry design, Slurry additives, Factors influencing cement slurry design"
+        },
+        {
+          "id": "cementing-equipment",
+          "name": "Cementing equipment",
+          "requires": ["introduction-to-cementing-cement-and-cement-slurry"]
+        },
+        {
+          "id": "cementing-methods-primary-cementing-stage-cementing-liner",
+          "name": "Cementing Methods: Primary cementing, Stage cementing, Liner cementing, Plug Cementing, Squeeze Cementing techniques in practice",
+          "requires": ["cementing-equipment"]
+        },
+        {
+          "id": "deep-well-cementing",
+          "name": "Deep well cementing",
+          "requires": ["cementing-methods-primary-cementing-stage-cementing-liner"]
+        },
+        {
+          "id": "characteristics-of-good-quality-cementation-using-cbl-vdl",
+          "name": "Characteristics of good quality cementation using CBL/VDL. Cementing calculation",
+          "requires": ["deep-well-cementing"]
+        }
+      ]
+    },
+    {
+      "id": "drilling-problems-and-rig-site-hse",
+      "name": "Drilling Problems and Rig Site HSE",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "pipe-sticking-and-calculations-pipe-failure-lost-circulation",
+          "name": "Pipe sticking and Calculations, Pipe failure, Lost circulation, Hole Deviation, Sloughing shale, Formation damage, Borehole Instability"
+        },
+        {
+          "id": "fishing-and-coring-operations",
+          "name": "Fishing and coring operations",
+          "requires": ["pipe-sticking-and-calculations-pipe-failure-lost-circulation"]
+        },
+        {
+          "id": "hole-cleaning",
+          "name": "Hole Cleaning",
+          "requires": ["fishing-and-coring-operations"]
+        },
+        {
+          "id": "general-equipment-and-personnel-safety",
+          "name": "General equipment and personnel safety",
+          "requires": ["hole-cleaning"]
+        },
+        {
+          "id": "environmental-impact-of-drilling-fluid",
+          "name": "Environmental Impact of Drilling fluid",
+          "requires": ["general-equipment-and-personnel-safety"]
+        },
+        {
+          "id": "drilling-waste-management-classification-of-drilling-waste",
+          "name": "Drilling waste management: Classification of drilling waste, Approaches of Drilling waste minimization",
+          "requires": ["environmental-impact-of-drilling-fluid"]
+        }
+      ]
+    }
+  ]
+}

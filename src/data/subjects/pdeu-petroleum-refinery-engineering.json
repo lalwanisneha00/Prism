@@ -1,0 +1,173 @@
+{
+  "id": "pdeu-petroleum-refinery-engineering",
+  "name": "Petroleum Refinery Engineering",
+  "field": "Petroleum Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [5],
+  "code": "24PE332T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s5-program-elective-choose-one--petroleum-refinery-engineering",
+      "code": "24PE332T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Petroleum Refinery Engineering",
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "petroleum-crude-and-products-characterization",
+      "name": "Petroleum Crude and Products Characterization",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "types-of-crudes",
+          "name": "Types of crudes"
+        },
+        {
+          "id": "crude-composition",
+          "name": "crude composition Characteristics and classification–Crude oil properties",
+          "requires": ["types-of-crudes"]
+        },
+        {
+          "id": "is-1448-standard-testing-of-petroleum-crude-products",
+          "name": "IS 1448: Standard –Testing of Petroleum crude Products: Specifications and their Significance",
+          "requires": ["crude-composition"]
+        }
+      ]
+    },
+    {
+      "id": "processing-of-petroleum-and-treatment-techniques",
+      "name": "Processing of Petroleum and Treatment Techniques",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "pre-treatment-of-crude-for-refining-dehydration-and",
+          "name": "Pre-treatment of crude for Refining–Dehydration and desalting–Atmospheric distillation"
+        },
+        {
+          "id": "vacuum-distillation",
+          "name": "Vacuum distillation of residue products–Treatment techniques for vacuum distillates with different processes like solvent extraction –DE asphalting",
+          "requires": ["pre-treatment-of-crude-for-refining-dehydration-and"]
+        },
+        {
+          "id": "dewaxing",
+          "name": "dewaxing",
+          "requires": ["vacuum-distillation"]
+        },
+        {
+          "id": "hydro-fining",
+          "name": "hydro fining",
+          "requires": ["dewaxing"]
+        },
+        {
+          "id": "catalytic-dewaxing-and-clay-contact-process-production-of",
+          "name": "catalytic dewaxing and clay contact process– Production of lubricating oils",
+          "requires": ["hydro-fining"]
+        },
+        {
+          "id": "hydro-cracking",
+          "name": "Hydro cracking",
+          "requires": ["catalytic-dewaxing-and-clay-contact-process-production-of"]
+        },
+        {
+          "id": "principles",
+          "name": "principles",
+          "requires": ["hydro-cracking"]
+        },
+        {
+          "id": "process-requirements",
+          "name": "process requirements",
+          "requires": ["principles"]
+        },
+        {
+          "id": "product-yields-and-qualities-and-reside-cracking",
+          "name": "product yields and qualities and reside-cracking –Hydrotreating –Sulphur removal",
+          "requires": ["process-requirements"]
+        },
+        {
+          "id": "hydro-finishing",
+          "name": "hydro finishing",
+          "requires": ["product-yields-and-qualities-and-reside-cracking"]
+        }
+      ]
+    },
+    {
+      "id": "thermal-and-catalytic-cracking",
+      "name": "Thermal and Catalytic Cracking",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "thermal-cracking",
+          "name": "Thermal cracking"
+        },
+        {
+          "id": "processes-operating-parameters-feed-stock-selection-and",
+          "name": "Processes, operating parameters, feed stock selection and product yields, Advantages –Types and functions of secondary processing",
+          "requires": ["thermal-cracking"]
+        },
+        {
+          "id": "visbreaking",
+          "name": "Visbreaking",
+          "requires": ["processes-operating-parameters-feed-stock-selection-and"]
+        },
+        {
+          "id": "processes-operating-parameters-and-advantages-coking",
+          "name": "Processes, operating parameters and advantages–Coking –Operating parameters and advantages",
+          "requires": ["visbreaking"]
+        },
+        {
+          "id": "fcc",
+          "name": "Fluid catalytic cracking –processes, operating parameters, feed stock selection and product yields –Advantages",
+          "requires": ["processes-operating-parameters-and-advantages-coking"]
+        }
+      ]
+    },
+    {
+      "id": "upgradation-of-refining-products",
+      "name": "Upgradation of Refining Products",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "principle-processes-operating-parameter-and-advantages-of",
+          "name": "Principle, Processes, Operating Parameter and advantages of Reforming"
+        },
+        {
+          "id": "isomerisation",
+          "name": "Isomerisation",
+          "requires": ["principle-processes-operating-parameter-and-advantages-of"]
+        },
+        {
+          "id": "alkylation",
+          "name": "Alkylation",
+          "requires": ["isomerisation"]
+        },
+        {
+          "id": "polymerization",
+          "name": "Polymerization",
+          "requires": ["alkylation"]
+        },
+        {
+          "id": "asphalt-manufacture-air-blowing-technology-bitumen-types-and",
+          "name": "Asphalt manufacture, Air blowing technology, Bitumen Types and their properties, Acid gas removal and sulphur removal techniques",
+          "requires": ["polymerization"]
+        }
+      ]
+    }
+  ]
+}

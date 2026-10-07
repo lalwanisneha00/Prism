@@ -1,0 +1,137 @@
+{
+  "id": "pdeu-structural-analysis",
+  "name": "Structural Analysis",
+  "field": "Civil Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [4],
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s4-structural-analysis",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Structural Analysis",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "strain-energy-deflections-and-two-hinged-arches",
+      "name": "Strain Energy, Deflections and Two hinged arches",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "stability-and-determinacy-of-structure-statically",
+          "name": "Stability and Determinacy of Structure Statically determinate and indeterminate structures by force/ energy methods"
+        },
+        {
+          "id": "method-of-superposition-plane-trusses-deflection-of-trusses",
+          "name": "Method of superposition, Plane Trusses, Deflection of Trusses",
+          "requires": ["stability-and-determinacy-of-structure-statically"]
+        },
+        {
+          "id": "deflections-of-beam-and-frame",
+          "name": "Deflections of beam and frame",
+          "requires": ["method-of-superposition-plane-trusses-deflection-of-trusses"]
+        },
+        {
+          "id": "introduction-to-arches",
+          "name": "Introduction to arches",
+          "requires": ["deflections-of-beam-and-frame"]
+        }
+      ]
+    },
+    {
+      "id": "ild-moving-loads-and-consistent-deformation",
+      "name": "ILD, moving loads and consistent deformation",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "influence-line-diagrams-for-reaction",
+          "name": "Influence Line Diagrams for reaction"
+        },
+        {
+          "id": "shear-force-and-bending-moments-of-statically-determinate",
+          "name": "shear force and bending moments of statically determinate beams",
+          "requires": ["influence-line-diagrams-for-reaction"]
+        },
+        {
+          "id": "maximum-bending-moments-and-shear-forces-at-specified",
+          "name": "Maximum bending moments and shear forces at specified sections due to static and moving loads",
+          "requires": ["shear-force-and-bending-moments-of-statically-determinate"]
+        },
+        {
+          "id": "consistent-deformation-method-method-of-least-work-analysis",
+          "name": "Consistent deformation method/Method of least work: Analysis of single span beams with various loading and boundary conditions",
+          "requires": ["maximum-bending-moments-and-shear-forces-at-specified"]
+        }
+      ]
+    },
+    {
+      "id": "slope-deflection-method",
+      "name": "Slope deflection method",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "fixed-beams-analysis-for-end-moments-and-introduction-to",
+          "name": "Fixed beams analysis for end moments and introduction to continuous beams"
+        },
+        {
+          "id": "slope-deflection",
+          "name": "Slope deflection method: Introduction",
+          "requires": ["fixed-beams-analysis-for-end-moments-and-introduction-to"]
+        },
+        {
+          "id": "sign-convention",
+          "name": "Sign convention",
+          "requires": ["slope-deflection"]
+        },
+        {
+          "id": "development-of-slope-deflection-equations-and-analysis-of",
+          "name": "Development of slope-deflection equations and Analysis of beams and orthogonal rigid jointed plane frames (non-sway and sway analysis)",
+          "requires": ["sign-convention"]
+        }
+      ]
+    },
+    {
+      "id": "moment-distribution-method",
+      "name": "Moment distribution method",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "moment-distribution",
+          "name": "Moment Distribution Method: Introduction",
+          "requires": ["slope-deflection"]
+        },
+        {
+          "id": "definition-of-terms-distribution-factor",
+          "name": "Definition of terms-Distribution factor",
+          "requires": ["moment-distribution"]
+        },
+        {
+          "id": "carry-over-factor",
+          "name": "Carry over factor",
+          "requires": ["definition-of-terms-distribution-factor"]
+        },
+        {
+          "id": "development-of-method-and-analysis-of-beams-and-orthogonal",
+          "name": "Development of method and Analysis of beams and orthogonal rigid jointed plane frames (non-sway and sway analysis)",
+          "requires": ["carry-over-factor"]
+        }
+      ]
+    }
+  ]
+}

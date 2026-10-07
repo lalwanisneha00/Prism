@@ -1,0 +1,232 @@
+{
+  "id": "pdeu-computer-networks",
+  "name": "Computer Networks",
+  "field": "Computer Networks",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [5],
+  "code": "24CS302T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-computer-networks",
+      "code": "24CS302T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Computer Networks",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "network-stack-and-data-link-layer",
+      "name": "Network Stack and Data Link Layer",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "introduction-to-computer-network-and-internet",
+          "name": "Introduction to Computer Network and Internet"
+        },
+        {
+          "id": "layered-architecture-osi-and-tcp-ip",
+          "name": "Layered Architecture (OSI and TCP/IP)",
+          "requires": ["introduction-to-computer-network-and-internet"]
+        },
+        {
+          "id": "guided-and-unguided-media",
+          "name": "Guided and Unguided Media",
+          "requires": ["layered-architecture-osi-and-tcp-ip"]
+        },
+        {
+          "id": "framing",
+          "name": "Framing",
+          "requires": ["guided-and-unguided-media"]
+        },
+        {
+          "id": "flow-control",
+          "name": "Flow Control",
+          "requires": ["framing"]
+        },
+        {
+          "id": "error-control",
+          "name": "Error Control",
+          "requires": ["flow-control"]
+        },
+        {
+          "id": "media-access-control-aloha-csma-cd",
+          "name": "Media Access Control (ALOHA, CSMA/CD)",
+          "requires": ["error-control"]
+        },
+        {
+          "id": "ethernet-802-3",
+          "name": "Ethernet 802.3",
+          "requires": ["media-access-control-aloha-csma-cd"]
+        },
+        {
+          "id": "wireless-lan-802-11",
+          "name": "Wireless LAN 802.11",
+          "requires": ["ethernet-802-3"]
+        },
+        {
+          "id": "token-ring-802-5",
+          "name": "Token Ring 802.5",
+          "requires": ["wireless-lan-802-11"]
+        },
+        {
+          "id": "reliability-issue",
+          "name": "Reliability Issue",
+          "requires": ["token-ring-802-5"]
+        },
+        {
+          "id": "sliding-window",
+          "name": "Sliding Window",
+          "requires": ["reliability-issue"]
+        }
+      ]
+    },
+    {
+      "id": "network-layer",
+      "name": "Network Layer",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "internetworking-and-routing-best-effort-service",
+          "name": "Internetworking and Routing: Best effort Service"
+        },
+        {
+          "id": "switching",
+          "name": "Switching",
+          "requires": ["internetworking-and-routing-best-effort-service"]
+        },
+        {
+          "id": "virtual-circuit",
+          "name": "Virtual Circuit",
+          "requires": ["switching"]
+        },
+        {
+          "id": "ip-addressing",
+          "name": "IP Addressing",
+          "requires": ["virtual-circuit"]
+        },
+        {
+          "id": "routing-issue",
+          "name": "Routing Issue",
+          "requires": ["ip-addressing"]
+        },
+        {
+          "id": "routing-algorithms",
+          "name": "Distance Vector and Link State Routing",
+          "requires": ["routing-issue"]
+        },
+        {
+          "id": "open-shortest-path-first",
+          "name": "Open Shortest Path First",
+          "requires": ["routing-algorithms"]
+        },
+        {
+          "id": "routing-information-protocol",
+          "name": "Routing Information Protocol",
+          "requires": ["open-shortest-path-first"]
+        },
+        {
+          "id": "border-gateway-protocol",
+          "name": "Border Gateway Protocol",
+          "requires": ["routing-information-protocol"]
+        },
+        {
+          "id": "ipv6-addressing",
+          "name": "IPv6 Addressing",
+          "requires": ["border-gateway-protocol"]
+        },
+        {
+          "id": "protocol",
+          "name": "Protocol",
+          "requires": ["ipv6-addressing"]
+        },
+        {
+          "id": "transition-from-ipv4-to-ipv6",
+          "name": "Transition from IPv4 to IPv6",
+          "requires": ["protocol"]
+        }
+      ]
+    },
+    {
+      "id": "transport-layer",
+      "name": "Transport Layer",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "end-to-end-delivery-issues",
+          "name": "End to end delivery issues"
+        },
+        {
+          "id": "reliable-data-transfer",
+          "name": "Reliable data transfer",
+          "requires": ["end-to-end-delivery-issues"]
+        },
+        {
+          "id": "congestion-control",
+          "name": "Congestion control",
+          "requires": ["reliable-data-transfer"]
+        },
+        {
+          "id": "traffic-engineering-and-quality-of-service",
+          "name": "Traffic engineering and Quality of Service",
+          "requires": ["congestion-control"]
+        },
+        {
+          "id": "tcp-and-udp",
+          "name": "TCP and UDP",
+          "requires": ["traffic-engineering-and-quality-of-service"]
+        }
+      ]
+    },
+    {
+      "id": "application-layer",
+      "name": "Application Layer",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "introduction-to-application-layer",
+          "name": "Introduction to Application Layer"
+        },
+        {
+          "id": "application-layer-protocols-domain-name-system",
+          "name": "Application layer protocols: Domain Name System",
+          "requires": ["introduction-to-application-layer"]
+        },
+        {
+          "id": "file-transfer-protocol",
+          "name": "File Transfer Protocol",
+          "requires": ["application-layer-protocols-domain-name-system"]
+        },
+        {
+          "id": "hyper-text-transfer-protocol",
+          "name": "Hyper Text Transfer Protocol",
+          "requires": ["file-transfer-protocol"]
+        },
+        {
+          "id": "simple-mail-transfer-protocol",
+          "name": "Simple Mail Transfer Protocol",
+          "requires": ["hyper-text-transfer-protocol"]
+        },
+        {
+          "id": "multipurpose-internet-mail-extension",
+          "name": "Multipurpose Internet Mail Extension",
+          "requires": ["simple-mail-transfer-protocol"]
+        }
+      ]
+    }
+  ]
+}

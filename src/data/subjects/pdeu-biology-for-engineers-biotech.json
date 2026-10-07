@@ -1,0 +1,152 @@
+{
+  "id": "pdeu-biology-for-engineers-biotech",
+  "name": "Biology for Engineers (Biotech)",
+  "field": "Biology for Engineers",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [1],
+  "code": "24BT102T",
+  "credits": 2,
+  "ltp": "2-0-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s1-biology-for-engineers",
+      "code": "24BT102T",
+      "category": "Basic Science",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 1,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Biology for Engineers",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-to-biomolecules",
+      "name": "Introduction to Biomolecules",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "cell-as-the-basic-unit-of-life",
+          "name": "Cell as the basic unit of life"
+        },
+        {
+          "id": "overview-of-cell-structure-and-functions",
+          "name": "Overview of cell structure and functions",
+          "requires": ["cell-as-the-basic-unit-of-life"]
+        },
+        {
+          "id": "carbohydrates-properties-and-biological-functions",
+          "name": "Carbohydrates: Properties and biological functions",
+          "requires": ["overview-of-cell-structure-and-functions"]
+        },
+        {
+          "id": "dna-rna-structure",
+          "name": "Nucleic Acids: Structure and roles of DNA and RNA. Proteins: Structure, and its functions",
+          "requires": ["carbohydrates-properties-and-biological-functions"]
+        },
+        {
+          "id": "significance-of-lipids-role-of-biomolecules-characteristics",
+          "name": "Significance of lipids. Role of biomolecules: Characteristics and roles of enzymes, vitamins, and hormones",
+          "requires": ["dna-rna-structure"]
+        }
+      ]
+    },
+    {
+      "id": "nature-bioinspired-materials-and-mechanisms",
+      "name": "Nature-bioinspired Materials and Mechanisms (qualitative)",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "echolocation-ultrasonography-sonars",
+          "name": "Echolocation (ultrasonography, sonars)"
+        },
+        {
+          "id": "photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying",
+          "name": "Photosynthesis (photovoltaic cells, bionic leaf). Bird flying (GPS and aircrafts)",
+          "requires": ["echolocation-ultrasonography-sonars"]
+        },
+        {
+          "id": "lotus-leaf-effect-super-hydrophobic-and-self-cleaning",
+          "name": "Lotus leaf effect (Super hydrophobic and self-cleaning surfaces)",
+          "requires": ["photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying"]
+        },
+        {
+          "id": "plant-burrs-velcro",
+          "name": "Plant burrs (Velcro)",
+          "requires": ["lotus-leaf-effect-super-hydrophobic-and-self-cleaning"]
+        },
+        {
+          "id": "shark-skin-friction-reducing-swim-suits",
+          "name": "Shark skin (Friction reducing swim suits)",
+          "requires": ["plant-burrs-velcro"]
+        },
+        {
+          "id": "kingfisher-beak-bullet-train",
+          "name": "Kingfisher beak (Bullet train)",
+          "requires": ["shark-skin-friction-reducing-swim-suits"]
+        },
+        {
+          "id": "human-blood-substitutes-hemoglobin-based-oxygen-carriers",
+          "name": "Human Blood substitutes- hemoglobin-based oxygen carriers (HBOCs) and perflourocarbons (PFCs)",
+          "requires": ["kingfisher-beak-bullet-train"]
+        }
+      ]
+    },
+    {
+      "id": "engineering-perspectives-of-biological-sciences",
+      "name": "Engineering Perspectives of Biological Sciences",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "biology-and-engineering-crosstalk-hybridoma-technology-plant",
+          "name": "Biology and engineering crosstalk –Hybridoma technology, Plant Tissue Culture, Animal Tissue Culture"
+        },
+        {
+          "id": "tissue-engineering-introduction-to-biomimetics-and",
+          "name": "Tissue Engineering, Introduction to Biomimetics and Biomimicry, Nanobiotechnology, Introduction to Radiology, High-throughput diagnostics in clinics, Bioprocessing and Biomaterials",
+          "requires": ["biology-and-engineering-crosstalk-hybridoma-technology-plant"]
+        }
+      ]
+    },
+    {
+      "id": "trends-in-bioengineering",
+      "name": "Trends in Bioengineering",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "stem-cell-and-its-applications",
+          "name": "Stem cell and its applications"
+        },
+        {
+          "id": "bio-printing-techniques-and-materials-applications-of",
+          "name": "Bio printing techniques and materials. Applications of Bioinformatics",
+          "requires": ["stem-cell-and-its-applications"]
+        },
+        {
+          "id": "artificial-intelligence-for-diagnosis-and-detection-of",
+          "name": "Artificial Intelligence for diagnosis and detection of communicable and non-communicable diseases",
+          "requires": ["bio-printing-techniques-and-materials-applications-of"]
+        },
+        {
+          "id": "biosensors-in-healthcare",
+          "name": "Biosensors in healthcare",
+          "requires": ["artificial-intelligence-for-diagnosis-and-detection-of"]
+        },
+        {
+          "id": "environmental-monitoring",
+          "name": "Environmental monitoring",
+          "requires": ["biosensors-in-healthcare"]
+        }
+      ]
+    }
+  ]
+}

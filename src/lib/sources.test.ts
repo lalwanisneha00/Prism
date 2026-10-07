@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { SourceSchema } from "@/lib/schema";
 import { sourcesForTopic, topicsWithSources, wikipediaUrl } from "@/lib/sources";
-import { subjects } from "@/lib/subjects";
+import { allSubjects as subjects } from "@/lib/subjects";
 
 describe("source map", () => {
   const em = subjects.find((s) => s.id === "em");

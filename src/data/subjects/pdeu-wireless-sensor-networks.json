@@ -1,0 +1,228 @@
+{
+  "id": "pdeu-wireless-sensor-networks",
+  "name": "Wireless Sensor Networks",
+  "field": "Wireless Sensor Networks",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [6],
+  "code": "24CS345T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s6-program-elective-3--wireless-sensor-networks",
+      "code": "24CS345T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core",
+      "track": "Communication track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Wireless Sensor Networks",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "key-definitions-of-sensor-networks",
+          "name": "Key definitions of sensor networks"
+        },
+        {
+          "id": "advantages-of-sensor-networks",
+          "name": "Advantages of sensor networks",
+          "requires": ["key-definitions-of-sensor-networks"]
+        },
+        {
+          "id": "unique-constraints-and-challenges",
+          "name": "Unique constraints and challenges",
+          "requires": ["advantages-of-sensor-networks"]
+        },
+        {
+          "id": "driving-applications",
+          "name": "Driving applications",
+          "requires": ["unique-constraints-and-challenges"]
+        },
+        {
+          "id": "enabling-technologies-for-wireless-sensor-networks",
+          "name": "Enabling technologies for wireless sensor networks",
+          "requires": ["driving-applications"]
+        },
+        {
+          "id": "single-node-architecture",
+          "name": "Single- Node architecture",
+          "requires": ["enabling-technologies-for-wireless-sensor-networks"]
+        },
+        {
+          "id": "hardware-components",
+          "name": "Hardware components",
+          "requires": ["single-node-architecture"]
+        },
+        {
+          "id": "energy-consumption-of-sensor-nodes",
+          "name": "Energy consumption of sensor nodes",
+          "requires": ["hardware-components"]
+        },
+        {
+          "id": "network-architecture-sensor-network-scenarios",
+          "name": "Network architecture -sensor network scenarios",
+          "requires": ["energy-consumption-of-sensor-nodes"]
+        },
+        {
+          "id": "optimization-goals-and-figures-of-merit",
+          "name": "Optimization goals and Figures of merit",
+          "requires": ["network-architecture-sensor-network-scenarios"]
+        }
+      ]
+    },
+    {
+      "id": "mac-protocols",
+      "name": "Mac Protocols",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "classifications-of-mac-protocols",
+          "name": "Classifications of MAC protocols",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "contention-based-protocols",
+          "name": "Contention-based protocols",
+          "requires": ["classifications-of-mac-protocols"]
+        },
+        {
+          "id": "contention-based-protocols-with-reservation-mechanisms",
+          "name": "Contention-based protocols with reservation mechanisms",
+          "requires": ["contention-based-protocols"]
+        },
+        {
+          "id": "contention-based-mac-protocols-with-scheduling-mechanisms",
+          "name": "Contention-based MAC protocols with scheduling mechanisms",
+          "requires": ["contention-based-protocols-with-reservation-mechanisms"]
+        },
+        {
+          "id": "other-mac-protocols",
+          "name": "Other MAC protocols",
+          "requires": ["contention-based-mac-protocols-with-scheduling-mechanisms"]
+        }
+      ]
+    },
+    {
+      "id": "routing-protocols",
+      "name": "Routing Protocols",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction-2",
+          "name": "Introduction"
+        },
+        {
+          "id": "classification-of-routing-protocols",
+          "name": "Classification of routing protocols",
+          "requires": ["introduction-2"]
+        },
+        {
+          "id": "table-driven-routing-protocols",
+          "name": "Table-driven routing protocols",
+          "requires": ["classification-of-routing-protocols"]
+        },
+        {
+          "id": "on-demand-routing-protocols",
+          "name": "On- demand routing protocols",
+          "requires": ["table-driven-routing-protocols"]
+        },
+        {
+          "id": "hybrid-routing-protocols",
+          "name": "Hybrid routing protocols",
+          "requires": ["on-demand-routing-protocols"]
+        },
+        {
+          "id": "routing-protocols-with-efficient-flooding-mechanisms",
+          "name": "Routing protocols with efficient flooding mechanisms",
+          "requires": ["hybrid-routing-protocols"]
+        },
+        {
+          "id": "hierarchical-routing-protocols",
+          "name": "Hierarchical routing protocols",
+          "requires": ["routing-protocols-with-efficient-flooding-mechanisms"]
+        },
+        {
+          "id": "power-aware-routing-protocols",
+          "name": "Power-aware routing protocols",
+          "requires": ["hierarchical-routing-protocols"]
+        },
+        {
+          "id": "proactive-routing",
+          "name": "Proactive routing",
+          "requires": ["power-aware-routing-protocols"]
+        }
+      ]
+    },
+    {
+      "id": "transport-layer-and-security-challenges",
+      "name": "Transport Layer and Security Challenges",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-transport-layer-protocols",
+          "name": "Introduction to transport layer protocols"
+        },
+        {
+          "id": "classification-of-transport-layer-solutions",
+          "name": "Classification of transport layer solutions",
+          "requires": ["introduction-to-transport-layer-protocols"]
+        },
+        {
+          "id": "tcp-over-ad-hoc-wireless-networks",
+          "name": "TCP over Ad Hoc wireless networks",
+          "requires": ["classification-of-transport-layer-solutions"]
+        },
+        {
+          "id": "other-transport-layer-protocol-for-ad-hoc-wireless-networks",
+          "name": "Other transport layer protocol for Ad Hoc wireless networks",
+          "requires": ["tcp-over-ad-hoc-wireless-networks"]
+        },
+        {
+          "id": "security-in-ad-hoc-wireless-networks",
+          "name": "Security in Ad Hoc wireless networks",
+          "requires": ["other-transport-layer-protocol-for-ad-hoc-wireless-networks"]
+        },
+        {
+          "id": "network-security-requirements",
+          "name": "Network security requirements",
+          "requires": ["security-in-ad-hoc-wireless-networks"]
+        },
+        {
+          "id": "issues-and-challenges-in-security-provisioning",
+          "name": "Issues and challenges in security provisioning",
+          "requires": ["network-security-requirements"]
+        },
+        {
+          "id": "network-security-attacks",
+          "name": "Network security attacks",
+          "requires": ["issues-and-challenges-in-security-provisioning"]
+        },
+        {
+          "id": "secure-routing-in-ad-hoc-wireless-networks",
+          "name": "Secure routing in Ad Hoc wireless networks",
+          "requires": ["network-security-attacks"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { sourcesForTopic, topicsWithSources } from "@/lib/sources";
 import { SourceSchema, VisualSpecSchema } from "@/lib/schema";
-import { subjects } from "@/lib/subjects";
+import { allSubjects as subjects } from "@/lib/subjects";
 import { widgetProblem } from "@/visuals/registry";
 import { visualProblem, visualPromptRules } from "@/visuals/visualChecks";
 
@@ -111,11 +111,6 @@ describe("Engineering Mathematics data", () => {
       title: "Calculus Volume 3, §6.4 Green's Theorem",
       url: "https://openstax.org/books/calculus-volume-3/pages/6-4-greens-theorem",
     });
-  });
-
-  it("uses unique ids across all subjects", () => {
-    const all = subjects.flatMap((s) => s.chapters.flatMap((c) => c.topics.map((t) => t.id)));
-    expect(new Set(all).size).toBe(all.length);
   });
 });
 

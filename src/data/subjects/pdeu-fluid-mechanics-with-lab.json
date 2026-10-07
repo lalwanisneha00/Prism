@@ -1,0 +1,171 @@
+{
+  "id": "pdeu-fluid-mechanics-with-lab",
+  "name": "Fluid Mechanics (with lab)",
+  "field": "Mechanical Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [4],
+  "credits": 4,
+  "ltp": "3-0-2",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s4-fluid-mechanics-with-lab",
+      "category": "Program Core",
+      "ltp": "3-0-2",
+      "credits": 4,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Fluid Mechanics (with lab)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "fluids",
+  "chapters": [
+    {
+      "id": "fundamentals-of-fluid-mechanics",
+      "name": "Fundamentals of Fluid Mechanics",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "properties-of-fluid-introduction-of-fluid-mechanics",
+          "name": "Properties Of Fluid: Introduction of Fluid Mechanics, Properties of Fluid"
+        },
+        {
+          "id": "density-specific-gravity-viscosity-compressibility-bulk",
+          "name": "Density, Specific Gravity, Viscosity, Compressibility, Bulk Modulus, Surface Tension, Capillarity",
+          "requires": ["properties-of-fluid-introduction-of-fluid-mechanics"]
+        },
+        {
+          "id": "pressure-measurement-pascals-law-pressure-measurement",
+          "name": "Pressure Measurement: Pascal’s Law, Pressure Measurement",
+          "requires": ["density-specific-gravity-viscosity-compressibility-bulk"]
+        },
+        {
+          "id": "fluid-pressure-manometers",
+          "name": "Manometers. Hydrostatic Forces: Total Pressure and Centre of Pressure",
+          "requires": ["pressure-measurement-pascals-law-pressure-measurement"]
+        },
+        {
+          "id": "vertical-plane-surface-horizontal-plane-surface-inclined",
+          "name": "Vertical Plane surface, Horizontal Plane Surface, Inclined Plane Surface, Curved Surface and Lock Gates",
+          "requires": ["fluid-pressure-manometers"]
+        },
+        {
+          "id": "buoyancy-buoyancy-metacentre-and-metacentric-height",
+          "name": "Buoyancy: Buoyancy, Metacentre and Metacentric Height",
+          "requires": ["vertical-plane-surface-horizontal-plane-surface-inclined"]
+        },
+        {
+          "id": "determination-equilibrium-conditions",
+          "name": "Determination, Equilibrium Conditions",
+          "requires": ["buoyancy-buoyancy-metacentre-and-metacentric-height"]
+        }
+      ]
+    },
+    {
+      "id": "fluid-kinematics-and-dynamics",
+      "name": "Fluid Kinematics and Dynamics",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "fluid-kinematics-introduction-types-of-flow-continuity",
+          "name": "Fluid Kinematics: Introduction, Types of Flow, Continuity Equation"
+        },
+        {
+          "id": "stream-function-potential",
+          "name": "Three Dimensions and Cylindrical Co-ordinates, Velocity and Acceleration, Velocity Potential Function and Stream Function, Vortex Flow",
+          "requires": ["fluid-kinematics-introduction-types-of-flow-continuity"]
+        },
+        {
+          "id": "euler-bernoulli-fm",
+          "name": "Fluid Dynamics: Introduction, Euler’s and Bernoulli’s Equation, Practical Application of Bernoulli’s Equation",
+          "requires": ["stream-function-potential"]
+        },
+        {
+          "id": "venturimeter-orifice-meter-and-pitot-tube-momentum-equation",
+          "name": "Venturimeter, Orifice Meter and Pitot Tube, Momentum Equation, Free Liquid Jets",
+          "requires": ["euler-bernoulli-fm"]
+        }
+      ]
+    },
+    {
+      "id": "viscous-and-turbulent-flow",
+      "name": "Viscous and Turbulent Flow",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "viscous-flow-introduction",
+          "name": "Viscous Flow: Introduction"
+        },
+        {
+          "id": "flow-of-viscous-fluid-circular-pipe-and-parallel-plates",
+          "name": "Flow of Viscous Fluid – Circular pipe and Parallel Plates",
+          "requires": ["viscous-flow-introduction"]
+        },
+        {
+          "id": "correction-factors",
+          "name": "Correction Factors",
+          "requires": ["flow-of-viscous-fluid-circular-pipe-and-parallel-plates"]
+        },
+        {
+          "id": "power-absorbed-in-viscous-flow",
+          "name": "Power Absorbed in Viscous Flow",
+          "requires": ["correction-factors"]
+        },
+        {
+          "id": "loss-of-head-due-to-viscous-flow",
+          "name": "Loss of Head due to Viscous Flow",
+          "requires": ["power-absorbed-in-viscous-flow"]
+        },
+        {
+          "id": "coefficient-of-viscosity-turbulent-flow-introduction",
+          "name": "Coefficient of Viscosity. Turbulent Flow: Introduction",
+          "requires": ["loss-of-head-due-to-viscous-flow"]
+        },
+        {
+          "id": "reynolds-experiment",
+          "name": "Reynolds Experiment",
+          "requires": ["coefficient-of-viscosity-turbulent-flow-introduction"]
+        },
+        {
+          "id": "friction-loss-in-pipe-flow",
+          "name": "Friction Loss in Pipe Flow",
+          "requires": ["reynolds-experiment"]
+        },
+        {
+          "id": "shear-stress-in-turbulent-flow",
+          "name": "Shear Stress in Turbulent Flow",
+          "requires": ["friction-loss-in-pipe-flow"]
+        }
+      ]
+    },
+    {
+      "id": "pipe-flow",
+      "name": "Pipe Flow",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "introduction-energy-loss-due-to-friction-minor-energy-losses",
+          "name": "Introduction, Energy Loss due to Friction, Minor Energy Losses, HGL and TEL, Flow Through Syphon, Flow Through Pipes"
+        },
+        {
+          "id": "series-compound-equivalent-parallel-pipe-network",
+          "name": "Series, Compound, Equivalent, Parallel, Pipe Network",
+          "requires": ["introduction-energy-loss-due-to-friction-minor-energy-losses"]
+        },
+        {
+          "id": "hardy-cross-method-laboratory",
+          "name": "Hardy Cross Method. Laboratory",
+          "requires": ["series-compound-equivalent-parallel-pipe-network"]
+        }
+      ]
+    }
+  ]
+}

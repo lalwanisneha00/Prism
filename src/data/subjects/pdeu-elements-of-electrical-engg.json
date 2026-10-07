@@ -1,0 +1,568 @@
+{
+  "id": "pdeu-elements-of-electrical-engg",
+  "name": "Elements of Electrical Engg.",
+  "field": "Applied Physics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [2],
+  "code": "16EE106T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Engineering Science",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s2-elements-of-electrical-engg",
+      "code": "16EE106T",
+      "category": "Engineering Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Elements of Electrical Engg.",
+    "note": "Units and topics are PDEU's, copied from the handbook. 9 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "physics",
+  "chapters": [
+    {
+      "id": "general",
+      "name": "GENERAL",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "concepts-of-e-m-f",
+          "name": "Concepts of E.M.F"
+        },
+        {
+          "id": "potential-difference-and-current",
+          "name": "potential difference and current",
+          "requires": ["concepts-of-e-m-f"]
+        },
+        {
+          "id": "resistance",
+          "name": "resistance",
+          "requires": ["potential-difference-and-current"]
+        },
+        {
+          "id": "effect-of-temperature-on-resistance",
+          "name": "effect of temperature on resistance",
+          "requires": ["resistance"]
+        },
+        {
+          "id": "resistance-temperature-coefficient-and-insulation-resistance",
+          "name": "resistance temperature coefficient, and insulation resistance. S.I. units of work",
+          "requires": ["effect-of-temperature-on-resistance"]
+        },
+        {
+          "id": "electrical-power",
+          "name": "power and energy. Conversion of energy from one form to another in electrical",
+          "requires": ["resistance-temperature-coefficient-and-insulation-resistance"]
+        },
+        {
+          "id": "mechanical-and-thermal-systems",
+          "name": "mechanical and thermal systems",
+          "requires": ["electrical-power"]
+        },
+        {
+          "id": "batteries-and-cells",
+          "name": "batteries and cells",
+          "requires": ["mechanical-and-thermal-systems"]
+        },
+        {
+          "id": "their-types",
+          "name": "their types",
+          "requires": ["batteries-and-cells"]
+        },
+        {
+          "id": "primary-cells-and-secondary-cells",
+          "name": "primary cells and secondary cells",
+          "requires": ["their-types"]
+        },
+        {
+          "id": "lead-acid",
+          "name": "Lead Acid",
+          "requires": ["primary-cells-and-secondary-cells"]
+        },
+        {
+          "id": "ni-cd-and-ni-mh-batteries",
+          "name": "Ni-Cd and Ni-MH batteries",
+          "requires": ["lead-acid"]
+        },
+        {
+          "id": "current-capacity-and-cell-ratings",
+          "name": "current capacity and cell ratings",
+          "requires": ["ni-cd-and-ni-mh-batteries"]
+        },
+        {
+          "id": "charging-methods-and-maintenance-procedure",
+          "name": "charging methods and maintenance procedure",
+          "requires": ["current-capacity-and-cell-ratings"]
+        },
+        {
+          "id": "d-c-circuits-classification-of-electrical-networks",
+          "name": "D.C. CIRCUITS: Classification of electrical networks",
+          "requires": ["charging-methods-and-maintenance-procedure"]
+        },
+        {
+          "id": "ohms-law",
+          "name": "Ohm's law",
+          "requires": ["d-c-circuits-classification-of-electrical-networks"]
+        },
+        {
+          "id": "kirchhoffs-law-and-their-applications-for-network-solutions",
+          "name": "Kirchhoff’s law and their applications for network solutions",
+          "requires": ["ohms-law"]
+        },
+        {
+          "id": "simplifications-of-networks-using-series-and-parallel",
+          "name": "Simplifications of networks using series and parallel combinations and _ star-delta conversions",
+          "requires": ["kirchhoffs-law-and-their-applications-for-network-solutions"]
+        }
+      ]
+    },
+    {
+      "id": "electromagnetism",
+      "name": "ELECTROMAGNETISM",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "magnetic-effect-of-an-electric-current",
+          "name": "Magnetic effect of an electric current"
+        },
+        {
+          "id": "cross-and-dot-conventions",
+          "name": "cross and dot conventions",
+          "requires": ["magnetic-effect-of-an-electric-current"]
+        },
+        {
+          "id": "right-hand-thumb-rule-and-cork-screw-rule",
+          "name": "right hand thumb rule and cork screw rule",
+          "requires": ["cross-and-dot-conventions"]
+        },
+        {
+          "id": "nature-of-magnetic-field-of-long-straight-conductor-and",
+          "name": "nature of magnetic field of long straight conductor and toroid. Concept of M.M.F",
+          "requires": ["right-hand-thumb-rule-and-cork-screw-rule"]
+        },
+        {
+          "id": "flux",
+          "name": "flux",
+          "requires": ["nature-of-magnetic-field-of-long-straight-conductor-and"]
+        },
+        {
+          "id": "flux-density",
+          "name": "flux density",
+          "requires": ["flux"]
+        },
+        {
+          "id": "reluctance",
+          "name": "reluctance",
+          "requires": ["flux-density"]
+        },
+        {
+          "id": "permeability-and-field-strength",
+          "name": "permeability and field strength",
+          "requires": ["reluctance"]
+        },
+        {
+          "id": "series-parallel-magnetic-circuits",
+          "name": "their units and relationships. Simple series and parallel magnetic circuits",
+          "requires": ["permeability-and-field-strength"]
+        },
+        {
+          "id": "analogy-of-electrical-and-magnetic-circuit",
+          "name": "analogy of electrical and magnetic circuit",
+          "requires": ["series-parallel-magnetic-circuits"]
+        },
+        {
+          "id": "force-on-current-carrying-conductors-placed-in-magnetic",
+          "name": "force on current carrying conductors placed in magnetic field",
+          "requires": ["analogy-of-electrical-and-magnetic-circuit"]
+        },
+        {
+          "id": "flemings-left-hand-rule-faradays-laws-of-electromagnetic",
+          "name": "Fleming’s left hand rule. Faradays laws of electromagnetic induction",
+          "requires": ["force-on-current-carrying-conductors-placed-in-magnetic"]
+        },
+        {
+          "id": "statically-and-dynamically-induced-e-m-f",
+          "name": "statically and dynamically induced E.M.F",
+          "requires": ["flemings-left-hand-rule-faradays-laws-of-electromagnetic"]
+        },
+        {
+          "id": "inductance",
+          "name": "self and mutual inductance",
+          "requires": ["statically-and-dynamically-induced-e-m-f"]
+        },
+        {
+          "id": "coefficient-of-couplings",
+          "name": "coefficient of couplings",
+          "requires": ["inductance"]
+        },
+        {
+          "id": "energy-stored-in-magnetic-field",
+          "name": "Energy stored in magnetic field",
+          "requires": ["coefficient-of-couplings"]
+        },
+        {
+          "id": "charging-and-discharging-of-inductor-and-time-constant",
+          "name": "Charging and discharging of inductor and time constant",
+          "requires": ["energy-stored-in-magnetic-field"]
+        },
+        {
+          "id": "electrostatics-electrostatics-field",
+          "name": "ELECTROSTATICS: Electrostatics field",
+          "requires": ["charging-and-discharging-of-inductor-and-time-constant"]
+        },
+        {
+          "id": "electric-flux",
+          "name": "electric flux density",
+          "requires": ["electrostatics-electrostatics-field"]
+        },
+        {
+          "id": "electric-field-strength",
+          "name": "electric field strength",
+          "requires": ["electric-flux"]
+        },
+        {
+          "id": "absolute-permittivity",
+          "name": "absolute permittivity",
+          "requires": ["electric-field-strength"]
+        },
+        {
+          "id": "relative-permittivity",
+          "name": "relative permittivity",
+          "requires": ["absolute-permittivity"]
+        },
+        {
+          "id": "capacitors",
+          "name": "capacitance and capacitor",
+          "requires": ["relative-permittivity"]
+        },
+        {
+          "id": "composite-dielectric-capacitors",
+          "name": "composite dielectric capacitors",
+          "requires": ["capacitors"]
+        },
+        {
+          "id": "capacitor-combinations",
+          "name": "capacitors in series and parallel",
+          "requires": ["capacitors"]
+        },
+        {
+          "id": "capacitor-energy",
+          "name": "energy stored in capacitors",
+          "requires": ["capacitors"]
+        },
+        {
+          "id": "charging-and-discharging-of-capacitors-and-time-constant",
+          "name": "charging and discharging of capacitors and time constant",
+          "requires": ["capacitor-energy"]
+        },
+        {
+          "id": "ac-fundamentals-sinusoidal-voltages-and-currents",
+          "name": "AC FUNDAMENTALS: Sinusoidal voltages and currents",
+          "requires": ["charging-and-discharging-of-capacitors-and-time-constant"]
+        },
+        {
+          "id": "their-mathematical-and-graphical-representation",
+          "name": "their mathematical and graphical representation",
+          "requires": ["ac-fundamentals-sinusoidal-voltages-and-currents"]
+        },
+        {
+          "id": "concept-of-instantaneous",
+          "name": "concept of instantaneous",
+          "requires": ["their-mathematical-and-graphical-representation"]
+        },
+        {
+          "id": "peak-maximum",
+          "name": "peak (maximum)",
+          "requires": ["concept-of-instantaneous"]
+        },
+        {
+          "id": "average-and-r-m-s-values",
+          "name": "average and R.M.S. values",
+          "requires": ["peak-maximum"]
+        },
+        {
+          "id": "frequency",
+          "name": "frequency",
+          "requires": ["average-and-r-m-s-values"]
+        },
+        {
+          "id": "cycle",
+          "name": "cycle",
+          "requires": ["frequency"]
+        },
+        {
+          "id": "period",
+          "name": "period",
+          "requires": ["cycle"]
+        },
+        {
+          "id": "peak-factor-and-form-factor",
+          "name": "peak factor and form factor",
+          "requires": ["period"]
+        },
+        {
+          "id": "phase-difference",
+          "name": "phase difference",
+          "requires": ["peak-factor-and-form-factor"]
+        },
+        {
+          "id": "lagging",
+          "name": "lagging",
+          "requires": ["phase-difference"]
+        },
+        {
+          "id": "phasors",
+          "name": "leading and in phase quantities and phasor representation",
+          "requires": ["lagging"]
+        },
+        {
+          "id": "rectangular-and-polar-representation-of-phasors",
+          "name": "Rectangular and polar representation of phasors",
+          "requires": ["phasors"]
+        }
+      ]
+    },
+    {
+      "id": "single-phase-a-c-circuits",
+      "name": "SINGLE PHASE A.C. CIRCUITS",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "study-of-a-c-circuits-consisting-of-pure-resistance",
+          "name": "Study of A.C. circuits consisting of pure resistance"
+        },
+        {
+          "id": "pure-inductance",
+          "name": "pure inductance",
+          "requires": ["study-of-a-c-circuits-consisting-of-pure-resistance"]
+        },
+        {
+          "id": "pure-capacitance-and-corresponding-voltage-current-phasor",
+          "name": "pure capacitance and corresponding voltage-current phasor diagrams and waveforms",
+          "requires": ["pure-inductance"]
+        },
+        {
+          "id": "development-of-concept-of-reactance",
+          "name": "Development of concept of reactance",
+          "requires": ["pure-capacitance-and-corresponding-voltage-current-phasor"]
+        },
+        {
+          "id": "study-of-series-r-l",
+          "name": "study of series R-L",
+          "requires": ["development-of-concept-of-reactance"]
+        },
+        {
+          "id": "r-c",
+          "name": "R-C",
+          "requires": ["study-of-series-r-l"]
+        },
+        {
+          "id": "r-l-c-circuit-and-resonance",
+          "name": "R-L-C circuit and resonance",
+          "requires": ["r-c"]
+        },
+        {
+          "id": "study-of-parallel-r-l",
+          "name": "study of parallel R-L",
+          "requires": ["r-l-c-circuit-and-resonance"]
+        },
+        {
+          "id": "r-c-and-r-l-c-circuit",
+          "name": "R-C and R-L-C circuit",
+          "requires": ["study-of-parallel-r-l"]
+        },
+        {
+          "id": "concept-of-impedance",
+          "name": "concept of impedance",
+          "requires": ["r-c-and-r-l-c-circuit"]
+        },
+        {
+          "id": "admittance",
+          "name": "admittance",
+          "requires": ["concept-of-impedance"]
+        },
+        {
+          "id": "conductance-and-suceptance-in-case-of-above-combinations-and",
+          "name": "conductance and suceptance in case of above combinations and relevant voltage-current phasor diagrams",
+          "requires": ["admittance"]
+        },
+        {
+          "id": "concept-of-active",
+          "name": "concept of active",
+          "requires": ["conductance-and-suceptance-in-case-of-above-combinations-and"]
+        },
+        {
+          "id": "reactive-and-apparent-power-and-power-factor",
+          "name": "reactive and apparent power and power factor",
+          "requires": ["concept-of-active"]
+        },
+        {
+          "id": "polyphase-a-c-circuits-concept-of-three-phase-supply-and",
+          "name": "POLYPHASE A.C. CIRCUITS: Concept of three-phase supply and phase sequence",
+          "requires": ["reactive-and-apparent-power-and-power-factor"]
+        },
+        {
+          "id": "voltages",
+          "name": "Voltages",
+          "requires": ["polyphase-a-c-circuits-concept-of-three-phase-supply-and"]
+        },
+        {
+          "id": "currents-and-power-relations-in-three-phase-balanced-star",
+          "name": "currents and power relations in three phase balanced star-connected loads and delta-connected loads along with phasor diagrams",
+          "requires": ["voltages"]
+        },
+        {
+          "id": "transformers",
+          "name": "SINGLE PHASE TRANSFORMERS: Construction",
+          "requires": ["inductance"]
+        },
+        {
+          "id": "principle-of-working",
+          "name": "principle of working",
+          "requires": ["transformers"]
+        },
+        {
+          "id": "e-m-f-equation",
+          "name": "E.M.F. equation",
+          "requires": ["principle-of-working"]
+        },
+        {
+          "id": "voltage-and-current-ratios-losses",
+          "name": "voltage and current ratios. Losses",
+          "requires": ["e-m-f-equation"]
+        },
+        {
+          "id": "definition-of-regulation-and-efficiency",
+          "name": "definition of regulation and efficiency",
+          "requires": ["voltage-and-current-ratios-losses"]
+        },
+        {
+          "id": "determination-of-these-by-direct-loading-method",
+          "name": "determination of these by direct loading method. Autotransformers and dimmer stats",
+          "requires": ["definition-of-regulation-and-efficiency"]
+        }
+      ]
+    },
+    {
+      "id": "electrical-wiring",
+      "name": "Electrical Wiring",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "connectors-and-switches",
+          "name": "Connectors and switches"
+        },
+        {
+          "id": "systems-of-wiring",
+          "name": "systems of wiring",
+          "requires": ["connectors-and-switches"]
+        },
+        {
+          "id": "domestic-wiring-installation",
+          "name": "domestic wiring installation",
+          "requires": ["systems-of-wiring"]
+        },
+        {
+          "id": "sub-circuits-in-domestic-wiring",
+          "name": "sub circuits in domestic wiring",
+          "requires": ["domestic-wiring-installation"]
+        },
+        {
+          "id": "simple-control-circuit-in-domestic-installation",
+          "name": "simple control circuit in domestic installation",
+          "requires": ["sub-circuits-in-domestic-wiring"]
+        },
+        {
+          "id": "industrial-electrification-illumination-types-of-lamps",
+          "name": "industrial electrification. ILLUMINATION: Types of lamps",
+          "requires": ["simple-control-circuit-in-domestic-installation"]
+        },
+        {
+          "id": "fixtures-and-reflectors",
+          "name": "fixtures and reflectors",
+          "requires": ["industrial-electrification-illumination-types-of-lamps"]
+        },
+        {
+          "id": "illumination-schemes-for-domestic",
+          "name": "illumination schemes for domestic",
+          "requires": ["fixtures-and-reflectors"]
+        },
+        {
+          "id": "industrial-and-commercial-premises",
+          "name": "industrial and commercial premises",
+          "requires": ["illumination-schemes-for-domestic"]
+        },
+        {
+          "id": "lumen-requirements-for-different-categories-safety-and",
+          "name": "Lumen requirements for different categories. SAFETY and PROTECTION: Safety",
+          "requires": ["industrial-and-commercial-premises"]
+        },
+        {
+          "id": "electric-shock",
+          "name": "electric shock",
+          "requires": ["lumen-requirements-for-different-categories-safety-and"]
+        },
+        {
+          "id": "first-aid-for-electric-shock-and-other-hazards",
+          "name": "first aid for electric shock and other hazards",
+          "requires": ["electric-shock"]
+        },
+        {
+          "id": "safety-rules",
+          "name": "safety rules",
+          "requires": ["first-aid-for-electric-shock-and-other-hazards"]
+        },
+        {
+          "id": "use-of-multi-meters",
+          "name": "use of multi-meters",
+          "requires": ["safety-rules"]
+        },
+        {
+          "id": "grounding",
+          "name": "grounding",
+          "requires": ["use-of-multi-meters"]
+        },
+        {
+          "id": "importance-of-grounding",
+          "name": "importance of grounding",
+          "requires": ["grounding"]
+        },
+        {
+          "id": "equipment-grounding-for-safety",
+          "name": "equipment grounding for safety",
+          "requires": ["importance-of-grounding"]
+        },
+        {
+          "id": "circuit-protection-devices",
+          "name": "circuit protection devices",
+          "requires": ["equipment-grounding-for-safety"]
+        },
+        {
+          "id": "fuses",
+          "name": "fuses",
+          "requires": ["circuit-protection-devices"]
+        },
+        {
+          "id": "mcb",
+          "name": "MCB",
+          "requires": ["fuses"]
+        },
+        {
+          "id": "elcb-and-relays",
+          "name": "ELCB and relays",
+          "requires": ["mcb"]
+        }
+      ]
+    }
+  ]
+}

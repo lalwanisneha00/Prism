@@ -1,0 +1,216 @@
+{
+  "id": "pdeu-networks-and-systems",
+  "name": "Networks and Systems",
+  "field": "Mathematics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [3],
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s3-networks-and-systems",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Networks and Systems",
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "maths",
+  "chapters": [
+    {
+      "id": "continuous-time-signals-circuits-and-systems",
+      "name": "Continuous Time Signals, Circuits and Systems",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "signal",
+          "name": "Signal"
+        },
+        {
+          "id": "definition-examples-classifications-continuous-time-signals",
+          "name": "Definition, Examples, Classifications, Continuous time signals: Energy, power, Periodicity, Signal operations, Elementary Signals, System",
+          "requires": ["signal"]
+        },
+        {
+          "id": "linear-systems",
+          "name": "Definition, Classification, Continuous time LTI systems models in time domain: Linear Constant Co- efficient Differential Equations, Convolution integral and unit impulse response, Simple circuits usi",
+          "requires": ["definition-examples-classifications-continuous-time-signals"]
+        }
+      ]
+    },
+    {
+      "id": "laplace-transform-applications-to-system-and",
+      "name": "Laplace Transform Applications to System and Circuit Analysis",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "laplace-transform",
+          "name": "Review of Laplace transform: Definition"
+        },
+        {
+          "id": "elementary-pairs",
+          "name": "Elementary pairs",
+          "requires": ["laplace-transform"]
+        },
+        {
+          "id": "basic-properties",
+          "name": "Basic properties",
+          "requires": ["elementary-pairs"]
+        },
+        {
+          "id": "region-of-convergence-roc",
+          "name": "Region of convergence (ROC)",
+          "requires": ["basic-properties"]
+        },
+        {
+          "id": "inverse-laplace",
+          "name": "Inverse Laplace transform",
+          "requires": ["laplace-transform"]
+        },
+        {
+          "id": "application-to-lti-system-analysis",
+          "name": "Application to LTI system analysis",
+          "requires": ["inverse-laplace"]
+        },
+        {
+          "id": "system-transfer-function",
+          "name": "System transfer function",
+          "requires": ["application-to-lti-system-analysis"]
+        },
+        {
+          "id": "poles-and-zeros-stability-and-causality",
+          "name": "poles and zeros: stability and causality",
+          "requires": ["system-transfer-function"]
+        },
+        {
+          "id": "laplace-transform-for-solution-of-linear-constant-co",
+          "name": "Laplace transform for solution of linear constant co-efficient differential equation",
+          "requires": ["poles-and-zeros-stability-and-causality"]
+        },
+        {
+          "id": "application-to-transient-analysis-of-r-l",
+          "name": "Application to transient analysis of R, L",
+          "requires": ["laplace-transform-for-solution-of-linear-constant-co"]
+        },
+        {
+          "id": "c-circuits-with-relaxed-and-non-relaxed-conditions",
+          "name": "C circuits with relaxed and non-relaxed conditions",
+          "requires": ["application-to-transient-analysis-of-r-l"]
+        },
+        {
+          "id": "application-to-waveform-analysis",
+          "name": "Application to waveform analysis",
+          "requires": ["c-circuits-with-relaxed-and-non-relaxed-conditions"]
+        }
+      ]
+    },
+    {
+      "id": "fourier-transform-applications-to-system-and",
+      "name": "Fourier Transform Applications to System and Circuit Analysis",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "fourier-series",
+          "name": "Review of Fourier series and Fourier transform"
+        },
+        {
+          "id": "signal-spectra",
+          "name": "Signal spectra",
+          "requires": ["fourier-series"]
+        },
+        {
+          "id": "frequency-analysis-of-lti-systems",
+          "name": "Frequency analysis of LTI systems",
+          "requires": ["signal-spectra"]
+        },
+        {
+          "id": "application-to-sinusoidal-steady-state-analysis-of-r-l",
+          "name": "Application to sinusoidal steady-state analysis of R, L",
+          "requires": ["frequency-analysis-of-lti-systems"]
+        },
+        {
+          "id": "c-circuits-with-controlled-sources",
+          "name": "C circuits with controlled sources",
+          "requires": ["application-to-sinusoidal-steady-state-analysis-of-r-l"]
+        },
+        {
+          "id": "frequency-response-plots-and-concept-of-filters",
+          "name": "Frequency response plots and concept of filters",
+          "requires": ["c-circuits-with-controlled-sources"]
+        }
+      ]
+    },
+    {
+      "id": "multi-port-circuits-analysis",
+      "name": "Multi Port Circuits Analysis",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "single-port-and-two-port-circuits-with-r-l",
+          "name": "Single port and two port circuits with R, L"
+        },
+        {
+          "id": "c-and-controlled-sources",
+          "name": "C and Controlled sources",
+          "requires": ["single-port-and-two-port-circuits-with-r-l"]
+        },
+        {
+          "id": "source-transformations",
+          "name": "Source transformations",
+          "requires": ["c-and-controlled-sources"]
+        },
+        {
+          "id": "driving-point-functions",
+          "name": "Driving point functions",
+          "requires": ["source-transformations"]
+        },
+        {
+          "id": "transformed-circuits-and-analysis-using-super-position",
+          "name": "Transformed circuits and analysis using Super-position",
+          "requires": ["driving-point-functions"]
+        },
+        {
+          "id": "thevenin-norton",
+          "name": "Thevenin and Norton‟s theorem",
+          "requires": ["transformed-circuits-and-analysis-using-super-position"]
+        },
+        {
+          "id": "two-port-network-analysis-using-z",
+          "name": "Two port network analysis using z",
+          "requires": ["thevenin-norton"]
+        },
+        {
+          "id": "y-and-h-parameters",
+          "name": "y and h parameters",
+          "requires": ["two-port-network-analysis-using-z"]
+        },
+        {
+          "id": "transmission-line-as-two-port-network-and-abcd-parameters",
+          "name": "Transmission line as two port network and ABCD parameters",
+          "requires": ["y-and-h-parameters"]
+        },
+        {
+          "id": "series-and-parallel-connections-of-two-port-circuits-and",
+          "name": "series and parallel connections of two port circuits and their parameters",
+          "requires": ["transmission-line-as-two-port-network-and-abcd-parameters"]
+        },
+        {
+          "id": "applications-in-linear-electronic-circuit-and-system",
+          "name": "Applications in linear electronic circuit and system analysis",
+          "requires": ["series-and-parallel-connections-of-two-port-circuits-and"]
+        }
+      ]
+    }
+  ]
+}

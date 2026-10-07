@@ -1,0 +1,227 @@
+{
+  "id": "pdeu-computer-organization-and-microprocessor-ece",
+  "name": "Computer Organization and Microprocessor (ECE)",
+  "field": "Computer Organization and Microprocessor",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [6],
+  "code": "24ICxxxT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s6-computer-organization-and-microprocessor",
+      "code": "24ICxxxT",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Computer Organization and Microprocessor",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "basic-computer-organization",
+      "name": "Basic Computer Organization",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction-to-fsm-moore-and-mealy-machines-the-basic",
+          "name": "Introduction to FSM, Moore, and Mealy machines. The basic architecture of micro-computer and Central processing unit"
+        },
+        {
+          "id": "the-concept-of-data",
+          "name": "the concept of data",
+          "requires": ["introduction-to-fsm-moore-and-mealy-machines-the-basic"]
+        },
+        {
+          "id": "address-and-control-bus",
+          "name": "address and control bus",
+          "requires": ["the-concept-of-data"]
+        },
+        {
+          "id": "register-transfer-language",
+          "name": "register transfer language",
+          "requires": ["address-and-control-bus"]
+        },
+        {
+          "id": "stored-program-organization",
+          "name": "Stored program organization",
+          "requires": ["register-transfer-language"]
+        },
+        {
+          "id": "instruction-format",
+          "name": "instruction format",
+          "requires": ["stored-program-organization"]
+        },
+        {
+          "id": "common-bus-system",
+          "name": "common bus system",
+          "requires": ["instruction-format"]
+        },
+        {
+          "id": "instruction-set-completeness-timing-and-control",
+          "name": "instruction set completeness, timing, and control",
+          "requires": ["common-bus-system"]
+        },
+        {
+          "id": "instruction-cycle",
+          "name": "instruction cycle",
+          "requires": ["instruction-set-completeness-timing-and-control"]
+        },
+        {
+          "id": "types-of-instructions",
+          "name": "types of instructions",
+          "requires": ["instruction-cycle"]
+        },
+        {
+          "id": "hardwired-control",
+          "name": "design of Basic central processing unit. Hardwired and microprogrammed control Units",
+          "requires": ["types-of-instructions"]
+        },
+        {
+          "id": "interrupts-in-basic-computer",
+          "name": "Interrupts in basic computer",
+          "requires": ["hardwired-control"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-features-of-computer-system",
+      "name": "Advanced Features of Computer System",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "flynns-classification-of-computer-systems",
+          "name": "Flynn’s classification of computer systems"
+        },
+        {
+          "id": "parallel-processing",
+          "name": "Parallel processing",
+          "requires": ["flynns-classification-of-computer-systems"]
+        },
+        {
+          "id": "pipelining",
+          "name": "pipelining",
+          "requires": ["parallel-processing"]
+        },
+        {
+          "id": "vector-processing",
+          "name": "vector processing",
+          "requires": ["pipelining"]
+        },
+        {
+          "id": "arithmetic-and-instruction-pipeline-memory-organization",
+          "name": "arithmetic and instruction pipeline. Memory organization",
+          "requires": ["vector-processing"]
+        },
+        {
+          "id": "cache-and-virtual-memory-management",
+          "name": "cache and virtual memory management",
+          "requires": ["arithmetic-and-instruction-pipeline-memory-organization"]
+        }
+      ]
+    },
+    {
+      "id": "8086-microprocessor",
+      "name": "8086 Microprocessor",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "evolution-of-microprocessor",
+          "name": "Evolution of microprocessor"
+        },
+        {
+          "id": "pin-diagram-signals-and-register-set-of-8086-addressing",
+          "name": "Pin diagram, signals, and register set of 8086. Addressing modes",
+          "requires": ["evolution-of-microprocessor"]
+        },
+        {
+          "id": "instruction-set",
+          "name": "instruction set",
+          "requires": ["pin-diagram-signals-and-register-set-of-8086-addressing"]
+        },
+        {
+          "id": "assembly-programming",
+          "name": "assembly language programming",
+          "requires": ["instruction-set"]
+        },
+        {
+          "id": "counters-and-time-delays",
+          "name": "Counters and Time delays",
+          "requires": ["assembly-programming"]
+        },
+        {
+          "id": "stack",
+          "name": "Stack",
+          "requires": ["counters-and-time-delays"]
+        },
+        {
+          "id": "subroutine",
+          "name": "subroutine",
+          "requires": ["stack"]
+        },
+        {
+          "id": "restart",
+          "name": "Restart",
+          "requires": ["subroutine"]
+        },
+        {
+          "id": "conditional-call-and-return-instructions",
+          "name": "Conditional Call and Return Instructions",
+          "requires": ["restart"]
+        },
+        {
+          "id": "interrupts-of-8086",
+          "name": "interrupts of 8086",
+          "requires": ["conditional-call-and-return-instructions"]
+        }
+      ]
+    },
+    {
+      "id": "8-interfacing-using-8086",
+      "name": "8 Interfacing Using 8086",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "address-decoding-techniques",
+          "name": "Address decoding techniques"
+        },
+        {
+          "id": "interfacing-concepts",
+          "name": "interfacing concepts",
+          "requires": ["address-decoding-techniques"]
+        },
+        {
+          "id": "io-mapped-io",
+          "name": "IO mapped IO",
+          "requires": ["interfacing-concepts"]
+        },
+        {
+          "id": "memory-mapped-io",
+          "name": "Memory-mapped IO",
+          "requires": ["io-mapped-io"]
+        },
+        {
+          "id": "interfacing-of-basic-devices",
+          "name": "interfacing of basic devices",
+          "requires": ["memory-mapped-io"]
+        },
+        {
+          "id": "interfacing-ppi-8255-and-interrupt-controller-8259",
+          "name": "interfacing PPI 8255, and Interrupt controller 8259",
+          "requires": ["interfacing-of-basic-devices"]
+        }
+      ]
+    }
+  ]
+}

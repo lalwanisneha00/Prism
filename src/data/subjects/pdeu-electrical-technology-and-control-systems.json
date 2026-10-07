@@ -1,0 +1,368 @@
+{
+  "id": "pdeu-electrical-technology-and-control-systems",
+  "name": "Electrical Technology and Control Systems",
+  "field": "Electrical Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [3],
+  "code": "17EE212T",
+  "credits": 4,
+  "ltp": "4-0-0",
+  "category": "Engineering Science",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s3-electrical-technology-and-control-systems",
+      "code": "17EE212T",
+      "category": "Engineering Science",
+      "ltp": "4-0-0",
+      "credits": 4,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Electrical Technology and Control Systems",
+    "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "single-phase-transformer",
+      "name": "SINGLE PHASE TRANSFORMER",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "construction",
+          "name": "Construction"
+        },
+        {
+          "id": "working-principle",
+          "name": "working principle",
+          "requires": ["construction"]
+        },
+        {
+          "id": "types",
+          "name": "Types",
+          "requires": ["working-principle"]
+        },
+        {
+          "id": "emf-equation",
+          "name": "EMF equation",
+          "requires": ["types"]
+        },
+        {
+          "id": "kva-rating",
+          "name": "KVA_ rating",
+          "requires": ["emf-equation"]
+        },
+        {
+          "id": "transformers",
+          "name": "transformer on No-load and Transformer on Load",
+          "requires": ["kva-rating"]
+        },
+        {
+          "id": "approximate-equivalent-circuit",
+          "name": "approximate equivalent circuit",
+          "requires": ["transformers"]
+        },
+        {
+          "id": "voltage-regulation-and-efficiency-of-transformer",
+          "name": "voltage regulation and efficiency of transformer",
+          "requires": ["approximate-equivalent-circuit"]
+        },
+        {
+          "id": "condition-for-maximum-efficiency",
+          "name": "condition for maximum efficiency",
+          "requires": ["voltage-regulation-and-efficiency-of-transformer"]
+        },
+        {
+          "id": "three-phase-transformer-construction-of-three-phase",
+          "name": "THREE PHASE TRANSFORMER: Construction of three phase transformer",
+          "requires": ["condition-for-maximum-efficiency"]
+        },
+        {
+          "id": "types-of-transformer-connections-star-star-star-delta-delta",
+          "name": "Types of transformer connections (star/star, star/delta, delta/star, and delta/delta) and applications based on connections",
+          "requires": ["three-phase-transformer-construction-of-three-phase"]
+        },
+        {
+          "id": "introduction-of-power-and-distribution-transformers",
+          "name": "Introduction of power and distribution transformers",
+          "requires": ["types-of-transformer-connections-star-star-star-delta-delta"]
+        },
+        {
+          "id": "d-c-machines-construction",
+          "name": "D. C. Machines: Construction",
+          "requires": ["introduction-of-power-and-distribution-transformers"]
+        },
+        {
+          "id": "working-principle-of-d-c-generator",
+          "name": "working principle of D.C. generator",
+          "requires": ["d-c-machines-construction"]
+        },
+        {
+          "id": "emf-equation-of-d-c-generator",
+          "name": "EMF equation of D C generator",
+          "requires": ["working-principle-of-d-c-generator"]
+        },
+        {
+          "id": "working-principle-of-d-c-motor-types-of-d-c-motors",
+          "name": "Working principle of D.C. motor. Types of D. C. motors",
+          "requires": ["emf-equation-of-d-c-generator"]
+        },
+        {
+          "id": "back-emf",
+          "name": "back EMF",
+          "requires": ["working-principle-of-d-c-motor-types-of-d-c-motors"]
+        },
+        {
+          "id": "torque-equation-for-d-c-motor",
+          "name": "torque equation for D.C. motor",
+          "requires": ["back-emf"]
+        },
+        {
+          "id": "characteristics-of-d-c-motors-series-shunt-and-compound",
+          "name": "characteristics of D. C. motors (series, shunt and compound)",
+          "requires": ["torque-equation-for-d-c-motor"]
+        },
+        {
+          "id": "starters-of-d-c-shunt-and-series-motor",
+          "name": "starters of D.C. shunt and series motor",
+          "requires": ["characteristics-of-d-c-motors-series-shunt-and-compound"]
+        },
+        {
+          "id": "methods-for-speed-control-of-d-c-shunt-and-series-motors",
+          "name": "methods for speed control of D.C shunt and series motors",
+          "requires": ["starters-of-d-c-shunt-and-series-motor"]
+        },
+        {
+          "id": "industrial-applications",
+          "name": "Industrial applications",
+          "requires": ["methods-for-speed-control-of-d-c-shunt-and-series-motors"]
+        }
+      ]
+    },
+    {
+      "id": "three-phase-induction-motor",
+      "name": "THREE PHASE INDUCTION MOTOR",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "constructional-feature-working-principle-of-three-phase",
+          "name": "Constructional feature, working principle of three phase induction motors, types"
+        },
+        {
+          "id": "torque-equation-torque-slip-characteristics",
+          "name": "torque equation, torque slip characteristics",
+          "requires": ["constructional-feature-working-principle-of-three-phase"]
+        },
+        {
+          "id": "power-stages",
+          "name": "power stages",
+          "requires": ["torque-equation-torque-slip-characteristics"]
+        },
+        {
+          "id": "efficiency",
+          "name": "efficiency",
+          "requires": ["power-stages"]
+        },
+        {
+          "id": "types-of-starters",
+          "name": "types of starters",
+          "requires": ["efficiency"]
+        },
+        {
+          "id": "methods-of-speed-control-and-industrial-applications",
+          "name": "methods of speed control and Industrial applications",
+          "requires": ["types-of-starters"]
+        },
+        {
+          "id": "single-phase-induction-motor",
+          "name": "SINGLE PHASE INDUCTION MOTOR: Types, construction, working principle, types of single phase Induction motors, applications",
+          "requires": ["methods-of-speed-control-and-industrial-applications"]
+        },
+        {
+          "id": "specifications-of-induction-motors",
+          "name": "Specifications of induction motors",
+          "requires": ["single-phase-induction-motor"]
+        },
+        {
+          "id": "phasors",
+          "name": "SYNCHRONOUS GENERATOR: Constructional features (Salient and non- salient),working principle, EMF equation, synchronous speed of an alternator, concept of synchronous reactance and impedance, phasor di",
+          "requires": ["specifications-of-induction-motors"]
+        },
+        {
+          "id": "specifications-of-synchronous-generator",
+          "name": "Specifications of synchronous generator",
+          "requires": ["phasors"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-control-systems",
+      "name": "Introduction to Control Systems",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "open-loop-and-closed-loop-control-systems",
+          "name": "Open loop and closed loop control systems"
+        },
+        {
+          "id": "examples",
+          "name": "Examples",
+          "requires": ["open-loop-and-closed-loop-control-systems"]
+        },
+        {
+          "id": "meaning-and-need-of-automation",
+          "name": "Meaning & need of automation",
+          "requires": ["examples"]
+        },
+        {
+          "id": "types-of-automation",
+          "name": "types of automation",
+          "requires": ["meaning-and-need-of-automation"]
+        },
+        {
+          "id": "fixed",
+          "name": "fixed",
+          "requires": ["types-of-automation"]
+        },
+        {
+          "id": "programmable-and-integration-concepts-of-transfer-function",
+          "name": "programmable and integration. Concepts of transfer function",
+          "requires": ["fixed"]
+        },
+        {
+          "id": "mathematical-modeling-of-physical-systems-with-applications",
+          "name": "Mathematical modeling of physical systems with applications",
+          "requires": ["programmable-and-integration-concepts-of-transfer-function"]
+        },
+        {
+          "id": "time-response-analysis-and-specifications-state-space",
+          "name": "time response analysis and specifications. State space analysis: Concept of state",
+          "requires": ["mathematical-modeling-of-physical-systems-with-applications"]
+        },
+        {
+          "id": "state-space-and-state-equations",
+          "name": "state space and state equations",
+          "requires": ["time-response-analysis-and-specifications-state-space"]
+        },
+        {
+          "id": "state-transition-matrix",
+          "name": "state transition matrix",
+          "requires": ["state-space-and-state-equations"]
+        },
+        {
+          "id": "controllability-and-observability-stability-analysis",
+          "name": "controllability and observability. Stability analysis: Introduction to stability",
+          "requires": ["state-transition-matrix"]
+        },
+        {
+          "id": "absolute-and-relative-stability",
+          "name": "Absolute and relative stability",
+          "requires": ["controllability-and-observability-stability-analysis"]
+        },
+        {
+          "id": "routh-hurwitz-criterion",
+          "name": "Routh Hurwitz criterion",
+          "requires": ["absolute-and-relative-stability"]
+        },
+        {
+          "id": "root-locus",
+          "name": "Stability using root locus",
+          "requires": ["routh-hurwitz-criterion"]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "name": "Unit 4",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "measurement-and-sensors",
+          "name": "Measurement and sensors"
+        },
+        {
+          "id": "component-of-automation",
+          "name": "component of automation",
+          "requires": ["measurement-and-sensors"]
+        },
+        {
+          "id": "analog",
+          "name": "analog",
+          "requires": ["component-of-automation"]
+        },
+        {
+          "id": "open-and-closed-loop-control",
+          "name": "open and closed loop control",
+          "requires": ["analog"]
+        },
+        {
+          "id": "servo-system",
+          "name": "servo system",
+          "requires": ["open-and-closed-loop-control"]
+        },
+        {
+          "id": "analysis-and-response",
+          "name": "analysis and response",
+          "requires": ["servo-system"]
+        },
+        {
+          "id": "control-configuration",
+          "name": "control configuration",
+          "requires": ["analysis-and-response"]
+        },
+        {
+          "id": "sensors-characteristics",
+          "name": "sensors characteristics",
+          "requires": ["control-configuration"]
+        },
+        {
+          "id": "two-position-control",
+          "name": "two position control",
+          "requires": ["sensors-characteristics"]
+        },
+        {
+          "id": "pid-controls-logic-control-and-plcs-logic-control",
+          "name": "PID controls. Logic control and PLCs: logic control",
+          "requires": ["two-position-control"]
+        },
+        {
+          "id": "elements",
+          "name": "elements",
+          "requires": ["pid-controls-logic-control-and-plcs-logic-control"]
+        },
+        {
+          "id": "programmable-logic-controllers",
+          "name": "programmable logic controllers",
+          "requires": ["elements"]
+        },
+        {
+          "id": "applications",
+          "name": "applications",
+          "requires": ["programmable-logic-controllers"]
+        },
+        {
+          "id": "architecture",
+          "name": "architecture",
+          "requires": ["applications"]
+        },
+        {
+          "id": "operation",
+          "name": "operation",
+          "requires": ["architecture"]
+        },
+        {
+          "id": "programming-of-plcs-with-applications",
+          "name": "programming of PLCs with applications",
+          "requires": ["operation"]
+        }
+      ]
+    }
+  ]
+}

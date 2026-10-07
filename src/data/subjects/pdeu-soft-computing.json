@@ -1,0 +1,213 @@
+{
+  "id": "pdeu-soft-computing",
+  "name": "Soft Computing",
+  "field": "Soft Computing",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [6],
+  "code": "24CS336T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s6-program-elective-2--soft-computing",
+      "code": "24CS336T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core",
+      "track": "AI/ML track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Soft Computing",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "artificial-neural-network",
+      "name": "Artificial Neural Network",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "perceptron",
+          "name": "Introduction: Feed-forward, recurrent and multi-layer architectures, Supervised and unsupervised learning, Characteristics: Adaptability, fault tolerance, generalization, limitations of neuro-computin"
+        },
+        {
+          "id": "simple-perceptron",
+          "name": "Simple perceptron",
+          "requires": ["perceptron"]
+        },
+        {
+          "id": "perceptron-learning-algorithms",
+          "name": "Perceptron learning, algorithms",
+          "requires": ["simple-perceptron"]
+        },
+        {
+          "id": "adaline",
+          "name": "ADALINE",
+          "requires": ["perceptron-learning-algorithms"]
+        },
+        {
+          "id": "madaline",
+          "name": "MADALINE",
+          "requires": ["adaline"]
+        },
+        {
+          "id": "limitation-of-perceptron-dichotomizer",
+          "name": "Limitation of perceptron dichotomizer",
+          "requires": ["madaline"]
+        }
+      ]
+    },
+    {
+      "id": "multi-layer-perceptron-network",
+      "name": "Multi-Layer Perceptron Network",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "multi-layer-perceptron-gradient-decent-scheme-for-error",
+          "name": "Multi-Layer Perceptron, Gradient decent scheme for error, minimization, Generalized delta learning rule, Back-propagation learning for multi-layer networks, Multi-layer perceptron's for multi- dimensi"
+        },
+        {
+          "id": "hetero-association-linear-associative-networks-hebbian",
+          "name": "Hetero-association, Linear associative networks: Hebbian learning, perfect recall, cross-talk",
+          "requires": ["multi-layer-perceptron-gradient-decent-scheme-for-error"]
+        },
+        {
+          "id": "bidirectional-associative-memory-brain-state-in-a-box",
+          "name": "Bidirectional associative memory, Brain-State-in-a-Box network, Hopfield Networks: Binary Hopfield network, basic structure, asynchronous updating, convergence, associative memory, Continuous-valued H",
+          "requires": ["hetero-association-linear-associative-networks-hebbian"]
+        },
+        {
+          "id": "advantages-and-limitations-kohonen-networks-self-organizing",
+          "name": "Advantages and limitations, Kohonen Networks: Self-organizing networks, Similarity measures",
+          "requires": ["bidirectional-associative-memory-brain-state-in-a-box"]
+        },
+        {
+          "id": "kohonens-winner-take-all-network-geometrical-interpretation",
+          "name": "Kohonen’s winner-take-all network, Geometrical interpretation of Kohonen’s learning, Functional specificity of human brain, Kohonen’s self-organizing feature map algorithm",
+          "requires": ["advantages-and-limitations-kohonen-networks-self-organizing"]
+        },
+        {
+          "id": "conscience-algorithm",
+          "name": "Conscience algorithm",
+          "requires": ["kohonens-winner-take-all-network-geometrical-interpretation"]
+        }
+      ]
+    },
+    {
+      "id": "adaptive-resonance-theory",
+      "name": "Adaptive Resonance Theory",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "art-and-stability-plasticity-dilemma",
+          "name": "ART and stability-plasticity dilemma"
+        },
+        {
+          "id": "svm",
+          "name": "ART-1 architecture and algorithm, search, comparison and recognition phases, effect of vigilance, Radial Basis Function Networks: radial basis vs. linear basis, Gaussian basis functions, K-means learn",
+          "requires": ["art-and-stability-plasticity-dilemma"]
+        }
+      ]
+    },
+    {
+      "id": "fuzzy-network",
+      "name": "Fuzzy Network",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "different-faces-of-imprecision-inexactness",
+          "name": "Different faces of imprecision - inexactness"
+        },
+        {
+          "id": "ambiguity",
+          "name": "Ambiguity",
+          "requires": ["different-faces-of-imprecision-inexactness"]
+        },
+        {
+          "id": "undecidability",
+          "name": "Undecidability",
+          "requires": ["ambiguity"]
+        },
+        {
+          "id": "fuzziness-and-certainty",
+          "name": "Fuzziness and certainty",
+          "requires": ["undecidability"]
+        },
+        {
+          "id": "fuzzy-sets-and-crisp-sets",
+          "name": "Fuzzy sets and crisp sets",
+          "requires": ["fuzziness-and-certainty"]
+        },
+        {
+          "id": "basic-definition",
+          "name": "Basic Definition",
+          "requires": ["fuzzy-sets-and-crisp-sets"]
+        },
+        {
+          "id": "fuzzy-set-theoretic-operations",
+          "name": "Fuzzy-set-theoretic Operations",
+          "requires": ["basic-definition"]
+        },
+        {
+          "id": "member-function",
+          "name": "Member Function",
+          "requires": ["fuzzy-set-theoretic-operations"]
+        },
+        {
+          "id": "formulation-and-parameterization",
+          "name": "Formulation and Parameterization",
+          "requires": ["member-function"]
+        },
+        {
+          "id": "fuzzy-rules-and-fuzzy-reasoning",
+          "name": "Fuzzy Rules and Fuzzy Reasoning",
+          "requires": ["formulation-and-parameterization"]
+        },
+        {
+          "id": "fuzzy-propositions",
+          "name": "Fuzzy propositions",
+          "requires": ["fuzzy-rules-and-fuzzy-reasoning"]
+        },
+        {
+          "id": "methods-of-decompositions-and-defuzzification",
+          "name": "Methods of decompositions and defuzzification",
+          "requires": ["fuzzy-propositions"]
+        },
+        {
+          "id": "fuzzy-neural-networks",
+          "name": "Fuzzy-neural networks",
+          "requires": ["methods-of-decompositions-and-defuzzification"]
+        },
+        {
+          "id": "neuro-fuzzy-systems",
+          "name": "Neuro-fuzzy systems",
+          "requires": ["fuzzy-neural-networks"]
+        },
+        {
+          "id": "genetic-algorithms-selection-schemes",
+          "name": "Genetic algorithms: selection schemes",
+          "requires": ["neuro-fuzzy-systems"]
+        },
+        {
+          "id": "operations",
+          "name": "operations",
+          "requires": ["genetic-algorithms-selection-schemes"]
+        },
+        {
+          "id": "hybrid-algorithms",
+          "name": "hybrid algorithms",
+          "requires": ["operations"]
+        }
+      ]
+    }
+  ]
+}

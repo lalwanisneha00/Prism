@@ -1,0 +1,261 @@
+{
+  "id": "pdeu-introduction-to-computer-programming-1",
+  "name": "Introduction to Computer Programming - 1",
+  "field": "Computer Programming",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [1],
+  "credits": 1,
+  "ltp": "1-0-0",
+  "category": "Engineering Science",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s1-introduction-to-computer-programming-1",
+      "category": "Engineering Science",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Introduction to Computer Programming - 1",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "basics-of-c-programming",
+      "name": "Basics Of C Programming",
+      "hours": 2,
+      "topics": [
+        {
+          "id": "history-and-significance-of-c",
+          "name": "History and significance of C"
+        },
+        {
+          "id": "anatomy-of-a-c-program",
+          "name": "Anatomy of a C program",
+          "requires": ["history-and-significance-of-c"]
+        },
+        {
+          "id": "input",
+          "name": "Input",
+          "requires": ["anatomy-of-a-c-program"]
+        },
+        {
+          "id": "output-constructs",
+          "name": "Output constructs",
+          "requires": ["input"]
+        },
+        {
+          "id": "built-in-data-types-in-c-int",
+          "name": "built-in data types in C: int",
+          "requires": ["output-constructs"]
+        },
+        {
+          "id": "float",
+          "name": "float",
+          "requires": ["built-in-data-types-in-c-int"]
+        },
+        {
+          "id": "char",
+          "name": "char",
+          "requires": ["float"]
+        },
+        {
+          "id": "types-of-operators",
+          "name": "types of Operators",
+          "requires": ["char"]
+        },
+        {
+          "id": "operator-precedence-and-associativity",
+          "name": "Operator precedence and associativity",
+          "requires": ["types-of-operators"]
+        }
+      ]
+    },
+    {
+      "id": "control-flow-and-functions",
+      "name": "Control Flow and Functions",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "control-structures-if",
+          "name": "Control Structures – if"
+        },
+        {
+          "id": "if-else",
+          "name": "if-else",
+          "requires": ["control-structures-if"]
+        },
+        {
+          "id": "if-elseif-ladder",
+          "name": "if-elseif ladder",
+          "requires": ["if-else"]
+        },
+        {
+          "id": "nested-if",
+          "name": "nested if",
+          "requires": ["if-elseif-ladder"]
+        },
+        {
+          "id": "switch-statement-and-loop-structure-for-loop",
+          "name": "switch statement, and Loop Structure- for loop",
+          "requires": ["nested-if"]
+        },
+        {
+          "id": "while-loop",
+          "name": "while loop",
+          "requires": ["switch-statement-and-loop-structure-for-loop"]
+        },
+        {
+          "id": "do-while-loop-built-in-functions",
+          "name": "do-while loop. Built-in functions",
+          "requires": ["while-loop"]
+        },
+        {
+          "id": "user-defined-functions",
+          "name": "User defined functions",
+          "requires": ["do-while-loop-built-in-functions"]
+        },
+        {
+          "id": "parameterized-vs-non-parameterized-functions",
+          "name": "Parameterized Vs Non-Parameterized functions",
+          "requires": ["user-defined-functions"]
+        },
+        {
+          "id": "function-return-values",
+          "name": "function return values",
+          "requires": ["parameterized-vs-non-parameterized-functions"]
+        },
+        {
+          "id": "nested-functions",
+          "name": "nested functions",
+          "requires": ["function-return-values"]
+        }
+      ]
+    },
+    {
+      "id": "arrays-strings-pointers",
+      "name": "Arrays, Strings, Pointers",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "declaration-and-initialization-of-arrays",
+          "name": "Declaration and initialization of arrays"
+        },
+        {
+          "id": "accessing-array-elements",
+          "name": "Accessing array elements",
+          "requires": ["declaration-and-initialization-of-arrays"]
+        },
+        {
+          "id": "one-dimensional",
+          "name": "One-dimensional",
+          "requires": ["accessing-array-elements"]
+        },
+        {
+          "id": "two-dimensional-and-three-dimensional-arrays",
+          "name": "Two-dimensional and Three-dimensional arrays",
+          "requires": ["one-dimensional"]
+        },
+        {
+          "id": "strings-c",
+          "name": "String operations on Character arrays",
+          "requires": ["two-dimensional-and-three-dimensional-arrays"]
+        },
+        {
+          "id": "in-built-string-functions",
+          "name": "In-built String functions",
+          "requires": ["strings-c"]
+        },
+        {
+          "id": "pointer",
+          "name": "Pointer",
+          "requires": ["in-built-string-functions"]
+        },
+        {
+          "id": "pointers",
+          "name": "Pointer arithmetic",
+          "requires": ["pointer"]
+        },
+        {
+          "id": "pointer-to-pointer",
+          "name": "Pointer to pointer",
+          "requires": ["pointers"]
+        },
+        {
+          "id": "array-of-pointers",
+          "name": "Array of Pointers",
+          "requires": ["pointer-to-pointer"]
+        }
+      ]
+    },
+    {
+      "id": "structures-and-file-handling",
+      "name": "Structures and File Handling",
+      "hours": 3,
+      "topics": [
+        {
+          "id": "declaring-a-structure",
+          "name": "Declaring a Structure"
+        },
+        {
+          "id": "accessing-structure-elements",
+          "name": "Accessing Structure Elements",
+          "requires": ["declaring-a-structure"]
+        },
+        {
+          "id": "array-of-structures",
+          "name": "Array of Structures",
+          "requires": ["accessing-structure-elements"]
+        },
+        {
+          "id": "basic-file-operations",
+          "name": "Basic file operations",
+          "requires": ["array-of-structures"]
+        },
+        {
+          "id": "file-creation",
+          "name": "File creation",
+          "requires": ["basic-file-operations"]
+        },
+        {
+          "id": "file-deletion",
+          "name": "File deletion",
+          "requires": ["file-creation"]
+        },
+        {
+          "id": "file-access-modes-such-as-read",
+          "name": "File access modes such as read",
+          "requires": ["file-deletion"]
+        },
+        {
+          "id": "write",
+          "name": "write",
+          "requires": ["file-access-modes-such-as-read"]
+        },
+        {
+          "id": "append",
+          "name": "append",
+          "requires": ["write"]
+        },
+        {
+          "id": "file-concatenation",
+          "name": "File concatenation",
+          "requires": ["append"]
+        },
+        {
+          "id": "file-handling-using-seek-function",
+          "name": "File handling using seek function",
+          "requires": ["file-concatenation"]
+        }
+      ]
+    }
+  ]
+}

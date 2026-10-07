@@ -1,0 +1,176 @@
+{
+  "id": "pdeu-introduction-to-artificial-intelligence-civil",
+  "name": "Introduction to Artificial Intelligence (Civil)",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [3],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Engineering Science",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s3-introduction-to-artificial-intelligence",
+      "category": "Engineering Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Introduction to Artificial Intelligence",
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction-artificial-intelligence",
+      "name": "Introduction Artificial Intelligence",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "introduction-to-artificial-intelligence",
+          "name": "Introduction to Artificial Intelligence"
+        },
+        {
+          "id": "applications-and-techniques-of-ai",
+          "name": "Applications and Techniques of AI",
+          "requires": ["introduction-to-artificial-intelligence"]
+        },
+        {
+          "id": "applications-in-engineering-predictive-maintenance-quality",
+          "name": "Applications in Engineering: Predictive maintenance, quality control, design optimization, autonomous systems",
+          "requires": ["applications-and-techniques-of-ai"]
+        },
+        {
+          "id": "ethical-and-social-implications-bias-privacy-job",
+          "name": "Ethical and Social Implications: Bias, privacy, job displacement",
+          "requires": ["applications-in-engineering-predictive-maintenance-quality"]
+        },
+        {
+          "id": "future-trends-explainable-ai-ethics-regulation",
+          "name": "Future Trends: Explainable AI, Ethics, Regulation",
+          "requires": ["ethical-and-social-implications-bias-privacy-job"]
+        },
+        {
+          "id": "future-of-work",
+          "name": "Future of Work",
+          "requires": ["future-trends-explainable-ai-ethics-regulation"]
+        },
+        {
+          "id": "real-world-ai-applications",
+          "name": "Real-world AI applications",
+          "requires": ["future-of-work"]
+        },
+        {
+          "id": "ai-career-advice",
+          "name": "AI Career Advice",
+          "requires": ["real-world-ai-applications"]
+        }
+      ]
+    },
+    {
+      "id": "statistics-and-data-visualization",
+      "name": "Statistics and Data Visualization",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-statistics-and-data-visualization",
+          "name": "Introduction to Statistics and Data Visualization"
+        },
+        {
+          "id": "descriptive-statistics-mean-median-variance-etc-with-numpy",
+          "name": "Descriptive Statistics (Mean, Median, variance etc) with NumPy and Pandas",
+          "requires": ["introduction-to-statistics-and-data-visualization"]
+        },
+        {
+          "id": "visualization-line-plot-scatter-plot-bar-chart-histogram-pie",
+          "name": "Visualization (Line Plot, Scatter Plot, Bar Chart, Histogram, Pie Chart, Box Plot, Heatmap, Area Plot, Contour Plot)",
+          "requires": ["descriptive-statistics-mean-median-variance-etc-with-numpy"]
+        },
+        {
+          "id": "customizing-plots-for-better-presentation",
+          "name": "Customizing Plots for Better Presentation",
+          "requires": ["visualization-line-plot-scatter-plot-bar-chart-histogram-pie"]
+        },
+        {
+          "id": "exploratory-data-analysis-eda",
+          "name": "Exploratory Data Analysis (EDA)",
+          "requires": ["customizing-plots-for-better-presentation"]
+        },
+        {
+          "id": "real-world-case-studies-and-examples-hands-on-exercises",
+          "name": "Real-World Case Studies and Examples, Hands-On Exercises using Python/R etc",
+          "requires": ["exploratory-data-analysis-eda"]
+        }
+      ]
+    },
+    {
+      "id": "machine-learning-algorithms",
+      "name": "Machine Learning Algorithms",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "types-of-learning",
+          "name": "Introduction to Machine Learning, ML Techniques: Supervised Learning, Unsupervised Learning and Reinforcement Learning"
+        },
+        {
+          "id": "linear-regression-ml",
+          "name": "ML applications across different sectors, ML Data Preparation, Training and Test Sets, Regression Models (Linear Regression, Decision Tree, Random Forest, Support Vector etc)",
+          "requires": ["types-of-learning"]
+        },
+        {
+          "id": "accuracy-assessment",
+          "name": "Accuracy Assessment",
+          "requires": ["linear-regression-ml"]
+        },
+        {
+          "id": "model-comparison",
+          "name": "Model Comparison",
+          "requires": ["accuracy-assessment"]
+        },
+        {
+          "id": "practice-on-real-world-datasets",
+          "name": "Practice on real world datasets",
+          "requires": ["model-comparison"]
+        }
+      ]
+    },
+    {
+      "id": "supervised-and-unsupervised-learning",
+      "name": "Supervised and Unsupervised Learning",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "difference-between-regression-and-classification",
+          "name": "Difference between Regression and Classification"
+        },
+        {
+          "id": "logistic-regression",
+          "name": "Working Principles of Unsupervised and Supervised Classification Algorithms: K- Nearest Neighbor, Linear Regression, Logistic Regression, Support Vector Machine",
+          "requires": ["linear-regression-ml"]
+        },
+        {
+          "id": "clustering-algorithms-hierarchical-agglomerative-clustering",
+          "name": "Clustering Algorithms: Hierarchical, Agglomerative Clustering, Partitional etc",
+          "requires": ["logistic-regression"]
+        },
+        {
+          "id": "confusion-matrix-accuracy-assessment-hyperparameters",
+          "name": "Confusion Matrix, Accuracy Assessment, Hyperparameters",
+          "requires": ["clustering-algorithms-hierarchical-agglomerative-clustering"]
+        },
+        {
+          "id": "practice-on-real-world-datasets-max-42-hours",
+          "name": "Practice on real world datasets. Max. 42 Hours",
+          "requires": ["confusion-matrix-accuracy-assessment-hyperparameters"]
+        }
+      ]
+    }
+  ]
+}

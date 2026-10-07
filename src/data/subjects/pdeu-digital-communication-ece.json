@@ -1,0 +1,222 @@
+{
+  "id": "pdeu-digital-communication-ece",
+  "name": "Digital Communication (ECE)",
+  "field": "Digital Communication",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [5],
+  "code": "24ICxxxT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s5-digital-communication",
+      "code": "24ICxxxT",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Digital Communication",
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "fundamental-digital-communication-parameters",
+      "name": "Fundamental Digital Communication Parameters",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "sampling-theorem",
+          "name": "Sources and Signals, Basic Signal Processing, Sampling Theorem"
+        },
+        {
+          "id": "quadrature-sampling-of-band-pass-signals",
+          "name": "Quadrature Sampling of Band-Pass Signals",
+          "requires": ["sampling-theorem"]
+        },
+        {
+          "id": "tdm-comm",
+          "name": "Practical Aspects of Sampling and Signal Recovery, Time-Division Multiplexing, Uncertainty, Information, Entropy, Source Coding Theorem, Huffman Coding, Discrete Memoryless Channels, Mutual Informatio",
+          "requires": ["quadrature-sampling-of-band-pass-signals"]
+        }
+      ]
+    },
+    {
+      "id": "optimal-design-of-digital-receiver-and-waveform",
+      "name": "Optimal Design of Digital Receiver and Waveform Coding Techniques",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "model-of-digital-communication-system",
+          "name": "Model of Digital Communication System"
+        },
+        {
+          "id": "gram-schmidt-orthogonalization",
+          "name": "Gram-Schmidt Orthogonalization",
+          "requires": ["model-of-digital-communication-system"]
+        },
+        {
+          "id": "geometric-interpretation-of-signals",
+          "name": "Geometric Interpretation of Signals",
+          "requires": ["gram-schmidt-orthogonalization"]
+        },
+        {
+          "id": "detection-of-known-signal-in-noise",
+          "name": "Detection of known Signal in Noise",
+          "requires": ["geometric-interpretation-of-signals"]
+        },
+        {
+          "id": "correlation-receiver",
+          "name": "Correlation Receiver",
+          "requires": ["detection-of-known-signal-in-noise"]
+        },
+        {
+          "id": "matched-filter-receiver",
+          "name": "Matched Filter Receiver",
+          "requires": ["correlation-receiver"]
+        },
+        {
+          "id": "probability-of-errors",
+          "name": "Probability of Errors",
+          "requires": ["matched-filter-receiver"]
+        },
+        {
+          "id": "pulse-amplitude-modulation",
+          "name": "Pulse Amplitude Modulation",
+          "requires": ["probability-of-errors"]
+        },
+        {
+          "id": "pulse-width-modulation",
+          "name": "Pulse Width Modulation",
+          "requires": ["pulse-amplitude-modulation"]
+        },
+        {
+          "id": "pulse-position-modulation",
+          "name": "Pulse Position Modulation",
+          "requires": ["pulse-width-modulation"]
+        },
+        {
+          "id": "pulse-code-modulation",
+          "name": "Pulse Code Modulation",
+          "requires": ["pulse-position-modulation"]
+        },
+        {
+          "id": "differential-pulse-code-modulation",
+          "name": "Differential Pulse- Code Modulation",
+          "requires": ["pulse-code-modulation"]
+        },
+        {
+          "id": "delta-modulation",
+          "name": "Delta Modulation",
+          "requires": ["differential-pulse-code-modulation"]
+        },
+        {
+          "id": "inter-symbol-interference",
+          "name": "Inter-symbol Interference",
+          "requires": ["delta-modulation"]
+        },
+        {
+          "id": "eye-pattern",
+          "name": "Eye Pattern",
+          "requires": ["inter-symbol-interference"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-digital-communication-transceiver-system",
+      "name": "Design of Digital Communication Transceiver System",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "coherent-binary-modulation-techniques",
+          "name": "Coherent Binary Modulation Techniques"
+        },
+        {
+          "id": "quadrature-amplitude-modulation",
+          "name": "Quadrature Amplitude Modulation",
+          "requires": ["coherent-binary-modulation-techniques"]
+        },
+        {
+          "id": "m-ary-modulation",
+          "name": "M-ary Modulation",
+          "requires": ["quadrature-amplitude-modulation"]
+        },
+        {
+          "id": "effect-of-inter-symbol-interference",
+          "name": "Effect of Inter-symbol Interference",
+          "requires": ["m-ary-modulation"]
+        },
+        {
+          "id": "bit-and-symbol-error-probabilities",
+          "name": "Bit and Symbol Error Probabilities",
+          "requires": ["effect-of-inter-symbol-interference"]
+        },
+        {
+          "id": "synchronization",
+          "name": "Synchronization",
+          "requires": ["bit-and-symbol-error-probabilities"]
+        },
+        {
+          "id": "linear-block-codes",
+          "name": "Linear Block Codes",
+          "requires": ["synchronization"]
+        },
+        {
+          "id": "cyclic-codes",
+          "name": "Cyclic Codes",
+          "requires": ["linear-block-codes"]
+        },
+        {
+          "id": "convolution",
+          "name": "Convolution Codes",
+          "requires": ["cyclic-codes"]
+        },
+        {
+          "id": "maximum-likelihood-decoding-of-convolution-codes",
+          "name": "Maximum-Likelihood Decoding of Convolution Codes",
+          "requires": ["convolution"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-concepts-and-way-forward",
+      "name": "Advanced Concepts and Way Forward",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "spread-spectrum-communication",
+          "name": "Spread Spectrum Communication"
+        },
+        {
+          "id": "direct-sequence-spread-spectrum-dsss",
+          "name": "Direct Sequence Spread Spectrum (DSSS)",
+          "requires": ["spread-spectrum-communication"]
+        },
+        {
+          "id": "frequency-hopping-spread-spectrum-fhss",
+          "name": "Frequency Hopping Spread Spectrum (FHSS)",
+          "requires": ["direct-sequence-spread-spectrum-dsss"]
+        },
+        {
+          "id": "introduction-to-multi-carrier-communication-systems-ofdm-and",
+          "name": "Introduction to multi-carrier communication systems (OFDM and MIMO)",
+          "requires": ["frequency-hopping-spread-spectrum-fhss"]
+        },
+        {
+          "id": "introduction-to-software-defined-radio-sdr-max-hrs-42",
+          "name": "Introduction to Software Defined Radio (SDR). Max. Hrs.: 42",
+          "requires": ["introduction-to-multi-carrier-communication-systems-ofdm-and"]
+        }
+      ]
+    }
+  ]
+}

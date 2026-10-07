@@ -1,0 +1,318 @@
+{
+  "id": "pdeu-discrete-mathematics",
+  "name": "Discrete Mathematics",
+  "field": "Mathematics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [3],
+  "code": "24MA202T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s3-discrete-mathematics",
+      "code": "24MA202T",
+      "category": "Basic Science",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Discrete Mathematics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "maths",
+  "chapters": [
+    {
+      "id": "sets-relations-functions-and-logic",
+      "name": "Sets, Relations, Functions and Logic",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "finite-and-infinite-sets",
+          "name": "Finite and Infinite sets"
+        },
+        {
+          "id": "counting-principle",
+          "name": "Counting Principle",
+          "requires": ["finite-and-infinite-sets"]
+        },
+        {
+          "id": "inclusion-exclusion",
+          "name": "Principle of inclusion and exclusion",
+          "requires": ["counting-principle"]
+        },
+        {
+          "id": "mathematical-induction",
+          "name": "Mathematical Induction",
+          "requires": ["inclusion-exclusion"]
+        },
+        {
+          "id": "relations",
+          "name": "Relations",
+          "requires": ["mathematical-induction"]
+        },
+        {
+          "id": "types-of-relation",
+          "name": "Types of Relation",
+          "requires": ["relations"]
+        },
+        {
+          "id": "equivalence-relation",
+          "name": "Equivalence relation",
+          "requires": ["types-of-relation"]
+        },
+        {
+          "id": "partial-ordered-relations-functions",
+          "name": "Partial Ordered Relations. Functions",
+          "requires": ["equivalence-relation"]
+        },
+        {
+          "id": "types-of-functions",
+          "name": "types of functions",
+          "requires": ["partial-ordered-relations-functions"]
+        },
+        {
+          "id": "logic-and-propositional-calculus-simple-and-compound",
+          "name": "Logic and Propositional calculus – Simple and Compound Propositions",
+          "requires": ["types-of-functions"]
+        },
+        {
+          "id": "basic-logical-operators-truth-tables-tautologies",
+          "name": "Basic logical operators. Truth tables. Tautologies",
+          "requires": ["logic-and-propositional-calculus-simple-and-compound"]
+        },
+        {
+          "id": "contradictions",
+          "name": "Contradictions",
+          "requires": ["basic-logical-operators-truth-tables-tautologies"]
+        },
+        {
+          "id": "logical-equivalence",
+          "name": "logical equivalence",
+          "requires": ["contradictions"]
+        },
+        {
+          "id": "conditional-and-bi-conditional-statements",
+          "name": "conditional and bi-conditional statements",
+          "requires": ["logical-equivalence"]
+        },
+        {
+          "id": "valid-arguments-and-fallacy",
+          "name": "Valid arguments and Fallacy",
+          "requires": ["conditional-and-bi-conditional-statements"]
+        },
+        {
+          "id": "hasse-diagram-and-lattice",
+          "name": "Hasse diagram and Lattice",
+          "requires": ["valid-arguments-and-fallacy"]
+        }
+      ]
+    },
+    {
+      "id": "combinatorics",
+      "name": "Combinatorics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "permutation",
+          "name": "Permutation"
+        },
+        {
+          "id": "combination",
+          "name": "Combination",
+          "requires": ["permutation"]
+        },
+        {
+          "id": "pigeonhole",
+          "name": "Pigeonhole principle",
+          "requires": ["combination"]
+        },
+        {
+          "id": "extended-pigeonhole-principle",
+          "name": "Extended Pigeonhole principle",
+          "requires": ["pigeonhole"]
+        },
+        {
+          "id": "recurrence-relations",
+          "name": "Recurrence relations",
+          "requires": ["extended-pigeonhole-principle"]
+        },
+        {
+          "id": "linear-recurrence-relations-with-constant-coefficients",
+          "name": "Linear recurrence relations with constant coefficients",
+          "requires": ["recurrence-relations"]
+        },
+        {
+          "id": "solutions-of-recurrence-relations-second-order-homogeneous",
+          "name": "Solutions of recurrence relations: second order homogeneous linear recurrence relation",
+          "requires": ["linear-recurrence-relations-with-constant-coefficients"]
+        },
+        {
+          "id": "general-homogeneous-linear-recurrence-relation",
+          "name": "general homogeneous linear recurrence relation",
+          "requires": ["solutions-of-recurrence-relations-second-order-homogeneous"]
+        }
+      ]
+    },
+    {
+      "id": "graph-theory-and-its-applications",
+      "name": "Graph Theory and its Applications",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "graphs-and-related-definitions",
+          "name": "Graphs and related definitions"
+        },
+        {
+          "id": "sub-graphs",
+          "name": "Sub graphs",
+          "requires": ["graphs-and-related-definitions"]
+        },
+        {
+          "id": "homomorphism-and-isomorphism",
+          "name": "Homomorphism and Isomorphism",
+          "requires": ["sub-graphs"]
+        },
+        {
+          "id": "paths-and-connectivity-traversable-and-eulerian-graphs-and",
+          "name": "Paths and Connectivity. Traversable and Eulerian graphs, and Konigsberg Bridge problem",
+          "requires": ["homomorphism-and-isomorphism"]
+        },
+        {
+          "id": "hamiltonian-graphs",
+          "name": "Hamiltonian graphs",
+          "requires": ["paths-and-connectivity-traversable-and-eulerian-graphs-and"]
+        },
+        {
+          "id": "labeled-and-weighted-graphs-complete",
+          "name": "Labeled and weighted graphs. Complete",
+          "requires": ["hamiltonian-graphs"]
+        },
+        {
+          "id": "regular-and-bipartite-graphs",
+          "name": "regular and bipartite graphs",
+          "requires": ["labeled-and-weighted-graphs-complete"]
+        },
+        {
+          "id": "planar-graphs",
+          "name": "Planar graphs",
+          "requires": ["regular-and-bipartite-graphs"]
+        },
+        {
+          "id": "graph-coloring-four-color-problem-directed-graphs",
+          "name": "Graph coloring. Four color problem. Directed graphs",
+          "requires": ["planar-graphs"]
+        },
+        {
+          "id": "strongly-and-weakly-connected-graphs",
+          "name": "Strongly and weakly connected graphs",
+          "requires": ["graph-coloring-four-color-problem-directed-graphs"]
+        },
+        {
+          "id": "trees",
+          "name": "Trees",
+          "requires": ["strongly-and-weakly-connected-graphs"]
+        },
+        {
+          "id": "rooted-trees",
+          "name": "rooted trees",
+          "requires": ["trees"]
+        },
+        {
+          "id": "sequential-representation-of-directed-graphs",
+          "name": "sequential representation of directed graphs",
+          "requires": ["rooted-trees"]
+        },
+        {
+          "id": "adjacency-matrix",
+          "name": "Adjacency matrix",
+          "requires": ["sequential-representation-of-directed-graphs"]
+        },
+        {
+          "id": "powers-of-the-adjacency-matrix",
+          "name": "Powers of the adjacency matrix",
+          "requires": ["adjacency-matrix"]
+        }
+      ]
+    },
+    {
+      "id": "algebraic-structures",
+      "name": "Algebraic Structures",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "group",
+          "name": "Group"
+        },
+        {
+          "id": "semi-group",
+          "name": "Semi group",
+          "requires": ["group"]
+        },
+        {
+          "id": "monoids",
+          "name": "Monoids",
+          "requires": ["semi-group"]
+        },
+        {
+          "id": "properties-of-a-group",
+          "name": "Properties of a Group",
+          "requires": ["monoids"]
+        },
+        {
+          "id": "composition-table-for-finite-group",
+          "name": "Composition table for finite Group",
+          "requires": ["properties-of-a-group"]
+        },
+        {
+          "id": "order-of-a-group",
+          "name": "Order of a group",
+          "requires": ["composition-table-for-finite-group"]
+        },
+        {
+          "id": "order-of-its-elements",
+          "name": "Order of its elements",
+          "requires": ["order-of-a-group"]
+        },
+        {
+          "id": "cyclic-group",
+          "name": "Cyclic Group",
+          "requires": ["order-of-its-elements"]
+        },
+        {
+          "id": "generator",
+          "name": "Generator",
+          "requires": ["cyclic-group"]
+        },
+        {
+          "id": "lagranges-theorem-ring",
+          "name": "Lagrange’s Theorem. Ring",
+          "requires": ["generator"]
+        },
+        {
+          "id": "properties-of-rings",
+          "name": "Properties of Rings",
+          "requires": ["lagranges-theorem-ring"]
+        },
+        {
+          "id": "integral-domain",
+          "name": "Integral Domain",
+          "requires": ["properties-of-rings"]
+        },
+        {
+          "id": "field",
+          "name": "Field",
+          "requires": ["integral-domain"]
+        }
+      ]
+    }
+  ]
+}

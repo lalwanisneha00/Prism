@@ -1,0 +1,121 @@
+{
+  "id": "pdeu-highway-and-traffic-engineering-with-lab",
+  "name": "Highway and Traffic Engineering (with lab)",
+  "field": "Civil Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [6],
+  "credits": 4,
+  "ltp": "3-0-2",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s6-highway-and-traffic-engineering-with-lab",
+      "category": "Program Core",
+      "ltp": "3-0-2",
+      "credits": 4,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Highway and Traffic Engineering (with lab)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "principles-of-transportation-engineering",
+      "name": "Principles of Transportation Engineering",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "importance-of-transportation-different-modes-of",
+          "name": "Importance of transportation- Different modes of transportation and comparison-Characteristics of road transport- Road type’s classification- road patterns- various road development plans in India- fa"
+        }
+      ]
+    },
+    {
+      "id": "highway-geometric-design",
+      "name": "Highway Geometric Design",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "sight-distance",
+          "name": "Importance of geometric design- Terrain classification- Design speed- Factors affecting geometric design, Cross sectional elements-Camber- width of pavement- Sight Distance design- Stopping sight dist"
+        },
+        {
+          "id": "extra-widening-transition-curve-and-its-length-setback",
+          "name": "Extra widening- Transition curve and its length- Setback distance",
+          "requires": ["sight-distance"]
+        },
+        {
+          "id": "vertical-curves",
+          "name": "Examples, Vertical alignment-Gradient summit and valley curves",
+          "requires": ["sight-distance"]
+        }
+      ]
+    },
+    {
+      "id": "pavement-materials-and-pavement-design",
+      "name": "Pavement Materials and Pavement Design",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "pavement-materials",
+          "name": "Desirable properties and different test procedure of pavement materials (tests for soil, aggregate, bitumen etc.- Road construction methods- PAVEMENT DESIGN- Pavement types- component parts of flexibl"
+        }
+      ]
+    },
+    {
+      "id": "traffic-engineering",
+      "name": "Traffic Engineering",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "various-traffic-parameters-and-its-importance-in-the-safe",
+          "name": "Various traffic parameters and its importance in the safe and efficient operation of highway"
+        },
+        {
+          "id": "traffic-studies-on-flow-and-speed-peak-hour-factor-accident",
+          "name": "Traffic studies on flow and speed, peak hour factor, accident study, statistical analysis of traffic data",
+          "requires": ["various-traffic-parameters-and-its-importance-in-the-safe"]
+        },
+        {
+          "id": "microscopic-and-macroscopic-parameters-of-traffic-flow",
+          "name": "Microscopic and macroscopic parameters of traffic flow, fundamental relationships",
+          "requires": ["traffic-studies-on-flow-and-speed-peak-hour-factor-accident"]
+        },
+        {
+          "id": "traffic-signs",
+          "name": "Traffic signs",
+          "requires": ["microscopic-and-macroscopic-parameters-of-traffic-flow"]
+        },
+        {
+          "id": "signal-design-by-websters-method",
+          "name": "Signal design by Webster’s method",
+          "requires": ["traffic-signs"]
+        },
+        {
+          "id": "types-of-intersections",
+          "name": "Types of intersections",
+          "requires": ["signal-design-by-websters-method"]
+        },
+        {
+          "id": "highway-capacity-introduction-to-intelligent-transportation",
+          "name": "Highway capacity Introduction to Intelligent transportation- Different methods of ITS technologies developed for effective traffic operation and management",
+          "requires": ["types-of-intersections"]
+        },
+        {
+          "id": "laboratory",
+          "name": "Laboratory",
+          "requires": ["highway-capacity-introduction-to-intelligent-transportation"]
+        }
+      ]
+    }
+  ]
+}

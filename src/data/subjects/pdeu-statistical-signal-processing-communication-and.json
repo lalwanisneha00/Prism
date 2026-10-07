@@ -1,0 +1,260 @@
+{
+  "id": "pdeu-statistical-signal-processing-communication-and",
+  "name": "Statistical Signal Processing (Communication & Signal Processing)",
+  "field": "Statistical Signal Processing",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [6],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s6-program-elective-2--statistical-signal-processing-communication-and-signal-proce",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Statistical Signal Processing (Communication & Signal Processing)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "fundamentals-of-random-signal-processing",
+      "name": "Fundamentals of Random Signal Processing",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "review-of-statistical-measures-and-probability-distribution",
+          "name": "Review of Statistical Measures and Probability distribution functions"
+        },
+        {
+          "id": "continuous-and-discrete-time-random-processes",
+          "name": "Continuous and Discrete time random processes",
+          "requires": ["review-of-statistical-measures-and-probability-distribution"]
+        },
+        {
+          "id": "stationarity",
+          "name": "Stationarity",
+          "requires": ["continuous-and-discrete-time-random-processes"]
+        },
+        {
+          "id": "ergodicity",
+          "name": "Ergodicity",
+          "requires": ["stationarity"]
+        },
+        {
+          "id": "wide-sense-stationarity",
+          "name": "Wide Sense stationarity",
+          "requires": ["ergodicity"]
+        },
+        {
+          "id": "covariance",
+          "name": "Covariance",
+          "requires": ["wide-sense-stationarity"]
+        },
+        {
+          "id": "correlation-and-power-spectral-density",
+          "name": "Correlation and Power Spectral density",
+          "requires": ["covariance"]
+        },
+        {
+          "id": "filtering-of-random-processes",
+          "name": "Filtering of random processes",
+          "requires": ["correlation-and-power-spectral-density"]
+        },
+        {
+          "id": "spectral-factorization",
+          "name": "Spectral factorization",
+          "requires": ["filtering-of-random-processes"]
+        },
+        {
+          "id": "wold-decomposition",
+          "name": "Wold Decomposition",
+          "requires": ["spectral-factorization"]
+        }
+      ]
+    },
+    {
+      "id": "estimation-theory",
+      "name": "Estimation Theory",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "maximum-likelihood",
+          "name": "Maximum Likelihood"
+        },
+        {
+          "id": "fisher-information",
+          "name": "Fisher Information",
+          "requires": ["maximum-likelihood"]
+        },
+        {
+          "id": "cramer-rao-bound",
+          "name": "Cramer Rao bound",
+          "requires": ["fisher-information"]
+        },
+        {
+          "id": "map-estimation",
+          "name": "MAP estimation",
+          "requires": ["cramer-rao-bound"]
+        },
+        {
+          "id": "mmse-estimation",
+          "name": "MMSE estimation",
+          "requires": ["map-estimation"]
+        },
+        {
+          "id": "spectral-estimation",
+          "name": "Non parametric spectral estimation",
+          "requires": ["mmse-estimation"]
+        },
+        {
+          "id": "periodogram",
+          "name": "Periodogram",
+          "requires": ["spectral-estimation"]
+        },
+        {
+          "id": "windowing",
+          "name": "windowing",
+          "requires": ["periodogram"]
+        },
+        {
+          "id": "parametric-spectral-estimation",
+          "name": "Parametric spectral estimation",
+          "requires": ["windowing"]
+        },
+        {
+          "id": "ar-and-arma-modelling",
+          "name": "AR and ARMA modelling",
+          "requires": ["parametric-spectral-estimation"]
+        },
+        {
+          "id": "yule-walker-equations",
+          "name": "Yule Walker equations",
+          "requires": ["ar-and-arma-modelling"]
+        },
+        {
+          "id": "applications-to-signal-modeling",
+          "name": "Applications to signal modeling",
+          "requires": ["yule-walker-equations"]
+        },
+        {
+          "id": "design-of-digital-communication-receivers",
+          "name": "design of digital communication receivers",
+          "requires": ["applications-to-signal-modeling"]
+        },
+        {
+          "id": "channel-estimation-and-forecasting-systems",
+          "name": "channel estimation and forecasting systems",
+          "requires": ["design-of-digital-communication-receivers"]
+        }
+      ]
+    },
+    {
+      "id": "adaptive-filtering",
+      "name": "Adaptive Filtering",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "wiener-filter",
+          "name": "Wiener filter"
+        },
+        {
+          "id": "lms-algorithm",
+          "name": "LMS algorithm",
+          "requires": ["wiener-filter"]
+        },
+        {
+          "id": "recursive-least-squares",
+          "name": "recursive least squares",
+          "requires": ["lms-algorithm"]
+        },
+        {
+          "id": "kalman-filters-and-its-variants",
+          "name": "Kalman filters and its variants",
+          "requires": ["recursive-least-squares"]
+        },
+        {
+          "id": "constant-modulus-algorithm",
+          "name": "Constant modulus algorithm",
+          "requires": ["kalman-filters-and-its-variants"]
+        },
+        {
+          "id": "adaptive-beam-forming-and-generalized-side-lobe-canceller",
+          "name": "Adaptive beam forming and generalized side lobe canceller",
+          "requires": ["constant-modulus-algorithm"]
+        },
+        {
+          "id": "applications-to-noise-cancellation",
+          "name": "Applications to noise cancellation",
+          "requires": ["adaptive-beam-forming-and-generalized-side-lobe-canceller"]
+        },
+        {
+          "id": "echo-cancellation",
+          "name": "echo cancellation",
+          "requires": ["applications-to-noise-cancellation"]
+        },
+        {
+          "id": "channel-equalization",
+          "name": "channel equalization",
+          "requires": ["echo-cancellation"]
+        },
+        {
+          "id": "system-identification",
+          "name": "system identification",
+          "requires": ["channel-equalization"]
+        },
+        {
+          "id": "linear-prediction-etc",
+          "name": "linear prediction etc",
+          "requires": ["system-identification"]
+        }
+      ]
+    },
+    {
+      "id": "statistical-source-separation-techniques",
+      "name": "Statistical Source Separation Techniques",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "the-cock-tail-party-problem",
+          "name": "The cock tail party problem"
+        },
+        {
+          "id": "independent-component-analysis",
+          "name": "Independent component analysis",
+          "requires": ["the-cock-tail-party-problem"]
+        },
+        {
+          "id": "blind-source-separation",
+          "name": "Blind Source Separation",
+          "requires": ["independent-component-analysis"]
+        },
+        {
+          "id": "partial-correlations-and-concentration-matrix",
+          "name": "Partial correlations and concentration matrix",
+          "requires": ["blind-source-separation"]
+        },
+        {
+          "id": "granger-and-other-causality-measures-applications-to-speech",
+          "name": "Granger and other causality measures. Applications to speech enhancement",
+          "requires": ["partial-correlations-and-concentration-matrix"]
+        },
+        {
+          "id": "speaker-separation-etc",
+          "name": "speaker separation etc",
+          "requires": ["granger-and-other-causality-measures-applications-to-speech"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "id": "pdeu-integrated-reservoir-management-and-enhanced-oil",
+  "name": "Integrated Reservoir Management and Enhanced Oil Recovery Methods",
+  "field": "Integrated Reservoir Management and Enhanced Oil Recovery Methods",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [7],
+  "code": "24PE402T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s7-integrated-reservoir-management-and-enhanced-oil-recovery-me",
+      "code": "24PE402T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Integrated Reservoir Management and Enhanced Oil Recovery Methods",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "concept-reservoir-management-and-characterization",
+      "name": "Concept Reservoir Management & Characterization",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "concept-of-integrated-reservoir-management-evolution-of",
+          "name": "Concept of integrated reservoir management, Evolution of reservoir management with time, Fundamentals of reservoir management, synergic team approach"
+        },
+        {
+          "id": "importance-of-reservoir-management-reservoir-data-types",
+          "name": "Importance of reservoir management, Reservoir Data types: Geosciences, Fluid and PVT, Petrophysical properties from core, Well logs, Transient well test, and Production, Data validation and workflow d",
+          "requires": ["concept-of-integrated-reservoir-management-evolution-of"]
+        }
+      ]
+    },
+    {
+      "id": "reservoir-performance-analysis-and-development",
+      "name": "Reservoir Performance Analysis & Development Plans for Techno-Economic Evaluation",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "reservoir-performance-analysis-by-various-methods-volumetric",
+          "name": "Reservoir performance analysis by various methods: Volumetric"
+        },
+        {
+          "id": "decline-curve",
+          "name": "decline curve",
+          "requires": ["reservoir-performance-analysis-by-various-methods-volumetric"]
+        },
+        {
+          "id": "material-balance-and-simulation",
+          "name": "material balance & simulation",
+          "requires": ["decline-curve"]
+        },
+        {
+          "id": "concept-of-field-development-plan",
+          "name": "Concept of field development plan",
+          "requires": ["material-balance-and-simulation"]
+        },
+        {
+          "id": "importance-of-eor-ior-in-reservoir-management-strategy",
+          "name": "Importance of EOR/IOR in reservoir management strategy",
+          "requires": ["concept-of-field-development-plan"]
+        },
+        {
+          "id": "development-plans-for-newly-explored-developed-and-matured",
+          "name": "Development plans for newly explored/developed and matured fields",
+          "requires": ["importance-of-eor-ior-in-reservoir-management-strategy"]
+        },
+        {
+          "id": "scenarios-for-development-plans-and-techno-economic",
+          "name": "Scenarios for development plans & Techno-economic evaluation. Risk management",
+          "requires": ["development-plans-for-newly-explored-developed-and-matured"]
+        },
+        {
+          "id": "uncertainties-and-economic-optimization",
+          "name": "Uncertainties & economic optimization",
+          "requires": ["scenarios-for-development-plans-and-techno-economic"]
+        }
+      ]
+    },
+    {
+      "id": "enhanced-oil-recovery-methods",
+      "name": "Enhanced Oil Recovery Methods",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "definition-of-enhanced-oil-recovery-and-improved-oil",
+          "name": "Definition of enhanced oil recovery and improved oil recovery, Difference of IOR and EOR, Target oil resource for EOR, General Classification"
+        },
+        {
+          "id": "description-and-potential-of-different-eor-processes",
+          "name": "Description and potential of different EOR processes, Microscopic and macroscopic displacement of fluids in a reservoir, Displacement efficiency in different system",
+          "requires": ["definition-of-enhanced-oil-recovery-and-improved-oil"]
+        },
+        {
+          "id": "linear-areal-volumetric-definition-and-discussion-of",
+          "name": "linear, areal, volumetric, Definition and discussion of mobility ratio and mobility control processes for different types of fluids, Miscible/Immiscible displacement processes",
+          "requires": ["description-and-potential-of-different-eor-processes"]
+        },
+        {
+          "id": "water-flooding-gas-injection-micro-emulsion-flooding",
+          "name": "water flooding, gas injection, micro-emulsion flooding Chemical Flooding",
+          "requires": ["linear-areal-volumetric-definition-and-discussion-of"]
+        },
+        {
+          "id": "polymer-flooding-surfactant-flooding-micellar-flooding",
+          "name": "polymer flooding, Surfactant flooding, Micellar flooding related methods Thermal recovery processes- in situ combustion, hot-water injection, steam flooding, SAGD Microbial EOR. EOR screening criteria",
+          "requires": ["water-flooding-gas-injection-micro-emulsion-flooding"]
+        }
+      ]
+    },
+    {
+      "id": "case-studies-on-reservoir-management-and-enhanced",
+      "name": "Case Studies on Reservoir Management and Enhanced Oil Recovery",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "field-scale-implementation-and-their-performance-of-various",
+          "name": "Field scale implementation and their performance of various EOR schemes of local and global context"
+        },
+        {
+          "id": "reservoir-management-case-studies-for-various-types-of",
+          "name": "Reservoir Management case studies for various types of clastic and non-clastic reservoirs (both onshore and offshore)",
+          "requires": ["field-scale-implementation-and-their-performance-of-various"]
+        },
+        {
+          "id": "current-challenges-and-areas-of-further-development",
+          "name": "Current challenges and areas of further development",
+          "requires": ["reservoir-management-case-studies-for-various-types-of"]
+        }
+      ]
+    }
+  ]
+}

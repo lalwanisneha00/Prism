@@ -1,0 +1,218 @@
+{
+  "id": "pdeu-sedimentary-and-petroleum-geology",
+  "name": "Sedimentary and Petroleum Geology",
+  "field": "Petroleum Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [2],
+  "code": "24PE102T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s2-sedimentary-and-petroleum-geology",
+      "code": "24PE102T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Sedimentary and Petroleum Geology",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "unit-1",
+      "name": "Unit 1",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "basins-and-formation-of-sediments-grain-transportation-and",
+          "name": "Basins and formation of sediments, Grain transportation and its deposition, Hjoulstorm curve, Sediment texture (Size, Shape, sorting)"
+        },
+        {
+          "id": "porosity",
+          "name": "Control of grains size on Porosity and permeability",
+          "requires": ["basins-and-formation-of-sediments-grain-transportation-and"]
+        },
+        {
+          "id": "carbonate-rock-and-its-porosity",
+          "name": "Carbonate rock and its porosity",
+          "requires": ["porosity"]
+        },
+        {
+          "id": "paleocurrent-analysis-diagenesis-fundamentals-of-fluid-flow",
+          "name": "Paleocurrent analysis, diagenesis, fundamentals of fluid flow (Reynolds no; Froude no.)",
+          "requires": ["carbonate-rock-and-its-porosity"]
+        },
+        {
+          "id": "flow-regimes-upper-flow-regime-lower-flow-regime",
+          "name": "Flow Regimes (Upper flow regime; Lower flow regime)",
+          "requires": ["paleocurrent-analysis-diagenesis-fundamentals-of-fluid-flow"]
+        },
+        {
+          "id": "introduction-to-unidirectional-flows-and-oscillatory-flows",
+          "name": "Introduction to Unidirectional flows and oscillatory flows",
+          "requires": ["flow-regimes-upper-flow-regime-lower-flow-regime"]
+        }
+      ]
+    },
+    {
+      "id": "unit-2",
+      "name": "Unit 2",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "bedforms-formed-under-unidirectional-flow",
+          "name": "Bedforms formed under unidirectional flow"
+        },
+        {
+          "id": "bedforms-formed-under-oscillatory-flow",
+          "name": "Bedforms formed under Oscillatory flow",
+          "requires": ["bedforms-formed-under-unidirectional-flow"]
+        },
+        {
+          "id": "sediment-stability-diagram",
+          "name": "Sediment stability diagram",
+          "requires": ["bedforms-formed-under-oscillatory-flow"]
+        },
+        {
+          "id": "interpreting-depositional-environment-from-outcrops-and",
+          "name": "Interpreting Depositional environment from outcrops and cores",
+          "requires": ["sediment-stability-diagram"]
+        },
+        {
+          "id": "interpretation-of-sedimentary-environment-especially",
+          "name": "Interpretation of Sedimentary environment especially, Sedimentology (Grain size, sorting), Sand distribution, Sand geometry, Porosity-permeability trends in reservoirs formed in Continental (Alluvial ",
+          "requires": ["interpreting-depositional-environment-from-outcrops-and"]
+        },
+        {
+          "id": "delta-and-estuary-system",
+          "name": "Delta and Estuary System",
+          "requires": ["interpretation-of-sedimentary-environment-especially"]
+        },
+        {
+          "id": "shallow-marine-shoreface",
+          "name": "Shallow marine (Shoreface)",
+          "requires": ["delta-and-estuary-system"]
+        },
+        {
+          "id": "shelf-and-deep-and-ultra-deep-sedimentary-environments",
+          "name": "Shelf and Deep and Ultra deep sedimentary environments",
+          "requires": ["shallow-marine-shoreface"]
+        },
+        {
+          "id": "selected-case-studies-of-each-environment",
+          "name": "Selected case studies of each environment",
+          "requires": ["shelf-and-deep-and-ultra-deep-sedimentary-environments"]
+        }
+      ]
+    },
+    {
+      "id": "unit-3",
+      "name": "Unit 3",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "theory-of-petroleum-formation",
+          "name": "Theory of Petroleum formation"
+        },
+        {
+          "id": "organic-matter-and-its-composition",
+          "name": "Organic matter and its composition",
+          "requires": ["theory-of-petroleum-formation"]
+        },
+        {
+          "id": "kerogen-and-its-types-maturation-of-kerogene-thermal",
+          "name": "Kerogen and its types, Maturation of Kerogene, Thermal maturity indicators, Migration of Hydrocarbons",
+          "requires": ["organic-matter-and-its-composition"]
+        },
+        {
+          "id": "primary-migration-theories-and-reasons",
+          "name": "Primary migration-Theories and reasons",
+          "requires": ["kerogen-and-its-types-maturation-of-kerogene-thermal"]
+        },
+        {
+          "id": "secondary-migration",
+          "name": "Secondary migration",
+          "requires": ["primary-migration-theories-and-reasons"]
+        },
+        {
+          "id": "tertiary-migration",
+          "name": "Tertiary migration",
+          "requires": ["secondary-migration"]
+        },
+        {
+          "id": "migration-under-hydrostatic-and-hydrodynamic-conditions",
+          "name": "Migration under hydrostatic and hydrodynamic conditions",
+          "requires": ["tertiary-migration"]
+        },
+        {
+          "id": "effect-of-isopotential-surfaces-identifying-migration",
+          "name": "effect of isopotential surfaces, identifying migration pathways",
+          "requires": ["migration-under-hydrostatic-and-hydrodynamic-conditions"]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "name": "Unit 4",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "distinction-between-reservoir-and-source-rock",
+          "name": "Distinction between reservoir and source rock"
+        },
+        {
+          "id": "source-rock-characterization",
+          "name": "Source rock characterization",
+          "requires": ["distinction-between-reservoir-and-source-rock"]
+        },
+        {
+          "id": "seal-and-cap-rock-characterization",
+          "name": "Seal and Cap rock characterization",
+          "requires": ["source-rock-characterization"]
+        },
+        {
+          "id": "petroleum-traps",
+          "name": "Traps (Structural; Stratigraphic and combined traps)",
+          "requires": ["seal-and-cap-rock-characterization"]
+        },
+        {
+          "id": "total-petroleum-system",
+          "name": "Total petroleum System",
+          "requires": ["petroleum-traps"]
+        },
+        {
+          "id": "evaluation-of-a-petroliferous-sedimentary-basin",
+          "name": "Evaluation of a petroliferous sedimentary basin",
+          "requires": ["total-petroleum-system"]
+        },
+        {
+          "id": "petroleum-geology-of-india",
+          "name": "Petroleum Geology of India",
+          "requires": ["evaluation-of-a-petroliferous-sedimentary-basin"]
+        },
+        {
+          "id": "selected-case-study-on-a-carbonate-reservoir-field-ghawar",
+          "name": "Selected Case study on (a) Carbonate Reservoir/field –Ghawar",
+          "requires": ["petroleum-geology-of-india"]
+        },
+        {
+          "id": "mumbai-high-b-clastic-reservoir-assam-cambay-c-evaporitic",
+          "name": "Mumbai-High (b) Clastic reservoir: Assam, Cambay (c) Evaporitic reservoir: Bikaner-Nagur Basin",
+          "requires": ["selected-case-study-on-a-carbonate-reservoir-field-ghawar"]
+        }
+      ]
+    }
+  ]
+}

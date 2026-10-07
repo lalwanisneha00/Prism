@@ -1,0 +1,301 @@
+{
+  "id": "pdeu-concrete-technology",
+  "name": "Concrete Technology",
+  "field": "Civil Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [3],
+  "credits": 2,
+  "ltp": "2-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s3-concrete-technology",
+      "category": "Program Core",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Concrete Technology",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "concrete-ingredients",
+      "name": "Concrete Ingredients",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "cement-portland-cement",
+          "name": "CEMENT: Portland cement"
+        },
+        {
+          "id": "chemical-composition",
+          "name": "chemical composition",
+          "requires": ["cement-portland-cement"]
+        },
+        {
+          "id": "hydration-setting-of-cement",
+          "name": "Hydration, Setting of cement",
+          "requires": ["chemical-composition"]
+        },
+        {
+          "id": "structure-of-hydrate-cement",
+          "name": "Structure of hydrate cement",
+          "requires": ["hydration-setting-of-cement"]
+        },
+        {
+          "id": "test-on-physical-properties",
+          "name": "Test on physical properties",
+          "requires": ["structure-of-hydrate-cement"]
+        },
+        {
+          "id": "different-grades-of-cement-aggregates-classification-of",
+          "name": "Different grades of cement AGGREGATES: Classification of aggregate",
+          "requires": ["test-on-physical-properties"]
+        },
+        {
+          "id": "particle-shape-and-texture-strength-and-other-mechanical",
+          "name": "Particle shape & texture –, strength & other mechanical properties of aggregate",
+          "requires": ["different-grades-of-cement-aggregates-classification-of"]
+        },
+        {
+          "id": "porosity",
+          "name": "Specific gravity, Bulk density, porosity, adsorption & moisture content of aggregate",
+          "requires": ["particle-shape-and-texture-strength-and-other-mechanical"]
+        },
+        {
+          "id": "bulking-of-sand",
+          "name": "Bulking of sand",
+          "requires": ["porosity"]
+        },
+        {
+          "id": "deleterious-substance-in-aggregate",
+          "name": "Deleterious substance in aggregate",
+          "requires": ["bulking-of-sand"]
+        },
+        {
+          "id": "soundness-of-aggregate",
+          "name": "Soundness of aggregate",
+          "requires": ["deleterious-substance-in-aggregate"]
+        },
+        {
+          "id": "alkali-aggregate-reaction",
+          "name": "Alkali aggregate reaction",
+          "requires": ["soundness-of-aggregate"]
+        },
+        {
+          "id": "thermal-properties",
+          "name": "Thermal properties",
+          "requires": ["alkali-aggregate-reaction"]
+        },
+        {
+          "id": "sieve-analysis",
+          "name": "Sieve analysis",
+          "requires": ["thermal-properties"]
+        },
+        {
+          "id": "fineness-modulus",
+          "name": "Fineness modulus",
+          "requires": ["sieve-analysis"]
+        },
+        {
+          "id": "grading-curves",
+          "name": "Grading curves",
+          "requires": ["fineness-modulus"]
+        },
+        {
+          "id": "grading-of-fine-and-coarse-aggregates",
+          "name": "Grading of fine & coarse Aggregates",
+          "requires": ["grading-curves"]
+        },
+        {
+          "id": "gap-graded-aggregate",
+          "name": "Gap graded aggregate",
+          "requires": ["grading-of-fine-and-coarse-aggregates"]
+        },
+        {
+          "id": "maximum-aggregate-size",
+          "name": "Maximum aggregate size",
+          "requires": ["gap-graded-aggregate"]
+        },
+        {
+          "id": "mineral-admixtures-introduction-to-supplementary-cementing",
+          "name": "MINERAL ADMIXTURES: Introduction to supplementary cementing materials, sustainability and pozzolans",
+          "requires": ["maximum-aggregate-size"]
+        },
+        {
+          "id": "fly-ash-blast-furnace-slag-silica-fume-and-metakaolin",
+          "name": "Fly ash, blast furnace slag, silica fume, and metakaolin",
+          "requires": ["mineral-admixtures-introduction-to-supplementary-cementing"]
+        },
+        {
+          "id": "their-production-properties-and-effects-on-concrete",
+          "name": "their production, properties, and effects on concrete properties",
+          "requires": ["fly-ash-blast-furnace-slag-silica-fume-and-metakaolin"]
+        },
+        {
+          "id": "applications-chemical-admixtures-water-reducers-air",
+          "name": "applications CHEMICAL ADMIXTURES: Water reducers, air entrainers, set controllers, and effects on concrete properties",
+          "requires": ["their-production-properties-and-effects-on-concrete"]
+        }
+      ]
+    },
+    {
+      "id": "mix-design-of-concrete",
+      "name": "Mix Design of Concrete",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "mix-design-as-per-latest-is-method",
+          "name": "Mix Design as per latest IS method"
+        },
+        {
+          "id": "particle-packing-density-cement-mortars-mortar",
+          "name": "particle packing density, Cement Mortars, Mortar specifications, types and tests of mortars",
+          "requires": ["mix-design-as-per-latest-is-method"]
+        },
+        {
+          "id": "ready-mixed-concrete-design-mixing-transport-and-placement",
+          "name": "Ready Mixed Concrete Design: Mixing, transport, and placement",
+          "requires": ["particle-packing-density-cement-mortars-mortar"]
+        },
+        {
+          "id": "consolidation-finishing-and-curing-of-concrete",
+          "name": "consolidation, finishing, and curing of concrete",
+          "requires": ["ready-mixed-concrete-design-mixing-transport-and-placement"]
+        },
+        {
+          "id": "extreme-weather-concreting-special-concreting-methods",
+          "name": "Extreme weather concreting, special concreting methods",
+          "requires": ["consolidation-finishing-and-curing-of-concrete"]
+        }
+      ]
+    },
+    {
+      "id": "fresh-and-hardened-properties-of-concrete",
+      "name": "Fresh and Hardened Properties of Concrete",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "fresh-concrete-workability",
+          "name": "Fresh Concrete: Workability"
+        },
+        {
+          "id": "factors-affecting-workability",
+          "name": "Factors affecting workability",
+          "requires": ["fresh-concrete-workability"]
+        },
+        {
+          "id": "measurement-of-workability-by-different-tests",
+          "name": "Measurement of workability by different tests",
+          "requires": ["factors-affecting-workability"]
+        },
+        {
+          "id": "setting-times-of-concrete",
+          "name": "Setting times of concrete",
+          "requires": ["measurement-of-workability-by-different-tests"]
+        },
+        {
+          "id": "effect-of-time-and-temperature-on-workability",
+          "name": "Effect of time and temperature on workability",
+          "requires": ["setting-times-of-concrete"]
+        },
+        {
+          "id": "segregation-and-bleeding",
+          "name": "Segregation & bleeding",
+          "requires": ["effect-of-time-and-temperature-on-workability"]
+        },
+        {
+          "id": "mixing-and-vibration-of-concrete",
+          "name": "Mixing and vibration of concrete",
+          "requires": ["segregation-and-bleeding"]
+        },
+        {
+          "id": "steps-in-manufacture-of-concrete",
+          "name": "Steps in manufacture of concrete",
+          "requires": ["mixing-and-vibration-of-concrete"]
+        },
+        {
+          "id": "quality-of-mixing-water",
+          "name": "Quality of mixing water",
+          "requires": ["steps-in-manufacture-of-concrete"]
+        },
+        {
+          "id": "hardened-properties-compressive-strength-and-parameters",
+          "name": "Hardened Properties: Compressive strength and parameters affecting it",
+          "requires": ["quality-of-mixing-water"]
+        },
+        {
+          "id": "tensile-strength-flexural-strength-and-bond-strength-direct",
+          "name": "Tensile strength, Flexural Strength and Bond Strength – direct and indirect",
+          "requires": ["hardened-properties-compressive-strength-and-parameters"]
+        },
+        {
+          "id": "factors-affecting-parameters",
+          "name": "Factors affecting parameters",
+          "requires": ["tensile-strength-flexural-strength-and-bond-strength-direct"]
+        }
+      ]
+    },
+    {
+      "id": "durability-properties-of-concrete",
+      "name": "Durability Properties of Concrete",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "introduction-to-durability-relation-between-durability-and",
+          "name": "Introduction to durability: relation between durability and permeability, Chemical attack of concrete corrosion of steel rebar, other durability issues"
+        },
+        {
+          "id": "ndt-methods",
+          "name": "Non-destructive testing methods",
+          "requires": ["introduction-to-durability-relation-between-durability-and"]
+        },
+        {
+          "id": "codal-provisions-for-ndt-elasticity-creep-and-shrinkage",
+          "name": "codal provisions for NDT. Elasticity, Creep & Shrinkage",
+          "requires": ["ndt-methods"]
+        },
+        {
+          "id": "modulus-of-elasticity",
+          "name": "Modulus of elasticity",
+          "requires": ["codal-provisions-for-ndt-elasticity-creep-and-shrinkage"]
+        },
+        {
+          "id": "dynamic-modulus-of-elasticity",
+          "name": "Dynamic modulus of elasticity",
+          "requires": ["modulus-of-elasticity"]
+        },
+        {
+          "id": "poissons-ratio",
+          "name": "Poisson’s ratio",
+          "requires": ["dynamic-modulus-of-elasticity"]
+        },
+        {
+          "id": "creep-of-concrete",
+          "name": "Creep of concrete",
+          "requires": ["poissons-ratio"]
+        },
+        {
+          "id": "factors-influencing-creep",
+          "name": "Factors influencing creep",
+          "requires": ["creep-of-concrete"]
+        },
+        {
+          "id": "relation-between-creep-and-shrinkage-qa-qc-of-concrete",
+          "name": "Relation between creep & Shrinkage. QA/QC of concrete",
+          "requires": ["factors-influencing-creep"]
+        }
+      ]
+    }
+  ]
+}

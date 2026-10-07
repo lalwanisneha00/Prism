@@ -1,0 +1,390 @@
+{
+  "id": "pdeu-digital-systems-design-using-hdl-vlsi-embedded",
+  "name": "Digital Systems Design using HDL (VLSI/Embedded)",
+  "field": "Digital Systems Design using HDL",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [5],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s5-program-elective-1--digital-systems-design-using-hdl-vlsi-embedded",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Digital Systems Design using HDL (VLSI/Embedded)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "review-of-combinational-and-sequential-design",
+      "name": "Review of Combinational and Sequential Design",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "review-of-combinational-and-sequential-logic-design-moore",
+          "name": "Review of Combinational and Sequential logic design, Moore and Mealy machine, Design of synchronous sequential circuits"
+        },
+        {
+          "id": "state-diagram-state-table-state-table-assignment-and",
+          "name": "state diagram, state table, state table assignment and reduction, design of iterative circuits",
+          "requires": ["review-of-combinational-and-sequential-logic-design-moore"]
+        },
+        {
+          "id": "asm-chart-and-realization-of-asm-chart-timing-issues-in",
+          "name": "ASM chart and realization of ASM chart, Timing issues in sequential circuits",
+          "requires": ["state-diagram-state-table-state-table-assignment-and"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-verilog-hdl-and-modelling-style",
+      "name": "Introduction to Verilog HDL and Modelling Style: Gate Level and Data",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "flow-introduction",
+          "name": "FLOW Introduction"
+        },
+        {
+          "id": "language-elements",
+          "name": "Language Elements",
+          "requires": ["flow-introduction"]
+        },
+        {
+          "id": "expressions",
+          "name": "Expressions",
+          "requires": ["language-elements"]
+        },
+        {
+          "id": "modules-and-ports",
+          "name": "Modules and Ports",
+          "requires": ["expressions"]
+        },
+        {
+          "id": "built-in-primitives",
+          "name": "Built-in Primitives",
+          "requires": ["modules-and-ports"]
+        },
+        {
+          "id": "user-defined-primitives",
+          "name": "User Defined Primitives",
+          "requires": ["built-in-primitives"]
+        },
+        {
+          "id": "different-modelling-styles",
+          "name": "Different Modelling Styles",
+          "requires": ["user-defined-primitives"]
+        },
+        {
+          "id": "tasks-and-functions",
+          "name": "Tasks and Functions",
+          "requires": ["different-modelling-styles"]
+        },
+        {
+          "id": "test-bench",
+          "name": "Test bench",
+          "requires": ["tasks-and-functions"]
+        },
+        {
+          "id": "gate-level-modelling-introduction-and-gate-primitive",
+          "name": "Gate level modelling: Introduction, AND Gate Primitive",
+          "requires": ["test-bench"]
+        },
+        {
+          "id": "module-structure",
+          "name": "Module Structure",
+          "requires": ["gate-level-modelling-introduction-and-gate-primitive"]
+        },
+        {
+          "id": "other-gate-primitives",
+          "name": "Other Gate Primitives",
+          "requires": ["module-structure"]
+        },
+        {
+          "id": "illustrative-examples",
+          "name": "Illustrative Examples",
+          "requires": ["other-gate-primitives"]
+        },
+        {
+          "id": "tri-state-gates",
+          "name": "Tri-State Gates",
+          "requires": ["illustrative-examples"]
+        },
+        {
+          "id": "array-of-instances-of-primitives",
+          "name": "Array of Instances of Primitives",
+          "requires": ["tri-state-gates"]
+        },
+        {
+          "id": "additional-examples",
+          "name": "Additional Examples",
+          "requires": ["array-of-instances-of-primitives"]
+        },
+        {
+          "id": "design-of-flipflops-with-gate-primitives",
+          "name": "Design of Flipflops with Gate Primitives",
+          "requires": ["additional-examples"]
+        },
+        {
+          "id": "delays",
+          "name": "Delays",
+          "requires": ["design-of-flipflops-with-gate-primitives"]
+        },
+        {
+          "id": "strengths-and-contention-resolution",
+          "name": "Strengths and Contention Resolution",
+          "requires": ["delays"]
+        },
+        {
+          "id": "net-types",
+          "name": "Net Types",
+          "requires": ["strengths-and-contention-resolution"]
+        },
+        {
+          "id": "design-of-basic-circuits",
+          "name": "Design of Basic Circuits",
+          "requires": ["net-types"]
+        },
+        {
+          "id": "dataflow-modelling-introduction",
+          "name": "Dataflow modelling: Introduction",
+          "requires": ["design-of-basic-circuits"]
+        },
+        {
+          "id": "continuous-assignment-structures",
+          "name": "Continuous Assignment Structures",
+          "requires": ["dataflow-modelling-introduction"]
+        },
+        {
+          "id": "delays-and-continuous-assignments",
+          "name": "Delays and Continuous Assignments",
+          "requires": ["continuous-assignment-structures"]
+        },
+        {
+          "id": "assignment-to-vectors",
+          "name": "Assignment to Vectors",
+          "requires": ["delays-and-continuous-assignments"]
+        },
+        {
+          "id": "operators",
+          "name": "Operators",
+          "requires": ["assignment-to-vectors"]
+        }
+      ]
+    },
+    {
+      "id": "modelling-style-behavioural-modelling",
+      "name": "Modelling Style: Behavioural Modelling",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "operations-and-assignments",
+          "name": "Operations and Assignments",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "functional-bifurcation",
+          "name": "Functional Bifurcation",
+          "requires": ["operations-and-assignments"]
+        },
+        {
+          "id": "procedural-assignments-initial-and-always-construct",
+          "name": "Procedural Assignments: Initial and Always Construct",
+          "requires": ["functional-bifurcation"]
+        },
+        {
+          "id": "examples",
+          "name": "Examples",
+          "requires": ["procedural-assignments-initial-and-always-construct"]
+        },
+        {
+          "id": "assignments-with-delays",
+          "name": "Assignments with Delays",
+          "requires": ["examples"]
+        },
+        {
+          "id": "wait-construct",
+          "name": "wait construct",
+          "requires": ["assignments-with-delays"]
+        },
+        {
+          "id": "multiple-always-blocks",
+          "name": "Multiple Always Blocks",
+          "requires": ["wait-construct"]
+        },
+        {
+          "id": "designs-at-behavioural-level",
+          "name": "Designs at Behavioural Level",
+          "requires": ["multiple-always-blocks"]
+        },
+        {
+          "id": "blocking-and-non-blocking-assignments",
+          "name": "Blocking and Non-blocking Assignments",
+          "requires": ["designs-at-behavioural-level"]
+        },
+        {
+          "id": "the-case-statement",
+          "name": "The case statement",
+          "requires": ["blocking-and-non-blocking-assignments"]
+        },
+        {
+          "id": "simulation-flow-if-and-if-else-constructs",
+          "name": "Simulation Flow. if and if-else constructs",
+          "requires": ["the-case-statement"]
+        },
+        {
+          "id": "assign-deassign-construct",
+          "name": "assign-deassign construct",
+          "requires": ["simulation-flow-if-and-if-else-constructs"]
+        },
+        {
+          "id": "repeat-construct",
+          "name": "repeat construct",
+          "requires": ["assign-deassign-construct"]
+        },
+        {
+          "id": "for-loop",
+          "name": "for loop",
+          "requires": ["repeat-construct"]
+        },
+        {
+          "id": "the-disable-construct",
+          "name": "the disable construct",
+          "requires": ["for-loop"]
+        },
+        {
+          "id": "while-loop",
+          "name": "while loop",
+          "requires": ["the-disable-construct"]
+        },
+        {
+          "id": "forever-loop",
+          "name": "forever loop",
+          "requires": ["while-loop"]
+        },
+        {
+          "id": "parallel-blocks",
+          "name": "parallel blocks",
+          "requires": ["forever-loop"]
+        },
+        {
+          "id": "force-release-construct",
+          "name": "force-release construct",
+          "requires": ["parallel-blocks"]
+        },
+        {
+          "id": "event",
+          "name": "Event",
+          "requires": ["force-release-construct"]
+        },
+        {
+          "id": "memory-modelling-ram",
+          "name": "Memory modelling: RAM",
+          "requires": ["event"]
+        },
+        {
+          "id": "rom",
+          "name": "ROM",
+          "requires": ["memory-modelling-ram"]
+        }
+      ]
+    },
+    {
+      "id": "designing-with-fpgas",
+      "name": "Designing with Fpgas",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction-to-fpga-architectures-overview",
+          "name": "Introduction to FPGA architectures: Overview"
+        },
+        {
+          "id": "programming-technologies",
+          "name": "programming technologies",
+          "requires": ["introduction-to-fpga-architectures-overview"]
+        },
+        {
+          "id": "logic-block-architecture-fpga-logic-cells",
+          "name": "Logic block architecture: FPGA logic cells",
+          "requires": ["programming-technologies"]
+        },
+        {
+          "id": "timing-models",
+          "name": "timing models",
+          "requires": ["logic-block-architecture-fpga-logic-cells"]
+        },
+        {
+          "id": "power-dissipation",
+          "name": "power dissipation",
+          "requires": ["timing-models"]
+        },
+        {
+          "id": "i-o-block-architecture-input-and-output-cell-characteristics",
+          "name": "I/O block architecture: Input and Output cell characteristics",
+          "requires": ["power-dissipation"]
+        },
+        {
+          "id": "clock-input",
+          "name": "clock input",
+          "requires": ["i-o-block-architecture-input-and-output-cell-characteristics"]
+        },
+        {
+          "id": "timing",
+          "name": "Timing",
+          "requires": ["clock-input"]
+        },
+        {
+          "id": "programmable-interconnect-partitioning-and-placement",
+          "name": "Programmable interconnect - Partitioning and Placement",
+          "requires": ["timing"]
+        },
+        {
+          "id": "routing-resources",
+          "name": "Routing resources",
+          "requires": ["programmable-interconnect-partitioning-and-placement"]
+        },
+        {
+          "id": "delays-2",
+          "name": "delays",
+          "requires": ["routing-resources"]
+        },
+        {
+          "id": "rtl-coding-styles-for-synthesis",
+          "name": "RTL Coding Styles for Synthesis",
+          "requires": ["delays-2"]
+        },
+        {
+          "id": "analysing-the-rtl-design",
+          "name": "Analysing the RTL Design",
+          "requires": ["rtl-coding-styles-for-synthesis"]
+        },
+        {
+          "id": "timing-closure-challenges",
+          "name": "Timing Closure Challenges",
+          "requires": ["analysing-the-rtl-design"]
+        },
+        {
+          "id": "design-sign-off-max-hrs",
+          "name": "Design Sign-off. Max. Hrs.:",
+          "requires": ["timing-closure-challenges"]
+        }
+      ]
+    }
+  ]
+}

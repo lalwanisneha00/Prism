@@ -1,0 +1,215 @@
+{
+  "id": "pdeu-mathematics-1-ict",
+  "name": "Mathematics - 1 (ICT)",
+  "field": "Mathematics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [1],
+  "code": "24MA101T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s1-mathematics-1",
+      "code": "24MA101T",
+      "category": "Basic Science",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 1,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Mathematics - 1",
+    "note": "Units and topics are PDEU's, copied from the handbook. 10 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "maths",
+  "chapters": [
+    {
+      "id": "differential-calculus-and-its-applications",
+      "name": "Differential Calculus and its Applications",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "partial-derivatives",
+          "name": "Partial derivative and its application"
+        },
+        {
+          "id": "eulers-theorem",
+          "name": "Euler’s theorem",
+          "requires": ["partial-derivatives"]
+        },
+        {
+          "id": "total-derivatives",
+          "name": "Total derivatives",
+          "requires": ["eulers-theorem"]
+        },
+        {
+          "id": "jacobians",
+          "name": "Jacobians",
+          "requires": ["total-derivatives"]
+        },
+        {
+          "id": "maxima-minima-two-variables",
+          "name": "Maxima and Minima of two variables using Lagrange’s multipliers",
+          "requires": ["partial-derivatives"]
+        },
+        {
+          "id": "power-series",
+          "name": "Taylor’s series, Convergence of power series",
+          "requires": ["maxima-minima-two-variables"]
+        }
+      ]
+    },
+    {
+      "id": "integral-calculus-and-its-applications",
+      "name": "Integral Calculus and its Applications",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "double-integrals",
+          "name": "Definition and evaluation of double integral (Cartesian - Polar form)",
+          "requires": ["partial-derivatives"]
+        },
+        {
+          "id": "change-of-orders",
+          "name": "Change of orders",
+          "requires": ["double-integrals"]
+        },
+        {
+          "id": "change-of-variables",
+          "name": "Change of variables",
+          "requires": ["change-of-orders"]
+        },
+        {
+          "id": "triple-integrals",
+          "name": "Evaluation of triple integral, change of variables (Cartesian to spherical - and cylindrical)",
+          "requires": ["double-integrals"]
+        },
+        {
+          "id": "applications-area",
+          "name": "Applications, area",
+          "requires": ["triple-integrals"]
+        },
+        {
+          "id": "volume",
+          "name": "volume",
+          "requires": ["applications-area"]
+        },
+        {
+          "id": "center-of-mass",
+          "name": "center of mass",
+          "requires": ["volume"]
+        },
+        {
+          "id": "center-of-gravity-by-double-and-triple-integral",
+          "name": "center of gravity by double and triple integral",
+          "requires": ["center-of-mass"]
+        }
+      ]
+    },
+    {
+      "id": "vector-calculus",
+      "name": "Vector Calculus",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "gradient-divergence-curl",
+          "name": "Gradient, divergence and curl",
+          "requires": ["partial-derivatives"]
+        },
+        {
+          "id": "directional-derivative",
+          "name": "Directional derivative",
+          "requires": ["gradient-divergence-curl"]
+        },
+        {
+          "id": "irrotational-and-solenoidal-vector-fields",
+          "name": "Irrotational and Solenoidal vector fields",
+          "requires": ["directional-derivative"]
+        },
+        {
+          "id": "vector-integration",
+          "name": "Vector Integration",
+          "requires": ["irrotational-and-solenoidal-vector-fields"]
+        },
+        {
+          "id": "line-integrals",
+          "name": "Simple problems on line, surface and volume integrals",
+          "requires": ["gradient-divergence-curl"]
+        },
+        {
+          "id": "divergence-theorem",
+          "name": "Green’s theorem in a plane, Gauss divergence theorem and Stokes’ theorem (without proofs)",
+          "requires": ["triple-integrals"]
+        },
+        {
+          "id": "simple-application-involving-cubes-and-rectangular",
+          "name": "Simple application involving cubes and rectangular parallelepipeds",
+          "requires": ["divergence-theorem"]
+        }
+      ]
+    },
+    {
+      "id": "sequence-and-series",
+      "name": "Sequence and Series",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "definition-convergent",
+          "name": "Definition. Convergent"
+        },
+        {
+          "id": "divergent",
+          "name": "divergent",
+          "requires": ["definition-convergent"]
+        },
+        {
+          "id": "bounded-and-monotone-sequences-infinite-sums-basics-taylor",
+          "name": "bounded & monotone sequences. Infinite sums: Basics Taylor series",
+          "requires": ["divergent"]
+        },
+        {
+          "id": "convergence-and-divergence",
+          "name": "Convergence and divergence",
+          "requires": ["bounded-and-monotone-sequences-infinite-sums-basics-taylor"]
+        },
+        {
+          "id": "tests-for-convergence-for-positive-term-series",
+          "name": "Tests for convergence for positive term series",
+          "requires": ["convergence-and-divergence"]
+        },
+        {
+          "id": "alternating-series-leibnitz-test",
+          "name": "Alternating series – Leibnitz test",
+          "requires": ["tests-for-convergence-for-positive-term-series"]
+        },
+        {
+          "id": "absolute-convergence",
+          "name": "Absolute convergence",
+          "requires": ["alternating-series-leibnitz-test"]
+        },
+        {
+          "id": "conditional-convergence",
+          "name": "conditional convergence",
+          "requires": ["absolute-convergence"]
+        },
+        {
+          "id": "note-this-branchs-handbook-does-not-print-the-detailed",
+          "name": "Note: This branch's handbook does not print the detailed syllabus for this course",
+          "requires": ["conditional-convergence"]
+        },
+        {
+          "id": "so-the-topics-are-taken-from-the-same-common-course-in-the",
+          "name": "so the topics are taken from the same common course in the Computer Engineering handbook",
+          "requires": ["note-this-branchs-handbook-does-not-print-the-detailed"]
+        }
+      ]
+    }
+  ]
+}

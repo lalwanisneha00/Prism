@@ -1,0 +1,283 @@
+{
+  "id": "pdeu-digital-signal-processing-ict",
+  "name": "Digital Signal Processing (ICT)",
+  "field": "Electronics Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [5],
+  "code": "24ICxxxT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s5-digital-signal-processing",
+      "code": "24ICxxxT",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Digital Signal Processing",
+    "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "signals",
+  "chapters": [
+    {
+      "id": "analysis-of-discrete-time-signals-and-systems",
+      "name": "Analysis of Discrete Time Signals and Systems",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-dsp",
+          "name": "Introduction to DSP"
+        },
+        {
+          "id": "sampling-theorem",
+          "name": "A review of Sampling Theorem",
+          "requires": ["introduction-to-dsp"]
+        },
+        {
+          "id": "discrete-time-signals-and-systems",
+          "name": "Discrete Time Signals and Systems",
+          "requires": ["sampling-theorem"]
+        },
+        {
+          "id": "z-transform",
+          "name": "Z-transform",
+          "requires": ["discrete-time-signals-and-systems"]
+        },
+        {
+          "id": "roc-and-properties",
+          "name": "ROC and Properties",
+          "requires": ["z-transform"]
+        },
+        {
+          "id": "poles-zeros",
+          "name": "Poles- Zeros",
+          "requires": ["roc-and-properties"]
+        },
+        {
+          "id": "inverse-z-transform",
+          "name": "Inverse z-transform",
+          "requires": ["poles-zeros"]
+        },
+        {
+          "id": "lti-system-analysis-using-z-transform",
+          "name": "LTI System Analysis using Z-transform",
+          "requires": ["inverse-z-transform"]
+        },
+        {
+          "id": "dft",
+          "name": "Discrete Time Fourier Transform (DTFT) and Important Properties",
+          "requires": ["lti-system-analysis-using-z-transform"]
+        },
+        {
+          "id": "frequency-response-of-discrete-time-systems",
+          "name": "Frequency Response of Discrete Time Systems",
+          "requires": ["dft"]
+        },
+        {
+          "id": "correlation-of-discrete-time-signals",
+          "name": "Correlation of Discrete Time Signals",
+          "requires": ["frequency-response-of-discrete-time-systems"]
+        },
+        {
+          "id": "parsevals-relation",
+          "name": "Parseval’s relation",
+          "requires": ["correlation-of-discrete-time-signals"]
+        },
+        {
+          "id": "energy-and-power-spectral-density",
+          "name": "Energy and Power Spectral Density",
+          "requires": ["parsevals-relation"]
+        }
+      ]
+    },
+    {
+      "id": "digital-filters-design-and-structures",
+      "name": "Digital Filters: Design and Structures",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "ideal-digital-filters",
+          "name": "Ideal Digital Filters"
+        },
+        {
+          "id": "practical-filters-stability-and-causality",
+          "name": "Practical Filters: Stability and Causality",
+          "requires": ["ideal-digital-filters"]
+        },
+        {
+          "id": "iir-basics",
+          "name": "FIR and IIR Filters",
+          "requires": ["practical-filters-stability-and-causality"]
+        },
+        {
+          "id": "linear-phase-and-implications",
+          "name": "Linear Phase and Implications",
+          "requires": ["iir-basics"]
+        },
+        {
+          "id": "filter-design-steps",
+          "name": "Filter Design Steps",
+          "requires": ["linear-phase-and-implications"]
+        },
+        {
+          "id": "fir-basics",
+          "name": "Design of Linear Phase FIR Filters",
+          "requires": ["filter-design-steps"]
+        },
+        {
+          "id": "window-method",
+          "name": "Window Method",
+          "requires": ["fir-basics"]
+        },
+        {
+          "id": "iir-filter-design",
+          "name": "IIR Filter Design",
+          "requires": ["window-method"]
+        },
+        {
+          "id": "pole-zero-placement-method",
+          "name": "Pole-Zero Placement Method",
+          "requires": ["iir-filter-design"]
+        },
+        {
+          "id": "analog-filter-design",
+          "name": "Analog Filter Design",
+          "requires": ["pole-zero-placement-method"]
+        },
+        {
+          "id": "analog-filter-standard-frequency-responses-and-design",
+          "name": "Analog Filter Standard Frequency Responses and Design Equations",
+          "requires": ["analog-filter-design"]
+        },
+        {
+          "id": "iir-filter-coefficients-from-analog-filter",
+          "name": "IIR Filter Coefficients from Analog Filter",
+          "requires": ["analog-filter-standard-frequency-responses-and-design"]
+        },
+        {
+          "id": "bilinear-transformation",
+          "name": "Bilinear Transformation",
+          "requires": ["iir-filter-coefficients-from-analog-filter"]
+        },
+        {
+          "id": "basic-structures-for-fir-and-iir-systems-implementation",
+          "name": "Basic Structures for FIR and IIR Systems implementation",
+          "requires": ["bilinear-transformation"]
+        },
+        {
+          "id": "direct",
+          "name": "Direct",
+          "requires": ["basic-structures-for-fir-and-iir-systems-implementation"]
+        },
+        {
+          "id": "transposed-cascade-and-parallel-form-structures",
+          "name": "Transposed Cascade and Parallel form Structures",
+          "requires": ["direct"]
+        },
+        {
+          "id": "effects-of-co-efficient-quantization",
+          "name": "Effects of Co-efficient Quantization",
+          "requires": ["transposed-cascade-and-parallel-form-structures"]
+        }
+      ]
+    },
+    {
+      "id": "dft-and-fft-algorithms",
+      "name": "Dft and Fft Algorithms",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "effect-of-periodicity-and-discretization-on-spectra-of-a",
+          "name": "Effect of periodicity and discretization on spectra of a signal"
+        },
+        {
+          "id": "sampling-of-dtft",
+          "name": "Sampling of DTFT",
+          "requires": ["effect-of-periodicity-and-discretization-on-spectra-of-a"]
+        },
+        {
+          "id": "dft-and-idft",
+          "name": "DFT and IDFT",
+          "requires": ["sampling-of-dtft"]
+        },
+        {
+          "id": "important-properties-of-dft",
+          "name": "Important Properties of DFT",
+          "requires": ["dft-and-idft"]
+        },
+        {
+          "id": "circular-convolution",
+          "name": "Linear and Circular Convolution",
+          "requires": ["dft"]
+        },
+        {
+          "id": "efficient-computation-of-dft",
+          "name": "Efficient Computation of DFT",
+          "requires": ["circular-convolution"]
+        },
+        {
+          "id": "radix2-fft-algorithms",
+          "name": "Radix2 FFT Algorithms",
+          "requires": ["efficient-computation-of-dft"]
+        },
+        {
+          "id": "geortzel-algorithm",
+          "name": "Geortzel Algorithm",
+          "requires": ["radix2-fft-algorithms"]
+        }
+      ]
+    },
+    {
+      "id": "fourier-analysis-of-signal-and-system-using-dft",
+      "name": "Fourier Analysis of Signal and System Using Dft and Hilbert Transform",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "dft-analysis-of-sinusoidal-signals",
+          "name": "DFT Analysis of Sinusoidal Signals"
+        },
+        {
+          "id": "the-time-dependent-fourier-transform",
+          "name": "The Time-Dependent Fourier Transform",
+          "requires": ["dft-analysis-of-sinusoidal-signals"]
+        },
+        {
+          "id": "convolution",
+          "name": "Block Convolution using the Time Dependent Fourier Transform",
+          "requires": ["the-time-dependent-fourier-transform"]
+        },
+        {
+          "id": "application-of-dft-in-linear-filtering-fourier-analysis-of",
+          "name": "Application of DFT in Linear Filtering, Fourier Analysis of Nonstationary Signals",
+          "requires": ["convolution"]
+        },
+        {
+          "id": "fourier-analysis-of-stationary-random-signals-the",
+          "name": "Fourier Analysis of Stationary Random Signals: The Periodogram, Fourier Transform for Causal Sequences",
+          "requires": ["application-of-dft-in-linear-filtering-fourier-analysis-of"]
+        },
+        {
+          "id": "relationships-between-magnitude-and-phase",
+          "name": "Relationships between Magnitude and Phase",
+          "requires": ["fourier-analysis-of-stationary-random-signals-the"]
+        },
+        {
+          "id": "hilbert-transform-relations-for-complex-sequences",
+          "name": "Hilbert Transform Relations for Complex Sequences",
+          "requires": ["relationships-between-magnitude-and-phase"]
+        }
+      ]
+    }
+  ]
+}

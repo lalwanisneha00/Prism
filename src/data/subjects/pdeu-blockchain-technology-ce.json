@@ -1,0 +1,123 @@
+{
+  "id": "pdeu-blockchain-technology-ce",
+  "name": "Blockchain Technology (CE)",
+  "field": "Blockchain Technology",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [6],
+  "code": "24CS339T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s6-program-elective-2--blockchain-technology",
+      "code": "24CS339T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core",
+      "track": "Computing track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Blockchain Technology",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "blockchain-fundamentals",
+      "name": "Blockchain Fundamentals",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "basic-data-structure-concepts-related-to-blockchain",
+          "name": "Basic Data Structure concepts related to blockchain. Introduction to Blockchain"
+        },
+        {
+          "id": "cryptographic-primitives-used-in-blockchain",
+          "name": "Cryptographic primitives used in Blockchain",
+          "requires": ["basic-data-structure-concepts-related-to-blockchain"]
+        },
+        {
+          "id": "basic-distributed-system-concepts",
+          "name": "Basic Distributed System concepts",
+          "requires": ["cryptographic-primitives-used-in-blockchain"]
+        },
+        {
+          "id": "distributed-consensus-and-byzantine-fault-tolerant-consensus",
+          "name": "distributed consensus and Byzantine fault-tolerant consensus methods",
+          "requires": ["basic-distributed-system-concepts"]
+        }
+      ]
+    },
+    {
+      "id": "blockchain-types-and-cryptocurrency",
+      "name": "Blockchain Types And Cryptocurrency",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "proof-of-work-based-consensus-mechanisms",
+          "name": "Proof-of-Work based consensus mechanisms"
+        },
+        {
+          "id": "proof-of-stake-based-chains",
+          "name": "Proof of Stake based Chains",
+          "requires": ["proof-of-work-based-consensus-mechanisms"]
+        },
+        {
+          "id": "types-of-blockchain-introduction-to-crypto-currency",
+          "name": "Types of Blockchain. Introduction to Crypto Currency",
+          "requires": ["proof-of-stake-based-chains"]
+        },
+        {
+          "id": "crypto-currency-as-application-of-blockchain-technology",
+          "name": "Crypto Currency as application of blockchain technology",
+          "requires": ["types-of-blockchain-introduction-to-crypto-currency"]
+        }
+      ]
+    },
+    {
+      "id": "smart-contract-and-blockchain-platform",
+      "name": "Smart Contract And Blockchain Platform",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "blockchains-with-smart-contracts-ethereum-platform-and-its",
+          "name": "Blockchains with smart contracts - Ethereum platform and its smart contract mechanism"
+        }
+      ]
+    },
+    {
+      "id": "blockchain-use-cases",
+      "name": "Blockchain Use Cases",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "blockchain-use-cases-finance",
+          "name": "Blockchain Use Cases – Finance"
+        },
+        {
+          "id": "industry",
+          "name": "Industry",
+          "requires": ["blockchain-use-cases-finance"]
+        },
+        {
+          "id": "e-governance-and-other-contract-enforcement-mechanisms",
+          "name": "E-Governance and other contract enforcement mechanisms",
+          "requires": ["industry"]
+        },
+        {
+          "id": "security-and-research-aspects-in-blockchain",
+          "name": "Security and Research Aspects in Blockchain",
+          "requires": ["e-governance-and-other-contract-enforcement-mechanisms"]
+        }
+      ]
+    }
+  ]
+}

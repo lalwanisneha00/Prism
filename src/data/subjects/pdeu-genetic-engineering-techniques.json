@@ -1,0 +1,162 @@
+{
+  "id": "pdeu-genetic-engineering-techniques",
+  "name": "Genetic Engineering Techniques",
+  "field": "Genetic Engineering Techniques",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [6],
+  "code": "24BT304T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s6-genetic-engineering-techniques",
+      "code": "24BT304T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Genetic Engineering Techniques",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "overview-of-gene-cloning-restriction",
+          "name": "Overview of gene cloning. Restriction"
+        },
+        {
+          "id": "modification-systems-and-dna-modifying-enzymes",
+          "name": "modification systems and DNA modifying enzymes",
+          "requires": ["overview-of-gene-cloning-restriction"]
+        },
+        {
+          "id": "dna-analysis-by-electrophoresis",
+          "name": "DNA analysis by electrophoresis",
+          "requires": ["modification-systems-and-dna-modifying-enzymes"]
+        },
+        {
+          "id": "plasmids-and-bacteriophages-as-vectors-for-gene-cloning",
+          "name": "Plasmids and bacteriophages as vectors for gene cloning",
+          "requires": ["dna-analysis-by-electrophoresis"]
+        },
+        {
+          "id": "cloning-vectors-for-e-coli-like-pbr322",
+          "name": "Cloning vectors for E. coli like pBR322",
+          "requires": ["plasmids-and-bacteriophages-as-vectors-for-gene-cloning"]
+        },
+        {
+          "id": "puc8",
+          "name": "pUC8",
+          "requires": ["cloning-vectors-for-e-coli-like-pbr322"]
+        },
+        {
+          "id": "pgem3z-cloning-vectors-based-on-m13-and-bacteriophage-ti",
+          "name": "pGEM3Z. Cloning vectors based on M13 and λ bacteriophage. Ti plasmid",
+          "requires": ["puc8"]
+        },
+        {
+          "id": "bac-and-yac",
+          "name": "BAC and YAC",
+          "requires": ["pgem3z-cloning-vectors-based-on-m13-and-bacteriophage-ti"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-of-dna-into-cells-and-selection-of",
+      "name": "Introduction of DNA Into Cells and Selection of Recombinants",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "ligation-of-dna-molecules-introduction-of-dna-into-cells",
+          "name": "Ligation of DNA molecules. Introduction of DNA into cells"
+        },
+        {
+          "id": "transformation",
+          "name": "Transformation",
+          "requires": ["ligation-of-dna-molecules-introduction-of-dna-into-cells"]
+        },
+        {
+          "id": "selection-for-transformed-cells-identification-of",
+          "name": "selection for transformed cells. Identification of recombinants",
+          "requires": ["transformation"]
+        },
+        {
+          "id": "blue-white-selection-identification-of-recombinant-phages",
+          "name": "blue-white selection. Identification of recombinant phages. cDNA and Genomic libraries",
+          "requires": ["selection-for-transformed-cells-identification-of"]
+        }
+      ]
+    },
+    {
+      "id": "recombinant-dna-methods",
+      "name": "Recombinant DNA Methods",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "fundamentals-of-polymerase-chain-reaction",
+          "name": "Fundamentals of polymerase chain reaction"
+        },
+        {
+          "id": "designing-primers-for-pcr-dna-sequencing-by-sangers-method",
+          "name": "designing primers for PCR. DNA sequencing by Sanger’s method and automated DNA sequencing",
+          "requires": ["fundamentals-of-polymerase-chain-reaction"]
+        },
+        {
+          "id": "vectors-for-expression-of-foreign-genes-in-e-coli",
+          "name": "Vectors for expression of foreign genes in E. coli",
+          "requires": ["designing-primers-for-pcr-dna-sequencing-by-sangers-method"]
+        },
+        {
+          "id": "cassettes-and-gene-fusions",
+          "name": "cassettes and gene fusions",
+          "requires": ["vectors-for-expression-of-foreign-genes-in-e-coli"]
+        },
+        {
+          "id": "production-of-recombinant-protein-by-eukaryotic-cells",
+          "name": "Production of recombinant protein by eukaryotic cells",
+          "requires": ["cassettes-and-gene-fusions"]
+        },
+        {
+          "id": "fusion-tags-and-their-role-in-purification-of-recombinant",
+          "name": "Fusion tags and their role in purification of recombinant proteins",
+          "requires": ["production-of-recombinant-protein-by-eukaryotic-cells"]
+        }
+      ]
+    },
+    {
+      "id": "techniques-in-biotechnology",
+      "name": "Techniques in Biotechnology",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "blotting-technique-rt-pcr-in-situ-hybridization-rapd-rflp",
+          "name": "Blotting technique, RT-PCR, In-situ hybridization, RAPD, RFLP, Antisense RNA and Ribozyme technology, CRISPR/Cas9 gene editing, Site-directed mutagenesis and protein engineering"
+        },
+        {
+          "id": "applications-of-recombinant-dna-technology",
+          "name": "Applications of recombinant DNA technology",
+          "requires": ["blotting-technique-rt-pcr-in-situ-hybridization-rapd-rflp"]
+        },
+        {
+          "id": "safety-regulations-related-to-genetic-engineering",
+          "name": "Safety regulations related to genetic engineering",
+          "requires": ["applications-of-recombinant-dna-technology"]
+        }
+      ]
+    }
+  ]
+}

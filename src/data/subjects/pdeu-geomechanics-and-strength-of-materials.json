@@ -1,0 +1,302 @@
+{
+  "id": "pdeu-geomechanics-and-strength-of-materials",
+  "name": "Geomechanics and Strength of Materials",
+  "field": "Geomechanics and Strength of Materials",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [3],
+  "code": "24PE204T",
+  "credits": 3,
+  "ltp": "2-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s3-geomechanics-and-strength-of-materials",
+      "code": "24PE204T",
+      "category": "Program Core",
+      "ltp": "2-1-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Geomechanics and Strength of Materials",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "basics-of-mechanics",
+      "name": "Basics of Mechanics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "fundamental-assumptions-in-elementary-mechanics-of-materials",
+          "name": "Fundamental assumptions in elementary mechanics of materials"
+        },
+        {
+          "id": "viscoelasticity-or-rheology",
+          "name": "viscoelasticity or rheology",
+          "requires": ["fundamental-assumptions-in-elementary-mechanics-of-materials"]
+        },
+        {
+          "id": "mechanical-properties-of-metals-concepts-of-stress-and",
+          "name": "mechanical properties of metals – concepts of stress and strain",
+          "requires": ["viscoelasticity-or-rheology"]
+        },
+        {
+          "id": "stress-strain-behavior",
+          "name": "stress-strain behavior",
+          "requires": ["mechanical-properties-of-metals-concepts-of-stress-and"]
+        },
+        {
+          "id": "inelasticity",
+          "name": "inelasticity",
+          "requires": ["stress-strain-behavior"]
+        },
+        {
+          "id": "elastic-properties-of-materials",
+          "name": "elastic properties of materials",
+          "requires": ["inelasticity"]
+        },
+        {
+          "id": "tensile-properties",
+          "name": "tensile properties",
+          "requires": ["elastic-properties-of-materials"]
+        },
+        {
+          "id": "elastic-recovery-during-plastic-deformation",
+          "name": "elastic recovery during plastic deformation",
+          "requires": ["tensile-properties"]
+        },
+        {
+          "id": "compressive-shear-and-torsional-deformation",
+          "name": "compressive, shear, and torsional deformation",
+          "requires": ["elastic-recovery-during-plastic-deformation"]
+        },
+        {
+          "id": "hardness",
+          "name": "hardness",
+          "requires": ["compressive-shear-and-torsional-deformation"]
+        },
+        {
+          "id": "variability-of-material-properties",
+          "name": "variability of material properties",
+          "requires": ["hardness"]
+        },
+        {
+          "id": "design-safety-factors",
+          "name": "design/safety factors",
+          "requires": ["variability-of-material-properties"]
+        },
+        {
+          "id": "testing-of-material-properties",
+          "name": "Testing of material properties",
+          "requires": ["design-safety-factors"]
+        },
+        {
+          "id": "thermal-stress",
+          "name": "Thermal stresses",
+          "requires": ["testing-of-material-properties"]
+        },
+        {
+          "id": "bars-subjected-to-tension-asymmetric-loading-and-stress",
+          "name": "bars subjected to tension, asymmetric loading, and stress calculation of cylindrical bodies",
+          "requires": ["thermal-stress"]
+        },
+        {
+          "id": "scalar-vector-tensor",
+          "name": "Scalar, vector, tensor",
+          "requires": ["bars-subjected-to-tension-asymmetric-loading-and-stress"]
+        },
+        {
+          "id": "composition-and-resolution-of-stresses",
+          "name": "composition and resolution of stresses",
+          "requires": ["scalar-vector-tensor"]
+        },
+        {
+          "id": "stress-vector-acting-on-a-surface",
+          "name": "stress vector acting on a surface",
+          "requires": ["composition-and-resolution-of-stresses"]
+        },
+        {
+          "id": "analysis-of-stress",
+          "name": "analysis of stress",
+          "requires": ["stress-vector-acting-on-a-surface"]
+        },
+        {
+          "id": "stress-field-acting-at-a-point-derivation-of-equations-for-n",
+          "name": "stress field acting at a point – derivation of equations for σn and τn. Mohr’s circle",
+          "requires": ["analysis-of-stress"]
+        },
+        {
+          "id": "deviatoric-and-mean-stress",
+          "name": "deviatoric and mean stress",
+          "requires": ["stress-field-acting-at-a-point-derivation-of-equations-for-n"]
+        },
+        {
+          "id": "special-states-of-stresses-by-mohrs-circle",
+          "name": "special states of stresses by Mohr’s circle",
+          "requires": ["deviatoric-and-mean-stress"]
+        },
+        {
+          "id": "mohr-coulomb-failure-envelope",
+          "name": "Mohr-Coulomb failure envelope",
+          "requires": ["special-states-of-stresses-by-mohrs-circle"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-rock-mechanics",
+      "name": "Introduction to Rock Mechanics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "structural-rock-mechanics",
+          "name": "Structural rock mechanics"
+        },
+        {
+          "id": "strength-of-geological-materials",
+          "name": "strength of geological materials",
+          "requires": ["structural-rock-mechanics"]
+        },
+        {
+          "id": "influence-of-geological-history-burial-and-uplift-on-rocks",
+          "name": "influence of geological history (burial and uplift) on rocks",
+          "requires": ["strength-of-geological-materials"]
+        },
+        {
+          "id": "normally-consolidated-and-over-consolidated-rocks",
+          "name": "normally consolidated and over consolidated rocks",
+          "requires": ["influence-of-geological-history-burial-and-uplift-on-rocks"]
+        },
+        {
+          "id": "effective-stress-undrained-modulus-of-elasticity-coefficient",
+          "name": "effective stress, undrained modulus of elasticity, coefficient of compressibility, coefficient of consolidation, significance of drainage path length and the rate of consolidation",
+          "requires": ["normally-consolidated-and-over-consolidated-rocks"]
+        },
+        {
+          "id": "stress-and-strain-in-geological-materials-and-their",
+          "name": "stress and strain in geological materials and their measurements",
+          "requires": ["effective-stress-undrained-modulus-of-elasticity-coefficient"]
+        },
+        {
+          "id": "cohesion-friction-and-failure",
+          "name": "cohesion, friction, and failure",
+          "requires": ["stress-and-strain-in-geological-materials-and-their"]
+        },
+        {
+          "id": "influence-of-fabric",
+          "name": "influence of fabric",
+          "requires": ["cohesion-friction-and-failure"]
+        },
+        {
+          "id": "drained-and-undrained-strength",
+          "name": "drained and undrained strength",
+          "requires": ["influence-of-fabric"]
+        },
+        {
+          "id": "atterberg-limits",
+          "name": "Atterberg limits",
+          "requires": ["drained-and-undrained-strength"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-reservoir-geomechanics",
+      "name": "Introduction to Reservoir Geomechanics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "tectonic-stress-field",
+          "name": "Tectonic stress field"
+        },
+        {
+          "id": "pore-pressure-at-depth-in-sedimentary-basins",
+          "name": "pore pressure at depth in sedimentary basins",
+          "requires": ["tectonic-stress-field"]
+        },
+        {
+          "id": "basic-constitutive-laws",
+          "name": "basic constitutive laws",
+          "requires": ["pore-pressure-at-depth-in-sedimentary-basins"]
+        },
+        {
+          "id": "rock-failure-in-compression",
+          "name": "rock failure in compression",
+          "requires": ["basic-constitutive-laws"]
+        },
+        {
+          "id": "tension-and-shear",
+          "name": "tension and shear",
+          "requires": ["rock-failure-in-compression"]
+        },
+        {
+          "id": "faults-and-fractures-at-depth",
+          "name": "faults and fractures at depth",
+          "requires": ["tension-and-shear"]
+        },
+        {
+          "id": "compressive-and-tensile-failures-in-vertical-wells",
+          "name": "compressive and tensile failures in vertical wells",
+          "requires": ["faults-and-fractures-at-depth"]
+        },
+        {
+          "id": "determination-of-s-3-from-mini-fracs-and-extended-leak-off",
+          "name": "determination of S 3 from mini-fracs and extended leak-off tests and constraining the magnitude of SH from wellbore failures in vertical wells",
+          "requires": ["compressive-and-tensile-failures-in-vertical-wells"]
+        },
+        {
+          "id": "wellbore-failure-and-stress-determination-in-deviated-wells",
+          "name": "wellbore failure and stress determination in deviated wells",
+          "requires": ["determination-of-s-3-from-mini-fracs-and-extended-leak-off"]
+        },
+        {
+          "id": "plate-tectonics-petro",
+          "name": "stress fields – from tectonic plates to reservoirs around the world",
+          "requires": ["wellbore-failure-and-stress-determination-in-deviated-wells"]
+        },
+        {
+          "id": "wellbore-stability",
+          "name": "wellbore stability",
+          "requires": ["plate-tectonics-petro"]
+        },
+        {
+          "id": "critically-stressed-faults-and-fluid-flow",
+          "name": "critically stressed faults and fluid flow",
+          "requires": ["wellbore-stability"]
+        },
+        {
+          "id": "effects-of-reservoir-depletion",
+          "name": "effects of reservoir depletion",
+          "requires": ["critically-stressed-faults-and-fluid-flow"]
+        }
+      ]
+    },
+    {
+      "id": "application-of-geomechanics",
+      "name": "Application of Geomechanics",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "hydraulic-fracturing-process-geomechanical-factors-effecting",
+          "name": "Hydraulic Fracturing: Process, geomechanical factors effecting fracture development and simple calculations"
+        },
+        {
+          "id": "application-of-geomechanics-in-subsurface-energy",
+          "name": "Application of Geomechanics in Subsurface Energy",
+          "requires": ["hydraulic-fracturing-process-geomechanical-factors-effecting"]
+        },
+        {
+          "id": "oil-and-gas-geothermal-energy-carbon-capture-and-storage-and",
+          "name": "Oil and Gas, Geothermal Energy, Carbon Capture and Storage, and Hydrogen Storage",
+          "requires": ["application-of-geomechanics-in-subsurface-energy"]
+        }
+      ]
+    }
+  ]
+}

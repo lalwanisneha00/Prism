@@ -1,0 +1,283 @@
+{
+  "id": "pdeu-agile-and-devops",
+  "name": "Agile and DevOps",
+  "field": "Agile and DevOps",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [7],
+  "code": "24CS432T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s7-program-elective-4--agile-and-devops",
+      "code": "24CS432T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core",
+      "track": "Industry track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Agile and DevOps",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "understanding-of-agile-process",
+      "name": "Understanding of Agile Process",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "software-processes-process-models",
+          "name": "Software processes, Process Models"
+        },
+        {
+          "id": "overview-agile-model-and-various-agile-methodologies",
+          "name": "overview Agile Model and Various Agile methodologies",
+          "requires": ["software-processes-process-models"]
+        },
+        {
+          "id": "scrum-xp-lean-and-kanban",
+          "name": "Scrum, XP, Lean, and Kanban",
+          "requires": ["overview-agile-model-and-various-agile-methodologies"]
+        },
+        {
+          "id": "scope-of-each-model-and-their-comparison-in-real-world-case",
+          "name": "Scope of each model and their comparison in real-world case studies",
+          "requires": ["scrum-xp-lean-and-kanban"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-devops",
+      "name": "Introduction to DevOps",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "definition-and-principles-of-devops",
+          "name": "Definition and principles of DevOps"
+        },
+        {
+          "id": "benefits-of-devops-adoption",
+          "name": "Benefits of DevOps adoption",
+          "requires": ["definition-and-principles-of-devops"]
+        },
+        {
+          "id": "devops-culture-and-mindset",
+          "name": "DevOps culture and mindset",
+          "requires": ["benefits-of-devops-adoption"]
+        },
+        {
+          "id": "devops-lifecycle",
+          "name": "DevOps Lifecycle",
+          "requires": ["devops-culture-and-mindset"]
+        },
+        {
+          "id": "overview-of-the-devops-lifecycle-stages",
+          "name": "Overview of the DevOps lifecycle stages",
+          "requires": ["devops-lifecycle"]
+        },
+        {
+          "id": "continuous-integration-ci-and-continuous-delivery-cd",
+          "name": "Continuous Integration (CI) and Continuous Delivery (CD)",
+          "requires": ["overview-of-the-devops-lifecycle-stages"]
+        },
+        {
+          "id": "automated-testing-and-deployment",
+          "name": "Automated testing and deployment",
+          "requires": ["continuous-integration-ci-and-continuous-delivery-cd"]
+        },
+        {
+          "id": "configuration-management",
+          "name": "Version Control and Configuration Management",
+          "requires": ["automated-testing-and-deployment"]
+        },
+        {
+          "id": "introduction-to-version-control-systems-e-g-git",
+          "name": "Introduction to version control systems (e.g., Git)",
+          "requires": ["configuration-management"]
+        },
+        {
+          "id": "branching-and-merging-strategies",
+          "name": "Branching and merging strategies",
+          "requires": ["introduction-to-version-control-systems-e-g-git"]
+        },
+        {
+          "id": "configuration-management-tools-e-g-ansible-puppet",
+          "name": "Configuration management tools (e.g., Ansible, Puppet)",
+          "requires": ["branching-and-merging-strategies"]
+        }
+      ]
+    },
+    {
+      "id": "integration-and-build-automation",
+      "name": "Integration and Build Automation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-infrastructure-as-code-iac-concepts-and",
+          "name": "Introduction to Infrastructure as code (IaC) concepts and benefits"
+        },
+        {
+          "id": "infrastructure-provisioning-tools-e-g-terraform-cloud",
+          "name": "Infrastructure provisioning tools (e.g., Terraform, Cloud Formation)",
+          "requires": ["introduction-to-infrastructure-as-code-iac-concepts-and"]
+        },
+        {
+          "id": "managing-infrastructure-configurations",
+          "name": "Managing infrastructure configurations",
+          "requires": ["infrastructure-provisioning-tools-e-g-terraform-cloud"]
+        },
+        {
+          "id": "setting-up-ci-cd-pipelines",
+          "name": "setting up CI/CD pipelines",
+          "requires": ["managing-infrastructure-configurations"]
+        },
+        {
+          "id": "building-and-packaging-applications",
+          "name": "Building and packaging applications",
+          "requires": ["setting-up-ci-cd-pipelines"]
+        },
+        {
+          "id": "automated-testing-and-code-quality-checks",
+          "name": "Automated testing and code quality checks",
+          "requires": ["building-and-packaging-applications"]
+        },
+        {
+          "id": "continuous-deployment-and-release-management",
+          "name": "Continuous Deployment and Release Management",
+          "requires": ["automated-testing-and-code-quality-checks"]
+        },
+        {
+          "id": "strategies-for-releasing-software-updates",
+          "name": "Strategies for releasing software updates",
+          "requires": ["continuous-deployment-and-release-management"]
+        },
+        {
+          "id": "managing-deployment-environments",
+          "name": "Managing deployment environments",
+          "requires": ["strategies-for-releasing-software-updates"]
+        },
+        {
+          "id": "release-orchestration-and-rollback-strategies",
+          "name": "Release orchestration and rollback strategies",
+          "requires": ["managing-deployment-environments"]
+        }
+      ]
+    },
+    {
+      "id": "scm-and-git-fundamentals-and-security",
+      "name": "SCM and GIT Fundamentals and Security",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "overview-of-source-code-management-and-its-role-in-software",
+          "name": "Overview of source code management and its role in software development"
+        },
+        {
+          "id": "version-control-systems-and-their-benefits",
+          "name": "Version control systems and their benefits",
+          "requires": ["overview-of-source-code-management-and-its-role-in-software"]
+        },
+        {
+          "id": "introduction-to-centralized-and-distributed-scm",
+          "name": "Introduction to centralized and distributed SCM",
+          "requires": ["version-control-systems-and-their-benefits"]
+        },
+        {
+          "id": "understanding-repositories-commits-and-revisions",
+          "name": "Understanding repositories, commits, and revisions",
+          "requires": ["introduction-to-centralized-and-distributed-scm"]
+        },
+        {
+          "id": "exploring-the-concepts-of-working-directory",
+          "name": "Exploring the concepts of working directory",
+          "requires": ["understanding-repositories-commits-and-revisions"]
+        },
+        {
+          "id": "staging-area-and-remote-repositories",
+          "name": "staging area, and remote repositories",
+          "requires": ["exploring-the-concepts-of-working-directory"]
+        },
+        {
+          "id": "introduction-to-branching-and-tagging",
+          "name": "Introduction to branching and tagging",
+          "requires": ["staging-area-and-remote-repositories"]
+        },
+        {
+          "id": "introduction-to-git-and-its-key-features",
+          "name": "Introduction to Git and its key features",
+          "requires": ["introduction-to-branching-and-tagging"]
+        },
+        {
+          "id": "setting-up-a-git-repository",
+          "name": "Setting up a Git repository",
+          "requires": ["introduction-to-git-and-its-key-features"]
+        },
+        {
+          "id": "committing-changes-and-viewing-history",
+          "name": "Committing changes and viewing history",
+          "requires": ["setting-up-a-git-repository"]
+        },
+        {
+          "id": "working-with-remote-repositories",
+          "name": "Working with remote repositories",
+          "requires": ["committing-changes-and-viewing-history"]
+        },
+        {
+          "id": "cloning-pushing-and-pulling-changes",
+          "name": "Cloning, pushing, and pulling changes",
+          "requires": ["working-with-remote-repositories"]
+        },
+        {
+          "id": "collaboration-workflows-and-managing-multiple-contributors",
+          "name": "Collaboration workflows and managing multiple contributors",
+          "requires": ["cloning-pushing-and-pulling-changes"]
+        },
+        {
+          "id": "importance-of-monitoring-in-devops",
+          "name": "Importance of monitoring in DevOps",
+          "requires": ["collaboration-workflows-and-managing-multiple-contributors"]
+        },
+        {
+          "id": "implementing-application-and-infrastructure-monitoring",
+          "name": "implementing application and infrastructure monitoring",
+          "requires": ["importance-of-monitoring-in-devops"]
+        },
+        {
+          "id": "log-aggregation-and-analysis",
+          "name": "Log aggregation and analysis",
+          "requires": ["implementing-application-and-infrastructure-monitoring"]
+        },
+        {
+          "id": "security-and-compliance",
+          "name": "Security and Compliance",
+          "requires": ["log-aggregation-and-analysis"]
+        },
+        {
+          "id": "devops-security-principles-and-practices",
+          "name": "DevOps security principles and practices",
+          "requires": ["security-and-compliance"]
+        },
+        {
+          "id": "implementing-security-controls-in-ci-cd-pipelines",
+          "name": "Implementing security controls in CI/CD pipelines",
+          "requires": ["devops-security-principles-and-practices"]
+        },
+        {
+          "id": "compliance-considerations-in-devops",
+          "name": "Compliance considerations in DevOps",
+          "requires": ["implementing-security-controls-in-ci-cd-pipelines"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "id": "pdeu-image-processing-communication-and-signal",
+  "name": "Image Processing (Communication & Signal Processing)",
+  "field": "Image Processing",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [6],
+  "code": "24ICxxxT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s6-program-elective-2--image-processing-communication-and-signal-processing",
+      "code": "24ICxxxT",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Image Processing (Communication & Signal Processing)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "concepts-of-digital-image-processing",
+      "name": "Concepts of Digital image processing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-image-basics",
+          "name": "Introduction to image basics"
+        },
+        {
+          "id": "imaging-systems",
+          "name": "imaging systems",
+          "requires": ["introduction-to-image-basics"]
+        },
+        {
+          "id": "image-representation",
+          "name": "image representation",
+          "requires": ["imaging-systems"]
+        },
+        {
+          "id": "binary-images",
+          "name": "binary images",
+          "requires": ["image-representation"]
+        },
+        {
+          "id": "grayscale-images",
+          "name": "grayscale images",
+          "requires": ["binary-images"]
+        },
+        {
+          "id": "color-images",
+          "name": "color images",
+          "requires": ["grayscale-images"]
+        },
+        {
+          "id": "multispectral-and-hyperspectral-images",
+          "name": "multispectral and hyperspectral images",
+          "requires": ["color-images"]
+        },
+        {
+          "id": "digital-image-file-formats",
+          "name": "digital image file formats",
+          "requires": ["multispectral-and-hyperspectral-images"]
+        },
+        {
+          "id": "introduction-to-image-analysis-tools",
+          "name": "introduction to image analysis tools",
+          "requires": ["digital-image-file-formats"]
+        },
+        {
+          "id": "human-visual-perception-and-illusion",
+          "name": "Human Visual Perception and Illusion",
+          "requires": ["introduction-to-image-analysis-tools"]
+        },
+        {
+          "id": "image-fidelity",
+          "name": "Image Fidelity",
+          "requires": ["human-visual-perception-and-illusion"]
+        }
+      ]
+    },
+    {
+      "id": "digital-image-analysis",
+      "name": "Digital Image Analysis",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "overview-of-image-analysis",
+          "name": "Overview of image analysis"
+        },
+        {
+          "id": "preprocessing",
+          "name": "preprocessing",
+          "requires": ["overview-of-image-analysis"]
+        },
+        {
+          "id": "region-of-interest",
+          "name": "region of interest",
+          "requires": ["preprocessing"]
+        },
+        {
+          "id": "arithmetic-and-logic-operations",
+          "name": "arithmetic and logic operations",
+          "requires": ["region-of-interest"]
+        },
+        {
+          "id": "thresholding",
+          "name": "thresholding",
+          "requires": ["arithmetic-and-logic-operations"]
+        },
+        {
+          "id": "connectivity-concept",
+          "name": "connectivity concept",
+          "requires": ["thresholding"]
+        },
+        {
+          "id": "basic-object-features",
+          "name": "basic object features",
+          "requires": ["connectivity-concept"]
+        },
+        {
+          "id": "segmentation",
+          "name": "segmentation",
+          "requires": ["basic-object-features"]
+        },
+        {
+          "id": "edge",
+          "name": "edge",
+          "requires": ["segmentation"]
+        },
+        {
+          "id": "line-detection",
+          "name": "line detection",
+          "requires": ["edge"]
+        },
+        {
+          "id": "image-transforms",
+          "name": "Image transforms",
+          "requires": ["line-detection"]
+        },
+        {
+          "id": "dft",
+          "name": "DFT",
+          "requires": ["image-transforms"]
+        },
+        {
+          "id": "fft",
+          "name": "FFT",
+          "requires": ["dft"]
+        },
+        {
+          "id": "dct",
+          "name": "DCT",
+          "requires": ["fft"]
+        },
+        {
+          "id": "wht",
+          "name": "WHT",
+          "requires": ["dct"]
+        },
+        {
+          "id": "principle-component",
+          "name": "principle component",
+          "requires": ["wht"]
+        },
+        {
+          "id": "haar-transform",
+          "name": "HAAR transform",
+          "requires": ["principle-component"]
+        },
+        {
+          "id": "filtering-image-enhancement",
+          "name": "filtering. Image enhancement",
+          "requires": ["haar-transform"]
+        },
+        {
+          "id": "restoration",
+          "name": "restoration",
+          "requires": ["filtering-image-enhancement"]
+        },
+        {
+          "id": "compression",
+          "name": "compression",
+          "requires": ["restoration"]
+        },
+        {
+          "id": "registration",
+          "name": "registration",
+          "requires": ["compression"]
+        }
+      ]
+    },
+    {
+      "id": "feature-extraction-and-analysis",
+      "name": "Feature extraction and Analysis",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "feature-extraction",
+          "name": "Feature Extraction"
+        },
+        {
+          "id": "shape-features",
+          "name": "Shape Features",
+          "requires": ["feature-extraction"]
+        },
+        {
+          "id": "histogram-features",
+          "name": "Histogram Features",
+          "requires": ["shape-features"]
+        },
+        {
+          "id": "color-features",
+          "name": "Color Features",
+          "requires": ["histogram-features"]
+        },
+        {
+          "id": "spectral-features",
+          "name": "Spectral Features",
+          "requires": ["color-features"]
+        },
+        {
+          "id": "texture-features",
+          "name": "Texture Features",
+          "requires": ["spectral-features"]
+        },
+        {
+          "id": "feature-analysis",
+          "name": "Feature Analysis",
+          "requires": ["texture-features"]
+        },
+        {
+          "id": "feature-vectors-and-feature-spaces",
+          "name": "Feature Vectors and Feature Spaces",
+          "requires": ["feature-analysis"]
+        },
+        {
+          "id": "distance-and-similarity-measures",
+          "name": "Distance and Similarity Measures",
+          "requires": ["feature-vectors-and-feature-spaces"]
+        },
+        {
+          "id": "data-preprocessing",
+          "name": "Data Preprocessing",
+          "requires": ["distance-and-similarity-measures"]
+        },
+        {
+          "id": "pattern-classification-algorithms-and-methods",
+          "name": "Pattern Classification algorithms and Methods",
+          "requires": ["data-preprocessing"]
+        },
+        {
+          "id": "neural-networks-for-image-analysis",
+          "name": "Neural networks for image analysis",
+          "requires": ["pattern-classification-algorithms-and-methods"]
+        },
+        {
+          "id": "deep-learning",
+          "name": "deep learning",
+          "requires": ["neural-networks-for-image-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "applications-of-image-processing",
+      "name": "Applications of image processing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "medical-image-processing",
+          "name": "Medical image processing"
+        },
+        {
+          "id": "biometric-recognition-systems",
+          "name": "Biometric recognition systems",
+          "requires": ["medical-image-processing"]
+        },
+        {
+          "id": "autonomous-navigation",
+          "name": "Autonomous navigation",
+          "requires": ["biometric-recognition-systems"]
+        },
+        {
+          "id": "image-translation",
+          "name": "Image translation",
+          "requires": ["autonomous-navigation"]
+        }
+      ]
+    }
+  ]
+}

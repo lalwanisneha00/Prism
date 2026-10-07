@@ -1,0 +1,187 @@
+{
+  "id": "pdeu-downstream-processing",
+  "name": "Downstream Processing",
+  "field": "Downstream Processing",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [7],
+  "code": "24BT403T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s7-downstream-processing",
+      "code": "24BT403T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Downstream Processing",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-to-schematics-of-downstream",
+      "name": "Introduction to Schematics of Downstream Processing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "range-and-characteristics-of-bio-products",
+          "name": "Range and characteristics of bio products"
+        },
+        {
+          "id": "characteristics-of-fermentation-broth",
+          "name": "Characteristics of Fermentation Broth",
+          "requires": ["range-and-characteristics-of-bio-products"]
+        },
+        {
+          "id": "selection-of-unit-operation-with-due-consideration-of",
+          "name": "Selection of unit operation with due consideration of physical",
+          "requires": ["characteristics-of-fermentation-broth"]
+        },
+        {
+          "id": "chemical-and-biochemical-aspect-of-biomolecules",
+          "name": "chemical and biochemical aspect of biomolecules",
+          "requires": ["selection-of-unit-operation-with-due-consideration-of"]
+        },
+        {
+          "id": "stages-of-downstream-processing",
+          "name": "Stages of Downstream Processing",
+          "requires": ["chemical-and-biochemical-aspect-of-biomolecules"]
+        },
+        {
+          "id": "cell-disruption-techniques-mechanical-and-non-mechanical",
+          "name": "Cell disruption techniques: Mechanical and Non-mechanical methods of cell disruption",
+          "requires": ["stages-of-downstream-processing"]
+        },
+        {
+          "id": "mechanical-cell-disruption-methods-cell-disruption-kinetics",
+          "name": "Mechanical Cell disruption methods Cell disruption kinetics for a bead mill and high-pressure homogenizer",
+          "requires": ["cell-disruption-techniques-mechanical-and-non-mechanical"]
+        }
+      ]
+    },
+    {
+      "id": "separation",
+      "name": "Separation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "flocculation-and-sedimentation-centrifugation-differential",
+          "name": "Flocculation and sedimentation, Centrifugation-differential and density gradient"
+        },
+        {
+          "id": "filtration-incompressible-and-compressible-cakes-pre",
+          "name": "Filtration: incompressible and compressible cakes, Pre-treatment of fermentation broth, Filter media and equipment for batch and continuous Filtration",
+          "requires": ["flocculation-and-sedimentation-centrifugation-differential"]
+        },
+        {
+          "id": "membrane-separation-processes-basic-principles-and",
+          "name": "Membrane separation processes: Basic principles and advantages, Modes of operation, Pressure-driven processes (MF, UF, NF & RO), Concentration-driven processes (Dialysis &Pervaporation), and Electrica",
+          "requires": ["filtration-incompressible-and-compressible-cakes-pre"]
+        },
+        {
+          "id": "applications-of-the-different-types-of-membrane-separation",
+          "name": "Applications of the different types of membrane separation processes",
+          "requires": ["membrane-separation-processes-basic-principles-and"]
+        },
+        {
+          "id": "chromatographic-separation-processes",
+          "name": "Chromatographic separation processes",
+          "requires": ["applications-of-the-different-types-of-membrane-separation"]
+        }
+      ]
+    },
+    {
+      "id": "extraction-and-precipitation",
+      "name": "Extraction and Precipitation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "extraction-processes-solvent-extraction-principles",
+          "name": "Extraction processes - solvent extraction principles"
+        },
+        {
+          "id": "operating-modes-of-extraction",
+          "name": "operating modes of extraction",
+          "requires": ["extraction-processes-solvent-extraction-principles"]
+        },
+        {
+          "id": "extraction-of-biomolecules-by-aqueous-aqueous",
+          "name": "Extraction of biomolecules by aqueous –aqueous",
+          "requires": ["operating-modes-of-extraction"]
+        },
+        {
+          "id": "aqueous-two-phase",
+          "name": "aqueous two-phase",
+          "requires": ["extraction-of-biomolecules-by-aqueous-aqueous"]
+        },
+        {
+          "id": "reverse-micellar-and-supercritical-fluid-extraction",
+          "name": "reverse micellar, and supercritical fluid extraction. Colloidal stability of protein solutions",
+          "requires": ["aqueous-two-phase"]
+        },
+        {
+          "id": "precipitation-of-biomolecules-by-isoelectric",
+          "name": "precipitation of biomolecules by isoelectric",
+          "requires": ["reverse-micellar-and-supercritical-fluid-extraction"]
+        },
+        {
+          "id": "salting-out",
+          "name": "salting out",
+          "requires": ["precipitation-of-biomolecules-by-isoelectric"]
+        },
+        {
+          "id": "organic-solvent",
+          "name": "organic solvent",
+          "requires": ["salting-out"]
+        },
+        {
+          "id": "non-ionic-polymers",
+          "name": "non-ionic polymers",
+          "requires": ["organic-solvent"]
+        },
+        {
+          "id": "poly-electrolyte-addition-and-selective-denaturation-of",
+          "name": "Poly- electrolyte addition and selective denaturation of unwanted proteins",
+          "requires": ["non-ionic-polymers"]
+        }
+      ]
+    },
+    {
+      "id": "finishing-operations",
+      "name": "Finishing Operations",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "crystallization",
+          "name": "Crystallization"
+        },
+        {
+          "id": "drying",
+          "name": "Drying",
+          "requires": ["crystallization"]
+        },
+        {
+          "id": "lyophilization-and-formulation",
+          "name": "Lyophilization and Formulation",
+          "requires": ["drying"]
+        },
+        {
+          "id": "industrial-scale-crystallizers-and-dryers",
+          "name": "Industrial-scale Crystallizers and Dryers",
+          "requires": ["lyophilization-and-formulation"]
+        }
+      ]
+    }
+  ]
+}

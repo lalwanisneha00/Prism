@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { findSubject, subjects } from "@/lib/subjects";
+import { findSubject, allSubjects as subjects } from "@/lib/subjects";
 import { editDistance, normalize, searchTopics } from "@/lib/topicSearch";
 
 const em = findSubject("em")!;

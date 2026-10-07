@@ -1,0 +1,188 @@
+{
+  "id": "pdeu-autonomous-systems",
+  "name": "Autonomous Systems",
+  "field": "Autonomous Systems",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [7],
+  "code": "24CS440T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s7-program-elective-5--autonomous-systems",
+      "code": "24CS440T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core",
+      "track": "Communication track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Autonomous Systems",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-to-autonomous-systems",
+      "name": "Introduction to Autonomous Systems",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-and-evolution-of-robotics-and-autonomous",
+          "name": "Introduction and Evolution of Robotics and Autonomous Systems"
+        },
+        {
+          "id": "basics-of-robotics-and-control-systems",
+          "name": "Basics of Robotics and Control Systems",
+          "requires": ["introduction-and-evolution-of-robotics-and-autonomous"]
+        },
+        {
+          "id": "sensors-and-actuators-in-autonomous-systems",
+          "name": "Sensors and Actuators in Autonomous Systems",
+          "requires": ["basics-of-robotics-and-control-systems"]
+        },
+        {
+          "id": "basics-of-navigation-and-path-planning",
+          "name": "Basics of Navigation and Path Planning",
+          "requires": ["sensors-and-actuators-in-autonomous-systems"]
+        },
+        {
+          "id": "introduction-to-communication-protocols-for-autonomous",
+          "name": "Introduction to Communication Protocols for Autonomous Systems",
+          "requires": ["basics-of-navigation-and-path-planning"]
+        },
+        {
+          "id": "introduction-to-uavs-types-applications-and-challenges",
+          "name": "Introduction to UAVs: Types, Applications, and Challenges",
+          "requires": ["introduction-to-communication-protocols-for-autonomous"]
+        },
+        {
+          "id": "expert-system-and-deep-learning-in-autonomous-systems",
+          "name": "Expert System and Deep Learning in Autonomous Systems",
+          "requires": ["introduction-to-uavs-types-applications-and-challenges"]
+        }
+      ]
+    },
+    {
+      "id": "perception-and-sensing",
+      "name": "Perception and Sensing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "overview-of-perception-in-autonomous-systems",
+          "name": "Overview of Perception in Autonomous Systems"
+        },
+        {
+          "id": "iot-for-autonomous-system",
+          "name": "IOT for Autonomous system",
+          "requires": ["overview-of-perception-in-autonomous-systems"]
+        },
+        {
+          "id": "sensor-fusion-techniques",
+          "name": "Sensor Fusion Techniques",
+          "requires": ["iot-for-autonomous-system"]
+        },
+        {
+          "id": "computer-vision-for-object-detection-and-recognition",
+          "name": "Computer Vision for Object Detection and Recognition",
+          "requires": ["sensor-fusion-techniques"]
+        },
+        {
+          "id": "deep-learning-for-perception-in-autonomous-systems",
+          "name": "Deep Learning for Perception in Autonomous Systems",
+          "requires": ["computer-vision-for-object-detection-and-recognition"]
+        },
+        {
+          "id": "uav-perception-systems-cameras-lidar-and-radar",
+          "name": "UAV Perception Systems: Cameras, Lidar, and Radar",
+          "requires": ["deep-learning-for-perception-in-autonomous-systems"]
+        },
+        {
+          "id": "case-studies-and-applications-in-uav-perception",
+          "name": "Case Studies and Applications in UAV Perception",
+          "requires": ["uav-perception-systems-cameras-lidar-and-radar"]
+        }
+      ]
+    },
+    {
+      "id": "cross-domain-integration-of-autonomous-systems",
+      "name": "Cross-Domain Integration of Autonomous Systems",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "edge-and-fog-computing-for-autonomous-systems",
+          "name": "Edge and Fog Computing for Autonomous Systems"
+        },
+        {
+          "id": "communication-protocols-and-networking-for-multi-agent",
+          "name": "Communication Protocols and Networking for Multi-agent Systems",
+          "requires": ["edge-and-fog-computing-for-autonomous-systems"]
+        },
+        {
+          "id": "human-robot-interaction-and-collaboration",
+          "name": "Human-Robot Interaction and Collaboration",
+          "requires": ["communication-protocols-and-networking-for-multi-agent"]
+        },
+        {
+          "id": "autonomous-systems-in-challenging-environments-e-g-space",
+          "name": "Autonomous Systems in Challenging Environments (e.g., Space, Underwater)",
+          "requires": ["human-robot-interaction-and-collaboration"]
+        },
+        {
+          "id": "advanced-deep-learning-techniques-for-autonomous-systems",
+          "name": "Advanced Deep Learning Techniques for Autonomous Systems: Recurrent Neural Networks (RNNs)",
+          "requires": ["autonomous-systems-in-challenging-environments-e-g-space"]
+        },
+        {
+          "id": "generative-adversarial-networks-gans",
+          "name": "Generative Adversarial Networks (GANs)",
+          "requires": ["advanced-deep-learning-techniques-for-autonomous-systems"]
+        },
+        {
+          "id": "etc",
+          "name": "etc",
+          "requires": ["generative-adversarial-networks-gans"]
+        }
+      ]
+    },
+    {
+      "id": "case-studies-and-application-of-autonomous-system",
+      "name": "Case Studies and Application of Autonomous System",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "case-studies-in-transportation-autonomous-vehicles-in-urban",
+          "name": "Case studies in Transportation: Autonomous Vehicles in Urban and Rural Environments"
+        },
+        {
+          "id": "healthcare-robotics-and-ai-in-medical-diagnosis-and",
+          "name": "Healthcare: Robotics and AI in Medical Diagnosis and Treatment",
+          "requires": ["case-studies-in-transportation-autonomous-vehicles-in-urban"]
+        },
+        {
+          "id": "agriculture-drones-and-robotics-for-precision-farming",
+          "name": "Agriculture: Drones and Robotics for Precision Farming",
+          "requires": ["healthcare-robotics-and-ai-in-medical-diagnosis-and"]
+        },
+        {
+          "id": "environmental-monitoring-uavs-and-robotics-for-surveillance",
+          "name": "Environmental Monitoring: UAVs and Robotics for Surveillance and Conservation",
+          "requires": ["agriculture-drones-and-robotics-for-precision-farming"]
+        },
+        {
+          "id": "smart-cities-integration-of-autonomous-systems-for-urban",
+          "name": "Smart Cities: Integration of Autonomous Systems for Urban Development",
+          "requires": ["environmental-monitoring-uavs-and-robotics-for-surveillance"]
+        }
+      ]
+    }
+  ]
+}

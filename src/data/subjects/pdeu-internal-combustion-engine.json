@@ -1,0 +1,342 @@
+{
+  "id": "pdeu-internal-combustion-engine",
+  "name": "Internal Combustion Engine",
+  "field": "Internal Combustion Engine",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [7],
+  "code": "19ME402T",
+  "credits": 4,
+  "ltp": "4-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s7-internal-combustion-engine",
+      "code": "19ME402T",
+      "category": "Program Core",
+      "ltp": "4-0-0",
+      "credits": 4,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Internal Combustion Engine",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "engine-classifications",
+          "name": "Engine classifications"
+        },
+        {
+          "id": "basic-engine-components-and-terminology",
+          "name": "basic engine components and terminology",
+          "requires": ["engine-classifications"]
+        },
+        {
+          "id": "working-principles-of-engines",
+          "name": "working principles of engines",
+          "requires": ["basic-engine-components-and-terminology"]
+        },
+        {
+          "id": "four-stroke-4s-and-two-stroke-2s-si-and-cl-engines",
+          "name": "four-stroke (4S) and two-stroke (2S) SI and Cl engines",
+          "requires": ["working-principles-of-engines"]
+        },
+        {
+          "id": "comparison-of-4s-and-2s-si-and-cl-engines",
+          "name": "comparison of 4S and 2S SI and Cl engines",
+          "requires": ["four-stroke-4s-and-two-stroke-2s-si-and-cl-engines"]
+        },
+        {
+          "id": "application-of-ic-engines",
+          "name": "application of IC engines",
+          "requires": ["comparison-of-4s-and-2s-si-and-cl-engines"]
+        },
+        {
+          "id": "carnot-cycle",
+          "name": "engine performance parameters. Air- standard cycles: Carnot cycle",
+          "requires": ["application-of-ic-engines"]
+        },
+        {
+          "id": "stirling-cycle",
+          "name": "Stirling cycle",
+          "requires": ["carnot-cycle"]
+        },
+        {
+          "id": "ericsson-cycle",
+          "name": "Ericsson cycle",
+          "requires": ["stirling-cycle"]
+        },
+        {
+          "id": "otto-cycle",
+          "name": "Otto cycle",
+          "requires": ["ericsson-cycle"]
+        },
+        {
+          "id": "diesel-cycle",
+          "name": "Diesel cycle",
+          "requires": ["otto-cycle"]
+        },
+        {
+          "id": "dual-cycle",
+          "name": "Dual cycle",
+          "requires": ["diesel-cycle"]
+        },
+        {
+          "id": "atkinson-cycle",
+          "name": "Atkinson cycle",
+          "requires": ["dual-cycle"]
+        },
+        {
+          "id": "comparison-of-the-otto",
+          "name": "comparison of the Otto",
+          "requires": ["atkinson-cycle"]
+        },
+        {
+          "id": "diesel-and-dual-cycles-fuel-air-cycles-fuel-air-cycles-and",
+          "name": "Diesel and Dual cycles. Fuel-air cycles: Fuel-air cycles and their significance",
+          "requires": ["comparison-of-the-otto"]
+        },
+        {
+          "id": "variable-specific-heats",
+          "name": "variable specific heats",
+          "requires": ["diesel-and-dual-cycles-fuel-air-cycles-fuel-air-cycles-and"]
+        },
+        {
+          "id": "dissociation",
+          "name": "dissociation",
+          "requires": ["variable-specific-heats"]
+        },
+        {
+          "id": "comparison-of-air-standard-and-fuel-air-cycles",
+          "name": "comparison of air-standard and fuel-air cycles",
+          "requires": ["dissociation"]
+        },
+        {
+          "id": "effect-of-compression-ratio-and-fuel-air-ratio",
+          "name": "effect of compression ratio & fuel-air ratio",
+          "requires": ["comparison-of-air-standard-and-fuel-air-cycles"]
+        },
+        {
+          "id": "valve-timing-diagrams",
+          "name": "valve-timing diagrams",
+          "requires": ["effect-of-compression-ratio-and-fuel-air-ratio"]
+        }
+      ]
+    },
+    {
+      "id": "actual-cycles",
+      "name": "Actual cycles",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "comparison-of-air-standard-and-actual-cycles-fuels-for-ic",
+          "name": "comparison of air-standard and actual cycles. Fuels for IC engines: solid"
+        },
+        {
+          "id": "liquid",
+          "name": "liquid",
+          "requires": ["comparison-of-air-standard-and-actual-cycles-fuels-for-ic"]
+        },
+        {
+          "id": "gaseous-fuels",
+          "name": "gaseous fuels",
+          "requires": ["liquid"]
+        },
+        {
+          "id": "rating-of-fuels",
+          "name": "rating of fuels",
+          "requires": ["gaseous-fuels"]
+        },
+        {
+          "id": "alternate-fuels-fuel-systems-for-si-engines-carburetion",
+          "name": "alternate fuels. Fuel systems for SI engines: Carburetion",
+          "requires": ["rating-of-fuels"]
+        },
+        {
+          "id": "principle-of-carburetion",
+          "name": "principle of carburetion",
+          "requires": ["alternate-fuels-fuel-systems-for-si-engines-carburetion"]
+        },
+        {
+          "id": "types-of-carburettors",
+          "name": "types of carburettors",
+          "requires": ["principle-of-carburetion"]
+        },
+        {
+          "id": "solex-carburettor",
+          "name": "Solex carburettor",
+          "requires": ["types-of-carburettors"]
+        },
+        {
+          "id": "carter-carburettor",
+          "name": "Carter carburettor",
+          "requires": ["solex-carburettor"]
+        },
+        {
+          "id": "s-u-carburettor",
+          "name": "S.U. carburettor",
+          "requires": ["carter-carburettor"]
+        },
+        {
+          "id": "petrol-injection-fuel-systems-for-cl-engines-mechanical",
+          "name": "petrol injection. Fuel systems for Cl engines: Mechanical injection systems",
+          "requires": ["s-u-carburettor"]
+        },
+        {
+          "id": "electronic-injection-systems",
+          "name": "electronic injection systems",
+          "requires": ["petrol-injection-fuel-systems-for-cl-engines-mechanical"]
+        },
+        {
+          "id": "ignition-combustion-and-combustion-chambers-combustion-in-si",
+          "name": "ignition. Combustion and Combustion Chambers: Combustion in SI engines",
+          "requires": ["electronic-injection-systems"]
+        },
+        {
+          "id": "abnormal-combustion-and-knock-in-si-engines",
+          "name": "abnormal combustion and knock in SI engines",
+          "requires": ["ignition-combustion-and-combustion-chambers-combustion-in-si"]
+        },
+        {
+          "id": "combustion-chambers-for-si-engines",
+          "name": "combustion chambers for SI engines",
+          "requires": ["abnormal-combustion-and-knock-in-si-engines"]
+        },
+        {
+          "id": "combustion-in-cl-engines",
+          "name": "Combustion in Cl engines",
+          "requires": ["combustion-chambers-for-si-engines"]
+        },
+        {
+          "id": "knocking-in-cl-engines",
+          "name": "knocking in Cl engines",
+          "requires": ["combustion-in-cl-engines"]
+        },
+        {
+          "id": "combustion-chambers-for-cl-engines",
+          "name": "combustion chambers for Cl engines",
+          "requires": ["knocking-in-cl-engines"]
+        },
+        {
+          "id": "abnormal-combustion-in-sl-and-cl-engines",
+          "name": "abnormal combustion in Sl and Cl engines",
+          "requires": ["combustion-chambers-for-cl-engines"]
+        }
+      ]
+    },
+    {
+      "id": "lubrication",
+      "name": "Lubrication",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "lubrication-of-engine-components",
+          "name": "Lubrication of engine components"
+        },
+        {
+          "id": "lubrication-systems",
+          "name": "lubrication systems",
+          "requires": ["lubrication-of-engine-components"]
+        },
+        {
+          "id": "properties-of-lubricants",
+          "name": "properties of lubricants",
+          "requires": ["lubrication-systems"]
+        },
+        {
+          "id": "additives-for-lubricants-heat-transfer-and-cooling-theory-of",
+          "name": "additives for lubricants. Heat transfer and cooling: theory of engine heat transfer",
+          "requires": ["properties-of-lubricants"]
+        },
+        {
+          "id": "parameters-affecting-engine-heat-transfer",
+          "name": "parameters affecting engine heat transfer",
+          "requires": ["additives-for-lubricants-heat-transfer-and-cooling-theory-of"]
+        },
+        {
+          "id": "engine-cooling-systems",
+          "name": "engine cooling systems",
+          "requires": ["parameters-affecting-engine-heat-transfer"]
+        },
+        {
+          "id": "liquid-cooled-systems",
+          "name": "liquid-cooled systems",
+          "requires": ["engine-cooling-systems"]
+        },
+        {
+          "id": "air-cooled-systems-engine-emissions-and-control-products-of",
+          "name": "air-cooled systems. Engine emissions and control: products of combustion in IC engines",
+          "requires": ["liquid-cooled-systems"]
+        },
+        {
+          "id": "control-of-pollutants-from-ic-engines",
+          "name": "control of pollutants from IC engines",
+          "requires": ["air-cooled-systems-engine-emissions-and-control-products-of"]
+        },
+        {
+          "id": "emission-standards-for-ic-engines",
+          "name": "emission standards for IC engines",
+          "requires": ["control-of-pollutants-from-ic-engines"]
+        }
+      ]
+    },
+    {
+      "id": "supercharging-and-turbo-charging-two-stroke",
+      "name": "Supercharging and turbo-charging, Two-stroke engines, Alternative engines. Performance and Testing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "performance-parameters",
+          "name": "performance parameters"
+        },
+        {
+          "id": "speed-measurements",
+          "name": "speed measurements",
+          "requires": ["performance-parameters"]
+        },
+        {
+          "id": "fuel-consumption",
+          "name": "fuel consumption",
+          "requires": ["speed-measurements"]
+        },
+        {
+          "id": "brake-power",
+          "name": "brake power",
+          "requires": ["fuel-consumption"]
+        },
+        {
+          "id": "friction-power",
+          "name": "friction power",
+          "requires": ["brake-power"]
+        },
+        {
+          "id": "indicator-diagram-measurements",
+          "name": "indicator diagram measurements",
+          "requires": ["friction-power"]
+        },
+        {
+          "id": "heat-balance-sheet",
+          "name": "heat balance sheet",
+          "requires": ["indicator-diagram-measurements"]
+        },
+        {
+          "id": "performance-comparison-of-si-and-cl-engines-alternative",
+          "name": "performance comparison of SI and Cl engines Alternative fuels for IC engines",
+          "requires": ["heat-balance-sheet"]
+        }
+      ]
+    }
+  ]
+}

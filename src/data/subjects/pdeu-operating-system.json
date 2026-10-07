@@ -1,0 +1,308 @@
+{
+  "id": "pdeu-operating-system",
+  "name": "Operating System",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [5],
+  "code": "24CS304T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-operating-system",
+      "code": "24CS304T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Operating System",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction-of-operating-system-and-process",
+      "name": "Introduction of Operating System and Process Management",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "operating-system-objectives-and-functions",
+          "name": "Operating System Objectives and Functions"
+        },
+        {
+          "id": "computer-system-organization",
+          "name": "Computer-System Organization",
+          "requires": ["operating-system-objectives-and-functions"]
+        },
+        {
+          "id": "computer-system-architecture",
+          "name": "Computer-System Architecture",
+          "requires": ["computer-system-organization"]
+        },
+        {
+          "id": "operating-system-operations",
+          "name": "Operating-System Operations",
+          "requires": ["computer-system-architecture"]
+        },
+        {
+          "id": "operating-system-structure",
+          "name": "Operating-System Structure",
+          "requires": ["operating-system-operations"]
+        },
+        {
+          "id": "process-management",
+          "name": "Process Management",
+          "requires": ["operating-system-structure"]
+        },
+        {
+          "id": "memory-management",
+          "name": "Memory Management",
+          "requires": ["process-management"]
+        },
+        {
+          "id": "storage-management",
+          "name": "Storage Management",
+          "requires": ["memory-management"]
+        },
+        {
+          "id": "protection-and-security",
+          "name": "Protection and Security",
+          "requires": ["storage-management"]
+        },
+        {
+          "id": "system-calls-and-its-types",
+          "name": "System calls and its Types",
+          "requires": ["protection-and-security"]
+        },
+        {
+          "id": "process-and-threads",
+          "name": "Process and Threads",
+          "requires": ["system-calls-and-its-types"]
+        },
+        {
+          "id": "types-of-threads",
+          "name": "Types of Threads",
+          "requires": ["process-and-threads"]
+        },
+        {
+          "id": "multicore-and-multithreading",
+          "name": "multicore and multithreading",
+          "requires": ["types-of-threads"]
+        },
+        {
+          "id": "process-concept",
+          "name": "Process Concept",
+          "requires": ["multicore-and-multithreading"]
+        },
+        {
+          "id": "operations-on-process",
+          "name": "Operations on Process",
+          "requires": ["process-concept"]
+        },
+        {
+          "id": "cpu-scheduling-basic-concepts-and-algorithms",
+          "name": "CPU Scheduling-Basic concepts and algorithms",
+          "requires": ["operations-on-process"]
+        },
+        {
+          "id": "thread-scheduling",
+          "name": "Thread scheduling",
+          "requires": ["cpu-scheduling-basic-concepts-and-algorithms"]
+        }
+      ]
+    },
+    {
+      "id": "synchronization",
+      "name": "Synchronization",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "principles-of-concurrency",
+          "name": "Principles of Concurrency"
+        },
+        {
+          "id": "interprocess-communication-shared-and-message-passing",
+          "name": "Interprocess Communication: shared and message passing",
+          "requires": ["principles-of-concurrency"]
+        },
+        {
+          "id": "race-condition",
+          "name": "Race Condition",
+          "requires": ["interprocess-communication-shared-and-message-passing"]
+        },
+        {
+          "id": "mutual-exclusion",
+          "name": "Mutual Exclusion",
+          "requires": ["race-condition"]
+        },
+        {
+          "id": "the-critical-section-problem",
+          "name": "the critical section problem",
+          "requires": ["mutual-exclusion"]
+        },
+        {
+          "id": "petersons-solution",
+          "name": "Peterson’s Solution",
+          "requires": ["the-critical-section-problem"]
+        },
+        {
+          "id": "fork-and-join",
+          "name": "Fork() and Join()",
+          "requires": ["petersons-solution"]
+        },
+        {
+          "id": "synchronization-hardware-support",
+          "name": "Synchronization Hardware Support",
+          "requires": ["fork-and-join"]
+        },
+        {
+          "id": "mutex-locks",
+          "name": "Mutex locks",
+          "requires": ["synchronization-hardware-support"]
+        },
+        {
+          "id": "semaphores-usage-and-implementation",
+          "name": "Semaphores: Usage and implementation",
+          "requires": ["mutex-locks"]
+        },
+        {
+          "id": "classical-problems-of-synchronization-bounded-buffer-problem",
+          "name": "Classical Problems of Synchronization: Bounded-Buffer Problem",
+          "requires": ["semaphores-usage-and-implementation"]
+        },
+        {
+          "id": "readers-writers-problem",
+          "name": "Readers–Writers Problem",
+          "requires": ["classical-problems-of-synchronization-bounded-buffer-problem"]
+        },
+        {
+          "id": "dining-philosophers-problem",
+          "name": "Dining-Philosophers Problem",
+          "requires": ["readers-writers-problem"]
+        },
+        {
+          "id": "monitors-and-its-usage-in-classical-synchronization-problems",
+          "name": "Monitors and its usage in Classical Synchronization Problems",
+          "requires": ["dining-philosophers-problem"]
+        }
+      ]
+    },
+    {
+      "id": "deadlocks",
+      "name": "Deadlocks",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "deadlock-characterization",
+          "name": "Deadlock Characterization"
+        },
+        {
+          "id": "deadlock-prevention-ostrich-algorithm",
+          "name": "Deadlock Prevention: Ostrich Algorithm",
+          "requires": ["deadlock-characterization"]
+        },
+        {
+          "id": "bankers-algorithm",
+          "name": "Deadlock Avoidance: Banker’s Algorithm",
+          "requires": ["deadlock-prevention-ostrich-algorithm"]
+        },
+        {
+          "id": "deadlock-detection-and-recovery-from-deadlock-resource",
+          "name": "Deadlock Detection, and Recovery from Deadlock: Resource allocation graph and wait-for-graph",
+          "requires": ["bankers-algorithm"]
+        }
+      ]
+    },
+    {
+      "id": "memory-and-file-management",
+      "name": "Memory and File Management",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "memory-management-address-binding",
+          "name": "Memory Management: Address Binding"
+        },
+        {
+          "id": "swapping",
+          "name": "Swapping",
+          "requires": ["memory-management-address-binding"]
+        },
+        {
+          "id": "contiguous-memory-allocation",
+          "name": "Contiguous Memory Allocation",
+          "requires": ["swapping"]
+        },
+        {
+          "id": "segmentation",
+          "name": "Segmentation",
+          "requires": ["contiguous-memory-allocation"]
+        },
+        {
+          "id": "paging-virtual-memory-management-background",
+          "name": "Paging. Virtual Memory Management: Background",
+          "requires": ["segmentation"]
+        },
+        {
+          "id": "demand-paging",
+          "name": "Demand Paging",
+          "requires": ["paging-virtual-memory-management-background"]
+        },
+        {
+          "id": "copy-on-write",
+          "name": "Copy-on-Write",
+          "requires": ["demand-paging"]
+        },
+        {
+          "id": "page-replacement",
+          "name": "Page Replacement",
+          "requires": ["copy-on-write"]
+        },
+        {
+          "id": "page-replacement-algorithms",
+          "name": "Page Replacement Algorithms",
+          "requires": ["page-replacement"]
+        },
+        {
+          "id": "allocation-of-frames",
+          "name": "Allocation of Frames",
+          "requires": ["page-replacement-algorithms"]
+        },
+        {
+          "id": "thrashing-storage-management-file-and-directory-structure",
+          "name": "Thrashing. Storage Management- File and Directory structure",
+          "requires": ["allocation-of-frames"]
+        },
+        {
+          "id": "unix-i-node-structure",
+          "name": "Unix I-node Structure",
+          "requires": ["thrashing-storage-management-file-and-directory-structure"]
+        },
+        {
+          "id": "disk-structure",
+          "name": "Disk Structure",
+          "requires": ["unix-i-node-structure"]
+        },
+        {
+          "id": "disk-attachment",
+          "name": "Disk Attachment",
+          "requires": ["disk-structure"]
+        },
+        {
+          "id": "disk-scheduling",
+          "name": "Disk Scheduling",
+          "requires": ["disk-attachment"]
+        }
+      ]
+    }
+  ]
+}

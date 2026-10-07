@@ -28,6 +28,9 @@ const light = files.map((f) => {
     ...(s.visualSet ? { visualSet: s.visualSet } : {}),
     ...(s.teaching ? { teaching: s.teaching } : {}),
     ...(s.links ? { links: s.links } : {}),
+    ...(s.offerings ? { offerings: s.offerings } : {}),
+    ...(s.university ? { university: s.university } : {}),
+    ...(s.courseCategory ? { courseCategory: s.courseCategory } : {}),
     chapters: s.chapters.map((c) => ({ id: c.id, name: c.name, topics: c.topics.length })),
   };
 });

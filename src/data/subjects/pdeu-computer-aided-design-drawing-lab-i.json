@@ -1,0 +1,210 @@
+{
+  "id": "pdeu-computer-aided-design-drawing-lab-i",
+  "name": "Computer Aided Design Drawing Lab - I",
+  "field": "Computer Aided Design Drawing Lab - I",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [5],
+  "credits": 1,
+  "ltp": "0-0-2",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s5-computer-aided-design-drawing-lab-i",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Computer Aided Design Drawing Lab - I",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "drawing-of-residential-building",
+      "name": "Drawing of Residential Building",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "familiarising-basic-commands-of-drafting-software-to-draw",
+          "name": "Familiarising basic commands of drafting software To draw plan"
+        },
+        {
+          "id": "elevation-of-a-residential-buildings-using-drafting-software",
+          "name": "elevation of a residential buildings using drafting software",
+          "requires": ["familiarising-basic-commands-of-drafting-software-to-draw"]
+        },
+        {
+          "id": "to-draw-sectional-elevation-of-the-building-specified-in-the",
+          "name": "To draw sectional elevation of the building specified in the above item using drafting software",
+          "requires": ["elevation-of-a-residential-buildings-using-drafting-software"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-fem-software",
+      "name": "Introduction to Fem Software",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "introduction-to-fem-software-pre-processing-developing",
+          "name": "Introduction to FEM Software Pre-processing- developing models of simple structural member like simple and continuous beams"
+        },
+        {
+          "id": "2d-trusses-and-2d-frames-defining-material-properties",
+          "name": "2D trusses and 2D frames-Defining material properties-Application of boundary conditions like roller",
+          "requires": ["introduction-to-fem-software-pre-processing-developing"]
+        },
+        {
+          "id": "hinged",
+          "name": "hinged",
+          "requires": ["2d-trusses-and-2d-frames-defining-material-properties"]
+        },
+        {
+          "id": "fixed",
+          "name": "fixed",
+          "requires": ["hinged"]
+        },
+        {
+          "id": "partially-restrained-supports-application-of-loads-like",
+          "name": "partially restrained supports -Application of loads like point load",
+          "requires": ["fixed"]
+        },
+        {
+          "id": "distributed-load-and-concentrated-moments",
+          "name": "distributed load and concentrated moments",
+          "requires": ["partially-restrained-supports-application-of-loads-like"]
+        },
+        {
+          "id": "handling-editor-files-processing-running-the-simulations-and",
+          "name": "handling editor files. Processing running the simulations, and handling the errors and warnings Post-Processing reading the results",
+          "requires": ["distributed-load-and-concentrated-moments"]
+        },
+        {
+          "id": "critical-internal-forces",
+          "name": "critical internal forces",
+          "requires": ["handling-editor-files-processing-running-the-simulations-and"]
+        },
+        {
+          "id": "plotting-shear-force-diagrams",
+          "name": "plotting shear force diagrams",
+          "requires": ["critical-internal-forces"]
+        },
+        {
+          "id": "bending-moment-diagrams",
+          "name": "bending moment diagrams",
+          "requires": ["plotting-shear-force-diagrams"]
+        },
+        {
+          "id": "axial-force-diagrams-and-tornal-moments-diagrams",
+          "name": "axial force diagrams and tornal moments diagrams",
+          "requires": ["bending-moment-diagrams"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-residential-buildings-using-fem-software",
+      "name": "Design of Residential Buildings Using Fem Software",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "analysis-and-design-of-residential-buildings-structural",
+          "name": "Analysis and Design of Residential Buildings Structural Structures as Per IS 456"
+        },
+        {
+          "id": "is-1893-developing-importing-model-of-g-2-building",
+          "name": "IS 1893 Developing/Importing model of G+2 building",
+          "requires": ["analysis-and-design-of-residential-buildings-structural"]
+        },
+        {
+          "id": "defining-material-properties-application-of-boundary",
+          "name": "Defining material properties-Application of boundary conditions",
+          "requires": ["is-1893-developing-importing-model-of-g-2-building"]
+        },
+        {
+          "id": "partially-and-fully-releasing-the-moments-application-of",
+          "name": "Partially and fully releasing the moments -Application of loads as Per IS 456",
+          "requires": ["defining-material-properties-application-of-boundary"]
+        },
+        {
+          "id": "is-1893",
+          "name": "IS 1893",
+          "requires": ["partially-and-fully-releasing-the-moments-application-of"]
+        },
+        {
+          "id": "defining-load-combinations",
+          "name": "defining load combinations",
+          "requires": ["is-1893"]
+        },
+        {
+          "id": "defining-design-parameters-and-assigning-design-commands",
+          "name": "Defining design parameters and assigning design commands",
+          "requires": ["defining-load-combinations"]
+        },
+        {
+          "id": "preforming-the-analysis",
+          "name": "Preforming the analysis",
+          "requires": ["defining-design-parameters-and-assigning-design-commands"]
+        },
+        {
+          "id": "reading-the-results",
+          "name": "reading the results",
+          "requires": ["preforming-the-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "drawing-of-reinforced-concrete-structures",
+      "name": "Drawing of Reinforced Concrete Structures",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "prepared-typical-layout-drawings-for-various-structural",
+          "name": "Prepared typical layout drawings for various structural member like footing"
+        },
+        {
+          "id": "column",
+          "name": "column",
+          "requires": ["prepared-typical-layout-drawings-for-various-structural"]
+        },
+        {
+          "id": "beams",
+          "name": "beams",
+          "requires": ["column"]
+        },
+        {
+          "id": "slabs-with-appropriate-notations-system",
+          "name": "slabs with appropriate notations system",
+          "requires": ["beams"]
+        },
+        {
+          "id": "to-draw-longitudinal-and-cross-sections-of-three-span",
+          "name": "To draw longitudinal and cross sections of three span continuous beam showing the reinforcement details",
+          "requires": ["slabs-with-appropriate-notations-system"]
+        },
+        {
+          "id": "to-draw-plan-and-sectional-elevation-of-simply-supported-one",
+          "name": "To draw plan and sectional elevation of simply supported one way and two-way slabs showing the reinforcement details",
+          "requires": ["to-draw-longitudinal-and-cross-sections-of-three-span"]
+        },
+        {
+          "id": "to-draw-plan-and-sectional-elevations-of-rectangular-column",
+          "name": "To draw plan and sectional elevations of rectangular column with rectangular footings",
+          "requires": ["to-draw-plan-and-sectional-elevation-of-simply-supported-one"]
+        },
+        {
+          "id": "to-draw-plan-of-the-staircase-room-and-sectional-elevations",
+          "name": "To draw plan of the staircase room and sectional elevations of flights showing reinforcement details MAX. 32 HRS",
+          "requires": ["to-draw-plan-and-sectional-elevations-of-rectangular-column"]
+        }
+      ]
+    }
+  ]
+}

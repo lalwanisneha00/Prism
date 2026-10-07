@@ -1,0 +1,247 @@
+{
+  "id": "pdeu-computer-aided-design",
+  "name": "Computer Aided Design",
+  "field": "Computer Aided Design",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [6],
+  "code": "18ME315T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s6-computer-aided-design",
+      "code": "18ME315T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Computer Aided Design",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "cad-fundamentals",
+      "name": "CAD Fundamentals",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "introduction-reasons-for-implementing-a-cad-system-computer",
+          "name": "Introduction, Reasons for implementing a CAD system, Computer aided process application, benefits, CAD software’s, Elements of programming, CAD programming, Need and scope of computer aided design"
+        },
+        {
+          "id": "computer-graphics-scan-conversion",
+          "name": "Computer Graphics: Scan conversion",
+          "requires": ["introduction-reasons-for-implementing-a-cad-system-computer"]
+        },
+        {
+          "id": "bresenhams-algorithm-for-line-circle-and-ellipse",
+          "name": "Bresenham’s Algorithm for line, circle and ellipse",
+          "requires": ["computer-graphics-scan-conversion"]
+        },
+        {
+          "id": "standards-for-graphics-programming-features-of-gks-other",
+          "name": "Standards for graphics programming, features of GKS, other graphics standards, PHIGS, IGES, PDES. Standards in CAD",
+          "requires": ["bresenhams-algorithm-for-line-circle-and-ellipse"]
+        }
+      ]
+    },
+    {
+      "id": "geometric-transformations",
+      "name": "Geometric Transformations",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "geometric-transformations-2d-and-3d-translation",
+          "name": "Geometric transformations- 2D and 3D translation"
+        },
+        {
+          "id": "scaling",
+          "name": "scaling",
+          "requires": ["geometric-transformations-2d-and-3d-translation"]
+        },
+        {
+          "id": "rotation",
+          "name": "rotation",
+          "requires": ["scaling"]
+        },
+        {
+          "id": "shear-and-reflection",
+          "name": "shear and reflection",
+          "requires": ["rotation"]
+        },
+        {
+          "id": "homogeneous-transformations",
+          "name": "homogeneous transformations",
+          "requires": ["shear-and-reflection"]
+        }
+      ]
+    },
+    {
+      "id": "plane-and-space-curves",
+      "name": "Plane & Space Curves",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "types-of-mathematical-representation-of-curves",
+          "name": "Types of mathematical representation of curves"
+        },
+        {
+          "id": "parametric-representation-of-line",
+          "name": "parametric representation of line",
+          "requires": ["types-of-mathematical-representation-of-curves"]
+        },
+        {
+          "id": "circle",
+          "name": "circle",
+          "requires": ["parametric-representation-of-line"]
+        },
+        {
+          "id": "ellipse",
+          "name": "ellipse",
+          "requires": ["circle"]
+        },
+        {
+          "id": "parabola",
+          "name": "parabola",
+          "requires": ["ellipse"]
+        },
+        {
+          "id": "hyperbola-wire-frame-models",
+          "name": "hyperbola. Wire frame models",
+          "requires": ["parabola"]
+        },
+        {
+          "id": "wire-frame-entities",
+          "name": "wire frame entities",
+          "requires": ["hyperbola-wire-frame-models"]
+        },
+        {
+          "id": "parametric-representation-of-synthetic-curves-hermit-cubic",
+          "name": "parametric representation of synthetic curves: Hermit cubic splines",
+          "requires": ["wire-frame-entities"]
+        },
+        {
+          "id": "bezier-curves",
+          "name": "Bezier curves",
+          "requires": ["parametric-representation-of-synthetic-curves-hermit-cubic"]
+        },
+        {
+          "id": "b-splines",
+          "name": "B-splines",
+          "requires": ["bezier-curves"]
+        },
+        {
+          "id": "constructive-solid-geometry",
+          "name": "constructive solid geometry",
+          "requires": ["b-splines"]
+        }
+      ]
+    },
+    {
+      "id": "finite-element-method",
+      "name": "Finite Element Method",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "fem-procedure",
+          "name": "FEM procedure",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "discretization-of-the-domain",
+          "name": "Discretization of the Domain",
+          "requires": ["fem-procedure"]
+        },
+        {
+          "id": "interpolation-models",
+          "name": "Interpolation Models",
+          "requires": ["discretization-of-the-domain"]
+        },
+        {
+          "id": "higher-order-and-isoparametric-elements",
+          "name": "Higher Order and Isoparametric Elements",
+          "requires": ["interpolation-models"]
+        },
+        {
+          "id": "derivation-of-element-matrices-and-vectors",
+          "name": "Derivation of Element Matrices and Vectors",
+          "requires": ["higher-order-and-isoparametric-elements"]
+        },
+        {
+          "id": "assembly-of-element-matrices-and-vectors-and-derivation-of",
+          "name": "Assembly of Element Matrices and Vectors and Derivation of System Equations",
+          "requires": ["derivation-of-element-matrices-and-vectors"]
+        },
+        {
+          "id": "numerical-solution-of-finite-element-equations",
+          "name": "Numerical Solution of Finite Element Equations",
+          "requires": ["assembly-of-element-matrices-and-vectors-and-derivation-of"]
+        },
+        {
+          "id": "basic-equations-and-solution-procedure",
+          "name": "Basic Equations and Solution Procedure",
+          "requires": ["numerical-solution-of-finite-element-equations"]
+        },
+        {
+          "id": "analysis-of-trusses",
+          "name": "Analysis of Trusses",
+          "requires": ["basic-equations-and-solution-procedure"]
+        },
+        {
+          "id": "beams-computer-programming-use-of-computer-programming-in",
+          "name": "Beams. Computer Programming: Use of computer programming in design of machine elements",
+          "requires": ["analysis-of-trusses"]
+        },
+        {
+          "id": "development-of-computer-program-using-matlab-for-machine",
+          "name": "development of computer program using Matlab for machine components like shaft",
+          "requires": ["beams-computer-programming-use-of-computer-programming-in"]
+        },
+        {
+          "id": "spring",
+          "name": "spring",
+          "requires": ["development-of-computer-program-using-matlab-for-machine"]
+        },
+        {
+          "id": "gears",
+          "name": "gears",
+          "requires": ["spring"]
+        },
+        {
+          "id": "bearing-etc",
+          "name": "bearing etc",
+          "requires": ["gears"]
+        },
+        {
+          "id": "plotting-graphs-using-programming-language",
+          "name": "plotting graphs using programming language",
+          "requires": ["bearing-etc"]
+        },
+        {
+          "id": "generalized-programming",
+          "name": "generalized programming",
+          "requires": ["plotting-graphs-using-programming-language"]
+        },
+        {
+          "id": "optimization-in-design",
+          "name": "optimization in design",
+          "requires": ["generalized-programming"]
+        }
+      ]
+    }
+  ]
+}

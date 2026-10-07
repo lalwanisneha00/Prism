@@ -1,0 +1,172 @@
+{
+  "id": "pdeu-nanotechnology",
+  "name": "Nanotechnology",
+  "field": "Nanotechnology",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [7],
+  "code": "24BT402T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s7-nanotechnology",
+      "code": "24BT402T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Nanotechnology",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-and-history-of-nanotechnology",
+          "name": "Introduction and History of Nanotechnology"
+        },
+        {
+          "id": "nano-materials-and-their-properties-physical",
+          "name": "Nano-materials and their properties: physical",
+          "requires": ["introduction-and-history-of-nanotechnology"]
+        },
+        {
+          "id": "chemicaland-biological-properties-from-their-constituent",
+          "name": "chemicaland biological properties from their constituent atoms or molecules and from the bulk materials",
+          "requires": ["nano-materials-and-their-properties-physical"]
+        },
+        {
+          "id": "casestudies-demonstrating-non-classical-behaviour-at",
+          "name": "Casestudies demonstrating non- classical behaviour at nanoscale in successful and emergent nanotechnologies",
+          "requires": ["chemicaland-biological-properties-from-their-constituent"]
+        }
+      ]
+    },
+    {
+      "id": "synthesis-of-nano-materials",
+      "name": "Synthesis of Nano-materials",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "synthesis-of-nano-materials",
+          "name": "Synthesis of nano materials"
+        },
+        {
+          "id": "bottom-up-approach-self-assembly-and-self-organization",
+          "name": "bottom-up approach: self-assembly and self-organization",
+          "requires": ["synthesis-of-nano-materials"]
+        },
+        {
+          "id": "vapor-phase-deposition",
+          "name": "vapor phase deposition",
+          "requires": ["bottom-up-approach-self-assembly-and-self-organization"]
+        },
+        {
+          "id": "plasma-assisted-deposition-processes",
+          "name": "plasma assisted deposition processes",
+          "requires": ["vapor-phase-deposition"]
+        },
+        {
+          "id": "colloidal-sol-gel-or-simple-pyrolysis",
+          "name": "colloidal, sol-gel, or simple pyrolysis",
+          "requires": ["plasma-assisted-deposition-processes"]
+        },
+        {
+          "id": "top-down-approach-miniaturization-of-smaller-structures-from",
+          "name": "top-down approach: miniaturization of smaller structures from larger ones like milling",
+          "requires": ["colloidal-sol-gel-or-simple-pyrolysis"]
+        },
+        {
+          "id": "lithography",
+          "name": "lithography",
+          "requires": ["top-down-approach-miniaturization-of-smaller-structures-from"]
+        },
+        {
+          "id": "machining-will-be-presented-with-suitable-examples",
+          "name": "machining will be presented with suitable examples",
+          "requires": ["lithography"]
+        }
+      ]
+    },
+    {
+      "id": "characterization-of-nano-materials",
+      "name": "Characterization of Nano-materials",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "detailed-characterization-technique-based-on-radiation",
+          "name": "Detailed characterization technique based on radiation matter interactions and their analytical applications like Transmission electron microscope (TEM)"
+        },
+        {
+          "id": "scanning-electron-microscope-sem",
+          "name": "Scanning electron microscope (SEM)",
+          "requires": ["detailed-characterization-technique-based-on-radiation"]
+        },
+        {
+          "id": "atomic-force-microscope-afm",
+          "name": "Atomic force microscope (AFM)",
+          "requires": ["scanning-electron-microscope-sem"]
+        },
+        {
+          "id": "scanning-tunnelling-microscope-stm",
+          "name": "scanning tunnelling microscope (STM)",
+          "requires": ["atomic-force-microscope-afm"]
+        },
+        {
+          "id": "dynamic-light-scattering-dls",
+          "name": "Dynamic light scattering (DLS)",
+          "requires": ["scanning-tunnelling-microscope-stm"]
+        },
+        {
+          "id": "spectroscopy",
+          "name": "Spectroscopy",
+          "requires": ["dynamic-light-scattering-dls"]
+        },
+        {
+          "id": "the-safety-and-storage-issues-and-the-impact-of",
+          "name": "The safety and storage issues and the impact of nanotechnology on the environment will be stressed at the end",
+          "requires": ["spectroscopy"]
+        }
+      ]
+    },
+    {
+      "id": "applications-of-nano-materials",
+      "name": "Applications of Nano-materials",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "applications-of-nanoscale-materials-catalysis-sensing-energy",
+          "name": "Applications of Nanoscale materials: Catalysis, Sensing, Energy storage, Environmental remediation, etc"
+        },
+        {
+          "id": "energy-conversion-and-storage-solar-cells-fuel-cells-li-na",
+          "name": "Energy Conversion and Storage (solar cells, Fuel Cells, Li/Na-ion Batteries)",
+          "requires": ["applications-of-nanoscale-materials-catalysis-sensing-energy"]
+        },
+        {
+          "id": "nanoscale-materials-for-waste-reduction-and-improved-energy",
+          "name": "Nanoscale materials for waste reduction and improved energy efficiency, nanotechnology-based water treatment strategies",
+          "requires": ["energy-conversion-and-storage-solar-cells-fuel-cells-li-na"]
+        },
+        {
+          "id": "nano-sensors-and-devices",
+          "name": "Nano sensors and Devices",
+          "requires": ["nanoscale-materials-for-waste-reduction-and-improved-energy"]
+        }
+      ]
+    }
+  ]
+}

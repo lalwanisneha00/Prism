@@ -1,0 +1,275 @@
+{
+  "id": "pdeu-design-of-rcc-structures",
+  "name": "Design of RCC Structures",
+  "field": "Design of RCC Structures",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [5],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s5-design-of-rcc-structures",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Design of RCC Structures",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "introduction-and-scope",
+          "name": "Introduction and scope",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "design-strength",
+          "name": "Design: strength",
+          "requires": ["introduction-and-scope"]
+        },
+        {
+          "id": "stability",
+          "name": "stability",
+          "requires": ["design-strength"]
+        },
+        {
+          "id": "serviceability",
+          "name": "serviceability",
+          "requires": ["stability"]
+        },
+        {
+          "id": "design-methods",
+          "name": "Design methods",
+          "requires": ["serviceability"]
+        },
+        {
+          "id": "ultimate-load-method",
+          "name": "Ultimate load method",
+          "requires": ["design-methods"]
+        },
+        {
+          "id": "working-stress-method",
+          "name": "working stress method",
+          "requires": ["ultimate-load-method"]
+        },
+        {
+          "id": "limit-state-method",
+          "name": "Limit state method",
+          "requires": ["working-stress-method"]
+        },
+        {
+          "id": "standard-loadings",
+          "name": "Standard Loadings",
+          "requires": ["limit-state-method"]
+        },
+        {
+          "id": "partial-safety-factors-for-materials-and-loads",
+          "name": "Partial safety factors for materials and loads",
+          "requires": ["standard-loadings"]
+        },
+        {
+          "id": "grades-of-concrete",
+          "name": "Grades of concrete",
+          "requires": ["partial-safety-factors-for-materials-and-loads"]
+        },
+        {
+          "id": "characteristic-strength-of-concrete",
+          "name": "characteristic strength of concrete",
+          "requires": ["grades-of-concrete"]
+        },
+        {
+          "id": "yield-strength-of-mild-and-tor-steels",
+          "name": "yield strength of mild and Tor steels",
+          "requires": ["characteristic-strength-of-concrete"]
+        },
+        {
+          "id": "analysis-of-rc-beams-flexural-members",
+          "name": "Analysis of RC Beams (flexural members)",
+          "requires": ["yield-strength-of-mild-and-tor-steels"]
+        },
+        {
+          "id": "stress-strain-curve-for-concrete",
+          "name": "Stress-Strain curve for concrete",
+          "requires": ["analysis-of-rc-beams-flexural-members"]
+        },
+        {
+          "id": "stress-block-for-rc-beam-section",
+          "name": "stress block for RC beam section",
+          "requires": ["stress-strain-curve-for-concrete"]
+        },
+        {
+          "id": "classification-of-beams-based-on-reinforcement-and-depth-of",
+          "name": "Classification of Beams based on reinforcement and depth of neutral axis",
+          "requires": ["stress-block-for-rc-beam-section"]
+        },
+        {
+          "id": "moment-resistance-of-rc-rectangular",
+          "name": "Moment resistance of RC- rectangular",
+          "requires": ["classification-of-beams-based-on-reinforcement-and-depth-of"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-rcc-beams",
+      "name": "Design of RCC Beams",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "design-of-rc-beams",
+          "name": "Design of RC-beams"
+        },
+        {
+          "id": "rectangular",
+          "name": "Rectangular",
+          "requires": ["design-of-rc-beams"]
+        },
+        {
+          "id": "t-and-l-beams-for-under-reinforced-and-balanced-sections-and",
+          "name": "T and L beams for under- reinforced and balanced sections, & singly and doubly reinforced",
+          "requires": ["rectangular"]
+        },
+        {
+          "id": "design-of-shear-reinforcement",
+          "name": "Design of shear reinforcement",
+          "requires": ["t-and-l-beams-for-under-reinforced-and-balanced-sections-and"]
+        },
+        {
+          "id": "check-for-development-length-and-deflection",
+          "name": "check for development length and deflection",
+          "requires": ["design-of-shear-reinforcement"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-rcc-slabs-and-staircase",
+      "name": "Design of RCC Slabs and Staircase",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "design-of-slabs",
+          "name": "Design of slabs"
+        },
+        {
+          "id": "design-of-one-way-two-way-and-cantilever-slabs-for-flexure",
+          "name": "Design of one way, two-way and cantilever slabs for flexure and check for shear deflections Design Staircase",
+          "requires": ["design-of-slabs"]
+        },
+        {
+          "id": "types-of-staircase",
+          "name": "Types of Staircase",
+          "requires": ["design-of-one-way-two-way-and-cantilever-slabs-for-flexure"]
+        },
+        {
+          "id": "components",
+          "name": "components",
+          "requires": ["types-of-staircase"]
+        },
+        {
+          "id": "landing",
+          "name": "landing",
+          "requires": ["components"]
+        },
+        {
+          "id": "going",
+          "name": "going",
+          "requires": ["landing"]
+        },
+        {
+          "id": "tread",
+          "name": "tread",
+          "requires": ["going"]
+        },
+        {
+          "id": "rise",
+          "name": "rise",
+          "requires": ["tread"]
+        },
+        {
+          "id": "loading",
+          "name": "loading",
+          "requires": ["rise"]
+        },
+        {
+          "id": "geometry",
+          "name": "geometry",
+          "requires": ["loading"]
+        },
+        {
+          "id": "load-calculations",
+          "name": "load calculations",
+          "requires": ["geometry"]
+        },
+        {
+          "id": "design-of-dog-legged-staircase",
+          "name": "Design of Dog legged staircase",
+          "requires": ["load-calculations"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-compression-members-and-footing",
+      "name": "Design of Compression Members and Footing",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "design-of-compression-members",
+          "name": "Design of Compression Members"
+        },
+        {
+          "id": "effective-lengths-slenderness-ratio-short-and-long-columns",
+          "name": "Effective lengths, slenderness ratio, Short and long columns definitions",
+          "requires": ["design-of-compression-members"]
+        },
+        {
+          "id": "design-of-short-columns-subjected-to-axial-load",
+          "name": "Design of short columns subjected to axial load",
+          "requires": ["effective-lengths-slenderness-ratio-short-and-long-columns"]
+        },
+        {
+          "id": "uni-axial-bending-and-biaxial-bending-moments-design-of",
+          "name": "uni-axial bending and biaxial bending moments Design of Footing",
+          "requires": ["design-of-short-columns-subjected-to-axial-load"]
+        },
+        {
+          "id": "sbc-of-soil-design-of-flat-and-sloped-square",
+          "name": "SBC of soil -design of flat and sloped square",
+          "requires": ["uni-axial-bending-and-biaxial-bending-moments-design-of"]
+        },
+        {
+          "id": "rectangular-and-circular-footings-for-rc-columns-subjected",
+          "name": "rectangular and circular footings for RC columns subjected to axial load",
+          "requires": ["sbc-of-soil-design-of-flat-and-sloped-square"]
+        },
+        {
+          "id": "uniaxial-and-biaxial-bending-moments",
+          "name": "uniaxial and biaxial bending moments",
+          "requires": ["rectangular-and-circular-footings-for-rc-columns-subjected"]
+        },
+        {
+          "id": "check-for-shear-max",
+          "name": "Check for shear MAX",
+          "requires": ["uniaxial-and-biaxial-bending-moments"]
+        }
+      ]
+    }
+  ]
+}

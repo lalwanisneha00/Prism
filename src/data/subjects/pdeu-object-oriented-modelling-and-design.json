@@ -1,0 +1,228 @@
+{
+  "id": "pdeu-object-oriented-modelling-and-design",
+  "name": "Object Oriented Modelling and Design",
+  "field": "Object Oriented Modelling and Design",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [5],
+  "code": "24CS332T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-program-elective-1--object-oriented-modelling-and-design",
+      "code": "24CS332T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core",
+      "track": "Industry track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Object Oriented Modelling and Design",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-modelling-concepts-and-class",
+      "name": "Introduction, Modelling Concepts and Class Modelling",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "overview-of-object-oriented-modelling-and-design-oomd",
+          "name": "Overview of Object-Oriented Modelling and Design (OOMD) principles, Contrasting OOMD with traditional modelling approaches, Understanding the core concepts of OOMD, Modelling Fundamentals: Object and "
+        },
+        {
+          "id": "advanced-class-modelling-advanced-object-and-class-concepts",
+          "name": "Advanced Class Modelling, Advanced object and class concepts",
+          "requires": ["overview-of-object-oriented-modelling-and-design-oomd"]
+        },
+        {
+          "id": "association-ends",
+          "name": "Association ends",
+          "requires": ["advanced-class-modelling-advanced-object-and-class-concepts"]
+        },
+        {
+          "id": "n-ary-associations",
+          "name": "N-ary associations",
+          "requires": ["association-ends"]
+        },
+        {
+          "id": "aggregation",
+          "name": "Aggregation",
+          "requires": ["n-ary-associations"]
+        },
+        {
+          "id": "abstract-classes",
+          "name": "Abstract classes",
+          "requires": ["aggregation"]
+        },
+        {
+          "id": "multiple-inheritance",
+          "name": "Multiple inheritance",
+          "requires": ["abstract-classes"]
+        },
+        {
+          "id": "metadata",
+          "name": "Metadata",
+          "requires": ["multiple-inheritance"]
+        },
+        {
+          "id": "reification",
+          "name": "Reification",
+          "requires": ["metadata"]
+        },
+        {
+          "id": "constraints",
+          "name": "Constraints",
+          "requires": ["reification"]
+        },
+        {
+          "id": "derived-data",
+          "name": "Derived Data",
+          "requires": ["constraints"]
+        },
+        {
+          "id": "packages",
+          "name": "Packages",
+          "requires": ["derived-data"]
+        }
+      ]
+    },
+    {
+      "id": "use-case-modelling-and-detailed-requirements",
+      "name": "Use Case Modelling and Detailed Requirements",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "comprehensive-overview",
+          "name": "Comprehensive Overview"
+        },
+        {
+          "id": "elaborate-object-oriented-requirements-definitions",
+          "name": "Elaborate Object-oriented Requirements Definitions",
+          "requires": ["comprehensive-overview"]
+        },
+        {
+          "id": "system-processes-a-detailed-use-case-scenario-perspective",
+          "name": "System Processes: A Detailed Use Case/Scenario Perspective",
+          "requires": ["elaborate-object-oriented-requirements-definitions"]
+        },
+        {
+          "id": "identifying-input-and-outputs-the-system-sequence-diagram",
+          "name": "Identifying Input and Outputs: The System Sequence Diagram",
+          "requires": ["system-processes-a-detailed-use-case-scenario-perspective"]
+        },
+        {
+          "id": "identifying-object-behaviour-the-state-chart-diagram",
+          "name": "Identifying Object Behaviour: The State Chart Diagram",
+          "requires": ["identifying-input-and-outputs-the-system-sequence-diagram"]
+        },
+        {
+          "id": "integrated-object-oriented-modelling-approach",
+          "name": "Integrated Object-oriented Modelling Approach",
+          "requires": ["identifying-object-behaviour-the-state-chart-diagram"]
+        }
+      ]
+    },
+    {
+      "id": "process-overview-system-conception-and-domain",
+      "name": "Process Overview, System Conception, and Domain Analysis",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "comprehensive-overview-2",
+          "name": "Comprehensive Overview"
+        },
+        {
+          "id": "development-stages-and-life-cycle",
+          "name": "Development Stages and Life Cycle",
+          "requires": ["comprehensive-overview-2"]
+        },
+        {
+          "id": "system-conception-formulating-a-system-concept",
+          "name": "System Conception: Formulating a System Concept",
+          "requires": ["development-stages-and-life-cycle"]
+        },
+        {
+          "id": "elaborating-the-concept",
+          "name": "Elaborating the Concept",
+          "requires": ["system-conception-formulating-a-system-concept"]
+        },
+        {
+          "id": "crafting-a-problem-statement-domain-analysis-comprehensive",
+          "name": "Crafting a Problem Statement. Domain Analysis: Comprehensive Analysis Overview",
+          "requires": ["elaborating-the-concept"]
+        },
+        {
+          "id": "domain-class-model-detailed-domain-state-model",
+          "name": "Domain Class Model: Detailed Domain State Model",
+          "requires": ["crafting-a-problem-statement-domain-analysis-comprehensive"]
+        },
+        {
+          "id": "domain-interaction-model",
+          "name": "Domain Interaction Model",
+          "requires": ["domain-class-model-detailed-domain-state-model"]
+        },
+        {
+          "id": "iterative-analysis-process",
+          "name": "Iterative Analysis Process",
+          "requires": ["domain-interaction-model"]
+        }
+      ]
+    },
+    {
+      "id": "use-case-realization",
+      "name": "Use Case Realization",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "design-discipline-in-iterative-development",
+          "name": "Design Discipline in Iterative Development"
+        },
+        {
+          "id": "object-oriented-design-bridging-requirements-and",
+          "name": "Object-Oriented Design: Bridging Requirements and Implementation",
+          "requires": ["design-discipline-in-iterative-development"]
+        },
+        {
+          "id": "design-classes-and-class-diagrams",
+          "name": "Design Classes and Class Diagrams",
+          "requires": ["object-oriented-design-bridging-requirements-and"]
+        },
+        {
+          "id": "interaction-diagrams-implementing-use-cases-and-defining",
+          "name": "Interaction Diagrams: Implementing Use Cases and Defining Methods",
+          "requires": ["design-classes-and-class-diagrams"]
+        },
+        {
+          "id": "designing-with-communication-diagrams",
+          "name": "Designing with Communication Diagrams",
+          "requires": ["interaction-diagrams-implementing-use-cases-and-defining"]
+        },
+        {
+          "id": "enhancing-the-design-class-diagram",
+          "name": "Enhancing the Design Class Diagram",
+          "requires": ["designing-with-communication-diagrams"]
+        },
+        {
+          "id": "package-diagrams-organizing-major-components",
+          "name": "Package Diagrams: Organizing Major Components",
+          "requires": ["enhancing-the-design-class-diagram"]
+        },
+        {
+          "id": "implementation-considerations-for-three-layer-design",
+          "name": "Implementation Considerations for Three-Layer Design",
+          "requires": ["package-diagrams-organizing-major-components"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "id": "pdeu-hydrology-and-water-resources-with-lab",
+  "name": "Hydrology and Water Resources (with lab)",
+  "field": "Hydrology and Water Resources",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [5],
+  "credits": 4,
+  "ltp": "3-0-2",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s5-hydrology-and-water-resources-with-lab",
+      "category": "Program Core",
+      "ltp": "3-0-2",
+      "credits": 4,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Hydrology and Water Resources (with lab)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-to-component-of-hydrology",
+      "name": "Introduction to Component of Hydrology",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "hydrologic-cycle-precipitation-types",
+          "name": "Hydrologic Cycle, Precipitation, Types",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "measurement",
+          "name": "Measurement",
+          "requires": ["hydrologic-cycle-precipitation-types"]
+        },
+        {
+          "id": "rain-hyetograph-and-mass-curve",
+          "name": "Rain Hyetograph and Mass Curve",
+          "requires": ["measurement"]
+        },
+        {
+          "id": "dad",
+          "name": "DAD",
+          "requires": ["rain-hyetograph-and-mass-curve"]
+        },
+        {
+          "id": "idf-curve",
+          "name": "IDF curve",
+          "requires": ["dad"]
+        },
+        {
+          "id": "run-off",
+          "name": "Run Off",
+          "requires": ["idf-curve"]
+        },
+        {
+          "id": "evaporation-losses-infiltration-process-capacity-rate",
+          "name": "Evaporation Losses, Infiltration: Process-Capacity-Rate-Capacity Curve-Indices -Computation of Runoff- Unit hydrograph, Flood hydrograph, S-Curve Hydrograph",
+          "requires": ["run-off"]
+        }
+      ]
+    },
+    {
+      "id": "ground-water-hydrology",
+      "name": "Ground Water Hydrology",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "definition",
+          "name": "Definition"
+        },
+        {
+          "id": "occurrence",
+          "name": "Occurrence",
+          "requires": ["definition"]
+        },
+        {
+          "id": "zone-and-movement-of-gw",
+          "name": "Zone and Movement of GW",
+          "requires": ["occurrence"]
+        },
+        {
+          "id": "gw-yield",
+          "name": "GW Yield",
+          "requires": ["zone-and-movement-of-gw"]
+        },
+        {
+          "id": "aquifers-and-their-types",
+          "name": "Aquifers and their Types",
+          "requires": ["gw-yield"]
+        },
+        {
+          "id": "thiems-and-dupuits-formulas",
+          "name": "Thiem’s and Dupuit’s formulas",
+          "requires": ["aquifers-and-their-types"]
+        },
+        {
+          "id": "efficiency-of-well",
+          "name": "Efficiency of Well",
+          "requires": ["thiems-and-dupuits-formulas"]
+        },
+        {
+          "id": "infiltration-galleries-and-well",
+          "name": "Infiltration Galleries and Well",
+          "requires": ["efficiency-of-well"]
+        },
+        {
+          "id": "introduction-to-open-and-tube-well",
+          "name": "Introduction to Open and Tube Well",
+          "requires": ["infiltration-galleries-and-well"]
+        }
+      ]
+    },
+    {
+      "id": "river-training-and-reservoir-planning",
+      "name": "River Training and Reservoir Planning",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-2",
+          "name": "Introduction"
+        },
+        {
+          "id": "different-type-of-river",
+          "name": "Different type of river",
+          "requires": ["introduction-2"]
+        },
+        {
+          "id": "classification-of-indian-river",
+          "name": "classification of Indian river",
+          "requires": ["different-type-of-river"]
+        },
+        {
+          "id": "mender-parameters-and-their-relationships",
+          "name": "mender parameters and their relationships",
+          "requires": ["classification-of-indian-river"]
+        },
+        {
+          "id": "objective-of-river-training-classification-of-river-training",
+          "name": "objective of river training Classification of river training work- Reservoir",
+          "requires": ["mender-parameters-and-their-relationships"]
+        },
+        {
+          "id": "river-capacity-and-diversion-channel",
+          "name": "River Capacity and Diversion Channel",
+          "requires": ["objective-of-river-training-classification-of-river-training"]
+        },
+        {
+          "id": "reservoir-planning-definition-and-types",
+          "name": "Reservoir Planning, Definition and Types",
+          "requires": ["river-capacity-and-diversion-channel"]
+        },
+        {
+          "id": "capacity-elevation-and-area-elevation-curve",
+          "name": "Capacity-Elevation and Area-Elevation Curve",
+          "requires": ["reservoir-planning-definition-and-types"]
+        },
+        {
+          "id": "storage-zones",
+          "name": "Storage Zones",
+          "requires": ["capacity-elevation-and-area-elevation-curve"]
+        },
+        {
+          "id": "catchment-and-reservoir-yield-reservoir-capacity-and-methods",
+          "name": "Catchment and Reservoir Yield, Reservoir Capacity and Methods of Finding",
+          "requires": ["storage-zones"]
+        },
+        {
+          "id": "hydrologic-reservoir-routing-and-methods",
+          "name": "Hydrologic Reservoir Routing and Methods",
+          "requires": ["catchment-and-reservoir-yield-reservoir-capacity-and-methods"]
+        },
+        {
+          "id": "reservoir-sedimentation-reservoir-losses",
+          "name": "Reservoir Sedimentation, Reservoir Losses",
+          "requires": ["hydrologic-reservoir-routing-and-methods"]
+        }
+      ]
+    },
+    {
+      "id": "modeling-techniques-in-water-resources-engineering",
+      "name": "Modeling Techniques in Water Resources Engineering",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "introduction-of-model",
+          "name": "Introduction of model"
+        },
+        {
+          "id": "types-of-models-introduction-of-hydrologic-and-hydrodynamic",
+          "name": "Types of models, Introduction of Hydrologic and Hydrodynamic model",
+          "requires": ["introduction-of-model"]
+        },
+        {
+          "id": "different-case-applications-of-modelling-in-water-resources",
+          "name": "Different Case applications of modelling in water resources engineering",
+          "requires": ["types-of-models-introduction-of-hydrologic-and-hydrodynamic"]
+        },
+        {
+          "id": "drone-application-in-water-resource-engineering",
+          "name": "Drone application in water resource engineering",
+          "requires": ["different-case-applications-of-modelling-in-water-resources"]
+        },
+        {
+          "id": "laboratory",
+          "name": "Laboratory",
+          "requires": ["drone-application-in-water-resource-engineering"]
+        }
+      ]
+    }
+  ]
+}

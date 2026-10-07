@@ -1,15 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import subjectMap from "@/data/pdeu/subject-map.json";
 import { useEffect, useState } from "react";
-import {
-  codeText,
-  coursesOf,
-  ltpText,
-  prismMatch,
-  semesterCredits,
-  topicCount,
-} from "@/lib/pdeu/helpers";
+import { codeText, coursesOf, ltpText, semesterCredits, topicCount } from "@/lib/pdeu/helpers";
 import { loadPdeuBranch, type PdeuBranchId } from "@/lib/pdeu/load";
 import type { PdeuBranch, PdeuCourse } from "@/lib/pdeu/types";
 
@@ -17,12 +11,14 @@ const card = "flex flex-col gap-2 rounded-2xl border border-border bg-surface p-
 
 function CourseCard({ branch, course }: { branch: PdeuBranch; course: PdeuCourse }) {
   const topics = topicCount(course);
-  const match = course.core ? prismMatch(course.name) : undefined;
+  // Core courses with a syllabus are subjects on Prism (lessons, quizzes, map); the rest keep PDEU's page.
+  const subjectId = (subjectMap as Record<string, string>)[`${branch.id}/${course.key}`];
+  const href = subjectId ? `/subjects/${subjectId}` : `/pdeu/${branch.id}/${course.key}`;
   const options = course.options?.length ?? 0;
   return (
     <li className={card} data-testid="pdeu-course">
       <div className="flex items-start justify-between gap-3">
-        <Link href={`/pdeu/${branch.id}/${course.key}`} className="font-semibold hover:underline">
+        <Link href={href} className="font-semibold hover:underline">
           {course.name}
         </Link>
         <span
@@ -50,9 +46,9 @@ function CourseCard({ branch, course }: { branch: PdeuBranch; course: PdeuCourse
                 ? `${course.experiments.length} experiments`
                 : "No syllabus printed in the handbook"}
       </p>
-      {match && (
+      {subjectId && (
         <p className="text-xs font-semibold text-success" data-testid="pdeu-on-prism">
-          Prism has {match.part ? "lessons for part of this subject" : "lessons for this subject"}
+          Lessons, quizzes and concept map on Prism
         </p>
       )}
     </li>

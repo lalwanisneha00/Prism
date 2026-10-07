@@ -1,0 +1,167 @@
+{
+  "id": "pdeu-well-log-and-formation-evaluation",
+  "name": "Well Log and Formation Evaluation",
+  "field": "Well Log and Formation Evaluation",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [4],
+  "code": "24PE209T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s4-well-log-and-formation-evaluation",
+      "code": "24PE209T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Well Log and Formation Evaluation",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-to-formation-evaluation-and-well-logs",
+      "name": "Introduction to Formation Evaluation and Well Logs",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-petroleum-formation-evaluation-methods",
+          "name": "Introduction to petroleum formation evaluation methods"
+        },
+        {
+          "id": "introduction-to-well-logs",
+          "name": "Introduction to well logs",
+          "requires": ["introduction-to-petroleum-formation-evaluation-methods"]
+        },
+        {
+          "id": "lwd-instruments-and-data-recording",
+          "name": "LWD (Instruments and data recording)",
+          "requires": ["introduction-to-well-logs"]
+        },
+        {
+          "id": "well-log-tracks-and-their-presentation",
+          "name": "Well log tracks and their presentation",
+          "requires": ["lwd-instruments-and-data-recording"]
+        },
+        {
+          "id": "types-of-cores-routine-and-special-core-analysis-techniques",
+          "name": "Types of cores, Routine and special core analysis techniques",
+          "requires": ["well-log-tracks-and-their-presentation"]
+        },
+        {
+          "id": "mud-logging-introduction",
+          "name": "Mud logging introduction",
+          "requires": ["types-of-cores-routine-and-special-core-analysis-techniques"]
+        },
+        {
+          "id": "description-of-cutting-and-oil-shows-in-the-log-and-gas",
+          "name": "Description of cutting and oil shows in the log and Gas detection",
+          "requires": ["mud-logging-introduction"]
+        },
+        {
+          "id": "basic-principle-data-acquisition-and-interpretation-of",
+          "name": "Basic principle, data acquisition and interpretation of Temperature and Calliper Logs",
+          "requires": ["description-of-cutting-and-oil-shows-in-the-log-and-gas"]
+        },
+        {
+          "id": "assignment-on-relevant-topics",
+          "name": "Assignment on relevant topics",
+          "requires": ["basic-principle-data-acquisition-and-interpretation-of"]
+        }
+      ]
+    },
+    {
+      "id": "sp-gr-and-resistivity-logs",
+      "name": "SP, GR and Resistivity Logs",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "sp-log-basic-principle-and-log-interpretation",
+          "name": "SP log: Basic principle and log interpretation"
+        },
+        {
+          "id": "gr-lags-basic-principle-data-acquisition-and-interpretation",
+          "name": "GR lags: Basic principle, data acquisition and interpretation of gamma ray and spectral gamma ray logs",
+          "requires": ["sp-log-basic-principle-and-log-interpretation"]
+        },
+        {
+          "id": "resistivity-logs-tools-data-acquisition-and-interpretation",
+          "name": "Resistivity Logs: tools, data acquisition and interpretation",
+          "requires": ["gr-lags-basic-principle-data-acquisition-and-interpretation"]
+        },
+        {
+          "id": "electrical-image-logs",
+          "name": "Electrical image logs",
+          "requires": ["resistivity-logs-tools-data-acquisition-and-interpretation"]
+        },
+        {
+          "id": "assignment-on-sp-gr-and-resistivity-logs-shale-volume",
+          "name": "Assignment on SP, GR, and Resistivity logs, Shale volume calculation and identification of gross sand and net sand, Rw calculation and its use in determining S W",
+          "requires": ["electrical-image-logs"]
+        }
+      ]
+    },
+    {
+      "id": "porosity-logs-density-neutron-sonic-and-nmr",
+      "name": "Porosity Logs- Density, Neutron, Sonic and NMR",
+      "hours": 17,
+      "topics": [
+        {
+          "id": "porosity-logs",
+          "name": "Data acquisition and interpretation of Density porosity, Neutron porosity and Sonic logs"
+        },
+        {
+          "id": "porosity",
+          "name": "Porosity and lithology estimations (Neutron-Density, Sonic- Density, Sonic Neutron, MN and MID cross plots)",
+          "requires": ["porosity-logs"]
+        },
+        {
+          "id": "acoustic-image-logs-and-their-applications",
+          "name": "Acoustic image logs and their applications",
+          "requires": ["porosity"]
+        },
+        {
+          "id": "nuclear-magnetic-resonance-log-principles-porosity-and",
+          "name": "Nuclear Magnetic Resonance Log (Principles, Porosity and permeability estimation, type of fluid identification)",
+          "requires": ["acoustic-image-logs-and-their-applications"]
+        },
+        {
+          "id": "assignments-to-determine-porosity-lithology-and-mineralogy",
+          "name": "Assignments to determine porosity, lithology and mineralogy from logs and their cross plots",
+          "requires": ["nuclear-magnetic-resonance-log-principles-porosity-and"]
+        }
+      ]
+    },
+    {
+      "id": "summary-of-interpretation-after-integrating-all",
+      "name": "Summary of Interpretation After Integrating All Well Logs",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "integration-of-different-log-data-to-determine-lithology",
+          "name": "Integration of different log data to determine lithology, shale volume, minerology, porosity, and net pay thickness"
+        },
+        {
+          "id": "evaluate-reservoir-potential-and-its-production-capability",
+          "name": "Evaluate reservoir potential and its production capability",
+          "requires": ["integration-of-different-log-data-to-determine-lithology"]
+        },
+        {
+          "id": "assignment-or-case-studies-on-different-formation-types-for",
+          "name": "Assignment or case studies on different formation types for evaluating the reservoir potential",
+          "requires": ["evaluate-reservoir-potential-and-its-production-capability"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "id": "pdeu-electromagnetics-and-transmission-lines",
+  "name": "Electromagnetics and Transmission Lines",
+  "field": "Applied Physics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [4],
+  "code": "20ECE201T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s4-electromagnetics-and-transmission-lines",
+      "code": "20ECE201T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Electromagnetics and Transmission Lines",
+    "note": "Units and topics are PDEU's, copied from the handbook. 8 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "physics",
+  "chapters": [
+    {
+      "id": "electrostatics",
+      "name": "Electrostatics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "co-ordinate-systems",
+          "name": "Co-ordinate systems"
+        },
+        {
+          "id": "coulomb-s-law",
+          "name": "Coulomb„s law",
+          "requires": ["co-ordinate-systems"]
+        },
+        {
+          "id": "electric-field-intensity",
+          "name": "Electric field Intensity",
+          "requires": ["coulomb-s-law"]
+        },
+        {
+          "id": "fields-due-to-different-charge-distributions",
+          "name": "Fields due to different charge distributions",
+          "requires": ["electric-field-intensity"]
+        },
+        {
+          "id": "electric-flux",
+          "name": "Electric Flux Density",
+          "requires": ["fields-due-to-different-charge-distributions"]
+        },
+        {
+          "id": "gauss-law-applications",
+          "name": "Gauss law and its Applications",
+          "requires": ["electric-flux"]
+        },
+        {
+          "id": "electric-potential",
+          "name": "Electric Potential",
+          "requires": ["gauss-law-applications"]
+        },
+        {
+          "id": "relation-between-e-and-v",
+          "name": "Relation Between E and V",
+          "requires": ["electric-potential"]
+        },
+        {
+          "id": "maxwells-equations",
+          "name": "Maxwell„s Two equations for Electrostatic Fields",
+          "requires": ["displacement-current"]
+        },
+        {
+          "id": "energy-density",
+          "name": "energy Density",
+          "requires": ["maxwells-equations"]
+        },
+        {
+          "id": "illustrative-problems-convection-and-conduction-currents",
+          "name": "Illustrative Problems. Convection and Conduction Currents",
+          "requires": ["energy-density"]
+        },
+        {
+          "id": "dielectric-constant",
+          "name": "Dielectric Constant",
+          "requires": ["illustrative-problems-convection-and-conduction-currents"]
+        },
+        {
+          "id": "isotropic-and-homogeneous-dielectrics",
+          "name": "Isotropic and Homogeneous Dielectrics",
+          "requires": ["dielectric-constant"]
+        },
+        {
+          "id": "continuity-equation-and-relaxation-time",
+          "name": "Continuity Equation and Relaxation Time",
+          "requires": ["isotropic-and-homogeneous-dielectrics"]
+        },
+        {
+          "id": "poisson-s-and-laplace-s-equations",
+          "name": "Poisson„s and Laplace„s Equations",
+          "requires": ["continuity-equation-and-relaxation-time"]
+        },
+        {
+          "id": "capacitance-parallel-plate",
+          "name": "Capacitance- Parallel plate",
+          "requires": ["poisson-s-and-laplace-s-equations"]
+        },
+        {
+          "id": "co-axial-and-spherical-capacitors",
+          "name": "Co- axial and Spherical capacitors",
+          "requires": ["capacitance-parallel-plate"]
+        },
+        {
+          "id": "illustrative-problems",
+          "name": "Illustrative Problems",
+          "requires": ["co-axial-and-spherical-capacitors"]
+        }
+      ]
+    },
+    {
+      "id": "magneto-statics",
+      "name": "Magneto-statics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "biot-savart-law",
+          "name": "Biot-Savart Law"
+        },
+        {
+          "id": "ampere-s-circuital-law-and-applications",
+          "name": "Ampere„s circuital Law and Applications",
+          "requires": ["biot-savart-law"]
+        },
+        {
+          "id": "magnetic-flux",
+          "name": "Magnetic Flux Density",
+          "requires": ["biot-savart-law", "electric-flux"]
+        },
+        {
+          "id": "maxwell-s-two-equations-for-magneto-static-fields",
+          "name": "Maxwell‟s Two Equations for Magneto static fields",
+          "requires": ["magnetic-flux"]
+        },
+        {
+          "id": "magnetic-scalar-and-vector-potentials",
+          "name": "Magnetic Scalar and Vector Potentials",
+          "requires": ["maxwell-s-two-equations-for-magneto-static-fields"]
+        },
+        {
+          "id": "forces-due-to-magnetic-fields",
+          "name": "Forces due to Magnetic Fields",
+          "requires": ["magnetic-scalar-and-vector-potentials"]
+        },
+        {
+          "id": "ampere-s-force-law",
+          "name": "Ampere„s force Law",
+          "requires": ["forces-due-to-magnetic-fields"]
+        },
+        {
+          "id": "inductances-and-magnetic-energy",
+          "name": "Inductances and Magnetic Energy",
+          "requires": ["ampere-s-force-law"]
+        },
+        {
+          "id": "illustrative-problems-2",
+          "name": "Illustrative Problems",
+          "requires": ["inductances-and-magnetic-energy"]
+        },
+        {
+          "id": "transformers",
+          "name": "Maxwell„s Equations (Time Varying Fields): Faraday„s Law and Transformer emf",
+          "requires": ["illustrative-problems-2"]
+        },
+        {
+          "id": "displacement-current",
+          "name": "Inconsistence of Ampere„s Law and Displacement Current density",
+          "requires": ["transformers"]
+        },
+        {
+          "id": "maxwell-s-equations-indifferent-final-forms-and-word",
+          "name": "Maxwell„s Equations indifferent Final Forms and Word Statements",
+          "requires": ["displacement-current"]
+        },
+        {
+          "id": "conditions-at-a-boundary-surface-dielectric-dielectric",
+          "name": "Conditions at a boundary Surface: Dielectric-dielectric",
+          "requires": ["maxwell-s-equations-indifferent-final-forms-and-word"]
+        },
+        {
+          "id": "dielectric-conductor-interfaces",
+          "name": "dielectric-conductor Interfaces",
+          "requires": ["conditions-at-a-boundary-surface-dielectric-dielectric"]
+        }
+      ]
+    },
+    {
+      "id": "em-wave-characteristics",
+      "name": "EM Wave Characteristics",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "wave-equations-for-conducting-and-perfect-dielectric-media",
+          "name": "Wave Equations for conducting and Perfect Dielectric Media"
+        },
+        {
+          "id": "uniform-plane-waves-definition",
+          "name": "Uniform Plane Waves-Definition",
+          "requires": ["wave-equations-for-conducting-and-perfect-dielectric-media"]
+        },
+        {
+          "id": "all-relations-between-e-and-h",
+          "name": "All Relations between E and H",
+          "requires": ["uniform-plane-waves-definition"]
+        },
+        {
+          "id": "sinusoidal-variations",
+          "name": "Sinusoidal Variations",
+          "requires": ["all-relations-between-e-and-h"]
+        },
+        {
+          "id": "wave-propagation-in-lossless-and-conducting-media",
+          "name": "Wave Propagation in Lossless and Conducting Media",
+          "requires": ["sinusoidal-variations"]
+        },
+        {
+          "id": "conductors-and-dielectrics-characterization",
+          "name": "Conductors and Dielectrics-Characterization",
+          "requires": ["wave-propagation-in-lossless-and-conducting-media"]
+        },
+        {
+          "id": "wave-propagation-in-good-conductors-and-good-dielectrics",
+          "name": "Wave Propagation in good conductors and Good Dielectrics",
+          "requires": ["conductors-and-dielectrics-characterization"]
+        },
+        {
+          "id": "polarization",
+          "name": "Polarization",
+          "requires": ["wave-propagation-in-good-conductors-and-good-dielectrics"]
+        },
+        {
+          "id": "illustrative-problems-3",
+          "name": "Illustrative Problems",
+          "requires": ["polarization"]
+        },
+        {
+          "id": "reflection-and-refraction-of-plane-waves-normal-and-oblique",
+          "name": "Reflection and Refraction of Plane waves-Normal and Oblique Incidences for Perfect Dielectric",
+          "requires": ["illustrative-problems-3"]
+        },
+        {
+          "id": "brewster-angle",
+          "name": "Brewster angle",
+          "requires": ["reflection-and-refraction-of-plane-waves-normal-and-oblique"]
+        },
+        {
+          "id": "critical-angle",
+          "name": "Critical Angle",
+          "requires": ["brewster-angle"]
+        },
+        {
+          "id": "total-internal-reflection",
+          "name": "Total Internal Reflection",
+          "requires": ["critical-angle"]
+        },
+        {
+          "id": "surface-impedance",
+          "name": "Surface Impedance",
+          "requires": ["total-internal-reflection"]
+        },
+        {
+          "id": "poynting-vector-poynting-theorem-applications",
+          "name": "Poynting Vector Poynting Theorem-Applications",
+          "requires": ["surface-impedance"]
+        },
+        {
+          "id": "power-loss-in-plane-conductor",
+          "name": "Power Loss in Plane Conductor",
+          "requires": ["poynting-vector-poynting-theorem-applications"]
+        }
+      ]
+    },
+    {
+      "id": "transmission-lines",
+      "name": "Transmission Lines",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "types",
+          "name": "Types"
+        },
+        {
+          "id": "parameters",
+          "name": "Parameters",
+          "requires": ["types"]
+        },
+        {
+          "id": "transmission-line-equations",
+          "name": "Transmission line Equations",
+          "requires": ["parameters"]
+        },
+        {
+          "id": "primary-and-secondary-constants",
+          "name": "Primary and Secondary Constants",
+          "requires": ["transmission-line-equations"]
+        },
+        {
+          "id": "expressions-for-characteristic-impedance",
+          "name": "Expressions for Characteristic Impedance",
+          "requires": ["primary-and-secondary-constants"]
+        },
+        {
+          "id": "propagation-constant",
+          "name": "Propagation Constant",
+          "requires": ["expressions-for-characteristic-impedance"]
+        },
+        {
+          "id": "phase-and-group-velocities",
+          "name": "Phase and Group Velocities",
+          "requires": ["propagation-constant"]
+        },
+        {
+          "id": "infinite-line-concepts",
+          "name": "Infinite Line Concepts",
+          "requires": ["phase-and-group-velocities"]
+        },
+        {
+          "id": "lossless-ness-low-loss-characterization",
+          "name": "Lossless ness/Low Loss Characterization",
+          "requires": ["infinite-line-concepts"]
+        },
+        {
+          "id": "distortion-condition-for-distortionlessness-and-minimum",
+          "name": "Distortion-Condition for Distortionlessness and Minimum Attenuation",
+          "requires": ["lossless-ness-low-loss-characterization"]
+        },
+        {
+          "id": "loading-types-of-loading",
+          "name": "Loading- Types of loading",
+          "requires": ["distortion-condition-for-distortionlessness-and-minimum"]
+        },
+        {
+          "id": "illustrative-problems-input-impedance-relations",
+          "name": "Illustrative Problems. Input Impedance Relations",
+          "requires": ["loading-types-of-loading"]
+        },
+        {
+          "id": "sc-and-oc-lines",
+          "name": "SC and OC Lines",
+          "requires": ["illustrative-problems-input-impedance-relations"]
+        },
+        {
+          "id": "reflection-coefficient",
+          "name": "Reflection Coefficient",
+          "requires": ["sc-and-oc-lines"]
+        },
+        {
+          "id": "vswr",
+          "name": "VSWR",
+          "requires": ["reflection-coefficient"]
+        },
+        {
+          "id": "uhf-lines-as-circuit-elements",
+          "name": "UHF Lines as Circuit Elements",
+          "requires": ["vswr"]
+        },
+        {
+          "id": "4",
+          "name": "λ/4",
+          "requires": ["uhf-lines-as-circuit-elements"]
+        },
+        {
+          "id": "2-and-8-lines-impedance-transformations",
+          "name": "λ/2 and λ/8 Lines- Impedance Transformations",
+          "requires": ["4"]
+        },
+        {
+          "id": "significance-of-zmin-and-zmax",
+          "name": "Significance of Zmin and Zmax",
+          "requires": ["2-and-8-lines-impedance-transformations"]
+        },
+        {
+          "id": "smith-chart",
+          "name": "Smith Chart-Configuration and Applications",
+          "requires": ["significance-of-zmin-and-zmax"]
+        },
+        {
+          "id": "single-and-double-stub-matching",
+          "name": "Single and Double Stub Matching",
+          "requires": ["smith-chart"]
+        },
+        {
+          "id": "illustrative-problems-max",
+          "name": "Illustrative Problems. Max",
+          "requires": ["single-and-double-stub-matching"]
+        }
+      ]
+    }
+  ]
+}

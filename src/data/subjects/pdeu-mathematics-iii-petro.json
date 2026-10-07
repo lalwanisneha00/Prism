@@ -1,0 +1,227 @@
+{
+  "id": "pdeu-mathematics-iii-petro",
+  "name": "Mathematics - III (Petro)",
+  "field": "Mathematics - III",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [3],
+  "code": "24MA201T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s3-mathematics-iii",
+      "code": "24MA201T",
+      "category": "Basic Science",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Mathematics - III",
+    "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "laplace-transform",
+      "name": "Laplace Transform",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "piecewise-continuous-functions-and-exponential-functions",
+          "name": "Piecewise continuous functions and exponential functions"
+        },
+        {
+          "id": "definition",
+          "name": "Definition",
+          "requires": ["piecewise-continuous-functions-and-exponential-functions"]
+        },
+        {
+          "id": "laplace-transform",
+          "name": "Existence and Properties of Laplace transforms",
+          "requires": ["definition"]
+        },
+        {
+          "id": "heaviside-function",
+          "name": "Heaviside function",
+          "requires": ["laplace-transform"]
+        },
+        {
+          "id": "impulse-function",
+          "name": "Impulse function",
+          "requires": ["heaviside-function"]
+        },
+        {
+          "id": "inverse-laplace",
+          "name": "Inverse Laplace transform",
+          "requires": ["laplace-transform"]
+        },
+        {
+          "id": "properties-of-inverse-laplace-transforms",
+          "name": "Properties of inverse Laplace transforms",
+          "requires": ["inverse-laplace"]
+        },
+        {
+          "id": "convolution",
+          "name": "Convolution theorem",
+          "requires": ["properties-of-inverse-laplace-transforms"]
+        },
+        {
+          "id": "applications-of-laplace-transforms-in-solving-differential",
+          "name": "Applications of Laplace Transforms in solving differential equations",
+          "requires": ["convolution"]
+        }
+      ]
+    },
+    {
+      "id": "difference-equation-and-z-transform",
+      "name": "Difference Equation and Z-Transform",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "first-and-second-order-difference-equation-with-constant",
+          "name": "First and second order difference equation with constant coefficient"
+        },
+        {
+          "id": "solution-of-difference-equation-complementary-function",
+          "name": "Solution of difference equation-complementary function-Particular integral",
+          "requires": ["first-and-second-order-difference-equation-with-constant"]
+        },
+        {
+          "id": "z-transform",
+          "name": "Z - transform",
+          "requires": ["solution-of-difference-equation-complementary-function"]
+        },
+        {
+          "id": "properties-of-z-transforms",
+          "name": "Properties of Z-transforms",
+          "requires": ["z-transform"]
+        },
+        {
+          "id": "convolution-of-two-sequences",
+          "name": "Convolution of two sequences",
+          "requires": ["properties-of-z-transforms"]
+        },
+        {
+          "id": "inverse-z-transform",
+          "name": "inverse Z-transform",
+          "requires": ["convolution-of-two-sequences"]
+        },
+        {
+          "id": "solution-of-difference-equations-using-z-transform",
+          "name": "Solution of Difference equations using Z-transform",
+          "requires": ["inverse-z-transform"]
+        }
+      ]
+    },
+    {
+      "id": "fourier-transform",
+      "name": "Fourier Transform",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "fourier-integral",
+          "name": "Fourier Integral"
+        },
+        {
+          "id": "fourier-cosine-and-sine-transform",
+          "name": "Fourier Cosine and Sine transform",
+          "requires": ["fourier-integral"]
+        },
+        {
+          "id": "dft",
+          "name": "Discrete Fourier Transform",
+          "requires": ["fourier-cosine-and-sine-transform"]
+        },
+        {
+          "id": "continuous-fourier-transform",
+          "name": "Continuous Fourier Transform",
+          "requires": ["dft"]
+        },
+        {
+          "id": "linearity",
+          "name": "Linearity",
+          "requires": ["continuous-fourier-transform"]
+        },
+        {
+          "id": "time-shifting",
+          "name": "time shifting",
+          "requires": ["linearity"]
+        },
+        {
+          "id": "frequency-shifting-and-convolution-properties",
+          "name": "frequency shifting, and convolution properties",
+          "requires": ["time-shifting"]
+        },
+        {
+          "id": "applications-in-image-processing",
+          "name": "Applications in image processing",
+          "requires": ["frequency-shifting-and-convolution-properties"]
+        },
+        {
+          "id": "communication-systems-and-quantum-mechanics",
+          "name": "communication systems, and quantum mechanics",
+          "requires": ["applications-in-image-processing"]
+        }
+      ]
+    },
+    {
+      "id": "partial-differential-equations",
+      "name": "Partial Differential Equations",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "formation-of-partial-differential-equations-pdes",
+          "name": "Formation of Partial Differential Equations (PDEs)"
+        },
+        {
+          "id": "solutions-of-pdes-of-the-first-order",
+          "name": "Solutions of PDEs of the first order",
+          "requires": ["formation-of-partial-differential-equations-pdes"]
+        },
+        {
+          "id": "cauchy-problem-for-first-order-pdes",
+          "name": "Cauchy problem for first-order PDEs",
+          "requires": ["solutions-of-pdes-of-the-first-order"]
+        },
+        {
+          "id": "lagranges-method",
+          "name": "Lagrange’s method",
+          "requires": ["cauchy-problem-for-first-order-pdes"]
+        },
+        {
+          "id": "charpit-and-jacobi-methods-for-solving-first-order-nonlinear",
+          "name": "Charpit and Jacobi methods for solving first-order nonlinear PDEs",
+          "requires": ["lagranges-method"]
+        },
+        {
+          "id": "classification-of-second-order-pdes",
+          "name": "Classification of second order PDEs",
+          "requires": ["charpit-and-jacobi-methods-for-solving-first-order-nonlinear"]
+        },
+        {
+          "id": "one-dimensional-heat-equation",
+          "name": "one-dimensional heat equation",
+          "requires": ["classification-of-second-order-pdes"]
+        },
+        {
+          "id": "wave-equation-and-laplace-equation",
+          "name": "wave equation, and Laplace equation",
+          "requires": ["one-dimensional-heat-equation"]
+        },
+        {
+          "id": "applications-of-pdes-to-wave-analysis",
+          "name": "Applications of PDE’s to wave analysis",
+          "requires": ["wave-equation-and-laplace-equation"]
+        }
+      ]
+    }
+  ]
+}

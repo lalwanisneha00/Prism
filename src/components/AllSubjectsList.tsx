@@ -1,20 +1,24 @@
 "use client";
 
 import { useId, useMemo, useState } from "react";
+import { detailsShort, type Offering } from "@/lib/subjects";
 
-type Option = { id: string; name: string; field: string };
+type Option = { id: string; name: string; field: string; offerings?: readonly Offering[] };
 
 /** A collapsed list of every subject with a search box (closed by default, never one long list). */
 export function AllSubjectsList({
   subjects,
   currentId,
   firstIds = [],
+  branch,
   onSelect,
 }: {
   subjects: readonly Option[];
   currentId: string;
   /** Subjects to list first (the student's own, their branch and semester). */
   firstIds?: readonly string[];
+  /** The student's branch, so the credits and code shown are their own branch's. */
+  branch?: string;
   onSelect: (id: string) => void;
 }) {
   const id = useId();
@@ -67,7 +71,9 @@ export function AllSubjectsList({
                 className={`block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-surface-2 ${s.id === currentId ? "font-semibold text-primary" : ""}`}
               >
                 {s.name}
-                <span className="block text-xs font-normal text-muted">{s.field}</span>
+                <span className="block text-xs font-normal text-muted">
+                  {[s.field, detailsShort(s, branch)].filter(Boolean).join(" · ")}
+                </span>
               </button>
             </li>
           ))}

@@ -1,0 +1,173 @@
+{
+  "id": "pdeu-data-structures",
+  "name": "Data Structures",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [3],
+  "code": "24CS203T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s3-data-structures",
+      "code": "24CS203T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Data Structures",
+    "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "datatypes-primitive-vs-non-primitive",
+          "name": "Datatypes: primitive vs non-primitive"
+        },
+        {
+          "id": "data-structures-linear-vs-non-linear",
+          "name": "Data structures: linear vs non-linear",
+          "requires": ["datatypes-primitive-vs-non-primitive"]
+        },
+        {
+          "id": "various-operations-performed-on-ds",
+          "name": "Various Operations performed on DS",
+          "requires": ["data-structures-linear-vs-non-linear"]
+        },
+        {
+          "id": "performance-analysis-and-measurement-time-and-space-analysis",
+          "name": "Performance Analysis and Measurement: Time and space analysis of algorithms",
+          "requires": ["various-operations-performed-on-ds"]
+        },
+        {
+          "id": "asymptotic-notations-searching-and-sorting-in-arrays",
+          "name": "Asymptotic Notations, Searching and sorting in arrays",
+          "requires": ["performance-analysis-and-measurement-time-and-space-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "linear-data-structures",
+      "name": "Linear Data Structures",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "stack-definition-and-concepts-push-and-pop-operations",
+          "name": "Stack: Definition and concepts, Push and Pop operations"
+        },
+        {
+          "id": "representation-in-memory",
+          "name": "Representation in memory",
+          "requires": ["stack-definition-and-concepts-push-and-pop-operations"]
+        },
+        {
+          "id": "applications-infix-to-prefix-and-postfix-evaluate-postfix",
+          "name": "Applications: Infix to prefix and postfix, evaluate postfix, recursion",
+          "requires": ["representation-in-memory"]
+        },
+        {
+          "id": "queue-definition-and-concept-enqueue-and-dequeue-operations",
+          "name": "Queue: Definition and concept, Enqueue and Dequeue operations",
+          "requires": ["applications-infix-to-prefix-and-postfix-evaluate-postfix"]
+        },
+        {
+          "id": "types-circular-and-priority-queue",
+          "name": "Types: circular & priority queue",
+          "requires": ["queue-definition-and-concept-enqueue-and-dequeue-operations"]
+        },
+        {
+          "id": "doubly-circular-lists",
+          "name": "Linked list: Definition and concept, Insert and delete operations, Representation in memory, implementing stack and queue using LL, Types: Singly, Doubly, Circular",
+          "requires": ["types-circular-and-priority-queue"]
+        }
+      ]
+    },
+    {
+      "id": "non-linear-data-structures",
+      "name": "Non-Linear Data Structures",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "trees-definition-and-concept",
+          "name": "Trees: Definition and concept"
+        },
+        {
+          "id": "memory-representation",
+          "name": "Memory representation",
+          "requires": ["trees-definition-and-concept"]
+        },
+        {
+          "id": "types-of-trees-binary-complete-binary-full-perfect",
+          "name": "Types of trees: Binary, complete binary, full, perfect",
+          "requires": ["memory-representation"]
+        },
+        {
+          "id": "traversal-pre-order-in-order-post-order",
+          "name": "Traversal: pre-order, in-order, post-order",
+          "requires": ["types-of-trees-binary-complete-binary-full-perfect"]
+        },
+        {
+          "id": "binary-search-tree",
+          "name": "Binary Search Trees",
+          "requires": ["traversal-pre-order-in-order-post-order"]
+        },
+        {
+          "id": "avl-trees",
+          "name": "AVL trees",
+          "requires": ["binary-search-tree"]
+        },
+        {
+          "id": "min-max-heap-tree-with-insert-and-delete-operations-for-all",
+          "name": "Min-Max Heap tree (with insert and delete operations for all trees)",
+          "requires": ["avl-trees"]
+        },
+        {
+          "id": "graphs-definition-and-concept",
+          "name": "Graphs: Definition and concept",
+          "requires": ["min-max-heap-tree-with-insert-and-delete-operations-for-all"]
+        },
+        {
+          "id": "types-of-graphs-complete-connected-directed-undirected",
+          "name": "Types of graphs: complete, connected, directed/ undirected, weighted/ unweighted, cyclic/ non-cyclic",
+          "requires": ["graphs-definition-and-concept"]
+        },
+        {
+          "id": "bfs-dfs",
+          "name": "Traversal: breadth and depth first search",
+          "requires": ["types-of-graphs-complete-connected-directed-undirected"]
+        }
+      ]
+    },
+    {
+      "id": "hashing",
+      "name": "Hashing",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "symbol-table",
+          "name": "The symbol table, Hashing Functions: Division, Multiplication, Mid Square and Folding"
+        },
+        {
+          "id": "collision-resolution-techniques-separate-chaining-linear",
+          "name": "Collision Resolution Techniques: Separate Chaining, Linear Probing, Quadratic Probing and Double Hashing",
+          "requires": ["symbol-table"]
+        }
+      ]
+    }
+  ]
+}

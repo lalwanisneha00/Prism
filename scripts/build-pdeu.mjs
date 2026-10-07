@@ -526,7 +526,7 @@ const stripLab = (n) =>
   n
     .toLowerCase()
     .replace(/\([^)]*\)/g, " ")
-    .replace(/(laboratory|lab|practical|practicals|workshop)/g, " ")
+    .replace(/\b(laboratory|lab|practical|practicals|workshop)\b/g, " ")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 const combined = { source: SOURCE_FILE, branches: {} };

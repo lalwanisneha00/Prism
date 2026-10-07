@@ -1,0 +1,157 @@
+{
+  "id": "pdeu-pharmacokinetics-and-pharmacodynamics",
+  "name": "Pharmacokinetics and Pharmacodynamics",
+  "field": "Pharmacokinetics and Pharmacodynamics",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [6],
+  "code": "24BT337T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s6-program-elective-3-choose-one--pharmacokinetics-and-pharmacodynamics",
+      "code": "24BT337T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Pharmacokinetics and Pharmacodynamics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "absorption-and-distribution",
+      "name": "Absorption and Distribution",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "absorption",
+          "name": "Absorption"
+        },
+        {
+          "id": "introduction-mechanisms-of-drug-absorption-factors",
+          "name": "Introduction, Mechanisms of Drug Absorption, Factors Influencing Drug Absorption, Distribution",
+          "requires": ["absorption"]
+        },
+        {
+          "id": "factors-influencing-distribution-of-drug-volume-of",
+          "name": "Factors influencing Distribution of Drug, Volume of Distribution and its significance",
+          "requires": ["introduction-mechanisms-of-drug-absorption-factors"]
+        }
+      ]
+    },
+    {
+      "id": "metabolism-and-excretion",
+      "name": "Metabolism and Excretion",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "drug-metabolism",
+          "name": "Drug Metabolism"
+        },
+        {
+          "id": "introduction-drug-metabolism-metabolic-pathways-factors",
+          "name": "Introduction, Drug Metabolism, Metabolic Pathways, Factors Affecting drug metabolism",
+          "requires": ["drug-metabolism"]
+        },
+        {
+          "id": "excretion",
+          "name": "Excretion",
+          "requires": ["introduction-drug-metabolism-metabolic-pathways-factors"]
+        },
+        {
+          "id": "introduction-renal-excretion-of-drugs-factors-affecting-the",
+          "name": "Introduction, Renal Excretion of Drugs, Factors Affecting the Renal Excretion of Drugs, Clearance, Renal Clearance, Non-renal Routes of the Drug Excretion",
+          "requires": ["excretion"]
+        }
+      ]
+    },
+    {
+      "id": "pharmacodynamics-and-drug-interactions",
+      "name": "Pharmacodynamics & Drug Interactions",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "principles-and-mechanism-of-drug-action",
+          "name": "Principles and Mechanism of Drug action"
+        },
+        {
+          "id": "drug-interactions-effect-of-protein-binding-interactions",
+          "name": "Drug interactions: Effect of protein- binding interactions",
+          "requires": ["principles-and-mechanism-of-drug-action"]
+        },
+        {
+          "id": "the-effect-of-tissue-binding-interactions",
+          "name": "the effect of tissue-binding interactions",
+          "requires": ["drug-interactions-effect-of-protein-binding-interactions"]
+        },
+        {
+          "id": "cytochrome-p450-based-drug-interactions",
+          "name": "cytochrome p450-based drug interactions",
+          "requires": ["the-effect-of-tissue-binding-interactions"]
+        },
+        {
+          "id": "drug-interactions-linked-to-drug-drug",
+          "name": "drug interactions linked to drug-drug",
+          "requires": ["cytochrome-p450-based-drug-interactions"]
+        },
+        {
+          "id": "drug-food",
+          "name": "drug-food",
+          "requires": ["drug-interactions-linked-to-drug-drug"]
+        },
+        {
+          "id": "drug-alcohol-interactions",
+          "name": "drug-alcohol interactions",
+          "requires": ["drug-food"]
+        }
+      ]
+    },
+    {
+      "id": "application-of-pharmacokinetics-and-dynamics",
+      "name": "Application of Pharmacokinetics & Dynamics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "dose-response-relationship",
+          "name": "Dose response relationship"
+        },
+        {
+          "id": "therapeutic-index",
+          "name": "Therapeutic index",
+          "requires": ["dose-response-relationship"]
+        },
+        {
+          "id": "factors-modifying-drug-action-modified-release-drug",
+          "name": "factors modifying drug action. Modified-Release Drug formulations",
+          "requires": ["therapeutic-index"]
+        },
+        {
+          "id": "targeted-drug-delivery-systems",
+          "name": "Targeted Drug Delivery Systems",
+          "requires": ["factors-modifying-drug-action-modified-release-drug"]
+        },
+        {
+          "id": "bioavailability-and-bioequivalence",
+          "name": "Bioavailability and Bioequivalence",
+          "requires": ["targeted-drug-delivery-systems"]
+        },
+        {
+          "id": "clinical-significance-of-bioavailability-and-bioequivalence",
+          "name": "Clinical significance of bioavailability and bioequivalence studies",
+          "requires": ["bioavailability-and-bioequivalence"]
+        }
+      ]
+    }
+  ]
+}

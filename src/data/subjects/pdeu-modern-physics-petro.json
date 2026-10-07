@@ -1,0 +1,253 @@
+{
+  "id": "pdeu-modern-physics-petro",
+  "name": "Modern Physics (Petro)",
+  "field": "Applied Physics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [1],
+  "code": "24PH103T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s1-modern-physics",
+      "code": "24PH103T",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 1,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Modern Physics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "physics",
+  "chapters": [
+    {
+      "id": "modern-physics",
+      "name": "Modern Physics",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "review-of-quantum-concepts-particle-nature-of-light",
+          "name": "Review of quantum concepts: particle nature of light"
+        },
+        {
+          "id": "photoelectric-effect",
+          "name": "photoelectric effect",
+          "requires": ["review-of-quantum-concepts-particle-nature-of-light"]
+        },
+        {
+          "id": "compton-effect",
+          "name": "Compton effect",
+          "requires": ["photoelectric-effect"]
+        },
+        {
+          "id": "matter-waves",
+          "name": "matter waves",
+          "requires": ["compton-effect"]
+        },
+        {
+          "id": "wave-packets",
+          "name": "wave packets",
+          "requires": ["matter-waves"]
+        },
+        {
+          "id": "phase-and-group-velocity",
+          "name": "phase and group velocity",
+          "requires": ["wave-packets"]
+        },
+        {
+          "id": "interference",
+          "name": "Interference",
+          "requires": ["phase-and-group-velocity"]
+        },
+        {
+          "id": "diffraction-and-polarization",
+          "name": "Diffraction and Polarization",
+          "requires": ["interference"]
+        },
+        {
+          "id": "engineering-physics-related-applications-davisson-germer",
+          "name": "Engineering Physics related applications. Davisson Germer experiment",
+          "requires": ["diffraction-and-polarization"]
+        },
+        {
+          "id": "uncertainty-principle",
+          "name": "Heisenberg uncertainty principle",
+          "requires": ["engineering-physics-related-applications-davisson-germer"]
+        }
+      ]
+    },
+    {
+      "id": "electromagnetic-waves",
+      "name": "Electromagnetic Waves",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "gradient-divergence-curl",
+          "name": "Physical and mathematical concepts of gradient, divergence and curl, Gauss theorem, applications in gravitation and electrostatics"
+        },
+        {
+          "id": "stokes-theorem",
+          "name": "Stokes' theorem and engineering Physics related applications",
+          "requires": ["gradient-divergence-curl"]
+        },
+        {
+          "id": "biot-savart-law",
+          "name": "Equation of continuity, Biot Savart law",
+          "requires": ["stokes-theorem"]
+        },
+        {
+          "id": "amperes-law",
+          "name": "Ampere’s law",
+          "requires": ["biot-savart-law"]
+        },
+        {
+          "id": "maxwells-equations",
+          "name": "magnetization and magnetic intensity, Faraday’s law of Maxwell’s equations, wave equation for electromagnetic radiation, applications of optical fibers in communication",
+          "requires": ["amperes-law"]
+        }
+      ]
+    },
+    {
+      "id": "solid-state-physics",
+      "name": "Solid State Physics",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "crystalline-and-amorphous-solids",
+          "name": "Crystalline and Amorphous Solids"
+        },
+        {
+          "id": "ionic-crystals",
+          "name": "Ionic Crystals",
+          "requires": ["crystalline-and-amorphous-solids"]
+        },
+        {
+          "id": "covalent-crystals",
+          "name": "Covalent Crystals",
+          "requires": ["ionic-crystals"]
+        },
+        {
+          "id": "van-der-waals-bond",
+          "name": "Van der Waals Bond",
+          "requires": ["covalent-crystals"]
+        },
+        {
+          "id": "band-theory-of-solids",
+          "name": "Band Theory of Solids",
+          "requires": ["van-der-waals-bond"]
+        },
+        {
+          "id": "semiconductor-devices",
+          "name": "Semiconductor Devices",
+          "requires": ["band-theory-of-solids"]
+        },
+        {
+          "id": "electrical-conductivity",
+          "name": "Electrical conductivity",
+          "requires": ["semiconductor-devices"]
+        },
+        {
+          "id": "resistivity",
+          "name": "Resistivity",
+          "requires": ["electrical-conductivity"]
+        },
+        {
+          "id": "magnetism",
+          "name": "Magnetism",
+          "requires": ["resistivity"]
+        },
+        {
+          "id": "superconductivity",
+          "name": "Superconductivity",
+          "requires": ["magnetism"]
+        },
+        {
+          "id": "introduction-to-bcs-theory-concepts-of-laser",
+          "name": "Introduction to BCS Theory. Concepts of LASER",
+          "requires": ["superconductivity"]
+        },
+        {
+          "id": "interaction-of-radiation-of-matter-quantum-mechanical-view",
+          "name": "Interaction of radiation of matter-quantum mechanical view",
+          "requires": ["introduction-to-bcs-theory-concepts-of-laser"]
+        },
+        {
+          "id": "characteristics-and-types-of-laser",
+          "name": "characteristics and Types of laser",
+          "requires": ["interaction-of-radiation-of-matter-quantum-mechanical-view"]
+        },
+        {
+          "id": "engineering-physics-related-application-of-lasers",
+          "name": "Engineering Physics related application of lasers",
+          "requires": ["characteristics-and-types-of-laser"]
+        }
+      ]
+    },
+    {
+      "id": "vector-calculus",
+      "name": "Vector Calculus",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "mass-defect",
+          "name": "Mass defect"
+        },
+        {
+          "id": "binding-energy",
+          "name": "binding energy",
+          "requires": ["mass-defect"]
+        },
+        {
+          "id": "radioactivity",
+          "name": "Radioactivity",
+          "requires": ["binding-energy"]
+        },
+        {
+          "id": "types-of-radiation",
+          "name": "Types of Radiation",
+          "requires": ["radioactivity"]
+        },
+        {
+          "id": "interaction-of-radiation-with-matter",
+          "name": "Interaction of Radiation with matter",
+          "requires": ["types-of-radiation"]
+        },
+        {
+          "id": "radiation-detector",
+          "name": "Radiation detector",
+          "requires": ["interaction-of-radiation-with-matter"]
+        },
+        {
+          "id": "nuclear-reactions",
+          "name": "nuclear reactions",
+          "requires": ["radiation-detector"]
+        },
+        {
+          "id": "elements-of-nuclear-reactors",
+          "name": "elements of nuclear reactors",
+          "requires": ["nuclear-reactions"]
+        },
+        {
+          "id": "fission-and-fusion",
+          "name": "fission and fusion",
+          "requires": ["elements-of-nuclear-reactors"]
+        },
+        {
+          "id": "engineering-physics-related-problems",
+          "name": "Engineering Physics related problems",
+          "requires": ["fission-and-fusion"]
+        }
+      ]
+    }
+  ]
+}

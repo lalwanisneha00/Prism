@@ -1,0 +1,212 @@
+{
+  "id": "pdeu-molecular-biology-and-genetics",
+  "name": "Molecular Biology and Genetics",
+  "field": "Biotechnology",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [4],
+  "code": "24BT207T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s4-molecular-biology-and-genetics",
+      "code": "24BT207T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Molecular Biology and Genetics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "visualSet": "chemistry",
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "history-of-molecular-biology",
+          "name": "History of molecular biology"
+        },
+        {
+          "id": "central-dogma",
+          "name": "Central dogma of life",
+          "requires": ["dna-rna-structure"]
+        },
+        {
+          "id": "dna-rna-structure",
+          "name": "Structure of DNA and RNA"
+        },
+        {
+          "id": "gene-structure-and-function",
+          "name": "Gene structure and function",
+          "requires": ["dna-rna-structure"]
+        },
+        {
+          "id": "dna-replication",
+          "name": "DNA replication",
+          "requires": ["gene-structure-and-function"]
+        },
+        {
+          "id": "transcription",
+          "name": "transcription",
+          "requires": ["dna-replication"]
+        },
+        {
+          "id": "genetic-code-translation",
+          "name": "Genetic code and translation",
+          "requires": ["transcription"]
+        },
+        {
+          "id": "structure-of-prokaryotic-and-eukaryotic-nuclear-and",
+          "name": "Structure of prokaryotic and eukaryotic nuclear and organelle genomes",
+          "requires": ["genetic-code-translation"]
+        },
+        {
+          "id": "lac-trp-operons",
+          "name": "Gene regulation in prokaryotes: Lac operon concept, trp concept",
+          "requires": ["structure-of-prokaryotic-and-eukaryotic-nuclear-and"]
+        }
+      ]
+    },
+    {
+      "id": "microbial-pathogenicity",
+      "name": "Microbial Pathogenicity",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "post-translational-modification",
+          "name": "Post translational modification"
+        },
+        {
+          "id": "dna-repair-and-recombination",
+          "name": "DNA repair and Recombination",
+          "requires": ["post-translational-modification"]
+        },
+        {
+          "id": "dna-repair-mechanisms-and-their-types",
+          "name": "DNA repair mechanisms and their types",
+          "requires": ["dna-repair-and-recombination"]
+        },
+        {
+          "id": "pn-junction-physics",
+          "name": "Holliday Junction",
+          "requires": ["dna-repair-mechanisms-and-their-types"]
+        },
+        {
+          "id": "process-of-recombination-programmed-cell-death",
+          "name": "Process of recombination. Programmed cell death",
+          "requires": ["pn-junction-physics"]
+        },
+        {
+          "id": "cell-junctions-and-adhesion",
+          "name": "cell junctions and adhesion",
+          "requires": ["process-of-recombination-programmed-cell-death"]
+        }
+      ]
+    },
+    {
+      "id": "genetics",
+      "name": "Genetics",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "mendelian-genetics-and-heredity",
+          "name": "Mendelian genetics and heredity"
+        },
+        {
+          "id": "mendels-experiments",
+          "name": "Mendel’s experiments",
+          "requires": ["mendelian-genetics-and-heredity"]
+        },
+        {
+          "id": "principles-of-segregation",
+          "name": "principles of segregation",
+          "requires": ["mendels-experiments"]
+        },
+        {
+          "id": "principle-of-independent-assortment",
+          "name": "Principle of independent assortment",
+          "requires": ["principles-of-segregation"]
+        },
+        {
+          "id": "polygenic-inheritance",
+          "name": "polygenic inheritance",
+          "requires": ["principle-of-independent-assortment"]
+        },
+        {
+          "id": "multiple-alleles",
+          "name": "Multiple alleles",
+          "requires": ["polygenic-inheritance"]
+        },
+        {
+          "id": "linkage-and-crossing-over",
+          "name": "Linkage and Crossing Over",
+          "requires": ["multiple-alleles"]
+        },
+        {
+          "id": "eugenics",
+          "name": "Eugenics",
+          "requires": ["linkage-and-crossing-over"]
+        }
+      ]
+    },
+    {
+      "id": "mutation-and-microbial-genetics",
+      "name": "Mutation and Microbial Genetics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "molecular-basis-of-mutation-and-their-different-types",
+          "name": "Molecular basis of mutation and their different types, Microbial genetics: conjugation, transformation, transduction, Plasmids and transposable elements, Chromosomal variation"
+        },
+        {
+          "id": "genetic-disorders",
+          "name": "Genetic disorders",
+          "requires": ["molecular-basis-of-mutation-and-their-different-types"]
+        },
+        {
+          "id": "population-genetics",
+          "name": "Population genetics",
+          "requires": ["genetic-disorders"]
+        },
+        {
+          "id": "epigenetics",
+          "name": "Epigenetics",
+          "requires": ["population-genetics"]
+        },
+        {
+          "id": "selection-and-inheritance",
+          "name": "Selection and inheritance",
+          "requires": ["epigenetics"]
+        },
+        {
+          "id": "adaptive-and-neutral-evolution",
+          "name": "Adaptive and neutral evolution",
+          "requires": ["selection-and-inheritance"]
+        },
+        {
+          "id": "genetic-drift",
+          "name": "Genetic drift",
+          "requires": ["adaptive-and-neutral-evolution"]
+        },
+        {
+          "id": "species-and-speciation",
+          "name": "Species and speciation",
+          "requires": ["genetic-drift"]
+        }
+      ]
+    }
+  ]
+}

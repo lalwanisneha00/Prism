@@ -1,0 +1,257 @@
+{
+  "id": "pdeu-carbon-utilization-and-storage",
+  "name": "Carbon Utilization and Storage",
+  "field": "Carbon Utilization and Storage",
+  "tier": "limited",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [6],
+  "code": "24PE334T",
+  "credits": 2,
+  "ltp": "2-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s6-program-elective-a-choose-one-2-credits--carbon-utilization-and-storage",
+      "code": "24PE334T",
+      "category": "Program Elective",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Carbon Utilization and Storage",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+  },
+  "chapters": [
+    {
+      "id": "introduction-to-carbon-capture-utilization-and",
+      "name": "Introduction to Carbon Capture, Utilization and Storage",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "global-climate-change-and-greenhouse-gas-emissions",
+          "name": "Global climate change and greenhouse gas emissions"
+        },
+        {
+          "id": "global-carbon-cycle",
+          "name": "Global carbon cycle",
+          "requires": ["global-climate-change-and-greenhouse-gas-emissions"]
+        },
+        {
+          "id": "sources-of-co-emissions",
+          "name": "Sources of CO₂ emissions",
+          "requires": ["global-carbon-cycle"]
+        },
+        {
+          "id": "net-zero-emissions-and-energy-transition",
+          "name": "Net-zero emissions and energy transition",
+          "requires": ["sources-of-co-emissions"]
+        },
+        {
+          "id": "properties-of-carbon-dioxide",
+          "name": "Properties of carbon dioxide",
+          "requires": ["net-zero-emissions-and-energy-transition"]
+        },
+        {
+          "id": "co-phase-behavior",
+          "name": "CO₂ phase behavior",
+          "requires": ["properties-of-carbon-dioxide"]
+        },
+        {
+          "id": "co-compression",
+          "name": "CO₂ compression",
+          "requires": ["co-phase-behavior"]
+        },
+        {
+          "id": "dehydration-and-purification",
+          "name": "Dehydration and purification",
+          "requires": ["co-compression"]
+        },
+        {
+          "id": "fundamentals-of-co-capture-carbon-capture-pathways",
+          "name": "Fundamentals of CO₂ capture, Carbon capture pathways",
+          "requires": ["dehydration-and-purification"]
+        },
+        {
+          "id": "pre-combustion-capture",
+          "name": "Pre- combustion capture",
+          "requires": ["fundamentals-of-co-capture-carbon-capture-pathways"]
+        },
+        {
+          "id": "post-combustion-capture",
+          "name": "Post-combustion capture",
+          "requires": ["pre-combustion-capture"]
+        },
+        {
+          "id": "oxy-fuel-combustion",
+          "name": "Oxy-fuel combustion",
+          "requires": ["post-combustion-capture"]
+        },
+        {
+          "id": "emerging-carbon-capture-technologies",
+          "name": "Emerging carbon capture technologies",
+          "requires": ["oxy-fuel-combustion"]
+        },
+        {
+          "id": "carbon-capture-efficiency-and-economics",
+          "name": "Carbon capture efficiency and economics",
+          "requires": ["emerging-carbon-capture-technologies"]
+        }
+      ]
+    },
+    {
+      "id": "co-transportation-and-utilization",
+      "name": "CO₂ Transportation and Utilization",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "co-pipeline-transportation",
+          "name": "CO₂ pipeline transportation"
+        },
+        {
+          "id": "ship-transportation",
+          "name": "Ship transportation",
+          "requires": ["co-pipeline-transportation"]
+        },
+        {
+          "id": "transportation-network-design",
+          "name": "Transportation network design",
+          "requires": ["ship-transportation"]
+        },
+        {
+          "id": "safety-aspects-of-co-transportation",
+          "name": "Safety aspects of CO₂ transportation",
+          "requires": ["transportation-network-design"]
+        },
+        {
+          "id": "introduction-to-co-utilization",
+          "name": "Introduction to CO₂ utilization",
+          "requires": ["safety-aspects-of-co-transportation"]
+        },
+        {
+          "id": "enhanced-oil-recovery-co-eor",
+          "name": "Enhanced Oil Recovery (CO₂-EOR)",
+          "requires": ["introduction-to-co-utilization"]
+        },
+        {
+          "id": "industrial-utilization-of-captured-carbon",
+          "name": "Industrial utilization of captured carbon",
+          "requires": ["enhanced-oil-recovery-co-eor"]
+        }
+      ]
+    },
+    {
+      "id": "geological-carbon-storage",
+      "name": "Geological Carbon Storage",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "geological-storage-principles",
+          "name": "Geological storage principles"
+        },
+        {
+          "id": "storage-site-selection",
+          "name": "Storage site selection",
+          "requires": ["geological-storage-principles"]
+        },
+        {
+          "id": "storage-capacity-estimation",
+          "name": "Storage capacity estimation",
+          "requires": ["storage-site-selection"]
+        },
+        {
+          "id": "deep-saline-aquifers",
+          "name": "Deep saline aquifers",
+          "requires": ["storage-capacity-estimation"]
+        },
+        {
+          "id": "depleted-oil-and-gas-reservoirs",
+          "name": "Depleted oil and gas reservoirs",
+          "requires": ["deep-saline-aquifers"]
+        },
+        {
+          "id": "unmineable-coal-seams",
+          "name": "Unmineable coal seams",
+          "requires": ["depleted-oil-and-gas-reservoirs"]
+        },
+        {
+          "id": "basalt-formations",
+          "name": "Basalt formations",
+          "requires": ["unmineable-coal-seams"]
+        },
+        {
+          "id": "reservoir-characterization",
+          "name": "Reservoir characterization",
+          "requires": ["basalt-formations"]
+        },
+        {
+          "id": "caprock-integrity",
+          "name": "Caprock integrity",
+          "requires": ["reservoir-characterization"]
+        },
+        {
+          "id": "trapping-mechanisms-structural-trapping-residual-trapping",
+          "name": "Trapping mechanisms (Structural trapping, Residual trapping, Solubility trapping, and Mineral trapping)",
+          "requires": ["caprock-integrity"]
+        },
+        {
+          "id": "co-injectivity-subsurface-co-injection-co-plume-migration",
+          "name": "CO₂ injectivity, Subsurface CO₂ injection, CO₂ plume migration and reservoir pressure management",
+          "requires": ["trapping-mechanisms-structural-trapping-residual-trapping"]
+        }
+      ]
+    },
+    {
+      "id": "monitoring-risk-assessment-and-techno-economic",
+      "name": "Monitoring, Risk Assessment and Techno-economic evaluation",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "monitoring-techniques-seismic-monitoring-well-logging",
+          "name": "Monitoring techniques: Seismic monitoring, Well logging, Pressure monitoring, Soil gas monitoring, Satellite monitoring"
+        },
+        {
+          "id": "leakage-pathways",
+          "name": "Leakage pathways",
+          "requires": ["monitoring-techniques-seismic-monitoring-well-logging"]
+        },
+        {
+          "id": "geomechanical-considerations",
+          "name": "Geomechanical considerations",
+          "requires": ["leakage-pathways"]
+        },
+        {
+          "id": "environmental-risk-assessment",
+          "name": "Environmental risk assessment",
+          "requires": ["geomechanical-considerations"]
+        },
+        {
+          "id": "regulatory-framework",
+          "name": "Regulatory framework",
+          "requires": ["environmental-risk-assessment"]
+        },
+        {
+          "id": "economics-of-geological-storage",
+          "name": "Economics of geological storage",
+          "requires": ["regulatory-framework"]
+        },
+        {
+          "id": "life-cycle-assessment",
+          "name": "Life-cycle assessment",
+          "requires": ["economics-of-geological-storage"]
+        },
+        {
+          "id": "techno-economic-evaluation-of-projects-indian-and-global",
+          "name": "Techno- economic evaluation of projects, Indian and global case studies",
+          "requires": ["life-cycle-assessment"]
+        }
+      ]
+    }
+  ]
+}

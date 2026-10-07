@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { NON_CORE, picksFor, usuallyInSemester, withPick } from "@/lib/semester/mySemester";
-import { subjects } from "@/lib/subjects";
+import { allSubjects as subjects } from "@/lib/subjects";
 
 describe("my subjects by semester", () => {
   it("adds and removes a subject for one semester only, without duplicates", () => {
