@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/components/account/AuthProvider";
 import { SyncBadge, syncLabels } from "@/components/account/SyncBadge";
+import { FLAGS } from "@/lib/flags";
 
 const item =
   "block rounded-lg px-3 py-2 text-sm font-medium hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-primary";
@@ -120,6 +121,16 @@ export function AccountMenu() {
           <Link href="/planner" className={item} role="menuitem" onClick={() => setOpen(false)}>
             Backlog planner
           </Link>
+          {FLAGS.byoKey && (
+            <Link
+              href="/settings/keys#add-key"
+              className={item}
+              role="menuitem"
+              onClick={() => setOpen(false)}
+            >
+              Add or update my API key
+            </Link>
+          )}
           <Link href="/account" className={item} role="menuitem" onClick={() => setOpen(false)}>
             Account, backup &amp; privacy
           </Link>
