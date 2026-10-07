@@ -61,6 +61,7 @@ test.describe("Other subjects (V3 · Step 4)", () => {
     await page
       .getByTestId("all-subjects-list")
       .getByRole("button", { name: /Indian Knowledge System/ })
+      .first()
       .click();
     await page.getByLabel("Or browse by chapter").selectOption("indian-mathematics");
     await page.getByRole("radio", { name: "Study the whole chapter" }).click();

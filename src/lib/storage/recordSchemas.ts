@@ -72,6 +72,10 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     mySubjects: z
       .record(z.string().regex(/^[1-8]$/), z.array(z.string().max(120)).max(40))
       .optional(),
+    electiveChoices: z
+      .record(z.string().max(160), z.string().max(160))
+      .refine((r) => Object.keys(r).length <= 200)
+      .optional(),
     universityScope: z
       .record(
         z.string().max(120),

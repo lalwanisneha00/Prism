@@ -11,6 +11,7 @@ import { useMySemester } from "@/components/subjects/useMySemester";
 import { useSyllabus } from "@/components/subjects/useSyllabus";
 import { countsOf, indexedSubject, subjectIndex, subjectsInSemester } from "@/lib/catalogue";
 import { FLAGS } from "@/lib/flags";
+import { NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
 import { isPdeuBranch } from "@/lib/pdeu/load";
 import { SEMESTERS } from "@/lib/semester/mySemester";
 import { branches } from "@/lib/subjects";
@@ -127,6 +128,20 @@ function SubjectCard({
         </details>
       )}
       {data.own && <NeedsMaterialNote subjectId={data.id} />}
+      {!data.own && indexed?.courseCategory === "non-core" && (
+        <div
+          className="flex flex-col gap-1 rounded-xl bg-primary-soft px-3 py-2 text-sm"
+          data-testid="needs-setup"
+        >
+          <p>{NON_CORE_UPLOAD_MESSAGE}</p>
+          <Link
+            href={`/notes?subject=${data.id}`}
+            className="w-fit font-semibold text-primary underline"
+          >
+            Upload material
+          </Link>
+        </div>
+      )}
     </li>
   );
 }
@@ -192,7 +207,9 @@ export function SubjectsHub() {
         });
       }
     }
-    return out;
+    // PDEU students get their subjects from PDEU's list above (no manual adding); only their own
+    // subjects (made under "Other subjects") are listed here.
+    return pdeuBranch ? out.filter((c) => c.own) : out;
   }, [semester, picks, term, custom.records, mine.branch, pdeuBranch]);
 
   const shown = new Set(cards.map((c) => c.id));
@@ -330,7 +347,11 @@ export function SubjectsHub() {
         data-testid="my-subjects"
       >
         <h2 id={`${id}-mine`} className="text-xl font-semibold">
-          {semester ? `My subjects, semester ${semester}` : "My subjects"}
+          {pdeuBranch && semester
+            ? "Subjects you added yourself"
+            : semester
+              ? `My subjects, semester ${semester}`
+              : "My subjects"}
         </h2>
         {!loaded && (
           <div className="h-24 animate-pulse rounded-2xl bg-surface-2" aria-busy="true" />
@@ -342,7 +363,9 @@ export function SubjectsHub() {
         )}
         {loaded && semester && cards.length === 0 && (
           <p className="rounded-2xl border border-dashed border-border p-4 text-sm text-muted">
-            No subjects for this semester yet. Upload your syllabus or add some from the list below.
+            {pdeuBranch
+              ? "Nothing here yet. Your PDEU subjects are listed above; use the button below for a subject that isn't on Prism."
+              : "No subjects for this semester yet. Upload your syllabus or add some from the list below."}
           </p>
         )}
         {loaded && semester && cards.length > 0 && (
@@ -412,7 +435,7 @@ export function SubjectsHub() {
                   {s.name}
                   <span className="block text-xs font-normal text-muted">{s.field}</span>
                 </Link>
-                {semester && (
+                {semester && !pdeuBranch && (
                   <button
                     type="button"
                     onClick={() => toggle(s.id, true)}

@@ -409,3 +409,13 @@ Branch `overnight-v3-final` (tag `before-overnight-final`). Steps in strict orde
 | F6   | Final polish, README, DEPLOY_CHECKLIST.md                                                       |
 
 Full requirements: PRISM_OVERNIGHT_FINAL.md (sections 4-8).
+
+## 11.10 PDEU syllabus (plan update 2026-10-07)
+
+Prism's subject lists come from the owner's university, **PDEU** (Pandit Deendayal Energy University): 7 B.Tech branches (Computer, ICT, ECE, Civil, Petroleum, Biotechnology, Mechanical). Other branches and the subjects only they use were removed.
+
+- **Data:** `data/university/pdeu/` (extraction with the PDF page of every course, mapping onto the existing subjects, `overrides.json` decisions). `scripts/build-pdeu.mjs` → `scripts/map-pdeu.mjs` → `scripts/build-pdeu-layer.mjs`.
+- **Layer, not rewrite:** each PDEU course with units is a subject file `src/data/subjects/pdeu-*.json` (PDEU name, units as chapters with hours, topics). A PDEU topic that the mapping matches to an existing topic reuses its id (sources, widgets, prerequisite links, golden-set links keep working). The older subjects stay as a hidden topic bank (`bankSubjects`; lookups only).
+- **Core and non-core:** two sections under "My subjects" for a chosen branch and semester; labs, workshops and practicals are not listed (they cannot be taught through Prism). Non-core subjects are skeletons: lessons are built only from the student's uploaded faculty material, with the message "Upload material given by faculty to generate lessons for this subject." (enforced by the lesson API too). Electives: the student chooses one option per slot (saved in synced settings as `electiveChoices`).
+- **On-point lessons:** a topic is taught in its course's context: the prompt receives the unit and neighbouring topics; source search uses topic + unit + subject; contextual topic matching (Euler's theorem in Mathematics I → Euler's theorem on homogeneous functions).
+- Accuracy tests are **not** run for this layer (owner will ask). Subjects show "No test set yet" or the existing score.

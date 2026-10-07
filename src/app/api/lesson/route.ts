@@ -20,6 +20,7 @@ import {
 import { CustomSubjectPayloadSchema, toSubject } from "@/lib/custom/customSubject";
 import { searchWikipedia } from "@/lib/grounding/wikipedia";
 import { parsePassages, passagesToSources } from "@/lib/notes/notesSources";
+import { needsFacultyMaterial, NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
 import { searchedSources, sourcesForTopic } from "@/lib/sources";
 import { verifyLesson } from "@/lib/verify";
 import { visualPromptRules } from "@/visuals/visualChecks";
@@ -102,6 +103,15 @@ export async function POST(req: Request) {
   const fresh = Boolean(body.fresh);
   // Passages from the student's own notes: such lessons are personal, never shared.
   const notes = passagesToSources(parsePassages(body.notes));
+  // A non-core subject is a skeleton: its lessons are built only from the student's own material.
+  if (needsFacultyMaterial(request.subject) && notes.length === 0) {
+    const event: LessonEvent = {
+      type: "error",
+      kind: "invalid-request",
+      message: NON_CORE_UPLOAD_MESSAGE,
+    };
+    return Response.json(event, { status: 400 });
+  }
   // Lessons from the student's notes or own subject are personal, never shared.
   const personal = notes.length > 0 || custom.success || emphasis !== null;
   const key = libraryKey({

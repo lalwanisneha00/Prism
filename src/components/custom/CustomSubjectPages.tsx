@@ -7,7 +7,8 @@ import { useDataVersion } from "@/components/account/AuthProvider";
 import { CustomSubjectForm } from "@/components/custom/CustomSubjectForm";
 import { TierBadge } from "@/components/lesson/TierBadge";
 import { SubjectProgress } from "@/components/subjects/SubjectProgress";
-import { getCustomSubject, loadCustomSubject } from "@/lib/custom/store";
+import { toSubject } from "@/lib/custom/customSubject";
+import { getCustomSubject, loadCustomSubject, toPayload } from "@/lib/custom/store";
 import type { CustomSubjectRecord } from "@/lib/storage/db";
 import type { Subject } from "@/lib/subjects";
 
@@ -53,7 +54,16 @@ export function ViewCustomSubject({ id }: { id: string }) {
   >("loading");
   useEffect(() => {
     loadCustomSubject(id)
-      .then((r) => setData(r ? { subject: r.subject, record: r.record } : null))
+      .then(async (r) => {
+        if (r) return setData({ subject: r.subject, record: r.record });
+        // A subject saved with just its name has no chapters yet: still show it (with the upload note).
+        const record = await getCustomSubject(id);
+        setData(
+          record
+            ? { subject: toSubject({ ...toPayload(record, false), chapters: [] } as never), record }
+            : null,
+        );
+      })
       .catch(() => setData(null));
   }, [id, dataVersion]);
   if (data === "loading") return skeleton;

@@ -5,12 +5,14 @@ import { expect, test } from "@playwright/test";
 test("a highlight is painted and survives a reload", async ({ page }, info) => {
   test.skip(info.project.name.startsWith("mobile"), "text selection is a desktop gesture here");
   await page.goto(
-    "/lesson?subject=em&chapter=electrostatics&topic=gauss-law&level=first-encounter&duration=10",
+    "/lesson?subject=pdeu-applied-physics&chapter=electricity-and-magnetism&topic=faradays-law&level=first-encounter&duration=10",
   );
   const paragraph = page.locator("[data-section-card] .markdown p").first();
   await expect(paragraph).toBeVisible({ timeout: 60_000 });
+  // Scroll first and let it settle: a scroll event hides the highlight toolbar.
+  await paragraph.evaluate((p) => p.scrollIntoView({ block: "center" }));
+  await page.waitForTimeout(800);
   await paragraph.evaluate((p) => {
-    p.scrollIntoView({ block: "center" });
     const text = p.firstChild;
     if (!text) return;
     const range = document.createRange();

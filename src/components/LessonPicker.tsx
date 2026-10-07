@@ -26,6 +26,10 @@ import { levelColor } from "@/lib/levelColor";
 import { FLAGS } from "@/lib/flags";
 import { chapterHref } from "@/lib/chapter/request";
 import { isCustomId } from "@/lib/custom/customSubject";
+import { hasMaterialFor } from "@/lib/custom/store";
+import { visibleSubjects } from "@/lib/pdeu/electives";
+import { useElectiveChoices } from "@/components/pdeu/useElectiveChoices";
+import { needsFacultyMaterial, NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
 import {
   lessonHref,
   validateLessonRequest,
@@ -97,8 +101,16 @@ function PickerForm({
   const chosenList = sem.picks
     .map((pid) => subjects.find((s) => s.id === pid))
     .filter((s): s is Subject => Boolean(s));
+  // PDEU: every subject of the student's semester (electives as chosen), no manual adding.
+  const { choices: electiveChoices } = useElectiveChoices();
   const mineList =
-    chosenList.length > 0 ? chosenList : mine.branch ? subjectsFor(mine.branch, mine.semester) : [];
+    mine.branch && mine.semester
+      ? visibleSubjects(subjectsFor(mine.branch, mine.semester), mine.branch, electiveChoices)
+      : chosenList.length > 0
+        ? chosenList
+        : mine.branch
+          ? subjectsFor(mine.branch, mine.semester)
+          : [];
   const own = ownCount ? subjects.slice(-ownCount) : [];
   // Built-in subjects for my branch (if set), then my own subjects.
   // (Deduplicated: an own subject that is also in the semester list must show once.)
@@ -107,6 +119,21 @@ function PickerForm({
   const start = subjects.find((s) => s.id === initial.subject) ?? subjects[0];
   const [subjectId, setSubjectId] = useState(start.id);
   const subject = subjects.find((s) => s.id === subjectId) ?? subjects[0];
+  // A non-core subject is a skeleton: lessons come only from the student's uploaded material.
+  const needsMaterial = needsFacultyMaterial(subject);
+  const [materialFor, setMaterialFor] = useState<{ id: string; has: boolean } | null>(null);
+  useEffect(() => {
+    let live = true;
+    if (needsFacultyMaterial(subject)) {
+      void hasMaterialFor(subject.id).then(
+        (has) => live && setMaterialFor({ id: subject.id, has }),
+      );
+    }
+    return () => {
+      live = false;
+    };
+  }, [subject]);
+  const hasMaterial = materialFor?.id === subject.id && materialFor.has;
   // Only the chosen subject shows on top; every subject (the student's own first) is in the
   // collapsed list below.
   const shown = [subject];
@@ -126,7 +153,8 @@ function PickerForm({
   );
   const [errors, setErrors] = useState<LessonRequestErrors>({});
   const [submitting, setSubmitting] = useState(false);
-  const [useNotes, setUseNotes] = useState(false);
+  const [useNotesChoice, setUseNotes] = useState(false);
+  const useNotes = needsMaterial || useNotesChoice;
 
   // Keep the choice in the address as it is made (without adding history entries), so leaving to
   // upload a file and coming Back brings the same subject, chapter, topic, level and time back.
@@ -526,12 +554,27 @@ function PickerForm({
         )}
       </FieldGroup>
 
-      <NotesToggle checked={useNotes} onChange={setUseNotes} subjectId={subject.id} />
+      {needsMaterial ? (
+        <div
+          className="flex flex-col gap-2 rounded-xl bg-primary-soft px-4 py-3 text-sm"
+          data-testid="upload-material-note"
+        >
+          <p>{NON_CORE_UPLOAD_MESSAGE}</p>
+          <Link
+            href={`/notes?subject=${subject.id}`}
+            className="w-fit rounded-full border border-primary px-4 py-1.5 font-semibold text-primary hover:bg-surface"
+          >
+            {hasMaterial ? "Manage uploaded material" : "Upload material"}
+          </Link>
+        </div>
+      ) : (
+        <NotesToggle checked={useNotes} onChange={setUseNotes} subjectId={subject.id} />
+      )}
       <KeyIndicator />
 
       <button
         type="submit"
-        disabled={submitting}
+        disabled={submitting || (needsMaterial && !hasMaterial)}
         className="rounded-full bg-primary px-6 py-3 font-semibold text-primary-fg transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-60 sm:w-fit"
       >
         {submitting ? "Opening your lesson…" : "Build my lesson →"}

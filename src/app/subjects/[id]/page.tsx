@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import { TierBadge } from "@/components/lesson/TierBadge";
 import { TopicImportance } from "@/components/subjects/TopicImportance";
 import { SubjectProgress } from "@/components/subjects/SubjectProgress";
+import { needsFacultyMaterial, NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
 import { evalStatusCopy, evalStatusOf } from "@/lib/evalStatus";
 import { branchesOf, findSubject, subjects } from "@/lib/subjects";
 
@@ -85,6 +86,20 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
             </summary>
             <p className="mt-1 max-w-2xl">{subject.syllabusSource.note}</p>
           </details>
+        )}
+        {needsFacultyMaterial(subject) && (
+          <div
+            className="flex max-w-2xl flex-col gap-2 rounded-xl bg-primary-soft px-4 py-3 text-sm"
+            data-testid="upload-material-note"
+          >
+            <p>{NON_CORE_UPLOAD_MESSAGE}</p>
+            <Link
+              href={`/notes?subject=${subject.id}`}
+              className="w-fit rounded-full bg-primary px-4 py-1.5 font-semibold text-primary-fg hover:bg-primary-hover"
+            >
+              Upload material
+            </Link>
+          </div>
         )}
         <nav aria-label="Shortcuts" className="flex flex-wrap gap-2">
           {actions.map((a, i) => (

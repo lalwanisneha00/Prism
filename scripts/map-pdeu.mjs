@@ -218,7 +218,12 @@ function analyse(c, core) {
   // topic of a subject this course draws on ("Euler's theorem" in Mathematics I is the existing
   // "Euler's theorem on homogeneous functions") reuses that topic. Only subjects already matched to the
   // course are searched, so a short name is never matched to an unrelated subject.
-  const candidateIds = new Set(ranked.filter((r) => r.n >= 2).slice(0, 3).map((r) => r.id));
+  const candidateIds = new Set(
+    ranked
+      .filter((r) => r.n >= 2)
+      .slice(0, 3)
+      .map((r) => r.id),
+  );
   for (const sub of subjects.values()) {
     const a = new Set(nameKey(sub.name).split(" ").filter(Boolean));
     const b = new Set(nameKey(c.name).split(" ").filter(Boolean));

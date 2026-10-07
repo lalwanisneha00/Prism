@@ -7,10 +7,10 @@ test.describe("Time recommendations and planner (V3 · Step 11)", () => {
     await page.getByTestId("all-subjects-list").locator("summary").click();
     await page
       .getByTestId("all-subjects-list")
-      .getByRole("button", { name: /Electricity & Magnetism/ })
+      .getByRole("button", { name: /^Applied Physics/ })
       .click();
-    await page.getByLabel("Or browse by chapter").selectOption("electrostatics");
-    await page.getByText("Gauss's law", { exact: true }).click();
+    await page.getByLabel("Or browse by chapter").selectOption("electricity-and-magnetism");
+    await page.getByText(/Faraday/).click();
     await page.getByText("Building Blocks", { exact: true }).click();
     await expect(page.getByTestId("length-why")).toContainText("Recommended");
     await expect(page.getByText("Recommended", { exact: true }).first()).toBeVisible();
@@ -20,9 +20,9 @@ test.describe("Time recommendations and planner (V3 · Step 11)", () => {
 
   test("a 7-day plan with 5–30 min per topic and 8 h days off", async ({ page }) => {
     await page.goto("/planner");
-    await page.getByRole("searchbox").fill("Engineering Mathematics");
+    await page.getByRole("searchbox").fill("Mathematics - I");
     await page
-      .getByRole("button", { name: /Add Engineering Mathematics/ })
+      .getByRole("button", { name: /Add Mathematics - I \(CE/ })
       .first()
       .click();
     await page.getByRole("button", { name: /Custom/ }).click();
@@ -48,7 +48,7 @@ test.describe("Time recommendations and planner (V3 · Step 11)", () => {
   });
 
   test("the subject page lets me set a topic's importance", async ({ page }) => {
-    await page.goto("/subjects/em");
+    await page.goto("/subjects/pdeu-applied-physics");
     const select = page.getByLabel(/Importance of/).first();
     await select.selectOption("high");
     await expect(page.getByText("High return").first()).toBeVisible();

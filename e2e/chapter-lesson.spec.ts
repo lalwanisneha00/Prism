@@ -4,7 +4,7 @@ import { expectNoSidewaysScroll } from "./helpers/layout";
 test("a chapter lesson is built topic by topic and resumes after a reload", async ({ page }) => {
   test.setTimeout(240_000);
   await page.goto(
-    "/chapter?subject=em&chapter=electrostatics&topics=electric-flux,gauss-law,gauss-law-applications&level=first-encounter&minutes=30",
+    "/chapter?subject=pdeu-applied-physics&chapter=electricity-and-magnetism&topics=vector-potential,ohms-law,faradays-law&level=first-encounter&minutes=30",
   );
   await expect(page.getByTestId("plan-list").getByRole("listitem")).toHaveCount(3);
   await page.getByRole("link", { name: /Start the lesson/ }).click();
@@ -31,6 +31,8 @@ test("a chapter lesson is built topic by topic and resumes after a reload", asyn
 });
 
 test("a broken chapter lesson link explains itself", async ({ page }) => {
-  await page.goto("/chapter/lesson?subject=em&chapter=nowhere&level=first-encounter&minutes=30");
+  await page.goto(
+    "/chapter/lesson?subject=pdeu-applied-physics&chapter=nowhere&level=first-encounter&minutes=30",
+  );
   await expect(page.getByRole("heading", { name: /can't be opened/ })).toBeVisible();
 });

@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { expectNoSidewaysScroll } from "./helpers/layout";
 
 const LESSON =
-  "/chapter/lesson?subject=em&chapter=electrostatics&topics=electric-flux,gauss-law,gauss-law-applications&level=exam-prep&minutes=30&plan=electric-flux:10,gauss-law:10,gauss-law-applications:10";
+  "/chapter/lesson?subject=pdeu-applied-physics&chapter=electricity-and-magnetism&topics=vector-potential,ohms-law,faradays-law&level=exam-prep&minutes=30&plan=vector-potential:10,ohms-law:10,faradays-law:10";
 
 test("reading a chapter lesson: progress, resume, mixed quiz, mock test, dashboard", async ({
   page,
@@ -34,14 +34,14 @@ test("reading a chapter lesson: progress, resume, mixed quiz, mock test, dashboa
   await expect(bar).toContainText("3 of 3 topics done");
 
   // The reading position is saved: come back after scrolling to topic 2.
-  await page.locator('[data-topic-section="gauss-law"]').scrollIntoViewIfNeeded();
+  await page.locator('[data-topic-section="ohms-law"]').scrollIntoViewIfNeeded();
   await page
-    .locator('[data-topic-section="gauss-law"] h2')
+    .locator('[data-topic-section="ohms-law"] h2')
     .first()
     .evaluate((h) => h.scrollIntoView({ block: "start" }));
   await page.waitForTimeout(2500);
   await page.reload();
-  await expect(page.getByTestId("resume")).toContainText("Gauss", { timeout: 30_000 });
+  await expect(page.getByTestId("resume")).toContainText(/Gauss|Ohm/, { timeout: 30_000 });
   await expect(page.getByTestId("reading-bar")).toContainText("3 of 3 topics done");
 
   // Chapter extras: revision sheet and the mixed quiz.
@@ -66,5 +66,5 @@ test("reading a chapter lesson: progress, resume, mixed quiz, mock test, dashboa
 
   await page.goto("/dashboard");
   await expect(page.getByText("Recent mock tests")).toBeVisible({ timeout: 30_000 });
-  await expect(page.getByText(/Electrostatics · 15 min/)).toBeVisible();
+  await expect(page.getByText(/Electricity and Magnetism · 15 min/)).toBeVisible();
 });

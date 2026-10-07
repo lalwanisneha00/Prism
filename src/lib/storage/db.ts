@@ -128,6 +128,8 @@ export type AppSettings = SyncFields & {
    * their own). Colleges differ, so the student chooses; it shapes "My subjects" and the picker.
    */
   mySubjects?: Record<string, string[]>;
+  /** The elective option the student picked for each slot: "<branch>/<slot key>" → option key. */
+  electiveChoices?: Record<string, string>;
   /**
    * The student's university syllabus applied to built-in subjects: subject id → chapter id → the
    * topic ids their university teaches. A chapter that is missing is not taught there.
