@@ -60,11 +60,9 @@ describe("PDEU syllabus data", () => {
     // Labs and workshops are not listed: they cannot be taught through Prism.
     expect(sem1.some((c) => /laboratory|workshop/i.test(c.name))).toBe(false);
     expect(sem1.map((c) => c.name)).not.toContain("Applied Physics Laboratory");
-    // The same course stays in the other branches.
+    // Workshops are practical courses, so they are left out of every branch.
     const ict = await loadPdeuBranch("ict");
-    expect(ict.subjects.some((c) => c.semester === 1 && c.name === "Workshop Practices")).toBe(
-      true,
-    );
+    expect(ict.subjects.some((c) => /workshop/i.test(c.name))).toBe(false);
   });
 
   it("an elective slot either lists its options or says where they are", async () => {
