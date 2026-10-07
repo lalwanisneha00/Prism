@@ -10,7 +10,7 @@ const funMessages = [
   "Untangling field lines…",
   "Asking the textbook for a second opinion…",
   "Checking the units twice…",
-  "Drawing a better analogy than your professor…",
+  "Finding a clear everyday example…",
   "Counting significant figures…",
   "Making the maths look nice…",
 ];

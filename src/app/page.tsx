@@ -35,7 +35,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
               {subjects.length} engineering subjects · six ways in
             </p>
             <h1 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl">
-              The topic your professor rushed,{" "}
+              The topics you got stuck on,{" "}
               <span className="text-spectrum">explained clearly</span>.
             </h1>
             <p className="mt-4 max-w-xl text-lg text-pretty text-muted">{site.description}</p>

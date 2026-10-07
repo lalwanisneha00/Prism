@@ -122,6 +122,10 @@ function ProviderCard({
           className="rounded-xl border border-border bg-bg px-3 py-2 font-mono text-sm font-normal"
         />
       </label>
+      <p className="text-sm text-muted" data-testid="key-privacy-note">
+        <strong>Only for you:</strong> your key is used only for your own account and your own
+        lessons, never for any other person.
+      </p>
 
       <label className="flex flex-col gap-1 text-sm font-semibold" htmlFor={`${id}-model`}>
         Model

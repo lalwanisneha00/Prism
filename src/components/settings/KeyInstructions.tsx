@@ -6,7 +6,11 @@ export function KeyInstructions() {
         role="note"
         className="rounded-2xl border-2 border-primary bg-primary-soft p-5 text-base"
       >
-        <p className="font-bold">Prism will not work without your own API key.</p>
+        <p className="text-lg font-bold" data-testid="key-only-for-you">
+          Your key will only be used for your own account and your own lessons, never for any other
+          person.
+        </p>
+        <p className="mt-3 font-bold">Prism will not work without your own API key.</p>
         <p className="mt-1">
           Prism is free, but the AI that writes your lessons needs a key. You make one for free in
           about 2 minutes, and it is only for you. Without a key, lessons cannot be made.
