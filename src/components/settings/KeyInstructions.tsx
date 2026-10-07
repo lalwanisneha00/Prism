@@ -92,6 +92,9 @@ export function KeyInstructions() {
       <h2 id="add-key" className="scroll-mt-24 text-2xl font-bold">
         Add your key here
       </h2>
+      <p className="-mt-3 text-sm text-muted" data-testid="add-key-privacy">
+        Your API key is only used to generate your own lessons and is saved only in your account.
+      </p>
     </div>
   );
 }

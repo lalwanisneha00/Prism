@@ -38,7 +38,12 @@ export function AddKeyBar() {
       className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 bg-primary px-4 py-2 text-center text-sm text-primary-fg"
       data-testid="add-key-bar"
     >
-      <span className="font-semibold">Prism needs your own free API key to make lessons.</span>
+      <span>
+        <span className="font-semibold">Prism needs your own free API key to make lessons.</span>
+        <span className="block text-xs opacity-90" data-testid="add-key-bar-privacy">
+          Your API key is only used to generate your own lessons and is saved only in your account.
+        </span>
+      </span>
       <Link
         href="/settings/keys#add-key"
         className="rounded-full bg-bg px-4 py-1.5 text-sm font-bold tracking-wide text-primary uppercase hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bg"
