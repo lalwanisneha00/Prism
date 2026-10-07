@@ -64,6 +64,13 @@ export async function POST(req: Request) {
   } catch (err) {
     const error = err instanceof LlmError ? err : new LlmError("unavailable", String(err));
     console.warn("[api/test-key]", error.kind, redact(error.message, key));
-    return reply({ ok: false, kind: error.kind, message: COPY[error.kind] ?? COPY.unavailable });
+    // The provider's own reason (the key removed, cut short) so a student can see what went wrong.
+    const reason = redact(error.message, key).replace(/s+/g, " ").slice(0, 220);
+    const base = COPY[error.kind] ?? COPY.unavailable;
+    return reply({
+      ok: false,
+      kind: error.kind,
+      message: error.kind === "unavailable" && reason ? `${base} Details: ${reason}` : base,
+    });
   }
 }
