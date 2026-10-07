@@ -6,892 +6,857 @@ How to read it: **Same** = same content, maybe a different name. **Subset** = th
 
 ## Summary
 
-- Courses and elective options listed: 565
-- With a syllabus to map: 444 (Same 1, Subset 52, Combined 15, Partly new 124, New 252)
-- Reuse existing data fully (Same): 1; partly (Subset, Combined, Partly new): 191; not at all (New): 252
-- Unsure categories: 33
+- Courses and elective options listed: 564
+- With a syllabus to map: 443 (Same 1, Subset 52, Combined 15, Partly new 124, New 251)
+- Reuse existing data fully (Same): 1; partly (Subset, Combined, Partly new): 191; not at all (New): 251
+- Unsure categories: 0
 
 ## Unsure (the owner decides)
 
-| Branch  | Sem | Course                                                        | Why                                                                                                | Leaning  |
-| ------- | --- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------- |
-| ce      | 1   | Environment Science                                           | PDEU tags it Basic Science (core), but it is a general course whose content depends on the college | core     |
-| ce      | 2   | Yoga, Health & Hygiene OR NCC OR NSS                          | Not an engineering course; PDEU files it under Humanities                                          | non-core |
-| ce      | 5   | Introduction to Artificial Intelligence (Department Specific) | Engineering Science at PDEU (core); a general introduction rather than a branch subject            | core     |
-| ce      | 7   | Industry 4.0 (Department Specific)                            | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| ce      | 7   | Industry 4.0 Laboratory (Department Specific)                 | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| ict     | 1   | Environment Science                                           | PDEU tags it Basic Science (core), but it is a general course whose content depends on the college | core     |
-| ict     | 2   | Yoga, Health & Hygiene OR NCC/NSS                             | Not an engineering course; PDEU files it under Humanities                                          | non-core |
-| ict     | 3   | Introduction to Artificial Intelligence (Department Specific) | Engineering Science at PDEU (core); a general introduction rather than a branch subject            | core     |
-| ict     | 4   | Industry 4.0 (Department Specific)                            | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| ict     | 4   | Industry 4.0 - Laboratory (Department Specific)               | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| ece     | 1   | Environment Science                                           | PDEU tags it Basic Science (core), but it is a general course whose content depends on the college | core     |
-| ece     | 2   | Yoga, Health & Hygiene OR NCC/NSS                             | Not an engineering course; PDEU files it under Humanities                                          | non-core |
-| ece     | 3   | Introduction to Artificial Intelligence (Department Specific) | Engineering Science at PDEU (core); a general introduction rather than a branch subject            | core     |
-| ece     | 4   | Industry 4.0 (Department Specific)                            | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| ece     | 4   | Industry 4.0 - Laboratory (Department Specific)               | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| civil   | 1   | Environment Science                                           | PDEU tags it Basic Science (core), but it is a general course whose content depends on the college | core     |
-| civil   | 2   | Yoga, Health & Hygiene OR NCC/NSS                             | Not an engineering course; PDEU files it under Humanities                                          | non-core |
-| civil   | 3   | Introduction to Artificial Intelligence                       | Engineering Science at PDEU (core); a general introduction rather than a branch subject            | core     |
-| civil   | 4   | Industry 4.0 (Department Specific)                            | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| civil   | 4   | Industry 4.0 - Lab (Department Specific)                      | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| petro   | 1   | Environmental Science                                         | PDEU tags it Basic Science (core), but it is a general course whose content depends on the college | core     |
-| petro   | 2   | Yoga, Health & Hygiene OR NSS OR NCC                          | Not an engineering course; PDEU files it under Humanities                                          | non-core |
-| petro   | 3   | Introduction to Artificial Intelligence                       | Engineering Science at PDEU (core); a general introduction rather than a branch subject            | core     |
-| petro   | 4   | Industry 4.0                                                  | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| petro   | 4   | Industry 4.0 Laboratory                                       | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| biotech | 1   | Environmental Science                                         | PDEU tags it Basic Science (core), but it is a general course whose content depends on the college | core     |
-| biotech | 2   | Yoga, Health & Hygiene OR NSS OR NCC                          | Not an engineering course; PDEU files it under Humanities                                          | non-core |
-| biotech | 3   | Introduction to Artificial Intelligence                       | Engineering Science at PDEU (core); a general introduction rather than a branch subject            | core     |
-| biotech | 4   | Industry 4.0 (Department Specific)                            | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| biotech | 4   | Industry 4.0 Laboratory (Department Specific)                 | Engineering Science at PDEU, but largely a general overview course                                 | core     |
-| me      | 1   | Environmental Studies                                         | PDEU tags it Basic Science (core), but it is a general course whose content depends on the college | non-core |
-| me      | 1   | NCC-I OR NSS-I OR Sports-I                                    | Not an engineering course; PDEU files it under Humanities                                          | non-core |
-| me      | 2   | NCC / NSS                                                     | Not an engineering course; PDEU files it under Humanities                                          | non-core |
+None.
 
 ## Tables
 
 ### Computer Engineering, semester 1
 
-| Code     | PDEU course                         | Category           | Match               | Existing Prism subject(s) (id, topics matched)                        | Topic ids reused | New topics |
-| -------- | ----------------------------------- | ------------------ | ------------------- | --------------------------------------------------------------------- | ---------------- | ---------- |
-| 24MA101T | Mathematics - I                     | Core               | Subset              | Engineering Mathematics (engg-math, 13)                               | 12               | 18         |
-| 24PH101T | Applied Physics                     | Core               | Combined            | Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 4) | 5                | 47         |
-| 24PH101P | Applied Physics Laboratory          | Core               | Partly new          | Applied Physics (applied-physics, 2)                                  | 2                | 11         |
-| 24CV101T | Environment Science                 | unsure (lean core) | Partly new          | Environmental Science (environmental-science, 2)                      | 2                | 19         |
-| 24ME101T | Workshop Practices                  | Core               | New                 |                                                                       | 0                | 9          |
-| 24ME102T | Engineering Graphics                | Core               | Subset              | Engineering Graphics & Design (engg-graphics, 3)                      | 3                | 6          |
-| 24CP101T | Computer Programming - I            | Core               | Partly new          | Programming for Problem Solving (pps, 3)                              | 2                | 40         |
-| 24CP101P | Computer Programming - I Laboratory | Core               | Subset              | Programming for Problem Solving (pps, 3)                              | 3                | 6          |
-| 24HS101T | English Communication               | Non-core           | New                 |                                                                       | 0                | 14         |
-| 24HS102T | Universal Human Values              | Non-core           | New                 |                                                                       | 0                | 29         |
-| 24HS103T | Indian Knowledge System             | Non-core           | no syllabus printed |                                                                       |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24MA101T | Mathematics - I | Core | Subset | Engineering Mathematics (engg-math, 13) | 12 | 18 |
+| 24PH101T | Applied Physics | Core | Combined | Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 4) | 5 | 47 |
+| 24PH101P | Applied Physics Laboratory | Core | Partly new | Applied Physics (applied-physics, 2) | 2 | 11 |
+| 24CV101T | Environment Science | Non-core | Partly new | Environmental Science (environmental-science, 2) | 2 | 19 |
+| 24ME102T | Engineering Graphics | Core | Subset | Engineering Graphics & Design (engg-graphics, 3) | 3 | 6 |
+| 24CP101T | Computer Programming - I | Core | Partly new | Programming for Problem Solving (pps, 3) | 2 | 40 |
+| 24CP101P | Computer Programming - I Laboratory | Core | Subset | Programming for Problem Solving (pps, 3) | 3 | 6 |
+| 24HS101T | English Communication | Non-core | New |  | 0 | 14 |
+| 24HS102T | Universal Human Values | Non-core | New |  | 0 | 29 |
+| 24HS103T | Indian Knowledge System | Non-core | no syllabus printed |  |  |  |
 
 ### Computer Engineering, semester 2
 
-| Code                           | PDEU course                                                 | Category               | Match      | Existing Prism subject(s) (id, topics matched)                                                                               | Topic ids reused | New topics |
-| ------------------------------ | ----------------------------------------------------------- | ---------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 24MA103T                       | Mathematics - II                                            | Core                   | Subset     | Engineering Mathematics (engg-math, 10)                                                                                      | 7                | 25         |
-| 24CH101T                       | Engineering Chemistry                                       | Core                   | Partly new | Engineering Chemistry (engg-chemistry, same name, 0 by wording)                                                              | 0                | 16         |
-| 24CH101P                       | Engineering Chemistry Laboratory                            | Core                   | New        |                                                                                                                              | 0                | 9          |
-| 24EE101T                       | Elements of Electrical & Electronics Engineering            | Core                   | Combined   | Basic Electrical Engineering (basic-electrical, 12); Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 6)   | 19               | 25         |
-| 24EE101P                       | Elements of Electrical & Electronics Engineering Laboratory | Core                   | Subset     | Basic Electrical Engineering (basic-electrical, 2); Network Theory (network-theory, 2); Applied Physics (applied-physics, 2) | 5                | 9          |
-| 24BT101T                       | Biological Systems for Engineers                            | Core                   | New        |                                                                                                                              | 0                | 21         |
-| 24CP102T                       | Computer Programming - II                                   | Core                   | Partly new | Programming for Problem Solving (pps, 2)                                                                                     | 2                | 54         |
-| 24CP102P                       | Computer Programming - II Laboratory                        | Core                   | New        |                                                                                                                              | 1                | 7          |
-| 24HS105T                       | Professional Communication                                  | Non-core               | New        |                                                                                                                              | 0                | 14         |
-| 24PH101T / 24PH102T / 24PH103T | Yoga, Health & Hygiene OR NCC OR NSS                        | unsure (lean non-core) | New        |                                                                                                                              | 0                | 63         |
-| 24HS104T                       | Organizational Behavior                                     | Non-core               | New        |                                                                                                                              | 0                | 25         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24MA103T | Mathematics - II | Core | Subset | Engineering Mathematics (engg-math, 10) | 7 | 25 |
+| 24CH101T | Engineering Chemistry | Core | Partly new | Engineering Chemistry (engg-chemistry, same name, 0 by wording) | 0 | 16 |
+| 24CH101P | Engineering Chemistry Laboratory | Core | New |  | 0 | 9 |
+| 24EE101T | Elements of Electrical & Electronics Engineering | Core | Combined | Basic Electrical Engineering (basic-electrical, 12); Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 6) | 19 | 25 |
+| 24EE101P | Elements of Electrical & Electronics Engineering Laboratory | Core | Subset | Basic Electrical Engineering (basic-electrical, 2); Network Theory (network-theory, 2); Applied Physics (applied-physics, 2) | 5 | 9 |
+| 24BT101T | Biological Systems for Engineers | Core | New |  | 0 | 21 |
+| 24CP102T | Computer Programming - II | Core | Partly new | Programming for Problem Solving (pps, 2) | 2 | 54 |
+| 24CP102P | Computer Programming - II Laboratory | Core | New |  | 1 | 7 |
+| 24HS105T | Professional Communication | Non-core | New |  | 0 | 14 |
+| 24PH101T / 24PH102T / 24PH103T | Yoga, Health & Hygiene OR NCC OR NSS | Non-core | New |  | 0 | 63 |
+| 24HS104T | Organizational Behavior | Non-core | New |  | 0 | 25 |
 
 ### Computer Engineering, semester 3
 
-| Code      | PDEU course                            | Category | Match               | Existing Prism subject(s) (id, topics matched)                                 | Topic ids reused | New topics |
-| --------- | -------------------------------------- | -------- | ------------------- | ------------------------------------------------------------------------------ | ---------------- | ---------- |
-| 24MA202T  | Discrete Mathematics                   | Core     | Partly new          | Discrete Mathematics (discrete-maths, 4)                                       | 2                | 49         |
-| 24CS202T  | Database Management System             | Core     | Subset              | Database Management Systems (dbms, 5)                                          | 3                | 51         |
-| 24CS202P  | Database Management System Laboratory  | Core     | Partly new          | Database Management Systems (dbms, 2)                                          | 2                | 5          |
-| 24CS201T  | Digital Logic and Design               | Core     | Partly new          | Digital Logic Design (digital-logic, 3)                                        | 0                | 68         |
-| 24CS203T  | Data Structures                        | Core     | Subset              | Data Structures and Algorithms (dsa, 6)                                        | 5                | 21         |
-| 24CS203P  | Data Structures Laboratory             | Core     | New                 |                                                                                | 1                | 3          |
-| 24CS204T  | Object Oriented Programming            | Core     | Partly new          | Object-Oriented Programming (oop, 3); Programming for Problem Solving (pps, 2) | 1                | 34         |
-| 24CS204P  | Object Oriented Programming Laboratory | Core     | Partly new          | Object-Oriented Programming (oop, 2)                                           | 2                | 9          |
-| 24INT151T | Civic and Social Service Internship    | Non-core | no syllabus printed |                                                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24MA202T | Discrete Mathematics | Core | Partly new | Discrete Mathematics (discrete-maths, 4) | 2 | 49 |
+| 24CS202T | Database Management System | Core | Subset | Database Management Systems (dbms, 5) | 3 | 51 |
+| 24CS202P | Database Management System Laboratory | Core | Partly new | Database Management Systems (dbms, 2) | 2 | 5 |
+| 24CS201T | Digital Logic and Design | Core | Partly new | Digital Logic Design (digital-logic, 3) | 0 | 68 |
+| 24CS203T | Data Structures | Core | Subset | Data Structures and Algorithms (dsa, 6) | 5 | 21 |
+| 24CS203P | Data Structures Laboratory | Core | New |  | 1 | 3 |
+| 24CS204T | Object Oriented Programming | Core | Partly new | Object-Oriented Programming (oop, 3); Programming for Problem Solving (pps, 2) | 1 | 34 |
+| 24CS204P | Object Oriented Programming Laboratory | Core | Partly new | Object-Oriented Programming (oop, 2) | 2 | 9 |
+| 24INT151T | Civic and Social Service Internship | Non-core | no syllabus printed |  |  |  |
 
 ### Computer Engineering, semester 4
 
-| Code          | PDEU course                                 | Category | Match               | Existing Prism subject(s) (id, topics matched)                                                             | Topic ids reused | New topics |
-| ------------- | ------------------------------------------- | -------- | ------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 24CS205P      | Design Thinking                             | Core     | no syllabus printed |                                                                                                            |                  |            |
-| 24CS206T      | Probability and Statistics Theory           | Core     | New                 |                                                                                                            | 1                | 51         |
-| 24CS207T      | Computer Organization and Architecture      | Core     | Partly new          | Microprocessors and Microcontrollers (microprocessors, 3); Computer Organisation and Architecture (coa, 2) | 3                | 47         |
-| 24CS209T      | Software Engineering                        | Core     | Partly new          | Software Engineering (software-engineering, 3)                                                             | 1                | 49         |
-| 24CS209P      | Software Engineering Laboratory             | Core     | New                 |                                                                                                            | 0                | 6          |
-| 24CS208T      | Theory of Computation                       | Core     | Same                | Theory of Computation (theory-of-computation, 10)                                                          | 5                | 59         |
-| 24CS210T      | Design and Analysis of Algorithm            | Core     | Subset              | Data Structures and Algorithms (dsa, 5)                                                                    | 2                | 22         |
-| 24CS210P      | Design and Analysis of Algorithm Laboratory | Core     | Subset              | Data Structures and Algorithms (dsa, 2)                                                                    | 3                | 3          |
-| (not printed) | Open Elective 1 (from another school)       | Non-core | no syllabus printed |                                                                                                            |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24CS205P | Design Thinking | Core | no syllabus printed |  |  |  |
+| 24CS206T | Probability and Statistics Theory | Core | New |  | 1 | 51 |
+| 24CS207T | Computer Organization and Architecture | Core | Partly new | Microprocessors and Microcontrollers (microprocessors, 3); Computer Organisation and Architecture (coa, 2) | 3 | 47 |
+| 24CS209T | Software Engineering | Core | Partly new | Software Engineering (software-engineering, 3) | 1 | 49 |
+| 24CS209P | Software Engineering Laboratory | Core | New |  | 0 | 6 |
+| 24CS208T | Theory of Computation | Core | Same | Theory of Computation (theory-of-computation, 10) | 5 | 59 |
+| 24CS210T | Design and Analysis of Algorithm | Core | Subset | Data Structures and Algorithms (dsa, 5) | 2 | 22 |
+| 24CS210P | Design and Analysis of Algorithm Laboratory | Core | Subset | Data Structures and Algorithms (dsa, 2) | 3 | 3 |
+| (not printed) | Open Elective 1 (from another school) | Non-core | no syllabus printed |  |  |  |
 
 ### Computer Engineering, semester 5
 
-| Code          | PDEU course                                                           | Category           | Match               | Existing Prism subject(s) (id, topics matched)                                             | Topic ids reused | New topics |
-| ------------- | --------------------------------------------------------------------- | ------------------ | ------------------- | ------------------------------------------------------------------------------------------ | ---------------- | ---------- |
-| 24CS301T      | Introduction to Artificial Intelligence (Department Specific)         | unsure (lean core) | Partly new          | Artificial Intelligence and Machine Learning (ai-ml, 3)                                    | 4                | 32         |
-| (not printed) | Program Elective 1                                                    | Core               | slot (see options)  |                                                                                            |                  |            |
-| 24CS331T      | Data Mining and Data Warehousing (option of Program Elective 1)       | Core               | New                 |                                                                                            | 1                | 57         |
-| 24CS332T      | Object Oriented Modelling and Design (option of Program Elective 1)   | Core               | New                 |                                                                                            | 0                | 34         |
-| 24CS333T      | Computer Graphics (option of Program Elective 1)                      | Core               | New                 |                                                                                            | 0                | 27         |
-| 24CS335T      | Advanced Data Structure and Algorithms (option of Program Elective 1) | Core               | Partly new          | Data Structures and Algorithms (dsa, 3)                                                    | 1                | 34         |
-| 24CS334T      | Data Communication (option of Program Elective 1)                     | Core               | Partly new          | Communication Systems (communication-systems, 3); Computer Networks (computer-networks, 3) | 6                | 11         |
-| 24CS302T      | Computer Networks                                                     | Core               | Partly new          | Computer Networks (computer-networks, same name, 0 by wording)                             | 1                | 34         |
-| 24CS302P      | Computer Networks Laboratory                                          | Core               | Partly new          | Computer Networks (computer-networks, same name, 0 by wording)                             | 1                | 10         |
-| 24CS303T      | Compiler Design                                                       | Core               | Partly new          | Compiler Design (compiler-design, 2)                                                       | 1                | 31         |
-| 24CS303P      | Compiler Design Laboratory                                            | Core               | Partly new          | Compiler Design (compiler-design, same name, 0 by wording)                                 | 0                | 8          |
-| 24CS304T      | Operating System                                                      | Core               | Subset              | Operating Systems (operating-systems, 6)                                                   | 1                | 50         |
-| 24CS304P      | Operating System Laboratory                                           | Core               | New                 |                                                                                            | 0                | 6          |
-| MOOC          | Open Elective 2 (NPTEL/SWAYAM/MOOC)                                   | Non-core           | no syllabus printed |                                                                                            |                  |            |
-| 24HS301T      | Engineering Economics                                                 | Non-core           | no syllabus printed |                                                                                            |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24CS301T | Introduction to Artificial Intelligence (Department Specific) | Core | Partly new | Artificial Intelligence and Machine Learning (ai-ml, 3) | 4 | 32 |
+| (not printed) | Program Elective 1 | Core | slot (see options) |  |  |  |
+| 24CS331T | Data Mining and Data Warehousing (option of Program Elective 1) | Core | New |  | 1 | 57 |
+| 24CS332T | Object Oriented Modelling and Design (option of Program Elective 1) | Core | New |  | 0 | 34 |
+| 24CS333T | Computer Graphics (option of Program Elective 1) | Core | New |  | 0 | 27 |
+| 24CS335T | Advanced Data Structure and Algorithms (option of Program Elective 1) | Core | Partly new | Data Structures and Algorithms (dsa, 3) | 1 | 34 |
+| 24CS334T | Data Communication (option of Program Elective 1) | Core | Partly new | Communication Systems (communication-systems, 3); Computer Networks (computer-networks, 3) | 6 | 11 |
+| 24CS302T | Computer Networks | Core | Partly new | Computer Networks (computer-networks, same name, 0 by wording) | 1 | 34 |
+| 24CS302P | Computer Networks Laboratory | Core | Partly new | Computer Networks (computer-networks, same name, 0 by wording) | 1 | 10 |
+| 24CS303T | Compiler Design | Core | Partly new | Compiler Design (compiler-design, 2) | 1 | 31 |
+| 24CS303P | Compiler Design Laboratory | Core | Partly new | Compiler Design (compiler-design, same name, 0 by wording) | 0 | 8 |
+| 24CS304T | Operating System | Core | Subset | Operating Systems (operating-systems, 6) | 1 | 50 |
+| 24CS304P | Operating System Laboratory | Core | New |  | 0 | 6 |
+| MOOC | Open Elective 2 (NPTEL/SWAYAM/MOOC) | Non-core | no syllabus printed |  |  |  |
+| 24HS301T | Engineering Economics | Non-core | no syllabus printed |  |  |  |
 
 ### Computer Engineering, semester 6
 
-| Code          | PDEU course                                                | Category | Match               | Existing Prism subject(s) (id, topics matched)          | Topic ids reused | New topics |
-| ------------- | ---------------------------------------------------------- | -------- | ------------------- | ------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective 2                                         | Core     | slot (see options)  |                                                         |                  |            |
-| 24CS336T      | Soft Computing (option of Program Elective 2)              | Core     | Partly new          | Artificial Intelligence and Machine Learning (ai-ml, 2) | 2                | 25         |
-| 24CS337T      | UI/UX Design (option of Program Elective 2)                | Core     | New                 |                                                         | 0                | 8          |
-| 24CS338T      | Digital Image Processing (option of Program Elective 2)    | Core     | New                 |                                                         | 1                | 30         |
-| 24CS339T      | Blockchain Technology (option of Program Elective 2)       | Core     | New                 |                                                         | 0                | 13         |
-| 24CS340T      | Mobile Computing (option of Program Elective 2)            | Core     | New                 |                                                         | 0                | 30         |
-| (not printed) | Program Elective 3                                         | Core     | slot (see options)  |                                                         |                  |            |
-| 24CS341T      | Deep Learning (option of Program Elective 3)               | Core     | New                 |                                                         | 2                | 33         |
-| 24CS342T      | Secure Software Engineering (option of Program Elective 3) | Core     | New                 |                                                         | 0                | 17         |
-| 24CS343T      | Computer Vision (option of Program Elective 3)             | Core     | New                 |                                                         | 2                | 49         |
-| 24CS344T      | Big Data Analytics (option of Program Elective 3)          | Core     | New                 |                                                         | 0                | 33         |
-| 24CS345T      | Wireless Sensor Networks (option of Program Elective 3)    | Core     | New                 |                                                         | 0                | 34         |
-| 24CS305T      | Cryptography and Network Security                          | Core     | New                 |                                                         | 0                | 23         |
-| 24CS305P      | Cryptography and Network Security Laboratory               | Core     | New                 |                                                         | 0                | 9          |
-| 24CS306T      | Web & Mobile Development Essentials                        | Core     | New                 |                                                         | 0                | 39         |
-| 24CS306P      | Web & Mobile Development Essentials Laboratory             | Core     | New                 |                                                         | 0                | 7          |
-| 24CS307T      | Distributed Computing                                      | Core     | New                 |                                                         | 0                | 17         |
-| 24CS307P      | Distributed Computing Laboratory                           | Core     | New                 |                                                         | 0                | 5          |
-| (not printed) | Open Elective 3 (from another department of FoET)          | Non-core | no syllabus printed |                                                         |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 2 | Core | slot (see options) |  |  |  |
+| 24CS336T | Soft Computing (option of Program Elective 2) | Core | Partly new | Artificial Intelligence and Machine Learning (ai-ml, 2) | 2 | 25 |
+| 24CS337T | UI/UX Design (option of Program Elective 2) | Core | New |  | 0 | 8 |
+| 24CS338T | Digital Image Processing (option of Program Elective 2) | Core | New |  | 1 | 30 |
+| 24CS339T | Blockchain Technology (option of Program Elective 2) | Core | New |  | 0 | 13 |
+| 24CS340T | Mobile Computing (option of Program Elective 2) | Core | New |  | 0 | 30 |
+| (not printed) | Program Elective 3 | Core | slot (see options) |  |  |  |
+| 24CS341T | Deep Learning (option of Program Elective 3) | Core | New |  | 2 | 33 |
+| 24CS342T | Secure Software Engineering (option of Program Elective 3) | Core | New |  | 0 | 17 |
+| 24CS343T | Computer Vision (option of Program Elective 3) | Core | New |  | 2 | 49 |
+| 24CS344T | Big Data Analytics (option of Program Elective 3) | Core | New |  | 0 | 33 |
+| 24CS345T | Wireless Sensor Networks (option of Program Elective 3) | Core | New |  | 0 | 34 |
+| 24CS305T | Cryptography and Network Security | Core | New |  | 0 | 23 |
+| 24CS305P | Cryptography and Network Security Laboratory | Core | New |  | 0 | 9 |
+| 24CS306T | Web & Mobile Development Essentials | Core | New |  | 0 | 39 |
+| 24CS306P | Web & Mobile Development Essentials Laboratory | Core | New |  | 0 | 7 |
+| 24CS307T | Distributed Computing | Core | New |  | 0 | 17 |
+| 24CS307P | Distributed Computing Laboratory | Core | New |  | 0 | 5 |
+| (not printed) | Open Elective 3 (from another department of FoET) | Non-core | no syllabus printed |  |  |  |
 
 ### Computer Engineering, semester 7
 
-| Code          | PDEU course                                                       | Category           | Match               | Existing Prism subject(s) (id, topics matched)                                                  | Topic ids reused | New topics |
-| ------------- | ----------------------------------------------------------------- | ------------------ | ------------------- | ----------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 24CS401T      | Industry 4.0 (Department Specific)                                | unsure (lean core) | New                 |                                                                                                 | 0                | 43         |
-| 24CS401P      | Industry 4.0 Laboratory (Department Specific)                     | unsure (lean core) | New                 |                                                                                                 | 0                | 10         |
-| (not printed) | Program Elective 4                                                | Core               | slot (see options)  |                                                                                                 |                  |            |
-| 24CS431T      | Agent based Learning (option of Program Elective 4)               | Core               | New                 |                                                                                                 | 2                | 31         |
-| 24CS432T      | Agile and DevOps (option of Program Elective 4)                   | Core               | New                 |                                                                                                 | 1                | 44         |
-| 24CS433T      | Natural Language Processing (option of Program Elective 4)        | Core               | New                 |                                                                                                 | 1                | 29         |
-| 24CS434T      | Cloud Computing (option of Program Elective 4)                    | Core               | New                 |                                                                                                 | 0                | 20         |
-| 24CS435T      | Internet of Things (option of Program Elective 4)                 | Core               | New                 |                                                                                                 | 0                | 36         |
-| (not printed) | Program Elective 5                                                | Core               | slot (see options)  |                                                                                                 |                  |            |
-| 24CS436T      | Machine Learning in Cyber Security (option of Program Elective 5) | Core               | Partly new          | Artificial Intelligence and Machine Learning (ai-ml, 3)                                         | 3                | 51         |
-| 24CS437T      | Web Application Testing (option of Program Elective 5)            | Core               | New                 |                                                                                                 | 0                | 24         |
-| 24CS438T      | Speech Processing (option of Program Elective 5)                  | Core               | Partly new          | Digital Signal Processing (dsp, 3)                                                              | 3                | 28         |
-| 24CS439T      | Quantum Computing (option of Program Elective 5)                  | Core               | New                 |                                                                                                 | 0                | 35         |
-| 24CS440T      | Autonomous Systems (option of Program Elective 5)                 | Core               | New                 |                                                                                                 | 0                | 26         |
-| 24CS402T      | Machine Learning                                                  | Core               | Partly new          | Engineering Mathematics (engg-math, 3); Artificial Intelligence and Machine Learning (ai-ml, 3) | 5                | 49         |
-| 24CS402P      | Machine Learning Laboratory                                       | Core               | Partly new          | Artificial Intelligence and Machine Learning (ai-ml, 3)                                         | 3                | 8          |
-| 24CS403T      | Cyber Laws and Ethics                                             | Core               | New                 |                                                                                                 | 0                | 17         |
-| 24PRCS451T    | Seminar                                                           | Core               | no syllabus printed |                                                                                                 |                  |            |
-| 24INT451T     | Summer Internship                                                 | Non-core           | no syllabus printed |                                                                                                 |                  |            |
-| (not printed) | Open Elective 4 (from another department of FoET)                 | Non-core           | no syllabus printed |                                                                                                 |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24CS401T | Industry 4.0 (Department Specific) | Core | New |  | 0 | 43 |
+| 24CS401P | Industry 4.0 Laboratory (Department Specific) | Core | New |  | 0 | 10 |
+| (not printed) | Program Elective 4 | Core | slot (see options) |  |  |  |
+| 24CS431T | Agent based Learning (option of Program Elective 4) | Core | New |  | 2 | 31 |
+| 24CS432T | Agile and DevOps (option of Program Elective 4) | Core | New |  | 1 | 44 |
+| 24CS433T | Natural Language Processing (option of Program Elective 4) | Core | New |  | 1 | 29 |
+| 24CS434T | Cloud Computing (option of Program Elective 4) | Core | New |  | 0 | 20 |
+| 24CS435T | Internet of Things (option of Program Elective 4) | Core | New |  | 0 | 36 |
+| (not printed) | Program Elective 5 | Core | slot (see options) |  |  |  |
+| 24CS436T | Machine Learning in Cyber Security (option of Program Elective 5) | Core | Partly new | Artificial Intelligence and Machine Learning (ai-ml, 3) | 3 | 51 |
+| 24CS437T | Web Application Testing (option of Program Elective 5) | Core | New |  | 0 | 24 |
+| 24CS438T | Speech Processing (option of Program Elective 5) | Core | Partly new | Digital Signal Processing (dsp, 3) | 3 | 28 |
+| 24CS439T | Quantum Computing (option of Program Elective 5) | Core | New |  | 0 | 35 |
+| 24CS440T | Autonomous Systems (option of Program Elective 5) | Core | New |  | 0 | 26 |
+| 24CS402T | Machine Learning | Core | Partly new | Engineering Mathematics (engg-math, 3); Artificial Intelligence and Machine Learning (ai-ml, 3) | 5 | 49 |
+| 24CS402P | Machine Learning Laboratory | Core | Partly new | Artificial Intelligence and Machine Learning (ai-ml, 3) | 3 | 8 |
+| 24CS403T | Cyber Laws and Ethics | Core | New |  | 0 | 17 |
+| 24PRCS451T | Seminar | Core | no syllabus printed |  |  |  |
+| 24INT451T | Summer Internship | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Open Elective 4 (from another department of FoET) | Non-core | no syllabus printed |  |  |  |
 
 ### Computer Engineering, semester 8
 
-| Code       | PDEU course                   | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| ---------- | ----------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| 24PRCS452T | Major / Comprehensive Project | Core     | no syllabus printed |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24PRCS452T | Major / Comprehensive Project | Core | no syllabus printed |  |  |  |
 
 ### Information and Communication Technology, semester 1
 
-| Code          | PDEU course                         | Category           | Match               | Existing Prism subject(s) (id, topics matched)                        | Topic ids reused | New topics |
-| ------------- | ----------------------------------- | ------------------ | ------------------- | --------------------------------------------------------------------- | ---------------- | ---------- |
-| 24MA101T      | Mathematics - 1                     | Core               | Subset              | Engineering Mathematics (engg-math, 13)                               | 12               | 20         |
-| 24PH101T      | Physics                             | Core               | Combined            | Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 4) | 5                | 49         |
-| 24PH101P      | Physics - Laboratory                | Core               | Partly new          | Applied Physics (applied-physics, 2)                                  | 2                | 11         |
-| 24CV101T      | Environment Science                 | unsure (lean core) | Partly new          | Environmental Science (environmental-science, 2)                      | 2                | 20         |
-| 24ME101T      | Workshop Practices                  | Core               | New                 |                                                                       | 0                | 9          |
-| (not printed) | Biology for Engineers               | Core               | New                 |                                                                       | 0                | 22         |
-| UG_1_T        | Computer Programming - I            | Core               | Partly new          | Programming for Problem Solving (pps, 3)                              | 2                | 41         |
-| UG_1_P        | Computer Programming - I Laboratory | Core               | Subset              | Programming for Problem Solving (pps, 3)                              | 3                | 7          |
-| (not printed) | Humanities - 1                      | Non-core           | no syllabus printed |                                                                       |                  |            |
-| 24HS102T      | Universal Human Values              | Non-core           | New                 |                                                                       | 0                | 30         |
-| 24HS103T      | Indian Knowledge System             | Non-core           | New                 |                                                                       | 0                | 31         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24MA101T | Mathematics - 1 | Core | Subset | Engineering Mathematics (engg-math, 13) | 12 | 20 |
+| 24PH101T | Physics | Core | Combined | Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 4) | 5 | 49 |
+| 24PH101P | Physics - Laboratory | Core | Partly new | Applied Physics (applied-physics, 2) | 2 | 11 |
+| 24CV101T | Environment Science | Non-core | Partly new | Environmental Science (environmental-science, 2) | 2 | 20 |
+| 24ME101T | Workshop Practices | Core | New |  | 0 | 9 |
+| (not printed) | Biology for Engineers | Core | New |  | 0 | 22 |
+| UG_1_T | Computer Programming - I | Core | Partly new | Programming for Problem Solving (pps, 3) | 2 | 41 |
+| UG_1_P | Computer Programming - I Laboratory | Core | Subset | Programming for Problem Solving (pps, 3) | 3 | 7 |
+| (not printed) | Humanities - 1 | Non-core | no syllabus printed |  |  |  |
+| 24HS102T | Universal Human Values | Non-core | New |  | 0 | 30 |
+| 24HS103T | Indian Knowledge System | Non-core | New |  | 0 | 31 |
 
 ### Information and Communication Technology, semester 2
 
-| Code          | PDEU course                                         | Category               | Match               | Existing Prism subject(s) (id, topics matched)                                                                               | Topic ids reused | New topics |
-| ------------- | --------------------------------------------------- | ---------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 24MA103T      | Mathematics - 2                                     | Core                   | Subset              | Engineering Mathematics (engg-math, 10)                                                                                      | 7                | 27         |
-| 24CH101T      | Chemistry                                           | Core                   | Partly new          | Engineering Chemistry (engg-chemistry, same name, 0 by wording)                                                              | 0                | 17         |
-| 24CH101P      | Chemistry - Laboratory                              | Core                   | New                 |                                                                                                                              | 0                | 9          |
-| 24EE101T      | Introduction to Electrical Engineering              | Core                   | Combined            | Basic Electrical Engineering (basic-electrical, 12); Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 6)   | 19               | 25         |
-| 24EE101P      | Introduction to Electrical Engineering - Laboratory | Core                   | Subset              | Basic Electrical Engineering (basic-electrical, 2); Network Theory (network-theory, 2); Applied Physics (applied-physics, 2) | 5                | 9          |
-| 24ME102T      | Engineering Graphics                                | Core                   | Subset              | Engineering Graphics & Design (engg-graphics, 3)                                                                             | 3                | 6          |
-| UG_2_T        | Computer Programming - II                           | Core                   | Partly new          | Programming for Problem Solving (pps, 3)                                                                                     | 3                | 57         |
-| UG_2_L        | Computer Programming - II Laboratory                | Core                   | Partly new          | Programming for Problem Solving (pps, 3)                                                                                     | 2                | 8          |
-| (not printed) | Humanities - 2                                      | Non-core               | no syllabus printed |                                                                                                                              |                  |            |
-| (not printed) | Yoga, Health & Hygiene OR NCC/NSS                   | unsure (lean non-core) | New                 |                                                                                                                              | 0                | 65         |
-| 24HS104T      | Organizational Behaviour                            | Non-core               | New                 |                                                                                                                              | 0                | 26         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24MA103T | Mathematics - 2 | Core | Subset | Engineering Mathematics (engg-math, 10) | 7 | 27 |
+| 24CH101T | Chemistry | Core | Partly new | Engineering Chemistry (engg-chemistry, same name, 0 by wording) | 0 | 17 |
+| 24CH101P | Chemistry - Laboratory | Core | New |  | 0 | 9 |
+| 24EE101T | Introduction to Electrical Engineering | Core | Combined | Basic Electrical Engineering (basic-electrical, 12); Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 6) | 19 | 25 |
+| 24EE101P | Introduction to Electrical Engineering - Laboratory | Core | Subset | Basic Electrical Engineering (basic-electrical, 2); Network Theory (network-theory, 2); Applied Physics (applied-physics, 2) | 5 | 9 |
+| 24ME102T | Engineering Graphics | Core | Subset | Engineering Graphics & Design (engg-graphics, 3) | 3 | 6 |
+| UG_2_T | Computer Programming - II | Core | Partly new | Programming for Problem Solving (pps, 3) | 3 | 57 |
+| UG_2_L | Computer Programming - II Laboratory | Core | Partly new | Programming for Problem Solving (pps, 3) | 2 | 8 |
+| (not printed) | Humanities - 2 | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Yoga, Health & Hygiene OR NCC/NSS | Non-core | New |  | 0 | 65 |
+| 24HS104T | Organizational Behaviour | Non-core | New |  | 0 | 26 |
 
 ### Information and Communication Technology, semester 3
 
-| Code          | PDEU course                                                   | Category           | Match               | Existing Prism subject(s) (id, topics matched)                                    | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------------------- | ------------------ | ------------------- | --------------------------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Introduction to Artificial Intelligence (Department Specific) | unsure (lean core) | no syllabus printed |                                                                                   |                  |            |
-| 24ICxxxT      | Digital Circuits                                              | Core               | Partly new          | Digital Logic Design (digital-logic, 4)                                           | 1                | 41         |
-| 24ICxxxP      | Digital Circuits Laboratory                                   | Core               | New                 |                                                                                   | 0                | 10         |
-| (not printed) | Data Structures and Algorithms                                | Core               | Subset              | Data Structures and Algorithms (dsa, 6); Programming for Problem Solving (pps, 2) | 6                | 28         |
-| (not printed) | Data Structures and Algorithms Laboratory                     | Core               | Partly new          | Data Structures and Algorithms (dsa, same name, 0 by wording)                     | 0                | 11         |
-| 24ICxxxT      | Fundamentals of ICT                                           | Core               | New                 |                                                                                   | 0                | 16         |
-| (not printed) | Electronics Devices and Circuits                              | Core               | Partly new          | Basic Electronics Engineering (basic-electronics, 4)                              | 3                | 46         |
-| 24MA202T      | Discrete Mathematical Structures                              | Core               | Partly new          | Discrete Mathematics (discrete-maths, 4)                                          | 2                | 50         |
-| (not printed) | Civic and Social Service Internship                           | Non-core           | no syllabus printed |                                                                                   |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Introduction to Artificial Intelligence (Department Specific) | Core | no syllabus printed |  |  |  |
+| 24ICxxxT | Digital Circuits | Core | Partly new | Digital Logic Design (digital-logic, 4) | 1 | 41 |
+| 24ICxxxP | Digital Circuits Laboratory | Core | New |  | 0 | 10 |
+| (not printed) | Data Structures and Algorithms | Core | Subset | Data Structures and Algorithms (dsa, 6); Programming for Problem Solving (pps, 2) | 6 | 28 |
+| (not printed) | Data Structures and Algorithms Laboratory | Core | Partly new | Data Structures and Algorithms (dsa, same name, 0 by wording) | 0 | 11 |
+| 24ICxxxT | Fundamentals of ICT | Core | New |  | 0 | 16 |
+| (not printed) | Electronics Devices and Circuits | Core | Partly new | Basic Electronics Engineering (basic-electronics, 4) | 3 | 46 |
+| 24MA202T | Discrete Mathematical Structures | Core | Partly new | Discrete Mathematics (discrete-maths, 4) | 2 | 50 |
+| (not printed) | Civic and Social Service Internship | Non-core | no syllabus printed |  |  |  |
 
 ### Information and Communication Technology, semester 4
 
-| Code          | PDEU course                                       | Category           | Match               | Existing Prism subject(s) (id, topics matched)                                   | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------- | ------------------ | ------------------- | -------------------------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Industry 4.0 (Department Specific)                | unsure (lean core) | no syllabus printed |                                                                                  |                  |            |
-| (not printed) | Industry 4.0 - Laboratory (Department Specific)   | unsure (lean core) | no syllabus printed |                                                                                  |                  |            |
-| (not printed) | Database Management Systems                       | Core               | Subset              | Database Management Systems (dbms, 6)                                            | 2                | 50         |
-| (not printed) | Database Management Systems Laboratory            | Core               | Partly new          | Database Management Systems (dbms, same name, 0 by wording)                      | 0                | 10         |
-| (not printed) | Principles of Programming Languages               | Core               | Partly new          | Object-Oriented Programming (oop, 2)                                             | 1                | 55         |
-| (not printed) | Principles of Programming Languages Laboratory    | Core               | New                 |                                                                                  | 2                | 8          |
-| (not printed) | Fundamentals of Signal Processing & Communication | Core               | Subset              | Signals and Systems (signals-systems, 5); Engineering Mathematics (engg-math, 2) | 5                | 40         |
-| 24ICxxxT      | Computer Organization & Microprocessor            | Core               | Partly new          | Microprocessors and Microcontrollers (microprocessors, 2)                        | 2                | 34         |
-| 24ICTxxxP     | Computer Organization & Microprocessor Laboratory | Core               | New                 |                                                                                  | 0                | 12         |
-| (not printed) | Open Elective 1 (from another school)             | Non-core           | no syllabus printed |                                                                                  |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Industry 4.0 (Department Specific) | Core | no syllabus printed |  |  |  |
+| (not printed) | Industry 4.0 - Laboratory (Department Specific) | Core | no syllabus printed |  |  |  |
+| (not printed) | Database Management Systems | Core | Subset | Database Management Systems (dbms, 6) | 2 | 50 |
+| (not printed) | Database Management Systems Laboratory | Core | Partly new | Database Management Systems (dbms, same name, 0 by wording) | 0 | 10 |
+| (not printed) | Principles of Programming Languages | Core | Partly new | Object-Oriented Programming (oop, 2) | 1 | 55 |
+| (not printed) | Principles of Programming Languages Laboratory | Core | New |  | 2 | 8 |
+| (not printed) | Fundamentals of Signal Processing & Communication | Core | Subset | Signals and Systems (signals-systems, 5); Engineering Mathematics (engg-math, 2) | 5 | 40 |
+| 24ICxxxT | Computer Organization & Microprocessor | Core | Partly new | Microprocessors and Microcontrollers (microprocessors, 2) | 2 | 34 |
+| 24ICTxxxP | Computer Organization & Microprocessor Laboratory | Core | New |  | 0 | 12 |
+| (not printed) | Open Elective 1 (from another school) | Non-core | no syllabus printed |  |  |  |
 
 ### Information and Communication Technology, semester 5
 
-| Code          | PDEU course                                                                                 | Category | Match               | Existing Prism subject(s) (id, topics matched)                                                                       | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------------------------------------------------- | -------- | ------------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective 1                                                                          | Core     | slot (see options)  |                                                                                                                      |                  |            |
-| 24IC301T      | Web Technology (Software & Networks) (option of Program Elective 1)                         | Core     | New                 |                                                                                                                      | 0                | 56         |
-| (not printed) | Problem Solving through Java (Software & Networks) (option of Program Elective 1)           | Core     | New                 |                                                                                                                      | 2                | 63         |
-| (not printed) | Optimization Methods and Algorithms (AI) (option of Program Elective 1)                     | Core     | New                 |                                                                                                                      | 1                | 45         |
-| (not printed) | Introduction to CMOS and Memory Technology (Embedded & VLSI) (option of Program Elective 1) | Core     | n/a                 |                                                                                                                      |                  |            |
-| (not printed) | Theory of Computation & Compiler Design                                                     | Core     | Partly new          | Theory of Computation (theory-of-computation, 4)                                                                     | 3                | 41         |
-| (not printed) | Theory of Computation & Compiler Design Laboratory                                          | Core     | New                 |                                                                                                                      | 1                | 11         |
-| 24ICxxxT      | Digital Signal Processing                                                                   | Core     | Combined            | Digital Signal Processing (dsp, 6); Signals and Systems (signals-systems, 4); Engineering Mathematics (engg-math, 2) | 8                | 36         |
-| 24ICxxxP      | Digital Signal Processing Laboratory                                                        | Core     | Partly new          | Digital Signal Processing (dsp, same name, 0 by wording)                                                             | 1                | 5          |
-| 24ICxxxT      | RF Engineering                                                                              | Core     | New                 |                                                                                                                      | 1                | 21         |
-| 24ICTxxxP     | RF Engineering Laboratory                                                                   | Core     | New                 |                                                                                                                      | 1                | 10         |
-| MOOC          | Open Elective 2 (NPTEL/SWAYAM/MOOC)                                                         | Non-core | no syllabus printed |                                                                                                                      |                  |            |
-| (not printed) | Engineering Economics                                                                       | Non-core | no syllabus printed |                                                                                                                      |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 1 | Core | slot (see options) |  |  |  |
+| 24IC301T | Web Technology (Software & Networks) (option of Program Elective 1) | Core | New |  | 0 | 56 |
+| (not printed) | Problem Solving through Java (Software & Networks) (option of Program Elective 1) | Core | New |  | 2 | 63 |
+| (not printed) | Optimization Methods and Algorithms (AI) (option of Program Elective 1) | Core | New |  | 1 | 45 |
+| (not printed) | Introduction to CMOS and Memory Technology (Embedded & VLSI) (option of Program Elective 1) | Core | n/a |  |  |  |
+| (not printed) | Theory of Computation & Compiler Design | Core | Partly new | Theory of Computation (theory-of-computation, 4) | 3 | 41 |
+| (not printed) | Theory of Computation & Compiler Design Laboratory | Core | New |  | 1 | 11 |
+| 24ICxxxT | Digital Signal Processing | Core | Combined | Digital Signal Processing (dsp, 6); Signals and Systems (signals-systems, 4); Engineering Mathematics (engg-math, 2) | 8 | 36 |
+| 24ICxxxP | Digital Signal Processing Laboratory | Core | Partly new | Digital Signal Processing (dsp, same name, 0 by wording) | 1 | 5 |
+| 24ICxxxT | RF Engineering | Core | New |  | 1 | 21 |
+| 24ICTxxxP | RF Engineering Laboratory | Core | New |  | 1 | 10 |
+| MOOC | Open Elective 2 (NPTEL/SWAYAM/MOOC) | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Engineering Economics | Non-core | no syllabus printed |  |  |  |
 
 ### Information and Communication Technology, semester 6
 
-| Code          | PDEU course                                                                                      | Category | Match               | Existing Prism subject(s) (id, topics matched)                                             | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------------------------------------------------------ | -------- | ------------------- | ------------------------------------------------------------------------------------------ | ---------------- | ---------- |
-| (not printed) | Program Elective 2                                                                               | Core     | slot (see options)  |                                                                                            |                  |            |
-| 24ICxxxT      | Cloud Architecture and Service (Software & Networks) (option of Program Elective 2)              | Core     | New                 |                                                                                            | 0                | 34         |
-| 24ICXXXT      | Advanced Web Technology (Software & Networks) (option of Program Elective 2)                     | Core     | New                 |                                                                                            | 1                | 55         |
-| (not printed) | Advanced Algorithm Design (Software & Networks) (option of Program Elective 2)                   | Core     | n/a                 |                                                                                            |                  |            |
-| (not printed) | Machine Learning (AI) (option of Program Elective 2)                                             | Core     | Partly new          | Artificial Intelligence and Machine Learning (ai-ml, 2)                                    | 2                | 40         |
-| (not printed) | Data Warehousing & Mining (AI) (option of Program Elective 2)                                    | Core     | n/a                 |                                                                                            |                  |            |
-| 24ICxxxT      | Image Processing (Communication & Signal Processing) (option of Program Elective 2)              | Core     | New                 |                                                                                            | 0                | 49         |
-| (not printed) | Statistical Signal Processing (Communication & Signal Processing) (option of Program Elective 2) | Core     | New                 |                                                                                            | 1                | 39         |
-| (not printed) | Hardware Accelerated Computing (Embedded & VLSI) (option of Program Elective 2)                  | Core     | n/a                 |                                                                                            |                  |            |
-| (not printed) | Program Elective 3                                                                               | Core     | slot (see options)  |                                                                                            |                  |            |
-| (not printed) | Operating Systems                                                                                | Core     | no syllabus printed |                                                                                            |                  |            |
-| (not printed) | Operating Systems Laboratory                                                                     | Core     | no syllabus printed |                                                                                            |                  |            |
-| 20IC303T      | Digital Communication                                                                            | Core     | Partly new          | Signals and Systems (signals-systems, 2); Communication Systems (communication-systems, 2) | 4                | 46         |
-| 24IC***P      | Digital Communication Laboratory                                                                 | Core     | New                 |                                                                                            | 0                | 9          |
-| 24ICT***T     | Computer Communication and Networking                                                            | Core     | Partly new          | Computer Networks (computer-networks, 2)                                                   | 1                | 46         |
-| 24ICT***P     | Computer Communication and Networking Laboratory                                                 | Core     | New                 |                                                                                            | 0                | 12         |
-| (not printed) | Open Elective 3 (from another department of FoET)                                                | Non-core | no syllabus printed |                                                                                            |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 2 | Core | slot (see options) |  |  |  |
+| 24ICxxxT | Cloud Architecture and Service (Software & Networks) (option of Program Elective 2) | Core | New |  | 0 | 34 |
+| 24ICXXXT | Advanced Web Technology (Software & Networks) (option of Program Elective 2) | Core | New |  | 1 | 55 |
+| (not printed) | Advanced Algorithm Design (Software & Networks) (option of Program Elective 2) | Core | n/a |  |  |  |
+| (not printed) | Machine Learning (AI) (option of Program Elective 2) | Core | Partly new | Artificial Intelligence and Machine Learning (ai-ml, 2) | 2 | 40 |
+| (not printed) | Data Warehousing & Mining (AI) (option of Program Elective 2) | Core | n/a |  |  |  |
+| 24ICxxxT | Image Processing (Communication & Signal Processing) (option of Program Elective 2) | Core | New |  | 0 | 49 |
+| (not printed) | Statistical Signal Processing (Communication & Signal Processing) (option of Program Elective 2) | Core | New |  | 1 | 39 |
+| (not printed) | Hardware Accelerated Computing (Embedded & VLSI) (option of Program Elective 2) | Core | n/a |  |  |  |
+| (not printed) | Program Elective 3 | Core | slot (see options) |  |  |  |
+| (not printed) | Operating Systems | Core | no syllabus printed |  |  |  |
+| (not printed) | Operating Systems Laboratory | Core | no syllabus printed |  |  |  |
+| 20IC303T | Digital Communication | Core | Partly new | Signals and Systems (signals-systems, 2); Communication Systems (communication-systems, 2) | 4 | 46 |
+| 24IC***P | Digital Communication Laboratory | Core | New |  | 0 | 9 |
+| 24ICT***T | Computer Communication and Networking | Core | Partly new | Computer Networks (computer-networks, 2) | 1 | 46 |
+| 24ICT***P | Computer Communication and Networking Laboratory | Core | New |  | 0 | 12 |
+| (not printed) | Open Elective 3 (from another department of FoET) | Non-core | no syllabus printed |  |  |  |
 
 ### Information and Communication Technology, semester 7
 
-| Code          | PDEU course                                                                                       | Category | Match               | Existing Prism subject(s) (id, topics matched)            | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------------------------------------------------------- | -------- | ------------------- | --------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective 4                                                                                | Core     | slot (see options)  |                                                           |                  |            |
-| 24ICxxxT      | Cryptography and Network Security (Software & Networks) (option of Program Elective 4)            | Core     | New                 |                                                           | 0                | 34         |
-| (not printed) | Internet of Things (Software & Networks) (option of Program Elective 4)                           | Core     | New                 |                                                           | 0                | 36         |
-| (not printed) | Blockchain Technology (Software & Networks) (option of Program Elective 4)                        | Core     | New                 |                                                           | 0                | 37         |
-| 24ICXXXT      | Mobile Application Development (Software & Networks) (option of Program Elective 4)               | Core     | New                 |                                                           | 0                | 40         |
-| (not printed) | Computer Vision (AI) (option of Program Elective 4)                                               | Core     | n/a                 |                                                           |                  |            |
-| (not printed) | Deep Learning and Reinforcement Learning (AI) (option of Program Elective 4)                      | Core     | n/a                 |                                                           |                  |            |
-| (not printed) | Optical Communication (Communication & Signal Processing) (option of Program Elective 4)          | Core     | New                 |                                                           | 0                | 34         |
-| 24ICxxxT      | Modern Wireless Communications (Communication & Signal Processing) (option of Program Elective 4) | Core     | New                 |                                                           | 0                | 10         |
-| (not printed) | Autonomous Systems (Embedded & VLSI) (option of Program Elective 4)                               | Core     | n/a                 |                                                           |                  |            |
-| (not printed) | Real Time Operating Systems (Embedded & VLSI) (option of Program Elective 4)                      | Core     | n/a                 |                                                           |                  |            |
-| (not printed) | Program Elective 5                                                                                | Core     | slot (see options)  |                                                           |                  |            |
-| (not printed) | Software Engineering Methodology                                                                  | Core     | Partly new          | Software Engineering (software-engineering, 2)            | 1                | 37         |
-| (not printed) | Software Engineering Methodology Laboratory                                                       | Core     | New                 |                                                           | 0                | 10         |
-| 24ICxxxT      | Embedded Systems                                                                                  | Core     | Partly new          | Microprocessors and Microcontrollers (microprocessors, 2) | 1                | 31         |
-| 24ICxxxP      | Embedded Systems Laboratory                                                                       | Core     | New                 |                                                           | 0                | 16         |
-| 24ICxxxT      | Digital CMOS and VLSI Design                                                                      | Core     | Partly new          | VLSI Design Basics (vlsi, 3)                              | 0                | 24         |
-| (not printed) | Digital CMOS and VLSI Design Laboratory                                                           | Core     | New                 |                                                           | 0                | 10         |
-| (not printed) | Seminar                                                                                           | Core     | no syllabus printed |                                                           |                  |            |
-| (not printed) | Summer Internship                                                                                 | Non-core | no syllabus printed |                                                           |                  |            |
-| (not printed) | Open Elective 4 (from another department of FoET)                                                 | Non-core | no syllabus printed |                                                           |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 4 | Core | slot (see options) |  |  |  |
+| 24ICxxxT | Cryptography and Network Security (Software & Networks) (option of Program Elective 4) | Core | New |  | 0 | 34 |
+| (not printed) | Internet of Things (Software & Networks) (option of Program Elective 4) | Core | New |  | 0 | 36 |
+| (not printed) | Blockchain Technology (Software & Networks) (option of Program Elective 4) | Core | New |  | 0 | 37 |
+| 24ICXXXT | Mobile Application Development (Software & Networks) (option of Program Elective 4) | Core | New |  | 0 | 40 |
+| (not printed) | Computer Vision (AI) (option of Program Elective 4) | Core | n/a |  |  |  |
+| (not printed) | Deep Learning and Reinforcement Learning (AI) (option of Program Elective 4) | Core | n/a |  |  |  |
+| (not printed) | Optical Communication (Communication & Signal Processing) (option of Program Elective 4) | Core | New |  | 0 | 34 |
+| 24ICxxxT | Modern Wireless Communications (Communication & Signal Processing) (option of Program Elective 4) | Core | New |  | 0 | 10 |
+| (not printed) | Autonomous Systems (Embedded & VLSI) (option of Program Elective 4) | Core | n/a |  |  |  |
+| (not printed) | Real Time Operating Systems (Embedded & VLSI) (option of Program Elective 4) | Core | n/a |  |  |  |
+| (not printed) | Program Elective 5 | Core | slot (see options) |  |  |  |
+| (not printed) | Software Engineering Methodology | Core | Partly new | Software Engineering (software-engineering, 2) | 1 | 37 |
+| (not printed) | Software Engineering Methodology Laboratory | Core | New |  | 0 | 10 |
+| 24ICxxxT | Embedded Systems | Core | Partly new | Microprocessors and Microcontrollers (microprocessors, 2) | 1 | 31 |
+| 24ICxxxP | Embedded Systems Laboratory | Core | New |  | 0 | 16 |
+| 24ICxxxT | Digital CMOS and VLSI Design | Core | Partly new | VLSI Design Basics (vlsi, 3) | 0 | 24 |
+| (not printed) | Digital CMOS and VLSI Design Laboratory | Core | New |  | 0 | 10 |
+| (not printed) | Seminar | Core | no syllabus printed |  |  |  |
+| (not printed) | Summer Internship | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Open Elective 4 (from another department of FoET) | Non-core | no syllabus printed |  |  |  |
 
 ### Information and Communication Technology, semester 8
 
-| Code          | PDEU course                   | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| ------------- | ----------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Major / Comprehensive Project | Core     | no syllabus printed |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Major / Comprehensive Project | Core | no syllabus printed |  |  |  |
 
 ### Electronics and Communication Engineering, semester 1
 
-| Code          | PDEU course                         | Category           | Match               | Existing Prism subject(s) (id, topics matched)                        | Topic ids reused | New topics |
-| ------------- | ----------------------------------- | ------------------ | ------------------- | --------------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Mathematics - 1                     | Core               | Subset              | Engineering Mathematics (engg-math, 13)                               | 12               | 18         |
-| (not printed) | Physics                             | Core               | Combined            | Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 4) | 5                | 47         |
-| (not printed) | Physics - Laboratory                | Core               | Partly new          | Applied Physics (applied-physics, 2)                                  | 2                | 11         |
-| (not printed) | Environment Science                 | unsure (lean core) | Partly new          | Environmental Science (environmental-science, 2)                      | 2                | 19         |
-| (not printed) | Workshop Practices                  | Core               | New                 |                                                                       | 0                | 10         |
-| (not printed) | Biology for Engineers               | Core               | New                 |                                                                       | 0                | 21         |
-| (not printed) | Computer Programming - I            | Core               | Partly new          | Programming for Problem Solving (pps, 3)                              | 2                | 40         |
-| (not printed) | Computer Programming - I Laboratory | Core               | Subset              | Programming for Problem Solving (pps, 3)                              | 3                | 6          |
-| (not printed) | Humanities - 1                      | Non-core           | no syllabus printed |                                                                       |                  |            |
-| (not printed) | Universal Human Values              | Non-core           | New                 |                                                                       | 0                | 29         |
-| 24HS103T      | Indian Knowledge System             | Non-core           | New                 |                                                                       | 0                | 31         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Mathematics - 1 | Core | Subset | Engineering Mathematics (engg-math, 13) | 12 | 18 |
+| (not printed) | Physics | Core | Combined | Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 4) | 5 | 47 |
+| (not printed) | Physics - Laboratory | Core | Partly new | Applied Physics (applied-physics, 2) | 2 | 11 |
+| (not printed) | Environment Science | Non-core | Partly new | Environmental Science (environmental-science, 2) | 2 | 19 |
+| (not printed) | Workshop Practices | Core | New |  | 0 | 10 |
+| (not printed) | Biology for Engineers | Core | New |  | 0 | 21 |
+| (not printed) | Computer Programming - I | Core | Partly new | Programming for Problem Solving (pps, 3) | 2 | 40 |
+| (not printed) | Computer Programming - I Laboratory | Core | Subset | Programming for Problem Solving (pps, 3) | 3 | 6 |
+| (not printed) | Humanities - 1 | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Universal Human Values | Non-core | New |  | 0 | 29 |
+| 24HS103T | Indian Knowledge System | Non-core | New |  | 0 | 31 |
 
 ### Electronics and Communication Engineering, semester 2
 
-| Code          | PDEU course                                         | Category               | Match               | Existing Prism subject(s) (id, topics matched)                                                                               | Topic ids reused | New topics |
-| ------------- | --------------------------------------------------- | ---------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Mathematics - 2                                     | Core                   | Subset              | Engineering Mathematics (engg-math, 10)                                                                                      | 7                | 25         |
-| (not printed) | Chemistry                                           | Core                   | Partly new          | Engineering Chemistry (engg-chemistry, same name, 0 by wording)                                                              | 0                | 16         |
-| 20CH101P      | Chemistry - Laboratory                              | Core                   | New                 |                                                                                                                              | 0                | 11         |
-| (not printed) | Introduction to Electrical Engineering              | Core                   | Combined            | Basic Electrical Engineering (basic-electrical, 12); Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 6)   | 19               | 25         |
-| 24EE101P      | Introduction to Electrical Engineering - Laboratory | Core                   | Subset              | Basic Electrical Engineering (basic-electrical, 2); Network Theory (network-theory, 2); Applied Physics (applied-physics, 2) | 5                | 9          |
-| (not printed) | Engineering Graphics                                | Core                   | Subset              | Engineering Graphics & Design (engg-graphics, 3)                                                                             | 3                | 6          |
-| (not printed) | Computer Programming - II                           | Core                   | Partly new          | Programming for Problem Solving (pps, 2)                                                                                     | 2                | 53         |
-| (not printed) | Computer Programming - II Laboratory                | Core                   | New                 |                                                                                                                              | 1                | 7          |
-| (not printed) | Humanities - 2                                      | Non-core               | no syllabus printed |                                                                                                                              |                  |            |
-| (not printed) | Yoga, Health & Hygiene OR NCC/NSS                   | unsure (lean non-core) | New                 |                                                                                                                              | 0                | 63         |
-| 24HS104T      | Organizational Behaviour                            | Non-core               | New                 |                                                                                                                              | 0                | 26         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Mathematics - 2 | Core | Subset | Engineering Mathematics (engg-math, 10) | 7 | 25 |
+| (not printed) | Chemistry | Core | Partly new | Engineering Chemistry (engg-chemistry, same name, 0 by wording) | 0 | 16 |
+| 20CH101P | Chemistry - Laboratory | Core | New |  | 0 | 11 |
+| (not printed) | Introduction to Electrical Engineering | Core | Combined | Basic Electrical Engineering (basic-electrical, 12); Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 6) | 19 | 25 |
+| 24EE101P | Introduction to Electrical Engineering - Laboratory | Core | Subset | Basic Electrical Engineering (basic-electrical, 2); Network Theory (network-theory, 2); Applied Physics (applied-physics, 2) | 5 | 9 |
+| (not printed) | Engineering Graphics | Core | Subset | Engineering Graphics & Design (engg-graphics, 3) | 3 | 6 |
+| (not printed) | Computer Programming - II | Core | Partly new | Programming for Problem Solving (pps, 2) | 2 | 53 |
+| (not printed) | Computer Programming - II Laboratory | Core | New |  | 1 | 7 |
+| (not printed) | Humanities - 2 | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Yoga, Health & Hygiene OR NCC/NSS | Non-core | New |  | 0 | 63 |
+| 24HS104T | Organizational Behaviour | Non-core | New |  | 0 | 26 |
 
 ### Electronics and Communication Engineering, semester 3
 
-| Code          | PDEU course                                                   | Category           | Match               | Existing Prism subject(s) (id, topics matched)                                   | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------------------- | ------------------ | ------------------- | -------------------------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Introduction to Artificial Intelligence (Department Specific) | unsure (lean core) | no syllabus printed |                                                                                  |                  |            |
-| 24ICxxxT      | Digital Circuits                                              | Core               | Partly new          | Digital Logic Design (digital-logic, 4)                                          | 1                | 41         |
-| 20ECExxxP     | Digital Circuits Laboratory                                   | Core               | New                 |                                                                                  | 0                | 11         |
-| (not printed) | Electronics Devices and Circuits                              | Core               | Partly new          | Applied Physics (applied-physics, 2)                                             | 3                | 40         |
-| (not printed) | Electronics Devices and Circuits Laboratory                   | Core               | New                 |                                                                                  | 1                | 11         |
-| (not printed) | Networks and Systems                                          | Core               | Subset              | Engineering Mathematics (engg-math, 5); Signals and Systems (signals-systems, 3) | 6                | 26         |
-| (not printed) | Math - 3                                                      | Core               | no syllabus printed |                                                                                  |                  |            |
-| (not printed) | Civic and Social Service Internship                           | Non-core           | no syllabus printed |                                                                                  |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Introduction to Artificial Intelligence (Department Specific) | Core | no syllabus printed |  |  |  |
+| 24ICxxxT | Digital Circuits | Core | Partly new | Digital Logic Design (digital-logic, 4) | 1 | 41 |
+| 20ECExxxP | Digital Circuits Laboratory | Core | New |  | 0 | 11 |
+| (not printed) | Electronics Devices and Circuits | Core | Partly new | Applied Physics (applied-physics, 2) | 3 | 40 |
+| (not printed) | Electronics Devices and Circuits Laboratory | Core | New |  | 1 | 11 |
+| (not printed) | Networks and Systems | Core | Subset | Engineering Mathematics (engg-math, 5); Signals and Systems (signals-systems, 3) | 6 | 26 |
+| (not printed) | Math - 3 | Core | no syllabus printed |  |  |  |
+| (not printed) | Civic and Social Service Internship | Non-core | no syllabus printed |  |  |  |
 
 ### Electronics and Communication Engineering, semester 4
 
-| Code          | PDEU course                                     | Category           | Match               | Existing Prism subject(s) (id, topics matched)                                                                       | Topic ids reused | New topics |
-| ------------- | ----------------------------------------------- | ------------------ | ------------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Industry 4.0 (Department Specific)              | unsure (lean core) | no syllabus printed |                                                                                                                      |                  |            |
-| (not printed) | Industry 4.0 - Laboratory (Department Specific) | unsure (lean core) | no syllabus printed |                                                                                                                      |                  |            |
-| (not printed) | Analog Electronics                              | Core               | Partly new          | Analog Electronics (analog-electronics, same name, 0 by wording)                                                     | 1                | 40         |
-| (not printed) | Analog Electronics Laboratory                   | Core               | Partly new          | Analog Electronics (analog-electronics, same name, 0 by wording)                                                     | 0                | 14         |
-| 24ECE***T     | Analog Communication                            | Core               | Partly new          | Communication Systems (communication-systems, 2)                                                                     | 1                | 55         |
-| 24ECE***P     | Analog Communication Laboratory                 | Core               | New                 |                                                                                                                      | 0                | 12         |
-| 20ECE201T     | Electromagnetics and Transmission Lines         | Core               | Combined            | Applied Physics (applied-physics, 13); Electricity & Magnetism (em, 13); Electromagnetic Theory (em-theory, 3)       | 9                | 67         |
-| 24ECE***T     | Digital Signal Processing                       | Core               | Combined            | Signals and Systems (signals-systems, 6); Digital Signal Processing (dsp, 6); Engineering Mathematics (engg-math, 3) | 11               | 30         |
-| 24ECE***P     | Digital Signal Processing Laboratory            | Core               | Subset              | Digital Signal Processing (dsp, 4)                                                                                   | 3                | 8          |
-| (not printed) | Open Elective 1 (from another school)           | Non-core           | no syllabus printed |                                                                                                                      |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Industry 4.0 (Department Specific) | Core | no syllabus printed |  |  |  |
+| (not printed) | Industry 4.0 - Laboratory (Department Specific) | Core | no syllabus printed |  |  |  |
+| (not printed) | Analog Electronics | Core | Partly new | Analog Electronics (analog-electronics, same name, 0 by wording) | 1 | 40 |
+| (not printed) | Analog Electronics Laboratory | Core | Partly new | Analog Electronics (analog-electronics, same name, 0 by wording) | 0 | 14 |
+| 24ECE***T | Analog Communication | Core | Partly new | Communication Systems (communication-systems, 2) | 1 | 55 |
+| 24ECE***P | Analog Communication Laboratory | Core | New |  | 0 | 12 |
+| 20ECE201T | Electromagnetics and Transmission Lines | Core | Combined | Applied Physics (applied-physics, 13); Electricity & Magnetism (em, 13); Electromagnetic Theory (em-theory, 3) | 9 | 67 |
+| 24ECE***T | Digital Signal Processing | Core | Combined | Signals and Systems (signals-systems, 6); Digital Signal Processing (dsp, 6); Engineering Mathematics (engg-math, 3) | 11 | 30 |
+| 24ECE***P | Digital Signal Processing Laboratory | Core | Subset | Digital Signal Processing (dsp, 4) | 3 | 8 |
+| (not printed) | Open Elective 1 (from another school) | Non-core | no syllabus printed |  |  |  |
 
 ### Electronics and Communication Engineering, semester 5
 
-| Code          | PDEU course                                                                                       | Category | Match               | Existing Prism subject(s) (id, topics matched)                                                   | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------------------------------------------------------- | -------- | ------------------- | ------------------------------------------------------------------------------------------------ | ---------------- | ---------- |
-| (not printed) | Program Elective 1                                                                                | Core     | slot (see options)  |                                                                                                  |                  |            |
-| (not printed) | Digital Systems Design using HDL (VLSI/Embedded) (option of Program Elective 1)                   | Core     | New                 |                                                                                                  | 0                | 68         |
-| 20ECE305T     | Opto Electronics and Optical Communication (Communication Systems) (option of Program Elective 1) | Core     | New                 |                                                                                                  | 0                | 32         |
-| 20ECE309T     | Control Systems                                                                                   | Core     | Subset              | Control Systems (control-systems, 5)                                                             | 4                | 16         |
-| 20ECEXXXP     | Control Systems Laboratory                                                                        | Core     | Partly new          | Engineering Mathematics (engg-math, 2)                                                           | 2                | 14         |
-| (not printed) | Linear Integrated Circuits and Applications                                                       | Core     | Partly new          | Basic Electronics Engineering (basic-electronics, 3); Analog Electronics (analog-electronics, 2) | 2                | 40         |
-| (not printed) | Linear Integrated Circuits and Applications Laboratory                                            | Core     | New                 |                                                                                                  | 2                | 10         |
-| 24ICxxxT      | Digital Communication                                                                             | Core     | Partly new          | Signals and Systems (signals-systems, 2)                                                         | 4                | 29         |
-| (not printed) | Digital Communication Laboratory                                                                  | Core     | New                 |                                                                                                  | 1                | 11         |
-| MOOC          | Open Elective 2 (NPTEL/SWAYAM/MOOC)                                                               | Non-core | no syllabus printed |                                                                                                  |                  |            |
-| (not printed) | Engineering Economics                                                                             | Non-core | no syllabus printed |                                                                                                  |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 1 | Core | slot (see options) |  |  |  |
+| (not printed) | Digital Systems Design using HDL (VLSI/Embedded) (option of Program Elective 1) | Core | New |  | 0 | 68 |
+| 20ECE305T | Opto Electronics and Optical Communication (Communication Systems) (option of Program Elective 1) | Core | New |  | 0 | 32 |
+| 20ECE309T | Control Systems | Core | Subset | Control Systems (control-systems, 5) | 4 | 16 |
+| 20ECEXXXP | Control Systems Laboratory | Core | Partly new | Engineering Mathematics (engg-math, 2) | 2 | 14 |
+| (not printed) | Linear Integrated Circuits and Applications | Core | Partly new | Basic Electronics Engineering (basic-electronics, 3); Analog Electronics (analog-electronics, 2) | 2 | 40 |
+| (not printed) | Linear Integrated Circuits and Applications Laboratory | Core | New |  | 2 | 10 |
+| 24ICxxxT | Digital Communication | Core | Partly new | Signals and Systems (signals-systems, 2) | 4 | 29 |
+| (not printed) | Digital Communication Laboratory | Core | New |  | 1 | 11 |
+| MOOC | Open Elective 2 (NPTEL/SWAYAM/MOOC) | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Engineering Economics | Non-core | no syllabus printed |  |  |  |
 
 ### Electronics and Communication Engineering, semester 6
 
-| Code          | PDEU course                                                                          | Category | Match               | Existing Prism subject(s) (id, topics matched)                                                             | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------------------------------------------ | -------- | ------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective 2                                                                   | Core     | slot (see options)  |                                                                                                            |                  |            |
-| (not printed) | Analog IC Design (VLSI/Embedded) (option of Program Elective 2)                      | Core     | New                 |                                                                                                            | 1                | 21         |
-| (not printed) | Power Electronics (VLSI/Embedded) (option of Program Elective 2)                     | Core     | Subset              | Power Electronics (power-electronics, 5)                                                                   | 3                | 19         |
-| 24ICxxxT      | Satellite Communication (Communication Systems) (option of Program Elective 2)       | Core     | New                 |                                                                                                            | 0                | 43         |
-| (not printed) | Information Theory and Coding (Communication Systems) (option of Program Elective 2) | Core     | New                 |                                                                                                            | 1                | 43         |
-| 24ECEXXXX     | Machine Learning and Applications (Computer Systems) (option of Program Elective 2)  | Core     | Partly new          | Artificial Intelligence and Machine Learning (ai-ml, 2)                                                    | 2                | 28         |
-| (not printed) | Database Management Systems (Computer Systems) (option of Program Elective 2)        | Core     | Subset              | Database Management Systems (dbms, 6)                                                                      | 2                | 49         |
-| 24ECExxxT     | Introduction to Robotics (Control) (option of Program Elective 2)                    | Core     | Partly new          | Engineering Mathematics (engg-math, 2)                                                                     | 1                | 44         |
-| 23ECE305T     | Modern Control Systems (Control) (option of Program Elective 2)                      | Core     | Partly new          | Engineering Mathematics (engg-math, 2)                                                                     | 0                | 61         |
-| (not printed) | Program Elective 3                                                                   | Core     | slot (see options)  |                                                                                                            |                  |            |
-| 24ECE***T     | Computer and Communication Networks                                                  | Core     | Partly new          | Computer Networks (computer-networks, 2)                                                                   | 1                | 48         |
-| 24ECE***P     | Computer and Communication Networks Laboratory                                       | Core     | New                 |                                                                                                            | 0                | 12         |
-| 24ICxxxT      | Computer Organization and Microprocessor                                             | Core     | Partly new          | Computer Organisation and Architecture (coa, 2); Microprocessors and Microcontrollers (microprocessors, 2) | 3                | 32         |
-| 24ICxxxP      | Computer Organization and Microprocessor Lab                                         | Core     | New                 |                                                                                                            | 0                | 12         |
-| (not printed) | Microwave and Antenna                                                                | Core     | New                 |                                                                                                            | 0                | 50         |
-| 24ICTxxxP     | Microwave and Antenna Lab                                                            | Core     | New                 |                                                                                                            | 1                | 10         |
-| (not printed) | Open Elective 3 (from another department of FoET)                                    | Non-core | no syllabus printed |                                                                                                            |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 2 | Core | slot (see options) |  |  |  |
+| (not printed) | Analog IC Design (VLSI/Embedded) (option of Program Elective 2) | Core | New |  | 1 | 21 |
+| (not printed) | Power Electronics (VLSI/Embedded) (option of Program Elective 2) | Core | Subset | Power Electronics (power-electronics, 5) | 3 | 19 |
+| 24ICxxxT | Satellite Communication (Communication Systems) (option of Program Elective 2) | Core | New |  | 0 | 43 |
+| (not printed) | Information Theory and Coding (Communication Systems) (option of Program Elective 2) | Core | New |  | 1 | 43 |
+| 24ECEXXXX | Machine Learning and Applications (Computer Systems) (option of Program Elective 2) | Core | Partly new | Artificial Intelligence and Machine Learning (ai-ml, 2) | 2 | 28 |
+| (not printed) | Database Management Systems (Computer Systems) (option of Program Elective 2) | Core | Subset | Database Management Systems (dbms, 6) | 2 | 49 |
+| 24ECExxxT | Introduction to Robotics (Control) (option of Program Elective 2) | Core | Partly new | Engineering Mathematics (engg-math, 2) | 1 | 44 |
+| 23ECE305T | Modern Control Systems (Control) (option of Program Elective 2) | Core | Partly new | Engineering Mathematics (engg-math, 2) | 0 | 61 |
+| (not printed) | Program Elective 3 | Core | slot (see options) |  |  |  |
+| 24ECE***T | Computer and Communication Networks | Core | Partly new | Computer Networks (computer-networks, 2) | 1 | 48 |
+| 24ECE***P | Computer and Communication Networks Laboratory | Core | New |  | 0 | 12 |
+| 24ICxxxT | Computer Organization and Microprocessor | Core | Partly new | Computer Organisation and Architecture (coa, 2); Microprocessors and Microcontrollers (microprocessors, 2) | 3 | 32 |
+| 24ICxxxP | Computer Organization and Microprocessor Lab | Core | New |  | 0 | 12 |
+| (not printed) | Microwave and Antenna | Core | New |  | 0 | 50 |
+| 24ICTxxxP | Microwave and Antenna Lab | Core | New |  | 1 | 10 |
+| (not printed) | Open Elective 3 (from another department of FoET) | Non-core | no syllabus printed |  |  |  |
 
 ### Electronics and Communication Engineering, semester 7
 
-| Code          | PDEU course                                                                            | Category | Match               | Existing Prism subject(s) (id, topics matched)            | Topic ids reused | New topics |
-| ------------- | -------------------------------------------------------------------------------------- | -------- | ------------------- | --------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective 4                                                                     | Core     | slot (see options)  |                                                           |                  |            |
-| 24ECE***T     | Advanced Processors and SoCs (VLSI/Embedded) (option of Program Elective 4)            | Core     | Partly new          | Microprocessors and Microcontrollers (microprocessors, 2) | 2                | 16         |
-| (not printed) | IC Technology (VLSI/Embedded) (option of Program Elective 4)                           | Core     | New                 |                                                           | 1                | 22         |
-| (not printed) | Mixed Signal VLSI Design (VLSI/Embedded) (option of Program Elective 4)                | Core     | Partly new          | Analog Electronics (analog-electronics, 2)                | 2                | 47         |
-| 24ECE***T     | Advanced Communication Networks (Communication Systems) (option of Program Elective 4) | Core     | New                 |                                                           | 0                | 19         |
-| (not printed) | Radar and Navigation Systems (Communication Systems) (option of Program Elective 4)    | Core     | New                 |                                                           | 0                | 53         |
-| (not printed) | Internet of Things (Computer Systems) (option of Program Elective 4)                   | Core     | New                 |                                                           | 0                | 36         |
-| 24ECxxxT      | Deep Learning and Applications (Computer Systems) (option of Program Elective 4)       | Core     | Partly new          | Artificial Intelligence and Machine Learning (ai-ml, 2)   | 3                | 27         |
-| 24ECExxxT     | Drones: Design, Theory and Applications (Control) (option of Program Elective 4)       | Core     | Partly new          | Engineering Mathematics (engg-math, 2)                    | 1                | 57         |
-| (not printed) | Program Elective 5                                                                     | Core     | slot (see options)  |                                                           |                  |            |
-| 24ICxxxT      | Modern Wireless Communication                                                          | Core     | New                 |                                                           | 0                | 10         |
-| (not printed) | Modern Wireless Communication Lab                                                      | Core     | New                 |                                                           | 0                | 11         |
-| 24ICxxxT      | Embedded System Design                                                                 | Core     | Partly new          | Microprocessors and Microcontrollers (microprocessors, 2) | 0                | 32         |
-| 24ICxxxP      | Embedded System Design Lab                                                             | Core     | New                 |                                                           | 0                | 13         |
-| (not printed) | Digital CMOS VLSI Design                                                               | Core     | Partly new          | VLSI Design Basics (vlsi, 3)                              | 0                | 24         |
-| (not printed) | Digital CMOS VLSI Design Lab                                                           | Core     | New                 |                                                           | 0                | 11         |
-| (not printed) | Seminar                                                                                | Core     | no syllabus printed |                                                           |                  |            |
-| (not printed) | Summer Internship                                                                      | Non-core | no syllabus printed |                                                           |                  |            |
-| (not printed) | Open Elective 4 (from another department of FoET)                                      | Non-core | no syllabus printed |                                                           |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 4 | Core | slot (see options) |  |  |  |
+| 24ECE***T | Advanced Processors and SoCs (VLSI/Embedded) (option of Program Elective 4) | Core | Partly new | Microprocessors and Microcontrollers (microprocessors, 2) | 2 | 16 |
+| (not printed) | IC Technology (VLSI/Embedded) (option of Program Elective 4) | Core | New |  | 1 | 22 |
+| (not printed) | Mixed Signal VLSI Design (VLSI/Embedded) (option of Program Elective 4) | Core | Partly new | Analog Electronics (analog-electronics, 2) | 2 | 47 |
+| 24ECE***T | Advanced Communication Networks (Communication Systems) (option of Program Elective 4) | Core | New |  | 0 | 19 |
+| (not printed) | Radar and Navigation Systems (Communication Systems) (option of Program Elective 4) | Core | New |  | 0 | 53 |
+| (not printed) | Internet of Things (Computer Systems) (option of Program Elective 4) | Core | New |  | 0 | 36 |
+| 24ECxxxT | Deep Learning and Applications (Computer Systems) (option of Program Elective 4) | Core | Partly new | Artificial Intelligence and Machine Learning (ai-ml, 2) | 3 | 27 |
+| 24ECExxxT | Drones: Design, Theory and Applications (Control) (option of Program Elective 4) | Core | Partly new | Engineering Mathematics (engg-math, 2) | 1 | 57 |
+| (not printed) | Program Elective 5 | Core | slot (see options) |  |  |  |
+| 24ICxxxT | Modern Wireless Communication | Core | New |  | 0 | 10 |
+| (not printed) | Modern Wireless Communication Lab | Core | New |  | 0 | 11 |
+| 24ICxxxT | Embedded System Design | Core | Partly new | Microprocessors and Microcontrollers (microprocessors, 2) | 0 | 32 |
+| 24ICxxxP | Embedded System Design Lab | Core | New |  | 0 | 13 |
+| (not printed) | Digital CMOS VLSI Design | Core | Partly new | VLSI Design Basics (vlsi, 3) | 0 | 24 |
+| (not printed) | Digital CMOS VLSI Design Lab | Core | New |  | 0 | 11 |
+| (not printed) | Seminar | Core | no syllabus printed |  |  |  |
+| (not printed) | Summer Internship | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Open Elective 4 (from another department of FoET) | Non-core | no syllabus printed |  |  |  |
 
 ### Electronics and Communication Engineering, semester 8
 
-| Code          | PDEU course                   | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| ------------- | ----------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Major / Comprehensive Project | Core     | no syllabus printed |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Major / Comprehensive Project | Core | no syllabus printed |  |  |  |
 
 ### Civil Engineering, semester 1
 
-| Code          | PDEU course                                  | Category           | Match               | Existing Prism subject(s) (id, topics matched)                               | Topic ids reused | New topics |
-| ------------- | -------------------------------------------- | ------------------ | ------------------- | ---------------------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Mathematics - 1                              | Core               | Subset              | Engineering Mathematics (engg-math, 13)                                      | 12               | 18         |
-| (not printed) | Physics                                      | Core               | Subset              | Applied Physics (applied-physics, 5); Engineering Mathematics (engg-math, 3) | 6                | 58         |
-| (not printed) | Physics - Lab                                | Core               | Partly new          | Applied Physics (applied-physics, 2)                                         | 2                | 13         |
-| (not printed) | Environment Science                          | unsure (lean core) | Partly new          | Environmental Science (environmental-science, 2)                             | 2                | 20         |
-| (not printed) | Workshop Practices                           | Core               | New                 |                                                                              | 0                | 10         |
-| (not printed) | Biology for Engineers                        | Core               | New                 |                                                                              | 0                | 21         |
-| (not printed) | Introduction to Computer Programming - 1     | Core               | Partly new          | Programming for Problem Solving (pps, 3)                                     | 2                | 39         |
-| (not printed) | Introduction to Computer Programming - 1 Lab | Core               | Subset              | Programming for Problem Solving (pps, 3)                                     | 3                | 7          |
-| (not printed) | Humanities - 1                               | Non-core           | no syllabus printed |                                                                              |                  |            |
-| (not printed) | Universal Human Values                       | Non-core           | New                 |                                                                              | 0                | 29         |
-| 24HS103T      | Indian Knowledge System                      | Non-core           | New                 |                                                                              | 0                | 31         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Mathematics - 1 | Core | Subset | Engineering Mathematics (engg-math, 13) | 12 | 18 |
+| (not printed) | Physics | Core | Subset | Applied Physics (applied-physics, 5); Engineering Mathematics (engg-math, 3) | 6 | 58 |
+| (not printed) | Physics - Lab | Core | Partly new | Applied Physics (applied-physics, 2) | 2 | 13 |
+| (not printed) | Environment Science | Non-core | Partly new | Environmental Science (environmental-science, 2) | 2 | 20 |
+| (not printed) | Workshop Practices | Core | New |  | 0 | 10 |
+| (not printed) | Biology for Engineers | Core | New |  | 0 | 21 |
+| (not printed) | Introduction to Computer Programming - 1 | Core | Partly new | Programming for Problem Solving (pps, 3) | 2 | 39 |
+| (not printed) | Introduction to Computer Programming - 1 Lab | Core | Subset | Programming for Problem Solving (pps, 3) | 3 | 7 |
+| (not printed) | Humanities - 1 | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Universal Human Values | Non-core | New |  | 0 | 29 |
+| 24HS103T | Indian Knowledge System | Non-core | New |  | 0 | 31 |
 
 ### Civil Engineering, semester 2
 
-| Code          | PDEU course                                  | Category               | Match               | Existing Prism subject(s) (id, topics matched)                                                                               | Topic ids reused | New topics |
-| ------------- | -------------------------------------------- | ---------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Mathematics - 2                              | Core                   | Subset              | Engineering Mathematics (engg-math, 10)                                                                                      | 7                | 25         |
-| (not printed) | Chemistry                                    | Core                   | Partly new          | Engineering Chemistry (engg-chemistry, same name, 0 by wording)                                                              | 0                | 16         |
-| (not printed) | Chemistry - Lab                              | Core                   | New                 |                                                                                                                              | 0                | 11         |
-| (not printed) | Introduction to Electrical Engineering       | Core                   | Combined            | Basic Electrical Engineering (basic-electrical, 12); Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 6)   | 19               | 25         |
-| (not printed) | Introduction to Electrical Engineering - Lab | Core                   | Subset              | Basic Electrical Engineering (basic-electrical, 2); Network Theory (network-theory, 2); Applied Physics (applied-physics, 2) | 5                | 9          |
-| (not printed) | Engineering Graphics                         | Core                   | Subset              | Engineering Graphics & Design (engg-graphics, 3)                                                                             | 3                | 6          |
-| (not printed) | Introduction to Computer Programming - 2     | Core                   | New                 |                                                                                                                              | 0                | 25         |
-| (not printed) | Introduction to Computer Programming - 2 Lab | Core                   | Partly new          | Programming for Problem Solving (pps, 2)                                                                                     | 0                | 9          |
-| (not printed) | Humanities - 2                               | Non-core               | no syllabus printed |                                                                                                                              |                  |            |
-| (not printed) | Yoga, Health & Hygiene OR NCC/NSS            | unsure (lean non-core) | New                 |                                                                                                                              | 0                | 65         |
-| 24HS104T      | Organizational Behaviour                     | Non-core               | New                 |                                                                                                                              | 0                | 26         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Mathematics - 2 | Core | Subset | Engineering Mathematics (engg-math, 10) | 7 | 25 |
+| (not printed) | Chemistry | Core | Partly new | Engineering Chemistry (engg-chemistry, same name, 0 by wording) | 0 | 16 |
+| (not printed) | Chemistry - Lab | Core | New |  | 0 | 11 |
+| (not printed) | Introduction to Electrical Engineering | Core | Combined | Basic Electrical Engineering (basic-electrical, 12); Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 6) | 19 | 25 |
+| (not printed) | Introduction to Electrical Engineering - Lab | Core | Subset | Basic Electrical Engineering (basic-electrical, 2); Network Theory (network-theory, 2); Applied Physics (applied-physics, 2) | 5 | 9 |
+| (not printed) | Engineering Graphics | Core | Subset | Engineering Graphics & Design (engg-graphics, 3) | 3 | 6 |
+| (not printed) | Introduction to Computer Programming - 2 | Core | New |  | 0 | 25 |
+| (not printed) | Introduction to Computer Programming - 2 Lab | Core | Partly new | Programming for Problem Solving (pps, 2) | 0 | 9 |
+| (not printed) | Humanities - 2 | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Yoga, Health & Hygiene OR NCC/NSS | Non-core | New |  | 0 | 65 |
+| 24HS104T | Organizational Behaviour | Non-core | New |  | 0 | 26 |
 
 ### Civil Engineering, semester 3
 
-| Code          | PDEU course                                    | Category           | Match               | Existing Prism subject(s) (id, topics matched)                                   | Topic ids reused | New topics |
-| ------------- | ---------------------------------------------- | ------------------ | ------------------- | -------------------------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Mathematics - 3                                | Core               | Partly new          | Engineering Mathematics (engg-math, 2); Signals and Systems (signals-systems, 2) | 4                | 26         |
-| (not printed) | Introduction to Artificial Intelligence        | unsure (lean core) | Partly new          | Artificial Intelligence and Machine Learning (ai-ml, 4)                          | 4                | 21         |
-| (not printed) | Building Materials and Construction Technology | Core               | New                 |                                                                                  | 0                | 54         |
-| (not printed) | Building Planning and Computer Aided Drawing   | Core               | New                 |                                                                                  | 0                | 18         |
-| (not printed) | Solid Mechanics                                | Core               | New                 |                                                                                  | 3                | 19         |
-| (not printed) | Concrete Technology                            | Core               | Partly new          | Concrete Technology and RCC Design (concrete-rcc-design, 3)                      | 2                | 47         |
-| (not printed) | Material Testing Laboratory                    | Core               | Partly new          | Concrete Technology and RCC Design (concrete-rcc-design, 2)                      | 0                | 14         |
-| (not printed) | Civic and Social Service Internship            | Non-core           | no syllabus printed |                                                                                  |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Mathematics - 3 | Core | Partly new | Engineering Mathematics (engg-math, 2); Signals and Systems (signals-systems, 2) | 4 | 26 |
+| (not printed) | Introduction to Artificial Intelligence | Core | Partly new | Artificial Intelligence and Machine Learning (ai-ml, 4) | 4 | 21 |
+| (not printed) | Building Materials and Construction Technology | Core | New |  | 0 | 54 |
+| (not printed) | Building Planning and Computer Aided Drawing | Core | New |  | 0 | 18 |
+| (not printed) | Solid Mechanics | Core | New |  | 3 | 19 |
+| (not printed) | Concrete Technology | Core | Partly new | Concrete Technology and RCC Design (concrete-rcc-design, 3) | 2 | 47 |
+| (not printed) | Material Testing Laboratory | Core | Partly new | Concrete Technology and RCC Design (concrete-rcc-design, 2) | 0 | 14 |
+| (not printed) | Civic and Social Service Internship | Non-core | no syllabus printed |  |  |  |
 
 ### Civil Engineering, semester 4
 
-| Code          | PDEU course                                       | Category           | Match               | Existing Prism subject(s) (id, topics matched)              | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------- | ------------------ | ------------------- | ----------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Industry 4.0 (Department Specific)                | unsure (lean core) | New                 |                                                             | 0                | 48         |
-| (not printed) | Industry 4.0 - Lab (Department Specific)          | unsure (lean core) | New                 |                                                             | 0                | 19         |
-| (not printed) | Fluid Mechanics (with lab)                        | Core               | Partly new          | Fluid Mechanics and Hydraulic Machines (fluid-mechanics, 4) | 4                | 20         |
-| (not printed) | Engineering Geology and Soil Mechanics (with lab) | Core               | Partly new          | Geotechnical Engineering (geotechnical-engineering, 2)      | 1                | 48         |
-| (not printed) | Surveying Practices (with lab)                    | Core               | Subset              | Surveying and Geomatics (surveying, 5)                      | 4                | 30         |
-| (not printed) | Structural Analysis                               | Core               | Partly new          | Structural Analysis (structural-analysis, 4)                | 2                | 14         |
-| (not printed) | Open Elective 1 (from another school)             | Non-core           | no syllabus printed |                                                             |                  |            |
-| (not printed) | Industrial Orientation                            | Non-core           | no syllabus printed |                                                             |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Industry 4.0 (Department Specific) | Core | New |  | 0 | 48 |
+| (not printed) | Industry 4.0 - Lab (Department Specific) | Core | New |  | 0 | 19 |
+| (not printed) | Fluid Mechanics (with lab) | Core | Partly new | Fluid Mechanics and Hydraulic Machines (fluid-mechanics, 4) | 4 | 20 |
+| (not printed) | Engineering Geology and Soil Mechanics (with lab) | Core | Partly new | Geotechnical Engineering (geotechnical-engineering, 2) | 1 | 48 |
+| (not printed) | Surveying Practices (with lab) | Core | Subset | Surveying and Geomatics (surveying, 5) | 4 | 30 |
+| (not printed) | Structural Analysis | Core | Partly new | Structural Analysis (structural-analysis, 4) | 2 | 14 |
+| (not printed) | Open Elective 1 (from another school) | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Industrial Orientation | Non-core | no syllabus printed |  |  |  |
 
 ### Civil Engineering, semester 5
 
-| Code          | PDEU course                                         | Category | Match               | Existing Prism subject(s) (id, topics matched)              | Topic ids reused | New topics |
-| ------------- | --------------------------------------------------- | -------- | ------------------- | ----------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective 1                                  | Core     | no syllabus printed |                                                             |                  |            |
-| (not printed) | Hydrology and Water Resources (with lab)            | Core     | New                 |                                                             | 0                | 34         |
-| (not printed) | Foundation and Geotechnical Applications (with lab) | Core     | New                 |                                                             | 0                | 57         |
-| (not printed) | Design of RCC Structures                            | Core     | Partly new          | Concrete Technology and RCC Design (concrete-rcc-design, 2) | 1                | 43         |
-| (not printed) | Computer Aided Design Drawing Lab - I               | Core     | New                 |                                                             | 0                | 31         |
-| MOOC          | Open Elective 2 (NPTEL/SWAYAM/MOOC)                 | Non-core | no syllabus printed |                                                             |                  |            |
-| (not printed) | Engineering Economics                               | Non-core | no syllabus printed |                                                             |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 1 | Core | no syllabus printed |  |  |  |
+| (not printed) | Hydrology and Water Resources (with lab) | Core | New |  | 0 | 34 |
+| (not printed) | Foundation and Geotechnical Applications (with lab) | Core | New |  | 0 | 57 |
+| (not printed) | Design of RCC Structures | Core | Partly new | Concrete Technology and RCC Design (concrete-rcc-design, 2) | 1 | 43 |
+| (not printed) | Computer Aided Design Drawing Lab - I | Core | New |  | 0 | 31 |
+| MOOC | Open Elective 2 (NPTEL/SWAYAM/MOOC) | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Engineering Economics | Non-core | no syllabus printed |  |  |  |
 
 ### Civil Engineering, semester 6
 
-| Code          | PDEU course                                       | Category | Match               | Existing Prism subject(s) (id, topics matched)             | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------- | -------- | ------------------- | ---------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective 2                                | Core     | no syllabus printed |                                                            |                  |            |
-| (not printed) | Program Elective 3                                | Core     | no syllabus printed |                                                            |                  |            |
-| (not printed) | Design of Steel Structures                        | Core     | New                 |                                                            | 0                | 37         |
-| (not printed) | Computer Aided Design Drawing Lab - II            | Core     | New                 |                                                            | 0                | 13         |
-| (not printed) | Environmental Engineering (with lab)              | Core     | Partly new          | Environmental Engineering (environmental-engineering, 2)   | 0                | 37         |
-| (not printed) | Highway and Traffic Engineering (with lab)        | Core     | Subset              | Transportation Engineering (transportation-engineering, 6) | 5                | 10         |
-| (not printed) | Open Elective 3 (from another department of FoET) | Non-core | no syllabus printed |                                                            |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 2 | Core | no syllabus printed |  |  |  |
+| (not printed) | Program Elective 3 | Core | no syllabus printed |  |  |  |
+| (not printed) | Design of Steel Structures | Core | New |  | 0 | 37 |
+| (not printed) | Computer Aided Design Drawing Lab - II | Core | New |  | 0 | 13 |
+| (not printed) | Environmental Engineering (with lab) | Core | Partly new | Environmental Engineering (environmental-engineering, 2) | 0 | 37 |
+| (not printed) | Highway and Traffic Engineering (with lab) | Core | Subset | Transportation Engineering (transportation-engineering, 6) | 5 | 10 |
+| (not printed) | Open Elective 3 (from another department of FoET) | Non-core | no syllabus printed |  |  |  |
 
 ### Civil Engineering, semester 7
 
-| Code          | PDEU course                                       | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective 4                                | Core     | no syllabus printed |                                                |                  |            |
-| (not printed) | Program Elective 5                                | Core     | no syllabus printed |                                                |                  |            |
-| (not printed) | Estimation Costing Contracts and Valuations       | Core     | New                 |                                                | 0                | 40         |
-| (not printed) | Project Management (with lab)                     | Core     | New                 |                                                | 0                | 34         |
-| (not printed) | Earthquake Engineering                            | Core     | New                 |                                                | 1                | 50         |
-| (not printed) | Seminar                                           | Core     | no syllabus printed |                                                |                  |            |
-| (not printed) | Summer Internship                                 | Non-core | no syllabus printed |                                                |                  |            |
-| (not printed) | Open Elective 4 (from another department of FoET) | Non-core | no syllabus printed |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 4 | Core | no syllabus printed |  |  |  |
+| (not printed) | Program Elective 5 | Core | no syllabus printed |  |  |  |
+| (not printed) | Estimation Costing Contracts and Valuations | Core | New |  | 0 | 40 |
+| (not printed) | Project Management (with lab) | Core | New |  | 0 | 34 |
+| (not printed) | Earthquake Engineering | Core | New |  | 1 | 50 |
+| (not printed) | Seminar | Core | no syllabus printed |  |  |  |
+| (not printed) | Summer Internship | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Open Elective 4 (from another department of FoET) | Non-core | no syllabus printed |  |  |  |
 
 ### Civil Engineering, semester 8
 
-| Code          | PDEU course                   | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| ------------- | ----------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Major / Comprehensive Project | Core     | no syllabus printed |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Major / Comprehensive Project | Core | no syllabus printed |  |  |  |
 
 ### Petroleum Engineering, semester 1
 
-| Code     | PDEU course                               | Category           | Match      | Existing Prism subject(s) (id, topics matched)                                                                | Topic ids reused | New topics |
-| -------- | ----------------------------------------- | ------------------ | ---------- | ------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 24MA101T | Mathematics - I                           | Core               | Subset     | Engineering Mathematics (engg-math, 14)                                                                       | 14               | 11         |
-| 24CP101T | Computer Programming - I                  | Core               | Partly new | Programming for Problem Solving (pps, 3)                                                                      | 2                | 40         |
-| 24CP101P | Computer Programming - I Laboratory       | Core               | Subset     | Programming for Problem Solving (pps, 3)                                                                      | 3                | 6          |
-| 24PH103T | Modern Physics                            | Core               | Combined   | Applied Physics (applied-physics, 6); Electricity & Magnetism (em, 5); Engineering Mathematics (engg-math, 3) | 7                | 34         |
-| 24PH103P | Modern Physics Laboratory                 | Core               | New        |                                                                                                               | 1                | 14         |
-| 24CV101T | Environmental Science                     | unsure (lean core) | Partly new | Environmental Science (environmental-science, 2)                                                              | 2                | 19         |
-| 24ME101P | Workshop Practice                         | Core               | New        |                                                                                                               | 0                | 10         |
-| 24ME102P | Engineering Graphics                      | Core               | Subset     | Engineering Graphics & Design (engg-graphics, 3)                                                              | 3                | 6          |
-| 24PE101T | Geology for Petroleum Engineers           | Core               | Partly new | Petroleum Geology (petroleum-geology, 2)                                                                      | 1                | 28         |
-| 24PE101P | Geology for Petroleum Engineers Practical | Core               | New        |                                                                                                               | 0                | 13         |
-| 24HS101T | English Communication                     | Non-core           | New        |                                                                                                               | 0                | 31         |
-| 24HS102T | Universal Human Values                    | Non-core           | New        |                                                                                                               | 0                | 29         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24MA101T | Mathematics - I | Core | Subset | Engineering Mathematics (engg-math, 14) | 14 | 11 |
+| 24CP101T | Computer Programming - I | Core | Partly new | Programming for Problem Solving (pps, 3) | 2 | 40 |
+| 24CP101P | Computer Programming - I Laboratory | Core | Subset | Programming for Problem Solving (pps, 3) | 3 | 6 |
+| 24PH103T | Modern Physics | Core | Combined | Applied Physics (applied-physics, 6); Electricity & Magnetism (em, 5); Engineering Mathematics (engg-math, 3) | 7 | 34 |
+| 24PH103P | Modern Physics Laboratory | Core | New |  | 1 | 14 |
+| 24CV101T | Environmental Science | Non-core | Partly new | Environmental Science (environmental-science, 2) | 2 | 19 |
+| 24ME101P | Workshop Practice | Core | New |  | 0 | 10 |
+| 24ME102P | Engineering Graphics | Core | Subset | Engineering Graphics & Design (engg-graphics, 3) | 3 | 6 |
+| 24PE101T | Geology for Petroleum Engineers | Core | Partly new | Petroleum Geology (petroleum-geology, 2) | 1 | 28 |
+| 24PE101P | Geology for Petroleum Engineers Practical | Core | New |  | 0 | 13 |
+| 24HS101T | English Communication | Non-core | New |  | 0 | 31 |
+| 24HS102T | Universal Human Values | Non-core | New |  | 0 | 29 |
 
 ### Petroleum Engineering, semester 2
 
-| Code                           | PDEU course                                 | Category               | Match      | Existing Prism subject(s) (id, topics matched)                  | Topic ids reused | New topics |
-| ------------------------------ | ------------------------------------------- | ---------------------- | ---------- | --------------------------------------------------------------- | ---------------- | ---------- |
-| 24MA103T                       | Mathematics - II                            | Core                   | Subset     | Engineering Mathematics (engg-math, 11)                         | 8                | 25         |
-| 24CP102T                       | Computer Programming - II                   | Core                   | Partly new | Programming for Problem Solving (pps, 2)                        | 2                | 53         |
-| 24CP102P                       | Computer Programming - II Laboratory        | Core                   | New        |                                                                 | 1                | 7          |
-| 24CH102T                       | Chemistry                                   | Core                   | Partly new | Engineering Chemistry (engg-chemistry, same name, 0 by wording) | 0                | 59         |
-| 24CH102P                       | Chemistry Practical                         | Core                   | New        |                                                                 | 0                | 14         |
-| 24PE102T                       | Sedimentary and Petroleum Geology           | Core                   | Partly new | Petroleum Geology (petroleum-geology, 3)                        | 2                | 28         |
-| 24PE102P                       | Sedimentary and Petroleum Geology Practical | Core                   | New        |                                                                 | 1                | 7          |
-| 24HS103T                       | Indian Knowledge System                     | Non-core               | New        |                                                                 | 0                | 30         |
-| 24HS104T                       | Organizational Behaviour                    | Non-core               | New        |                                                                 | 0                | 25         |
-| 24HS105T                       | Professional Communication                  | Non-core               | New        |                                                                 | 0                | 18         |
-| 24YOG101 / 24NSS101 / 24NCC101 | Yoga, Health & Hygiene OR NSS OR NCC        | unsure (lean non-core) | New        |                                                                 | 0                | 63         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24MA103T | Mathematics - II | Core | Subset | Engineering Mathematics (engg-math, 11) | 8 | 25 |
+| 24CP102T | Computer Programming - II | Core | Partly new | Programming for Problem Solving (pps, 2) | 2 | 53 |
+| 24CP102P | Computer Programming - II Laboratory | Core | New |  | 1 | 7 |
+| 24CH102T | Chemistry | Core | Partly new | Engineering Chemistry (engg-chemistry, same name, 0 by wording) | 0 | 59 |
+| 24CH102P | Chemistry Practical | Core | New |  | 0 | 14 |
+| 24PE102T | Sedimentary and Petroleum Geology | Core | Partly new | Petroleum Geology (petroleum-geology, 3) | 2 | 28 |
+| 24PE102P | Sedimentary and Petroleum Geology Practical | Core | New |  | 1 | 7 |
+| 24HS103T | Indian Knowledge System | Non-core | New |  | 0 | 30 |
+| 24HS104T | Organizational Behaviour | Non-core | New |  | 0 | 25 |
+| 24HS105T | Professional Communication | Non-core | New |  | 0 | 18 |
+| 24YOG101 / 24NSS101 / 24NCC101 | Yoga, Health & Hygiene OR NSS OR NCC | Non-core | New |  | 0 | 63 |
 
 ### Petroleum Engineering, semester 3
 
-| Code      | PDEU course                                             | Category           | Match               | Existing Prism subject(s) (id, topics matched)                                                                | Topic ids reused | New topics |
-| --------- | ------------------------------------------------------- | ------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 24MA201T  | Mathematics - III                                       | Core               | Partly new          | Engineering Mathematics (engg-math, 2); Signals and Systems (signals-systems, 2)                              | 4                | 26         |
-| 24PE201T  | Introduction to Artificial Intelligence                 | unsure (lean core) | Partly new          | Artificial Intelligence and Machine Learning (ai-ml, 3)                                                       | 2                | 33         |
-| 25PE201T  | Fundamentals of Fluid Mechanics for Petroleum Engineers | Core               | Partly new          | Fluid Mechanics and Hydraulic Machines (fluid-mechanics, 4); Reservoir Engineering (reservoir-engineering, 3) | 5                | 34         |
-| 24PE203T  | Thermodynamics of Petroleum Reservoir Fluids            | Core               | New                 |                                                                                                               | 0                | 29         |
-| 24PE204T  | Geomechanics and Strength of Materials                  | Core               | Partly new          | Strength of Materials (strength-of-materials, same name, 0 by wording)                                        | 2                | 47         |
-| 24PE204P  | Geomechanics and Strength of Materials Laboratory       | Core               | New                 |                                                                                                               | 0                | 9          |
-| 24PE205T  | Petroleum Exploration                                   | Core               | Partly new          | Petroleum Geology (petroleum-geology, 4)                                                                      | 1                | 75         |
-| 24PE205P  | Petroleum Exploration Laboratory                        | Core               | New                 |                                                                                                               | 0                | 11         |
-| 24INT152T | Rural Internship                                        | Non-core           | no syllabus printed |                                                                                                               |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24MA201T | Mathematics - III | Core | Partly new | Engineering Mathematics (engg-math, 2); Signals and Systems (signals-systems, 2) | 4 | 26 |
+| 24PE201T | Introduction to Artificial Intelligence | Core | Partly new | Artificial Intelligence and Machine Learning (ai-ml, 3) | 2 | 33 |
+| 25PE201T | Fundamentals of Fluid Mechanics for Petroleum Engineers | Core | Partly new | Fluid Mechanics and Hydraulic Machines (fluid-mechanics, 4); Reservoir Engineering (reservoir-engineering, 3) | 5 | 34 |
+| 24PE203T | Thermodynamics of Petroleum Reservoir Fluids | Core | New |  | 0 | 29 |
+| 24PE204T | Geomechanics and Strength of Materials | Core | Partly new | Strength of Materials (strength-of-materials, same name, 0 by wording) | 2 | 47 |
+| 24PE204P | Geomechanics and Strength of Materials Laboratory | Core | New |  | 0 | 9 |
+| 24PE205T | Petroleum Exploration | Core | Partly new | Petroleum Geology (petroleum-geology, 4) | 1 | 75 |
+| 24PE205P | Petroleum Exploration Laboratory | Core | New |  | 0 | 11 |
+| 24INT152T | Rural Internship | Non-core | no syllabus printed |  |  |  |
 
 ### Petroleum Engineering, semester 4
 
-| Code          | PDEU course                                          | Category           | Match               | Existing Prism subject(s) (id, topics matched)                       | Topic ids reused | New topics |
-| ------------- | ---------------------------------------------------- | ------------------ | ------------------- | -------------------------------------------------------------------- | ---------------- | ---------- |
-| 24PE206T      | Industry 4.0                                         | unsure (lean core) | New                 |                                                                      | 0                | 33         |
-| 24PE206P      | Industry 4.0 Laboratory                              | unsure (lean core) | New                 |                                                                      | 0                | 13         |
-| 24PE207T      | Drilling Engineering                                 | Core               | Partly new          | Drilling Engineering (drilling-engineering, same name, 0 by wording) | 0                | 30         |
-| 24PE207P      | Drilling Engineering Laboratory                      | Core               | New                 |                                                                      | 0                | 14         |
-| 24PE208T      | Reservoir Engineering                                | Core               | Partly new          | Reservoir Engineering (reservoir-engineering, 3)                     | 2                | 18         |
-| 24PE209T      | Well Log and Formation Evaluation                    | Core               | Partly new          | Well Logging and Formation Evaluation (well-logging, 2)              | 2                | 17         |
-| 24PE202T      | Heat and Mass Transfer                               | Core               | Partly new          | Heat Transfer (heat-transfer, same name, 0 by wording)               | 1                | 19         |
-| 24PE210T      | Earth Science and Hydrocarbon Exploration Field Work | Core               | no syllabus printed |                                                                      |                  |            |
-| (not printed) | Open Elective 1 (from another school)                | Non-core           | no syllabus printed |                                                                      |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24PE206T | Industry 4.0 | Core | New |  | 0 | 33 |
+| 24PE206P | Industry 4.0 Laboratory | Core | New |  | 0 | 13 |
+| 24PE207T | Drilling Engineering | Core | Partly new | Drilling Engineering (drilling-engineering, same name, 0 by wording) | 0 | 30 |
+| 24PE207P | Drilling Engineering Laboratory | Core | New |  | 0 | 14 |
+| 24PE208T | Reservoir Engineering | Core | Partly new | Reservoir Engineering (reservoir-engineering, 3) | 2 | 18 |
+| 24PE209T | Well Log and Formation Evaluation | Core | Partly new | Well Logging and Formation Evaluation (well-logging, 2) | 2 | 17 |
+| 24PE202T | Heat and Mass Transfer | Core | Partly new | Heat Transfer (heat-transfer, same name, 0 by wording) | 1 | 19 |
+| 24PE210T | Earth Science and Hydrocarbon Exploration Field Work | Core | no syllabus printed |  |  |  |
+| (not printed) | Open Elective 1 (from another school) | Non-core | no syllabus printed |  |  |  |
 
 ### Petroleum Engineering, semester 5
 
-| Code          | PDEU course                                                              | Category | Match               | Existing Prism subject(s) (id, topics matched)                | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------------------------------ | -------- | ------------------- | ------------------------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective (choose one)                                            | Core     | slot (see options)  |                                                               |                  |            |
-| 24PE331T      | Health Safety and Environment (option of Program Elective (choose one))  | Core     | New                 |                                                               | 0                | 36         |
-| 24PE332T      | Petroleum Refinery Engineering (option of Program Elective (choose one)) | Core     | Partly new          | Petroleum Refining and Petrochemicals (petroleum-refining, 4) | 3                | 20         |
-| 24PE301T      | Well Completion and Fundamentals of Production Engineering               | Core     | Partly new          | Petroleum Production Engineering (petroleum-production, 3)    | 1                | 34         |
-| 24PE302T      | Well Test Analysis                                                       | Core     | New                 |                                                               | 1                | 26         |
-| 24PE303T      | Advanced Drilling Technology                                             | Core     | New                 |                                                               | 0                | 28         |
-| 24PE304P      | Introduction to Petroleum Software Laboratory                            | Core     | New                 |                                                               | 0                | 14         |
-| 24PE305P      | Petroleum Engineering - I Laboratory                                     | Core     | New                 |                                                               | 1                | 11         |
-| MOOC          | Open Elective 2 (NPTEL/SWAYAM/MOOC)                                      | Non-core | no syllabus printed |                                                               |                  |            |
-| 24HS303T      | Petroleum Engineering Economics                                          | Non-core | New                 |                                                               | 0                | 18         |
-| 24INT251      | Industrial Orientation                                                   | Non-core | no syllabus printed |                                                               |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective (choose one) | Core | slot (see options) |  |  |  |
+| 24PE331T | Health Safety and Environment (option of Program Elective (choose one)) | Core | New |  | 0 | 36 |
+| 24PE332T | Petroleum Refinery Engineering (option of Program Elective (choose one)) | Core | Partly new | Petroleum Refining and Petrochemicals (petroleum-refining, 4) | 3 | 20 |
+| 24PE301T | Well Completion and Fundamentals of Production Engineering | Core | Partly new | Petroleum Production Engineering (petroleum-production, 3) | 1 | 34 |
+| 24PE302T | Well Test Analysis | Core | New |  | 1 | 26 |
+| 24PE303T | Advanced Drilling Technology | Core | New |  | 0 | 28 |
+| 24PE304P | Introduction to Petroleum Software Laboratory | Core | New |  | 0 | 14 |
+| 24PE305P | Petroleum Engineering - I Laboratory | Core | New |  | 1 | 11 |
+| MOOC | Open Elective 2 (NPTEL/SWAYAM/MOOC) | Non-core | no syllabus printed |  |  |  |
+| 24HS303T | Petroleum Engineering Economics | Non-core | New |  | 0 | 18 |
+| 24INT251 | Industrial Orientation | Non-core | no syllabus printed |  |  |  |
 
 ### Petroleum Engineering, semester 6
 
-| Code          | PDEU course                                                                                        | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| ------------- | -------------------------------------------------------------------------------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective A (choose one, 2 credits)                                                         | Core     | slot (see options)  |                                                |                  |            |
-| 24PE333T      | Data Analytics for Petroleum Engineers (option of Program Elective A (choose one, 2 credits))      | Core     | New                 |                                                | 2                | 24         |
-| 24PE334T      | Carbon Utilization and Storage (option of Program Elective A (choose one, 2 credits))              | Core     | New                 |                                                | 0                | 40         |
-| (not printed) | Program Elective B (choose one, 3 credits)                                                         | Core     | slot (see options)  |                                                |                  |            |
-| 25PE331T      | Natural Gas Engineering and LNG Value Chain (option of Program Elective B (choose one, 3 credits)) | Core     | New                 |                                                | 1                | 23         |
-| 24PE336T      | Pipeline Engineering (option of Program Elective B (choose one, 3 credits))                        | Core     | New                 |                                                | 0                | 29         |
-| 24PE306T      | Reservoir Modelling and Simulation                                                                 | Core     | New                 |                                                | 0                | 19         |
-| 24PE307T      | Surface and Offshore Production Operations                                                         | Core     | New                 |                                                | 0                | 36         |
-| 24PE308T      | Unconventional Hydrocarbon Energy Resources                                                        | Core     | New                 |                                                | 0                | 31         |
-| 24PE309P      | Petroleum Engineering - II Laboratory                                                              | Core     | New                 |                                                | 0                | 13         |
-| 24PE310P      | Petroleum Product Testing Laboratory                                                               | Core     | New                 |                                                | 0                | 13         |
-| (not printed) | Open Elective 3 (from another department of FoET)                                                  | Non-core | no syllabus printed |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective A (choose one, 2 credits) | Core | slot (see options) |  |  |  |
+| 24PE333T | Data Analytics for Petroleum Engineers (option of Program Elective A (choose one, 2 credits)) | Core | New |  | 2 | 24 |
+| 24PE334T | Carbon Utilization and Storage (option of Program Elective A (choose one, 2 credits)) | Core | New |  | 0 | 40 |
+| (not printed) | Program Elective B (choose one, 3 credits) | Core | slot (see options) |  |  |  |
+| 25PE331T | Natural Gas Engineering and LNG Value Chain (option of Program Elective B (choose one, 3 credits)) | Core | New |  | 1 | 23 |
+| 24PE336T | Pipeline Engineering (option of Program Elective B (choose one, 3 credits)) | Core | New |  | 0 | 29 |
+| 24PE306T | Reservoir Modelling and Simulation | Core | New |  | 0 | 19 |
+| 24PE307T | Surface and Offshore Production Operations | Core | New |  | 0 | 36 |
+| 24PE308T | Unconventional Hydrocarbon Energy Resources | Core | New |  | 0 | 31 |
+| 24PE309P | Petroleum Engineering - II Laboratory | Core | New |  | 0 | 13 |
+| 24PE310P | Petroleum Product Testing Laboratory | Core | New |  | 0 | 13 |
+| (not printed) | Open Elective 3 (from another department of FoET) | Non-core | no syllabus printed |  |  |  |
 
 ### Petroleum Engineering, semester 7
 
-| Code          | PDEU course                                                                                    | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| ------------- | ---------------------------------------------------------------------------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective A (choose one, 2 credits)                                                     | Core     | slot (see options)  |                                                |                  |            |
-| 24PE431T      | Flow Assurance (option of Program Elective A (choose one, 2 credits))                          | Core     | New                 |                                                | 0                | 33         |
-| 24PE432T      | Corrosion Studies in Petroleum Industry (option of Program Elective A (choose one, 2 credits)) | Core     | New                 |                                                | 0                | 53         |
-| (not printed) | Program Elective B (choose one, 3 credits)                                                     | Core     | slot (see options)  |                                                |                  |            |
-| 24PE433T      | Nanotechnology in Oil and Gas Industry (option of Program Elective B (choose one, 3 credits))  | Core     | Partly new          | Engineering Chemistry (engg-chemistry, 2)      | 0                | 40         |
-| 25PE431T      | City Gas Distribution (option of Program Elective B (choose one, 3 credits))                   | Core     | New                 |                                                | 0                | 29         |
-| 24PE401T      | Well Stimulation and Artificial Lift Techniques                                                | Core     | New                 |                                                | 0                | 41         |
-| 24PE402T      | Integrated Reservoir Management and Enhanced Oil Recovery Methods                              | Core     | New                 |                                                | 0                | 18         |
-| 24PE403P      | Reservoir Engineering Software Laboratory                                                      | Core     | New                 |                                                | 0                | 14         |
-| 24PE404T      | Hydrocarbon Contracts and Asset Management                                                     | Core     | New                 |                                                | 0                | 33         |
-| 24PRPE451     | Seminar                                                                                        | Core     | no syllabus printed |                                                |                  |            |
-| 24INT451      | Summer Internship                                                                              | Non-core | no syllabus printed |                                                |                  |            |
-| (not printed) | Open Elective 4 (from another department of FoET)                                              | Non-core | no syllabus printed |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective A (choose one, 2 credits) | Core | slot (see options) |  |  |  |
+| 24PE431T | Flow Assurance (option of Program Elective A (choose one, 2 credits)) | Core | New |  | 0 | 33 |
+| 24PE432T | Corrosion Studies in Petroleum Industry (option of Program Elective A (choose one, 2 credits)) | Core | New |  | 0 | 53 |
+| (not printed) | Program Elective B (choose one, 3 credits) | Core | slot (see options) |  |  |  |
+| 24PE433T | Nanotechnology in Oil and Gas Industry (option of Program Elective B (choose one, 3 credits)) | Core | Partly new | Engineering Chemistry (engg-chemistry, 2) | 0 | 40 |
+| 25PE431T | City Gas Distribution (option of Program Elective B (choose one, 3 credits)) | Core | New |  | 0 | 29 |
+| 24PE401T | Well Stimulation and Artificial Lift Techniques | Core | New |  | 0 | 41 |
+| 24PE402T | Integrated Reservoir Management and Enhanced Oil Recovery Methods | Core | New |  | 0 | 18 |
+| 24PE403P | Reservoir Engineering Software Laboratory | Core | New |  | 0 | 14 |
+| 24PE404T | Hydrocarbon Contracts and Asset Management | Core | New |  | 0 | 33 |
+| 24PRPE451 | Seminar | Core | no syllabus printed |  |  |  |
+| 24INT451 | Summer Internship | Non-core | no syllabus printed |  |  |  |
+| (not printed) | Open Elective 4 (from another department of FoET) | Non-core | no syllabus printed |  |  |  |
 
 ### Petroleum Engineering, semester 8
 
-| Code                  | PDEU course                            | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| --------------------- | -------------------------------------- | -------- | ----- | ---------------------------------------------- | ---------------- | ---------- |
-| 24PRPE452 / 24PRPE453 | Major Project OR Comprehensive Project | Core     | n/a   |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24PRPE452 / 24PRPE453 | Major Project OR Comprehensive Project | Core | n/a |  |  |  |
 
 ### Biotechnology, semester 1
 
-| Code     | PDEU course                         | Category           | Match      | Existing Prism subject(s) (id, topics matched)                                                                | Topic ids reused | New topics |
-| -------- | ----------------------------------- | ------------------ | ---------- | ------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 24MA102T | Mathematics for Biotechnology - I   | Core               | Partly new | Engineering Mathematics (engg-math, 3)                                                                        | 2                | 20         |
-| 24CP101T | Computer Programming - I            | Core               | Partly new | Programming for Problem Solving (pps, 3)                                                                      | 2                | 40         |
-| 24CP101P | Computer Programming Laboratory - I | Core               | Subset     | Programming for Problem Solving (pps, 3)                                                                      | 3                | 6          |
-| 24PH103T | Modern Physics                      | Core               | Combined   | Applied Physics (applied-physics, 6); Electricity & Magnetism (em, 5); Engineering Mathematics (engg-math, 3) | 7                | 34         |
-| 24PH103P | Modern Physics Laboratory           | Core               | New        |                                                                                                               | 1                | 14         |
-| 24CV101T | Environmental Science               | unsure (lean core) | Partly new | Environmental Science (environmental-science, 2)                                                              | 2                | 19         |
-| 24ME101P | Workshop Practices                  | Core               | New        |                                                                                                               | 0                | 10         |
-| 24ME102P | Engineering Graphics                | Core               | Subset     | Engineering Graphics & Design (engg-graphics, 3)                                                              | 3                | 6          |
-| 24BT102T | Biology for Engineers               | Core               | New        |                                                                                                               | 1                | 18         |
-| 24HS101T | English Communication               | Non-core           | New        |                                                                                                               | 0                | 14         |
-| 24HS102T | Universal Human Values              | Non-core           | New        |                                                                                                               | 0                | 29         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24MA102T | Mathematics for Biotechnology - I | Core | Partly new | Engineering Mathematics (engg-math, 3) | 2 | 20 |
+| 24CP101T | Computer Programming - I | Core | Partly new | Programming for Problem Solving (pps, 3) | 2 | 40 |
+| 24CP101P | Computer Programming Laboratory - I | Core | Subset | Programming for Problem Solving (pps, 3) | 3 | 6 |
+| 24PH103T | Modern Physics | Core | Combined | Applied Physics (applied-physics, 6); Electricity & Magnetism (em, 5); Engineering Mathematics (engg-math, 3) | 7 | 34 |
+| 24PH103P | Modern Physics Laboratory | Core | New |  | 1 | 14 |
+| 24CV101T | Environmental Science | Non-core | Partly new | Environmental Science (environmental-science, 2) | 2 | 19 |
+| 24ME101P | Workshop Practices | Core | New |  | 0 | 10 |
+| 24ME102P | Engineering Graphics | Core | Subset | Engineering Graphics & Design (engg-graphics, 3) | 3 | 6 |
+| 24BT102T | Biology for Engineers | Core | New |  | 1 | 18 |
+| 24HS101T | English Communication | Non-core | New |  | 0 | 14 |
+| 24HS102T | Universal Human Values | Non-core | New |  | 0 | 29 |
 
 ### Biotechnology, semester 2
 
-| Code                           | PDEU course                                                   | Category               | Match      | Existing Prism subject(s) (id, topics matched)                                                                               | Topic ids reused | New topics |
-| ------------------------------ | ------------------------------------------------------------- | ---------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 24MA104T                       | Mathematics for Biotechnology - II                            | Core                   | Subset     | Engineering Mathematics (engg-math, 9)                                                                                       | 6                | 15         |
-| 24CP102T                       | Computer Programming - II                                     | Core                   | Partly new | Programming for Problem Solving (pps, 2)                                                                                     | 2                | 53         |
-| 24CP102P                       | Computer Programming Laboratory - II                          | Core                   | New        |                                                                                                                              | 1                | 7          |
-| 24CH101T                       | Engineering Chemistry                                         | Core                   | Partly new | Engineering Chemistry (engg-chemistry, same name, 0 by wording)                                                              | 0                | 16         |
-| 24CH101P                       | Engineering Chemistry Laboratory                              | Core                   | New        |                                                                                                                              | 0                | 11         |
-| 24EE101T                       | Elements of Electrical and Electronics Engineering            | Core                   | Combined   | Basic Electrical Engineering (basic-electrical, 12); Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 6)   | 19               | 25         |
-| 24EE101P                       | Elements of Electrical and Electronics Engineering Laboratory | Core                   | Subset     | Basic Electrical Engineering (basic-electrical, 3); Network Theory (network-theory, 2); Applied Physics (applied-physics, 2) | 6                | 9          |
-| 24HS105T                       | Professional Communication                                    | Non-core               | New        |                                                                                                                              | 0                | 14         |
-| 24HS103T                       | Indian Knowledge System                                       | Non-core               | New        |                                                                                                                              | 0                | 22         |
-| 24YOG101 / 24NSS101 / 24NCC101 | Yoga, Health & Hygiene OR NSS OR NCC                          | unsure (lean non-core) | New        |                                                                                                                              | 0                | 63         |
-| 24HS104T                       | Organizational Behaviour                                      | Non-core               | New        |                                                                                                                              | 0                | 25         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24MA104T | Mathematics for Biotechnology - II | Core | Subset | Engineering Mathematics (engg-math, 9) | 6 | 15 |
+| 24CP102T | Computer Programming - II | Core | Partly new | Programming for Problem Solving (pps, 2) | 2 | 53 |
+| 24CP102P | Computer Programming Laboratory - II | Core | New |  | 1 | 7 |
+| 24CH101T | Engineering Chemistry | Core | Partly new | Engineering Chemistry (engg-chemistry, same name, 0 by wording) | 0 | 16 |
+| 24CH101P | Engineering Chemistry Laboratory | Core | New |  | 0 | 11 |
+| 24EE101T | Elements of Electrical and Electronics Engineering | Core | Combined | Basic Electrical Engineering (basic-electrical, 12); Applied Physics (applied-physics, 7); Electricity & Magnetism (em, 6) | 19 | 25 |
+| 24EE101P | Elements of Electrical and Electronics Engineering Laboratory | Core | Subset | Basic Electrical Engineering (basic-electrical, 3); Network Theory (network-theory, 2); Applied Physics (applied-physics, 2) | 6 | 9 |
+| 24HS105T | Professional Communication | Non-core | New |  | 0 | 14 |
+| 24HS103T | Indian Knowledge System | Non-core | New |  | 0 | 22 |
+| 24YOG101 / 24NSS101 / 24NCC101 | Yoga, Health & Hygiene OR NSS OR NCC | Non-core | New |  | 0 | 63 |
+| 24HS104T | Organizational Behaviour | Non-core | New |  | 0 | 25 |
 
 ### Biotechnology, semester 3
 
-| Code     | PDEU course                                 | Category           | Match               | Existing Prism subject(s) (id, topics matched)          | Topic ids reused | New topics |
-| -------- | ------------------------------------------- | ------------------ | ------------------- | ------------------------------------------------------- | ---------------- | ---------- |
-| 24BT201T | Biophysics and Structural Biology           | Core               | New                 |                                                         | 0                | 33         |
-| 24BT202T | Introduction to Artificial Intelligence     | unsure (lean core) | Subset              | Artificial Intelligence and Machine Learning (ai-ml, 5) | 5                | 24         |
-| 24BT203T | Principles of Biochemistry                  | Core               | Partly new          | Biochemistry (biochemistry, 2)                          | 1                | 30         |
-| 24BT203P | Principles of Biochemistry Laboratory       | Core               | New                 |                                                         | 0                | 12         |
-| 24BT204T | Human Anatomy and Physiology - I            | Core               | New                 |                                                         | 0                | 30         |
-| 24BT204P | Human Anatomy and Physiology - I Laboratory | Core               | New                 |                                                         | 0                | 12         |
-| 24BT205T | General Microbiology                        | Core               | New                 |                                                         | 0                | 30         |
-| 24BT205P | General Microbiology Laboratory             | Core               | New                 |                                                         | 0                | 10         |
-| 24INT151 | Civic and Social Service Internship         | Non-core           | no syllabus printed |                                                         |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24BT201T | Biophysics and Structural Biology | Core | New |  | 0 | 33 |
+| 24BT202T | Introduction to Artificial Intelligence | Core | Subset | Artificial Intelligence and Machine Learning (ai-ml, 5) | 5 | 24 |
+| 24BT203T | Principles of Biochemistry | Core | Partly new | Biochemistry (biochemistry, 2) | 1 | 30 |
+| 24BT203P | Principles of Biochemistry Laboratory | Core | New |  | 0 | 12 |
+| 24BT204T | Human Anatomy and Physiology - I | Core | New |  | 0 | 30 |
+| 24BT204P | Human Anatomy and Physiology - I Laboratory | Core | New |  | 0 | 12 |
+| 24BT205T | General Microbiology | Core | New |  | 0 | 30 |
+| 24BT205P | General Microbiology Laboratory | Core | New |  | 0 | 10 |
+| 24INT151 | Civic and Social Service Internship | Non-core | no syllabus printed |  |  |  |
 
 ### Biotechnology, semester 4
 
-| Code     | PDEU course                                   | Category           | Match               | Existing Prism subject(s) (id, topics matched)                           | Topic ids reused | New topics |
-| -------- | --------------------------------------------- | ------------------ | ------------------- | ------------------------------------------------------------------------ | ---------------- | ---------- |
-| 24BT206T | Industry 4.0 (Department Specific)            | unsure (lean core) | no syllabus printed |                                                                          |                  |            |
-| 24BT206P | Industry 4.0 Laboratory (Department Specific) | unsure (lean core) | no syllabus printed |                                                                          |                  |            |
-| 24BT207T | Molecular Biology and Genetics                | Core               | Partly new          | Molecular Biology (molecular-biology, 4)                                 | 5                | 25         |
-| 24BT207P | Molecular Biology and Genetics Laboratory     | Core               | New                 |                                                                          | 0                | 10         |
-| 24BT208T | Bioprocess Engineering                        | Core               | Partly new          | Bioprocess Engineering (bioprocess-engineering, same name, 0 by wording) | 0                | 25         |
-| 24BT208P | Bioprocess Engineering Laboratory             | Core               | New                 |                                                                          | 0                | 15         |
-| 24BT209T | Human Anatomy and Physiology - II             | Core               | New                 |                                                                          | 1                | 23         |
-| 24BT209P | Human Anatomy and Physiology - II Laboratory  | Core               | New                 |                                                                          | 0                | 14         |
-| 24BT210T | Analytical Bioinformatics                     | Core               | New                 |                                                                          | 0                | 32         |
-| 24BT210P | Analytical Bioinformatics Laboratory          | Core               | New                 |                                                                          | 0                | 10         |
-| 24BT221T | Biomedical Informatics                        | Non-core           | New                 |                                                                          | 0                | 20         |
-| 24INT251 | Industrial Orientation                        | Non-core           | no syllabus printed |                                                                          |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24BT206T | Industry 4.0 (Department Specific) | Core | no syllabus printed |  |  |  |
+| 24BT206P | Industry 4.0 Laboratory (Department Specific) | Core | no syllabus printed |  |  |  |
+| 24BT207T | Molecular Biology and Genetics | Core | Partly new | Molecular Biology (molecular-biology, 4) | 5 | 25 |
+| 24BT207P | Molecular Biology and Genetics Laboratory | Core | New |  | 0 | 10 |
+| 24BT208T | Bioprocess Engineering | Core | Partly new | Bioprocess Engineering (bioprocess-engineering, same name, 0 by wording) | 0 | 25 |
+| 24BT208P | Bioprocess Engineering Laboratory | Core | New |  | 0 | 15 |
+| 24BT209T | Human Anatomy and Physiology - II | Core | New |  | 1 | 23 |
+| 24BT209P | Human Anatomy and Physiology - II Laboratory | Core | New |  | 0 | 14 |
+| 24BT210T | Analytical Bioinformatics | Core | New |  | 0 | 32 |
+| 24BT210P | Analytical Bioinformatics Laboratory | Core | New |  | 0 | 10 |
+| 24BT221T | Biomedical Informatics | Non-core | New |  | 0 | 20 |
+| 24INT251 | Industrial Orientation | Non-core | no syllabus printed |  |  |  |
 
 ### Biotechnology, semester 5
 
-| Code          | PDEU course                                                                             | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| ------------- | --------------------------------------------------------------------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective 1 (choose one)                                                         | Core     | slot (see options)  |                                                |                  |            |
-| 24BT331T      | Medical Diagnostics (option of Program Elective 1 (choose one))                         | Core     | New                 |                                                | 0                | 30         |
-| 24BT332T      | Green Biotechnology and Pollution Abatement (option of Program Elective 1 (choose one)) | Core     | New                 |                                                | 0                | 27         |
-| 24BT333T      | Computer Aided Drug Design (option of Program Elective 1 (choose one))                  | Core     | New                 |                                                | 1                | 26         |
-| 24BT301T      | Genomics and Proteomics                                                                 | Core     | New                 |                                                | 0                | 29         |
-| 24BT301P      | Genomics and Proteomics Laboratory                                                      | Core     | New                 |                                                | 0                | 10         |
-| 24BT302T      | Immunology and Immunotechnology                                                         | Core     | New                 |                                                | 0                | 17         |
-| 24BT302P      | Immunology and Immunotechnology Laboratory                                              | Core     | New                 |                                                | 0                | 10         |
-| 24BT303T      | Animal and Plant Biotechnology                                                          | Core     | New                 |                                                | 0                | 26         |
-| 24BT303P      | Animal and Plant Biotechnology Laboratory                                               | Core     | New                 |                                                | 0                | 14         |
-| MOOC          | Open Elective 2 (NPTEL/SWAYAM/MOOC)                                                     | Non-core | no syllabus printed |                                                |                  |            |
-| 24HS301T      | Engineering Economics                                                                   | Non-core | no syllabus printed |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 1 (choose one) | Core | slot (see options) |  |  |  |
+| 24BT331T | Medical Diagnostics (option of Program Elective 1 (choose one)) | Core | New |  | 0 | 30 |
+| 24BT332T | Green Biotechnology and Pollution Abatement (option of Program Elective 1 (choose one)) | Core | New |  | 0 | 27 |
+| 24BT333T | Computer Aided Drug Design (option of Program Elective 1 (choose one)) | Core | New |  | 1 | 26 |
+| 24BT301T | Genomics and Proteomics | Core | New |  | 0 | 29 |
+| 24BT301P | Genomics and Proteomics Laboratory | Core | New |  | 0 | 10 |
+| 24BT302T | Immunology and Immunotechnology | Core | New |  | 0 | 17 |
+| 24BT302P | Immunology and Immunotechnology Laboratory | Core | New |  | 0 | 10 |
+| 24BT303T | Animal and Plant Biotechnology | Core | New |  | 0 | 26 |
+| 24BT303P | Animal and Plant Biotechnology Laboratory | Core | New |  | 0 | 14 |
+| MOOC | Open Elective 2 (NPTEL/SWAYAM/MOOC) | Non-core | no syllabus printed |  |  |  |
+| 24HS301T | Engineering Economics | Non-core | no syllabus printed |  |  |  |
 
 ### Biotechnology, semester 6
 
-| Code          | PDEU course                                                                                | Category | Match              | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------------------------------------------------ | -------- | ------------------ | ---------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective 2 (choose one)                                                            | Core     | slot (see options) |                                                |                  |            |
-| 24BT334T      | Biomaterial and Implants (option of Program Elective 2 (choose one))                       | Core     | New                |                                                | 0                | 43         |
-| 24BT335T      | Novel Separation Processes - Dyes and Pigments (option of Program Elective 2 (choose one)) | Core     | New                |                                                | 0                | 30         |
-| 24BT336T      | Cheminformatics and Medicinal Chemistry (option of Program Elective 2 (choose one))        | Core     | New                |                                                | 0                | 36         |
-| (not printed) | Program Elective 3 (choose one)                                                            | Core     | slot (see options) |                                                |                  |            |
-| 24BT337T      | Pharmacokinetics and Pharmacodynamics (option of Program Elective 3 (choose one))          | Core     | New                |                                                | 0                | 20         |
-| 24BT338T      | Food Biotechnology (option of Program Elective 3 (choose one))                             | Core     | New                |                                                | 0                | 25         |
-| 24BT339T      | Next Generation Sequence Analysis (option of Program Elective 3 (choose one))              | Core     | New                |                                                | 0                | 26         |
-| 24BT304T      | Genetic Engineering Techniques                                                             | Core     | New                |                                                | 0                | 21         |
-| 24BT304P      | Genetic Engineering Techniques Laboratory                                                  | Core     | New                |                                                | 0                | 10         |
-| 24BT305T      | Tissue Engineering and Regenerative Medicine                                               | Core     | New                |                                                | 0                | 56         |
-| 24BT305P      | Tissue Engineering and Regenerative Medicine Laboratory                                    | Core     | New                |                                                | 0                | 10         |
-| 24BT306T      | Pharmacology of Drug Action                                                                | Core     | New                |                                                | 0                | 26         |
-| 24BT306P      | Pharmacology of Drug Action Laboratory                                                     | Core     | New                |                                                | 0                | 12         |
-| 24BT321T      | Molecular Diagnostics                                                                      | Non-core | New                |                                                | 0                | 35         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 2 (choose one) | Core | slot (see options) |  |  |  |
+| 24BT334T | Biomaterial and Implants (option of Program Elective 2 (choose one)) | Core | New |  | 0 | 43 |
+| 24BT335T | Novel Separation Processes - Dyes and Pigments (option of Program Elective 2 (choose one)) | Core | New |  | 0 | 30 |
+| 24BT336T | Cheminformatics and Medicinal Chemistry (option of Program Elective 2 (choose one)) | Core | New |  | 0 | 36 |
+| (not printed) | Program Elective 3 (choose one) | Core | slot (see options) |  |  |  |
+| 24BT337T | Pharmacokinetics and Pharmacodynamics (option of Program Elective 3 (choose one)) | Core | New |  | 0 | 20 |
+| 24BT338T | Food Biotechnology (option of Program Elective 3 (choose one)) | Core | New |  | 0 | 25 |
+| 24BT339T | Next Generation Sequence Analysis (option of Program Elective 3 (choose one)) | Core | New |  | 0 | 26 |
+| 24BT304T | Genetic Engineering Techniques | Core | New |  | 0 | 21 |
+| 24BT304P | Genetic Engineering Techniques Laboratory | Core | New |  | 0 | 10 |
+| 24BT305T | Tissue Engineering and Regenerative Medicine | Core | New |  | 0 | 56 |
+| 24BT305P | Tissue Engineering and Regenerative Medicine Laboratory | Core | New |  | 0 | 10 |
+| 24BT306T | Pharmacology of Drug Action | Core | New |  | 0 | 26 |
+| 24BT306P | Pharmacology of Drug Action Laboratory | Core | New |  | 0 | 12 |
+| 24BT321T | Molecular Diagnostics | Non-core | New |  | 0 | 35 |
 
 ### Biotechnology, semester 7
 
-| Code          | PDEU course                                                                         | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| ------------- | ----------------------------------------------------------------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Program Elective 4 (choose one)                                                     | Core     | slot (see options)  |                                                |                  |            |
-| 24BT431T      | Pharmaceutical Biotechnology (option of Program Elective 4 (choose one))            | Core     | New                 |                                                | 0                | 27         |
-| 24BT432T      | Synthetic and Systems Biology (option of Program Elective 4 (choose one))           | Core     | New                 |                                                | 0                | 20         |
-| 24BT433T      | Metabolic Engineering (option of Program Elective 4 (choose one))                   | Core     | New                 |                                                | 0                | 37         |
-| (not printed) | Program Elective 5 (choose one)                                                     | Core     | slot (see options)  |                                                |                  |            |
-| 24BT434T      | Biomass Conversion and Utilisation (option of Program Elective 5 (choose one))      | Core     | New                 |                                                | 0                | 43         |
-| 24BT435T      | Stem Cell Technology (option of Program Elective 5 (choose one))                    | Core     | New                 |                                                | 0                | 26         |
-| 24BT436T      | Molecular Data Analysis and Simulations (option of Program Elective 5 (choose one)) | Core     | New                 |                                                | 1                | 22         |
-| 24BT401T      | Bioethics, IPR and Biosafety                                                        | Core     | New                 |                                                | 0                | 36         |
-| 24BT402T      | Nanotechnology                                                                      | Core     | New                 |                                                | 0                | 23         |
-| 24BT402P      | Nanotechnology Laboratory                                                           | Core     | New                 |                                                | 0                | 10         |
-| 24BT403T      | Downstream Processing                                                               | Core     | New                 |                                                | 0                | 26         |
-| 24BT403P      | Downstream Processing Laboratory                                                    | Core     | New                 |                                                | 1                | 7          |
-| 24PRBT451     | Seminar                                                                             | Core     | no syllabus printed |                                                |                  |            |
-| 24INT451      | Summer Internship                                                                   | Non-core | no syllabus printed |                                                |                  |            |
-| 24BT421T      | Biosimilars Technology                                                              | Non-core | New                 |                                                | 0                | 23         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Program Elective 4 (choose one) | Core | slot (see options) |  |  |  |
+| 24BT431T | Pharmaceutical Biotechnology (option of Program Elective 4 (choose one)) | Core | New |  | 0 | 27 |
+| 24BT432T | Synthetic and Systems Biology (option of Program Elective 4 (choose one)) | Core | New |  | 0 | 20 |
+| 24BT433T | Metabolic Engineering (option of Program Elective 4 (choose one)) | Core | New |  | 0 | 37 |
+| (not printed) | Program Elective 5 (choose one) | Core | slot (see options) |  |  |  |
+| 24BT434T | Biomass Conversion and Utilisation (option of Program Elective 5 (choose one)) | Core | New |  | 0 | 43 |
+| 24BT435T | Stem Cell Technology (option of Program Elective 5 (choose one)) | Core | New |  | 0 | 26 |
+| 24BT436T | Molecular Data Analysis and Simulations (option of Program Elective 5 (choose one)) | Core | New |  | 1 | 22 |
+| 24BT401T | Bioethics, IPR and Biosafety | Core | New |  | 0 | 36 |
+| 24BT402T | Nanotechnology | Core | New |  | 0 | 23 |
+| 24BT402P | Nanotechnology Laboratory | Core | New |  | 0 | 10 |
+| 24BT403T | Downstream Processing | Core | New |  | 0 | 26 |
+| 24BT403P | Downstream Processing Laboratory | Core | New |  | 1 | 7 |
+| 24PRBT451 | Seminar | Core | no syllabus printed |  |  |  |
+| 24INT451 | Summer Internship | Non-core | no syllabus printed |  |  |  |
+| 24BT421T | Biosimilars Technology | Non-core | New |  | 0 | 23 |
 
 ### Biotechnology, semester 8
 
-| Code                  | PDEU course                            | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| --------------------- | -------------------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| 24PRBT452 / 24PRBT453 | Major Project OR Comprehensive Project | Core     | no syllabus printed |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 24PRBT452 / 24PRBT453 | Major Project OR Comprehensive Project | Core | no syllabus printed |  |  |  |
 
 ### Mechanical Engineering, semester 1
 
-| Code                        | PDEU course                        | Category               | Match               | Existing Prism subject(s) (id, topics matched)                                                                 | Topic ids reused | New topics |
-| --------------------------- | ---------------------------------- | ---------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 16MA101T                    | Mathematics - I                    | Core                   | Subset              | Engineering Mathematics (engg-math, 15)                                                                        | 14               | 21         |
-| 17CE106T                    | Element of Civil Engg. & Mechanics | Core                   | Partly new          | Engineering Mechanics (engg-mechanics, 4)                                                                      | 1                | 56         |
-| 16EE102T                    | Basic Electronics                  | Core                   | Subset              | Basic Electronics Engineering (basic-electronics, 5)                                                           | 4                | 43         |
-| 16SC102T                    | Physics (Theory)                   | Core                   | Combined            | Applied Physics (applied-physics, 12); Electricity & Magnetism (em, 7); Engineering Mathematics (engg-math, 4) | 13               | 17         |
-| 16SC102P                    | Physics Lab                        | Core                   | New                 |                                                                                                                | 1                | 31         |
-| 16MA106P                    | Computer Programming               | Core                   | n/a                 |                                                                                                                |                  |            |
-| 16ME101T                    | Engineering Graphics               | Core                   | Subset              | Engineering Graphics & Design (engg-graphics, 5)                                                               | 0                | 25         |
-| 16ME101P                    | Engineering Graphics (Practical)   | Core                   | New                 |                                                                                                                | 0                | 9          |
-| 16HS108T                    | Environmental Studies              | unsure (lean non-core) | Partly new          | Environmental Science (environmental-science, 3)                                                               | 2                | 22         |
-| 16SP101 / 16SP102 / 16SP103 | NCC-I OR NSS-I OR Sports-I         | unsure (lean non-core) | no syllabus printed |                                                                                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 16MA101T | Mathematics - I | Core | Subset | Engineering Mathematics (engg-math, 15) | 14 | 21 |
+| 17CE106T | Element of Civil Engg. & Mechanics | Core | Partly new | Engineering Mechanics (engg-mechanics, 4) | 1 | 56 |
+| 16EE102T | Basic Electronics | Core | Subset | Basic Electronics Engineering (basic-electronics, 5) | 4 | 43 |
+| 16SC102T | Physics (Theory) | Core | Combined | Applied Physics (applied-physics, 12); Electricity & Magnetism (em, 7); Engineering Mathematics (engg-math, 4) | 13 | 17 |
+| 16SC102P | Physics Lab | Core | New |  | 1 | 31 |
+| 16MA106P | Computer Programming | Core | n/a |  |  |  |
+| 16ME101T | Engineering Graphics | Core | Subset | Engineering Graphics & Design (engg-graphics, 5) | 0 | 25 |
+| 16ME101P | Engineering Graphics (Practical) | Core | New |  | 0 | 9 |
+| 16HS108T | Environmental Studies | Non-core | Partly new | Environmental Science (environmental-science, 3) | 2 | 22 |
+| 16SP101 / 16SP102 / 16SP103 | NCC-I OR NSS-I OR Sports-I | Non-core | no syllabus printed |  |  |  |
 
 ### Mechanical Engineering, semester 2
 
-| Code          | PDEU course                          | Category               | Match               | Existing Prism subject(s) (id, topics matched)                                                                            | Topic ids reused | New topics |
-| ------------- | ------------------------------------ | ---------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 16MA103T      | Mathematics - II                     | Core                   | Subset              | Engineering Mathematics (engg-math, 8)                                                                                    | 8                | 22         |
-| 16SC101T      | Chemistry (Theory)                   | Core                   | Partly new          | Engineering Chemistry (engg-chemistry, same name, 0 by wording)                                                           | 0                | 40         |
-| 16SC101P      | Chemistry Lab                        | Core                   | New                 |                                                                                                                           | 0                | 16         |
-| 16ME106T      | Element of Mechanical Engg.          | Core                   | Partly new          | Applied Physics (applied-physics, 3); Engineering Thermodynamics (engineering-thermodynamics, 2)                          | 4                | 30         |
-| 16EE106T      | Elements of Electrical Engg.         | Core                   | Combined            | Applied Physics (applied-physics, 9); Electricity & Magnetism (em, 9); Basic Electrical Engineering (basic-electrical, 4) | 9                | 89         |
-| 16ME104P      | Workshop Practice                    | Core                   | New                 |                                                                                                                           | 0                | 7          |
-| 16HS109T      | Professional Ethics and Human Values | Non-core               | New                 |                                                                                                                           | 0                | 28         |
-| 16HS103T      | Communication Skills (Theory)        | Non-core               | New                 |                                                                                                                           | 0                | 31         |
-| 16HS103P      | Communication Skills (Practical)     | Non-core               | New                 |                                                                                                                           | 0                | 4          |
-| NO101 / NS101 | NCC / NSS                            | unsure (lean non-core) | no syllabus printed |                                                                                                                           |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 16MA103T | Mathematics - II | Core | Subset | Engineering Mathematics (engg-math, 8) | 8 | 22 |
+| 16SC101T | Chemistry (Theory) | Core | Partly new | Engineering Chemistry (engg-chemistry, same name, 0 by wording) | 0 | 40 |
+| 16SC101P | Chemistry Lab | Core | New |  | 0 | 16 |
+| 16ME106T | Element of Mechanical Engg. | Core | Partly new | Applied Physics (applied-physics, 3); Engineering Thermodynamics (engineering-thermodynamics, 2) | 4 | 30 |
+| 16EE106T | Elements of Electrical Engg. | Core | Combined | Applied Physics (applied-physics, 9); Electricity & Magnetism (em, 9); Basic Electrical Engineering (basic-electrical, 4) | 9 | 89 |
+| 16ME104P | Workshop Practice | Core | New |  | 0 | 7 |
+| 16HS109T | Professional Ethics and Human Values | Non-core | New |  | 0 | 28 |
+| 16HS103T | Communication Skills (Theory) | Non-core | New |  | 0 | 31 |
+| 16HS103P | Communication Skills (Practical) | Non-core | New |  | 0 | 4 |
+| NO101 / NS101 | NCC / NSS | Non-core | no syllabus printed |  |  |  |
 
 ### Mechanical Engineering, semester 3
 
-| Code     | PDEU course                                             | Category | Match               | Existing Prism subject(s) (id, topics matched)                                                                                            | Topic ids reused | New topics |
-| -------- | ------------------------------------------------------- | -------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 16MA201T | Maths - III                                             | Core     | Subset              | Engineering Mathematics (engg-math, 9)                                                                                                    | 8                | 26         |
-| 16MI203T | Strength of Material                                    | Core     | Subset              | Strength of Materials (strength-of-materials, 6); Structural Analysis (structural-analysis, 2)                                            | 1                | 66         |
-| 17EE212T | Electrical Technology and Control Systems               | Core     | Partly new          | Basic Electrical Engineering (basic-electrical, 3); Applied Physics (applied-physics, 2); Electricity & Magnetism (em, 2)                 | 5                | 53         |
-| 16MI205T | Mechanical Measurements & Metrology                     | Core     | New                 |                                                                                                                                           | 1                | 57         |
-| 16MI201T | Thermodynamics and Fluid Flow                           | Core     | Partly new          | Fluid Mechanics and Hydraulic Machines (fluid-mechanics, 4); Applied Physics (applied-physics, 3); Engineering Mathematics (engg-math, 3) | 6                | 78         |
-| 16MI251P | Thermodynamics, Fluid Flow and Strength of Material Lab | Core     | New                 |                                                                                                                                           | 0                | 21         |
-| 17EE212P | Electrical Technology and Control Lab                   | Core     | New                 |                                                                                                                                           | 2                | 12         |
-| 16TP110  | Civic and Social Services Internship (CSSI)             | Non-core | no syllabus printed |                                                                                                                                           |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 16MA201T | Maths - III | Core | Subset | Engineering Mathematics (engg-math, 9) | 8 | 26 |
+| 16MI203T | Strength of Material | Core | Subset | Strength of Materials (strength-of-materials, 6); Structural Analysis (structural-analysis, 2) | 1 | 66 |
+| 17EE212T | Electrical Technology and Control Systems | Core | Partly new | Basic Electrical Engineering (basic-electrical, 3); Applied Physics (applied-physics, 2); Electricity & Magnetism (em, 2) | 5 | 53 |
+| 16MI205T | Mechanical Measurements & Metrology | Core | New |  | 1 | 57 |
+| 16MI201T | Thermodynamics and Fluid Flow | Core | Partly new | Fluid Mechanics and Hydraulic Machines (fluid-mechanics, 4); Applied Physics (applied-physics, 3); Engineering Mathematics (engg-math, 3) | 6 | 78 |
+| 16MI251P | Thermodynamics, Fluid Flow and Strength of Material Lab | Core | New |  | 0 | 21 |
+| 17EE212P | Electrical Technology and Control Lab | Core | New |  | 2 | 12 |
+| 16TP110 | Civic and Social Services Internship (CSSI) | Non-core | no syllabus printed |  |  |  |
 
 ### Mechanical Engineering, semester 4
 
-| Code     | PDEU course                                          | Category | Match      | Existing Prism subject(s) (id, topics matched)                                                      | Topic ids reused | New topics |
-| -------- | ---------------------------------------------------- | -------- | ---------- | --------------------------------------------------------------------------------------------------- | ---------------- | ---------- |
-| 16MA202T | Numerical Methods                                    | Core     | New        |                                                                                                     | 1                | 47         |
-| 16MI205T | Manufacturing Process I                              | Core     | Partly new | Manufacturing Processes (manufacturing-processes, 4)                                                | 2                | 114        |
-| 16MI206T | Fluid Mechanics and Fluid Machinery                  | Core     | Subset     | Fluid Mechanics and Hydraulic Machines (fluid-mechanics, 6); Engineering Mathematics (engg-math, 3) | 4                | 80         |
-| 16MI207T | Engineering Metallurgy                               | Core     | Partly new | Engineering Materials (engineering-materials, 3); Mechanical Metallurgy (mechanical-metallurgy, 2)  | 2                | 54         |
-| 17MI204T | Design and Kinematics of Machines                    | Core     | Partly new | Strength of Materials (strength-of-materials, 2)                                                    | 1                | 80         |
-| 17MI210P | Mechanical Measurement, Metrology and Metallurgy Lab | Core     | New        |                                                                                                     | 0                | 19         |
-| 17MI211P | Fluid Mechanics and Fluid Machinery Lab              | Core     | Partly new | Fluid Mechanics and Hydraulic Machines (fluid-mechanics, 2)                                         | 1                | 15         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 16MA202T | Numerical Methods | Core | New |  | 1 | 47 |
+| 16MI205T | Manufacturing Process I | Core | Partly new | Manufacturing Processes (manufacturing-processes, 4) | 2 | 114 |
+| 16MI206T | Fluid Mechanics and Fluid Machinery | Core | Subset | Fluid Mechanics and Hydraulic Machines (fluid-mechanics, 6); Engineering Mathematics (engg-math, 3) | 4 | 80 |
+| 16MI207T | Engineering Metallurgy | Core | Partly new | Engineering Materials (engineering-materials, 3); Mechanical Metallurgy (mechanical-metallurgy, 2) | 2 | 54 |
+| 17MI204T | Design and Kinematics of Machines | Core | Partly new | Strength of Materials (strength-of-materials, 2) | 1 | 80 |
+| 17MI210P | Mechanical Measurement, Metrology and Metallurgy Lab | Core | New |  | 0 | 19 |
+| 17MI211P | Fluid Mechanics and Fluid Machinery Lab | Core | Partly new | Fluid Mechanics and Hydraulic Machines (fluid-mechanics, 2) | 1 | 15 |
 
 ### Mechanical Engineering, semester 5
 
-| Code     | PDEU course                                          | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| -------- | ---------------------------------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| 18ME302T | Production Operation Management                      | Core     | New                 |                                                | 0                | 135        |
-| 18ME301T | Manufacturing Process II                             | Core     | New                 |                                                | 0                | 84         |
-| 18ME306T | Heat and Mass Transfer                               | Core     | Partly new          | Heat Transfer (heat-transfer, 3)               | 0                | 45         |
-| 18ME304T | Dynamics of Machine                                  | Core     | Partly new          | Theory of Machines (theory-of-machines, 4)     | 1                | 59         |
-| 18ME303T | Dept. Elective - I (Non-Conventional Energy Sources) | Core     | New                 |                                                | 0                | 44         |
-| 18ME301P | Manufacturing Process and Production Technology Lab  | Core     | New                 |                                                | 0                | 20         |
-| 18ME304P | Kinematics and Dynamics of Machine Lab               | Core     | New                 |                                                | 0                | 12         |
-| TP210    | Industrial Orientation                               | Non-core | no syllabus printed |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 18ME302T | Production Operation Management | Core | New |  | 0 | 135 |
+| 18ME301T | Manufacturing Process II | Core | New |  | 0 | 84 |
+| 18ME306T | Heat and Mass Transfer | Core | Partly new | Heat Transfer (heat-transfer, 3) | 0 | 45 |
+| 18ME304T | Dynamics of Machine | Core | Partly new | Theory of Machines (theory-of-machines, 4) | 1 | 59 |
+| 18ME303T | Dept. Elective - I (Non-Conventional Energy Sources) | Core | New |  | 0 | 44 |
+| 18ME301P | Manufacturing Process and Production Technology Lab | Core | New |  | 0 | 20 |
+| 18ME304P | Kinematics and Dynamics of Machine Lab | Core | New |  | 0 | 12 |
+| TP210 | Industrial Orientation | Non-core | no syllabus printed |  |  |  |
 
 ### Mechanical Engineering, semester 6
 
-| Code     | PDEU course                                         | Category | Match      | Existing Prism subject(s) (id, topics matched)                       | Topic ids reused | New topics |
-| -------- | --------------------------------------------------- | -------- | ---------- | -------------------------------------------------------------------- | ---------------- | ---------- |
-| 18ME313T | Machine Design - I                                  | Core     | Partly new | Design of Machine Elements (machine-design, same name, 0 by wording) | 0                | 49         |
-| 18ME309T | Refrigeration and Air Conditioning                  | Core     | New        |                                                                      | 0                | 35         |
-| 18ME315T | Computer Aided Design                               | Core     | New        |                                                                      | 0                | 38         |
-| 18ME310T | Robotics                                            | Core     | New        |                                                                      | 0                | 40         |
-| 18ME311T | Dept. Elective - II (Advance Manufacturing Process) | Core     | New        |                                                                      | 1                | 21         |
-| 18ME316P | Heat-Mass Transfer and NCES Lab                     | Core     | New        |                                                                      | 0                | 22         |
-| 18ME315P | Computer Aided Design Lab                           | Core     | New        |                                                                      | 0                | 14         |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 18ME313T | Machine Design - I | Core | Partly new | Design of Machine Elements (machine-design, same name, 0 by wording) | 0 | 49 |
+| 18ME309T | Refrigeration and Air Conditioning | Core | New |  | 0 | 35 |
+| 18ME315T | Computer Aided Design | Core | New |  | 0 | 38 |
+| 18ME310T | Robotics | Core | New |  | 0 | 40 |
+| 18ME311T | Dept. Elective - II (Advance Manufacturing Process) | Core | New |  | 1 | 21 |
+| 18ME316P | Heat-Mass Transfer and NCES Lab | Core | New |  | 0 | 22 |
+| 18ME315P | Computer Aided Design Lab | Core | New |  | 0 | 14 |
 
 ### Mechanical Engineering, semester 7
 
-| Code          | PDEU course                                                        | Category | Match               | Existing Prism subject(s) (id, topics matched)                       | Topic ids reused | New topics |
-| ------------- | ------------------------------------------------------------------ | -------- | ------------------- | -------------------------------------------------------------------- | ---------------- | ---------- |
-| 19ME401T      | Machine Design - II                                                | Core     | Partly new          | Design of Machine Elements (machine-design, same name, 0 by wording) | 0                | 30         |
-| 19ME402T      | Internal Combustion Engine                                         | Core     | Partly new          | Automotive Engines (SI and CI) (automotive-engines, 2)               | 1                | 56         |
-| 19MEXXXT      | Dept. Elective - III                                               | Core     | no syllabus printed |                                                                      |                  |            |
-| 19MEXXXT      | Dept. Elective - IV                                                | Core     | no syllabus printed |                                                                      |                  |            |
-| 18ME403T      | Discipline based / Generic (Optimization Techniques)               | Core     | New                 |                                                                      | 0                | 20         |
-| 19ME410T      | Refrigeration, Air Conditioning and Internal Combustion Engine Lab | Core     | New                 |                                                                      | 0                | 14         |
-| 19ME401P      | Machine Design Lab                                                 | Core     | New                 |                                                                      | 0                | 15         |
-| (not printed) | Seminar                                                            | Core     | no syllabus printed |                                                                      |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| 19ME401T | Machine Design - II | Core | Partly new | Design of Machine Elements (machine-design, same name, 0 by wording) | 0 | 30 |
+| 19ME402T | Internal Combustion Engine | Core | Partly new | Automotive Engines (SI and CI) (automotive-engines, 2) | 1 | 56 |
+| 19MEXXXT | Dept. Elective - III | Core | no syllabus printed |  |  |  |
+| 19MEXXXT | Dept. Elective - IV | Core | no syllabus printed |  |  |  |
+| 18ME403T | Discipline based / Generic (Optimization Techniques) | Core | New |  | 0 | 20 |
+| 19ME410T | Refrigeration, Air Conditioning and Internal Combustion Engine Lab | Core | New |  | 0 | 14 |
+| 19ME401P | Machine Design Lab | Core | New |  | 0 | 15 |
+| (not printed) | Seminar | Core | no syllabus printed |  |  |  |
 
 ### Mechanical Engineering, semester 8
 
-| Code          | PDEU course                                                                      | Category | Match               | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
-| ------------- | -------------------------------------------------------------------------------- | -------- | ------------------- | ---------------------------------------------- | ---------------- | ---------- |
-| (not printed) | Computer Aided Manufacturing (CAM) [Major in-house project route only]           | Core     | New                 |                                                | 0                | 68         |
-| (not printed) | Thermal Engineering and Power Plant                                              | Core     | New                 |                                                | 0                | 31         |
-| 18ME410       | Project Management / Department Elective - V                                     | Core     | New                 |                                                | 0                | 29         |
-| (not printed) | Major Project (in-house route) OR Comprehensive Project (route with two courses) | Core     | no syllabus printed |                                                |                  |            |
-| (not printed) | Seminar (comprehensive project route)                                            | Core     | no syllabus printed |                                                |                  |            |
+| Code | PDEU course | Category | Match | Existing Prism subject(s) (id, topics matched) | Topic ids reused | New topics |
+|---|---|---|---|---|---|---|
+| (not printed) | Computer Aided Manufacturing (CAM) [Major in-house project route only] | Core | New |  | 0 | 68 |
+| (not printed) | Thermal Engineering and Power Plant | Core | New |  | 0 | 31 |
+| 18ME410 | Project Management / Department Elective - V | Core | New |  | 0 | 29 |
+| (not printed) | Major Project (in-house route) OR Comprehensive Project (route with two courses) | Core | no syllabus printed |  |  |  |
+| (not printed) | Seminar (comprehensive project route) | Core | no syllabus printed |  |  |  |

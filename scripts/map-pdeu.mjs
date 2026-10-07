@@ -154,21 +154,8 @@ const nameKey = (n) =>
 
 // Non-core is what PDEU itself tags non-core (humanities, open electives, internships). These are
 // the courses whose category is not clear-cut, so the owner decides.
-const UNSURE = [
-  [
-    /^environment(al)? (science|studies)$/i,
-    "PDEU tags it Basic Science (core), but it is a general course whose content depends on the college",
-  ],
-  [
-    /industry 4\.0|industry iv/i,
-    "Engineering Science at PDEU, but largely a general overview course",
-  ],
-  [/yoga|ncc|nss|sports/i, "Not an engineering course; PDEU files it under Humanities"],
-  [
-    /introduction to (artificial intelligence|ai)/i,
-    "Engineering Science at PDEU (core); a general introduction rather than a branch subject",
-  ],
-];
+const OVERRIDES = JSON.parse(readFileSync(join(DIR, "overrides.json"), "utf8"));
+const UNSURE = []; // nothing is unsure any more: the owner decided (overrides.json)
 
 function typeOf(c) {
   return c.type;
@@ -275,10 +262,12 @@ function analyse(c, core) {
 }
 
 function categoryOf(c, coreFlag) {
-  const un = UNSURE.find(([re]) => re.test(c.name));
-  if (un) return { category: "unsure", why: un[1], lean: coreFlag ? "core" : "non-core" };
+  const rule = OVERRIDES.categories.find((r) => new RegExp(r.match, "i").test(c.name));
+  if (rule) return { category: rule.category };
   return { category: coreFlag ? "core" : "non-core" };
 }
+const excluded = (bid, sem, x) =>
+  OVERRIDES.exclude.some((e) => e.branch === bid && e.semester === sem && (e.code ? e.code === x.code : e.name === x.name));
 
 const summary = { courses: 0, full: 0, partly: 0, none: 0, unsure: [], byType: {} };
 let md = "";
@@ -292,6 +281,7 @@ for (const [bid, branch] of Object.entries(extracted.branches)) {
     for (const c of list) {
       const flat = [c, ...(c.options ?? []).map((o) => ({ ...o, core: c.core, _slot: c.name }))];
       for (const x of flat) {
+        if (excluded(bid, sem, x)) continue;
         const isOption = Boolean(x._slot);
         const cat = categoryOf(x, c.core);
         const labByName = /(lab|laboratory|practical|practicals|workshop)/i.test(x.name);
