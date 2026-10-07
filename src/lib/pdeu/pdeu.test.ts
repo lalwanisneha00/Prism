@@ -1,3 +1,4 @@
+import matchData from "@/data/pdeu/prism-match.json";
 import { describe, expect, it } from "vitest";
 import {
   codeText,
@@ -10,6 +11,7 @@ import {
   toDraftChapters,
 } from "@/lib/pdeu/helpers";
 import { loadPdeuBranch, PDEU_BRANCH_IDS, isPdeuBranch } from "@/lib/pdeu/load";
+import { findSubject } from "@/lib/subjects";
 
 describe("PDEU syllabus data", () => {
   it("every branch passes its schema and has all eight semesters", async () => {
@@ -58,6 +60,13 @@ describe("PDEU syllabus data", () => {
       for (const s of b.subjects.filter((x) => x.options || x.optionsListedUnder)) {
         expect(s.options?.length || s.optionsListedUnder, `${id} ${s.name}`).toBeTruthy();
       }
+    }
+  });
+
+  it("every Prism match points at a real Prism subject", () => {
+    for (const [name, m] of Object.entries(matchData)) {
+      if (name.startsWith("_")) continue;
+      expect(findSubject((m as { subject: string }).subject), name).toBeDefined();
     }
   });
 });

@@ -1,0 +1,66 @@
+{
+  "id": "vehicle-dynamics",
+  "name": "Vehicle Dynamics",
+  "field": "Automobile Engineering",
+  "tier": "sourced",
+  "branches": ["auto"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.E. Automobile Engineering (R2017): AT8604 Vehicle Dynamics",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/2.%20B.E.%20Auto.pdf",
+    "note": "All five units of AT8604."
+  },
+  "visualSet": "mechanics",
+  "chapters": [
+    {
+      "id": "vibration-tyres",
+      "name": "Vibration and Tyres",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "vehicle-vibration",
+          "name": "Free and forced vibration, transmissibility"
+        },
+        {
+          "id": "tyre-forces-slip",
+          "name": "Tyre forces, slip angle and rolling resistance"
+        }
+      ]
+    },
+    {
+      "id": "vertical-longitudinal",
+      "name": "Ride and Longitudinal Dynamics",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "quarter-car-ride",
+          "name": "Ride comfort and the quarter-car suspension model",
+          "requires": ["vehicle-vibration"]
+        },
+        {
+          "id": "traction-braking-dynamics",
+          "name": "Tractive effort, load transfer and braking",
+          "requires": ["tyre-forces-slip"]
+        }
+      ]
+    },
+    {
+      "id": "lateral",
+      "name": "Lateral Dynamics and Handling",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "understeer-oversteer",
+          "name": "Steady-state handling: understeer and oversteer",
+          "requires": ["tyre-forces-slip"]
+        },
+        {
+          "id": "roll-centre-rollover",
+          "name": "Roll centre and rollover stability",
+          "requires": ["understeer-oversteer"]
+        }
+      ]
+    }
+  ]
+}

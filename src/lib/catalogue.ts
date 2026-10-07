@@ -1,6 +1,6 @@
 import { subjectIndexData } from "@/data/subjects/index.light.generated";
 import { subjectLoaders } from "@/data/subjects/loaders.generated";
-import type { Offering, Subject } from "@/lib/subjects";
+import type { Subject } from "@/lib/subjects";
 
 /*
  * The light catalogue: every subject WITHOUT its topics (names, fields, branches, semesters, chapters
@@ -20,7 +20,6 @@ export type IndexedSubject = {
   visualSet?: string;
   teaching?: "theory" | "skill";
   links?: readonly { subject: string; chapters?: readonly string[] }[];
-  offerings?: readonly Offering[];
   chapters: readonly IndexedChapter[];
 };
 

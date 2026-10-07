@@ -112,6 +112,11 @@ describe("Engineering Mathematics data", () => {
       url: "https://openstax.org/books/calculus-volume-3/pages/6-4-greens-theorem",
     });
   });
+
+  it("uses unique ids across all subjects", () => {
+    const all = subjects.flatMap((s) => s.chapters.flatMap((c) => c.topics.map((t) => t.id)));
+    expect(new Set(all).size).toBe(all.length);
+  });
 });
 
 describe("visual planner", () => {

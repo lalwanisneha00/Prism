@@ -38,10 +38,6 @@ const decisions: Decision[] = pdeu.subjects.map((uni) => {
 });
 const term = buildSemester(1, decisions, subjects, { fileName: "pdeu.pdf", labs: pdeu.labs });
 const syllabus = { "1": term };
-// The PDEU catalogue has one subject per Mathematics course; this is the one Mathematics – I was matched to.
-const MATHS = (
-  decisions.find((d) => d.uni.name === "Mathematics – I")!.choice as { subjectId: string }
-).subjectId;
 
 describe("stored syllabus", () => {
   it("is valid against its schema, and old settings without it still load", () => {
@@ -51,9 +47,18 @@ describe("stored syllabus", () => {
   });
 
   it("puts matched subjects on the list and keeps the rest as own subjects", () => {
-    expect(idsOf(term)).toEqual(expect.arrayContaining(["applied-physics", MATHS]));
+    expect(idsOf(term).sort()).toEqual([
+      "applied-physics",
+      "engg-math",
+      "environmental-science",
+      "pps",
+    ]);
     const own = term.subjects.filter((s) => s.match.kind === "own").map((s) => s.name);
-    expect(own).toContain("Universal Human Values");
+    expect(own).toEqual([
+      "English Communication",
+      "Biological Systems for Engineers",
+      "Universal Human Values",
+    ]);
   });
 });
 
@@ -62,25 +67,25 @@ describe("coverage notes", () => {
     const cov = coverageFor("applied-physics", syllabus)!;
     expect(cov.mode).toBe("whole");
     expect(cov.coveredCount).toBeGreaterThan(8);
-    expect(cov.coveredCount).toBeLessThanOrEqual(cov.totalTopics);
+    expect(cov.coveredCount).toBeLessThan(cov.totalTopics);
     const inKey = [...cov.entries[0].covered][0];
     expect(cov.noteOf(inKey)).toBeNull();
     expect(cov.noteOf("applied-physics/not-a-covered-topic")).toBe(NOTE_OUTSIDE);
   });
 
   it("Mathematics I (split): uncovered topics say they may come later", () => {
-    const cov = coverageFor(MATHS, syllabus)!;
+    const cov = coverageFor("engg-math", syllabus)!;
     expect(cov.mode).toBe("split");
-    expect(cov.noteOf(`${MATHS}/never-covered`)).toBe(NOTE_LATER);
+    expect(cov.noteOf("engg-math/never-covered")).toBe(NOTE_LATER);
     expect(cov.stateOf([...cov.entries[0].covered][0])).toMatchObject({ state: "in", semester: 1 });
   });
 
   it("a later semester fills up the coverage of the same subject", () => {
-    const m1 = coverageFor(MATHS, syllabus)!;
-    const em = subjects.find((s) => s.id === MATHS)!;
+    const m1 = coverageFor("engg-math", syllabus)!;
+    const em = subjects.find((s) => s.id === "engg-math")!;
     const laterTopic = em.chapters
       .flatMap((c) => c.topics)
-      .find((t) => !m1.entries[0].covered.has(`${MATHS}/${t.id}`))!;
+      .find((t) => !m1.entries[0].covered.has(`engg-math/${t.id}`))!;
     const sem2: typeof term = {
       ...term,
       semester: 2,
@@ -90,18 +95,18 @@ describe("coverage notes", () => {
           name: "Mathematics – II",
           match: {
             kind: "prism",
-            subjectId: MATHS,
+            subjectId: "engg-math",
             by: "confirmed",
             extra: [],
-            covered: [`${MATHS}/${laterTopic.id}`],
+            covered: [`engg-math/${laterTopic.id}`],
           },
         },
       ],
     };
-    const both = coverageFor(MATHS, { "1": term, "2": sem2 })!;
+    const both = coverageFor("engg-math", { "1": term, "2": sem2 })!;
     expect(both.entries.map((e) => e.semester)).toEqual([1, 2]);
     expect(both.coveredCount).toBe(m1.coveredCount + 1);
-    expect(both.stateOf(`${MATHS}/${laterTopic.id}`)).toMatchObject({
+    expect(both.stateOf(`engg-math/${laterTopic.id}`)).toMatchObject({
       state: "in",
       semester: 2,
       name: "Mathematics – II",
@@ -110,8 +115,7 @@ describe("coverage notes", () => {
 
   it("lists syllabus topics Prism lacks, and gives outcomes only for covered topics", () => {
     const missing = missingFromPrism(syllabus, "applied-physics");
-    // PDEU's own subject lists every topic of its syllabus, so nothing is missing from Prism.
-    expect(missing.flatMap((m) => m.topics).length).toBeLessThan(6);
+    expect(missing[0].topics.length).toBeGreaterThan(10);
     const cov = coverageFor("applied-physics", syllabus)!;
     const key = [...cov.entries[0].covered][0];
     const e = emphasisFor(syllabus, "applied-physics", key)!;

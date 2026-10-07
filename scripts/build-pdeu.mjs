@@ -35,25 +35,22 @@ const isHeaderOrFooter = (l) => /^\s*Page \d+\s*$/.test(l) || /^PDEU B\.Tech syl
 function splitTopics(text) {
   const clean = text.replace(/\s+/g, " ").trim();
   if (!clean) return [];
-  // Separators in order of preference: ";", then spaced dashes ("A - B - C") when the list uses them
-  // at least twice, then commas outside brackets.
-  const dashes = clean.match(/\s[-–—]\s/g)?.length ?? 0;
+  const sep = clean.includes(";") ? ";" : ",";
   const parts = [];
-  if (clean.includes(";")) parts.push(...splitOutside(clean, (ch) => ch === ";"));
-  else if (dashes >= 2) {
-    // A dash inside brackets ("(Cartesian – Polar form)") is not a separator.
-    let depth = 0;
-    let masked = "";
-    for (const ch of clean) {
-      if (ch === "(" || ch === "[") depth++;
-      if (ch === ")" || ch === "]") depth = Math.max(0, depth - 1);
-      masked += depth > 0 && (ch === "–" || ch === "—" || ch === "-") ? "‑" : ch;
-    }
-    parts.push(...masked.split(/\s[-–—]\s/).map((x) => x.replace(/‑/g, "-")));
-  } else parts.push(...splitOutside(clean, (ch) => ch === ","));
+  let depth = 0;
+  let cur = "";
+  for (const ch of clean) {
+    if (ch === "(" || ch === "[") depth++;
+    if (ch === ")" || ch === "]") depth = Math.max(0, depth - 1);
+    if (ch === sep && depth === 0) {
+      parts.push(cur);
+      cur = "";
+    } else cur += ch;
+  }
+  parts.push(cur);
   const out = [];
   const pieces = parts.flatMap((p) =>
-    p.trim().length > 90 ? p.split(/(?<=[a-z)])\.\s+(?=[A-Z])|\s[–—]\s/) : [p],
+    p.trim().length > 140 ? p.split(/(?<=[a-z)])\.\s+(?=[A-Z])|\s[–—]\s/) : [p],
   );
   for (let p of pieces) {
     p = p
@@ -62,35 +59,11 @@ function splitTopics(text) {
       .replace(/[.\s]+$/, "")
       .trim();
     if (!p) continue;
-    // "A, B, and C" inside one phrase ("theorems of Gradient, Curls, and Divergence"): a part that
-    // starts with "and"/"or" joins the part before it, and a single-word part before that too.
-    if (/^(and|or|&)\s/i.test(p) && out.length > 0) {
-      const last = out.pop();
-      if (/^\S{1,14}$/.test(last) && out.length > 0) out.push(`${out.pop()}, ${last}, ${p}`);
-      else out.push(`${last}, ${p}`);
-      continue;
-    }
     // Very short fragments ("etc", "and") belong to the previous topic.
     if (p.length < 3 && out.length > 0) out[out.length - 1] += `, ${p}`;
     else out.push(p);
   }
   return out;
-}
-
-function splitOutside(text, isSep) {
-  const parts = [];
-  let depth = 0;
-  let cur = "";
-  for (const ch of text) {
-    if (ch === "(" || ch === "[") depth++;
-    if (ch === ")" || ch === "]") depth = Math.max(0, depth - 1);
-    if (isSep(ch) && depth === 0) {
-      parts.push(cur);
-      cur = "";
-    } else cur += ch;
-  }
-  parts.push(cur);
-  return parts;
 }
 
 /** "Unit 1: Title (8 hrs) – topics" and "Unit 1 (8 hrs) – Title: topics" → { title, hours, topics }. */

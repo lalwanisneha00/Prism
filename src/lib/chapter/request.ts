@@ -3,7 +3,7 @@ import { findChapter, findSubject, type Chapter, type Subject, type Topic } from
 
 /*
  * A whole-chapter (or several-topic) lesson request, as it travels in the URL (V2.5 · Step 3):
- * /chapter?subject=applied-physics&chapter=electricity-and-magnetism&topics=a,b&level=…&minutes=45&plan=a:20,b:25
+ * /chapter?subject=em&chapter=electrostatics&topics=a,b&level=…&minutes=45&plan=a:20,b:25
  * Like the single-topic request, everything is checked against the data files first.
  */
 

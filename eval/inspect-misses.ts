@@ -4,8 +4,8 @@
  * really leave the fact out, or is the pattern too strict?   npx tsx eval/inspect-misses.ts
  */
 import { existsSync, readFileSync } from "node:fs";
-import emGolden from "./archive-pre-pdeu/golden/em.json";
-import mathGolden from "./archive-pre-pdeu/golden/engg-math.json";
+import emGolden from "./golden/em.json";
+import mathGolden from "./golden/engg-math.json";
 import { GoldenSchema, normalizeForMatch } from "./score";
 
 for (const set of [GoldenSchema.parse(emGolden), GoldenSchema.parse(mathGolden)]) {

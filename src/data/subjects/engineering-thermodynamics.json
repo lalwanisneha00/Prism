@@ -1,0 +1,121 @@
+{
+  "id": "engineering-thermodynamics",
+  "name": "Engineering Thermodynamics",
+  "field": "Mechanical Engineering",
+  "tier": "sourced",
+  "branches": ["me", "auto", "aero"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE revised Model Curriculum for UG Degree Course in Mechanical Engineering: ESC 203 Applied Thermodynamics",
+    "url": "https://www.aicte.gov.in/sites/default/files/Final_Mechanical%20Engg.pdf",
+    "note": "All units of ESC 203. The first chapter recaps the laws of thermodynamics from the first-year physics course, because every later unit uses them."
+  },
+  "visualSet": "thermal",
+  "chapters": [
+    {
+      "id": "thermo-laws-recap",
+      "name": "Laws of Thermodynamics for Engineers",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "systems-properties-state",
+          "name": "Systems, control volumes, properties and state"
+        },
+        {
+          "id": "first-law-control-volume",
+          "name": "First law for closed systems and steady-flow devices",
+          "requires": ["systems-properties-state"]
+        },
+        {
+          "id": "second-law-entropy-engg",
+          "name": "Second law, entropy and exergy",
+          "requires": ["first-law-control-volume"]
+        }
+      ]
+    },
+    {
+      "id": "fuels-combustion",
+      "name": "Fuels and Combustion",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "combustion-stoichiometry",
+          "name": "Fuels, stoichiometry and exhaust gas analysis",
+          "requires": ["first-law-control-volume"]
+        },
+        {
+          "id": "adiabatic-flame-temperature",
+          "name": "Heating value and adiabatic flame temperature",
+          "requires": ["combustion-stoichiometry"]
+        }
+      ]
+    },
+    {
+      "id": "power-cycles",
+      "name": "Vapour and Gas Power Cycles",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "rankine-cycle",
+          "name": "Rankine cycle with superheat, reheat and regeneration",
+          "requires": ["second-law-entropy-engg"]
+        },
+        {
+          "id": "otto-diesel-dual",
+          "name": "Air-standard Otto, Diesel and dual cycles",
+          "requires": ["second-law-entropy-engg"]
+        },
+        {
+          "id": "brayton-cycle",
+          "name": "Brayton cycle with reheat, regeneration and intercooling",
+          "requires": ["second-law-entropy-engg"]
+        },
+        {
+          "id": "combined-cycle",
+          "name": "Combined gas and vapour power cycles",
+          "requires": ["rankine-cycle", "brayton-cycle"]
+        },
+        {
+          "id": "vapour-compression-refrigeration",
+          "name": "Vapour compression refrigeration and refrigerants",
+          "requires": ["second-law-entropy-engg"]
+        }
+      ]
+    },
+    {
+      "id": "psychrometry",
+      "name": "Psychrometry",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "psychrometric-chart",
+          "name": "Dry and wet air, humidity, dew point and the psychrometric chart",
+          "requires": ["first-law-control-volume"]
+        }
+      ]
+    },
+    {
+      "id": "nozzles-machines",
+      "name": "Nozzles, Compressors and Steam Turbines",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "nozzle-choked-flow",
+          "name": "Isentropic flow through nozzles, choked flow and normal shocks",
+          "requires": ["first-law-control-volume"]
+        },
+        {
+          "id": "reciprocating-compressor",
+          "name": "Reciprocating compressors, staging and intercooling",
+          "requires": ["first-law-control-volume"]
+        },
+        {
+          "id": "steam-turbine-compounding",
+          "name": "Steam turbines: velocity and pressure compounding",
+          "requires": ["nozzle-choked-flow"]
+        }
+      ]
+    }
+  ]
+}

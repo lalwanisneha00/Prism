@@ -1,0 +1,205 @@
+{
+  "id": "pps",
+  "name": "Programming for Problem Solving",
+  "field": "Computer Programming",
+  "tier": "verified",
+  "branches": ["all"],
+  "semesters": [1, 2],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree Courses in Engineering & Technology, Vol. I (Jan 2018): Programming for Problem Solving (ESC103)",
+    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf",
+    "note": "Units 1-9 of AICTE ESC103 (in C), with storage classes, unions, dynamic memory and preprocessor from IET Lucknow's AICTE-model PPS (https://ietlucknow.ac.in/sites/default/files/syllabus/K_Series_B_Tech_1st_Year_AICTE_Model_Curriculum_EFS_2020_21_4.pdf). The Python chapter follows the chapters of OpenStax Introduction to Python Programming."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "intro-programming",
+      "name": "Introduction to Programming",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "computer-system-components",
+          "name": "Components of a computer system; compilers, interpreters, linkers"
+        },
+        {
+          "id": "algorithms-flowcharts",
+          "name": "Algorithms, flowcharts and pseudocode"
+        },
+        {
+          "id": "first-c-program",
+          "name": "Structure of a C program; syntax and logical errors",
+          "requires": ["computer-system-components", "algorithms-flowcharts"]
+        },
+        {
+          "id": "data-types-variables",
+          "name": "Data types, variables, memory and storage classes",
+          "requires": ["first-c-program"]
+        }
+      ]
+    },
+    {
+      "id": "expressions-control",
+      "name": "Expressions and Control Flow",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "operators-precedence",
+          "name": "Operators, expressions, type conversion and precedence"
+        },
+        {
+          "id": "conditionals",
+          "name": "Conditional branching: if, else and switch",
+          "requires": ["operators-precedence"]
+        },
+        {
+          "id": "loops",
+          "name": "Loops: while, do-while and for; break and continue",
+          "requires": ["conditionals"]
+        }
+      ]
+    },
+    {
+      "id": "arrays-strings",
+      "name": "Arrays and Strings",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "one-d-arrays",
+          "name": "One-dimensional arrays"
+        },
+        {
+          "id": "two-d-arrays",
+          "name": "Two-dimensional arrays and matrix operations",
+          "requires": ["one-d-arrays"]
+        },
+        {
+          "id": "strings-c",
+          "name": "Character arrays and strings",
+          "requires": ["one-d-arrays"]
+        }
+      ]
+    },
+    {
+      "id": "basic-algorithms",
+      "name": "Basic Algorithms",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "searching",
+          "name": "Linear and binary search"
+        },
+        {
+          "id": "basic-sorting",
+          "name": "Bubble, insertion and selection sort"
+        },
+        {
+          "id": "root-finding",
+          "name": "Finding roots of equations (bisection, Newton-Raphson)",
+          "requires": ["loops"]
+        },
+        {
+          "id": "order-of-complexity",
+          "name": "Order of complexity through examples",
+          "requires": ["searching", "basic-sorting"]
+        }
+      ]
+    },
+    {
+      "id": "functions",
+      "name": "Functions and Recursion",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "functions-basics",
+          "name": "Functions and built-in libraries"
+        },
+        {
+          "id": "parameter-passing",
+          "name": "Call by value and call by reference; passing arrays",
+          "requires": ["functions-basics"]
+        },
+        {
+          "id": "recursion",
+          "name": "Recursion: factorial, Fibonacci, Ackermann",
+          "requires": ["functions-basics"]
+        },
+        {
+          "id": "merge-quick-sort",
+          "name": "Merge sort and quicksort",
+          "requires": ["recursion"]
+        }
+      ]
+    },
+    {
+      "id": "structures-pointers",
+      "name": "Structures, Pointers and Files",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "structures-unions",
+          "name": "Structures, arrays of structures, unions and enums"
+        },
+        {
+          "id": "pointers",
+          "name": "Pointers and pointer arithmetic"
+        },
+        {
+          "id": "dynamic-memory",
+          "name": "Dynamic memory allocation: malloc, calloc, realloc, free",
+          "requires": ["pointers"]
+        },
+        {
+          "id": "self-referential-linked-list",
+          "name": "Self-referential structures and the idea of a linked list",
+          "requires": ["structures-unions", "pointers"]
+        },
+        {
+          "id": "file-handling-c",
+          "name": "File handling, preprocessor macros and command-line arguments",
+          "requires": ["pointers"]
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "name": "Problem Solving in Python",
+      "topics": [
+        {
+          "id": "python-basics",
+          "name": "Python basics: variables, input/output, numbers and strings"
+        },
+        {
+          "id": "python-decisions-loops",
+          "name": "Decisions and loops in Python",
+          "requires": ["python-basics"]
+        },
+        {
+          "id": "python-functions-modules",
+          "name": "Functions and modules",
+          "requires": ["python-decisions-loops"]
+        },
+        {
+          "id": "python-lists-dicts",
+          "name": "Lists, tuples and dictionaries",
+          "requires": ["python-basics"]
+        },
+        {
+          "id": "python-recursion",
+          "name": "Recursion in Python",
+          "requires": ["python-functions-modules"]
+        },
+        {
+          "id": "python-files-exceptions",
+          "name": "Files and exceptions",
+          "requires": ["python-functions-modules"]
+        },
+        {
+          "id": "python-classes",
+          "name": "Classes and objects",
+          "requires": ["python-functions-modules"]
+        }
+      ]
+    }
+  ]
+}

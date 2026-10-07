@@ -1,0 +1,139 @@
+{
+  "id": "power-systems",
+  "name": "Power Systems",
+  "field": "Electrical Engineering",
+  "tier": "sourced",
+  "branches": ["ee"],
+  "semesters": [5, 6],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Electrical Engineering: PCC301 Power Systems-I and PE304 Power Systems-II",
+    "url": "https://www.aicte.gov.in/downloads/msyllabus/UG/ELECTRICAL%20Engg%20Final.pdf",
+    "note": "Line parameters, line models, cables and insulators (PCC301); per unit, load flow, faults, stability and frequency control (PE304)."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "line-parameters",
+      "name": "Transmission Line Parameters",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "line-inductance-gmd",
+          "name": "Line inductance, GMD and GMR"
+        },
+        {
+          "id": "line-capacitance",
+          "name": "Line capacitance and effect of earth",
+          "requires": ["line-inductance-gmd"]
+        },
+        {
+          "id": "skin-proximity-effect",
+          "name": "Skin effect and proximity effect",
+          "requires": ["line-inductance-gmd"]
+        }
+      ]
+    },
+    {
+      "id": "line-performance",
+      "name": "Line Models and Performance",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "short-medium-long-lines",
+          "name": "Short, medium and long lines; π and T models",
+          "requires": ["line-capacitance"]
+        },
+        {
+          "id": "abcd-constants",
+          "name": "ABCD constants of transmission lines",
+          "requires": ["short-medium-long-lines"]
+        },
+        {
+          "id": "ferranti-surge-impedance",
+          "name": "Travelling waves, surge impedance and the Ferranti effect",
+          "requires": ["short-medium-long-lines"]
+        }
+      ]
+    },
+    {
+      "id": "line-mechanical",
+      "name": "Overhead Lines, Insulators and Cables",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "sag-tension",
+          "name": "Sag and tension in overhead lines"
+        },
+        {
+          "id": "insulators-string-efficiency",
+          "name": "Insulators: pin and disc types, string efficiency",
+          "requires": ["sag-tension"]
+        },
+        {
+          "id": "underground-cables",
+          "name": "Underground cables: construction, capacitance and dielectric loss",
+          "requires": ["line-capacitance"]
+        }
+      ]
+    },
+    {
+      "id": "system-analysis",
+      "name": "Power System Analysis",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "per-unit-system",
+          "name": "Per-unit representation and base quantities"
+        },
+        {
+          "id": "load-flow-gauss-seidel",
+          "name": "Load flow analysis: the Gauss–Seidel method",
+          "requires": ["per-unit-system"]
+        },
+        {
+          "id": "symmetrical-faults",
+          "name": "Symmetrical fault analysis",
+          "requires": ["per-unit-system"]
+        },
+        {
+          "id": "power-flow-voltage-control",
+          "name": "Active and reactive power flow and voltage control",
+          "requires": ["short-medium-long-lines"]
+        }
+      ]
+    },
+    {
+      "id": "system-control",
+      "name": "Stability, Frequency Control and Economic Operation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "swing-equation-equal-area",
+          "name": "Swing equation and the equal area criterion",
+          "requires": ["per-unit-system"]
+        },
+        {
+          "id": "load-frequency-control",
+          "name": "Speed governing and load frequency control",
+          "requires": ["swing-equation-equal-area"]
+        },
+        {
+          "id": "economic-dispatch",
+          "name": "Economic operation: incremental cost and load sharing",
+          "requires": ["load-frequency-control"]
+        },
+        {
+          "id": "hvdc-basics",
+          "name": "Elements of HVDC transmission",
+          "requires": ["power-flow-voltage-control"]
+        },
+        {
+          "id": "tariffs",
+          "name": "Tariffs and types of consumers",
+          "requires": ["economic-dispatch"]
+        }
+      ]
+    }
+  ]
+}

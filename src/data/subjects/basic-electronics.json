@@ -1,298 +1,170 @@
 {
   "id": "basic-electronics",
-  "name": "Basic Electronics",
+  "name": "Basic Electronics Engineering",
   "field": "Electronics Engineering",
-  "tier": "sourced",
-  "branches": ["me"],
-  "semesters": [1],
-  "code": "16EE102T",
-  "credits": 3,
-  "ltp": "3-0-0",
-  "category": "Engineering Science",
-  "offerings": [
-    {
-      "branch": "me",
-      "key": "s1-basic-electronics",
-      "code": "16EE102T",
-      "category": "Engineering Science",
-      "ltp": "3-0-0",
-      "credits": 3,
-      "semester": 1
-    }
-  ],
+  "tier": "verified",
+  "branches": ["all"],
+  "semesters": [1, 2],
   "syllabusSource": {
     "kind": "university",
-    "title": "PDEU B.Tech curriculum handbook (Mech): Basic Electronics",
-    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+    "title": "GCE Kalahandi first-year B.Tech syllabus (AICTE model): Basic Electronics Engineering",
+    "url": "https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf",
+    "note": "Modules 1-4 (diodes and BJTs, FETs and CMOS, op-amps, digital electronics). Amplifier feedback and oscillators follow the AICTE Model Curriculum's Basic Electronics course (https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf)."
   },
   "visualSet": "circuits",
   "chapters": [
     {
-      "id": "semiconductor-diodes-and-applications",
-      "name": "SEMICONDUCTOR DIODES AND APPLICATIONS",
-      "hours": 11,
+      "id": "diodes",
+      "name": "Semiconductor Diodes",
+      "hours": 6,
       "topics": [
         {
           "id": "semiconductor-intro",
-          "name": "Introduction of Semiconductors"
+          "name": "Introduction to semiconductors"
         },
         {
-          "id": "electrons-and-holes-in-an-intrinsic-semiconductors",
-          "name": "Electrons and Holes in an Intrinsic Semiconductors",
+          "id": "pn-junction-diode",
+          "name": "p-n junction diode: principle, V-I characteristics and diode equation",
           "requires": ["semiconductor-intro"]
         },
         {
-          "id": "donor-and-acceptor-impurities",
-          "name": "Donor and Acceptor Impurities",
-          "requires": ["electrons-and-holes-in-an-intrinsic-semiconductors"]
+          "id": "diode-resistance-equivalent",
+          "name": "AC and DC resistance and equivalent circuits of a diode",
+          "requires": ["pn-junction-diode"]
         },
         {
-          "id": "p-type-and-n-type-semiconductors",
-          "name": "P-Type and N-Type Semiconductors",
-          "requires": ["donor-and-acceptor-impurities"]
+          "id": "breakdown-zener",
+          "name": "Breakdown mechanisms, Zener and avalanche diodes",
+          "requires": ["pn-junction-diode"]
         },
         {
-          "id": "formation-of-a-p-n-junction-diode",
-          "name": "Formation of a P-N Junction Diode",
-          "requires": ["p-type-and-n-type-semiconductors"]
+          "id": "rectifiers",
+          "name": "Half-wave and full-wave rectifiers with filters",
+          "requires": ["pn-junction-diode"]
         },
         {
-          "id": "biasing-of-p-n-junction-diode",
-          "name": "Biasing of P-N Junction Diode",
-          "requires": ["formation-of-a-p-n-junction-diode"]
+          "id": "clippers-clampers",
+          "name": "Clipper and clamper circuits",
+          "requires": ["pn-junction-diode"]
         },
         {
-          "id": "v-i-characteristics-of-diode",
-          "name": "V/I Characteristics of Diode",
-          "requires": ["biasing-of-p-n-junction-diode"]
-        },
-        {
-          "id": "diode-rectifier-circuits-half-wave-and-full-wave",
-          "name": "Diode Rectifier Circuits (Half Wave and Full Wave)",
-          "requires": ["v-i-characteristics-of-diode"]
-        },
-        {
-          "id": "diode-rectifiers-with-capacitor-filter",
-          "name": "Diode Rectifiers with Capacitor Filter",
-          "requires": ["diode-rectifier-circuits-half-wave-and-full-wave"]
-        },
-        {
-          "id": "zener-diode",
-          "name": "Zener Diode",
-          "requires": ["diode-rectifiers-with-capacitor-filter"]
-        },
-        {
-          "id": "v-i-characteristic-of-zener-diode",
-          "name": "V/I Characteristic of Zener diode",
-          "requires": ["zener-diode"]
-        },
-        {
-          "id": "voltage-regulators",
-          "name": "Voltage Regulators",
-          "requires": ["v-i-characteristic-of-zener-diode"]
-        },
-        {
-          "id": "zener-diode-as-voltage-regulator",
-          "name": "Zener Diode as Voltage Regulator",
-          "requires": ["voltage-regulators"]
-        },
-        {
-          "id": "78xx-and-79xx-ics-for-voltage-regulation",
-          "name": "78XX and 79XX Ics for Voltage Regulation",
-          "requires": ["zener-diode-as-voltage-regulator"]
-        },
-        {
-          "id": "photo-diodes",
-          "name": "Photo diodes",
-          "requires": ["78xx-and-79xx-ics-for-voltage-regulation"]
+          "id": "led-photodiode",
+          "name": "LEDs and photodiodes",
+          "requires": ["pn-junction-diode"]
         }
       ]
     },
     {
-      "id": "bipolar-junction-transistor-characteristics",
-      "name": "BIPOLAR JUNCTION TRANSISTOR CHARACTERISTICS",
-      "hours": 8,
+      "id": "bjt",
+      "name": "Bipolar Junction Transistors",
+      "hours": 6,
       "topics": [
         {
-          "id": "junction-transistor",
-          "name": "Junction Transistor"
+          "id": "bjt-operation",
+          "name": "Transistor operation and current equations (n-p-n and p-n-p)"
         },
         {
-          "id": "transistor-current-components",
-          "name": "Transistor Current Components",
-          "requires": ["junction-transistor"]
+          "id": "bjt-configurations",
+          "name": "CB, CE and CC configurations and characteristics",
+          "requires": ["bjt-operation"]
         },
         {
-          "id": "working-of-a-bjt",
-          "name": "Working of a BJT",
-          "requires": ["transistor-current-components"]
+          "id": "load-line-biasing",
+          "name": "Load line analysis and DC biasing (fixed and voltage divider)",
+          "requires": ["bjt-configurations"]
         },
         {
-          "id": "operating-regions",
-          "name": "Operating Regions",
-          "requires": ["working-of-a-bjt"]
+          "id": "amplifier-basics",
+          "name": "Introduction to amplifiers: the CE amplifier",
+          "requires": ["load-line-biasing"]
         },
         {
-          "id": "mos-switch",
-          "name": "Transistor as a Switch",
-          "requires": ["operating-regions"]
-        },
-        {
-          "id": "transistor-as-an-amplifier-cb",
-          "name": "Transistor as an Amplifier, CB",
-          "requires": ["mos-switch"]
-        },
-        {
-          "id": "ce-and-cc-configurations",
-          "name": "CE and CC Configurations",
-          "requires": ["transistor-as-an-amplifier-cb"]
-        },
-        {
-          "id": "input-and-output-characteristics",
-          "name": "Input and Output Characteristics",
-          "requires": ["ce-and-cc-configurations"]
-        },
-        {
-          "id": "transistor-biasing",
-          "name": "Transistor Biasing",
-          "requires": ["input-and-output-characteristics"]
+          "id": "feedback-oscillators",
+          "name": "Negative feedback and oscillators (RC phase shift, Wien bridge)",
+          "requires": ["amplifier-basics"]
         }
       ]
     },
     {
-      "id": "introduction-to-operational-amplifiers",
-      "name": "INTRODUCTION TO OPERATIONAL AMPLIFIERS",
-      "hours": 8,
+      "id": "fet-cmos",
+      "name": "FETs and CMOS",
+      "hours": 6,
       "topics": [
         {
-          "id": "block-diagram-and-characteristics-of-ideal-op-amp",
-          "name": "Block Diagram and Characteristics of Ideal Op-Amp"
+          "id": "jfet",
+          "name": "JFET: types, operation and characteristics"
         },
         {
-          "id": "parameters-of-an-op-amp",
-          "name": "Parameters of an Op-Amp",
-          "requires": ["block-diagram-and-characteristics-of-ideal-op-amp"]
+          "id": "mosfet",
+          "name": "MOSFET: enhancement and depletion types, characteristics",
+          "requires": ["jfet"]
         },
         {
-          "id": "concept-of-feedback",
-          "name": "Concept of Feedback",
-          "requires": ["parameters-of-an-op-amp"]
+          "id": "cmos-inverter",
+          "name": "CMOS digital inverter and its VTC",
+          "requires": ["mosfet"]
+        }
+      ]
+    },
+    {
+      "id": "op-amps",
+      "name": "Operational Amplifiers",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "ideal-op-amp",
+          "name": "The ideal op-amp and virtual ground"
         },
         {
-          "id": "inverting-and-non-inverting-amplifier",
-          "name": "Inverting and Non- Inverting Amplifier",
-          "requires": ["concept-of-feedback"]
+          "id": "inverting-non-inverting",
+          "name": "Inverting and non-inverting amplifiers",
+          "requires": ["ideal-op-amp"]
         },
         {
-          "id": "differential-amplifier",
-          "name": "Differential Amplifier",
-          "requires": ["inverting-and-non-inverting-amplifier"]
+          "id": "op-amp-integrator-differentiator",
+          "name": "Summing amplifier, integrator and differentiator",
+          "requires": ["inverting-non-inverting"]
         },
         {
-          "id": "virtual-ground",
-          "name": "Virtual Ground",
-          "requires": ["differential-amplifier"]
-        },
-        {
-          "id": "adder",
-          "name": "Adder",
-          "requires": ["virtual-ground"]
-        },
-        {
-          "id": "subtractor",
-          "name": "Subtractor",
-          "requires": ["adder"]
-        },
-        {
-          "id": "comparator",
-          "name": "Comparator",
-          "requires": ["subtractor"]
-        },
-        {
-          "id": "integrator-and-differentiator",
-          "name": "Integrator and Differentiator",
-          "requires": ["comparator"]
-        },
-        {
-          "id": "zero-crossing-detector",
-          "name": "Zero Crossing Detector",
-          "requires": ["integrator-and-differentiator"]
-        },
-        {
-          "id": "voltage-follower",
-          "name": "Voltage Follower",
-          "requires": ["zero-crossing-detector"]
+          "id": "op-amp-parameters",
+          "name": "Real op-amps: CMRR, slew rate and the 741",
+          "requires": ["ideal-op-amp"]
         }
       ]
     },
     {
       "id": "digital-electronics",
-      "name": "DIGITAL ELECTRONICS",
-      "hours": 12,
+      "name": "Digital Electronics",
+      "hours": 5,
       "topics": [
         {
-          "id": "number-systems-decimal-binary-octal-and-hexadecimal",
-          "name": "Number systems (Decimal, Binary, Octal and Hexadecimal)"
-        },
-        {
-          "id": "ones-and-twos-complements",
-          "name": "One’s and two’s complements",
-          "requires": ["number-systems-decimal-binary-octal-and-hexadecimal"]
-        },
-        {
-          "id": "binary-codes-weighted-and-non-weighted-codes",
-          "name": "Binary codes (weighted and non-weighted codes)",
-          "requires": ["ones-and-twos-complements"]
-        },
-        {
-          "id": "boolean-algebraic-theorems-and-simplification-of-boolean",
-          "name": "Boolean algebraic theorems and simplification of Boolean expressions",
-          "requires": ["binary-codes-weighted-and-non-weighted-codes"]
+          "id": "number-systems",
+          "name": "Number systems and binary arithmetic"
         },
         {
           "id": "logic-gates",
-          "name": "Logic gates",
-          "requires": ["boolean-algebraic-theorems-and-simplification-of-boolean"]
+          "name": "Logic gates: NOT, AND, OR, NAND, NOR, XOR, XNOR",
+          "requires": ["number-systems"]
         },
         {
-          "id": "implementation-of-boolean-expressions-using-logic-gates",
-          "name": "Implementation of Boolean expressions using logic gates",
+          "id": "boolean-algebra",
+          "name": "Boolean algebra and De Morgan's theorems",
           "requires": ["logic-gates"]
         },
         {
-          "id": "standard-and-canonical-forms-of-boolean-expression",
-          "name": "Standard and canonical forms of Boolean expression",
-          "requires": ["implementation-of-boolean-expressions-using-logic-gates"]
+          "id": "standard-forms-truth-tables",
+          "name": "Standard forms (SOP, POS) and truth tables",
+          "requires": ["boolean-algebra"]
         },
         {
-          "id": "pos-and-sop-forms",
-          "name": "POS and SOP forms",
-          "requires": ["standard-and-canonical-forms-of-boolean-expression"]
+          "id": "universal-gates",
+          "name": "Universal NAND and NOR gates",
+          "requires": ["logic-gates"]
         },
         {
-          "id": "simplification-of-boolean-expressions-using-k-map",
-          "name": "Simplification of Boolean expressions using K-map",
-          "requires": ["pos-and-sop-forms"]
-        },
-        {
-          "id": "basics-of-flip-flops-and-its-applications",
-          "name": "Basics of Flip-flops and its applications",
-          "requires": ["simplification-of-boolean-expressions-using-k-map"]
-        },
-        {
-          "id": "introduction-to-communication-systems-elements-of",
-          "name": "INTRODUCTION TO COMMUNICATION SYSTEMS: Elements of Communication Systems",
-          "requires": ["basics-of-flip-flops-and-its-applications"]
-        },
-        {
-          "id": "concept-of-modulation-and-demodulation",
-          "name": "Concept of Modulation and Demodulation",
-          "requires": ["introduction-to-communication-systems-elements-of"]
-        },
-        {
-          "id": "basics-of-analog-and-digital-communication",
-          "name": "Basics of Analog and Digital Communication",
-          "requires": ["concept-of-modulation-and-demodulation"]
+          "id": "combinational-circuits-adders",
+          "name": "Combinational logic and binary adders",
+          "requires": ["standard-forms-truth-tables"]
         }
       ]
     }

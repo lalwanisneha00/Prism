@@ -1,0 +1,104 @@
+{
+  "id": "petroleum-geology",
+  "name": "Petroleum Geology",
+  "field": "Petroleum Engineering",
+  "tier": "sourced",
+  "branches": ["petro"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.Tech Petroleum Engineering (R2017): PE8402 Fundamentals of Petroleum Geology",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/03.Petrol%20Engg.pdf",
+    "note": "All five units of PE8402, with origin and migration from PE8301."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "earth-materials",
+      "name": "Minerals and Rocks",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "minerals-rocks",
+          "name": "Minerals and the rock cycle: igneous, sedimentary and metamorphic rocks"
+        },
+        {
+          "id": "sedimentary-rocks-petro",
+          "name": "Sedimentation and sedimentary rocks",
+          "requires": ["minerals-rocks"]
+        },
+        {
+          "id": "stratigraphy-time-scale",
+          "name": "Stratigraphy and the geological time scale",
+          "requires": ["sedimentary-rocks-petro"]
+        }
+      ]
+    },
+    {
+      "id": "petroleum-system",
+      "name": "The Petroleum System",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "source-rock-kerogen",
+          "name": "Source rocks, kerogen and the generation of petroleum",
+          "requires": ["sedimentary-rocks-petro"]
+        },
+        {
+          "id": "migration",
+          "name": "Primary and secondary migration of petroleum",
+          "requires": ["source-rock-kerogen"]
+        },
+        {
+          "id": "reservoir-rocks-seals",
+          "name": "Reservoir rocks and cap rocks (seals)",
+          "requires": ["sedimentary-rocks-petro"]
+        },
+        {
+          "id": "petroleum-traps",
+          "name": "Structural and stratigraphic traps",
+          "requires": ["reservoir-rocks-seals"]
+        },
+        {
+          "id": "folds-faults",
+          "name": "Folds and faults",
+          "requires": ["stratigraphy-time-scale"]
+        }
+      ]
+    },
+    {
+      "id": "basins",
+      "name": "Plate Tectonics and Basins",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "plate-tectonics-petro",
+          "name": "Plate tectonics",
+          "requires": ["minerals-rocks"]
+        },
+        {
+          "id": "sedimentary-basins",
+          "name": "Sedimentary basins and Indian petroliferous basins",
+          "requires": ["plate-tectonics-petro"]
+        }
+      ]
+    },
+    {
+      "id": "exploration",
+      "name": "Exploration",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "seismic-exploration",
+          "name": "Seismic exploration (reflection seismology)",
+          "requires": ["folds-faults"]
+        },
+        {
+          "id": "gravity-magnetic-survey",
+          "name": "Gravity and magnetic surveys",
+          "requires": ["plate-tectonics-petro"]
+        }
+      ]
+    }
+  ]
+}

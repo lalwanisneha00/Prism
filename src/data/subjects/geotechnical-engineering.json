@@ -1,0 +1,126 @@
+{
+  "id": "geotechnical-engineering",
+  "name": "Geotechnical Engineering",
+  "field": "Civil Engineering",
+  "tier": "sourced",
+  "branches": ["civil", "mining"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Civil Engineering (2024): PCC-06 Geotechnical Engineering",
+    "url": "https://www.aicte.gov.in/sites/default/files/AICTE%20Model%20Curriculum%20_UG_Civil_2024.pdf",
+    "note": "All ten modules of PCC-06."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "soil-properties",
+      "name": "Soil Properties and Classification",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "phase-relations-soil",
+          "name": "Soil phase diagram: void ratio, porosity, water content and unit weights"
+        },
+        {
+          "id": "atterberg-limits",
+          "name": "Consistency: liquid, plastic and shrinkage limits",
+          "requires": ["phase-relations-soil"]
+        },
+        {
+          "id": "soil-classification",
+          "name": "Particle size distribution and soil classification",
+          "requires": ["atterberg-limits"]
+        }
+      ]
+    },
+    {
+      "id": "soil-water",
+      "name": "Water in Soil",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "darcy-permeability",
+          "name": "Permeability and Darcy's law; laboratory and field tests",
+          "requires": ["phase-relations-soil"]
+        },
+        {
+          "id": "effective-stress",
+          "name": "Effective stress principle and quick sand condition",
+          "requires": ["phase-relations-soil"]
+        },
+        {
+          "id": "seepage-flow-nets",
+          "name": "Seepage and flow nets",
+          "requires": ["darcy-permeability"]
+        }
+      ]
+    },
+    {
+      "id": "compaction-consolidation",
+      "name": "Compaction and Consolidation",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "proctor-compaction",
+          "name": "Compaction: Proctor test and optimum moisture content",
+          "requires": ["phase-relations-soil"]
+        },
+        {
+          "id": "terzaghi-consolidation",
+          "name": "Terzaghi's one-dimensional consolidation",
+          "requires": ["effective-stress"]
+        }
+      ]
+    },
+    {
+      "id": "stress-strength",
+      "name": "Stresses and Shear Strength",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "boussinesq-stress",
+          "name": "Stresses due to point and strip loads: Boussinesq, pressure bulb",
+          "requires": ["effective-stress"]
+        },
+        {
+          "id": "mohr-coulomb-shear",
+          "name": "Shear strength: Mohr–Coulomb criterion",
+          "requires": ["effective-stress"]
+        },
+        {
+          "id": "shear-tests",
+          "name": "Direct shear, triaxial and unconfined compression tests",
+          "requires": ["mohr-coulomb-shear"]
+        }
+      ]
+    },
+    {
+      "id": "slopes-exploration",
+      "name": "Slopes, Earth Pressure and Site Exploration",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "slope-stability",
+          "name": "Stability of slopes and the factor of safety",
+          "requires": ["mohr-coulomb-shear"]
+        },
+        {
+          "id": "earth-pressure-rankine",
+          "name": "Lateral earth pressure: Rankine and Coulomb",
+          "requires": ["mohr-coulomb-shear"]
+        },
+        {
+          "id": "bearing-capacity",
+          "name": "Bearing capacity of shallow foundations (Terzaghi)",
+          "requires": ["mohr-coulomb-shear"]
+        },
+        {
+          "id": "soil-exploration-spt",
+          "name": "Soil exploration: boring, sampling and the SPT",
+          "requires": ["soil-classification"]
+        }
+      ]
+    }
+  ]
+}

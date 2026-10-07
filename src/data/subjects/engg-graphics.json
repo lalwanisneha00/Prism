@@ -1,178 +1,124 @@
 {
   "id": "engg-graphics",
-  "name": "Engineering Graphics",
+  "name": "Engineering Graphics & Design",
   "field": "Engineering Graphics",
-  "tier": "limited",
-  "branches": ["me"],
-  "semesters": [1],
-  "code": "16ME101T",
-  "credits": 1,
-  "ltp": "1-0-0",
-  "category": "Engineering Science",
-  "offerings": [
-    {
-      "branch": "me",
-      "key": "s1-engineering-graphics",
-      "code": "16ME101T",
-      "category": "Engineering Science",
-      "ltp": "1-0-0",
-      "credits": 1,
-      "semester": 1
-    }
-  ],
+  "tier": "tested",
+  "branches": ["all"],
+  "semesters": [1, 2],
   "syllabusSource": {
-    "kind": "university",
-    "title": "PDEU B.Tech curriculum handbook (Mech): Engineering Graphics",
-    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree Courses in Engineering & Technology, Vol. I (Jan 2018): Engineering Graphics & Design (ESC102)",
+    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf",
+    "note": "Modules 1-8 of AICTE ESC102; sheet-wise scope (first-angle projection) from GCE Kalahandi's AICTE-model Engineering Graphics & Design (https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf)."
   },
-  "visualSet": "thermal",
   "chapters": [
     {
-      "id": "unit-1",
-      "name": "Unit 1",
-      "hours": 3,
+      "id": "drawing-basics",
+      "name": "Introduction to Engineering Drawing",
       "topics": [
         {
-          "id": "introduction-to-engineering-graphics",
-          "name": "Introduction to Engineering Graphics"
+          "id": "drawing-instruments-conventions",
+          "name": "Drawing instruments, lettering, line conventions and dimensioning (BIS)"
         },
         {
-          "id": "drawing-instruments-and-accessories",
-          "name": "Drawing instruments and accessories",
-          "requires": ["introduction-to-engineering-graphics"]
+          "id": "scales",
+          "name": "Scales: plain, diagonal and vernier",
+          "requires": ["drawing-instruments-conventions"]
         },
         {
-          "id": "lettering",
-          "name": "lettering",
-          "requires": ["drawing-instruments-and-accessories"]
+          "id": "conic-sections-drawing",
+          "name": "Conic sections, including the rectangular hyperbola",
+          "requires": ["drawing-instruments-conventions"]
         },
         {
-          "id": "lines-and-dimensioning-bis-sp46-use-of-plane-scales-and",
-          "name": "lines and dimensioning. BIS - SP46. Use of plane scales and Representative Fraction",
-          "requires": ["lettering"]
-        },
-        {
-          "id": "free-hand-sketching-engineering-curves-classification-of",
-          "name": "Free hand sketching. Engineering Curves: Classification of Engineering Curves",
-          "requires": ["lines-and-dimensioning-bis-sp46-use-of-plane-scales-and"]
-        },
-        {
-          "id": "construction-of-conics",
-          "name": "Construction of Conics",
-          "requires": ["free-hand-sketching-engineering-curves-classification-of"]
-        },
-        {
-          "id": "cycloidal-curves",
-          "name": "Cycloidal Curves",
-          "requires": ["construction-of-conics"]
-        },
-        {
-          "id": "involutes-and-spirals",
-          "name": "Involutes and Spirals",
-          "requires": ["cycloidal-curves"]
-        },
-        {
-          "id": "projections-of-points-and-lines-introduction-to-principal",
-          "name": "Projections of Points & Lines: Introduction to principal planes of projections",
-          "requires": ["involutes-and-spirals"]
-        },
-        {
-          "id": "projections-of-the-points-located-in-same-quadrant-and",
-          "name": "Projections of the points located in same quadrant and different quadrants",
-          "requires": ["projections-of-points-and-lines-introduction-to-principal"]
-        },
-        {
-          "id": "projections-of-line-with-its-inclination-to-one-reference",
-          "name": "Projections of line with its inclination to one reference plane and with two reference planes",
-          "requires": ["projections-of-the-points-located-in-same-quadrant-and"]
-        },
-        {
-          "id": "true-length-of-the-line-and-its-inclination-with-the",
-          "name": "True length of the line and its inclination with the reference planes",
-          "requires": ["projections-of-line-with-its-inclination-to-one-reference"]
+          "id": "cycloids-involutes",
+          "name": "Cycloid, epicycloid, hypocycloid and involute",
+          "requires": ["drawing-instruments-conventions"]
         }
       ]
     },
     {
-      "id": "projections-of-solids-and-section-of-solids",
-      "name": "Projections of Solids & Section of Solids",
-      "hours": 3,
-      "topics": [
-        {
-          "id": "classification-of-solids-projections-of-solids-like-cylinder",
-          "name": "Classification of solids. Projections of solids like Cylinder"
-        },
-        {
-          "id": "cone",
-          "name": "Cone",
-          "requires": ["classification-of-solids-projections-of-solids-like-cylinder"]
-        },
-        {
-          "id": "pyramid-and-prism-with-its-inclination-to-one-reference",
-          "name": "Pyramid and Prism with its inclination to one reference plane and with two reference planes",
-          "requires": ["cone"]
-        },
-        {
-          "id": "development-of-lateral-surfaces-concept-of-development-of",
-          "name": "Development of Lateral Surfaces: Concept of development of the different surfaces",
-          "requires": ["pyramid-and-prism-with-its-inclination-to-one-reference"]
-        },
-        {
-          "id": "parallel-line-development-and-radial-line-development",
-          "name": "Parallel Line Development and Radial Line Development",
-          "requires": ["development-of-lateral-surfaces-concept-of-development-of"]
-        }
-      ]
-    },
-    {
-      "id": "orthographic-projections",
+      "id": "orthographic-projection",
       "name": "Orthographic Projections",
-      "hours": 3,
       "topics": [
         {
-          "id": "principle-of-projection",
-          "name": "Principle of projection"
+          "id": "projection-principles",
+          "name": "Principles of orthographic projection; first- and third-angle"
         },
         {
-          "id": "principal-planes-of-projection",
-          "name": "Principal planes of projection",
-          "requires": ["principle-of-projection"]
+          "id": "projection-of-points",
+          "name": "Projections of points in the four quadrants",
+          "requires": ["projection-principles"]
         },
         {
-          "id": "projections-from-the-pictorial-view-of-the-object-on-the",
-          "name": "Projections from the pictorial view of the object on the principal planes for View from Front",
-          "requires": ["principal-planes-of-projection"]
+          "id": "projection-of-lines",
+          "name": "Projections of lines: true length and inclinations",
+          "requires": ["projection-of-points"]
         },
         {
-          "id": "view-from-top-and-view-from-side-using-first-angle",
-          "name": "View from Top and View from Side using first angle projection method and third angle projection method",
-          "requires": ["projections-from-the-pictorial-view-of-the-object-on-the"]
-        },
-        {
-          "id": "full-sectional-view",
-          "name": "Full Sectional View",
-          "requires": ["view-from-top-and-view-from-side-using-first-angle"]
+          "id": "projection-of-planes",
+          "name": "Projections of planes; auxiliary planes",
+          "requires": ["projection-of-lines"]
         }
       ]
     },
     {
-      "id": "isometric-projections-and-isometric-view-or",
-      "name": "Isometric Projections and Isometric View or Drawing",
-      "hours": 4,
+      "id": "solids",
+      "name": "Projections of Solids, Sections and Developments",
+      "topics": [
+        {
+          "id": "projection-of-solids",
+          "name": "Projections of prisms, pyramids, cylinders and cones"
+        },
+        {
+          "id": "sections-of-solids",
+          "name": "Sections and sectional views; true shape of a section",
+          "requires": ["projection-of-solids"]
+        },
+        {
+          "id": "development-of-surfaces",
+          "name": "Development of lateral surfaces of solids",
+          "requires": ["projection-of-solids"]
+        }
+      ]
+    },
+    {
+      "id": "isometric",
+      "name": "Isometric Projections",
       "topics": [
         {
           "id": "isometric-scale",
-          "name": "Isometric Scale"
+          "name": "Isometric scale and isometric views"
         },
         {
-          "id": "conversion-of-orthographic-views-into-isometric-projection",
-          "name": "Conversion of orthographic views into isometric projection",
+          "id": "isometric-solids",
+          "name": "Isometric views of planes and simple and compound solids",
           "requires": ["isometric-scale"]
         },
         {
-          "id": "isometric-view-or-drawing",
-          "name": "isometric view or drawing",
-          "requires": ["conversion-of-orthographic-views-into-isometric-projection"]
+          "id": "isometric-to-orthographic",
+          "name": "Converting isometric views to orthographic and back",
+          "requires": ["isometric-solids"]
+        }
+      ]
+    },
+    {
+      "id": "cad",
+      "name": "Computer-Aided Drawing",
+      "topics": [
+        {
+          "id": "cad-interface",
+          "name": "CAD software: interface, coordinate systems and drawing commands"
+        },
+        {
+          "id": "cad-editing-annotation",
+          "name": "Editing, dimensioning, annotation and layers",
+          "requires": ["cad-interface"]
+        },
+        {
+          "id": "solid-modelling",
+          "name": "Solid and surface modelling; building information modelling",
+          "requires": ["cad-editing-annotation"]
         }
       ]
     }

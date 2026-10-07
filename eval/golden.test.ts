@@ -5,7 +5,78 @@ import { loadGoldenSets } from "./golden";
 import { lessonText, normalizeForMatch, quotedShare, tierForScore } from "./score";
 
 const sets = loadGoldenSets();
-// Golden sets for the PDEU catalogue are written later (the old ones are in eval/archive-pre-pdeu).
+const WAVE1 = [
+  "applied-physics",
+  "engg-chemistry",
+  "basic-electrical",
+  "basic-electronics",
+  "engg-mechanics",
+  "engg-graphics",
+  "pps",
+  "environmental-science",
+];
+const WAVE2 = [
+  "dsa",
+  "discrete-maths",
+  "coa",
+  "operating-systems",
+  "dbms",
+  "computer-networks",
+  "theory-of-computation",
+  "oop",
+  "compiler-design",
+  "software-engineering",
+  "web-technologies",
+  "ai-ml",
+  "digital-logic",
+  "signals-systems",
+  "network-theory",
+  "analog-electronics",
+  "communication-systems",
+  "dsp",
+  "microprocessors",
+  "em-theory",
+  "vlsi",
+];
+const WAVE3 = [
+  "electrical-machines",
+  "power-systems",
+  "power-electronics",
+  "control-systems",
+  "electrical-measurements",
+  "engineering-thermodynamics",
+  "heat-transfer",
+  "fluid-mechanics",
+  "strength-of-materials",
+  "theory-of-machines",
+  "machine-design",
+  "manufacturing-processes",
+  "engineering-materials",
+  "structural-analysis",
+  "surveying",
+  "geotechnical-engineering",
+  "concrete-rcc-design",
+  "hydraulic-engineering",
+  "transportation-engineering",
+  "environmental-engineering",
+  "building-materials",
+];
+const WAVE4 = [
+  "process-calculations",
+  "fluid-particle-operations",
+  "mass-transfer",
+  "chemical-reaction-engineering",
+  "chemical-thermodynamics",
+  "process-control",
+  "petroleum-geology",
+  "drilling-engineering",
+  "reservoir-engineering",
+  "petroleum-production",
+  "well-logging",
+  "petroleum-refining",
+];
+const QUOTED = [...WAVE1, ...WAVE2, ...WAVE3, ...WAVE4];
+
 describe("golden sets", () => {
   it("only use real topics, with patterns that compile", () => {
     for (const set of sets) {
@@ -21,22 +92,24 @@ describe("golden sets", () => {
     }
   });
 
-  it("give every fact a source quote", () => {
-    for (const set of sets) {
-      const share = quotedShare(set);
-      expect(share.quoted, set.subject).toBe(share.total);
-      expect(tierForScore(90, { topics: set.topics.length, ...share }), set.subject).toBeDefined();
+  it("give every quoted Wave 1–4 subject at least 12 topics, every fact with a source quote", () => {
+    for (const id of QUOTED) {
+      const set = sets.find((s) => s.subject === id);
+      expect(set, id).toBeDefined();
+      const share = quotedShare(set!);
+      expect(share.quoted, id).toBe(share.total);
+      // Eligible for "tested" if the eval score reaches 85%.
+      expect(tierForScore(90, { topics: set!.topics.length, ...share }), id).toBe("tested");
     }
   });
 
   it("don't count facts that an unrelated lesson (Gauss's law) would already 'state'", () => {
     const text = normalizeForMatch(lessonText(sampleLessons[0]));
     const loose: string[] = [];
-    for (const set of sets) {
-      for (const t of set.topics) {
+    for (const id of QUOTED) {
+      for (const t of sets.find((s) => s.subject === id)!.topics) {
         for (const f of t.facts)
-          if (new RegExp(f.pattern, "i").test(text))
-            loose.push(`${set.subject}/${t.topic}/${f.id}`);
+          if (new RegExp(f.pattern, "i").test(text)) loose.push(`${id}/${t.topic}/${f.id}`);
       }
     }
     expect(loose).toEqual([]);

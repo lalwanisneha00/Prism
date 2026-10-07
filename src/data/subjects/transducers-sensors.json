@@ -1,0 +1,87 @@
+{
+  "id": "transducers-sensors",
+  "name": "Transducers and Sensors",
+  "field": "Instrumentation Engineering",
+  "tier": "sourced",
+  "branches": ["ic", "ee"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "Anna University B.E. Instrumentation and Control Engineering (R2017): EI8352 Transducers Engineering",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/03.%20B.E.ICE.pdf",
+    "note": "All five units of EI8352."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "characteristics",
+      "name": "Transducer Characteristics",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "transducer-classification",
+          "name": "Classification of transducers and their selection"
+        },
+        {
+          "id": "static-characteristics",
+          "name": "Static characteristics: sensitivity, linearity, resolution, range",
+          "requires": ["transducer-classification"]
+        },
+        {
+          "id": "dynamic-characteristics",
+          "name": "Dynamic characteristics: zero-, first- and second-order transducers",
+          "requires": ["static-characteristics"]
+        }
+      ]
+    },
+    {
+      "id": "resistive-inductive",
+      "name": "Resistive, Inductive and Capacitive Transducers",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "strain-gauges",
+          "name": "Strain gauges and the gauge factor",
+          "requires": ["static-characteristics"]
+        },
+        {
+          "id": "rtd-thermistor",
+          "name": "Resistance thermometers and thermistors",
+          "requires": ["static-characteristics"]
+        },
+        {
+          "id": "lvdt",
+          "name": "LVDT and variable-reluctance transducers",
+          "requires": ["static-characteristics"]
+        },
+        {
+          "id": "capacitive-transducers",
+          "name": "Capacitive transducers",
+          "requires": ["static-characteristics"]
+        }
+      ]
+    },
+    {
+      "id": "other-transducers",
+      "name": "Other Transducers",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "thermocouples",
+          "name": "Thermocouples",
+          "requires": ["static-characteristics"]
+        },
+        {
+          "id": "piezo-hall",
+          "name": "Piezoelectric and Hall-effect transducers",
+          "requires": ["static-characteristics"]
+        },
+        {
+          "id": "fibre-optic-mems",
+          "name": "Fibre-optic sensors, MEMS and smart sensors",
+          "requires": ["transducer-classification"]
+        }
+      ]
+    }
+  ]
+}

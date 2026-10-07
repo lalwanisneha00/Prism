@@ -34,7 +34,7 @@ test.describe("Your API keys (Feature A)", () => {
       await route.continue();
     });
     await page.goto(
-      "/lesson?subject=applied-physics&chapter=electricity-and-magnetism&topic=faradays-law&level=first-encounter&duration=10",
+      "/lesson?subject=em&chapter=induction&topic=faradays-law&level=first-encounter&duration=10",
     );
     await expect(page.getByTestId("using-key")).toContainText("your OpenAI key");
     await expect.poll(() => header).toBe("openai");

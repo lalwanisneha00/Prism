@@ -1,5 +1,4 @@
 import { curatedVideos } from "@/data/curatedLinks";
-import curatedAlias from "@/data/curatedAlias.json";
 import type { Emphasis } from "@/lib/syllabus/emphasis";
 import { dropFailedChecks, findAnswerProblems } from "@/lib/checks/answerCheck";
 import { effectiveTier } from "@/lib/tiers";
@@ -68,14 +67,7 @@ function curatedFurtherLearning(
       ? [{ title: s.title, url: s.url, publisher: s.publisher, note: "Free textbook section." }]
       : [],
   );
-  return {
-    videos:
-      curatedVideos[
-        (curatedAlias as Record<string, string>)[request.subject.id] ?? request.subject.id
-      ] ?? [],
-    papers: [],
-    readings,
-  };
+  return { videos: curatedVideos[request.subject.id] ?? [], papers: [], readings };
 }
 
 const CITATION_TAG = /\s*[[(](?:source[ _-]?ids?|sources?|cite)\s*:\s*[a-z0-9 ,_-]*[\])]/gi;

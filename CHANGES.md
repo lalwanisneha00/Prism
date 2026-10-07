@@ -1,25 +1,6 @@
-# Changes in this round: Prism's subjects are now PDEU's
+# Changes in this round: PDEU's own syllabus
 
-Source: `PDEU_BTech_All_Branches_Syllabus.pdf` (the university's curriculum handbooks: Computer, ICT, Electronics and Communication, Civil, Petroleum, Biotechnology, Mechanical). Electrical, Chemical and every other branch are not in that file, so they were **removed** (branches and their subjects).
-
-## What changed
-
-- **The catalogue is PDEU's syllabus.** Every PDEU *core* course that prints a unit-wise syllabus is a subject (272 subjects, about 10,200 topics): PDEU's name, course code, category, L-T-P, credits, units (as chapters, with hours) and topics. Where branches teach the same course with the same syllabus it is one subject; where their versions differ, each version is its own subject with the branches in brackets, e.g. "Mathematics - I (CE, ECE, Civil)". Built by `scripts/build-pdeu-subjects.mjs` from `src/data/pdeu/*.json` (made from the PDF by `scripts/build-pdeu.mjs`).
-- **Subjects no longer taught at PDEU are gone** (for example Electricity & Magnetism, Engineering Mathematics, Mining, Aerospace). Their ids were released on purpose, so `src/lib/subjectIds.lock.json` was rebuilt from the new catalogue (saved progress on old topics will not match).
-- **Credits and details beside every subject name**: lists (lesson picker, subjects page), the subject page (code, category, credits, L-T-P, per-branch semester and credits, link to the handbook page).
-- **Core and non-core sections** on `/subjects` for a PDEU branch and semester, with the semester's credit total. Core cards open the Prism subject; non-core courses (humanities, values, open electives, internships) list their units and topics and offer "Upload faculty material".
-- **Accuracy kept as high as possible without new tests**: when a PDEU topic is (nearly) identical to an earlier Prism topic, the earlier topic id is reused, so its checked sources, prerequisite links and widgets still apply (131 topics). 78 more PDEU topics reuse an older topic's widgets/PhET simulations through `src/data/visualAliases.json`. Prerequisite arrows on the concept map otherwise follow the handbook's teaching order inside a unit. Subjects with reused topics are tier "sourced", the rest "limited" (no sources yet).
-- **Accuracy tests were not run.** Golden sets and scores for the old catalogue are archived in `eval/archive-pre-pdeu/`; the app shows "No test set yet" for every subject until the new tests are written and run.
-
-## Not done / honest
-
-- Most of the 10,000 new topics have no checked sources and no widget yet (about 280 topics have a widget; the generic visual toolkit works for all). Lessons are still fact-checked, but expect weaker grounding until sources are added.
-- Topic names are split from the handbook's sentences at commas, semicolons or dashes, so a few are long or cut oddly; read the handbook for exact wording.
-- Mechanical is PDEU's old 2016-17 curriculum (the handbook says so).
-- To regenerate the subjects you need the old subject files (for topic-id reuse): `git archive 25797ab src/data/subjects src/data/curatedLinks.ts | tar -x -C <folder>` (commit `25797ab` is the last one before the move).
-- Tests: two old subjects (`em`, `engg-math`) live in `test-fixtures/catalogue/` and are added to the catalogue for unit tests only (the hand-written Gauss's-law sample lesson and many tests are built on them).
-
-# Earlier round: PDEU layer (before the catalogue move)
+Source: `PDEU_BTech_All_Branches_Syllabus.pdf` (the university's curriculum handbooks, 7 branches: Computer, ICT, Electronics and Communication, Civil, Petroleum, Biotechnology, Mechanical). Electrical and Chemical are not in that file, so they keep the usual Prism lists.
 
 ## Built
 

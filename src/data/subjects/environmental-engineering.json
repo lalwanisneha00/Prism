@@ -1,0 +1,96 @@
+{
+  "id": "environmental-engineering",
+  "name": "Environmental Engineering",
+  "field": "Civil Engineering",
+  "tier": "sourced",
+  "branches": ["civil", "chem"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Civil Engineering (2024): PCC-11 Environmental Engineering",
+    "url": "https://www.aicte.gov.in/sites/default/files/AICTE%20Model%20Curriculum%20_UG_Civil_2024.pdf",
+    "note": "All seven modules of PCC-11."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "water-supply",
+      "name": "Water Supply and Treatment",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "water-demand-quality",
+          "name": "Water sources, demand and quality standards"
+        },
+        {
+          "id": "coagulation-sedimentation",
+          "name": "Coagulation, flocculation and sedimentation",
+          "requires": ["water-demand-quality"]
+        },
+        {
+          "id": "filtration-disinfection",
+          "name": "Filtration and disinfection; break-point chlorination",
+          "requires": ["coagulation-sedimentation"]
+        },
+        {
+          "id": "water-distribution",
+          "name": "Water distribution systems",
+          "requires": ["water-demand-quality"]
+        }
+      ]
+    },
+    {
+      "id": "wastewater",
+      "name": "Sewage and Wastewater Treatment",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "sewage-quantity-sewers",
+          "name": "Sewage quantity, flow variation and sewers"
+        },
+        {
+          "id": "bod-cod",
+          "name": "Wastewater characteristics: BOD, COD and DO",
+          "requires": ["sewage-quantity-sewers"]
+        },
+        {
+          "id": "activated-sludge",
+          "name": "Biological treatment: activated sludge and trickling filters",
+          "requires": ["bod-cod"]
+        },
+        {
+          "id": "septic-sludge",
+          "name": "Septic tanks and sludge treatment",
+          "requires": ["activated-sludge"]
+        }
+      ]
+    },
+    {
+      "id": "air-noise-waste",
+      "name": "Air, Noise and Solid Waste",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "air-pollutants-control",
+          "name": "Air pollutants, monitoring and control devices",
+          "requires": ["water-demand-quality"]
+        },
+        {
+          "id": "noise-control",
+          "name": "Noise measurement and control",
+          "requires": ["air-pollutants-control"]
+        },
+        {
+          "id": "municipal-solid-waste",
+          "name": "Municipal solid waste: collection, composting and landfills",
+          "requires": ["sewage-quantity-sewers"]
+        },
+        {
+          "id": "building-plumbing",
+          "name": "Building plumbing systems",
+          "requires": ["water-distribution"]
+        }
+      ]
+    }
+  ]
+}

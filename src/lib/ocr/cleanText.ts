@@ -13,7 +13,7 @@ export function cleanOcrText(text: string): string {
   return (
     text
       .replace(/\r\n?/g, "\n")
-      // "electro-\nstatics" → "electricity-and-magnetism"
+      // "electro-\nstatics" → "electrostatics"
       .replace(/(\p{L})-\n(\p{Ll})/gu, "$1$2")
       .split("\n")
       .map((line) => line.replace(/[^\S\n]+/g, " ").trim())

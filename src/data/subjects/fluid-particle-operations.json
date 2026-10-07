@@ -1,0 +1,101 @@
+{
+  "id": "fluid-particle-operations",
+  "name": "Fluid Flow and Mechanical Operations",
+  "field": "Chemical Engineering",
+  "tier": "sourced",
+  "branches": ["chem", "petro"],
+  "semesters": [4, 5],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree Courses in Chemical Engineering (2018, Vol. II): PCC-CS106 Fluid Mechanics and PCC-CS111 Particle and Fluid-Particle Processing",
+    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol2.pdf",
+    "note": "Flow measurement, pumps and non-Newtonian flow (PCC-CS106) and all units of PCC-CS111. General fluid mechanics is in the shared Fluid Mechanics subject."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "process-fluid-flow",
+      "name": "Flow in Process Plants",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "non-newtonian-fluids",
+          "name": "Newtonian and non-Newtonian fluids"
+        },
+        {
+          "id": "pipe-fittings-friction",
+          "name": "Friction in pipes and fittings; the Moody diagram",
+          "requires": ["non-newtonian-fluids"]
+        },
+        {
+          "id": "flowmeters-process",
+          "name": "Flow meters: orifice, venturi, rotameter",
+          "requires": ["pipe-fittings-friction"]
+        },
+        {
+          "id": "pumps-compressors-process",
+          "name": "Pumps, blowers and compressors; NPSH",
+          "requires": ["pipe-fittings-friction"]
+        }
+      ]
+    },
+    {
+      "id": "particles",
+      "name": "Particles and Flow Past Them",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "particle-size-shape",
+          "name": "Particle size, shape factors and size distribution"
+        },
+        {
+          "id": "drag-terminal-velocity",
+          "name": "Drag on particles and terminal settling velocity; Stokes' law",
+          "requires": ["particle-size-shape"]
+        },
+        {
+          "id": "packed-bed-ergun",
+          "name": "Packed beds: Ergun and Kozeny–Carman equations",
+          "requires": ["drag-terminal-velocity"]
+        },
+        {
+          "id": "fluidisation",
+          "name": "Fluidisation: minimum fluidisation velocity and bed behaviour",
+          "requires": ["packed-bed-ergun"]
+        }
+      ]
+    },
+    {
+      "id": "separations-mechanical",
+      "name": "Mechanical Separations and Size Reduction",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "sedimentation-thickeners",
+          "name": "Free and hindered settling; thickeners",
+          "requires": ["drag-terminal-velocity"]
+        },
+        {
+          "id": "filtration-cake",
+          "name": "Filtration: cake filtration and filter types",
+          "requires": ["packed-bed-ergun"]
+        },
+        {
+          "id": "cyclones-centrifuges",
+          "name": "Cyclones, hydrocyclones and centrifuges",
+          "requires": ["drag-terminal-velocity"]
+        },
+        {
+          "id": "size-reduction-laws",
+          "name": "Size reduction: Rittinger, Kick and Bond laws; crushers and mills",
+          "requires": ["particle-size-shape"]
+        },
+        {
+          "id": "screening-mixing",
+          "name": "Screening and mixing",
+          "requires": ["particle-size-shape"]
+        }
+      ]
+    }
+  ]
+}

@@ -31,19 +31,10 @@ const STOP = new Set([
   "their",
 ]);
 
-// Topic names are compared many times (every syllabus topic against every subject's topics), so a
-// name's words are worked out once.
-const wordCache = new Map<string, string[]>();
-
 function words(text: string): string[] {
-  const hit = wordCache.get(text);
-  if (hit) return hit;
-  const out = normalize(text.replace(/['’]s\b/gi, ""))
+  return normalize(text.replace(/['’]s\b/gi, ""))
     .split(" ")
     .filter((w) => w.length > 1 && !STOP.has(w));
-  if (wordCache.size > 50_000) wordCache.clear();
-  wordCache.set(text, out);
-  return out;
 }
 
 /** Two topic names match when one's words are (nearly) all in the other. */

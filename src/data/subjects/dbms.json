@@ -1,323 +1,155 @@
 {
   "id": "dbms",
-  "name": "Database Management System",
+  "name": "Database Management Systems",
   "field": "Computer Science",
   "tier": "sourced",
-  "branches": ["ce"],
-  "semesters": [3],
-  "code": "24CS202T",
-  "credits": 3,
-  "ltp": "3-0-0",
-  "category": "Program Core",
-  "offerings": [
-    {
-      "branch": "ce",
-      "key": "s3-database-management-system",
-      "code": "24CS202T",
-      "category": "Program Core",
-      "ltp": "3-0-0",
-      "credits": 3,
-      "semester": 3
-    }
-  ],
+  "branches": ["ce", "it", "ict"],
+  "semesters": [5],
   "syllabusSource": {
-    "kind": "university",
-    "title": "PDEU B.Tech curriculum handbook (CE): Database Management System",
-    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS501 Database Management Systems",
+    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
+    "note": "Modules 1–6 of PCC-CS501; SQL details as in AKTU KCS501 (https://aktu.ac.in/pdf/syllabus/syllabus2223/B.Tech._3rd_Yr_CSE(AIML)_2022_23_revised_.pdf)."
   },
   "visualSet": "computing",
   "chapters": [
     {
-      "id": "introduction-and-database-models",
-      "name": "Introduction And Database Models",
-      "hours": 10,
+      "id": "db-intro",
+      "name": "Database Concepts and the ER Model",
+      "hours": 8,
       "topics": [
         {
-          "id": "file-structure-concepts-of-fields",
-          "name": "File Structure: Concepts of fields"
+          "id": "dbms-vs-files",
+          "name": "Database systems vs file systems; architecture and data independence"
         },
         {
-          "id": "records-and-files",
-          "name": "records and files",
-          "requires": ["file-structure-concepts-of-fields"]
+          "id": "er-model",
+          "name": "The entity–relationship model",
+          "requires": ["dbms-vs-files"]
         },
         {
-          "id": "conventional-file-system",
-          "name": "Conventional file system",
-          "requires": ["records-and-files"]
-        },
-        {
-          "id": "advantages-of-database-management-system",
-          "name": "Advantages of Database management system",
-          "requires": ["conventional-file-system"]
-        },
-        {
-          "id": "applications",
-          "name": "Applications",
-          "requires": ["advantages-of-database-management-system"]
-        },
-        {
-          "id": "data-abstraction",
-          "name": "Data abstraction",
-          "requires": ["applications"]
-        },
-        {
-          "id": "data-independence",
-          "name": "Data independence",
-          "requires": ["data-abstraction"]
-        },
-        {
-          "id": "three-levels-of-the-architecture",
-          "name": "Three levels of the architecture",
-          "requires": ["data-independence"]
-        },
-        {
-          "id": "database-users-entity-relationship-model",
-          "name": "Database Users. Entity-Relationship Model",
-          "requires": ["three-levels-of-the-architecture"]
-        },
-        {
-          "id": "relational-data-model",
-          "name": "Relational Data Model",
-          "requires": ["database-users-entity-relationship-model"]
-        },
-        {
-          "id": "relational-algebra-operators-and-syntax",
-          "name": "Relational algebra operators and syntax",
-          "requires": ["relational-data-model"]
+          "id": "keys",
+          "name": "Keys: super, candidate, primary and foreign",
+          "requires": ["er-model"]
         }
       ]
     },
     {
-      "id": "sql",
-      "name": "SQL",
+      "id": "relational-model",
+      "name": "Relational Model and Query Languages",
       "hours": 10,
       "topics": [
         {
-          "id": "basics-of-sql",
-          "name": "Basics of SQL"
+          "id": "relational-model-integrity",
+          "name": "The relational model and integrity constraints",
+          "requires": ["keys"]
         },
         {
-          "id": "ddl",
-          "name": "DDL",
-          "requires": ["basics-of-sql"]
+          "id": "relational-algebra",
+          "name": "Relational algebra",
+          "requires": ["relational-model-integrity"]
         },
         {
-          "id": "dml",
-          "name": "DML",
-          "requires": ["ddl"]
+          "id": "relational-calculus",
+          "name": "Tuple and domain relational calculus",
+          "requires": ["relational-algebra"]
         },
         {
-          "id": "dcl",
-          "name": "DCL",
-          "requires": ["dml"]
+          "id": "sql-basics",
+          "name": "SQL: DDL and DML, queries and subqueries",
+          "requires": ["relational-algebra"]
         },
         {
-          "id": "primary-key",
-          "name": "Primary key",
-          "requires": ["dcl"]
-        },
-        {
-          "id": "foreign-key",
-          "name": "foreign key",
-          "requires": ["primary-key"]
-        },
-        {
-          "id": "unique",
-          "name": "unique",
-          "requires": ["foreign-key"]
-        },
-        {
-          "id": "not-null",
-          "name": "not null",
-          "requires": ["unique"]
-        },
-        {
-          "id": "check",
-          "name": "check",
-          "requires": ["not-null"]
-        },
-        {
-          "id": "in-operator",
-          "name": "IN operator",
-          "requires": ["check"]
-        },
-        {
-          "id": "functions",
-          "name": "Functions",
-          "requires": ["in-operator"]
-        },
-        {
-          "id": "set-operations",
-          "name": "set operations",
-          "requires": ["functions"]
-        },
-        {
-          "id": "sub-queries",
-          "name": "sub queries",
-          "requires": ["set-operations"]
-        },
-        {
-          "id": "correlated-sub-queries",
-          "name": "correlated sub-queries",
-          "requires": ["sub-queries"]
-        },
-        {
-          "id": "use-of-group-by",
-          "name": "Use of group by",
-          "requires": ["correlated-sub-queries"]
-        },
-        {
-          "id": "having",
-          "name": "having",
-          "requires": ["use-of-group-by"]
-        },
-        {
-          "id": "order-by",
-          "name": "order by",
-          "requires": ["having"]
-        },
-        {
-          "id": "join-and-its-types",
-          "name": "join and its types",
-          "requires": ["order-by"]
-        },
-        {
-          "id": "exist",
-          "name": "Exist",
-          "requires": ["join-and-its-types"]
-        },
-        {
-          "id": "any",
-          "name": "Any",
-          "requires": ["exist"]
-        },
-        {
-          "id": "all",
-          "name": "All",
-          "requires": ["any"]
-        },
-        {
-          "id": "view-and-its-type",
-          "name": "view and its type",
-          "requires": ["all"]
+          "id": "sql-joins-aggregates",
+          "name": "Joins, aggregate functions and views",
+          "requires": ["sql-basics"]
         }
       ]
     },
     {
-      "id": "normalization-and-file-organization",
-      "name": "Normalization And File Organization",
-      "hours": 10,
+      "id": "normalisation",
+      "name": "Relational Database Design",
+      "hours": 8,
       "topics": [
         {
-          "id": "importance-of-a-good-schema-design",
-          "name": "Importance of a good schema design"
+          "id": "functional-dependencies",
+          "name": "Functional dependencies and Armstrong's axioms",
+          "requires": ["relational-model-integrity"]
         },
         {
-          "id": "problems-encountered-with-bad-schema-designs",
-          "name": "Problems encountered with bad schema designs",
-          "requires": ["importance-of-a-good-schema-design"]
+          "id": "normal-forms",
+          "name": "Normal forms: 1NF, 2NF, 3NF and BCNF",
+          "requires": ["functional-dependencies"]
         },
         {
-          "id": "dependency-theory-functional-dependencies",
-          "name": "dependency theory - functional dependencies",
-          "requires": ["problems-encountered-with-bad-schema-designs"]
-        },
-        {
-          "id": "armstrongs-axioms-for-fds",
-          "name": "Armstrong's axioms for FD's",
-          "requires": ["dependency-theory-functional-dependencies"]
-        },
-        {
-          "id": "minimal-covers",
-          "name": "Minimal covers",
-          "requires": ["armstrongs-axioms-for-fds"]
-        },
-        {
-          "id": "1nf",
-          "name": "1NF",
-          "requires": ["minimal-covers"]
-        },
-        {
-          "id": "2nf",
-          "name": "2NF",
-          "requires": ["1nf"]
-        },
-        {
-          "id": "3nf-and-bcnf-file-organization-sequential",
-          "name": "3NF and BCNF. File Organization: Sequential",
-          "requires": ["2nf"]
-        },
-        {
-          "id": "indexed-and-random-file-organization",
-          "name": "Indexed and Random File Organization",
-          "requires": ["3nf-and-bcnf-file-organization-sequential"]
-        },
-        {
-          "id": "indexing-structure-for-index-files",
-          "name": "indexing structure for index files",
-          "requires": ["indexed-and-random-file-organization"]
-        },
-        {
-          "id": "hashing-for-direct-files",
-          "name": "hashing for direct files",
-          "requires": ["indexing-structure-for-index-files"]
-        },
-        {
-          "id": "multi-key-file-organization-and-access-methods",
-          "name": "multi-key file organization and access methods",
-          "requires": ["hashing-for-direct-files"]
-        },
-        {
-          "id": "storage-strategies-indices",
-          "name": "Storage strategies: Indices",
-          "requires": ["multi-key-file-organization-and-access-methods"]
-        },
-        {
-          "id": "b-trees",
-          "name": "B and B+ trees",
-          "requires": ["storage-strategies-indices"]
-        },
-        {
-          "id": "hashing",
-          "name": "hashing",
-          "requires": ["b-trees"]
+          "id": "lossless-dependency-preserving",
+          "name": "Lossless joins and dependency preservation",
+          "requires": ["normal-forms"]
         }
       ]
     },
     {
-      "id": "transactions-query-processing-security",
-      "name": "Transactions, Query Processing, Security",
-      "hours": 12,
+      "id": "storage-indexing",
+      "name": "Storage, Indexing and Query Processing",
+      "hours": 6,
       "topics": [
         {
-          "id": "acid-properties-schedules-serializability-concurrency",
-          "name": "ACID properties, Schedules, Serializability, Concurrency control protocols, measures of query cost, selection operation, sorting, join"
+          "id": "indexing",
+          "name": "Indexes, B+ trees and hashing",
+          "requires": ["relational-model-integrity"]
         },
         {
-          "id": "security-discretionary-and-mandatory-access-control",
-          "name": "Security: Discretionary and Mandatory Access Control",
-          "requires": ["acid-properties-schedules-serializability-concurrency"]
+          "id": "query-optimisation",
+          "name": "Query processing and optimisation",
+          "requires": ["relational-algebra"]
+        }
+      ]
+    },
+    {
+      "id": "transactions",
+      "name": "Transactions and Concurrency Control",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "acid",
+          "name": "Transactions and the ACID properties"
         },
         {
-          "id": "audit-trails",
-          "name": "Audit Trails",
-          "requires": ["security-discretionary-and-mandatory-access-control"]
+          "id": "serializability",
+          "name": "Schedules and serializability",
+          "requires": ["acid"]
         },
         {
-          "id": "multi-level-security",
-          "name": "Multi-Level Security",
-          "requires": ["audit-trails"]
+          "id": "locking-2pl",
+          "name": "Lock-based protocols and two-phase locking",
+          "requires": ["serializability"]
         },
         {
-          "id": "statistical-databases",
-          "name": "Statistical Databases",
-          "requires": ["multi-level-security"]
+          "id": "timestamp-mvcc",
+          "name": "Timestamp ordering and multiversion concurrency control",
+          "requires": ["serializability"]
         },
         {
-          "id": "data-encryption-introduction-to-nosql-databases",
-          "name": "Data Encryption. Introduction to NOSQL Databases",
-          "requires": ["statistical-databases"]
+          "id": "db-recovery",
+          "name": "Database recovery: logs and checkpoints",
+          "requires": ["acid"]
+        }
+      ]
+    },
+    {
+      "id": "db-security-advanced",
+      "name": "Security and Advanced Topics",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "db-security",
+          "name": "Authentication, authorisation and SQL injection",
+          "requires": ["sql-basics"]
+        },
+        {
+          "id": "nosql-warehousing",
+          "name": "Distributed, NoSQL and data warehouses",
+          "requires": ["dbms-vs-files"]
         }
       ]
     }

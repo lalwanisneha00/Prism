@@ -1,6 +1,5 @@
 import { z } from "zod";
 import { isValidExpression } from "@/visuals/expression";
-import { visualTopicIds } from "@/visuals/topicAliases";
 import { wave1Widgets } from "@/visuals/wave1/registry";
 import { wave2Widgets } from "@/visuals/wave2/registry";
 
@@ -342,8 +341,7 @@ export function widgetProblem(widget: string, params: unknown): string | null {
 
 /** The widgets that suit a topic, best matches first. */
 export function widgetsForTopic(topicId: string): WidgetId[] {
-  const ids = visualTopicIds(topicId);
   return (Object.keys(widgetRegistry) as WidgetId[]).filter((id) =>
-    ids.some((t) => (widgetRegistry[id].topics as readonly string[]).includes(t)),
+    (widgetRegistry[id].topics as readonly string[]).includes(topicId),
   );
 }

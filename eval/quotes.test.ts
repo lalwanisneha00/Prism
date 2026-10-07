@@ -83,10 +83,8 @@ describe("golden-set quotes", () => {
     expect(tierForScore(99, { topics: 40, quoted: 100, total: 119 })).toBe("sourced");
   });
 
-  it("loads every golden set in the folder (none yet for the PDEU catalogue)", () => {
-    // The sets from before the PDEU catalogue are in eval/archive-pre-pdeu; new ones come with the re-run.
-    expect(loadGoldenSets().map((g) => g.subject)).toEqual([]);
-    expect(loadGoldenSets("eval/archive-pre-pdeu/golden").map((g) => g.subject)).toEqual(
+  it("loads every golden set in the folder", () => {
+    expect(loadGoldenSets().map((g) => g.subject)).toEqual(
       expect.arrayContaining(["em", "engg-math"]),
     );
   });

@@ -2,177 +2,79 @@
   "id": "bioprocess-engineering",
   "name": "Bioprocess Engineering",
   "field": "Biotechnology",
-  "tier": "limited",
-  "branches": ["biotech"],
-  "semesters": [4],
-  "code": "24BT208T",
-  "credits": 3,
-  "ltp": "3-0-0",
-  "category": "Program Core",
-  "offerings": [
-    {
-      "branch": "biotech",
-      "key": "s4-bioprocess-engineering",
-      "code": "24BT208T",
-      "category": "Program Core",
-      "ltp": "3-0-0",
-      "credits": 3,
-      "semester": 4
-    }
-  ],
+  "tier": "sourced",
+  "branches": ["biotech", "chem"],
+  "semesters": [4, 7],
   "syllabusSource": {
     "kind": "university",
-    "title": "PDEU B.Tech curriculum handbook (Biotech): Bioprocess Engineering",
-    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+    "title": "Anna University B.Tech Biotechnology (R2017): BT8404 Bioprocess Principles and BT8751 Downstream Processing",
+    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/06.%20Biotech.pdf",
+    "note": "All units of BT8404 and BT8751."
   },
   "visualSet": "process",
   "chapters": [
     {
-      "id": "introduction",
-      "name": "Introduction",
-      "hours": 10,
+      "id": "fermentation",
+      "name": "Fermentation Processes",
+      "hours": 18,
       "topics": [
         {
-          "id": "outline-of-an-integrated-bioprocess-upstream-and-downstream",
-          "name": "Outline of an integrated bioprocess: Upstream and downstream, Unit operations involved in bioprocesses, Process flow sheets of metabolite production, Microbial kinetics of growth, Modes of bioreactor "
+          "id": "fermenter-design",
+          "name": "Fermenters and their parameters"
         },
         {
-          "id": "fed-batch-and-continuous-operation-production-kinetics",
-          "name": "Fed batch and Continuous operation, Production kinetics, Kinetics of substrate uptake and Yields in cell culture",
-          "requires": ["outline-of-an-integrated-bioprocess-upstream-and-downstream"]
+          "id": "media-design",
+          "name": "Media design for fermentation",
+          "requires": ["fermenter-design"]
+        },
+        {
+          "id": "sterilisation-kinetics",
+          "name": "Sterilisation kinetics: thermal death and filter sterilisation",
+          "requires": ["fermenter-design"]
         }
       ]
     },
     {
-      "id": "media-design-and-sterilization-kinetics",
-      "name": "Media Design and Sterilization Kinetics",
-      "hours": 10,
+      "id": "kinetics",
+      "name": "Growth Stoichiometry and Kinetics",
+      "hours": 18,
       "topics": [
         {
-          "id": "type-of-sterilizations",
-          "name": "Type of Sterilizations"
+          "id": "yield-coefficients",
+          "name": "Stoichiometry of growth and yield coefficients",
+          "requires": ["media-design"]
         },
         {
-          "id": "design-of-batch-heat-sterilization-process",
-          "name": "Design of batch heat sterilization process",
-          "requires": ["type-of-sterilizations"]
+          "id": "monod-kinetics",
+          "name": "Microbial growth kinetics: the Monod model",
+          "requires": ["yield-coefficients"]
         },
         {
-          "id": "design-of-continuous-heat-sterilization-process",
-          "name": "Design of continuous heat sterilization process",
-          "requires": ["design-of-batch-heat-sterilization-process"]
-        },
-        {
-          "id": "filter-sterilization-of-fermentation-media",
-          "name": "Filter sterilization of fermentation media",
-          "requires": ["design-of-continuous-heat-sterilization-process"]
-        },
-        {
-          "id": "medium-formulation-carbon-sources",
-          "name": "Medium formulation: Carbon sources",
-          "requires": ["filter-sterilization-of-fermentation-media"]
-        },
-        {
-          "id": "nitrogen-sources",
-          "name": "Nitrogen sources",
-          "requires": ["medium-formulation-carbon-sources"]
-        },
-        {
-          "id": "minerals",
-          "name": "Minerals",
-          "requires": ["nitrogen-sources"]
-        },
-        {
-          "id": "chelators",
-          "name": "Chelators",
-          "requires": ["minerals"]
-        },
-        {
-          "id": "growth-factors",
-          "name": "Growth factors",
-          "requires": ["chelators"]
-        },
-        {
-          "id": "antifoams",
-          "name": "Antifoams",
-          "requires": ["growth-factors"]
-        },
-        {
-          "id": "addition-of-precursors-and-metabolic-regulators-to-media",
-          "name": "Addition of precursors and Metabolic regulators to media",
-          "requires": ["antifoams"]
-        },
-        {
-          "id": "introduction-to-media-optimization",
-          "name": "Introduction to media optimization",
-          "requires": ["addition-of-precursors-and-metabolic-regulators-to-media"]
+          "id": "batch-continuous-culture",
+          "name": "Batch, fed-batch and continuous culture (chemostat)",
+          "requires": ["monod-kinetics"]
         }
       ]
     },
     {
-      "id": "design-of-bioreactors",
-      "name": "Design of Bioreactors",
-      "hours": 10,
+      "id": "downstream",
+      "name": "Downstream Processing",
+      "hours": 27,
       "topics": [
         {
-          "id": "design-and-components-of-various-bioreactors-stirred-tank",
-          "name": "Design and components of various bioreactors: Stirred tank (CSTR)"
+          "id": "cell-disruption",
+          "name": "Cell disruption and solid–liquid separation",
+          "requires": ["fermenter-design"]
         },
         {
-          "id": "packed-bed",
-          "name": "Packed bed",
-          "requires": ["design-and-components-of-various-bioreactors-stirred-tank"]
+          "id": "protein-purification-chromatography",
+          "name": "Product isolation and purification: extraction, membranes, chromatography",
+          "requires": ["cell-disruption"]
         },
         {
-          "id": "bubble-column",
-          "name": "Bubble-column",
-          "requires": ["packed-bed"]
-        },
-        {
-          "id": "fluidized-bed",
-          "name": "Fluidized bed",
-          "requires": ["bubble-column"]
-        },
-        {
-          "id": "trickle-bed",
-          "name": "Trickle bed",
-          "requires": ["fluidized-bed"]
-        },
-        {
-          "id": "airlift-loop",
-          "name": "Airlift loop",
-          "requires": ["trickle-bed"]
-        },
-        {
-          "id": "photo-bioreactors",
-          "name": "Photo bioreactors",
-          "requires": ["airlift-loop"]
-        },
-        {
-          "id": "bioreactor-control-mechanism-physical-chemical-and",
-          "name": "Bioreactor control mechanism, Physical, Chemical and Biological environment of bioreactor, Role of physical, chemical & biological sensors, Online and offline analytical methods",
-          "requires": ["photo-bioreactors"]
-        }
-      ]
-    },
-    {
-      "id": "applications-of-bioprocess-engineering",
-      "name": "Applications of Bioprocess Engineering",
-      "hours": 10,
-      "topics": [
-        {
-          "id": "food-industry-baker-yeast-production",
-          "name": "Food Industry (Baker Yeast Production)"
-        },
-        {
-          "id": "environmental-industry-biological-waste-water-treatment",
-          "name": "Environmental Industry (Biological Waste Water Treatment)",
-          "requires": ["food-industry-baker-yeast-production"]
-        },
-        {
-          "id": "medical-applications-of-bioprocess-engineering-tissue",
-          "name": "Medical Applications of Bioprocess Engineering (Tissue Engineering, Gene Therapy)",
-          "requires": ["environmental-industry-biological-waste-water-treatment"]
+          "id": "lyophilisation",
+          "name": "Crystallisation, drying and freeze-drying",
+          "requires": ["protein-purification-chromatography"]
         }
       ]
     }

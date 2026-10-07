@@ -7,7 +7,7 @@ test.describe("My materials (V2.5 · Step 2)", () => {
   test("uploads several formats at once, explains failures, re-tags and previews", async ({
     page,
   }) => {
-    await page.goto("/notes?subject=applied-physics");
+    await page.goto("/notes?subject=em");
     await expect(page.getByRole("heading", { name: "My materials" })).toBeVisible();
 
     await page
@@ -28,10 +28,8 @@ test.describe("My materials (V2.5 · Step 2)", () => {
     await expect(list.getByRole("listitem")).toHaveCount(3);
     const slides = list.getByRole("listitem").filter({ hasText: "text-heavy-slides.pptx" });
     // Tagged with the chosen subject and the chapter it is about.
-    await expect(slides.getByLabel("Subject", { exact: true })).toHaveValue("applied-physics");
-    await expect(slides.getByLabel("Chapter", { exact: true })).toHaveValue(
-      "electricity-and-magnetism",
-    );
+    await expect(slides.getByLabel("Subject", { exact: true })).toHaveValue("em");
+    await expect(slides.getByLabel("Chapter", { exact: true })).toHaveValue("electrostatics");
 
     // Re-tag: the change survives a reload.
     await slides.getByLabel("Type", { exact: true }).selectOption("pyq");
@@ -55,10 +53,7 @@ test.describe("My materials (V2.5 · Step 2)", () => {
     await expect(again.getByText(/1 left out/)).toBeVisible();
 
     // Other subjects' filter hides it; "All subjects" shows it.
-    await page
-      .getByRole("button", { name: /Mathematics - I/ })
-      .first()
-      .click();
+    await page.getByRole("button", { name: "Engineering Mathematics" }).click();
     await expect(page.getByText("No materials for this subject yet.")).toBeVisible();
   });
 
@@ -97,11 +92,11 @@ test("reads text from a photo on this device (OCR)", async ({ page }, info) => {
 });
 
 test("a lesson that uses my materials cites them by slide", async ({ page }) => {
-  await page.goto("/notes?subject=applied-physics");
+  await page.goto("/notes?subject=em");
   await page.getByTestId("materials-input").setInputFiles(fixture("text-heavy-slides.pptx"));
   await expect(page.getByText(/6 slides · saved as Slides/)).toBeVisible();
   await page.goto(
-    "/lesson?subject=applied-physics&chapter=electricity-and-magnetism&topic=faradays-law&level=first-encounter&duration=10&notes=1",
+    "/lesson?subject=em&chapter=electrostatics&topic=gauss-law&level=first-encounter&duration=10&notes=1",
   );
   await expect(page.getByText(/text-heavy-slides\.pptx, slide \d+/).first()).toBeVisible({
     timeout: 60_000,

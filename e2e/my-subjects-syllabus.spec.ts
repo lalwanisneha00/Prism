@@ -35,10 +35,10 @@ test.describe("My subjects: semester syllabus (PDEU Computer Engineering, semest
     await expect(all.getByRole("searchbox")).toBeHidden();
     await expect(page.getByTestId("my-subjects")).toContainText("Choose your branch and semester");
 
-    await page.getByTestId("branch-bar").getByLabel("My branch").selectOption("ce");
+    await page.getByTestId("branch-bar").getByLabel("My branch").selectOption("ee");
     await chooseSemester(page, "1");
     await expect(page.getByTestId("my-subjects")).toContainText("My subjects, semester 1");
-    await expect(page.getByTestId("pdeu-core")).toBeVisible();
+    await expect(page.getByTestId("subject-card").first()).toContainText("Suggested");
 
     await all.locator("summary").click();
     await all.getByRole("searchbox").fill("thermo");
@@ -64,23 +64,21 @@ test.describe("My subjects: semester syllabus (PDEU Computer Engineering, semest
       review.getByTestId("match-row").filter({ hasText: "Universal Human Values" }),
     ).toContainText("Not on Prism");
 
-    // Uncertain ones (numbered subjects such as Mathematics – I, Computer Programming-I) must be confirmed first.
+    // Uncertain ones (Mathematics – I, Computer Programming-I) must be confirmed first.
     const asks = review.getByTestId("confirm-match");
-    const uncertain = await asks.count();
-    expect(uncertain).toBeGreaterThanOrEqual(2);
+    await expect(asks).toHaveCount(2);
+    await expect(asks.first()).toContainText("We think Mathematics – I is Engineering Mathematics");
     await expect(asks.first()).toContainText("Is this right?");
     await expect(page.getByRole("button", { name: /Save to my semester 1/ })).toBeDisabled();
     await expectNoSidewaysScroll(page);
 
+    await asks.first().getByRole("button", { name: "Yes" }).click();
     // Choose another subject / Treat as new subject are the other answers.
-    await expect(
-      asks.first().getByRole("button", { name: "Choose another subject" }),
-    ).toBeVisible();
-    await expect(asks.first().getByRole("button", { name: "Treat as new subject" })).toBeVisible();
-    for (let i = 0; i < uncertain; i++) {
-      await asks.first().getByRole("button", { name: "Yes" }).click();
-    }
-    await expect(asks).toHaveCount(0);
+    const second = review.getByTestId("confirm-match");
+    await expect(second).toHaveCount(1);
+    await expect(second.getByRole("button", { name: "Choose another subject" })).toBeVisible();
+    await expect(second.getByRole("button", { name: "Treat as new subject" })).toBeVisible();
+    await second.getByRole("button", { name: "Yes" }).click();
     await page.getByRole("button", { name: /Save to my semester 1/ }).click();
 
     await expect(page.getByTestId("syllabus-done")).toContainText("Saved 7 subjects");
@@ -89,9 +87,11 @@ test.describe("My subjects: semester syllabus (PDEU Computer Engineering, semest
     const cards = page.getByTestId("my-subjects");
     const physics = cards.getByTestId("subject-card").filter({ hasText: "Applied Physics" });
     await expect(physics).toContainText("topics in your syllabus");
+    await expect(physics).toContainText("not in your syllabus");
+    await expect(physics.getByTestId("not-on-prism")).toContainText("not on Prism yet");
 
-    const maths = cards.getByTestId("subject-card").filter({ hasText: "Mathematics" }).first();
-    await expect(maths).toContainText("topics in your syllabus");
+    const maths = cards.getByTestId("subject-card").filter({ hasText: "Engineering Mathematics" });
+    await expect(maths).toContainText("may come in a later semester");
 
     const values = cards.getByTestId("subject-card").filter({ hasText: "Universal Human Values" });
     await expect(values).toContainText(
@@ -123,7 +123,7 @@ test.describe("My subjects: semester syllabus (PDEU Computer Engineering, semest
   }, info) => {
     await uploadPdeu(page);
     const review = page.getByTestId("syllabus-review");
-    while ((await review.getByTestId("confirm-match").count()) > 0) {
+    for (let i = 0; i < 2; i++) {
       await review
         .getByTestId("confirm-match")
         .first()
@@ -133,12 +133,23 @@ test.describe("My subjects: semester syllabus (PDEU Computer Engineering, semest
     await page.getByRole("button", { name: /Save to my semester 1/ }).click();
     await expect(page.getByTestId("syllabus-done")).toBeVisible();
 
+    // Lesson picker (home page): Applied Physics topics, some marked as outside the syllabus.
+    await page.goto("/?subject=applied-physics&chapter=mechanics");
+    await expect(
+      page
+        .getByText(
+          "Not in your syllabus, but you can study this for a better understanding of the subject.",
+        )
+        .first(),
+    ).toBeVisible({ timeout: 30_000 });
+
     // Concept map: a collapsed subject chooser, with search and the marker.
     await page.goto("/map?subject=applied-physics");
     const picker = page.getByTestId("map-subject-picker");
     await expect(picker).not.toHaveAttribute("open", "");
     await expect(page.getByLabel("Find a topic on the map")).toBeVisible();
     await expect(page.getByTestId("subject-graph")).toBeVisible({ timeout: 30_000 });
+    await expect(page.getByTestId("not-in-syllabus").first()).toBeAttached();
 
     await picker.locator("summary").click();
     await picker.getByPlaceholder("Search subject").fill("Applied Phys");
@@ -154,7 +165,6 @@ test.describe("My subjects: semester syllabus (PDEU Computer Engineering, semest
   test("Choose another subject lets the student correct a match", async ({ page }) => {
     await uploadPdeu(page);
     const review = page.getByTestId("syllabus-review");
-    const before = await review.getByTestId("confirm-match").count();
     const first = review.getByTestId("confirm-match").first();
     await first.getByRole("button", { name: "Choose another subject" }).click();
     await first
@@ -169,6 +179,6 @@ test.describe("My subjects: semester syllabus (PDEU Computer Engineering, semest
       .filter({ hasText: "Discrete Mathematics" })
       .getByRole("button", { name: "Change" })
       .click();
-    await expect(review.getByTestId("confirm-match")).toHaveCount(before);
+    await expect(review.getByTestId("confirm-match")).toHaveCount(2);
   });
 });

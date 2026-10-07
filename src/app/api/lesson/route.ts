@@ -143,19 +143,15 @@ export async function POST(req: Request) {
         }
 
         send({ type: "stage", stage: "sources", message: "Reading trusted sources…" });
-        // Curated sources first. A topic with none (most of PDEU's new topics until sources are added
-        // by hand) gets the best-matching free Wikipedia articles instead, like a student's own subject.
-        const curated = custom.success ? [] : sourcesForTopic(request.subject.id, request.topic.id);
         const sources = [
           ...notes,
           ...(await groundSources(
-            curated.length > 0
-              ? curated
-              : await searchedSources(
-                  request.topic.name.slice(0, 120),
-                  request.subject.name,
-                  (q, limit) => searchWikipedia(q, limit, { signal: req.signal }),
-                ),
+            custom.success
+              ? // No curated sources for a student's own subject: search trusted free ones.
+                await searchedSources(request.topic.name, request.subject.name, (q, limit) =>
+                  searchWikipedia(q, limit, { signal: req.signal }),
+                )
+              : sourcesForTopic(request.subject.id, request.topic.id),
             { signal: req.signal },
           )),
         ];

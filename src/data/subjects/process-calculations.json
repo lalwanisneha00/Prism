@@ -1,0 +1,109 @@
+{
+  "id": "process-calculations",
+  "name": "Process Calculations (Material and Energy Balances)",
+  "field": "Chemical Engineering",
+  "tier": "sourced",
+  "branches": ["chem", "petro", "biotech"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree Courses in Chemical Engineering (2018, Vol. II): PCC-CS101 Material and Energy Balance Computations",
+    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol2.pdf",
+    "note": "All nine units of PCC-CS101."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "units-basis",
+      "name": "Units, Basis and Compositions",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "units-dimensionless-groups",
+          "name": "Units, conversions and dimensionless groups"
+        },
+        {
+          "id": "basis-compositions",
+          "name": "Basis of calculation; mole fraction, mass fraction and concentration",
+          "requires": ["units-dimensionless-groups"]
+        },
+        {
+          "id": "ideal-gas-pc",
+          "name": "Ideal gas law and gas mixtures (Dalton, Amagat)",
+          "requires": ["basis-compositions"]
+        }
+      ]
+    },
+    {
+      "id": "material-balances",
+      "name": "Material Balances",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "mass-balance-no-reaction",
+          "name": "Material balances without reaction; degrees of freedom",
+          "requires": ["basis-compositions"]
+        },
+        {
+          "id": "reactive-balances-extent",
+          "name": "Balances with reaction: stoichiometry, limiting reactant, conversion and extent",
+          "requires": ["mass-balance-no-reaction"]
+        },
+        {
+          "id": "combustion-balances",
+          "name": "Combustion calculations: excess air and flue gas analysis",
+          "requires": ["reactive-balances-extent"]
+        },
+        {
+          "id": "recycle-bypass-purge",
+          "name": "Recycle, bypass and purge",
+          "requires": ["reactive-balances-extent"]
+        }
+      ]
+    },
+    {
+      "id": "phase-humidity",
+      "name": "Vapour Pressure, Humidity and Crystallisation",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "vapour-pressure-raoult",
+          "name": "Vapour pressure, Cox chart and Raoult's law",
+          "requires": ["ideal-gas-pc"]
+        },
+        {
+          "id": "humidity-saturation",
+          "name": "Humidity, saturation, dew point and the humidity chart",
+          "requires": ["vapour-pressure-raoult"]
+        },
+        {
+          "id": "crystallisation-balances",
+          "name": "Crystallisation and dissolution balances",
+          "requires": ["mass-balance-no-reaction"]
+        }
+      ]
+    },
+    {
+      "id": "energy-balances",
+      "name": "Energy Balances",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "energy-balance-open-closed",
+          "name": "Energy balances for open and closed systems",
+          "requires": ["mass-balance-no-reaction"]
+        },
+        {
+          "id": "heat-capacity-enthalpy-change",
+          "name": "Heat capacity and enthalpy changes; latent heat",
+          "requires": ["energy-balance-open-closed"]
+        },
+        {
+          "id": "heat-of-reaction",
+          "name": "Heat of reaction and heat of combustion (Hess's law)",
+          "requires": ["heat-capacity-enthalpy-change", "reactive-balances-extent"]
+        }
+      ]
+    }
+  ]
+}

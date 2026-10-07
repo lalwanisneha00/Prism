@@ -1,303 +1,147 @@
 {
   "id": "coa",
-  "name": "Computer Organization and Architecture",
+  "name": "Computer Organisation and Architecture",
   "field": "Computer Engineering",
   "tier": "sourced",
-  "branches": ["ce"],
+  "branches": ["ce", "it", "ict", "ece"],
   "semesters": [4],
-  "code": "24CS207T",
-  "credits": 4,
-  "ltp": "3-1-0",
-  "category": "Program Core",
-  "offerings": [
-    {
-      "branch": "ce",
-      "key": "s4-computer-organization-and-architecture",
-      "code": "24CS207T",
-      "category": "Program Core",
-      "ltp": "3-1-0",
-      "credits": 4,
-      "semester": 4
-    }
-  ],
   "syllabusSource": {
-    "kind": "university",
-    "title": "PDEU B.Tech curriculum handbook (CE): Computer Organization and Architecture",
-    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS402 Computer Organization & Architecture",
+    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
+    "note": "Modules 1–4 of PCC-CS402."
   },
   "visualSet": "computing",
   "chapters": [
     {
-      "id": "processor-architecture-fundamentals",
-      "name": "Processor Architecture Fundamentals",
-      "hours": 10,
+      "id": "basic-organisation",
+      "name": "Basic Organisation and Instruction Sets",
+      "hours": 6,
       "topics": [
         {
-          "id": "x86-architecture",
-          "name": "X86 Architecture"
+          "id": "functional-units",
+          "name": "Functional blocks: CPU, memory, I/O and control unit"
         },
         {
-          "id": "cpu-registers",
-          "name": "CPU Registers",
-          "requires": ["x86-architecture"]
-        },
-        {
-          "id": "segment-registers",
-          "name": "Segment Registers",
-          "requires": ["cpu-registers"]
-        },
-        {
-          "id": "general-purpose-registers",
-          "name": "General Purpose Registers",
-          "requires": ["segment-registers"]
-        },
-        {
-          "id": "bus-interface-unit",
-          "name": "Bus Interface Unit",
-          "requires": ["general-purpose-registers"]
-        },
-        {
-          "id": "address-bus",
-          "name": "Address bus",
-          "requires": ["bus-interface-unit"]
-        },
-        {
-          "id": "data-bus-and-control-bus",
-          "name": "Data bus and control bus",
-          "requires": ["address-bus"]
-        },
-        {
-          "id": "control-unit",
-          "name": "Control Unit",
-          "requires": ["data-bus-and-control-bus"]
-        },
-        {
-          "id": "alu",
-          "name": "ALU",
-          "requires": ["control-unit"]
-        },
-        {
-          "id": "memory-unit",
-          "name": "Memory unit",
-          "requires": ["alu"]
-        },
-        {
-          "id": "architectural-overview-and-comparison-between-32-bit-and-64",
-          "name": "Architectural overview and comparison between 32-bit and 64-bit processor",
-          "requires": ["memory-unit"]
-        },
-        {
-          "id": "microprocessor-pin-configuration",
-          "name": "Microprocessor Pin Configuration",
-          "requires": ["architectural-overview-and-comparison-between-32-bit-and-64"]
-        },
-        {
-          "id": "microcontroller",
-          "name": "Microcontroller",
-          "requires": ["microprocessor-pin-configuration"]
-        },
-        {
-          "id": "comparison-with-microprocessor",
-          "name": "Comparison with microprocessor",
-          "requires": ["microcontroller"]
-        },
-        {
-          "id": "intel-8085",
-          "name": "Instruction Set Architecture",
-          "requires": ["comparison-with-microprocessor"]
-        },
-        {
-          "id": "mips-instructions-format",
-          "name": "MIPS Instructions format",
-          "requires": ["intel-8085"]
-        }
-      ]
-    },
-    {
-      "id": "alu-micro-operation-and-rtl",
-      "name": "ALU, Micro-operation and RTL",
-      "hours": 9,
-      "topics": [
-        {
-          "id": "arithmetic-and-logic-unit",
-          "name": "Arithmetic and logic unit"
-        },
-        {
-          "id": "register-configuration-of-signed-magnitude-addition",
-          "name": "Register configuration of Signed Magnitude Addition-Subtraction Algorithm",
-          "requires": ["arithmetic-and-logic-unit"]
-        },
-        {
-          "id": "register-configuration-of-2s-complement-addition-subtraction",
-          "name": "Register configuration of 2’s complement Addition Subtraction Algorithm",
-          "requires": ["register-configuration-of-signed-magnitude-addition"]
-        },
-        {
-          "id": "signed-magnitude-multiplication-algorithm",
-          "name": "Signed Magnitude Multiplication Algorithm",
-          "requires": ["register-configuration-of-2s-complement-addition-subtraction"]
-        },
-        {
-          "id": "booths-multiplication-algorithm",
-          "name": "Booth’s multiplication algorithm",
-          "requires": ["signed-magnitude-multiplication-algorithm"]
+          "id": "instruction-cycle",
+          "name": "Registers and the instruction execution cycle",
+          "requires": ["functional-units"]
         },
         {
           "id": "addressing-modes",
-          "name": "Addressing Modes",
-          "requires": ["booths-multiplication-algorithm"]
-        },
-        {
-          "id": "immediate",
-          "name": "Immediate",
-          "requires": ["addressing-modes"]
-        },
-        {
-          "id": "direct",
-          "name": "Direct",
-          "requires": ["immediate"]
-        },
-        {
-          "id": "indirect",
-          "name": "Indirect",
-          "requires": ["direct"]
-        },
-        {
-          "id": "pc-relative",
-          "name": "PC-relative",
-          "requires": ["indirect"]
-        },
-        {
-          "id": "indexed",
-          "name": "Indexed",
-          "requires": ["pc-relative"]
-        },
-        {
-          "id": "subroutine-call",
-          "name": "Subroutine Call",
-          "requires": ["indexed"]
-        },
-        {
-          "id": "micro-operation-and-their-rtl-specification",
-          "name": "Micro-operation and their RTL specification",
-          "requires": ["subroutine-call"]
+          "name": "Instruction formats and addressing modes",
+          "requires": ["instruction-cycle"]
         }
       ]
     },
     {
-      "id": "control-unit-and-memory-architecture",
-      "name": "Control Unit and Memory Architecture",
-      "hours": 12,
+      "id": "data-representation",
+      "name": "Data Representation and Arithmetic",
+      "hours": 8,
       "topics": [
         {
-          "id": "cpu-control-unit-design-hardwired-and-micro-programmed",
-          "name": "CPU control unit design: Hardwired and micro-programmed design approaches, design of a simple hypothetical CPU. CPU"
+          "id": "signed-numbers",
+          "name": "Signed numbers: two's complement"
         },
         {
-          "id": "memory-interconnections-organization-of-memory-modules",
-          "name": "Memory interconnections, Organization of memory modules, Associative memory, Cache Memory, Memory Mapping Techniques",
-          "requires": ["cpu-control-unit-design-hardwired-and-micro-programmed"]
+          "id": "floating-point",
+          "name": "Floating-point representation (IEEE 754)",
+          "requires": ["signed-numbers"]
         },
         {
-          "id": "peripheral-devices-and-their-characteristics-input-output",
-          "name": "Peripheral devices and their characteristics: Input-output subsystems, I/O device interface, I/O transfers",
-          "requires": ["memory-interconnections-organization-of-memory-modules"]
+          "id": "adders-coa",
+          "name": "Ripple-carry and carry-lookahead adders",
+          "requires": ["signed-numbers"]
         },
         {
-          "id": "program-controlled-interrupt-driven-and-dma",
-          "name": "program controlled, interrupt driven and DMA",
-          "requires": ["peripheral-devices-and-their-characteristics-input-output"]
+          "id": "booth-multiplication",
+          "name": "Multiplication: shift-and-add and Booth's algorithm",
+          "requires": ["adders-coa"]
+        },
+        {
+          "id": "division-algorithms",
+          "name": "Restoring and non-restoring division",
+          "requires": ["adders-coa"]
         }
       ]
     },
     {
-      "id": "pipelining-and-multiprocessing-unit",
-      "name": "Pipelining and Multiprocessing Unit",
-      "hours": 11,
+      "id": "control-unit",
+      "name": "Control Unit Design",
+      "hours": 4,
       "topics": [
         {
-          "id": "pipelining-pipeline-hazards-design-issues-of-pipeline",
-          "name": "Pipelining, pipeline hazards, Design issues of pipeline architecture, Instruction level parallelism and advanced issues, RISC and CISC paradigm, Design issues of a RISC processor, Multiprocessor syste"
+          "id": "hardwired-control",
+          "name": "Hardwired control"
         },
         {
-          "id": "tutorial-1-case-studies-to-differentiate-between-32-bit-and",
-          "name": "Tutorial 1: Case Studies to differentiate between 32-bit and 64-bit processors (3 hrs)",
-          "requires": ["pipelining-pipeline-hazards-design-issues-of-pipeline"]
+          "id": "microprogrammed-control",
+          "name": "Microprogrammed control",
+          "requires": ["hardwired-control"]
+        }
+      ]
+    },
+    {
+      "id": "io-organisation",
+      "name": "Input–Output Organisation",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "io-interrupts",
+          "name": "Programmed I/O and interrupt-driven I/O"
         },
         {
-          "id": "exploring-bus-interface-unit-control-unit-segment-registers",
-          "name": "Exploring Bus interface unit, control unit, segment registers, and general-purpose registers",
-          "requires": ["tutorial-1-case-studies-to-differentiate-between-32-bit-and"]
+          "id": "dma",
+          "name": "Direct memory access",
+          "requires": ["io-interrupts"]
+        }
+      ]
+    },
+    {
+      "id": "pipelining-coa",
+      "name": "Pipelining and Parallel Processing",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "instruction-pipelining",
+          "name": "Pipelining: throughput and speed-up",
+          "requires": ["instruction-cycle"]
         },
         {
-          "id": "case-studies-and-examples-showcasing-real-world-applications",
-          "name": "Case studies and examples showcasing real-world applications of microcontrollers",
-          "requires": ["exploring-bus-interface-unit-control-unit-segment-registers"]
+          "id": "pipeline-hazards",
+          "name": "Pipeline hazards: structural, data and control",
+          "requires": ["instruction-pipelining"]
         },
         {
-          "id": "tutorial-2-real-world-examples-and-applications-of-different",
-          "name": "Tutorial 2: Real-world examples and applications of different addressing modes in assembly (3 hrs)",
-          "requires": ["case-studies-and-examples-showcasing-real-world-applications"]
+          "id": "parallel-processors",
+          "name": "Parallel processors and cache coherence",
+          "requires": ["instruction-pipelining"]
+        }
+      ]
+    },
+    {
+      "id": "memory-organisation",
+      "name": "Memory Organisation",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "memory-hierarchy",
+          "name": "Memory hierarchy and locality"
         },
         {
-          "id": "language-programming",
-          "name": "language programming",
-          "requires": ["tutorial-2-real-world-examples-and-applications-of-different"]
+          "id": "cache-mapping",
+          "name": "Cache memory: direct, associative and set-associative mapping",
+          "requires": ["memory-hierarchy"]
         },
         {
-          "id": "numerical-problem-solving-on-different-addressing-modes",
-          "name": "Numerical problem solving on different addressing modes",
-          "requires": ["language-programming"]
+          "id": "cache-replacement-write",
+          "name": "Cache replacement and write policies",
+          "requires": ["cache-mapping"]
         },
         {
-          "id": "exercises-to-implement-subroutine-calls-using-various",
-          "name": "Exercises to implement subroutine calls using various addressing modes",
-          "requires": ["numerical-problem-solving-on-different-addressing-modes"]
-        },
-        {
-          "id": "tutorial-3-comparative-analysis-of-hardwired-and-micro",
-          "name": "Tutorial 3: Comparative analysis of hardwired and micro-programmed design approaches in (4 hrs)",
-          "requires": ["exercises-to-implement-subroutine-calls-using-various"]
-        },
-        {
-          "id": "terms-of-complexity-flexibility-and-performance",
-          "name": "terms of complexity, flexibility, and performance",
-          "requires": ["tutorial-3-comparative-analysis-of-hardwired-and-micro"]
-        },
-        {
-          "id": "case-studies-on-cpu-memory-interconnections-and-organization",
-          "name": "Case studies on CPU-memory interconnections and organization of memory modules",
-          "requires": ["terms-of-complexity-flexibility-and-performance"]
-        },
-        {
-          "id": "problem-solving-on-memory-organization",
-          "name": "Problem solving on Memory organization",
-          "requires": ["case-studies-on-cpu-memory-interconnections-and-organization"]
-        },
-        {
-          "id": "real-world-examples-and-case-studies-illustrating-the-role",
-          "name": "Real-world examples and case studies illustrating the role of interrupts in process state transitions",
-          "requires": ["problem-solving-on-memory-organization"]
-        },
-        {
-          "id": "tutorial-4-examples-on-pipelining-and-its-advantages-in-cpu",
-          "name": "Tutorial 4: Examples on pipelining and its advantages in CPU performance (4 hrs)",
-          "requires": ["real-world-examples-and-case-studies-illustrating-the-role"]
-        },
-        {
-          "id": "exercises-on-identifying-and-mitigating-pipeline-hazards-in",
-          "name": "Exercises on identifying and mitigating pipeline hazards in sample code segments",
-          "requires": ["tutorial-4-examples-on-pipelining-and-its-advantages-in-cpu"]
-        },
-        {
-          "id": "case-studies-and-examples-illustrating-the-differences",
-          "name": "Case studies and examples illustrating the differences between RISC and CISC instruction sets",
-          "requires": ["exercises-on-identifying-and-mitigating-pipeline-hazards-in"]
-        },
-        {
-          "id": "exercises-on-parallel-algorithms-on-multiprocessor-systems",
-          "name": "Exercises on parallel algorithms on multiprocessor systems",
-          "requires": ["case-studies-and-examples-illustrating-the-differences"]
+          "id": "memory-interleaving",
+          "name": "Memory interleaving and semiconductor memory",
+          "requires": ["memory-hierarchy"]
         }
       ]
     }

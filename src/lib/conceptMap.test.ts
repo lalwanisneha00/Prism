@@ -37,9 +37,9 @@ describe("concept map data", () => {
       }
       const graph = buildGraph(subject);
       expect(findCycle(graph), subject.id).toBeNull();
-      // Most topics are connected to the map (a unit with a single topic has no arrows).
+      // Almost every topic is connected to the map.
       const linked = new Set(graph.edges.flatMap((e) => [e.from, e.to]));
-      expect(linked.size / graph.nodes.size).toBeGreaterThan(0.7);
+      expect(linked.size / graph.nodes.size).toBeGreaterThan(0.95);
     }
   });
 

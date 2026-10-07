@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
-import subjectMap from "@/data/pdeu/subject-map.json";
 import { StudyFromSyllabus } from "@/components/pdeu/StudyFromSyllabus";
 import {
   codeText,
@@ -10,6 +9,7 @@ import {
   hasUnits,
   isLab,
   ltpText,
+  prismMatch,
   toDraftChapters,
   topicCount,
 } from "@/lib/pdeu/helpers";
@@ -35,8 +35,8 @@ export default async function PdeuCoursePage({ params }: PageProps<"/pdeu/[branc
 
   const semester = course.semester ?? 1;
   const core = course.core ?? true;
-  const subjectIds = subjectMap as Record<string, string>;
-  const prism = findSubject(subjectIds[`${branchId}/${key}`] ?? "");
+  const match = core ? prismMatch(course.name) : undefined;
+  const prism = match ? findSubject(match.subject) : undefined;
   const slot = branch.subjects.find((s) => s.key === key && s.options);
   const listedUnder = slot?.optionsListedUnder
     ? branch.subjects.find((s) => s.name === slot.optionsListedUnder && s.semester === semester)
@@ -96,14 +96,16 @@ export default async function PdeuCoursePage({ params }: PageProps<"/pdeu/[branc
         >
           <h2 className="text-lg font-semibold">Lessons on Prism</h2>
           <p className="text-sm">
-            This course is a subject on Prism with PDEU&apos;s own units and topics: lessons at six
-            levels, quizzes, flashcards, a concept map and a mock test.
+            Prism teaches <b>{prism.name}</b>
+            {match?.part
+              ? ", which covers part of this PDEU course (or more than it). Use it for the topics that match; the units below are PDEU's."
+              : ", which matches this course. Its lessons are checked against sources."}
           </p>
           <Link
             href={`/subjects/${prism.id}`}
             className="w-fit rounded-full bg-primary px-5 py-2.5 font-semibold text-primary-fg hover:bg-primary-hover"
           >
-            Open {prism.name}
+            Open {prism.name} on Prism
           </Link>
         </section>
       )}
@@ -133,22 +135,20 @@ export default async function PdeuCoursePage({ params }: PageProps<"/pdeu/[branc
               </li>
             ))}
           </ol>
-          {!prism && (
-            <div className="flex flex-col gap-2">
-              <StudyFromSyllabus
-                name={course.name}
-                semester={semester}
-                chapters={chapters}
-                goTo="view"
-                label="Study this syllabus on Prism"
-                primary={!prism}
-              />
-              <p className="max-w-2xl text-xs text-muted">
-                Makes a subject on your account with these units and topics, so you can get lessons,
-                quizzes and flashcards for each topic.
-              </p>
-            </div>
-          )}
+          <div className="flex flex-col gap-2">
+            <StudyFromSyllabus
+              name={course.name}
+              semester={semester}
+              chapters={chapters}
+              goTo="view"
+              label="Study this syllabus on Prism"
+              primary={!prism}
+            />
+            <p className="max-w-2xl text-xs text-muted">
+              Makes a subject on your account with these units and topics, so you can get lessons,
+              quizzes and flashcards for each topic.
+            </p>
+          </div>
         </section>
       )}
 
@@ -173,11 +173,7 @@ export default async function PdeuCoursePage({ params }: PageProps<"/pdeu/[branc
                 className="flex flex-col gap-1 rounded-2xl border border-border bg-surface p-4"
               >
                 <Link
-                  href={
-                    subjectIds[`${branch.id}/${o.key}`]
-                      ? `/subjects/${subjectIds[`${branch.id}/${o.key}`]}`
-                      : `/pdeu/${branch.id}/${o.key}`
-                  }
+                  href={`/pdeu/${branch.id}/${o.key}`}
                   className="font-semibold hover:underline"
                 >
                   {o.name}

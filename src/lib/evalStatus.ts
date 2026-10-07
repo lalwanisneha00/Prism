@@ -10,7 +10,7 @@ import status from "@/data/evalStatus.json";
 export type EvalStatus = "measured" | "pending" | "no-test-set";
 
 const measured = new Set(Object.keys((accuracy as { subjects: Record<string, unknown> }).subjects));
-const golden = new Set<string>(status.goldenSubjects);
+const golden = new Set(status.goldenSubjects);
 
 export function evalStatusOf(subjectId: string): EvalStatus {
   if (measured.has(subjectId)) return "measured";

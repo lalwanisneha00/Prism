@@ -5,7 +5,7 @@ import { expect, test } from "@playwright/test";
 test("a highlight is painted and survives a reload", async ({ page }, info) => {
   test.skip(info.project.name.startsWith("mobile"), "text selection is a desktop gesture here");
   await page.goto(
-    "/lesson?subject=applied-physics&chapter=electricity-and-magnetism&topic=faradays-law&level=first-encounter&duration=10",
+    "/lesson?subject=em&chapter=electrostatics&topic=gauss-law&level=first-encounter&duration=10",
   );
   const paragraph = page.locator("[data-section-card] .markdown p").first();
   await expect(paragraph).toBeVisible({ timeout: 60_000 });

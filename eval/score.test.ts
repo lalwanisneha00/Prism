@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import emGolden from "./archive-pre-pdeu/golden/em.json";
-import mathGolden from "./archive-pre-pdeu/golden/engg-math.json";
+import emGolden from "./golden/em.json";
+import mathGolden from "./golden/engg-math.json";
 import {
   GoldenSchema,
   normalizeForMatch,
@@ -11,17 +11,28 @@ import {
   visualReport,
 } from "./score";
 import { sampleLessons } from "@/data/sampleLessons";
+import { findChapter, findSubject, findTopic } from "@/lib/subjects";
 
 const set = GoldenSchema.parse(emGolden);
 const sets = [set, GoldenSchema.parse(mathGolden)];
 
-// The two sets below are the pre-PDEU golden sets (eval/archive-pre-pdeu): they exercise the scorer.
-describe("scorer fixtures (archived golden sets)", () => {
+describe("golden sets", () => {
   it("E&M has 40 topics and Engineering Maths at least 15 (SPEC §6.1 rule 5)", () => {
     expect(set.topics).toHaveLength(40);
     expect(sets[1].topics.length).toBeGreaterThanOrEqual(15);
     for (const s of sets)
       for (const t of s.topics) expect(t.facts.length, t.topic).toBeGreaterThanOrEqual(2);
+  });
+
+  it("only uses real topics in the right chapters, each once", () => {
+    for (const s of sets) {
+      const subject = findSubject(s.subject)!;
+      expect(new Set(s.topics.map((t) => t.topic)).size).toBe(s.topics.length);
+      for (const t of s.topics) {
+        const chapter = findChapter(subject, t.chapter);
+        expect(chapter && findTopic(chapter, t.topic), t.topic).toBeTruthy();
+      }
+    }
   });
 
   it("has patterns that compile", () => {

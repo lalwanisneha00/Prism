@@ -1,5 +1,5 @@
 import sample from "@/data/sample-lessons/gauss-law.first-encounter.json";
-import { phetSimsForTopic } from "@/data/phet";
+import { findPhetSim } from "@/data/phet";
 import type { Source } from "@/lib/schema";
 import { widgetsForTopic, type WidgetId } from "@/visuals/registry";
 
@@ -17,14 +17,11 @@ export function fakeLessonBody(sources: Source[], topicId = "gauss-law"): Record
   const fits = (visual: unknown) => {
     const v = visual as { type?: string; widget?: string; sim?: string } | undefined;
     if (v?.type === "widget") return widgetsForTopic(topicId).includes(v.widget as WidgetId);
-    if (v?.type === "phet") return phetSimsForTopic(topicId).some((x) => x.id === v.sim);
+    if (v?.type === "phet") return Boolean(findPhetSim(v.sim ?? "")?.topics.includes(topicId));
     return true;
   };
   body.sections = sample.sections.map((section, i) => {
-    const copy: Record<string, unknown> = {
-      ...section,
-      sourceIds: ids.length > 0 ? [ids[i % ids.length]] : [],
-    };
+    const copy: Record<string, unknown> = { ...section, sourceIds: [ids[i % ids.length]] };
     if (!fits(section.visual)) delete copy.visual;
     return copy as (typeof sample.sections)[number];
   });

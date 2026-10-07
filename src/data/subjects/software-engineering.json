@@ -2,302 +2,143 @@
   "id": "software-engineering",
   "name": "Software Engineering",
   "field": "Computer Science",
-  "tier": "limited",
-  "branches": ["ce"],
-  "semesters": [4],
-  "code": "24CS209T",
-  "credits": 3,
-  "ltp": "3-0-0",
-  "category": "Program Core",
-  "offerings": [
-    {
-      "branch": "ce",
-      "key": "s4-software-engineering",
-      "code": "24CS209T",
-      "category": "Program Core",
-      "ltp": "3-0-0",
-      "credits": 3,
-      "semester": 4
-    }
-  ],
+  "tier": "sourced",
+  "branches": ["ce", "it", "ict"],
+  "semesters": [5, 6],
   "syllabusSource": {
     "kind": "university",
-    "title": "PDEU B.Tech curriculum handbook (CE): Software Engineering",
-    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+    "title": "AKTU (AICTE model curriculum) B.Tech 3rd year CSE (AI & ML), 2022-23: KDS063 Software Engineering",
+    "url": "https://aktu.ac.in/pdf/syllabus/syllabus2223/B.Tech._3rd_Yr_CSE(AIML)_2022_23_revised_.pdf",
+    "note": "Units I–V. (The AICTE CSE curriculum lists Software Engineering as an elective without a detailed syllabus.)"
   },
   "visualSet": "theory",
   "chapters": [
     {
-      "id": "introduction-and-essence-of-modern-software",
-      "name": "Introduction and Essence of Modern Software Engineering",
-      "hours": 12,
+      "id": "se-intro",
+      "name": "Introduction and Process Models",
+      "hours": 8,
       "topics": [
         {
-          "id": "introduction",
-          "name": "Introduction"
+          "id": "software-crisis",
+          "name": "Software, its characteristics and the software crisis"
         },
         {
-          "id": "characteristics-of-software",
-          "name": "Characteristics of Software",
-          "requires": ["introduction"]
+          "id": "sdlc",
+          "name": "The software development life cycle",
+          "requires": ["software-crisis"]
         },
         {
-          "id": "need-for-software-engineering",
-          "name": "need for software engineering",
-          "requires": ["characteristics-of-software"]
+          "id": "waterfall-prototype",
+          "name": "Waterfall and prototype models",
+          "requires": ["sdlc"]
         },
         {
-          "id": "software-quality-attributes",
-          "name": "Software quality attributes",
-          "requires": ["need-for-software-engineering"]
-        },
-        {
-          "id": "software-product-pipelines",
-          "name": "Software product pipelines",
-          "requires": ["software-quality-attributes"]
-        },
-        {
-          "id": "software-development-life-cycle-and-process-waterfall",
-          "name": "Software Development Life Cycle and Process: Waterfall",
-          "requires": ["software-product-pipelines"]
-        },
-        {
-          "id": "iterative-models",
-          "name": "Iterative models",
-          "requires": ["software-development-life-cycle-and-process-waterfall"]
-        },
-        {
-          "id": "exploratory-models",
-          "name": "Exploratory models",
-          "requires": ["iterative-models"]
-        },
-        {
-          "id": "rad",
-          "name": "RAD",
-          "requires": ["exploratory-models"]
-        },
-        {
-          "id": "agile-and-scrum",
-          "name": "Agile and Scrum",
-          "requires": ["rad"]
-        },
-        {
-          "id": "requirement-analysis",
-          "name": "Requirement Analysis",
-          "requires": ["agile-and-scrum"]
-        },
-        {
-          "id": "functional-and-non-functional-requirements",
-          "name": "Functional and non-functional requirements",
-          "requires": ["requirement-analysis"]
-        },
-        {
-          "id": "the-software-requirements-document-and-srs-standards",
-          "name": "the software requirements document and SRS standards",
-          "requires": ["functional-and-non-functional-requirements"]
-        },
-        {
-          "id": "requirements-engineering-process-inception",
-          "name": "Requirements Engineering Process: Inception",
-          "requires": ["the-software-requirements-document-and-srs-standards"]
-        },
-        {
-          "id": "elicitation",
-          "name": "Elicitation",
-          "requires": ["requirements-engineering-process-inception"]
-        },
-        {
-          "id": "elaboration",
-          "name": "Elaboration",
-          "requires": ["elicitation"]
-        },
-        {
-          "id": "negotiation",
-          "name": "Negotiation",
-          "requires": ["elaboration"]
-        },
-        {
-          "id": "specification-software-engineering-essence",
-          "name": "Specification. Software engineering essence",
-          "requires": ["negotiation"]
-        },
-        {
-          "id": "essence-language",
-          "name": "Essence language",
-          "requires": ["specification-software-engineering-essence"]
-        },
-        {
-          "id": "essence-kernel",
-          "name": "Essence kernel",
-          "requires": ["essence-language"]
-        },
-        {
-          "id": "using-essence-kernel-in-agile-development-practices",
-          "name": "Using essence kernel in agile development practices",
-          "requires": ["essence-kernel"]
-        },
-        {
-          "id": "agile-principles",
-          "name": "Agile Principles",
-          "requires": ["using-essence-kernel-in-agile-development-practices"]
-        },
-        {
-          "id": "agile-process-models-through-essence-kernel",
-          "name": "Agile process models through essence kernel",
-          "requires": ["agile-principles"]
-        },
-        {
-          "id": "large-scale-complex-development-using-kernel",
-          "name": "Large scale complex development Using kernel",
-          "requires": ["agile-process-models-through-essence-kernel"]
+          "id": "spiral-iterative",
+          "name": "Spiral, evolutionary and iterative models",
+          "requires": ["waterfall-prototype"]
         }
       ]
     },
     {
-      "id": "modelling-and-design",
-      "name": "Modelling & Design",
-      "hours": 10,
+      "id": "requirements",
+      "name": "Requirements and Quality Assurance",
+      "hours": 8,
       "topics": [
         {
-          "id": "design-principles",
-          "name": "Design principles"
+          "id": "requirements-engineering",
+          "name": "Requirements engineering: elicitation, analysis and SRS",
+          "requires": ["sdlc"]
         },
         {
-          "id": "design-patterns",
-          "name": "Design Patterns",
-          "requires": ["design-principles"]
+          "id": "dfd-decision-tables",
+          "name": "Data flow diagrams, ER diagrams and decision tables",
+          "requires": ["requirements-engineering"]
         },
         {
-          "id": "architecture-versus-design",
-          "name": "Architecture Versus Design",
-          "requires": ["design-patterns"]
+          "id": "verification-validation",
+          "name": "Verification and validation; SQA",
+          "requires": ["requirements-engineering"]
         },
         {
-          "id": "modularity",
-          "name": "Modularity",
-          "requires": ["architecture-versus-design"]
-        },
-        {
-          "id": "software-components-and-connectors",
-          "name": "Software Components and Connectors",
-          "requires": ["modularity"]
-        },
-        {
-          "id": "architecture-styles-system-modelling-and-uml-diagrams",
-          "name": "Architecture Styles. System modelling and UML diagrams",
-          "requires": ["software-components-and-connectors"]
+          "id": "iso-cmm",
+          "name": "ISO 9000 and the SEI CMM",
+          "requires": ["verification-validation"]
         }
       ]
     },
     {
-      "id": "testing-and-quality-management",
-      "name": "Testing & Quality Management",
-      "hours": 10,
+      "id": "software-design",
+      "name": "Software Design and Metrics",
+      "hours": 8,
       "topics": [
         {
-          "id": "software-testing-strategies-verification-vs-validation",
-          "name": "Software Testing Strategies: verification vs validation"
+          "id": "modular-design",
+          "name": "Architectural and modular design",
+          "requires": ["requirements-engineering"]
         },
         {
-          "id": "types-of-testing-and-sub-testing-adopted-for-various",
-          "name": "Types of testing and sub-testing adopted for various software: unit",
-          "requires": ["software-testing-strategies-verification-vs-validation"]
+          "id": "coupling-cohesion",
+          "name": "Coupling and cohesion",
+          "requires": ["modular-design"]
         },
         {
-          "id": "integration",
-          "name": "integration",
-          "requires": ["types-of-testing-and-sub-testing-adopted-for-various"]
+          "id": "function-points-halstead",
+          "name": "Size metrics: function points and Halstead's measures",
+          "requires": ["modular-design"]
         },
         {
-          "id": "validation-system-and-acceptance-testing",
-          "name": "validation, system, and acceptance testing",
-          "requires": ["integration"]
-        },
-        {
-          "id": "software-quality-assurance-vs-control",
-          "name": "Software Quality Assurance vs control",
-          "requires": ["validation-system-and-acceptance-testing"]
-        },
-        {
-          "id": "the-iso-9000-quality-standards",
-          "name": "The ISO 9000 quality standards",
-          "requires": ["software-quality-assurance-vs-control"]
-        },
-        {
-          "id": "cmmi-framework",
-          "name": "CMMI Framework",
-          "requires": ["the-iso-9000-quality-standards"]
-        },
-        {
-          "id": "test-case-generations",
-          "name": "Test case generations",
-          "requires": ["cmmi-framework"]
-        },
-        {
-          "id": "cyclometric-complexity",
-          "name": "Cyclometric complexity",
-          "requires": ["test-case-generations"]
+          "id": "cyclomatic-complexity",
+          "name": "Cyclomatic complexity and control-flow graphs",
+          "requires": ["modular-design"]
         }
       ]
     },
     {
-      "id": "software-project-management",
-      "name": "Software Project Management",
-      "hours": 10,
+      "id": "testing",
+      "name": "Software Testing",
+      "hours": 8,
       "topics": [
         {
-          "id": "maintenance-and-reengineering",
-          "name": "Maintenance & Reengineering"
+          "id": "testing-levels",
+          "name": "Unit, integration, acceptance and regression testing",
+          "requires": ["modular-design"]
         },
         {
-          "id": "risk-management-reactive-vs-proactive-risk-strategies",
-          "name": "Risk management: Reactive vs Proactive Risk strategies",
-          "requires": ["maintenance-and-reengineering"]
+          "id": "white-black-box",
+          "name": "White-box and black-box testing",
+          "requires": ["testing-levels"]
         },
         {
-          "id": "software-risks",
-          "name": "software risks",
-          "requires": ["risk-management-reactive-vs-proactive-risk-strategies"]
-        },
+          "id": "alpha-beta-reviews",
+          "name": "Alpha and beta testing; reviews, walkthroughs and inspections",
+          "requires": ["testing-levels"]
+        }
+      ]
+    },
+    {
+      "id": "maintenance-management",
+      "name": "Maintenance and Project Management",
+      "hours": 8,
+      "topics": [
         {
-          "id": "risk-identification",
-          "name": "Risk identification",
-          "requires": ["software-risks"]
-        },
-        {
-          "id": "risk-projection",
-          "name": "Risk projection",
-          "requires": ["risk-identification"]
-        },
-        {
-          "id": "risk-refinement",
-          "name": "Risk refinement",
-          "requires": ["risk-projection"]
-        },
-        {
-          "id": "rmmm",
-          "name": "RMMM",
-          "requires": ["risk-refinement"]
-        },
-        {
-          "id": "rmmm-plan-software-versioning-and-continuous-integration",
-          "name": "RMMM Plan. Software versioning and Continuous integration",
-          "requires": ["rmmm"]
-        },
-        {
-          "id": "project-management-and-risk-analysis",
-          "name": "Project management and Risk analysis",
-          "requires": ["rmmm-plan-software-versioning-and-continuous-integration"]
+          "id": "software-maintenance",
+          "name": "Maintenance types, re-engineering and reverse engineering",
+          "requires": ["testing-levels"]
         },
         {
           "id": "configuration-management",
-          "name": "Configuration management",
-          "requires": ["project-management-and-risk-analysis"]
+          "name": "Configuration management and version control",
+          "requires": ["software-maintenance"]
         },
         {
-          "id": "cost-analysis-and-estimation",
-          "name": "Cost analysis and estimation",
-          "requires": ["configuration-management"]
+          "id": "cocomo",
+          "name": "Cost estimation: COCOMO",
+          "requires": ["function-points-halstead"]
+        },
+        {
+          "id": "risk-management",
+          "name": "Software risk analysis and management",
+          "requires": ["cocomo"]
         }
       ]
     }

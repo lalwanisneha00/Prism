@@ -92,7 +92,3 @@ Read `PROGRESS.md` "Current state", run `git status` and `git log -5`, run `npm 
 ## Latest round (My subjects / syllabus personalisation)
 
 New code: `src/lib/syllabus/*` (types, propose, coverage, store, emphasis), `src/lib/university/parse.ts` (page-aware), `src/components/subjects/SubjectsHub.tsx`, `SyllabusUpload.tsx`, `src/components/map/MapSubjectPicker.tsx`. Real fixture: PDEU CE Sem 1 (`test-fixtures/pdeu-*`). Read CHANGES.md and PERF_REPORT.md. Waiting for user feedback; do not start Feature D.
-
-## Latest round (2026-10-07): the catalogue is PDEU's syllabus
-
-Prism's subjects, units, topics, names and credits now come from PDEU's handbooks (272 subjects, 7 branches); other branches were removed. Read the top of `CHANGES.md` first. Evals were NOT run (owner: later); old golden sets are in `eval/archive-pre-pdeu/`. The main branch is the working branch now (the owner asked to push to `main`).

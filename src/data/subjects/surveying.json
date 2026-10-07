@@ -1,0 +1,116 @@
+{
+  "id": "surveying",
+  "name": "Surveying and Geomatics",
+  "field": "Civil Engineering",
+  "tier": "sourced",
+  "branches": ["civil", "mining"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Civil Engineering (2024): PCC-05 Surveying and Geomatics",
+    "url": "https://www.aicte.gov.in/sites/default/files/AICTE%20Model%20Curriculum%20_UG_Civil_2024.pdf",
+    "note": "All five modules of PCC-05."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "survey-basics",
+      "name": "Principles, Chaining and Compass",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "surveying-principles",
+          "name": "Principles and classification of surveying"
+        },
+        {
+          "id": "bearings-traversing",
+          "name": "Bearings, compass traversing and closing error",
+          "requires": ["surveying-principles"]
+        }
+      ]
+    },
+    {
+      "id": "levelling",
+      "name": "Levelling",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "levelling-rise-fall",
+          "name": "Levelling: height of instrument and rise-and-fall methods",
+          "requires": ["surveying-principles"]
+        },
+        {
+          "id": "profile-contouring",
+          "name": "Profile levelling, cross-sections and contours",
+          "requires": ["levelling-rise-fall"]
+        },
+        {
+          "id": "levelling-errors",
+          "name": "Errors in levelling: curvature and refraction",
+          "requires": ["levelling-rise-fall"]
+        }
+      ]
+    },
+    {
+      "id": "theodolite",
+      "name": "Theodolite, Triangulation and Curves",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "theodolite-angles",
+          "name": "Theodolite: horizontal and vertical angles",
+          "requires": ["surveying-principles"]
+        },
+        {
+          "id": "triangulation-trilateration",
+          "name": "Triangulation and trilateration",
+          "requires": ["theodolite-angles"]
+        },
+        {
+          "id": "simple-curves",
+          "name": "Simple and compound curves and their setting out",
+          "requires": ["theodolite-angles"]
+        }
+      ]
+    },
+    {
+      "id": "modern-survey",
+      "name": "Modern Field Survey Systems",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "edm-total-station",
+          "name": "Electronic distance measurement and the total station",
+          "requires": ["theodolite-angles"]
+        },
+        {
+          "id": "gps-gnss-survey",
+          "name": "GPS/GNSS surveying",
+          "requires": ["edm-total-station"]
+        }
+      ]
+    },
+    {
+      "id": "photo-remote",
+      "name": "Photogrammetry, Remote Sensing and GIS",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "photogrammetry",
+          "name": "Aerial photogrammetry and stereoscopy",
+          "requires": ["surveying-principles"]
+        },
+        {
+          "id": "remote-sensing",
+          "name": "Remote sensing: the electromagnetic spectrum, platforms and sensors",
+          "requires": ["photogrammetry"]
+        },
+        {
+          "id": "gis-basics",
+          "name": "Geographic information systems",
+          "requires": ["remote-sensing"]
+        }
+      ]
+    }
+  ]
+}

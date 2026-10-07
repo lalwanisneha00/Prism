@@ -1,0 +1,141 @@
+{
+  "id": "theory-of-machines",
+  "name": "Theory of Machines",
+  "field": "Mechanical Engineering",
+  "tier": "sourced",
+  "branches": ["me", "auto"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "aicte",
+    "title": "AICTE revised Model Curriculum for UG Degree Course in Mechanical Engineering: PCC-ME 204 Kinematics and Dynamics of Machines",
+    "url": "https://www.aicte.gov.in/sites/default/files/Final_Mechanical%20Engg.pdf",
+    "note": "All modules of PCC-ME 204; balancing, vibrations and flywheels come from PCC-ME 301 Module V."
+  },
+  "visualSet": "mechanics",
+  "chapters": [
+    {
+      "id": "mechanisms",
+      "name": "Mechanisms",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "kinematic-pairs-chains",
+          "name": "Links, kinematic pairs and chains; lower and higher pairs"
+        },
+        {
+          "id": "grubler-dof",
+          "name": "Degrees of freedom: Grübler's (Kutzbach) criterion",
+          "requires": ["kinematic-pairs-chains"]
+        },
+        {
+          "id": "four-bar-grashof",
+          "name": "Four-bar mechanism, Grashof's rule and inversions",
+          "requires": ["grubler-dof"]
+        },
+        {
+          "id": "slider-crank-quick-return",
+          "name": "Slider-crank, quick-return and other common mechanisms",
+          "requires": ["four-bar-grashof"]
+        }
+      ]
+    },
+    {
+      "id": "kinematic-analysis",
+      "name": "Velocity and Acceleration Analysis",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "instant-centre-velocity",
+          "name": "Velocity analysis by instantaneous centres",
+          "requires": ["four-bar-grashof"]
+        },
+        {
+          "id": "relative-velocity-acceleration",
+          "name": "Relative velocity and acceleration diagrams; Coriolis component",
+          "requires": ["instant-centre-velocity"]
+        },
+        {
+          "id": "force-analysis-mechanisms",
+          "name": "Static and dynamic force analysis of mechanisms",
+          "requires": ["relative-velocity-acceleration"]
+        }
+      ]
+    },
+    {
+      "id": "cams",
+      "name": "Cams and Followers",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "cam-follower-types",
+          "name": "Cam and follower types and terminology",
+          "requires": ["kinematic-pairs-chains"]
+        },
+        {
+          "id": "follower-motions",
+          "name": "Follower motions: uniform, SHM, parabolic and cycloidal",
+          "requires": ["cam-follower-types"]
+        },
+        {
+          "id": "cam-profile-pressure-angle",
+          "name": "Cam profile synthesis and pressure angle",
+          "requires": ["follower-motions"]
+        }
+      ]
+    },
+    {
+      "id": "gears-tom",
+      "name": "Gears and Gear Trains",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "law-of-gearing",
+          "name": "Fundamental law of gearing; involute and cycloidal profiles",
+          "requires": ["kinematic-pairs-chains"]
+        },
+        {
+          "id": "contact-ratio-interference",
+          "name": "Spur gear contact ratio and interference",
+          "requires": ["law-of-gearing"]
+        },
+        {
+          "id": "gear-types",
+          "name": "Helical, bevel, worm and rack-and-pinion gears",
+          "requires": ["law-of-gearing"]
+        },
+        {
+          "id": "epicyclic-gear-trains",
+          "name": "Simple, compound and epicyclic gear trains",
+          "requires": ["law-of-gearing"]
+        }
+      ]
+    },
+    {
+      "id": "dynamics-tom",
+      "name": "Flywheels, Balancing and Vibrations",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "flywheel-turning-moment",
+          "name": "Turning moment diagrams and flywheels",
+          "requires": ["force-analysis-mechanisms"]
+        },
+        {
+          "id": "balancing-masses",
+          "name": "Balancing of rotating and reciprocating masses",
+          "requires": ["force-analysis-mechanisms"]
+        },
+        {
+          "id": "free-forced-vibration",
+          "name": "Free and forced vibration of single degree of freedom systems",
+          "requires": ["force-analysis-mechanisms"]
+        },
+        {
+          "id": "critical-speed-shafts",
+          "name": "Torsional vibration and critical speeds of shafts",
+          "requires": ["free-forced-vibration"]
+        }
+      ]
+    }
+  ]
+}

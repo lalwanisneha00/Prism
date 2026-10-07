@@ -1,223 +1,117 @@
 {
   "id": "oop",
-  "name": "Object Oriented Programming",
+  "name": "Object-Oriented Programming",
   "field": "Computer Science",
   "tier": "sourced",
-  "branches": ["ce"],
-  "semesters": [3],
-  "code": "24CS204T",
-  "credits": 3,
-  "ltp": "3-0-0",
-  "category": "Program Core",
-  "offerings": [
-    {
-      "branch": "ce",
-      "key": "s3-object-oriented-programming",
-      "code": "24CS204T",
-      "category": "Program Core",
-      "ltp": "3-0-0",
-      "credits": 3,
-      "semester": 3
-    }
-  ],
+  "branches": ["ce", "it", "ict"],
+  "semesters": [3, 5],
   "syllabusSource": {
-    "kind": "university",
-    "title": "PDEU B.Tech curriculum handbook (CE): Object Oriented Programming",
-    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+    "kind": "aicte",
+    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS503 Object Oriented Programming",
+    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
+    "note": "Topics of PCC-CS503 (practised in C++ and Java); exceptions and generics as in its 'Generic types and collections' unit."
   },
   "visualSet": "computing",
   "chapters": [
     {
-      "id": "introduction-to-object-oriented-programming",
-      "name": "Introduction to Object-Oriented Programming",
-      "hours": 12,
+      "id": "adt-classes",
+      "name": "Abstract Data Types and Classes",
+      "hours": 6,
       "topics": [
         {
-          "id": "overview-of-object-oriented-programming-oop-principles",
-          "name": "Overview of Object-Oriented Programming (OOP) principles"
+          "id": "abstract-data-types",
+          "name": "Abstract data types and their specification"
         },
         {
-          "id": "difference-between-oop-and-procedure-oriented-programming",
-          "name": "Difference between OOP and procedure oriented programming",
-          "requires": ["overview-of-object-oriented-programming-oop-principles"]
-        },
-        {
-          "id": "java-programming-constructs",
-          "name": "Java Programming Constructs",
-          "requires": ["difference-between-oop-and-procedure-oriented-programming"]
-        },
-        {
-          "id": "math-class",
-          "name": "Math class",
-          "requires": ["java-programming-constructs"]
-        },
-        {
-          "id": "arrays-in-java",
-          "name": "Arrays in java",
-          "requires": ["math-class"]
-        },
-        {
-          "id": "classes",
-          "name": "Classes",
-          "requires": ["arrays-in-java"]
-        },
-        {
-          "id": "class-members-and-objects",
-          "name": "class members and Objects",
-          "requires": ["classes"]
+          "id": "classes-objects",
+          "name": "Classes, objects, constructors and object identity",
+          "requires": ["abstract-data-types"]
         },
         {
           "id": "encapsulation",
-          "name": "Encapsulation",
-          "requires": ["class-members-and-objects"]
-        },
-        {
-          "id": "instantiation",
-          "name": "Instantiation",
-          "requires": ["encapsulation"]
-        },
-        {
-          "id": "data-hiding",
-          "name": "Data Hiding",
-          "requires": ["instantiation"]
-        },
-        {
-          "id": "access-specifiers",
-          "name": "Access Specifiers",
-          "requires": ["data-hiding"]
-        },
-        {
-          "id": "constructors",
-          "name": "Constructors",
-          "requires": ["access-specifiers"]
-        },
-        {
-          "id": "static-data-and-function",
-          "name": "Static Data and Function",
-          "requires": ["constructors"]
+          "name": "Encapsulation and information hiding",
+          "requires": ["classes-objects"]
         }
       ]
     },
     {
-      "id": "inheritance-and-polymorphism",
+      "id": "inheritance-polymorphism",
       "name": "Inheritance and Polymorphism",
-      "hours": 12,
+      "hours": 8,
       "topics": [
         {
-          "id": "introduction-to-inheritance-and-polymorphism-types-of",
-          "name": "Introduction to inheritance and polymorphism, Types of inheritance, Function Overloading and Function overriding, and Abstract Classes, Inbuilt classes in Java, this reference"
+          "id": "inheritance",
+          "name": "Inheritance and class hierarchies",
+          "requires": ["classes-objects"]
         },
         {
-          "id": "inheritance-in-java-object-class-polymorphism-dynamic",
-          "name": "Inheritance in java, Object class, Polymorphism, Dynamic binding, Abstract class, Interface in java, Package in java",
-          "requires": ["introduction-to-inheritance-and-polymorphism-types-of"]
+          "id": "polymorphism",
+          "name": "Polymorphism: overloading and overriding; dynamic dispatch",
+          "requires": ["inheritance"]
+        },
+        {
+          "id": "abstract-classes-interfaces",
+          "name": "Abstract classes and interfaces",
+          "requires": ["polymorphism"]
+        },
+        {
+          "id": "composition-vs-inheritance",
+          "name": "Composition over inheritance",
+          "requires": ["inheritance"]
         }
       ]
     },
     {
-      "id": "advanced-concepts-using-java",
-      "name": "Advanced Concepts using Java",
-      "hours": 10,
+      "id": "generics-memory",
+      "name": "Generics, Collections, Exceptions and Memory",
+      "hours": 6,
       "topics": [
         {
-          "id": "streams-and-multifile-programs",
-          "name": "Streams and multifile programs"
-        },
-        {
-          "id": "introduction-to-java-io-streams",
-          "name": "Introduction to Java IO streams",
-          "requires": ["streams-and-multifile-programs"]
-        },
-        {
-          "id": "character-and-binary-streams",
-          "name": "Character and Binary streams",
-          "requires": ["introduction-to-java-io-streams"]
-        },
-        {
-          "id": "reading-data-from-and-writing-data-to-files",
-          "name": "reading data from and writing data to files",
-          "requires": ["character-and-binary-streams"]
-        },
-        {
-          "id": "difference-between-error-and-exception",
-          "name": "Difference between error and exception",
-          "requires": ["reading-data-from-and-writing-data-to-files"]
+          "id": "generics",
+          "name": "Generic types and collections",
+          "requires": ["classes-objects"]
         },
         {
           "id": "exceptions-oop",
           "name": "Exception handling",
-          "requires": ["difference-between-error-and-exception"]
+          "requires": ["classes-objects"]
         },
         {
-          "id": "multithreading-in-java",
-          "name": "Multithreading in Java",
-          "requires": ["exceptions-oop"]
-        },
-        {
-          "id": "thread-life-cycle-and-methods",
-          "name": "Thread life cycle and methods",
-          "requires": ["multithreading-in-java"]
-        },
-        {
-          "id": "runnable-interface",
-          "name": "Runnable interface",
-          "requires": ["thread-life-cycle-and-methods"]
-        },
-        {
-          "id": "thread-synchronization",
-          "name": "Thread synchronization",
-          "requires": ["runnable-interface"]
+          "id": "memory-management-oop",
+          "name": "Object lifetime, garbage collection and destructors",
+          "requires": ["classes-objects"]
         }
       ]
     },
     {
-      "id": "design-patterns-and-best-practices",
-      "name": "Design Patterns and Best Practices",
-      "hours": 10,
+      "id": "design-patterns",
+      "name": "Design Patterns and Software Development",
+      "hours": 8,
       "topics": [
         {
-          "id": "design-patterns-overview-creational-design-pattern-factory",
-          "name": "Design Patterns Overview: Creational Design Pattern: Factory method"
+          "id": "design-patterns-intro",
+          "name": "Design patterns: introduction and classification",
+          "requires": ["polymorphism"]
         },
         {
-          "id": "abstract-factory",
-          "name": "Abstract Factory",
-          "requires": ["design-patterns-overview-creational-design-pattern-factory"]
+          "id": "iterator-pattern",
+          "name": "The iterator pattern",
+          "requires": ["design-patterns-intro"]
         },
         {
-          "id": "builder",
-          "name": "Builder",
-          "requires": ["abstract-factory"]
+          "id": "mvc",
+          "name": "Model–view–controller",
+          "requires": ["design-patterns-intro"]
         },
         {
-          "id": "structural-design-pattern-adapter",
-          "name": "Structural Design Pattern: Adapter",
-          "requires": ["builder"]
+          "id": "command-pattern",
+          "name": "Commands as objects (the command pattern)",
+          "requires": ["design-patterns-intro"]
         },
         {
-          "id": "composite",
-          "name": "Composite",
-          "requires": ["structural-design-pattern-adapter"]
-        },
-        {
-          "id": "facade-design-pattern",
-          "name": "Façade Design Pattern",
-          "requires": ["composite"]
-        },
-        {
-          "id": "behavioral-patterns-observer",
-          "name": "Behavioral Patterns :Observer",
-          "requires": ["facade-design-pattern"]
-        },
-        {
-          "id": "state",
-          "name": "State",
-          "requires": ["behavioral-patterns-observer"]
-        },
-        {
-          "id": "iterator",
-          "name": "Iterator",
-          "requires": ["state"]
+          "id": "unit-testing-vcs",
+          "name": "Unit tests, automated builds and version control",
+          "requires": ["classes-objects"]
         }
       ]
     }
