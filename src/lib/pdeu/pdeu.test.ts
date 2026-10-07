@@ -57,7 +57,9 @@ describe("PDEU syllabus data", () => {
     const sem1 = ce.subjects.filter((c) => c.semester === 1);
     expect(sem1.some((c) => c.name === "Workshop Practices")).toBe(false);
     expect(sem1.find((c) => c.name === "Environment Science")?.core).toBe(false);
-    expect(semesterCredits(ce, 1)).toEqual({ core: 12, notCore: 7, total: 19 });
+    // Labs and workshops are not listed: they cannot be taught through Prism.
+    expect(sem1.some((c) => /laboratory|workshop/i.test(c.name))).toBe(false);
+    expect(sem1.map((c) => c.name)).not.toContain("Applied Physics Laboratory");
     // The same course stays in the other branches.
     const ict = await loadPdeuBranch("ict");
     expect(ict.subjects.some((c) => c.semester === 1 && c.name === "Workshop Practices")).toBe(
@@ -103,7 +105,7 @@ describe("PDEU helpers", () => {
     const physics = ce.subjects.find((s) => s.name === "Applied Physics");
     expect(physics?.credits).toBe(3);
     expect(codeText(physics!)).toBe("24PH101T");
-    expect(semesterCredits(ce, 1).total).toBe(19);
+    expect(ce.subjects.some((c) => c.semester === 1 && c.name === "Applied Physics")).toBe(true);
     const chapters = toDraftChapters(physics!);
     expect(chapters).toHaveLength(4);
     expect(chapters[0].name).toBe("Electricity and Magnetism");

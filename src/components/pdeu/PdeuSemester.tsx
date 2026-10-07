@@ -3,7 +3,7 @@
 import Link from "next/link";
 import subjectMap from "@/data/pdeu/subject-map.json";
 import { useEffect, useState } from "react";
-import { codeText, coursesOf, ltpText, semesterCredits, topicCount } from "@/lib/pdeu/helpers";
+import { coursesOf, topicCount } from "@/lib/pdeu/helpers";
 import { loadPdeuBranch, type PdeuBranchId } from "@/lib/pdeu/load";
 import type { PdeuBranch, PdeuCourse } from "@/lib/pdeu/types";
 
@@ -21,20 +21,7 @@ function CourseCard({ branch, course }: { branch: PdeuBranch; course: PdeuCourse
         <Link href={href} className="font-semibold hover:underline">
           {course.name}
         </Link>
-        <span
-          className="shrink-0 rounded-full bg-primary-soft px-2.5 py-0.5 text-xs font-semibold"
-          data-testid="pdeu-credits"
-        >
-          {course.credits} credit{course.credits === 1 ? "" : "s"}
-        </span>
       </div>
-      <p className="text-sm text-muted">
-        {codeText(course)} · {course.category}
-        {course.ltp ? ` · L-T-P ${course.ltp}` : ""}
-      </p>
-      {course.ltp && ltpText(course.ltp) && (
-        <p className="text-xs text-muted">{ltpText(course.ltp)} hours a week</p>
-      )}
       <p className="text-sm text-muted">
         {options > 0
           ? `Choose one of ${options} options`
@@ -60,14 +47,12 @@ function Section({
   note,
   branch,
   courses,
-  credits,
   testId,
 }: {
   title: string;
   note: string;
   branch: PdeuBranch;
   courses: PdeuCourse[];
-  credits: number;
   testId: string;
 }) {
   return (
@@ -75,7 +60,7 @@ function Section({
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h2 className="text-xl font-semibold">{title}</h2>
         <p className="text-sm text-muted">
-          {courses.length} course{courses.length === 1 ? "" : "s"} · {credits} credits
+          {courses.length} course{courses.length === 1 ? "" : "s"}
         </p>
       </div>
       <p className="text-sm text-muted">{note}</p>
@@ -94,7 +79,7 @@ function Section({
   );
 }
 
-/** PDEU's own subjects for one branch and semester: core and non-core in two sections, with credits. */
+/** PDEU's own subjects for one branch and semester: core and non-core in two sections,  */
 export function PdeuSemester({ branchId, semester }: { branchId: PdeuBranchId; semester: number }) {
   const [loaded, setLoaded] = useState<{ id: string; branch: PdeuBranch | null } | null>(null);
   useEffect(() => {
@@ -118,15 +103,13 @@ export function PdeuSemester({ branchId, semester }: { branchId: PdeuBranchId; s
       </p>
     );
   }
-  const credits = semesterCredits(branch, semester);
   return (
     <div className="flex flex-col gap-6" data-testid="pdeu-semester">
       <div className="flex flex-col gap-1">
         <h2 className="text-xl font-semibold">
           {branch.name}, semester {semester}
         </h2>
-        <p className="text-sm text-muted" data-testid="pdeu-credit-total">
-          {credits.total} credits this semester: {credits.core} core + {credits.notCore} not core.
+        <p className="text-sm text-muted">
           Syllabus from PDEU&apos;s {branch.handbook.replace(/\s*\(.*$/, "")}.
         </p>
         {branch.notes.length > 0 && (
@@ -145,7 +128,6 @@ export function PdeuSemester({ branchId, semester }: { branchId: PdeuBranchId; s
         note="Science, engineering science and program core courses, program electives, and the project."
         branch={branch}
         courses={coursesOf(branch, semester, true)}
-        credits={credits.core}
         testId="pdeu-core"
       />
       <Section
@@ -153,7 +135,6 @@ export function PdeuSemester({ branchId, semester }: { branchId: PdeuBranchId; s
         note="Humanities, values, communication, open electives and internships. These depend on the material your faculty gives, so you can upload it for each one."
         branch={branch}
         courses={coursesOf(branch, semester, false)}
-        credits={credits.notCore}
         testId="pdeu-noncore"
       />
     </div>

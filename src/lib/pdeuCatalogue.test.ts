@@ -3,15 +3,7 @@ import { describe, expect, it } from "vitest";
 import subjectMap from "@/data/pdeu/subject-map.json";
 import { sourcesForTopic } from "@/lib/sources";
 import { loadPdeuBranch, PDEU_BRANCH_IDS } from "@/lib/pdeu/load";
-import {
-  allSubjects,
-  branches,
-  detailsLine,
-  detailsShort,
-  findSubject,
-  subjects,
-  subjectsFor,
-} from "@/lib/subjects";
+import { allSubjects, branches, findSubject, subjects, subjectsFor } from "@/lib/subjects";
 
 /*
  * Prism's catalogue is PDEU's syllabus: every core PDEU course that has a unit-wise syllabus is a
@@ -44,12 +36,10 @@ describe("the catalogue follows PDEU's syllabus", () => {
     }
   });
 
-  it("shows the name, code, category, credits and L-T-P beside a subject", () => {
+  it("names a subject as PDEU does and lays out its units", () => {
     const physics = findSubject("pdeu-applied-physics")!;
     expect(physics.name).toBe("Applied Physics");
     expect(physics.courseCategory).toBe("core");
-    expect(detailsLine(physics, "ce")).toBe("24PH101T · Basic Science · 3 credits · L-T-P 3-0-0");
-    expect(detailsShort(physics, "ce")).toBe("3 credits · 24PH101T");
     expect(physics.chapters.map((c) => c.name)).toEqual([
       "Electricity and Magnetism",
       "Electromagnetic Waves",

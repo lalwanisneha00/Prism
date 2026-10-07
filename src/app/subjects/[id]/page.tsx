@@ -6,7 +6,7 @@ import { TierBadge } from "@/components/lesson/TierBadge";
 import { TopicImportance } from "@/components/subjects/TopicImportance";
 import { SubjectProgress } from "@/components/subjects/SubjectProgress";
 import { evalStatusCopy, evalStatusOf } from "@/lib/evalStatus";
-import { branchesOf, detailsLine, findSubject, subjects } from "@/lib/subjects";
+import { branchesOf, findSubject, subjects } from "@/lib/subjects";
 
 // Only the known subjects exist: anything else is a real 404 (not a streamed 200 page).
 export const dynamicParams = false;
@@ -49,28 +49,6 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
         <p className="text-muted">
           {branchNames} · usually semester {subject.semesters.join(" or ")}
         </p>
-        {subject.offerings && (
-          <div className="flex max-w-2xl flex-col gap-1 text-sm" data-testid="subject-details">
-            <p className="font-medium">{detailsLine(subject)}</p>
-            {subject.offerings.length > 1 && (
-              <ul className="text-muted">
-                {subject.offerings.map((o) => (
-                  <li key={`${o.branch}-${o.key}`}>
-                    {branchesOf(subject).find((b) => b.id === o.branch)?.name}: semester{" "}
-                    {o.semester}, {o.credits} credit{o.credits === 1 ? "" : "s"}
-                    {o.code ? `, ${o.code}` : ""}
-                  </li>
-                ))}
-              </ul>
-            )}
-            <Link
-              href={`/pdeu/${subject.offerings[0].branch}/${subject.offerings[0].key}`}
-              className="w-fit text-primary underline"
-            >
-              PDEU handbook details for this course
-            </Link>
-          </div>
-        )}
         <TierBadge tier={subject.tier} />
         {evalStatusOf(subject.id) !== "measured" && (
           <p

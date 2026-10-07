@@ -16,27 +16,24 @@ async function choose(page: Page, branch: string, semester: string) {
 }
 
 test.describe("PDEU's own syllabus", () => {
-  test("a Computer Engineering student sees core and non-core subjects with credits", async ({
+  test("a Computer Engineering student sees core and non-core subjects by name only", async ({
     page,
   }) => {
     await choose(page, "ce", "1");
     await expect(page.getByTestId("pdeu-semester")).toBeVisible();
-    await expect(page.getByTestId("pdeu-credit-total")).toContainText(
-      "19 credits this semester: 12 core + 7 not core",
-    );
 
     const core = page.getByTestId("pdeu-core");
     const physics = core.getByTestId("pdeu-course").filter({ hasText: "Applied Physics" }).first();
-    await expect(physics).toContainText("24PH101T");
-    await expect(physics).toContainText("Basic Science");
-    await expect(physics.getByTestId("pdeu-credits")).toHaveText("3 credits");
-    await expect(physics).toContainText("L-T-P 3-0-0");
     await expect(physics.getByTestId("pdeu-on-prism")).toBeVisible();
+    // Course codes, credits and hours are not shown, and labs and workshops are not listed.
+    await expect(page.getByTestId("pdeu-semester")).not.toContainText("24PH101T");
+    await expect(page.getByTestId("pdeu-semester")).not.toContainText(/credit/i);
+    await expect(page.getByTestId("pdeu-semester")).not.toContainText(/laboratory|workshop/i);
 
     const nonCore = page.getByTestId("pdeu-noncore");
-    await expect(
-      nonCore.getByTestId("pdeu-course").filter({ hasText: "Universal Human Values" }),
-    ).toContainText("1 credit");
+    await expect(nonCore).toContainText("Universal Human Values");
+    await expect(nonCore).toContainText("Environment Science");
+    await expect(core).not.toContainText("Environment Science");
     // Humanities are not core; physics is not listed as non-core.
     await expect(nonCore).not.toContainText("Applied Physics");
     await expectNoSidewaysScroll(page);

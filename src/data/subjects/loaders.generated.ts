@@ -8,25 +8,25 @@ export const subjectLoaders: Record<string, () => Promise<{ default: unknown }>>
   "automotive-engines": () => import("./automotive-engines.json"),
   "basic-electrical": () => import("./basic-electrical.json"),
   "basic-electronics": () => import("./basic-electronics.json"),
-  "biochemistry": () => import("./biochemistry.json"),
+  biochemistry: () => import("./biochemistry.json"),
   "bioprocess-engineering": () => import("./bioprocess-engineering.json"),
   "building-materials": () => import("./building-materials.json"),
   "chemical-reaction-engineering": () => import("./chemical-reaction-engineering.json"),
   "chemical-thermodynamics": () => import("./chemical-thermodynamics.json"),
-  "coa": () => import("./coa.json"),
+  coa: () => import("./coa.json"),
   "communication-systems": () => import("./communication-systems.json"),
   "compiler-design": () => import("./compiler-design.json"),
   "computer-networks": () => import("./computer-networks.json"),
   "concrete-rcc-design": () => import("./concrete-rcc-design.json"),
   "control-systems": () => import("./control-systems.json"),
-  "dbms": () => import("./dbms.json"),
+  dbms: () => import("./dbms.json"),
   "digital-logic": () => import("./digital-logic.json"),
   "discrete-maths": () => import("./discrete-maths.json"),
   "drilling-engineering": () => import("./drilling-engineering.json"),
-  "dsa": () => import("./dsa.json"),
-  "dsp": () => import("./dsp.json"),
+  dsa: () => import("./dsa.json"),
+  dsp: () => import("./dsp.json"),
   "em-theory": () => import("./em-theory.json"),
-  "em": () => import("./em.json"),
+  em: () => import("./em.json"),
   "engg-chemistry": () => import("./engg-chemistry.json"),
   "engg-graphics": () => import("./engg-graphics.json"),
   "engg-math": () => import("./engg-math.json"),
@@ -44,16 +44,20 @@ export const subjectLoaders: Record<string, () => Promise<{ default: unknown }>>
   "machine-design": () => import("./machine-design.json"),
   "manufacturing-processes": () => import("./manufacturing-processes.json"),
   "mass-transfer": () => import("./mass-transfer.json"),
-  "microprocessors": () => import("./microprocessors.json"),
+  microprocessors: () => import("./microprocessors.json"),
   "molecular-biology": () => import("./molecular-biology.json"),
   "network-theory": () => import("./network-theory.json"),
-  "oop": () => import("./oop.json"),
+  oop: () => import("./oop.json"),
   "operating-systems": () => import("./operating-systems.json"),
-  "pdeu-advanced-communication-networks-communication": () => import("./pdeu-advanced-communication-networks-communication.json"),
-  "pdeu-advanced-data-structure-and-algorithms": () => import("./pdeu-advanced-data-structure-and-algorithms.json"),
+  "pdeu-advanced-communication-networks-communication": () =>
+    import("./pdeu-advanced-communication-networks-communication.json"),
+  "pdeu-advanced-data-structure-and-algorithms": () =>
+    import("./pdeu-advanced-data-structure-and-algorithms.json"),
   "pdeu-advanced-drilling-technology": () => import("./pdeu-advanced-drilling-technology.json"),
-  "pdeu-advanced-processors-and-socs-vlsi-embedded": () => import("./pdeu-advanced-processors-and-socs-vlsi-embedded.json"),
-  "pdeu-advanced-web-technology-software-and-networks": () => import("./pdeu-advanced-web-technology-software-and-networks.json"),
+  "pdeu-advanced-processors-and-socs-vlsi-embedded": () =>
+    import("./pdeu-advanced-processors-and-socs-vlsi-embedded.json"),
+  "pdeu-advanced-web-technology-software-and-networks": () =>
+    import("./pdeu-advanced-web-technology-software-and-networks.json"),
   "pdeu-agent-based-learning": () => import("./pdeu-agent-based-learning.json"),
   "pdeu-agile-and-devops": () => import("./pdeu-agile-and-devops.json"),
   "pdeu-analog-communication": () => import("./pdeu-analog-communication.json"),
@@ -66,71 +70,101 @@ export const subjectLoaders: Record<string, () => Promise<{ default: unknown }>>
   "pdeu-basic-electronics": () => import("./pdeu-basic-electronics.json"),
   "pdeu-big-data-analytics": () => import("./pdeu-big-data-analytics.json"),
   "pdeu-bioethics-ipr-and-biosafety": () => import("./pdeu-bioethics-ipr-and-biosafety.json"),
-  "pdeu-biological-systems-for-engineers": () => import("./pdeu-biological-systems-for-engineers.json"),
+  "pdeu-biological-systems-for-engineers": () =>
+    import("./pdeu-biological-systems-for-engineers.json"),
   "pdeu-biology-for-engineers-biotech": () => import("./pdeu-biology-for-engineers-biotech.json"),
-  "pdeu-biology-for-engineers-ece-civil": () => import("./pdeu-biology-for-engineers-ece-civil.json"),
+  "pdeu-biology-for-engineers-ece-civil": () =>
+    import("./pdeu-biology-for-engineers-ece-civil.json"),
   "pdeu-biology-for-engineers-ict": () => import("./pdeu-biology-for-engineers-ict.json"),
-  "pdeu-biomass-conversion-and-utilisation": () => import("./pdeu-biomass-conversion-and-utilisation.json"),
+  "pdeu-biomass-conversion-and-utilisation": () =>
+    import("./pdeu-biomass-conversion-and-utilisation.json"),
   "pdeu-biomaterial-and-implants": () => import("./pdeu-biomaterial-and-implants.json"),
   "pdeu-biomedical-informatics": () => import("./pdeu-biomedical-informatics.json"),
-  "pdeu-biophysics-and-structural-biology": () => import("./pdeu-biophysics-and-structural-biology.json"),
+  "pdeu-biophysics-and-structural-biology": () =>
+    import("./pdeu-biophysics-and-structural-biology.json"),
   "pdeu-bioprocess-engineering": () => import("./pdeu-bioprocess-engineering.json"),
   "pdeu-biosimilars-technology": () => import("./pdeu-biosimilars-technology.json"),
   "pdeu-blockchain-technology-ce": () => import("./pdeu-blockchain-technology-ce.json"),
-  "pdeu-blockchain-technology-software-and-networks-ict": () => import("./pdeu-blockchain-technology-software-and-networks-ict.json"),
-  "pdeu-building-materials-and-construction-technology": () => import("./pdeu-building-materials-and-construction-technology.json"),
-  "pdeu-building-planning-and-computer-aided-drawing": () => import("./pdeu-building-planning-and-computer-aided-drawing.json"),
+  "pdeu-blockchain-technology-software-and-networks-ict": () =>
+    import("./pdeu-blockchain-technology-software-and-networks-ict.json"),
+  "pdeu-building-materials-and-construction-technology": () =>
+    import("./pdeu-building-materials-and-construction-technology.json"),
+  "pdeu-building-planning-and-computer-aided-drawing": () =>
+    import("./pdeu-building-planning-and-computer-aided-drawing.json"),
   "pdeu-carbon-utilization-and-storage": () => import("./pdeu-carbon-utilization-and-storage.json"),
-  "pdeu-cheminformatics-and-medicinal-chemistry": () => import("./pdeu-cheminformatics-and-medicinal-chemistry.json"),
+  "pdeu-cheminformatics-and-medicinal-chemistry": () =>
+    import("./pdeu-cheminformatics-and-medicinal-chemistry.json"),
   "pdeu-chemistry-ece-civil": () => import("./pdeu-chemistry-ece-civil.json"),
   "pdeu-chemistry-ict": () => import("./pdeu-chemistry-ict.json"),
   "pdeu-chemistry-petro": () => import("./pdeu-chemistry-petro.json"),
   "pdeu-chemistry-theory-me": () => import("./pdeu-chemistry-theory-me.json"),
   "pdeu-city-gas-distribution": () => import("./pdeu-city-gas-distribution.json"),
-  "pdeu-cloud-architecture-and-service-software-and": () => import("./pdeu-cloud-architecture-and-service-software-and.json"),
+  "pdeu-cloud-architecture-and-service-software-and": () =>
+    import("./pdeu-cloud-architecture-and-service-software-and.json"),
   "pdeu-cloud-computing": () => import("./pdeu-cloud-computing.json"),
   "pdeu-communication-skills-theory": () => import("./pdeu-communication-skills-theory.json"),
   "pdeu-compiler-design": () => import("./pdeu-compiler-design.json"),
-  "pdeu-computer-aided-design-drawing-lab-i": () => import("./pdeu-computer-aided-design-drawing-lab-i.json"),
+  "pdeu-computer-aided-design-drawing-lab-i": () =>
+    import("./pdeu-computer-aided-design-drawing-lab-i.json"),
   "pdeu-computer-aided-design": () => import("./pdeu-computer-aided-design.json"),
   "pdeu-computer-aided-drug-design": () => import("./pdeu-computer-aided-drug-design.json"),
-  "pdeu-computer-aided-manufacturing-cam-major-in-house": () => import("./pdeu-computer-aided-manufacturing-cam-major-in-house.json"),
-  "pdeu-computer-and-communication-networks": () => import("./pdeu-computer-and-communication-networks.json"),
-  "pdeu-computer-communication-and-networking": () => import("./pdeu-computer-communication-and-networking.json"),
+  "pdeu-computer-aided-manufacturing-cam-major-in-house": () =>
+    import("./pdeu-computer-aided-manufacturing-cam-major-in-house.json"),
+  "pdeu-computer-and-communication-networks": () =>
+    import("./pdeu-computer-and-communication-networks.json"),
+  "pdeu-computer-communication-and-networking": () =>
+    import("./pdeu-computer-communication-and-networking.json"),
   "pdeu-computer-graphics": () => import("./pdeu-computer-graphics.json"),
   "pdeu-computer-networks": () => import("./pdeu-computer-networks.json"),
-  "pdeu-computer-organization-and-architecture": () => import("./pdeu-computer-organization-and-architecture.json"),
-  "pdeu-computer-organization-and-microprocessor-ece": () => import("./pdeu-computer-organization-and-microprocessor-ece.json"),
-  "pdeu-computer-organization-and-microprocessor-ict": () => import("./pdeu-computer-organization-and-microprocessor-ict.json"),
+  "pdeu-computer-organization-and-architecture": () =>
+    import("./pdeu-computer-organization-and-architecture.json"),
+  "pdeu-computer-organization-and-microprocessor-ece": () =>
+    import("./pdeu-computer-organization-and-microprocessor-ece.json"),
+  "pdeu-computer-organization-and-microprocessor-ict": () =>
+    import("./pdeu-computer-organization-and-microprocessor-ict.json"),
   "pdeu-computer-programming-i-ce": () => import("./pdeu-computer-programming-i-ce.json"),
-  "pdeu-computer-programming-i-ece-biotech": () => import("./pdeu-computer-programming-i-ece-biotech.json"),
+  "pdeu-computer-programming-i-ece-biotech": () =>
+    import("./pdeu-computer-programming-i-ece-biotech.json"),
   "pdeu-computer-programming-i-ict": () => import("./pdeu-computer-programming-i-ict.json"),
   "pdeu-computer-programming-i-petro": () => import("./pdeu-computer-programming-i-petro.json"),
   "pdeu-computer-programming-ii-ce": () => import("./pdeu-computer-programming-ii-ce.json"),
-  "pdeu-computer-programming-ii-ece-biotech": () => import("./pdeu-computer-programming-ii-ece-biotech.json"),
+  "pdeu-computer-programming-ii-ece-biotech": () =>
+    import("./pdeu-computer-programming-ii-ece-biotech.json"),
   "pdeu-computer-programming-ii-ict": () => import("./pdeu-computer-programming-ii-ict.json"),
   "pdeu-computer-programming-ii-petro": () => import("./pdeu-computer-programming-ii-petro.json"),
   "pdeu-computer-vision": () => import("./pdeu-computer-vision.json"),
   "pdeu-concrete-technology": () => import("./pdeu-concrete-technology.json"),
   "pdeu-control-systems": () => import("./pdeu-control-systems.json"),
-  "pdeu-corrosion-studies-in-petroleum-industry": () => import("./pdeu-corrosion-studies-in-petroleum-industry.json"),
-  "pdeu-cryptography-and-network-security-ce": () => import("./pdeu-cryptography-and-network-security-ce.json"),
-  "pdeu-cryptography-and-network-security-software-and-ict": () => import("./pdeu-cryptography-and-network-security-software-and-ict.json"),
+  "pdeu-corrosion-studies-in-petroleum-industry": () =>
+    import("./pdeu-corrosion-studies-in-petroleum-industry.json"),
+  "pdeu-cryptography-and-network-security-ce": () =>
+    import("./pdeu-cryptography-and-network-security-ce.json"),
+  "pdeu-cryptography-and-network-security-software-and-ict": () =>
+    import("./pdeu-cryptography-and-network-security-software-and-ict.json"),
   "pdeu-cyber-laws-and-ethics": () => import("./pdeu-cyber-laws-and-ethics.json"),
-  "pdeu-data-analytics-for-petroleum-engineers": () => import("./pdeu-data-analytics-for-petroleum-engineers.json"),
+  "pdeu-data-analytics-for-petroleum-engineers": () =>
+    import("./pdeu-data-analytics-for-petroleum-engineers.json"),
   "pdeu-data-communication": () => import("./pdeu-data-communication.json"),
-  "pdeu-data-mining-and-data-warehousing": () => import("./pdeu-data-mining-and-data-warehousing.json"),
+  "pdeu-data-mining-and-data-warehousing": () =>
+    import("./pdeu-data-mining-and-data-warehousing.json"),
   "pdeu-data-structures-and-algorithms": () => import("./pdeu-data-structures-and-algorithms.json"),
   "pdeu-data-structures": () => import("./pdeu-data-structures.json"),
   "pdeu-database-management-system": () => import("./pdeu-database-management-system.json"),
-  "pdeu-database-management-systems-computer-systems-ece": () => import("./pdeu-database-management-systems-computer-systems-ece.json"),
-  "pdeu-database-management-systems-ict": () => import("./pdeu-database-management-systems-ict.json"),
-  "pdeu-deep-learning-and-applications-computer-systems": () => import("./pdeu-deep-learning-and-applications-computer-systems.json"),
+  "pdeu-database-management-systems-computer-systems-ece": () =>
+    import("./pdeu-database-management-systems-computer-systems-ece.json"),
+  "pdeu-database-management-systems-ict": () =>
+    import("./pdeu-database-management-systems-ict.json"),
+  "pdeu-deep-learning-and-applications-computer-systems": () =>
+    import("./pdeu-deep-learning-and-applications-computer-systems.json"),
   "pdeu-deep-learning": () => import("./pdeu-deep-learning.json"),
-  "pdeu-dept-elective-i-non-conventional-energy-sources-course": () => import("./pdeu-dept-elective-i-non-conventional-energy-sources-course.json"),
-  "pdeu-dept-elective-ii-advance-manufacturing-process": () => import("./pdeu-dept-elective-ii-advance-manufacturing-process.json"),
-  "pdeu-design-and-analysis-of-algorithm": () => import("./pdeu-design-and-analysis-of-algorithm.json"),
-  "pdeu-design-and-kinematics-of-machines": () => import("./pdeu-design-and-kinematics-of-machines.json"),
+  "pdeu-dept-elective-i-non-conventional-energy-sources-course": () =>
+    import("./pdeu-dept-elective-i-non-conventional-energy-sources-course.json"),
+  "pdeu-dept-elective-ii-advance-manufacturing-process": () =>
+    import("./pdeu-dept-elective-ii-advance-manufacturing-process.json"),
+  "pdeu-design-and-analysis-of-algorithm": () =>
+    import("./pdeu-design-and-analysis-of-algorithm.json"),
+  "pdeu-design-and-kinematics-of-machines": () =>
+    import("./pdeu-design-and-kinematics-of-machines.json"),
   "pdeu-design-of-rcc-structures": () => import("./pdeu-design-of-rcc-structures.json"),
   "pdeu-design-of-steel-structures": () => import("./pdeu-design-of-steel-structures.json"),
   "pdeu-digital-circuits-ece": () => import("./pdeu-digital-circuits-ece.json"),
@@ -143,104 +177,155 @@ export const subjectLoaders: Record<string, () => Promise<{ default: unknown }>>
   "pdeu-digital-logic-and-design": () => import("./pdeu-digital-logic-and-design.json"),
   "pdeu-digital-signal-processing-ece": () => import("./pdeu-digital-signal-processing-ece.json"),
   "pdeu-digital-signal-processing-ict": () => import("./pdeu-digital-signal-processing-ict.json"),
-  "pdeu-digital-systems-design-using-hdl-vlsi-embedded": () => import("./pdeu-digital-systems-design-using-hdl-vlsi-embedded.json"),
-  "pdeu-discipline-based-generic-optimization-techniques": () => import("./pdeu-discipline-based-generic-optimization-techniques.json"),
-  "pdeu-discrete-mathematical-structures": () => import("./pdeu-discrete-mathematical-structures.json"),
+  "pdeu-digital-systems-design-using-hdl-vlsi-embedded": () =>
+    import("./pdeu-digital-systems-design-using-hdl-vlsi-embedded.json"),
+  "pdeu-discipline-based-generic-optimization-techniques": () =>
+    import("./pdeu-discipline-based-generic-optimization-techniques.json"),
+  "pdeu-discrete-mathematical-structures": () =>
+    import("./pdeu-discrete-mathematical-structures.json"),
   "pdeu-discrete-mathematics": () => import("./pdeu-discrete-mathematics.json"),
   "pdeu-distributed-computing": () => import("./pdeu-distributed-computing.json"),
   "pdeu-downstream-processing": () => import("./pdeu-downstream-processing.json"),
   "pdeu-drilling-engineering": () => import("./pdeu-drilling-engineering.json"),
-  "pdeu-drones-design-theory-and-applications-control": () => import("./pdeu-drones-design-theory-and-applications-control.json"),
+  "pdeu-drones-design-theory-and-applications-control": () =>
+    import("./pdeu-drones-design-theory-and-applications-control.json"),
   "pdeu-dynamics-of-machine": () => import("./pdeu-dynamics-of-machine.json"),
   "pdeu-earthquake-engineering": () => import("./pdeu-earthquake-engineering.json"),
-  "pdeu-electrical-technology-and-control-systems": () => import("./pdeu-electrical-technology-and-control-systems.json"),
-  "pdeu-electromagnetics-and-transmission-lines": () => import("./pdeu-electromagnetics-and-transmission-lines.json"),
-  "pdeu-electronics-devices-and-circuits-ece": () => import("./pdeu-electronics-devices-and-circuits-ece.json"),
-  "pdeu-electronics-devices-and-circuits-ict": () => import("./pdeu-electronics-devices-and-circuits-ict.json"),
-  "pdeu-element-of-civil-engg-and-mechanics": () => import("./pdeu-element-of-civil-engg-and-mechanics.json"),
+  "pdeu-electrical-technology-and-control-systems": () =>
+    import("./pdeu-electrical-technology-and-control-systems.json"),
+  "pdeu-electromagnetics-and-transmission-lines": () =>
+    import("./pdeu-electromagnetics-and-transmission-lines.json"),
+  "pdeu-electronics-devices-and-circuits-ece": () =>
+    import("./pdeu-electronics-devices-and-circuits-ece.json"),
+  "pdeu-electronics-devices-and-circuits-ict": () =>
+    import("./pdeu-electronics-devices-and-circuits-ict.json"),
+  "pdeu-element-of-civil-engg-and-mechanics": () =>
+    import("./pdeu-element-of-civil-engg-and-mechanics.json"),
   "pdeu-element-of-mechanical-engg": () => import("./pdeu-element-of-mechanical-engg.json"),
-  "pdeu-elements-of-electrical-and-electronics-engineering-biotech": () => import("./pdeu-elements-of-electrical-and-electronics-engineering-biotech.json"),
-  "pdeu-elements-of-electrical-and-electronics-engineering-ce": () => import("./pdeu-elements-of-electrical-and-electronics-engineering-ce.json"),
+  "pdeu-elements-of-electrical-and-electronics-engineering-biotech": () =>
+    import("./pdeu-elements-of-electrical-and-electronics-engineering-biotech.json"),
+  "pdeu-elements-of-electrical-and-electronics-engineering-ce": () =>
+    import("./pdeu-elements-of-electrical-and-electronics-engineering-ce.json"),
   "pdeu-elements-of-electrical-engg": () => import("./pdeu-elements-of-electrical-engg.json"),
   "pdeu-embedded-system-design": () => import("./pdeu-embedded-system-design.json"),
   "pdeu-embedded-systems": () => import("./pdeu-embedded-systems.json"),
   "pdeu-engineering-chemistry": () => import("./pdeu-engineering-chemistry.json"),
-  "pdeu-engineering-geology-and-soil-mechanics-with-lab": () => import("./pdeu-engineering-geology-and-soil-mechanics-with-lab.json"),
+  "pdeu-engineering-geology-and-soil-mechanics-with-lab": () =>
+    import("./pdeu-engineering-geology-and-soil-mechanics-with-lab.json"),
   "pdeu-engineering-graphics-ce-petro": () => import("./pdeu-engineering-graphics-ce-petro.json"),
-  "pdeu-engineering-graphics-ece-civil-biotech": () => import("./pdeu-engineering-graphics-ece-civil-biotech.json"),
+  "pdeu-engineering-graphics-ece-civil-biotech": () =>
+    import("./pdeu-engineering-graphics-ece-civil-biotech.json"),
   "pdeu-engineering-graphics-ict": () => import("./pdeu-engineering-graphics-ict.json"),
   "pdeu-engineering-graphics-me": () => import("./pdeu-engineering-graphics-me.json"),
   "pdeu-engineering-metallurgy": () => import("./pdeu-engineering-metallurgy.json"),
-  "pdeu-english-communication-ce-biotech": () => import("./pdeu-english-communication-ce-biotech.json"),
+  "pdeu-english-communication-ce-biotech": () =>
+    import("./pdeu-english-communication-ce-biotech.json"),
   "pdeu-english-communication-petro": () => import("./pdeu-english-communication-petro.json"),
   "pdeu-environment-science-ce-ece": () => import("./pdeu-environment-science-ce-ece.json"),
   "pdeu-environment-science-civil": () => import("./pdeu-environment-science-civil.json"),
   "pdeu-environment-science-ict": () => import("./pdeu-environment-science-ict.json"),
-  "pdeu-environmental-engineering-with-lab": () => import("./pdeu-environmental-engineering-with-lab.json"),
+  "pdeu-environmental-engineering-with-lab": () =>
+    import("./pdeu-environmental-engineering-with-lab.json"),
   "pdeu-environmental-science-biotech": () => import("./pdeu-environmental-science-biotech.json"),
   "pdeu-environmental-science-petro": () => import("./pdeu-environmental-science-petro.json"),
   "pdeu-environmental-studies": () => import("./pdeu-environmental-studies.json"),
-  "pdeu-estimation-costing-contracts-and-valuations": () => import("./pdeu-estimation-costing-contracts-and-valuations.json"),
+  "pdeu-estimation-costing-contracts-and-valuations": () =>
+    import("./pdeu-estimation-costing-contracts-and-valuations.json"),
   "pdeu-flow-assurance": () => import("./pdeu-flow-assurance.json"),
-  "pdeu-fluid-mechanics-and-fluid-machinery": () => import("./pdeu-fluid-mechanics-and-fluid-machinery.json"),
+  "pdeu-fluid-mechanics-and-fluid-machinery": () =>
+    import("./pdeu-fluid-mechanics-and-fluid-machinery.json"),
   "pdeu-fluid-mechanics-with-lab": () => import("./pdeu-fluid-mechanics-with-lab.json"),
   "pdeu-food-biotechnology": () => import("./pdeu-food-biotechnology.json"),
-  "pdeu-foundation-and-geotechnical-applications-with-lab": () => import("./pdeu-foundation-and-geotechnical-applications-with-lab.json"),
-  "pdeu-fundamentals-of-fluid-mechanics-for-petroleum": () => import("./pdeu-fundamentals-of-fluid-mechanics-for-petroleum.json"),
+  "pdeu-foundation-and-geotechnical-applications-with-lab": () =>
+    import("./pdeu-foundation-and-geotechnical-applications-with-lab.json"),
+  "pdeu-fundamentals-of-fluid-mechanics-for-petroleum": () =>
+    import("./pdeu-fundamentals-of-fluid-mechanics-for-petroleum.json"),
   "pdeu-fundamentals-of-ict": () => import("./pdeu-fundamentals-of-ict.json"),
-  "pdeu-fundamentals-of-signal-processing-and": () => import("./pdeu-fundamentals-of-signal-processing-and.json"),
+  "pdeu-fundamentals-of-signal-processing-and": () =>
+    import("./pdeu-fundamentals-of-signal-processing-and.json"),
   "pdeu-general-microbiology": () => import("./pdeu-general-microbiology.json"),
   "pdeu-genetic-engineering-techniques": () => import("./pdeu-genetic-engineering-techniques.json"),
   "pdeu-genomics-and-proteomics": () => import("./pdeu-genomics-and-proteomics.json"),
-  "pdeu-geology-for-petroleum-engineers": () => import("./pdeu-geology-for-petroleum-engineers.json"),
-  "pdeu-geomechanics-and-strength-of-materials": () => import("./pdeu-geomechanics-and-strength-of-materials.json"),
-  "pdeu-green-biotechnology-and-pollution-abatement": () => import("./pdeu-green-biotechnology-and-pollution-abatement.json"),
+  "pdeu-geology-for-petroleum-engineers": () =>
+    import("./pdeu-geology-for-petroleum-engineers.json"),
+  "pdeu-geomechanics-and-strength-of-materials": () =>
+    import("./pdeu-geomechanics-and-strength-of-materials.json"),
+  "pdeu-green-biotechnology-and-pollution-abatement": () =>
+    import("./pdeu-green-biotechnology-and-pollution-abatement.json"),
   "pdeu-health-safety-and-environment": () => import("./pdeu-health-safety-and-environment.json"),
   "pdeu-heat-and-mass-transfer-me": () => import("./pdeu-heat-and-mass-transfer-me.json"),
   "pdeu-heat-and-mass-transfer-petro": () => import("./pdeu-heat-and-mass-transfer-petro.json"),
-  "pdeu-highway-and-traffic-engineering-with-lab": () => import("./pdeu-highway-and-traffic-engineering-with-lab.json"),
+  "pdeu-highway-and-traffic-engineering-with-lab": () =>
+    import("./pdeu-highway-and-traffic-engineering-with-lab.json"),
   "pdeu-human-anatomy-and-physiology-i": () => import("./pdeu-human-anatomy-and-physiology-i.json"),
-  "pdeu-human-anatomy-and-physiology-ii": () => import("./pdeu-human-anatomy-and-physiology-ii.json"),
-  "pdeu-hydrocarbon-contracts-and-asset-management": () => import("./pdeu-hydrocarbon-contracts-and-asset-management.json"),
-  "pdeu-hydrology-and-water-resources-with-lab": () => import("./pdeu-hydrology-and-water-resources-with-lab.json"),
+  "pdeu-human-anatomy-and-physiology-ii": () =>
+    import("./pdeu-human-anatomy-and-physiology-ii.json"),
+  "pdeu-hydrocarbon-contracts-and-asset-management": () =>
+    import("./pdeu-hydrocarbon-contracts-and-asset-management.json"),
+  "pdeu-hydrology-and-water-resources-with-lab": () =>
+    import("./pdeu-hydrology-and-water-resources-with-lab.json"),
   "pdeu-ic-technology-vlsi-embedded": () => import("./pdeu-ic-technology-vlsi-embedded.json"),
-  "pdeu-image-processing-communication-and-signal": () => import("./pdeu-image-processing-communication-and-signal.json"),
-  "pdeu-immunology-and-immunotechnology": () => import("./pdeu-immunology-and-immunotechnology.json"),
-  "pdeu-indian-knowledge-system-biotech": () => import("./pdeu-indian-knowledge-system-biotech.json"),
-  "pdeu-indian-knowledge-system-ict-ece-civil": () => import("./pdeu-indian-knowledge-system-ict-ece-civil.json"),
+  "pdeu-image-processing-communication-and-signal": () =>
+    import("./pdeu-image-processing-communication-and-signal.json"),
+  "pdeu-immunology-and-immunotechnology": () =>
+    import("./pdeu-immunology-and-immunotechnology.json"),
+  "pdeu-indian-knowledge-system-biotech": () =>
+    import("./pdeu-indian-knowledge-system-biotech.json"),
+  "pdeu-indian-knowledge-system-ict-ece-civil": () =>
+    import("./pdeu-indian-knowledge-system-ict-ece-civil.json"),
   "pdeu-indian-knowledge-system-petro": () => import("./pdeu-indian-knowledge-system-petro.json"),
-  "pdeu-industry-4-0-department-specific-ce": () => import("./pdeu-industry-4-0-department-specific-ce.json"),
-  "pdeu-industry-4-0-department-specific-civil": () => import("./pdeu-industry-4-0-department-specific-civil.json"),
-  "pdeu-industry-4-0-lab-department-specific": () => import("./pdeu-industry-4-0-lab-department-specific.json"),
+  "pdeu-industry-4-0-department-specific-ce": () =>
+    import("./pdeu-industry-4-0-department-specific-ce.json"),
+  "pdeu-industry-4-0-department-specific-civil": () =>
+    import("./pdeu-industry-4-0-department-specific-civil.json"),
+  "pdeu-industry-4-0-lab-department-specific": () =>
+    import("./pdeu-industry-4-0-lab-department-specific.json"),
   "pdeu-industry-4-0-petro": () => import("./pdeu-industry-4-0-petro.json"),
-  "pdeu-information-theory-and-coding-communication": () => import("./pdeu-information-theory-and-coding-communication.json"),
-  "pdeu-integrated-reservoir-management-and-enhanced-oil": () => import("./pdeu-integrated-reservoir-management-and-enhanced-oil.json"),
+  "pdeu-information-theory-and-coding-communication": () =>
+    import("./pdeu-information-theory-and-coding-communication.json"),
+  "pdeu-integrated-reservoir-management-and-enhanced-oil": () =>
+    import("./pdeu-integrated-reservoir-management-and-enhanced-oil.json"),
   "pdeu-internal-combustion-engine": () => import("./pdeu-internal-combustion-engine.json"),
   "pdeu-internet-of-things-ce": () => import("./pdeu-internet-of-things-ce.json"),
-  "pdeu-internet-of-things-computer-systems-ece": () => import("./pdeu-internet-of-things-computer-systems-ece.json"),
-  "pdeu-internet-of-things-software-and-networks-ict": () => import("./pdeu-internet-of-things-software-and-networks-ict.json"),
-  "pdeu-introduction-to-artificial-intelligence-biotech": () => import("./pdeu-introduction-to-artificial-intelligence-biotech.json"),
-  "pdeu-introduction-to-artificial-intelligence-civil": () => import("./pdeu-introduction-to-artificial-intelligence-civil.json"),
-  "pdeu-introduction-to-artificial-intelligence-department-ce": () => import("./pdeu-introduction-to-artificial-intelligence-department-ce.json"),
-  "pdeu-introduction-to-artificial-intelligence-petro": () => import("./pdeu-introduction-to-artificial-intelligence-petro.json"),
-  "pdeu-introduction-to-computer-programming-1": () => import("./pdeu-introduction-to-computer-programming-1.json"),
-  "pdeu-introduction-to-computer-programming-2": () => import("./pdeu-introduction-to-computer-programming-2.json"),
-  "pdeu-introduction-to-electrical-engineering": () => import("./pdeu-introduction-to-electrical-engineering.json"),
-  "pdeu-introduction-to-robotics-control": () => import("./pdeu-introduction-to-robotics-control.json"),
-  "pdeu-linear-integrated-circuits-and-applications": () => import("./pdeu-linear-integrated-circuits-and-applications.json"),
+  "pdeu-internet-of-things-computer-systems-ece": () =>
+    import("./pdeu-internet-of-things-computer-systems-ece.json"),
+  "pdeu-internet-of-things-software-and-networks-ict": () =>
+    import("./pdeu-internet-of-things-software-and-networks-ict.json"),
+  "pdeu-introduction-to-artificial-intelligence-biotech": () =>
+    import("./pdeu-introduction-to-artificial-intelligence-biotech.json"),
+  "pdeu-introduction-to-artificial-intelligence-civil": () =>
+    import("./pdeu-introduction-to-artificial-intelligence-civil.json"),
+  "pdeu-introduction-to-artificial-intelligence-department-ce": () =>
+    import("./pdeu-introduction-to-artificial-intelligence-department-ce.json"),
+  "pdeu-introduction-to-artificial-intelligence-petro": () =>
+    import("./pdeu-introduction-to-artificial-intelligence-petro.json"),
+  "pdeu-introduction-to-computer-programming-1": () =>
+    import("./pdeu-introduction-to-computer-programming-1.json"),
+  "pdeu-introduction-to-computer-programming-2": () =>
+    import("./pdeu-introduction-to-computer-programming-2.json"),
+  "pdeu-introduction-to-electrical-engineering": () =>
+    import("./pdeu-introduction-to-electrical-engineering.json"),
+  "pdeu-introduction-to-robotics-control": () =>
+    import("./pdeu-introduction-to-robotics-control.json"),
+  "pdeu-linear-integrated-circuits-and-applications": () =>
+    import("./pdeu-linear-integrated-circuits-and-applications.json"),
   "pdeu-machine-design-i": () => import("./pdeu-machine-design-i.json"),
   "pdeu-machine-design-ii": () => import("./pdeu-machine-design-ii.json"),
   "pdeu-machine-learning-ai-ict": () => import("./pdeu-machine-learning-ai-ict.json"),
-  "pdeu-machine-learning-and-applications-computer-systems": () => import("./pdeu-machine-learning-and-applications-computer-systems.json"),
+  "pdeu-machine-learning-and-applications-computer-systems": () =>
+    import("./pdeu-machine-learning-and-applications-computer-systems.json"),
   "pdeu-machine-learning-ce": () => import("./pdeu-machine-learning-ce.json"),
-  "pdeu-machine-learning-in-cyber-security": () => import("./pdeu-machine-learning-in-cyber-security.json"),
+  "pdeu-machine-learning-in-cyber-security": () =>
+    import("./pdeu-machine-learning-in-cyber-security.json"),
   "pdeu-manufacturing-process-i": () => import("./pdeu-manufacturing-process-i.json"),
   "pdeu-manufacturing-process-ii": () => import("./pdeu-manufacturing-process-ii.json"),
   "pdeu-mathematics-1-ict": () => import("./pdeu-mathematics-1-ict.json"),
   "pdeu-mathematics-2-ict": () => import("./pdeu-mathematics-2-ict.json"),
   "pdeu-mathematics-3-civil": () => import("./pdeu-mathematics-3-civil.json"),
-  "pdeu-mathematics-for-biotechnology-i": () => import("./pdeu-mathematics-for-biotechnology-i.json"),
-  "pdeu-mathematics-for-biotechnology-ii": () => import("./pdeu-mathematics-for-biotechnology-ii.json"),
+  "pdeu-mathematics-for-biotechnology-i": () =>
+    import("./pdeu-mathematics-for-biotechnology-i.json"),
+  "pdeu-mathematics-for-biotechnology-ii": () =>
+    import("./pdeu-mathematics-for-biotechnology-ii.json"),
   "pdeu-mathematics-i-ce-ece-civil": () => import("./pdeu-mathematics-i-ce-ece-civil.json"),
   "pdeu-mathematics-i-me": () => import("./pdeu-mathematics-i-me.json"),
   "pdeu-mathematics-i-petro": () => import("./pdeu-mathematics-i-petro.json"),
@@ -249,111 +334,160 @@ export const subjectLoaders: Record<string, () => Promise<{ default: unknown }>>
   "pdeu-mathematics-ii-petro": () => import("./pdeu-mathematics-ii-petro.json"),
   "pdeu-mathematics-iii-petro": () => import("./pdeu-mathematics-iii-petro.json"),
   "pdeu-maths-iii": () => import("./pdeu-maths-iii.json"),
-  "pdeu-mechanical-measurements-and-metrology": () => import("./pdeu-mechanical-measurements-and-metrology.json"),
+  "pdeu-mechanical-measurements-and-metrology": () =>
+    import("./pdeu-mechanical-measurements-and-metrology.json"),
   "pdeu-medical-diagnostics": () => import("./pdeu-medical-diagnostics.json"),
   "pdeu-metabolic-engineering": () => import("./pdeu-metabolic-engineering.json"),
   "pdeu-microwave-and-antenna": () => import("./pdeu-microwave-and-antenna.json"),
-  "pdeu-mixed-signal-vlsi-design-vlsi-embedded": () => import("./pdeu-mixed-signal-vlsi-design-vlsi-embedded.json"),
-  "pdeu-mobile-application-development-software-and": () => import("./pdeu-mobile-application-development-software-and.json"),
+  "pdeu-mixed-signal-vlsi-design-vlsi-embedded": () =>
+    import("./pdeu-mixed-signal-vlsi-design-vlsi-embedded.json"),
+  "pdeu-mobile-application-development-software-and": () =>
+    import("./pdeu-mobile-application-development-software-and.json"),
   "pdeu-mobile-computing": () => import("./pdeu-mobile-computing.json"),
   "pdeu-modern-control-systems-control": () => import("./pdeu-modern-control-systems-control.json"),
   "pdeu-modern-physics-biotech": () => import("./pdeu-modern-physics-biotech.json"),
   "pdeu-modern-physics-petro": () => import("./pdeu-modern-physics-petro.json"),
   "pdeu-modern-wireless-communication": () => import("./pdeu-modern-wireless-communication.json"),
-  "pdeu-modern-wireless-communications-communication-and": () => import("./pdeu-modern-wireless-communications-communication-and.json"),
+  "pdeu-modern-wireless-communications-communication-and": () =>
+    import("./pdeu-modern-wireless-communications-communication-and.json"),
   "pdeu-molecular-biology-and-genetics": () => import("./pdeu-molecular-biology-and-genetics.json"),
-  "pdeu-molecular-data-analysis-and-simulations": () => import("./pdeu-molecular-data-analysis-and-simulations.json"),
+  "pdeu-molecular-data-analysis-and-simulations": () =>
+    import("./pdeu-molecular-data-analysis-and-simulations.json"),
   "pdeu-molecular-diagnostics": () => import("./pdeu-molecular-diagnostics.json"),
-  "pdeu-nanotechnology-in-oil-and-gas-industry": () => import("./pdeu-nanotechnology-in-oil-and-gas-industry.json"),
+  "pdeu-nanotechnology-in-oil-and-gas-industry": () =>
+    import("./pdeu-nanotechnology-in-oil-and-gas-industry.json"),
   "pdeu-nanotechnology": () => import("./pdeu-nanotechnology.json"),
-  "pdeu-natural-gas-engineering-and-lng-value-chain": () => import("./pdeu-natural-gas-engineering-and-lng-value-chain.json"),
+  "pdeu-natural-gas-engineering-and-lng-value-chain": () =>
+    import("./pdeu-natural-gas-engineering-and-lng-value-chain.json"),
   "pdeu-natural-language-processing": () => import("./pdeu-natural-language-processing.json"),
   "pdeu-networks-and-systems": () => import("./pdeu-networks-and-systems.json"),
-  "pdeu-next-generation-sequence-analysis": () => import("./pdeu-next-generation-sequence-analysis.json"),
-  "pdeu-novel-separation-processes-dyes-and-pigments": () => import("./pdeu-novel-separation-processes-dyes-and-pigments.json"),
+  "pdeu-next-generation-sequence-analysis": () =>
+    import("./pdeu-next-generation-sequence-analysis.json"),
+  "pdeu-novel-separation-processes-dyes-and-pigments": () =>
+    import("./pdeu-novel-separation-processes-dyes-and-pigments.json"),
   "pdeu-numerical-methods": () => import("./pdeu-numerical-methods.json"),
-  "pdeu-object-oriented-modelling-and-design": () => import("./pdeu-object-oriented-modelling-and-design.json"),
+  "pdeu-object-oriented-modelling-and-design": () =>
+    import("./pdeu-object-oriented-modelling-and-design.json"),
   "pdeu-object-oriented-programming": () => import("./pdeu-object-oriented-programming.json"),
   "pdeu-operating-system": () => import("./pdeu-operating-system.json"),
-  "pdeu-optical-communication-communication-and-signal": () => import("./pdeu-optical-communication-communication-and-signal.json"),
-  "pdeu-optimization-methods-and-algorithms-ai": () => import("./pdeu-optimization-methods-and-algorithms-ai.json"),
-  "pdeu-opto-electronics-and-optical-communication": () => import("./pdeu-opto-electronics-and-optical-communication.json"),
+  "pdeu-optical-communication-communication-and-signal": () =>
+    import("./pdeu-optical-communication-communication-and-signal.json"),
+  "pdeu-optimization-methods-and-algorithms-ai": () =>
+    import("./pdeu-optimization-methods-and-algorithms-ai.json"),
+  "pdeu-opto-electronics-and-optical-communication": () =>
+    import("./pdeu-opto-electronics-and-optical-communication.json"),
   "pdeu-organizational-behavior": () => import("./pdeu-organizational-behavior.json"),
-  "pdeu-organizational-behaviour-biotech": () => import("./pdeu-organizational-behaviour-biotech.json"),
-  "pdeu-organizational-behaviour-ict-ece-civil": () => import("./pdeu-organizational-behaviour-ict-ece-civil.json"),
+  "pdeu-organizational-behaviour-biotech": () =>
+    import("./pdeu-organizational-behaviour-biotech.json"),
+  "pdeu-organizational-behaviour-ict-ece-civil": () =>
+    import("./pdeu-organizational-behaviour-ict-ece-civil.json"),
   "pdeu-organizational-behaviour-petro": () => import("./pdeu-organizational-behaviour-petro.json"),
-  "pdeu-petroleum-engineering-economics": () => import("./pdeu-petroleum-engineering-economics.json"),
+  "pdeu-petroleum-engineering-economics": () =>
+    import("./pdeu-petroleum-engineering-economics.json"),
   "pdeu-petroleum-exploration": () => import("./pdeu-petroleum-exploration.json"),
   "pdeu-petroleum-refinery-engineering": () => import("./pdeu-petroleum-refinery-engineering.json"),
   "pdeu-pharmaceutical-biotechnology": () => import("./pdeu-pharmaceutical-biotechnology.json"),
-  "pdeu-pharmacokinetics-and-pharmacodynamics": () => import("./pdeu-pharmacokinetics-and-pharmacodynamics.json"),
+  "pdeu-pharmacokinetics-and-pharmacodynamics": () =>
+    import("./pdeu-pharmacokinetics-and-pharmacodynamics.json"),
   "pdeu-pharmacology-of-drug-action": () => import("./pdeu-pharmacology-of-drug-action.json"),
   "pdeu-physics-civil": () => import("./pdeu-physics-civil.json"),
   "pdeu-physics-ece": () => import("./pdeu-physics-ece.json"),
   "pdeu-physics-ict": () => import("./pdeu-physics-ict.json"),
   "pdeu-physics-theory-me": () => import("./pdeu-physics-theory-me.json"),
   "pdeu-pipeline-engineering": () => import("./pdeu-pipeline-engineering.json"),
-  "pdeu-power-electronics-vlsi-embedded": () => import("./pdeu-power-electronics-vlsi-embedded.json"),
+  "pdeu-power-electronics-vlsi-embedded": () =>
+    import("./pdeu-power-electronics-vlsi-embedded.json"),
   "pdeu-principles-of-biochemistry": () => import("./pdeu-principles-of-biochemistry.json"),
-  "pdeu-principles-of-programming-languages": () => import("./pdeu-principles-of-programming-languages.json"),
-  "pdeu-probability-and-statistics-theory": () => import("./pdeu-probability-and-statistics-theory.json"),
-  "pdeu-problem-solving-through-java-software-and-networks": () => import("./pdeu-problem-solving-through-java-software-and-networks.json"),
-  "pdeu-production-operation-management": () => import("./pdeu-production-operation-management.json"),
-  "pdeu-professional-communication-ce-biotech": () => import("./pdeu-professional-communication-ce-biotech.json"),
-  "pdeu-professional-communication-petro": () => import("./pdeu-professional-communication-petro.json"),
-  "pdeu-professional-ethics-and-human-values": () => import("./pdeu-professional-ethics-and-human-values.json"),
-  "pdeu-project-management-department-elective-v": () => import("./pdeu-project-management-department-elective-v.json"),
+  "pdeu-principles-of-programming-languages": () =>
+    import("./pdeu-principles-of-programming-languages.json"),
+  "pdeu-probability-and-statistics-theory": () =>
+    import("./pdeu-probability-and-statistics-theory.json"),
+  "pdeu-problem-solving-through-java-software-and-networks": () =>
+    import("./pdeu-problem-solving-through-java-software-and-networks.json"),
+  "pdeu-production-operation-management": () =>
+    import("./pdeu-production-operation-management.json"),
+  "pdeu-professional-communication-ce-biotech": () =>
+    import("./pdeu-professional-communication-ce-biotech.json"),
+  "pdeu-professional-communication-petro": () =>
+    import("./pdeu-professional-communication-petro.json"),
+  "pdeu-professional-ethics-and-human-values": () =>
+    import("./pdeu-professional-ethics-and-human-values.json"),
+  "pdeu-project-management-department-elective-v": () =>
+    import("./pdeu-project-management-department-elective-v.json"),
   "pdeu-project-management-with-lab": () => import("./pdeu-project-management-with-lab.json"),
   "pdeu-quantum-computing": () => import("./pdeu-quantum-computing.json"),
-  "pdeu-radar-and-navigation-systems-communication-systems": () => import("./pdeu-radar-and-navigation-systems-communication-systems.json"),
-  "pdeu-refrigeration-and-air-conditioning": () => import("./pdeu-refrigeration-and-air-conditioning.json"),
+  "pdeu-radar-and-navigation-systems-communication-systems": () =>
+    import("./pdeu-radar-and-navigation-systems-communication-systems.json"),
+  "pdeu-refrigeration-and-air-conditioning": () =>
+    import("./pdeu-refrigeration-and-air-conditioning.json"),
   "pdeu-reservoir-engineering": () => import("./pdeu-reservoir-engineering.json"),
-  "pdeu-reservoir-modelling-and-simulation": () => import("./pdeu-reservoir-modelling-and-simulation.json"),
+  "pdeu-reservoir-modelling-and-simulation": () =>
+    import("./pdeu-reservoir-modelling-and-simulation.json"),
   "pdeu-rf-engineering": () => import("./pdeu-rf-engineering.json"),
   "pdeu-robotics": () => import("./pdeu-robotics.json"),
-  "pdeu-satellite-communication-communication-systems": () => import("./pdeu-satellite-communication-communication-systems.json"),
+  "pdeu-satellite-communication-communication-systems": () =>
+    import("./pdeu-satellite-communication-communication-systems.json"),
   "pdeu-secure-software-engineering": () => import("./pdeu-secure-software-engineering.json"),
-  "pdeu-sedimentary-and-petroleum-geology": () => import("./pdeu-sedimentary-and-petroleum-geology.json"),
+  "pdeu-sedimentary-and-petroleum-geology": () =>
+    import("./pdeu-sedimentary-and-petroleum-geology.json"),
   "pdeu-soft-computing": () => import("./pdeu-soft-computing.json"),
-  "pdeu-software-engineering-methodology": () => import("./pdeu-software-engineering-methodology.json"),
+  "pdeu-software-engineering-methodology": () =>
+    import("./pdeu-software-engineering-methodology.json"),
   "pdeu-software-engineering": () => import("./pdeu-software-engineering.json"),
   "pdeu-solid-mechanics": () => import("./pdeu-solid-mechanics.json"),
   "pdeu-speech-processing": () => import("./pdeu-speech-processing.json"),
-  "pdeu-statistical-signal-processing-communication-and": () => import("./pdeu-statistical-signal-processing-communication-and.json"),
+  "pdeu-statistical-signal-processing-communication-and": () =>
+    import("./pdeu-statistical-signal-processing-communication-and.json"),
   "pdeu-stem-cell-technology": () => import("./pdeu-stem-cell-technology.json"),
   "pdeu-strength-of-material": () => import("./pdeu-strength-of-material.json"),
   "pdeu-structural-analysis": () => import("./pdeu-structural-analysis.json"),
-  "pdeu-surface-and-offshore-production-operations": () => import("./pdeu-surface-and-offshore-production-operations.json"),
+  "pdeu-surface-and-offshore-production-operations": () =>
+    import("./pdeu-surface-and-offshore-production-operations.json"),
   "pdeu-surveying-practices-with-lab": () => import("./pdeu-surveying-practices-with-lab.json"),
   "pdeu-synthetic-and-systems-biology": () => import("./pdeu-synthetic-and-systems-biology.json"),
-  "pdeu-theory-of-computation-and-compiler-design": () => import("./pdeu-theory-of-computation-and-compiler-design.json"),
+  "pdeu-theory-of-computation-and-compiler-design": () =>
+    import("./pdeu-theory-of-computation-and-compiler-design.json"),
   "pdeu-theory-of-computation": () => import("./pdeu-theory-of-computation.json"),
-  "pdeu-thermal-engineering-and-power-plant": () => import("./pdeu-thermal-engineering-and-power-plant.json"),
+  "pdeu-thermal-engineering-and-power-plant": () =>
+    import("./pdeu-thermal-engineering-and-power-plant.json"),
   "pdeu-thermodynamics-and-fluid-flow": () => import("./pdeu-thermodynamics-and-fluid-flow.json"),
-  "pdeu-thermodynamics-of-petroleum-reservoir-fluids": () => import("./pdeu-thermodynamics-of-petroleum-reservoir-fluids.json"),
-  "pdeu-tissue-engineering-and-regenerative-medicine": () => import("./pdeu-tissue-engineering-and-regenerative-medicine.json"),
+  "pdeu-thermodynamics-of-petroleum-reservoir-fluids": () =>
+    import("./pdeu-thermodynamics-of-petroleum-reservoir-fluids.json"),
+  "pdeu-tissue-engineering-and-regenerative-medicine": () =>
+    import("./pdeu-tissue-engineering-and-regenerative-medicine.json"),
   "pdeu-ui-ux-design": () => import("./pdeu-ui-ux-design.json"),
-  "pdeu-unconventional-hydrocarbon-energy-resources": () => import("./pdeu-unconventional-hydrocarbon-energy-resources.json"),
+  "pdeu-unconventional-hydrocarbon-energy-resources": () =>
+    import("./pdeu-unconventional-hydrocarbon-energy-resources.json"),
   "pdeu-universal-human-values-ce": () => import("./pdeu-universal-human-values-ce.json"),
-  "pdeu-universal-human-values-ece-civil-biotech": () => import("./pdeu-universal-human-values-ece-civil-biotech.json"),
+  "pdeu-universal-human-values-ece-civil-biotech": () =>
+    import("./pdeu-universal-human-values-ece-civil-biotech.json"),
   "pdeu-universal-human-values-ict": () => import("./pdeu-universal-human-values-ict.json"),
   "pdeu-universal-human-values-petro": () => import("./pdeu-universal-human-values-petro.json"),
-  "pdeu-web-and-mobile-development-essentials": () => import("./pdeu-web-and-mobile-development-essentials.json"),
+  "pdeu-web-and-mobile-development-essentials": () =>
+    import("./pdeu-web-and-mobile-development-essentials.json"),
   "pdeu-web-application-testing": () => import("./pdeu-web-application-testing.json"),
-  "pdeu-web-technology-software-and-networks": () => import("./pdeu-web-technology-software-and-networks.json"),
-  "pdeu-well-completion-and-fundamentals-of-production": () => import("./pdeu-well-completion-and-fundamentals-of-production.json"),
-  "pdeu-well-log-and-formation-evaluation": () => import("./pdeu-well-log-and-formation-evaluation.json"),
-  "pdeu-well-stimulation-and-artificial-lift-techniques": () => import("./pdeu-well-stimulation-and-artificial-lift-techniques.json"),
+  "pdeu-web-technology-software-and-networks": () =>
+    import("./pdeu-web-technology-software-and-networks.json"),
+  "pdeu-well-completion-and-fundamentals-of-production": () =>
+    import("./pdeu-well-completion-and-fundamentals-of-production.json"),
+  "pdeu-well-log-and-formation-evaluation": () =>
+    import("./pdeu-well-log-and-formation-evaluation.json"),
+  "pdeu-well-stimulation-and-artificial-lift-techniques": () =>
+    import("./pdeu-well-stimulation-and-artificial-lift-techniques.json"),
   "pdeu-well-test-analysis": () => import("./pdeu-well-test-analysis.json"),
   "pdeu-wireless-sensor-networks": () => import("./pdeu-wireless-sensor-networks.json"),
-  "pdeu-yoga-health-and-hygiene-or-ncc-nss-ece": () => import("./pdeu-yoga-health-and-hygiene-or-ncc-nss-ece.json"),
-  "pdeu-yoga-health-and-hygiene-or-ncc-nss-ict-civil": () => import("./pdeu-yoga-health-and-hygiene-or-ncc-nss-ict-civil.json"),
-  "pdeu-yoga-health-and-hygiene-or-ncc-or-nss": () => import("./pdeu-yoga-health-and-hygiene-or-ncc-or-nss.json"),
-  "pdeu-yoga-health-and-hygiene-or-nss-or-ncc": () => import("./pdeu-yoga-health-and-hygiene-or-nss-or-ncc.json"),
+  "pdeu-yoga-health-and-hygiene-or-ncc-nss-ece": () =>
+    import("./pdeu-yoga-health-and-hygiene-or-ncc-nss-ece.json"),
+  "pdeu-yoga-health-and-hygiene-or-ncc-nss-ict-civil": () =>
+    import("./pdeu-yoga-health-and-hygiene-or-ncc-nss-ict-civil.json"),
+  "pdeu-yoga-health-and-hygiene-or-ncc-or-nss": () =>
+    import("./pdeu-yoga-health-and-hygiene-or-ncc-or-nss.json"),
+  "pdeu-yoga-health-and-hygiene-or-nss-or-ncc": () =>
+    import("./pdeu-yoga-health-and-hygiene-or-nss-or-ncc.json"),
   "petroleum-geology": () => import("./petroleum-geology.json"),
   "petroleum-production": () => import("./petroleum-production.json"),
   "petroleum-refining": () => import("./petroleum-refining.json"),
-  "pps": () => import("./pps.json"),
+  pps: () => import("./pps.json"),
   "process-calculations": () => import("./process-calculations.json"),
   "process-control": () => import("./process-control.json"),
   "reservoir-engineering": () => import("./reservoir-engineering.json"),
@@ -362,11 +496,11 @@ export const subjectLoaders: Record<string, () => Promise<{ default: unknown }>>
   "software-engineering": () => import("./software-engineering.json"),
   "strength-of-materials": () => import("./strength-of-materials.json"),
   "structural-analysis": () => import("./structural-analysis.json"),
-  "surveying": () => import("./surveying.json"),
+  surveying: () => import("./surveying.json"),
   "theory-of-computation": () => import("./theory-of-computation.json"),
   "theory-of-machines": () => import("./theory-of-machines.json"),
   "transportation-engineering": () => import("./transportation-engineering.json"),
-  "vlsi": () => import("./vlsi.json"),
+  vlsi: () => import("./vlsi.json"),
   "web-technologies": () => import("./web-technologies.json"),
   "well-logging": () => import("./well-logging.json"),
 };

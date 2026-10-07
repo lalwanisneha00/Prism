@@ -246,33 +246,6 @@ export function offeringFor(
   return list.find((o) => o.branch === branchId) ?? list[0];
 }
 
-/** "24PH101T · Basic Science · 3 credits · L-T-P 3-0-0": the details shown beside a subject's name. */
-export function detailsLine(
-  subject: { offerings?: readonly Offering[] },
-  branchId?: string,
-): string {
-  const o = offeringFor(subject, branchId);
-  if (!o) return "";
-  return [
-    o.code,
-    o.category,
-    `${o.credits} credit${o.credits === 1 ? "" : "s"}`,
-    o.ltp ? `L-T-P ${o.ltp}` : undefined,
-  ]
-    .filter(Boolean)
-    .join(" · ");
-}
-
-/** "3 credits · 24PH101T": the short form beside a subject's name in lists. */
-export function detailsShort(
-  subject: { offerings?: readonly Offering[] },
-  branchId?: string,
-): string {
-  const o = offeringFor(subject, branchId);
-  if (!o) return "";
-  return [`${o.credits} credit${o.credits === 1 ? "" : "s"}`, o.code].filter(Boolean).join(" · ");
-}
-
 /** The branches that study a subject ("all" expands to every branch). */
 export function branchesOf(subject: Subject): Branch[] {
   return subject.branches.includes("all")

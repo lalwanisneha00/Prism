@@ -26,6 +26,11 @@ type Overrides = {
 };
 const overrides = overridesData as unknown as Overrides;
 
+/** Practical and lab courses cannot be taught through Prism, so they are not listed. */
+function isLab(c: { name: string; units: unknown[] }): boolean {
+  return c.units.length === 0 && /\b(lab|laboratory|practical|practicals|workshop)\b/i.test(c.name);
+}
+
 /** The owner's decisions (src/data/pdeu/overrides.json): courses left out, and core / non-core calls. */
 export function applyOverrides(branch: PdeuBranch): PdeuBranch {
   const rules = overrides.categories.map((r) => ({
@@ -42,7 +47,7 @@ export function applyOverrides(branch: PdeuBranch): PdeuBranch {
   return {
     ...branch,
     subjects: branch.subjects
-      .filter((s) => !excluded(s.semester, s))
+      .filter((s) => !excluded(s.semester, s) && !isLab(s))
       .map((s) => {
         const rule = rules.find((r) => r.re.test(s.name));
         return rule ? { ...s, core: rule.core } : s;

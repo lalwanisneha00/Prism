@@ -4,15 +4,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import subjectMap from "@/data/pdeu/subject-map.json";
 import { StudyFromSyllabus } from "@/components/pdeu/StudyFromSyllabus";
-import {
-  codeText,
-  findCourse,
-  hasUnits,
-  isLab,
-  ltpText,
-  toDraftChapters,
-  topicCount,
-} from "@/lib/pdeu/helpers";
+import { findCourse, hasUnits, isLab, toDraftChapters, topicCount } from "@/lib/pdeu/helpers";
 import { isPdeuBranch, loadPdeuBranch } from "@/lib/pdeu/load";
 import { findSubject } from "@/lib/subjects";
 
@@ -43,13 +35,8 @@ export default async function PdeuCoursePage({ params }: PageProps<"/pdeu/[branc
     : undefined;
   const chapters = toDraftChapters(course);
   const details: [string, string][] = [
-    ["Code", codeText(course)],
     ["Category", course.category],
     ["Semester", String(semester)],
-    ["Credits", `${course.credits}${course.creditsNote ? ` (${course.creditsNote})` : ""}`],
-    ...(course.ltp
-      ? ([["Hours a week (L-T-P)", `${course.ltp} · ${ltpText(course.ltp)}`]] as [string, string][])
-      : []),
     ["Counts as", core ? "Core subject" : "Non-core subject"],
     ...(course.track ? ([["Track", course.track]] as [string, string][]) : []),
   ];
@@ -183,7 +170,6 @@ export default async function PdeuCoursePage({ params }: PageProps<"/pdeu/[branc
                   {o.name}
                 </Link>
                 <p className="text-sm text-muted">
-                  {codeText(o)} · {o.credits} credits
                   {o.track ? ` · ${o.track}` : ""}
                   {o.slot && o.slot.includes("/") ? ` · for ${o.slot}` : ""}
                 </p>

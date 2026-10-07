@@ -13,7 +13,7 @@ import { countsOf, indexedSubject, subjectIndex, subjectsInSemester } from "@/li
 import { FLAGS } from "@/lib/flags";
 import { isPdeuBranch } from "@/lib/pdeu/load";
 import { SEMESTERS } from "@/lib/semester/mySemester";
-import { branches, detailsLine, detailsShort } from "@/lib/subjects";
+import { branches } from "@/lib/subjects";
 import { coverageFor, NOTE_OUTSIDE, NOTE_LATER } from "@/lib/syllabus/coverage";
 import { removeSemester } from "@/lib/syllabus/store";
 import type { StoredSubject, SyllabusByTerm } from "@/lib/syllabus/types";
@@ -89,11 +89,6 @@ function SubjectCard({
           </button>
         )}
       </div>
-      {indexed && detailsLine(indexed) && (
-        <p className="text-xs text-muted" data-testid="subject-card-details">
-          {detailsLine(indexed)}
-        </p>
-      )}
       <p className="text-sm text-muted">
         {data.suggested && "Suggested for your branch · "}
         {entry
@@ -415,9 +410,7 @@ export function SubjectsHub() {
               >
                 <Link href={`/subjects/${s.id}`} className="font-medium hover:underline">
                   {s.name}
-                  <span className="block text-xs font-normal text-muted">
-                    {[s.field, detailsShort(s, mine.branch)].filter(Boolean).join(" · ")}
-                  </span>
+                  <span className="block text-xs font-normal text-muted">{s.field}</span>
                 </Link>
                 {semester && (
                   <button
