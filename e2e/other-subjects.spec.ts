@@ -74,14 +74,18 @@ test.describe("Other subjects (V3 · Step 4)", () => {
     await expect(page.getByTestId("chapter-wrap")).toBeVisible({ timeout: 150_000 });
   });
 
-  test("asks for topics, a syllabus or material instead of guessing", async ({ page }) => {
+  test("a subject can be saved with just its name and set up later", async ({ page }) => {
     await page.goto("/my-subjects/new");
     const form = page.getByTestId("custom-subject-form");
+    await expect(form.getByTestId("name-only-hint")).toContainText("Only the name is needed");
     await form.getByLabel("Subject name").fill("Professional Ethics");
     await form.getByRole("button", { name: "Save my subject" }).click();
-    await expect(form.getByRole("alert")).toContainText(
-      "Add your topics, paste your syllabus, or upload",
+    await expect(page).toHaveURL(//my-subjects/view?id=custom-/, { timeout: 30_000 });
+    await expect(page.getByTestId("needs-setup")).toContainText(
+      "Upload your syllabus and material to make lessons and study this subject.",
     );
+    // Nothing is made up: there is no lesson shortcut until it has topics.
+    await expect(page.getByRole("link", { name: "Start a lesson" })).toHaveCount(0);
   });
 
   test("builds an outline from uploaded material, labelled, and keeps the files", async ({
