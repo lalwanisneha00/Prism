@@ -1,0 +1,200 @@
+{
+  "id": "geology-for-petroleum-engineers",
+  "name": "Geology for Petroleum Engineers",
+  "field": "Petroleum Engineering",
+  "tier": "limited",
+  "branches": ["petro"],
+  "semesters": [1],
+  "code": "24PE101T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s1-geology-for-petroleum-engineers",
+      "code": "24PE101T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 1
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Geology for Petroleum Engineers",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "physical-geology",
+      "name": "Physical Geology",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "origin-of-the-solar-system-with-earth-formation-stellar",
+          "name": "Origin of the solar system with earth formation - stellar nucleosynthesis"
+        },
+        {
+          "id": "the-earths-structure-crust-mantle-and-core",
+          "name": "The Earth's structure - crust, mantle and core",
+          "requires": ["origin-of-the-solar-system-with-earth-formation-stellar"]
+        },
+        {
+          "id": "plate-tectonics-and-basin-formation-geological-time-scale",
+          "name": "Plate tectonics and basin formation. Geological time scale",
+          "requires": ["the-earths-structure-crust-mantle-and-core"]
+        },
+        {
+          "id": "radioactive-dating-sea-level-change",
+          "name": "radioactive dating. Sea level change",
+          "requires": ["plate-tectonics-and-basin-formation-geological-time-scale"]
+        }
+      ]
+    },
+    {
+      "id": "weathering-and-structural-geology",
+      "name": "Weathering and Structural Geology",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "weathering-goldich-stability-series",
+          "name": "Weathering - Goldich stability series"
+        },
+        {
+          "id": "physical-or-mechanical-weathering",
+          "name": "Physical or mechanical weathering",
+          "requires": ["weathering-goldich-stability-series"]
+        },
+        {
+          "id": "chemical-weathering",
+          "name": "Chemical weathering",
+          "requires": ["physical-or-mechanical-weathering"]
+        },
+        {
+          "id": "biological-weathering-stress-and-strain-in-rocks",
+          "name": "Biological weathering. Stress and strain in rocks",
+          "requires": ["chemical-weathering"]
+        },
+        {
+          "id": "strike-and-dip",
+          "name": "Strike and Dip",
+          "requires": ["biological-weathering-stress-and-strain-in-rocks"]
+        },
+        {
+          "id": "fold-nomenclature",
+          "name": "Fold nomenclature",
+          "requires": ["strike-and-dip"]
+        },
+        {
+          "id": "fault-nomenclature",
+          "name": "Fault nomenclature",
+          "requires": ["fold-nomenclature"]
+        },
+        {
+          "id": "types-of-joints-in-geology",
+          "name": "Types of joints in geology",
+          "requires": ["fault-nomenclature"]
+        }
+      ]
+    },
+    {
+      "id": "mineralogy-and-petrology",
+      "name": "Mineralogy And Petrology",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "crystallography-crystal-structure-and-unit-cell-types",
+          "name": "Crystallography -Crystal structure and unit cell types"
+        },
+        {
+          "id": "chemical-mineralogy-bio-mineralogy-optical-mineralogy",
+          "name": "chemical mineralogy, Bio mineralogy, Optical mineralogy",
+          "requires": ["crystallography-crystal-structure-and-unit-cell-types"]
+        },
+        {
+          "id": "silicate-mineralogy-igneous-petrology-rock-cycle",
+          "name": "silicate mineralogy, Igneous Petrology- rock cycle, Classification of rocks",
+          "requires": ["chemical-mineralogy-bio-mineralogy-optical-mineralogy"]
+        },
+        {
+          "id": "bowens-reaction-series-formation-of-igneous-rocks",
+          "name": "Bowen’s reaction series, Formation of igneous rocks, Classification of igneous rocks, Texture of igneous rocks, Sedimentary rocks formation",
+          "requires": ["silicate-mineralogy-igneous-petrology-rock-cycle"]
+        },
+        {
+          "id": "structure-and-texture-of-sedimentary-rocks",
+          "name": "structure and texture of sedimentary rocks",
+          "requires": ["bowens-reaction-series-formation-of-igneous-rocks"]
+        },
+        {
+          "id": "classification-of-sandstone-folks-textural-classification-of",
+          "name": "classification of sandstone, Folk's textural classification of carbonate sediments",
+          "requires": ["structure-and-texture-of-sedimentary-rocks"]
+        },
+        {
+          "id": "dunhams-limestone-classification",
+          "name": "Dunham’s limestone classification",
+          "requires": ["classification-of-sandstone-folks-textural-classification-of"]
+        },
+        {
+          "id": "formation-of-metamorphic-rocks-foliated-rocks-and-non",
+          "name": "Formation of metamorphic rocks, Foliated rocks, and Non-foliated rocks",
+          "requires": ["dunhams-limestone-classification"]
+        }
+      ]
+    },
+    {
+      "id": "paleontology-and-stratigraphy",
+      "name": "Paleontology And Stratigraphy",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "palaeontology-body-fossils-and-trace-fossils",
+          "name": "Palaeontology-body fossils and trace fossils"
+        },
+        {
+          "id": "types-of-fossils",
+          "name": "Types of fossils",
+          "requires": ["palaeontology-body-fossils-and-trace-fossils"]
+        },
+        {
+          "id": "benthic-fossils",
+          "name": "benthic fossils",
+          "requires": ["types-of-fossils"]
+        },
+        {
+          "id": "pelagic-fossils",
+          "name": "pelagic fossils",
+          "requires": ["benthic-fossils"]
+        },
+        {
+          "id": "uses-of-fossils",
+          "name": "Uses of fossils",
+          "requires": ["pelagic-fossils"]
+        },
+        {
+          "id": "index-fossils-importance-of-fossils-in-petroleum-geology",
+          "name": "Index fossils, importance of fossils in petroleum geology, Stratigraphy-Types of Stratigraphy",
+          "requires": ["uses-of-fossils"]
+        },
+        {
+          "id": "laws-of-stratigraphy",
+          "name": "Laws of Stratigraphy",
+          "requires": ["index-fossils-importance-of-fossils-in-petroleum-geology"]
+        },
+        {
+          "id": "unconformities",
+          "name": "Unconformities",
+          "requires": ["laws-of-stratigraphy"]
+        },
+        {
+          "id": "importance-of-stratigraphy-in-oil-and-gas-traps",
+          "name": "importance of stratigraphy in oil and gas traps",
+          "requires": ["unconformities"]
+        }
+      ]
+    }
+  ]
+}

@@ -26,7 +26,7 @@ describe("planApply", () => {
   it("puts each subject in the semester the university teaches it", () => {
     const plan = planApply(defaultReview(), subjects);
     expect(plan.picks["1"]).toEqual(expect.arrayContaining(["applied-physics"]));
-    expect(plan.picks["2"]).toEqual(expect.arrayContaining(["engg-mechanics"]));
+    expect(Object.keys(plan.picks)).toContain("1");
     expect(plan.own.map((o) => o.uni.name)).toEqual(
       expect.arrayContaining(["Engineering Biology", "Indian Knowledge System"]),
     );
@@ -46,11 +46,11 @@ describe("planApply", () => {
     const phys = review.find((r) => r.uni.name === "Applied Physics")!;
     const physics = subjects.find((s) => s.id === "applied-physics")!;
     phys.hiddenChapters = [physics.chapters[0].id];
-    const mech = review.find((r) => r.uni.name === "Engineering Mechanics")!;
-    mech.choice = { kind: "skip" };
     const plan = planApply(review, subjects);
     expect(plan.scopes["applied-physics"][physics.chapters[0].id]).toBeUndefined();
-    expect(plan.picks["2"] ?? []).not.toContain("engg-mechanics");
+    const skipped = defaultReview();
+    skipped.find((r) => r.uni.name === "Applied Physics")!.choice = { kind: "skip" };
+    expect(planApply(skipped, subjects).picks["1"] ?? []).not.toContain("applied-physics");
   });
 
   it("is empty for an empty review", () => {

@@ -1,0 +1,260 @@
+{
+  "id": "robotics",
+  "name": "Robotics",
+  "field": "Robotics",
+  "tier": "limited",
+  "branches": ["me"],
+  "semesters": [6],
+  "code": "18ME310T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s6-robotics",
+      "code": "18ME310T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Robotics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "classification-of-robots",
+          "name": "Classification of robots"
+        },
+        {
+          "id": "basic-robot-components",
+          "name": "basic robot components",
+          "requires": ["classification-of-robots"]
+        },
+        {
+          "id": "robot-anatomy",
+          "name": "robot anatomy",
+          "requires": ["basic-robot-components"]
+        },
+        {
+          "id": "manipulator-end-effectors",
+          "name": "manipulator end effectors",
+          "requires": ["robot-anatomy"]
+        },
+        {
+          "id": "controller",
+          "name": "controller",
+          "requires": ["manipulator-end-effectors"]
+        },
+        {
+          "id": "power-unit",
+          "name": "power unit",
+          "requires": ["controller"]
+        },
+        {
+          "id": "sensing-devices",
+          "name": "sensing devices",
+          "requires": ["power-unit"]
+        },
+        {
+          "id": "specification-of-robot-systems",
+          "name": "specification of robot systems",
+          "requires": ["sensing-devices"]
+        },
+        {
+          "id": "accuracy-precision-and-repeatability",
+          "name": "accuracy precision and repeatability",
+          "requires": ["specification-of-robot-systems"]
+        },
+        {
+          "id": "work-envelop",
+          "name": "work envelop",
+          "requires": ["accuracy-precision-and-repeatability"]
+        },
+        {
+          "id": "gripper-actuators-and-gripper-design-co-ordinate-systems",
+          "name": "gripper actuators and gripper design. Co-ordinate Systems: local frame and global frame",
+          "requires": ["work-envelop"]
+        },
+        {
+          "id": "representation",
+          "name": "representation",
+          "requires": ["gripper-actuators-and-gripper-design-co-ordinate-systems"]
+        },
+        {
+          "id": "transformations",
+          "name": "transformations",
+          "requires": ["representation"]
+        },
+        {
+          "id": "wrist-analysis",
+          "name": "wrist analysis",
+          "requires": ["transformations"]
+        }
+      ]
+    },
+    {
+      "id": "kinematics-and-dynamics",
+      "name": "Kinematics and Dynamics",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "parameters-of-robot-link",
+          "name": "Parameters of robot link"
+        },
+        {
+          "id": "formulation-of-d-h-matrix",
+          "name": "formulation of D-H matrix",
+          "requires": ["parameters-of-robot-link"]
+        },
+        {
+          "id": "analysis-of-different-types-of-robots-with-different-degrees",
+          "name": "Analysis of different types of robots with different degrees of freedom",
+          "requires": ["formulation-of-d-h-matrix"]
+        },
+        {
+          "id": "kinematic-chains",
+          "name": "kinematic chains",
+          "requires": ["analysis-of-different-types-of-robots-with-different-degrees"]
+        },
+        {
+          "id": "inverse-kinematics",
+          "name": "inverse kinematics",
+          "requires": ["kinematic-chains"]
+        },
+        {
+          "id": "dynamic-analysis",
+          "name": "Dynamic analysis",
+          "requires": ["inverse-kinematics"]
+        }
+      ]
+    },
+    {
+      "id": "motion-planning",
+      "name": "Motion planning",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "different-trajectories-and-its-analysis",
+          "name": "Different trajectories and its analysis"
+        },
+        {
+          "id": "motion-planning",
+          "name": "motion planning",
+          "requires": ["different-trajectories-and-its-analysis"]
+        },
+        {
+          "id": "trajectory-planning-and-control-robotic-sensing-devices",
+          "name": "trajectory planning and control Robotic sensing devices: Position",
+          "requires": ["motion-planning"]
+        },
+        {
+          "id": "velocity-and-acceleration-sensors",
+          "name": "velocity and acceleration sensors",
+          "requires": ["trajectory-planning-and-control-robotic-sensing-devices"]
+        },
+        {
+          "id": "proximity-and-range-sensors",
+          "name": "proximity and range sensors",
+          "requires": ["velocity-and-acceleration-sensors"]
+        },
+        {
+          "id": "touch-and-slip-sensors",
+          "name": "touch and slip sensors",
+          "requires": ["proximity-and-range-sensors"]
+        },
+        {
+          "id": "tactile-sensors",
+          "name": "tactile sensors",
+          "requires": ["touch-and-slip-sensors"]
+        },
+        {
+          "id": "force-sensors-and-torque-sensors",
+          "name": "force sensors and torque sensors",
+          "requires": ["tactile-sensors"]
+        }
+      ]
+    },
+    {
+      "id": "robotic-vision-system",
+      "name": "Robotic vision system",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "imaging-components",
+          "name": "imaging components"
+        },
+        {
+          "id": "picture-coding",
+          "name": "picture coding",
+          "requires": ["imaging-components"]
+        },
+        {
+          "id": "object-recognition",
+          "name": "object recognition",
+          "requires": ["picture-coding"]
+        },
+        {
+          "id": "training-and-vision-systems",
+          "name": "training and vision systems",
+          "requires": ["object-recognition"]
+        },
+        {
+          "id": "review-of-existing-vision-systems-robotics-programming",
+          "name": "review of existing vision systems. Robotics programming: Methods of robot programming",
+          "requires": ["training-and-vision-systems"]
+        },
+        {
+          "id": "types-of-programming",
+          "name": "types of programming",
+          "requires": ["review-of-existing-vision-systems-robotics-programming"]
+        },
+        {
+          "id": "robotics-programming-languages",
+          "name": "robotics programming languages",
+          "requires": ["types-of-programming"]
+        },
+        {
+          "id": "artificial-intelligence-robot-applications-and-economic",
+          "name": "artificial intelligence. Robot applications and Economic analysis of robotics",
+          "requires": ["robotics-programming-languages"]
+        }
+      ]
+    },
+    {
+      "id": "industry-4-0",
+      "name": "Industry 4.0",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "technologies-involved",
+          "name": "Technologies involved"
+        },
+        {
+          "id": "implementation-and-potential-non-industrial-robots",
+          "name": "Implementation and Potential Non-Industrial Robots: Technologies involved with Domestic Robots",
+          "requires": ["technologies-involved"]
+        },
+        {
+          "id": "humanoids",
+          "name": "Humanoids",
+          "requires": ["implementation-and-potential-non-industrial-robots"]
+        },
+        {
+          "id": "nature-exploration-robot-and-other-futuristic-design",
+          "name": "Nature Exploration Robot and other futuristic design",
+          "requires": ["humanoids"]
+        }
+      ]
+    }
+  ]
+}

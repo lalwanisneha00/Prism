@@ -3,125 +3,371 @@
   "name": "Theory of Computation",
   "field": "Computer Science",
   "tier": "sourced",
-  "branches": ["ce", "it", "ict"],
-  "semesters": [5],
+  "branches": ["ce"],
+  "semesters": [4],
+  "code": "24CS208T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s4-theory-of-computation",
+      "code": "24CS208T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 4
+    }
+  ],
   "syllabusSource": {
-    "kind": "aicte",
-    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS502 Formal Language & Automata Theory",
-    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
-    "note": "Module 1 of PCC-CS502."
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Theory of Computation",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
   },
   "visualSet": "computing",
   "chapters": [
     {
-      "id": "languages-grammars",
-      "name": "Languages and Grammars",
-      "hours": 4,
+      "id": "finite-automata-and-regular-language",
+      "name": "Finite Automata and Regular Language",
+      "hours": 12,
       "topics": [
         {
-          "id": "alphabets-languages",
-          "name": "Alphabets, strings, languages and grammars"
+          "id": "regular-languages-alphabets",
+          "name": "Regular Languages: Alphabets"
         },
         {
-          "id": "chomsky-hierarchy",
-          "name": "The Chomsky hierarchy",
-          "requires": ["alphabets-languages"]
+          "id": "language",
+          "name": "Language",
+          "requires": ["regular-languages-alphabets"]
+        },
+        {
+          "id": "regular-expression",
+          "name": "Regular Expression",
+          "requires": ["language"]
+        },
+        {
+          "id": "definitions-of-finite-state-automata",
+          "name": "Definitions of Finite State automata",
+          "requires": ["regular-expression"]
+        },
+        {
+          "id": "transition-graphs",
+          "name": "Transition Graphs",
+          "requires": ["definitions-of-finite-state-automata"]
+        },
+        {
+          "id": "conversion-of-dfa-to-regular-expression",
+          "name": "Conversion of DFA to Regular Expression",
+          "requires": ["transition-graphs"]
+        },
+        {
+          "id": "deterministic-and-non-deterministic-finite-state-automata",
+          "name": "Deterministic & Non- deterministic Finite State Automata",
+          "requires": ["conversion-of-dfa-to-regular-expression"]
+        },
+        {
+          "id": "regular-grammar",
+          "name": "Regular Grammar",
+          "requires": ["deterministic-and-non-deterministic-finite-state-automata"]
+        },
+        {
+          "id": "regular-languages-closure-properties",
+          "name": "Regular languages: Closure properties",
+          "requires": ["regular-grammar"]
+        },
+        {
+          "id": "product-construction",
+          "name": "product construction",
+          "requires": ["regular-languages-closure-properties"]
+        },
+        {
+          "id": "equivalence-of-nfa-and-dfa",
+          "name": "Equivalence of NFA and DFA",
+          "requires": ["product-construction"]
+        },
+        {
+          "id": "nfa-with-epsilon-transitions",
+          "name": "NFA with epsilon transitions",
+          "requires": ["equivalence-of-nfa-and-dfa"]
+        },
+        {
+          "id": "thompsons-construction-to-convert-regular-expression-to-ndfa",
+          "name": "Thompson’s Construction to Convert Regular Expression to NDFA",
+          "requires": ["nfa-with-epsilon-transitions"]
+        },
+        {
+          "id": "subset-algorithm-to-convert-ndfa-to-dfa",
+          "name": "Subset Algorithm to convert NDFA to DFA",
+          "requires": ["thompsons-construction-to-convert-regular-expression-to-ndfa"]
+        },
+        {
+          "id": "minimization-of-dfa",
+          "name": "Minimization of DFA",
+          "requires": ["subset-algorithm-to-convert-ndfa-to-dfa"]
+        },
+        {
+          "id": "finite-state-machine-with-output-moore-machine-and-mealy",
+          "name": "Finite State Machine with output-Moore machine and Mealy Machine",
+          "requires": ["minimization-of-dfa"]
+        },
+        {
+          "id": "conversion-of-moore-machine-to-mealy-machine-and-vice-versa",
+          "name": "Conversion of Moore machine to Mealy Machine & Vice-Versa",
+          "requires": ["finite-state-machine-with-output-moore-machine-and-mealy"]
+        },
+        {
+          "id": "limitations-of-automata-non-regularity-pumping-lemma-and",
+          "name": "Limitations of Automata Non-regularity: Pumping Lemma and Myhill–Nerode theorem",
+          "requires": ["conversion-of-moore-machine-to-mealy-machine-and-vice-versa"]
         }
       ]
     },
     {
-      "id": "finite-automata",
-      "name": "Regular Languages and Finite Automata",
-      "hours": 10,
+      "id": "pushdown-automata-and-context-free-language",
+      "name": "Pushdown Automata and Context-free Language",
+      "hours": 12,
       "topics": [
         {
-          "id": "dfa",
-          "name": "Deterministic finite automata",
-          "requires": ["alphabets-languages"]
+          "id": "context-free-grammar",
+          "name": "Context Free Grammar"
         },
         {
-          "id": "nfa",
-          "name": "Nondeterministic finite automata and subset construction",
-          "requires": ["dfa"]
+          "id": "derivation-tree-and-ambiguity",
+          "name": "Derivation tree and Ambiguity",
+          "requires": ["context-free-grammar"]
         },
         {
-          "id": "regular-expressions",
-          "name": "Regular expressions and their equivalence with automata",
-          "requires": ["nfa"]
+          "id": "removing-ambiguity",
+          "name": "Removing ambiguity",
+          "requires": ["derivation-tree-and-ambiguity"]
         },
         {
-          "id": "pumping-lemma-regular",
-          "name": "The pumping lemma for regular languages",
-          "requires": ["dfa"]
+          "id": "parse-tress",
+          "name": "Parse Tress",
+          "requires": ["removing-ambiguity"]
         },
         {
-          "id": "dfa-minimisation",
-          "name": "Minimisation of finite automata",
-          "requires": ["dfa"]
-        }
-      ]
-    },
-    {
-      "id": "context-free",
-      "name": "Context-free Languages and Pushdown Automata",
-      "hours": 10,
-      "topics": [
-        {
-          "id": "cfg",
-          "name": "Context-free grammars, derivations and parse trees",
-          "requires": ["chomsky-hierarchy"]
+          "id": "application-of-context-free-grammars",
+          "name": "Application of Context free Grammars",
+          "requires": ["parse-tress"]
         },
         {
-          "id": "ambiguity",
-          "name": "Ambiguous grammars",
-          "requires": ["cfg"]
+          "id": "closure-properties-of-cfg",
+          "name": "Closure Properties of CFG",
+          "requires": ["application-of-context-free-grammars"]
         },
         {
-          "id": "normal-forms-cfg",
-          "name": "Chomsky and Greibach normal forms",
-          "requires": ["cfg"]
+          "id": "decidable-of-cfg",
+          "name": "Decidable of CFG",
+          "requires": ["closure-properties-of-cfg"]
         },
         {
-          "id": "pda",
-          "name": "Pushdown automata and their equivalence with CFGs",
-          "requires": ["cfg"]
+          "id": "push-down-automata-definition",
+          "name": "Push Down Automata: definition",
+          "requires": ["decidable-of-cfg"]
+        },
+        {
+          "id": "the-languages-of-a-pda",
+          "name": "the Languages of a PDA",
+          "requires": ["push-down-automata-definition"]
+        },
+        {
+          "id": "equivalence-of-pdas-and-cfgs",
+          "name": "Equivalence of PDAs and CFGs",
+          "requires": ["the-languages-of-a-pda"]
+        },
+        {
+          "id": "equivalence-of-pdas-accepting-by-final-state-and-by-empty",
+          "name": "Equivalence of PDAs accepting by final state and by empty stack",
+          "requires": ["equivalence-of-pdas-and-cfgs"]
+        },
+        {
+          "id": "non-determinism-in-pdas",
+          "name": "Non-determinism in PDAs",
+          "requires": ["equivalence-of-pdas-accepting-by-final-state-and-by-empty"]
+        },
+        {
+          "id": "non-equivalence-of-npdas-and-dpdas",
+          "name": "Non-equivalence of NPDAs and DPDAs",
+          "requires": ["non-determinism-in-pdas"]
         },
         {
           "id": "pumping-lemma-cfl",
-          "name": "Pumping lemma for context-free languages",
-          "requires": ["cfg"]
+          "name": "Pumping Lemma for Context-Free Languages",
+          "requires": ["non-equivalence-of-npdas-and-dpdas"]
+        },
+        {
+          "id": "ogdens-lemma",
+          "name": "Ogden's lemma",
+          "requires": ["pumping-lemma-cfl"]
+        },
+        {
+          "id": "normal-forms-for-cfgs-chomsky-normal-form-and-greibach",
+          "name": "Normal Forms for CFG’s: Chomsky Normal Form and Greibach Normal form",
+          "requires": ["ogdens-lemma"]
+        },
+        {
+          "id": "context-sensitive-grammars",
+          "name": "Context– Sensitive Grammars",
+          "requires": ["normal-forms-for-cfgs-chomsky-normal-form-and-greibach"]
+        },
+        {
+          "id": "linear-bounded-automata",
+          "name": "Linear Bounded Automata",
+          "requires": ["context-sensitive-grammars"]
         }
       ]
     },
     {
-      "id": "turing-machines",
-      "name": "Turing Machines and Computability",
-      "hours": 10,
+      "id": "turing-machine-and-recursive-language",
+      "name": "Turing Machine and Recursive Language",
+      "hours": 9,
       "topics": [
         {
-          "id": "turing-machine",
-          "name": "Turing machines and their variants",
-          "requires": ["pda"]
+          "id": "universal-turing-machine",
+          "name": "Universal Turing Machine"
         },
         {
-          "id": "lba-csl",
-          "name": "Linear bounded automata and context-sensitive languages",
-          "requires": ["turing-machine"]
+          "id": "post-machine",
+          "name": "Post Machine",
+          "requires": ["universal-turing-machine"]
         },
         {
-          "id": "church-turing",
-          "name": "The Church–Turing thesis and the universal Turing machine",
-          "requires": ["turing-machine"]
+          "id": "deterministic-turing-machines",
+          "name": "Deterministic Turing machines",
+          "requires": ["post-machine"]
         },
         {
-          "id": "decidability",
-          "name": "Decidable and undecidable problems; the halting problem",
-          "requires": ["church-turing"]
+          "id": "multi-tape-tms-and-its-equivalence-to-single-tape-tms",
+          "name": "Multi-tape TMs and its equivalence to single-tape TMs",
+          "requires": ["deterministic-turing-machines"]
+        },
+        {
+          "id": "nondeterministic-tms-and-its-equivalence-to-deterministic",
+          "name": "Nondeterministic TMs and its equivalence to deterministic TMs",
+          "requires": ["multi-tape-tms-and-its-equivalence-to-single-tape-tms"]
+        },
+        {
+          "id": "chomsky-hierarchy",
+          "name": "Chomsky Hierarchy",
+          "requires": ["nondeterministic-tms-and-its-equivalence-to-deterministic"]
+        },
+        {
+          "id": "decidable-and-recognizable-languages",
+          "name": "Decidable and recognizable languages",
+          "requires": ["chomsky-hierarchy"]
+        },
+        {
+          "id": "post-correspondence-problem",
+          "name": "Post correspondence problem",
+          "requires": ["decidable-and-recognizable-languages"]
+        },
+        {
+          "id": "halting-problem",
+          "name": "Halting Problem",
+          "requires": ["post-correspondence-problem"]
+        },
+        {
+          "id": "turing-enumerability",
+          "name": "Turing enumerability",
+          "requires": ["halting-problem"]
+        },
+        {
+          "id": "turing-machines-acceptability-decidabilities-and",
+          "name": "Turing machines Acceptability, Decidabilities, and Reducibility",
+          "requires": ["turing-enumerability"]
+        },
+        {
+          "id": "unsolvable-problems-about-turing-machines",
+          "name": "Unsolvable problems about Turing machines",
+          "requires": ["turing-machines-acceptability-decidabilities-and"]
         },
         {
           "id": "rices-theorem",
-          "name": "Reductions and Rice's theorem",
-          "requires": ["decidability"]
+          "name": "Rice’s Theorem",
+          "requires": ["unsolvable-problems-about-turing-machines"]
+        },
+        {
+          "id": "the-church-turing-thesis",
+          "name": "The Church- Turing Thesis",
+          "requires": ["rices-theorem"]
+        }
+      ]
+    },
+    {
+      "id": "computability-and-complexity",
+      "name": "Computability and Complexity",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "the-extended-church-turing-thesis",
+          "name": "The Extended Church-Turing Thesis"
+        },
+        {
+          "id": "time-complexity",
+          "name": "Time Complexity",
+          "requires": ["the-extended-church-turing-thesis"]
+        },
+        {
+          "id": "p-and-np-complexity-class",
+          "name": "P and NP complexity class",
+          "requires": ["time-complexity"]
+        },
+        {
+          "id": "sat",
+          "name": "SAT",
+          "requires": ["p-and-np-complexity-class"]
+        },
+        {
+          "id": "polynomial-time-reducibility",
+          "name": "Polynomial time Reducibility",
+          "requires": ["sat"]
+        },
+        {
+          "id": "the-time-hierarchy-theorem",
+          "name": "The time hierarchy theorem",
+          "requires": ["polynomial-time-reducibility"]
+        },
+        {
+          "id": "definition-of-np-via-non-deterministic-turing-machines",
+          "name": "Definition of NP via non- deterministic Turing machines",
+          "requires": ["the-time-hierarchy-theorem"]
+        },
+        {
+          "id": "np-complete-problems",
+          "name": "NP-complete problems",
+          "requires": ["definition-of-np-via-non-deterministic-turing-machines"]
+        },
+        {
+          "id": "cook-levin-theorem",
+          "name": "Cook-Levin theorem",
+          "requires": ["np-complete-problems"]
+        },
+        {
+          "id": "np-complete-problems-via-reductions",
+          "name": "NP-complete problems via reductions",
+          "requires": ["cook-levin-theorem"]
+        },
+        {
+          "id": "pspace-complexity-class",
+          "name": "PSPACE complexity class",
+          "requires": ["np-complete-problems-via-reductions"]
+        },
+        {
+          "id": "pspace-completeness",
+          "name": "PSPACE-Completeness",
+          "requires": ["pspace-complexity-class"]
+        },
+        {
+          "id": "pspace-npspace",
+          "name": "PSPACE = NPSPACE",
+          "requires": ["pspace-completeness"]
+        },
+        {
+          "id": "bpp-complexity-class-and-relation-with-the-other-classes",
+          "name": "BPP complexity class and relation with the other classes",
+          "requires": ["pspace-npspace"]
         }
       ]
     }

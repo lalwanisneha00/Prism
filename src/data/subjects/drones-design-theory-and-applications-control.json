@@ -1,0 +1,340 @@
+{
+  "id": "drones-design-theory-and-applications-control",
+  "name": "Drones: Design, Theory and Applications (Control)",
+  "field": "Drones: Design, Theory and Applications",
+  "tier": "limited",
+  "branches": ["ece"],
+  "semesters": [7],
+  "code": "24ECExxxT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s7-program-elective-4--drones-design-theory-and-applications-control",
+      "code": "24ECExxxT",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Drones: Design, Theory and Applications (Control)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "signals",
+  "chapters": [
+    {
+      "id": "introduction-to-drones-and-its-mechatronic",
+      "name": "INTRODUCTION TO DRONES and ITS MECHATRONIC COMPONENTS",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "overview-of-drone-technology-history-evolution-and-current",
+          "name": "Overview of drone technology: history, evolution, and current trends"
+        },
+        {
+          "id": "types-of-drones-fixed-wing",
+          "name": "Types of drones: fixed-wing",
+          "requires": ["overview-of-drone-technology-history-evolution-and-current"]
+        },
+        {
+          "id": "rotary-wing-quadcopters-hexa-and-octacopters-etc",
+          "name": "rotary-wing (quadcopters, hexa and octacopters, etc.)",
+          "requires": ["types-of-drones-fixed-wing"]
+        },
+        {
+          "id": "hybrid-components-of-a-drone-frame",
+          "name": "hybrid. Components of a drone: frame",
+          "requires": ["rotary-wing-quadcopters-hexa-and-octacopters-etc"]
+        },
+        {
+          "id": "motors",
+          "name": "motors",
+          "requires": ["hybrid-components-of-a-drone-frame"]
+        },
+        {
+          "id": "propellers",
+          "name": "propellers",
+          "requires": ["motors"]
+        },
+        {
+          "id": "electronic-flight-controllers",
+          "name": "electronic flight controllers",
+          "requires": ["propellers"]
+        },
+        {
+          "id": "electronic-speed-controllers",
+          "name": "electronic speed controllers",
+          "requires": ["electronic-flight-controllers"]
+        },
+        {
+          "id": "sensors",
+          "name": "sensors",
+          "requires": ["electronic-speed-controllers"]
+        },
+        {
+          "id": "communication-systems",
+          "name": "communication systems",
+          "requires": ["sensors"]
+        },
+        {
+          "id": "power-source",
+          "name": "power source",
+          "requires": ["communication-systems"]
+        },
+        {
+          "id": "etc-drone-design-aspects",
+          "name": "etc. Drone Design Aspects",
+          "requires": ["power-source"]
+        },
+        {
+          "id": "regulations-in-drone-operations-safety-measures-and-best",
+          "name": "Regulations in drone operations. Safety measures and best practices for drone operation",
+          "requires": ["etc-drone-design-aspects"]
+        }
+      ]
+    },
+    {
+      "id": "drone-design-aspects",
+      "name": "Drone Design Aspects",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "quadrotors",
+          "name": "Quadrotors"
+        },
+        {
+          "id": "key-components-of-autonomous-flight",
+          "name": "Key components of Autonomous flight",
+          "requires": ["quadrotors"]
+        },
+        {
+          "id": "state-estimation",
+          "name": "State estimation",
+          "requires": ["key-components-of-autonomous-flight"]
+        },
+        {
+          "id": "controls",
+          "name": "Controls",
+          "requires": ["state-estimation"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["controls"]
+        },
+        {
+          "id": "basic-mechanics",
+          "name": "Basic Mechanics",
+          "requires": ["applications"]
+        },
+        {
+          "id": "dynamics-and-1-d-linear-control",
+          "name": "Dynamics and 1-D Linear Control",
+          "requires": ["basic-mechanics"]
+        },
+        {
+          "id": "design-considerations",
+          "name": "Design Considerations",
+          "requires": ["dynamics-and-1-d-linear-control"]
+        },
+        {
+          "id": "agility-and-manoeuvrability",
+          "name": "Agility and Manoeuvrability",
+          "requires": ["design-considerations"]
+        },
+        {
+          "id": "component-selection",
+          "name": "Component Selection",
+          "requires": ["agility-and-manoeuvrability"]
+        },
+        {
+          "id": "effects-of-size",
+          "name": "Effects of Size",
+          "requires": ["component-selection"]
+        },
+        {
+          "id": "dynamical-systems-and-rates-of-convergence",
+          "name": "Dynamical Systems and Rates of Convergence",
+          "requires": ["effects-of-size"]
+        }
+      ]
+    },
+    {
+      "id": "drone-modelling-and-simulation-tools",
+      "name": "Drone Modelling & Simulation Tools",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "transformations",
+          "name": "Transformations"
+        },
+        {
+          "id": "rotations",
+          "name": "Rotations",
+          "requires": ["transformations"]
+        },
+        {
+          "id": "euler-angles",
+          "name": "Euler Angles",
+          "requires": ["rotations"]
+        },
+        {
+          "id": "axis-angle-representations-for-rotations",
+          "name": "Axis/Angle Representations For Rotations",
+          "requires": ["euler-angles"]
+        },
+        {
+          "id": "angular-velocity",
+          "name": "Angular Velocity",
+          "requires": ["axis-angle-representations-for-rotations"]
+        },
+        {
+          "id": "rigid-body-displacements",
+          "name": "Rigid-Body Displacements",
+          "requires": ["angular-velocity"]
+        },
+        {
+          "id": "properties-of-functions",
+          "name": "Properties Of Functions",
+          "requires": ["rigid-body-displacements"]
+        },
+        {
+          "id": "symbolic-calculations-in-matlab",
+          "name": "Symbolic Calculations in Matlab",
+          "requires": ["properties-of-functions"]
+        },
+        {
+          "id": "eigenvalues-and-eigenvectors-of-matrices",
+          "name": "Eigenvalues And Eigenvectors of Matrices",
+          "requires": ["symbolic-calculations-in-matlab"]
+        },
+        {
+          "id": "quaternions",
+          "name": "Quaternions",
+          "requires": ["eigenvalues-and-eigenvectors-of-matrices"]
+        },
+        {
+          "id": "matrix-derivative",
+          "name": "Matrix Derivative",
+          "requires": ["quaternions"]
+        },
+        {
+          "id": "skew-symmetric-matrices-and-the-hat-operator",
+          "name": "Skew-Symmetric Matrices and the Hat Operator",
+          "requires": ["matrix-derivative"]
+        },
+        {
+          "id": "formulation",
+          "name": "Formulation",
+          "requires": ["skew-symmetric-matrices-and-the-hat-operator"]
+        },
+        {
+          "id": "newton-euler-equations",
+          "name": "Newton-Euler Equations",
+          "requires": ["formulation"]
+        },
+        {
+          "id": "principal-axes-and-principal-moments-of-inertia",
+          "name": "Principal Axes And Principal Moments of Inertia",
+          "requires": ["newton-euler-equations"]
+        },
+        {
+          "id": "quadrotor-equations-of-motion",
+          "name": "Quadrotor Equations Of Motion",
+          "requires": ["principal-axes-and-principal-moments-of-inertia"]
+        },
+        {
+          "id": "linear-and-nonlinear-state-space-forms",
+          "name": "Linear and Nonlinear State-Space Forms",
+          "requires": ["quadrotor-equations-of-motion"]
+        },
+        {
+          "id": "drone-modelling-in-python-and-matlab-simulink",
+          "name": "Drone Modelling in Python and MATLAB/Simulink",
+          "requires": ["linear-and-nonlinear-state-space-forms"]
+        },
+        {
+          "id": "ros-and-its-libraries-for-drones",
+          "name": "ROS and its Libraries for Drones",
+          "requires": ["drone-modelling-in-python-and-matlab-simulink"]
+        },
+        {
+          "id": "gazebo-environment-for-aerial-robots",
+          "name": "Gazebo environment for Aerial robots",
+          "requires": ["ros-and-its-libraries-for-drones"]
+        }
+      ]
+    },
+    {
+      "id": "autonomous-drone-flight-in-practical-applications",
+      "name": "Autonomous Drone Flight in Practical Applications",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "2-d-quadrotor-control",
+          "name": "2-D Quadrotor Control"
+        },
+        {
+          "id": "3-d-quadrotor-control",
+          "name": "3-D Quadrotor Control",
+          "requires": ["2-d-quadrotor-control"]
+        },
+        {
+          "id": "time-motion-and-trajectories",
+          "name": "Time, Motion, and Trajectories",
+          "requires": ["3-d-quadrotor-control"]
+        },
+        {
+          "id": "motion-planning-for-quadrotors",
+          "name": "Motion Planning for Quadrotors",
+          "requires": ["time-motion-and-trajectories"]
+        },
+        {
+          "id": "minimum-velocity-trajectories-from-the-euler-lagrange",
+          "name": "Minimum Velocity Trajectories from the Euler-Lagrange Equations",
+          "requires": ["motion-planning-for-quadrotors"]
+        },
+        {
+          "id": "solving-for-coefficients-of-minimum-jerk-trajectories",
+          "name": "Solving for Coefficients of Minimum Jerk Trajectories",
+          "requires": ["minimum-velocity-trajectories-from-the-euler-lagrange"]
+        },
+        {
+          "id": "linearization-of-quadrotor-equations-of-motion",
+          "name": "Linearization of Quadrotor Equations of Motion",
+          "requires": ["solving-for-coefficients-of-minimum-jerk-trajectories"]
+        },
+        {
+          "id": "multi-drone-applications-inspection",
+          "name": "Multi-drone Applications: Inspection",
+          "requires": ["linearization-of-quadrotor-equations-of-motion"]
+        },
+        {
+          "id": "surveillance",
+          "name": "Surveillance",
+          "requires": ["multi-drone-applications-inspection"]
+        },
+        {
+          "id": "monitoring",
+          "name": "Monitoring",
+          "requires": ["surveillance"]
+        },
+        {
+          "id": "transportation",
+          "name": "Transportation",
+          "requires": ["monitoring"]
+        },
+        {
+          "id": "agriculture-drone-with-mobile-robot-operations",
+          "name": "Agriculture. Drone with Mobile Robot operations",
+          "requires": ["transportation"]
+        }
+      ]
+    }
+  ]
+}

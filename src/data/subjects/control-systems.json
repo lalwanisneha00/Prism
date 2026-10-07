@@ -3,125 +3,151 @@
   "name": "Control Systems",
   "field": "Electrical Engineering",
   "tier": "sourced",
-  "branches": ["ee", "ece", "ic", "me"],
-  "semesters": [4],
+  "branches": ["ece"],
+  "semesters": [5],
+  "code": "20ECE309T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s5-control-systems",
+      "code": "20ECE309T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5
+    }
+  ],
   "syllabusSource": {
-    "kind": "aicte",
-    "title": "AICTE Model Curriculum for UG Degree in Electrical Engineering: PCC207 Control Systems",
-    "url": "https://www.aicte.gov.in/downloads/msyllabus/UG/ELECTRICAL%20Engg%20Final.pdf",
-    "note": "All eleven units of PCC207."
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Control Systems",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
   },
   "visualSet": "signals",
   "chapters": [
     {
-      "id": "modelling",
-      "name": "Modelling Control Systems",
+      "id": "introduction-and-mathematical-modelling-of-linear",
+      "name": "Introduction and Mathematical Modelling of Linear Control Systems",
       "hours": 10,
       "topics": [
         {
-          "id": "control-problem-components",
-          "name": "The control problem: open and closed loop, sensors and actuators"
+          "id": "introduction-to-linear-and-non-linear-control-systems-notion",
+          "name": "Introduction to Linear and Non-linear control systems, Notion of feedback, Open-loop and closed-loop control systems, Examples of Control Systems, Design and Compensation of Control Systems"
         },
         {
-          "id": "transfer-function-models",
-          "name": "Transfer function models of mechanical, electrical and thermal systems",
-          "requires": ["control-problem-components"]
+          "id": "block-diagram-and-signal-flow-graphs-representations-and",
+          "name": "Block diagram and signal-flow graphs representations and simplifications",
+          "requires": ["introduction-to-linear-and-non-linear-control-systems-notion"]
         },
         {
-          "id": "block-diagram-reduction",
-          "name": "Block diagram reduction",
-          "requires": ["transfer-function-models"]
-        },
-        {
-          "id": "signal-flow-mason",
-          "name": "Signal flow graphs and Mason's gain formula",
-          "requires": ["block-diagram-reduction"]
-        },
-        {
-          "id": "state-variable-models",
-          "name": "State variable models and the solution of state equations",
-          "requires": ["transfer-function-models"]
+          "id": "mathematical-modelling-and-analogy-differential-equations",
+          "name": "Mathematical modelling and analogy, Differential equations, Transfer Function and Impulse-Response Function, Systems with transport lag, Linearization",
+          "requires": ["block-diagram-and-signal-flow-graphs-representations-and"]
         }
       ]
     },
     {
-      "id": "time-response",
-      "name": "Time Response and Feedback",
-      "hours": 10,
+      "id": "time-domain-performance-and-stability-analysis",
+      "name": "Time Domain Performance and Stability Analysis",
+      "hours": 12,
       "topics": [
         {
-          "id": "first-second-order-response",
-          "name": "Time response of first- and second-order systems",
-          "requires": ["transfer-function-models"]
+          "id": "time-response",
+          "name": "Time response"
         },
         {
-          "id": "time-domain-specs",
-          "name": "Time-domain specifications: rise time, overshoot, settling time",
-          "requires": ["first-second-order-response"]
+          "id": "transient-response",
+          "name": "Transient response",
+          "requires": ["time-response"]
         },
         {
-          "id": "steady-state-error",
-          "name": "Steady-state error and error constants",
-          "requires": ["first-second-order-response"]
+          "id": "steady-state-response",
+          "name": "Steady-state response",
+          "requires": ["transient-response"]
         },
         {
-          "id": "sensitivity-feedback",
-          "name": "Sensitivity and the effects of feedback",
-          "requires": ["block-diagram-reduction"]
+          "id": "responses-of-first-and-second-order-systems-to-standard-test",
+          "name": "Responses of first- and second-order systems to standard test signals and related specifications",
+          "requires": ["steady-state-response"]
         },
         {
-          "id": "pid-modes",
-          "name": "Proportional, integral and derivative control",
-          "requires": ["steady-state-error"]
-        }
-      ]
-    },
-    {
-      "id": "stability",
-      "name": "Stability and Root Locus",
-      "hours": 8,
-      "topics": [
-        {
-          "id": "bibo-stability",
-          "name": "BIBO stability and pole locations",
-          "requires": ["transfer-function-models"]
+          "id": "stability-definition-and-meaning",
+          "name": "Stability definition and meaning",
+          "requires": ["responses-of-first-and-second-order-systems-to-standard-test"]
         },
         {
           "id": "routh-hurwitz",
-          "name": "Routh–Hurwitz stability criterion",
-          "requires": ["bibo-stability"]
+          "name": "Routh-Hurwitz stability criterion",
+          "requires": ["stability-definition-and-meaning"]
         },
         {
-          "id": "root-locus",
-          "name": "Root locus",
+          "id": "analysis-of-control-systems-using-root-locus-plots",
+          "name": "Analysis of control systems using root locus plots",
           "requires": ["routh-hurwitz"]
         }
       ]
     },
     {
-      "id": "frequency-domain",
-      "name": "Frequency Response and Compensation",
-      "hours": 10,
+      "id": "frequency-domain-analysis-and-design",
+      "name": "Frequency Domain Analysis and Design",
+      "hours": 12,
       "topics": [
         {
-          "id": "bode-plots-control",
-          "name": "Bode plots, gain margin and phase margin",
-          "requires": ["bibo-stability"]
+          "id": "nyquist-stability-criterion",
+          "name": "Nyquist stability criterion"
         },
         {
-          "id": "polar-nyquist",
-          "name": "Polar plots and the Nyquist stability criterion",
-          "requires": ["bode-plots-control"]
+          "id": "gain-and-phase-margins-bode-plots-frequency-domain",
+          "name": "Gain and Phase margins, Bode plots, Frequency domain specifications and their correlations with time response, Design and performance goals",
+          "requires": ["nyquist-stability-criterion"]
         },
         {
-          "id": "frequency-domain-specs",
-          "name": "Frequency-domain specifications: bandwidth and resonant peak",
-          "requires": ["bode-plots-control"]
+          "id": "steady-state-transient-and-robustness-specifications",
+          "name": "Steady-state, transient and robustness specifications, Introduction to P, PD, PI and PID controllers and their design, Introduction to Lag and Lead compensator design, Analogy with electronic systems ",
+          "requires": ["gain-and-phase-margins-bode-plots-frequency-domain"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-state-space-analysis-and-way",
+      "name": "Introduction to State Space Analysis and Way Forward",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "modelling-in-state-space",
+          "name": "Modelling in State Space"
         },
         {
-          "id": "lead-lag-compensation",
-          "name": "Lead, lag and lead–lag compensation",
-          "requires": ["bode-plots-control"]
+          "id": "state-space",
+          "name": "State-Space Representation and Analysis",
+          "requires": ["modelling-in-state-space"]
+        },
+        {
+          "id": "canonical-state-variable-model",
+          "name": "Canonical state variable model",
+          "requires": ["state-space"]
+        },
+        {
+          "id": "equivalence-to-transfer-function-model-and-conversions",
+          "name": "Equivalence to transfer function model and conversions",
+          "requires": ["canonical-state-variable-model"]
+        },
+        {
+          "id": "solution-of-state-equations",
+          "name": "Solution of state equations",
+          "requires": ["equivalence-to-transfer-function-model-and-conversions"]
+        },
+        {
+          "id": "concepts-of-controllability-and-observability",
+          "name": "Concepts of Controllability and Observability",
+          "requires": ["solution-of-state-equations"]
+        },
+        {
+          "id": "introduction-to-modern-control-systems-and-way-forward",
+          "name": "Introduction to modern control systems, and way forward",
+          "requires": ["concepts-of-controllability-and-observability"]
         }
       ]
     }

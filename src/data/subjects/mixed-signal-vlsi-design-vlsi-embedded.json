@@ -1,0 +1,298 @@
+{
+  "id": "mixed-signal-vlsi-design-vlsi-embedded",
+  "name": "Mixed Signal VLSI Design (VLSI/Embedded)",
+  "field": "Mixed Signal VLSI Design",
+  "tier": "limited",
+  "branches": ["ece"],
+  "semesters": [7],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s7-program-elective-4--mixed-signal-vlsi-design-vlsi-embedded",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Mixed Signal VLSI Design (VLSI/Embedded)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "introduction-to-mixed-signal",
+      "name": "Introduction to Mixed-signal",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "definition-of-mixed-signal-ics",
+          "name": "Definition of Mixed-signal ICs"
+        },
+        {
+          "id": "challenges",
+          "name": "Challenges",
+          "requires": ["definition-of-mixed-signal-ics"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["challenges"]
+        },
+        {
+          "id": "basic-to-data-conversion-and-processing",
+          "name": "Basic to data conversion and processing",
+          "requires": ["applications"]
+        },
+        {
+          "id": "sampling",
+          "name": "Sampling",
+          "requires": ["basic-to-data-conversion-and-processing"]
+        },
+        {
+          "id": "switched-capacitors-circuits-mosfet-as-switches",
+          "name": "Switched capacitors circuits: MOSFET as switches",
+          "requires": ["sampling"]
+        },
+        {
+          "id": "diode-as-switch",
+          "name": "Diode as Switch",
+          "requires": ["switched-capacitors-circuits-mosfet-as-switches"]
+        },
+        {
+          "id": "switched-capacitor-integrator",
+          "name": "Switched Capacitor Integrator",
+          "requires": ["diode-as-switch"]
+        },
+        {
+          "id": "mos-sample-hold-circuits",
+          "name": "MOS sample-hold circuits",
+          "requires": ["switched-capacitor-integrator"]
+        },
+        {
+          "id": "current-mirror",
+          "name": "Current mirror",
+          "requires": ["mos-sample-hold-circuits"]
+        },
+        {
+          "id": "voltage-controlled-oscillators-vco",
+          "name": "Voltage-Controlled Oscillators (VCO)",
+          "requires": ["current-mirror"]
+        },
+        {
+          "id": "phase-locked-loop-pll",
+          "name": "Phase Locked Loop (PLL)",
+          "requires": ["voltage-controlled-oscillators-vco"]
+        },
+        {
+          "id": "non-ideal-effect-in-pll",
+          "name": "non- ideal effect in PLL",
+          "requires": ["phase-locked-loop-pll"]
+        },
+        {
+          "id": "jitter-and-phase",
+          "name": "Jitter and phase",
+          "requires": ["non-ideal-effect-in-pll"]
+        }
+      ]
+    },
+    {
+      "id": "analog-to-digital-converters",
+      "name": "Analog to Digital Converters",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "performance-metric",
+          "name": "Performance Metric"
+        },
+        {
+          "id": "flash-architectures",
+          "name": "Flash Architectures",
+          "requires": ["performance-metric"]
+        },
+        {
+          "id": "two-step-architectures",
+          "name": "Two-Step Architectures",
+          "requires": ["flash-architectures"]
+        },
+        {
+          "id": "interpolative-and-folding-architectures",
+          "name": "Interpolative and Folding Architectures",
+          "requires": ["two-step-architectures"]
+        },
+        {
+          "id": "pipelined-architectures",
+          "name": "Pipelined Architectures",
+          "requires": ["interpolative-and-folding-architectures"]
+        },
+        {
+          "id": "successive-approximation-architectures",
+          "name": "Successive Approximation Architectures",
+          "requires": ["pipelined-architectures"]
+        },
+        {
+          "id": "interleaved-architectures",
+          "name": "Interleaved Architectures",
+          "requires": ["successive-approximation-architectures"]
+        },
+        {
+          "id": "over-sampling-adc-noise-shaping",
+          "name": "Over sampling ADC – Noise shaping",
+          "requires": ["interleaved-architectures"]
+        },
+        {
+          "id": "sigma-delta-modulator",
+          "name": "Sigma- Delta modulator",
+          "requires": ["over-sampling-adc-noise-shaping"]
+        }
+      ]
+    },
+    {
+      "id": "digital-to-analog-converters",
+      "name": "Digital to Analog Converters",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "performance-metrics",
+          "name": "Performance Metrics"
+        },
+        {
+          "id": "reference-multiplication-and-division-voltage-division",
+          "name": "Reference Multiplication and Division: Voltage Division",
+          "requires": ["performance-metrics"]
+        },
+        {
+          "id": "current-division",
+          "name": "Current Division",
+          "requires": ["reference-multiplication-and-division-voltage-division"]
+        },
+        {
+          "id": "charge-division",
+          "name": "Charge Division",
+          "requires": ["current-division"]
+        },
+        {
+          "id": "switching-and-logical-functions-in-dacs",
+          "name": "Switching and logical Functions in DACs",
+          "requires": ["charge-division"]
+        },
+        {
+          "id": "switching-functions-in-resistor-ladder-dacs",
+          "name": "Switching Functions in Resistor-Ladder DACs",
+          "requires": ["switching-and-logical-functions-in-dacs"]
+        },
+        {
+          "id": "switching-functions-in-current-steering-dacs",
+          "name": "Switching Functions in Current-Steering DACs",
+          "requires": ["switching-functions-in-resistor-ladder-dacs"]
+        },
+        {
+          "id": "switching-functions-in-capacitor-dacs",
+          "name": "Switching Functions in Capacitor DACs",
+          "requires": ["switching-functions-in-current-steering-dacs"]
+        },
+        {
+          "id": "binary-to-thermometer-code-conversion",
+          "name": "Binary-to-Thermometer Code Conversion",
+          "requires": ["switching-functions-in-capacitor-dacs"]
+        },
+        {
+          "id": "architectures-resistor-ladder-dac-architectures",
+          "name": "Architectures: Resistor-Ladder DAC Architectures",
+          "requires": ["binary-to-thermometer-code-conversion"]
+        },
+        {
+          "id": "ladder-architecture-with-switched-sub-divider",
+          "name": "Ladder Architecture with Switched Sub-divider",
+          "requires": ["architectures-resistor-ladder-dac-architectures"]
+        },
+        {
+          "id": "intermeshed-ladder-architectures",
+          "name": "Intermeshed Ladder Architectures",
+          "requires": ["ladder-architecture-with-switched-sub-divider"]
+        },
+        {
+          "id": "current-steering-architectures",
+          "name": "Current-Steering Architectures",
+          "requires": ["intermeshed-ladder-architectures"]
+        },
+        {
+          "id": "r-2r-network-based-architectures",
+          "name": "R-2R-Network Based Architectures",
+          "requires": ["current-steering-architectures"]
+        },
+        {
+          "id": "segmented-architectures",
+          "name": "Segmented Architectures",
+          "requires": ["r-2r-network-based-architectures"]
+        }
+      ]
+    },
+    {
+      "id": "noise-and-testing-of-ics",
+      "name": "NOISE AND TESTING OF ICs",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "noise-types-of-noise-shot",
+          "name": "Noise: Types of noise: Shot"
+        },
+        {
+          "id": "thermal",
+          "name": "Thermal",
+          "requires": ["noise-types-of-noise-shot"]
+        },
+        {
+          "id": "flicker-1-f-burst-and-avalanche-noise",
+          "name": "Flicker (1/f), Burst, and avalanche noise",
+          "requires": ["thermal"]
+        },
+        {
+          "id": "noise-models-of-ic-components-diode",
+          "name": "Noise Models of IC components: Diode",
+          "requires": ["flicker-1-f-burst-and-avalanche-noise"]
+        },
+        {
+          "id": "bjt",
+          "name": "BJT",
+          "requires": ["noise-models-of-ic-components-diode"]
+        },
+        {
+          "id": "mos-transistor",
+          "name": "MOS transistor",
+          "requires": ["bjt"]
+        },
+        {
+          "id": "resistor-capacitors-and-inductors",
+          "name": "Resistor, capacitors, and inductors",
+          "requires": ["mos-transistor"]
+        },
+        {
+          "id": "noise-power-trade-off",
+          "name": "Noise power trade-off",
+          "requires": ["resistor-capacitors-and-inductors"]
+        },
+        {
+          "id": "noise-bandwidth",
+          "name": "Noise Bandwidth",
+          "requires": ["noise-power-trade-off"]
+        },
+        {
+          "id": "noise-figure",
+          "name": "Noise Figure",
+          "requires": ["noise-bandwidth"]
+        },
+        {
+          "id": "noise-temperature",
+          "name": "Noise Temperature",
+          "requires": ["noise-figure"]
+        }
+      ]
+    }
+  ]
+}

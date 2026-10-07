@@ -1,0 +1,190 @@
+{
+  "id": "computer-aided-drug-design",
+  "name": "Computer Aided Drug Design",
+  "field": "Computer Aided Drug Design",
+  "tier": "sourced",
+  "branches": ["biotech"],
+  "semesters": [5],
+  "code": "24BT333T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s5-program-elective-1-choose-one--computer-aided-drug-design",
+      "code": "24BT333T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Computer Aided Drug Design",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "computational-biology-application",
+          "name": "Computational biology application"
+        },
+        {
+          "id": "major-databases",
+          "name": "Major databases",
+          "requires": ["computational-biology-application"]
+        },
+        {
+          "id": "data-management",
+          "name": "Data management",
+          "requires": ["major-databases"]
+        },
+        {
+          "id": "computational-molecular-biology",
+          "name": "computational molecular biology",
+          "requires": ["data-management"]
+        },
+        {
+          "id": "central-dogma",
+          "name": "Central dogma",
+          "requires": ["computational-molecular-biology"]
+        },
+        {
+          "id": "data-retrieval",
+          "name": "Data retrieval",
+          "requires": ["central-dogma"]
+        },
+        {
+          "id": "data-mining",
+          "name": "Data mining",
+          "requires": ["data-retrieval"]
+        },
+        {
+          "id": "sequence-alignment",
+          "name": "Sequence alignment",
+          "requires": ["data-mining"]
+        }
+      ]
+    },
+    {
+      "id": "protein-structure",
+      "name": "Protein Structure",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "classification",
+          "name": "Classification"
+        },
+        {
+          "id": "visualization",
+          "name": "Visualization",
+          "requires": ["classification"]
+        },
+        {
+          "id": "protein-structure-database",
+          "name": "Protein structure database",
+          "requires": ["visualization"]
+        },
+        {
+          "id": "visualization-tools",
+          "name": "Visualization tools",
+          "requires": ["protein-structure-database"]
+        },
+        {
+          "id": "tool-for-protein-ligand-interaction",
+          "name": "Tool for protein ligand interaction",
+          "requires": ["visualization-tools"]
+        },
+        {
+          "id": "motif-and-domains",
+          "name": "Motif and domains",
+          "requires": ["tool-for-protein-ligand-interaction"]
+        },
+        {
+          "id": "protein-protein-interaction",
+          "name": "Protein – protein interaction",
+          "requires": ["motif-and-domains"]
+        }
+      ]
+    },
+    {
+      "id": "structure-prediction",
+      "name": "Structure Prediction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "methods-of-sequence-based-structure-prediction",
+          "name": "Methods of sequence based structure prediction"
+        },
+        {
+          "id": "ab-initio-approach-for-structure-prediction",
+          "name": "Ab-initio approach for structure prediction",
+          "requires": ["methods-of-sequence-based-structure-prediction"]
+        },
+        {
+          "id": "methods-of-2-d-structure-prediction",
+          "name": "Methods of 2-D structure prediction",
+          "requires": ["ab-initio-approach-for-structure-prediction"]
+        },
+        {
+          "id": "protein-function-prediction",
+          "name": "Protein function prediction",
+          "requires": ["methods-of-2-d-structure-prediction"]
+        },
+        {
+          "id": "homologous-modelling-drug-and-target-discovery-technology",
+          "name": "Homologous modelling. Drug and target discovery technology and strategy",
+          "requires": ["protein-function-prediction"]
+        },
+        {
+          "id": "target-validation",
+          "name": "Target validation",
+          "requires": ["homologous-modelling-drug-and-target-discovery-technology"]
+        }
+      ]
+    },
+    {
+      "id": "drug-discovery",
+      "name": "Drug Discovery",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "pharmacogenetics-and-pharmacogenomics-application",
+          "name": "Pharmacogenetics and pharmacogenomics application"
+        },
+        {
+          "id": "snps",
+          "name": "SNPs",
+          "requires": ["pharmacogenetics-and-pharmacogenomics-application"]
+        },
+        {
+          "id": "important-parameter-for-drug-discovery-drug-design",
+          "name": "Important parameter for drug discovery. Drug design approaches",
+          "requires": ["snps"]
+        },
+        {
+          "id": "structure-based-de-novo-methods",
+          "name": "Structure based de novo Methods",
+          "requires": ["important-parameter-for-drug-discovery-drug-design"]
+        },
+        {
+          "id": "qsar",
+          "name": "QSAR",
+          "requires": ["structure-based-de-novo-methods"]
+        },
+        {
+          "id": "adme-tox-property-prediction",
+          "name": "ADME-Tox property prediction",
+          "requires": ["qsar"]
+        }
+      ]
+    }
+  ]
+}

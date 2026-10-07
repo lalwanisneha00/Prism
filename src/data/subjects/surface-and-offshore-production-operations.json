@@ -1,0 +1,235 @@
+{
+  "id": "surface-and-offshore-production-operations",
+  "name": "Surface and Offshore Production Operations",
+  "field": "Surface and Offshore Production Operations",
+  "tier": "limited",
+  "branches": ["petro"],
+  "semesters": [6],
+  "code": "24PE307T",
+  "credits": 3,
+  "ltp": "2-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s6-surface-and-offshore-production-operations",
+      "code": "24PE307T",
+      "category": "Program Core",
+      "ltp": "2-1-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Surface and Offshore Production Operations",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "separation-and-treatment-of-produced-fluid",
+      "name": "Separation and Treatment of Produced Fluid",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "fundamentals-of-surface-production-operations",
+          "name": "Fundamentals of surface production operations"
+        },
+        {
+          "id": "surface-facilities-for-liquid-and-gas-handling",
+          "name": "surface facilities for liquid and gas handling",
+          "requires": ["fundamentals-of-surface-production-operations"]
+        },
+        {
+          "id": "classification-of-separators",
+          "name": "classification of separators",
+          "requires": ["surface-facilities-for-liquid-and-gas-handling"]
+        },
+        {
+          "id": "components-of-separator",
+          "name": "Components of separator",
+          "requires": ["classification-of-separators"]
+        },
+        {
+          "id": "liquid-level-control",
+          "name": "Liquid level control",
+          "requires": ["components-of-separator"]
+        },
+        {
+          "id": "design-of-separator",
+          "name": "design of separator",
+          "requires": ["liquid-level-control"]
+        },
+        {
+          "id": "dehydration",
+          "name": "Dehydration",
+          "requires": ["design-of-separator"]
+        },
+        {
+          "id": "desalting",
+          "name": "Desalting",
+          "requires": ["dehydration"]
+        },
+        {
+          "id": "demulsification",
+          "name": "Demulsification",
+          "requires": ["desalting"]
+        },
+        {
+          "id": "heater-treater",
+          "name": "heater treater",
+          "requires": ["demulsification"]
+        },
+        {
+          "id": "effluent-treatment",
+          "name": "Effluent Treatment",
+          "requires": ["heater-treater"]
+        },
+        {
+          "id": "group-gathering-station",
+          "name": "Group Gathering Station",
+          "requires": ["effluent-treatment"]
+        },
+        {
+          "id": "central-tank-farm",
+          "name": "Central Tank farm",
+          "requires": ["group-gathering-station"]
+        },
+        {
+          "id": "feeder-and-trunk-pipeline-system",
+          "name": "Feeder and Trunk pipeline system",
+          "requires": ["central-tank-farm"]
+        },
+        {
+          "id": "pumps-and-compressor",
+          "name": "pumps and compressor",
+          "requires": ["feeder-and-trunk-pipeline-system"]
+        }
+      ]
+    },
+    {
+      "id": "storage-and-transportation-of-oil-and-gas",
+      "name": "Storage and Transportation of Oil And Gas",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "classification-of-tanks-storage-tank-for-oil",
+          "name": "Classification of tanks: Storage tank for Oil"
+        },
+        {
+          "id": "storage-of-lpg",
+          "name": "storage of LPG",
+          "requires": ["classification-of-tanks-storage-tank-for-oil"]
+        },
+        {
+          "id": "underground-storage",
+          "name": "Underground storage",
+          "requires": ["storage-of-lpg"]
+        },
+        {
+          "id": "measurement-metering-of-oil-and-gas",
+          "name": "Measurement-metering of Oil and Gas",
+          "requires": ["underground-storage"]
+        },
+        {
+          "id": "flow-assurance-problems-and-mitigation",
+          "name": "Flow assurance: problems and mitigation",
+          "requires": ["measurement-metering-of-oil-and-gas"]
+        },
+        {
+          "id": "flow-improver-pour-point-depression-and-drag-reducer-heat",
+          "name": "Flow improver (Pour point depression and Drag reducer, heat treatment)",
+          "requires": ["flow-assurance-problems-and-mitigation"]
+        },
+        {
+          "id": "pigging-in-pipe-lines",
+          "name": "pigging in pipe lines",
+          "requires": ["flow-improver-pour-point-depression-and-drag-reducer-heat"]
+        }
+      ]
+    },
+    {
+      "id": "shallow-and-deep-water-development",
+      "name": "Shallow and Deep-Water Development",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-to-offshore",
+          "name": "Introduction to Offshore"
+        },
+        {
+          "id": "environmental-conditions-wave",
+          "name": "Environmental conditions: Wave",
+          "requires": ["introduction-to-offshore"]
+        },
+        {
+          "id": "wind-and-undercurrent-forces",
+          "name": "wind and undercurrent forces",
+          "requires": ["environmental-conditions-wave"]
+        },
+        {
+          "id": "types-and-classification-of-offshore-platforms",
+          "name": "Types and classification of Offshore Platforms",
+          "requires": ["wind-and-undercurrent-forces"]
+        },
+        {
+          "id": "deep-water-development-and-flow-assurance-strategy",
+          "name": "Deep water development & Flow assurance strategy",
+          "requires": ["types-and-classification-of-offshore-platforms"]
+        },
+        {
+          "id": "floating-platforms",
+          "name": "floating platforms",
+          "requires": ["deep-water-development-and-flow-assurance-strategy"]
+        },
+        {
+          "id": "mooring-and-anchoring-systems",
+          "name": "mooring and anchoring systems",
+          "requires": ["floating-platforms"]
+        },
+        {
+          "id": "rov-and-rot-for-well-intervention-offshore-logistics",
+          "name": "ROV and ROT for well intervention. offshore logistics",
+          "requires": ["mooring-and-anchoring-systems"]
+        },
+        {
+          "id": "prospective-new-technologies",
+          "name": "prospective new technologies",
+          "requires": ["rov-and-rot-for-well-intervention-offshore-logistics"]
+        }
+      ]
+    },
+    {
+      "id": "offshore-well-completion-and-production-system",
+      "name": "Offshore Well Completion and Production System",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "techniques-of-drilling-and-completing-in-shallow-water",
+          "name": "Techniques of drilling and completing in shallow water, Techniques of drilling and completion in deep water, subsea completion, Drilling and production risers, flexible risers: configuration and layin"
+        },
+        {
+          "id": "smart-and-intelligent-well-completion-oil-processing-in",
+          "name": "Smart and intelligent well completion, Oil processing in offshore and comparison with onshore",
+          "requires": ["techniques-of-drilling-and-completing-in-shallow-water"]
+        },
+        {
+          "id": "offshore-safety-and-fire-protection-safety-systems-for",
+          "name": "Offshore Safety and fire protection, Safety systems for offshore operations, Case history analysis and lessons learned",
+          "requires": ["smart-and-intelligent-well-completion-oil-processing-in"]
+        },
+        {
+          "id": "note-the-detailed-syllabus-page-for-this-course-prints-l-t-p",
+          "name": "Note: The detailed syllabus page for this course prints L-T-P-C as 3-0-0-3",
+          "requires": ["offshore-safety-and-fire-protection-safety-systems-for"]
+        },
+        {
+          "id": "the-credits-shown-here-follow-the-official-course-structure",
+          "name": "the credits shown here follow the official course structure table",
+          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"]
+        }
+      ]
+    }
+  ]
+}

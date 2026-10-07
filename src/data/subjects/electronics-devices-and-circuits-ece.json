@@ -1,0 +1,268 @@
+{
+  "id": "electronics-devices-and-circuits-ece",
+  "name": "Electronics Devices and Circuits (ECE)",
+  "field": "Electronics Devices and Circuits",
+  "tier": "sourced",
+  "branches": ["ece"],
+  "semesters": [3],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s3-electronics-devices-and-circuits",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Electronics Devices and Circuits",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "fundamentals-of-semiconductor-devices",
+      "name": "Fundamentals of Semiconductor Devices",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "evolution-and-scope-of-semiconductor-devices-and-technology",
+          "name": "Evolution and scope of semiconductor devices and technology"
+        },
+        {
+          "id": "drift-velocity",
+          "name": "Drift velocity",
+          "requires": ["evolution-and-scope-of-semiconductor-devices-and-technology"]
+        },
+        {
+          "id": "einstein-relation",
+          "name": "Einstein relation",
+          "requires": ["drift-velocity"]
+        },
+        {
+          "id": "conductivity",
+          "name": "conductivity",
+          "requires": ["einstein-relation"]
+        },
+        {
+          "id": "resistivity",
+          "name": "resistivity",
+          "requires": ["conductivity"]
+        },
+        {
+          "id": "drift-current",
+          "name": "Drift current",
+          "requires": ["resistivity"]
+        },
+        {
+          "id": "diffusion-current-density",
+          "name": "diffusion current density",
+          "requires": ["drift-current"]
+        },
+        {
+          "id": "types-of-semiconductors",
+          "name": "Types of semiconductors",
+          "requires": ["diffusion-current-density"]
+        },
+        {
+          "id": "energy-bands-formation-in-semiconductors",
+          "name": "Energy bands formation in semiconductors",
+          "requires": ["types-of-semiconductors"]
+        },
+        {
+          "id": "fermi-dirac-distribution",
+          "name": "Fermi-Dirac distribution",
+          "requires": ["energy-bands-formation-in-semiconductors"]
+        },
+        {
+          "id": "fermi-level-in-intrinsic-extrinsic-semiconductors-and",
+          "name": "Fermi level in intrinsic/extrinsic semiconductors and dependency with temperature and doping",
+          "requires": ["fermi-dirac-distribution"]
+        },
+        {
+          "id": "carrier-concentrations-at-equilibrium",
+          "name": "Carrier concentrations at equilibrium",
+          "requires": ["fermi-level-in-intrinsic-extrinsic-semiconductors-and"]
+        },
+        {
+          "id": "temperature-dependence-on-carrier-concentrations",
+          "name": "Temperature-dependence on carrier concentrations",
+          "requires": ["carrier-concentrations-at-equilibrium"]
+        },
+        {
+          "id": "mobility",
+          "name": "Mobility",
+          "requires": ["temperature-dependence-on-carrier-concentrations"]
+        },
+        {
+          "id": "carrier-generation-and-recombination",
+          "name": "Carrier generation and recombination",
+          "requires": ["mobility"]
+        }
+      ]
+    },
+    {
+      "id": "pn-junction-diode-and-its-applications",
+      "name": "Pn Junction Diode and It’s Applications",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "junctions-metal-semiconductor-schottky-barrier-height",
+          "name": "Junctions: Metal/Semiconductor (Schottky barrier height, rectifying and ohmic contacts)"
+        },
+        {
+          "id": "mathematical-derivation-of-the-potential-barrier",
+          "name": "Mathematical derivation of the potential barrier",
+          "requires": ["junctions-metal-semiconductor-schottky-barrier-height"]
+        },
+        {
+          "id": "depletion-width-and-i-v-characteristics",
+          "name": "depletion width, and I-V characteristics",
+          "requires": ["mathematical-derivation-of-the-potential-barrier"]
+        },
+        {
+          "id": "junction-break-down-zener-and-avalanche-effects",
+          "name": "Junction break down (Zener and avalanche effects)",
+          "requires": ["depletion-width-and-i-v-characteristics"]
+        },
+        {
+          "id": "zener-diode",
+          "name": "Zener diode",
+          "requires": ["junction-break-down-zener-and-avalanche-effects"]
+        },
+        {
+          "id": "clipper",
+          "name": "Clipper",
+          "requires": ["zener-diode"]
+        },
+        {
+          "id": "clamper",
+          "name": "Clamper",
+          "requires": ["clipper"]
+        },
+        {
+          "id": "voltage-multiplier",
+          "name": "Voltage multiplier",
+          "requires": ["clamper"]
+        },
+        {
+          "id": "voltage-regulator",
+          "name": "voltage regulator",
+          "requires": ["voltage-multiplier"]
+        },
+        {
+          "id": "passive-filters",
+          "name": "Passive filters",
+          "requires": ["voltage-regulator"]
+        }
+      ]
+    },
+    {
+      "id": "bipolar-junction-transistor",
+      "name": "Bipolar Junction Transistor",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "working-of-a-bjt",
+          "name": "Working of a BJT"
+        },
+        {
+          "id": "transistor-biasing",
+          "name": "transistor biasing",
+          "requires": ["working-of-a-bjt"]
+        },
+        {
+          "id": "different-transient-circuit-configuration-cb-ce-and-cc",
+          "name": "different transient circuit configuration (CB, CE and CC)",
+          "requires": ["transistor-biasing"]
+        },
+        {
+          "id": "static-characteristic-for-bjt",
+          "name": "static characteristic for BJT",
+          "requires": ["different-transient-circuit-configuration-cb-ce-and-cc"]
+        },
+        {
+          "id": "mos-switch",
+          "name": "transistor as switch",
+          "requires": ["static-characteristic-for-bjt"]
+        },
+        {
+          "id": "amplifier",
+          "name": "amplifier",
+          "requires": ["mos-switch"]
+        }
+      ]
+    },
+    {
+      "id": "mos-transistor",
+      "name": "Mos Transistor",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-to-mosfet-structure",
+          "name": "Introduction to MOSFET: structure"
+        },
+        {
+          "id": "types-and-its-operation",
+          "name": "types and its operation",
+          "requires": ["introduction-to-mosfet-structure"]
+        },
+        {
+          "id": "mos-capacitor",
+          "name": "MOS Capacitor",
+          "requires": ["types-and-its-operation"]
+        },
+        {
+          "id": "threshold-voltage",
+          "name": "Threshold voltage",
+          "requires": ["mos-capacitor"]
+        },
+        {
+          "id": "mathematical-derivation-for-i-v",
+          "name": "Mathematical derivation for I- V",
+          "requires": ["threshold-voltage"]
+        },
+        {
+          "id": "transfer-and-o-p-characteristics",
+          "name": "Transfer and O/P characteristics",
+          "requires": ["mathematical-derivation-for-i-v"]
+        },
+        {
+          "id": "second-order-effects",
+          "name": "Second order effects",
+          "requires": ["transfer-and-o-p-characteristics"]
+        },
+        {
+          "id": "scaling-of-mosfet",
+          "name": "Scaling of MOSFET",
+          "requires": ["second-order-effects"]
+        },
+        {
+          "id": "short-channel-effects-dibl",
+          "name": "Short channel effects: DIBL",
+          "requires": ["scaling-of-mosfet"]
+        },
+        {
+          "id": "gidl",
+          "name": "GIDL",
+          "requires": ["short-channel-effects-dibl"]
+        },
+        {
+          "id": "hot-carrier-injection",
+          "name": "Hot carrier injection",
+          "requires": ["gidl"]
+        },
+        {
+          "id": "surface-scattering-impact-ionization",
+          "name": "surface scattering impact ionization",
+          "requires": ["hot-carrier-injection"]
+        }
+      ]
+    }
+  ]
+}

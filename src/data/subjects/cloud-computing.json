@@ -1,0 +1,156 @@
+{
+  "id": "cloud-computing",
+  "name": "Cloud Computing",
+  "field": "Cloud Computing",
+  "tier": "limited",
+  "branches": ["ce"],
+  "semesters": [7],
+  "code": "24CS434T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s7-program-elective-4--cloud-computing",
+      "code": "24CS434T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "track": "Computing track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Cloud Computing",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "cloud-foundation-and-overview",
+      "name": "Cloud Foundation And Overview",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "distributed-computing",
+          "name": "Distributed Computing"
+        },
+        {
+          "id": "cluster-computing",
+          "name": "Cluster computing",
+          "requires": ["distributed-computing"]
+        },
+        {
+          "id": "grid-computing-cloud-service-models",
+          "name": "Grid computing. Cloud Service Models",
+          "requires": ["cluster-computing"]
+        }
+      ]
+    },
+    {
+      "id": "virtualization-and-load-balancing",
+      "name": "Virtualization And Load Balancing",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "virtualization-concepts-types-of-virtualization",
+          "name": "Virtualization concepts - Types of Virtualization"
+        },
+        {
+          "id": "introduction-to-various-hypervisors",
+          "name": "Introduction to Various Hypervisors",
+          "requires": ["virtualization-concepts-types-of-virtualization"]
+        },
+        {
+          "id": "moving-vms",
+          "name": "Moving VMs",
+          "requires": ["introduction-to-various-hypervisors"]
+        },
+        {
+          "id": "pros-and-cons-of-virtualization",
+          "name": "Pros and cons of virtualization",
+          "requires": ["moving-vms"]
+        },
+        {
+          "id": "virtualization-technology-examples-distributed-management-of",
+          "name": "Virtualization Technology examples. Distributed Management of Virtual Infrastructures",
+          "requires": ["pros-and-cons-of-virtualization"]
+        },
+        {
+          "id": "scheduling",
+          "name": "Scheduling",
+          "requires": ["virtualization-technology-examples-distributed-management-of"]
+        },
+        {
+          "id": "capacity-management-to-meet-sla-requirements",
+          "name": "Capacity Management to meet SLA Requirements",
+          "requires": ["scheduling"]
+        },
+        {
+          "id": "various-load-balancing-techniques",
+          "name": "Various load balancing techniques",
+          "requires": ["capacity-management-to-meet-sla-requirements"]
+        }
+      ]
+    },
+    {
+      "id": "industrial-platforms-and-new-developments",
+      "name": "Industrial Platforms And New Developments",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "study-of-cloud-computing-systems-like-amazon-ec2-and-s3",
+          "name": "Study of Cloud Computing Systems like Amazon EC2 and S3"
+        },
+        {
+          "id": "google-app-engine-and-microsoft-azure",
+          "name": "Google App Engine, and Microsoft Azure",
+          "requires": ["study-of-cloud-computing-systems-like-amazon-ec2-and-s3"]
+        },
+        {
+          "id": "build-private-hybrid-cloud-using-open-source-tools",
+          "name": "Build Private/Hybrid Cloud using open-source tools",
+          "requires": ["google-app-engine-and-microsoft-azure"]
+        },
+        {
+          "id": "mapreduce-and-its-extensions-to-cloud-computing",
+          "name": "MapReduce and its extensions to Cloud Computing",
+          "requires": ["build-private-hybrid-cloud-using-open-source-tools"]
+        },
+        {
+          "id": "cloud-application-programming-and-the-aneka-platform",
+          "name": "Cloud Application Programming, and the Aneka Platform",
+          "requires": ["mapreduce-and-its-extensions-to-cloud-computing"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-topics-in-cloud-computing",
+      "name": "Advanced Topics In Cloud Computing",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "energy-efficiency-in-clouds",
+          "name": "Energy efficiency in clouds"
+        },
+        {
+          "id": "market-based-management-of-clouds",
+          "name": "Market-based management of clouds",
+          "requires": ["energy-efficiency-in-clouds"]
+        },
+        {
+          "id": "federated-clouds",
+          "name": "Federated clouds",
+          "requires": ["market-based-management-of-clouds"]
+        },
+        {
+          "id": "security-in-cloud-computing",
+          "name": "Security in Cloud Computing",
+          "requires": ["federated-clouds"]
+        }
+      ]
+    }
+  ]
+}

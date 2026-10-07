@@ -1,0 +1,350 @@
+{
+  "id": "chemistry-petro",
+  "name": "Chemistry (Petro)",
+  "field": "Engineering Chemistry",
+  "tier": "limited",
+  "branches": ["petro"],
+  "semesters": [2],
+  "code": "24CH102T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s2-chemistry",
+      "code": "24CH102T",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Chemistry",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "chemistry",
+  "chapters": [
+    {
+      "id": "physical-chemistry",
+      "name": "Physical Chemistry",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "surface-chemistry-interparticle-forces-adsorption-isotherms",
+          "name": "Surface Chemistry: Interparticle forces, adsorption isotherms, determination of the surface area of fine powders using BET theory, surface films"
+        },
+        {
+          "id": "colligative-properties-and-their-experimental-determination",
+          "name": "Colligative Properties and their Experimental Determination: Boiling Point Elevation, Freezing Point depression, Osmotic Pressure",
+          "requires": ["surface-chemistry-interparticle-forces-adsorption-isotherms"]
+        }
+      ]
+    },
+    {
+      "id": "organic-chemistry",
+      "name": "Organic Chemistry",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "alkanes-alkenes-alkynes",
+          "name": "Alkanes, Alkenes, Alkynes"
+        },
+        {
+          "id": "markovnikovs-rule",
+          "name": "Markovnikov’s rule",
+          "requires": ["alkanes-alkenes-alkynes"]
+        },
+        {
+          "id": "peroxide-effect",
+          "name": "Peroxide effect",
+          "requires": ["markovnikovs-rule"]
+        },
+        {
+          "id": "bayers-test",
+          "name": "Bayer’s test",
+          "requires": ["peroxide-effect"]
+        },
+        {
+          "id": "monohydric-alcohols",
+          "name": "Monohydric alcohols",
+          "requires": ["bayers-test"]
+        },
+        {
+          "id": "saytzeff-rule",
+          "name": "Saytzeff rule",
+          "requires": ["monohydric-alcohols"]
+        },
+        {
+          "id": "methods-of-distinguishing-the-three-classes-of-alcohols",
+          "name": "Methods of distinguishing the three classes of alcohols",
+          "requires": ["saytzeff-rule"]
+        },
+        {
+          "id": "aldol-condensation",
+          "name": "Aldol condensation",
+          "requires": ["methods-of-distinguishing-the-three-classes-of-alcohols"]
+        },
+        {
+          "id": "clemmensen-reduction",
+          "name": "Clemmensen reduction",
+          "requires": ["aldol-condensation"]
+        },
+        {
+          "id": "wolf-kishner-reduction",
+          "name": "Wolf-Kishner reduction",
+          "requires": ["clemmensen-reduction"]
+        },
+        {
+          "id": "haloform-reaction",
+          "name": "Haloform reaction",
+          "requires": ["wolf-kishner-reduction"]
+        },
+        {
+          "id": "cannizzaro-reaction",
+          "name": "Cannizzaro reaction",
+          "requires": ["haloform-reaction"]
+        },
+        {
+          "id": "reformatsky-reaction",
+          "name": "Reformatsky reaction",
+          "requires": ["cannizzaro-reaction"]
+        },
+        {
+          "id": "wittig-reaction",
+          "name": "Wittig reaction",
+          "requires": ["reformatsky-reaction"]
+        },
+        {
+          "id": "saturated-monocarbozylic-acids",
+          "name": "Saturated monocarbozylic acids",
+          "requires": ["wittig-reaction"]
+        },
+        {
+          "id": "hell-volhard-zelinsky-reaction",
+          "name": "Hell-Volhard-Zelinsky reaction",
+          "requires": ["saturated-monocarbozylic-acids"]
+        },
+        {
+          "id": "classification-of-carbohydrates",
+          "name": "Classification of carbohydrates",
+          "requires": ["hell-volhard-zelinsky-reaction"]
+        },
+        {
+          "id": "monosaccharides",
+          "name": "Monosaccharides",
+          "requires": ["classification-of-carbohydrates"]
+        },
+        {
+          "id": "mutarotation",
+          "name": "Mutarotation",
+          "requires": ["monosaccharides"]
+        },
+        {
+          "id": "epimerization",
+          "name": "Epimerization",
+          "requires": ["mutarotation"]
+        },
+        {
+          "id": "aromatics",
+          "name": "Aromatics",
+          "requires": ["epimerization"]
+        },
+        {
+          "id": "ruff-degradation-aromaticity",
+          "name": "Ruff degradation Aromaticity",
+          "requires": ["aromatics"]
+        },
+        {
+          "id": "huckel-rule",
+          "name": "Huckel rule",
+          "requires": ["ruff-degradation-aromaticity"]
+        },
+        {
+          "id": "electrophilic-substitution-reactions",
+          "name": "Electrophilic substitution reactions",
+          "requires": ["huckel-rule"]
+        },
+        {
+          "id": "directive-effects-of-substituents",
+          "name": "Directive effects of substituents",
+          "requires": ["electrophilic-substitution-reactions"]
+        },
+        {
+          "id": "aromatic-amino-compounds",
+          "name": "Aromatic amino compounds",
+          "requires": ["directive-effects-of-substituents"]
+        },
+        {
+          "id": "carbylamines-reaction",
+          "name": "Carbylamines reaction",
+          "requires": ["aromatic-amino-compounds"]
+        }
+      ]
+    },
+    {
+      "id": "petroleum-chemistry",
+      "name": "Petroleum Chemistry",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "solid-fuels-wood",
+          "name": "Solid fuels: Wood"
+        },
+        {
+          "id": "charcoal",
+          "name": "charcoal",
+          "requires": ["solid-fuels-wood"]
+        },
+        {
+          "id": "peat",
+          "name": "Peat",
+          "requires": ["charcoal"]
+        },
+        {
+          "id": "coal",
+          "name": "Coal",
+          "requires": ["peat"]
+        },
+        {
+          "id": "analysis-of-coal",
+          "name": "Analysis of coal",
+          "requires": ["coal"]
+        },
+        {
+          "id": "astm-classification",
+          "name": "ASTM classification",
+          "requires": ["analysis-of-coal"]
+        },
+        {
+          "id": "ash",
+          "name": "Ash",
+          "requires": ["astm-classification"]
+        },
+        {
+          "id": "coal-and-its-environment",
+          "name": "Coal and its environment",
+          "requires": ["ash"]
+        },
+        {
+          "id": "fluidized-bed-combustion-and-coke-liquid-fuels-diesel-engine",
+          "name": "fluidized bed combustion and coke. Liquid Fuels: Diesel Engine",
+          "requires": ["coal-and-its-environment"]
+        },
+        {
+          "id": "diesel-fuel",
+          "name": "Diesel Fuel",
+          "requires": ["fluidized-bed-combustion-and-coke-liquid-fuels-diesel-engine"]
+        },
+        {
+          "id": "ignition-temperature",
+          "name": "Ignition temperature",
+          "requires": ["diesel-fuel"]
+        },
+        {
+          "id": "flash-point",
+          "name": "flash point",
+          "requires": ["ignition-temperature"]
+        },
+        {
+          "id": "fire-point-and-smoke-point",
+          "name": "fire point and smoke point",
+          "requires": ["flash-point"]
+        },
+        {
+          "id": "the-spark-ignition-internal-combustion-engine",
+          "name": "The spark Ignition internal combustion engine",
+          "requires": ["fire-point-and-smoke-point"]
+        },
+        {
+          "id": "gasoline-fuel-gaseous-fuel-natural-gas-and-its-uses",
+          "name": "gasoline fuel. Gaseous fuel: Natural gas and its uses",
+          "requires": ["the-spark-ignition-internal-combustion-engine"]
+        },
+        {
+          "id": "natural-gas-as-a-fuel",
+          "name": "Natural gas as a fuel",
+          "requires": ["gasoline-fuel-gaseous-fuel-natural-gas-and-its-uses"]
+        },
+        {
+          "id": "other-carbon-based-fuel-gases-and-explosion-limits-hydrogen",
+          "name": "other carbon based fuel gases, and explosion limits. Hydrogen",
+          "requires": ["natural-gas-as-a-fuel"]
+        },
+        {
+          "id": "methods-for-the-preparation-of-h2",
+          "name": "methods for the preparation of H2",
+          "requires": ["other-carbon-based-fuel-gases-and-explosion-limits-hydrogen"]
+        },
+        {
+          "id": "transportation-and-storage-of-h2",
+          "name": "Transportation and storage of H2",
+          "requires": ["methods-for-the-preparation-of-h2"]
+        }
+      ]
+    },
+    {
+      "id": "organic-geochemistry-and-isotope-geochemistry",
+      "name": "Organic Geochemistry and Isotope Geochemistry",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "organic-geochemistry",
+          "name": "Organic Geochemistry"
+        },
+        {
+          "id": "a-brief-biological-background-organic-compound-and-their",
+          "name": "A brief Biological background, Organic Compound and their nomenclature, Biologically important organic compounds",
+          "requires": ["organic-geochemistry"]
+        },
+        {
+          "id": "carbohydrate-lipids-proteins-introduction-to-isotope-geology",
+          "name": "Carbohydrate, Lipids, Proteins, Introduction to isotope geology",
+          "requires": ["a-brief-biological-background-organic-compound-and-their"]
+        },
+        {
+          "id": "discovery-or-radioactivity-and-isotopes",
+          "name": "Discovery or radioactivity and isotopes",
+          "requires": ["carbohydrate-lipids-proteins-introduction-to-isotope-geology"]
+        },
+        {
+          "id": "isotope-in-earth-sciences",
+          "name": "Isotope in earth sciences",
+          "requires": ["discovery-or-radioactivity-and-isotopes"]
+        },
+        {
+          "id": "nuclide-types-and-their-abundances",
+          "name": "Nuclide types and their abundances",
+          "requires": ["isotope-in-earth-sciences"]
+        },
+        {
+          "id": "decay-mechanism-of-radioactive-atoms",
+          "name": "Decay mechanism of radioactive atoms",
+          "requires": ["nuclide-types-and-their-abundances"]
+        },
+        {
+          "id": "basic-principles-of-radiometric-dating",
+          "name": "basic Principles of radiometric dating",
+          "requires": ["decay-mechanism-of-radioactive-atoms"]
+        },
+        {
+          "id": "stable-isotope-systematic-elementary-knowledge-about",
+          "name": "Stable isotope Systematic: elementary knowledge about fractionation of stable isotopes",
+          "requires": ["basic-principles-of-radiometric-dating"]
+        },
+        {
+          "id": "stable-isotopes-and-petroleum",
+          "name": "Stable isotopes and petroleum",
+          "requires": ["stable-isotope-systematic-elementary-knowledge-about"]
+        },
+        {
+          "id": "mass-spectrometry",
+          "name": "mass spectrometry",
+          "requires": ["stable-isotopes-and-petroleum"]
+        }
+      ]
+    }
+  ]
+}

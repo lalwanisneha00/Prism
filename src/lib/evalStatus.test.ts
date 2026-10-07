@@ -11,10 +11,9 @@ describe("eval status", () => {
         .sort(),
     );
   });
-  it("tells measured, waiting and untested subjects apart", () => {
-    expect(evalStatusOf("applied-physics")).toBe("measured");
+  it("shows no score until the PDEU subjects' accuracy tests are run", () => {
+    expect(evalStatusOf("applied-physics")).toBe("no-test-set");
     expect(evalStatusOf("this-subject-does-not-exist")).toBe("no-test-set");
-    const pending = status.goldenSubjects.filter((s) => evalStatusOf(s) === "pending");
-    expect(pending.length).toBeGreaterThan(0);
+    expect(status.goldenSubjects).toEqual([]);
   });
 });

@@ -1,0 +1,184 @@
+{
+  "id": "next-generation-sequence-analysis",
+  "name": "Next Generation Sequence Analysis",
+  "field": "Next Generation Sequence Analysis",
+  "tier": "limited",
+  "branches": ["biotech"],
+  "semesters": [6],
+  "code": "24BT339T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s6-program-elective-3-choose-one--next-generation-sequence-analysis",
+      "code": "24BT339T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Next Generation Sequence Analysis",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "historical-perspective-of-sequencing-technologies",
+          "name": "Historical perspective of sequencing technologies"
+        },
+        {
+          "id": "overview-of-modern-sequencing-technologies",
+          "name": "Overview of modern sequencing technologies",
+          "requires": ["historical-perspective-of-sequencing-technologies"]
+        },
+        {
+          "id": "next-generation-sequencing-platforms",
+          "name": "Next Generation sequencing platforms",
+          "requires": ["overview-of-modern-sequencing-technologies"]
+        },
+        {
+          "id": "data-acquisition-and-base-calling",
+          "name": "Data acquisition and base calling",
+          "requires": ["next-generation-sequencing-platforms"]
+        },
+        {
+          "id": "quality-of-sequencing-data",
+          "name": "Quality of sequencing data",
+          "requires": ["data-acquisition-and-base-calling"]
+        },
+        {
+          "id": "read-mapping-and-genome-assembly",
+          "name": "Read mapping and genome assembly",
+          "requires": ["quality-of-sequencing-data"]
+        },
+        {
+          "id": "structural-and-functional-annotation-of-genomes",
+          "name": "Structural and functional annotation of genomes",
+          "requires": ["read-mapping-and-genome-assembly"]
+        },
+        {
+          "id": "statistics-and-algorithms-used-in-different-steps-in-data",
+          "name": "Statistics and algorithms used in different steps in data analysis",
+          "requires": ["structural-and-functional-annotation-of-genomes"]
+        }
+      ]
+    },
+    {
+      "id": "technologies-for-transcriptomics-and-regulatory",
+      "name": "Technologies for Transcriptomics and Regulatory Genomics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "chip-seq-analysis",
+          "name": "Chip- seq Analysis"
+        },
+        {
+          "id": "peak-finding",
+          "name": "Peak finding",
+          "requires": ["chip-seq-analysis"]
+        },
+        {
+          "id": "motif-discovery",
+          "name": "Motif Discovery",
+          "requires": ["peak-finding"]
+        },
+        {
+          "id": "rna-seq-analysis",
+          "name": "RNA-seq Analysis",
+          "requires": ["motif-discovery"]
+        },
+        {
+          "id": "differential-gene-expression-analysis",
+          "name": "Differential gene expression analysis",
+          "requires": ["rna-seq-analysis"]
+        },
+        {
+          "id": "exome-sequencing-and-analysis",
+          "name": "Exome sequencing and analysis",
+          "requires": ["differential-gene-expression-analysis"]
+        },
+        {
+          "id": "exome-sequencing",
+          "name": "Exome sequencing",
+          "requires": ["exome-sequencing-and-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "software-and-pipelines-for-ngs-data-analysis",
+      "name": "Software and Pipelines for Ngs Data Analysis",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "chip-seq-analysis-piplines",
+          "name": "Chip-seq analysis Piplines"
+        },
+        {
+          "id": "rna-seq-analysis-pipelines",
+          "name": "RNA-seq analysis pipelines",
+          "requires": ["chip-seq-analysis-piplines"]
+        },
+        {
+          "id": "software-used-for-assembly-and-differential-gene-analysis",
+          "name": "Software used for assembly and differential gene analysis",
+          "requires": ["rna-seq-analysis-pipelines"]
+        },
+        {
+          "id": "basics-of-genome-browsers",
+          "name": "Basics of Genome Browsers",
+          "requires": ["software-used-for-assembly-and-differential-gene-analysis"]
+        },
+        {
+          "id": "annotation-pipelines",
+          "name": "Annotation pipelines",
+          "requires": ["basics-of-genome-browsers"]
+        }
+      ]
+    },
+    {
+      "id": "genome-sequencing-and-applications-in-genetics",
+      "name": "Genome Sequencing and Applications in Genetics Studies",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "algorithms-and-application-in-studying-regulation-of-gene",
+          "name": "Algorithms and application in studying regulation of gene expression"
+        },
+        {
+          "id": "emerging-technologies-of-single-cell-gene-expression",
+          "name": "Emerging technologies of single-cell gene expression analysis",
+          "requires": ["algorithms-and-application-in-studying-regulation-of-gene"]
+        },
+        {
+          "id": "metagenomics",
+          "name": "Metagenomics",
+          "requires": ["emerging-technologies-of-single-cell-gene-expression"]
+        },
+        {
+          "id": "variant-detection",
+          "name": "Variant detection",
+          "requires": ["metagenomics"]
+        },
+        {
+          "id": "time-series-analysis",
+          "name": "Time series analysis",
+          "requires": ["variant-detection"]
+        },
+        {
+          "id": "pathway-analysis",
+          "name": "Pathway Analysis",
+          "requires": ["time-series-analysis"]
+        }
+      ]
+    }
+  ]
+}

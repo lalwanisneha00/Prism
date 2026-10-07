@@ -1,0 +1,150 @@
+{
+  "id": "reservoir-modelling-and-simulation",
+  "name": "Reservoir Modelling and Simulation",
+  "field": "Reservoir Modelling and Simulation",
+  "tier": "limited",
+  "branches": ["petro"],
+  "semesters": [6],
+  "code": "24PE306T",
+  "credits": 3,
+  "ltp": "2-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s6-reservoir-modelling-and-simulation",
+      "code": "24PE306T",
+      "category": "Program Core",
+      "ltp": "2-1-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Reservoir Modelling and Simulation",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-geological-modelling-geostatistical",
+          "name": "Introduction to Geological Modelling, Geostatistical Modelling & Variogram correction, classification of Models, Need for reservoir simulation, Applications of reservoir simulation, Steps of reservoir"
+        },
+        {
+          "id": "continuity-equation-equation-of-motion-darcy-and-non-darcy",
+          "name": "Continuity Equation, Equation of Motion, Darcy and Non-Darcy Flow",
+          "requires": ["introduction-to-geological-modelling-geostatistical"]
+        }
+      ]
+    },
+    {
+      "id": "fundamentals-of-reservoir-simulation",
+      "name": "Fundamentals of Reservoir Simulation",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "reservoir-discretization",
+          "name": "Reservoir Discretization"
+        },
+        {
+          "id": "block-identification-and-block-ordering",
+          "name": "Block Identification and Block Ordering",
+          "requires": ["reservoir-discretization"]
+        },
+        {
+          "id": "single-phase-fluid-flow-equations-in-multidimensional-domain",
+          "name": "Single Phase Fluid Flow Equations in Multidimensional Domain",
+          "requires": ["block-identification-and-block-ordering"]
+        },
+        {
+          "id": "flow-equations-using-cvfd-terminology",
+          "name": "Flow Equations using CVFD Terminology",
+          "requires": ["single-phase-fluid-flow-equations-in-multidimensional-domain"]
+        },
+        {
+          "id": "various-flow-geometries",
+          "name": "Various Flow Geometries",
+          "requires": ["flow-equations-using-cvfd-terminology"]
+        },
+        {
+          "id": "initial-and-boundary-conditions",
+          "name": "Initial and Boundary Conditions",
+          "requires": ["various-flow-geometries"]
+        },
+        {
+          "id": "block-centered-and-point-centered-grid-distribution",
+          "name": "Block-Centered and Point-Centered Grid distribution",
+          "requires": ["initial-and-boundary-conditions"]
+        },
+        {
+          "id": "simulation-with-block-centered-grid",
+          "name": "Simulation with Block-Centered Grid",
+          "requires": ["block-centered-and-point-centered-grid-distribution"]
+        },
+        {
+          "id": "simulation-with-a-point-distributed-grid",
+          "name": "Simulation with a Point-Distributed Grid",
+          "requires": ["simulation-with-block-centered-grid"]
+        },
+        {
+          "id": "well-representation-in-simulators",
+          "name": "Well Representation in Simulators",
+          "requires": ["simulation-with-a-point-distributed-grid"]
+        },
+        {
+          "id": "single-phase-flow-equations-for-various-fluids",
+          "name": "Single-Phase Flow equations for various Fluids",
+          "requires": ["well-representation-in-simulators"]
+        }
+      ]
+    },
+    {
+      "id": "reservoir-model-solution-algorithms",
+      "name": "Reservoir Model Solution Algorithms",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "linearization-of-flow-equations-immiscible-two-phase-fluid",
+          "name": "Linearization of Flow Equations, Immiscible two-phase fluid flow equations, Pseudo functions, Explicit & implicit grid system, Reservoir Model Solution Techniques: Implicit pressure and Explicit Satur"
+        },
+        {
+          "id": "sequential-and-fully-implicit-method",
+          "name": "Sequential and Fully Implicit Method",
+          "requires": ["linearization-of-flow-equations-immiscible-two-phase-fluid"]
+        },
+        {
+          "id": "preview-of-numerical-solution-methods-direct-and-iterative",
+          "name": "Preview of Numerical Solution Methods: Direct & Iterative method, stability criteria, Well representation",
+          "requires": ["sequential-and-fully-implicit-method"]
+        }
+      ]
+    },
+    {
+      "id": "history-matching-and-streamline-simulation",
+      "name": "History Matching and Streamline Simulation",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "model-validation-verification-history-matching-optimization",
+          "name": "Model validation/verification: History Matching, Optimization algorithms in History Matching, performance prediction"
+        },
+        {
+          "id": "introduction-to-reactive-transport-modelling",
+          "name": "Introduction to reactive transport modelling",
+          "requires": ["model-validation-verification-history-matching-optimization"]
+        },
+        {
+          "id": "introduction-to-streamline-simulation-comparison-of",
+          "name": "Introduction to Streamline Simulation, comparison of Conventional / Streamline Simulation",
+          "requires": ["introduction-to-reactive-transport-modelling"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { countsOf, indexedSubject, loadSubject, subjectIndex } from "@/lib/catalogue";
-import { chaptersOf, subjects } from "@/lib/subjects";
+import { chaptersOf, subjects as allSubjects } from "@/lib/subjects";
+
+// The two test-only subjects (vitest.setup.ts) are not in the app's catalogue.
+const subjects = allSubjects.filter((s) => s.offerings);
 
 describe("the light catalogue", () => {
   it("lists exactly the subjects of the full catalogue, in the same order", () => {
@@ -21,8 +24,8 @@ describe("the light catalogue", () => {
   });
 
   it("loads one subject's full data on demand", async () => {
-    const em = await loadSubject("em");
-    expect(em?.chapters.length).toBeGreaterThan(3);
+    const physics = await loadSubject("applied-physics");
+    expect(physics?.chapters.length).toBe(4);
     expect(await loadSubject("no-such-subject")).toBeUndefined();
   });
 

@@ -33,9 +33,6 @@ describe("matchSubject", () => {
     expect(matchSubject(find("Applied Physics"), subjects).best?.subject.id).toBe(
       "applied-physics",
     );
-    expect(matchSubject(find("Engineering Mechanics"), subjects).best?.subject.id).toBe(
-      "engg-mechanics",
-    );
   });
   it("leaves subjects Prism does not teach as the student's own", () => {
     expect(matchSubject(find("Indian Knowledge System"), subjects).best).toBeNull();

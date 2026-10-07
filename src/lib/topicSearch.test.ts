@@ -49,7 +49,13 @@ describe("searchTopics", () => {
 });
 
 describe("forgiving search", () => {
-  const physics = subjects.find((s) => s.id === "applied-physics")!;
+  // A subject whose chapters are all linked in from E&M (the test-only fixture).
+  const physics = {
+    ...subjects.find((s) => s.id === "em")!,
+    id: "linked-physics",
+    chapters: [],
+    links: [{ subject: "em" }],
+  };
   it("finds topics in linked chapters (capacitor under Applied Physics)", () => {
     const hits = searchTopics(physics, "capacitor");
     expect(hits.length).toBeGreaterThan(0);

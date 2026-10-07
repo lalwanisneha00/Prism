@@ -1,0 +1,270 @@
+{
+  "id": "biomaterial-and-implants",
+  "name": "Biomaterial and Implants",
+  "field": "Biomaterial and Implants",
+  "tier": "limited",
+  "branches": ["biotech"],
+  "semesters": [6],
+  "code": "24BT334T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s6-program-elective-2-choose-one--biomaterial-and-implants",
+      "code": "24BT334T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Biomaterial and Implants",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "chemistry",
+  "chapters": [
+    {
+      "id": "introduction-to-biomaterials",
+      "name": "Introduction to Biomaterials",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "biomaterial",
+          "name": "Biomaterial"
+        },
+        {
+          "id": "types-of-biomaterials",
+          "name": "Types of Biomaterials",
+          "requires": ["biomaterial"]
+        },
+        {
+          "id": "biocompatibility",
+          "name": "Biocompatibility",
+          "requires": ["types-of-biomaterials"]
+        },
+        {
+          "id": "biological-material",
+          "name": "Biological material",
+          "requires": ["biocompatibility"]
+        },
+        {
+          "id": "biodegradable-material",
+          "name": "Biodegradable material",
+          "requires": ["biological-material"]
+        },
+        {
+          "id": "bioresorbable-material",
+          "name": "Bioresorbable material",
+          "requires": ["biodegradable-material"]
+        },
+        {
+          "id": "bio-inert-material",
+          "name": "Bio-inert material",
+          "requires": ["bioresorbable-material"]
+        },
+        {
+          "id": "bio-active-material",
+          "name": "Bio-active material",
+          "requires": ["bio-inert-material"]
+        },
+        {
+          "id": "minimum-requirements-of-biomaterials",
+          "name": "Minimum Requirements of Biomaterials",
+          "requires": ["bio-active-material"]
+        },
+        {
+          "id": "surface-properties-of-biomaterials",
+          "name": "Surface Properties of Biomaterials",
+          "requires": ["minimum-requirements-of-biomaterials"]
+        },
+        {
+          "id": "desirable-properties-of-biomaterial",
+          "name": "Desirable Properties of Biomaterial",
+          "requires": ["surface-properties-of-biomaterials"]
+        }
+      ]
+    },
+    {
+      "id": "different-types-of-biomaterials",
+      "name": "Different Types of Biomaterials",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "different-types-of-metallic-and-polymeric-biomaterials",
+          "name": "Different types of metallic and polymeric biomaterials"
+        },
+        {
+          "id": "applications-and-performance-of-biomaterials",
+          "name": "Applications and Performance of Biomaterials",
+          "requires": ["different-types-of-metallic-and-polymeric-biomaterials"]
+        },
+        {
+          "id": "impact-of-material-corrosion-and-its-prevention-strategies",
+          "name": "Impact of material corrosion and its prevention strategies",
+          "requires": ["applications-and-performance-of-biomaterials"]
+        }
+      ]
+    },
+    {
+      "id": "biocompatibility-testing-and-response-of",
+      "name": "Biocompatibility Testing & Response of Biomaterial",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "biocompatibility-testing-introduction",
+          "name": "Biocompatibility Testing: Introduction"
+        },
+        {
+          "id": "in-vitro-testing",
+          "name": "In-Vitro Testing",
+          "requires": ["biocompatibility-testing-introduction"]
+        },
+        {
+          "id": "in-vivo-testing",
+          "name": "In-Vivo Testing",
+          "requires": ["in-vitro-testing"]
+        },
+        {
+          "id": "hypersensitivity",
+          "name": "Hypersensitivity",
+          "requires": ["in-vivo-testing"]
+        },
+        {
+          "id": "haemocompatibility",
+          "name": "Haemocompatibility",
+          "requires": ["hypersensitivity"]
+        },
+        {
+          "id": "odontocompatibility",
+          "name": "Odontocompatibility",
+          "requires": ["haemocompatibility"]
+        },
+        {
+          "id": "osteocompatibility",
+          "name": "Osteocompatibility",
+          "requires": ["odontocompatibility"]
+        },
+        {
+          "id": "cytotoxicity",
+          "name": "Cytotoxicity",
+          "requires": ["osteocompatibility"]
+        },
+        {
+          "id": "genotoxicity",
+          "name": "Genotoxicity",
+          "requires": ["cytotoxicity"]
+        },
+        {
+          "id": "carcinogenicity-response-of-biomaterial-to-human-body-blood",
+          "name": "Carcinogenicity. Response of Biomaterial to Human Body: Blood-Biomaterial Interactions",
+          "requires": ["genotoxicity"]
+        },
+        {
+          "id": "biomaterials-tissue-interactions",
+          "name": "Biomaterials-Tissue Interactions",
+          "requires": ["carcinogenicity-response-of-biomaterial-to-human-body-blood"]
+        },
+        {
+          "id": "tissue-response-to-implants",
+          "name": "Tissue response to Implants",
+          "requires": ["biomaterials-tissue-interactions"]
+        },
+        {
+          "id": "inflammation",
+          "name": "Inflammation",
+          "requires": ["tissue-response-to-implants"]
+        },
+        {
+          "id": "wound-healing-and-foreign-body-response",
+          "name": "Wound Healing, and Foreign Body Response",
+          "requires": ["inflammation"]
+        },
+        {
+          "id": "impact-of-biofilm-formation-on-biomaterials",
+          "name": "Impact of Biofilm formation on biomaterials",
+          "requires": ["wound-healing-and-foreign-body-response"]
+        }
+      ]
+    },
+    {
+      "id": "bio-implants",
+      "name": "Bio-implants",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "stent",
+          "name": "Stent"
+        },
+        {
+          "id": "vascular-grafts",
+          "name": "Vascular grafts",
+          "requires": ["stent"]
+        },
+        {
+          "id": "artificial-heart-valves",
+          "name": "Artificial Heart valves",
+          "requires": ["vascular-grafts"]
+        },
+        {
+          "id": "contact-lenses",
+          "name": "Contact lenses",
+          "requires": ["artificial-heart-valves"]
+        },
+        {
+          "id": "intra-ocular-lenses",
+          "name": "Intra-ocular lenses",
+          "requires": ["contact-lenses"]
+        },
+        {
+          "id": "artificial-silicon-retina",
+          "name": "Artificial Silicon Retina",
+          "requires": ["intra-ocular-lenses"]
+        },
+        {
+          "id": "temporary-fixation-devices",
+          "name": "Temporary fixation Devices",
+          "requires": ["artificial-silicon-retina"]
+        },
+        {
+          "id": "total-hip-replacement",
+          "name": "Total Hip Replacement",
+          "requires": ["temporary-fixation-devices"]
+        },
+        {
+          "id": "total-knee-replacement",
+          "name": "Total Knee Replacement",
+          "requires": ["total-hip-replacement"]
+        },
+        {
+          "id": "dental-filling-and-restoration-material",
+          "name": "Dental filling & Restoration material",
+          "requires": ["total-knee-replacement"]
+        },
+        {
+          "id": "dental-implants",
+          "name": "Dental implants",
+          "requires": ["dental-filling-and-restoration-material"]
+        },
+        {
+          "id": "suture-materials",
+          "name": "Suture materials",
+          "requires": ["dental-implants"]
+        },
+        {
+          "id": "wound-dressings",
+          "name": "Wound dressings",
+          "requires": ["suture-materials"]
+        },
+        {
+          "id": "tissue-adhesives",
+          "name": "Tissue Adhesives",
+          "requires": ["wound-dressings"]
+        }
+      ]
+    }
+  ]
+}

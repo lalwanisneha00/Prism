@@ -9,9 +9,9 @@ async function pickChapter(page: Page) {
   await page.getByTestId("all-subjects-list").locator("summary").click();
   await page
     .getByTestId("all-subjects-list")
-    .getByRole("button", { name: /Electricity & Magnetism/ })
+    .getByRole("button", { name: /^Applied Physics/ })
     .click();
-  await page.getByLabel("Or browse by chapter").selectOption("electrostatics");
+  await page.getByLabel("Or browse by chapter").selectOption("electricity-and-magnetism");
 }
 
 test.describe("Whole-chapter lessons: choosing and planning (V2.5 · Step 3)", () => {
@@ -33,13 +33,13 @@ test.describe("Whole-chapter lessons: choosing and planning (V2.5 · Step 3)", (
 
     const why = page.getByTestId("why-timings");
     await why.getByText("Why these timings?").click();
-    await expect(why.getByText("8 topics")).toBeVisible();
+    await expect(why.getByText("16 topics")).toBeVisible();
     await expect(why.getByText(/size and difficulty only/)).toBeVisible();
 
     await page.getByRole("button", { name: /Build my lesson/ }).click();
     await expect(page).toHaveURL(/\/chapter\?/);
     const list = page.getByTestId("plan-list");
-    await expect(list.getByRole("listitem")).toHaveCount(8);
+    await expect(list.getByRole("listitem")).toHaveCount(16);
     const total = page.getByTestId("plan-total");
     const before = await total.textContent();
     expect(before).toMatch(/Total: (\d+) of \1 min/);
@@ -61,7 +61,7 @@ test.describe("Whole-chapter lessons: choosing and planning (V2.5 · Step 3)", (
   });
 
   test("chosen topics, and uploaded papers shape the estimate", async ({ page }) => {
-    await page.goto("/notes?subject=em");
+    await page.goto("/notes?subject=applied-physics");
     await page
       .getByTestId("materials-input")
       .setInputFiles(fixture("PYQ-applied-physics-2024.txt"));
@@ -69,8 +69,8 @@ test.describe("Whole-chapter lessons: choosing and planning (V2.5 · Step 3)", (
 
     await pickChapter(page);
     await page.getByRole("radio", { name: "Choose topics" }).click();
-    await page.getByText("Gauss's law", { exact: true }).click();
-    await page.getByText("Electric dipole", { exact: true }).click();
+    await page.getByText(/Faraday/).click();
+    await page.getByText("Vector Potential", { exact: true }).click();
     await page.getByText("Exam Prep", { exact: true }).click();
     const why = page.getByTestId("why-timings");
     await why.getByText("Why these timings?").click();
@@ -94,6 +94,8 @@ test.describe("Whole-chapter lessons: choosing and planning (V2.5 · Step 3)", (
 });
 
 test("a broken chapter link explains itself", async ({ page }) => {
-  await page.goto("/chapter?subject=em&chapter=electrostatics&level=genius&minutes=2");
+  await page.goto(
+    "/chapter?subject=applied-physics&chapter=electricity-and-magnetism&level=genius&minutes=2",
+  );
   await expect(page.getByRole("heading", { name: /can't be planned/ })).toBeVisible();
 });

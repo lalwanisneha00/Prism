@@ -1,0 +1,170 @@
+{
+  "id": "molecular-data-analysis-and-simulations",
+  "name": "Molecular Data Analysis and Simulations",
+  "field": "Molecular Data Analysis and Simulations",
+  "tier": "sourced",
+  "branches": ["biotech"],
+  "semesters": [7],
+  "code": "24BT436T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s7-program-elective-5-choose-one--molecular-data-analysis-and-simulations",
+      "code": "24BT436T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Molecular Data Analysis and Simulations",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "useful-concepts-in-molecular-modelling",
+          "name": "Useful Concepts in Molecular Modelling"
+        },
+        {
+          "id": "coordinate-systems",
+          "name": "Coordinate Systems",
+          "requires": ["useful-concepts-in-molecular-modelling"]
+        },
+        {
+          "id": "internal-coordinates",
+          "name": "Internal Coordinates",
+          "requires": ["coordinate-systems"]
+        },
+        {
+          "id": "potential-energy-surfaces",
+          "name": "Potential Energy Surfaces",
+          "requires": ["internal-coordinates"]
+        },
+        {
+          "id": "molecular-graphics",
+          "name": "Molecular Graphics",
+          "requires": ["potential-energy-surfaces"]
+        },
+        {
+          "id": "surfaces",
+          "name": "Surfaces",
+          "requires": ["molecular-graphics"]
+        },
+        {
+          "id": "computer-hardware-and-software",
+          "name": "Computer Hardware and Software",
+          "requires": ["surfaces"]
+        },
+        {
+          "id": "the-molecular-modelling-literature",
+          "name": "The Molecular Modelling Literature",
+          "requires": ["computer-hardware-and-software"]
+        }
+      ]
+    },
+    {
+      "id": "force-fields",
+      "name": "Force Fields",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "force-fields-bond-stretching-angle-bending-torsional-terms",
+          "name": "Force Fields, Bond Stretching, Angle Bending, Torsional Terms, Introduction to Non-bonded Interactions: Electrostatic Interactions"
+        },
+        {
+          "id": "vander-waals-interactions-hydrogen-bonding-in-molecular",
+          "name": "Vander Waals Interactions, Hydrogen Bonding in Molecular Mechanics, Force Field Models for the Simulation of Liquid Water",
+          "requires": ["force-fields-bond-stretching-angle-bending-torsional-terms"]
+        }
+      ]
+    },
+    {
+      "id": "molecular-dynamics-and-monte-carlo-simulation",
+      "name": "Molecular Dynamics and Monte Carlo Simulation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "molecular-dynamics-simulation-methods",
+          "name": "Molecular dynamics simulation methods"
+        },
+        {
+          "id": "constant-temperature-and-pressure",
+          "name": "Constant temperature and pressure",
+          "requires": ["molecular-dynamics-simulation-methods"]
+        },
+        {
+          "id": "monte-carlo-simulation-of-molecules",
+          "name": "Monte Carlo simulation of molecules",
+          "requires": ["constant-temperature-and-pressure"]
+        },
+        {
+          "id": "models-used-in-monte-carlo-simulations-of-polymers",
+          "name": "Models used in Monte Carlo simulations of polymers",
+          "requires": ["monte-carlo-simulation-of-molecules"]
+        },
+        {
+          "id": "molecular-modeling-software-biosuite-and-amber",
+          "name": "Molecular modeling software: BIOSUITE and AMBER",
+          "requires": ["models-used-in-monte-carlo-simulations-of-polymers"]
+        }
+      ]
+    },
+    {
+      "id": "energy-minimisation-and-computer-simulation",
+      "name": "Energy Minimisation and Computer Simulation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "energy-minimization-and-related-methods-for-exploring-the",
+          "name": "Energy minimization and related methods for exploring the energy surface"
+        },
+        {
+          "id": "non-derivative-methods-and-derivative-methods",
+          "name": "Non-Derivative methods and Derivative methods",
+          "requires": ["energy-minimization-and-related-methods-for-exploring-the"]
+        },
+        {
+          "id": "1st-and-2nd-order-minimisation-methods",
+          "name": "1st and 2nd order minimisation methods",
+          "requires": ["non-derivative-methods-and-derivative-methods"]
+        },
+        {
+          "id": "computer-simulation-methods",
+          "name": "Computer simulation methods",
+          "requires": ["1st-and-2nd-order-minimisation-methods"]
+        },
+        {
+          "id": "simple-thermodynamic-properties-and-phase-space",
+          "name": "Simple thermodynamic properties and phase space",
+          "requires": ["computer-simulation-methods"]
+        },
+        {
+          "id": "boundaries",
+          "name": "Boundaries",
+          "requires": ["simple-thermodynamic-properties-and-phase-space"]
+        },
+        {
+          "id": "analyzing-the-results-of-a-simulation-and-estimating-errors",
+          "name": "Analyzing the results of a simulation and estimating errors",
+          "requires": ["boundaries"]
+        },
+        {
+          "id": "gromacs-and-desmond",
+          "name": "GROMACS and DESMOND",
+          "requires": ["analyzing-the-results-of-a-simulation-and-estimating-errors"]
+        }
+      ]
+    }
+  ]
+}

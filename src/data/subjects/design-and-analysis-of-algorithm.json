@@ -1,0 +1,175 @@
+{
+  "id": "design-and-analysis-of-algorithm",
+  "name": "Design and Analysis of Algorithm",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "branches": ["ce"],
+  "semesters": [4],
+  "code": "24CS210T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s4-design-and-analysis-of-algorithm",
+      "code": "24CS210T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Design and Analysis of Algorithm",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "elementary-algorithmic-concept-efficiency-of-algorithms",
+          "name": "Elementary Algorithmic concept: Efficiency of Algorithms"
+        },
+        {
+          "id": "average-and-worst-case-analysis",
+          "name": "Average & worst-case analysis",
+          "requires": ["elementary-algorithmic-concept-efficiency-of-algorithms"]
+        },
+        {
+          "id": "elementary-operation-analysis-techniques-analyzing-control",
+          "name": "Elementary Operation Analysis Techniques. Analyzing control structures",
+          "requires": ["average-and-worst-case-analysis"]
+        },
+        {
+          "id": "amortized-analysis-recurrence-solving-intelligent-guesswork",
+          "name": "Amortized analysis. Recurrence solving: Intelligent guesswork and proof by induction",
+          "requires": ["elementary-operation-analysis-techniques-analyzing-control"]
+        },
+        {
+          "id": "change-of-variable",
+          "name": "change of variable",
+          "requires": ["amortized-analysis-recurrence-solving-intelligent-guesswork"]
+        },
+        {
+          "id": "recurrence-tree",
+          "name": "recurrence tree",
+          "requires": ["change-of-variable"]
+        },
+        {
+          "id": "master-theorem",
+          "name": "master theorem",
+          "requires": ["recurrence-tree"]
+        }
+      ]
+    },
+    {
+      "id": "divide-and-conquer-and-greedy-algorithms",
+      "name": "Divide & Conquer and Greedy Algorithms",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "dnc-binary-search",
+          "name": "DnC: Binary Search"
+        },
+        {
+          "id": "merge-sort-dsa",
+          "name": "Merge sort",
+          "requires": ["dnc-binary-search"]
+        },
+        {
+          "id": "multiplying-large-integers",
+          "name": "multiplying large integers",
+          "requires": ["merge-sort-dsa"]
+        },
+        {
+          "id": "finding-the-median",
+          "name": "finding the median",
+          "requires": ["multiplying-large-integers"]
+        },
+        {
+          "id": "matrix-multiplication-greedy-interval-scheduling",
+          "name": "Matrix multiplication. Greedy: Interval scheduling",
+          "requires": ["finding-the-median"]
+        },
+        {
+          "id": "job-sequencing-with-deadline",
+          "name": "job sequencing with deadline",
+          "requires": ["matrix-multiplication-greedy-interval-scheduling"]
+        },
+        {
+          "id": "fractional-knapsack",
+          "name": "fractional knapsack",
+          "requires": ["job-sequencing-with-deadline"]
+        },
+        {
+          "id": "mst-using-kruskal-algorithm",
+          "name": "MST using Kruskal algorithm",
+          "requires": ["fractional-knapsack"]
+        },
+        {
+          "id": "dijkstras-algorithm",
+          "name": "Dijkstra’s algorithm",
+          "requires": ["mst-using-kruskal-algorithm"]
+        }
+      ]
+    },
+    {
+      "id": "dynamic-programming-backtracking-branch-and-bound",
+      "name": "Dynamic Programming Backtracking, Branch & Bound",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "dynamic-0-1-knapsack",
+          "name": "Dynamic: 0/1 Knapsack"
+        },
+        {
+          "id": "floyd-warshall-algorithm",
+          "name": "Floyd-Warshall algorithm",
+          "requires": ["dynamic-0-1-knapsack"]
+        },
+        {
+          "id": "matrix-chain-multiplication",
+          "name": "Matrix chain multiplication",
+          "requires": ["floyd-warshall-algorithm"]
+        },
+        {
+          "id": "travelling-salesman-problem-backtracking-0-1-knapsack",
+          "name": "Travelling Salesman Problem. Backtracking: 0/1 Knapsack",
+          "requires": ["matrix-chain-multiplication"]
+        },
+        {
+          "id": "n-queens-problem-branch-and-bound-0-1-knapsack",
+          "name": "n-queens problem. Branch and Bound: 0/1 Knapsack",
+          "requires": ["travelling-salesman-problem-backtracking-0-1-knapsack"]
+        },
+        {
+          "id": "travelling-salesman-problem",
+          "name": "Travelling Salesman Problem",
+          "requires": ["n-queens-problem-branch-and-bound-0-1-knapsack"]
+        }
+      ]
+    },
+    {
+      "id": "intractability-randomized-and-approximation",
+      "name": "Intractability, Randomized and Approximation Algorithms",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "intractability-brief-overview-of-np-theory-some-npc-problems",
+          "name": "Intractability: Brief Overview of NP theory, Some NPC problems: Independent set, vertex cover, clique, Hamiltonian cycle"
+        },
+        {
+          "id": "polynomial-time-reduction-reduction-of-3-sat-to-clique",
+          "name": "Polynomial time reduction: Reduction of 3 SAT to clique Randomized Algorithm: Subset Sum Problem Approximation Algorithm: Vertex Cover Problem",
+          "requires": ["intractability-brief-overview-of-np-theory-some-npc-problems"]
+        }
+      ]
+    }
+  ]
+}

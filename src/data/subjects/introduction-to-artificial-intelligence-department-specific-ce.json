@@ -1,0 +1,240 @@
+{
+  "id": "introduction-to-artificial-intelligence-department-specific-ce",
+  "name": "Introduction to Artificial Intelligence (Department Specific) (CE)",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "branches": ["ce"],
+  "semesters": [5],
+  "code": "24CS301T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Engineering Science",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-introduction-to-artificial-intelligence-department-specific",
+      "code": "24CS301T",
+      "category": "Engineering Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Introduction to Artificial Intelligence (Department Specific)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction-to-ai-and-searching",
+      "name": "Introduction To Ai And Searching",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "ai-problems",
+          "name": "AI Problems"
+        },
+        {
+          "id": "intelligent-agents",
+          "name": "Intelligent Agents",
+          "requires": ["ai-problems"]
+        },
+        {
+          "id": "types-of-learning",
+          "name": "Types of Learning",
+          "requires": ["intelligent-agents"]
+        },
+        {
+          "id": "problem-formulation",
+          "name": "Problem Formulation",
+          "requires": ["types-of-learning"]
+        },
+        {
+          "id": "basic-problem-solving-methods-search-strategies",
+          "name": "Basic Problem- Solving Methods. Search strategies",
+          "requires": ["problem-formulation"]
+        },
+        {
+          "id": "uniformed-search-strategies",
+          "name": "Uniformed Search Strategies",
+          "requires": ["basic-problem-solving-methods-search-strategies"]
+        },
+        {
+          "id": "state-space-search",
+          "name": "State-Space Search",
+          "requires": ["uniformed-search-strategies"]
+        },
+        {
+          "id": "bfs",
+          "name": "BFS",
+          "requires": ["state-space-search"]
+        },
+        {
+          "id": "dfs",
+          "name": "DFS",
+          "requires": ["bfs"]
+        },
+        {
+          "id": "greedy-best-first-search",
+          "name": "Greedy Best First Search",
+          "requires": ["dfs"]
+        },
+        {
+          "id": "a-search",
+          "name": "A* Search",
+          "requires": ["greedy-best-first-search"]
+        },
+        {
+          "id": "hill-climbing-and-adversarial-search-minimax-and-alpha-beta",
+          "name": "Hill Climbing, and Adversarial Search: minimax and alpha- beta pruning",
+          "requires": ["a-search"]
+        }
+      ]
+    },
+    {
+      "id": "foundations-and-applications-of-machine-learning",
+      "name": "Foundations And Applications Of Machine Learning Techniques",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "machine-learning-representation-features",
+          "name": "Machine Learning: Representation (features)"
+        },
+        {
+          "id": "linear-transformations",
+          "name": "Linear Transformations",
+          "requires": ["machine-learning-representation-features"]
+        },
+        {
+          "id": "decision-tree-classifiers",
+          "name": "Decision Tree Classifiers",
+          "requires": ["linear-transformations"]
+        },
+        {
+          "id": "introduction-to-random-forest",
+          "name": "Introduction to Random Forest",
+          "requires": ["decision-tree-classifiers"]
+        },
+        {
+          "id": "linear-regression-ml",
+          "name": "Linear Regression",
+          "requires": ["introduction-to-random-forest"]
+        },
+        {
+          "id": "problem-formulations-classification-and-regression",
+          "name": "Problem formulations (classification and regression)",
+          "requires": ["linear-regression-ml"]
+        },
+        {
+          "id": "pca-and-dimensionality-reduction",
+          "name": "PCA and Dimensionality Reduction",
+          "requires": ["problem-formulations-classification-and-regression"]
+        },
+        {
+          "id": "nearest-neighbours-and-knn",
+          "name": "Nearest Neighbours and KNN",
+          "requires": ["pca-and-dimensionality-reduction"]
+        },
+        {
+          "id": "applications-of-machine-learning",
+          "name": "Applications of Machine Learning",
+          "requires": ["nearest-neighbours-and-knn"]
+        }
+      ]
+    },
+    {
+      "id": "neural-networks-structure-learning-and",
+      "name": "Neural Networks: Structure, Learning, And Applications",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "characteristics-of-neural-networks",
+          "name": "Characteristics of Neural Networks"
+        },
+        {
+          "id": "artificial-neural-networks-terminology",
+          "name": "Artificial Neural Networks: Terminology",
+          "requires": ["characteristics-of-neural-networks"]
+        },
+        {
+          "id": "models-of-neuron",
+          "name": "Models of Neuron",
+          "requires": ["artificial-neural-networks-terminology"]
+        },
+        {
+          "id": "topology",
+          "name": "Topology",
+          "requires": ["models-of-neuron"]
+        },
+        {
+          "id": "basic-learning-laws",
+          "name": "Basic Learning Laws",
+          "requires": ["topology"]
+        },
+        {
+          "id": "back-propagation-and-gradient-decent",
+          "name": "Back Propagation and Gradient Decent",
+          "requires": ["basic-learning-laws"]
+        },
+        {
+          "id": "regularization",
+          "name": "Regularization",
+          "requires": ["back-propagation-and-gradient-decent"]
+        },
+        {
+          "id": "applications-of-deep-learning",
+          "name": "Applications of Deep Learning",
+          "requires": ["regularization"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-reinforcement-learning",
+      "name": "Introduction To Reinforcement Learning",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "markov-decision-processes",
+          "name": "Markov Decision Processes"
+        },
+        {
+          "id": "introduction-to-reinforcement-learning",
+          "name": "Introduction to Reinforcement Learning",
+          "requires": ["markov-decision-processes"]
+        },
+        {
+          "id": "policy-search",
+          "name": "Policy Search",
+          "requires": ["introduction-to-reinforcement-learning"]
+        },
+        {
+          "id": "dynamic-programming-and-td-methods",
+          "name": "Dynamic Programming & TD Methods",
+          "requires": ["policy-search"]
+        },
+        {
+          "id": "bellman-optimality",
+          "name": "Bellman Optimality",
+          "requires": ["dynamic-programming-and-td-methods"]
+        },
+        {
+          "id": "q-learning",
+          "name": "Q-Learning",
+          "requires": ["bellman-optimality"]
+        },
+        {
+          "id": "sarsa",
+          "name": "SARSA",
+          "requires": ["q-learning"]
+        },
+        {
+          "id": "applications-of-deep-reinforcement-learning",
+          "name": "Applications of Deep Reinforcement Learning",
+          "requires": ["sarsa"]
+        }
+      ]
+    }
+  ]
+}

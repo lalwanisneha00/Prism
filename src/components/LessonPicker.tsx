@@ -32,7 +32,7 @@ import {
   type LessonRequestErrors,
   type LessonRequestField,
 } from "@/lib/lessonRequest";
-import { chaptersOf, subjectsFor, type Subject } from "@/lib/subjects";
+import { chaptersOf, detailsShort, subjectsFor, type Subject } from "@/lib/subjects";
 
 const fieldOrder: LessonRequestField[] = ["chapter", "topic", "level", "duration"];
 
@@ -279,7 +279,10 @@ function PickerForm({
                 className="sr-only"
               />
               {s.name}
-              <span className="font-normal text-muted"> · {s.field}</span>
+              <span className="font-normal text-muted">
+                {" · "}
+                {[s.field, detailsShort(s, mine.branch)].filter(Boolean).join(" · ")}
+              </span>
             </label>
           ))}
           <Link
@@ -293,6 +296,7 @@ function PickerForm({
           subjects={subjects}
           currentId={subject.id}
           firstIds={mineIds}
+          branch={mine.branch}
           onSelect={(sid) => {
             setSubjectId(sid);
             // A new subject has its own chapters: start the choice again.

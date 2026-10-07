@@ -1,0 +1,480 @@
+{
+  "id": "fluid-mechanics-and-fluid-machinery",
+  "name": "Fluid Mechanics and Fluid Machinery",
+  "field": "Mechanical Engineering",
+  "tier": "sourced",
+  "branches": ["me"],
+  "semesters": [4],
+  "code": "16MI206T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s4-fluid-mechanics-and-fluid-machinery",
+      "code": "16MI206T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 4
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Fluid Mechanics and Fluid Machinery",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "fluids",
+  "chapters": [
+    {
+      "id": "fluid-kinematics",
+      "name": "Fluid Kinematics",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "types-of-flow-steady-vs-unsteady-uniform-vs-non-uniform",
+          "name": "Types of flow (steady vs. unsteady, uniform vs. non-uniform, laminar vs. turbulent, One, Two and Three dimensional, compressible vs. incompressible, rotational vs"
+        },
+        {
+          "id": "irrotational",
+          "name": "Irrotational)",
+          "requires": ["types-of-flow-steady-vs-unsteady-uniform-vs-non-uniform"]
+        },
+        {
+          "id": "stream-lines",
+          "name": "Stream lines",
+          "requires": ["irrotational"]
+        },
+        {
+          "id": "path-lines",
+          "name": "path lines",
+          "requires": ["stream-lines"]
+        },
+        {
+          "id": "streak-lines",
+          "name": "streak lines",
+          "requires": ["path-lines"]
+        },
+        {
+          "id": "velocity-components",
+          "name": "velocity components",
+          "requires": ["streak-lines"]
+        },
+        {
+          "id": "convective",
+          "name": "convective",
+          "requires": ["velocity-components"]
+        },
+        {
+          "id": "local-and-total-acceleration",
+          "name": "local and total acceleration",
+          "requires": ["convective"]
+        },
+        {
+          "id": "velocity-potential",
+          "name": "velocity potential",
+          "requires": ["local-and-total-acceleration"]
+        },
+        {
+          "id": "stream-function",
+          "name": "stream function",
+          "requires": ["velocity-potential"]
+        },
+        {
+          "id": "continuity-equation-in-cartesian-co-ordinates-fluid-dynamics",
+          "name": "continuity equation in Cartesian co-ordinates Fluid Dynamics: Introduction to Navier-Stokes’equation",
+          "requires": ["stream-function"]
+        },
+        {
+          "id": "eulers-equation-of-motion-along-a-stream-line",
+          "name": "Euler’s equation of motion along a stream line",
+          "requires": ["continuity-equation-in-cartesian-co-ordinates-fluid-dynamics"]
+        },
+        {
+          "id": "bernoulli-equation",
+          "name": "Bernoulli’s equation",
+          "requires": ["eulers-equation-of-motion-along-a-stream-line"]
+        },
+        {
+          "id": "application-of-bernoullis-equation-to-pitot-tube",
+          "name": "Application of Bernoulli’s equation to Pitot tube",
+          "requires": ["bernoulli-equation"]
+        },
+        {
+          "id": "venturi-meter",
+          "name": "Venturi meter",
+          "requires": ["application-of-bernoullis-equation-to-pitot-tube"]
+        },
+        {
+          "id": "orifices",
+          "name": "Orifices",
+          "requires": ["venturi-meter"]
+        },
+        {
+          "id": "orifice-meter-dimensional-analysis-dimensions-of-physical",
+          "name": "Orifice meter. Dimensional Analysis: Dimensions of physical quantities",
+          "requires": ["orifices"]
+        },
+        {
+          "id": "dimensional-homogeneity",
+          "name": "dimensional homogeneity",
+          "requires": ["orifice-meter-dimensional-analysis-dimensions-of-physical"]
+        },
+        {
+          "id": "buckingham-pi-theorem",
+          "name": "Buckingham pi Theorem",
+          "requires": ["dimensional-homogeneity"]
+        },
+        {
+          "id": "important-dimensionless-numbers",
+          "name": "important dimensionless numbers",
+          "requires": ["buckingham-pi-theorem"]
+        },
+        {
+          "id": "model-analysis-reynolds-froude-and-mach",
+          "name": "Model analysis (Reynolds, Froude and Mach)",
+          "requires": ["important-dimensionless-numbers"]
+        }
+      ]
+    },
+    {
+      "id": "laminar-flow",
+      "name": "Laminar Flow",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "definition",
+          "name": "Definition"
+        },
+        {
+          "id": "relation-between-pressure-and-shear-stresses",
+          "name": "relation between pressure and shear stresses",
+          "requires": ["definition"]
+        },
+        {
+          "id": "laminar-flow-through-round-pipe",
+          "name": "laminar flow through round pipe",
+          "requires": ["relation-between-pressure-and-shear-stresses"]
+        },
+        {
+          "id": "fixed-parallel-plates",
+          "name": "fixed parallel plates",
+          "requires": ["laminar-flow-through-round-pipe"]
+        },
+        {
+          "id": "boundary-layer-theory-development-of-boundary-layer-on-a",
+          "name": "Boundary Layer Theory: Development of Boundary Layer on a flat plate",
+          "requires": ["fixed-parallel-plates"]
+        },
+        {
+          "id": "laminar-and-turbulent-boundary-layers",
+          "name": "Laminar and Turbulent Boundary Layers",
+          "requires": ["boundary-layer-theory-development-of-boundary-layer-on-a"]
+        },
+        {
+          "id": "laminar-sub-layer",
+          "name": "Laminar sub layer",
+          "requires": ["laminar-and-turbulent-boundary-layers"]
+        },
+        {
+          "id": "separation-of-boundary-layer-and-methods-of-controlling",
+          "name": "Separation of Boundary Layer and Methods of Controlling",
+          "requires": ["laminar-sub-layer"]
+        },
+        {
+          "id": "flow-around-immersed-bodies",
+          "name": "Flow around Immersed Bodies",
+          "requires": ["separation-of-boundary-layer-and-methods-of-controlling"]
+        },
+        {
+          "id": "lift-and-drag",
+          "name": "Lift and Drag",
+          "requires": ["flow-around-immersed-bodies"]
+        },
+        {
+          "id": "classification-of-drag",
+          "name": "Classification of Drag",
+          "requires": ["lift-and-drag"]
+        },
+        {
+          "id": "flow-around-circular-cylinder-and-aerofoil",
+          "name": "Flow around circular cylinder and Aerofoil",
+          "requires": ["classification-of-drag"]
+        },
+        {
+          "id": "development-of-lift-on-aerofoil",
+          "name": "Development of lift on Aerofoil",
+          "requires": ["flow-around-circular-cylinder-and-aerofoil"]
+        }
+      ]
+    },
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "definition-and-classification-of-turbo-machines",
+          "name": "Definition and classification of turbo machines"
+        },
+        {
+          "id": "principles-of-operation",
+          "name": "Principles of operation",
+          "requires": ["definition-and-classification-of-turbo-machines"]
+        },
+        {
+          "id": "energy-transfer-in-turbo-machines-impact-of-free-jet-impulse",
+          "name": "Energy transfer in turbo machines. Impact of Free Jet: Impulse — momentum principle",
+          "requires": ["principles-of-operation"]
+        },
+        {
+          "id": "impact-of-jet-on-different-types-of-flat-and-curved-plates",
+          "name": "Impact of jet on different types of flat and Curved plates fixed and moving single and series of plates held normal or inclined",
+          "requires": ["energy-transfer-in-turbo-machines-impact-of-free-jet-impulse"]
+        },
+        {
+          "id": "derivation-of-efficiency-condition-for-maximum-efficiency",
+          "name": "derivation of efficiency condition for maximum efficiency and value of maximum efficiency",
+          "requires": ["impact-of-jet-on-different-types-of-flat-and-curved-plates"]
+        },
+        {
+          "id": "hydraulic-turbine-general-lay-out-and-essential-components",
+          "name": "Hydraulic Turbine: General Lay out and essential components of hydro power plant, Classification of turbines",
+          "requires": ["derivation-of-efficiency-condition-for-maximum-efficiency"]
+        },
+        {
+          "id": "pelton-wheel-turbines-major-component-parts",
+          "name": "Pelton Wheel Turbines: Major component parts",
+          "requires": ["hydraulic-turbine-general-lay-out-and-essential-components"]
+        },
+        {
+          "id": "construction",
+          "name": "construction",
+          "requires": ["pelton-wheel-turbines-major-component-parts"]
+        },
+        {
+          "id": "operation-and-governing-mechanism-of-a-pelton-wheel",
+          "name": "operation and governing mechanism of a Pelton wheel",
+          "requires": ["construction"]
+        },
+        {
+          "id": "effective-head",
+          "name": "effective head",
+          "requires": ["operation-and-governing-mechanism-of-a-pelton-wheel"]
+        },
+        {
+          "id": "available-head",
+          "name": "available head",
+          "requires": ["effective-head"]
+        },
+        {
+          "id": "work-done-and-efficiency-of-a-pelton-wheel",
+          "name": "work done and efficiency of a Pelton wheel",
+          "requires": ["available-head"]
+        },
+        {
+          "id": "design-aspects",
+          "name": "design aspects",
+          "requires": ["work-done-and-efficiency-of-a-pelton-wheel"]
+        },
+        {
+          "id": "performance-characteristics",
+          "name": "Performance Characteristics",
+          "requires": ["design-aspects"]
+        },
+        {
+          "id": "governing-of-impulse-turbines-francis-turbines-major",
+          "name": "governing of impulse turbines. Francis Turbines: Major Component parts",
+          "requires": ["performance-characteristics"]
+        },
+        {
+          "id": "construction-and-operation-of-a-francis-turbine",
+          "name": "construction and operation of a Francis turbine",
+          "requires": ["governing-of-impulse-turbines-francis-turbines-major"]
+        },
+        {
+          "id": "governing-mechanism",
+          "name": "governing mechanism",
+          "requires": ["construction-and-operation-of-a-francis-turbine"]
+        },
+        {
+          "id": "work-done-by-the-turbine-runner",
+          "name": "work done by the turbine runner",
+          "requires": ["governing-mechanism"]
+        },
+        {
+          "id": "working-proportions-and-design-parameters",
+          "name": "working proportions and design parameters",
+          "requires": ["work-done-by-the-turbine-runner"]
+        },
+        {
+          "id": "slow-medium-and-fast-runners",
+          "name": "slow, medium and fast runners",
+          "requires": ["working-proportions-and-design-parameters"]
+        },
+        {
+          "id": "inward-outward-flow-reaction-turbines",
+          "name": "inward/outward flow reaction turbines",
+          "requires": ["slow-medium-and-fast-runners"]
+        },
+        {
+          "id": "performance-characteristics-propeller-and-kaplan-turbines",
+          "name": "Performance Characteristics. Propeller and Kaplan turbines: Major Component parts",
+          "requires": ["inward-outward-flow-reaction-turbines"]
+        },
+        {
+          "id": "construction-and-operation-of-a-propeller",
+          "name": "construction and operation of a Propeller",
+          "requires": ["performance-characteristics-propeller-and-kaplan-turbines"]
+        },
+        {
+          "id": "kaplan-turbine",
+          "name": "Kaplan turbine",
+          "requires": ["construction-and-operation-of-a-propeller"]
+        },
+        {
+          "id": "differences-between-the-francis-and-kaplan-turbines",
+          "name": "differences between the Francis and Kaplan turbines",
+          "requires": ["kaplan-turbine"]
+        },
+        {
+          "id": "draft-tube-its-function-and-different-forms",
+          "name": "draft tube — its function and different forms",
+          "requires": ["differences-between-the-francis-and-kaplan-turbines"]
+        },
+        {
+          "id": "governing-of-reaction-turbine",
+          "name": "Governing of reaction turbine",
+          "requires": ["draft-tube-its-function-and-different-forms"]
+        }
+      ]
+    },
+    {
+      "id": "reciprocating-air-compressor",
+      "name": "Reciprocating air compressor",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "review-of-single-stage-compressor-multi-stage-compression",
+          "name": "review of single stage compressor, multi stage compression, work of compression volumetric efficiency"
+        },
+        {
+          "id": "rotary-compressor-centrifugal-and-axial-flow-compressor",
+          "name": "Rotary compressor: centrifugal and axial flow compressor, positive displacement compressor, velocity diagram, Analysis, Design and construction features",
+          "requires": ["review-of-single-stage-compressor-multi-stage-compression"]
+        },
+        {
+          "id": "compressor-characteristics-surging-and-choking",
+          "name": "Compressor characteristics, surging and choking",
+          "requires": ["rotary-compressor-centrifugal-and-axial-flow-compressor"]
+        },
+        {
+          "id": "pumps-working-principles",
+          "name": "Pumps: Working principles",
+          "requires": ["compressor-characteristics-surging-and-choking"]
+        },
+        {
+          "id": "classification-of-pumps-centrifugal-pumps-roto-dynamics",
+          "name": "classification of pumps. Centrifugal Pumps: Roto-dynamics pumps",
+          "requires": ["pumps-working-principles"]
+        },
+        {
+          "id": "construction-and-working",
+          "name": "construction and working",
+          "requires": ["classification-of-pumps-centrifugal-pumps-roto-dynamics"]
+        },
+        {
+          "id": "velocity-vector-diagrams-and-work-done",
+          "name": "velocity vector diagrams and work done",
+          "requires": ["construction-and-working"]
+        },
+        {
+          "id": "mano-metric-efficiency",
+          "name": "mano-metric efficiency",
+          "requires": ["velocity-vector-diagrams-and-work-done"]
+        },
+        {
+          "id": "vane-shape",
+          "name": "vane shape",
+          "requires": ["mano-metric-efficiency"]
+        },
+        {
+          "id": "pump-losses",
+          "name": "pump losses",
+          "requires": ["vane-shape"]
+        },
+        {
+          "id": "minimum-starting-speed",
+          "name": "minimum starting speed",
+          "requires": ["pump-losses"]
+        },
+        {
+          "id": "design-considerations",
+          "name": "design considerations",
+          "requires": ["minimum-starting-speed"]
+        },
+        {
+          "id": "multi-stage-pumps-similarity-relations-and-specific-speed",
+          "name": "multi-stage pumps. Similarity relations and specific speed",
+          "requires": ["design-considerations"]
+        },
+        {
+          "id": "net-positive-suction-head",
+          "name": "net positive suction head",
+          "requires": ["multi-stage-pumps-similarity-relations-and-specific-speed"]
+        },
+        {
+          "id": "cavitation-and-maximum-suction-lift",
+          "name": "cavitation and maximum suction lift",
+          "requires": ["net-positive-suction-head"]
+        },
+        {
+          "id": "performance-characteristics-reciprocating-pumps-construction",
+          "name": "performance characteristics. Reciprocating Pumps: Construction and operational details",
+          "requires": ["cavitation-and-maximum-suction-lift"]
+        },
+        {
+          "id": "work-and-power-input",
+          "name": "work and power input",
+          "requires": ["performance-characteristics-reciprocating-pumps-construction"]
+        },
+        {
+          "id": "volumetric-efficiency-and-slip",
+          "name": "volumetric efficiency and slip",
+          "requires": ["work-and-power-input"]
+        },
+        {
+          "id": "separation",
+          "name": "separation",
+          "requires": ["volumetric-efficiency-and-slip"]
+        },
+        {
+          "id": "air-vessels-and-their-utility",
+          "name": "air vessels and their utility",
+          "requires": ["separation"]
+        },
+        {
+          "id": "characteristic-curves",
+          "name": "characteristic curves",
+          "requires": ["air-vessels-and-their-utility"]
+        },
+        {
+          "id": "centrifugal-v-s-reciprocating-pumps",
+          "name": "centrifugal V/S reciprocating pumps",
+          "requires": ["characteristic-curves"]
+        },
+        {
+          "id": "miscellaneous-hydraulic-machines-hydraulic-accumulator",
+          "name": "Miscellaneous hydraulic machines: Hydraulic accumulator, Hydraulic intensifier, Hydraulic lift, Hydraulic ram, Hydraulic coupling",
+          "requires": ["centrifugal-v-s-reciprocating-pumps"]
+        },
+        {
+          "id": "use-of-programming-software-for-numerical-problems",
+          "name": "Use of programming software for numerical problems",
+          "requires": ["miscellaneous-hydraulic-machines-hydraulic-accumulator"]
+        }
+      ]
+    }
+  ]
+}

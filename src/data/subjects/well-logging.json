@@ -1,95 +1,163 @@
 {
   "id": "well-logging",
-  "name": "Well Logging and Formation Evaluation",
+  "name": "Well Log and Formation Evaluation",
   "field": "Petroleum Engineering",
-  "tier": "sourced",
+  "tier": "limited",
   "branches": ["petro"],
-  "semesters": [6],
+  "semesters": [4],
+  "code": "24PE209T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s4-well-log-and-formation-evaluation",
+      "code": "24PE209T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 4
+    }
+  ],
   "syllabusSource": {
     "kind": "university",
-    "title": "Anna University B.Tech Petroleum Engineering (R2017): PE8602 Well Logging",
-    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/03.Petrol%20Engg.pdf",
-    "note": "All five units of PE8602."
+    "title": "PDEU B.Tech curriculum handbook (Petro): Well Log and Formation Evaluation",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
   },
   "visualSet": "process",
   "chapters": [
     {
-      "id": "log-fundamentals",
-      "name": "Formation Parameters",
-      "hours": 8,
-      "topics": [
-        {
-          "id": "formation-parameters",
-          "name": "Porosity, resistivity, saturation and formation factor"
-        },
-        {
-          "id": "archie-law",
-          "name": "Archie's law and water saturation",
-          "requires": ["formation-parameters"]
-        }
-      ]
-    },
-    {
-      "id": "log-types",
-      "name": "Logging Tools",
-      "hours": 16,
-      "topics": [
-        {
-          "id": "sp-log",
-          "name": "Spontaneous potential (SP) log",
-          "requires": ["formation-parameters"]
-        },
-        {
-          "id": "resistivity-logs",
-          "name": "Resistivity and induction logs",
-          "requires": ["formation-parameters"]
-        },
-        {
-          "id": "gamma-ray-log",
-          "name": "Gamma ray log and shale volume",
-          "requires": ["formation-parameters"]
-        },
-        {
-          "id": "porosity-logs",
-          "name": "Porosity logs: density, neutron and sonic",
-          "requires": ["formation-parameters"]
-        },
-        {
-          "id": "nmr-caliper-dipmeter",
-          "name": "NMR, caliper and dipmeter logs",
-          "requires": ["formation-parameters"]
-        }
-      ]
-    },
-    {
-      "id": "interpretation",
-      "name": "Interpretation",
+      "id": "introduction-to-formation-evaluation-and-well-logs",
+      "name": "Introduction to Formation Evaluation and Well Logs",
       "hours": 10,
       "topics": [
         {
-          "id": "log-interpretation-crossplots",
-          "name": "Quick-look interpretation and cross-plots",
-          "requires": ["archie-law", "porosity-logs"]
+          "id": "introduction-to-petroleum-formation-evaluation-methods",
+          "name": "Introduction to petroleum formation evaluation methods"
         },
         {
-          "id": "log-correlation",
-          "name": "Subsurface correlation from logs",
-          "requires": ["gamma-ray-log"]
+          "id": "introduction-to-well-logs",
+          "name": "Introduction to well logs",
+          "requires": ["introduction-to-petroleum-formation-evaluation-methods"]
         },
         {
-          "id": "log-data-acquisition",
-          "name": "Recording, transmission and processing of log data (wireline and LWD)",
-          "requires": ["formation-parameters"]
+          "id": "lwd-instruments-and-data-recording",
+          "name": "LWD (Instruments and data recording)",
+          "requires": ["introduction-to-well-logs"]
         },
         {
-          "id": "fracture-detection-logs",
-          "name": "Fracture delineation from logs",
-          "requires": ["log-interpretation-crossplots"]
+          "id": "well-log-tracks-and-their-presentation",
+          "name": "Well log tracks and their presentation",
+          "requires": ["lwd-instruments-and-data-recording"]
         },
         {
-          "id": "production-logging",
-          "name": "Production logging",
-          "requires": ["log-interpretation-crossplots"]
+          "id": "types-of-cores-routine-and-special-core-analysis-techniques",
+          "name": "Types of cores, Routine and special core analysis techniques",
+          "requires": ["well-log-tracks-and-their-presentation"]
+        },
+        {
+          "id": "mud-logging-introduction",
+          "name": "Mud logging introduction",
+          "requires": ["types-of-cores-routine-and-special-core-analysis-techniques"]
+        },
+        {
+          "id": "description-of-cutting-and-oil-shows-in-the-log-and-gas",
+          "name": "Description of cutting and oil shows in the log and Gas detection",
+          "requires": ["mud-logging-introduction"]
+        },
+        {
+          "id": "basic-principle-data-acquisition-and-interpretation-of",
+          "name": "Basic principle, data acquisition and interpretation of Temperature and Calliper Logs",
+          "requires": ["description-of-cutting-and-oil-shows-in-the-log-and-gas"]
+        },
+        {
+          "id": "assignment-on-relevant-topics",
+          "name": "Assignment on relevant topics",
+          "requires": ["basic-principle-data-acquisition-and-interpretation-of"]
+        }
+      ]
+    },
+    {
+      "id": "sp-gr-and-resistivity-logs",
+      "name": "SP, GR and Resistivity Logs",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "sp-log-basic-principle-and-log-interpretation",
+          "name": "SP log: Basic principle and log interpretation"
+        },
+        {
+          "id": "gr-lags-basic-principle-data-acquisition-and-interpretation",
+          "name": "GR lags: Basic principle, data acquisition and interpretation of gamma ray and spectral gamma ray logs",
+          "requires": ["sp-log-basic-principle-and-log-interpretation"]
+        },
+        {
+          "id": "resistivity-logs-tools-data-acquisition-and-interpretation",
+          "name": "Resistivity Logs: tools, data acquisition and interpretation",
+          "requires": ["gr-lags-basic-principle-data-acquisition-and-interpretation"]
+        },
+        {
+          "id": "electrical-image-logs",
+          "name": "Electrical image logs",
+          "requires": ["resistivity-logs-tools-data-acquisition-and-interpretation"]
+        },
+        {
+          "id": "assignment-on-sp-gr-and-resistivity-logs-shale-volume",
+          "name": "Assignment on SP, GR, and Resistivity logs, Shale volume calculation and identification of gross sand and net sand, Rw calculation and its use in determining S W",
+          "requires": ["electrical-image-logs"]
+        }
+      ]
+    },
+    {
+      "id": "porosity-logs-density-neutron-sonic-and-nmr",
+      "name": "Porosity Logs- Density, Neutron, Sonic and NMR",
+      "hours": 17,
+      "topics": [
+        {
+          "id": "data-acquisition-and-interpretation-of-density-porosity",
+          "name": "Data acquisition and interpretation of Density porosity, Neutron porosity and Sonic logs"
+        },
+        {
+          "id": "porosity-and-lithology-estimations-neutron-density-sonic",
+          "name": "Porosity and lithology estimations (Neutron-Density, Sonic- Density, Sonic Neutron, MN and MID cross plots)",
+          "requires": ["data-acquisition-and-interpretation-of-density-porosity"]
+        },
+        {
+          "id": "acoustic-image-logs-and-their-applications",
+          "name": "Acoustic image logs and their applications",
+          "requires": ["porosity-and-lithology-estimations-neutron-density-sonic"]
+        },
+        {
+          "id": "nuclear-magnetic-resonance-log-principles-porosity-and",
+          "name": "Nuclear Magnetic Resonance Log (Principles, Porosity and permeability estimation, type of fluid identification)",
+          "requires": ["acoustic-image-logs-and-their-applications"]
+        },
+        {
+          "id": "assignments-to-determine-porosity-lithology-and-mineralogy",
+          "name": "Assignments to determine porosity, lithology and mineralogy from logs and their cross plots",
+          "requires": ["nuclear-magnetic-resonance-log-principles-porosity-and"]
+        }
+      ]
+    },
+    {
+      "id": "summary-of-interpretation-after-integrating-all",
+      "name": "Summary of Interpretation After Integrating All Well Logs",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "integration-of-different-log-data-to-determine-lithology",
+          "name": "Integration of different log data to determine lithology, shale volume, minerology, porosity, and net pay thickness"
+        },
+        {
+          "id": "evaluate-reservoir-potential-and-its-production-capability",
+          "name": "Evaluate reservoir potential and its production capability",
+          "requires": ["integration-of-different-log-data-to-determine-lithology"]
+        },
+        {
+          "id": "assignment-or-case-studies-on-different-formation-types-for",
+          "name": "Assignment or case studies on different formation types for evaluating the reservoir potential",
+          "requires": ["evaluate-reservoir-potential-and-its-production-capability"]
         }
       ]
     }

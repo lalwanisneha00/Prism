@@ -1,0 +1,220 @@
+{
+  "id": "flow-assurance",
+  "name": "Flow Assurance",
+  "field": "Flow Assurance",
+  "tier": "limited",
+  "branches": ["petro"],
+  "semesters": [7],
+  "code": "24PE431T",
+  "credits": 2,
+  "ltp": "2-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s7-program-elective-a-choose-one-2-credits--flow-assurance",
+      "code": "24PE431T",
+      "category": "Program Elective",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 7
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Flow Assurance",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "fluids",
+  "chapters": [
+    {
+      "id": "basics-of-flow-assurance-and-related-issues",
+      "name": "Basics of Flow Assurance and Related Issues",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "typical-production-system-and-flow-assurance",
+          "name": "Typical production system and flow assurance"
+        },
+        {
+          "id": "criteria-of-flow-assurance",
+          "name": "Criteria of flow assurance",
+          "requires": ["typical-production-system-and-flow-assurance"]
+        },
+        {
+          "id": "resistances-to-the-flow",
+          "name": "Resistances to the flow",
+          "requires": ["criteria-of-flow-assurance"]
+        },
+        {
+          "id": "various-issues-encountered-for-flow-assurance-in-the",
+          "name": "various issues encountered for flow assurance in the industry",
+          "requires": ["resistances-to-the-flow"]
+        },
+        {
+          "id": "importance-of-velocity-profiles",
+          "name": "Importance of velocity profiles",
+          "requires": ["various-issues-encountered-for-flow-assurance-in-the"]
+        },
+        {
+          "id": "temperature-profiles-and-concentration-profiles-in",
+          "name": "temperature profiles and concentration profiles in prediction flow assurance issues",
+          "requires": ["importance-of-velocity-profiles"]
+        },
+        {
+          "id": "importance-of-pressure-drop-calculations-in-flow-assurance",
+          "name": "Importance of pressure drop calculations in flow assurance industry",
+          "requires": ["temperature-profiles-and-concentration-profiles-in"]
+        }
+      ]
+    },
+    {
+      "id": "wax-deposition-and-asphaltene-precipitation",
+      "name": "Wax Deposition and Asphaltene Precipitation",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "wax-deposition-definition",
+          "name": "Wax deposition definition"
+        },
+        {
+          "id": "wax-deposition-criteria",
+          "name": "Wax deposition criteria",
+          "requires": ["wax-deposition-definition"]
+        },
+        {
+          "id": "mechanism-of-wax-deposition",
+          "name": "Mechanism of wax deposition",
+          "requires": ["wax-deposition-criteria"]
+        },
+        {
+          "id": "factors-for-wax-deposition",
+          "name": "Factors for wax deposition",
+          "requires": ["mechanism-of-wax-deposition"]
+        },
+        {
+          "id": "wax-deposition-envelop",
+          "name": "Wax deposition envelop",
+          "requires": ["factors-for-wax-deposition"]
+        },
+        {
+          "id": "models-used-to-predict-wax-deposition",
+          "name": "Models used to predict wax deposition",
+          "requires": ["wax-deposition-envelop"]
+        },
+        {
+          "id": "definition-of-asphaltenes",
+          "name": "Definition of Asphaltenes",
+          "requires": ["models-used-to-predict-wax-deposition"]
+        },
+        {
+          "id": "criteria-for-formation-of-asphaltenes",
+          "name": "Criteria for formation of asphaltenes",
+          "requires": ["definition-of-asphaltenes"]
+        },
+        {
+          "id": "mechanism-of-asphaltenes-precipitation",
+          "name": "Mechanism of asphaltenes precipitation",
+          "requires": ["criteria-for-formation-of-asphaltenes"]
+        },
+        {
+          "id": "factors-responsible-for-asphaltenes-precipitation",
+          "name": "Factors responsible for asphaltenes precipitation",
+          "requires": ["mechanism-of-asphaltenes-precipitation"]
+        },
+        {
+          "id": "asphaltenes-precipitation-envelop",
+          "name": "Asphaltenes precipitation envelop",
+          "requires": ["factors-responsible-for-asphaltenes-precipitation"]
+        },
+        {
+          "id": "models-utilized-for-prediction-of-asphaltenes",
+          "name": "Models utilized for prediction of asphaltenes",
+          "requires": ["asphaltenes-precipitation-envelop"]
+        }
+      ]
+    },
+    {
+      "id": "inorganic-scale-deposition-and-gas-hydrates",
+      "name": "Inorganic Scale Deposition And Gas Hydrates Formation",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "scale-deposition-definition",
+          "name": "Scale deposition definition"
+        },
+        {
+          "id": "scale-deposition-criteria",
+          "name": "Scale deposition criteria",
+          "requires": ["scale-deposition-definition"]
+        },
+        {
+          "id": "scaling-mechanism",
+          "name": "Scaling mechanism",
+          "requires": ["scale-deposition-criteria"]
+        },
+        {
+          "id": "factors-controlling-scale-depositions",
+          "name": "Factors controlling scale depositions",
+          "requires": ["scaling-mechanism"]
+        },
+        {
+          "id": "models-used-to-predict-scale-deposition",
+          "name": "Models used to predict scale deposition",
+          "requires": ["factors-controlling-scale-depositions"]
+        },
+        {
+          "id": "definition-of-gas-hydrates",
+          "name": "Definition of gas hydrates",
+          "requires": ["models-used-to-predict-scale-deposition"]
+        },
+        {
+          "id": "criteria-for-formation-of-gas-hydrates",
+          "name": "Criteria for formation of gas hydrates",
+          "requires": ["definition-of-gas-hydrates"]
+        },
+        {
+          "id": "phase-envelop-for-gas-hydrate-formation-prediction",
+          "name": "Phase envelop for gas hydrate formation prediction",
+          "requires": ["criteria-for-formation-of-gas-hydrates"]
+        },
+        {
+          "id": "models-utilized-for-prediction-of-gas-hydrates",
+          "name": "Models utilized for prediction of gas hydrates",
+          "requires": ["phase-envelop-for-gas-hydrate-formation-prediction"]
+        }
+      ]
+    },
+    {
+      "id": "mitigation-of-flow-assurance-and-case-studies",
+      "name": "Mitigation of Flow Assurance and Case Studies",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "need-for-flow-assurance-problem-mitigation",
+          "name": "Need for flow assurance problem mitigation"
+        },
+        {
+          "id": "remedies-and-mitigation-techniques-for-wax-deposition",
+          "name": "Remedies and mitigation techniques for wax deposition",
+          "requires": ["need-for-flow-assurance-problem-mitigation"]
+        },
+        {
+          "id": "asphaltenes-precipitation",
+          "name": "asphaltenes precipitation",
+          "requires": ["remedies-and-mitigation-techniques-for-wax-deposition"]
+        },
+        {
+          "id": "scale-deposition-and-gas-hydrates-formation",
+          "name": "scale deposition, and gas hydrates formation",
+          "requires": ["asphaltenes-precipitation"]
+        },
+        {
+          "id": "case-studies-on-flow-assurance-in-industry",
+          "name": "Case studies on flow assurance in industry",
+          "requires": ["scale-deposition-and-gas-hydrates-formation"]
+        }
+      ]
+    }
+  ]
+}

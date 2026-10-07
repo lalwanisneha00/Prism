@@ -1,0 +1,335 @@
+{
+  "id": "advanced-web-technology-software-and-networks",
+  "name": "Advanced Web Technology (Software & Networks)",
+  "field": "Advanced Web Technology",
+  "tier": "sourced",
+  "branches": ["ict"],
+  "semesters": [6],
+  "code": "24ICXXXT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s6-program-elective-2--advanced-web-technology-software-and-networks",
+      "code": "24ICXXXT",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Advanced Web Technology (Software & Networks)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "introduction-to-ui-and-ux-in-web-development",
+      "name": "Introduction to UI and UX in Web Development",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "visual-elements-of-user-interface-design",
+          "name": "Visual elements of User Interface Design"
+        },
+        {
+          "id": "ideation",
+          "name": "Ideation",
+          "requires": ["visual-elements-of-user-interface-design"]
+        },
+        {
+          "id": "articulation-and-development-in-ux-design",
+          "name": "Articulation and development in UX Design",
+          "requires": ["ideation"]
+        },
+        {
+          "id": "look-and-feel-visual-research",
+          "name": "Look and Feel/Visual Research",
+          "requires": ["articulation-and-development-in-ux-design"]
+        },
+        {
+          "id": "developing-and-refining-ui",
+          "name": "Developing and Refining UI",
+          "requires": ["look-and-feel-visual-research"]
+        },
+        {
+          "id": "sitemap",
+          "name": "Sitemap",
+          "requires": ["developing-and-refining-ui"]
+        },
+        {
+          "id": "wireframes-and-prototypes",
+          "name": "Wireframes and Prototypes",
+          "requires": ["sitemap"]
+        },
+        {
+          "id": "fundamentals-of-html",
+          "name": "Fundamentals of HTML",
+          "requires": ["wireframes-and-prototypes"]
+        },
+        {
+          "id": "css-and-javascript",
+          "name": "CSS and JavaScript",
+          "requires": ["fundamentals-of-html"]
+        },
+        {
+          "id": "pseudo-classes",
+          "name": "Pseudo classes",
+          "requires": ["css-and-javascript"]
+        },
+        {
+          "id": "pseudo-elements",
+          "name": "Pseudo-elements",
+          "requires": ["pseudo-classes"]
+        },
+        {
+          "id": "transitions",
+          "name": "Transitions",
+          "requires": ["pseudo-elements"]
+        },
+        {
+          "id": "animations",
+          "name": "Animations",
+          "requires": ["transitions"]
+        },
+        {
+          "id": "positioning",
+          "name": "Positioning",
+          "requires": ["animations"]
+        },
+        {
+          "id": "box-model",
+          "name": "Box Model",
+          "requires": ["positioning"]
+        },
+        {
+          "id": "bootstrap-4",
+          "name": "Bootstrap 4",
+          "requires": ["box-model"]
+        },
+        {
+          "id": "material-ui",
+          "name": "Material-UI",
+          "requires": ["bootstrap-4"]
+        },
+        {
+          "id": "basics-of-responsive-website-using-media-queries",
+          "name": "Basics of Responsive website using media queries",
+          "requires": ["material-ui"]
+        },
+        {
+          "id": "dom-manipulation",
+          "name": "DOM Manipulation",
+          "requires": ["basics-of-responsive-website-using-media-queries"]
+        },
+        {
+          "id": "handling-events-using-javascript",
+          "name": "Handling Events using JavaScript",
+          "requires": ["dom-manipulation"]
+        },
+        {
+          "id": "regular-expressions",
+          "name": "Regular Expressions",
+          "requires": ["handling-events-using-javascript"]
+        }
+      ]
+    },
+    {
+      "id": "front-end-web-development-with-react-js",
+      "name": "Front-end Web Development with React.js",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "fundamentals-of-react-js",
+          "name": "Fundamentals of React.js"
+        },
+        {
+          "id": "components-class-components-and-functional-components",
+          "name": "Components: Class Components and Functional Components",
+          "requires": ["fundamentals-of-react-js"]
+        },
+        {
+          "id": "basics-of-form-handling",
+          "name": "Basics of Form Handling",
+          "requires": ["components-class-components-and-functional-components"]
+        },
+        {
+          "id": "controlled-forms-and-form-validation",
+          "name": "Controlled Forms and form Validation",
+          "requires": ["basics-of-form-handling"]
+        },
+        {
+          "id": "uncontrolled-components-and-forms",
+          "name": "Uncontrolled Components and forms",
+          "requires": ["controlled-forms-and-form-validation"]
+        },
+        {
+          "id": "mvc",
+          "name": "The Model-View-Controller Framework",
+          "requires": ["uncontrolled-components-and-forms"]
+        },
+        {
+          "id": "the-flux-architecture",
+          "name": "The Flux Architecture",
+          "requires": ["mvc"]
+        },
+        {
+          "id": "introduction-to-redux",
+          "name": "Introduction to Redux",
+          "requires": ["the-flux-architecture"]
+        },
+        {
+          "id": "react-redux-forms",
+          "name": "React Redux Forms",
+          "requires": ["introduction-to-redux"]
+        },
+        {
+          "id": "react-redux-form-validation",
+          "name": "React Redux Form Validation",
+          "requires": ["react-redux-forms"]
+        },
+        {
+          "id": "client-server-communication",
+          "name": "Client-Server communication",
+          "requires": ["react-redux-form-validation"]
+        },
+        {
+          "id": "http-get-request",
+          "name": "HTTP Get Request",
+          "requires": ["client-server-communication"]
+        },
+        {
+          "id": "http-post-request",
+          "name": "HTTP Post Request",
+          "requires": ["http-get-request"]
+        },
+        {
+          "id": "react-render-rendering",
+          "name": "React Render: Rendering",
+          "requires": ["http-post-request"]
+        },
+        {
+          "id": "usestate",
+          "name": "useState",
+          "requires": ["react-render-rendering"]
+        },
+        {
+          "id": "state-immutability",
+          "name": "state immutability",
+          "requires": ["usestate"]
+        },
+        {
+          "id": "parent-and-child-components",
+          "name": "parent and child components",
+          "requires": ["state-immutability"]
+        },
+        {
+          "id": "state-management",
+          "name": "State Management",
+          "requires": ["parent-and-child-components"]
+        }
+      ]
+    },
+    {
+      "id": "server-side-development-with-node-js-express-and",
+      "name": "Server-side Development with Node.js, Express and MongoDB",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-server-side-development-node",
+          "name": "Introduction to Server-side Development: Node"
+        },
+        {
+          "id": "node-modules",
+          "name": "Node modules",
+          "requires": ["introduction-to-server-side-development-node"]
+        },
+        {
+          "id": "node-http-server",
+          "name": "Node HTTP server",
+          "requires": ["node-modules"]
+        },
+        {
+          "id": "application-programming-interface",
+          "name": "Application Programming Interface",
+          "requires": ["node-http-server"]
+        },
+        {
+          "id": "express-framework-and-rest-api-using-express",
+          "name": "Express Framework and Rest API using Express",
+          "requires": ["application-programming-interface"]
+        },
+        {
+          "id": "https-and-secure-communication",
+          "name": "HTTPS and Secure Communication",
+          "requires": ["express-framework-and-rest-api-using-express"]
+        },
+        {
+          "id": "cross-origin-resource-sharing",
+          "name": "Cross-Origin Resource Sharing",
+          "requires": ["https-and-secure-communication"]
+        },
+        {
+          "id": "basic-authentication",
+          "name": "Basic Authentication",
+          "requires": ["cross-origin-resource-sharing"]
+        },
+        {
+          "id": "session-based-authentication-and-token-based-authentication",
+          "name": "Session Based Authentication and Token Based Authentication",
+          "requires": ["basic-authentication"]
+        },
+        {
+          "id": "json-web-tokens",
+          "name": "JSON Web Tokens",
+          "requires": ["session-based-authentication-and-token-based-authentication"]
+        },
+        {
+          "id": "passport-module",
+          "name": "Passport module",
+          "requires": ["json-web-tokens"]
+        },
+        {
+          "id": "oauth-and-user-authentication",
+          "name": "OAuth and User Authentication",
+          "requires": ["passport-module"]
+        },
+        {
+          "id": "backend-as-a-service",
+          "name": "Backend as a Service",
+          "requires": ["oauth-and-user-authentication"]
+        },
+        {
+          "id": "integrating-the-react-client-and-server",
+          "name": "Integrating the React Client and Server",
+          "requires": ["backend-as-a-service"]
+        },
+        {
+          "id": "mongodb-and-mongoose",
+          "name": "MongoDB and Mongoose",
+          "requires": ["integrating-the-react-client-and-server"]
+        }
+      ]
+    },
+    {
+      "id": "deployment-of-mern-stack-web-applications",
+      "name": "Deployment of MERN Stack Web Applications",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "fundamentals-of-secure-deployment-search-engine-optimization",
+          "name": "Fundamentals of Secure Deployment, Search Engine Optimization, DNS Record Management, Deploying MERN Stack Application on Web, Free Hosting Platforms, GitHub, Firebase, Heroku Note: The detailed sylla"
+        },
+        {
+          "id": "the-credits-shown-here-follow-the-official-course-structure",
+          "name": "the credits shown here follow the official course structure table",
+          "requires": ["fundamentals-of-secure-deployment-search-engine-optimization"]
+        }
+      ]
+    }
+  ]
+}

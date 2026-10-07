@@ -1,0 +1,191 @@
+{
+  "id": "computer-graphics",
+  "name": "Computer Graphics",
+  "field": "Computer Graphics",
+  "tier": "limited",
+  "branches": ["ce"],
+  "semesters": [5],
+  "code": "24CS333T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-program-elective-1--computer-graphics",
+      "code": "24CS333T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "track": "Speech, Vision & Text track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Computer Graphics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "mechanics",
+  "chapters": [
+    {
+      "id": "basic-of-computer-graphics-and-primitive-drawing",
+      "name": "Basic of Computer Graphics and Primitive Drawing Algorithms",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "basics-of-computer-graphics",
+          "name": "Basics of Computer Graphics"
+        },
+        {
+          "id": "applications-of-computer-graphics",
+          "name": "Applications of computer graphics",
+          "requires": ["basics-of-computer-graphics"]
+        },
+        {
+          "id": "display-devices",
+          "name": "Display devices",
+          "requires": ["applications-of-computer-graphics"]
+        },
+        {
+          "id": "graphics-input-devices",
+          "name": "Graphics input devices",
+          "requires": ["display-devices"]
+        },
+        {
+          "id": "basic-primitive-drawing-algorithms-point",
+          "name": "basic primitive drawing algorithms- point",
+          "requires": ["graphics-input-devices"]
+        },
+        {
+          "id": "line",
+          "name": "line",
+          "requires": ["basic-primitive-drawing-algorithms-point"]
+        },
+        {
+          "id": "circle-ellipse-and-polygon-drawing-algorithms",
+          "name": "circle, ellipse, and polygon drawing algorithms",
+          "requires": ["line"]
+        },
+        {
+          "id": "polygon-filling-algorithms",
+          "name": "polygon filling algorithms",
+          "requires": ["circle-ellipse-and-polygon-drawing-algorithms"]
+        },
+        {
+          "id": "introduction-to-ar-vr",
+          "name": "Introduction to AR-VR",
+          "requires": ["polygon-filling-algorithms"]
+        }
+      ]
+    },
+    {
+      "id": "two-dimensional-transformation-and-viewing",
+      "name": "Two-dimensional Transformation and Viewing",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "two-dimensional-transformations-translation-rotation-scaling",
+          "name": "Two-dimensional transformations (translation, rotation, scaling, reflection, shearing)"
+        },
+        {
+          "id": "matrix-representation",
+          "name": "matrix representation",
+          "requires": ["two-dimensional-transformations-translation-rotation-scaling"]
+        },
+        {
+          "id": "composite-transformations",
+          "name": "composite transformations",
+          "requires": ["matrix-representation"]
+        },
+        {
+          "id": "homogeneous-coordinates",
+          "name": "homogeneous coordinates",
+          "requires": ["composite-transformations"]
+        },
+        {
+          "id": "viewing-transformation",
+          "name": "viewing transformation",
+          "requires": ["homogeneous-coordinates"]
+        },
+        {
+          "id": "line-clipping",
+          "name": "line clipping",
+          "requires": ["viewing-transformation"]
+        },
+        {
+          "id": "unity-essentials",
+          "name": "Unity essentials",
+          "requires": ["line-clipping"]
+        }
+      ]
+    },
+    {
+      "id": "three-dimensional-object-representations-and",
+      "name": "Three-dimensional Object Representations and Transformations",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "three-dimensional-object-representations",
+          "name": "Three-dimensional object representations"
+        },
+        {
+          "id": "three-dimensional-transformations-translation-rotation",
+          "name": "Three-dimensional transformations (translation, rotation, scaling, reflection, shearing)",
+          "requires": ["three-dimensional-object-representations"]
+        },
+        {
+          "id": "projection-and-types-of-projection",
+          "name": "projection and types of projection",
+          "requires": ["three-dimensional-transformations-translation-rotation"]
+        },
+        {
+          "id": "projection-transformations",
+          "name": "projection transformations",
+          "requires": ["projection-and-types-of-projection"]
+        },
+        {
+          "id": "modelling-curves",
+          "name": "modelling curves",
+          "requires": ["projection-transformations"]
+        },
+        {
+          "id": "curved-lines-and-surfaces",
+          "name": "curved lines and surfaces",
+          "requires": ["modelling-curves"]
+        },
+        {
+          "id": "concepts-related-to-augmented-reality",
+          "name": "Concepts Related to Augmented Reality",
+          "requires": ["curved-lines-and-surfaces"]
+        }
+      ]
+    },
+    {
+      "id": "rendering-and-colour-models",
+      "name": "Rendering and Colour Models",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "polygon-rendering-methods",
+          "name": "Polygon Rendering methods"
+        },
+        {
+          "id": "colour-models-rgb-yiq-cmy",
+          "name": "Colour models (RGB, YIQ, CMY)",
+          "requires": ["polygon-rendering-methods"]
+        },
+        {
+          "id": "animation-computer-assisted-animation-and-real-time",
+          "name": "Animation: Computer assisted animation and real time animation techniques",
+          "requires": ["colour-models-rgb-yiq-cmy"]
+        },
+        {
+          "id": "concepts-related-to-virtual-reality",
+          "name": "Concepts Related to Virtual Reality",
+          "requires": ["animation-computer-assisted-animation-and-real-time"]
+        }
+      ]
+    }
+  ]
+}

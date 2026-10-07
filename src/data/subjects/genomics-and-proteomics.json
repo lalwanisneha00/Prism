@@ -1,0 +1,199 @@
+{
+  "id": "genomics-and-proteomics",
+  "name": "Genomics and Proteomics",
+  "field": "Genomics and Proteomics",
+  "tier": "limited",
+  "branches": ["biotech"],
+  "semesters": [5],
+  "code": "24BT301T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s5-genomics-and-proteomics",
+      "code": "24BT301T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Genomics and Proteomics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "chapters": [
+    {
+      "id": "introduction-to-genomics-and-proteomics",
+      "name": "Introduction to Genomics and Proteomics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "organization-and-structure-of-genomes-genome-size-introns",
+          "name": "Organization and structure of genomes, Genome size, Introns and Exons, Sequence complexity, Genome structure in prokaryotes / viruses, Retrofitting",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "introduction-to-proteomics",
+          "name": "Introduction to Proteomics",
+          "requires": ["organization-and-structure-of-genomes-genome-size-introns"]
+        },
+        {
+          "id": "the-proteome-mining-proteomes-bridging-genomics-and",
+          "name": "The Proteome, Mining proteomes, Bridging Genomics and Proteomics",
+          "requires": ["introduction-to-proteomics"]
+        },
+        {
+          "id": "proteomics-and-the-new-biology",
+          "name": "Proteomics and the new biology",
+          "requires": ["the-proteome-mining-proteomes-bridging-genomics-and"]
+        }
+      ]
+    },
+    {
+      "id": "gene-expression-and-analysis",
+      "name": "Gene Expression and Analysis",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "traditional-routes-of-gene-identification",
+          "name": "Traditional routes of gene identification"
+        },
+        {
+          "id": "detecting-open-reading-frames",
+          "name": "detecting open-reading Frames",
+          "requires": ["traditional-routes-of-gene-identification"]
+        },
+        {
+          "id": "software-programs-for-finding-genes",
+          "name": "software programs for finding genes",
+          "requires": ["detecting-open-reading-frames"]
+        },
+        {
+          "id": "identifying-the-function-of-a-new-gene",
+          "name": "Identifying the function of a new gene",
+          "requires": ["software-programs-for-finding-genes"]
+        },
+        {
+          "id": "gene-ontology",
+          "name": "gene ontology",
+          "requires": ["identifying-the-function-of-a-new-gene"]
+        },
+        {
+          "id": "comparative-genomics",
+          "name": "comparative genomics",
+          "requires": ["gene-ontology"]
+        },
+        {
+          "id": "protein-structural-genomics",
+          "name": "Protein structural genomics",
+          "requires": ["comparative-genomics"]
+        },
+        {
+          "id": "determining-gene-function-by-sequence-comparison-and-through",
+          "name": "determining gene function by sequence comparison and through conserved protein structure Global expression profiling - Analysis of RNA expression",
+          "requires": ["protein-structural-genomics"]
+        },
+        {
+          "id": "applications-of-genome-analysis-and-genomics",
+          "name": "applications of genome analysis and genomics",
+          "requires": ["determining-gene-function-by-sequence-comparison-and-through"]
+        }
+      ]
+    },
+    {
+      "id": "proteome-analysis",
+      "name": "Proteome Analysis",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "analysis-of-proteomes-2d-page-and-image-analysis",
+          "name": "Analysis of proteomes – 2D page and image analysis"
+        },
+        {
+          "id": "mass-spectrometry-based-methods-for-protein-identification",
+          "name": "Mass spectrometry based methods for protein identification- De novo sequencing using mass spectrometric data",
+          "requires": ["analysis-of-proteomes-2d-page-and-image-analysis"]
+        },
+        {
+          "id": "2-de-gel-electrophoresis-coupled-with-mass-spectrometry",
+          "name": "2-DE gel electrophoresis coupled with mass spectrometry",
+          "requires": ["mass-spectrometry-based-methods-for-protein-identification"]
+        },
+        {
+          "id": "micro-array-techniques",
+          "name": "Micro array techniques",
+          "requires": ["2-de-gel-electrophoresis-coupled-with-mass-spectrometry"]
+        },
+        {
+          "id": "microarray-technology-in-treating-disease",
+          "name": "Microarray Technology in Treating Disease",
+          "requires": ["micro-array-techniques"]
+        }
+      ]
+    },
+    {
+      "id": "applications-of-genomics-and-proteomics-analysis",
+      "name": "Applications of Genomics and Proteomics Analysis",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "analysis-of-genomes-of-different-organisms-human",
+          "name": "Analysis of Genomes of different organisms – Human"
+        },
+        {
+          "id": "mouse",
+          "name": "Mouse",
+          "requires": ["analysis-of-genomes-of-different-organisms-human"]
+        },
+        {
+          "id": "plasmodium-falciparum",
+          "name": "Plasmodium falciparum",
+          "requires": ["mouse"]
+        },
+        {
+          "id": "saccharomyces-cerevisiae",
+          "name": "Saccharomyces cerevisiae",
+          "requires": ["plasmodium-falciparum"]
+        },
+        {
+          "id": "mycobacterium-tuberculosis",
+          "name": "Mycobacterium tuberculosis",
+          "requires": ["saccharomyces-cerevisiae"]
+        },
+        {
+          "id": "application-of-proteome-analysis-drug-development-and",
+          "name": "Application of proteome analysis- drug development and toxicology",
+          "requires": ["mycobacterium-tuberculosis"]
+        },
+        {
+          "id": "pharmaceutical-applications",
+          "name": "Pharmaceutical Applications",
+          "requires": ["application-of-proteome-analysis-drug-development-and"]
+        },
+        {
+          "id": "proteomics-in-drug-discovery-in-human",
+          "name": "Proteomics in drug Discovery in human",
+          "requires": ["pharmaceutical-applications"]
+        },
+        {
+          "id": "phage-antibodies-as-tools",
+          "name": "phage antibodies as tools",
+          "requires": ["proteomics-in-drug-discovery-in-human"]
+        },
+        {
+          "id": "glycobiology-and-proteomics-in-plant-genetics-and-breeding",
+          "name": "Glycobiology and Proteomics in plant genetics and breeding",
+          "requires": ["phage-antibodies-as-tools"]
+        }
+      ]
+    }
+  ]
+}

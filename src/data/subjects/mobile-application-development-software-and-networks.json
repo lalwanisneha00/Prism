@@ -1,0 +1,255 @@
+{
+  "id": "mobile-application-development-software-and-networks",
+  "name": "Mobile Application Development (Software & Networks)",
+  "field": "Mobile Application Development",
+  "tier": "limited",
+  "branches": ["ict"],
+  "semesters": [7],
+  "code": "24ICXXXT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s7-program-elective-4--mobile-application-development-software-and-networks",
+      "code": "24ICXXXT",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Mobile Application Development (Software & Networks)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "overview-of-android-development",
+      "name": "Overview of Android Development",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "android-os-architecture",
+          "name": "Android OS architecture"
+        },
+        {
+          "id": "introducing-development-framework",
+          "name": "Introducing development framework",
+          "requires": ["android-os-architecture"]
+        },
+        {
+          "id": "dalvik-virtual-machine-dvm",
+          "name": "Dalvik virtual machine – DVM",
+          "requires": ["introducing-development-framework"]
+        },
+        {
+          "id": "android-virtual-device-and-sdk-manager",
+          "name": "android virtual device and SDK manager",
+          "requires": ["dalvik-virtual-machine-dvm"]
+        },
+        {
+          "id": "developing-and-executing-the-first-android-application",
+          "name": "developing and executing the first android application",
+          "requires": ["android-virtual-device-and-sdk-manager"]
+        },
+        {
+          "id": "android-activities-creating-an-activity",
+          "name": "android activities- creating an activity",
+          "requires": ["developing-and-executing-the-first-android-application"]
+        },
+        {
+          "id": "managing-the-lifecycle",
+          "name": "managing the lifecycle",
+          "requires": ["android-activities-creating-an-activity"]
+        }
+      ]
+    },
+    {
+      "id": "user-interface-design-and-interaction-in-android",
+      "name": "User Interface Design and Interaction in Android Development",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "working-with-views-text",
+          "name": "Working with Views- Text"
+        },
+        {
+          "id": "edit-text",
+          "name": "Edit Text",
+          "requires": ["working-with-views-text"]
+        },
+        {
+          "id": "button",
+          "name": "Button",
+          "requires": ["edit-text"]
+        },
+        {
+          "id": "radio-button",
+          "name": "Radio Button",
+          "requires": ["button"]
+        },
+        {
+          "id": "checkbox",
+          "name": "Checkbox",
+          "requires": ["radio-button"]
+        },
+        {
+          "id": "image-button",
+          "name": "Image Button",
+          "requires": ["checkbox"]
+        },
+        {
+          "id": "toggle-button",
+          "name": "Toggle Button",
+          "requires": ["image-button"]
+        },
+        {
+          "id": "rating-bar",
+          "name": "Rating Bar",
+          "requires": ["toggle-button"]
+        },
+        {
+          "id": "working-with-view-groups-linear-layout",
+          "name": "Working with View Groups- Linear Layout",
+          "requires": ["rating-bar"]
+        },
+        {
+          "id": "relative-layout",
+          "name": "Relative Layout",
+          "requires": ["working-with-view-groups-linear-layout"]
+        },
+        {
+          "id": "constraint-layout",
+          "name": "Constraint Layout",
+          "requires": ["relative-layout"]
+        },
+        {
+          "id": "scroll-view",
+          "name": "Scroll View",
+          "requires": ["constraint-layout"]
+        },
+        {
+          "id": "table",
+          "name": "Table",
+          "requires": ["scroll-view"]
+        },
+        {
+          "id": "frame",
+          "name": "Frame",
+          "requires": ["table"]
+        },
+        {
+          "id": "table-with-action-bar",
+          "name": "Table with Action Bar",
+          "requires": ["frame"]
+        },
+        {
+          "id": "binding-data-with-the-adapter-view-class-list-view",
+          "name": "Binding Data with the Adapter View Class- List View",
+          "requires": ["table-with-action-bar"]
+        },
+        {
+          "id": "spinner",
+          "name": "Spinner",
+          "requires": ["binding-data-with-the-adapter-view-class-list-view"]
+        },
+        {
+          "id": "gallery-view",
+          "name": "Gallery View",
+          "requires": ["spinner"]
+        },
+        {
+          "id": "creating-menus-and-dialogs",
+          "name": "Creating Menus & Dialogs",
+          "requires": ["gallery-view"]
+        }
+      ]
+    },
+    {
+      "id": "android-navigation-and-fragment-management",
+      "name": "Android Navigation and Fragment Management",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "intent-objects",
+          "name": "Intent Objects"
+        },
+        {
+          "id": "intent-filters",
+          "name": "Intent Filters",
+          "requires": ["intent-objects"]
+        },
+        {
+          "id": "linking-the-activities-using-intent",
+          "name": "Linking the Activities Using Intent",
+          "requires": ["intent-filters"]
+        },
+        {
+          "id": "obtaining-results-from-intent",
+          "name": "Obtaining Results from Intent",
+          "requires": ["linking-the-activities-using-intent"]
+        },
+        {
+          "id": "passing-data-using-an-intent-object",
+          "name": "Passing Data Using an Intent Object",
+          "requires": ["obtaining-results-from-intent"]
+        },
+        {
+          "id": "fragments-fragment-implementation",
+          "name": "Fragments- Fragment Implementation",
+          "requires": ["passing-data-using-an-intent-object"]
+        },
+        {
+          "id": "finding-fragments",
+          "name": "Finding Fragments",
+          "requires": ["fragments-fragment-implementation"]
+        },
+        {
+          "id": "adding-removing-and-replacing-fragments",
+          "name": "Adding, Removing, and Replacing Fragments",
+          "requires": ["finding-fragments"]
+        }
+      ]
+    },
+    {
+      "id": "data-management-and-connectivity-in-android",
+      "name": "Data Management and Connectivity in Android",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "understanding-sqlite-database-and-data-types",
+          "name": "Understanding SQLite Database and Data Types"
+        },
+        {
+          "id": "working-with-cursors-and-content-values-in-sqlite",
+          "name": "Working with Cursors and Content Values in SQLite",
+          "requires": ["understanding-sqlite-database-and-data-types"]
+        },
+        {
+          "id": "using-sqliteopenhelper-for-database-management",
+          "name": "Using SQLiteOpenHelper for Database Management",
+          "requires": ["working-with-cursors-and-content-values-in-sqlite"]
+        },
+        {
+          "id": "adding-updating-and-deleting-content-in-sqlite",
+          "name": "Adding, Updating, and Deleting Content in SQLite",
+          "requires": ["using-sqliteopenhelper-for-database-management"]
+        },
+        {
+          "id": "integrating-xml-and-json-based-web-services",
+          "name": "Integrating XML & JSON Based Web Services",
+          "requires": ["adding-updating-and-deleting-content-in-sqlite"]
+        },
+        {
+          "id": "introduction-to-firebase-for-android-and-firebase",
+          "name": "Introduction to Firebase for Android and Firebase Connectivity",
+          "requires": ["integrating-xml-and-json-based-web-services"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,139 +1,166 @@
 {
   "id": "fluid-mechanics",
-  "name": "Fluid Mechanics and Hydraulic Machines",
+  "name": "Fluid Mechanics (with lab)",
   "field": "Mechanical Engineering",
-  "tier": "sourced",
-  "branches": ["me", "civil", "chem", "aero"],
+  "tier": "limited",
+  "branches": ["civil"],
   "semesters": [4],
+  "credits": 4,
+  "ltp": "3-0-2",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s4-fluid-mechanics-with-lab",
+      "category": "Program Core",
+      "ltp": "3-0-2",
+      "credits": 4,
+      "semester": 4
+    }
+  ],
   "syllabusSource": {
-    "kind": "aicte",
-    "title": "AICTE revised Model Curriculum for UG Degree Course in Mechanical Engineering: PCC-ME 202 Fluid Mechanics & Hydraulic Machines",
-    "url": "https://www.aicte.gov.in/sites/default/files/Final_Mechanical%20Engg.pdf",
-    "note": "All units of PCC-ME 202."
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Fluid Mechanics (with lab)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
   },
   "visualSet": "fluids",
   "chapters": [
     {
-      "id": "fluid-properties",
-      "name": "Fluid Properties and Statics",
-      "hours": 6,
+      "id": "fundamentals-of-fluid-mechanics",
+      "name": "Fundamentals of Fluid Mechanics",
+      "hours": 14,
       "topics": [
         {
-          "id": "viscosity-newton",
-          "name": "Fluid properties and Newton's law of viscosity"
+          "id": "properties-of-fluid-introduction-of-fluid-mechanics",
+          "name": "Properties Of Fluid: Introduction of Fluid Mechanics, Properties of Fluid"
         },
         {
-          "id": "fluid-pressure-manometers",
-          "name": "Pressure, hydrostatics and manometers",
-          "requires": ["viscosity-newton"]
+          "id": "density-specific-gravity-viscosity-compressibility-bulk",
+          "name": "Density, Specific Gravity, Viscosity, Compressibility, Bulk Modulus, Surface Tension, Capillarity",
+          "requires": ["properties-of-fluid-introduction-of-fluid-mechanics"]
         },
         {
-          "id": "buoyancy-stability",
-          "name": "Buoyancy and the stability of floating bodies",
-          "requires": ["fluid-pressure-manometers"]
+          "id": "pressure-measurement-pascals-law-pressure-measurement",
+          "name": "Pressure Measurement: Pascal’s Law, Pressure Measurement",
+          "requires": ["density-specific-gravity-viscosity-compressibility-bulk"]
+        },
+        {
+          "id": "manometers-hydrostatic-forces-total-pressure-and-centre-of",
+          "name": "Manometers. Hydrostatic Forces: Total Pressure and Centre of Pressure",
+          "requires": ["pressure-measurement-pascals-law-pressure-measurement"]
+        },
+        {
+          "id": "vertical-plane-surface-horizontal-plane-surface-inclined",
+          "name": "Vertical Plane surface, Horizontal Plane Surface, Inclined Plane Surface, Curved Surface and Lock Gates",
+          "requires": ["manometers-hydrostatic-forces-total-pressure-and-centre-of"]
+        },
+        {
+          "id": "buoyancy-buoyancy-metacentre-and-metacentric-height",
+          "name": "Buoyancy: Buoyancy, Metacentre and Metacentric Height",
+          "requires": ["vertical-plane-surface-horizontal-plane-surface-inclined"]
+        },
+        {
+          "id": "determination-equilibrium-conditions",
+          "name": "Determination, Equilibrium Conditions",
+          "requires": ["buoyancy-buoyancy-metacentre-and-metacentric-height"]
         }
       ]
     },
     {
-      "id": "fluid-kinematics",
-      "name": "Fluid Kinematics",
-      "hours": 6,
+      "id": "fluid-kinematics-and-dynamics",
+      "name": "Fluid Kinematics and Dynamics",
+      "hours": 14,
       "topics": [
         {
-          "id": "flow-types-streamlines",
-          "name": "Types of flow; streamlines, streaklines and pathlines",
-          "requires": ["viscosity-newton"]
+          "id": "fluid-kinematics-introduction-types-of-flow-continuity",
+          "name": "Fluid Kinematics: Introduction, Types of Flow, Continuity Equation"
         },
         {
-          "id": "continuity-equation-fm",
-          "name": "Continuity equation and the Reynolds transport theorem",
-          "requires": ["flow-types-streamlines"]
+          "id": "three-dimensions-and-cylindrical-co-ordinates-velocity-and",
+          "name": "Three Dimensions and Cylindrical Co-ordinates, Velocity and Acceleration, Velocity Potential Function and Stream Function, Vortex Flow",
+          "requires": ["fluid-kinematics-introduction-types-of-flow-continuity"]
         },
         {
-          "id": "stream-function-potential",
-          "name": "Stream function and velocity potential",
-          "requires": ["continuity-equation-fm"]
+          "id": "fluid-dynamics-introduction-eulers-and-bernoullis-equation",
+          "name": "Fluid Dynamics: Introduction, Euler’s and Bernoulli’s Equation, Practical Application of Bernoulli’s Equation",
+          "requires": ["three-dimensions-and-cylindrical-co-ordinates-velocity-and"]
+        },
+        {
+          "id": "venturimeter-orifice-meter-and-pitot-tube-momentum-equation",
+          "name": "Venturimeter, Orifice Meter and Pitot Tube, Momentum Equation, Free Liquid Jets",
+          "requires": ["fluid-dynamics-introduction-eulers-and-bernoullis-equation"]
         }
       ]
     },
     {
-      "id": "fluid-dynamics-eq",
-      "name": "Momentum and Energy Equations",
-      "hours": 10,
+      "id": "viscous-and-turbulent-flow",
+      "name": "Viscous and Turbulent Flow",
+      "hours": 14,
       "topics": [
         {
-          "id": "euler-bernoulli-fm",
-          "name": "Euler's equation and Bernoulli's equation",
-          "requires": ["continuity-equation-fm"]
+          "id": "viscous-flow-introduction",
+          "name": "Viscous Flow: Introduction"
         },
         {
-          "id": "flow-measurement",
-          "name": "Flow measurement: venturimeter, orifice, Pitot tube and notches",
-          "requires": ["euler-bernoulli-fm"]
+          "id": "flow-of-viscous-fluid-circular-pipe-and-parallel-plates",
+          "name": "Flow of Viscous Fluid – Circular pipe and Parallel Plates",
+          "requires": ["viscous-flow-introduction"]
         },
         {
-          "id": "navier-stokes-intro",
-          "name": "The Navier–Stokes equations (introduction)",
-          "requires": ["euler-bernoulli-fm"]
+          "id": "correction-factors",
+          "name": "Correction Factors",
+          "requires": ["flow-of-viscous-fluid-circular-pipe-and-parallel-plates"]
         },
         {
-          "id": "dimensional-analysis-pi",
-          "name": "Dimensional analysis, Buckingham π theorem and similitude",
-          "requires": ["viscosity-newton"]
+          "id": "power-absorbed-in-viscous-flow",
+          "name": "Power Absorbed in Viscous Flow",
+          "requires": ["correction-factors"]
+        },
+        {
+          "id": "loss-of-head-due-to-viscous-flow",
+          "name": "Loss of Head due to Viscous Flow",
+          "requires": ["power-absorbed-in-viscous-flow"]
+        },
+        {
+          "id": "coefficient-of-viscosity-turbulent-flow-introduction",
+          "name": "Coefficient of Viscosity. Turbulent Flow: Introduction",
+          "requires": ["loss-of-head-due-to-viscous-flow"]
+        },
+        {
+          "id": "reynolds-experiment",
+          "name": "Reynolds Experiment",
+          "requires": ["coefficient-of-viscosity-turbulent-flow-introduction"]
+        },
+        {
+          "id": "friction-loss-in-pipe-flow",
+          "name": "Friction Loss in Pipe Flow",
+          "requires": ["reynolds-experiment"]
+        },
+        {
+          "id": "shear-stress-in-turbulent-flow",
+          "name": "Shear Stress in Turbulent Flow",
+          "requires": ["friction-loss-in-pipe-flow"]
         }
       ]
     },
     {
       "id": "pipe-flow",
-      "name": "Laminar, Turbulent and Pipe Flow",
-      "hours": 8,
+      "name": "Pipe Flow",
+      "hours": 14,
       "topics": [
         {
-          "id": "laminar-pipe-flow",
-          "name": "Laminar flow: Hagen–Poiseuille and Couette flow",
-          "requires": ["navier-stokes-intro"]
+          "id": "introduction-energy-loss-due-to-friction-minor-energy-losses",
+          "name": "Introduction, Energy Loss due to Friction, Minor Energy Losses, HGL and TEL, Flow Through Syphon, Flow Through Pipes"
         },
         {
-          "id": "reynolds-turbulence",
-          "name": "Reynolds' experiment and turbulent flow",
-          "requires": ["laminar-pipe-flow"]
+          "id": "series-compound-equivalent-parallel-pipe-network",
+          "name": "Series, Compound, Equivalent, Parallel, Pipe Network",
+          "requires": ["introduction-energy-loss-due-to-friction-minor-energy-losses"]
         },
         {
-          "id": "darcy-pipe-losses",
-          "name": "Major and minor losses: Darcy–Weisbach; pipes in series and parallel",
-          "requires": ["reynolds-turbulence"]
-        },
-        {
-          "id": "boundary-layer-fm",
-          "name": "Boundary layer theory basics",
-          "requires": ["reynolds-turbulence"]
-        }
-      ]
-    },
-    {
-      "id": "hydraulic-machines",
-      "name": "Pumps and Turbines",
-      "hours": 10,
-      "topics": [
-        {
-          "id": "velocity-triangles",
-          "name": "Euler's turbomachine equation and velocity triangles",
-          "requires": ["euler-bernoulli-fm"]
-        },
-        {
-          "id": "centrifugal-pump",
-          "name": "Centrifugal pumps: work done, performance curves and cavitation",
-          "requires": ["velocity-triangles"]
-        },
-        {
-          "id": "reciprocating-pump",
-          "name": "Reciprocating pumps",
-          "requires": ["velocity-triangles"]
-        },
-        {
-          "id": "pelton-francis-kaplan",
-          "name": "Pelton, Francis and Kaplan turbines",
-          "requires": ["velocity-triangles"]
+          "id": "hardy-cross-method-laboratory",
+          "name": "Hardy Cross Method. Laboratory",
+          "requires": ["series-compound-equivalent-parallel-pipe-network"]
         }
       ]
     }

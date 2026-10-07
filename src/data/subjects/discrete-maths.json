@@ -1,161 +1,318 @@
 {
   "id": "discrete-maths",
-  "name": "Discrete Mathematics",
+  "name": "Discrete Mathematical Structures",
   "field": "Mathematics",
   "tier": "sourced",
-  "branches": ["ce", "it", "ict"],
-  "semesters": [3, 4],
+  "branches": ["ict"],
+  "semesters": [3],
+  "code": "24MA202T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s3-discrete-mathematical-structures",
+      "code": "24MA202T",
+      "category": "Basic Science",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 3
+    }
+  ],
   "syllabusSource": {
-    "kind": "aicte",
-    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS401 Discrete Mathematics",
-    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
-    "note": "Modules 1–5 of PCC-CS401."
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Discrete Mathematical Structures",
+    "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
   },
   "visualSet": "maths",
   "chapters": [
     {
-      "id": "sets-relations-functions",
-      "name": "Sets, Relations and Functions",
-      "hours": 8,
+      "id": "sets-relations-functions-and-logic",
+      "name": "Sets, Relations, Functions and Logic",
+      "hours": 10,
       "topics": [
         {
-          "id": "set-operations",
-          "name": "Sets, operations and laws; Cartesian products"
+          "id": "finite-and-infinite-sets",
+          "name": "Finite and Infinite sets"
         },
         {
-          "id": "relations",
-          "name": "Relations: equivalence relations and partial orders",
-          "requires": ["set-operations"]
-        },
-        {
-          "id": "functions-discrete",
-          "name": "Functions: injective, surjective, bijective, inverse and composition",
-          "requires": ["set-operations"]
-        },
-        {
-          "id": "countability",
-          "name": "Countable and uncountable sets; Cantor's diagonal argument",
-          "requires": ["functions-discrete"]
-        }
-      ]
-    },
-    {
-      "id": "induction-number-theory",
-      "name": "Induction and Number Theory",
-      "hours": 6,
-      "topics": [
-        {
-          "id": "mathematical-induction",
-          "name": "Mathematical induction and the well-ordering principle",
-          "requires": ["set-operations"]
-        },
-        {
-          "id": "division-gcd",
-          "name": "Division algorithm, GCD and Euclid's algorithm"
-        },
-        {
-          "id": "fundamental-theorem-arithmetic",
-          "name": "Prime numbers and the fundamental theorem of arithmetic",
-          "requires": ["division-gcd"]
-        }
-      ]
-    },
-    {
-      "id": "counting",
-      "name": "Counting",
-      "hours": 6,
-      "topics": [
-        {
-          "id": "permutations-combinations",
-          "name": "Permutations and combinations"
+          "id": "counting-principle",
+          "name": "Counting Principle",
+          "requires": ["finite-and-infinite-sets"]
         },
         {
           "id": "inclusion-exclusion",
-          "name": "Inclusion–exclusion principle",
-          "requires": ["permutations-combinations"]
+          "name": "Principle of inclusion and exclusion",
+          "requires": ["counting-principle"]
+        },
+        {
+          "id": "mathematical-induction",
+          "name": "Mathematical Induction",
+          "requires": ["inclusion-exclusion"]
+        },
+        {
+          "id": "relations",
+          "name": "Relations",
+          "requires": ["mathematical-induction"]
+        },
+        {
+          "id": "types-of-relation",
+          "name": "Types of Relation",
+          "requires": ["relations"]
+        },
+        {
+          "id": "equivalence-relation",
+          "name": "Equivalence relation",
+          "requires": ["types-of-relation"]
+        },
+        {
+          "id": "partial-ordered-relations-functions",
+          "name": "Partial Ordered Relations. Functions",
+          "requires": ["equivalence-relation"]
+        },
+        {
+          "id": "types-of-functions",
+          "name": "types of functions",
+          "requires": ["partial-ordered-relations-functions"]
+        },
+        {
+          "id": "logic-and-propositional-calculus-simple-and-compound",
+          "name": "Logic and Propositional calculus – Simple and Compound Propositions",
+          "requires": ["types-of-functions"]
+        },
+        {
+          "id": "basic-logical-operators-truth-tables-tautologies",
+          "name": "Basic logical operators. Truth tables. Tautologies",
+          "requires": ["logic-and-propositional-calculus-simple-and-compound"]
+        },
+        {
+          "id": "contradictions",
+          "name": "Contradictions",
+          "requires": ["basic-logical-operators-truth-tables-tautologies"]
+        },
+        {
+          "id": "logical-equivalence",
+          "name": "logical equivalence",
+          "requires": ["contradictions"]
+        },
+        {
+          "id": "conditional-and-bi-conditional-statements",
+          "name": "conditional and bi-conditional statements",
+          "requires": ["logical-equivalence"]
+        },
+        {
+          "id": "valid-arguments-and-fallacy",
+          "name": "Valid arguments and Fallacy",
+          "requires": ["conditional-and-bi-conditional-statements"]
+        },
+        {
+          "id": "hasse-diagram-and-lattice",
+          "name": "Hasse diagram and Lattice",
+          "requires": ["valid-arguments-and-fallacy"]
+        }
+      ]
+    },
+    {
+      "id": "combinatorics",
+      "name": "Combinatorics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "permutation",
+          "name": "Permutation"
+        },
+        {
+          "id": "combination",
+          "name": "Combination",
+          "requires": ["permutation"]
         },
         {
           "id": "pigeonhole",
           "name": "Pigeonhole principle",
-          "requires": ["permutations-combinations"]
+          "requires": ["combination"]
+        },
+        {
+          "id": "extended-pigeonhole-principle",
+          "name": "Extended Pigeonhole principle",
+          "requires": ["pigeonhole"]
+        },
+        {
+          "id": "recurrence-relations",
+          "name": "Recurrence relations",
+          "requires": ["extended-pigeonhole-principle"]
+        },
+        {
+          "id": "linear-recurrence-relations-with-constant-coefficients",
+          "name": "Linear recurrence relations with constant coefficients",
+          "requires": ["recurrence-relations"]
+        },
+        {
+          "id": "solutions-of-recurrence-relations-second-order-homogeneous",
+          "name": "Solutions of recurrence relations: second order homogeneous linear recurrence relation",
+          "requires": ["linear-recurrence-relations-with-constant-coefficients"]
+        },
+        {
+          "id": "general-homogeneous-linear-recurrence-relation",
+          "name": "general homogeneous linear recurrence relation",
+          "requires": ["solutions-of-recurrence-relations-second-order-homogeneous"]
         }
       ]
     },
     {
-      "id": "logic",
-      "name": "Propositional Logic and Proofs",
-      "hours": 8,
+      "id": "graph-theory-and-its-applications",
+      "name": "Graph Theory and its Applications",
+      "hours": 12,
       "topics": [
         {
-          "id": "propositional-logic",
-          "name": "Propositions, connectives and truth tables"
+          "id": "graphs-and-related-definitions",
+          "name": "Graphs and related definitions"
         },
         {
-          "id": "logical-equivalence",
-          "name": "Logical equivalence, implication and the laws of logic",
-          "requires": ["propositional-logic"]
+          "id": "sub-graphs",
+          "name": "Sub graphs",
+          "requires": ["graphs-and-related-definitions"]
         },
         {
-          "id": "rules-of-inference",
-          "name": "Rules of inference and quantifiers",
-          "requires": ["logical-equivalence"]
+          "id": "homomorphism-and-isomorphism",
+          "name": "Homomorphism and Isomorphism",
+          "requires": ["sub-graphs"]
         },
         {
-          "id": "proof-techniques",
-          "name": "Proof techniques: direct, contradiction, contraposition",
-          "requires": ["rules-of-inference"]
+          "id": "paths-and-connectivity-traversable-and-eulerian-graphs-and",
+          "name": "Paths and Connectivity. Traversable and Eulerian graphs, and Konigsberg Bridge problem",
+          "requires": ["homomorphism-and-isomorphism"]
+        },
+        {
+          "id": "hamiltonian-graphs",
+          "name": "Hamiltonian graphs",
+          "requires": ["paths-and-connectivity-traversable-and-eulerian-graphs-and"]
+        },
+        {
+          "id": "labeled-and-weighted-graphs-complete",
+          "name": "Labeled and weighted graphs. Complete",
+          "requires": ["hamiltonian-graphs"]
+        },
+        {
+          "id": "regular-and-bipartite-graphs",
+          "name": "regular and bipartite graphs",
+          "requires": ["labeled-and-weighted-graphs-complete"]
+        },
+        {
+          "id": "planar-graphs",
+          "name": "Planar graphs",
+          "requires": ["regular-and-bipartite-graphs"]
+        },
+        {
+          "id": "graph-coloring-four-color-problem-directed-graphs",
+          "name": "Graph coloring. Four color problem. Directed graphs",
+          "requires": ["planar-graphs"]
+        },
+        {
+          "id": "strongly-and-weakly-connected-graphs",
+          "name": "Strongly and weakly connected graphs",
+          "requires": ["graph-coloring-four-color-problem-directed-graphs"]
+        },
+        {
+          "id": "b-trees",
+          "name": "Trees",
+          "requires": ["strongly-and-weakly-connected-graphs"]
+        },
+        {
+          "id": "rooted-trees",
+          "name": "rooted trees",
+          "requires": ["b-trees"]
+        },
+        {
+          "id": "sequential-representation-of-directed-graphs",
+          "name": "sequential representation of directed graphs",
+          "requires": ["rooted-trees"]
+        },
+        {
+          "id": "adjacency-matrix",
+          "name": "Adjacency matrix",
+          "requires": ["sequential-representation-of-directed-graphs"]
+        },
+        {
+          "id": "powers-of-the-adjacency-matrix",
+          "name": "Powers of the adjacency matrix",
+          "requires": ["adjacency-matrix"]
         }
       ]
     },
     {
       "id": "algebraic-structures",
       "name": "Algebraic Structures",
-      "hours": 8,
-      "topics": [
-        {
-          "id": "semigroups-monoids",
-          "name": "Semigroups and monoids"
-        },
-        {
-          "id": "groups",
-          "name": "Groups, subgroups and cyclic groups",
-          "requires": ["semigroups-monoids"]
-        },
-        {
-          "id": "rings-fields",
-          "name": "Rings, integral domains and fields",
-          "requires": ["groups"]
-        },
-        {
-          "id": "boolean-algebra-dm",
-          "name": "Boolean algebra; disjunctive and conjunctive normal forms",
-          "requires": ["propositional-logic"]
-        }
-      ]
-    },
-    {
-      "id": "graph-theory",
-      "name": "Graphs and Trees",
       "hours": 10,
       "topics": [
         {
-          "id": "graph-basics",
-          "name": "Graphs: degree, paths, cycles, connectivity, isomorphism"
+          "id": "group",
+          "name": "Group"
         },
         {
-          "id": "euler-hamilton",
-          "name": "Eulerian and Hamiltonian walks",
-          "requires": ["graph-basics"]
+          "id": "semi-group",
+          "name": "Semi group",
+          "requires": ["group"]
         },
         {
-          "id": "graph-colouring-planar",
-          "name": "Graph colouring and planar graphs",
-          "requires": ["graph-basics"]
+          "id": "monoids",
+          "name": "Monoids",
+          "requires": ["semi-group"]
         },
         {
-          "id": "trees-prefix-codes",
-          "name": "Trees, weighted trees and prefix codes",
-          "requires": ["graph-basics"]
+          "id": "properties-of-a-group",
+          "name": "Properties of a Group",
+          "requires": ["monoids"]
+        },
+        {
+          "id": "composition-table-for-finite-group",
+          "name": "Composition table for finite Group",
+          "requires": ["properties-of-a-group"]
+        },
+        {
+          "id": "order-of-a-group",
+          "name": "Order of a group",
+          "requires": ["composition-table-for-finite-group"]
+        },
+        {
+          "id": "order-of-its-elements",
+          "name": "Order of its elements",
+          "requires": ["order-of-a-group"]
+        },
+        {
+          "id": "cyclic-group",
+          "name": "Cyclic Group",
+          "requires": ["order-of-its-elements"]
+        },
+        {
+          "id": "generator",
+          "name": "Generator",
+          "requires": ["cyclic-group"]
+        },
+        {
+          "id": "lagranges-theorem-ring",
+          "name": "Lagrange’s Theorem. Ring",
+          "requires": ["generator"]
+        },
+        {
+          "id": "properties-of-rings",
+          "name": "Properties of Rings",
+          "requires": ["lagranges-theorem-ring"]
+        },
+        {
+          "id": "integral-domain",
+          "name": "Integral Domain",
+          "requires": ["properties-of-rings"]
+        },
+        {
+          "id": "field-note-this-branchs-handbook-does-not-print-the-detailed",
+          "name": "Field. Note: This branch's handbook does not print the detailed syllabus for this course",
+          "requires": ["integral-domain"]
+        },
+        {
+          "id": "so-the-topics-are-taken-from-the-same-common-course-in-the",
+          "name": "so the topics are taken from the same common course in the Computer Engineering handbook",
+          "requires": ["field-note-this-branchs-handbook-does-not-print-the-detailed"]
         }
       ]
     }

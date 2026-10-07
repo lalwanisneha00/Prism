@@ -1,0 +1,205 @@
+{
+  "id": "machine-learning-and-applications-computer-systems",
+  "name": "Machine Learning and Applications (Computer Systems)",
+  "field": "Machine Learning and Applications",
+  "tier": "limited",
+  "branches": ["ece"],
+  "semesters": [6],
+  "code": "24ECEXXXX",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s6-program-elective-2--machine-learning-and-applications-computer-systems",
+      "code": "24ECEXXXX",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Machine Learning and Applications (Computer Systems)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "fundamentals-of-machine-learning",
+      "name": "Fundamentals of Machine Learning",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "concept-of-data",
+          "name": "Concept of Data"
+        },
+        {
+          "id": "dimensionality",
+          "name": "Dimensionality",
+          "requires": ["concept-of-data"]
+        },
+        {
+          "id": "concept-of-features",
+          "name": "Concept of Features",
+          "requires": ["dimensionality"]
+        },
+        {
+          "id": "subset-selection",
+          "name": "Subset selection",
+          "requires": ["concept-of-features"]
+        },
+        {
+          "id": "curse-of-dimensionality",
+          "name": "Curse of dimensionality",
+          "requires": ["subset-selection"]
+        },
+        {
+          "id": "pca",
+          "name": "PCA",
+          "requires": ["curse-of-dimensionality"]
+        },
+        {
+          "id": "linear-discriminant-analysis-lda",
+          "name": "Linear Discriminant Analysis (LDA)",
+          "requires": ["pca"]
+        },
+        {
+          "id": "various-learning-techniques",
+          "name": "various learning techniques",
+          "requires": ["linear-discriminant-analysis-lda"]
+        },
+        {
+          "id": "statistical-decision-theory",
+          "name": "Statistical Decision Theory",
+          "requires": ["various-learning-techniques"]
+        },
+        {
+          "id": "convex-optimization",
+          "name": "Convex optimization",
+          "requires": ["statistical-decision-theory"]
+        },
+        {
+          "id": "introduction",
+          "name": "introduction",
+          "requires": ["convex-optimization"]
+        }
+      ]
+    },
+    {
+      "id": "fundamentals-regressions-and-classification",
+      "name": "Fundamentals Regressions and Classification",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "neural-network",
+          "name": "Neural Network"
+        },
+        {
+          "id": "back-propagation",
+          "name": "Back Propagation",
+          "requires": ["neural-network"]
+        },
+        {
+          "id": "concept-of-regression-and-classification",
+          "name": "Concept of Regression and classification",
+          "requires": ["back-propagation"]
+        },
+        {
+          "id": "one-class-classification-multiclass-classification",
+          "name": "(One class classification, Multiclass Classification)",
+          "requires": ["concept-of-regression-and-classification"]
+        },
+        {
+          "id": "knn",
+          "name": "KNN",
+          "requires": ["one-class-classification-multiclass-classification"]
+        },
+        {
+          "id": "convolutional-neural-network",
+          "name": "Convolutional Neural Network",
+          "requires": ["knn"]
+        }
+      ]
+    },
+    {
+      "id": "improving-classification",
+      "name": "Improving Classification",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "boosting",
+          "name": "Boosting"
+        },
+        {
+          "id": "bagging",
+          "name": "Bagging",
+          "requires": ["boosting"]
+        },
+        {
+          "id": "ensemble-methods",
+          "name": "Ensemble methods",
+          "requires": ["bagging"]
+        },
+        {
+          "id": "gradient-boosting",
+          "name": "Gradient boosting",
+          "requires": ["ensemble-methods"]
+        },
+        {
+          "id": "random-forests",
+          "name": "Random Forests",
+          "requires": ["gradient-boosting"]
+        },
+        {
+          "id": "hmm",
+          "name": "HMM",
+          "requires": ["random-forests"]
+        },
+        {
+          "id": "belief-propagation",
+          "name": "Belief propagation",
+          "requires": ["hmm"]
+        }
+      ]
+    },
+    {
+      "id": "clustering",
+      "name": "Clustering",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "clustering-partitioning",
+          "name": "Clustering- Partitioning"
+        },
+        {
+          "id": "hierarchical",
+          "name": "Hierarchical",
+          "requires": ["clustering-partitioning"]
+        },
+        {
+          "id": "density-based",
+          "name": "Density based",
+          "requires": ["hierarchical"]
+        },
+        {
+          "id": "gaussian-mixture-model",
+          "name": "Gaussian Mixture Model",
+          "requires": ["density-based"]
+        },
+        {
+          "id": "expectation-maximization",
+          "name": "Expectation Maximization",
+          "requires": ["gaussian-mixture-model"]
+        },
+        {
+          "id": "k-means-clustering-max",
+          "name": "K- Means clustering Max",
+          "requires": ["expectation-maximization"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "id": "natural-gas-engineering-and-lng-value-chain",
+  "name": "Natural Gas Engineering and LNG Value Chain",
+  "field": "Natural Gas Engineering and LNG Value Chain",
+  "tier": "limited",
+  "branches": ["petro"],
+  "semesters": [6],
+  "code": "25PE331T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s6-program-elective-b-choose-one-3-credits--natural-gas-engineering-and-lng-value-chain",
+      "code": "25PE331T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Natural Gas Engineering and LNG Value Chain",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "thermal",
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "natural-gas-properties-and-natural-gas-value-chain",
+          "name": "Natural Gas Properties and Natural Gas Value chain"
+        },
+        {
+          "id": "natural-gas-processing-water-and-hydro-carbon-liquid",
+          "name": "Natural Gas Processing: Water and Hydro Carbon Liquid Separation",
+          "requires": ["natural-gas-properties-and-natural-gas-value-chain"]
+        },
+        {
+          "id": "dehydration",
+          "name": "Dehydration",
+          "requires": ["natural-gas-processing-water-and-hydro-carbon-liquid"]
+        },
+        {
+          "id": "h2s-removal-and-elemental-sulfur-extraction",
+          "name": "H2S Removal and elemental Sulfur extraction",
+          "requires": ["dehydration"]
+        },
+        {
+          "id": "carbon-dioxide-co2-removal",
+          "name": "Carbon dioxide ( CO2 ) removal",
+          "requires": ["h2s-removal-and-elemental-sulfur-extraction"]
+        },
+        {
+          "id": "mercury-removal",
+          "name": "Mercury Removal",
+          "requires": ["carbon-dioxide-co2-removal"]
+        },
+        {
+          "id": "gas-processing-for-pipeline-transportation-corrosion",
+          "name": "Gas processing for pipeline transportation (Corrosion protection, limits for water, H2S and CO2 contents)",
+          "requires": ["mercury-removal"]
+        }
+      ]
+    },
+    {
+      "id": "natural-gas-conditioning-and-separation-system",
+      "name": "Natural Gas Conditioning and Separation System",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "refrigeration-cryogenic-process-for-separation-processing-of",
+          "name": "Refrigeration/ Cryogenic Process for separation/processing of Gases: Refrigeration Cycle"
+        },
+        {
+          "id": "cascade-refrigeration-processes-multiple-pure-component",
+          "name": "Cascade refrigeration processes (Multiple pure component systems and Mixed Refrigeration system)",
+          "requires": ["refrigeration-cryogenic-process-for-separation-processing-of"]
+        },
+        {
+          "id": "turbo-expander-and-system",
+          "name": "Turbo Expander and System",
+          "requires": ["cascade-refrigeration-processes-multiple-pure-component"]
+        },
+        {
+          "id": "advanced-refrigeration-system",
+          "name": "Advanced Refrigeration system",
+          "requires": ["turbo-expander-and-system"]
+        }
+      ]
+    },
+    {
+      "id": "storage-and-extraction-of-value-added-products",
+      "name": "Storage And Extraction of Value-Added Products From NG",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "storage-of-natural-gas",
+          "name": "Storage of Natural Gas"
+        },
+        {
+          "id": "extraction-of-components-in-natural-gas-and-or-liquids",
+          "name": "Extraction of components in Natural gas and /or liquids: Helium Extraction",
+          "requires": ["storage-of-natural-gas"]
+        },
+        {
+          "id": "nitrogen-removal",
+          "name": "Nitrogen Removal",
+          "requires": ["extraction-of-components-in-natural-gas-and-or-liquids"]
+        },
+        {
+          "id": "propane-and-butane-lpg-extraction",
+          "name": "Propane and Butane (LPG) Extraction",
+          "requires": ["nitrogen-removal"]
+        },
+        {
+          "id": "ethane-extraction",
+          "name": "Ethane Extraction",
+          "requires": ["propane-and-butane-lpg-extraction"]
+        },
+        {
+          "id": "ngl-component-extraction-from-ngl-liquids-by-fractionation",
+          "name": "NGL component extraction from NGL liquids by Fractionation process",
+          "requires": ["ethane-extraction"]
+        },
+        {
+          "id": "ngl-extraction-from-gas-mix",
+          "name": "NGL Extraction from Gas Mix",
+          "requires": ["ngl-component-extraction-from-ngl-liquids-by-fractionation"]
+        },
+        {
+          "id": "introduction-to-use-of-natural-gas-liquid-ngl",
+          "name": "Introduction to use of natural gas liquid (NGL)",
+          "requires": ["ngl-extraction-from-gas-mix"]
+        },
+        {
+          "id": "its-components-for-manufacture-of-value-added-products-c-2",
+          "name": "its components for manufacture of value added products: C 2",
+          "requires": ["introduction-to-use-of-natural-gas-liquid-ngl"]
+        },
+        {
+          "id": "c3-and-c4",
+          "name": "C3 and C4",
+          "requires": ["its-components-for-manufacture-of-value-added-products-c-2"]
+        }
+      ]
+    },
+    {
+      "id": "lng",
+      "name": "LNG",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "gas-processing-for-lng-production-limits-of-water-co2-h2s",
+          "name": "Gas processing for LNG Production (limits of Water, CO2, H2S and Mercury contents etc.)"
+        },
+        {
+          "id": "lng-production-process",
+          "name": "LNG Production process",
+          "requires": ["gas-processing-for-lng-production-limits-of-water-co2-h2s"]
+        },
+        {
+          "id": "lng-storage",
+          "name": "LNG Storage",
+          "requires": ["lng-production-process"]
+        },
+        {
+          "id": "lng-transportation-and-regasification",
+          "name": "LNG Transportation & Regasification",
+          "requires": ["lng-storage"]
+        }
+      ]
+    }
+  ]
+}

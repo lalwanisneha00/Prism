@@ -1,0 +1,346 @@
+{
+  "id": "data-mining-and-data-warehousing",
+  "name": "Data Mining and Data Warehousing",
+  "field": "Data Mining and Data Warehousing",
+  "tier": "sourced",
+  "branches": ["ce"],
+  "semesters": [5],
+  "code": "24CS331T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-program-elective-1--data-mining-and-data-warehousing",
+      "code": "24CS331T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "track": "AI/ML track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Data Mining and Data Warehousing",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction-to-data-warehousing-and-data-mining",
+      "name": "Introduction To Data Warehousing And Data Mining",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "data-warehouse-definition",
+          "name": "Data Warehouse Definition"
+        },
+        {
+          "id": "multidimensional-data-models",
+          "name": "Multidimensional Data Models",
+          "requires": ["data-warehouse-definition"]
+        },
+        {
+          "id": "data-warehouse-architecture",
+          "name": "Data Warehouse Architecture",
+          "requires": ["multidimensional-data-models"]
+        },
+        {
+          "id": "data-granularity",
+          "name": "Data Granularity",
+          "requires": ["data-warehouse-architecture"]
+        },
+        {
+          "id": "information-flow-mechanism",
+          "name": "Information Flow Mechanism",
+          "requires": ["data-granularity"]
+        },
+        {
+          "id": "two-classes-of-data",
+          "name": "Two Classes of Data",
+          "requires": ["information-flow-mechanism"]
+        },
+        {
+          "id": "data-lifecycle",
+          "name": "Data Lifecycle",
+          "requires": ["two-classes-of-data"]
+        },
+        {
+          "id": "data-flow-from-warehouse-to-operational-systems",
+          "name": "Data Flow From Warehouse to Operational Systems",
+          "requires": ["data-lifecycle"]
+        },
+        {
+          "id": "data-mining-functionalities",
+          "name": "Data Mining Functionalities",
+          "requires": ["data-flow-from-warehouse-to-operational-systems"]
+        },
+        {
+          "id": "classification-of-data-mining-system",
+          "name": "Classification of Data Mining System",
+          "requires": ["data-mining-functionalities"]
+        },
+        {
+          "id": "data-warehouse-v-s-data-mining",
+          "name": "Data Warehouse v/s Data Mining",
+          "requires": ["classification-of-data-mining-system"]
+        },
+        {
+          "id": "data-mining-process",
+          "name": "Data Mining Process",
+          "requires": ["data-warehouse-v-s-data-mining"]
+        },
+        {
+          "id": "major-issues-in-data-mining",
+          "name": "Major Issues in Data Mining",
+          "requires": ["data-mining-process"]
+        },
+        {
+          "id": "knowledge-discovery-in-databases-kdd",
+          "name": "Knowledge Discovery in Databases (KDD)",
+          "requires": ["major-issues-in-data-mining"]
+        },
+        {
+          "id": "kdd-process",
+          "name": "KDD Process",
+          "requires": ["knowledge-discovery-in-databases-kdd"]
+        },
+        {
+          "id": "online-analytical-processing-olap-olap-and-multidimensional",
+          "name": "Online Analytical Processing (OLAP)– OLAP and Multidimensional Data Analysis",
+          "requires": ["kdd-process"]
+        },
+        {
+          "id": "on-line-analytical-processing-and-mining",
+          "name": "On-Line Analytical Processing And Mining",
+          "requires": ["online-analytical-processing-olap-olap-and-multidimensional"]
+        }
+      ]
+    },
+    {
+      "id": "data-mining-preprocessing",
+      "name": "Data Mining – Preprocessing",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "descriptive-data-summarization",
+          "name": "Descriptive Data Summarization"
+        },
+        {
+          "id": "data-cleaning",
+          "name": "Data Cleaning",
+          "requires": ["descriptive-data-summarization"]
+        },
+        {
+          "id": "integration-and-transformation",
+          "name": "Integration and Transformation",
+          "requires": ["data-cleaning"]
+        },
+        {
+          "id": "data-compression-and-dimension-reduction",
+          "name": "Data Compression and Dimension Reduction",
+          "requires": ["integration-and-transformation"]
+        },
+        {
+          "id": "principal-component-analysis",
+          "name": "Principal Component Analysis",
+          "requires": ["data-compression-and-dimension-reduction"]
+        },
+        {
+          "id": "binning-methods",
+          "name": "Binning Methods",
+          "requires": ["principal-component-analysis"]
+        },
+        {
+          "id": "data-reduction-techniques-singular-value-decomposition-svd",
+          "name": "Data Reduction Techniques: Singular Value Decomposition (SVD)",
+          "requires": ["binning-methods"]
+        },
+        {
+          "id": "dft",
+          "name": "Discrete Fourier Transform (DFT)",
+          "requires": ["data-reduction-techniques-singular-value-decomposition-svd"]
+        },
+        {
+          "id": "discrete-wavelet-transform-dwt",
+          "name": "Discrete Wavelet Transform (DWT)",
+          "requires": ["dft"]
+        },
+        {
+          "id": "data-discretization-and-concept-hierarchy-generalization",
+          "name": "Data Discretization and Concept Hierarchy Generalization",
+          "requires": ["discrete-wavelet-transform-dwt"]
+        }
+      ]
+    },
+    {
+      "id": "association-analysis",
+      "name": "Association Analysis",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "basic-concepts",
+          "name": "Basic Concepts"
+        },
+        {
+          "id": "frequent-item-set-generation",
+          "name": "Frequent Item Set Generation",
+          "requires": ["basic-concepts"]
+        },
+        {
+          "id": "rule-generation",
+          "name": "Rule Generation",
+          "requires": ["frequent-item-set-generation"]
+        },
+        {
+          "id": "various-kinds-of-association-rules",
+          "name": "Various Kinds of Association Rules",
+          "requires": ["rule-generation"]
+        },
+        {
+          "id": "market-basket-analysis",
+          "name": "Market Basket Analysis",
+          "requires": ["various-kinds-of-association-rules"]
+        },
+        {
+          "id": "apriori-algorithm",
+          "name": "Apriori Algorithm",
+          "requires": ["market-basket-analysis"]
+        },
+        {
+          "id": "eclat-algorithm",
+          "name": "Eclat Algorithm",
+          "requires": ["apriori-algorithm"]
+        },
+        {
+          "id": "fpmax-algorithm",
+          "name": "FPMax Algorithm",
+          "requires": ["eclat-algorithm"]
+        },
+        {
+          "id": "fp-growth-algorithm",
+          "name": "FP-Growth Algorithm",
+          "requires": ["fpmax-algorithm"]
+        },
+        {
+          "id": "classification-by-decision-tree",
+          "name": "Classification by Decision Tree",
+          "requires": ["fp-growth-algorithm"]
+        },
+        {
+          "id": "bayesian-classification",
+          "name": "Bayesian Classification",
+          "requires": ["classification-by-decision-tree"]
+        },
+        {
+          "id": "rule-based-classification",
+          "name": "Rule Based Classification",
+          "requires": ["bayesian-classification"]
+        },
+        {
+          "id": "classification-by-back-propagation",
+          "name": "Classification by Back propagation",
+          "requires": ["rule-based-classification"]
+        },
+        {
+          "id": "svm",
+          "name": "Support Vector Machines",
+          "requires": ["classification-by-back-propagation"]
+        },
+        {
+          "id": "lazy-learners",
+          "name": "Lazy Learners",
+          "requires": ["svm"]
+        },
+        {
+          "id": "prediction-techniques",
+          "name": "Prediction Techniques",
+          "requires": ["lazy-learners"]
+        },
+        {
+          "id": "effect-of-skewed-support-distribution",
+          "name": "Effect of Skewed Support Distribution",
+          "requires": ["prediction-techniques"]
+        },
+        {
+          "id": "multilevel-and-multidimensional",
+          "name": "Multilevel and Multidimensional",
+          "requires": ["effect-of-skewed-support-distribution"]
+        },
+        {
+          "id": "association-rule-mining-v-s-correlation-analysis",
+          "name": "Association Rule Mining v/s Correlation Analysis",
+          "requires": ["multilevel-and-multidimensional"]
+        },
+        {
+          "id": "constraint-based-association-mining",
+          "name": "Constraint-Based Association Mining",
+          "requires": ["association-rule-mining-v-s-correlation-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "data-mining-on-complex-data-and-applications",
+      "name": "Data Mining On Complex Data And Applications",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "clustering-algorithms",
+          "name": "Clustering Algorithms"
+        },
+        {
+          "id": "cluster-analysis",
+          "name": "Cluster Analysis",
+          "requires": ["clustering-algorithms"]
+        },
+        {
+          "id": "algorithms-for-mining-of-spatial-data",
+          "name": "Algorithms for mining of spatial data",
+          "requires": ["cluster-analysis"]
+        },
+        {
+          "id": "social-impacts-of-data-mining",
+          "name": "social impacts of data mining",
+          "requires": ["algorithms-for-mining-of-spatial-data"]
+        },
+        {
+          "id": "recent-trends-in-data-mining",
+          "name": "recent trends in data mining",
+          "requires": ["social-impacts-of-data-mining"]
+        },
+        {
+          "id": "web-content-mining",
+          "name": "Web Content Mining",
+          "requires": ["recent-trends-in-data-mining"]
+        },
+        {
+          "id": "web-structure-mining",
+          "name": "Web Structure Mining",
+          "requires": ["web-content-mining"]
+        },
+        {
+          "id": "web-usage-mining",
+          "name": "Web Usage Mining",
+          "requires": ["web-structure-mining"]
+        },
+        {
+          "id": "spatial-mining",
+          "name": "Spatial Mining",
+          "requires": ["web-usage-mining"]
+        },
+        {
+          "id": "multimedia-data-mining",
+          "name": "Multimedia Data Mining",
+          "requires": ["spatial-mining"]
+        },
+        {
+          "id": "text-mining",
+          "name": "Text Mining",
+          "requires": ["multimedia-data-mining"]
+        }
+      ]
+    }
+  ]
+}

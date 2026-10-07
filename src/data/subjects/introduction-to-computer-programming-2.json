@@ -1,0 +1,178 @@
+{
+  "id": "introduction-to-computer-programming-2",
+  "name": "Introduction to Computer Programming - 2",
+  "field": "Introduction to Computer Programming - 2",
+  "tier": "limited",
+  "branches": ["civil"],
+  "semesters": [2],
+  "credits": 1,
+  "ltp": "1-0-0",
+  "category": "Engineering Science",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s2-introduction-to-computer-programming-2",
+      "category": "Engineering Science",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 2
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Introduction to Computer Programming - 2",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "fundamentals-of-python-programming",
+      "name": "Fundamentals of Python Programming",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "introduction-history-of-python",
+          "name": "Introduction- History of python"
+        },
+        {
+          "id": "silent-features",
+          "name": "Silent features",
+          "requires": ["introduction-history-of-python"]
+        },
+        {
+          "id": "advantage-and-applications",
+          "name": "Advantage and Applications",
+          "requires": ["silent-features"]
+        },
+        {
+          "id": "tools-and-its-framework",
+          "name": "Tools and its Framework",
+          "requires": ["advantage-and-applications"]
+        },
+        {
+          "id": "variables",
+          "name": "Variables",
+          "requires": ["tools-and-its-framework"]
+        },
+        {
+          "id": "input-and-output",
+          "name": "Input and Output",
+          "requires": ["variables"]
+        }
+      ]
+    },
+    {
+      "id": "decision-and-control-statements",
+      "name": "Decision and Control Statements",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "operators-in-python",
+          "name": "Operators in Python"
+        },
+        {
+          "id": "decision-statements-if-statements",
+          "name": "Decision statements- If statements",
+          "requires": ["operators-in-python"]
+        },
+        {
+          "id": "if-else-statements",
+          "name": "If-else statements",
+          "requires": ["decision-statements-if-statements"]
+        },
+        {
+          "id": "nested-if-else-statements",
+          "name": "Nested If-else statements",
+          "requires": ["if-else-statements"]
+        },
+        {
+          "id": "control-statements-for",
+          "name": "Control Statements - For",
+          "requires": ["nested-if-else-statements"]
+        },
+        {
+          "id": "while",
+          "name": "While",
+          "requires": ["control-statements-for"]
+        },
+        {
+          "id": "for-else",
+          "name": "For-Else",
+          "requires": ["while"]
+        },
+        {
+          "id": "while-else",
+          "name": "While-Else",
+          "requires": ["for-else"]
+        },
+        {
+          "id": "continue-and-break-statements",
+          "name": "Continue and Break statements",
+          "requires": ["while-else"]
+        }
+      ]
+    },
+    {
+      "id": "data-structures-and-collection",
+      "name": "Data Structures and Collection",
+      "hours": 3,
+      "topics": [
+        {
+          "id": "string-manipulation",
+          "name": "String manipulation"
+        },
+        {
+          "id": "list-and-slicing",
+          "name": "List and slicing",
+          "requires": ["string-manipulation"]
+        },
+        {
+          "id": "tuple",
+          "name": "Tuple",
+          "requires": ["list-and-slicing"]
+        },
+        {
+          "id": "set-and-dictionary",
+          "name": "Set and Dictionary",
+          "requires": ["tuple"]
+        },
+        {
+          "id": "numpy-and-dataframes",
+          "name": "Numpy and Dataframes",
+          "requires": ["set-and-dictionary"]
+        }
+      ]
+    },
+    {
+      "id": "function-and-file-handling",
+      "name": "Function and File Handling",
+      "hours": 3,
+      "topics": [
+        {
+          "id": "built-in-and-user-defined-functions",
+          "name": "Built-in and user defined functions"
+        },
+        {
+          "id": "actual-and-formal-parameters",
+          "name": "Actual and Formal Parameters",
+          "requires": ["built-in-and-user-defined-functions"]
+        },
+        {
+          "id": "scope",
+          "name": "Scope",
+          "requires": ["actual-and-formal-parameters"]
+        },
+        {
+          "id": "create",
+          "name": "Create",
+          "requires": ["scope"]
+        },
+        {
+          "id": "read-and-write-text-files",
+          "name": "Read and Write text files",
+          "requires": ["create"]
+        }
+      ]
+    }
+  ]
+}

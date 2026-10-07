@@ -1,0 +1,180 @@
+{
+  "id": "physics-theory-me",
+  "name": "Physics (Theory) (Mech)",
+  "field": "Applied Physics",
+  "tier": "sourced",
+  "branches": ["me"],
+  "semesters": [1],
+  "code": "16SC102T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s1-physics-theory",
+      "code": "16SC102T",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 1
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Physics (Theory)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "physics",
+  "chapters": [
+    {
+      "id": "vector-concepts-and-applications-in-physics",
+      "name": "Vector concepts & applications in Physics",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "introduction-to-vector-algebra-physical-concepts-in-vector",
+          "name": "Introduction to vector algebra, Physical concepts in vector fields and Scalar fields with examples, Physical and mathematical concepts of gradient, divergence and curl, Green’s theorem, Gauss theorem,"
+        },
+        {
+          "id": "stokes-theorem-and-its-applications",
+          "name": "Stokes' theorem and its applications",
+          "requires": ["introduction-to-vector-algebra-physical-concepts-in-vector"]
+        },
+        {
+          "id": "electrostatics-and-electrodynamics-gausss-law-in-dielectric",
+          "name": "Electrostatics and Electrodynamics: Gauss’s law in dielectric medium, Equation of continuity, Biot Savart law",
+          "requires": ["stokes-theorem-and-its-applications"]
+        },
+        {
+          "id": "amperes-law",
+          "name": "Ampere’s law",
+          "requires": ["electrostatics-and-electrodynamics-gausss-law-in-dielectric"]
+        },
+        {
+          "id": "magnetization-and-magnetic-intensity-faradays-law-of",
+          "name": "magnetization and magnetic intensity, Faraday’s law of induction",
+          "requires": ["amperes-law"]
+        },
+        {
+          "id": "generalization-of-amperes-law-displacement-current-maxwells",
+          "name": "generalization of Ampere’s law, displacement current, Maxwell’s equations, wave equation for electromagnetic radiation, electromagnetic wave propagation in free space and isotropic dielectric medium, ",
+          "requires": ["magnetization-and-magnetic-intensity-faradays-law-of"]
+        }
+      ]
+    },
+    {
+      "id": "waves-and-oscillations",
+      "name": "Waves and oscillations",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "types-of-waves",
+          "name": "Types of waves"
+        },
+        {
+          "id": "simple-harmonic-motion",
+          "name": "Simple harmonic motion",
+          "requires": ["types-of-waves"]
+        },
+        {
+          "id": "damped-simple-harmonic-motion",
+          "name": "Damped simple harmonic motion",
+          "requires": ["simple-harmonic-motion"]
+        },
+        {
+          "id": "types-of-damping",
+          "name": "types of damping",
+          "requires": ["damped-simple-harmonic-motion"]
+        },
+        {
+          "id": "forced-oscillation",
+          "name": "Forced oscillation",
+          "requires": ["types-of-damping"]
+        },
+        {
+          "id": "resonance",
+          "name": "resonance",
+          "requires": ["forced-oscillation"]
+        },
+        {
+          "id": "energy-transport-in-wave-motion-acoustics-and-ultrasonic",
+          "name": "Energy Transport in Wave motion. Acoustics & Ultrasonic: Introduction to Sound",
+          "requires": ["resonance"]
+        },
+        {
+          "id": "sabines-reverberation-theory",
+          "name": "Sabine’s reverberation theory",
+          "requires": ["energy-transport-in-wave-motion-acoustics-and-ultrasonic"]
+        },
+        {
+          "id": "acoustical-defects-and-their-remedies",
+          "name": "Acoustical defects and their remedies",
+          "requires": ["sabines-reverberation-theory"]
+        },
+        {
+          "id": "doppler-effect-ultrasonic-waves",
+          "name": "Doppler Effect. Ultrasonic waves",
+          "requires": ["acoustical-defects-and-their-remedies"]
+        },
+        {
+          "id": "methods-of-their-generation-and-detection",
+          "name": "methods of their generation and detection",
+          "requires": ["doppler-effect-ultrasonic-waves"]
+        },
+        {
+          "id": "properties-and-application-of-ultrasonic-waves",
+          "name": "properties and application of ultrasonic waves",
+          "requires": ["methods-of-their-generation-and-detection"]
+        }
+      ]
+    },
+    {
+      "id": "optics",
+      "name": "Optics",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "interference-types-of-interferences-thin-film-interference",
+          "name": "Interference: Types of interferences, Thin film interference, Anti-reflecting films"
+        },
+        {
+          "id": "wedge-shape-films",
+          "name": "wedge shape films",
+          "requires": ["interference-types-of-interferences-thin-film-interference"]
+        },
+        {
+          "id": "newtons-rings-and-its-applications-diffraction-diffraction",
+          "name": "Newton’s rings and its applications,. Diffraction: Diffraction of light waves, Fraunhofer diffraction at a single slit, Two slit Fraunhofer Diffraction Pattern, N- Slit Fraunhofer Diffraction Pattern,",
+          "requires": ["wedge-shape-films"]
+        },
+        {
+          "id": "polarization-polarization-of-light-production-of-polarized",
+          "name": "Polarization: Polarization of light, production of polarized light, types of polarization and their representation, Malus's law, polarizer and analyser, Double refraction, Interference of Polarized li",
+          "requires": ["newtons-rings-and-its-applications-diffraction-diffraction"]
+        }
+      ]
+    },
+    {
+      "id": "laser-and-fibre-optics",
+      "name": "Laser & Fibre Optics",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "concepts-of-maser-and-laser-interaction-of-radiation-of",
+          "name": "Concepts of maser and laser, Interaction of radiation of matter-quantum mechanical view, Einstein coefficients spontaneous and stimulated emission, principles involves in laser, Meta stable state, Pop"
+        },
+        {
+          "id": "nuclear-science-and-engineering-basics-of-nuclear-physics",
+          "name": "Nuclear Science and Engineering: Basics of Nuclear Physics, activation analysis, Q—Value, Carbon dating, fission and fusion",
+          "requires": ["concepts-of-maser-and-laser-interaction-of-radiation-of"]
+        },
+        {
+          "id": "principle-effect-of-nuclear-radiation-on-materials-radiation",
+          "name": "principle, effect of nuclear radiation on materials, radiation protection and environment",
+          "requires": ["nuclear-science-and-engineering-basics-of-nuclear-physics"]
+        }
+      ]
+    }
+  ]
+}

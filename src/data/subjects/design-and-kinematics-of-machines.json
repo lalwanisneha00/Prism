@@ -1,0 +1,460 @@
+{
+  "id": "design-and-kinematics-of-machines",
+  "name": "Design and Kinematics of Machines",
+  "field": "Mechanical Engineering",
+  "tier": "limited",
+  "branches": ["me"],
+  "semesters": [4],
+  "code": "17MI204T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s4-design-and-kinematics-of-machines",
+      "code": "17MI204T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 4
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Mech): Design and Kinematics of Machines",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "mechanics",
+  "chapters": [
+    {
+      "id": "unit-1",
+      "name": "Unit 1",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction-to-machine-design",
+          "name": "Introduction to machine design"
+        },
+        {
+          "id": "design-procedure",
+          "name": "design procedure",
+          "requires": ["introduction-to-machine-design"]
+        },
+        {
+          "id": "selection-of-materials",
+          "name": "Selection of materials",
+          "requires": ["design-procedure"]
+        },
+        {
+          "id": "properties-and-coding-of-various-materials",
+          "name": "Properties and coding of various materials",
+          "requires": ["selection-of-materials"]
+        },
+        {
+          "id": "factors-of-safety",
+          "name": "factors of safety",
+          "requires": ["properties-and-coding-of-various-materials"]
+        },
+        {
+          "id": "types-of-stresses",
+          "name": "Types of stresses",
+          "requires": ["factors-of-safety"]
+        },
+        {
+          "id": "principle-stress",
+          "name": "principle stress",
+          "requires": ["types-of-stresses"]
+        },
+        {
+          "id": "residual-stresses",
+          "name": "Residual stresses",
+          "requires": ["principle-stress"]
+        },
+        {
+          "id": "hertz-contact-stress-design-against-static-loading-design-of",
+          "name": "hertz contact stress. Design against static loading: Design of Cotter joint",
+          "requires": ["residual-stresses"]
+        },
+        {
+          "id": "knuckle-joint",
+          "name": "Knuckle joint",
+          "requires": ["hertz-contact-stress-design-against-static-loading-design-of"]
+        },
+        {
+          "id": "permanent-vs-temporary-joints",
+          "name": "Permanent vs temporary joints",
+          "requires": ["knuckle-joint"]
+        },
+        {
+          "id": "advantages-and-disadvantages-of-permanent-joints",
+          "name": "Advantages and disadvantages of permanent joints",
+          "requires": ["permanent-vs-temporary-joints"]
+        },
+        {
+          "id": "riveted-joint-terminology-of-a-riveted-joint",
+          "name": "Riveted Joint: Terminology of a riveted joint",
+          "requires": ["advantages-and-disadvantages-of-permanent-joints"]
+        },
+        {
+          "id": "types-of-rivets-and-riveted-joints",
+          "name": "types of rivets and riveted joints",
+          "requires": ["riveted-joint-terminology-of-a-riveted-joint"]
+        },
+        {
+          "id": "materials-for-rivets",
+          "name": "Materials for rivets",
+          "requires": ["types-of-rivets-and-riveted-joints"]
+        },
+        {
+          "id": "stresses-in-rivets-and-design-of-a-riveted-joint",
+          "name": "Stresses in rivets and design of a riveted joint",
+          "requires": ["materials-for-rivets"]
+        },
+        {
+          "id": "joint-efficiency",
+          "name": "Joint Efficiency",
+          "requires": ["stresses-in-rivets-and-design-of-a-riveted-joint"]
+        },
+        {
+          "id": "eccentrically-loaded-riveted-joint-welded-joint-types-of",
+          "name": "Eccentrically loaded riveted joint. Welded Joint: Types of welded joints",
+          "requires": ["joint-efficiency"]
+        },
+        {
+          "id": "weld-materials",
+          "name": "Weld Materials",
+          "requires": ["eccentrically-loaded-riveted-joint-welded-joint-types-of"]
+        },
+        {
+          "id": "stresses-in-welded-joints-and-design-of-welded-joints",
+          "name": "Stresses in welded joints and design of welded joints",
+          "requires": ["weld-materials"]
+        },
+        {
+          "id": "welded-joint-subjected-to-eccentric-loading",
+          "name": "Welded joint subjected to eccentric loading",
+          "requires": ["stresses-in-welded-joints-and-design-of-welded-joints"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-shafts",
+      "name": "Design of Shafts",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "shaft-material",
+          "name": "Shaft Material"
+        },
+        {
+          "id": "design-of-solid-and-hollow-shafts-for-strength-and-rigidity",
+          "name": "Design of solid and hollow shafts for strength and rigidity",
+          "requires": ["shaft-material"]
+        },
+        {
+          "id": "design-of-shafts-for-combined-bending-and-axial-loads-design",
+          "name": "Design of shafts for combined bending and axial loads Design of Shaft Couplings: Types of couplings",
+          "requires": ["design-of-solid-and-hollow-shafts-for-strength-and-rigidity"]
+        },
+        {
+          "id": "rigid-vs-flexible-couplings",
+          "name": "Rigid vs. flexible couplings",
+          "requires": ["design-of-shafts-for-combined-bending-and-axial-loads-design"]
+        },
+        {
+          "id": "design-of-flange-coupling",
+          "name": "Design of flange coupling",
+          "requires": ["rigid-vs-flexible-couplings"]
+        },
+        {
+          "id": "design-of-keys-design-of-power-screws-types-of-power-screw",
+          "name": "Design of keys Design of Power Screws: Types of power screw threads",
+          "requires": ["design-of-flange-coupling"]
+        },
+        {
+          "id": "design-of-screw-with-different-types-of-threads-used-in",
+          "name": "design of screw with different types of threads used in practice",
+          "requires": ["design-of-keys-design-of-power-screws-types-of-power-screw"]
+        },
+        {
+          "id": "design-of-nuts",
+          "name": "Design of nuts",
+          "requires": ["design-of-screw-with-different-types-of-threads-used-in"]
+        },
+        {
+          "id": "design-of-clamp",
+          "name": "Design of clamp",
+          "requires": ["design-of-nuts"]
+        },
+        {
+          "id": "screw-jack",
+          "name": "Screw jack",
+          "requires": ["design-of-clamp"]
+        },
+        {
+          "id": "toggle-jack",
+          "name": "toggle jack",
+          "requires": ["screw-jack"]
+        },
+        {
+          "id": "design-of-coupler",
+          "name": "design of coupler",
+          "requires": ["toggle-jack"]
+        },
+        {
+          "id": "design-of-levers-design-of-lever-for-safety-valve",
+          "name": "Design of Levers: Design of lever for safety valve",
+          "requires": ["design-of-coupler"]
+        },
+        {
+          "id": "design-of-bell-crank-lever",
+          "name": "design of bell crank lever",
+          "requires": ["design-of-levers-design-of-lever-for-safety-valve"]
+        },
+        {
+          "id": "design-of-rocker-arm-for-exhaust-valves-design-of-mechanical",
+          "name": "design of rocker arm for exhaust valves. Design of Mechanical Springs: Types of springs",
+          "requires": ["design-of-bell-crank-lever"]
+        },
+        {
+          "id": "materials-for-springs",
+          "name": "Materials for Springs",
+          "requires": ["design-of-rocker-arm-for-exhaust-valves-design-of-mechanical"]
+        },
+        {
+          "id": "stresses",
+          "name": "Stresses",
+          "requires": ["materials-for-springs"]
+        },
+        {
+          "id": "deflection-and-buckling-of-helical-springs",
+          "name": "deflection and buckling of helical springs",
+          "requires": ["stresses"]
+        },
+        {
+          "id": "helical-springs-of-non-circular-cross-sections",
+          "name": "Helical Springs of non-circular cross-sections",
+          "requires": ["deflection-and-buckling-of-helical-springs"]
+        },
+        {
+          "id": "helical-tension-spring",
+          "name": "Helical Tension spring",
+          "requires": ["helical-springs-of-non-circular-cross-sections"]
+        },
+        {
+          "id": "energy-storage-capacity",
+          "name": "Energy storage capacity",
+          "requires": ["helical-tension-spring"]
+        },
+        {
+          "id": "helical-torsion-springs",
+          "name": "Helical torsion springs",
+          "requires": ["energy-storage-capacity"]
+        },
+        {
+          "id": "co-axial-springs",
+          "name": "Co-axial springs",
+          "requires": ["helical-torsion-springs"]
+        },
+        {
+          "id": "leaf-springs",
+          "name": "leaf springs",
+          "requires": ["co-axial-springs"]
+        }
+      ]
+    },
+    {
+      "id": "fundamentals-of-kinematics-and-mechanisms",
+      "name": "Fundamentals of Kinematics and Mechanisms",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "kinematic-link",
+          "name": "Kinematic link"
+        },
+        {
+          "id": "types-of-links",
+          "name": "Types of links",
+          "requires": ["kinematic-link"]
+        },
+        {
+          "id": "kinematic-pair",
+          "name": "Kinematic pair",
+          "requires": ["types-of-links"]
+        },
+        {
+          "id": "types-of-constrained-motions",
+          "name": "Types of constrained motions",
+          "requires": ["kinematic-pair"]
+        },
+        {
+          "id": "types-of-kinematic-pairs",
+          "name": "Types of Kinematic pairs",
+          "requires": ["types-of-constrained-motions"]
+        },
+        {
+          "id": "kinematic-chain",
+          "name": "Kinematic chain",
+          "requires": ["types-of-kinematic-pairs"]
+        },
+        {
+          "id": "types-of-joints",
+          "name": "Types of joints",
+          "requires": ["kinematic-chain"]
+        },
+        {
+          "id": "mechanism",
+          "name": "Mechanism",
+          "requires": ["types-of-joints"]
+        },
+        {
+          "id": "machine",
+          "name": "Machine",
+          "requires": ["mechanism"]
+        },
+        {
+          "id": "degree-of-freedom-mobility",
+          "name": "Degree of freedom (Mobility)",
+          "requires": ["machine"]
+        },
+        {
+          "id": "inversions-of-simple-mechanisms",
+          "name": "inversions of simple mechanisms",
+          "requires": ["degree-of-freedom-mobility"]
+        },
+        {
+          "id": "grashoffs-law",
+          "name": "Grashoff’s law",
+          "requires": ["inversions-of-simple-mechanisms"]
+        },
+        {
+          "id": "steering-gear-mechanisms",
+          "name": "Steering gear mechanisms",
+          "requires": ["grashoffs-law"]
+        },
+        {
+          "id": "hooks-joint-cams-introduction",
+          "name": "Hook’s joint. Cams: Introduction",
+          "requires": ["steering-gear-mechanisms"]
+        },
+        {
+          "id": "types-of-cams",
+          "name": "Types of cams",
+          "requires": ["hooks-joint-cams-introduction"]
+        },
+        {
+          "id": "types-of-followers",
+          "name": "Types of followers",
+          "requires": ["types-of-cams"]
+        },
+        {
+          "id": "definitions",
+          "name": "Definitions",
+          "requires": ["types-of-followers"]
+        },
+        {
+          "id": "follower-displacement-diagrams",
+          "name": "Follower displacement diagrams",
+          "requires": ["definitions"]
+        },
+        {
+          "id": "high-speed-cams",
+          "name": "High speed cams",
+          "requires": ["follower-displacement-diagrams"]
+        },
+        {
+          "id": "motions-of-follower",
+          "name": "Motions of follower",
+          "requires": ["high-speed-cams"]
+        },
+        {
+          "id": "layouts-of-cam-profiles",
+          "name": "Layouts of cam profiles",
+          "requires": ["motions-of-follower"]
+        },
+        {
+          "id": "cams-with-specified-contours",
+          "name": "Cams with specified contours",
+          "requires": ["layouts-of-cam-profiles"]
+        },
+        {
+          "id": "analysis-of-cams",
+          "name": "Analysis of cams",
+          "requires": ["cams-with-specified-contours"]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "name": "Unit 4",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "velocity-and-acceleration-analysis-of-simple-mechanisms-by",
+          "name": "Velocity and Acceleration Analysis of Simple Mechanisms by relative velocity method and instantaneous centre method"
+        },
+        {
+          "id": "coriolis-component-of-acceleration",
+          "name": "Coriolis component of acceleration",
+          "requires": ["velocity-and-acceleration-analysis-of-simple-mechanisms-by"]
+        },
+        {
+          "id": "kleins-construction-introduction-to-synthesis-of-linkages",
+          "name": "Klein’s construction Introduction to Synthesis of Linkages: Steps in synthesis process: Type",
+          "requires": ["coriolis-component-of-acceleration"]
+        },
+        {
+          "id": "number-and-dimensional-synthesis-tasks-of-kinematic",
+          "name": "number and dimensional synthesis. Tasks of Kinematic synthesis: Path",
+          "requires": ["kleins-construction-introduction-to-synthesis-of-linkages"]
+        },
+        {
+          "id": "function-and-motion-generation-body-guidance-precision",
+          "name": "function and motion generation (Body guidance). Precision Positions",
+          "requires": ["number-and-dimensional-synthesis-tasks-of-kinematic"]
+        },
+        {
+          "id": "chebyshev-spacing",
+          "name": "Chebyshev spacing",
+          "requires": ["function-and-motion-generation-body-guidance-precision"]
+        },
+        {
+          "id": "mechanical-and-structural-errors",
+          "name": "Mechanical and structural errors",
+          "requires": ["chebyshev-spacing"]
+        },
+        {
+          "id": "branch-defect-and-order-defect",
+          "name": "Branch defect and order defect",
+          "requires": ["mechanical-and-structural-errors"]
+        },
+        {
+          "id": "crank-rocker-mechanisms",
+          "name": "Crank Rocker mechanisms",
+          "requires": ["branch-defect-and-order-defect"]
+        },
+        {
+          "id": "graphical-synthesis-two-and-three-position-synthesis-using",
+          "name": "Graphical synthesis: Two and three position synthesis using relative pole method and inversion method for single slidercrank and four bar mechanism",
+          "requires": ["crank-rocker-mechanisms"]
+        },
+        {
+          "id": "three-position-motion-synthesis-of-four-bar-mechanism",
+          "name": "Three position motion synthesis of four bar Mechanism",
+          "requires": ["graphical-synthesis-two-and-three-position-synthesis-using"]
+        },
+        {
+          "id": "analytical-synthesis-derivation-of-freudensteins-equation",
+          "name": "Analytical synthesis: Derivation of Freudenstein’s equation",
+          "requires": ["three-position-motion-synthesis-of-four-bar-mechanism"]
+        },
+        {
+          "id": "three-position-function-generation-using-freudensteins",
+          "name": "Three-position function generation using Freudenstein’s equation",
+          "requires": ["analytical-synthesis-derivation-of-freudensteins-equation"]
+        }
+      ]
+    }
+  ]
+}

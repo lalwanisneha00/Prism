@@ -1,0 +1,298 @@
+{
+  "id": "microwave-and-antenna",
+  "name": "Microwave and Antenna",
+  "field": "Microwave and Antenna",
+  "tier": "limited",
+  "branches": ["ece"],
+  "semesters": [6],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s6-microwave-and-antenna",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Microwave and Antenna",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "signals",
+  "chapters": [
+    {
+      "id": "introduction-to-antenna-and-microwave-engineering",
+      "name": "Introduction to Antenna and Microwave Engineering",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "microwave-frequency-bands",
+          "name": "Microwave frequency bands"
+        },
+        {
+          "id": "radiation-mechanism",
+          "name": "radiation mechanism",
+          "requires": ["microwave-frequency-bands"]
+        },
+        {
+          "id": "near-and-far-field-regions",
+          "name": "Near- and far-field regions",
+          "requires": ["radiation-mechanism"]
+        },
+        {
+          "id": "fields-and-power-radiated-by-an-antenna",
+          "name": "Fields and Power Radiated by an Antenna",
+          "requires": ["near-and-far-field-regions"]
+        },
+        {
+          "id": "antenna-pattern-characteristics",
+          "name": "Antenna Pattern Characteristics",
+          "requires": ["fields-and-power-radiated-by-an-antenna"]
+        },
+        {
+          "id": "single-wire",
+          "name": "single wire",
+          "requires": ["antenna-pattern-characteristics"]
+        },
+        {
+          "id": "two-wire",
+          "name": "two wire",
+          "requires": ["single-wire"]
+        },
+        {
+          "id": "dipole",
+          "name": "dipole",
+          "requires": ["two-wire"]
+        },
+        {
+          "id": "current-distribution-of-thin-wire-antenna",
+          "name": "current distribution of thin wire antenna",
+          "requires": ["dipole"]
+        },
+        {
+          "id": "fundamental-parameters-and-figures-of-merit-of-antennas",
+          "name": "Fundamental Parameters and Figures-of-Merit of Antennas",
+          "requires": ["current-distribution-of-thin-wire-antenna"]
+        },
+        {
+          "id": "friis-transmission-equation",
+          "name": "Friis Transmission Equation",
+          "requires": ["fundamental-parameters-and-figures-of-merit-of-antennas"]
+        }
+      ]
+    },
+    {
+      "id": "wire-aperture-and-printed-antennas",
+      "name": "Wire, Aperture and Printed Antennas",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "linear-wire-antennas-analysis",
+          "name": "Linear wire antennas: analysis"
+        },
+        {
+          "id": "field-equations",
+          "name": "field equations",
+          "requires": ["linear-wire-antennas-analysis"]
+        },
+        {
+          "id": "folded-dipole",
+          "name": "folded Dipole",
+          "requires": ["field-equations"]
+        },
+        {
+          "id": "yagi-uda-antenna",
+          "name": "Yagi-Uda antenna",
+          "requires": ["folded-dipole"]
+        },
+        {
+          "id": "image-theory-and-monopole-antenna-aperture-antennas",
+          "name": "image theory and monopole antenna. Aperture antennas: waveguide",
+          "requires": ["yagi-uda-antenna"]
+        },
+        {
+          "id": "horn-and-reflector-antennas-basic-characteristics-of",
+          "name": "horn and reflector antennas. Basic characteristics of microstrip antennas",
+          "requires": ["image-theory-and-monopole-antenna-aperture-antennas"]
+        },
+        {
+          "id": "feeding-methods",
+          "name": "feeding methods",
+          "requires": ["horn-and-reflector-antennas-basic-characteristics-of"]
+        },
+        {
+          "id": "methods-of-analysis",
+          "name": "methods of analysis",
+          "requires": ["feeding-methods"]
+        },
+        {
+          "id": "design-of-rectangular-and-circular-patch-antennas-antenna",
+          "name": "design of rectangular and circular patch antennas. Antenna Array: Two element arrays",
+          "requires": ["methods-of-analysis"]
+        },
+        {
+          "id": "n-element-linear-array",
+          "name": "N-element linear array",
+          "requires": ["design-of-rectangular-and-circular-patch-antennas-antenna"]
+        },
+        {
+          "id": "broadside-array",
+          "name": "broadside array",
+          "requires": ["n-element-linear-array"]
+        },
+        {
+          "id": "ordinary-end-fire-array",
+          "name": "ordinary end fire array",
+          "requires": ["broadside-array"]
+        },
+        {
+          "id": "phased-array",
+          "name": "phased array",
+          "requires": ["ordinary-end-fire-array"]
+        }
+      ]
+    },
+    {
+      "id": "passive-and-active-microwave-devices",
+      "name": "Passive and Active Microwave Devices",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "scattering-parameters",
+          "name": "Scattering parameters"
+        },
+        {
+          "id": "waveguides",
+          "name": "waveguides",
+          "requires": ["scattering-parameters"]
+        },
+        {
+          "id": "scattering-parameters-of-wave-guide-tees",
+          "name": "scattering parameters of wave-guide tees",
+          "requires": ["waveguides"]
+        },
+        {
+          "id": "directional-couplers-circulators-and-isolators-microwave",
+          "name": "directional couplers, circulators, and isolators. Microwave filters. Microwave Semiconductor Devices: Gunn Diodes",
+          "requires": ["scattering-parameters-of-wave-guide-tees"]
+        },
+        {
+          "id": "impatt-diodes",
+          "name": "IMPATT diodes",
+          "requires": ["directional-couplers-circulators-and-isolators-microwave"]
+        },
+        {
+          "id": "schottky-barrier-diodes",
+          "name": "Schottky Barrier diodes",
+          "requires": ["impatt-diodes"]
+        },
+        {
+          "id": "pin-diodes",
+          "name": "PIN diodes",
+          "requires": ["schottky-barrier-diodes"]
+        },
+        {
+          "id": "microwave-tubes-klystron",
+          "name": "Microwave tubes: Klystron",
+          "requires": ["pin-diodes"]
+        },
+        {
+          "id": "twt",
+          "name": "TWT",
+          "requires": ["microwave-tubes-klystron"]
+        },
+        {
+          "id": "magnetron-characteristics-of-gunn-diode",
+          "name": "Magnetron. Characteristics of Gunn Diode",
+          "requires": ["twt"]
+        },
+        {
+          "id": "mode-characteristics-of-klystron",
+          "name": "Mode Characteristics of Klystron",
+          "requires": ["magnetron-characteristics-of-gunn-diode"]
+        }
+      ]
+    },
+    {
+      "id": "microwave-measurements",
+      "name": "Microwave Measurements",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "measuring-instruments-principle-of-operation-and-application",
+          "name": "Measuring Instruments: Principle of operation and application of VSWR meter"
+        },
+        {
+          "id": "power-meter",
+          "name": "Power meter",
+          "requires": ["measuring-instruments-principle-of-operation-and-application"]
+        },
+        {
+          "id": "spectrum-analyzer",
+          "name": "Spectrum analyzer",
+          "requires": ["power-meter"]
+        },
+        {
+          "id": "network-analyzer",
+          "name": "Network analyzer",
+          "requires": ["spectrum-analyzer"]
+        },
+        {
+          "id": "measurement-of-gain",
+          "name": "Measurement of Gain",
+          "requires": ["network-analyzer"]
+        },
+        {
+          "id": "measurement-of-impedance",
+          "name": "Measurement of Impedance",
+          "requires": ["measurement-of-gain"]
+        },
+        {
+          "id": "frequency",
+          "name": "Frequency",
+          "requires": ["measurement-of-impedance"]
+        },
+        {
+          "id": "power",
+          "name": "Power",
+          "requires": ["frequency"]
+        },
+        {
+          "id": "vswr",
+          "name": "VSWR",
+          "requires": ["power"]
+        },
+        {
+          "id": "q-factor",
+          "name": "Q-factor",
+          "requires": ["vswr"]
+        },
+        {
+          "id": "dielectric-constant",
+          "name": "Dielectric constant",
+          "requires": ["q-factor"]
+        },
+        {
+          "id": "scattering-coefficients",
+          "name": "Scattering coefficients",
+          "requires": ["dielectric-constant"]
+        },
+        {
+          "id": "attenuation",
+          "name": "Attenuation",
+          "requires": ["scattering-coefficients"]
+        },
+        {
+          "id": "s-parameters",
+          "name": "S-parameters",
+          "requires": ["attenuation"]
+        }
+      ]
+    }
+  ]
+}

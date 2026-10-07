@@ -1,0 +1,190 @@
+{
+  "id": "well-test-analysis",
+  "name": "Well Test Analysis",
+  "field": "Well Test Analysis",
+  "tier": "limited",
+  "branches": ["petro"],
+  "semesters": [5],
+  "code": "24PE302T",
+  "credits": 3,
+  "ltp": "2-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s5-well-test-analysis",
+      "code": "24PE302T",
+      "category": "Program Core",
+      "ltp": "2-1-0",
+      "credits": 3,
+      "semester": 5
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Well Test Analysis",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "introduction-to-the-well-test-analysis",
+      "name": "Introduction to the Well Test Analysis",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "purpose-and-objectives-of-well-testing",
+          "name": "Purpose and objectives of well testing"
+        },
+        {
+          "id": "types-of-well-tests-drawdown",
+          "name": "Types of well tests: drawdown",
+          "requires": ["purpose-and-objectives-of-well-testing"]
+        },
+        {
+          "id": "buildup",
+          "name": "buildup",
+          "requires": ["types-of-well-tests-drawdown"]
+        },
+        {
+          "id": "injectivity",
+          "name": "injectivity",
+          "requires": ["buildup"]
+        },
+        {
+          "id": "falloff",
+          "name": "falloff",
+          "requires": ["injectivity"]
+        },
+        {
+          "id": "multi-rate",
+          "name": "multi-rate",
+          "requires": ["falloff"]
+        },
+        {
+          "id": "basic-reservoir-flow-models-radial",
+          "name": "Basic reservoir flow models: radial",
+          "requires": ["multi-rate"]
+        },
+        {
+          "id": "linear",
+          "name": "linear",
+          "requires": ["basic-reservoir-flow-models-radial"]
+        },
+        {
+          "id": "boundary-dominated",
+          "name": "boundary-dominated",
+          "requires": ["linear"]
+        },
+        {
+          "id": "data-acquisition-and-quality-control",
+          "name": "Data acquisition and quality control",
+          "requires": ["boundary-dominated"]
+        }
+      ]
+    },
+    {
+      "id": "pressure-transient-analysis-for-single-phase-flow",
+      "name": "Pressure Transient Analysis for Single-Phase Flow",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "concept-of-pressure-diffusivity",
+          "name": "Concept of pressure diffusivity"
+        },
+        {
+          "id": "analysis-of-drawdown-and-buildup-tests-in-infinite-acting",
+          "name": "Analysis of drawdown and buildup tests in infinite-acting radial flow",
+          "requires": ["concept-of-pressure-diffusivity"]
+        },
+        {
+          "id": "type-curve-analysis",
+          "name": "Type curve analysis",
+          "requires": ["analysis-of-drawdown-and-buildup-tests-in-infinite-acting"]
+        },
+        {
+          "id": "effects-of-skin-and-wellbore-storage",
+          "name": "Effects of skin and wellbore storage",
+          "requires": ["type-curve-analysis"]
+        },
+        {
+          "id": "specialized-plots-horner",
+          "name": "Specialized plots: Horner",
+          "requires": ["effects-of-skin-and-wellbore-storage"]
+        },
+        {
+          "id": "mdh",
+          "name": "MDH",
+          "requires": ["specialized-plots-horner"]
+        },
+        {
+          "id": "derivative-analysis",
+          "name": "derivative analysis",
+          "requires": ["mdh"]
+        },
+        {
+          "id": "introduction-to-well-test-analysis-software",
+          "name": "Introduction to well-test analysis software",
+          "requires": ["derivative-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "well-test-analysis-in-complex-systems",
+      "name": "Well Test Analysis in Complex Systems",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "partially-completed-and-limited-entry-wells",
+          "name": "Partially completed and limited entry wells"
+        },
+        {
+          "id": "naturally-fractured-reservoirs-dual-porosity-models",
+          "name": "naturally fractured reservoirs (dual porosity models)",
+          "requires": ["partially-completed-and-limited-entry-wells"]
+        },
+        {
+          "id": "layered-reservoirs",
+          "name": "Layered reservoirs",
+          "requires": ["naturally-fractured-reservoirs-dual-porosity-models"]
+        },
+        {
+          "id": "horizontal-wells",
+          "name": "Horizontal wells",
+          "requires": ["layered-reservoirs"]
+        },
+        {
+          "id": "interference-testing",
+          "name": "Interference testing",
+          "requires": ["horizontal-wells"]
+        }
+      ]
+    },
+    {
+      "id": "production-system-analysis-and-optimization",
+      "name": "Production System Analysis and Optimization",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "well-testing-in-gas-reservoirs-pseudo-pressure-pseudo-time",
+          "name": "Well testing in gas reservoirs (pseudo pressure, pseudo time)"
+        },
+        {
+          "id": "multiphase-flow-considerations",
+          "name": "Multiphase Flow Considerations",
+          "requires": ["well-testing-in-gas-reservoirs-pseudo-pressure-pseudo-time"]
+        },
+        {
+          "id": "integration-of-well-test-data-with-other-reservoir-data",
+          "name": "Integration of well test data with other reservoir data (seismic, well logs, production data)",
+          "requires": ["multiphase-flow-considerations"]
+        },
+        {
+          "id": "case-studies-and-real-world-examples",
+          "name": "Case Studies and real-world examples",
+          "requires": ["integration-of-well-test-data-with-other-reservoir-data"]
+        }
+      ]
+    }
+  ]
+}

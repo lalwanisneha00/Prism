@@ -1,0 +1,163 @@
+{
+  "id": "power-electronics-vlsi-embedded",
+  "name": "Power Electronics (VLSI/Embedded)",
+  "field": "Power Electronics",
+  "tier": "limited",
+  "branches": ["ece"],
+  "semesters": [6],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s6-program-elective-2--power-electronics-vlsi-embedded",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Power Electronics (VLSI/Embedded)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "power-amplifiers-and-power-semiconductor-devices",
+      "name": "Power Amplifiers and Power Semiconductor Devices",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "operation-and-analysis-of-power-amplifiers-class-a-b-c-and",
+          "name": "Operation and analysis of power Amplifiers: Class A, B, C and push-pull configurations"
+        },
+        {
+          "id": "introduction-to-power-electronics-and-its-applications",
+          "name": "Introduction to power electronics and its applications",
+          "requires": ["operation-and-analysis-of-power-amplifiers-class-a-b-c-and"]
+        },
+        {
+          "id": "overview-of-power-electronic-circuits-and-systems-power",
+          "name": "overview of power electronic circuits and Systems Power semiconductor devices: Diodes, SCR, GTO and transistors (BJT, MOSFET and IGBT): Ratings, static and dynamic characteristics, drive and switching",
+          "requires": ["introduction-to-power-electronics-and-its-applications"]
+        },
+        {
+          "id": "protection-and-cooling-of-power-semiconductor-devices",
+          "name": "protection and cooling of power semiconductor devices",
+          "requires": ["overview-of-power-electronic-circuits-and-systems-power"]
+        }
+      ]
+    },
+    {
+      "id": "ac-dc-converters",
+      "name": "Ac-dc Converters",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "principle-of-phase-control-ac-dc-converter",
+          "name": "Principle of phase control AC-DC converter"
+        },
+        {
+          "id": "single-phase-and-three-phase-converter-circuits-with",
+          "name": "single phase and three phase converter circuits with different types of loads",
+          "requires": ["principle-of-phase-control-ac-dc-converter"]
+        },
+        {
+          "id": "performance-parameters-analysis-power-factor-ripple-factor",
+          "name": "performance parameters analysis: power factor, ripple factor, form factor, harmonics, distortion and effect of source Inductance on performance",
+          "requires": ["single-phase-and-three-phase-converter-circuits-with"]
+        },
+        {
+          "id": "dual-converters-and-their-operation",
+          "name": "dual converters and their operation",
+          "requires": ["performance-parameters-analysis-power-factor-ripple-factor"]
+        },
+        {
+          "id": "power-factor-improvement-techniques",
+          "name": "power factor improvement techniques",
+          "requires": ["dual-converters-and-their-operation"]
+        },
+        {
+          "id": "applications-of-ac-dc-converter-circuits",
+          "name": "applications of AC DC converter circuits",
+          "requires": ["power-factor-improvement-techniques"]
+        }
+      ]
+    },
+    {
+      "id": "dc-dc-and-ac-ac-converters",
+      "name": "Dc-dc and Ac-ac Converters",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-to-dc-dc-converters",
+          "name": "Introduction to DC-DC converters"
+        },
+        {
+          "id": "working-principle-of-step-up-and-step-down-chopper-circuits",
+          "name": "working principle of step up and step-down chopper circuits",
+          "requires": ["introduction-to-dc-dc-converters"]
+        },
+        {
+          "id": "design-of-chopper-based-buck-converter-boost-converter-buck",
+          "name": "Design of chopper-based Buck converter, Boost converter, Buck-Boost and Cuk converter: circuit configuration and steady state time domain Analysis with different kinds of loads",
+          "requires": ["working-principle-of-step-up-and-step-down-chopper-circuits"]
+        },
+        {
+          "id": "design-of-inductors-for-dc-dc-converters",
+          "name": "design of inductors for DC-DC converters",
+          "requires": ["design-of-chopper-based-buck-converter-boost-converter-buck"]
+        },
+        {
+          "id": "ac-ac-converter-single-phase-ac-voltage-controllers-ac",
+          "name": "AC-AC converter: single phase AC Voltage controllers, AC chopper",
+          "requires": ["design-of-inductors-for-dc-dc-converters"]
+        },
+        {
+          "id": "single-phase-cycloconverters",
+          "name": "single phase cycloconverters",
+          "requires": ["ac-ac-converter-single-phase-ac-voltage-controllers-ac"]
+        },
+        {
+          "id": "applications",
+          "name": "applications",
+          "requires": ["single-phase-cycloconverters"]
+        }
+      ]
+    },
+    {
+      "id": "dc-ac-converters-inverters",
+      "name": "Dc-ac Converters (inverters)",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "classification-of-inverters-single-phase-voltage-source",
+          "name": "Classification of inverters, single phase voltage source bridge inverter"
+        },
+        {
+          "id": "performance-parameter-analysis-with-various-loads",
+          "name": "performance parameter analysis with various loads",
+          "requires": ["classification-of-inverters-single-phase-voltage-source"]
+        },
+        {
+          "id": "voltage-control-of-single-phase-inverters-pwm-techniques",
+          "name": "voltage control of single-phase inverters: PWM techniques",
+          "requires": ["performance-parameter-analysis-with-various-loads"]
+        },
+        {
+          "id": "three-phase-bridge-inverter-180o-and-120o-conduction-mode-of",
+          "name": "Three- phase bridge inverter: 180o and 120o conduction mode of operation with various loads",
+          "requires": ["voltage-control-of-single-phase-inverters-pwm-techniques"]
+        },
+        {
+          "id": "applications-of-inverter-circuits",
+          "name": "applications of inverter circuits",
+          "requires": ["three-phase-bridge-inverter-180o-and-120o-conduction-mode-of"]
+        }
+      ]
+    }
+  ]
+}

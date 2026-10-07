@@ -1,300 +1,139 @@
 {
   "id": "engg-chemistry",
-  "name": "Engineering Chemistry",
+  "name": "Chemistry (ECE, Civil)",
   "field": "Engineering Chemistry",
-  "tier": "verified",
-  "branches": ["all"],
-  "semesters": [1, 2],
+  "tier": "limited",
+  "branches": ["ece", "civil"],
+  "semesters": [2],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s2-chemistry",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2
+    },
+    {
+      "branch": "civil",
+      "key": "s2-chemistry",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2
+    }
+  ],
   "syllabusSource": {
-    "kind": "aicte",
-    "title": "AICTE Model Curriculum for UG Degree Courses in Engineering & Technology, Vol. I (Jan 2018): Chemistry-I (Concepts in chemistry for engineering)",
-    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf",
-    "note": "Atomic and molecular structure, spectroscopy, intermolecular forces, free energy and equilibria, periodic properties, stereochemistry and organic reactions follow AICTE Chemistry-I. Phase rule, fuels, corrosion and nanomaterials follow GCE Kalahandi's AICTE-model Chemistry-I (https://www.gcekjr.ac.in/pdf/news/2018/2758Proposed_First_Year_BTech_Syllabus_As_Per_AICTE_Model_Curriculum.pdf)."
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE, Civil): Chemistry",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
   },
   "visualSet": "chemistry",
   "chapters": [
     {
-      "id": "atomic-molecular-structure",
-      "name": "Atomic and Molecular Structure",
+      "id": "chemistry-of-engineering-materials",
+      "name": "Chemistry of Engineering Materials",
       "hours": 12,
       "topics": [
         {
-          "id": "schrodinger-particle-in-box-chem",
-          "name": "Schrödinger equation and particle in a box (conjugated molecules, nanoparticles)"
+          "id": "traditional-materials-introduction-and-classification-of",
+          "name": "Traditional Materials: Introduction and classification of materials"
         },
         {
-          "id": "hydrogen-wave-functions",
-          "name": "Hydrogen atom wave functions and orbitals",
-          "requires": ["schrodinger-particle-in-box-chem"]
+          "id": "metallic-materials-polymeric-ceramic-materials-advanced",
+          "name": "metallic materials, polymeric, ceramic materials Advanced Materials: Introduction to nanomaterials: Properties and application",
+          "requires": ["traditional-materials-introduction-and-classification-of"]
         },
         {
-          "id": "molecular-orbital-theory",
-          "name": "Molecular orbitals of diatomic molecules",
-          "requires": ["hydrogen-wave-functions"]
+          "id": "carbonaceous-materials-fullerene-carbon-nanotube-graphene",
+          "name": "Carbonaceous materials (fullerene, carbon nanotube, graphene, etc.)",
+          "requires": ["metallic-materials-polymeric-ceramic-materials-advanced"]
         },
         {
-          "id": "aromaticity-pi-orbitals",
-          "name": "Pi-molecular orbitals of butadiene and benzene; aromaticity",
-          "requires": ["molecular-orbital-theory"]
+          "id": "composite-materials",
+          "name": "Composite materials",
+          "requires": ["carbonaceous-materials-fullerene-carbon-nanotube-graphene"]
         },
         {
-          "id": "crystal-field-theory",
-          "name": "Crystal field theory and magnetic properties",
-          "requires": ["hydrogen-wave-functions"]
-        },
-        {
-          "id": "band-structure-doping",
-          "name": "Band structure of solids and doping",
-          "requires": ["molecular-orbital-theory"]
+          "id": "liquid-crystals-classification-and-application",
+          "name": "Liquid crystals: Classification and Application",
+          "requires": ["composite-materials"]
         }
       ]
     },
     {
-      "id": "spectroscopy",
-      "name": "Spectroscopic Techniques",
-      "hours": 8,
-      "topics": [
-        {
-          "id": "spectroscopy-principles",
-          "name": "Principles of spectroscopy and selection rules; Beer-Lambert law"
-        },
-        {
-          "id": "uv-visible-spectroscopy",
-          "name": "Electronic (UV-visible) spectroscopy and chromophores",
-          "requires": ["spectroscopy-principles"]
-        },
-        {
-          "id": "fluorescence",
-          "name": "Fluorescence and its applications in medicine",
-          "requires": ["uv-visible-spectroscopy"]
-        },
-        {
-          "id": "vibrational-rotational-spectroscopy",
-          "name": "Vibrational and rotational spectroscopy of diatomic molecules",
-          "requires": ["spectroscopy-principles"]
-        },
-        {
-          "id": "nmr-mri",
-          "name": "Nuclear magnetic resonance and MRI",
-          "requires": ["spectroscopy-principles"]
-        },
-        {
-          "id": "diffraction-surface-techniques",
-          "name": "Diffraction, scattering and surface characterisation",
-          "requires": ["spectroscopy-principles"]
-        }
-      ]
-    },
-    {
-      "id": "intermolecular-forces",
-      "name": "Intermolecular Forces and Real Gases",
-      "hours": 4,
-      "topics": [
-        {
-          "id": "intermolecular-interactions",
-          "name": "Ionic, dipolar and van der Waals interactions"
-        },
-        {
-          "id": "real-gases-critical",
-          "name": "Equations of state of real gases and critical phenomena",
-          "requires": ["intermolecular-interactions"]
-        },
-        {
-          "id": "potential-energy-surfaces",
-          "name": "Potential energy surfaces",
-          "requires": ["intermolecular-interactions"]
-        }
-      ]
-    },
-    {
-      "id": "free-energy-equilibria",
-      "name": "Free Energy, Electrochemistry and Corrosion",
-      "hours": 14,
-      "topics": [
-        {
-          "id": "thermodynamic-functions",
-          "name": "Energy, entropy and free energy"
-        },
-        {
-          "id": "nernst-equation",
-          "name": "Free energy and emf; cell potentials and the Nernst equation",
-          "requires": ["thermodynamic-functions"]
-        },
-        {
-          "id": "acid-base-redox-solubility",
-          "name": "Acid-base, redox and solubility equilibria",
-          "requires": ["thermodynamic-functions"]
-        },
-        {
-          "id": "water-chemistry",
-          "name": "Water chemistry: hardness and treatment",
-          "requires": ["acid-base-redox-solubility"]
-        },
-        {
-          "id": "ellingham-diagrams",
-          "name": "Free energy in metallurgy: Ellingham diagrams",
-          "requires": ["thermodynamic-functions"]
-        },
-        {
-          "id": "electrochemical-corrosion",
-          "name": "Electrochemical theory of corrosion and the galvanic series",
-          "requires": ["nernst-equation"]
-        },
-        {
-          "id": "types-of-corrosion",
-          "name": "Types of corrosion: differential metal, differential aeration, stress corrosion",
-          "requires": ["electrochemical-corrosion"]
-        },
-        {
-          "id": "corrosion-protection",
-          "name": "Corrosion control: coatings, inhibitors and cathodic protection",
-          "requires": ["types-of-corrosion"]
-        }
-      ]
-    },
-    {
-      "id": "periodic-properties",
-      "name": "Periodic Properties",
-      "hours": 4,
-      "topics": [
-        {
-          "id": "effective-nuclear-charge",
-          "name": "Effective nuclear charge, penetration and orbital energies"
-        },
-        {
-          "id": "periodic-trends",
-          "name": "Atomic and ionic sizes, ionisation energy, electron affinity, electronegativity",
-          "requires": ["effective-nuclear-charge"]
-        },
-        {
-          "id": "hsab-geometries",
-          "name": "Oxidation states, coordination, HSAB and molecular geometries",
-          "requires": ["periodic-trends"]
-        }
-      ]
-    },
-    {
-      "id": "stereochemistry",
-      "name": "Stereochemistry",
-      "hours": 4,
-      "topics": [
-        {
-          "id": "isomerism",
-          "name": "Structural isomers and stereoisomers"
-        },
-        {
-          "id": "chirality-optical-activity",
-          "name": "Symmetry, chirality, enantiomers and optical activity",
-          "requires": ["isomerism"]
-        },
-        {
-          "id": "configurations-conformations",
-          "name": "Absolute configurations and conformational analysis",
-          "requires": ["chirality-optical-activity"]
-        },
-        {
-          "id": "isomerism-coordination-compounds",
-          "name": "Isomerism in transition metal compounds",
-          "requires": ["isomerism"]
-        }
-      ]
-    },
-    {
-      "id": "organic-reactions",
-      "name": "Organic Reactions and Drug Synthesis",
-      "hours": 4,
-      "topics": [
-        {
-          "id": "substitution-addition-elimination",
-          "name": "Substitution, addition and elimination reactions"
-        },
-        {
-          "id": "oxidation-reduction-cyclisation",
-          "name": "Oxidation, reduction, cyclisation and ring opening",
-          "requires": ["substitution-addition-elimination"]
-        },
-        {
-          "id": "drug-synthesis",
-          "name": "Synthesis of a commonly used drug molecule (paracetamol, aspirin)",
-          "requires": ["oxidation-reduction-cyclisation"]
-        }
-      ]
-    },
-    {
-      "id": "phase-rule",
-      "name": "Phase Rule",
-      "hours": 8,
-      "topics": [
-        {
-          "id": "gibbs-phase-rule",
-          "name": "Gibbs' phase rule and its terms"
-        },
-        {
-          "id": "one-component-systems",
-          "name": "One-component systems: water and sulphur",
-          "requires": ["gibbs-phase-rule"]
-        },
-        {
-          "id": "two-component-eutectic",
-          "name": "Two-component systems: eutectic (Pb-Sn, Bi-Cd) and isomorphous",
-          "requires": ["one-component-systems"]
-        }
-      ]
-    },
-    {
-      "id": "fuels",
-      "name": "Fuels and Combustion",
+      "id": "modern-analytical-techniques",
+      "name": "Modern Analytical Techniques",
       "hours": 10,
       "topics": [
         {
-          "id": "fuel-classification-calorific-value",
-          "name": "Classification of fuels and calorific value (Dulong's formula, GCV, NCV)"
+          "id": "instrumentation-principle-and-characterization-of-materials",
+          "name": "Instrumentation, principle and characterization of materials: X-ray diffraction (XRD), Electro analytical techniques"
         },
         {
-          "id": "coal-analysis",
-          "name": "Solid fuels: proximate and ultimate analysis of coal",
-          "requires": ["fuel-classification-calorific-value"]
+          "id": "ftir-uv-visible-spectroscopy",
+          "name": "FTIR, UV- visible spectroscopy",
+          "requires": ["instrumentation-principle-and-characterization-of-materials"]
         },
         {
-          "id": "petroleum-refining-cracking",
-          "name": "Petroleum refining and cracking",
-          "requires": ["fuel-classification-calorific-value"]
+          "id": "thermal-analysis-tga-dta-dsc",
+          "name": "Thermal analysis (TGA-DTA-DSC)",
+          "requires": ["ftir-uv-visible-spectroscopy"]
         },
         {
-          "id": "knocking-octane-cetane",
-          "name": "Knocking, octane and cetane numbers",
-          "requires": ["petroleum-refining-cracking"]
-        },
-        {
-          "id": "gaseous-fuels",
-          "name": "Gaseous fuels: producer gas, water gas, LPG, CNG",
-          "requires": ["fuel-classification-calorific-value"]
-        },
-        {
-          "id": "combustion-calculations",
-          "name": "Combustion calculations",
-          "requires": ["fuel-classification-calorific-value"]
+          "id": "chromatographic-techniques-gc-hplc",
+          "name": "Chromatographic techniques (GC, HPLC)",
+          "requires": ["thermal-analysis-tga-dta-dsc"]
         }
       ]
     },
     {
-      "id": "nanomaterials",
-      "name": "New Materials: Nanomaterials",
+      "id": "adsorption-catalysis-and-kinetics",
+      "name": "Adsorption, Catalysis and Kinetics",
       "hours": 10,
       "topics": [
         {
-          "id": "nanomaterials-classification",
-          "name": "Nanomaterials: 0D, 1D and 2D, and size-dependent properties"
+          "id": "adsorption-characteristics-classification-application",
+          "name": "Adsorption - Characteristics, Classification, Application , Adsorption isotherms- Freundlich, Langmuir & BET Chemical Kinetics - Rate law, Arrhenius equation, Transition state theory, Collision theory"
         },
         {
-          "id": "nanomaterial-synthesis",
-          "name": "Top-down, bottom-up and green synthesis",
-          "requires": ["nanomaterials-classification"]
+          "id": "complex-reactions-catalysis-homogeneous-and-heterogeneous",
+          "name": "Complex reactions Catalysis - Homogeneous and Heterogeneous Catalysis",
+          "requires": ["adsorption-characteristics-classification-application"]
         },
         {
-          "id": "nanomaterial-applications",
-          "name": "Applications in the environment and electronics",
-          "requires": ["nanomaterial-synthesis"]
+          "id": "mechanism-of-catalysis",
+          "name": "Mechanism of Catalysis",
+          "requires": ["complex-reactions-catalysis-homogeneous-and-heterogeneous"]
+        },
+        {
+          "id": "industrial-applications-of-catalysts",
+          "name": "Industrial Applications of catalysts",
+          "requires": ["mechanism-of-catalysis"]
+        }
+      ]
+    },
+    {
+      "id": "chemistry-of-energy-devices",
+      "name": "Chemistry of Energy Devices",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "principles-of-primary-and-secondary-batteries-fuel-cells-and",
+          "name": "Principles of primary and secondary batteries, Fuel Cells and their operation principles, Principles and uses of supercapacitors"
+        },
+        {
+          "id": "photocatalytic-hydrogen-production-principles-and-challenges",
+          "name": "Photocatalytic hydrogen production: Principles and challenges",
+          "requires": ["principles-of-primary-and-secondary-batteries-fuel-cells-and"]
+        },
+        {
+          "id": "traditional-and-new-generation-solar-cells",
+          "name": "Traditional and new generation solar cells",
+          "requires": ["photocatalytic-hydrogen-production-principles-and-challenges"]
         }
       ]
     }

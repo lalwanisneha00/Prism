@@ -1,0 +1,214 @@
+{
+  "id": "embedded-systems",
+  "name": "Embedded Systems",
+  "field": "Embedded Systems",
+  "tier": "limited",
+  "branches": ["ict"],
+  "semesters": [7],
+  "code": "24ICxxxT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s7-embedded-systems",
+      "code": "24ICxxxT",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Embedded Systems",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "chapters": [
+    {
+      "id": "embedded-systems-introduction-and-architecture",
+      "name": "Embedded Systems – Introduction and Architecture",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction-to-embedded-system-es",
+          "name": "Introduction to embedded system (ES)"
+        },
+        {
+          "id": "characteristics-and-functionalities",
+          "name": "Characteristics and functionalities",
+          "requires": ["introduction-to-embedded-system-es"]
+        },
+        {
+          "id": "classification-of-embedded-systems",
+          "name": "Classification of Embedded Systems",
+          "requires": ["characteristics-and-functionalities"]
+        },
+        {
+          "id": "microcontroller-for-embedded-systems-microcontroller",
+          "name": "Microcontroller for Embedded Systems: microcontroller architecture, pin diagram and basic connections",
+          "requires": ["classification-of-embedded-systems"]
+        },
+        {
+          "id": "clock-reset-brown-out-etc",
+          "name": "clock, reset, brown-out, etc",
+          "requires": ["microcontroller-for-embedded-systems-microcontroller"]
+        },
+        {
+          "id": "general-register-set",
+          "name": "General register set",
+          "requires": ["clock-reset-brown-out-etc"]
+        },
+        {
+          "id": "special-function-registers",
+          "name": "Special function registers",
+          "requires": ["general-register-set"]
+        },
+        {
+          "id": "on-chip-memories",
+          "name": "On-chip memories",
+          "requires": ["special-function-registers"]
+        },
+        {
+          "id": "general-purpose-inputs-and-outputs-gpios",
+          "name": "General Purpose Inputs and Outputs (GPIOs)",
+          "requires": ["on-chip-memories"]
+        }
+      ]
+    },
+    {
+      "id": "assembly-programming-for-embedded-systems",
+      "name": "Assembly Programming for Embedded Systems",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "instruction-set-and-assembly-language-programming-data",
+          "name": "Instruction Set and Assembly language programming: Data transfer, arithmetic, logic and branch instructions, addressing Modes"
+        },
+        {
+          "id": "basic-programming-concepts-looping-branching-memory-access",
+          "name": "Basic programming concepts: Looping, branching, memory-access, time-delays, using assembly instructions",
+          "requires": ["instruction-set-and-assembly-language-programming-data"]
+        },
+        {
+          "id": "stack-and-related-operations",
+          "name": "Stack and related operations",
+          "requires": ["basic-programming-concepts-looping-branching-memory-access"]
+        },
+        {
+          "id": "subroutines-and-interrupts",
+          "name": "Subroutines and interrupts",
+          "requires": ["stack-and-related-operations"]
+        }
+      ]
+    },
+    {
+      "id": "peripheral-programming-using-embedded-c",
+      "name": "Peripheral Programming Using Embedded C",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "programming-the-on-chip-modules-capabilities-of-the",
+          "name": "Programming the on-chip modules/capabilities of the microcontroller using Embedded C: GPIOs, Timers/Counters, Waveform generation, EEPROM, ADC, Interrupt functionalities, Watchdog timer"
+        },
+        {
+          "id": "basics-of-parallel-and-serial-communication",
+          "name": "Basics of parallel and serial communication",
+          "requires": ["programming-the-on-chip-modules-capabilities-of-the"]
+        },
+        {
+          "id": "programming-the-serial-communication-modules-usart-serial",
+          "name": "Programming the serial communication modules: USART, Serial Peripheral Interface (SPI), I2C Inter-integrated Circuit (I2C)",
+          "requires": ["basics-of-parallel-and-serial-communication"]
+        }
+      ]
+    },
+    {
+      "id": "i-o-interfacing-in-embedded-system",
+      "name": "I/o Interfacing in Embedded System",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "interfacing-of-i-o-devices",
+          "name": "Interfacing of I/O devices"
+        },
+        {
+          "id": "led-and-switches",
+          "name": "LED and switches",
+          "requires": ["interfacing-of-i-o-devices"]
+        },
+        {
+          "id": "4x4-keypad",
+          "name": "4x4 Keypad",
+          "requires": ["led-and-switches"]
+        },
+        {
+          "id": "16x2-lcd",
+          "name": "16x2 LCD",
+          "requires": ["4x4-keypad"]
+        },
+        {
+          "id": "motor-drivers-and-opto-couplers",
+          "name": "Motor drivers and opto-couplers",
+          "requires": ["16x2-lcd"]
+        },
+        {
+          "id": "stepper-motor",
+          "name": "Stepper Motor",
+          "requires": ["motor-drivers-and-opto-couplers"]
+        },
+        {
+          "id": "servo-motor",
+          "name": "Servo Motor",
+          "requires": ["stepper-motor"]
+        },
+        {
+          "id": "dc-motors",
+          "name": "DC Motors",
+          "requires": ["servo-motor"]
+        },
+        {
+          "id": "relays",
+          "name": "Relays",
+          "requires": ["dc-motors"]
+        },
+        {
+          "id": "buzzers",
+          "name": "Buzzers",
+          "requires": ["relays"]
+        },
+        {
+          "id": "proximity-sensor",
+          "name": "Proximity sensor",
+          "requires": ["buzzers"]
+        },
+        {
+          "id": "temperature-sensor",
+          "name": "temperature sensor",
+          "requires": ["proximity-sensor"]
+        },
+        {
+          "id": "dac",
+          "name": "DAC",
+          "requires": ["temperature-sensor"]
+        },
+        {
+          "id": "rtc-interfacing-wireless-modules-bluetooth",
+          "name": "RTC. Interfacing wireless modules: Bluetooth",
+          "requires": ["dac"]
+        },
+        {
+          "id": "wi-fi",
+          "name": "Wi-Fi",
+          "requires": ["rtc-interfacing-wireless-modules-bluetooth"]
+        },
+        {
+          "id": "zigbee",
+          "name": "Zigbee",
+          "requires": ["wi-fi"]
+        }
+      ]
+    }
+  ]
+}

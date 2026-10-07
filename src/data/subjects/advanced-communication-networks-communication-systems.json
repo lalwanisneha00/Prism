@@ -1,0 +1,144 @@
+{
+  "id": "advanced-communication-networks-communication-systems",
+  "name": "Advanced Communication Networks (Communication Systems)",
+  "field": "Advanced Communication Networks",
+  "tier": "limited",
+  "branches": ["ece"],
+  "semesters": [7],
+  "code": "24ECE***T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s7-program-elective-4--advanced-communication-networks-communication-systems",
+      "code": "24ECE***T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Advanced Communication Networks (Communication Systems)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "5g-physical-layer-and-application",
+      "name": "5G Physical Layer and Application",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "nr-physical-layer-overview",
+          "name": "NR Physical layer overview"
+        },
+        {
+          "id": "propagation-and-channel-modeling",
+          "name": "Propagation and Channel Modeling",
+          "requires": ["nr-physical-layer-overview"]
+        },
+        {
+          "id": "multi-carrier-waveforms",
+          "name": "Multi-carrier Waveforms",
+          "requires": ["propagation-and-channel-modeling"]
+        },
+        {
+          "id": "lte-nr-interworking-and-co-existence",
+          "name": "LTE/NR Interworking and Co- existence",
+          "requires": ["multi-carrier-waveforms"]
+        },
+        {
+          "id": "nr-in-unlicensed-spectrum",
+          "name": "NR in Unlicensed Spectrum",
+          "requires": ["lte-nr-interworking-and-co-existence"]
+        },
+        {
+          "id": "industrial-iot-and-urllc-enhancements",
+          "name": "Industrial IoT and URLLC enhancements",
+          "requires": ["nr-in-unlicensed-spectrum"]
+        },
+        {
+          "id": "5g-v2v-communication",
+          "name": "5G V2V Communication",
+          "requires": ["industrial-iot-and-urllc-enhancements"]
+        },
+        {
+          "id": "5g-d2d-communication",
+          "name": "5G D2D Communication",
+          "requires": ["5g-v2v-communication"]
+        }
+      ]
+    },
+    {
+      "id": "5g-channel-modeling",
+      "name": "5G Channel Modeling",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "v2v-channel-modeling-in-5g-communication",
+          "name": "V2V Channel Modeling in 5G communication"
+        },
+        {
+          "id": "geometric-based-statistical-mimo-channel-modeling",
+          "name": "Geometric based Statistical MIMO Channel Modeling",
+          "requires": ["v2v-channel-modeling-in-5g-communication"]
+        },
+        {
+          "id": "3d-scattering-channel-modeling-for-microcell-environments",
+          "name": "3D Scattering Channel Modeling for Microcell Environments",
+          "requires": ["geometric-based-statistical-mimo-channel-modeling"]
+        },
+        {
+          "id": "3d-non-stationary-wideband-uav-channel",
+          "name": "3D Non-stationary Wideband UAV Channel",
+          "requires": ["3d-scattering-channel-modeling-for-microcell-environments"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-6g",
+      "name": "Introduction to 6g",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "moving-towards-6g-and-beyond-cellular-networks",
+          "name": "Moving towards 6G and Beyond cellular networks"
+        },
+        {
+          "id": "6g-key-enabling-technologies",
+          "name": "6G Key enabling technologies",
+          "requires": ["moving-towards-6g-and-beyond-cellular-networks"]
+        },
+        {
+          "id": "cf-mmimo",
+          "name": "CF-mMIMO",
+          "requires": ["6g-key-enabling-technologies"]
+        },
+        {
+          "id": "introduction-to-mmwaves",
+          "name": "Introduction to mmWaves",
+          "requires": ["cf-mmimo"]
+        },
+        {
+          "id": "ai-in-physical-layer-wireless-communication-6g-use-cases-and",
+          "name": "AI in physical layer wireless communication 6G Use Cases and its key enabling technologies",
+          "requires": ["introduction-to-mmwaves"]
+        },
+        {
+          "id": "max",
+          "name": "Max",
+          "requires": ["ai-in-physical-layer-wireless-communication-6g-use-cases-and"]
+        },
+        {
+          "id": "hrs-42",
+          "name": "Hrs.: 42",
+          "requires": ["max"]
+        }
+      ]
+    }
+  ]
+}

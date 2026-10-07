@@ -1,0 +1,231 @@
+{
+  "id": "advanced-data-structure-and-algorithms",
+  "name": "Advanced Data Structure and Algorithms",
+  "field": "Advanced Data Structure and Algorithms",
+  "tier": "sourced",
+  "branches": ["ce"],
+  "semesters": [5],
+  "code": "24CS335T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-program-elective-1--advanced-data-structure-and-algorithms",
+      "code": "24CS335T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "track": "Computing track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Advanced Data Structure and Algorithms",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "hashing-and-skip-lists",
+      "name": "Hashing And Skip Lists",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "review-of-hashing",
+          "name": "Review of Hashing"
+        },
+        {
+          "id": "hash-function",
+          "name": "Hash Function",
+          "requires": ["review-of-hashing"]
+        },
+        {
+          "id": "collision-resolution-techniques-in-hashing",
+          "name": "Collision Resolution Techniques in Hashing",
+          "requires": ["hash-function"]
+        },
+        {
+          "id": "separate-chaining",
+          "name": "Separate Chaining",
+          "requires": ["collision-resolution-techniques-in-hashing"]
+        },
+        {
+          "id": "open-addressing",
+          "name": "Open Addressing",
+          "requires": ["separate-chaining"]
+        },
+        {
+          "id": "linear-probing",
+          "name": "Linear Probing",
+          "requires": ["open-addressing"]
+        },
+        {
+          "id": "quadratic-probing",
+          "name": "Quadratic Probing",
+          "requires": ["linear-probing"]
+        },
+        {
+          "id": "double-hashing",
+          "name": "Double Hashing",
+          "requires": ["quadratic-probing"]
+        },
+        {
+          "id": "rehashing",
+          "name": "Rehashing",
+          "requires": ["double-hashing"]
+        },
+        {
+          "id": "extendible-hashing-search-and-update-operations-on-skip",
+          "name": "Extendible Hashing Search and Update Operations on Skip Lists",
+          "requires": ["rehashing"]
+        },
+        {
+          "id": "probabilistic-analysis-of-skip-lists",
+          "name": "Probabilistic Analysis of Skip Lists",
+          "requires": ["extendible-hashing-search-and-update-operations-on-skip"]
+        },
+        {
+          "id": "deterministic-skip-lists",
+          "name": "Deterministic Skip Lists",
+          "requires": ["probabilistic-analysis-of-skip-lists"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-trees",
+      "name": "Advanced Trees",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "revision-to-bst-and-avl-trees",
+          "name": "Revision to BST and AVL trees"
+        },
+        {
+          "id": "red-black-trees",
+          "name": "Red Black Trees",
+          "requires": ["revision-to-bst-and-avl-trees"]
+        },
+        {
+          "id": "b-trees",
+          "name": "2-3 Trees",
+          "requires": ["red-black-trees"]
+        },
+        {
+          "id": "b-trees-2",
+          "name": "B-Trees",
+          "requires": ["b-trees"]
+        },
+        {
+          "id": "splay-trees",
+          "name": "Splay Trees",
+          "requires": ["b-trees-2"]
+        },
+        {
+          "id": "priority-search-tree",
+          "name": "Priority Search Tree",
+          "requires": ["splay-trees"]
+        },
+        {
+          "id": "priority-range-trees",
+          "name": "Priority Range Trees",
+          "requires": ["priority-search-tree"]
+        },
+        {
+          "id": "quad-trees",
+          "name": "Quad trees",
+          "requires": ["priority-range-trees"]
+        },
+        {
+          "id": "k-d-trees",
+          "name": "k-D Trees",
+          "requires": ["quad-trees"]
+        },
+        {
+          "id": "fibonacci-heaps-and-suffix-trees",
+          "name": "Fibonacci heaps and suffix trees",
+          "requires": ["k-d-trees"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-algorithms",
+      "name": "Advanced Algorithms",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "maximum-matching-in-graphs",
+          "name": "Maximum matching in graphs"
+        },
+        {
+          "id": "edmonds-blossom-algorithm-for-augmenting-path",
+          "name": "Edmond's Blossom algorithm for augmenting path",
+          "requires": ["maximum-matching-in-graphs"]
+        },
+        {
+          "id": "maxflow-mincut-theorem",
+          "name": "Maxflow- mincut theorem",
+          "requires": ["edmonds-blossom-algorithm-for-augmenting-path"]
+        },
+        {
+          "id": "ford-fulkerson-and-edmond-karp-maximum-flow-algorithm",
+          "name": "Ford-Fulkerson and Edmond-Karp maximum-flow algorithm",
+          "requires": ["maxflow-mincut-theorem"]
+        },
+        {
+          "id": "chinese-remainder-theorem",
+          "name": "Chinese Remainder Theorem",
+          "requires": ["ford-fulkerson-and-edmond-karp-maximum-flow-algorithm"]
+        },
+        {
+          "id": "dft-and-fft-algorithms",
+          "name": "DFT and FFT algorithms",
+          "requires": ["chinese-remainder-theorem"]
+        },
+        {
+          "id": "simplex-method",
+          "name": "Simplex method",
+          "requires": ["dft-and-fft-algorithms"]
+        }
+      ]
+    },
+    {
+      "id": "approximation-and-randomized-algorithms",
+      "name": "Approximation And Randomized Algorithms",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "interior-point-method",
+          "name": "Interior point method"
+        },
+        {
+          "id": "ellipsoid-method",
+          "name": "ellipsoid method",
+          "requires": ["interior-point-method"]
+        },
+        {
+          "id": "sequential-quadratic-programming",
+          "name": "sequential quadratic programming",
+          "requires": ["ellipsoid-method"]
+        },
+        {
+          "id": "randomized-quicksort",
+          "name": "Randomized Quicksort",
+          "requires": ["sequential-quadratic-programming"]
+        },
+        {
+          "id": "ant-colony-optimization",
+          "name": "Ant colony optimization",
+          "requires": ["randomized-quicksort"]
+        },
+        {
+          "id": "monte-carlo-method",
+          "name": "Monte-Carlo Method",
+          "requires": ["ant-colony-optimization"]
+        }
+      ]
+    }
+  ]
+}

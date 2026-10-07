@@ -1,0 +1,211 @@
+{
+  "id": "digital-image-processing",
+  "name": "Digital Image Processing",
+  "field": "Digital Image Processing",
+  "tier": "sourced",
+  "branches": ["ce"],
+  "semesters": [6],
+  "code": "24CS338T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s6-program-elective-2--digital-image-processing",
+      "code": "24CS338T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "track": "Speech, Vision & Text track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Digital Image Processing",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "fundamental-and-spatial-domain-processing",
+      "name": "Fundamental And Spatial Domain Processing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "image-sampling-and-quantization",
+          "name": "Image sampling and quantization",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "basic-relationships-in-pixels",
+          "name": "Basic relationships in pixels",
+          "requires": ["image-sampling-and-quantization"]
+        },
+        {
+          "id": "basic-intensity-transformations",
+          "name": "Basic intensity transformations",
+          "requires": ["basic-relationships-in-pixels"]
+        },
+        {
+          "id": "histogram-processing-local-and-global",
+          "name": "Histogram processing: local and global",
+          "requires": ["basic-intensity-transformations"]
+        },
+        {
+          "id": "spatial-filtering-smoothing-and-sharpening",
+          "name": "Spatial filtering: smoothing and sharpening",
+          "requires": ["histogram-processing-local-and-global"]
+        },
+        {
+          "id": "image-enhancement",
+          "name": "Image Enhancement",
+          "requires": ["spatial-filtering-smoothing-and-sharpening"]
+        }
+      ]
+    },
+    {
+      "id": "frequency-domain-processing",
+      "name": "Frequency Domain Processing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "sampling-2d-functions",
+          "name": "Sampling 2D functions"
+        },
+        {
+          "id": "fourier-transform",
+          "name": "2D Fourier Transform and properties",
+          "requires": ["sampling-2d-functions"]
+        },
+        {
+          "id": "filtering-in-frequency-domain-smoothing",
+          "name": "Filtering in frequency domain: smoothing",
+          "requires": ["fourier-transform"]
+        },
+        {
+          "id": "sharpening-performance-comparison-between-band-pass",
+          "name": "sharpening. Performance comparison between band pass",
+          "requires": ["filtering-in-frequency-domain-smoothing"]
+        },
+        {
+          "id": "gaussian-and-notch-filters-in-both-high-and-low-pass",
+          "name": "gaussian and notch filters in both high and low pass filtering applications",
+          "requires": ["sharpening-performance-comparison-between-band-pass"]
+        }
+      ]
+    },
+    {
+      "id": "image-restoration-and-morphological-operations",
+      "name": "Image Restoration And Morphological Operations",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "model-of-image-degradation-process",
+          "name": "Model of image degradation process"
+        },
+        {
+          "id": "restoration-in-presence-of-noise",
+          "name": "Restoration in presence of noise",
+          "requires": ["model-of-image-degradation-process"]
+        },
+        {
+          "id": "estimating-degradation-function",
+          "name": "estimating degradation function",
+          "requires": ["restoration-in-presence-of-noise"]
+        },
+        {
+          "id": "inverse-filtering",
+          "name": "Inverse filtering",
+          "requires": ["estimating-degradation-function"]
+        },
+        {
+          "id": "mmse-filtering",
+          "name": "MMSE filtering",
+          "requires": ["inverse-filtering"]
+        },
+        {
+          "id": "morphological-operations-erosion-and-dilation",
+          "name": "Morphological operations: Erosion and dilation",
+          "requires": ["mmse-filtering"]
+        },
+        {
+          "id": "opening-and-closing",
+          "name": "opening and closing",
+          "requires": ["morphological-operations-erosion-and-dilation"]
+        },
+        {
+          "id": "performance-comparison-between-morphological-and-restoration",
+          "name": "Performance comparison between morphological and restoration techniques algorithms for noisy images",
+          "requires": ["opening-and-closing"]
+        }
+      ]
+    },
+    {
+      "id": "image-segentation-and-description",
+      "name": "Image Segentation And Description",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "point",
+          "name": "Point"
+        },
+        {
+          "id": "line-and-edge-detection",
+          "name": "line and edge detection",
+          "requires": ["point"]
+        },
+        {
+          "id": "thresholding",
+          "name": "Thresholding",
+          "requires": ["line-and-edge-detection"]
+        },
+        {
+          "id": "basic-segmentation-algorithms-region-based",
+          "name": "Basic segmentation algorithms: region based",
+          "requires": ["thresholding"]
+        },
+        {
+          "id": "watershed",
+          "name": "watershed",
+          "requires": ["basic-segmentation-algorithms-region-based"]
+        },
+        {
+          "id": "image-representation-chain-codes",
+          "name": "Image representation: chain codes",
+          "requires": ["watershed"]
+        },
+        {
+          "id": "polygonal-approximation",
+          "name": "polygonal approximation",
+          "requires": ["image-representation-chain-codes"]
+        },
+        {
+          "id": "boundary-and-regional-descriptors-textures",
+          "name": "Boundary and regional descriptors: textures",
+          "requires": ["polygonal-approximation"]
+        },
+        {
+          "id": "moments",
+          "name": "moments",
+          "requires": ["boundary-and-regional-descriptors-textures"]
+        },
+        {
+          "id": "feature-extraction-using-shape-features",
+          "name": "Feature extraction using shape features",
+          "requires": ["moments"]
+        },
+        {
+          "id": "performance-comparison-between-thresholding-and-region-based",
+          "name": "Performance comparison between thresholding and region-based segmentation algorithms",
+          "requires": ["feature-extraction-using-shape-features"]
+        }
+      ]
+    }
+  ]
+}

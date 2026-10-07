@@ -1,0 +1,213 @@
+{
+  "id": "design-of-steel-structures",
+  "name": "Design of Steel Structures",
+  "field": "Design of Steel Structures",
+  "tier": "limited",
+  "branches": ["civil"],
+  "semesters": [6],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s6-design-of-steel-structures",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Design of Steel Structures",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "bolted-connections",
+      "name": "Bolted Connections",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-steel-structures-and-steel-code-provisions",
+          "name": "Introduction to steel structures and steel code provisions"
+        },
+        {
+          "id": "scope-of-the-subject",
+          "name": "scope of the subject",
+          "requires": ["introduction-to-steel-structures-and-steel-code-provisions"]
+        },
+        {
+          "id": "types-of-connections-bolted-connections-types-bolts",
+          "name": "types of connections . Bolted connections: types bolts",
+          "requires": ["scope-of-the-subject"]
+        },
+        {
+          "id": "specification",
+          "name": "specification",
+          "requires": ["types-of-connections-bolted-connections-types-bolts"]
+        },
+        {
+          "id": "permissible-values",
+          "name": "permissible values",
+          "requires": ["specification"]
+        },
+        {
+          "id": "butt-and-lap-connections-of-steel-plates-or-flats",
+          "name": "Butt and lap connections of steel plates or flats",
+          "requires": ["permissible-values"]
+        },
+        {
+          "id": "numerical-examples",
+          "name": "numerical examples",
+          "requires": ["butt-and-lap-connections-of-steel-plates-or-flats"]
+        },
+        {
+          "id": "beam-to-beam-connections-numerical-examples",
+          "name": "Beam to beam connections numerical examples",
+          "requires": ["numerical-examples"]
+        },
+        {
+          "id": "beam-to-column-connections-connections-subjected-axial-load",
+          "name": "Beam to column connections: Connections subjected axial load and twisting moments",
+          "requires": ["beam-to-beam-connections-numerical-examples"]
+        },
+        {
+          "id": "beam-to-column-connections-connections-subjected-axial-load-2",
+          "name": "Beam to column connections: Connections subjected axial load and bending moments",
+          "requires": ["beam-to-column-connections-connections-subjected-axial-load"]
+        }
+      ]
+    },
+    {
+      "id": "welded-connections-and-tension-members",
+      "name": "Welded Connections and Tension Members",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-welded-connections-butt-and-lap-welded",
+          "name": "Introduction to welded connections: Butt and lap welded connections of steel plates or flats"
+        },
+        {
+          "id": "numerical-examples-2",
+          "name": "numerical examples",
+          "requires": ["introduction-to-welded-connections-butt-and-lap-welded"]
+        },
+        {
+          "id": "beam-to-column-welded-connections-connections-subjected",
+          "name": "Beam to column welded connections: Connections subjected axial load and twisting moments",
+          "requires": ["numerical-examples-2"]
+        },
+        {
+          "id": "beam-to-column-welded-connections-connections-subjected-2",
+          "name": "Beam to column welded connections: Connections subjected axial load and bending moments",
+          "requires": ["beam-to-column-welded-connections-connections-subjected"]
+        },
+        {
+          "id": "numerical-examples-design-of-tension-members-using-angle",
+          "name": "numerical examples. Design of tension members using angle",
+          "requires": ["beam-to-column-welded-connections-connections-subjected-2"]
+        },
+        {
+          "id": "double-angle",
+          "name": "double angle",
+          "requires": ["numerical-examples-design-of-tension-members-using-angle"]
+        },
+        {
+          "id": "t-and-l-rolled-steel-members",
+          "name": "T and L rolled steel members",
+          "requires": ["double-angle"]
+        },
+        {
+          "id": "lug-angle",
+          "name": "lug angle",
+          "requires": ["t-and-l-rolled-steel-members"]
+        }
+      ]
+    },
+    {
+      "id": "compression-members-and-column-bases",
+      "name": "Compression Members and Column Bases",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "design-of-compression-members-using-i-and-channel-sections",
+          "name": "Design of compression members using I and Channel sections"
+        },
+        {
+          "id": "compound-column-design-using-double-channel-sections",
+          "name": "Compound column design using double channel sections",
+          "requires": ["design-of-compression-members-using-i-and-channel-sections"]
+        },
+        {
+          "id": "numerical-examples-compound-column-design-using-lattice",
+          "name": "numerical examples. Compound column design using lattice connections",
+          "requires": ["compound-column-design-using-double-channel-sections"]
+        },
+        {
+          "id": "numerical-examples-3",
+          "name": "numerical examples",
+          "requires": ["numerical-examples-compound-column-design-using-lattice"]
+        },
+        {
+          "id": "design-of-column-splice-of-various-types-using-numerical",
+          "name": "Design of column splice of various types using numerical examples",
+          "requires": ["numerical-examples-3"]
+        },
+        {
+          "id": "design-of-column-base-and-gusseted-base-concept-and",
+          "name": "Design of column base and gusseted base concept and numerical examples",
+          "requires": ["design-of-column-splice-of-various-types-using-numerical"]
+        }
+      ]
+    },
+    {
+      "id": "laterally-supported-and-un-supported-beams",
+      "name": "Laterally Supported and Un-supported Beams",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "design-of-beams-using-i-sections",
+          "name": "Design of beams using I sections"
+        },
+        {
+          "id": "design-principles",
+          "name": "design principles",
+          "requires": ["design-of-beams-using-i-sections"]
+        },
+        {
+          "id": "code-provisions",
+          "name": "code provisions",
+          "requires": ["design-principles"]
+        },
+        {
+          "id": "design-of-laterally-supported-beams-subjected-to-uniformly",
+          "name": "Design of laterally supported beams subjected to uniformly distributed loads",
+          "requires": ["code-provisions"]
+        },
+        {
+          "id": "design-procedure",
+          "name": "design procedure",
+          "requires": ["design-of-laterally-supported-beams-subjected-to-uniformly"]
+        },
+        {
+          "id": "design-numerical-examples",
+          "name": "design numerical examples",
+          "requires": ["design-procedure"]
+        },
+        {
+          "id": "design-of-laterally-un-supported-beams-subjected-to",
+          "name": "Design of laterally un supported beams subjected to uniformly distributed loads",
+          "requires": ["design-numerical-examples"]
+        },
+        {
+          "id": "code-provisions-design-numerical-examples",
+          "name": "code provisions design numerical examples",
+          "requires": ["design-of-laterally-un-supported-beams-subjected-to"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "id": "internet-of-things-ce",
+  "name": "Internet of Things (CE)",
+  "field": "Internet of Things",
+  "tier": "limited",
+  "branches": ["ce"],
+  "semesters": [7],
+  "code": "24CS435T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s7-program-elective-4--internet-of-things",
+      "code": "24CS435T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "track": "Communication track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Internet of Things",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction-to-internet-of-things",
+      "name": "Introduction To Internet Of Things",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "iot-definition",
+          "name": "IoT Definition"
+        },
+        {
+          "id": "iot-characteristics",
+          "name": "IoT characteristics",
+          "requires": ["iot-definition"]
+        },
+        {
+          "id": "m2m-and-iot",
+          "name": "M2M and IoT",
+          "requires": ["iot-characteristics"]
+        },
+        {
+          "id": "end-to-end-iot-architecture",
+          "name": "End to End IoT Architecture",
+          "requires": ["m2m-and-iot"]
+        },
+        {
+          "id": "physical-design-of-iot",
+          "name": "Physical design of IoT",
+          "requires": ["end-to-end-iot-architecture"]
+        },
+        {
+          "id": "logical-design-of-iot",
+          "name": "Logical design of IoT",
+          "requires": ["physical-design-of-iot"]
+        },
+        {
+          "id": "challenges-for-iot",
+          "name": "Challenges for IoT",
+          "requires": ["logical-design-of-iot"]
+        },
+        {
+          "id": "interdependencies-of-iot-and-cloud-computing",
+          "name": "Interdependencies of IoT and cloud computing",
+          "requires": ["challenges-for-iot"]
+        },
+        {
+          "id": "web-of-things",
+          "name": "Web of things",
+          "requires": ["interdependencies-of-iot-and-cloud-computing"]
+        },
+        {
+          "id": "iot-data-management-and-compute-stack",
+          "name": "IoT data management and compute stack",
+          "requires": ["web-of-things"]
+        }
+      ]
+    },
+    {
+      "id": "iot-protocols",
+      "name": "Iot PROTOCOLS",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "overview-of-iot-protocols",
+          "name": "Overview of IoT protocols"
+        },
+        {
+          "id": "iot-access-technologies-ieee-802-15-4",
+          "name": "IoT access technologies: IEEE 802.15.4",
+          "requires": ["overview-of-iot-protocols"]
+        },
+        {
+          "id": "zigbee",
+          "name": "ZigBee",
+          "requires": ["iot-access-technologies-ieee-802-15-4"]
+        },
+        {
+          "id": "lorawan",
+          "name": "LoRaWAN",
+          "requires": ["zigbee"]
+        },
+        {
+          "id": "ip-as-iot-network-layer-6lowpan",
+          "name": "IP as IoT network layer: 6LoWPAN",
+          "requires": ["lorawan"]
+        },
+        {
+          "id": "6lo",
+          "name": "6Lo",
+          "requires": ["ip-as-iot-network-layer-6lowpan"]
+        },
+        {
+          "id": "rpl",
+          "name": "RPL",
+          "requires": ["6lo"]
+        },
+        {
+          "id": "transport-layer-protocols",
+          "name": "Transport layer protocols",
+          "requires": ["rpl"]
+        },
+        {
+          "id": "application-layer-protocols-coap",
+          "name": "Application layer protocols- CoAP",
+          "requires": ["transport-layer-protocols"]
+        },
+        {
+          "id": "mqtt",
+          "name": "MQTT",
+          "requires": ["application-layer-protocols-coap"]
+        }
+      ]
+    },
+    {
+      "id": "embedded-iot-devices",
+      "name": "Embedded Iot Devices",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "sensors-and-actuators-for-iot-applications",
+          "name": "Sensors and actuators for IoT applications"
+        },
+        {
+          "id": "iot-components",
+          "name": "IoT components",
+          "requires": ["sensors-and-actuators-for-iot-applications"]
+        },
+        {
+          "id": "smart-objects",
+          "name": "Smart objects",
+          "requires": ["iot-components"]
+        },
+        {
+          "id": "connecting-smart-objects-communication-criteria",
+          "name": "Connecting smart objects: Communication criteria",
+          "requires": ["smart-objects"]
+        },
+        {
+          "id": "basics-of-sensor-networks",
+          "name": "Basics of sensor networks",
+          "requires": ["connecting-smart-objects-communication-criteria"]
+        },
+        {
+          "id": "types-and-configurations-of-gateways",
+          "name": "Types and configurations of gateways",
+          "requires": ["basics-of-sensor-networks"]
+        },
+        {
+          "id": "specifications-of-iot-gateways",
+          "name": "Specifications of IoT gateways",
+          "requires": ["types-and-configurations-of-gateways"]
+        },
+        {
+          "id": "digital-twin",
+          "name": "Digital Twin",
+          "requires": ["specifications-of-iot-gateways"]
+        }
+      ]
+    },
+    {
+      "id": "application-building-with-iot",
+      "name": "Application Building With IOT",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "security-and-iot",
+          "name": "Security and IoT"
+        },
+        {
+          "id": "data-analytics-for-iot",
+          "name": "Data Analytics for IoT",
+          "requires": ["security-and-iot"]
+        },
+        {
+          "id": "big-data-analytics-tools-and-technology",
+          "name": "Big Data analytics tools and technology",
+          "requires": ["data-analytics-for-iot"]
+        },
+        {
+          "id": "various-applications-of-iot-smart-city",
+          "name": "Various applications of IoT: Smart city",
+          "requires": ["big-data-analytics-tools-and-technology"]
+        },
+        {
+          "id": "smart-grid",
+          "name": "Smart grid",
+          "requires": ["various-applications-of-iot-smart-city"]
+        },
+        {
+          "id": "smart-transportation",
+          "name": "Smart transportation",
+          "requires": ["smart-grid"]
+        },
+        {
+          "id": "smart-manufacturing",
+          "name": "Smart manufacturing",
+          "requires": ["smart-transportation"]
+        },
+        {
+          "id": "smart-healthcare",
+          "name": "Smart healthcare",
+          "requires": ["smart-manufacturing"]
+        }
+      ]
+    }
+  ]
+}

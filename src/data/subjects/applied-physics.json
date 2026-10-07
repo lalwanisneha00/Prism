@@ -2,412 +2,312 @@
   "id": "applied-physics",
   "name": "Applied Physics",
   "field": "Applied Physics",
-  "tier": "verified",
-  "branches": ["all"],
-  "semesters": [1, 2],
-  "syllabusSource": {
-    "kind": "aicte",
-    "title": "AICTE Model Curriculum for UG Degree Courses in Engineering & Technology, Vol. I (Jan 2018): Physics (Introduction to Mechanics; Oscillations, Waves and Optics; Quantum Mechanics for Engineers)",
-    "url": "https://www.aicte.gov.in/sites/default/files/ug-vol1.pdf",
-    "note": "Mechanics, oscillations and waves, optics, lasers and quantum physics follow the AICTE Physics options. Fibre optics, relativity and solid state follow the AICTE-model first-year syllabi of IET Lucknow (Engineering Physics) and GCE Kalahandi (Physics); thermodynamics follows GCE Kalahandi's first-year Basics of Mechanical Engineering, Module I. Electricity and magnetism is the Electricity & Magnetism subject, linked here (not copied)."
-  },
-  "visualSet": "physics",
-  "links": [
+  "tier": "sourced",
+  "branches": ["ce"],
+  "semesters": [1],
+  "code": "24PH101T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Basic Science",
+  "offerings": [
     {
-      "subject": "em"
+      "branch": "ce",
+      "key": "s1-applied-physics",
+      "code": "24PH101T",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 1
     }
   ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Applied Physics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "physics",
   "chapters": [
     {
-      "id": "mechanics",
-      "name": "Mechanics",
-      "hours": 38,
+      "id": "electricity-and-magnetism",
+      "name": "Electricity and Magnetism",
+      "hours": 12,
       "topics": [
         {
-          "id": "vectors-and-kinematics",
-          "name": "Vectors and motion in a plane"
+          "id": "vector-algebra",
+          "name": "Vector Algebra"
         },
         {
-          "id": "newtons-laws",
-          "name": "Newton's laws of motion",
-          "requires": ["vectors-and-kinematics"]
+          "id": "fundamental-theorems-of-gradient-curls-and-divergence",
+          "name": "Fundamental theorems of Gradient, Curls, and Divergence",
+          "requires": ["vector-algebra"]
         },
         {
-          "id": "friction-and-constraints",
-          "name": "Friction and constrained motion",
-          "requires": ["newtons-laws"]
+          "id": "curvilinear-co-ordinates",
+          "name": "Curvilinear co-ordinates",
+          "requires": ["fundamental-theorems-of-gradient-curls-and-divergence"]
         },
         {
-          "id": "polar-coordinates-motion",
-          "name": "Motion in polar coordinates",
-          "requires": ["newtons-laws"]
+          "id": "continuous-charge-distribution",
+          "name": "Continuous charge distribution",
+          "requires": ["curvilinear-co-ordinates"]
         },
         {
-          "id": "conservative-forces-potential",
-          "name": "Conservative forces and potential energy",
-          "requires": ["newtons-laws"]
+          "id": "divergence-and-curl-of-electrostatic-field",
+          "name": "Divergence and Curl of Electrostatic Field",
+          "requires": ["continuous-charge-distribution"]
         },
         {
-          "id": "central-forces-angular-momentum",
-          "name": "Central forces and conservation of angular momentum",
-          "requires": ["conservative-forces-potential"]
+          "id": "electric-potential-and-its-applications",
+          "name": "Electric potential and its applications",
+          "requires": ["divergence-and-curl-of-electrostatic-field"]
         },
         {
-          "id": "kepler-problem-orbits",
-          "name": "Kepler problem and orbits",
-          "requires": ["central-forces-angular-momentum"]
+          "id": "work-and-energy-in-electrostatic",
+          "name": "Work and Energy in Electrostatic",
+          "requires": ["electric-potential-and-its-applications"]
         },
         {
-          "id": "non-inertial-frames",
-          "name": "Non-inertial frames: centripetal and Coriolis acceleration",
-          "requires": ["polar-coordinates-motion"]
+          "id": "bio-savarts-law",
+          "name": "Bio-Savart’s law",
+          "requires": ["work-and-energy-in-electrostatic"]
         },
         {
-          "id": "rigid-body-rotation",
-          "name": "Rigid body motion in a plane",
-          "requires": ["central-forces-angular-momentum"]
+          "id": "divergence-and-curl-of-magnetic-fields",
+          "name": "Divergence and curl of magnetic fields",
+          "requires": ["bio-savarts-law"]
         },
         {
-          "id": "three-dimensional-rigid-body",
-          "name": "Three-dimensional rigid body motion",
-          "requires": ["rigid-body-rotation"]
+          "id": "vector-potential",
+          "name": "Vector Potential",
+          "requires": ["divergence-and-curl-of-magnetic-fields"]
+        },
+        {
+          "id": "ohms-law",
+          "name": "Ohm’s law",
+          "requires": ["vector-potential"]
+        },
+        {
+          "id": "emf",
+          "name": "EMF",
+          "requires": ["ohms-law"]
+        },
+        {
+          "id": "faradays-law",
+          "name": "Faraday’s law of electromagnetic induction",
+          "requires": ["emf"]
+        },
+        {
+          "id": "energy-in-magnetic-fields",
+          "name": "Energy in Magnetic Fields",
+          "requires": ["faradays-law"]
+        },
+        {
+          "id": "maxwells-correction-to-amperes-law-and-maxwells-equations",
+          "name": "Maxwell’s correction to ampere’s law and Maxwell’s equations",
+          "requires": ["energy-in-magnetic-fields"]
+        },
+        {
+          "id": "poynting-vector",
+          "name": "Poynting Vector",
+          "requires": ["maxwells-correction-to-amperes-law-and-maxwells-equations"]
         }
       ]
     },
     {
-      "id": "oscillations",
-      "name": "Oscillations",
-      "hours": 8,
+      "id": "electromagnetic-waves",
+      "name": "Electromagnetic Waves",
+      "hours": 10,
       "topics": [
         {
-          "id": "simple-harmonic-motion",
-          "name": "Simple harmonic motion"
+          "id": "waves-equation",
+          "name": "Waves equation"
         },
         {
-          "id": "damped-oscillations",
-          "name": "Damped oscillations and quality factor",
-          "requires": ["simple-harmonic-motion"]
+          "id": "reflection-and-transmission-of-waves",
+          "name": "Reflection and Transmission of waves",
+          "requires": ["waves-equation"]
         },
         {
-          "id": "forced-oscillations-resonance",
-          "name": "Forced oscillations and resonance",
-          "requires": ["damped-oscillations"]
+          "id": "polarisation",
+          "name": "Polarisation",
+          "requires": ["reflection-and-transmission-of-waves"]
         },
         {
-          "id": "coupled-oscillations",
-          "name": "Coupled oscillations and normal modes",
-          "requires": ["simple-harmonic-motion"]
+          "id": "wave-equation-for-e-and-b-for-monochromatic-plane-waves",
+          "name": "Wave equation for E and B for monochromatic plane waves",
+          "requires": ["polarisation"]
         },
         {
-          "id": "electrical-oscillators",
-          "name": "Electrical oscillators and impedance",
-          "requires": ["forced-oscillations-resonance"]
+          "id": "propagation-in-linear-media",
+          "name": "Propagation in linear media",
+          "requires": ["wave-equation-for-e-and-b-for-monochromatic-plane-waves"]
+        },
+        {
+          "id": "reflection-and-transmission-in-normal-and-oblique-incidence",
+          "name": "reflection and transmission in normal and oblique incidence",
+          "requires": ["propagation-in-linear-media"]
+        },
+        {
+          "id": "electromagnetic-waves-in-conductors",
+          "name": "Electromagnetic waves in conductors",
+          "requires": ["reflection-and-transmission-in-normal-and-oblique-incidence"]
+        },
+        {
+          "id": "frequency-dependence-of-permittivity",
+          "name": "Frequency dependence of permittivity",
+          "requires": ["electromagnetic-waves-in-conductors"]
+        },
+        {
+          "id": "waveguides",
+          "name": "Waveguides",
+          "requires": ["frequency-dependence-of-permittivity"]
+        },
+        {
+          "id": "te-waves-in-rectangular-waveguide",
+          "name": "TE waves in rectangular waveguide",
+          "requires": ["waveguides"]
+        },
+        {
+          "id": "the-coaxial-transmission-line",
+          "name": "The Coaxial transmission line",
+          "requires": ["te-waves-in-rectangular-waveguide"]
         }
       ]
     },
     {
-      "id": "waves",
-      "name": "Waves",
-      "hours": 7,
+      "id": "physics-of-solids",
+      "name": "Physics of Solids",
+      "hours": 10,
       "topics": [
         {
-          "id": "wave-equation",
-          "name": "Travelling waves and the wave equation"
+          "id": "fermi-electron-gas",
+          "name": "Fermi electron gas"
         },
         {
-          "id": "waves-on-a-string",
-          "name": "Transverse waves on a string",
-          "requires": ["wave-equation"]
+          "id": "fermi-level-and-surface",
+          "name": "Fermi level and surface",
+          "requires": ["fermi-electron-gas"]
         },
         {
-          "id": "reflection-transmission-waves",
-          "name": "Reflection and transmission at a boundary",
-          "requires": ["waves-on-a-string"]
+          "id": "energy-bands",
+          "name": "Energy bands",
+          "requires": ["fermi-level-and-surface"]
         },
         {
-          "id": "standing-waves",
-          "name": "Standing waves and normal modes",
-          "requires": ["reflection-transmission-waves"]
+          "id": "energy-gap",
+          "name": "Energy Gap",
+          "requires": ["energy-bands"]
         },
         {
-          "id": "sound-waves",
-          "name": "Longitudinal and sound waves",
-          "requires": ["wave-equation"]
+          "id": "energy-and-band-structure-of-conductor",
+          "name": "Energy and band structure of conductor",
+          "requires": ["energy-gap"]
         },
         {
-          "id": "dispersion-group-velocity",
-          "name": "Dispersion and group velocity",
-          "requires": ["wave-equation"]
+          "id": "insulators-and-semiconductors",
+          "name": "insulators and semiconductors",
+          "requires": ["energy-and-band-structure-of-conductor"]
+        },
+        {
+          "id": "intrinsic-semiconductors-at-0k-and-room-temperature",
+          "name": "Intrinsic semiconductors at 0K and room temperature",
+          "requires": ["insulators-and-semiconductors"]
+        },
+        {
+          "id": "intrinsic-conductivity",
+          "name": "Intrinsic conductivity",
+          "requires": ["intrinsic-semiconductors-at-0k-and-room-temperature"]
+        },
+        {
+          "id": "types-of-semiconductors",
+          "name": "Types of semiconductors",
+          "requires": ["intrinsic-conductivity"]
+        },
+        {
+          "id": "doping-impurities",
+          "name": "doping impurities",
+          "requires": ["types-of-semiconductors"]
+        },
+        {
+          "id": "temperature-variation-of-carrier-concentration",
+          "name": "Temperature variation of carrier concentration",
+          "requires": ["doping-impurities"]
+        },
+        {
+          "id": "electrical-conductivity-in-semiconductors",
+          "name": "Electrical conductivity in semiconductors",
+          "requires": ["temperature-variation-of-carrier-concentration"]
+        },
+        {
+          "id": "hall-effect-and-magnetic-materials",
+          "name": "Hall Effect, and magnetic materials",
+          "requires": ["electrical-conductivity-in-semiconductors"]
         }
       ]
     },
     {
       "id": "optics",
       "name": "Optics",
-      "hours": 16,
+      "hours": 10,
       "topics": [
         {
+          "id": "nature-of-light-waves",
+          "name": "Nature of light waves"
+        },
+        {
           "id": "fermats-principle",
-          "name": "Fermat's principle, reflection and refraction"
+          "name": "Fermat’s principle",
+          "requires": ["nature-of-light-waves"]
         },
         {
-          "id": "total-internal-reflection",
-          "name": "Total internal reflection, Brewster's angle and evanescent waves",
-          "requires": ["fermats-principle"]
-        },
-        {
-          "id": "mirrors-lenses",
-          "name": "Mirrors, lenses and optical instruments",
+          "id": "coherent-sources",
+          "name": "Coherent Sources",
           "requires": ["fermats-principle"]
         },
         {
           "id": "interference",
-          "name": "Interference and Young's double slit",
-          "requires": ["fermats-principle"]
+          "name": "Interference",
+          "requires": ["coherent-sources"]
         },
         {
-          "id": "thin-films-newtons-rings",
-          "name": "Thin films and Newton's rings",
+          "id": "two-source-interference",
+          "name": "Two source interference",
           "requires": ["interference"]
         },
         {
-          "id": "interferometers",
-          "name": "Michelson and Mach-Zehnder interferometers",
-          "requires": ["interference"]
+          "id": "interference-in-thin-films",
+          "name": "Interference in thin films",
+          "requires": ["two-source-interference"]
         },
         {
-          "id": "biprism",
-          "name": "Fresnel's biprism",
-          "requires": ["interference"]
+          "id": "newtons-ring",
+          "name": "Newton’s ring",
+          "requires": ["interference-in-thin-films"]
         },
         {
-          "id": "single-slit-diffraction",
-          "name": "Fraunhofer diffraction at a single slit",
-          "requires": ["interference"]
+          "id": "fresnel-and-fraunhofer-diffraction",
+          "name": "Fresnel and Fraunhofer diffraction",
+          "requires": ["newtons-ring"]
         },
         {
-          "id": "fresnel-diffraction-zone-plate",
-          "name": "Fresnel diffraction, half-period zones and the zone plate",
-          "requires": ["single-slit-diffraction"]
+          "id": "diffraction-from-single-slit-and-double-slit",
+          "name": "Diffraction from single slit and double slit",
+          "requires": ["fresnel-and-fraunhofer-diffraction"]
         },
         {
-          "id": "diffraction-grating-resolution",
-          "name": "Diffraction gratings and resolving power",
-          "requires": ["single-slit-diffraction"]
-        }
-      ]
-    },
-    {
-      "id": "lasers-fibre-optics",
-      "name": "Lasers and Fibre Optics",
-      "hours": 14,
-      "topics": [
-        {
-          "id": "einstein-coefficients",
-          "name": "Absorption, spontaneous and stimulated emission"
+          "id": "lasers",
+          "name": "Lasers",
+          "requires": ["diffraction-from-single-slit-and-double-slit"]
         },
         {
-          "id": "population-inversion-pumping",
-          "name": "Population inversion and pumping",
-          "requires": ["einstein-coefficients"]
+          "id": "optical-fibres-and-holography",
+          "name": "optical fibres and Holography",
+          "requires": ["lasers"]
         },
         {
-          "id": "types-of-lasers",
-          "name": "Ruby, He-Ne, CO2 and semiconductor lasers",
-          "requires": ["population-inversion-pumping"]
-        },
-        {
-          "id": "laser-properties-applications",
-          "name": "Properties and applications of laser light",
-          "requires": ["types-of-lasers"]
-        },
-        {
-          "id": "optical-fibre-numerical-aperture",
-          "name": "Optical fibres: propagation, acceptance angle and numerical aperture"
-        },
-        {
-          "id": "fibre-types-losses",
-          "name": "Types of fibres, attenuation and dispersion",
-          "requires": ["optical-fibre-numerical-aperture"]
-        },
-        {
-          "id": "fibre-optic-communication",
-          "name": "Fibre-optic communication link",
-          "requires": ["fibre-types-losses"]
-        }
-      ]
-    },
-    {
-      "id": "relativity",
-      "name": "Special Relativity",
-      "hours": 8,
-      "topics": [
-        {
-          "id": "frames-michelson-morley",
-          "name": "Frames of reference and the Michelson-Morley experiment"
-        },
-        {
-          "id": "lorentz-transformations",
-          "name": "Postulates and Lorentz transformations",
-          "requires": ["frames-michelson-morley"]
-        },
-        {
-          "id": "time-dilation-length-contraction",
-          "name": "Time dilation and length contraction",
-          "requires": ["lorentz-transformations"]
-        },
-        {
-          "id": "relativistic-velocity-mass-energy",
-          "name": "Velocity addition, relativistic mass and E = mc²",
-          "requires": ["time-dilation-length-contraction"]
-        }
-      ]
-    },
-    {
-      "id": "quantum-physics",
-      "name": "Quantum Physics",
-      "hours": 27,
-      "topics": [
-        {
-          "id": "blackbody-radiation",
-          "name": "Black body radiation and Planck's law"
-        },
-        {
-          "id": "photoelectric-compton",
-          "name": "Photoelectric effect, Compton effect and pair production",
-          "requires": ["blackbody-radiation"]
-        },
-        {
-          "id": "de-broglie-matter-waves",
-          "name": "de Broglie matter waves and wave-particle duality",
-          "requires": ["photoelectric-compton"]
-        },
-        {
-          "id": "uncertainty-principle",
-          "name": "Heisenberg's uncertainty principle",
-          "requires": ["de-broglie-matter-waves"]
-        },
-        {
-          "id": "wave-function",
-          "name": "Wave function, Born interpretation and expectation values",
-          "requires": ["de-broglie-matter-waves"]
-        },
-        {
-          "id": "schrodinger-equation",
-          "name": "Time-dependent and time-independent Schrödinger equation",
-          "requires": ["wave-function"]
-        },
-        {
-          "id": "particle-in-a-box",
-          "name": "Particle in a box",
-          "requires": ["schrodinger-equation"]
-        },
-        {
-          "id": "quantum-harmonic-oscillator",
-          "name": "Quantum harmonic oscillator",
-          "requires": ["schrodinger-equation"]
-        },
-        {
-          "id": "quantum-tunnelling",
-          "name": "Potential barriers and tunnelling",
-          "requires": ["schrodinger-equation"]
-        },
-        {
-          "id": "hydrogen-atom-spin",
-          "name": "Hydrogen atom, angular momentum and spin",
-          "requires": ["particle-in-a-box"]
-        }
-      ]
-    },
-    {
-      "id": "solid-state",
-      "name": "Solid State and Semiconductor Physics",
-      "hours": 13,
-      "topics": [
-        {
-          "id": "crystal-structure-miller",
-          "name": "Crystal lattices, unit cells and Miller indices"
-        },
-        {
-          "id": "braggs-law",
-          "name": "X-ray diffraction and Bragg's law",
-          "requires": ["crystal-structure-miller"]
-        },
-        {
-          "id": "free-electron-fermi-level",
-          "name": "Free electron theory, Fermi level and density of states",
-          "requires": ["crystal-structure-miller"]
-        },
-        {
-          "id": "band-theory",
-          "name": "Band theory: Bloch's theorem and the Kronig-Penney model",
-          "requires": ["free-electron-fermi-level"]
-        },
-        {
-          "id": "metals-semiconductors-insulators",
-          "name": "Metals, semiconductors and insulators",
-          "requires": ["band-theory"]
-        },
-        {
-          "id": "intrinsic-extrinsic-semiconductors",
-          "name": "Intrinsic and extrinsic semiconductors",
-          "requires": ["metals-semiconductors-insulators"]
-        },
-        {
-          "id": "carrier-transport",
-          "name": "Carrier transport: drift and diffusion; generation and recombination",
-          "requires": ["intrinsic-extrinsic-semiconductors"]
-        },
-        {
-          "id": "pn-junction-physics",
-          "name": "The p-n junction",
-          "requires": ["carrier-transport"]
-        },
-        {
-          "id": "hall-effect",
-          "name": "Hall effect",
-          "requires": ["intrinsic-extrinsic-semiconductors"]
-        }
-      ]
-    },
-    {
-      "id": "thermodynamics",
-      "name": "Thermodynamics",
-      "hours": 8,
-      "topics": [
-        {
-          "id": "thermodynamic-systems",
-          "name": "Systems, properties, states, processes and cycles"
-        },
-        {
-          "id": "zeroth-law-temperature",
-          "name": "Zeroth law and temperature",
-          "requires": ["thermodynamic-systems"]
-        },
-        {
-          "id": "first-law",
-          "name": "Internal energy, enthalpy and the first law",
-          "requires": ["zeroth-law-temperature"]
-        },
-        {
-          "id": "ideal-gas-processes",
-          "name": "Ideal gases and thermodynamic processes",
-          "requires": ["first-law"]
-        },
-        {
-          "id": "second-law-heat-engines",
-          "name": "Second law, heat engines and refrigerators",
-          "requires": ["first-law"]
-        },
-        {
-          "id": "carnot-cycle",
-          "name": "The Carnot cycle",
-          "requires": ["second-law-heat-engines"]
-        },
-        {
-          "id": "entropy",
-          "name": "Entropy",
-          "requires": ["carnot-cycle"]
+          "id": "applied-optics-engineering-measurements",
+          "name": "Applied optics: engineering measurements",
+          "requires": ["optical-fibres-and-holography"]
         }
       ]
     }

@@ -2,135 +2,212 @@
   "id": "compiler-design",
   "name": "Compiler Design",
   "field": "Computer Science",
-  "tier": "sourced",
-  "branches": ["ce", "it", "ict"],
-  "semesters": [6],
+  "tier": "limited",
+  "branches": ["ce"],
+  "semesters": [5],
+  "code": "24CS303T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-compiler-design",
+      "code": "24CS303T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5
+    }
+  ],
   "syllabusSource": {
-    "kind": "aicte",
-    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS601 Compiler Design",
-    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
-    "note": "Module 1 of PCC-CS601."
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Compiler Design",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
   },
   "visualSet": "computing",
   "chapters": [
     {
-      "id": "compiler-intro",
-      "name": "Introduction",
-      "hours": 3,
+      "id": "introduction-and-lexical-analysis",
+      "name": "Introduction and Lexical Analysis",
+      "hours": 10,
       "topics": [
         {
-          "id": "compiler-phases",
-          "name": "Phases of a compiler"
-        }
-      ]
-    },
-    {
-      "id": "lexical-analysis",
-      "name": "Lexical Analysis",
-      "hours": 6,
-      "topics": [
-        {
-          "id": "lexical-analysis-tokens",
-          "name": "Tokens, lexemes and patterns",
-          "requires": ["compiler-phases"]
+          "id": "overview-of-compiler",
+          "name": "Overview of compiler"
         },
         {
-          "id": "regex-to-automata",
-          "name": "From regular expressions to automata; lex/flex",
-          "requires": ["lexical-analysis-tokens"]
+          "id": "introduction-of-phases-of-a-compiler",
+          "name": "Introduction of phases of a compiler",
+          "requires": ["overview-of-compiler"]
+        },
+        {
+          "id": "cousins-of-the-compiler-brief-discussion-on-preprocessor",
+          "name": "Cousins of the Compiler- Brief discussion on Preprocessor",
+          "requires": ["introduction-of-phases-of-a-compiler"]
+        },
+        {
+          "id": "assembler",
+          "name": "Assembler",
+          "requires": ["cousins-of-the-compiler-brief-discussion-on-preprocessor"]
+        },
+        {
+          "id": "linker",
+          "name": "Linker",
+          "requires": ["assembler"]
+        },
+        {
+          "id": "loader",
+          "name": "Loader",
+          "requires": ["linker"]
+        },
+        {
+          "id": "front-end-and-back-end-of-compiler",
+          "name": "Front-end and Back-end of compiler",
+          "requires": ["loader"]
+        },
+        {
+          "id": "lexical-analysis-and-representation",
+          "name": "Lexical analysis and representation",
+          "requires": ["front-end-and-back-end-of-compiler"]
+        },
+        {
+          "id": "input-buffering",
+          "name": "Input Buffering",
+          "requires": ["lexical-analysis-and-representation"]
+        },
+        {
+          "id": "token-recognition-and-finite-automata",
+          "name": "Token Recognition and Finite Automata",
+          "requires": ["input-buffering"]
+        },
+        {
+          "id": "error-recovery-of-lexical-analysis",
+          "name": "Error Recovery of lexical analysis",
+          "requires": ["token-recognition-and-finite-automata"]
         }
       ]
     },
     {
       "id": "syntax-analysis",
       "name": "Syntax Analysis",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "parsing",
+          "name": "Parsing",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "role-of-parsers",
+          "name": "Role of Parsers",
+          "requires": ["parsing"]
+        },
+        {
+          "id": "context-free-grammars",
+          "name": "Context Free Grammars",
+          "requires": ["role-of-parsers"]
+        },
+        {
+          "id": "top-down-parsers-rdp-ll",
+          "name": "Top-Down Parsers (RDP, LL)",
+          "requires": ["context-free-grammars"]
+        },
+        {
+          "id": "bottom-up-parsers-operator-precedence-lr",
+          "name": "Bottom-Up Parsers (Operator-Precedence, LR)",
+          "requires": ["top-down-parsers-rdp-ll"]
+        },
+        {
+          "id": "error-recovery-strategies",
+          "name": "Error recovery strategies",
+          "requires": ["bottom-up-parsers-operator-precedence-lr"]
+        }
+      ]
+    },
+    {
+      "id": "syntax-directed-translation-and-intermediate-code",
+      "name": "Syntax Directed Translation and Intermediate Code Generation",
       "hours": 10,
       "topics": [
         {
-          "id": "top-down-parsing",
-          "name": "Top-down parsing: recursive descent and LL(1)",
-          "requires": ["lexical-analysis-tokens"]
+          "id": "syntax-directed-definition",
+          "name": "Syntax Directed Definition"
         },
         {
-          "id": "first-follow",
-          "name": "FIRST and FOLLOW sets",
-          "requires": ["top-down-parsing"]
+          "id": "s-attributed-and-l-attributed-definitions",
+          "name": "S-attributed and L-attributed Definitions",
+          "requires": ["syntax-directed-definition"]
         },
         {
-          "id": "bottom-up-parsing",
-          "name": "Bottom-up parsing: shift-reduce, LR(0), SLR, LR(1), LALR",
-          "requires": ["top-down-parsing"]
+          "id": "evaluation-order",
+          "name": "Evaluation order",
+          "requires": ["s-attributed-and-l-attributed-definitions"]
         },
         {
-          "id": "yacc",
-          "name": "Parser generators: yacc and bison",
-          "requires": ["bottom-up-parsing"]
+          "id": "syntax-directed-definition-and-translation-schemes",
+          "name": "Syntax directed definition and translation schemes",
+          "requires": ["evaluation-order"]
+        },
+        {
+          "id": "different-intermediate-forms",
+          "name": "Different Intermediate Forms",
+          "requires": ["syntax-directed-definition-and-translation-schemes"]
+        },
+        {
+          "id": "implementation-of-three-address-code",
+          "name": "Implementation of Three Address Code",
+          "requires": ["different-intermediate-forms"]
+        },
+        {
+          "id": "intermediate-code-for-basic-constructs-of-languages",
+          "name": "Intermediate code for basic constructs of languages",
+          "requires": ["implementation-of-three-address-code"]
         }
       ]
     },
     {
-      "id": "semantic-analysis",
-      "name": "Semantic Analysis and Run-time Environment",
-      "hours": 8,
+      "id": "runtime-environments-code-generation-and",
+      "name": "Runtime Environments, Code Generation and Optimization",
+      "hours": 9,
       "topics": [
         {
-          "id": "syntax-directed-translation",
-          "name": "Attribute grammars and syntax-directed definitions",
-          "requires": ["bottom-up-parsing"]
+          "id": "storage-allocation-strategies",
+          "name": "Storage allocation strategies"
         },
         {
-          "id": "symbol-table",
-          "name": "Symbol tables",
-          "requires": ["lexical-analysis-tokens"]
-        },
-        {
-          "id": "runtime-environment",
-          "name": "Activation records, parameter passing and scope",
-          "requires": ["symbol-table"]
+          "id": "parameter-passing",
+          "name": "Parameter passing",
+          "requires": ["storage-allocation-strategies"]
         },
         {
           "id": "type-checking",
-          "name": "Type systems and type checking",
-          "requires": ["syntax-directed-translation"]
-        }
-      ]
-    },
-    {
-      "id": "intermediate-code",
-      "name": "Intermediate Code and Optimisation",
-      "hours": 8,
-      "topics": [
-        {
-          "id": "three-address-code",
-          "name": "Intermediate forms: three-address code",
-          "requires": ["syntax-directed-translation"]
+          "name": "Type checking",
+          "requires": ["parameter-passing"]
         },
         {
-          "id": "data-flow-analysis",
-          "name": "Control-flow and data-flow analysis",
-          "requires": ["three-address-code"]
+          "id": "data-flow-analysis-basic-blocks-and-flow-graphs",
+          "name": "Data flow analysis- Basic blocks and flow graphs",
+          "requires": ["type-checking"]
         },
         {
-          "id": "code-optimisation",
-          "name": "Local, global, loop and peephole optimisation",
-          "requires": ["data-flow-analysis"]
-        }
-      ]
-    },
-    {
-      "id": "code-generation",
-      "name": "Code Generation",
-      "hours": 4,
-      "topics": [
-        {
-          "id": "register-allocation",
-          "name": "Register allocation",
-          "requires": ["three-address-code"]
+          "id": "liveliness-analysis",
+          "name": "liveliness analysis",
+          "requires": ["data-flow-analysis-basic-blocks-and-flow-graphs"]
         },
         {
-          "id": "instruction-scheduling",
-          "name": "Instruction selection and scheduling",
-          "requires": ["register-allocation"]
+          "id": "local-and-global-optimization-techniques-semantic-preserving",
+          "name": "local and global optimization techniques- semantic preserving transformations and loop optimizations",
+          "requires": ["liveliness-analysis"]
+        },
+        {
+          "id": "target-code-generation",
+          "name": "Target code generation",
+          "requires": ["local-and-global-optimization-techniques-semantic-preserving"]
         }
       ]
     }

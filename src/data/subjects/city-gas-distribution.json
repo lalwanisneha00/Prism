@@ -1,0 +1,199 @@
+{
+  "id": "city-gas-distribution",
+  "name": "City Gas Distribution",
+  "field": "City Gas Distribution",
+  "tier": "limited",
+  "branches": ["petro"],
+  "semesters": [7],
+  "code": "25PE431T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s7-program-elective-b-choose-one-3-credits--city-gas-distribution",
+      "code": "25PE431T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): City Gas Distribution",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "chapters": [
+    {
+      "id": "introduction-of-natural-gas-and-its-value-chain",
+      "name": "Introduction of Natural Gas and Its Value Chain",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "types-of-natural-gas-introduction-to-concept-of-geographical",
+          "name": "Types of Natural Gas, Introduction to concept of Geographical Area (GA), History of CGD in India"
+        },
+        {
+          "id": "lng-lpg-and-cgd-business-gas-value-chain-gas-transmission",
+          "name": "LNG, LPG, and CGD business. Gas Value Chain: Gas Transmission and Distribution System",
+          "requires": ["types-of-natural-gas-introduction-to-concept-of-geographical"]
+        },
+        {
+          "id": "city-gate-station-cgs",
+          "name": "City Gate Station (CGS)",
+          "requires": ["lng-lpg-and-cgd-business-gas-value-chain-gas-transmission"]
+        },
+        {
+          "id": "gas-filtration-and-pressure-reduction-skids",
+          "name": "Gas Filtration and Pressure reduction skids",
+          "requires": ["city-gate-station-cgs"]
+        },
+        {
+          "id": "odorizing-unit",
+          "name": "Odorizing unit",
+          "requires": ["gas-filtration-and-pressure-reduction-skids"]
+        },
+        {
+          "id": "common-pressure-reduction-station-cprs-district-regulation",
+          "name": "Common pressure reduction station (CPRS)/District Regulation Station (DRS)",
+          "requires": ["odorizing-unit"]
+        },
+        {
+          "id": "meters-including-smart-meters",
+          "name": "Meters including smart meters",
+          "requires": ["common-pressure-reduction-station-cprs-district-regulation"]
+        },
+        {
+          "id": "pipeline-for-cgd",
+          "name": "Pipeline for CGD",
+          "requires": ["meters-including-smart-meters"]
+        },
+        {
+          "id": "steel-and-pe-pipelines",
+          "name": "Steel and PE Pipelines",
+          "requires": ["pipeline-for-cgd"]
+        },
+        {
+          "id": "cng-infrastructure-mother-station-online-station-daughter",
+          "name": "CNG infrastructure: Mother Station, Online Station, Daughter Station, Daughter Booster Station",
+          "requires": ["steel-and-pe-pipelines"]
+        }
+      ]
+    },
+    {
+      "id": "petroleum-and-natural-gas-regulatory-bodies",
+      "name": "Petroleum and Natural Gas Regulatory Bodies",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-ministry-of-petroleum-and-natural-gas-mopng",
+          "name": "Introduction to Ministry of Petroleum and Natural Gas (MoPNG)"
+        },
+        {
+          "id": "upstream-and-downstream-regulators-powers-and-functions-of",
+          "name": "Upstream and downstream regulators, Powers and functions of Petroleum and Natural Gas Regulatory Board (PNGRB), Evolution of CGD bidding in India till date, Bidding attributes and Bid authorization, N",
+          "requires": ["introduction-to-ministry-of-petroleum-and-natural-gas-mopng"]
+        }
+      ]
+    },
+    {
+      "id": "accessory-equipments-and-its-applications-in-cgd",
+      "name": "Accessory Equipment’s and Its Applications in CGD Value Chain",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "annual-o-and-m-plan",
+          "name": "Annual O&M Plan"
+        },
+        {
+          "id": "valves-pumps-compressors-welding-cathodic-protection-system",
+          "name": "Valves, Pumps, Compressors, Welding, Cathodic Protection System, QHSE: CNG Safety",
+          "requires": ["annual-o-and-m-plan"]
+        },
+        {
+          "id": "emergency-response-plan",
+          "name": "Emergency Response Plan",
+          "requires": ["valves-pumps-compressors-welding-cathodic-protection-system"]
+        },
+        {
+          "id": "disaster-management-plan",
+          "name": "Disaster Management Plan",
+          "requires": ["emergency-response-plan"]
+        },
+        {
+          "id": "quality-assurance-concepts",
+          "name": "Quality assurance concepts",
+          "requires": ["disaster-management-plan"]
+        },
+        {
+          "id": "inspection-and-surveillance",
+          "name": "Inspection and Surveillance",
+          "requires": ["quality-assurance-concepts"]
+        },
+        {
+          "id": "risk-assessment-in-cgd-business",
+          "name": "Risk Assessment in CGD Business",
+          "requires": ["inspection-and-surveillance"]
+        },
+        {
+          "id": "fire-and-fire-protection-equipment",
+          "name": "Fire and Fire Protection equipment’",
+          "requires": ["risk-assessment-in-cgd-business"]
+        }
+      ]
+    },
+    {
+      "id": "advance-methods-in-cgd-value-chain",
+      "name": "Advance Methods in CGD Value Chain",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "types-of-cylinders",
+          "name": "Types of Cylinders"
+        },
+        {
+          "id": "hcng",
+          "name": "HCNG",
+          "requires": ["types-of-cylinders"]
+        },
+        {
+          "id": "lcng",
+          "name": "LCNG",
+          "requires": ["hcng"]
+        },
+        {
+          "id": "compressed-biogas",
+          "name": "Compressed Biogas",
+          "requires": ["lcng"]
+        },
+        {
+          "id": "dispenser",
+          "name": "Dispenser",
+          "requires": ["compressed-biogas"]
+        },
+        {
+          "id": "it-in-cgd-including-artificial-intelligence-ai",
+          "name": "IT in CGD including Artificial Intelligence (AI)",
+          "requires": ["dispenser"]
+        },
+        {
+          "id": "machine-learning-ml",
+          "name": "Machine Learning (ML)",
+          "requires": ["it-in-cgd-including-artificial-intelligence-ai"]
+        },
+        {
+          "id": "internet-of-things-iot",
+          "name": "Internet of Things (IoT)",
+          "requires": ["machine-learning-ml"]
+        },
+        {
+          "id": "block-chain-and-its-application-in-centre",
+          "name": "Block chain and its application in centre",
+          "requires": ["internet-of-things-iot"]
+        }
+      ]
+    }
+  ]
+}

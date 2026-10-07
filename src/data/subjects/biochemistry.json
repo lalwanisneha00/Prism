@@ -1,85 +1,203 @@
 {
   "id": "biochemistry",
-  "name": "Biochemistry",
+  "name": "Principles of Biochemistry",
   "field": "Biotechnology",
-  "tier": "sourced",
+  "tier": "limited",
   "branches": ["biotech"],
-  "semesters": [2, 3],
+  "semesters": [3],
+  "code": "24BT203T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s3-principles-of-biochemistry",
+      "code": "24BT203T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3
+    }
+  ],
   "syllabusSource": {
     "kind": "university",
-    "title": "Anna University B.Tech Biotechnology (R2017): BT8251 Biochemistry",
-    "url": "https://cac.annauniv.edu/aidetails/afug_2017_fu/06.%20Biotech.pdf",
-    "note": "All five units of BT8251."
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Principles of Biochemistry",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
   },
   "visualSet": "chemistry",
   "chapters": [
     {
-      "id": "biomolecules",
-      "name": "Biomolecules",
-      "hours": 20,
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
       "topics": [
         {
-          "id": "water-ph-buffers",
-          "name": "Water, pH and biological buffers"
+          "id": "introduction-to-biological-system-review-on-cellular",
+          "name": "Introduction to biological system, Review on cellular, chemical, physical, genetic and evolutionary backgrounds to biochemistry"
         },
         {
-          "id": "carbohydrates",
-          "name": "Carbohydrates: mono-, di- and polysaccharides",
-          "requires": ["water-ph-buffers"]
-        },
-        {
-          "id": "lipids",
-          "name": "Lipids: fatty acids, phospholipids and steroids",
-          "requires": ["water-ph-buffers"]
-        },
-        {
-          "id": "amino-acids-proteins",
-          "name": "Amino acids, peptides and protein structure",
-          "requires": ["water-ph-buffers"]
-        },
-        {
-          "id": "enzymes-intro",
-          "name": "Enzymes as biocatalysts",
-          "requires": ["amino-acids-proteins"]
+          "id": "properties-of-water-solubility-ionization-property-and-water",
+          "name": "Properties of water- solubility, ionization property and water as a reactant, pH and buffers and their importance",
+          "requires": ["introduction-to-biological-system-review-on-cellular"]
         }
       ]
     },
     {
-      "id": "metabolism",
-      "name": "Metabolism",
-      "hours": 20,
+      "id": "amino-acids-and-proteins",
+      "name": "Amino Acids and Proteins",
+      "hours": 10,
       "topics": [
         {
-          "id": "glycolysis",
-          "name": "Glycolysis",
-          "requires": ["carbohydrates", "enzymes-intro"]
+          "id": "amino-acids-and-proteins-classification",
+          "name": "Amino acids and Proteins: Classification"
+        },
+        {
+          "id": "structure-and-biological-importance-of-amino-acids",
+          "name": "structure and biological importance of amino acids",
+          "requires": ["amino-acids-and-proteins-classification"]
+        },
+        {
+          "id": "acid-base-chemistry-and-stereochemistry-of-amino-acids",
+          "name": "acid–base chemistry and stereochemistry of amino acids. Proteins: Primary",
+          "requires": ["structure-and-biological-importance-of-amino-acids"]
+        },
+        {
+          "id": "secondary",
+          "name": "secondary",
+          "requires": ["acid-base-chemistry-and-stereochemistry-of-amino-acids"]
+        },
+        {
+          "id": "tertiary",
+          "name": "tertiary",
+          "requires": ["secondary"]
+        },
+        {
+          "id": "quaternary-and-domain-structure-of-proteins",
+          "name": "quaternary & domain structure of proteins",
+          "requires": ["tertiary"]
+        },
+        {
+          "id": "protein-denaturation-and-renaturation",
+          "name": "Protein denaturation and renaturation",
+          "requires": ["quaternary-and-domain-structure-of-proteins"]
+        },
+        {
+          "id": "enzyme-and-its-classification",
+          "name": "Enzyme and its classification",
+          "requires": ["protein-denaturation-and-renaturation"]
+        }
+      ]
+    },
+    {
+      "id": "carbohydrates",
+      "name": "Carbohydrates",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "carbohydrates-definitions",
+          "name": "Carbohydrates: Definitions"
+        },
+        {
+          "id": "biological-functions",
+          "name": "biological functions",
+          "requires": ["carbohydrates-definitions"]
+        },
+        {
+          "id": "physical-properties",
+          "name": "Physical properties",
+          "requires": ["biological-functions"]
+        },
+        {
+          "id": "classification-of-carbohydrates",
+          "name": "Classification of carbohydrates",
+          "requires": ["physical-properties"]
+        },
+        {
+          "id": "metabolism-of-carbohydrates-glycolysis",
+          "name": "Metabolism of carbohydrates: Glycolysis",
+          "requires": ["classification-of-carbohydrates"]
         },
         {
           "id": "tca-cycle",
-          "name": "The citric acid (TCA) cycle",
-          "requires": ["glycolysis"]
+          "name": "TCA cycle",
+          "requires": ["metabolism-of-carbohydrates-glycolysis"]
         },
         {
           "id": "oxidative-phosphorylation",
-          "name": "Electron transport chain and ATP synthesis",
+          "name": "oxidative phosphorylation",
           "requires": ["tca-cycle"]
         },
         {
-          "id": "fatty-acid-amino-metabolism",
-          "name": "Fatty acid oxidation and amino acid metabolism; urea cycle",
-          "requires": ["lipids", "amino-acids-proteins"]
+          "id": "gluconeogenesis-and-pentose-phosphate-pathway-and-their",
+          "name": "gluconeogenesis and pentose phosphate pathway and their regulation",
+          "requires": ["oxidative-phosphorylation"]
         }
       ]
     },
     {
-      "id": "protein-fate",
-      "name": "Protein Targeting and Degradation",
-      "hours": 5,
+      "id": "nucleic-acids-and-lipids",
+      "name": "Nucleic Acids and Lipids",
+      "hours": 10,
       "topics": [
         {
-          "id": "protein-folding-degradation",
-          "name": "Protein folding, chaperones, targeting and degradation",
-          "requires": ["amino-acids-proteins"]
+          "id": "nucleic-acids-composition",
+          "name": "Nucleic acids: Composition"
+        },
+        {
+          "id": "properties-and-function",
+          "name": "properties and function",
+          "requires": ["nucleic-acids-composition"]
+        },
+        {
+          "id": "metabolism-synthesis-of-purines-and-pyrimidine",
+          "name": "Metabolism- synthesis of purines and pyrimidine",
+          "requires": ["properties-and-function"]
+        },
+        {
+          "id": "lipids-classification",
+          "name": "Lipids: Classification",
+          "requires": ["metabolism-synthesis-of-purines-and-pyrimidine"]
+        },
+        {
+          "id": "structure",
+          "name": "structure",
+          "requires": ["lipids-classification"]
+        },
+        {
+          "id": "properties",
+          "name": "properties",
+          "requires": ["structure"]
+        },
+        {
+          "id": "function-and-metabolism-of-fatty-acids-classification",
+          "name": "function and metabolism of fatty acids. Classification",
+          "requires": ["properties"]
+        },
+        {
+          "id": "properties-and-biological-function-of-simple-lipids",
+          "name": "properties and biological function of simple lipids",
+          "requires": ["function-and-metabolism-of-fatty-acids-classification"]
+        },
+        {
+          "id": "triacylglycerol-and-waxes",
+          "name": "triacylglycerol and waxes",
+          "requires": ["properties-and-biological-function-of-simple-lipids"]
+        },
+        {
+          "id": "compound-lipids-phospholipids-and-glycolipids",
+          "name": "Compound lipids- phospholipids and glycolipids",
+          "requires": ["triacylglycerol-and-waxes"]
+        },
+        {
+          "id": "cholesterol-structure",
+          "name": "Cholesterol- structure",
+          "requires": ["compound-lipids-phospholipids-and-glycolipids"]
+        },
+        {
+          "id": "properties-and-importance",
+          "name": "properties and importance",
+          "requires": ["cholesterol-structure"]
         }
       ]
     }

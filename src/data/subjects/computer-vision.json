@@ -1,0 +1,316 @@
+{
+  "id": "computer-vision",
+  "name": "Computer Vision",
+  "field": "Computer Vision",
+  "tier": "sourced",
+  "branches": ["ce"],
+  "semesters": [6],
+  "code": "24CS343T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s6-program-elective-3--computer-vision",
+      "code": "24CS343T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "track": "Speech, Vision & Text track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Computer Vision",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "low-level-vision",
+      "name": "Low Level Vision",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "applications-and-challenges",
+          "name": "Applications and Challenges",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "fundamentals-of-image-formation",
+          "name": "Fundamentals of Image Formation",
+          "requires": ["applications-and-challenges"]
+        },
+        {
+          "id": "pin-hole-camera",
+          "name": "Pin hole camera",
+          "requires": ["fundamentals-of-image-formation"]
+        },
+        {
+          "id": "camera-parameters",
+          "name": "Camera Parameters",
+          "requires": ["pin-hole-camera"]
+        },
+        {
+          "id": "geometric-camera-calibration",
+          "name": "Geometric camera calibration",
+          "requires": ["camera-parameters"]
+        },
+        {
+          "id": "transformation-orthogonal",
+          "name": "Transformation: Orthogonal",
+          "requires": ["geometric-camera-calibration"]
+        },
+        {
+          "id": "euclidean",
+          "name": "Euclidean",
+          "requires": ["transformation-orthogonal"]
+        },
+        {
+          "id": "affine",
+          "name": "Affine",
+          "requires": ["euclidean"]
+        },
+        {
+          "id": "projective",
+          "name": "Projective",
+          "requires": ["affine"]
+        },
+        {
+          "id": "convolution-and-filtering",
+          "name": "Convolution and Filtering",
+          "requires": ["projective"]
+        },
+        {
+          "id": "image-enhancement",
+          "name": "Image Enhancement",
+          "requires": ["convolution-and-filtering"]
+        },
+        {
+          "id": "histogram-processing",
+          "name": "Histogram Processing",
+          "requires": ["image-enhancement"]
+        },
+        {
+          "id": "stereo-vision",
+          "name": "Stereo Vision",
+          "requires": ["histogram-processing"]
+        },
+        {
+          "id": "photometric-stereo",
+          "name": "Photometric Stereo",
+          "requires": ["stereo-vision"]
+        }
+      ]
+    },
+    {
+      "id": "mid-level-vision",
+      "name": "Mid Level Vision",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "edge-and-corner-detection",
+          "name": "Edge and corner detection"
+        },
+        {
+          "id": "hough-transform",
+          "name": "Hough Transform",
+          "requires": ["edge-and-corner-detection"]
+        },
+        {
+          "id": "sift",
+          "name": "SIFT",
+          "requires": ["hough-transform"]
+        },
+        {
+          "id": "surf",
+          "name": "SURF",
+          "requires": ["sift"]
+        },
+        {
+          "id": "hog",
+          "name": "HOG",
+          "requires": ["surf"]
+        },
+        {
+          "id": "image-segmentation-region-growing",
+          "name": "Image Segmentation: Region Growing",
+          "requires": ["hog"]
+        },
+        {
+          "id": "edge-based-methods",
+          "name": "Edge based methods",
+          "requires": ["image-segmentation-region-growing"]
+        },
+        {
+          "id": "graph-cut",
+          "name": "Graph-Cut",
+          "requires": ["edge-based-methods"]
+        },
+        {
+          "id": "mean-shift",
+          "name": "Mean-Shift",
+          "requires": ["graph-cut"]
+        },
+        {
+          "id": "k-means",
+          "name": "K-Means",
+          "requires": ["mean-shift"]
+        },
+        {
+          "id": "k-medoids",
+          "name": "K-Medoids",
+          "requires": ["k-means"]
+        },
+        {
+          "id": "em-algorithm",
+          "name": "EM algorithm",
+          "requires": ["k-medoids"]
+        }
+      ]
+    },
+    {
+      "id": "high-level-vision",
+      "name": "High Level Vision",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "error",
+          "name": "Error"
+        },
+        {
+          "id": "loss",
+          "name": "Loss",
+          "requires": ["error"]
+        },
+        {
+          "id": "image-classification",
+          "name": "Image Classification",
+          "requires": ["loss"]
+        },
+        {
+          "id": "object-detection-face-detection",
+          "name": "Object detection: Face Detection",
+          "requires": ["image-classification"]
+        },
+        {
+          "id": "state-of-the-art-in-object-detection",
+          "name": "State of the art in Object detection",
+          "requires": ["object-detection-face-detection"]
+        },
+        {
+          "id": "object-recognition",
+          "name": "Object Recognition",
+          "requires": ["state-of-the-art-in-object-detection"]
+        },
+        {
+          "id": "hidden-markov-model",
+          "name": "Hidden Markov Model",
+          "requires": ["object-recognition"]
+        },
+        {
+          "id": "object-tracking",
+          "name": "Object Tracking",
+          "requires": ["hidden-markov-model"]
+        },
+        {
+          "id": "background-subtraction-and-modeling",
+          "name": "Background Subtraction and Modeling",
+          "requires": ["object-tracking"]
+        },
+        {
+          "id": "optical-flow",
+          "name": "Optical Flow",
+          "requires": ["background-subtraction-and-modeling"]
+        },
+        {
+          "id": "klt",
+          "name": "KLT",
+          "requires": ["optical-flow"]
+        },
+        {
+          "id": "spatio-temporal-analysis",
+          "name": "Spatio-Temporal Analysis",
+          "requires": ["klt"]
+        },
+        {
+          "id": "dynamic-stereo",
+          "name": "Dynamic Stereo",
+          "requires": ["spatio-temporal-analysis"]
+        },
+        {
+          "id": "motion-parameter-estimation",
+          "name": "Motion parameter estimation",
+          "requires": ["dynamic-stereo"]
+        }
+      ]
+    },
+    {
+      "id": "computer-vision-using-deep-learning",
+      "name": "Computer Vision Using Deep Learning",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "cnn",
+          "name": "Convolutional Neural Networks architectures"
+        },
+        {
+          "id": "convolution-and-pooling",
+          "name": "Convolution and Pooling",
+          "requires": ["cnn"]
+        },
+        {
+          "id": "training-cnn",
+          "name": "training CNN",
+          "requires": ["convolution-and-pooling"]
+        },
+        {
+          "id": "data-augmentation",
+          "name": "Data Augmentation",
+          "requires": ["training-cnn"]
+        },
+        {
+          "id": "transfer-learning",
+          "name": "Transfer Learning",
+          "requires": ["data-augmentation"]
+        },
+        {
+          "id": "recurrent-neural-networks",
+          "name": "Recurrent Neural Networks",
+          "requires": ["transfer-learning"]
+        },
+        {
+          "id": "lstm",
+          "name": "LSTM",
+          "requires": ["recurrent-neural-networks"]
+        },
+        {
+          "id": "gru",
+          "name": "GRU",
+          "requires": ["lstm"]
+        },
+        {
+          "id": "applications-like-image-captioning",
+          "name": "Applications like Image Captioning",
+          "requires": ["gru"]
+        },
+        {
+          "id": "face-recognition",
+          "name": "Face Recognition",
+          "requires": ["applications-like-image-captioning"]
+        },
+        {
+          "id": "semantic-segmentation",
+          "name": "Semantic Segmentation",
+          "requires": ["face-recognition"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "mathematics-for-biotechnology-i",
+  "name": "Mathematics for Biotechnology - I",
+  "field": "Mathematics",
+  "tier": "sourced",
+  "branches": ["biotech"],
+  "semesters": [1],
+  "code": "24MA102T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s1-mathematics-for-biotechnology-i",
+      "code": "24MA102T",
+      "category": "Basic Science",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 1
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Mathematics for Biotechnology - I",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "maths",
+  "chapters": [
+    {
+      "id": "set-relations-and-functions",
+      "name": "Set Relations and Functions",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "sets-and-their-representation-union-intersection-and",
+          "name": "Sets and their representation. Union, intersection, and complement. Mapping or function. One-one"
+        },
+        {
+          "id": "onto-mappings-inverse-and-composite-mappings",
+          "name": "onto mappings. Inverse and composite mappings",
+          "requires": ["sets-and-their-representation-union-intersection-and"]
+        }
+      ]
+    },
+    {
+      "id": "basics-of-differential-calculus",
+      "name": "Basics of Differential Calculus",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "limit",
+          "name": "Limit"
+        },
+        {
+          "id": "continuity",
+          "name": "continuity",
+          "requires": ["limit"]
+        },
+        {
+          "id": "differentiability-of-elementary-functions",
+          "name": "Differentiability of elementary functions",
+          "requires": ["continuity"]
+        },
+        {
+          "id": "increasing-and-decreasing-functions",
+          "name": "Increasing and Decreasing Functions",
+          "requires": ["differentiability-of-elementary-functions"]
+        },
+        {
+          "id": "maxima-and-minima",
+          "name": "Maxima and Minima",
+          "requires": ["increasing-and-decreasing-functions"]
+        }
+      ]
+    },
+    {
+      "id": "basics-of-integral-calculus",
+      "name": "Basics of Integral Calculus",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "integrals-of-elementary-functions",
+          "name": "Integrals of elementary functions"
+        },
+        {
+          "id": "substitution-and-partial-fractions",
+          "name": "Substitution and partial fractions",
+          "requires": ["integrals-of-elementary-functions"]
+        },
+        {
+          "id": "definite-integral-as-a-limit-of-sum",
+          "name": "Definite Integral as a limit of sum",
+          "requires": ["substitution-and-partial-fractions"]
+        },
+        {
+          "id": "properties-of-definite-integrals",
+          "name": "Properties of definite integrals",
+          "requires": ["definite-integral-as-a-limit-of-sum"]
+        },
+        {
+          "id": "application-to-areas-and-arc-lengths",
+          "name": "Application to areas and arc lengths",
+          "requires": ["properties-of-definite-integrals"]
+        }
+      ]
+    },
+    {
+      "id": "matrices-and-determinants",
+      "name": "Matrices and Determinants",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "algebra-of-matrices",
+          "name": "Algebra of matrices"
+        },
+        {
+          "id": "determinant-of-a-square-matrix",
+          "name": "Determinant of a square matrix",
+          "requires": ["algebra-of-matrices"]
+        },
+        {
+          "id": "properties-of-determinants",
+          "name": "Properties of determinants",
+          "requires": ["determinant-of-a-square-matrix"]
+        },
+        {
+          "id": "some-simple-types-of-matrices",
+          "name": "Some simple types of matrices",
+          "requires": ["properties-of-determinants"]
+        },
+        {
+          "id": "the-inverse-of-a-matrix",
+          "name": "The inverse of a matrix",
+          "requires": ["some-simple-types-of-matrices"]
+        },
+        {
+          "id": "rank-of-matrix",
+          "name": "The rank of a matrix",
+          "requires": ["the-inverse-of-a-matrix"]
+        },
+        {
+          "id": "consistency-of-the-system-of-linear-equation-upto-3rd-order",
+          "name": "consistency of the system of linear equation upto 3rd order",
+          "requires": ["rank-of-matrix"]
+        },
+        {
+          "id": "eigen-values-and-eigenvectors-of-a-real-matrix",
+          "name": "Eigen values and Eigenvectors of a real matrix",
+          "requires": ["consistency-of-the-system-of-linear-equation-upto-3rd-order"]
+        },
+        {
+          "id": "properties-of-eigen-values-and-eigen-vectors",
+          "name": "Properties of Eigen values and Eigen vectors",
+          "requires": ["eigen-values-and-eigenvectors-of-a-real-matrix"]
+        },
+        {
+          "id": "diagonalization-of-a-matrix",
+          "name": "Diagonalization of a matrix",
+          "requires": ["properties-of-eigen-values-and-eigen-vectors"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": "web-application-testing",
+  "name": "Web Application Testing",
+  "field": "Web Application Testing",
+  "tier": "limited",
+  "branches": ["ce"],
+  "semesters": [7],
+  "code": "24CS437T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s7-program-elective-5--web-application-testing",
+      "code": "24CS437T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "track": "Industry track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Web Application Testing",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "principle-of-security-testing",
+      "name": "Principle of Security Testing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "explain-secure-applications-and-the-needs-for-testing-them",
+          "name": "Explain secure applications and the needs for testing them"
+        },
+        {
+          "id": "model-and-methodologies-to-different-applications",
+          "name": "model and methodologies to different applications",
+          "requires": ["explain-secure-applications-and-the-needs-for-testing-them"]
+        },
+        {
+          "id": "different-system-recognise-project-security-threats",
+          "name": "Different system, recognise project security threats",
+          "requires": ["model-and-methodologies-to-different-applications"]
+        },
+        {
+          "id": "the-following-are-the-tenets-of-security-testing-non",
+          "name": "The following are the tenets of security testing: non-repudiation, availability, authenticity, authorization, and confidentiality",
+          "requires": ["different-system-recognise-project-security-threats"]
+        },
+        {
+          "id": "network-security-system-software-security-client-side",
+          "name": "Network security, system software security, client-side application security, and server-side application security are the main areas of attention for security testing",
+          "requires": ["the-following-are-the-tenets-of-security-testing-non"]
+        }
+      ]
+    },
+    {
+      "id": "types-of-security-testing",
+      "name": "Types of Security Testing",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "vulnerability-scanning-programme-that-automatically-examines",
+          "name": "Vulnerability Scanning: programme that automatically examines a system to find patterns of known vulnerabilities Security scanning reduces risks and errors by identifying network and system flaws"
+        },
+        {
+          "id": "security-scanning",
+          "name": "Security scanning",
+          "requires": ["vulnerability-scanning-programme-that-automatically-examines"]
+        },
+        {
+          "id": "both-automated-and-human-penetration-testing-involves",
+          "name": "both automated and human Penetration testing involves simulating a hostile hacker's attack in order to look for any weaknesses that a hacker would use to try to access the system",
+          "requires": ["security-scanning"]
+        },
+        {
+          "id": "risk-assessment-includes-security-risk-testing",
+          "name": "Risk assessment includes security risk testing",
+          "requires": ["both-automated-and-human-penetration-testing-involves"]
+        },
+        {
+          "id": "risk-classification-low-medium-and-high-and-risk-reduction",
+          "name": "risk classification (low, medium, and high), and risk-reduction strategies. To evaluate and enhance a product's, process', or project's security",
+          "requires": ["risk-assessment-includes-security-risk-testing"]
+        },
+        {
+          "id": "gather-and-evaluate-metrics-using-statistical-techniques",
+          "name": "gather and evaluate metrics using statistical techniques",
+          "requires": ["risk-classification-low-medium-and-high-and-risk-reduction"]
+        }
+      ]
+    },
+    {
+      "id": "web-application-testing",
+      "name": "Web application testing",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "network-scanning",
+          "name": "Network scanning"
+        },
+        {
+          "id": "determining-different-attacks-on-web-application",
+          "name": "Determining different attacks on web application",
+          "requires": ["network-scanning"]
+        },
+        {
+          "id": "applying-the-attacks-as-sqli",
+          "name": "applying the attacks as SQLi",
+          "requires": ["determining-different-attacks-on-web-application"]
+        },
+        {
+          "id": "xxs",
+          "name": "XXS",
+          "requires": ["applying-the-attacks-as-sqli"]
+        },
+        {
+          "id": "session-hijacking",
+          "name": "Session Hijacking",
+          "requires": ["xxs"]
+        },
+        {
+          "id": "etc-and-also-developing-different-methodologies-to-secure",
+          "name": "etc and also developing different methodologies to secure application from such attacks and vulnerability present",
+          "requires": ["session-hijacking"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-mobile-security",
+      "name": "Introduction to Mobile Security",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "overview-of-mobile-security-challenges-and-threats",
+          "name": "Overview of mobile security challenges and threats"
+        },
+        {
+          "id": "differences-between-mobile-and-traditional-computing",
+          "name": "Differences between mobile and traditional computing security",
+          "requires": ["overview-of-mobile-security-challenges-and-threats"]
+        },
+        {
+          "id": "legal-and-ethical-considerations-in-mobile-penetration",
+          "name": "Legal and ethical considerations in mobile penetration testing",
+          "requires": ["differences-between-mobile-and-traditional-computing"]
+        },
+        {
+          "id": "understanding-the-architecture-of-mobile-applications",
+          "name": "Understanding the architecture of mobile applications",
+          "requires": ["legal-and-ethical-considerations-in-mobile-penetration"]
+        },
+        {
+          "id": "overview-of-mobile-platforms-ios-android-and-their-security",
+          "name": "Overview of mobile platforms (iOS, Android) and their security models",
+          "requires": ["understanding-the-architecture-of-mobile-applications"]
+        },
+        {
+          "id": "introduction-to-mobile-app-components-ui-backend-apis",
+          "name": "Introduction to mobile app components (UI, backend, APIs)",
+          "requires": ["overview-of-mobile-platforms-ios-android-and-their-security"]
+        },
+        {
+          "id": "understanding-static-and-dynamic-analysis-of-mobile-testing",
+          "name": "Understanding static and dynamic analysis of mobile testing",
+          "requires": ["introduction-to-mobile-app-components-ui-backend-apis"]
+        }
+      ]
+    }
+  ]
+}

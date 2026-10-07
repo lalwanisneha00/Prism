@@ -1,0 +1,215 @@
+{
+  "id": "analytical-bioinformatics",
+  "name": "Analytical Bioinformatics",
+  "field": "Analytical Bioinformatics",
+  "tier": "limited",
+  "branches": ["biotech"],
+  "semesters": [4],
+  "code": "24BT210T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s4-analytical-bioinformatics",
+      "code": "24BT210T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Biotech): Analytical Bioinformatics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "chemistry",
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "scope-of-bioinformatics",
+          "name": "Scope of Bioinformatics"
+        },
+        {
+          "id": "elementary-commands-and-protocols-ftp-telnet-http-databanks",
+          "name": "Elementary commands and Protocols, ftp, telnet, http. Databanks",
+          "requires": ["scope-of-bioinformatics"]
+        },
+        {
+          "id": "nucleotide-databanks",
+          "name": "nucleotide databanks",
+          "requires": ["elementary-commands-and-protocols-ftp-telnet-http-databanks"]
+        },
+        {
+          "id": "genbank-ncbi-embl-ddbj",
+          "name": "Genbank, NCBI, EMBL, DDBJ",
+          "requires": ["nucleotide-databanks"]
+        },
+        {
+          "id": "protein-databanks",
+          "name": "protein databanks",
+          "requires": ["genbank-ncbi-embl-ddbj"]
+        },
+        {
+          "id": "sequence-databanks",
+          "name": "sequence databanks",
+          "requires": ["protein-databanks"]
+        },
+        {
+          "id": "pir-swissprot-trembl",
+          "name": "PIR, SWISSPROT, TrEMBL",
+          "requires": ["sequence-databanks"]
+        },
+        {
+          "id": "structural-databases",
+          "name": "structural databases",
+          "requires": ["pir-swissprot-trembl"]
+        },
+        {
+          "id": "pdb-scop-cath",
+          "name": "PDB, SCOP, CATH",
+          "requires": ["structural-databases"]
+        }
+      ]
+    },
+    {
+      "id": "sequence-alignment-and-dynamic-programming",
+      "name": "Sequence Alignment and Dynamic Programming",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "strings",
+          "name": "Strings",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "edit-distance-two-strings",
+          "name": "Edit distance two strings",
+          "requires": ["strings"]
+        },
+        {
+          "id": "string-similarity",
+          "name": "string similarity",
+          "requires": ["edit-distance-two-strings"]
+        },
+        {
+          "id": "local-alignment",
+          "name": "local alignment",
+          "requires": ["string-similarity"]
+        },
+        {
+          "id": "gaps",
+          "name": "gaps",
+          "requires": ["local-alignment"]
+        },
+        {
+          "id": "parametric-sequence-alignments",
+          "name": "Parametric sequence alignments",
+          "requires": ["gaps"]
+        },
+        {
+          "id": "suboptimal-alignments",
+          "name": "suboptimal alignments",
+          "requires": ["parametric-sequence-alignments"]
+        },
+        {
+          "id": "multiple-alignment",
+          "name": "multiple alignment",
+          "requires": ["suboptimal-alignments"]
+        },
+        {
+          "id": "common-multiple-alignment-methods",
+          "name": "common multiple alignment methods",
+          "requires": ["multiple-alignment"]
+        }
+      ]
+    },
+    {
+      "id": "sequence-databases-mapping-and-alignment",
+      "name": "Sequence Databases, Mapping and Alignment",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "database-search",
+          "name": "Database search"
+        },
+        {
+          "id": "algorithms-issues-in-database-search",
+          "name": "Algorithms issues in database search",
+          "requires": ["database-search"]
+        },
+        {
+          "id": "sequence-database-search",
+          "name": "sequence database search",
+          "requires": ["algorithms-issues-in-database-search"]
+        },
+        {
+          "id": "fasta",
+          "name": "FASTA",
+          "requires": ["sequence-database-search"]
+        },
+        {
+          "id": "blast",
+          "name": "BLAST",
+          "requires": ["fasta"]
+        },
+        {
+          "id": "amino-acid-substitution-matrices-pam250-and-blosum62-mapping",
+          "name": "Amino acid substitution matrices PAM250 and BLOSUM62. Mapping and genome project",
+          "requires": ["blast"]
+        },
+        {
+          "id": "physical-and-genetic-maps",
+          "name": "Physical and genetic maps",
+          "requires": ["amino-acid-substitution-matrices-pam250-and-blosum62-mapping"]
+        },
+        {
+          "id": "map-alignment",
+          "name": "Map alignment",
+          "requires": ["physical-and-genetic-maps"]
+        },
+        {
+          "id": "sequence-assembly",
+          "name": "Sequence assembly",
+          "requires": ["map-alignment"]
+        }
+      ]
+    },
+    {
+      "id": "molecular-prediction",
+      "name": "Molecular Prediction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "gene-prediction-methods-and-evaluation",
+          "name": "Gene prediction methods and evaluation"
+        },
+        {
+          "id": "gene-prediction-in-microbial-genome-and-eukaryotes",
+          "name": "Gene prediction in microbial genome and eukaryotes",
+          "requires": ["gene-prediction-methods-and-evaluation"]
+        },
+        {
+          "id": "molecular-predictions-with-dna-strings",
+          "name": "Molecular predictions with DNA strings",
+          "requires": ["gene-prediction-in-microbial-genome-and-eukaryotes"]
+        },
+        {
+          "id": "protein-secondary-structure-prediction-methods-molecular",
+          "name": "Protein secondary structure prediction methods, Molecular Docking methods",
+          "requires": ["molecular-predictions-with-dna-strings"]
+        }
+      ]
+    }
+  ]
+}

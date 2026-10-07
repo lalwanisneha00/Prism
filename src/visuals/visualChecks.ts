@@ -38,7 +38,7 @@ export function visualProblem(
     case "phet": {
       const sim = findPhetSim(visual.sim);
       if (!sim) return `unknown PhET simulation "${visual.sim}"`;
-      return !topicId || sim.topics.includes(topicId)
+      return !topicId || phetSimsForTopic(topicId).some((x) => x.id === sim.id)
         ? null
         : `PhET simulation "${visual.sim}" is not valid for this topic`;
     }

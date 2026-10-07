@@ -2,7 +2,6 @@ import { readdirSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import lock from "@/lib/subjectIds.lock.json";
 import {
-  branches,
   branchesOf,
   catalogueProblems,
   chaptersOf,
@@ -48,7 +47,8 @@ describe("subject catalogue", () => {
     const files = readdirSync(dir).filter((f) => f.endsWith(".json"));
     const index = readFileSync(`${dir}/index.generated.ts`, "utf8");
     for (const f of files) expect(index).toContain(`"./${f}"`);
-    expect(subjects.length).toBe(files.filter((f) => !f.endsWith("-sources.json")).length);
+    // vitest.setup.ts adds two test-only subjects (em, engg-math) that have no file here.
+    expect(subjects.length - 2).toBe(files.filter((f) => !f.endsWith("-sources.json")).length);
   });
 
   it("records a syllabus source for every subject", () => {
@@ -57,16 +57,11 @@ describe("subject catalogue", () => {
 });
 
 describe("branches and semesters", () => {
-  it("gives every branch the first-year common subjects", () => {
-    for (const b of branches) {
-      expect(subjectsFor(b.id).map((s) => s.id)).toEqual(
-        expect.arrayContaining(["em", "engg-math"]),
-      );
-    }
-    expect(subjectsFor("ce", 1).map((s) => s.id)).toContain("em");
-    expect(subjectsFor("ce", 7)).toEqual([]);
+  it("gives each PDEU branch its own subjects per semester", () => {
+    expect(subjectsFor("ce", 1).map((s) => s.id)).toContain("applied-physics");
+    expect(subjectsFor("ce", 8)).toEqual([]);
     expect(semestersFor("me")).toContain(3);
-    expect(branchesOf(findSubject("em")!)).toHaveLength(branches.length);
+    expect(branchesOf(findSubject("applied-physics")!).map((b) => b.id)).toEqual(["ce"]);
   });
 });
 

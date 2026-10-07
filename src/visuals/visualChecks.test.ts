@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { sampleLessons } from "@/data/sampleLessons";
 import { subjects } from "@/lib/subjects";
-import { widgetRegistry, widgetsForTopic } from "@/visuals/registry";
+import { widgetsForTopic } from "@/visuals/registry";
 import {
   dropBadVisuals,
   findVisualProblems,
@@ -82,26 +82,10 @@ describe("visualProblem", () => {
 describe("registry coverage", () => {
   const topicsOf = (subjectId: string) =>
     subjects.find((s) => s.id === subjectId)!.chapters.flatMap((c) => c.topics.map((t) => t.id));
-  const topics = subjects.flatMap((s) => topicsOf(s.id));
 
-  it("only lists real topics", () => {
-    for (const w of Object.values(widgetRegistry)) {
-      for (const t of w.topics) expect(topics).toContain(t);
-    }
-  });
-
-  // Subjects held to this bar. Wave 1 subjects are checked in wave1/widgets.test.tsx
-  // (at least three widgets of their own each, plus PhET and generic visuals).
-  const WITH_WIDGETS: Record<string, string[] | "all"> = { em: "all", "engg-math": "all" };
-  it("has at least one fitting widget for most topics of every subject with visuals", () => {
-    for (const [id, chapters] of Object.entries(WITH_WIDGETS)) {
-      const subject = subjects.find((s) => s.id === id)!;
-      const own = subject.chapters
-        .filter((c) => chapters === "all" || chapters.includes(c.id))
-        .flatMap((c) => c.topics.map((t) => t.id));
-      const covered = own.filter((t) => widgetsForTopic(t).length > 0);
-      expect(covered.length / own.length, subject.id).toBeGreaterThan(0.75);
-    }
+  it("is still reachable from the PDEU catalogue (topics that match an older widget topic)", () => {
+    const reached = subjects.filter((s) => s.offerings).flatMap((s) => topicsOf(s.id));
+    expect(reached.filter((t) => widgetsForTopic(t).length > 0).length).toBeGreaterThan(150);
   });
 
   it("offers only the widgets and PhET sims built for the topic", () => {

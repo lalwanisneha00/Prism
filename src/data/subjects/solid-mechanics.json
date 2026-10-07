@@ -1,0 +1,163 @@
+{
+  "id": "solid-mechanics",
+  "name": "Solid Mechanics",
+  "field": "Mechanical Engineering",
+  "tier": "limited",
+  "branches": ["civil"],
+  "semesters": [3],
+  "credits": 4,
+  "ltp": "4-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s3-solid-mechanics",
+      "category": "Program Core",
+      "ltp": "4-0-0",
+      "credits": 4,
+      "semester": 3
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Solid Mechanics",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "mechanics",
+  "chapters": [
+    {
+      "id": "compound-stresses-sfd-and-bmd",
+      "name": "Compound Stresses, Sfd and Bmd",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "review-of-forces",
+          "name": "Review of forces"
+        },
+        {
+          "id": "moments-equilibrium-and-free-body-diagrams",
+          "name": "moments, equilibrium, and free-body diagrams",
+          "requires": ["review-of-forces"]
+        },
+        {
+          "id": "shear-force-and-bending-moment-diagrams-for-statically",
+          "name": "Shear force and bending moment diagrams for statically determinate beams with complex loading",
+          "requires": ["moments-equilibrium-and-free-body-diagrams"]
+        },
+        {
+          "id": "compound-stresses-analytical-and-graphical-method",
+          "name": "Compound stresses- Analytical and graphical method",
+          "requires": ["shear-force-and-bending-moment-diagrams-for-statically"]
+        }
+      ]
+    },
+    {
+      "id": "flexural-and-shear-stresses-in-beams",
+      "name": "Flexural and Shear Stresses in Beams",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "introduction-to-cg-and-mi",
+          "name": "Introduction to CG and MI"
+        },
+        {
+          "id": "simple-bending-theory",
+          "name": "Simple bending theory",
+          "requires": ["introduction-to-cg-and-mi"]
+        },
+        {
+          "id": "flexural-stresses",
+          "name": "flexural stresses",
+          "requires": ["simple-bending-theory"]
+        },
+        {
+          "id": "shear-stresses",
+          "name": "shear stresses",
+          "requires": ["flexural-stresses"]
+        },
+        {
+          "id": "shear-centre",
+          "name": "shear centre",
+          "requires": ["shear-stresses"]
+        },
+        {
+          "id": "uniform-torsion",
+          "name": "Uniform torsion",
+          "requires": ["shear-centre"]
+        }
+      ]
+    },
+    {
+      "id": "combined-stresses",
+      "name": "Combined Stresses",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "stresses-under-the-combined-action-of-direct-loading-and",
+          "name": "Stresses under the combined action of direct loading and bending moment"
+        },
+        {
+          "id": "determination-of-stress-in-the-case-of-retaining-walls",
+          "name": "determination of stress in the case of retaining walls",
+          "requires": ["stresses-under-the-combined-action-of-direct-loading-and"]
+        },
+        {
+          "id": "chimney-and-dams",
+          "name": "chimney and dams",
+          "requires": ["determination-of-stress-in-the-case-of-retaining-walls"]
+        },
+        {
+          "id": "overturning-and-sliding",
+          "name": "overturning and sliding",
+          "requires": ["chimney-and-dams"]
+        },
+        {
+          "id": "stress-due-to-direct-loading-and-bending-moment-about-both",
+          "name": "stress due to direct loading and bending moment about both axis",
+          "requires": ["overturning-and-sliding"]
+        }
+      ]
+    },
+    {
+      "id": "slope-and-deflection",
+      "name": "Slope and Deflection",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "deflection-of-beams-introduction",
+          "name": "Deflection of beams: Introduction"
+        },
+        {
+          "id": "elastic-curve-derivation-of-differential-equation-of-flexure",
+          "name": "Elastic curve derivation of differential equation of flexure",
+          "requires": ["deflection-of-beams-introduction"]
+        },
+        {
+          "id": "sign-convention",
+          "name": "Sign convention",
+          "requires": ["elastic-curve-derivation-of-differential-equation-of-flexure"]
+        },
+        {
+          "id": "slope-and-deflection-for-standard-loading-classes-using",
+          "name": "Slope and deflection for standard loading classes using Engineering methods Standard cases of end conditions and corresponding effective length",
+          "requires": ["sign-convention"]
+        },
+        {
+          "id": "buckling",
+          "name": "buckling",
+          "requires": ["slope-and-deflection-for-standard-loading-classes-using"]
+        },
+        {
+          "id": "principal-axes",
+          "name": "principal axes",
+          "requires": ["buckling"]
+        },
+        {
+          "id": "eulers-and-rankines-formula",
+          "name": "Euler’s and Rankine’s formula",
+          "requires": ["principal-axes"]
+        }
+      ]
+    }
+  ]
+}

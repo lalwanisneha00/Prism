@@ -1,0 +1,305 @@
+{
+  "id": "digital-communication-ict",
+  "name": "Digital Communication (ICT)",
+  "field": "Electronics Engineering",
+  "tier": "sourced",
+  "branches": ["ict"],
+  "semesters": [6],
+  "code": "20IC303T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s6-digital-communication",
+      "code": "20IC303T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Digital Communication",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "signals",
+  "chapters": [
+    {
+      "id": "digital-baseband-communication-techniques",
+      "name": "Digital Baseband Communication Techniques",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "review-of-analog-and-digital-messages",
+          "name": "Review of Analog and digital Messages"
+        },
+        {
+          "id": "low-pass-sampling",
+          "name": "Low pass sampling",
+          "requires": ["review-of-analog-and-digital-messages"]
+        },
+        {
+          "id": "aliasing",
+          "name": "Aliasing",
+          "requires": ["low-pass-sampling"]
+        },
+        {
+          "id": "interpolation",
+          "name": "Interpolation",
+          "requires": ["aliasing"]
+        },
+        {
+          "id": "pam",
+          "name": "PAM",
+          "requires": ["interpolation"]
+        },
+        {
+          "id": "ppm-and-pwm",
+          "name": "PPM and PWM",
+          "requires": ["pam"]
+        },
+        {
+          "id": "pcm-quantization",
+          "name": "PCM: Quantization",
+          "requires": ["ppm-and-pwm"]
+        },
+        {
+          "id": "uniform-and-non-uniform-quantization",
+          "name": "Uniform and non-uniform quantization",
+          "requires": ["pcm-quantization"]
+        },
+        {
+          "id": "quantization-noise",
+          "name": "Quantization noise",
+          "requires": ["uniform-and-non-uniform-quantization"]
+        },
+        {
+          "id": "companding-laws",
+          "name": "Companding laws",
+          "requires": ["quantization-noise"]
+        },
+        {
+          "id": "dpcm",
+          "name": "DPCM",
+          "requires": ["companding-laws"]
+        },
+        {
+          "id": "dm-adm-and-sdm",
+          "name": "DM ADM, and SDM",
+          "requires": ["dpcm"]
+        },
+        {
+          "id": "tdm-comm",
+          "name": "Time division multiplexing (TDM)",
+          "requires": ["dm-adm-and-sdm"]
+        },
+        {
+          "id": "line-coding",
+          "name": "Line coding",
+          "requires": ["tdm-comm"]
+        },
+        {
+          "id": "pulse-shaping",
+          "name": "Pulse shaping",
+          "requires": ["line-coding"]
+        },
+        {
+          "id": "digital-receivers",
+          "name": "Digital receivers",
+          "requires": ["pulse-shaping"]
+        },
+        {
+          "id": "regenerative-repeaters",
+          "name": "Regenerative repeaters",
+          "requires": ["digital-receivers"]
+        }
+      ]
+    },
+    {
+      "id": "carrier-communication-techniques",
+      "name": "Carrier Communication Techniques",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "carrier-communication-techniques-ask",
+          "name": "Carrier Communication Techniques: ASK"
+        },
+        {
+          "id": "fsk",
+          "name": "FSK",
+          "requires": ["carrier-communication-techniques-ask"]
+        },
+        {
+          "id": "psk",
+          "name": "PSK",
+          "requires": ["fsk"]
+        },
+        {
+          "id": "qam",
+          "name": "QAM",
+          "requires": ["psk"]
+        },
+        {
+          "id": "dpsk",
+          "name": "DPSK",
+          "requires": ["qam"]
+        },
+        {
+          "id": "msk",
+          "name": "MSK",
+          "requires": ["dpsk"]
+        },
+        {
+          "id": "gmsk",
+          "name": "GMSK",
+          "requires": ["msk"]
+        },
+        {
+          "id": "m-ary",
+          "name": "M-ary",
+          "requires": ["gmsk"]
+        },
+        {
+          "id": "coherent-and-non-coherent-detection",
+          "name": "Coherent and non-coherent detection",
+          "requires": ["m-ary"]
+        },
+        {
+          "id": "carrier-synchronization",
+          "name": "Carrier synchronization",
+          "requires": ["coherent-and-non-coherent-detection"]
+        },
+        {
+          "id": "frequency-division-multiplexing-fdm",
+          "name": "Frequency Division Multiplexing (FDM)",
+          "requires": ["carrier-synchronization"]
+        },
+        {
+          "id": "noise-performance-and-comparison-of-digital-communication",
+          "name": "Noise performance and comparison of digital communication systems",
+          "requires": ["frequency-division-multiplexing-fdm"]
+        }
+      ]
+    },
+    {
+      "id": "information-theory-and-source-coding",
+      "name": "Information Theory and Source Coding",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "uncertainty-and-information",
+          "name": "Uncertainty and Information"
+        },
+        {
+          "id": "average-mutual-information-and-entropy",
+          "name": "Average Mutual Information and Entropy",
+          "requires": ["uncertainty-and-information"]
+        },
+        {
+          "id": "measure-of-information",
+          "name": "Measure of Information",
+          "requires": ["average-mutual-information-and-entropy"]
+        },
+        {
+          "id": "source-coding-theorem",
+          "name": "Source Coding Theorem",
+          "requires": ["measure-of-information"]
+        },
+        {
+          "id": "huffman-and-shanon-fano-coding",
+          "name": "Huffman and Shanon-Fano Coding",
+          "requires": ["source-coding-theorem"]
+        },
+        {
+          "id": "uniqueness-property",
+          "name": "Uniqueness Property",
+          "requires": ["huffman-and-shanon-fano-coding"]
+        },
+        {
+          "id": "channel-models",
+          "name": "Channel Models",
+          "requires": ["uniqueness-property"]
+        },
+        {
+          "id": "channel-capacity",
+          "name": "Channel Capacity",
+          "requires": ["channel-models"]
+        },
+        {
+          "id": "error-free-communication-over-a-noisy-channel",
+          "name": "Error free Communication over a Noisy Channel",
+          "requires": ["channel-capacity"]
+        },
+        {
+          "id": "information-capacity",
+          "name": "Information Capacity",
+          "requires": ["error-free-communication-over-a-noisy-channel"]
+        },
+        {
+          "id": "shannon-limit",
+          "name": "Shannon Limit",
+          "requires": ["information-capacity"]
+        }
+      ]
+    },
+    {
+      "id": "error-control-coding-channel-coding",
+      "name": "Error Control Coding (channel Coding)",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "selection-of-channel-codes",
+          "name": "Selection of Channel Codes"
+        },
+        {
+          "id": "error-correcting-codes-linear-block-codes",
+          "name": "Error Correcting Codes: Linear Block Codes",
+          "requires": ["selection-of-channel-codes"]
+        },
+        {
+          "id": "hamming-distance",
+          "name": "Hamming Distance",
+          "requires": ["error-correcting-codes-linear-block-codes"]
+        },
+        {
+          "id": "perfect-codes-and-hamming-codes",
+          "name": "Perfect Codes and Hamming Codes",
+          "requires": ["hamming-distance"]
+        },
+        {
+          "id": "cyclic-codes",
+          "name": "Cyclic Codes",
+          "requires": ["perfect-codes-and-hamming-codes"]
+        },
+        {
+          "id": "burst-error-correcting-and-detecting-code",
+          "name": "Burst Error Correcting and Detecting Code",
+          "requires": ["cyclic-codes"]
+        },
+        {
+          "id": "introduction-to-crc",
+          "name": "Introduction to CRC",
+          "requires": ["burst-error-correcting-and-detecting-code"]
+        },
+        {
+          "id": "bch",
+          "name": "BCH",
+          "requires": ["introduction-to-crc"]
+        },
+        {
+          "id": "reed-solomon",
+          "name": "Reed-Solomon",
+          "requires": ["bch"]
+        },
+        {
+          "id": "convolution-codes",
+          "name": "Convolution Codes",
+          "requires": ["reed-solomon"]
+        }
+      ]
+    }
+  ]
+}

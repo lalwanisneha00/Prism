@@ -1,0 +1,223 @@
+{
+  "id": "surveying-practices-with-lab",
+  "name": "Surveying Practices (with lab)",
+  "field": "Surveying Practices",
+  "tier": "sourced",
+  "branches": ["civil"],
+  "semesters": [4],
+  "credits": 4,
+  "ltp": "3-0-2",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s4-surveying-practices-with-lab",
+      "category": "Program Core",
+      "ltp": "3-0-2",
+      "credits": 4,
+      "semester": 4
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Surveying Practices (with lab)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "civil",
+  "chapters": [
+    {
+      "id": "introduction-basic-surveying",
+      "name": "Introduction Basic Surveying",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "linear-survey",
+          "name": "Linear survey"
+        },
+        {
+          "id": "linear-measurements-using-chains-and-tapes",
+          "name": "linear measurements using chains and tapes",
+          "requires": ["linear-survey"]
+        },
+        {
+          "id": "chaining-and-ranging-errors-and-corrections",
+          "name": "chaining and ranging errors and corrections",
+          "requires": ["linear-measurements-using-chains-and-tapes"]
+        },
+        {
+          "id": "procedure-of-field-work",
+          "name": "procedure of field work",
+          "requires": ["chaining-and-ranging-errors-and-corrections"]
+        },
+        {
+          "id": "angular-survey-introduction",
+          "name": "angular survey introduction",
+          "requires": ["procedure-of-field-work"]
+        },
+        {
+          "id": "wcb-and-qb",
+          "name": "WCB and QB",
+          "requires": ["angular-survey-introduction"]
+        },
+        {
+          "id": "computation-of-angles-from-bearings",
+          "name": "computation of angles from bearings",
+          "requires": ["wcb-and-qb"]
+        },
+        {
+          "id": "local-attraction-and-corrections",
+          "name": "local attraction and corrections",
+          "requires": ["computation-of-angles-from-bearings"]
+        },
+        {
+          "id": "principle-of-levelling",
+          "name": "principle of levelling",
+          "requires": ["local-attraction-and-corrections"]
+        },
+        {
+          "id": "methods-of-levelling",
+          "name": "methods of levelling",
+          "requires": ["principle-of-levelling"]
+        },
+        {
+          "id": "curvature-and-refraction-corrections",
+          "name": "curvature and refraction corrections",
+          "requires": ["methods-of-levelling"]
+        },
+        {
+          "id": "contouring",
+          "name": "contouring",
+          "requires": ["curvature-and-refraction-corrections"]
+        },
+        {
+          "id": "methods-of-contouring",
+          "name": "methods of contouring",
+          "requires": ["contouring"]
+        },
+        {
+          "id": "uses-of-contour-maps",
+          "name": "uses of contour maps",
+          "requires": ["methods-of-contouring"]
+        }
+      ]
+    },
+    {
+      "id": "triangulation-and-curve-setting",
+      "name": "Triangulation and Curve Setting",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "theodolite-survey-instruments-measurement-of-horizontal-and",
+          "name": "Theodolite survey: Instruments, Measurement of horizontal and vertical angle"
+        },
+        {
+          "id": "horizontal-and-vertical-control",
+          "name": "Horizontal and vertical control",
+          "requires": ["theodolite-survey-instruments-measurement-of-horizontal-and"]
+        },
+        {
+          "id": "methods",
+          "name": "methods",
+          "requires": ["horizontal-and-vertical-control"]
+        },
+        {
+          "id": "elements-of-simple-compound-and-reverse-curves-method-of",
+          "name": "Elements of simple, compound, and Reverse curves, Method of setting out simple circular curve, Computation of area of regular and irregular boundary computation of volume for earthwork in cutting & fi",
+          "requires": ["methods"]
+        }
+      ]
+    },
+    {
+      "id": "modern-field-survey-systems",
+      "name": "Modern Field Survey Systems",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "principle-of-electronic-distance-measurement-modulation",
+          "name": "Principle of Electronic Distance Measurement, Modulation, Types of EDM instrument modern surveying equipment, Total Station - Parts, Accessories, Advantages and Applications, land surveying with total"
+        },
+        {
+          "id": "global-positioning-systems-segments-gps-measurements-errors",
+          "name": "Global Positioning Systems- Segments, GPS measurements, errors and biases, Surveying with GPS, Co-ordinate transformation, accuracy considerations",
+          "requires": ["principle-of-electronic-distance-measurement-modulation"]
+        }
+      ]
+    },
+    {
+      "id": "advance-surveying-techniques",
+      "name": "Advance Surveying Techniques",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "principles-of-remote-sensing",
+          "name": "Principles of Remote Sensing"
+        },
+        {
+          "id": "em-spectrum",
+          "name": "Electromagnetic Spectrum",
+          "requires": ["principles-of-remote-sensing"]
+        },
+        {
+          "id": "interaction-of-electromagnetic-radiation-with-the-atmosphere",
+          "name": "interaction of electromagnetic radiation with the atmosphere",
+          "requires": ["em-spectrum"]
+        },
+        {
+          "id": "sensors-and-platforms",
+          "name": "sensors and platforms",
+          "requires": ["interaction-of-electromagnetic-radiation-with-the-atmosphere"]
+        },
+        {
+          "id": "concept-of-resolution",
+          "name": "concept of resolution",
+          "requires": ["sensors-and-platforms"]
+        },
+        {
+          "id": "photogrammetry",
+          "name": "photogrammetry",
+          "requires": ["concept-of-resolution"]
+        },
+        {
+          "id": "drone-and-uav-survey",
+          "name": "drone and UAV survey",
+          "requires": ["photogrammetry"]
+        },
+        {
+          "id": "gis-introduction",
+          "name": "GIS introduction",
+          "requires": ["drone-and-uav-survey"]
+        },
+        {
+          "id": "gis-data-types",
+          "name": "GIS data types",
+          "requires": ["gis-introduction"]
+        },
+        {
+          "id": "gis-data-sources",
+          "name": "GIS data sources",
+          "requires": ["gis-data-types"]
+        },
+        {
+          "id": "cartography",
+          "name": "cartography",
+          "requires": ["gis-data-sources"]
+        },
+        {
+          "id": "gis-applications",
+          "name": "GIS applications",
+          "requires": ["cartography"]
+        },
+        {
+          "id": "introduction-of-qgis-in-advanced-surveying",
+          "name": "Introduction of QGIS in Advanced surveying",
+          "requires": ["gis-applications"]
+        },
+        {
+          "id": "applications-of-gis-in-civil-engineering-laboratory",
+          "name": "applications of GIS in Civil Engineering. Laboratory",
+          "requires": ["introduction-of-qgis-in-advanced-surveying"]
+        }
+      ]
+    }
+  ]
+}

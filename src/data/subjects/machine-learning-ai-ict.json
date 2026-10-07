@@ -1,0 +1,263 @@
+{
+  "id": "machine-learning-ai-ict",
+  "name": "Machine Learning (AI) (ICT)",
+  "field": "Computer Science",
+  "tier": "sourced",
+  "branches": ["ict"],
+  "semesters": [6],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s6-program-elective-2--machine-learning-ai",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Machine Learning (AI)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "fundamentals-of-machine-learning",
+      "name": "Fundamentals of Machine Learning",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "concept-of-data-and-their-dimensions",
+          "name": "Concept of data and their dimensions"
+        },
+        {
+          "id": "concept-of-feature-and-dimension-of-data",
+          "name": "Concept of feature and dimension of data",
+          "requires": ["concept-of-data-and-their-dimensions"]
+        },
+        {
+          "id": "concept-of-array-matrix-and-tensor-representation-of-data",
+          "name": "concept of Array, Matrix, and Tensor representation of data",
+          "requires": ["concept-of-feature-and-dimension-of-data"]
+        },
+        {
+          "id": "concept-of-data-preprocessing-data-imbalance-outliers-data",
+          "name": "concept of data preprocessing, data imbalance, Outliers, data sampling, feature engineering, Various dimensionality reduction techniques",
+          "requires": ["concept-of-array-matrix-and-tensor-representation-of-data"]
+        },
+        {
+          "id": "correlation-of-features",
+          "name": "correlation of features",
+          "requires": ["concept-of-data-preprocessing-data-imbalance-outliers-data"]
+        },
+        {
+          "id": "concept-of-hypothesis-and-optimization",
+          "name": "concept of hypothesis and optimization",
+          "requires": ["correlation-of-features"]
+        },
+        {
+          "id": "concept-of-classification-and-regression",
+          "name": "concept of classification and regression",
+          "requires": ["concept-of-hypothesis-and-optimization"]
+        },
+        {
+          "id": "various-evaluation-matrix-absolute-error-square-error-sum-of",
+          "name": "Various evaluation Matrix: absolute error, Square error, Sum of square error, Mean Square error, log loss, accuracy, precision, recall, ROC, AUC, F1 score, confusion matrix",
+          "requires": ["concept-of-classification-and-regression"]
+        },
+        {
+          "id": "concept-of-bias-and-variance",
+          "name": "concept of Bias and variance",
+          "requires": ["various-evaluation-matrix-absolute-error-square-error-sum-of"]
+        }
+      ]
+    },
+    {
+      "id": "optimization-methods",
+      "name": "Optimization methods",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "concept-of-optimization",
+          "name": "Concept of optimization"
+        },
+        {
+          "id": "concept-of-convex-optimization",
+          "name": "concept of convex optimization",
+          "requires": ["concept-of-optimization"]
+        },
+        {
+          "id": "local-minima-and-maxima",
+          "name": "local minima and maxima",
+          "requires": ["concept-of-convex-optimization"]
+        },
+        {
+          "id": "gradient-descent",
+          "name": "Gradient Descent",
+          "requires": ["local-minima-and-maxima"]
+        },
+        {
+          "id": "concept-of-learning-rate",
+          "name": "concept of learning rate",
+          "requires": ["gradient-descent"]
+        },
+        {
+          "id": "stochastic-gradient-descent-sgd",
+          "name": "Stochastic Gradient Descent (SGD)",
+          "requires": ["concept-of-learning-rate"]
+        },
+        {
+          "id": "mini-batch-gradient-descent",
+          "name": "Mini-Batch Gradient Descent",
+          "requires": ["stochastic-gradient-descent-sgd"]
+        },
+        {
+          "id": "concept-of-momentum",
+          "name": "concept of momentum",
+          "requires": ["mini-batch-gradient-descent"]
+        },
+        {
+          "id": "adaptive-gradient-algorithm-adagrad",
+          "name": "Adaptive Gradient Algorithm (AdaGrad)",
+          "requires": ["concept-of-momentum"]
+        },
+        {
+          "id": "rmsprop",
+          "name": "RMSProp",
+          "requires": ["adaptive-gradient-algorithm-adagrad"]
+        },
+        {
+          "id": "adam-optimization",
+          "name": "Adam Optimization",
+          "requires": ["rmsprop"]
+        }
+      ]
+    },
+    {
+      "id": "clustering-classification-and-regression",
+      "name": "Clustering, Classification, and regression algorithms",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "partitioning-clustering",
+          "name": "Partitioning Clustering"
+        },
+        {
+          "id": "density-based-clustering",
+          "name": "Density-Based Clustering",
+          "requires": ["partitioning-clustering"]
+        },
+        {
+          "id": "distribution-model-based-clustering",
+          "name": "Distribution Model-Based Clustering",
+          "requires": ["density-based-clustering"]
+        },
+        {
+          "id": "hierarchical-clustering",
+          "name": "Hierarchical Clustering",
+          "requires": ["distribution-model-based-clustering"]
+        },
+        {
+          "id": "fuzzy-clustering",
+          "name": "Fuzzy Clustering",
+          "requires": ["hierarchical-clustering"]
+        },
+        {
+          "id": "dbscan",
+          "name": "DBSCAN",
+          "requires": ["fuzzy-clustering"]
+        },
+        {
+          "id": "k-nearest-neighbors-knn",
+          "name": "K-Nearest Neighbors (KNN)",
+          "requires": ["dbscan"]
+        },
+        {
+          "id": "naive-bayes",
+          "name": "Naive Bayes",
+          "requires": ["k-nearest-neighbors-knn"]
+        },
+        {
+          "id": "decision-tree",
+          "name": "Decision Tree",
+          "requires": ["naive-bayes"]
+        },
+        {
+          "id": "random-forest",
+          "name": "Random Forest",
+          "requires": ["decision-tree"]
+        },
+        {
+          "id": "support-vector-machine-svm",
+          "name": "Support Vector Machine (SVM)",
+          "requires": ["random-forest"]
+        },
+        {
+          "id": "logistic-regression",
+          "name": "Logistic Regression",
+          "requires": ["support-vector-machine-svm"]
+        },
+        {
+          "id": "xgboost",
+          "name": "XGBoost",
+          "requires": ["logistic-regression"]
+        },
+        {
+          "id": "neural-network-linear-regression-polynomial-regression",
+          "name": "Neural Network, Linear regression, Polynomial Regression",
+          "requires": ["xgboost"]
+        },
+        {
+          "id": "stepwise-regression",
+          "name": "Stepwise Regression",
+          "requires": ["neural-network-linear-regression-polynomial-regression"]
+        },
+        {
+          "id": "random-forest-regression",
+          "name": "Random Forest Regression",
+          "requires": ["stepwise-regression"]
+        },
+        {
+          "id": "concept-of-boosting-and-bagging",
+          "name": "concept of boosting and bagging",
+          "requires": ["random-forest-regression"]
+        },
+        {
+          "id": "concept-of-overfitting-underfitting-bias-variance-tradeoff",
+          "name": "Concept of overfitting, underfitting, Bias-Variance Tradeoff",
+          "requires": ["concept-of-boosting-and-bagging"]
+        }
+      ]
+    },
+    {
+      "id": "various-applications-of-machine-learning",
+      "name": "Various applications of Machine learning",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "applications-of-ml-in-healthcare-finance-transportation",
+          "name": "Applications of ML in: Healthcare, Finance, Transportation, Manufacturing"
+        },
+        {
+          "id": "energy-and-environment-agriculture",
+          "name": "energy and environment, Agriculture",
+          "requires": ["applications-of-ml-in-healthcare-finance-transportation"]
+        },
+        {
+          "id": "case-study-current-trends-and-future-of-machine-learning",
+          "name": "Case study: Current Trends and Future of Machine Learning Note: The detailed syllabus page for this course prints L-T-P-C as 2-1-0-3",
+          "requires": ["energy-and-environment-agriculture"]
+        },
+        {
+          "id": "the-credits-shown-here-follow-the-official-course-structure",
+          "name": "the credits shown here follow the official course structure table",
+          "requires": ["case-study-current-trends-and-future-of-machine-learning"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+{
+  "id": "digital-logic-and-design",
+  "name": "Digital Logic and Design",
+  "field": "Electronics Engineering",
+  "tier": "limited",
+  "branches": ["ce"],
+  "semesters": [3],
+  "code": "24CS201T",
+  "credits": 4,
+  "ltp": "3-1-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s3-digital-logic-and-design",
+      "code": "24CS201T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 3
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Digital Logic and Design",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "binary-arithmetic-and-codes",
+      "name": "Binary arithmetic and codes",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "introduction-digital-systems",
+          "name": "Introduction: Digital Systems"
+        },
+        {
+          "id": "data-representation-and-coding",
+          "name": "Data representation and coding",
+          "requires": ["introduction-digital-systems"]
+        },
+        {
+          "id": "logic-circuits",
+          "name": "Logic circuits",
+          "requires": ["data-representation-and-coding"]
+        },
+        {
+          "id": "integrated-circuits",
+          "name": "integrated circuits",
+          "requires": ["logic-circuits"]
+        },
+        {
+          "id": "analysis",
+          "name": "Analysis",
+          "requires": ["integrated-circuits"]
+        },
+        {
+          "id": "design-and-implementation-of-digital-systems-truth-table",
+          "name": "design and implementation of digital systems. Truth table",
+          "requires": ["analysis"]
+        },
+        {
+          "id": "basic-logic-operation-and-logic-gates-number-systems-and",
+          "name": "Basic logic operation and logic gates. Number Systems and Codes: Positional number system",
+          "requires": ["design-and-implementation-of-digital-systems-truth-table"]
+        },
+        {
+          "id": "binary",
+          "name": "Binary",
+          "requires": ["basic-logic-operation-and-logic-gates-number-systems-and"]
+        },
+        {
+          "id": "octal-and-hexadecimal-number-systems",
+          "name": "octal and hexadecimal number systems",
+          "requires": ["binary"]
+        },
+        {
+          "id": "methods-of-base-conversions",
+          "name": "Methods of base conversions",
+          "requires": ["octal-and-hexadecimal-number-systems"]
+        },
+        {
+          "id": "octal-and-hexadecimal-arithmetic",
+          "name": "octal and hexadecimal arithmetic",
+          "requires": ["methods-of-base-conversions"]
+        },
+        {
+          "id": "representation-of-signed-numbers",
+          "name": "Representation of signed numbers",
+          "requires": ["octal-and-hexadecimal-arithmetic"]
+        },
+        {
+          "id": "fixed-and-ieee-floating-point-numbers",
+          "name": "Fixed and IEEE floating point numbers",
+          "requires": ["representation-of-signed-numbers"]
+        },
+        {
+          "id": "binary-coded-decimal-codes",
+          "name": "Binary coded decimal codes",
+          "requires": ["fixed-and-ieee-floating-point-numbers"]
+        },
+        {
+          "id": "gray-codes",
+          "name": "Gray codes",
+          "requires": ["binary-coded-decimal-codes"]
+        },
+        {
+          "id": "error-detection-and-correction-codes-parity-check-codes-and",
+          "name": "Error detection and correction codes - parity check codes and Hamming codes",
+          "requires": ["gray-codes"]
+        }
+      ]
+    },
+    {
+      "id": "boolean-algebra-and-combinational-circuits",
+      "name": "Boolean Algebra and combinational circuits",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "boolean-algebra-and-simplification-of-boolean-algebra-basic",
+          "name": "Boolean Algebra & Simplification of Boolean Algebra: Basic postulates and fundamental theorems of Boolean algebra"
+        },
+        {
+          "id": "standard-representation-of-logic-functions",
+          "name": "Standard representation of logic functions",
+          "requires": ["boolean-algebra-and-simplification-of-boolean-algebra-basic"]
+        },
+        {
+          "id": "the-map-method",
+          "name": "The Map Method",
+          "requires": ["standard-representation-of-logic-functions"]
+        },
+        {
+          "id": "sop-and-pos-forms",
+          "name": "SOP and POS forms",
+          "requires": ["the-map-method"]
+        },
+        {
+          "id": "simplification-of-switching-functions-k-map-and-quine",
+          "name": "Simplification of switching functions K-map and Quine-McCluskey tabular methods",
+          "requires": ["sop-and-pos-forms"]
+        },
+        {
+          "id": "synthesis-of-combinational-logic-circuits",
+          "name": "Synthesis of combinational logic circuits",
+          "requires": ["simplification-of-switching-functions-k-map-and-quine"]
+        },
+        {
+          "id": "combinational-logic-modules-and-their-applications-decoders",
+          "name": "Combinational Logic Modules and their applications: Decoders",
+          "requires": ["synthesis-of-combinational-logic-circuits"]
+        },
+        {
+          "id": "encoders",
+          "name": "encoders",
+          "requires": ["combinational-logic-modules-and-their-applications-decoders"]
+        },
+        {
+          "id": "multiplexers",
+          "name": "multiplexers",
+          "requires": ["encoders"]
+        },
+        {
+          "id": "demultiplexers-and-their-applications",
+          "name": "demultiplexers and their applications",
+          "requires": ["multiplexers"]
+        },
+        {
+          "id": "parity-circuits-and-comparators",
+          "name": "Parity circuits and comparators",
+          "requires": ["demultiplexers-and-their-applications"]
+        },
+        {
+          "id": "arithmetic-modules-adders",
+          "name": "Arithmetic modules- adders",
+          "requires": ["parity-circuits-and-comparators"]
+        },
+        {
+          "id": "sub-tractors-and-alu",
+          "name": "sub tractors and ALU",
+          "requires": ["arithmetic-modules-adders"]
+        },
+        {
+          "id": "design-examples",
+          "name": "Design examples",
+          "requires": ["sub-tractors-and-alu"]
+        }
+      ]
+    },
+    {
+      "id": "sequential-circuits-and-k-maps",
+      "name": "Sequential circuits and K-maps",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "sequential-logic-systems-definition-of-state-machines",
+          "name": "Sequential Logic systems: Definition of state machines"
+        },
+        {
+          "id": "state-machine-as-a-sequential-controller",
+          "name": "state machine as a sequential controller",
+          "requires": ["sequential-logic-systems-definition-of-state-machines"]
+        },
+        {
+          "id": "basic-sequential-circuits-latches-and-flip-flops-sr-latch",
+          "name": "Basic sequential circuits- latches and flip-flops: SR-latch",
+          "requires": ["state-machine-as-a-sequential-controller"]
+        },
+        {
+          "id": "d-latch",
+          "name": "D-latch",
+          "requires": ["basic-sequential-circuits-latches-and-flip-flops-sr-latch"]
+        },
+        {
+          "id": "d-flip-flop",
+          "name": "D flip-flop",
+          "requires": ["d-latch"]
+        },
+        {
+          "id": "jk-flip-flop",
+          "name": "JK flip-flop",
+          "requires": ["d-flip-flop"]
+        },
+        {
+          "id": "t-flip-flop",
+          "name": "T flip-flop",
+          "requires": ["jk-flip-flop"]
+        },
+        {
+          "id": "timing-hazards-and-races",
+          "name": "Timing hazards and races",
+          "requires": ["t-flip-flop"]
+        },
+        {
+          "id": "analysis-of-state-machines-using-d-flip-flops-and-jk-flip",
+          "name": "Analysis of state machines using D flip-flops and JK flip-flops",
+          "requires": ["timing-hazards-and-races"]
+        },
+        {
+          "id": "design-of-state-machines-state-table",
+          "name": "Design of state machines - state table",
+          "requires": ["analysis-of-state-machines-using-d-flip-flops-and-jk-flip"]
+        },
+        {
+          "id": "state-assignment",
+          "name": "state assignment",
+          "requires": ["design-of-state-machines-state-table"]
+        },
+        {
+          "id": "transition-excitation-table",
+          "name": "transition/excitation table",
+          "requires": ["state-assignment"]
+        },
+        {
+          "id": "excitation-maps-and-equations",
+          "name": "excitation maps and equations",
+          "requires": ["transition-excitation-table"]
+        },
+        {
+          "id": "logic-realization",
+          "name": "logic realization",
+          "requires": ["excitation-maps-and-equations"]
+        },
+        {
+          "id": "design-examples-2",
+          "name": "Design examples",
+          "requires": ["logic-realization"]
+        },
+        {
+          "id": "finite-state-machine-design-and-applications-designing-state",
+          "name": "Finite State machine design and applications: Designing state machine using ASM charts",
+          "requires": ["design-examples-2"]
+        },
+        {
+          "id": "designing-state-machine-using-state-diagram",
+          "name": "Designing state machine using state diagram",
+          "requires": ["finite-state-machine-design-and-applications-designing-state"]
+        },
+        {
+          "id": "design-approaches-for-synchronous-and-asynchronous-machines",
+          "name": "Design approaches for Synchronous and asynchronous machines",
+          "requires": ["designing-state-machine-using-state-diagram"]
+        },
+        {
+          "id": "registers-and-counters",
+          "name": "Registers and Counters",
+          "requires": ["design-approaches-for-synchronous-and-asynchronous-machines"]
+        },
+        {
+          "id": "application-examples",
+          "name": "Application examples",
+          "requires": ["registers-and-counters"]
+        }
+      ]
+    },
+    {
+      "id": "programmable-logic-devices",
+      "name": "Programmable Logic Devices",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "logic-families-transistor-transistor-logic-ttl",
+          "name": "Logic Families: Transistor-Transistor Logic (TTL)"
+        },
+        {
+          "id": "mosfet",
+          "name": "MOSFET",
+          "requires": ["logic-families-transistor-transistor-logic-ttl"]
+        },
+        {
+          "id": "cmos-programmable-logic-devices-plas-and-their-applications",
+          "name": "CMOS. Programmable Logic Devices: PLAs and their applications",
+          "requires": ["mosfet"]
+        },
+        {
+          "id": "sequential-plds-and-their-applications",
+          "name": "Sequential PLDs and their applications",
+          "requires": ["cmos-programmable-logic-devices-plas-and-their-applications"]
+        },
+        {
+          "id": "state-machine-design-with-sequential-plds",
+          "name": "State- machine design with sequential PLDs",
+          "requires": ["sequential-plds-and-their-applications"]
+        },
+        {
+          "id": "introduction-to-field-programmable-gate-arrays-fpgas",
+          "name": "Introduction to field programmable gate arrays (FPGAs)",
+          "requires": ["state-machine-design-with-sequential-plds"]
+        },
+        {
+          "id": "tutorial-1-case-studies-to-design-different-circuits-from",
+          "name": "Tutorial 1: Case Studies to design different circuits from basic gates (3 hrs)",
+          "requires": ["introduction-to-field-programmable-gate-arrays-fpgas"]
+        },
+        {
+          "id": "simplify-the-circuits-using-boolean-algebra",
+          "name": "simplify the circuits using boolean algebra",
+          "requires": ["tutorial-1-case-studies-to-design-different-circuits-from"]
+        },
+        {
+          "id": "case-studies-and-examples-of-binary-codes-and-conversion",
+          "name": "Case studies and examples of binary codes and conversion",
+          "requires": ["simplify-the-circuits-using-boolean-algebra"]
+        },
+        {
+          "id": "tutorial-2-solve-problems-using-k-map-for-simplification-of",
+          "name": "Tutorial 2: Solve problems using K-map for simplification of boolean expression (5 hrs)",
+          "requires": ["case-studies-and-examples-of-binary-codes-and-conversion"]
+        },
+        {
+          "id": "examples-to-design-and-solve-encoder-decoder-mux-demux-adder",
+          "name": "Examples to design and solve Encoder, Decoder, MUX, DEMUX, Adder Subtractor",
+          "requires": ["tutorial-2-solve-problems-using-k-map-for-simplification-of"]
+        },
+        {
+          "id": "tutorial-3-real-world-examples-related-to-flip-flops-and",
+          "name": "Tutorial 3: Real-world examples related to Flip Flops and design of counters (5 hrs)",
+          "requires": ["examples-to-design-and-solve-encoder-decoder-mux-demux-adder"]
+        },
+        {
+          "id": "design-of-state-machines-state-table-2",
+          "name": "Design of state machines - state table",
+          "requires": ["tutorial-3-real-world-examples-related-to-flip-flops-and"]
+        },
+        {
+          "id": "state-assignment-2",
+          "name": "state assignment",
+          "requires": ["design-of-state-machines-state-table-2"]
+        },
+        {
+          "id": "transition-excitation-table-2",
+          "name": "transition/excitation table",
+          "requires": ["state-assignment-2"]
+        },
+        {
+          "id": "excitation-maps-and-equations-2",
+          "name": "excitation maps and equations",
+          "requires": ["transition-excitation-table-2"]
+        },
+        {
+          "id": "logic-realization-tutorial-4-case-studies-based-on-pla-pld",
+          "name": "logic realization Tutorial 4: Case studies based on PLA, PLD, FPGA (1 hrs)",
+          "requires": ["excitation-maps-and-equations-2"]
+        }
+      ]
+    }
+  ]
+}

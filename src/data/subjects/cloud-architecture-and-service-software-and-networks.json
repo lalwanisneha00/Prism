@@ -1,0 +1,225 @@
+{
+  "id": "cloud-architecture-and-service-software-and-networks",
+  "name": "Cloud Architecture and Service (Software & Networks)",
+  "field": "Cloud Architecture and Service",
+  "tier": "limited",
+  "branches": ["ict"],
+  "semesters": [6],
+  "code": "24ICxxxT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s6-program-elective-2--cloud-architecture-and-service-software-and-networks",
+      "code": "24ICxxxT",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Cloud Architecture and Service (Software & Networks)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "fundamentals-of-cloud-computing-and-its",
+      "name": "Fundamentals of Cloud computing and its Architectures",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "history-of-computing",
+          "name": "History of computing"
+        },
+        {
+          "id": "distributed-computing",
+          "name": "Distributed computing",
+          "requires": ["history-of-computing"]
+        },
+        {
+          "id": "introduction-to-cloud",
+          "name": "introduction to cloud",
+          "requires": ["distributed-computing"]
+        },
+        {
+          "id": "virtualization-and-abstraction",
+          "name": "virtualization and abstraction",
+          "requires": ["introduction-to-cloud"]
+        },
+        {
+          "id": "elasticity-in-cloud",
+          "name": "elasticity in cloud",
+          "requires": ["virtualization-and-abstraction"]
+        },
+        {
+          "id": "concept-of-hypervisor",
+          "name": "concept of hypervisor",
+          "requires": ["elasticity-in-cloud"]
+        },
+        {
+          "id": "advantages-and-limitations-of-virtual-machines",
+          "name": "Advantages and limitations of virtual machines",
+          "requires": ["concept-of-hypervisor"]
+        },
+        {
+          "id": "containers",
+          "name": "containers",
+          "requires": ["advantages-and-limitations-of-virtual-machines"]
+        },
+        {
+          "id": "difference-between-vm-and-container",
+          "name": "difference between VM and container",
+          "requires": ["containers"]
+        },
+        {
+          "id": "virtual-networking",
+          "name": "virtual networking",
+          "requires": ["difference-between-vm-and-container"]
+        },
+        {
+          "id": "service-level-agreement",
+          "name": "Service level agreement",
+          "requires": ["virtual-networking"]
+        }
+      ]
+    },
+    {
+      "id": "various-architectures-of-cloud",
+      "name": "Various architectures of Cloud",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "introduction-to-business-models-and-their-architectures",
+          "name": "Introduction to business models and their architectures"
+        },
+        {
+          "id": "saas",
+          "name": "SAAS",
+          "requires": ["introduction-to-business-models-and-their-architectures"]
+        },
+        {
+          "id": "paas",
+          "name": "PAAS",
+          "requires": ["saas"]
+        },
+        {
+          "id": "iaas",
+          "name": "IAAS",
+          "requires": ["paas"]
+        },
+        {
+          "id": "xaas",
+          "name": "XAAS",
+          "requires": ["iaas"]
+        },
+        {
+          "id": "various-cloud-deployment-models-and-their-architectures",
+          "name": "Various cloud deployment models and their architectures",
+          "requires": ["xaas"]
+        },
+        {
+          "id": "public-cloud",
+          "name": "Public Cloud",
+          "requires": ["various-cloud-deployment-models-and-their-architectures"]
+        },
+        {
+          "id": "private-cloud",
+          "name": "Private cloud",
+          "requires": ["public-cloud"]
+        },
+        {
+          "id": "hybrid-cloud",
+          "name": "Hybrid Cloud",
+          "requires": ["private-cloud"]
+        },
+        {
+          "id": "community-cloud",
+          "name": "community cloud",
+          "requires": ["hybrid-cloud"]
+        },
+        {
+          "id": "open-source-platforms-to-develop-cloud",
+          "name": "open-source platforms to develop cloud",
+          "requires": ["community-cloud"]
+        }
+      ]
+    },
+    {
+      "id": "data-processing-in-cloud",
+      "name": "Data Processing in Cloud",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "load-balancing",
+          "name": "Load balancing"
+        },
+        {
+          "id": "dynamic-and-static-load-balancing",
+          "name": "dynamic and static load balancing",
+          "requires": ["load-balancing"]
+        },
+        {
+          "id": "distributed-file-system",
+          "name": "Distributed file system",
+          "requires": ["dynamic-and-static-load-balancing"]
+        },
+        {
+          "id": "hdfs",
+          "name": "HDFS",
+          "requires": ["distributed-file-system"]
+        },
+        {
+          "id": "apache-spark",
+          "name": "Apache Spark",
+          "requires": ["hdfs"]
+        },
+        {
+          "id": "writing-and-downloading-files-in-cloud-using-dfs",
+          "name": "writing and downloading files in cloud using DFS",
+          "requires": ["apache-spark"]
+        },
+        {
+          "id": "data-analytics-in-cloud",
+          "name": "data analytics in cloud",
+          "requires": ["writing-and-downloading-files-in-cloud-using-dfs"]
+        }
+      ]
+    },
+    {
+      "id": "various-applications-of-cloud",
+      "name": "Various applications of Cloud",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "cloud-based-analytics",
+          "name": "Cloud based analytics"
+        },
+        {
+          "id": "cloud-based-smart-applications",
+          "name": "Cloud based smart applications",
+          "requires": ["cloud-based-analytics"]
+        },
+        {
+          "id": "cloud-applications-in-industry-4-0",
+          "name": "Cloud applications in Industry 4.0",
+          "requires": ["cloud-based-smart-applications"]
+        },
+        {
+          "id": "role-of-cloud-in-ai-applications",
+          "name": "Role of cloud in AI applications",
+          "requires": ["cloud-applications-in-industry-4-0"]
+        },
+        {
+          "id": "case-study-design-of-personal-cloud-using-open-source",
+          "name": "Case Study: Design of personal cloud using open-source platforms",
+          "requires": ["role-of-cloud-in-ai-applications"]
+        }
+      ]
+    }
+  ]
+}

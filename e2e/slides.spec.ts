@@ -8,10 +8,10 @@ async function openPanel(page: Page) {
   await page.getByTestId("all-subjects-list").locator("summary").click();
   await page
     .getByTestId("all-subjects-list")
-    .getByRole("button", { name: /Electricity & Magnetism/ })
+    .getByRole("button", { name: /^Applied Physics/ })
     .click();
-  await page.getByLabel("Or browse by chapter").selectOption("electrostatics");
-  await page.getByText("Gauss's law", { exact: true }).click();
+  await page.getByLabel("Or browse by chapter").selectOption("electricity-and-magnetism");
+  await page.getByText(/Faraday/).click();
   await page.getByText("Building Blocks", { exact: true }).click();
   await page.getByRole("button", { name: /Make slides or a PDF instead/ }).click();
 }

@@ -1,0 +1,245 @@
+{
+  "id": "elements-of-electrical-and-electronics-engineering-ce",
+  "name": "Elements of Electrical & Electronics Engineering (CE)",
+  "field": "Electrical Engineering",
+  "tier": "sourced",
+  "branches": ["ce"],
+  "semesters": [2],
+  "code": "24EE101T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Engineering Science",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s2-elements-of-electrical-and-electronics-engineering",
+      "code": "24EE101T",
+      "category": "Engineering Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Elements of Electrical & Electronics Engineering",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "dc-circuits",
+      "name": "DC Circuits",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "electrical-circuit-elements-r-l-and-c",
+          "name": "Electrical circuit elements (R, L and C)"
+        },
+        {
+          "id": "voltage-and-current-sources",
+          "name": "voltage and current sources",
+          "requires": ["electrical-circuit-elements-r-l-and-c"]
+        },
+        {
+          "id": "dependent-and-independent-sources",
+          "name": "dependent and independent sources",
+          "requires": ["voltage-and-current-sources"]
+        },
+        {
+          "id": "ohms-law",
+          "name": "Ohms Law",
+          "requires": ["dependent-and-independent-sources"]
+        },
+        {
+          "id": "temperature-co-efficient-of-resistance",
+          "name": "temperature co-efficient of resistance",
+          "requires": ["ohms-law"]
+        },
+        {
+          "id": "kirchhoff-current-and-voltage-laws",
+          "name": "Kirchhoff current and voltage laws",
+          "requires": ["temperature-co-efficient-of-resistance"]
+        },
+        {
+          "id": "voltage-and-current-divider-circuit",
+          "name": "voltage and current divider circuit",
+          "requires": ["kirchhoff-current-and-voltage-laws"]
+        },
+        {
+          "id": "thevenin-norton",
+          "name": "Thevenin and Norton Theorems and their equivalents",
+          "requires": ["voltage-and-current-divider-circuit"]
+        },
+        {
+          "id": "maximum-power-transfer-and-superposition-theorems",
+          "name": "maximum power transfer and superposition theorems",
+          "requires": ["thevenin-norton"]
+        },
+        {
+          "id": "nodal-and-mesh-analysis",
+          "name": "nodal and mesh analysis",
+          "requires": ["maximum-power-transfer-and-superposition-theorems"]
+        },
+        {
+          "id": "star-delta-transformation",
+          "name": "star-delta transformation",
+          "requires": ["nodal-and-mesh-analysis"]
+        },
+        {
+          "id": "time-domain-analysis-natural-response-of-first-order-rl-and",
+          "name": "Time domain analysis/natural response of first order RL and RC Circuit",
+          "requires": ["star-delta-transformation"]
+        }
+      ]
+    },
+    {
+      "id": "ac-circuits",
+      "name": "AC Circuits",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "generation-of-ac-voltage",
+          "name": "Generation of AC voltage"
+        },
+        {
+          "id": "representation-of-sinusoidal-waveforms",
+          "name": "representation of sinusoidal waveforms",
+          "requires": ["generation-of-ac-voltage"]
+        },
+        {
+          "id": "rms-values-of-different-sinusoidal-waveforms",
+          "name": "RMS values of different sinusoidal waveforms",
+          "requires": ["representation-of-sinusoidal-waveforms"]
+        },
+        {
+          "id": "rectangular-and-polar-representation-of-phasor",
+          "name": "Rectangular and Polar representation of phasor",
+          "requires": ["rms-values-of-different-sinusoidal-waveforms"]
+        },
+        {
+          "id": "sinusoid-representation-in-time-and-frequency-domain",
+          "name": "Sinusoid representation in time and frequency domain",
+          "requires": ["rectangular-and-polar-representation-of-phasor"]
+        },
+        {
+          "id": "analysis-of-single-phase-ac-series-circuits-consisting-of-r",
+          "name": "Analysis of single-phase ac series circuits consisting of R, L, C, RL, RC",
+          "requires": ["sinusoid-representation-in-time-and-frequency-domain"]
+        },
+        {
+          "id": "rlc-combinations",
+          "name": "RLC combinations",
+          "requires": ["analysis-of-single-phase-ac-series-circuits-consisting-of-r"]
+        },
+        {
+          "id": "instantaneous-power",
+          "name": "instantaneous power",
+          "requires": ["rlc-combinations"]
+        },
+        {
+          "id": "average-power-and-reactive-power",
+          "name": "average power and reactive power",
+          "requires": ["instantaneous-power"]
+        },
+        {
+          "id": "complex-power-and-power-factor-ac-parallel-circuit-and-its",
+          "name": "complex power and power factor.AC parallel circuit and its solution in admittance form",
+          "requires": ["average-power-and-reactive-power"]
+        },
+        {
+          "id": "resonance-in-ac-series-and-parallel-circuits",
+          "name": "resonance in AC series and parallel circuits",
+          "requires": ["complex-power-and-power-factor-ac-parallel-circuit-and-its"]
+        },
+        {
+          "id": "polyphase-circuits",
+          "name": "polyphase circuits",
+          "requires": ["resonance-in-ac-series-and-parallel-circuits"]
+        },
+        {
+          "id": "star-and-delta-representation-of-polyphase-circuits",
+          "name": "star and delta representation of polyphase circuits",
+          "requires": ["polyphase-circuits"]
+        },
+        {
+          "id": "power-measurement-in-polyphase-circuits",
+          "name": "power measurement in polyphase circuits",
+          "requires": ["star-and-delta-representation-of-polyphase-circuits"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-electrical-machines-and-electrical",
+      "name": "Introduction to Electrical Machines and Electrical Installation",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "magnetic-materials-and-its-b-h-characteristic-faradays-law",
+          "name": "Magnetic materials and its B-H characteristic, Faraday’s Law of Electromagnetic Induction"
+        },
+        {
+          "id": "single-phase-transformers-construction-working-principle",
+          "name": "Single Phase Transformers: Construction, working principle, types, EMF equation, ideal transformer, practical transformer, Operation of transformer on no- load and load, Induction Machine: constructio",
+          "requires": ["magnetic-materials-and-its-b-h-characteristic-faradays-law"]
+        },
+        {
+          "id": "components-of-lt-switchgear-switch-fuse-unit-sfu-mcb-elcb",
+          "name": "Components of LT Switchgear: Switch Fuse Unit (SFU), MCB, ELCB, MCCB, Types of Wires and Cables, Earthing, Types of Batteries, Important Characteristics for Batteries",
+          "requires": ["single-phase-transformers-construction-working-principle"]
+        },
+        {
+          "id": "elementary-calculations-for-energy-consumption-electrical",
+          "name": "Elementary calculations for energy consumption, Electrical safety rules",
+          "requires": ["components-of-lt-switchgear-switch-fuse-unit-sfu-mcb-elcb"]
+        }
+      ]
+    },
+    {
+      "id": "basic-of-electronics-and-electrical-installation",
+      "name": "Basic of Electronics and Electrical Installation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "semiconductor-diodes-and-applications-diode-as-a-switch",
+          "name": "Semiconductor Diodes and Applications, Diode as a Switch, Diode as a Rectifier, Half Wave and Full Wave Rectifiers with and without Filters"
+        },
+        {
+          "id": "breakdown-mechanisms-zener-diode-operation-and-applications",
+          "name": "Breakdown Mechanisms, Zener Diode – Operation and Applications",
+          "requires": ["semiconductor-diodes-and-applications-diode-as-a-switch"]
+        },
+        {
+          "id": "opto-electronic-devices-leds-photo-diode-and-applications",
+          "name": "Opto-Electronic Devices–LEDs, Photo Diode and Applications",
+          "requires": ["breakdown-mechanisms-zener-diode-operation-and-applications"]
+        },
+        {
+          "id": "silicon-controlled-rectifier-scr",
+          "name": "Silicon Controlled Rectifier (SCR)",
+          "requires": ["opto-electronic-devices-leds-photo-diode-and-applications"]
+        },
+        {
+          "id": "operation-construction-characteristics-ratings-applications",
+          "name": "Operation, Construction, Characteristics, Ratings, Applications",
+          "requires": ["silicon-controlled-rectifier-scr"]
+        },
+        {
+          "id": "transistor-characteristics-covering-bipolar-junction",
+          "name": "Transistor Characteristics covering, Bipolar Junction Transistor (BJT)",
+          "requires": ["operation-construction-characteristics-ratings-applications"]
+        },
+        {
+          "id": "construction-operation-amplifying-action-common-base-common",
+          "name": "Construction, Operation, Amplifying Action, Common Base, Common Emitter and Common Collector Configurations, Field Effect Transistor (FET)",
+          "requires": ["transistor-characteristics-covering-bipolar-junction"]
+        },
+        {
+          "id": "construction-characteristics-of-junction-fet",
+          "name": "Construction, Characteristics of Junction FET",
+          "requires": ["construction-operation-amplifying-action-common-base-common"]
+        }
+      ]
+    }
+  ]
+}

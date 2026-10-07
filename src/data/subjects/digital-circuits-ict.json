@@ -1,0 +1,265 @@
+{
+  "id": "digital-circuits-ict",
+  "name": "Digital Circuits (ICT)",
+  "field": "Electronics Engineering",
+  "tier": "limited",
+  "branches": ["ict"],
+  "semesters": [3],
+  "code": "24ICxxxT",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s3-digital-circuits",
+      "code": "24ICxxxT",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Digital Circuits",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "number-systems-and-logic-gates",
+      "name": "Number Systems and Logic Gates",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "digital-systems",
+          "name": "Digital systems"
+        },
+        {
+          "id": "positional-number-system",
+          "name": "positional number system",
+          "requires": ["digital-systems"]
+        },
+        {
+          "id": "binary-octal-and-hexadecimal-representation-of-integer-fixed",
+          "name": "binary, octal and hexadecimal representation of integer/fixed-point numbers",
+          "requires": ["positional-number-system"]
+        },
+        {
+          "id": "methods-of-base-conversions",
+          "name": "Methods of base conversions",
+          "requires": ["binary-octal-and-hexadecimal-representation-of-integer-fixed"]
+        },
+        {
+          "id": "complements",
+          "name": "complements",
+          "requires": ["methods-of-base-conversions"]
+        },
+        {
+          "id": "representation-of-signed-numbers",
+          "name": "Representation of signed numbers",
+          "requires": ["complements"]
+        },
+        {
+          "id": "signed-unsigned-binary-octal-and-hexadecimal-arithmetic",
+          "name": "signed/unsigned binary, octal and hexadecimal arithmetic",
+          "requires": ["representation-of-signed-numbers"]
+        },
+        {
+          "id": "binary-coded-decimal-codes",
+          "name": "Binary coded decimal codes",
+          "requires": ["signed-unsigned-binary-octal-and-hexadecimal-arithmetic"]
+        },
+        {
+          "id": "gray-codes",
+          "name": "Gray codes",
+          "requires": ["binary-coded-decimal-codes"]
+        },
+        {
+          "id": "excess-3-codes-logic-gates-and-truth-table",
+          "name": "Excess-3 codes, Logic Gates, and Truth Table",
+          "requires": ["gray-codes"]
+        },
+        {
+          "id": "error-detection-and-correction-codes-parity-check-codes-and",
+          "name": "Error detection and correction codes - parity check codes and Hamming codes",
+          "requires": ["excess-3-codes-logic-gates-and-truth-table"]
+        }
+      ]
+    },
+    {
+      "id": "boolean-algebra-and-combinational-circuits",
+      "name": "Boolean Algebra and Combinational Circuits",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "boolean-algebra-and-simplification-of-boolean-algebra-basic",
+          "name": "Boolean Algebra & Simplification of Boolean Algebra: Basic postulates and fundamental theorems of Boolean algebra"
+        },
+        {
+          "id": "representation-of-logic-functions-canonical-and-standard",
+          "name": "Representation of logic functions: canonical and standard forms",
+          "requires": ["boolean-algebra-and-simplification-of-boolean-algebra-basic"]
+        },
+        {
+          "id": "simplification-of-boolean-functions-k-map-and-quine",
+          "name": "Simplification of Boolean functions: K-map and Quine-McCluskey tabular methods",
+          "requires": ["representation-of-logic-functions-canonical-and-standard"]
+        },
+        {
+          "id": "definition-of-combinational-circuits",
+          "name": "Definition of combinational circuits",
+          "requires": ["simplification-of-boolean-functions-k-map-and-quine"]
+        },
+        {
+          "id": "design-procedure",
+          "name": "design procedure",
+          "requires": ["definition-of-combinational-circuits"]
+        },
+        {
+          "id": "decoders",
+          "name": "Decoders",
+          "requires": ["design-procedure"]
+        },
+        {
+          "id": "encoders",
+          "name": "encoders",
+          "requires": ["decoders"]
+        },
+        {
+          "id": "multiplexers",
+          "name": "multiplexers",
+          "requires": ["encoders"]
+        },
+        {
+          "id": "demultiplexers-and-their-applications",
+          "name": "demultiplexers and their applications",
+          "requires": ["multiplexers"]
+        },
+        {
+          "id": "parity-generator-and-checker-circuits",
+          "name": "Parity generator and checker circuits",
+          "requires": ["demultiplexers-and-their-applications"]
+        },
+        {
+          "id": "comparators",
+          "name": "comparators",
+          "requires": ["parity-generator-and-checker-circuits"]
+        },
+        {
+          "id": "arithmetic-modules-ripple-carry-adder-subtractor-carry-look",
+          "name": "Arithmetic modules- ripple carry adder, subtractor, carry look ahead adder",
+          "requires": ["comparators"]
+        },
+        {
+          "id": "basic-multiplier-bcd-adder",
+          "name": "basic multiplier, BCD Adder",
+          "requires": ["arithmetic-modules-ripple-carry-adder-subtractor-carry-look"]
+        },
+        {
+          "id": "shannon-expansion-theorem",
+          "name": "Shannon expansion theorem",
+          "requires": ["basic-multiplier-bcd-adder"]
+        }
+      ]
+    },
+    {
+      "id": "sequential-circuits",
+      "name": "Sequential Circuits",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "definition-of-sequential-circuits",
+          "name": "Definition of sequential circuits"
+        },
+        {
+          "id": "latches-and-flip-flops-sr-latch",
+          "name": "Latches and flip-flops: SR-latch",
+          "requires": ["definition-of-sequential-circuits"]
+        },
+        {
+          "id": "d-latch",
+          "name": "D-latch",
+          "requires": ["latches-and-flip-flops-sr-latch"]
+        },
+        {
+          "id": "d-flip-flop",
+          "name": "D flip-flop",
+          "requires": ["d-latch"]
+        },
+        {
+          "id": "jk-flip-flop",
+          "name": "JK flip-flop",
+          "requires": ["d-flip-flop"]
+        },
+        {
+          "id": "t-flip-flop-synchronous-sequential-circuit",
+          "name": "T flip-flop. Synchronous sequential circuit",
+          "requires": ["jk-flip-flop"]
+        },
+        {
+          "id": "moore-and-mealy-finite-state-machines-fsm-state-diagram",
+          "name": "Moore and Mealy Finite State Machines (FSM): state diagram, state table, state assignment",
+          "requires": ["t-flip-flop-synchronous-sequential-circuit"]
+        },
+        {
+          "id": "analysis-and-implementation-of-fsm-using-d-flip-flops-jk",
+          "name": "Analysis and implementation of FSM using D flip-flops, JK flip-flops and T flip-flops",
+          "requires": ["moore-and-mealy-finite-state-machines-fsm-state-diagram"]
+        },
+        {
+          "id": "implementation-of-fsm-using-decoders-or-gates-multiplexors",
+          "name": "Implementation of FSM using Decoders, OR gates, Multiplexors and ROM. Various Registers and counters: asynchronous counters, synchronous counters",
+          "requires": ["analysis-and-implementation-of-fsm-using-d-flip-flops-jk"]
+        },
+        {
+          "id": "ring-counter-johnson-counter",
+          "name": "ring counter, Johnson counter",
+          "requires": ["implementation-of-fsm-using-decoders-or-gates-multiplexors"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-memory-and-programmable-logic",
+      "name": "Introduction to Memory and Programmable Logic Circuits",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "random-access-memory",
+          "name": "Random access memory",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "read-only-memory",
+          "name": "read only memory",
+          "requires": ["random-access-memory"]
+        },
+        {
+          "id": "programmable-logic-array",
+          "name": "programmable logic array",
+          "requires": ["read-only-memory"]
+        },
+        {
+          "id": "programmable-array-logic",
+          "name": "programmable array logic",
+          "requires": ["programmable-logic-array"]
+        },
+        {
+          "id": "sequential-programmable-devices",
+          "name": "sequential programmable devices",
+          "requires": ["programmable-array-logic"]
+        },
+        {
+          "id": "fpga-max-hrs-42",
+          "name": "FPGA. Max. Hrs.: 42",
+          "requires": ["sequential-programmable-devices"]
+        }
+      ]
+    }
+  ]
+}

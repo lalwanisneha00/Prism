@@ -1,0 +1,156 @@
+{
+  "id": "environmental-science-petro",
+  "name": "Environmental Science (Petro)",
+  "field": "Environmental Science",
+  "tier": "limited",
+  "branches": ["petro"],
+  "semesters": [1],
+  "code": "24CV101T",
+  "credits": 2,
+  "ltp": "2-0-0",
+  "category": "Basic Science",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s1-environmental-science",
+      "code": "24CV101T",
+      "category": "Basic Science",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 1
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Petro): Environmental Science",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "theory",
+  "teaching": "theory",
+  "chapters": [
+    {
+      "id": "introduction-to-environment",
+      "name": "Introduction to Environment",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "sustainable-development",
+          "name": "Sustainable Development"
+        },
+        {
+          "id": "sustainable-development-goals",
+          "name": "Sustainable Development Goals",
+          "requires": ["sustainable-development"]
+        },
+        {
+          "id": "environmental-studies",
+          "name": "Environmental Studies",
+          "requires": ["sustainable-development-goals"]
+        },
+        {
+          "id": "its-importance-and-multidisciplinary-nature-introduction-to",
+          "name": "Its importance and Multidisciplinary nature, Introduction to Environmental Parameters and their standards (air, water, soil, noise, etc.)",
+          "requires": ["environmental-studies"]
+        },
+        {
+          "id": "ecosystem-and-its-types-ideal-ecosystem-biodiversity-its",
+          "name": "Ecosystem and its types, Ideal ecosystem, Biodiversity : Its importance and conservation",
+          "requires": ["its-importance-and-multidisciplinary-nature-introduction-to"]
+        }
+      ]
+    },
+    {
+      "id": "multi-scale-environmental-pollution-global",
+      "name": "Multi-Scale Environmental Pollution (Global, Regional and Local)",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "pollution-causes-and-effects-of-different-types-of-pollution",
+          "name": "Pollution, Causes and Effects of different types of pollution : Air Pollution, Water Pollution, Soil Pollution, Solid Waste (organic and Inorganic) Pollution, Hazardous Waste Pollution, Marine Polluti"
+        },
+        {
+          "id": "introduction-to-man-made-disasters-like-floods-heat-waves",
+          "name": "Introduction to man-made disasters like floods, heat waves, landslides, etc., Introduction to the various instruments for measuring air pollution, water pollution, noise, etc",
+          "requires": ["pollution-causes-and-effects-of-different-types-of-pollution"]
+        }
+      ]
+    },
+    {
+      "id": "environmental-pollution-control-strategies",
+      "name": "Environmental Pollution Control Strategies",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "multi-approaches-for-reducing-various-types-of-pollution",
+          "name": "Multi-approaches for reducing various types of pollution: Introduction to Water and Wastewater treatment technologies"
+        },
+        {
+          "id": "air-and-noise-pollution-control-techniques",
+          "name": "Air and Noise pollution control techniques",
+          "requires": ["multi-approaches-for-reducing-various-types-of-pollution"]
+        },
+        {
+          "id": "introduction-to-different-environmental-management-concepts",
+          "name": "Introduction to different environmental management concepts like Swachh Bharat Mission",
+          "requires": ["air-and-noise-pollution-control-techniques"]
+        },
+        {
+          "id": "mission-life-lifestyle-for-environment",
+          "name": "Mission LiFE (Lifestyle for Environment)",
+          "requires": ["introduction-to-different-environmental-management-concepts"]
+        },
+        {
+          "id": "etc-indian-culture-and-traditional-wisdom-for-managing",
+          "name": "etc. Indian Culture and Traditional Wisdom for managing environment",
+          "requires": ["mission-life-lifestyle-for-environment"]
+        }
+      ]
+    },
+    {
+      "id": "emerging-environmental-managements-domains",
+      "name": "Emerging Environmental Managements Domains",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "concept-of-zero-liquid-discharge-zld-and-the-reuse-of-the",
+          "name": "Concept of Zero Liquid Discharge (ZLD) and the reuse of the treated wastewater"
+        },
+        {
+          "id": "green-credit-rules-2023",
+          "name": "Green Credit Rules - 2023",
+          "requires": ["concept-of-zero-liquid-discharge-zld-and-the-reuse-of-the"]
+        },
+        {
+          "id": "clean-development-mechanisms-cdm-and-carbon-credits",
+          "name": "Clean Development Mechanisms (CDM) and Carbon Credits",
+          "requires": ["green-credit-rules-2023"]
+        },
+        {
+          "id": "green-buildings",
+          "name": "Green Buildings",
+          "requires": ["clean-development-mechanisms-cdm-and-carbon-credits"]
+        },
+        {
+          "id": "carbon-footprint-and-water-footprint",
+          "name": "Carbon Footprint and Water Footprint",
+          "requires": ["green-buildings"]
+        },
+        {
+          "id": "green-business",
+          "name": "Green Business",
+          "requires": ["carbon-footprint-and-water-footprint"]
+        },
+        {
+          "id": "international-environmental-laws",
+          "name": "International Environmental Laws",
+          "requires": ["green-business"]
+        },
+        {
+          "id": "environmental-auditing",
+          "name": "Environmental Auditing",
+          "requires": ["international-environmental-laws"]
+        }
+      ]
+    }
+  ]
+}

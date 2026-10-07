@@ -1,0 +1,333 @@
+{
+  "id": "principles-of-programming-languages",
+  "name": "Principles of Programming Languages",
+  "field": "Principles of Programming Languages",
+  "tier": "sourced",
+  "branches": ["ict"],
+  "semesters": [4],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s4-principles-of-programming-languages",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Principles of Programming Languages",
+    "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction-to-language-design-concepts",
+      "name": "Introduction to Language Design Concepts",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "reasons-for-studying-concepts-of-programming-languages",
+          "name": "Reasons for studying concepts of programming languages"
+        },
+        {
+          "id": "programming-domains",
+          "name": "programming domains",
+          "requires": ["reasons-for-studying-concepts-of-programming-languages"]
+        },
+        {
+          "id": "language-evaluation-criteria",
+          "name": "language evaluation criteria",
+          "requires": ["programming-domains"]
+        },
+        {
+          "id": "influences-on-language-design",
+          "name": "influences on language design",
+          "requires": ["language-evaluation-criteria"]
+        },
+        {
+          "id": "language-categories",
+          "name": "language categories",
+          "requires": ["influences-on-language-design"]
+        },
+        {
+          "id": "language-design-trade-offs",
+          "name": "language design trade-offs",
+          "requires": ["language-categories"]
+        },
+        {
+          "id": "implementation-methods",
+          "name": "implementation methods",
+          "requires": ["language-design-trade-offs"]
+        },
+        {
+          "id": "programming-environments",
+          "name": "programming environments",
+          "requires": ["implementation-methods"]
+        },
+        {
+          "id": "programming-language-design",
+          "name": "Programming language design",
+          "requires": ["programming-environments"]
+        },
+        {
+          "id": "programming-language-processing-data-types-primitive-data",
+          "name": "programming language processing. Data types: primitive data types",
+          "requires": ["programming-language-design"]
+        },
+        {
+          "id": "composite-data-types",
+          "name": "composite data types",
+          "requires": ["programming-language-processing-data-types-primitive-data"]
+        },
+        {
+          "id": "recursive-data-types",
+          "name": "recursive data types",
+          "requires": ["composite-data-types"]
+        },
+        {
+          "id": "implementation-and-storage-representation-of-data-types-type",
+          "name": "implementation and storage representation of data types. Type binding",
+          "requires": ["recursive-data-types"]
+        },
+        {
+          "id": "binding-and-binding-times",
+          "name": "binding and binding times",
+          "requires": ["implementation-and-storage-representation-of-data-types-type"]
+        },
+        {
+          "id": "type-checking",
+          "name": "type checking",
+          "requires": ["binding-and-binding-times"]
+        },
+        {
+          "id": "type-conversion",
+          "name": "type conversion",
+          "requires": ["type-checking"]
+        },
+        {
+          "id": "expressions",
+          "name": "expressions",
+          "requires": ["type-conversion"]
+        },
+        {
+          "id": "statements",
+          "name": "statements",
+          "requires": ["expressions"]
+        }
+      ]
+    },
+    {
+      "id": "object-oriented-programming-concepts",
+      "name": "Object-oriented Programming Concepts",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "need-of-object-oriented-paradigm",
+          "name": "Need of object-oriented paradigm"
+        },
+        {
+          "id": "basic-concepts-of-object-oriented-programming-oop",
+          "name": "basic concepts of object-oriented programming (OOP)",
+          "requires": ["need-of-object-oriented-paradigm"]
+        },
+        {
+          "id": "benefits-of-oop-general-characteristics-for-oop",
+          "name": "benefits of OOP. General characteristics for OOP",
+          "requires": ["basic-concepts-of-object-oriented-programming-oop"]
+        },
+        {
+          "id": "concepts-object",
+          "name": "concepts - object",
+          "requires": ["benefits-of-oop-general-characteristics-for-oop"]
+        },
+        {
+          "id": "classes",
+          "name": "classes",
+          "requires": ["concepts-object"]
+        },
+        {
+          "id": "messages",
+          "name": "messages",
+          "requires": ["classes"]
+        },
+        {
+          "id": "methods-class-identification",
+          "name": "methods. Class Identification",
+          "requires": ["messages"]
+        },
+        {
+          "id": "object-oriented-as-abstract-data-type-data-abstraction",
+          "name": "object oriented as abstract data type. Data abstraction",
+          "requires": ["methods-class-identification"]
+        },
+        {
+          "id": "encapsulation",
+          "name": "encapsulation",
+          "requires": ["object-oriented-as-abstract-data-type-data-abstraction"]
+        },
+        {
+          "id": "polymorphism",
+          "name": "polymorphism",
+          "requires": ["encapsulation"]
+        },
+        {
+          "id": "inheritance",
+          "name": "inheritance",
+          "requires": ["polymorphism"]
+        },
+        {
+          "id": "dynamic-binding",
+          "name": "dynamic binding",
+          "requires": ["inheritance"]
+        },
+        {
+          "id": "abstract-classes",
+          "name": "abstract classes",
+          "requires": ["dynamic-binding"]
+        },
+        {
+          "id": "interfaces",
+          "name": "interfaces",
+          "requires": ["abstract-classes"]
+        },
+        {
+          "id": "generic-class",
+          "name": "generic class",
+          "requires": ["interfaces"]
+        },
+        {
+          "id": "run-time-type-identification-dynamic-memory-management",
+          "name": "run time type identification. Dynamic Memory Management",
+          "requires": ["generic-class"]
+        },
+        {
+          "id": "exceptions-oop",
+          "name": "Exception Handling",
+          "requires": ["run-time-type-identification-dynamic-memory-management"]
+        }
+      ]
+    },
+    {
+      "id": "procedural-programming",
+      "name": "Procedural Programming",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-procedures",
+          "name": "Introduction to procedures"
+        },
+        {
+          "id": "parameter-passing-methods",
+          "name": "parameter passing methods",
+          "requires": ["introduction-to-procedures"]
+        },
+        {
+          "id": "lifetime-of-variables",
+          "name": "lifetime of variables",
+          "requires": ["parameter-passing-methods"]
+        },
+        {
+          "id": "scope-rules-static-and-dynamic-scope",
+          "name": "scope rules: static and dynamic scope",
+          "requires": ["lifetime-of-variables"]
+        },
+        {
+          "id": "nested-scope",
+          "name": "nested scope",
+          "requires": ["scope-rules-static-and-dynamic-scope"]
+        },
+        {
+          "id": "procedure-call-and-return",
+          "name": "procedure call and return",
+          "requires": ["nested-scope"]
+        },
+        {
+          "id": "recursive-sub-program-referencing-environment",
+          "name": "recursive sub-program. Referencing environment",
+          "requires": ["procedure-call-and-return"]
+        },
+        {
+          "id": "activation-records",
+          "name": "activation records",
+          "requires": ["recursive-sub-program-referencing-environment"]
+        },
+        {
+          "id": "storage-management",
+          "name": "storage management",
+          "requires": ["activation-records"]
+        },
+        {
+          "id": "desirable-and-undesirable-characteristics-of-procedural",
+          "name": "desirable and undesirable characteristics of procedural programming",
+          "requires": ["storage-management"]
+        }
+      ]
+    },
+    {
+      "id": "functional-programming",
+      "name": "Functional Programming",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-functional-programming",
+          "name": "Introduction to functional programming"
+        },
+        {
+          "id": "lambda-calculus",
+          "name": "lambda calculus",
+          "requires": ["introduction-to-functional-programming"]
+        },
+        {
+          "id": "ambiguity",
+          "name": "ambiguity",
+          "requires": ["lambda-calculus"]
+        },
+        {
+          "id": "free-and-bound-identifiers",
+          "name": "free and bound identifiers",
+          "requires": ["ambiguity"]
+        },
+        {
+          "id": "reductions",
+          "name": "reductions",
+          "requires": ["free-and-bound-identifiers"]
+        },
+        {
+          "id": "typed-lambda-calculus",
+          "name": "typed lambda calculus",
+          "requires": ["reductions"]
+        },
+        {
+          "id": "application-of-functional-programming-functional-programming",
+          "name": "application of functional programming. Functional Programming with python",
+          "requires": ["typed-lambda-calculus"]
+        },
+        {
+          "id": "elements-of-functional-programming",
+          "name": "elements of functional Programming",
+          "requires": ["application-of-functional-programming-functional-programming"]
+        },
+        {
+          "id": "function-declaration",
+          "name": "function declaration",
+          "requires": ["elements-of-functional-programming"]
+        },
+        {
+          "id": "expression-evaluation",
+          "name": "expression evaluation",
+          "requires": ["function-declaration"]
+        },
+        {
+          "id": "type-checking-2",
+          "name": "type checking",
+          "requires": ["expression-evaluation"]
+        }
+      ]
+    }
+  ]
+}

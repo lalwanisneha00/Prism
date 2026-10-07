@@ -2,6 +2,8 @@
  * PhET Interactive Simulations (University of Colorado Boulder), licensed CC BY 4.0.
  * Each id below was checked to exist as an embeddable HTML5 simulation.
  */
+import { visualTopicIds } from "@/visuals/topicAliases";
+
 export type PhetSim = { id: string; title: string; topics: string[] };
 
 export const phetSims: PhetSim[] = [
@@ -258,5 +260,6 @@ export function phetEmbedUrl(id: string): string {
 }
 
 export function phetSimsForTopic(topicId: string): PhetSim[] {
-  return phetSims.filter((s) => s.topics.includes(topicId));
+  const ids = visualTopicIds(topicId);
+  return phetSims.filter((s) => ids.some((t) => s.topics.includes(t)));
 }

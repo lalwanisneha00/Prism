@@ -2,224 +2,200 @@
   "id": "dsa",
   "name": "Data Structures and Algorithms",
   "field": "Computer Science",
-  "tier": "sourced",
-  "branches": ["ce", "it", "ict", "ece"],
-  "semesters": [3, 4],
+  "tier": "limited",
+  "branches": ["ict"],
+  "semesters": [3],
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s3-data-structures-and-algorithms",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3
+    }
+  ],
   "syllabusSource": {
-    "kind": "aicte",
-    "title": "AICTE Model Curriculum for UG Degree in Computer Science & Engineering (Jan 2018): PCC-CS301 Data Structure & Algorithms and PCC-CS404 Design and Analysis of Algorithms",
-    "url": "https://www.iiitd.ac.in/sites/default/files/docs/about/AICTE2018-CSE-Curriculum.pdf",
-    "note": "Data structures follow PCC-CS301; algorithm design, graph algorithms and NP-completeness follow PCC-CS404."
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Data Structures and Algorithms",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
   },
   "visualSet": "computing",
   "chapters": [
     {
-      "id": "ds-basics",
-      "name": "Basics and Analysis",
-      "hours": 8,
+      "id": "introduction-to-data-structure",
+      "name": "Introduction to Data Structure",
+      "hours": 12,
       "topics": [
         {
-          "id": "asymptotic-notation",
-          "name": "Asymptotic notation: big O, Omega and Theta"
+          "id": "introduction-basic-terminologies-elementary-data",
+          "name": "Introduction: Basic Terminologies: Elementary Data Organizations"
         },
         {
-          "id": "time-space-tradeoff",
-          "name": "Best, average and worst case; time–space trade-off",
-          "requires": ["asymptotic-notation"]
+          "id": "data-structure-operations-insertion",
+          "name": "Data Structure Operations: insertion",
+          "requires": ["introduction-basic-terminologies-elementary-data"]
         },
         {
-          "id": "recurrences-master-theorem",
-          "name": "Recurrences and the master theorem",
-          "requires": ["asymptotic-notation"]
+          "id": "deletion",
+          "name": "deletion",
+          "requires": ["data-structure-operations-insertion"]
         },
         {
-          "id": "linear-binary-search",
-          "name": "Linear and binary search and their complexity",
-          "requires": ["asymptotic-notation"]
+          "id": "traversal-etc-analysis-of-an-algorithm",
+          "name": "traversal etc. Analysis of an Algorithm",
+          "requires": ["deletion"]
+        },
+        {
+          "id": "asymptotic-notations",
+          "name": "Asymptotic Notations",
+          "requires": ["traversal-etc-analysis-of-an-algorithm"]
+        },
+        {
+          "id": "time-space-trade-off-searching-linear-search-and-binary",
+          "name": "Time-Space trade off Searching: Linear Search and Binary Search Techniques and their complexity analysis",
+          "requires": ["asymptotic-notations"]
+        },
+        {
+          "id": "stacks-and-queues",
+          "name": "Stacks and Queues",
+          "requires": ["time-space-trade-off-searching-linear-search-and-binary"]
+        },
+        {
+          "id": "applications-of-stacks-expression-conversion-and-evaluation",
+          "name": "Applications of Stacks: Expression Conversion and evaluation corresponding algorithms and complexity analysis",
+          "requires": ["stacks-and-queues"]
         }
       ]
     },
     {
-      "id": "stacks-queues",
-      "name": "Stacks and Queues",
-      "hours": 6,
-      "topics": [
-        {
-          "id": "stack-adt",
-          "name": "The stack ADT and its operations"
-        },
-        {
-          "id": "expression-conversion",
-          "name": "Infix, postfix and prefix: conversion and evaluation",
-          "requires": ["stack-adt"]
-        },
-        {
-          "id": "queue-types",
-          "name": "Queues: simple, circular, deque and priority queue",
-          "requires": ["stack-adt"]
-        }
-      ]
-    },
-    {
-      "id": "linked-lists",
-      "name": "Linked Lists",
-      "hours": 6,
-      "topics": [
-        {
-          "id": "singly-linked-list",
-          "name": "Singly linked lists: traversal, search, insertion, deletion"
-        },
-        {
-          "id": "doubly-circular-lists",
-          "name": "Doubly and circular linked lists",
-          "requires": ["singly-linked-list"]
-        },
-        {
-          "id": "linked-stack-queue",
-          "name": "Linked representation of stacks and queues",
-          "requires": ["singly-linked-list", "stack-adt"]
-        }
-      ]
-    },
-    {
-      "id": "trees",
-      "name": "Trees",
+      "id": "linear-data-structure",
+      "name": "Linear Data Structure",
       "hours": 10,
       "topics": [
         {
-          "id": "binary-tree-traversal",
-          "name": "Binary trees and traversals (in-, pre-, post-order)"
+          "id": "array",
+          "name": "Array"
         },
         {
-          "id": "binary-search-tree",
-          "name": "Binary search trees",
-          "requires": ["binary-tree-traversal"]
+          "id": "sparse-matrix-and-its-representation-stacks",
+          "name": "sparse matrix, and its representation. Stacks",
+          "requires": ["array"]
         },
         {
-          "id": "avl-tree",
-          "name": "AVL trees and rotations",
-          "requires": ["binary-search-tree"]
+          "id": "operations",
+          "name": "Operations",
+          "requires": ["sparse-matrix-and-its-representation-stacks"]
         },
         {
-          "id": "b-trees",
-          "name": "B-trees and B+ trees",
-          "requires": ["binary-search-tree"]
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["operations"]
         },
         {
-          "id": "heap-structure",
-          "name": "Binary heaps",
-          "requires": ["binary-tree-traversal"]
+          "id": "polish-expression",
+          "name": "Polish Expression",
+          "requires": ["applications"]
+        },
+        {
+          "id": "reverse-polish-expression-and-their-compilation-queue",
+          "name": "Reverse Polish Expression, and Their Compilation. Queue: Representation",
+          "requires": ["polish-expression"]
+        },
+        {
+          "id": "circular-queue",
+          "name": "Circular Queue",
+          "requires": ["reverse-polish-expression-and-their-compilation-queue"]
+        },
+        {
+          "id": "priority-queue",
+          "name": "Priority Queue",
+          "requires": ["circular-queue"]
+        },
+        {
+          "id": "array-representation-of-priority-queue",
+          "name": "Array Representation of Priority Queue",
+          "requires": ["priority-queue"]
+        },
+        {
+          "id": "double-ended-queue",
+          "name": "Double-Ended Queue",
+          "requires": ["array-representation-of-priority-queue"]
+        },
+        {
+          "id": "applications-of-queue-linked-list-singly-and-doubly-linked",
+          "name": "Applications of Queue Linked List: Singly & Doubly Linked list",
+          "requires": ["double-ended-queue"]
+        },
+        {
+          "id": "circular-linked-list",
+          "name": "Circular linked list",
+          "requires": ["applications-of-queue-linked-list-singly-and-doubly-linked"]
+        },
+        {
+          "id": "linked-implementation-of-stack",
+          "name": "Linked implementation of Stack",
+          "requires": ["circular-linked-list"]
+        },
+        {
+          "id": "linked-implementation-of-queue",
+          "name": "Linked implementation of Queue",
+          "requires": ["linked-implementation-of-stack"]
+        },
+        {
+          "id": "applications-of-linked-list",
+          "name": "Applications of linked list",
+          "requires": ["linked-implementation-of-queue"]
         }
       ]
     },
     {
-      "id": "sorting-hashing",
-      "name": "Sorting and Hashing",
-      "hours": 8,
+      "id": "non-linear-data-structure",
+      "name": "Non-linear Data Structure",
+      "hours": 10,
       "topics": [
         {
-          "id": "simple-sorts-dsa",
-          "name": "Selection, bubble and insertion sort compared"
+          "id": "trees-basic-tree-terminologies-different-types-of-trees",
+          "name": "Trees: Basic Tree Terminologies, Different types of Trees: Binary Tree, Threaded Binary Tree, Binary Search Tree, AVL Tree"
         },
         {
-          "id": "merge-sort-dsa",
-          "name": "Merge sort",
-          "requires": ["simple-sorts-dsa"]
+          "id": "tree-operations-on-each-of-the-trees-and-their-algorithms",
+          "name": "Tree operations on each of the trees and their algorithms with complexity analysis",
+          "requires": ["trees-basic-tree-terminologies-different-types-of-trees"]
         },
         {
-          "id": "quick-sort",
-          "name": "Quicksort",
-          "requires": ["simple-sorts-dsa"]
+          "id": "applications-of-binary-trees",
+          "name": "Applications of Binary Trees",
+          "requires": ["tree-operations-on-each-of-the-trees-and-their-algorithms"]
         },
         {
-          "id": "heap-sort",
-          "name": "Heap sort",
-          "requires": ["heap-structure"]
+          "id": "b-tree-b-tree-definitions-algorithms-and-analysis",
+          "name": "B Tree, B+ Tree: definitions, algorithms and analysis",
+          "requires": ["applications-of-binary-trees"]
         },
         {
-          "id": "hashing",
-          "name": "Hashing, hash functions and collision resolution",
-          "requires": ["linear-binary-search"]
+          "id": "graph-basic-terminologies-and-representations-graph-search",
+          "name": "Graph: Basic Terminologies and Representations, Graph search and traversal algorithms and complexity analysis",
+          "requires": ["b-tree-b-tree-definitions-algorithms-and-analysis"]
         }
       ]
     },
     {
-      "id": "graphs-dsa",
-      "name": "Graphs and Graph Algorithms",
-      "hours": 8,
+      "id": "sorting-and-searching-and-hashing",
+      "name": "Sorting and Searching and Hashing",
+      "hours": 10,
       "topics": [
         {
-          "id": "graph-representation",
-          "name": "Graph terminology and representations"
+          "id": "sorting-and-hashing-objective-and-properties-of-different",
+          "name": "Sorting and Hashing: Objective and properties of different sorting algorithms: Selection Sort, Bubble Sort, Insertion Sort, Quick Sort, Merge Sort, Heap Sort Note: The detailed syllabus page for this "
         },
         {
-          "id": "bfs-dfs",
-          "name": "Breadth-first and depth-first search",
-          "requires": ["graph-representation"]
-        },
-        {
-          "id": "shortest-paths",
-          "name": "Shortest paths: Dijkstra and Bellman–Ford",
-          "requires": ["bfs-dfs"]
-        },
-        {
-          "id": "minimum-spanning-tree",
-          "name": "Minimum spanning trees: Prim and Kruskal",
-          "requires": ["graph-representation"]
-        },
-        {
-          "id": "topological-sort",
-          "name": "Topological sorting",
-          "requires": ["bfs-dfs"]
-        }
-      ]
-    },
-    {
-      "id": "algorithm-design",
-      "name": "Algorithm Design Paradigms",
-      "hours": 8,
-      "topics": [
-        {
-          "id": "divide-and-conquer",
-          "name": "Divide and conquer",
-          "requires": ["recurrences-master-theorem"]
-        },
-        {
-          "id": "greedy-algorithms",
-          "name": "Greedy algorithms (fractional knapsack, activity selection)",
-          "requires": ["asymptotic-notation"]
-        },
-        {
-          "id": "dynamic-programming",
-          "name": "Dynamic programming (0/1 knapsack, LCS)",
-          "requires": ["divide-and-conquer"]
-        },
-        {
-          "id": "backtracking-branch-bound",
-          "name": "Backtracking and branch and bound",
-          "requires": ["dynamic-programming"]
-        }
-      ]
-    },
-    {
-      "id": "complexity-classes",
-      "name": "Tractable and Intractable Problems",
-      "hours": 6,
-      "topics": [
-        {
-          "id": "p-np",
-          "name": "P, NP, NP-complete and NP-hard",
-          "requires": ["dynamic-programming"]
-        },
-        {
-          "id": "reductions-cook",
-          "name": "Reductions and Cook's theorem",
-          "requires": ["p-np"]
-        },
-        {
-          "id": "approximation-randomized",
-          "name": "Approximation and randomized algorithms",
-          "requires": ["p-np"]
+          "id": "the-credits-shown-here-follow-the-official-course-structure",
+          "name": "the credits shown here follow the official course structure table",
+          "requires": ["sorting-and-hashing-objective-and-properties-of-different"]
         }
       ]
     }

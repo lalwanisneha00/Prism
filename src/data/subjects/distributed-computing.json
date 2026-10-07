@@ -1,0 +1,140 @@
+{
+  "id": "distributed-computing",
+  "name": "Distributed Computing",
+  "field": "Distributed Computing",
+  "tier": "limited",
+  "branches": ["ce"],
+  "semesters": [6],
+  "code": "24CS307T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s6-distributed-computing",
+      "code": "24CS307T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Distributed Computing",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "computing",
+  "chapters": [
+    {
+      "id": "introduction-to-distributed-systems-and-clocks",
+      "name": "Introduction to Distributed Systems & Clocks",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "definition",
+          "name": "Definition"
+        },
+        {
+          "id": "goals",
+          "name": "Goals",
+          "requires": ["definition"]
+        },
+        {
+          "id": "types",
+          "name": "Types",
+          "requires": ["goals"]
+        },
+        {
+          "id": "architectures",
+          "name": "Architectures",
+          "requires": ["types"]
+        },
+        {
+          "id": "communication-message-passing-systems-versus-shared-memory",
+          "name": "Communication- Message-passing systems versus shared memory systems –Primitives for distributed communication –Synchronous versus asynchronous executions –Design issues and challenges",
+          "requires": ["architectures"]
+        },
+        {
+          "id": "distributed-computation-logical-clocks-scalar-time",
+          "name": "Distributed Computation. Logical Clocks-Scalar Time",
+          "requires": ["communication-message-passing-systems-versus-shared-memory"]
+        },
+        {
+          "id": "vector-time",
+          "name": "Vector Time",
+          "requires": ["distributed-computation-logical-clocks-scalar-time"]
+        },
+        {
+          "id": "physical-clock-synchronization",
+          "name": "Physical Clock Synchronization",
+          "requires": ["vector-time"]
+        }
+      ]
+    },
+    {
+      "id": "state-machines-and-message-passing",
+      "name": "State Machines & Message Passing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "global-state-and-snapshot-recording-algorithms-detecting",
+          "name": "Global State and Snapshot Recording Algorithms, Detecting Global Predicate- Modalities on predicates, Centralized algorithm for relational predicates, Conjunctive predicates, Distributed algorithms fo"
+        },
+        {
+          "id": "election-algorithm-leader-election-in-rings-asynchronous",
+          "name": "Election Algorithm- Leader election in rings, Asynchronous leader election with identities, Synchronous leader election by abusing the synchronous model, Message Ordering and Group Communication- Term",
+          "requires": ["global-state-and-snapshot-recording-algorithms-detecting"]
+        }
+      ]
+    },
+    {
+      "id": "consistency-consensus-and-fault-tolerance",
+      "name": "Consistency, Consensus & Fault Tolerance",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "distributed-mutual-exclusion-algorithms-lamports-algorithm",
+          "name": "Distributed Mutual Exclusion Algorithms- Lamport’s algorithm, Ricart–Agrawala algorithm, Hr and Deadlock Detection Algorithms, Distributed Deadlock Detection Algorithm, Distributed s"
+        },
+        {
+          "id": "shared-memory-memory-consistency-models-shared-memory-mutual",
+          "name": "Shared Memory- Memory Consistency Models, Shared Memory Mutual Exclusion, Wait- Freedom Algorithm",
+          "requires": ["distributed-mutual-exclusion-algorithms-lamports-algorithm"]
+        },
+        {
+          "id": "byzantine-fault-tolerance-checkpointing-and-rollback",
+          "name": "Byzantine Fault Tolerance, Checkpointing and Rollback Recovery- Checkpoint-based recovery and Log-based rollback recovery",
+          "requires": ["shared-memory-memory-consistency-models-shared-memory-mutual"]
+        },
+        {
+          "id": "consensus-and-agreement-agreement-in-a-failure-free-system",
+          "name": "Consensus and Agreement- : Agreement in a failure-free system (synchronous or asynchronous) , Agreement in (message- passing) synchronous systems with Failures, Agreement in asynchronous message-passi",
+          "requires": ["byzantine-fault-tolerance-checkpointing-and-rollback"]
+        }
+      ]
+    },
+    {
+      "id": "distributed-storage-and-case-studies",
+      "name": "Distributed Storage & Case Studies",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "distributed-file-servers-gfs-mapreduce",
+          "name": "Distributed file servers- GFS, MapReduce"
+        },
+        {
+          "id": "selected-case-studies-pnuts-paxos-spark-cryptocurrencies",
+          "name": "Selected case studies- PNUTS, PAXOS, SPARK, Cryptocurrencies",
+          "requires": ["distributed-file-servers-gfs-mapreduce"]
+        },
+        {
+          "id": "advanced-topics-ml-in-distributed-systems-tensorflow",
+          "name": "Advanced Topics: ML in Distributed Systems-Tensorflow, Parameter Server Max",
+          "requires": ["selected-case-studies-pnuts-paxos-spark-cryptocurrencies"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "id": "electronics-devices-and-circuits-ict",
+  "name": "Electronics Devices and Circuits (ICT)",
+  "field": "Electronics Devices and Circuits",
+  "tier": "limited",
+  "branches": ["ict"],
+  "semesters": [3],
+  "credits": 2,
+  "ltp": "2-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s3-electronics-devices-and-circuits",
+      "category": "Program Core",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 3
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ICT): Electronics Devices and Circuits",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "circuits",
+  "chapters": [
+    {
+      "id": "semiconductor-diodes-and-circuits",
+      "name": "Semiconductor Diodes and Circuits",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "review-of-semiconductor-basics",
+          "name": "Review of semiconductor basics"
+        },
+        {
+          "id": "p-n-junction-diodes",
+          "name": "P-N Junction diodes",
+          "requires": ["review-of-semiconductor-basics"]
+        },
+        {
+          "id": "biasing",
+          "name": "biasing",
+          "requires": ["p-n-junction-diodes"]
+        },
+        {
+          "id": "reverse-saturation-current",
+          "name": "reverse saturation current",
+          "requires": ["biasing"]
+        },
+        {
+          "id": "cut-in-voltage",
+          "name": "cut-in voltage",
+          "requires": ["reverse-saturation-current"]
+        },
+        {
+          "id": "v-i-characteristics-diode-applications-rectification",
+          "name": "V-I Characteristics. Diode Applications: rectification",
+          "requires": ["cut-in-voltage"]
+        },
+        {
+          "id": "half-wave",
+          "name": "half-wave",
+          "requires": ["v-i-characteristics-diode-applications-rectification"]
+        },
+        {
+          "id": "full-wave-and-bridge-rectifier-and-design",
+          "name": "full-wave and bridge rectifier and design",
+          "requires": ["half-wave"]
+        },
+        {
+          "id": "filters",
+          "name": "filters",
+          "requires": ["full-wave-and-bridge-rectifier-and-design"]
+        },
+        {
+          "id": "clippers",
+          "name": "clippers",
+          "requires": ["filters"]
+        },
+        {
+          "id": "clampers-zener-diodes-voltage-regulator",
+          "name": "clampers. Zener Diodes: voltage regulator",
+          "requires": ["clippers"]
+        },
+        {
+          "id": "regulator-design",
+          "name": "regulator design",
+          "requires": ["clampers-zener-diodes-voltage-regulator"]
+        },
+        {
+          "id": "varactor-diodes",
+          "name": "varactor diodes",
+          "requires": ["regulator-design"]
+        },
+        {
+          "id": "photo-diodes",
+          "name": "photo diodes",
+          "requires": ["varactor-diodes"]
+        },
+        {
+          "id": "schottky-diodes",
+          "name": "Schottky diodes",
+          "requires": ["photo-diodes"]
+        },
+        {
+          "id": "tunnel-diodes-and-leds",
+          "name": "tunnel diodes and LEDs",
+          "requires": ["schottky-diodes"]
+        }
+      ]
+    },
+    {
+      "id": "transistor-amplifiers",
+      "name": "Transistor Amplifiers",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "transistors-bjt",
+          "name": "Transistors BJT"
+        },
+        {
+          "id": "fet",
+          "name": "FET",
+          "requires": ["transistors-bjt"]
+        },
+        {
+          "id": "mosfet",
+          "name": "MOSFET",
+          "requires": ["fet"]
+        },
+        {
+          "id": "types",
+          "name": "types",
+          "requires": ["mosfet"]
+        },
+        {
+          "id": "working-principal",
+          "name": "working principal",
+          "requires": ["types"]
+        },
+        {
+          "id": "characteristics-and-region-of-operation",
+          "name": "characteristics, and region of operation",
+          "requires": ["working-principal"]
+        },
+        {
+          "id": "load-line-analysis",
+          "name": "load line analysis",
+          "requires": ["characteristics-and-region-of-operation"]
+        },
+        {
+          "id": "biasing-techniques-transistor-as-an-amplifier",
+          "name": "biasing techniques. Transistor as an amplifier",
+          "requires": ["load-line-analysis"]
+        },
+        {
+          "id": "design-of-a-single-stage-amplifier",
+          "name": "design of a single stage amplifier",
+          "requires": ["biasing-techniques-transistor-as-an-amplifier"]
+        },
+        {
+          "id": "gain",
+          "name": "gain",
+          "requires": ["design-of-a-single-stage-amplifier"]
+        },
+        {
+          "id": "bandwidth-and-frequency-response-frequency-response-of",
+          "name": "bandwidth and frequency response. Frequency response of multistage amplifiers",
+          "requires": ["gain"]
+        }
+      ]
+    },
+    {
+      "id": "linear-integrated-circuits-and-applications",
+      "name": "Linear Integrated Circuits and Applications",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "basic-op-amp-circuits-inverting-and-non-inverting-voltage",
+          "name": "Basic op-amp circuits: Inverting & Non-inverting voltage amplifiers"
+        },
+        {
+          "id": "voltage-follower",
+          "name": "Voltage follower",
+          "requires": ["basic-op-amp-circuits-inverting-and-non-inverting-voltage"]
+        },
+        {
+          "id": "summing",
+          "name": "Summing",
+          "requires": ["voltage-follower"]
+        },
+        {
+          "id": "scaling-and-averaging-amplifiers-linear-applications",
+          "name": "scaling & averaging amplifiers. Linear Applications: Instrumentation Amplifiers",
+          "requires": ["summing"]
+        },
+        {
+          "id": "v-i-and-i-v-converters",
+          "name": "V-I & I-V converters",
+          "requires": ["scaling-and-averaging-amplifiers-linear-applications"]
+        },
+        {
+          "id": "differentiators-and-integrators",
+          "name": "Differentiators & Integrators",
+          "requires": ["v-i-and-i-v-converters"]
+        },
+        {
+          "id": "active-filters-non-linear-applications-precision-rectifiers",
+          "name": "Active filters Non-linear Applications: Precision Rectifiers",
+          "requires": ["differentiators-and-integrators"]
+        },
+        {
+          "id": "wave-shaping-circuits",
+          "name": "Wave Shaping Circuits",
+          "requires": ["active-filters-non-linear-applications-precision-rectifiers"]
+        },
+        {
+          "id": "log-and-antilog-amplifiers",
+          "name": "Log and Antilog Amplifiers",
+          "requires": ["wave-shaping-circuits"]
+        },
+        {
+          "id": "comparators-and-its-applications",
+          "name": "Comparators and its applications",
+          "requires": ["log-and-antilog-amplifiers"]
+        },
+        {
+          "id": "sample-and-hold-circuits-waveform-generators-sine",
+          "name": "Sample and Hold circuits. Waveform Generators: Sine",
+          "requires": ["comparators-and-its-applications"]
+        },
+        {
+          "id": "square-and-triangular-wave-generators",
+          "name": "Square and Triangular Wave generators",
+          "requires": ["sample-and-hold-circuits-waveform-generators-sine"]
+        },
+        {
+          "id": "ic-555-timer-monostable-operation-and-its-applications",
+          "name": "IC 555 Timer: Monostable operation and its applications",
+          "requires": ["square-and-triangular-wave-generators"]
+        },
+        {
+          "id": "astable-operation-and-its-application",
+          "name": "Astable operation and its application",
+          "requires": ["ic-555-timer-monostable-operation-and-its-applications"]
+        }
+      ]
+    },
+    {
+      "id": "dac-specifications",
+      "name": "DAC Specifications",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "dac-circuits",
+          "name": "DAC circuits"
+        },
+        {
+          "id": "weighted-resistor-dac",
+          "name": "Weighted Resistor DAC",
+          "requires": ["dac-circuits"]
+        },
+        {
+          "id": "r-2r-ladder",
+          "name": "R-2R Ladder",
+          "requires": ["weighted-resistor-dac"]
+        },
+        {
+          "id": "monolithic-dac-adc-specifications-adc-circuits",
+          "name": "Monolithic DAC ADC specifications: ADC circuits",
+          "requires": ["r-2r-ladder"]
+        },
+        {
+          "id": "flash-type",
+          "name": "Flash Type",
+          "requires": ["monolithic-dac-adc-specifications-adc-circuits"]
+        },
+        {
+          "id": "ramp-type",
+          "name": "Ramp Type",
+          "requires": ["flash-type"]
+        },
+        {
+          "id": "successive-approximation-and-dual-slope-adc",
+          "name": "Successive Approximation and Dual Slope ADC",
+          "requires": ["ramp-type"]
+        },
+        {
+          "id": "monolithic-adc",
+          "name": "Monolithic ADC",
+          "requires": ["successive-approximation-and-dual-slope-adc"]
+        }
+      ]
+    }
+  ]
+}

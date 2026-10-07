@@ -1,0 +1,235 @@
+{
+  "id": "deep-learning",
+  "name": "Deep Learning",
+  "field": "Deep Learning",
+  "tier": "limited",
+  "branches": ["ce"],
+  "semesters": [6],
+  "code": "24CS341T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Elective",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s6-program-elective-3--deep-learning",
+      "code": "24CS341T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "track": "AI/ML track"
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (CE): Deep Learning",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "chapters": [
+    {
+      "id": "fundamentals-of-neural-networks",
+      "name": "Fundamentals of Neural Networks",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "mcculloch-pitts-neuron",
+          "name": "McCulloch Pitts Neuron"
+        },
+        {
+          "id": "multilayer-perceptrons-mlps",
+          "name": "Multilayer Perceptrons (MLPs)",
+          "requires": ["mcculloch-pitts-neuron"]
+        },
+        {
+          "id": "representation-power-of-mlps",
+          "name": "Representation Power of MLPs",
+          "requires": ["multilayer-perceptrons-mlps"]
+        },
+        {
+          "id": "sigmoid-neurons",
+          "name": "Sigmoid Neurons",
+          "requires": ["representation-power-of-mlps"]
+        },
+        {
+          "id": "feed-forward-neural-networks",
+          "name": "Feed Forward Neural Networks",
+          "requires": ["sigmoid-neurons"]
+        },
+        {
+          "id": "back-propagation",
+          "name": "Back propagation",
+          "requires": ["feed-forward-neural-networks"]
+        },
+        {
+          "id": "gradient-descent-gd",
+          "name": "Gradient Descent (GD)",
+          "requires": ["back-propagation"]
+        },
+        {
+          "id": "momentum-based-gd",
+          "name": "Momentum Based GD",
+          "requires": ["gradient-descent-gd"]
+        },
+        {
+          "id": "nesterov-accelerated-gd",
+          "name": "Nesterov Accelerated GD",
+          "requires": ["momentum-based-gd"]
+        },
+        {
+          "id": "stochastic-gd",
+          "name": "Stochastic GD",
+          "requires": ["nesterov-accelerated-gd"]
+        },
+        {
+          "id": "singular-value-decomposition",
+          "name": "Singular Value Decomposition",
+          "requires": ["stochastic-gd"]
+        },
+        {
+          "id": "parameters-v-s-hyper-parameters",
+          "name": "Parameters v/s Hyper-parameters",
+          "requires": ["singular-value-decomposition"]
+        },
+        {
+          "id": "learning-rule-hebbs-rule",
+          "name": "Learning Rule: Hebb’s Rule",
+          "requires": ["parameters-v-s-hyper-parameters"]
+        }
+      ]
+    },
+    {
+      "id": "the-math-behind-neural-networks",
+      "name": "The Math behind Neural Networks",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "computation-in-neural-network",
+          "name": "Computation in neural network"
+        },
+        {
+          "id": "the-matrix-magic",
+          "name": "The matrix magic",
+          "requires": ["computation-in-neural-network"]
+        },
+        {
+          "id": "programmatic-expression-of-deep-learnings-math-constructs",
+          "name": "Programmatic expression of deep learning’s math constructs",
+          "requires": ["the-matrix-magic"]
+        },
+        {
+          "id": "operations-with-the-tensors",
+          "name": "Operations with the tensors",
+          "requires": ["programmatic-expression-of-deep-learnings-math-constructs"]
+        },
+        {
+          "id": "array-broadcasting",
+          "name": "Array broadcasting",
+          "requires": ["operations-with-the-tensors"]
+        },
+        {
+          "id": "scalar-product-inner-product-of-tensors",
+          "name": "Scalar product/Inner product of tensors",
+          "requires": ["array-broadcasting"]
+        },
+        {
+          "id": "morphing-shapes-of-tensors",
+          "name": "Morphing shapes of tensors",
+          "requires": ["scalar-product-inner-product-of-tensors"]
+        },
+        {
+          "id": "gradient-calculation",
+          "name": "Gradient calculation",
+          "requires": ["morphing-shapes-of-tensors"]
+        }
+      ]
+    },
+    {
+      "id": "data-augmentation-and-convolution-neural-network",
+      "name": "Data Augmentation and Convolution Neural Network",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "data-augmentation",
+          "name": "Data Augmentation"
+        },
+        {
+          "id": "cnn",
+          "name": "CNN",
+          "requires": ["data-augmentation"]
+        },
+        {
+          "id": "cnn-layers",
+          "name": "CNN Layers",
+          "requires": ["cnn"]
+        },
+        {
+          "id": "kernal",
+          "name": "Kernal",
+          "requires": ["cnn-layers"]
+        },
+        {
+          "id": "feature-map",
+          "name": "feature map",
+          "requires": ["kernal"]
+        },
+        {
+          "id": "pooling-max-pool",
+          "name": "Pooling: Max Pool",
+          "requires": ["feature-map"]
+        },
+        {
+          "id": "avg-pool",
+          "name": "Avg pool",
+          "requires": ["pooling-max-pool"]
+        },
+        {
+          "id": "min-pool",
+          "name": "Min Pool",
+          "requires": ["avg-pool"]
+        },
+        {
+          "id": "visualization-of-2d-convolution",
+          "name": "Visualization of 2D convolution",
+          "requires": ["min-pool"]
+        },
+        {
+          "id": "visualization-of-3d-convolution",
+          "name": "Visualization of 3D convolution",
+          "requires": ["visualization-of-2d-convolution"]
+        }
+      ]
+    },
+    {
+      "id": "deep-learning-models",
+      "name": "Deep Learning Models",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "recurrent-neural-network",
+          "name": "Recurrent Neural Network"
+        },
+        {
+          "id": "long-short-term-memory",
+          "name": "Long Short Term Memory",
+          "requires": ["recurrent-neural-network"]
+        },
+        {
+          "id": "gated-recurrent-unit",
+          "name": "Gated Recurrent Unit",
+          "requires": ["long-short-term-memory"]
+        },
+        {
+          "id": "boltzman-machine",
+          "name": "Boltzman Machine",
+          "requires": ["gated-recurrent-unit"]
+        },
+        {
+          "id": "generative-adversarial-network",
+          "name": "Generative Adversarial Network",
+          "requires": ["boltzman-machine"]
+        }
+      ]
+    }
+  ]
+}

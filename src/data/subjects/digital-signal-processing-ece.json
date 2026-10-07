@@ -1,0 +1,250 @@
+{
+  "id": "digital-signal-processing-ece",
+  "name": "Digital Signal Processing (ECE)",
+  "field": "Electronics Engineering",
+  "tier": "sourced",
+  "branches": ["ece"],
+  "semesters": [4],
+  "code": "24ECE***T",
+  "credits": 3,
+  "ltp": "3-0-0",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s4-digital-signal-processing",
+      "code": "24ECE***T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (ECE): Digital Signal Processing",
+    "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "signals",
+  "chapters": [
+    {
+      "id": "discrete-time-signals-and-systems",
+      "name": "Discrete Time Signals and Systems",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "continuous-time-and-discrete-time-signals-analog-and-digital",
+          "name": "Continuous Time and Discrete Time Signals, Analog and Digital Signals"
+        },
+        {
+          "id": "definition-and-examples-classification-of-discrete-time",
+          "name": "Definition and Examples, Classification of Discrete Time Signals, Energy, Power, Periodicity, Signal operations, Discrete time elementary signals, Discrete Time Systems",
+          "requires": ["continuous-time-and-discrete-time-signals-analog-and-digital"]
+        },
+        {
+          "id": "definition-classification-discrete-time-lti-system-and-unit",
+          "name": "Definition, Classification, Discrete time LTI system and unit impulse (sample) response, Convolution sum, Linear constant co-efficient difference equation representation, Block Diagram Representation,",
+          "requires": ["definition-and-examples-classification-of-discrete-time"]
+        }
+      ]
+    },
+    {
+      "id": "transformed-domain-analysis-of-discrete-time",
+      "name": "Transformed Domain Analysis of Discrete Time Signals and Systems",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "z-transform",
+          "name": "Z-transform"
+        },
+        {
+          "id": "roc-and-properties",
+          "name": "ROC and Properties",
+          "requires": ["z-transform"]
+        },
+        {
+          "id": "poles-zeros",
+          "name": "Poles- Zeros",
+          "requires": ["roc-and-properties"]
+        },
+        {
+          "id": "inverse-z-transform",
+          "name": "Inverse z-transform",
+          "requires": ["poles-zeros"]
+        },
+        {
+          "id": "lti-system-analysis-using-z-transform",
+          "name": "LTI System Analysis using Z-transform",
+          "requires": ["inverse-z-transform"]
+        },
+        {
+          "id": "discrete-time-fourier-transform-dtft-and-important",
+          "name": "Discrete Time Fourier Transform (DTFT) and Important Properties",
+          "requires": ["lti-system-analysis-using-z-transform"]
+        },
+        {
+          "id": "frequency-response-of-discrete-time-systems",
+          "name": "Frequency Response of Discrete Time Systems",
+          "requires": ["discrete-time-fourier-transform-dtft-and-important"]
+        },
+        {
+          "id": "correlation-of-discrete-time-signals",
+          "name": "Correlation of Discrete Time Signals",
+          "requires": ["frequency-response-of-discrete-time-systems"]
+        },
+        {
+          "id": "parseval-s-relation",
+          "name": "Parseval‟s relation",
+          "requires": ["correlation-of-discrete-time-signals"]
+        },
+        {
+          "id": "energy-and-power-spectral-density",
+          "name": "Energy and Power Spectral Density",
+          "requires": ["parseval-s-relation"]
+        }
+      ]
+    },
+    {
+      "id": "dft-and-fft-algorithms",
+      "name": "Dft and Fft Algorithms",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "effect-of-periodicity-and-discretization-on-spectra-of-a",
+          "name": "Effect of periodicity and discretization on spectra of a signal"
+        },
+        {
+          "id": "sampling-of-dtft",
+          "name": "Sampling of DTFT",
+          "requires": ["effect-of-periodicity-and-discretization-on-spectra-of-a"]
+        },
+        {
+          "id": "dft-and-idft",
+          "name": "DFT and IDFT",
+          "requires": ["sampling-of-dtft"]
+        },
+        {
+          "id": "important-properties-of-dft",
+          "name": "Important Properties of DFT",
+          "requires": ["dft-and-idft"]
+        },
+        {
+          "id": "linear-and-circular-convolution",
+          "name": "Linear and Circular Convolution",
+          "requires": ["important-properties-of-dft"]
+        },
+        {
+          "id": "application-of-dft-in-linear-filtering",
+          "name": "Application of DFT in Linear Filtering",
+          "requires": ["linear-and-circular-convolution"]
+        },
+        {
+          "id": "efficient-computation-of-dft",
+          "name": "Efficient Computation of DFT",
+          "requires": ["application-of-dft-in-linear-filtering"]
+        },
+        {
+          "id": "radix2-fft-algorithms",
+          "name": "Radix2 FFT Algorithms",
+          "requires": ["efficient-computation-of-dft"]
+        },
+        {
+          "id": "geortzel-algorithm",
+          "name": "Geortzel Algorithm",
+          "requires": ["radix2-fft-algorithms"]
+        }
+      ]
+    },
+    {
+      "id": "digital-filters-design-and-structures",
+      "name": "Digital Filters: Design and Structures",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "ideal-digital-filters",
+          "name": "Ideal Digital Filters"
+        },
+        {
+          "id": "practical-filters-stability-and-causality",
+          "name": "Practical Filters: Stability and Causality",
+          "requires": ["ideal-digital-filters"]
+        },
+        {
+          "id": "fir-and-iir-filters",
+          "name": "FIR and IIR Filters",
+          "requires": ["practical-filters-stability-and-causality"]
+        },
+        {
+          "id": "linear-phase-and-implications",
+          "name": "Linear Phase and Implications",
+          "requires": ["fir-and-iir-filters"]
+        },
+        {
+          "id": "filter-design-steps",
+          "name": "Filter Design Steps",
+          "requires": ["linear-phase-and-implications"]
+        },
+        {
+          "id": "fir-basics",
+          "name": "Design of Linear Phase FIR Filters",
+          "requires": ["filter-design-steps"]
+        },
+        {
+          "id": "window-method",
+          "name": "Window Method",
+          "requires": ["fir-basics"]
+        },
+        {
+          "id": "iir-filter-design",
+          "name": "IIR Filter Design",
+          "requires": ["window-method"]
+        },
+        {
+          "id": "pole-zero-placement-method",
+          "name": "Pole-Zero Placement Method",
+          "requires": ["iir-filter-design"]
+        },
+        {
+          "id": "overview-of-laplace-transform-and-analog-filter-design",
+          "name": "Overview of Laplace Transform and Analog Filter Design",
+          "requires": ["pole-zero-placement-method"]
+        },
+        {
+          "id": "analog-filter-standard-frequency-responses-and-design",
+          "name": "Analog Filter Standard Frequency Responses and Design Equations",
+          "requires": ["overview-of-laplace-transform-and-analog-filter-design"]
+        },
+        {
+          "id": "iir-filter-coefficients-from-analog-filter",
+          "name": "IIR Filter Coefficients from Analog Filter",
+          "requires": ["analog-filter-standard-frequency-responses-and-design"]
+        },
+        {
+          "id": "bilinear-transformation",
+          "name": "Bilinear Transformation",
+          "requires": ["iir-filter-coefficients-from-analog-filter"]
+        },
+        {
+          "id": "basic-structures-for-fir-and-iir-systems-implementation",
+          "name": "Basic Structures for FIR and IIR Systems implementation",
+          "requires": ["bilinear-transformation"]
+        },
+        {
+          "id": "direct",
+          "name": "Direct",
+          "requires": ["basic-structures-for-fir-and-iir-systems-implementation"]
+        },
+        {
+          "id": "transposed-cascade-and-parallel-form-structures",
+          "name": "Transposed Cascade and Parallel form Structures",
+          "requires": ["direct"]
+        },
+        {
+          "id": "effects-of-co-efficient-quantization",
+          "name": "Effects of Co-efficient Quantization",
+          "requires": ["transposed-cascade-and-parallel-form-structures"]
+        }
+      ]
+    }
+  ]
+}

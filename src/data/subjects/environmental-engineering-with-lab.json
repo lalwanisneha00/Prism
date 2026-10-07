@@ -1,0 +1,238 @@
+{
+  "id": "environmental-engineering-with-lab",
+  "name": "Environmental Engineering (with lab)",
+  "field": "Civil Engineering",
+  "tier": "limited",
+  "branches": ["civil"],
+  "semesters": [6],
+  "credits": 4,
+  "ltp": "3-0-2",
+  "category": "Program Core",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s6-environmental-engineering-with-lab",
+      "category": "Program Core",
+      "ltp": "3-0-2",
+      "credits": 4,
+      "semester": 6
+    }
+  ],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU B.Tech curriculum handbook (Civil): Environmental Engineering (with lab)",
+    "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse earlier Prism topics, so their checked sources still apply; the rest have no sources yet and the subject's accuracy test has not been run. Prerequisite arrows follow the handbook's teaching order within a unit."
+  },
+  "visualSet": "process",
+  "chapters": [
+    {
+      "id": "drinking-water",
+      "name": "Drinking Water",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "water-cycle",
+          "name": "Water cycle"
+        },
+        {
+          "id": "sources-of-water",
+          "name": "Sources of water",
+          "requires": ["water-cycle"]
+        },
+        {
+          "id": "water-quality-standards",
+          "name": "Water quality standards",
+          "requires": ["sources-of-water"]
+        },
+        {
+          "id": "impact-of-water-quality-on-human-health",
+          "name": "Impact of water quality on - human health",
+          "requires": ["water-quality-standards"]
+        },
+        {
+          "id": "agriculture",
+          "name": "agriculture",
+          "requires": ["impact-of-water-quality-on-human-health"]
+        },
+        {
+          "id": "materials",
+          "name": "materials",
+          "requires": ["agriculture"]
+        },
+        {
+          "id": "etc-water-demands-types-and-estimation",
+          "name": "etc. Water Demands types and estimation",
+          "requires": ["materials"]
+        },
+        {
+          "id": "water-budget",
+          "name": "Water Budget",
+          "requires": ["etc-water-demands-types-and-estimation"]
+        },
+        {
+          "id": "population-forecasting-methods",
+          "name": "Population Forecasting Methods",
+          "requires": ["water-budget"]
+        }
+      ]
+    },
+    {
+      "id": "water-treatment",
+      "name": "Water Treatment",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "design-of-screens",
+          "name": "Design of Screens"
+        },
+        {
+          "id": "types-of-settling-and-settling-tests",
+          "name": "Types of settling and settling tests",
+          "requires": ["design-of-screens"]
+        },
+        {
+          "id": "design-of-sedimentation-tank",
+          "name": "Design of Sedimentation Tank",
+          "requires": ["types-of-settling-and-settling-tests"]
+        },
+        {
+          "id": "coagulation-mechanisms-of-coagulation",
+          "name": "Coagulation: mechanisms of coagulation",
+          "requires": ["design-of-sedimentation-tank"]
+        },
+        {
+          "id": "mixing-and-flocculation",
+          "name": "Mixing and Flocculation",
+          "requires": ["coagulation-mechanisms-of-coagulation"]
+        },
+        {
+          "id": "design-of-clariflocculator",
+          "name": "Design of clariflocculator",
+          "requires": ["mixing-and-flocculation"]
+        },
+        {
+          "id": "filtration-slows-sand-filters",
+          "name": "Filtration: Slows sand filters",
+          "requires": ["design-of-clariflocculator"]
+        },
+        {
+          "id": "rapid-sand-filters",
+          "name": "rapid sand filters",
+          "requires": ["filtration-slows-sand-filters"]
+        },
+        {
+          "id": "water-softening",
+          "name": "Water Softening",
+          "requires": ["rapid-sand-filters"]
+        },
+        {
+          "id": "water-disinfectioning",
+          "name": "Water Disinfectioning",
+          "requires": ["water-softening"]
+        },
+        {
+          "id": "action-plan-for-efficient-plant-operation",
+          "name": "Action plan for efficient plant operation",
+          "requires": ["water-disinfectioning"]
+        }
+      ]
+    },
+    {
+      "id": "wastewater",
+      "name": "Wastewater",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "classification-of-wastewater",
+          "name": "Classification of wastewater"
+        },
+        {
+          "id": "composition-of-wastewater",
+          "name": "Composition of wastewater",
+          "requires": ["classification-of-wastewater"]
+        },
+        {
+          "id": "characterization-of-wastewater-physical-chemical-and",
+          "name": "Characterization of wastewater (physical, chemical and biological)",
+          "requires": ["composition-of-wastewater"]
+        },
+        {
+          "id": "basics-of-sewage-quality-assessment",
+          "name": "basics of sewage quality assessment",
+          "requires": ["characterization-of-wastewater-physical-chemical-and"]
+        },
+        {
+          "id": "sources-of-wastewater",
+          "name": "sources of wastewater",
+          "requires": ["basics-of-sewage-quality-assessment"]
+        },
+        {
+          "id": "estimation-of-wastewater-quantity",
+          "name": "estimation of wastewater quantity",
+          "requires": ["sources-of-wastewater"]
+        }
+      ]
+    },
+    {
+      "id": "wastewater-treatment",
+      "name": "Wastewater Treatment",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "significance-of-wastewater-treatment",
+          "name": "Significance of wastewater treatment"
+        },
+        {
+          "id": "objectives-of-a-sewage-treatment-plant",
+          "name": "objectives of a sewage treatment plant",
+          "requires": ["significance-of-wastewater-treatment"]
+        },
+        {
+          "id": "classification-of-treatment-processes",
+          "name": "classification of treatment processes",
+          "requires": ["objectives-of-a-sewage-treatment-plant"]
+        },
+        {
+          "id": "design-of-a-sewage-treatment-plant-screening",
+          "name": "design of a sewage treatment plant - Screening",
+          "requires": ["classification-of-treatment-processes"]
+        },
+        {
+          "id": "grit-removal-basin",
+          "name": "Grit Removal Basin",
+          "requires": ["design-of-a-sewage-treatment-plant-screening"]
+        },
+        {
+          "id": "skimming-tank",
+          "name": "Skimming Tank",
+          "requires": ["grit-removal-basin"]
+        },
+        {
+          "id": "sedimentation-tank",
+          "name": "Sedimentation Tank",
+          "requires": ["skimming-tank"]
+        },
+        {
+          "id": "secondary-treatment-of-sewage-through-i-biological",
+          "name": "Secondary Treatment of sewage through (i) Biological Filtration of Sewage (ii) Activated Sludge Process",
+          "requires": ["sedimentation-tank"]
+        },
+        {
+          "id": "disinfection-of-sewage-and-sludge",
+          "name": "Disinfection of sewage and sludge",
+          "requires": ["secondary-treatment-of-sewage-through-i-biological"]
+        },
+        {
+          "id": "methods-of-disposal-of-treated-sewage-along-with-their",
+          "name": "methods of disposal of treated Sewage along with their standards",
+          "requires": ["disinfection-of-sewage-and-sludge"]
+        },
+        {
+          "id": "action-plan-for-efficient-plant-operation-laboratory",
+          "name": "Action plan for efficient plant operation. Laboratory",
+          "requires": ["methods-of-disposal-of-treated-sewage-along-with-their"]
+        }
+      ]
+    }
+  ]
+}

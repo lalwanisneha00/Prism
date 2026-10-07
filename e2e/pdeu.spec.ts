@@ -45,11 +45,14 @@ test.describe("PDEU's own syllabus", () => {
   test("a subject page shows PDEU's units and topics, and can become a studyable subject", async ({
     page,
   }) => {
+    // A core course's card opens the Prism subject; its handbook page is one link away.
     await choose(page, "ce", "1");
     await page
       .getByTestId("pdeu-core")
       .getByRole("link", { name: "Applied Physics", exact: true })
       .click();
+    await expect(page).toHaveURL(/\/subjects\/applied-physics$/);
+    await page.goto("/pdeu/ce/s1-applied-physics");
     await expect(page.getByRole("heading", { name: "Applied Physics", level: 1 })).toBeVisible();
     await expect(page.getByTestId("pdeu-details")).toContainText("24PH101T");
     await expect(page.getByTestId("pdeu-details")).toContainText("Credits");
@@ -57,12 +60,11 @@ test.describe("PDEU's own syllabus", () => {
     await expect(units).toContainText("Unit 1: Electricity and Magnetism");
     await expect(units).toContainText("12 hrs");
     await expect(units).toContainText("Poynting Vector");
-    await expect(page.getByTestId("pdeu-prism-lessons")).toContainText("Prism teaches");
+    await expect(page.getByTestId("pdeu-prism-lessons")).toContainText("subject on Prism");
     await expectNoSidewaysScroll(page);
-
-    await page.getByRole("button", { name: "Study this syllabus on Prism" }).click();
-    await expect(page).toHaveURL(/\/my-subjects\/view\?id=custom-/);
-    await expect(page.getByText("Electricity and Magnetism").first()).toBeVisible();
+    await page.getByTestId("pdeu-prism-lessons").getByRole("link").click();
+    await expect(page).toHaveURL(/\/subjects\/applied-physics$/);
+    await expect(page.getByTestId("subject-details")).toContainText("24PH101T");
   });
 
   test("a non-core subject lists its units and offers the faculty-material upload", async ({
@@ -107,17 +109,20 @@ test.describe("PDEU's own syllabus", () => {
     const options = page.getByTestId("pdeu-options");
     await expect(options).toContainText("Data Mining and Data Warehousing");
     await options.getByRole("link", { name: /Data Mining/ }).click();
-    await expect(page.getByTestId("pdeu-details")).toContainText("24CS331T");
-    await expect(page.getByTestId("pdeu-units")).toContainText("Association Analysis");
+    await expect(page.getByTestId("subject-details")).toContainText("24CS331T");
+    await expect(page.getByTestId("subject-chapters")).toContainText("Association Analysis");
   });
 
-  test("other PDEU branches work, and a branch PDEU's file lacks keeps the usual list", async ({
-    page,
-  }) => {
+  test("other PDEU branches work, and branches PDEU's file lacks are gone", async ({ page }) => {
     await choose(page, "civil", "3");
     await expect(page.getByTestId("pdeu-core").getByTestId("pdeu-course").first()).toBeVisible();
-    await choose(page, "ee", "3");
-    await expect(page.getByTestId("pdeu-semester")).toHaveCount(0);
-    await expect(page.getByTestId("subject-card").first()).toContainText("Suggested");
+    const options = await page
+      .getByTestId("branch-bar")
+      .getByLabel("My branch")
+      .locator("option")
+      .allTextContents();
+    expect(options).toContain("Civil Engineering");
+    expect(options).not.toContain("Electrical Engineering");
+    expect(options).not.toContain("Mining Engineering");
   });
 });
