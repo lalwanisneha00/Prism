@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
-import { useId, useMemo, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { AllSubjectsList } from "@/components/AllSubjectsList";
 import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
 import { DurationChooser } from "@/components/DurationChooser";
@@ -20,7 +20,7 @@ import { coverageFor } from "@/lib/syllabus/coverage";
 import { useMySemester } from "@/components/subjects/useMySemester";
 import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { TopicSearch } from "@/components/TopicSearch";
-import { defaultDuration } from "@/data/durations";
+import { defaultDuration, isDuration } from "@/data/durations";
 import { availableLevels, type LevelSlug } from "@/data/levels";
 import { levelColor } from "@/lib/levelColor";
 import { FLAGS } from "@/lib/flags";
@@ -36,7 +36,14 @@ import { chaptersOf, subjectsFor, type Subject } from "@/lib/subjects";
 
 const fieldOrder: LessonRequestField[] = ["chapter", "topic", "level", "duration"];
 
-export type PickerInitial = { subject?: string; chapter?: string; topic?: string };
+export type PickerInitial = {
+  subject?: string;
+  chapter?: string;
+  topic?: string;
+  /** Remembered level and time, so coming back to the page restores the whole choice. */
+  level?: string;
+  duration?: string;
+};
 
 /**
  * The lesson picker. The student's own subjects ("Other subjects", V3 · Step 4) live in their
@@ -111,11 +118,30 @@ function PickerForm({
   const [topicId, setTopicId] = useState(
     startChapter?.chapter.topics.some((t) => t.id === initial.topic) ? (initial.topic ?? "") : "",
   );
-  const [level, setLevel] = useState("");
-  const [duration, setDuration] = useState(String(defaultDuration));
+  const [level, setLevel] = useState(
+    availableLevels.some((l) => l.slug === initial.level) ? (initial.level ?? "") : "",
+  );
+  const [duration, setDuration] = useState(
+    isDuration(Number(initial.duration)) ? String(initial.duration) : String(defaultDuration),
+  );
   const [errors, setErrors] = useState<LessonRequestErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [useNotes, setUseNotes] = useState(false);
+
+  // Keep the choice in the address as it is made (without adding history entries), so leaving to
+  // upload a file and coming Back brings the same subject, chapter, topic, level and time back.
+  useEffect(() => {
+    const params = new URLSearchParams();
+    params.set("subject", subjectId);
+    if (chapterId) params.set("chapter", chapterId);
+    if (topicId) params.set("topic", topicId);
+    if (level) params.set("level", level);
+    if (duration && duration !== String(defaultDuration)) params.set("duration", duration);
+    const next = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
+    if (next !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
+      window.history.replaceState(window.history.state, "", next);
+    }
+  }, [subjectId, chapterId, topicId, level, duration]);
   // One topic (the usual lesson), the whole chapter, or several chosen topics (V2.5 · Step 3).
   const [scope, setScope] = useState<"topic" | "chapter" | "topics">("topic");
   const [picked, setPicked] = useState<string[]>([]);
@@ -500,7 +526,7 @@ function PickerForm({
         )}
       </FieldGroup>
 
-      <NotesToggle checked={useNotes} onChange={setUseNotes} />
+      <NotesToggle checked={useNotes} onChange={setUseNotes} subjectId={subject.id} />
       <KeyIndicator />
 
       <button

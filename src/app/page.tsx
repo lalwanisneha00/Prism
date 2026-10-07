@@ -105,6 +105,8 @@ export default async function Home({ searchParams }: PageProps<"/">) {
                 subject: pick(params.subject),
                 chapter: pick(params.chapter),
                 topic: pick(params.topic),
+                level: pick(params.level),
+                duration: pick(params.duration),
               }}
             />
           </div>

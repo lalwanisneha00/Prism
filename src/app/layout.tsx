@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Geist, Geist_Mono, Source_Sans_3 } from "next/font/google";
 import { AuthProvider } from "@/components/account/AuthProvider";
 import { DbBlockedNotice } from "@/components/DbBlockedNotice";
+import { BackButton } from "@/components/BackButton";
 import { NavProgress } from "@/components/NavProgress";
 import { AddKeyBar } from "@/components/settings/AddKeyBar";
 import { KeyboardShortcuts } from "@/components/KeyboardShortcuts";
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <AddKeyBar />
           <DbBlockedNotice />
           <SiteHeader />
+          <BackButton />
           <main id="main" className="flex-1">
             {children}
           </main>

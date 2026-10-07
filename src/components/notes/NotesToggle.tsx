@@ -9,10 +9,14 @@ import { listLocalNotes } from "@/lib/notes/store";
 export function NotesToggle({
   checked,
   onChange,
+  subjectId,
 }: {
   checked: boolean;
   onChange: (value: boolean) => void;
+  /** The subject being chosen: the uploads page opens on it. */
+  subjectId?: string;
 }) {
+  const notesHref = subjectId ? `/notes?subject=${encodeURIComponent(subjectId)}` : "/notes";
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
@@ -26,7 +30,7 @@ export function NotesToggle({
     return (
       <p className="text-sm text-muted">
         <Icon name="book" /> Have college notes?{" "}
-        <Link href="/notes" className="font-semibold text-primary underline underline-offset-2">
+        <Link href={notesHref} className="font-semibold text-primary underline underline-offset-2">
           Add a PDF
         </Link>{" "}
         and lessons will follow them.
@@ -49,7 +53,7 @@ export function NotesToggle({
         <span className="block text-sm text-muted">
           Prism searches your {count} {count === 1 ? "file" : "files"} on this device and follows
           the matching pages.{" "}
-          <Link href="/notes" className="text-primary underline underline-offset-2">
+          <Link href={notesHref} className="text-primary underline underline-offset-2">
             Manage notes
           </Link>
         </span>
