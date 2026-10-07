@@ -16,7 +16,7 @@ test.describe("Navigation for many subjects (V3 · Step 3)", () => {
   test("my branch and semester is saved and shapes the subject list", async ({ page }) => {
     await page.goto("/subjects");
     const bar = page.getByTestId("branch-bar");
-    await bar.getByLabel("My branch").selectOption("me");
+    await bar.getByLabel("My branch").selectOption("ee");
     await bar.getByLabel("Semester").selectOption("1");
     const mine = page.getByTestId("my-subjects");
     await expect(mine).toContainText("My subjects, semester 1");
@@ -25,7 +25,7 @@ test.describe("Navigation for many subjects (V3 · Step 3)", () => {
 
     // Saved: the home page picker remembers it.
     await page.goto("/");
-    await expect(page.getByTestId("branch-bar").getByLabel("My branch")).toHaveValue("me");
+    await expect(page.getByTestId("branch-bar").getByLabel("My branch")).toHaveValue("ee");
     // Only the chosen subject shows on top; the first-year common core (Wave 1's nine subjects plus
     // Electricity & Magnetism) leads the collapsed list.
     await expect(page.getByTestId("subject-chips").getByRole("radio")).toHaveCount(1);

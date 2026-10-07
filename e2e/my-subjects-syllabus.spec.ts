@@ -6,7 +6,14 @@ const fixture = (name: string) => path.join(__dirname, "..", "test-fixtures", na
 const PDEU = fixture("pdeu-computer-engineering-sem1-syllabus.pdf");
 
 async function chooseSemester(page: Page, n: string) {
-  await page.getByTestId("branch-bar").getByLabel("Semester").selectOption(n);
+  const select = page.getByTestId("branch-bar").getByLabel("Semester");
+  // A choice made before the page has finished loading can be reset, so check it stuck.
+  await expect(async () => {
+    await select.selectOption(n);
+    await expect(select).toHaveValue(n, { timeout: 1500 });
+    await page.waitForTimeout(300);
+    await expect(select).toHaveValue(n, { timeout: 1500 });
+  }).toPass({ timeout: 20_000 });
 }
 
 async function uploadPdeu(page: Page) {
@@ -28,7 +35,7 @@ test.describe("My subjects: semester syllabus (PDEU Computer Engineering, semest
     await expect(all.getByRole("searchbox")).toBeHidden();
     await expect(page.getByTestId("my-subjects")).toContainText("Choose your branch and semester");
 
-    await page.getByTestId("branch-bar").getByLabel("My branch").selectOption("ce");
+    await page.getByTestId("branch-bar").getByLabel("My branch").selectOption("ee");
     await chooseSemester(page, "1");
     await expect(page.getByTestId("my-subjects")).toContainText("My subjects, semester 1");
     await expect(page.getByTestId("subject-card").first()).toContainText("Suggested");

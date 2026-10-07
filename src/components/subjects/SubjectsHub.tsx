@@ -5,10 +5,12 @@ import { NeedsMaterialNote } from "@/components/custom/NeedsMaterialNote";
 import Link from "next/link";
 import { useId, useMemo, useState } from "react";
 import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
+import { PdeuSemester } from "@/components/pdeu/PdeuSemester";
 import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { useMySemester } from "@/components/subjects/useMySemester";
 import { useSyllabus } from "@/components/subjects/useSyllabus";
 import { countsOf, indexedSubject, subjectIndex, subjectsInSemester } from "@/lib/catalogue";
+import { isPdeuBranch } from "@/lib/pdeu/load";
 import { SEMESTERS } from "@/lib/semester/mySemester";
 import { branches } from "@/lib/subjects";
 import { coverageFor, NOTE_OUTSIDE, NOTE_LATER } from "@/lib/syllabus/coverage";
@@ -140,6 +142,8 @@ export function SubjectsHub() {
   const [query, setQuery] = useState("");
 
   const semester = mine.semester;
+  // PDEU students see their university's own core and non-core subjects for the semester.
+  const pdeuBranch = isPdeuBranch(mine.branch) ? mine.branch : undefined;
   const term = semester ? syllabus[String(semester)] : undefined;
   const loaded = mineLoaded && picksLoaded && custom.loaded;
 
@@ -176,7 +180,7 @@ export function SubjectsHub() {
             },
       );
     }
-    if (out.length === 0) {
+    if (out.length === 0 && !pdeuBranch) {
       for (const s of subjectsInSemester(semester, mine.branch).slice(0, 12)) {
         out.push({
           id: s.id,
@@ -188,7 +192,7 @@ export function SubjectsHub() {
       }
     }
     return out;
-  }, [semester, picks, term, custom.records, mine.branch]);
+  }, [semester, picks, term, custom.records, mine.branch, pdeuBranch]);
 
   const shown = new Set(cards.map((c) => c.id));
   const q = query.trim().toLowerCase();
@@ -245,6 +249,14 @@ export function SubjectsHub() {
           </select>
         </label>
       </div>
+
+      {/* PDEU: the university's own core and non-core subjects, with credits */}
+      {pdeuBranch && semester && <PdeuSemester branchId={pdeuBranch} semester={semester} />}
+      {pdeuBranch && !semester && (
+        <p className="rounded-2xl border border-dashed border-border p-4 text-sm text-muted">
+          Choose your semester to see PDEU&apos;s core and non-core subjects with their credits.
+        </p>
+      )}
 
       {/* B + C + D: upload and analyse */}
       <section
