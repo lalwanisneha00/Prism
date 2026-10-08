@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { CustomMapRoute } from "@/components/custom/CustomRoutes";
+import { MapStart } from "@/components/map/MapStart";
 import { MapSubjectPicker } from "@/components/map/MapSubjectPicker";
 import { SubjectGraphLoader } from "@/components/map/SubjectGraphLoader";
-import { indexedSubject, subjectIndex } from "@/lib/catalogue";
+import { indexedSubject } from "@/lib/catalogue";
 import { isCustomId } from "@/lib/custom/customSubject";
 
 export const metadata: Metadata = { title: "Concept map" };
@@ -17,7 +18,7 @@ export default async function MapPage({ searchParams }: PageProps<"/map">) {
       </Container>
     );
   }
-  const subject = (typeof raw === "string" ? indexedSubject(raw) : undefined) ?? subjectIndex[0];
+  const subject = typeof raw === "string" ? indexedSubject(raw) : undefined;
 
   return (
     <Container className="flex flex-col gap-6 py-10 sm:py-14">
@@ -28,8 +29,14 @@ export default async function MapPage({ searchParams }: PageProps<"/map">) {
           colours show your latest quiz results.
         </p>
       </div>
-      <MapSubjectPicker currentId={subject.id} />
-      <SubjectGraphLoader subjectId={subject.id} />
+      {subject ? (
+        <>
+          <MapSubjectPicker currentId={subject.id} />
+          <SubjectGraphLoader subjectId={subject.id} />
+        </>
+      ) : (
+        <MapStart />
+      )}
     </Container>
   );
 }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useId, useMemo, useRef, useState } from "react";
+import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
 import { useMySemester } from "@/components/subjects/useMySemester";
 import { subjectIndex } from "@/lib/catalogue";
 
@@ -12,20 +13,25 @@ import { subjectIndex } from "@/lib/catalogue";
 export function MapSubjectPicker({ currentId }: { currentId: string }) {
   const id = useId();
   const { picks } = useMySemester();
+  const custom = useCustomSubjects();
   const [query, setQuery] = useState("");
   const details = useRef<HTMLDetailsElement>(null);
-  const current = subjectIndex.find((s) => s.id === currentId);
+  const current =
+    subjectIndex.find((s) => s.id === currentId) ?? custom.records.find((r) => r.id === currentId);
 
   const { mine, rest } = useMemo(() => {
     const q = query.trim().toLowerCase();
     const ok = (s: { name: string; field: string }) =>
       !q || s.name.toLowerCase().includes(q) || s.field.toLowerCase().includes(q);
-    const mineList = picks
+    // The student's own subjects first, then their PDEU subjects for the semester.
+    const own = custom.records.map((r) => ({ id: r.id, name: r.name, field: "My subject" }));
+    const builtIn = picks
       .map((p) => subjectIndex.find((s) => s.id === p))
-      .filter((s): s is NonNullable<typeof s> => Boolean(s) && ok(s!));
+      .filter((s): s is NonNullable<typeof s> => Boolean(s));
+    const mineList = [...own, ...builtIn].filter((s) => ok(s));
     const taken = new Set(mineList.map((s) => s.id));
     return { mine: mineList, rest: subjectIndex.filter((s) => !taken.has(s.id) && ok(s)) };
-  }, [picks, query]);
+  }, [picks, query, custom.records]);
 
   const item = (s: { id: string; name: string }) => (
     <li key={s.id}>

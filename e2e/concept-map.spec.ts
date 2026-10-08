@@ -76,4 +76,40 @@ test.describe("Subject concept map", () => {
     await graph.locator(node("chapter:electricity-and-magnetism")).click();
     await expect(graph.locator(node("faradays-law"))).toBeVisible();
   });
+
+  test("opens the student's own subject, and lists their subjects first", async ({ page }) => {
+    await page.goto("/subjects");
+    const bar = page.getByTestId("branch-bar");
+    await expect(async () => {
+      await bar.getByLabel("My branch").selectOption("ce");
+      await bar.getByLabel("Semester").selectOption("1");
+      await expect(bar.getByLabel("Semester")).toHaveValue("1", { timeout: 1500 });
+      await page.waitForTimeout(300);
+      await expect(bar.getByLabel("My branch")).toHaveValue("ce", { timeout: 1500 });
+    }).toPass({ timeout: 20_000 });
+    await expect(page.getByTestId("pdeu-core")).toContainText("Applied Physics");
+
+    const mine = [
+      "Mathematics - I",
+      "Applied Physics",
+      "Engineering Graphics",
+      "Computer Programming - I",
+      "Environment Science",
+      "English Communication",
+      "Universal Human Values",
+    ];
+    await page.goto("/map");
+    const picker = page.getByTestId("map-subject-picker");
+    await expect(picker.locator("summary")).toContainText(
+      /Mathematics - I|Applied Physics|Engineering Graphics|Computer Programming - I|Environment Science|English Communication|Universal Human Values/,
+    );
+    await picker.locator("summary").click();
+    const names = await picker
+      .getByRole("link")
+      .evaluateAll((els) => els.slice(0, 7).map((e) => e.textContent ?? ""));
+    expect(
+      names.every((n) => mine.some((m) => n.startsWith(m))),
+      names.join(" | "),
+    ).toBe(true);
+  });
 });
