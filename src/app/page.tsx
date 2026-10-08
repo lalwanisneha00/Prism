@@ -1,10 +1,10 @@
 import { Container } from "@/components/Container";
 import { LessonPicker } from "@/components/LessonPicker";
-import { PrismArt } from "@/components/PrismArt";
+import Image from "next/image";
 import { RecentTopics } from "@/components/RecentTopics";
 import { GlobalSearch } from "@/components/subjects/GlobalSearch";
 import { levels } from "@/data/levels";
-import { levelColor } from "@/lib/levelColor";
+import { spectrumColor } from "@/lib/levelColor";
 import { site } from "@/lib/site";
 import { subjects } from "@/lib/subjects";
 
@@ -54,7 +54,15 @@ export default async function Home({ searchParams }: PageProps<"/">) {
             </div>
           </div>
           <div className="flex flex-col gap-5">
-            <PrismArt className="mx-auto w-full max-w-sm" />
+            <Image
+              src="/prism-spectrum.png"
+              alt="A beam of white light enters a prism and leaves as the six colours of the spectrum"
+              width={1254}
+              height={1254}
+              priority
+              sizes="(min-width: 768px) 420px, 90vw"
+              className="mx-auto w-full max-w-sm rounded-3xl border border-border"
+            />
             <ul aria-hidden="true" className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
               {levels.map((l) => (
                 <li
@@ -65,7 +73,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
                   <span
                     aria-hidden="true"
                     className="h-3 w-1.5 rounded-sm"
-                    style={{ background: levelColor(l.slug) }}
+                    style={{ background: spectrumColor(l.slug) }}
                   />
                 </li>
               ))}
