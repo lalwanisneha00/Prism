@@ -162,4 +162,65 @@ test.describe("Start a lesson", () => {
       .evaluateAll((els) => els.slice(0, 3).map((e) => (e.textContent ?? "").trim()));
     expect(civilList.join("|")).not.toBe(ceList.join("|"));
   });
+
+  test("changing only the semester, only the branch, or both updates the subjects on top", async ({
+    page,
+  }) => {
+    test.setTimeout(150_000);
+    await page.goto("/start");
+    const bar = page.getByTestId("branch-bar");
+    const settle = async (branch: string, semester: string) => {
+      await expect(bar.getByLabel("My branch")).toHaveValue(branch, { timeout: 5000 });
+      await expect(bar.getByLabel("Semester")).toHaveValue(semester, { timeout: 5000 });
+      await page.waitForTimeout(500);
+    };
+    const pick = async (change: { branch?: string; semester?: string }) => {
+      if (change.branch) await bar.getByLabel("My branch").selectOption(change.branch);
+      if (change.semester) {
+        await expect(bar.getByLabel("Semester")).toBeEnabled({ timeout: 5000 });
+        await bar.getByLabel("Semester").selectOption(change.semester);
+      }
+    };
+    const top = async () =>
+      (
+        await page
+          .getByTestId("all-subjects-list")
+          .getByRole("button")
+          .evaluateAll((els) => els.slice(0, 4).map((e) => (e.textContent ?? "").trim()))
+      ).join(" | ");
+    const chipText = async () =>
+      (await page.getByTestId("subject-chips").locator("label").first().innerText())
+        .split("·")[0]
+        .trim();
+    const list = await (async () => {
+      await page.getByTestId("all-subjects-list").locator("summary").click();
+      return top;
+    })();
+
+    await expect(async () => {
+      await pick({ branch: "ce", semester: "1" });
+      await settle("ce", "1");
+    }).toPass({ timeout: 30_000 });
+    const ce1 = { top: await list(), chip: await chipText() };
+
+    // Only the semester changes (same branch).
+    await pick({ semester: "2" });
+    await settle("ce", "2");
+    await expect.poll(list).not.toBe(ce1.top);
+    const ce2 = { top: await list(), chip: await chipText() };
+    expect(ce2.chip).not.toBe(ce1.chip);
+
+    // Only the branch changes (same semester).
+    await pick({ branch: "ict" });
+    await settle("ict", "2");
+    await expect.poll(list).not.toBe(ce2.top);
+    const ict2 = { top: await list(), chip: await chipText() };
+
+    // Both change.
+    await pick({ branch: "civil" });
+    await pick({ semester: "4" });
+    await settle("civil", "4");
+    await expect.poll(list).not.toBe(ict2.top);
+    expect(await chipText()).not.toBe(ict2.chip);
+  });
 });
