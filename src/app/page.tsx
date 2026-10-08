@@ -55,13 +55,13 @@ export default async function Home({ searchParams }: PageProps<"/">) {
           </div>
           <div className="flex flex-col gap-5">
             <Image
-              src="/prism-spectrum.png"
+              src="/prism-spectrum-clear.png"
               alt="A beam of white light enters a prism and leaves as the six colours of the spectrum"
               width={1254}
               height={1254}
               priority
               sizes="(min-width: 768px) 420px, 90vw"
-              className="mx-auto w-full max-w-sm rounded-3xl border border-border"
+              className="mx-auto w-full max-w-md drop-shadow-[0_0_2px_rgba(0,0,0,0.85)]"
             />
             <ul aria-hidden="true" className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
               {levels.map((l) => (
