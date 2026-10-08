@@ -330,6 +330,25 @@ function PickerForm({
         mine={mine}
         onChange={(next) => {
           saveMine(next);
+          // A new branch or semester: the subject on show becomes that branch's first subject, and the
+          // list below puts the new branch's subjects on top.
+          if (next.branch) {
+            const list = next.semester
+              ? visibleSubjects(
+                  subjectsFor(next.branch, next.semester),
+                  next.branch,
+                  electiveChoices,
+                )
+              : subjectsFor(next.branch);
+            const first = list[0];
+            if (first && first.id !== subjectId) {
+              setSubjectId(first.id);
+              setChapterId("");
+              setOwnerId("");
+              setTopicId("");
+              clearErrors("chapter", "topic");
+            }
+          }
         }}
       />
 

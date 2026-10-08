@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
+import { SEMESTER_CHANGED_EVENT } from "@/lib/semester/mySemester";
 import { getSettings, updateSettings } from "@/lib/storage/progress";
 import { findBranch } from "@/lib/subjects";
 
@@ -39,7 +40,10 @@ export function useMyBranch(): {
   const save = useCallback((next: MyBranch) => {
     chosenAt.current = Date.now();
     setMine(next);
-    void updateSettings({ branch: next.branch, semester: next.semester }).catch(() => undefined);
+    void updateSettings({ branch: next.branch, semester: next.semester })
+      // Other lists of "my subjects" (concept map, uploads…) reload to the new branch.
+      .then(() => window.dispatchEvent(new Event(SEMESTER_CHANGED_EVENT)))
+      .catch(() => undefined);
   }, []);
 
   return { mine, loaded, save };

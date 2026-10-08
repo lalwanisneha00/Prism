@@ -118,4 +118,48 @@ test.describe("Start a lesson", () => {
       .allTextContents();
     expect(isMine(options[1] ?? ""), options.slice(0, 4).join(" | ")).toBe(true);
   });
+
+  test("changing the branch here switches the chosen subject and the subjects on top", async ({
+    page,
+  }) => {
+    test.setTimeout(120_000);
+    await page.goto("/start");
+    const bar = page.getByTestId("branch-bar");
+    const choose = async (branch: string, semester: string) => {
+      await expect(async () => {
+        await bar.getByLabel("My branch").selectOption(branch);
+        await expect(bar.getByLabel("My branch")).toHaveValue(branch, { timeout: 2000 });
+        await expect(bar.getByLabel("Semester")).toBeEnabled({ timeout: 2000 });
+        await bar.getByLabel("Semester").selectOption(semester);
+        await expect(bar.getByLabel("Semester")).toHaveValue(semester, { timeout: 2000 });
+        await page.waitForTimeout(300);
+        await expect(bar.getByLabel("My branch")).toHaveValue(branch, { timeout: 2000 });
+      }).toPass({ timeout: 30_000 });
+    };
+    const chip = page.getByTestId("subject-chips").getByRole("radio", { checked: true });
+    const chipText = async () =>
+      (await page.getByTestId("subject-chips").locator("label").first().innerText())
+        .split("·")[0]
+        .trim();
+
+    await choose("ce", "1");
+    await expect(page.getByTestId("subject-chips")).toContainText(
+      /Mathematics - I|Applied Physics|Engineering Graphics|Computer Programming - I|Environment Science|English Communication|Universal Human Values/,
+    );
+    const ceSubject = await chipText();
+    const ceList = await (
+      await openList(page)
+    )
+      .getByRole("button")
+      .evaluateAll((els) => els.slice(0, 3).map((e) => (e.textContent ?? "").trim()));
+
+    await choose("civil", "1");
+    await expect(chip).toHaveCount(1);
+    await expect.poll(chipText).not.toBe(ceSubject);
+    const civilList = await page
+      .getByTestId("all-subjects-list")
+      .getByRole("button")
+      .evaluateAll((els) => els.slice(0, 3).map((e) => (e.textContent ?? "").trim()));
+    expect(civilList.join("|")).not.toBe(ceList.join("|"));
+  });
 });
