@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useId, useMemo, useState, type KeyboardEvent } from "react";
 import { matchHref, searchCatalogue, type CatalogueMatch } from "@/lib/catalogueSearch";
+import { JUMP_TO_LEVEL } from "@/lib/pickerJump";
 
 const kindLabel = { subject: "Subject", chapter: "Chapter", topic: "Topic" } as const;
 
@@ -17,6 +18,16 @@ function context(m: CatalogueMatch): string {
   if (m.kind === "subject") return m.subject.field;
   if (m.kind === "chapter") return m.subject.name;
   return `${m.subject.name} › ${m.chapter.name}`;
+}
+
+/** Choosing a topic: the lesson maker should land on "How well do you know it?". */
+function markJump(m: CatalogueMatch) {
+  if (m.kind !== "topic") return;
+  try {
+    sessionStorage.setItem(JUMP_TO_LEVEL, "1");
+  } catch {
+    // Storage is blocked: no jump.
+  }
 }
 
 /** One search box for any subject, chapter or topic in the catalogue. */
@@ -40,6 +51,7 @@ export function GlobalSearch() {
     } else if (e.key === "Enter" && results[active]) {
       e.preventDefault();
       setShown(false);
+      markJump(results[active]);
       router.push(matchHref(results[active]));
     } else if (e.key === "Escape") setQuery("");
   }
@@ -96,7 +108,10 @@ export function GlobalSearch() {
               >
                 <Link
                   href={matchHref(m)}
-                  onClick={() => setShown(false)}
+                  onClick={() => {
+                    setShown(false);
+                    markJump(m);
+                  }}
                   className={`flex flex-col rounded-lg px-3 py-2 text-sm ${i === active ? "bg-surface-2" : "hover:bg-surface-2"}`}
                 >
                   <span className="font-semibold">{title(m)}</span>

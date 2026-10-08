@@ -351,4 +351,28 @@ test.describe("Start a lesson", () => {
     await page.getByRole("heading", { name: "Start a lesson", level: 1 }).click();
     await expect(search.getByRole("listbox")).toHaveCount(0);
   });
+
+  test("after searching and choosing a topic, the page jumps to How well do you know it?", async ({
+    page,
+  }) => {
+    await page.goto("/start");
+    const input = page
+      .getByTestId("global-search")
+      .getByLabel("Search any subject, chapter or topic");
+    await input.fill("faraday");
+    await page.getByTestId("global-search").getByRole("option").first().click();
+    await expect(page.getByRole("radio", { name: /Faraday/ })).toBeChecked();
+    // The level question is in view without scrolling.
+    await expect(page.getByText("How well do you know it?")).toBeInViewport({ timeout: 10_000 });
+
+    // The same after the in-subject topic search.
+    await page.goto("/start?subject=pdeu-applied-physics");
+    await page.getByRole("combobox", { name: /Search topics/ }).fill("optical fibres");
+    await page
+      .getByRole("listbox", { name: "Matching topics" })
+      .getByRole("option")
+      .first()
+      .click();
+    await expect(page.getByText("How well do you know it?")).toBeInViewport({ timeout: 10_000 });
+  });
 });

@@ -27,6 +27,7 @@ import { FLAGS } from "@/lib/flags";
 import { chapterHref } from "@/lib/chapter/request";
 import { isCustomId } from "@/lib/custom/customSubject";
 import { hasMaterialFor } from "@/lib/custom/store";
+import { JUMP_TO_LEVEL } from "@/lib/pickerJump";
 import { visibleSubjects } from "@/lib/pdeu/electives";
 import { useElectiveChoices } from "@/components/pdeu/useElectiveChoices";
 import { needsFacultyMaterial, NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
@@ -77,6 +78,15 @@ export function LessonPicker(props: { subjects: readonly Subject[]; initial?: Pi
       <PickerForm {...props} subjects={scoped.subjects} ownCount={custom.subjects.length} />
     </div>
   );
+}
+
+/** After a topic is chosen by searching, go straight to "How well do you know it?". */
+function jumpToLevel() {
+  window.setTimeout(() => {
+    document
+      .getElementById("level-section")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 150);
 }
 
 const PICKER_MEMORY = "prism-picker-visit";
@@ -168,6 +178,19 @@ function PickerForm({
   // level and time, even if the branch and semester saved under "Subjects" were changed meanwhile.
   // Until something is picked here, the page follows the saved branch and semester; a new visit (the
   // web app opened again) always starts from the saved ones.
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem(JUMP_TO_LEVEL)) {
+        sessionStorage.removeItem(JUMP_TO_LEVEL);
+        if (initial.topic) jumpToLevel();
+      }
+    } catch {
+      // Storage is blocked: no jump.
+    }
+    // Once, when the page opens.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const [restored, setRestored] = useState(false);
   const memoryUsed = useRef(false);
   // True once the opening subject is settled (remembered, linked, or the saved branch's first).
@@ -477,6 +500,7 @@ function PickerForm({
           setTopicId(topic.id);
           setScope("topic");
           clearErrors("chapter", "topic");
+          jumpToLevel();
         }}
       />
 
@@ -629,29 +653,31 @@ function PickerForm({
         )}
       </FieldGroup>
 
-      <FieldGroup
-        legend="How well do you know it?"
-        error={errors.level}
-        errorId={`${id}-level-error`}
-      >
-        <div className="grid gap-2 md:grid-cols-3">
-          {availableLevels.map((l) => (
-            <ChoiceCard
-              key={l.slug}
-              name="level"
-              value={l.slug}
-              checked={level === l.slug}
-              onSelect={(v) => {
-                setLevel(v);
-                clearErrors("level");
-              }}
-              title={l.name}
-              description={l.forWho}
-              accent={spectrumColor(l.slug)}
-            />
-          ))}
-        </div>
-      </FieldGroup>
+      <div id="level-section" className="scroll-mt-24">
+        <FieldGroup
+          legend="How well do you know it?"
+          error={errors.level}
+          errorId={`${id}-level-error`}
+        >
+          <div className="grid gap-2 md:grid-cols-3">
+            {availableLevels.map((l) => (
+              <ChoiceCard
+                key={l.slug}
+                name="level"
+                value={l.slug}
+                checked={level === l.slug}
+                onSelect={(v) => {
+                  setLevel(v);
+                  clearErrors("level");
+                }}
+                title={l.name}
+                description={l.forWho}
+                accent={spectrumColor(l.slug)}
+              />
+            ))}
+          </div>
+        </FieldGroup>
+      </div>
 
       <FieldGroup
         legend="How much time do you have?"
