@@ -8,6 +8,7 @@ import { HighlightLegend, swatchClass } from "@/components/annotations/ColorSwat
 import { describeBlock } from "@/components/annotations/AnnotationEditor";
 import { annotationHref, highlightColors, listAllAnnotations } from "@/lib/annotations/store";
 import type { Annotation } from "@/lib/storage/db";
+import { useMineFirst } from "@/components/subjects/useMineFirst";
 import { findChapter, findSubject, subjects } from "@/lib/subjects";
 
 type State = { status: "loading" } | { status: "error" } | { status: "ready"; notes: Annotation[] };
@@ -18,6 +19,7 @@ const select = "rounded-lg border border-border bg-surface px-2 py-1.5 text-sm";
 /** Every highlight and comment across all lessons, with filters and search. */
 export function AllNotes() {
   const id = useId();
+  const orderedSubjects = useMineFirst(subjects);
   const dataVersion = useDataVersion();
   const [state, setState] = useState<State>({ status: "loading" });
   const [subject, setSubject] = useState("all");
@@ -111,7 +113,7 @@ export function AllNotes() {
             className={select}
           >
             <option value="all">All subjects</option>
-            {subjects.map((s) => (
+            {orderedSubjects.map((s) => (
               <option key={s.id} value={s.id}>
                 {s.name}
               </option>

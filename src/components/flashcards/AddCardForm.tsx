@@ -1,6 +1,7 @@
 "use client";
 
-import { useId, useState, type FormEvent } from "react";
+import { useId, useMemo, useState, type FormEvent } from "react";
+import { useMySemester } from "@/components/subjects/useMySemester";
 import { addCards } from "@/lib/flashcards/cards";
 import { subjects } from "@/lib/subjects";
 
@@ -10,6 +11,7 @@ const topicOptions = subjects.flatMap((s) =>
       value: `${s.id}|${c.id}|${t.id}`,
       label: `${t.name}`,
       group: `${s.name} · ${c.name}`,
+      subjectId: s.id,
     })),
   ),
 );
@@ -18,6 +20,17 @@ const groups = [...new Set(topicOptions.map((o) => o.group))];
 /** Write your own card (markdown and $maths$ work on both sides). */
 export function AddCardForm({ onAdded }: { onAdded: () => void }) {
   const id = useId();
+  // The student's own subjects come first in the list of topics.
+  const { picks } = useMySemester();
+  const orderedGroups = useMemo(() => {
+    const rank = new Map(picks.map((p, i) => [p, i]));
+    const subjectOf = new Map(topicOptions.map((o) => [o.group, o.subjectId]));
+    return [...groups].sort(
+      (a, b) =>
+        (rank.get(subjectOf.get(a) ?? "") ?? Infinity) -
+        (rank.get(subjectOf.get(b) ?? "") ?? Infinity),
+    );
+  }, [picks]);
   const [front, setFront] = useState("");
   const [back, setBack] = useState("");
   const [topic, setTopic] = useState(topicOptions[0]?.value ?? "");
@@ -75,7 +88,7 @@ export function AddCardForm({ onAdded }: { onAdded: () => void }) {
           onChange={(e) => setTopic(e.target.value)}
           className="rounded-xl border border-border bg-bg p-2 text-sm"
         >
-          {groups.map((g) => (
+          {orderedGroups.map((g) => (
             <optgroup key={g} label={g}>
               {topicOptions
                 .filter((o) => o.group === g)

@@ -7,6 +7,7 @@ import { unitName } from "@/lib/extract/types";
 import { isMaterialKind, kindLabel, MATERIAL_KINDS } from "@/lib/notes/kinds";
 import { updateNoteMeta } from "@/lib/notes/store";
 import type { StoredNote } from "@/lib/storage/db";
+import { useMineFirst } from "@/components/subjects/useMineFirst";
 import { chaptersOf, type Subject } from "@/lib/subjects";
 
 const selectClass = "rounded-lg border border-border bg-bg px-2 py-1.5 text-sm";
@@ -24,6 +25,7 @@ export function MaterialCard({
   onRemove: (id: string) => void;
 }) {
   const [open, setOpen] = useState(false);
+  const ordered = useMineFirst(subjects);
   const subject = subjects.find((s) => s.id === note.subject);
   const leftOut = note.excluded?.length ?? 0;
 
@@ -94,7 +96,7 @@ export function MaterialCard({
             onChange={(e) => void retag({ subject: e.target.value })}
           >
             <option value="">Any subject</option>
-            {subjects.map((s) => (
+            {ordered.map((s) => (
               <option key={s.id} value={s.id}>
                 {s.name}
               </option>

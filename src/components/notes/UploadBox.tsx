@@ -7,6 +7,7 @@ import { extractFile } from "@/lib/extract/extractFile";
 import { ExtractError, MAX_FILE_BYTES, unitName } from "@/lib/extract/types";
 import { guessChapter, guessKind, kindLabel } from "@/lib/notes/kinds";
 import { addNote } from "@/lib/notes/store";
+import { useMineFirst } from "@/components/subjects/useMineFirst";
 import { chaptersOf, type Subject } from "@/lib/subjects";
 
 /** At most this many files in one go, so a slip of the mouse can't freeze the page. */
@@ -36,6 +37,7 @@ export function UploadBox({
   onAdded: () => void;
 }) {
   const id = useId();
+  const ordered = useMineFirst(subjects);
   const input = useRef<HTMLInputElement>(null);
   const [items, setItems] = useState<Item[]>([]);
   const [dragging, setDragging] = useState(false);
@@ -144,7 +146,7 @@ export function UploadBox({
             className="rounded-lg border border-border bg-bg px-3 py-2"
           >
             <option value="">Any subject</option>
-            {subjects.map((s) => (
+            {ordered.map((s) => (
               <option key={s.id} value={s.id}>
                 {s.name}
               </option>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import { useMineFirst } from "@/components/subjects/useMineFirst";
 import { subjects } from "@/lib/subjects";
 
 /** Search and pick the subjects a plan covers (chips for the picked ones, a short result list). */
@@ -12,10 +13,11 @@ export function SubjectPicker({
   onChange: (ids: string[]) => void;
 }) {
   const id = useId();
+  const ordered = useMineFirst(subjects);
   const [query, setQuery] = useState("");
   const q = query.trim().toLowerCase();
   const matches = q
-    ? subjects
+    ? ordered
         .filter((s) => !selected.includes(s.id) && `${s.name} ${s.id}`.toLowerCase().includes(q))
         .slice(0, 8)
     : [];

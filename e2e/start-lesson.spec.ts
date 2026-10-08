@@ -72,4 +72,50 @@ test.describe("Start a lesson", () => {
     const list = await openList(page);
     await expect(list.getByRole("button").first()).toContainText("Zebra Studies");
   });
+
+  test("after choosing branch and semester, the student's subjects come first everywhere", async ({
+    page,
+  }) => {
+    test.setTimeout(120_000);
+    await page.goto("/subjects");
+    const bar = page.getByTestId("branch-bar");
+    await expect(async () => {
+      await bar.getByLabel("My branch").selectOption("ce");
+      await bar.getByLabel("Semester").selectOption("1");
+      await expect(bar.getByLabel("Semester")).toHaveValue("1", { timeout: 1500 });
+      await page.waitForTimeout(300);
+      await expect(bar.getByLabel("My branch")).toHaveValue("ce", { timeout: 1500 });
+    }).toPass({ timeout: 20_000 });
+    await expect(page.getByTestId("pdeu-core")).toContainText("Applied Physics");
+
+    const mine = [
+      "Mathematics - I",
+      "Applied Physics",
+      "Engineering Graphics",
+      "Computer Programming - I",
+      "Environment Science",
+      "English Communication",
+      "Universal Human Values",
+    ];
+    const isMine = (text: string) => mine.some((m) => text.startsWith(m));
+
+    // The lesson maker's list.
+    await page.goto("/start");
+    const list = await openList(page);
+    const first = await list
+      .getByRole("button")
+      .evaluateAll((els) => els.slice(0, 7).map((e) => e.textContent ?? ""));
+    expect(first.every(isMine), first.join(" | ")).toBe(true);
+
+    // The subject choice when adding material.
+    await page.goto("/notes");
+    const options = await page
+      .getByTestId("materials-input")
+      .locator("xpath=ancestor::*[.//select][1]")
+      .locator("select")
+      .first()
+      .locator("option")
+      .allTextContents();
+    expect(isMine(options[1] ?? ""), options.slice(0, 4).join(" | ")).toBe(true);
+  });
 });
