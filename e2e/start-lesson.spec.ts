@@ -259,7 +259,8 @@ test.describe("Start a lesson", () => {
     const saved = page.getByTestId("branch-bar");
     await expect(saved.getByLabel("My branch")).toHaveValue("ce");
     await expect(saved.getByLabel("Semester")).toHaveValue("1");
-    // And Start a lesson opens on the saved ones again.
+    // And a new visit to Start a lesson opens on the saved ones.
+    await page.evaluate(() => sessionStorage.clear());
     await page.goto("/start");
     await expect(page.getByTestId("branch-bar").getByLabel("My branch")).toHaveValue("ce");
   });
@@ -287,5 +288,46 @@ test.describe("Start a lesson", () => {
     await page.goto("/start");
     list = await openList(page);
     await expect(list.getByRole("button", { name: /Zebra Studies/ })).toHaveCount(0);
+  });
+
+  test("what was picked in Start a lesson stays after the saved branch changes; a new visit starts from the saved one", async ({
+    page,
+  }) => {
+    test.setTimeout(150_000);
+    await saveBranch(page, "ce", "1");
+    await page.goto("/start");
+    const bar = page.getByTestId("branch-bar");
+    await expect(async () => {
+      await bar.getByLabel("My branch").selectOption("ict");
+      await expect(bar.getByLabel("Semester")).toBeEnabled({ timeout: 2000 });
+      await bar.getByLabel("Semester").selectOption("3");
+      await expect(bar.getByLabel("Semester")).toHaveValue("3", { timeout: 2000 });
+    }).toPass({ timeout: 20_000 });
+    const chipText = async () =>
+      (await page.getByTestId("subject-chips").locator("label").first().innerText())
+        .split("·")[0]
+        .trim();
+    await expect.poll(chipText).not.toBe("");
+    const ictSubject = await chipText();
+    const list = await openList(page);
+    const ictTop = (await list.getByRole("button").first().innerText()).split("\n")[0];
+
+    // Change the saved branch and semester under Subjects.
+    await saveBranch(page, "civil", "2");
+
+    // Back in Start a lesson: still ICT semester 3, same subject, same subjects on top.
+    await page.goto("/start");
+    await expect(page.getByTestId("branch-bar").getByLabel("My branch")).toHaveValue("ict");
+    await expect(page.getByTestId("branch-bar").getByLabel("Semester")).toHaveValue("3");
+    await expect.poll(chipText).toBe(ictSubject);
+    const again = await openList(page);
+    await expect(again.getByRole("button").first()).toContainText(ictTop);
+
+    // A new visit (the web app opened again) starts from the saved branch and semester.
+    await page.evaluate(() => sessionStorage.clear());
+    await page.goto("/start");
+    await expect(page.getByTestId("branch-bar").getByLabel("My branch")).toHaveValue("civil");
+    await expect(page.getByTestId("branch-bar").getByLabel("Semester")).toHaveValue("2");
+    await expect.poll(chipText).not.toBe(ictSubject);
   });
 });

@@ -79,7 +79,7 @@ export function LessonPicker(props: { subjects: readonly Subject[]; initial?: Pi
   );
 }
 
-const PICKER_MEMORY = "prism-picker-last";
+const PICKER_MEMORY = "prism-picker-visit";
 
 function PickerForm({
   subjects,
@@ -97,7 +97,7 @@ function PickerForm({
   const id = useId();
 
   // "My branch and semester": their subjects come first (V3 · Step 3).
-  const { mine: savedMine } = useMyBranch();
+  const { mine: savedMine, loaded: savedLoaded } = useMyBranch();
   // The branch and semester picked here only change what this page shows; the ones saved under
   // "Subjects" stay as they are until they are changed there.
   const [viewed, setViewed] = useState<MyBranch | null>(null);
@@ -163,25 +163,41 @@ function PickerForm({
   const [useNotesChoice, setUseNotes] = useState(false);
   const useNotes = needsMaterial || useNotesChoice;
 
-  // Remember the last choice on this device: coming Back from a lesson (or opening the page again)
-  // brings the same subject, chapter, topic, level and time back, as long as nothing in the address
-  // says otherwise.
+  // What was picked on this page is remembered for the visit (this browser tab): coming Back from a
+  // lesson, or from the Subjects page, brings back the same branch, semester, subject, chapter, topic,
+  // level and time, even if the branch and semester saved under "Subjects" were changed meanwhile.
+  // Until something is picked here, the page follows the saved branch and semester; a new visit (the
+  // web app opened again) always starts from the saved ones.
   const [restored, setRestored] = useState(false);
+  const memoryUsed = useRef(false);
+  // True once the opening subject is settled (remembered, linked, or the saved branch's first).
+  const [settled, setSettled] = useState(false);
   useEffect(() => {
-    // After mount, not during it: the saved choice differs from what the server drew.
+    // After mount, not during it: the remembered choice differs from what the server drew.
     void Promise.resolve().then(() => {
-      if (!initial.subject) {
-        try {
-          const saved = JSON.parse(localStorage.getItem(PICKER_MEMORY) ?? "null") as {
-            subjectId?: string;
-            chapterId?: string;
-            ownerId?: string;
-            topicId?: string;
-            level?: string;
-            duration?: string;
-          } | null;
-          const sub = saved?.subjectId ? subjects.find((s) => s.id === saved.subjectId) : undefined;
-          if (saved && sub) {
+      try {
+        const saved = JSON.parse(sessionStorage.getItem(PICKER_MEMORY) ?? "null") as {
+          branch?: string;
+          semester?: number;
+          subjectId?: string;
+          chapterId?: string;
+          ownerId?: string;
+          topicId?: string;
+          level?: string;
+          duration?: string;
+        } | null;
+        // A link that names another subject starts the page afresh (the saved branch applies).
+        const sameVisit = saved && (!initial.subject || initial.subject === saved.subjectId);
+        if (saved && sameVisit) {
+          memoryUsed.current = true;
+          if (saved.branch) {
+            setViewed({
+              branch: saved.branch,
+              ...(saved.semester ? { semester: saved.semester } : {}),
+            });
+          }
+          const sub = saved.subjectId ? subjects.find((s) => s.id === saved.subjectId) : undefined;
+          if (sub && !initial.subject) {
             const ch = chaptersOf(sub).find((o) => o.chapter.id === saved.chapterId);
             setSubjectId(sub.id);
             if (ch) {
@@ -193,26 +209,68 @@ function PickerForm({
             if (availableLevels.some((l) => l.slug === saved.level)) setLevel(saved.level ?? "");
             if (isDuration(Number(saved.duration))) setDuration(String(saved.duration));
           }
-        } catch {
-          // No saved choice, or storage is blocked: start fresh.
         }
+      } catch {
+        // Nothing remembered, or storage is blocked: start from the saved branch and semester.
       }
+      if (memoryUsed.current || initial.subject) setSettled(true);
       setRestored(true);
     });
     // Once, when the page opens.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // With nothing remembered and no link, open on the first subject of the saved branch and semester.
+  const defaultSubjectId = mineList[0]?.id;
   useEffect(() => {
-    if (!restored) return;
+    if (!restored || !savedLoaded || memoryUsed.current || initial.subject || !defaultSubjectId)
+      return;
+    memoryUsed.current = true;
+    void Promise.resolve().then(() => {
+      setSubjectId(defaultSubjectId);
+      setSettled(true);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [restored, savedLoaded, defaultSubjectId]);
+
+  // Remember the choice once something has been picked here.
+  const touched =
+    viewed !== null ||
+    chapterId !== "" ||
+    topicId !== "" ||
+    level !== "" ||
+    (settled && defaultSubjectId !== undefined && subjectId !== defaultSubjectId);
+  useEffect(() => {
+    if (!restored || !touched) return;
     try {
-      localStorage.setItem(
+      sessionStorage.setItem(
         PICKER_MEMORY,
-        JSON.stringify({ subjectId, chapterId, ownerId, topicId, level, duration }),
+        JSON.stringify({
+          branch: mine.branch,
+          semester: mine.semester,
+          subjectId,
+          chapterId,
+          ownerId,
+          topicId,
+          level,
+          duration,
+        }),
       );
     } catch {
       // Storage is blocked: the address still keeps the choice.
     }
-  }, [restored, subjectId, chapterId, ownerId, topicId, level, duration]);
+  }, [
+    restored,
+    touched,
+    mine.branch,
+    mine.semester,
+    subjectId,
+    chapterId,
+    ownerId,
+    topicId,
+    level,
+    duration,
+  ]);
 
   // Keep the choice in the address as it is made (without adding history entries), so leaving to
   // upload a file and coming Back brings the same subject, chapter, topic, level and time back.
