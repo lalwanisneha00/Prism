@@ -26,7 +26,9 @@ export function GlobalSearch() {
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const results = useMemo(() => searchCatalogue(query, 8), [query]);
-  const open = query.trim().length > 0;
+  // The list shows while typing; once a result is chosen it folds away until the box is clicked again.
+  const [shown, setShown] = useState(true);
+  const open = shown && query.trim().length > 0;
 
   function onKeyDown(e: KeyboardEvent<HTMLInputElement>) {
     if (e.key === "ArrowDown") {
@@ -37,12 +39,20 @@ export function GlobalSearch() {
       setActive((a) => Math.max(a - 1, 0));
     } else if (e.key === "Enter" && results[active]) {
       e.preventDefault();
+      setShown(false);
       router.push(matchHref(results[active]));
     } else if (e.key === "Escape") setQuery("");
   }
 
   return (
-    <div className="relative flex flex-col gap-2" data-testid="global-search">
+    <div
+      className="relative flex flex-col gap-2"
+      data-testid="global-search"
+      onBlur={(e) => {
+        // Leaving the search (not just moving to one of its results) folds the list away.
+        if (!e.currentTarget.contains(e.relatedTarget)) setShown(false);
+      }}
+    >
       <label htmlFor={`${id}-q`} className="font-semibold">
         Search any subject, chapter or topic
       </label>
@@ -57,7 +67,10 @@ export function GlobalSearch() {
         onChange={(e) => {
           setQuery(e.target.value);
           setActive(0);
+          setShown(true);
         }}
+        onFocus={() => setShown(true)}
+        onClick={() => setShown(true)}
         onKeyDown={onKeyDown}
         placeholder="e.g. Gauss, Taylor series, eigenvalues"
         autoComplete="off"
@@ -83,6 +96,7 @@ export function GlobalSearch() {
               >
                 <Link
                   href={matchHref(m)}
+                  onClick={() => setShown(false)}
                   className={`flex flex-col rounded-lg px-3 py-2 text-sm ${i === active ? "bg-surface-2" : "hover:bg-surface-2"}`}
                 >
                   <span className="font-semibold">{title(m)}</span>

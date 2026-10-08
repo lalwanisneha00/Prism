@@ -330,4 +330,25 @@ test.describe("Start a lesson", () => {
     await expect(page.getByTestId("branch-bar").getByLabel("Semester")).toHaveValue("2");
     await expect.poll(chipText).not.toBe(ictSubject);
   });
+
+  test("the search results fold away after choosing one, and come back when the box is clicked", async ({
+    page,
+  }) => {
+    await page.goto("/start");
+    const search = page.getByTestId("global-search");
+    const input = search.getByLabel("Search any subject, chapter or topic");
+    await input.fill("faraday");
+    await expect(search.getByRole("listbox")).toBeVisible();
+    await search.getByRole("option").first().click();
+    await expect(page).toHaveURL(/\/start\?subject=/);
+    // Chosen: the list is gone (the picker below shows the choice).
+    await expect(search.getByRole("listbox")).toHaveCount(0);
+    await expect(page.getByRole("radio", { name: /Faraday/ })).toBeChecked();
+    // Clicking the box shows the matches again.
+    await input.click();
+    await expect(search.getByRole("listbox")).toBeVisible();
+    // Clicking elsewhere folds it away.
+    await page.getByRole("heading", { name: "Start a lesson", level: 1 }).click();
+    await expect(search.getByRole("listbox")).toHaveCount(0);
+  });
 });
