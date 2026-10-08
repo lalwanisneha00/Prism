@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
+import { useVisibleCustomSubjects } from "@/components/custom/useVisibleCustomSubjects";
 import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { AllSubjectsList } from "@/components/AllSubjectsList";
 import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
@@ -18,7 +18,7 @@ import { BranchSemesterBar } from "@/components/subjects/BranchSemesterBar";
 import { useSyllabus } from "@/components/subjects/useSyllabus";
 import { coverageFor } from "@/lib/syllabus/coverage";
 import { useMySemester } from "@/components/subjects/useMySemester";
-import { useMyBranch } from "@/components/subjects/useMyBranch";
+import { useMyBranch, type MyBranch } from "@/components/subjects/useMyBranch";
 import { TopicSearch } from "@/components/TopicSearch";
 import { defaultDuration, isDuration } from "@/data/durations";
 import { availableLevels, type LevelSlug } from "@/data/levels";
@@ -54,7 +54,7 @@ export type PickerInitial = {
  * browser, so they are loaded first when the link asks for one of them.
  */
 export function LessonPicker(props: { subjects: readonly Subject[]; initial?: PickerInitial }) {
-  const custom = useCustomSubjects();
+  const custom = useVisibleCustomSubjects(props.initial?.subject);
   const all = useMemo(
     () => [...props.subjects, ...custom.subjects],
     [props.subjects, custom.subjects],
@@ -97,7 +97,11 @@ function PickerForm({
   const id = useId();
 
   // "My branch and semester": their subjects come first (V3 · Step 3).
-  const { mine, save: saveMine } = useMyBranch();
+  const { mine: savedMine } = useMyBranch();
+  // The branch and semester picked here only change what this page shows; the ones saved under
+  // "Subjects" stay as they are until they are changed there.
+  const [viewed, setViewed] = useState<MyBranch | null>(null);
+  const mine = viewed ?? savedMine;
   // The subjects the student chose for their semester come first; otherwise their branch's.
   const sem = useMySemester();
   const chosenList = sem.picks
@@ -329,7 +333,7 @@ function PickerForm({
       <BranchSemesterBar
         mine={mine}
         onChange={(next) => {
-          saveMine(next);
+          setViewed(next);
           // A new branch or semester: the subject on show becomes that branch's first subject, and the
           // list below puts the new branch's subjects on top.
           if (next.branch) {

@@ -5,6 +5,7 @@ import { NeedsMaterialNote } from "@/components/custom/NeedsMaterialNote";
 import Link from "next/link";
 import { useId, useMemo, useState } from "react";
 import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
+import { deleteCustomSubject } from "@/lib/custom/store";
 import { PdeuSemester } from "@/components/pdeu/PdeuSemester";
 import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { useMySemester } from "@/components/subjects/useMySemester";
@@ -376,7 +377,22 @@ export function SubjectsHub() {
                 data={c}
                 syllabus={syllabus}
                 semester={semester}
-                onRemove={c.suggested ? undefined : () => toggle(c.id, false)}
+                onRemove={
+                  c.suggested
+                    ? undefined
+                    : () => {
+                        if (!c.own) return toggle(c.id, false);
+                        // A subject the student made themselves is deleted, so it is gone from every list.
+                        if (
+                          window.confirm(
+                            `Remove ${c.name}? Its outline is deleted; files you uploaded stay on this device.`,
+                          )
+                        ) {
+                          toggle(c.id, false);
+                          void deleteCustomSubject(c.id).then(() => custom.reload());
+                        }
+                      }
+                }
               />
             ))}
           </ul>

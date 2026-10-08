@@ -2,6 +2,7 @@
 
 import { Icon } from "@/components/Icon";
 import { addSubjectToSemester } from "@/lib/semester/mySemester";
+import { getSettings } from "@/lib/storage/progress";
 import { apiFetch } from "@/lib/byok/apiFetch";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -206,8 +207,10 @@ export function CustomSubjectForm({
           { bytes: f.bytes, mime: f.mime },
         );
       }
-      if (addToSemester && !existing)
-        await addSubjectToSemester(addToSemester, record.id).catch(() => undefined);
+      // A new subject joins the chosen semester, or the student's saved one, so it shows in their lists.
+      const semester = addToSemester ?? (await getSettings().catch(() => undefined))?.semester;
+      if (semester && !existing)
+        await addSubjectToSemester(semester, record.id).catch(() => undefined);
       router.push(addToSemester ? "/subjects" : `/my-subjects/view?id=${record.id}`);
     } catch {
       setBusy(null);

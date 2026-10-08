@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/components/account/AuthProvider";
-import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
+import { useVisibleCustomSubjects } from "@/components/custom/useVisibleCustomSubjects";
 import { MaterialCard } from "@/components/notes/MaterialCard";
 import { SubjectFilter } from "@/components/notes/SubjectFilter";
 import { UploadBox } from "@/components/notes/UploadBox";
@@ -22,7 +22,7 @@ export function MaterialsManager({ initialSubject = "" }: { initialSubject?: str
   const { dataVersion } = useAuth();
   const [state, setState] = useState<State>({ status: "loading" });
   const [version, setVersion] = useState(0);
-  const custom = useCustomSubjects();
+  const custom = useVisibleCustomSubjects();
   // Built-in subjects and the student's own ("Other subjects", V3 · Step 4).
   const subjects = [...builtIn, ...custom.subjects];
   const [filter, setFilter] = useState(

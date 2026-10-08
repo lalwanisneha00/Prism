@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useId, useMemo, useRef, useState } from "react";
-import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
+import { useVisibleCustomSubjects } from "@/components/custom/useVisibleCustomSubjects";
 import { useMySemester } from "@/components/subjects/useMySemester";
 import { subjectIndex } from "@/lib/catalogue";
 
@@ -13,7 +13,7 @@ import { subjectIndex } from "@/lib/catalogue";
 export function MapSubjectPicker({ currentId }: { currentId: string }) {
   const id = useId();
   const { picks } = useMySemester();
-  const custom = useCustomSubjects();
+  const custom = useVisibleCustomSubjects(currentId);
   const [query, setQuery] = useState("");
   const details = useRef<HTMLDetailsElement>(null);
   const current =

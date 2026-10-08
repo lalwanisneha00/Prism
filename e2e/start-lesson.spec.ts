@@ -3,6 +3,19 @@ import { expect, test, type Page } from "@playwright/test";
 const SYLLABUS = `Unit 1: Vedic literature – The four Vedas, Upanishads
 Unit 2: Indian mathematics – Zero and the decimal system, Aryabhata`;
 
+/** Saves the branch and semester under "Subjects" (the saved ones). */
+async function saveBranch(page: Page, branch: string, semester: string) {
+  await page.goto("/subjects");
+  const bar = page.getByTestId("branch-bar");
+  await expect(async () => {
+    await bar.getByLabel("My branch").selectOption(branch);
+    await bar.getByLabel("Semester").selectOption(semester);
+    await expect(bar.getByLabel("Semester")).toHaveValue(semester, { timeout: 1500 });
+    await page.waitForTimeout(300);
+    await expect(bar.getByLabel("My branch")).toHaveValue(branch, { timeout: 1500 });
+  }).toPass({ timeout: 20_000 });
+}
+
 async function openList(page: Page) {
   const list = page.getByTestId("all-subjects-list");
   await list.locator("summary").click();
@@ -61,6 +74,7 @@ test.describe("Start a lesson", () => {
 
   test("a subject the student added comes first in the list", async ({ page }) => {
     test.setTimeout(120_000);
+    await saveBranch(page, "ce", "1");
     await page.goto("/my-subjects/new?name=Zebra%20Studies");
     const form = page.getByTestId("custom-subject-form");
     await form.getByLabel(/Type your topics/).fill(SYLLABUS);
@@ -222,5 +236,56 @@ test.describe("Start a lesson", () => {
     await settle("civil", "4");
     await expect.poll(list).not.toBe(ict2.top);
     expect(await chipText()).not.toBe(ict2.chip);
+  });
+
+  test("picking a branch and semester in Start a lesson does not change the saved ones", async ({
+    page,
+  }) => {
+    test.setTimeout(120_000);
+    await saveBranch(page, "ce", "1");
+    await page.goto("/start");
+    const bar = page.getByTestId("branch-bar");
+    await expect(bar.getByLabel("My branch")).toHaveValue("ce");
+    await expect(async () => {
+      await bar.getByLabel("My branch").selectOption("civil");
+      await expect(bar.getByLabel("Semester")).toBeEnabled({ timeout: 2000 });
+      await bar.getByLabel("Semester").selectOption("3");
+      await expect(bar.getByLabel("Semester")).toHaveValue("3", { timeout: 2000 });
+    }).toPass({ timeout: 20_000 });
+    // Here the picks show Civil semester 3...
+    await expect(bar.getByLabel("My branch")).toHaveValue("civil");
+    // ...but under Subjects the saved branch and semester are untouched.
+    await page.goto("/subjects");
+    const saved = page.getByTestId("branch-bar");
+    await expect(saved.getByLabel("My branch")).toHaveValue("ce");
+    await expect(saved.getByLabel("Semester")).toHaveValue("1");
+    // And Start a lesson opens on the saved ones again.
+    await page.goto("/start");
+    await expect(page.getByTestId("branch-bar").getByLabel("My branch")).toHaveValue("ce");
+  });
+
+  test("a subject removed from My subjects is gone from the lists", async ({ page }) => {
+    test.setTimeout(150_000);
+    await saveBranch(page, "ce", "1");
+    await page.goto("/my-subjects/new?name=Zebra%20Studies");
+    const form = page.getByTestId("custom-subject-form");
+    await form.getByLabel(/Type your topics/).fill(SYLLABUS);
+    await form.getByRole("button", { name: "Check my outline" }).click();
+    await form.getByRole("button", { name: "Save my subject" }).click();
+    await expect(page).toHaveURL(/\/my-subjects\/view\?id=custom-/, { timeout: 30_000 });
+
+    await page.goto("/start");
+    let list = await openList(page);
+    await expect(list.getByRole("button", { name: /Zebra Studies/ })).toHaveCount(1);
+
+    // Remove it under Subjects.
+    page.once("dialog", (d) => void d.accept());
+    await page.goto("/subjects");
+    await page.getByRole("button", { name: /^Remove Zebra Studies/ }).click();
+    await expect(page.getByText("Zebra Studies")).toHaveCount(0);
+
+    await page.goto("/start");
+    list = await openList(page);
+    await expect(list.getByRole("button", { name: /Zebra Studies/ })).toHaveCount(0);
   });
 });
