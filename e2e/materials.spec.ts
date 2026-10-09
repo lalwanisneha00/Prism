@@ -109,3 +109,15 @@ test("a lesson that uses my materials cites them by slide", async ({ page }) => 
     timeout: 60_000,
   });
 });
+
+test("the Uploads page does not scroll sideways on a phone", async ({ page }) => {
+  for (const width of [360, 412]) {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto("/notes");
+    await expect(page.getByTestId("materials-input")).toBeAttached();
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+    expect(overflow, `at ${width}px`).toBeLessThanOrEqual(0);
+  }
+});

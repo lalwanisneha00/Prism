@@ -89,7 +89,7 @@ export function LessonConceptMap({ request }: { request: LessonRequest }) {
       />
       <Link
         href={`/map?subject=${request.subject.id}`}
-        className="w-fit text-sm font-semibold text-primary underline underline-offset-2"
+        className="mx-auto w-fit text-sm font-semibold text-primary underline underline-offset-2"
       >
         See the whole {request.subject.name} map →
       </Link>

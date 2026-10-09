@@ -3,6 +3,7 @@
 import Link from "next/link";
 import subjectMap from "@/data/pdeu/subject-map.json";
 import { useEffect, useId, useState } from "react";
+import { UploadForCourse } from "@/components/pdeu/UploadForCourse";
 import { useElectiveChoices } from "@/components/pdeu/useElectiveChoices";
 import { choiceId, type ElectiveChoices } from "@/lib/pdeu/electives";
 import { coursesOf, topicCount } from "@/lib/pdeu/helpers";
@@ -114,7 +115,11 @@ function CourseCard({
               : "No syllabus printed in the handbook"}
         </p>
       )}
-      {options.length === 0 && subjectId && !course.core && <UploadNote subjectId={subjectId} />}
+      {/* Every non-core course gets the upload box, with or without a syllabus in the handbook. */}
+      {options.length === 0 && !course.core && subjectId && <UploadNote subjectId={subjectId} />}
+      {options.length === 0 && !course.core && !subjectId && (
+        <UploadForCourse name={course.name} semester={course.semester} />
+      )}
       {options.length === 0 && subjectId && course.core && (
         <p className="text-xs font-semibold text-success" data-testid="pdeu-on-prism">
           Lessons, quizzes and concept map on Prism

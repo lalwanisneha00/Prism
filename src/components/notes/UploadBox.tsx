@@ -138,12 +138,12 @@ export function UploadBox({
         Add notes, slides, papers or a syllabus
       </h2>
       <div className="flex flex-wrap items-end gap-3">
-        <label className="flex flex-col gap-1 text-sm">
+        <label className="flex w-full max-w-full min-w-0 flex-col gap-1 text-sm sm:w-auto">
           <span className="text-muted">Subject</span>
           <select
             value={subject}
             onChange={(e) => onSubjectChange(e.target.value)}
-            className="rounded-lg border border-border bg-bg px-3 py-2"
+            className="box-border w-full max-w-full min-w-0 rounded-lg border border-border bg-bg px-3 py-2"
           >
             <option value="">Any subject</option>
             {ordered.map((s) => (

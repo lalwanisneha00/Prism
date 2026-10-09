@@ -102,13 +102,30 @@ test.describe("PDEU's syllabus: My subjects", () => {
     await expect(page.getByRole("button", { name: /Build my lesson/ })).toBeDisabled();
   });
 
-  test("a subject the handbook gives no syllabus for says so", async ({ page }) => {
+  test("a subject the handbook gives no syllabus for says so, and still has the upload box", async ({
+    page,
+  }) => {
     await choose(page, "ce", "1");
     const card = page
       .getByTestId("pdeu-noncore")
       .getByTestId("pdeu-course")
       .filter({ hasText: "Indian Knowledge System" });
     await expect(card).toContainText("No syllabus printed in the handbook");
+    await expect(card.getByTestId("upload-material-note")).toContainText(
+      "Upload material given by faculty to generate lessons for this subject.",
+    );
+    // The upload link opens Uploads with that subject chosen.
+    await card.getByRole("button", { name: "Upload material" }).click();
+    await expect(page).toHaveURL(/\/notes\?subject=custom-/);
+    const select = page
+      .getByTestId("materials-input")
+      .locator("xpath=ancestor::section[1]")
+      .locator("select")
+      .first();
+    await expect(select).toHaveValue(/^custom-/);
+    expect(
+      await select.evaluate((el: HTMLSelectElement) => el.selectedOptions[0]?.textContent),
+    ).toBe("Indian Knowledge System");
   });
 
   test("an elective slot asks the student to choose, and remembers the choice", async ({

@@ -10,7 +10,8 @@ import type { StoredNote } from "@/lib/storage/db";
 import { useMineFirst } from "@/components/subjects/useMineFirst";
 import { chaptersOf, type Subject } from "@/lib/subjects";
 
-const selectClass = "rounded-lg border border-border bg-bg px-2 py-1.5 text-sm";
+const selectClass =
+  "rounded-lg border border-border bg-bg px-2 py-1.5 text-sm w-full max-w-full min-w-0";
 
 /** One uploaded file: its type, subject and chapter (editable), preview and delete. */
 export function MaterialCard({
@@ -72,7 +73,7 @@ export function MaterialCard({
         </div>
       </div>
       <div className="flex flex-wrap gap-2">
-        <label className="flex flex-col gap-1 text-xs text-muted">
+        <label className="flex max-w-full min-w-0 flex-col gap-1 text-xs text-muted">
           Type
           <select
             className={selectClass}
@@ -87,7 +88,7 @@ export function MaterialCard({
             ))}
           </select>
         </label>
-        <label className="flex flex-col gap-1 text-xs text-muted">
+        <label className="flex max-w-full min-w-0 flex-col gap-1 text-xs text-muted">
           Subject
           <select
             className={selectClass}

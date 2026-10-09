@@ -86,7 +86,7 @@ function TimeOptionCards({
 }) {
   return (
     <div className="flex flex-col gap-3">
-      <div className="grid gap-2 sm:grid-cols-3" data-testid="time-options">
+      <div className="grid gap-2 pt-2 sm:grid-cols-3" data-testid="time-options">
         {estimate.options.map((o) => (
           <ChoiceCard
             key={o.name}
@@ -95,14 +95,8 @@ function TimeOptionCards({
             checked={value === o.minutes}
             onSelect={() => onChange(o.minutes)}
             title={`${o.label} · ${o.minutes} min${o.name === estimate.recommended ? " ★" : ""}`}
-            description={
-              [
-                o.name === estimate.recommended ? "Recommended" : "",
-                o.parts ? `In 2 parts: ${o.parts.join(" + ")} min` : "",
-              ]
-                .filter(Boolean)
-                .join(" · ") || undefined
-            }
+            description={o.parts ? `In 2 parts: ${o.parts.join(" + ")} min` : undefined}
+            badge={o.name === estimate.recommended ? "Recommended" : undefined}
           />
         ))}
       </div>

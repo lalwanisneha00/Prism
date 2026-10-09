@@ -338,3 +338,20 @@ summary:active {
     transform: translateX(300%);
   }
 }
+
+/* Concept map nodes ease in; nothing moves for people who ask for reduced motion. */
+@keyframes map-node-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .map-node-in {
+    animation: map-node-in 0.35s ease-out both;
+  }
+}

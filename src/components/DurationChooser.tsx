@@ -83,7 +83,7 @@ export function DurationChooser({
 
   if (!advice) {
     return (
-      <div className="grid grid-cols-4 gap-2 sm:grid-cols-7">
+      <div className="grid grid-cols-2 gap-2 pt-2 min-[480px]:grid-cols-4 sm:grid-cols-7">
         {durations.map((d) => (
           <ChoiceCard
             key={d.minutes}
@@ -114,7 +114,7 @@ export function DurationChooser({
           May need extra time: {advice.tough.reasons[0]}.
         </p>
       )}
-      <div className="grid grid-cols-4 gap-2 sm:grid-cols-7">
+      <div className="grid grid-cols-2 gap-2 pt-2 min-[480px]:grid-cols-4 sm:grid-cols-7">
         {options.map((m) => {
           const d = durations.find((x) => x.minutes === m)!;
           return (
@@ -125,7 +125,8 @@ export function DurationChooser({
               checked={value === String(m)}
               onSelect={choose}
               title={d.label}
-              description={m === recommended ? "Recommended" : d.hint}
+              description={d.hint}
+              badge={m === recommended ? "Recommended" : undefined}
               compact
             />
           );

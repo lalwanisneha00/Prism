@@ -9,7 +9,8 @@ import { UploadBox } from "@/components/notes/UploadBox";
 import { kindLabel } from "@/lib/notes/kinds";
 import { deleteNote, listLocalNotes, listRemoteOnlyNotes } from "@/lib/notes/store";
 import type { NoteSummary, StoredNote } from "@/lib/storage/db";
-import { isCustomId } from "@/lib/custom/customSubject";
+import { isCustomId, toSubject } from "@/lib/custom/customSubject";
+import { toPayload } from "@/lib/custom/store";
 import { subjects as builtIn, type Subject } from "@/lib/subjects";
 
 type State =
@@ -24,7 +25,13 @@ export function MaterialsManager({ initialSubject = "" }: { initialSubject?: str
   const [version, setVersion] = useState(0);
   const custom = useVisibleCustomSubjects();
   // Built-in subjects and the student's own ("Other subjects", V3 · Step 4).
-  const subjects = [...builtIn, ...custom.subjects];
+  // A subject saved with just its name (no units yet) can take uploads too: the outline can come from them.
+  const own = custom.records.map(
+    (r) =>
+      custom.subjects.find((s) => s.id === r.id) ??
+      toSubject({ ...toPayload(r, false), chapters: [] } as never),
+  );
+  const subjects = [...builtIn, ...own];
   const [filter, setFilter] = useState(
     builtIn.some((s) => s.id === initialSubject) || isCustomId(initialSubject)
       ? initialSubject
