@@ -2,6 +2,7 @@ import { TIERS } from "@/lib/tiers";
 import { z } from "zod";
 import branchData from "@/data/branches.json";
 import { subjectFiles } from "@/data/subjects/index.generated";
+import { isRetired, MovedFromSchema, nodeMetaFields } from "@/lib/syllabusFix/tree";
 
 /*
  * The subject catalogue (V3 · Step 2). Every subject is one JSON file in src/data/subjects/
@@ -19,6 +20,9 @@ const TopicSchema = z.object({
   requires: z.array(slug).optional(),
   /** Underlying skills (src/data/skills.ts ids), shared across subjects (V3 · Step 11). */
   skills: z.array(slug).max(8).optional(),
+  /** Syllabus fix: source, confidence, status, votes (src/lib/syllabusFix/tree.ts). */
+  ...nodeMetaFields,
+  movedFrom: MovedFromSchema.optional(),
 });
 const ChapterSchema = z.object({
   id: slug,
@@ -27,6 +31,8 @@ const ChapterSchema = z.object({
   hours: z.number().positive().optional(),
   marks: z.number().positive().optional(),
   topics: z.array(TopicSchema).min(1),
+  ...nodeMetaFields,
+  movedFrom: MovedFromSchema.optional(),
 });
 
 /** Where the chapter and topic list comes from (SPEC §12.1 rule 1: never from memory). */
@@ -100,6 +106,14 @@ export const SubjectSchema = z.object({
    */
   links: z.array(z.object({ subject: slug, chapters: z.array(slug).optional() })).optional(),
   chapters: z.array(ChapterSchema),
+  /** Syllabus fix (Phase 1): source, confidence, status (retired = soft delete), votes. */
+  ...nodeMetaFields,
+  /** Batches (year of joining) this syllabus is for; missing = every batch. */
+  batchYears: z.array(z.int().min(2000).max(2100)).optional(),
+  /** The main copy of a course that is duplicated per branch (same course code). */
+  sameAs: slug.optional(),
+  /** A retired subject whose content now lives in another subject. */
+  movedTo: slug.optional(),
 });
 
 export type Topic = z.infer<typeof TopicSchema>;
@@ -144,6 +158,14 @@ export function catalogueProblems(list: readonly Subject[]): string[] {
         for (const r of t.requires ?? []) {
           if (!topicIds.has(r)) problems.push(`${s.id}: ${t.id} requires unknown topic "${r}"`);
         }
+      }
+    }
+    for (const [field, target] of [
+      ["sameAs", s.sameAs],
+      ["movedTo", s.movedTo],
+    ] as const) {
+      if (target && !list.some((x) => x.id === target)) {
+        problems.push(`${s.id}: ${field} points at unknown subject "${target}"`);
       }
     }
     if (s.chapters.length === 0 && !s.links?.length) {
@@ -194,8 +216,10 @@ function loadCatalogue(files: readonly unknown[]): Subject[] {
 const everySubject: readonly Subject[] =
   typeof window === "undefined" ? loadCatalogue(subjectFiles) : (subjectFiles as Subject[]);
 
-/** Every subject Prism lists: PDEU's courses. */
-export const subjects: readonly Subject[] = everySubject.filter((s) => s.university === "pdeu");
+/** Every subject Prism lists: PDEU's courses that are still taught (retired ones stay findable by id). */
+export const subjects: readonly Subject[] = everySubject.filter(
+  (s) => s.university === "pdeu" && !isRetired(s),
+);
 
 /**
  * The older subjects (before the PDEU layer) are the topic bank: PDEU subjects reuse their topic ids,

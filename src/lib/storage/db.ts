@@ -112,6 +112,8 @@ export type AppSettings = SyncFields & {
   /** "My branch and semester" (V3 · Step 3): the student's subjects are shown first. */
   branch?: string;
   semester?: number;
+  /** Year the student joined (syllabus fix): a course's syllabus can differ between batches. */
+  batchYear?: number;
   /**
    * The student's own importance for topics and chapters (V3 · Step 11), keyed
    * "subject/topic" or "subject/chapter:<id>". It always wins over the estimate.

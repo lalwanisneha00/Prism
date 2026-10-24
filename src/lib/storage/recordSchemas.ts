@@ -65,6 +65,7 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     audioRate: z.number().min(0.5).max(3).optional(),
     branch: z.string().max(40).optional(),
     semester: z.int().min(1).max(8).optional(),
+    batchYear: z.int().min(2000).max(2100).optional(),
     importanceOverrides: z
       .record(z.string().max(200), z.enum(["high", "medium", "low"]))
       .refine((r) => Object.keys(r).length <= 2000)

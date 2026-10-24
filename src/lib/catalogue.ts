@@ -23,14 +23,21 @@ export type IndexedSubject = {
   offerings?: readonly Offering[];
   university?: "pdeu";
   courseCategory?: "core" | "non-core";
+  /** Syllabus fix (Phase 1): where the course came from, how sure we are, retired or not. */
+  source?: Subject["source"];
+  confidence?: Subject["confidence"];
+  status?: Subject["status"];
   chapters: readonly IndexedChapter[];
 };
 
 const everyIndexed = subjectIndexData as unknown as IndexedSubject[];
 
-/** The subjects Prism lists: PDEU's. The older subjects stay as a topic bank (lookups only). */
+/**
+ * The subjects Prism lists: PDEU's that are still taught. The older subjects stay as a topic bank and
+ * retired courses stay findable by id (lookups only).
+ */
 export const subjectIndex: readonly IndexedSubject[] = everyIndexed.filter(
-  (s) => s.university === "pdeu",
+  (s) => s.university === "pdeu" && s.status !== "retired",
 );
 
 /** Any subject by id, including the older topic-bank subjects (saved progress still finds them). */

@@ -55,6 +55,22 @@ describe("subject catalogue", () => {
   it("records a syllabus source for every subject", () => {
     for (const s of subjects) expect(s.syllabusSource.title.length).toBeGreaterThan(0);
   });
+
+  it("marks every PDEU course with where it came from and how sure we are (syllabus fix)", () => {
+    for (const s of subjects.filter((x) => x.university === "pdeu")) {
+      expect(s.source, s.id).toBeDefined();
+      expect(s.confidence, s.id).toBeDefined();
+      expect(s.status, s.id).toBeDefined();
+    }
+  });
+
+  it("does not list retired courses, but still finds them by id", () => {
+    const retired = subjects.filter((s) => s.status === "retired");
+    for (const s of retired) {
+      expect(listedSubjects).not.toContain(s);
+      expect(findSubject(s.id)).toBe(s);
+    }
+  });
 });
 
 describe("branches and semesters", () => {
@@ -92,6 +108,13 @@ describe("catalogue checks", () => {
         'a: links to unknown chapter "b/missing"',
       ]),
     );
+  });
+
+  it("spots sameAs and movedTo pointing at unknown subjects (syllabus fix)", () => {
+    const a = minimal({ id: "a", sameAs: "ghost", movedTo: "b" });
+    expect(catalogueProblems([a, minimal({ id: "b" })])).toEqual([
+      'a: sameAs points at unknown subject "ghost"',
+    ]);
   });
 
   it("shows linked chapters under their owner subject, without copying them", () => {

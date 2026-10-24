@@ -1,6 +1,7 @@
 import { gunzipJson, gzipJson } from "@/lib/compress";
 import { PROMPT_VERSION } from "@/lib/prompts/lessonPrompt";
 import { parseLesson, type Lesson } from "@/lib/schema";
+import { isLessonStale, staleTopics, type StaleTopics } from "@/lib/syllabusFix/stale";
 
 /*
  * The shared lesson library (SPEC §9.4): each fact-checked lesson is stored once in
@@ -33,7 +34,11 @@ export type LibraryDoc = {
 
 /** The storage the library needs: one get and one set by key (Firestore in the app, a Map in tests). */
 export type LibraryStore = {
-  get(key: string): Promise<(Pick<LibraryDoc, "lessonGz"> & { promptVersion?: string }) | null>;
+  get(
+    key: string,
+  ): Promise<
+    (Pick<LibraryDoc, "lessonGz"> & { promptVersion?: string; createdAt?: string }) | null
+  >;
   set(key: string, doc: LibraryDoc): Promise<void>;
 };
 
@@ -41,15 +46,22 @@ export type LibraryStore = {
 export const libraryUsage = { reads: 0, writes: 0, since: new Date().toISOString() };
 
 /**
- * A lesson from the library, or null if there is none, it no longer passes the schema, or it
- * was written by an older prompt (then a fresh one is written and replaces it).
+ * A lesson from the library, or null if there is none, it no longer passes the schema, it was
+ * written by an older prompt, or its topic changed in the syllabus after it was written (stale).
+ * In each case a fresh one is written and replaces it.
  */
-export async function readFromLibrary(store: LibraryStore, key: string): Promise<Lesson | null> {
+export async function readFromLibrary(
+  store: LibraryStore,
+  key: string,
+  stale: StaleTopics = staleTopics,
+): Promise<Lesson | null> {
   libraryUsage.reads++;
   const doc = await store.get(key);
   if (!doc?.lessonGz || doc.promptVersion !== PROMPT_VERSION) return null;
   const parsed = parseLesson(await gunzipJson(doc.lessonGz));
-  return parsed.ok ? parsed.lesson : null;
+  if (!parsed.ok) return null;
+  const { subject, topic } = parsed.lesson.meta;
+  return isLessonStale(stale, subject, topic, doc.createdAt) ? null : parsed.lesson;
 }
 
 /** Stores a lesson in the library. Returns false if it is too big to store. */

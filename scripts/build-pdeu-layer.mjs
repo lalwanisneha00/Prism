@@ -12,9 +12,23 @@
  *
  * Core subjects carry reused sources; non-core subjects are a skeleton (units and topics only):
  * their lessons come from the student's uploaded faculty material.
+ *
+ * SYLLABUS FIX (2026-10-25): this script DELETES every pdeu-*.json and rebuilds them from the old
+ * merged handbook, which would wipe the syllabus fix (moved chapters, retired courses, history).
+ * The PDEU files are now edited in place (scripts/syllabus-migrations/, the handout import). It only
+ * runs with --rebuild-from-scratch, and you should not need that.
  */
 import { readdirSync, readFileSync, writeFileSync, rmSync } from "node:fs";
 import { join } from "node:path";
+
+if (!process.argv.includes("--rebuild-from-scratch")) {
+  console.error(
+    "Refusing to run: this rebuilds every pdeu-*.json from the old handbook and would undo the " +
+      "syllabus fix. Edit the files in place instead (see docs/SYLLABUS_AUDIT.md). If you really " +
+      "mean it: node scripts/build-pdeu-layer.mjs --rebuild-from-scratch",
+  );
+  process.exit(1);
+}
 
 const DIR = "data/university/pdeu";
 const OUT = "src/data/subjects";

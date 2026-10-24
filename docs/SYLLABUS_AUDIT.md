@@ -23,6 +23,9 @@ Two PDEU datasets, both generated from one merged handbook extraction:
    - Shape: `{ id, name, field, tier, university: "pdeu", courseCategory: core|non-core, branches: [..], semesters: [..], code, credits, ltp, category, offerings: [{branch, key, code, semester, kind, credits, ltp, category}], syllabusSource, chapters: [{ id, name, hours, topics: [{ id, name, requires? }] }], links? }`
    - Branch/semester link = `branches` + `semesters` + `offerings[]` on the subject. Chapter → subject and topic → chapter is **nesting** (array position = order). No `parent_id`, `order_index`, `status`, `batch_year`, `source`, `confidence`.
    - `links` lets a subject borrow chapters owned by another subject (`chaptersOf` in `src/lib/subjects.ts`).
+   - **Phase 1 tree fields (all optional, in `SubjectSchema`):** every node (subject, chapter, topic) may have `source` (`official_site|admin_handout|student_handout|student_fix`), `confidence` (`unverified|pending|verified`), `status` (`active|retired`), `verifiedByCount`. Subjects also `batchYears`, `sameAs` (main copy of a duplicated course), `movedTo`; chapters/topics `movedFrom: {subject, chapter?, at}`. A missing field is **inherited** from the parent (`resolveMeta` in `src/lib/syllabusFix/tree.ts`); a retired course/chapter retires its children. Course code = existing `code`; parent = nesting; order = array position; branch/semester = `branches`/`semesters`/`offerings`. All 301 PDEU subjects carry `official_site/unverified/active/0` at subject level (migration `001`).
+   - Retired subjects are hidden from `subjects` (`src/lib/subjects.ts`) and `subjectIndex` (`src/lib/catalogue.ts`) but `findSubject`/`indexedSubject` still find them. The light index only carries non-default `source/confidence/status`.
+   - `scripts/build-pdeu-layer.mjs` **deletes and rebuilds** all `pdeu-*.json`: now refuses to run without `--rebuild-from-scratch`. Never use it again; edit files in place.
 2. **Handbook view (credits, Core/Non-core, electives):** `src/data/pdeu/<branch>.json` (+ `overrides.json`, `subject-map.json`, `prism-match.json`), built by `scripts/build-pdeu.mjs`. Loaded by `src/lib/pdeu/load.ts`; used by `/pdeu/[branch]/[key]`, My subjects, electives (`src/lib/pdeu/electives.ts`).
 3. **Topic bank:** the older non-PDEU subject files in `src/data/subjects/*.json` (`bankSubjects`). Hidden, but lookups by id still work. PDEU topics reuse their ids (445 topics), and their golden sets / evals belong to them.
 4. Index: `scripts/build-subject-index.mjs` writes `src/data/subjects/index.generated.ts` (runs before dev/build/test). `src/lib/subjects.ts` loads, validates (`SubjectSchema`, `catalogueProblems`) and exposes `subjects`, `subjectsFor(branch, sem)`, `findSubject`, `chaptersOf`. IDs are locked: `src/lib/subjectIds.lock.json`.
@@ -56,6 +59,8 @@ All keyed by **subject id + topic id** strings (chapter id in a few places). Top
 | Search ranking        | `src/lib/catalogueSearch.ts` (`searchCatalogue`), `subjectsFor` in `src/lib/subjects.ts`, `src/lib/semester/mySemester.ts`, `src/lib/topicSearch.ts` | reads `subjects`                                                                                                                                                                        |
 | Concept map           | `src/lib/conceptMap.ts` (topic `requires`)                                                                                                           | topic ids                                                                                                                                                                               |
 | Evals / golden sets   | `eval/`, `src/data/accuracy.json`, `evalStatus.json`                                                                                                 | bank subject/topic ids. **Out of scope, do not touch.**                                                                                                                                 |
+
+**ID lock:** `src/lib/subjectIds.lock.json` stores `subject/chapter/topic` triples and `subjects.test.ts` fails if one disappears. Moving a topic to another chapter (Phase 2) must update the lock deliberately (e.g. keep the old triple resolvable through `movedFrom`, and adjust the test to accept a triple whose topic has `movedFrom` that chapter).
 
 **Key rule from this:** a topic can move between chapters of the same subject freely (keys use subject + topic, not chapter). Moving a topic or chapter to a **different subject** changes the owner, so saved data would point at the old subject. Fix: keep the old owner reachable (a `movedTo`/alias lookup) instead of renaming keys.
 
@@ -103,6 +108,14 @@ Each semester folder holds one PDF named `<Branch>_Semester_<N>_Course_Handout.p
 8. Gemini free quota (~300 lessons/day) limits AI fallback in the import; use rule-based parsing first.
 9. Admin role must be enforced in the server routes and Firestore rules (owner's uid in a server env var), not in the UI.
 
+## 7b. Phase 1 building blocks (use these in later phases)
+
+- **History (`syllabus_history`):** `src/lib/syllabusFix/history.ts` (`HistoryEntrySchema`: id, at, actor {kind script|admin|student|system, id?}, cause, target {kind catalogue|branch|subject|chapter|topic, subject?, chapter?, topic?}, field, oldValue, newValue, reverted, revertedBy?; `historyEntry`, `parseHistory`, `formatHistory`, `markReverted`). Script/admin changes: `data/university/pdeu/history.jsonl` (in git). Live changes (Phase 5): Firestore `syllabusHistory`, same shape.
+- **Stale lessons:** `src/data/syllabus/stale-topics.json` (`{version:1, topics: {"subject/topic": ISO time}}`), `src/lib/syllabusFix/stale.ts` (`isLessonStale`, `markStale`). `readFromLibrary` (`src/lib/library/sharedLibrary.ts`) treats a library lesson written before its topic's change time as missing, so it is regenerated on next open. No bulk writes. Not yet applied to the student's own `savedLessons` (Phase 7).
+- **Migrations:** `scripts/syllabus-migrations/NNN-*.ts`, run with `npx tsx --tsconfig tsconfig.json <file> up|down`; `down` only removes values the migration wrote, and both directions log to `history.jsonl`. Run `npx prettier --write "src/data/subjects/pdeu-*.json"` after any script that writes subject files.
+- **Batch year:** `AppSettings.batchYear?` (`src/lib/storage/db.ts`) + `recordSchemas.ts` settings (2000 to 2100). No UI yet.
+- **Backup:** `npm run backup:firestore` (`scripts/backup-firestore.ts`) dumps `lessons` + the syllabus-fix collections to `backups/` (git-ignored). Not run yet (each doc = 1 read of the 50k/day).
+
 ## 8. Backing up for free
 
 - Syllabus: it is in git. Tag before applying changes (`git tag pre-syllabus-fix`).
@@ -126,4 +139,10 @@ Evals: out of scope. Existing eval results are based on the old syllabus and are
 - **Phase 0 (audit): done, 2026-10-25.** Created `PRISM_SYLLABUS_FIX.md` (the plan, word for word) and this file. No code or data changed. Findings: syllabus is static JSON (no DB); ICT has no AI course; ME data is from an old scheme; 17 duplicated course codes; no batch year in profiles; ELEC and CHEM have handouts but no Prism branch; handout PDFs are already public on GitHub. Database changes: none.
   - Decisions: handout PDFs untracked + `.gitignore` gets `handouts/**/*.pdf` and `handouts/_split/**/*.pdf` (option a, history not rewritten). Electrical (`elec`) and Chemical (`chem`) will be added as new branches in Phase 2 (need entries in `src/data/branches.json`, `PDEU_BRANCH_IDS`, `src/data/pdeu/`).
   - Committed and pushed as `Syllabus fix: Phase 0, audit`.
-  - **Next step:** Phase 1 (data model fields, history log, stale-topic map, `batchYear` in settings, Firestore backup script).
+  - **Next step:** Phase 1.
+- **Phase 1 (tree data model): done, 2026-10-25.** See §2 (tree fields) and §7b (building blocks).
+  - New: `src/lib/syllabusFix/{tree,history,stale}.ts` + tests, `src/data/syllabus/stale-topics.json`, `scripts/syllabus-migrations/001-tree-fields.ts`, `scripts/backup-firestore.ts`, `data/university/pdeu/history.jsonl` (1 entry: migration 001 up).
+  - Changed: `src/lib/subjects.ts` (schema fields, retired hidden, `sameAs`/`movedTo` checks), `subjects.test.ts`, `src/lib/catalogue.ts`, `scripts/build-subject-light.mjs`, `src/lib/library/{sharedLibrary,adminStore}.ts` + test, `src/lib/storage/{db,recordSchemas}.ts`, `scripts/build-pdeu-layer.mjs` (guard), `package.json` (`backup:firestore`), `.gitignore` (`/backups/`), 301 `pdeu-*.json` (4 fields each).
+  - Database changes: none in Firestore. Data: additive fields only; migration 001 is reversible (`down` tested: byte-identical files).
+  - Checks: `npm run check` 764/766 in the full run (2 timeouts in `src/app/api/lesson/route.test.ts` under load; that file passes 5/5 alone), `npm run build` passes.
+  - **Next step:** Phase 2 (split handouts, import dry-run report, stop for the owner's approval). Read §2, §3 (ID lock note), §6 and §7b first.

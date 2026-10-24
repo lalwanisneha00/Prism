@@ -54,6 +54,19 @@ describe("shared library", () => {
     expect(await readFromLibrary(store, key)).toBeNull();
   });
 
+  it("treats a lesson as stale when its topic changed in the syllabus after it was written", async () => {
+    const store = memoryStore();
+    await writeToLibrary(store, lesson);
+    const key = libraryKey(lesson.meta);
+    const { subject, topic } = lesson.meta;
+    const changed = (at: string) => ({
+      version: 1 as const,
+      topics: { [`${subject}/${topic}`]: at },
+    });
+    expect(await readFromLibrary(store, key, changed("2099-01-01T00:00:00.000Z"))).toBeNull();
+    expect(await readFromLibrary(store, key, changed("2000-01-01T00:00:00.000Z"))).toEqual(lesson);
+  });
+
   it("returns null for a missing or broken entry", async () => {
     const store = memoryStore();
     expect(await readFromLibrary(store, "nope")).toBeNull();

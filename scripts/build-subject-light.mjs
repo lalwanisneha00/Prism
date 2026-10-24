@@ -31,6 +31,10 @@ const light = files.map((f) => {
     ...(s.offerings ? { offerings: s.offerings } : {}),
     ...(s.university ? { university: s.university } : {}),
     ...(s.courseCategory ? { courseCategory: s.courseCategory } : {}),
+    // Syllabus-fix fields only when they differ from the defaults, to keep this index small.
+    ...(s.source && s.source !== "official_site" ? { source: s.source } : {}),
+    ...(s.confidence && s.confidence !== "unverified" ? { confidence: s.confidence } : {}),
+    ...(s.status === "retired" ? { status: s.status } : {}),
     chapters: s.chapters.map((c) => ({ id: c.id, name: c.name, topics: c.topics.length })),
   };
 });
