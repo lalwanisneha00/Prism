@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Drilling Engineering",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -49,13 +49,66 @@
         },
         {
           "id": "drilling-rig-components-systems-power-derrick-and-sub",
-          "name": "Drilling Rig Components/Systems: Power, Derrick & Sub-structure, Hoisting System, Rotary systems, Circulation & Mud treatment, Rig control system",
-          "requires": ["drilling-operations"]
+          "name": "Drilling Rig Components/Systems: Power",
+          "requires": ["drilling-operations"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "derrick-and-sub-structure",
+          "name": "Derrick & Sub-structure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["drilling-rig-components-systems-power-derrick-and-sub"]
+        },
+        {
+          "id": "hoisting-system",
+          "name": "Hoisting System",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["derrick-and-sub-structure"]
+        },
+        {
+          "id": "rotary-systems",
+          "name": "Rotary systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hoisting-system"]
+        },
+        {
+          "id": "circulation-and-mud-treatment",
+          "name": "Circulation & Mud treatment",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rotary-systems"]
+        },
+        {
+          "id": "rig-control-system",
+          "name": "Rig control system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["circulation-and-mud-treatment"]
         },
         {
           "id": "drilling-fluids-basics-functions-properties-and-nature",
-          "name": "Drilling Fluids: Basics, Functions, Properties and Nature",
-          "requires": ["drilling-rig-components-systems-power-derrick-and-sub"]
+          "name": "Drilling Fluids: Basics",
+          "requires": ["drilling-rig-components-systems-power-derrick-and-sub"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "functions",
+          "name": "Functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["drilling-fluids-basics-functions-properties-and-nature"]
+        },
+        {
+          "id": "properties-and-nature",
+          "name": "Properties and Nature",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["functions"]
         },
         {
           "id": "classification-of-drilling-fluids-viz",
@@ -64,13 +117,45 @@
         },
         {
           "id": "pneumatic-drilling-fluid-water-based-drilling-fluids-oil",
-          "name": "Pneumatic drilling fluid, Water-based drilling fluids, Oil-based drilling fluids",
-          "requires": ["classification-of-drilling-fluids-viz"]
+          "name": "Pneumatic drilling fluid",
+          "requires": ["classification-of-drilling-fluids-viz"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "water-based-drilling-fluids",
+          "name": "Water-based drilling fluids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pneumatic-drilling-fluid-water-based-drilling-fluids-oil"]
+        },
+        {
+          "id": "oil-based-drilling-fluids",
+          "name": "Oil-based drilling fluids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["water-based-drilling-fluids"]
         },
         {
           "id": "latest-advances-and-emerging-trends-in-drilling-fluids-viz",
-          "name": "Latest advances and emerging trends in drilling fluids viz. use of NDDF, Inhibitive, and Non-inhibitive",
-          "requires": ["pneumatic-drilling-fluid-water-based-drilling-fluids-oil"]
+          "name": "Latest advances and emerging trends in drilling fluids viz. use of NDDF",
+          "requires": ["pneumatic-drilling-fluid-water-based-drilling-fluids-oil"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "inhibitive",
+          "name": "Inhibitive",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["latest-advances-and-emerging-trends-in-drilling-fluids-viz"]
+        },
+        {
+          "id": "non-inhibitive",
+          "name": "Non-inhibitive",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["inhibitive"]
         },
         {
           "id": "balanced-underbalanced-drilling",
@@ -79,8 +164,31 @@
         },
         {
           "id": "rheological-models-of-drilling-fluids-bingham-plastic-model",
-          "name": "Rheological models of drilling fluids: Bingham Plastic Model, Power law model, Herschel-Buckley model, Mud weight Calculations",
-          "requires": ["balanced-underbalanced-drilling"]
+          "name": "Rheological models of drilling fluids: Bingham Plastic Model",
+          "requires": ["balanced-underbalanced-drilling"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "power-law-model",
+          "name": "Power law model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rheological-models-of-drilling-fluids-bingham-plastic-model"]
+        },
+        {
+          "id": "herschel-buckley-model",
+          "name": "Herschel-Buckley model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["power-law-model"]
+        },
+        {
+          "id": "mud-weight-calculations",
+          "name": "Mud weight Calculations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["herschel-buckley-model"]
         },
         {
           "id": "well-planning-and-geo-technical-order-gto",
@@ -89,8 +197,31 @@
         },
         {
           "id": "pore-pressure-prediction-fracture-pressure-overburden",
-          "name": "Pore Pressure prediction, Fracture pressure, Overburden Pressure, and Abnormal pressure",
-          "requires": ["well-planning-and-geo-technical-order-gto"]
+          "name": "Pore Pressure prediction",
+          "requires": ["well-planning-and-geo-technical-order-gto"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fracture-pressure",
+          "name": "Fracture pressure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pore-pressure-prediction-fracture-pressure-overburden"]
+        },
+        {
+          "id": "overburden-pressure",
+          "name": "Overburden Pressure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fracture-pressure"]
+        },
+        {
+          "id": "abnormal-pressure",
+          "name": "Abnormal pressure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["overburden-pressure"]
         }
       ]
     },
@@ -115,8 +246,38 @@
         },
         {
           "id": "drill-bits-types-performance-and-criteria-for-design-bit",
-          "name": "Drill Bits: Types, Performance and Criteria for design, Bit Nozzle size selection, Rig Hydraulics",
-          "requires": ["drill-string-fatigue-failure"]
+          "name": "Drill Bits: Types",
+          "requires": ["drill-string-fatigue-failure"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "performance-and-criteria-for-design",
+          "name": "Performance and Criteria for design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["drill-bits-types-performance-and-criteria-for-design-bit"]
+        },
+        {
+          "id": "bit-nozzle-size-selection",
+          "name": "Bit Nozzle size selection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["performance-and-criteria-for-design"]
+        },
+        {
+          "id": "rig-hydraulics",
+          "name": "Rig Hydraulics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bit-nozzle-size-selection"]
+        },
+        {
+          "id": "types",
+          "name": "Types",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rig-hydraulics"]
         },
         {
           "id": "bit-failure",
@@ -125,8 +286,38 @@
         },
         {
           "id": "casing-functions-configuration-types-properties-casing",
-          "name": "Casing: Functions, Configuration, Types, Properties, Casing setting depth and hole sizes, Casing handling practices",
-          "requires": ["bit-failure"]
+          "name": "Casing: Functions",
+          "requires": ["bit-failure"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "configuration",
+          "name": "Configuration",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["casing-functions-configuration-types-properties-casing"]
+        },
+        {
+          "id": "properties",
+          "name": "Properties",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["configuration"]
+        },
+        {
+          "id": "casing-setting-depth-and-hole-sizes",
+          "name": "Casing setting depth and hole sizes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["properties"]
+        },
+        {
+          "id": "casing-handling-practices",
+          "name": "Casing handling practices",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["casing-setting-depth-and-hole-sizes"]
         },
         {
           "id": "casing-design-criteria",
@@ -147,17 +338,86 @@
       "topics": [
         {
           "id": "introduction-to-cementing-cement-and-cement-slurry",
-          "name": "Introduction to Cementing, Cement and Cement Slurry: Objectives of cementing, Classification of cement, Slurry design, Slurry additives, Factors influencing cement slurry design"
+          "name": "Introduction to Cementing",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cement-and-cement-slurry-objectives-of-cementing",
+          "name": "Cement and Cement Slurry: Objectives of cementing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-cementing-cement-and-cement-slurry"]
+        },
+        {
+          "id": "classification-of-cement",
+          "name": "Classification of cement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cement-and-cement-slurry-objectives-of-cementing"]
+        },
+        {
+          "id": "slurry-design",
+          "name": "Slurry design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-cement"]
+        },
+        {
+          "id": "slurry-additives",
+          "name": "Slurry additives",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["slurry-design"]
+        },
+        {
+          "id": "factors-influencing-cement-slurry-design",
+          "name": "Factors influencing cement slurry design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["slurry-additives"]
         },
         {
           "id": "cementing-equipment",
           "name": "Cementing equipment",
-          "requires": ["introduction-to-cementing-cement-and-cement-slurry"]
+          "requires": ["introduction-to-cementing-cement-and-cement-slurry"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cementing-methods-primary-cementing",
+          "name": "Cementing Methods: Primary cementing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cementing-equipment"]
         },
         {
           "id": "cementing-methods-primary-cementing-stage-cementing-liner",
-          "name": "Cementing Methods: Primary cementing, Stage cementing, Liner cementing, Plug Cementing, Squeeze Cementing techniques in practice",
-          "requires": ["cementing-equipment"]
+          "name": "Stage cementing",
+          "requires": ["cementing-equipment"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "liner-cementing",
+          "name": "Liner cementing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cementing-methods-primary-cementing-stage-cementing-liner"]
+        },
+        {
+          "id": "plug-cementing",
+          "name": "Plug Cementing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["liner-cementing"]
+        },
+        {
+          "id": "squeeze-cementing-techniques-in-practice",
+          "name": "Squeeze Cementing techniques in practice",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["plug-cementing"]
         },
         {
           "id": "deep-well-cementing",
@@ -166,8 +426,17 @@
         },
         {
           "id": "characteristics-of-good-quality-cementation-using-cbl-vdl",
-          "name": "Characteristics of good quality cementation using CBL/VDL. Cementing calculation",
-          "requires": ["deep-well-cementing"]
+          "name": "Characteristics of good quality cementation using CBL/VDL",
+          "requires": ["deep-well-cementing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cementing-calculation",
+          "name": "Cementing calculation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characteristics-of-good-quality-cementation-using-cbl-vdl"]
         }
       ]
     },
@@ -178,7 +447,51 @@
       "topics": [
         {
           "id": "pipe-sticking-and-calculations-pipe-failure-lost-circulation",
-          "name": "Pipe sticking and Calculations, Pipe failure, Lost circulation, Hole Deviation, Sloughing shale, Formation damage, Borehole Instability"
+          "name": "Pipe sticking and Calculations",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pipe-failure",
+          "name": "Pipe failure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pipe-sticking-and-calculations-pipe-failure-lost-circulation"]
+        },
+        {
+          "id": "lost-circulation",
+          "name": "Lost circulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pipe-failure"]
+        },
+        {
+          "id": "hole-deviation",
+          "name": "Hole Deviation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lost-circulation"]
+        },
+        {
+          "id": "sloughing-shale",
+          "name": "Sloughing shale",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hole-deviation"]
+        },
+        {
+          "id": "formation-damage",
+          "name": "Formation damage",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sloughing-shale"]
+        },
+        {
+          "id": "borehole-instability",
+          "name": "Borehole Instability",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["formation-damage"]
         },
         {
           "id": "fishing-and-coring-operations",
@@ -202,10 +515,21 @@
         },
         {
           "id": "drilling-waste-management-classification-of-drilling-waste",
-          "name": "Drilling waste management: Classification of drilling waste, Approaches of Drilling waste minimization",
-          "requires": ["environmental-impact-of-drilling-fluid"]
+          "name": "Drilling waste management: Classification of drilling waste",
+          "requires": ["environmental-impact-of-drilling-fluid"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "approaches-of-drilling-waste-minimization",
+          "name": "Approaches of Drilling waste minimization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["drilling-waste-management-classification-of-drilling-waste"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-drilling-engineering-laboratory-petro"]
 }

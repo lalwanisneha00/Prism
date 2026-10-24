@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Internet of Things",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -122,7 +122,8 @@
         {
           "id": "6lo",
           "name": "6Lo",
-          "requires": ["ip-as-iot-network-layer-6lowpan"]
+          "requires": ["ip-as-iot-network-layer-6lowpan"],
+          "status": "retired"
         },
         {
           "id": "rpl",
@@ -137,12 +138,27 @@
         {
           "id": "application-layer-protocols-coap",
           "name": "Application layer protocols- CoAP",
-          "requires": ["transport-layer-protocols"]
+          "requires": ["transport-layer-protocols"],
+          "status": "retired"
         },
         {
           "id": "mqtt",
           "name": "MQTT",
           "requires": ["application-layer-protocols-coap"]
+        },
+        {
+          "id": "iot-network-layer-owpan",
+          "name": "IoT network layer:oWPAN",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mqtt"]
+        },
+        {
+          "id": "application-layer-protocolscoap",
+          "name": "Application layer protocolsCoAP",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["iot-network-layer-owpan"]
         }
       ]
     },
@@ -238,5 +254,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

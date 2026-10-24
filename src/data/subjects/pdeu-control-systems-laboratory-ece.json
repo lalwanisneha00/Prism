@@ -1,0 +1,135 @@
+{
+  "id": "pdeu-control-systems-laboratory-ece",
+  "name": "Control Systems Laboratory",
+  "field": "Control Systems Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ECE semester 5): Control Systems Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 10-12 of ECE/sem5/ECE_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s5-control-systems-laboratory",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-introduction-to-matlab-with-respect-to-control",
+          "name": "Introduction to MATLAB with respect to Control Systems Applications and Analysis",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-introduction-to-python-programming-and-librarie",
+          "name": "Introduction to Python Programming and Libraries for Control Systems",
+          "number": 2,
+          "requires": ["experiment-1-introduction-to-matlab-with-respect-to-control"]
+        },
+        {
+          "id": "experiment-3-mathematical-modeling-of-a-simple-pendulum-syst",
+          "name": "Mathematical modeling of a simple pendulum system using Python and MATLAB",
+          "number": 3,
+          "requires": ["experiment-2-introduction-to-python-programming-and-librarie"]
+        },
+        {
+          "id": "experiment-4-mathematical-modeling-of-a-spring-mass-damper-s",
+          "name": "Mathematical modeling of a spring-mass damper system using Python and MATLAB",
+          "number": 4,
+          "requires": ["experiment-3-mathematical-modeling-of-a-simple-pendulum-syst"]
+        },
+        {
+          "id": "experiment-5-modeling-of-a-slosh-container-system-in-simulin",
+          "name": "Modeling of a slosh-container system in Simulink and Understanding its Mechatronics implementation",
+          "number": 5,
+          "requires": ["experiment-4-mathematical-modeling-of-a-spring-mass-damper-s"]
+        },
+        {
+          "id": "experiment-6-transient-response-analysis-of-first-and-second",
+          "name": "Transient response analysis of first and second-order control systems",
+          "number": 6,
+          "requires": ["experiment-5-modeling-of-a-slosh-container-system-in-simulin"]
+        },
+        {
+          "id": "experiment-7-simulating-open-loop-systems-using-their-linear",
+          "name": "Simulating open loop systems using their linear and nonlinear state equations by ODE solvers in MATLAB",
+          "number": 7,
+          "requires": ["experiment-6-transient-response-analysis-of-first-and-second"]
+        },
+        {
+          "id": "experiment-8-design-realize-and-simulate-an-open-loop-state",
+          "name": "Design, realize, and simulate an open-loop state-space model for linear and nonlinear systems in Simulink",
+          "number": 8,
+          "requires": ["experiment-7-simulating-open-loop-systems-using-their-linear"]
+        },
+        {
+          "id": "experiment-9-study-the-stability-analysis-using-root-locus-a",
+          "name": "Study the stability analysis using root locus and bode plots using MATLAB",
+          "number": 9,
+          "requires": ["experiment-8-design-realize-and-simulate-an-open-loop-state"]
+        },
+        {
+          "id": "experiment-10-implement-linear-control-systems-in-matlab-sim",
+          "name": "Implement Linear Control Systems in MATLAB/Simulink using Libraries and Control System toolbox",
+          "number": 10,
+          "requires": ["experiment-9-study-the-stability-analysis-using-root-locus-a"]
+        },
+        {
+          "id": "experiment-11-design-and-implement-a-pid-controller-in-pytho",
+          "name": "Design and Implement a PID Controller in Python and Simulink for a linear dynamical system",
+          "number": 11,
+          "requires": ["experiment-10-implement-linear-control-systems-in-matlab-sim"]
+        },
+        {
+          "id": "experiment-12-simulate-a-simple-2d-mobile-robot-ground-aeria",
+          "name": "Simulate a simple 2D mobile robot Ground/Aerial in Python and MATLAB/Simulink in an open loop",
+          "number": 12,
+          "requires": ["experiment-11-design-and-implement-a-pid-controller-in-pytho"]
+        },
+        {
+          "id": "experiment-13-design-and-implement-a-simple-state-feedback-c",
+          "name": "Design and implement a simple State-feedback controller for a robot",
+          "number": 13,
+          "requires": ["experiment-12-simulate-a-simple-2d-mobile-robot-ground-aeria"]
+        },
+        {
+          "id": "experiment-14-implementation-of-simulink-based-kinematic-mod",
+          "name": "Implementation of Simulink-based Kinematic model of an autonomous vehicle.",
+          "number": 14,
+          "requires": ["experiment-13-design-and-implement-a-simple-state-feedback-c"]
+        },
+        {
+          "id": "experiment-15-implementation-of-a-control-algorithm-for-an-i",
+          "name": "Implementation of a Control algorithm for an Industrial Automation System",
+          "number": 15,
+          "requires": ["experiment-14-implementation-of-simulink-based-kinematic-mod"]
+        },
+        {
+          "id": "experiment-16-build-an-autonomous-system-with-control-princi",
+          "name": "Build an autonomous system with Control principles",
+          "number": 16,
+          "requires": ["experiment-15-implementation-of-a-control-algorithm-for-an-i"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-control-systems"]
+}

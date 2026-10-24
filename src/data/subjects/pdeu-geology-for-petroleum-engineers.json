@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Geology for Petroleum Engineers",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,22 +40,65 @@
       "topics": [
         {
           "id": "origin-of-the-solar-system-with-earth-formation-stellar",
-          "name": "Origin of the solar system with earth formation - stellar nucleosynthesis"
+          "name": "Origin of the solar system with earth formation",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "the-earths-structure-crust-mantle-and-core",
-          "name": "The Earth's structure - crust, mantle and core",
+          "id": "stellar-nucleosynthesis",
+          "name": "stellar nucleosynthesis",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["origin-of-the-solar-system-with-earth-formation-stellar"]
         },
         {
-          "id": "plate-tectonics-petro",
-          "name": "Plate tectonics and basin formation. Geological time scale",
+          "id": "the-earths-structure-crust-mantle-and-core",
+          "name": "The Earth's structure",
+          "requires": ["origin-of-the-solar-system-with-earth-formation-stellar"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "crust",
+          "name": "crust",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["the-earths-structure-crust-mantle-and-core"]
         },
         {
-          "id": "radioactive-dating-sea-level-change",
-          "name": "radioactive dating. Sea level change",
+          "id": "mantle-and-core",
+          "name": "mantle and core",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["crust"]
+        },
+        {
+          "id": "plate-tectonics-petro",
+          "name": "Plate tectonics and basin formation",
+          "requires": ["the-earths-structure-crust-mantle-and-core"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "geological-time-scale",
+          "name": "Geological time scale",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["plate-tectonics-petro"]
+        },
+        {
+          "id": "radioactive-dating-sea-level-change",
+          "name": "radioactive dating",
+          "requires": ["plate-tectonics-petro"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "sea-level-change",
+          "name": "Sea level change",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radioactive-dating-sea-level-change"]
         }
       ]
     },
@@ -75,13 +118,31 @@
         },
         {
           "id": "chemical-weathering",
+          "name": "Weathering",
+          "requires": ["physical-or-mechanical-weathering"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "chemical-weathering-2",
           "name": "Chemical weathering",
-          "requires": ["physical-or-mechanical-weathering"]
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chemical-weathering"]
         },
         {
           "id": "biological-weathering-stress-and-strain-in-rocks",
-          "name": "Biological weathering. Stress and strain in rocks",
-          "requires": ["chemical-weathering"]
+          "name": "Biological weathering",
+          "requires": ["chemical-weathering"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "stress-and-strain-in-rocks",
+          "name": "Stress and strain in rocks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biological-weathering-stress-and-strain-in-rocks"]
         },
         {
           "id": "strike-and-dip",
@@ -116,18 +177,73 @@
         },
         {
           "id": "chemical-mineralogy-bio-mineralogy-optical-mineralogy",
-          "name": "chemical mineralogy, Bio mineralogy, Optical mineralogy",
-          "requires": ["crystallography-crystal-structure-and-unit-cell-types"]
+          "name": "chemical mineralogy",
+          "requires": ["crystallography-crystal-structure-and-unit-cell-types"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "silicate-mineralogy-igneous-petrology-rock-cycle",
-          "name": "silicate mineralogy, Igneous Petrology- rock cycle, Classification of rocks",
+          "id": "bio-mineralogy",
+          "name": "Bio mineralogy",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["chemical-mineralogy-bio-mineralogy-optical-mineralogy"]
         },
         {
-          "id": "bowens-reaction-series-formation-of-igneous-rocks",
-          "name": "Bowen’s reaction series, Formation of igneous rocks, Classification of igneous rocks, Texture of igneous rocks, Sedimentary rocks formation",
+          "id": "optical-mineralogy",
+          "name": "Optical mineralogy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bio-mineralogy"]
+        },
+        {
+          "id": "silicate-mineralogy-igneous-petrology-rock-cycle",
+          "name": "silicate mineralogy",
+          "requires": ["chemical-mineralogy-bio-mineralogy-optical-mineralogy"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "classification-of-rocks",
+          "name": "Classification of rocks",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["silicate-mineralogy-igneous-petrology-rock-cycle"]
+        },
+        {
+          "id": "classification-of-igneous-rocks",
+          "name": "Classification of igneous rocks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-rocks"]
+        },
+        {
+          "id": "bowens-reaction-series-formation-of-igneous-rocks",
+          "name": "Bowen’s reaction series",
+          "requires": ["silicate-mineralogy-igneous-petrology-rock-cycle"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "formation-of-igneous-rocks",
+          "name": "Formation of igneous rocks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bowens-reaction-series-formation-of-igneous-rocks"]
+        },
+        {
+          "id": "texture-of-igneous-rocks",
+          "name": "Texture of igneous rocks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["formation-of-igneous-rocks"]
+        },
+        {
+          "id": "sedimentary-rocks-formation",
+          "name": "Sedimentary rocks formation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["texture-of-igneous-rocks"]
         },
         {
           "id": "structure-and-texture-of-sedimentary-rocks",
@@ -136,8 +252,17 @@
         },
         {
           "id": "classification-of-sandstone-folks-textural-classification-of",
-          "name": "classification of sandstone, Folk's textural classification of carbonate sediments",
-          "requires": ["structure-and-texture-of-sedimentary-rocks"]
+          "name": "classification of sandstone",
+          "requires": ["structure-and-texture-of-sedimentary-rocks"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "folk-s-textural-classification-of-carbonate-sediments",
+          "name": "Folk's textural classification of carbonate sediments",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-sandstone-folks-textural-classification-of"]
         },
         {
           "id": "dunhams-limestone-classification",
@@ -146,8 +271,31 @@
         },
         {
           "id": "formation-of-metamorphic-rocks-foliated-rocks-and-non",
-          "name": "Formation of metamorphic rocks, Foliated rocks, and Non-foliated rocks",
-          "requires": ["dunhams-limestone-classification"]
+          "name": "Formation of metamorphic rocks",
+          "requires": ["dunhams-limestone-classification"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "foliated-rocks",
+          "name": "Foliated rocks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["formation-of-metamorphic-rocks-foliated-rocks-and-non"]
+        },
+        {
+          "id": "non-foliated-rocks",
+          "name": "Non-foliated rocks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["foliated-rocks"]
+        },
+        {
+          "id": "igneous-petrologyrock-cycle",
+          "name": "Igneous Petrologyrock cycle",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["non-foliated-rocks"]
         }
       ]
     },
@@ -182,13 +330,31 @@
         },
         {
           "id": "index-fossils-importance-of-fossils-in-petroleum-geology",
-          "name": "Index fossils, importance of fossils in petroleum geology, Stratigraphy-Types of Stratigraphy",
-          "requires": ["uses-of-fossils"]
+          "name": "Index fossils",
+          "requires": ["uses-of-fossils"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "importance-of-fossils-in-petroleum-geology",
+          "name": "importance of fossils in petroleum geology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["index-fossils-importance-of-fossils-in-petroleum-geology"]
         },
         {
           "id": "laws-of-stratigraphy",
+          "name": "Stratigraphy-Types of Stratigraphy",
+          "requires": ["index-fossils-importance-of-fossils-in-petroleum-geology"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "laws-of-stratigraphy-2",
           "name": "Laws of Stratigraphy",
-          "requires": ["index-fossils-importance-of-fossils-in-petroleum-geology"]
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["laws-of-stratigraphy"]
         },
         {
           "id": "unconformities",
@@ -202,5 +368,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-geology-for-petroleum-engineers-laboratory-petro"]
 }

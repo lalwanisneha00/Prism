@@ -1,0 +1,112 @@
+{
+  "id": "pdeu-digital-control-laboratory-elec",
+  "name": "Digital Control Laboratory",
+  "field": "Digital Control Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 7): Digital Control Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 9 of ELEC/sem7/Electrical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE405P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s7-digital-control-laboratory",
+      "code": "20EE405P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-introduction-to-control-system-tool-box-and-mat",
+          "name": "Introduction to control system tool box and MATLAB commands for representing discrete systems.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-identification-of-discrete-state-space-model-of",
+          "name": "Identification of discrete state space model of Single Board Heater System using step response data.",
+          "number": 2,
+          "requires": ["experiment-1-introduction-to-control-system-tool-box-and-mat"]
+        },
+        {
+          "id": "experiment-3-linearization-of-a-non-linear-process-using-tay",
+          "name": "Linearization of a non-linear process using Taylor Series Expansion.",
+          "number": 3,
+          "requires": ["experiment-2-identification-of-discrete-state-space-model-of"]
+        },
+        {
+          "id": "experiment-4-simulation-of-discrete-pid-controller-using-mat",
+          "name": "Simulation of discrete PID controller using MATLAB /Simulink.",
+          "number": 4,
+          "requires": ["experiment-3-linearization-of-a-non-linear-process-using-tay"]
+        },
+        {
+          "id": "experiment-5-discrete-pid-control-of-single-board-heater-sys",
+          "name": "Discrete PID control of Single Board Heater System: An experimental study",
+          "number": 5,
+          "requires": ["experiment-4-simulation-of-discrete-pid-controller-using-mat"]
+        },
+        {
+          "id": "experiment-6-discrete-pid-control-of-liquid-level-interactin",
+          "name": "Discrete PID control of liquid level interacting System: An experimental study.",
+          "number": 6,
+          "requires": ["experiment-5-discrete-pid-control-of-single-board-heater-sys"]
+        },
+        {
+          "id": "experiment-7-effect-of-sampling-time-on-controllability-obse",
+          "name": "Effect of sampling time on controllability, observability and stability of a discrete system: A simulation study.",
+          "number": 7,
+          "requires": ["experiment-6-discrete-pid-control-of-liquid-level-interactin"]
+        },
+        {
+          "id": "experiment-8-simulation-of-discrete-pole-placement-control-u",
+          "name": "Simulation of discrete Pole Placement Control using MATLAB /Simulink.",
+          "number": 8,
+          "requires": ["experiment-7-effect-of-sampling-time-on-controllability-obse"]
+        },
+        {
+          "id": "experiment-9-model-predictive-control-of-single-board-heater",
+          "name": "Model Predictive Control of Single Board Heater System: A simulation study.",
+          "number": 9,
+          "requires": ["experiment-8-simulation-of-discrete-pole-placement-control-u"]
+        },
+        {
+          "id": "experiment-10-model-predictive-control-of-single-board-heate",
+          "name": "Model Predictive Control of Single Board Heater System: An experimental study.",
+          "number": 10,
+          "requires": ["experiment-9-model-predictive-control-of-single-board-heater"]
+        },
+        {
+          "id": "experiment-11-pole-placement-control-of-inverted-pendulum-a",
+          "name": "Pole placement control of Inverted Pendulum: A simulation study.",
+          "number": 11,
+          "requires": ["experiment-10-model-predictive-control-of-single-board-heate"]
+        },
+        {
+          "id": "experiment-12-speed-control-of-a-dc-motor-an-experimental-st",
+          "name": "Speed control of a DC motor: An experimental study.",
+          "number": 12,
+          "requires": ["experiment-11-pole-placement-control-of-inverted-pendulum-a"]
+        }
+      ]
+    }
+  ]
+}

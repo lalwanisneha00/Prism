@@ -37,8 +37,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -98,8 +98,17 @@
         },
         {
           "id": "go-to-statement-loop-control-structures-while",
-          "name": "go to statement. Loop control structures- while",
-          "requires": ["switch"]
+          "name": "go to statement",
+          "requires": ["switch"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "loop-control-structures-while",
+          "name": "Loop control structures- while",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["go-to-statement-loop-control-structures-while"]
         },
         {
           "id": "loops",
@@ -144,8 +153,17 @@
         },
         {
           "id": "array-manipulations-matrix-operations",
-          "name": "Array Manipulations. Matrix operations",
-          "requires": ["initialization"]
+          "name": "Array Manipulations",
+          "requires": ["initialization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "matrix-operations",
+          "name": "Matrix operations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["array-manipulations-matrix-operations"]
         },
         {
           "id": "string-basic-concepts",
@@ -160,7 +178,23 @@
         {
           "id": "pointer",
           "name": "Pointer",
-          "requires": ["inbuilt-string-manipulation-functions"]
+          "requires": ["inbuilt-string-manipulation-functions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pointer-arithmetic",
+          "name": "Pointer arithmetic",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pointer"]
+        },
+        {
+          "id": "pointer-to-pointer-2",
+          "name": "Pointer to pointer",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pointer-arithmetic"]
         },
         {
           "id": "pointers",
@@ -276,5 +310,10 @@
         }
       ]
     }
+  ],
+  "courseType": "theory",
+  "relatedCourses": [
+    "pdeu-computer-programming-laboratory-i-biotech",
+    "pdeu-computer-programming-i-laboratory-ece"
   ]
 }

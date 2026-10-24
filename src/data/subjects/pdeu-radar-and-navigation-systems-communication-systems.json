@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Radar and Navigation Systems (Communication Systems)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -37,8 +37,52 @@
       "hours": 10,
       "topics": [
         {
-          "id": "introduction-to-radar-basic-radar",
-          "name": "Introduction to Radar: Basic Radar"
+          "id": "the-origins-of-radar",
+          "name": "The Origins of Radar",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "radar-system-block-diagrams",
+          "name": "radar system (block diagrams)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-origins-of-radar"]
+        },
+        {
+          "id": "radar-range-equation",
+          "name": "Radar range Equation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radar-system-block-diagrams"]
+        },
+        {
+          "id": "applications-of-radar",
+          "name": "Applications of Radar",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radar-range-equation"]
+        },
+        {
+          "id": "radar-types-mti",
+          "name": "Radar types: MTI",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applications-of-radar"]
+        },
+        {
+          "id": "pulse-doppler-radar",
+          "name": "Pulse Doppler Radar",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radar-types-mti"]
+        },
+        {
+          "id": "tracking-with-radar-monopulse-tracking",
+          "name": "Tracking with Radar-Monopulse Tracking",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pulse-doppler-radar"]
         },
         {
           "id": "the-origins-of-radar-radar-system-block-diagrams-radar-range",
@@ -47,18 +91,108 @@
         },
         {
           "id": "radar-types-mti-doppler-and-pulse-prf-delay-line-cancellers",
-          "name": "Radar types: MTI, Doppler and Pulse, PRF, Delay, Line Cancellers, Staggered Pulse Repetition Frequencies, Doppler Filter Banks, Digital MTI Processing, Moving Target Detector, Limitations to MTI Perfo",
-          "requires": ["the-origins-of-radar-radar-system-block-diagrams-radar-range"]
+          "name": "Doppler and Pulse",
+          "requires": ["the-origins-of-radar-radar-system-block-diagrams-radar-range"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "tracking-with-radar-monopulse-tracking-conical-scan-and",
-          "name": "Tracking with Radar-Monopulse Tracking, Conical Scan and Sequential Lobing, Limitations to Tracking Accuracy, Low-Angle Tracking",
+          "id": "prf",
+          "name": "PRF",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["radar-types-mti-doppler-and-pulse-prf-delay-line-cancellers"]
         },
         {
-          "id": "tracking-in-range-comparison-of-trackers-automatic-tracking",
-          "name": "Tracking in Range, Comparison of Trackers, Automatic Tracking with Surveillance Radars",
+          "id": "delay",
+          "name": "Delay",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["prf"]
+        },
+        {
+          "id": "line-cancellers",
+          "name": "Line Cancellers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["delay"]
+        },
+        {
+          "id": "staggered-pulse-repetition-frequencies",
+          "name": "Staggered Pulse Repetition Frequencies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["line-cancellers"]
+        },
+        {
+          "id": "doppler-filter-banks",
+          "name": "Doppler Filter Banks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["staggered-pulse-repetition-frequencies"]
+        },
+        {
+          "id": "digital-mti-processing",
+          "name": "Digital MTI Processing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["doppler-filter-banks"]
+        },
+        {
+          "id": "moving-target-detector",
+          "name": "Moving Target Detector",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["digital-mti-processing"]
+        },
+        {
+          "id": "tracking-with-radar-monopulse-tracking-conical-scan-and",
+          "name": "Conical Scan and Sequential Lobing",
+          "requires": ["radar-types-mti-doppler-and-pulse-prf-delay-line-cancellers"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "limitations-to-tracking-accuracy",
+          "name": "Limitations to Tracking Accuracy",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["tracking-with-radar-monopulse-tracking-conical-scan-and"]
+        },
+        {
+          "id": "low-angle-tracking",
+          "name": "Low-Angle Tracking",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["limitations-to-tracking-accuracy"]
+        },
+        {
+          "id": "tracking-in-range-comparison-of-trackers-automatic-tracking",
+          "name": "Tracking in Range",
+          "requires": ["tracking-with-radar-monopulse-tracking-conical-scan-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "comparison-of-trackers",
+          "name": "Comparison of Trackers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tracking-in-range-comparison-of-trackers-automatic-tracking"]
+        },
+        {
+          "id": "automatic-tracking-with-surveillance-radars",
+          "name": "Automatic Tracking with Surveillance Radars",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["comparison-of-trackers"]
+        },
+        {
+          "id": "limitations-to-mti-performance",
+          "name": "Limitations to MTI Performance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["automatic-tracking-with-surveillance-radars"]
         }
       ]
     },
@@ -88,8 +222,17 @@
         },
         {
           "id": "radar-displays-matched-filter-receiver",
-          "name": "Radar Displays. Matched Filter Receiver",
-          "requires": ["duplexers-and-receiver-protectors"]
+          "name": "Radar Displays",
+          "requires": ["duplexers-and-receiver-protectors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "matched-filter-receiver",
+          "name": "Matched Filter Receiver",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radar-displays-matched-filter-receiver"]
         },
         {
           "id": "detection-criteria",
@@ -169,7 +312,15 @@
         {
           "id": "frequency-scan-arrays",
           "name": "Frequency- Scan Arrays",
-          "requires": ["phase-shifters"]
+          "requires": ["phase-shifters"],
+          "status": "retired"
+        },
+        {
+          "id": "frequencyscan-arrays",
+          "name": "FrequencyScan Arrays",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["frequency-scan-arrays"]
         }
       ]
     },
@@ -204,8 +355,63 @@
         },
         {
           "id": "detection-of-signals-in-noise-detection-of-signals-in-noise",
-          "name": "Detection of Signals in Noise –Detection of Signals in Noise, Receiver Noise and the Signal-to-Noise Ratio, Probability Density Functions, Probabilities of Detection and False Alarm, Integration of Ra",
-          "requires": ["other-aspects-of-radar-transmitter"]
+          "name": "Detection of Signals in Noise –Detection of Signals in Noise",
+          "requires": ["other-aspects-of-radar-transmitter"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "receiver-noise-and-the-signal-to-noise-ratio",
+          "name": "Receiver Noise and the Signal-to-Noise Ratio",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["detection-of-signals-in-noise-detection-of-signals-in-noise"]
+        },
+        {
+          "id": "probability-density-functions",
+          "name": "Probability Density Functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["receiver-noise-and-the-signal-to-noise-ratio"]
+        },
+        {
+          "id": "probabilities-of-detection-and-false-alarm",
+          "name": "Probabilities of Detection and False Alarm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["probability-density-functions"]
+        },
+        {
+          "id": "introduction-to-radar-basic-radar",
+          "name": "Introduction to Radar: Basic Radar",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "movedFrom": {
+            "subject": "pdeu-radar-and-navigation-systems-communication-systems",
+            "chapter": "1radar-fundamentals",
+            "at": "2026-10-24T23:22:41.746Z"
+          }
+        },
+        {
+          "id": "radar-cross-section-of-targets",
+          "name": "Radar Cross Section of Targets",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-radar-basic-radar"]
+        },
+        {
+          "id": "radar-cross-section-fluctuations",
+          "name": "Radar cross Section fluctuations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radar-cross-section-of-targets"]
+        },
+        {
+          "id": "transmitter-power",
+          "name": "Transmitter Power",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radar-cross-section-fluctuations"]
         }
       ]
     },
@@ -320,5 +526,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

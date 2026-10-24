@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Compiler Design",
     "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -120,13 +120,31 @@
         },
         {
           "id": "top-down-parsers-rdp-ll",
-          "name": "Top-Down Parsers (RDP, LL)",
-          "requires": ["context-free-grammars"]
+          "name": "Top-Down Parsers (RDP",
+          "requires": ["context-free-grammars"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ll",
+          "name": "LL)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["top-down-parsers-rdp-ll"]
         },
         {
           "id": "bottom-up-parsers-operator-precedence-lr",
-          "name": "Bottom-Up Parsers (Operator-Precedence, LR)",
-          "requires": ["top-down-parsers-rdp-ll"]
+          "name": "Bottom-Up Parsers (Operator-Precedence",
+          "requires": ["top-down-parsers-rdp-ll"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lr",
+          "name": "LR)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bottom-up-parsers-operator-precedence-lr"]
         },
         {
           "id": "error-recovery-strategies",
@@ -142,7 +160,16 @@
       "topics": [
         {
           "id": "syntax-directed-translation",
-          "name": "Syntax Directed Definition"
+          "name": "Syntax Directed Definition",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "syntax-directed-definition-and-translation-schemes-2",
+          "name": "Syntax directed definition and translation schemes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["syntax-directed-translation"]
         },
         {
           "id": "s-attributed-and-l-attributed-definitions",
@@ -166,8 +193,17 @@
         },
         {
           "id": "implementation-of-three-address-code",
-          "name": "Implementation of Three Address Code",
-          "requires": ["different-intermediate-forms"]
+          "name": "Implementation of",
+          "requires": ["different-intermediate-forms"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "three-address-code",
+          "name": "Three Address Code",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["implementation-of-three-address-code"]
         },
         {
           "id": "intermediate-code-for-basic-constructs-of-languages",
@@ -217,5 +253,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-compiler-design-laboratory-ce"]
 }

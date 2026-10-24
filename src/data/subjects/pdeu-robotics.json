@@ -28,11 +28,152 @@
     "title": "PDEU B.Tech curriculum handbook (Mech): Robotics",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
+    {
+      "id": "introduction-to-robotics",
+      "name": "Introduction to Robotics",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "introduction-to-robotics",
+          "name": "Introduction to Robotics",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "laws-of-robotics",
+          "name": "Laws of robotics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-robotics"]
+        },
+        {
+          "id": "robot-anatomy-2",
+          "name": "Robot anatomy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["laws-of-robotics"]
+        },
+        {
+          "id": "links-joints",
+          "name": "Links joints",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["robot-anatomy-2"]
+        },
+        {
+          "id": "dof",
+          "name": "DOF",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["links-joints"]
+        },
+        {
+          "id": "arm-and-wrist-configuration",
+          "name": "Arm and wrist configuration",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dof"]
+        },
+        {
+          "id": "end-effector",
+          "name": "End effector",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["arm-and-wrist-configuration"]
+        },
+        {
+          "id": "cylindrical",
+          "name": "Cylindrical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["end-effector"]
+        },
+        {
+          "id": "polar-and-articulated-configurations",
+          "name": "Polar & Articulated configurations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cylindrical"]
+        },
+        {
+          "id": "classification-of-robotic-manipulators",
+          "name": "Classification of Robotic manipulators",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polar-and-articulated-configurations"]
+        },
+        {
+          "id": "co-ordinate-frames",
+          "name": "Co-ordinate frames",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-robotic-manipulators"]
+        },
+        {
+          "id": "mapping-and-transformation",
+          "name": "Mapping and Transformation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["co-ordinate-frames"]
+        },
+        {
+          "id": "rotation-of-vectors",
+          "name": "Rotation of vectors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mapping-and-transformation"]
+        },
+        {
+          "id": "translation-of-vectors",
+          "name": "Translation of vectors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rotation-of-vectors"]
+        },
+        {
+          "id": "composite-transformation-also-using-software",
+          "name": "Composite transformation also using software",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["translation-of-vectors"]
+        },
+        {
+          "id": "transformation-matrix",
+          "name": "Transformation matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["composite-transformation-also-using-software"]
+        },
+        {
+          "id": "rotation-matrix",
+          "name": "Rotation matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transformation-matrix"]
+        },
+        {
+          "id": "euler-angle-representation",
+          "name": "Euler Angle representation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rotation-matrix"]
+        },
+        {
+          "id": "fixed-angle-representation",
+          "name": "Fixed Angle representation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["euler-angle-representation"]
+        }
+      ]
+    },
     {
       "id": "introduction",
       "name": "Introduction",
@@ -107,7 +248,8 @@
           "name": "wrist analysis",
           "requires": ["transformations"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "kinematics-and-dynamics",
@@ -116,22 +258,26 @@
       "topics": [
         {
           "id": "parameters-of-robot-link",
-          "name": "Parameters of robot link"
+          "name": "Parameters of robot link",
+          "status": "retired"
         },
         {
           "id": "formulation-of-d-h-matrix",
           "name": "formulation of D-H matrix",
-          "requires": ["parameters-of-robot-link"]
+          "requires": ["parameters-of-robot-link"],
+          "status": "retired"
         },
         {
           "id": "analysis-of-different-types-of-robots-with-different-degrees",
           "name": "Analysis of different types of robots with different degrees of freedom",
-          "requires": ["formulation-of-d-h-matrix"]
+          "requires": ["formulation-of-d-h-matrix"],
+          "status": "retired"
         },
         {
           "id": "kinematic-chains",
           "name": "kinematic chains",
-          "requires": ["analysis-of-different-types-of-robots-with-different-degrees"]
+          "requires": ["analysis-of-different-types-of-robots-with-different-degrees"],
+          "status": "retired"
         },
         {
           "id": "inverse-kinematics",
@@ -141,7 +287,114 @@
         {
           "id": "dynamic-analysis",
           "name": "Dynamic analysis",
-          "requires": ["inverse-kinematics"]
+          "requires": ["inverse-kinematics"],
+          "status": "retired"
+        },
+        {
+          "id": "description-of-links-and-joints",
+          "name": "Description of Links and Joints",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dynamic-analysis"]
+        },
+        {
+          "id": "frame-assignments-to-the-manipulators",
+          "name": "Frame assignments to the manipulators",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["description-of-links-and-joints"]
+        },
+        {
+          "id": "denavit-hartenberg-notation",
+          "name": "Denavit-Hartenberg Notation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["frame-assignments-to-the-manipulators"]
+        },
+        {
+          "id": "d-h-parameters-using-software",
+          "name": "D-H Parameters using software",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["denavit-hartenberg-notation"]
+        },
+        {
+          "id": "kinematic-relation-between-adjacent-links",
+          "name": "Kinematic relation between adjacent links",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["d-h-parameters-using-software"]
+        },
+        {
+          "id": "manipulator-transformation-matrix",
+          "name": "Manipulator Transformation Matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["kinematic-relation-between-adjacent-links"]
+        },
+        {
+          "id": "forward-kinematics",
+          "name": "Forward Kinematics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["manipulator-transformation-matrix"]
+        },
+        {
+          "id": "solvability-of-inverse-kinematic-model",
+          "name": "Solvability of inverse kinematic model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["forward-kinematics"]
+        }
+      ]
+    },
+    {
+      "id": "dynamics-of-robot",
+      "name": "Dynamics of Robot",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "introduction-to-dynamic-modelling-of-manipulator",
+          "name": "Introduction to Dynamic modelling of manipulator",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lagrangian-mechanics-of-manipulator-dynamics",
+          "name": "Lagrangian mechanics of manipulator dynamics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-dynamic-modelling-of-manipulator"]
+        },
+        {
+          "id": "2-dof-manipulator-dynamic-modelling",
+          "name": "2-DOF manipulator dynamic modelling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lagrangian-mechanics-of-manipulator-dynamics"]
+        },
+        {
+          "id": "lagrange-euler-formulation",
+          "name": "Lagrange-Euler formulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["2-dof-manipulator-dynamic-modelling"]
+        },
+        {
+          "id": "inverse-dynamics",
+          "name": "Inverse dynamics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lagrange-euler-formulation"]
+        },
+        {
+          "id": "software-based-dynamic-modelling",
+          "name": "Software based dynamic modelling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["inverse-dynamics"]
         }
       ]
     },
@@ -152,7 +405,8 @@
       "topics": [
         {
           "id": "different-trajectories-and-its-analysis",
-          "name": "Different trajectories and its analysis"
+          "name": "Different trajectories and its analysis",
+          "status": "retired"
         },
         {
           "id": "motion-planning",
@@ -167,27 +421,109 @@
         {
           "id": "velocity-and-acceleration-sensors",
           "name": "velocity and acceleration sensors",
-          "requires": ["trajectory-planning-and-control-robotic-sensing-devices"]
+          "requires": ["trajectory-planning-and-control-robotic-sensing-devices"],
+          "status": "retired"
         },
         {
           "id": "proximity-and-range-sensors",
           "name": "proximity and range sensors",
-          "requires": ["velocity-and-acceleration-sensors"]
+          "requires": ["velocity-and-acceleration-sensors"],
+          "status": "retired"
         },
         {
           "id": "touch-and-slip-sensors",
           "name": "touch and slip sensors",
-          "requires": ["proximity-and-range-sensors"]
+          "requires": ["proximity-and-range-sensors"],
+          "status": "retired"
         },
         {
           "id": "tactile-sensors",
           "name": "tactile sensors",
-          "requires": ["touch-and-slip-sensors"]
+          "requires": ["touch-and-slip-sensors"],
+          "status": "retired"
         },
         {
           "id": "force-sensors-and-torque-sensors",
           "name": "force sensors and torque sensors",
-          "requires": ["tactile-sensors"]
+          "requires": ["tactile-sensors"],
+          "status": "retired"
+        },
+        {
+          "id": "velocity-propagation-along-links",
+          "name": "Velocity propagation along links",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["force-sensors-and-torque-sensors"]
+        },
+        {
+          "id": "linear-and-angular-velocity-analysis",
+          "name": "linear and angular velocity analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["velocity-propagation-along-links"]
+        },
+        {
+          "id": "manipulator-jacobian",
+          "name": "manipulator Jacobian",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-and-angular-velocity-analysis"]
+        },
+        {
+          "id": "jacobian-singularity",
+          "name": "Jacobian singularity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["manipulator-jacobian"]
+        },
+        {
+          "id": "jacobian-in-force-analysis",
+          "name": "Jacobian in force analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["jacobian-singularity"]
+        },
+        {
+          "id": "manipulator-trajectory-and-analysis",
+          "name": "Manipulator trajectory and analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["jacobian-in-force-analysis"]
+        },
+        {
+          "id": "joint-vs-cartesian-space-approach",
+          "name": "Joint vs Cartesian space approach",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["manipulator-trajectory-and-analysis"]
+        },
+        {
+          "id": "open-and-closed-loop-control",
+          "name": "Open and closed loop control",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["joint-vs-cartesian-space-approach"]
+        },
+        {
+          "id": "proportional",
+          "name": "Proportional",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["open-and-closed-loop-control"]
+        },
+        {
+          "id": "integral-and-derivative-pid-control",
+          "name": "Integral & Derivative (PID) Control",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["proportional"]
+        },
+        {
+          "id": "force-and-torque-controls-of-manipulators",
+          "name": "Force and torque controls of manipulators",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["integral-and-derivative-pid-control"]
         }
       ]
     },
@@ -235,7 +571,8 @@
           "name": "artificial intelligence. Robot applications and Economic analysis of robotics",
           "requires": ["robotics-programming-languages"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "industry-4-0",
@@ -261,7 +598,10 @@
           "name": "Nature Exploration Robot and other futuristic design",
           "requires": ["humanoids"]
         }
-      ]
+      ],
+      "status": "retired"
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-robotics-laboratory-me"]
 }

@@ -118,6 +118,18 @@ Branch folder codes (folder labels only; map each to whatever branch ID/name Pri
 
 If you find a branch folder with a code not in this table, or a branch in Prism with no folder, list it in the report instead of guessing.
 
+### Course type (Phase 2)
+
+PDEU handouts classify every course as **Theory**, **Practice** or **Practical** (lab). Detect it for every course:
+
+- From the handout itself: course type field, teaching scheme (L-T-P hours), or a "Lab"/"Laboratory"/"Practical" title or list of experiments.
+- From the course code if it has a type suffix (for example, codes ending in T or P), but only if the handout agrees. If they disagree, put it in `needs_review`.
+- Store it as `course_type`: `theory` | `practice` | `practical`, on the course node. Theory and lab parts of the same subject can be separate courses; keep them separate and link them as related.
+- For practical courses, the "units/topics" are the **list of experiments**. Parse each experiment as its own node (number, title, and aim if given).
+- Add per-type counts to `REARRANGE_REPORT.md` and list any course whose type couldn't be detected.
+
+Theory and Practice courses keep using the existing lesson generator, unchanged.
+
 **CSBS and CSSE are skipped for now.** They're newer branches and their handouts aren't available yet. Leave all their existing Prism data exactly as it is: don't move, retire or re-verify anything that belongs only to CSBS or CSSE, and don't treat their subjects as "extra item not in any handout". If a course is shared between CSBS/CSSE and another branch, you may fix it for the other branch, but keep its CSBS/CSSE link. Mark their data as `confidence = unverified` so the student flag and upload features (Phases 3 to 5) can fix them later. Record this in the audit file.
 
 Semester folders are `sem1` to `sem8`. Common first-year courses may appear in several branch folders: match them by course code and link one course to all those branches, never duplicate it.
@@ -274,6 +286,49 @@ Stop and summarise.
 
 ---
 
+## Phase 7B: Practical lessons
+
+Practical courses get their own lesson format. Reuse Prism's existing lesson pipeline, visual system and PhET-style interactives wherever possible; don't build a second app.
+
+### Lesson structure for each experiment
+
+1. **Aim**
+2. **Theory** behind the experiment (with formulas, linked to the related theory course's topics where they exist)
+3. **Apparatus** (list, with a labelled diagram of the setup)
+4. **Procedure** (numbered steps; each step can highlight the part of the diagram it uses)
+5. **Observation table** (blank version to copy, plus a filled sample with realistic values)
+6. **Calculations** (worked from the sample values)
+7. **Result** (what the experiment is expected to show, with typical ranges)
+8. **Precautions and sources of error**
+9. **Viva questions** (5 to 8 common viva questions with short answers, since Indian lab exams usually include a viva)
+10. **Interactive simulation**
+11. **Video demonstrations**
+
+### Interactive simulations
+
+Students should be able to play with the experiment, e.g. move a coil along an axis and watch the magnetic field change, or move one of two coils and see the relative field between them.
+
+- **Don't let the AI write a brand-new simulation from scratch for every experiment.** That's unreliable and expensive. Instead, build a small library of reusable, well-tested simulation templates with adjustable parameters, starting from the interactives Prism already has. Examples: magnetic field of a coil / two coils (move, rotate, change current), electric circuits (resistors, meters, potentiometer), optics (lenses, mirrors, refraction), oscillations (pendulum, spring), fluid flow, heat transfer, titration / chemistry reactions, logic gates, signals (oscilloscope view).
+- For each experiment, the AI picks the best matching template and fills in its parameters (values, labels, which controls to show). Save that choice so it's reused, not regenerated.
+- If no template fits, fall back to a labelled static diagram plus an animated step-through of the procedure, and log the experiment to `docs/SIMULATION_GAPS.md` so I know which templates to build next.
+- Also link the matching free **Virtual Labs (vlab.co.in)** simulation when one exists (Indian government, IIT-led, free), as an extra option.
+- Simulations must work on phones (touch controls, fits a narrow screen).
+
+### YouTube videos
+
+- **Never let the AI make up video links from memory.** Hallucinated links are worse than none.
+- Use the free **YouTube Data API v3** (free API key from Google Cloud, no billing needed, daily quota). If a key isn't set up, stop and tell me exactly how to get one, step by step, on Windows. Store the key only in `.env`, never commit it.
+- Search for the experiment, then rank results by: trusted channels first, then like count, view count and relevance. Start a **trusted channel list** in a config file: NPTEL, IIT/NIT official channels, Virtual Labs, Khan Academy, MIT OpenCourseWare, Walter Lewin, plus a few well-known Indian lab/engineering educators. Make it easy for me to add or remove channels. Check if Prism already has `curatedLinks.ts` or similar and reuse it.
+- Show 1 to 3 videos per experiment, with title, channel and duration. Prefer videos under ~20 minutes.
+- **Cache** the chosen videos per experiment so the API is called once per experiment, not on every page view (this keeps us inside the free quota).
+- Add a "Video doesn't match this experiment" flag. If 3 or more students flag a video, hide it and fetch the next best one.
+
+### Lesson flags
+
+Practical lessons use the same lesson flag system from Phase 5 (wrong fact, wrong formula, broken visual, etc.), plus "Simulation is wrong or doesn't work".
+
+---
+
 ## Phase 8: Test everything
 
 1. Recreate the two real bugs and prove they're fixed:
@@ -284,6 +339,11 @@ Stop and summarise.
 4. Check existing user data is untouched (progress, weak topics, mock tests, highlights).
 5. Run the build and fix any errors. Make sure it still deploys on Vercel's free tier.
 6. Write `docs/SYLLABUS_SYSTEM.md`: a plain-English explanation of how the whole system fits together, with one everyday analogy, for me to read and learn from.
+7. Phase 8 extra tests (practical add-on):
+   - Check a few practical courses from different branches: the course type is right, experiments are listed in order, and each lesson has all 11 sections.
+   - Test at least one magnetic field experiment with the coil simulation (moving one coil, moving both).
+   - Check video caching works (second page view makes no API call) and that a flagged video gets replaced.
+   - Check simulations work on a phone-sized screen.
 
 Also test the lesson flag flow: 4 test accounts flag one lesson, it regenerates as a new version with the feedback, and a second round of flags sends it to the admin queue instead of regenerating again.
 

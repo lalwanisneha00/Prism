@@ -1,0 +1,117 @@
+{
+  "id": "pdeu-digital-signal-processing-lab-ece",
+  "name": "Digital Signal Processing Lab",
+  "field": "Digital Signal Processing Lab",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ECE semester 4): Digital Signal Processing Lab",
+    "note": "Units and topics copied from the course handout PDF (pages 10 of ECE/sem4/ECE_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s4-digital-signal-processing-lab",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-introduction-to-simulation-tool-and-environment",
+          "name": "Introduction to simulation tool and environment: Command Window, Variables, Constants, Scalars, Matrices and Vectors, Functions, Comments, Command History, Workspace, Editor, Script file etc.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-discrete-time-signal-generation",
+          "name": "Discrete time signal generation.",
+          "number": 2,
+          "requires": ["experiment-1-introduction-to-simulation-tool-and-environment"]
+        },
+        {
+          "id": "experiment-3-discrete-time-system-analysis-in-z-domain-and-f",
+          "name": "Discrete time system analysis in Z-domain and frequency domain.",
+          "number": 3,
+          "requires": ["experiment-2-discrete-time-signal-generation"]
+        },
+        {
+          "id": "experiment-4-linear-convolution-using-overlap-add-and-overla",
+          "name": "Linear Convolution using Overlap-add and overlap-save method.",
+          "number": 4,
+          "requires": ["experiment-3-discrete-time-system-analysis-in-z-domain-and-f"]
+        },
+        {
+          "id": "experiment-5-circular-convolution-of-two-given-sequence",
+          "name": "Circular convolution of two given sequence.",
+          "number": 5,
+          "requires": ["experiment-4-linear-convolution-using-overlap-add-and-overla"]
+        },
+        {
+          "id": "experiment-6-moving-average-filter-analysis",
+          "name": "Moving average filter analysis.",
+          "number": 6,
+          "requires": ["experiment-5-circular-convolution-of-two-given-sequence"]
+        },
+        {
+          "id": "experiment-7-fir-filter-design",
+          "name": "FIR filter design.",
+          "number": 7,
+          "requires": ["experiment-6-moving-average-filter-analysis"]
+        },
+        {
+          "id": "experiment-8-iir-filter-design-i",
+          "name": "IIR filter design –I.",
+          "number": 8,
+          "requires": ["experiment-7-fir-filter-design"]
+        },
+        {
+          "id": "experiment-9-iir-filter-design-ii-and-analysis",
+          "name": "IIR filter design – II and analysis.",
+          "number": 9,
+          "requires": ["experiment-8-iir-filter-design-i"]
+        },
+        {
+          "id": "experiment-10-implementation-of-decimation-and-interpolation",
+          "name": "Implementation of Decimation and Interpolation processes.",
+          "number": 10,
+          "requires": ["experiment-9-iir-filter-design-ii-and-analysis"]
+        },
+        {
+          "id": "experiment-11-introduction-to-dsp-processor-dft-of-a-discret",
+          "name": "Introduction to DSP Processor, DFT of a discrete time signal using DSP Processor.",
+          "number": 11,
+          "requires": ["experiment-10-implementation-of-decimation-and-interpolation"]
+        },
+        {
+          "id": "experiment-12-implementation-of-fft-of-a-given-sequence-usin",
+          "name": "Implementation of FFT of a given sequence using DSP processor.",
+          "number": 12,
+          "requires": ["experiment-11-introduction-to-dsp-processor-dft-of-a-discret"]
+        },
+        {
+          "id": "experiment-13-implementation-of-lp-and-hp-iir-fir-filter-usi",
+          "name": "Implementation of LP and HP IIR/FIR filter using DSP Processor.",
+          "number": 13,
+          "requires": ["experiment-12-implementation-of-fft-of-a-given-sequence-usin"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-digital-signal-processing-ece"]
+}

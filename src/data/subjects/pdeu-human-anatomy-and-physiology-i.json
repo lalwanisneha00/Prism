@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Human Anatomy and Physiology - I",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -81,7 +81,8 @@
         {
           "id": "characteristics-and-functions-hrs-of-blood-cells",
           "name": "Characteristics and functions Hrs of Blood cells",
-          "requires": ["haemopoietic-system-composition-and-functions-of-blood"]
+          "requires": ["haemopoietic-system-composition-and-functions-of-blood"],
+          "status": "retired"
         },
         {
           "id": "mechanism-of-blood-clotting",
@@ -90,8 +91,17 @@
         },
         {
           "id": "importance-of-blood-grouping-lymphatic-organs-and-tissues",
-          "name": "Importance of Blood grouping. Lymphatic organs and tissues",
-          "requires": ["mechanism-of-blood-clotting"]
+          "name": "Importance of Blood grouping",
+          "requires": ["mechanism-of-blood-clotting"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lymphatic-organs-and-tissues",
+          "name": "Lymphatic organs and tissues",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["importance-of-blood-grouping-lymphatic-organs-and-tissues"]
         },
         {
           "id": "lymphatic-vessels",
@@ -102,6 +112,13 @@
           "id": "lymph-circulation-and-functions-of-lymphatic-system",
           "name": "lymph circulation and functions of lymphatic system",
           "requires": ["lymphatic-vessels"]
+        },
+        {
+          "id": "characteristics-and-functionshrs-of-blood-cells",
+          "name": "Characteristics and functionsHrs of Blood cells",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lymph-circulation-and-functions-of-lymphatic-system"]
         }
       ]
     },
@@ -112,7 +129,23 @@
       "topics": [
         {
           "id": "anatomy-of-respiratory-organs-and-their-functions-regulation",
-          "name": "Anatomy of respiratory organs and their functions, Regulation, and Mechanism of respiration"
+          "name": "Hrs Anatomy of respiratory organs and their functions",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "regulation",
+          "name": "Regulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["anatomy-of-respiratory-organs-and-their-functions-regulation"]
+        },
+        {
+          "id": "mechanism-of-respiration",
+          "name": "Mechanism of respiration",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["regulation"]
         },
         {
           "id": "hrs-respiratory-volumes-and-capacities",
@@ -148,7 +181,16 @@
       "topics": [
         {
           "id": "classification-of-nervous-system",
-          "name": "Classification of nervous system"
+          "name": "Hrs Classification of nervous system",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "classification-of-nervous-system-2",
+          "name": "Classification of nervous system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-nervous-system"]
         },
         {
           "id": "anatomy-and-physiology-of-hrs-cerebrum",
@@ -162,8 +204,17 @@
         },
         {
           "id": "mid-brain-function-of-hypothalamus",
-          "name": "mid brain. Function of hypothalamus",
-          "requires": ["cerebellum"]
+          "name": "mid brain",
+          "requires": ["cerebellum"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "function-of-hypothalamus",
+          "name": "Function of hypothalamus",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mid-brain-function-of-hypothalamus"]
         },
         {
           "id": "medulla-oblongata-and-basal-ganglia",
@@ -202,5 +253,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-human-anatomy-and-physiology-lab-i-biotech"]
 }

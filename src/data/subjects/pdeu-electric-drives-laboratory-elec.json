@@ -1,0 +1,125 @@
+{
+  "id": "pdeu-electric-drives-laboratory-elec",
+  "name": "Electric Drives Laboratory",
+  "field": "Electric Drives Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 6): Electric Drives Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 6 of ELEC/sem6/Electrical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE312P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s6-electric-drives-laboratory",
+      "code": "20EE312P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-to-simulate-the-mathematical-model-of-dc-motors",
+          "name": "To simulate the mathematical model of dc motors.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-to-study-the-operation-of-controlled-rectifier",
+          "name": "To study the operation of controlled rectifier fed separately excited dc motor drive operating in open loop control and closed loop control mode through experimental studies",
+          "number": 2,
+          "requires": ["experiment-1-to-simulate-the-mathematical-model-of-dc-motors"]
+        },
+        {
+          "id": "experiment-3-to-study-the-operation-of-chopper-fed-separatel",
+          "name": "To study the operation of chopper fed separately excited dc motor drive operating in open loop control and closed loop control mode through experimental studies",
+          "number": 3,
+          "requires": ["experiment-2-to-study-the-operation-of-controlled-rectifier"]
+        },
+        {
+          "id": "experiment-4-to-simulate-controlled-rectifier-and-chopper-fe",
+          "name": "To simulate controlled rectifier and chopper fed dc motor drives.",
+          "number": 4,
+          "requires": ["experiment-3-to-study-the-operation-of-chopper-fed-separatel"]
+        },
+        {
+          "id": "experiment-5-to-study-the-operation-of-voltage-source-invert",
+          "name": "To study the operation of voltage source inverter fed 3-phase induction motor drive with sinusoidal pulse width modulation through experimental studies",
+          "number": 5,
+          "requires": ["experiment-4-to-simulate-controlled-rectifier-and-chopper-fe"]
+        },
+        {
+          "id": "experiment-6-to-study-the-operation-of-voltage-source-invert",
+          "name": "To study the operation of voltage source inverter fed 3-phase induction motor drive with space vector modulation through experimental studies",
+          "number": 6,
+          "requires": ["experiment-5-to-study-the-operation-of-voltage-source-invert"]
+        },
+        {
+          "id": "experiment-7-to-study-the-operation-of-v-f-control-of-3-phas",
+          "name": "To study the operation of V/f control of 3-phase induction motor through simulation studies",
+          "number": 7,
+          "requires": ["experiment-6-to-study-the-operation-of-voltage-source-invert"]
+        },
+        {
+          "id": "experiment-8-to-simulate-the-vvvf-control-of-3-phase-inducti",
+          "name": "To simulate the VVVF control of 3-phase induction motor.",
+          "number": 8,
+          "requires": ["experiment-7-to-study-the-operation-of-v-f-control-of-3-phas"]
+        },
+        {
+          "id": "experiment-9-to-simulate-the-static-rotor-resistance-control",
+          "name": "To simulate the static rotor resistance control of 3-phase induction motor.",
+          "number": 9,
+          "requires": ["experiment-8-to-simulate-the-vvvf-control-of-3-phase-inducti"]
+        },
+        {
+          "id": "experiment-10-to-study-the-closed-loop-control-of-permanent",
+          "name": "To study the closed loop control of permanent magnet brushless dc motor through experimental studies.",
+          "number": 10,
+          "requires": ["experiment-9-to-simulate-the-static-rotor-resistance-control"]
+        },
+        {
+          "id": "experiment-11-to-design-and-simulate-the-3-6-decoder-logic-f",
+          "name": "To design and simulate the 3:6 decoder logic for the generation of gating signals for six inverter switches from three hall position sensor outputs",
+          "number": 11,
+          "requires": ["experiment-10-to-study-the-closed-loop-control-of-permanent"]
+        },
+        {
+          "id": "experiment-12-to-simulate-the-permanent-magnet-brushless-dc",
+          "name": "To simulate the permanent magnet brushless dc motor drives.",
+          "number": 12,
+          "requires": ["experiment-11-to-design-and-simulate-the-3-6-decoder-logic-f"]
+        },
+        {
+          "id": "experiment-13-to-study-the-operation-of-stepper-motor-drive",
+          "name": "To study the operation of stepper motor drive through experimental studies.",
+          "number": 13,
+          "requires": ["experiment-12-to-simulate-the-permanent-magnet-brushless-dc"]
+        },
+        {
+          "id": "experiment-14-to-understand-the-operation-of-industrial-driv",
+          "name": "To understand the operation of industrial drives.",
+          "number": 14,
+          "requires": ["experiment-13-to-study-the-operation-of-stepper-motor-drive"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-electric-drives-elec"]
+}

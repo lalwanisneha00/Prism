@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Genomics and Proteomics",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,58 @@
       "topics": [
         {
           "id": "introduction",
-          "name": "Introduction"
+          "name": "Introduction",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-proteomics-2",
+          "name": "Introduction to Proteomics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction"]
         },
         {
           "id": "organization-and-structure-of-genomes-genome-size-introns",
-          "name": "Organization and structure of genomes, Genome size, Introns and Exons, Sequence complexity, Genome structure in prokaryotes / viruses, Retrofitting",
-          "requires": ["introduction"]
+          "name": "Organization and structure of genomes",
+          "requires": ["introduction"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "genome-size",
+          "name": "Genome size",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["organization-and-structure-of-genomes-genome-size-introns"]
+        },
+        {
+          "id": "introns-and-exons",
+          "name": "Introns and Exons",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["genome-size"]
+        },
+        {
+          "id": "sequence-complexity",
+          "name": "Sequence complexity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introns-and-exons"]
+        },
+        {
+          "id": "genome-structure-in-prokaryotes-viruses",
+          "name": "Genome structure in prokaryotes / viruses",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sequence-complexity"]
+        },
+        {
+          "id": "retrofitting",
+          "name": "Retrofitting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["genome-structure-in-prokaryotes-viruses"]
         },
         {
           "id": "introduction-to-proteomics",
@@ -54,8 +100,24 @@
         },
         {
           "id": "the-proteome-mining-proteomes-bridging-genomics-and",
-          "name": "The Proteome, Mining proteomes, Bridging Genomics and Proteomics",
-          "requires": ["introduction-to-proteomics"]
+          "name": "The Proteome",
+          "requires": ["introduction-to-proteomics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "mining-proteomes",
+          "name": "Mining proteomes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-proteome-mining-proteomes-bridging-genomics-and"]
+        },
+        {
+          "id": "bridging-genomics-and-proteomics",
+          "name": "Bridging Genomics and Proteomics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mining-proteomes"]
         },
         {
           "id": "proteomics-and-the-new-biology",
@@ -105,8 +167,17 @@
         },
         {
           "id": "determining-gene-function-by-sequence-comparison-and-through",
-          "name": "determining gene function by sequence comparison and through conserved protein structure Global expression profiling - Analysis of RNA expression",
-          "requires": ["protein-structural-genomics"]
+          "name": "determining gene function by sequence comparison and through conserved protein structure Global expression profiling",
+          "requires": ["protein-structural-genomics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "analysis-of-rna-expression",
+          "name": "Analysis of RNA expression",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["determining-gene-function-by-sequence-comparison-and-through"]
         },
         {
           "id": "applications-of-genome-analysis-and-genomics",
@@ -122,7 +193,16 @@
       "topics": [
         {
           "id": "analysis-of-proteomes-2d-page-and-image-analysis",
-          "name": "Analysis of proteomes – 2D page and image analysis"
+          "name": "Analysis of proteomes",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "2d-page-and-image-analysis",
+          "name": "2D page and image analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["analysis-of-proteomes-2d-page-and-image-analysis"]
         },
         {
           "id": "mass-spectrometry-based-methods-for-protein-identification",
@@ -153,7 +233,16 @@
       "topics": [
         {
           "id": "analysis-of-genomes-of-different-organisms-human",
-          "name": "Analysis of Genomes of different organisms – Human"
+          "name": "Analysis of Genomes of different organisms",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "human",
+          "name": "Human",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["analysis-of-genomes-of-different-organisms-human"]
         },
         {
           "id": "mouse",
@@ -202,5 +291,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-genomics-and-proteomics-lab-biotech"]
 }

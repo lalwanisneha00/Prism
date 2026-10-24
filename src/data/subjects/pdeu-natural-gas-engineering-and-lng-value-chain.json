@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Natural Gas Engineering and LNG Value Chain",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -69,8 +69,24 @@
         },
         {
           "id": "gas-processing-for-pipeline-transportation-corrosion",
-          "name": "Gas processing for pipeline transportation (Corrosion protection, limits for water, H2S and CO2 contents)",
-          "requires": ["mercury-removal"]
+          "name": "Gas processing for pipeline transportation (Corrosion protection",
+          "requires": ["mercury-removal"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "limits-for-water",
+          "name": "limits for water",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gas-processing-for-pipeline-transportation-corrosion"]
+        },
+        {
+          "id": "h2s-and-co2-contents",
+          "name": "H2S and CO2 contents)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["limits-for-water"]
         }
       ]
     },
@@ -163,7 +179,23 @@
       "topics": [
         {
           "id": "gas-processing-for-lng-production-limits-of-water-co2-h2s",
-          "name": "Gas processing for LNG Production (limits of Water, CO2, H2S and Mercury contents etc.)"
+          "name": "Gas processing for LNG Production (limits of Water",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "co2",
+          "name": "CO2",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gas-processing-for-lng-production-limits-of-water-co2-h2s"]
+        },
+        {
+          "id": "h2s-and-mercury-contents-etc",
+          "name": "H2S and Mercury contents etc.)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["co2"]
         },
         {
           "id": "lng-production-process",
@@ -182,5 +214,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

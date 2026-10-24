@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Mobile Application Development (Software & Networks)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -49,8 +49,17 @@
         },
         {
           "id": "dalvik-virtual-machine-dvm",
-          "name": "Dalvik virtual machine – DVM",
-          "requires": ["introducing-development-framework"]
+          "name": "Dalvik virtual machine",
+          "requires": ["introducing-development-framework"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dvm",
+          "name": "DVM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dalvik-virtual-machine-dvm"]
         },
         {
           "id": "android-virtual-device-and-sdk-manager",
@@ -91,7 +100,30 @@
         {
           "id": "button",
           "name": "Button",
-          "requires": ["edit-text"]
+          "requires": ["edit-text"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "radio-button-2",
+          "name": "Radio Button",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["button"]
+        },
+        {
+          "id": "image-button-2",
+          "name": "Image Button",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radio-button-2"]
+        },
+        {
+          "id": "toggle-button-2",
+          "name": "Toggle Button",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["image-button-2"]
         },
         {
           "id": "radio-button",
@@ -216,8 +248,24 @@
         },
         {
           "id": "adding-removing-and-replacing-fragments",
-          "name": "Adding, Removing, and Replacing Fragments",
-          "requires": ["finding-fragments"]
+          "name": "Adding",
+          "requires": ["finding-fragments"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "removing",
+          "name": "Removing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adding-removing-and-replacing-fragments"]
+        },
+        {
+          "id": "replacing-fragments",
+          "name": "Replacing Fragments",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["removing"]
         }
       ]
     },
@@ -242,8 +290,24 @@
         },
         {
           "id": "adding-updating-and-deleting-content-in-sqlite",
-          "name": "Adding, Updating, and Deleting Content in SQLite",
-          "requires": ["using-sqliteopenhelper-for-database-management"]
+          "name": "Adding",
+          "requires": ["using-sqliteopenhelper-for-database-management"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "updating",
+          "name": "Updating",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adding-updating-and-deleting-content-in-sqlite"]
+        },
+        {
+          "id": "deleting-content-in-sqlite",
+          "name": "Deleting Content in SQLite",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["updating"]
         },
         {
           "id": "integrating-xml-and-json-based-web-services",
@@ -257,5 +321,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

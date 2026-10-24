@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Indian Knowledge System",
     "note": "Skeleton only: units and topics are PDEU's, copied from the handbook. Lessons are built from the material the student uploads (given by their faculty)."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -161,8 +161,17 @@
         },
         {
           "id": "pancanga-the-indian-calendar-system",
-          "name": "Pañcāṅga – The Indian calendar system",
-          "requires": ["iks-and-indian-astronomy"]
+          "name": "Pañcāṅga",
+          "requires": ["iks-and-indian-astronomy"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "the-indian-calendar-system",
+          "name": "The Indian calendar system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pancanga-the-indian-calendar-system"]
         },
         {
           "id": "astronomical-instruments-yantras",
@@ -202,10 +211,20 @@
         },
         {
           "id": "iks-and-medicine-ayurveda-a-holistic-approach-to-health-and",
-          "name": "IKS and Medicine: Ayurveda - A Holistic Approach to Health and Wellbeing",
-          "requires": ["social-and-political-philosophies-of-ancient-india"]
+          "name": "IKS and Medicine: Ayurveda",
+          "requires": ["social-and-political-philosophies-of-ancient-india"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "a-holistic-approach-to-health-and-wellbeing-max",
+          "name": "A Holistic Approach to Health and Wellbeing Max <>",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["iks-and-medicine-ayurveda-a-holistic-approach-to-health-and"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

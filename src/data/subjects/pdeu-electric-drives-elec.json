@@ -1,0 +1,280 @@
+{
+  "id": "pdeu-electric-drives-elec",
+  "name": "Electric Drives",
+  "field": "Electric Drives",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 6): Electric Drives",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of ELEC/sem6/Electrical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE312T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s6-electric-drives",
+      "code": "20EE312T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "fundamentals-of-electric-drives",
+      "name": "Fundamentals of Electric Drives",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "introduction-to-electric-drives",
+          "name": "Introduction to Electric Drives"
+        },
+        {
+          "id": "significance-of-electric-drives",
+          "name": "Significance of Electric Drives",
+          "requires": ["introduction-to-electric-drives"]
+        },
+        {
+          "id": "elements-of-electric-drives",
+          "name": "Elements of Electric Drives",
+          "requires": ["significance-of-electric-drives"]
+        },
+        {
+          "id": "fundamental-torque-equation",
+          "name": "Fundamental Torque Equation",
+          "requires": ["elements-of-electric-drives"]
+        },
+        {
+          "id": "four-quadrant-operation",
+          "name": "Four Quadrant Operation",
+          "requires": ["fundamental-torque-equation"]
+        },
+        {
+          "id": "classification-of-load-torque",
+          "name": "Classification of Load Torque",
+          "requires": ["four-quadrant-operation"]
+        },
+        {
+          "id": "steady-state-stability",
+          "name": "Steady State Stability",
+          "requires": ["classification-of-load-torque"]
+        },
+        {
+          "id": "basic-design-of-electric-drives",
+          "name": "Basic Design of Electric Drives",
+          "requires": ["steady-state-stability"]
+        }
+      ]
+    },
+    {
+      "id": "dc-motor-drives",
+      "name": "DC Motor Drives",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "introduction-to-dc-motors",
+          "name": "Introduction to dc Motors"
+        },
+        {
+          "id": "starting-and-braking-of-dc-motors",
+          "name": "Starting and Braking of dc Motors",
+          "requires": ["introduction-to-dc-motors"]
+        },
+        {
+          "id": "conventional-techniques-for-speed-control-of-dc-motors-armat",
+          "name": "Conventional Techniques for Speed Control of dc Motors (Armature Voltage Control and Field Control)",
+          "requires": ["starting-and-braking-of-dc-motors"]
+        },
+        {
+          "id": "solid-state-control-of-dc-motors",
+          "name": "Solid State Control of dc Motors",
+          "requires": ["conventional-techniques-for-speed-control-of-dc-motors-armat"]
+        },
+        {
+          "id": "controlled-rectifier-fed-dc-motor-drives",
+          "name": "Controlled Rectifier fed dc Motor Drives",
+          "requires": ["solid-state-control-of-dc-motors"]
+        },
+        {
+          "id": "chopper-fed-dc-motor-drives",
+          "name": "Chopper fed dc Motor drives",
+          "requires": ["controlled-rectifier-fed-dc-motor-drives"]
+        }
+      ]
+    },
+    {
+      "id": "induction-motor-drives",
+      "name": "Induction Motor Drives",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "introduction-to-induction-motors",
+          "name": "Introduction to Induction Motors"
+        },
+        {
+          "id": "starting-and-braking-of-induction-motors",
+          "name": "Starting and Braking of Induction Motors",
+          "requires": ["introduction-to-induction-motors"]
+        },
+        {
+          "id": "impact-of-unbalanced-stator-voltage-on-motor-performance",
+          "name": "Impact of Unbalanced Stator Voltage on Motor Performance",
+          "requires": ["starting-and-braking-of-induction-motors"]
+        },
+        {
+          "id": "impact-of-non-sinusoidal-stator-voltage-on-motor-performance",
+          "name": "Impact of Non-Sinusoidal Stator Voltage on Motor Performance",
+          "requires": ["impact-of-unbalanced-stator-voltage-on-motor-performance"]
+        },
+        {
+          "id": "conventional-techniques-for-speed-control-of-induction-motor",
+          "name": "Conventional Techniques for Speed Control of Induction Motors (Stator Voltage Control",
+          "requires": ["impact-of-non-sinusoidal-stator-voltage-on-motor-performance"]
+        },
+        {
+          "id": "pole-changing-method",
+          "name": "Pole Changing Method",
+          "requires": ["conventional-techniques-for-speed-control-of-induction-motor"]
+        },
+        {
+          "id": "rotor-resistance-control",
+          "name": "Rotor Resistance Control",
+          "requires": ["pole-changing-method"]
+        },
+        {
+          "id": "frequency-control",
+          "name": "Frequency Control",
+          "requires": ["rotor-resistance-control"]
+        },
+        {
+          "id": "slip-power-recovery-scheme",
+          "name": "Slip Power Recovery Scheme)",
+          "requires": ["frequency-control"]
+        },
+        {
+          "id": "ac-voltage-controller-fed-induction-motor-drives",
+          "name": "ac Voltage Controller fed Induction Motor Drives",
+          "requires": ["slip-power-recovery-scheme"]
+        },
+        {
+          "id": "vsi-fed-induction-motor-drives",
+          "name": "VSI fed Induction Motor Drives",
+          "requires": ["ac-voltage-controller-fed-induction-motor-drives"]
+        },
+        {
+          "id": "scalar-control",
+          "name": "Scalar Control",
+          "requires": ["vsi-fed-induction-motor-drives"]
+        },
+        {
+          "id": "static-rotor-resistance-control",
+          "name": "Static Rotor Resistance Control",
+          "requires": ["scalar-control"]
+        },
+        {
+          "id": "static-kramer-drive",
+          "name": "Static Kramer Drive",
+          "requires": ["static-rotor-resistance-control"]
+        },
+        {
+          "id": "static-scherbius-drive",
+          "name": "Static Scherbius Drive",
+          "requires": ["static-kramer-drive"]
+        }
+      ]
+    },
+    {
+      "id": "permanent-magnet-brushless-dc-and-stepper-motor-drives",
+      "name": "Permanent Magnet Brushless DC & Stepper Motor Drives",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "pmbldc-motor-drives-permanent-magnet-materials",
+          "name": "PMBLDC Motor Drives: Permanent Magnet Materials"
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["pmbldc-motor-drives-permanent-magnet-materials"]
+        },
+        {
+          "id": "construction",
+          "name": "Construction",
+          "requires": ["applications"]
+        },
+        {
+          "id": "operating-principle-and-characteristics",
+          "name": "Operating Principle & Characteristics",
+          "requires": ["construction"]
+        },
+        {
+          "id": "electronic-commutation",
+          "name": "Electronic Commutation",
+          "requires": ["operating-principle-and-characteristics"]
+        },
+        {
+          "id": "hall-effect-sensors-for-position-measurement",
+          "name": "Hall Effect Sensors for Position Measurement",
+          "requires": ["electronic-commutation"]
+        },
+        {
+          "id": "mathematical-modelling",
+          "name": "Mathematical Modelling",
+          "requires": ["hall-effect-sensors-for-position-measurement"]
+        },
+        {
+          "id": "speed-control-of-pmbldc-motors",
+          "name": "Speed Control of PMBLdc Motors",
+          "requires": ["mathematical-modelling"]
+        },
+        {
+          "id": "stepper-motor-drives-application",
+          "name": "Stepper Motor Drives: Application",
+          "requires": ["speed-control-of-pmbldc-motors"]
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "requires": ["stepper-motor-drives-application"]
+        },
+        {
+          "id": "operating-principle-and-characteristics-2",
+          "name": "Operating Principle and Characteristics",
+          "requires": ["classification"]
+        },
+        {
+          "id": "power-converters-for-stepper-motors",
+          "name": "Power Converters for Stepper Motors",
+          "requires": ["operating-principle-and-characteristics-2"]
+        },
+        {
+          "id": "stepper-motor-drives",
+          "name": "Stepper Motor Drives",
+          "requires": ["power-converters-for-stepper-motors"]
+        },
+        {
+          "id": "introduction-to-linear-induction-motor-drives",
+          "name": "Introduction to Linear Induction Motor Drives",
+          "requires": ["stepper-motor-drives"]
+        },
+        {
+          "id": "synchronous-reluctance-motor-drives-and-switched-reluctance",
+          "name": "Synchronous Reluctance Motor Drives and Switched Reluctance Motor Drives",
+          "requires": ["introduction-to-linear-induction-motor-drives"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-electric-drives-laboratory-elec"]
+}

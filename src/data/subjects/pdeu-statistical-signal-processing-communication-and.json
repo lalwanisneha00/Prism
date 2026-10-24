@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Statistical Signal Processing (Communication & Signal Processing)",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -119,7 +119,16 @@
         {
           "id": "spectral-estimation",
           "name": "Non parametric spectral estimation",
-          "requires": ["mmse-estimation"]
+          "requires": ["mmse-estimation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "parametric-spectral-estimation-2",
+          "name": "Parametric spectral estimation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["spectral-estimation"]
         },
         {
           "id": "periodogram",
@@ -250,8 +259,17 @@
         },
         {
           "id": "granger-and-other-causality-measures-applications-to-speech",
-          "name": "Granger and other causality measures. Applications to speech enhancement",
-          "requires": ["partial-correlations-and-concentration-matrix"]
+          "name": "Granger and other causality measures",
+          "requires": ["partial-correlations-and-concentration-matrix"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "applications-to-speech-enhancement",
+          "name": "Applications to speech enhancement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["granger-and-other-causality-measures-applications-to-speech"]
         },
         {
           "id": "speaker-separation-etc",
@@ -260,5 +278,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

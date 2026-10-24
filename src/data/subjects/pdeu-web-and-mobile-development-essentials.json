@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Web & Mobile Development Essentials",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -49,8 +49,17 @@
         },
         {
           "id": "web-site-planning-and-design-issues-html5-structure-of-html",
-          "name": "Web site planning and design issues. HTML5: structure of html document",
-          "requires": ["internet-and-www"]
+          "name": "Web site planning and design issues",
+          "requires": ["internet-and-www"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "html5-structure-of-html-document",
+          "name": "HTML5: structure of html document",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["web-site-planning-and-design-issues-html5-structure-of-html"]
         },
         {
           "id": "html-elements-headings",
@@ -252,5 +261,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-web-and-mobile-development-essentials-laboratory-ce"]
 }

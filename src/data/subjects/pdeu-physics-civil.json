@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 10 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "physics",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -145,7 +145,16 @@
         {
           "id": "properties-of-solids",
           "name": "Properties of solids",
-          "requires": ["relationship-between-elastic-constants"]
+          "requires": ["relationship-between-elastic-constants"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "magnetic-properties-of-solids-2",
+          "name": "Magnetic properties of solids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["properties-of-solids"]
         },
         {
           "id": "electrical-conductivity",
@@ -226,7 +235,16 @@
         {
           "id": "simple-harmonic-motion",
           "name": "Simple harmonic motion",
-          "requires": ["waves-and-oscillations-types-of-waves"]
+          "requires": ["waves-and-oscillations-types-of-waves"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "damped-simple-harmonic-motion-2",
+          "name": "Damped simple harmonic motion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simple-harmonic-motion"]
         },
         {
           "id": "damped-simple-harmonic-motion",
@@ -250,8 +268,17 @@
         },
         {
           "id": "energy-transport-in-wave-motion-acoustics-and-ultrasonic",
-          "name": "Energy Transport in Wave motion. Acoustics & Ultrasonic: Introduction to Sound",
-          "requires": ["resonance"]
+          "name": "Energy Transport in Wave motion",
+          "requires": ["resonance"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "acoustics-and-ultrasonic-introduction-to-sound",
+          "name": "Acoustics & Ultrasonic: Introduction to Sound",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["energy-transport-in-wave-motion-acoustics-and-ultrasonic"]
         },
         {
           "id": "sabines-reverberation-theory",
@@ -271,7 +298,16 @@
         {
           "id": "ultrasonic-waves",
           "name": "Ultrasonic waves",
-          "requires": ["doppler-effect"]
+          "requires": ["doppler-effect"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "properties-and-applications-of-ultrasonic-waves-2",
+          "name": "Properties and applications of ultrasonic waves",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ultrasonic-waves"]
         },
         {
           "id": "methods-of-their-generation-and-detection",
@@ -356,8 +392,17 @@
         },
         {
           "id": "thermal-radiation-emission-and-absorption-radiation",
-          "name": "Thermal Radiation – emission and absorption radiation",
-          "requires": ["newtons-law-of-cooling"]
+          "name": "Thermal Radiation",
+          "requires": ["newtons-law-of-cooling"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "emission-and-absorption-radiation",
+          "name": "emission and absorption radiation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermal-radiation-emission-and-absorption-radiation"]
         },
         {
           "id": "emissive-power",
@@ -381,5 +426,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-physics-laboratory-civil"]
 }

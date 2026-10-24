@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Geomechanics and Strength of Materials",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -49,8 +49,17 @@
         },
         {
           "id": "mechanical-properties-of-metals-concepts-of-stress-and",
-          "name": "mechanical properties of metals – concepts of stress and strain",
-          "requires": ["viscoelasticity-or-rheology"]
+          "name": "mechanical properties of metals",
+          "requires": ["viscoelasticity-or-rheology"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "concepts-of-stress-and-strain",
+          "name": "concepts of stress and strain",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mechanical-properties-of-metals-concepts-of-stress-and"]
         },
         {
           "id": "stress-strain-behavior",
@@ -79,8 +88,24 @@
         },
         {
           "id": "compressive-shear-and-torsional-deformation",
-          "name": "compressive, shear, and torsional deformation",
-          "requires": ["elastic-recovery-during-plastic-deformation"]
+          "name": "compressive",
+          "requires": ["elastic-recovery-during-plastic-deformation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "shear",
+          "name": "shear",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["compressive-shear-and-torsional-deformation"]
+        },
+        {
+          "id": "torsional-deformation",
+          "name": "torsional deformation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["shear"]
         },
         {
           "id": "hardness",
@@ -109,13 +134,45 @@
         },
         {
           "id": "bars-subjected-to-tension-asymmetric-loading-and-stress",
-          "name": "bars subjected to tension, asymmetric loading, and stress calculation of cylindrical bodies",
-          "requires": ["thermal-stress"]
+          "name": "bars subjected to tension",
+          "requires": ["thermal-stress"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "asymmetric-loading",
+          "name": "asymmetric loading",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bars-subjected-to-tension-asymmetric-loading-and-stress"]
+        },
+        {
+          "id": "stress-calculation-of-cylindrical-bodies",
+          "name": "stress calculation of cylindrical bodies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["asymmetric-loading"]
         },
         {
           "id": "scalar-vector-tensor",
-          "name": "Scalar, vector, tensor",
-          "requires": ["bars-subjected-to-tension-asymmetric-loading-and-stress"]
+          "name": "Scalar",
+          "requires": ["bars-subjected-to-tension-asymmetric-loading-and-stress"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "vector",
+          "name": "vector",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scalar-vector-tensor"]
+        },
+        {
+          "id": "tensor",
+          "name": "tensor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vector"]
         },
         {
           "id": "composition-and-resolution-of-stresses",
@@ -134,8 +191,24 @@
         },
         {
           "id": "stress-field-acting-at-a-point-derivation-of-equations-for-n",
-          "name": "stress field acting at a point – derivation of equations for σn and τn. Mohr’s circle",
-          "requires": ["analysis-of-stress"]
+          "name": "stress field acting at a point",
+          "requires": ["analysis-of-stress"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "derivation-of-equations-for-n-and-n",
+          "name": "derivation of equations for σn and τn",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["stress-field-acting-at-a-point-derivation-of-equations-for-n"]
+        },
+        {
+          "id": "mohr-s-circle",
+          "name": "Mohr’s circle",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["derivation-of-equations-for-n-and-n"]
         },
         {
           "id": "deviatoric-and-mean-stress",
@@ -180,8 +253,38 @@
         },
         {
           "id": "effective-stress-undrained-modulus-of-elasticity-coefficient",
-          "name": "effective stress, undrained modulus of elasticity, coefficient of compressibility, coefficient of consolidation, significance of drainage path length and the rate of consolidation",
-          "requires": ["normally-consolidated-and-over-consolidated-rocks"]
+          "name": "effective stress",
+          "requires": ["normally-consolidated-and-over-consolidated-rocks"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "undrained-modulus-of-elasticity",
+          "name": "undrained modulus of elasticity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["effective-stress-undrained-modulus-of-elasticity-coefficient"]
+        },
+        {
+          "id": "coefficient-of-compressibility",
+          "name": "coefficient of compressibility",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["undrained-modulus-of-elasticity"]
+        },
+        {
+          "id": "coefficient-of-consolidation",
+          "name": "coefficient of consolidation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["coefficient-of-compressibility"]
+        },
+        {
+          "id": "significance-of-drainage-path-length-and-the-rate-of-consoli",
+          "name": "significance of drainage path length and the rate of consolidation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["coefficient-of-consolidation"]
         },
         {
           "id": "stress-and-strain-in-geological-materials-and-their",
@@ -190,8 +293,24 @@
         },
         {
           "id": "cohesion-friction-and-failure",
-          "name": "cohesion, friction, and failure",
-          "requires": ["stress-and-strain-in-geological-materials-and-their"]
+          "name": "cohesion",
+          "requires": ["stress-and-strain-in-geological-materials-and-their"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "friction",
+          "name": "friction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cohesion-friction-and-failure"]
+        },
+        {
+          "id": "failure",
+          "name": "failure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["friction"]
         },
         {
           "id": "influence-of-fabric",
@@ -261,8 +380,17 @@
         },
         {
           "id": "plate-tectonics-petro",
-          "name": "stress fields – from tectonic plates to reservoirs around the world",
-          "requires": ["wellbore-failure-and-stress-determination-in-deviated-wells"]
+          "name": "stress fields",
+          "requires": ["wellbore-failure-and-stress-determination-in-deviated-wells"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "from-tectonic-plates-to-reservoirs-around-the-world",
+          "name": "from tectonic plates to reservoirs around the world",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["plate-tectonics-petro"]
         },
         {
           "id": "wellbore-stability",
@@ -288,7 +416,16 @@
       "topics": [
         {
           "id": "hydraulic-fracturing-process-geomechanical-factors-effecting",
-          "name": "Hydraulic Fracturing: Process, geomechanical factors effecting fracture development and simple calculations"
+          "name": "Hydraulic Fracturing: Process",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "geomechanical-factors-effecting-fracture-development-and-sim",
+          "name": "geomechanical factors effecting fracture development and simple calculations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hydraulic-fracturing-process-geomechanical-factors-effecting"]
         },
         {
           "id": "application-of-geomechanics-in-subsurface-energy",
@@ -297,10 +434,35 @@
         },
         {
           "id": "oil-and-gas-geothermal-energy-carbon-capture-and-storage-and",
-          "name": "Oil and Gas, Geothermal Energy, Carbon Capture and Storage, and Hydrogen Storage",
-          "requires": ["application-of-geomechanics-in-subsurface-energy"]
+          "name": "Oil and Gas",
+          "requires": ["application-of-geomechanics-in-subsurface-energy"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "geothermal-energy",
+          "name": "Geothermal Energy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["oil-and-gas-geothermal-energy-carbon-capture-and-storage-and"]
+        },
+        {
+          "id": "carbon-capture-and-storage",
+          "name": "Carbon Capture and Storage",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["geothermal-energy"]
+        },
+        {
+          "id": "hydrogen-storage",
+          "name": "Hydrogen Storage",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carbon-capture-and-storage"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-geomechanics-and-strength-of-materials-practical-petro"]
 }

@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Probability and Statistics Theory",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -121,7 +121,16 @@
         {
           "id": "binomial",
           "name": "Binomial",
-          "requires": ["bernoulli"]
+          "requires": ["bernoulli"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "negative-binomial-2",
+          "name": "Negative binomial",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["binomial"]
         },
         {
           "id": "geometric",
@@ -146,7 +155,16 @@
         {
           "id": "exponential",
           "name": "Exponential",
-          "requires": ["poisson"]
+          "requires": ["poisson"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "double-exponential-2",
+          "name": "Double exponential",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["exponential"]
         },
         {
           "id": "gamma",
@@ -251,8 +269,17 @@
         },
         {
           "id": "chi-squared-tests-and-anova",
-          "name": "chi-squared tests, and ANOVA",
-          "requires": ["common-hypothesis-tests-t-tests"]
+          "name": "chi-squared tests",
+          "requires": ["common-hypothesis-tests-t-tests"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "anova",
+          "name": "ANOVA",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chi-squared-tests-and-anova"]
         }
       ]
     },
@@ -288,7 +315,23 @@
         {
           "id": "correlation",
           "name": "Correlation",
-          "requires": ["curve-fitting"]
+          "requires": ["curve-fitting"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "simple-correlation-2",
+          "name": "Simple Correlation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["correlation"]
+        },
+        {
+          "id": "partial-correlation-2",
+          "name": "Partial Correlation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simple-correlation-2"]
         },
         {
           "id": "simple-correlation",
@@ -317,5 +360,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -1,0 +1,259 @@
+{
+  "id": "pdeu-corrosion-engineering-chem",
+  "name": "Corrosion Engineering",
+  "field": "Corrosion Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 6): Corrosion Engineering",
+    "note": "Units and topics copied from the course handout PDF (pages 9 of CHEM/sem6/Chemical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH335T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s6-program-elective--corrosion-engineering",
+      "code": "24CH335T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-and-fundamentals-of-corrosion",
+      "name": "Introduction and Fundamentals of Corrosion",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "definitions-of-corrosion",
+          "name": "Definitions of corrosion"
+        },
+        {
+          "id": "overall-classification-of-types-of-corrosion",
+          "name": "overall classification of types of corrosion",
+          "requires": ["definitions-of-corrosion"]
+        },
+        {
+          "id": "basic-electrochemistry",
+          "name": "basic electrochemistry",
+          "requires": ["overall-classification-of-types-of-corrosion"]
+        },
+        {
+          "id": "galvanic-and-electrolytic-cells",
+          "name": "galvanic and electrolytic cells",
+          "requires": ["basic-electrochemistry"]
+        },
+        {
+          "id": "potential-measurements",
+          "name": "potential measurements",
+          "requires": ["galvanic-and-electrolytic-cells"]
+        },
+        {
+          "id": "galvanic-corrosion",
+          "name": "galvanic corrosion",
+          "requires": ["potential-measurements"]
+        },
+        {
+          "id": "bimetallic-contacts",
+          "name": "bimetallic contacts",
+          "requires": ["galvanic-corrosion"]
+        },
+        {
+          "id": "eh-ph-diagrams",
+          "name": "Eh-pH diagrams",
+          "requires": ["bimetallic-contacts"]
+        },
+        {
+          "id": "electrode-kinetics",
+          "name": "electrode kinetics",
+          "requires": ["eh-ph-diagrams"]
+        },
+        {
+          "id": "polarization-phenomena",
+          "name": "polarization phenomena",
+          "requires": ["electrode-kinetics"]
+        },
+        {
+          "id": "polarization-techniques-to-measure-corrosion-rates",
+          "name": "polarization techniques to measure corrosion rates",
+          "requires": ["polarization-phenomena"]
+        },
+        {
+          "id": "cost-of-corrosion",
+          "name": "cost of corrosion",
+          "requires": ["polarization-techniques-to-measure-corrosion-rates"]
+        },
+        {
+          "id": "metallurgical-properties-influencing-corrosion",
+          "name": "metallurgical properties influencing corrosion",
+          "requires": ["cost-of-corrosion"]
+        },
+        {
+          "id": "general-testing-procedures",
+          "name": "general testing procedures",
+          "requires": ["metallurgical-properties-influencing-corrosion"]
+        }
+      ]
+    },
+    {
+      "id": "types-of-corrosion",
+      "name": "Types of Corrosion",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "uniform-attack",
+          "name": "Uniform attack"
+        },
+        {
+          "id": "galvanic-corrosion-2",
+          "name": "galvanic corrosion",
+          "requires": ["uniform-attack"]
+        },
+        {
+          "id": "crevice-corrosion",
+          "name": "crevice corrosion",
+          "requires": ["galvanic-corrosion-2"]
+        },
+        {
+          "id": "pitting-corrosion",
+          "name": "pitting corrosion",
+          "requires": ["crevice-corrosion"]
+        },
+        {
+          "id": "intergranular-corrosion",
+          "name": "intergranular corrosion",
+          "requires": ["pitting-corrosion"]
+        },
+        {
+          "id": "selective-leaching",
+          "name": "selective leaching",
+          "requires": ["intergranular-corrosion"]
+        },
+        {
+          "id": "erosion-corrosion",
+          "name": "erosion corrosion",
+          "requires": ["selective-leaching"]
+        },
+        {
+          "id": "stress-corrosion",
+          "name": "stress corrosion",
+          "requires": ["erosion-corrosion"]
+        },
+        {
+          "id": "mechanisms",
+          "name": "mechanisms",
+          "requires": ["stress-corrosion"]
+        },
+        {
+          "id": "testing-procedures",
+          "name": "testing procedures",
+          "requires": ["mechanisms"]
+        }
+      ]
+    },
+    {
+      "id": "electro-chemical-methods-of-corrosion-prevention-and-control",
+      "name": "Electro-Chemical Methods of Corrosion Prevention and Control",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "mixed-potential-theory",
+          "name": "Mixed potential theory"
+        },
+        {
+          "id": "cathodic-protection",
+          "name": "cathodic protection",
+          "requires": ["mixed-potential-theory"]
+        },
+        {
+          "id": "stray-current-corrosion",
+          "name": "stray current corrosion",
+          "requires": ["cathodic-protection"]
+        },
+        {
+          "id": "anodic-control",
+          "name": "anodic control",
+          "requires": ["stray-current-corrosion"]
+        },
+        {
+          "id": "electrochemical-coatings",
+          "name": "electrochemical coatings",
+          "requires": ["anodic-control"]
+        },
+        {
+          "id": "speciality-coatings-and-surface-protection",
+          "name": "speciality coatings and surface protection",
+          "requires": ["electrochemical-coatings"]
+        },
+        {
+          "id": "accidents-in-real-life-due-to-corrosion-phenomena",
+          "name": "accidents in real life due to corrosion phenomena",
+          "requires": ["speciality-coatings-and-surface-protection"]
+        },
+        {
+          "id": "engineering-properties-desired-from-materials",
+          "name": "engineering properties desired from materials",
+          "requires": ["accidents-in-real-life-due-to-corrosion-phenomena"]
+        },
+        {
+          "id": "study-of-corrosion-resistant-alloys-of-iron",
+          "name": "study of corrosion-resistant alloys of iron",
+          "requires": ["engineering-properties-desired-from-materials"]
+        },
+        {
+          "id": "copper",
+          "name": "copper",
+          "requires": ["study-of-corrosion-resistant-alloys-of-iron"]
+        },
+        {
+          "id": "nickel",
+          "name": "nickel",
+          "requires": ["copper"]
+        },
+        {
+          "id": "zinc-and-aluminium",
+          "name": "zinc and aluminium",
+          "requires": ["nickel"]
+        }
+      ]
+    },
+    {
+      "id": "mechano-chemical-methods-of-corrosion-prevention-and-control",
+      "name": "Mechano-Chemical Methods of Corrosion Prevention and Control",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "design",
+          "name": "Design"
+        },
+        {
+          "id": "mechanical-and-non-electrochemical-coatings",
+          "name": "mechanical and non-electrochemical coatings",
+          "requires": ["design"]
+        },
+        {
+          "id": "corrosion-inhibition",
+          "name": "corrosion inhibition",
+          "requires": ["mechanical-and-non-electrochemical-coatings"]
+        },
+        {
+          "id": "passivity-phenomena-and-development-of-corrosion-resistant-a",
+          "name": "passivity phenomena and development of corrosion-resistant alloys",
+          "requires": ["corrosion-inhibition"]
+        }
+      ]
+    }
+  ]
+}

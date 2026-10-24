@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -109,13 +109,31 @@
         },
         {
           "id": "switch-statement-and-loop-structure-for-loop",
-          "name": "switch statement, and Loop Structure- for loop",
-          "requires": ["nested-if"]
+          "name": "switch statement",
+          "requires": ["nested-if"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "loop-structure-for-loop",
+          "name": "Loop Structure- for loop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["switch-statement-and-loop-structure-for-loop"]
         },
         {
           "id": "loops",
           "name": "while loop",
-          "requires": ["conditionals"]
+          "requires": ["conditionals"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "do-while-loop",
+          "name": "do-while loop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["loops"]
         },
         {
           "id": "do-while-loop-built-in-functions",
@@ -181,7 +199,23 @@
         {
           "id": "pointer",
           "name": "Pointer",
-          "requires": ["in-built-string-functions"]
+          "requires": ["in-built-string-functions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pointer-arithmetic",
+          "name": "Pointer arithmetic",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pointer"]
+        },
+        {
+          "id": "pointer-to-pointer-2",
+          "name": "Pointer to pointer",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pointer-arithmetic"]
         },
         {
           "id": "pointers",
@@ -261,5 +295,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-introduction-to-computer-programming-i-laboratory-civil"]
 }

@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Internet of Things (Computer Systems)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -143,8 +143,17 @@
         },
         {
           "id": "cloud-computing-and-embedded-systems",
-          "name": "Cloud Computing, and Embedded Systems",
-          "requires": ["bigdata-analytics"]
+          "name": "Cloud Computing",
+          "requires": ["bigdata-analytics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "embedded-systems",
+          "name": "Embedded Systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cloud-computing-and-embedded-systems"]
         }
       ]
     },
@@ -225,8 +234,17 @@
         },
         {
           "id": "environment-monitoring-and-surveillance",
-          "name": "Environment Monitoring, and Surveillance",
-          "requires": ["home-automation"]
+          "name": "Environment Monitoring",
+          "requires": ["home-automation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "surveillance",
+          "name": "Surveillance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["environment-monitoring-and-surveillance"]
         },
         {
           "id": "case-studies-illustrating-iot-design-max",
@@ -235,5 +253,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

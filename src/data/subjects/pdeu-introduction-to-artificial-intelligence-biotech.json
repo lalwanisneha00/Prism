@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -50,8 +50,17 @@
         },
         {
           "id": "approaches-and-tools-for-artificial-intelligence",
-          "name": "Approaches and tools for Artificial Intelligence. Introduction to search",
-          "requires": ["problems"]
+          "name": "Approaches and tools for Artificial Intelligence",
+          "requires": ["problems"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-search",
+          "name": "Introduction to search",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["approaches-and-tools-for-artificial-intelligence"]
         },
         {
           "id": "search-algorithms",
@@ -97,7 +106,16 @@
       "topics": [
         {
           "id": "linear-regression-ml",
-          "name": "Linear Classifiers & Logistic Regression"
+          "name": "Linear Classifiers & Logistic Regression",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "linear-classifiers-2",
+          "name": "Linear Classifiers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-regression-ml"]
         },
         {
           "id": "linear-classifiers",
@@ -112,7 +130,16 @@
         {
           "id": "decision-trees",
           "name": "Decision Trees",
-          "requires": ["logistic-regression"]
+          "requires": ["logistic-regression"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "preventing-overfitting-in-decision-trees-2",
+          "name": "Preventing Overfitting in Decision Trees",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["decision-trees"]
         },
         {
           "id": "preventing-overfitting-in-decision-trees",
@@ -153,8 +180,99 @@
       "topics": [
         {
           "id": "svm",
-          "name": "parametric/non-parametric algorithms, support vector machines, kernels, neural networks, Unsupervised learning - clustering, dimensionality reduction, recommender systems, deep learning, Best practice",
-          "requires": ["logistic-regression"]
+          "name": "parametric/non-parametric algorithms",
+          "requires": ["logistic-regression"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "support-vector-machines",
+          "name": "support vector machines",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["svm"]
+        },
+        {
+          "id": "kernels",
+          "name": "kernels",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["support-vector-machines"]
+        },
+        {
+          "id": "neural-networks",
+          "name": "neural networks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["kernels"]
+        },
+        {
+          "id": "unsupervised-learning",
+          "name": "Unsupervised learning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["neural-networks"]
+        },
+        {
+          "id": "clustering",
+          "name": "clustering",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["unsupervised-learning"]
+        },
+        {
+          "id": "dimensionality-reduction",
+          "name": "dimensionality reduction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["clustering"]
+        },
+        {
+          "id": "recommender-systems",
+          "name": "recommender systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dimensionality-reduction"]
+        },
+        {
+          "id": "deep-learning",
+          "name": "deep learning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["recommender-systems"]
+        },
+        {
+          "id": "bayesian-networks-and-fuzzy-neural-networks-with-case",
+          "name": "Bayesian Networks and Fuzzy Neural Networks with case studies",
+          "requires": ["genetic-programming-and-bioinformatics-applications"],
+          "movedFrom": {
+            "subject": "pdeu-introduction-to-artificial-intelligence-biotech",
+            "chapter": "applications-of-ai-in-biotechnology",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "best-practices-in-machine-learning-bias-variance-theory",
+          "name": "Best practices in machine learning (bias/variance theory",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bayesian-networks-and-fuzzy-neural-networks-with-case"]
+        },
+        {
+          "id": "innovation-process-in-machine-learning-and-ai",
+          "name": "innovation process in machine learning and AI",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["best-practices-in-machine-learning-bias-variance-theory"]
+        },
+        {
+          "id": "support-vector-machines-svms",
+          "name": "Support vector machines (SVMs)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["innovation-process-in-machine-learning-and-ai"]
         }
       ]
     },
@@ -168,14 +286,18 @@
           "name": "Genetic programming and Bioinformatics applications"
         },
         {
-          "id": "bayesian-networks-and-fuzzy-neural-networks-with-case",
-          "name": "Bayesian Networks and Fuzzy Neural Networks with case studies",
-          "requires": ["genetic-programming-and-bioinformatics-applications"]
+          "id": "decision-trees-statistical-learning-methods-introduction-to",
+          "name": "Decision trees –Statistical Learning methods",
+          "requires": ["bayesian-networks-and-fuzzy-neural-networks-with-case"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "decision-trees-statistical-learning-methods-introduction-to",
-          "name": "Decision trees –Statistical Learning methods - Introduction to deep learning",
-          "requires": ["bayesian-networks-and-fuzzy-neural-networks-with-case"]
+          "id": "introduction-to-deep-learning",
+          "name": "Introduction to deep learning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["decision-trees-statistical-learning-methods-introduction-to"]
         },
         {
           "id": "syntactic-processing",
@@ -204,5 +326,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Optimization Methods and Algorithms (AI)",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -225,7 +225,16 @@
         {
           "id": "duality-and-applications",
           "name": "Duality and applications",
-          "requires": ["simplex-algorithm"]
+          "requires": ["simplex-algorithm"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "applications-3",
+          "name": "Applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["duality-and-applications"]
         },
         {
           "id": "integer-linear-programming",
@@ -285,5 +294,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "civil",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -48,8 +48,17 @@
         },
         {
           "id": "hydration-setting-of-cement",
-          "name": "Hydration, Setting of cement",
-          "requires": ["chemical-composition"]
+          "name": "Hydration",
+          "requires": ["chemical-composition"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "setting-of-cement",
+          "name": "Setting of cement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hydration-setting-of-cement"]
         },
         {
           "id": "structure-of-hydrate-cement",
@@ -68,13 +77,45 @@
         },
         {
           "id": "particle-shape-and-texture-strength-and-other-mechanical",
-          "name": "Particle shape & texture –, strength & other mechanical properties of aggregate",
-          "requires": ["different-grades-of-cement-aggregates-classification-of"]
+          "name": "Particle shape & texture",
+          "requires": ["different-grades-of-cement-aggregates-classification-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "strength-and-other-mechanical-properties-of-aggregate",
+          "name": "strength & other mechanical properties of aggregate",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["particle-shape-and-texture-strength-and-other-mechanical"]
         },
         {
           "id": "porosity",
-          "name": "Specific gravity, Bulk density, porosity, adsorption & moisture content of aggregate",
-          "requires": ["particle-shape-and-texture-strength-and-other-mechanical"]
+          "name": "Specific gravity",
+          "requires": ["particle-shape-and-texture-strength-and-other-mechanical"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bulk-density",
+          "name": "Bulk density",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["porosity"]
+        },
+        {
+          "id": "porosity-2",
+          "name": "porosity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bulk-density"]
+        },
+        {
+          "id": "adsorption-and-moisture-content-of-aggregate",
+          "name": "adsorption & moisture content of aggregate",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["porosity-2"]
         },
         {
           "id": "bulking-of-sand",
@@ -99,7 +140,16 @@
         {
           "id": "thermal-properties",
           "name": "Thermal properties",
-          "requires": ["alkali-aggregate-reaction"]
+          "requires": ["alkali-aggregate-reaction"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "properties",
+          "name": "properties",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermal-properties"]
         },
         {
           "id": "sieve-analysis",
@@ -133,23 +183,80 @@
         },
         {
           "id": "mineral-admixtures-introduction-to-supplementary-cementing",
-          "name": "MINERAL ADMIXTURES: Introduction to supplementary cementing materials, sustainability and pozzolans",
-          "requires": ["maximum-aggregate-size"]
+          "name": "MINERAL ADMIXTURES: Introduction to supplementary cementing materials",
+          "requires": ["maximum-aggregate-size"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "fly-ash-blast-furnace-slag-silica-fume-and-metakaolin",
-          "name": "Fly ash, blast furnace slag, silica fume, and metakaolin",
+          "id": "sustainability-and-pozzolans",
+          "name": "sustainability and pozzolans",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["mineral-admixtures-introduction-to-supplementary-cementing"]
         },
         {
-          "id": "their-production-properties-and-effects-on-concrete",
-          "name": "their production, properties, and effects on concrete properties",
+          "id": "fly-ash-blast-furnace-slag-silica-fume-and-metakaolin",
+          "name": "Fly ash",
+          "requires": ["mineral-admixtures-introduction-to-supplementary-cementing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "blast-furnace-slag",
+          "name": "blast furnace slag",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["fly-ash-blast-furnace-slag-silica-fume-and-metakaolin"]
         },
         {
-          "id": "applications-chemical-admixtures-water-reducers-air",
-          "name": "applications CHEMICAL ADMIXTURES: Water reducers, air entrainers, set controllers, and effects on concrete properties",
+          "id": "silica-fume",
+          "name": "silica fume",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["blast-furnace-slag"]
+        },
+        {
+          "id": "metakaolin",
+          "name": "metakaolin",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["silica-fume"]
+        },
+        {
+          "id": "their-production-properties-and-effects-on-concrete",
+          "name": "their production",
+          "requires": ["fly-ash-blast-furnace-slag-silica-fume-and-metakaolin"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "effects-on-concrete-properties",
+          "name": "effects on concrete properties",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["their-production-properties-and-effects-on-concrete"]
+        },
+        {
+          "id": "applications-chemical-admixtures-water-reducers-air",
+          "name": "applications CHEMICAL ADMIXTURES: Water reducers",
+          "requires": ["their-production-properties-and-effects-on-concrete"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "air-entrainers",
+          "name": "air entrainers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applications-chemical-admixtures-water-reducers-air"]
+        },
+        {
+          "id": "set-controllers",
+          "name": "set controllers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["air-entrainers"]
         }
       ]
     },
@@ -164,23 +271,87 @@
         },
         {
           "id": "particle-packing-density-cement-mortars-mortar",
-          "name": "particle packing density, Cement Mortars, Mortar specifications, types and tests of mortars",
-          "requires": ["mix-design-as-per-latest-is-method"]
+          "name": "particle packing density",
+          "requires": ["mix-design-as-per-latest-is-method"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "ready-mixed-concrete-design-mixing-transport-and-placement",
-          "name": "Ready Mixed Concrete Design: Mixing, transport, and placement",
+          "id": "cement-mortars",
+          "name": "Cement Mortars",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["particle-packing-density-cement-mortars-mortar"]
         },
         {
-          "id": "consolidation-finishing-and-curing-of-concrete",
-          "name": "consolidation, finishing, and curing of concrete",
+          "id": "mortar-specifications",
+          "name": "Mortar specifications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cement-mortars"]
+        },
+        {
+          "id": "types-and-tests-of-mortars",
+          "name": "types and tests of mortars",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mortar-specifications"]
+        },
+        {
+          "id": "ready-mixed-concrete-design-mixing-transport-and-placement",
+          "name": "Ready Mixed Concrete Design: Mixing",
+          "requires": ["particle-packing-density-cement-mortars-mortar"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "transport",
+          "name": "transport",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["ready-mixed-concrete-design-mixing-transport-and-placement"]
         },
         {
-          "id": "extreme-weather-concreting-special-concreting-methods",
-          "name": "Extreme weather concreting, special concreting methods",
+          "id": "placement",
+          "name": "placement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transport"]
+        },
+        {
+          "id": "consolidation-finishing-and-curing-of-concrete",
+          "name": "consolidation",
+          "requires": ["ready-mixed-concrete-design-mixing-transport-and-placement"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "finishing",
+          "name": "finishing",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["consolidation-finishing-and-curing-of-concrete"]
+        },
+        {
+          "id": "curing-of-concrete",
+          "name": "curing of concrete",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["finishing"]
+        },
+        {
+          "id": "extreme-weather-concreting-special-concreting-methods",
+          "name": "Extreme weather concreting",
+          "requires": ["consolidation-finishing-and-curing-of-concrete"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "special-concreting-methods",
+          "name": "special concreting methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["extreme-weather-concreting-special-concreting-methods"]
         }
       ]
     },
@@ -240,8 +411,24 @@
         },
         {
           "id": "tensile-strength-flexural-strength-and-bond-strength-direct",
-          "name": "Tensile strength, Flexural Strength and Bond Strength – direct and indirect",
-          "requires": ["hardened-properties-compressive-strength-and-parameters"]
+          "name": "Tensile strength",
+          "requires": ["hardened-properties-compressive-strength-and-parameters"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "flexural-strength-and-bond-strength",
+          "name": "Flexural Strength and Bond Strength",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tensile-strength-flexural-strength-and-bond-strength-direct"]
+        },
+        {
+          "id": "direct-and-indirect",
+          "name": "direct and indirect",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flexural-strength-and-bond-strength"]
         },
         {
           "id": "factors-affecting-parameters",
@@ -257,7 +444,23 @@
       "topics": [
         {
           "id": "introduction-to-durability-relation-between-durability-and",
-          "name": "Introduction to durability: relation between durability and permeability, Chemical attack of concrete corrosion of steel rebar, other durability issues"
+          "name": "Introduction to durability: relation between durability and permeability",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "chemical-attack-of-concrete-corrosion-of-steel-rebar",
+          "name": "Chemical attack of concrete corrosion of steel rebar",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-durability-relation-between-durability-and"]
+        },
+        {
+          "id": "other-durability-issues",
+          "name": "other durability issues",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chemical-attack-of-concrete-corrosion-of-steel-rebar"]
         },
         {
           "id": "ndt-methods",
@@ -266,13 +469,38 @@
         },
         {
           "id": "codal-provisions-for-ndt-elasticity-creep-and-shrinkage",
-          "name": "codal provisions for NDT. Elasticity, Creep & Shrinkage",
-          "requires": ["ndt-methods"]
+          "name": "codal provisions for NDT",
+          "requires": ["ndt-methods"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "creep-and-shrinkage",
+          "name": "Creep & Shrinkage",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["codal-provisions-for-ndt-elasticity-creep-and-shrinkage"]
         },
         {
           "id": "modulus-of-elasticity",
+          "name": "Elasticity",
+          "requires": ["codal-provisions-for-ndt-elasticity-creep-and-shrinkage"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "modulus-of-elasticity-2",
           "name": "Modulus of elasticity",
-          "requires": ["codal-provisions-for-ndt-elasticity-creep-and-shrinkage"]
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["modulus-of-elasticity"]
+        },
+        {
+          "id": "dynamic-modulus-of-elasticity-2",
+          "name": "Dynamic modulus of elasticity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["modulus-of-elasticity-2"]
         },
         {
           "id": "dynamic-modulus-of-elasticity",
@@ -296,10 +524,20 @@
         },
         {
           "id": "relation-between-creep-and-shrinkage-qa-qc-of-concrete",
-          "name": "Relation between creep & Shrinkage. QA/QC of concrete",
-          "requires": ["factors-influencing-creep"]
+          "name": "Relation between creep & Shrinkage",
+          "requires": ["factors-influencing-creep"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "qa-qc-of-concrete",
+          "name": "QA/QC of concrete",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["relation-between-creep-and-shrinkage-qa-qc-of-concrete"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

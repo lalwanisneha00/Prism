@@ -28,67 +28,11 @@
     "title": "PDEU B.Tech curriculum handbook (Mech): Refrigeration and Air Conditioning",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
-    {
-      "id": "introduction",
-      "name": "Introduction",
-      "hours": 12,
-      "topics": [
-        {
-          "id": "introduction-to-refrigeration",
-          "name": "Introduction to Refrigeration"
-        },
-        {
-          "id": "necessity-and-applications",
-          "name": "Necessity and applications",
-          "requires": ["introduction-to-refrigeration"]
-        },
-        {
-          "id": "ideal-refrigeration-cycles",
-          "name": "Ideal refrigeration cycles",
-          "requires": ["necessity-and-applications"]
-        },
-        {
-          "id": "air-refrigeration-bell-coleman-cycle-open-and-dense-air",
-          "name": "air- refrigeration, Bell-Coleman cycle, open and dense air systems, Simple air refrigeration system, Boot strap air refrigeration system, Regenerative air refrigeration system, and Reduced air refrige",
-          "requires": ["ideal-refrigeration-cycles"]
-        },
-        {
-          "id": "vapour-compression-refrigeration-working-principle-and",
-          "name": "Vapour Compression Refrigeration: Working principle and essential components of the plant, simple vapour compression refrigeration cycle - COP, Representation of cycle on T-S and p-h charts",
-          "requires": ["air-refrigeration-bell-coleman-cycle-open-and-dense-air"]
-        },
-        {
-          "id": "effects-of-sub-cooling-and-super-heating",
-          "name": "effects of sub cooling and super heating",
-          "requires": ["vapour-compression-refrigeration-working-principle-and"]
-        },
-        {
-          "id": "cycle-analysis",
-          "name": "cycle analysis",
-          "requires": ["effects-of-sub-cooling-and-super-heating"]
-        },
-        {
-          "id": "actual-cycle-influence-of-various-parameters-on-system",
-          "name": "Actual cycle, Influence of various parameters on system performance",
-          "requires": ["cycle-analysis"]
-        },
-        {
-          "id": "necessity-of-multi-staging-multistage-compression-system-and",
-          "name": "necessity of multi-staging, multistage compression system, and their analysis, multi-evaporator system and their analysis, necessity and working of cascading system",
-          "requires": ["actual-cycle-influence-of-various-parameters-on-system"]
-        },
-        {
-          "id": "working-of-expansion-valves-like-capillary-tube-automatic",
-          "name": "Working of expansion valves like capillary tube, automatic, and thermostatic expansion valve",
-          "requires": ["necessity-of-multi-staging-multistage-compression-system-and"]
-        }
-      ]
-    },
     {
       "id": "refrigerants",
       "name": "Refrigerants",
@@ -105,23 +49,36 @@
         },
         {
           "id": "ozone-depletion-global-warming-secondary-refrigerants-future",
-          "name": "ozone depletion global warming, secondary refrigerants, future industrial refrigerants, recent development",
-          "requires": ["classification-of-refrigerants"]
+          "name": "ozone depletion global warming",
+          "requires": ["classification-of-refrigerants"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "secondary-refrigerants",
+          "name": "secondary refrigerants",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ozone-depletion-global-warming-secondary-refrigerants-future"]
+        },
+        {
+          "id": "future-industrial-refrigerants",
+          "name": "future industrial refrigerants",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["secondary-refrigerants"]
+        },
+        {
+          "id": "recent-development",
+          "name": "recent development",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["future-industrial-refrigerants"]
         },
         {
           "id": "vapour-absorption-refrigeration-71odell-absorption-system",
           "name": "Vapour Absorption Refrigeration: 71odell absorption system working principles",
           "requires": ["ozone-depletion-global-warming-secondary-refrigerants-future"]
-        },
-        {
-          "id": "description-and-working-of-nh3-water-system-and-libr-water",
-          "name": "description and working of NH3- water system and LiBr —water",
-          "requires": ["vapour-absorption-refrigeration-71odell-absorption-system"]
-        },
-        {
-          "id": "three-fluid-absorption-system-and-its-salient-features",
-          "name": "three fluid absorption system and its salient features",
-          "requires": ["description-and-working-of-nh3-water-system-and-libr-water"]
         },
         {
           "id": "steam-jet-refrigeration-system-working-principle-basic",
@@ -131,7 +88,225 @@
         {
           "id": "principle-and-operation-of-vortex-tube",
           "name": "principle and operation of vortex tube",
-          "requires": ["steam-jet-refrigeration-system-working-principle-basic"]
+          "requires": ["steam-jet-refrigeration-system-working-principle-basic"],
+          "status": "retired"
+        },
+        {
+          "id": "introduction-to-refrigeration",
+          "name": "Air refrigeration: Introduction to Refrigeration",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "movedFrom": {
+            "subject": "pdeu-refrigeration-and-air-conditioning",
+            "chapter": "introduction",
+            "at": "2026-10-24T23:22:41.746Z"
+          }
+        },
+        {
+          "id": "vapour-compression-refrigeration-working-principle-and",
+          "name": "working principle",
+          "requires": ["air-refrigeration-bell-coleman-cycle-open-and-dense-air"],
+          "source": "admin_handout",
+          "confidence": "verified",
+          "movedFrom": {
+            "subject": "pdeu-refrigeration-and-air-conditioning",
+            "chapter": "introduction",
+            "at": "2026-10-24T23:22:41.746Z"
+          }
+        },
+        {
+          "id": "actual-cycle-influence-of-various-parameters-on-system",
+          "name": "Actual cycle, Influence of various parameters on system performance",
+          "requires": ["cycle-analysis"],
+          "movedFrom": {
+            "subject": "pdeu-refrigeration-and-air-conditioning",
+            "chapter": "introduction",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cycle-analysis",
+          "name": "cycle analysis",
+          "requires": ["effects-of-sub-cooling-and-super-heating"],
+          "movedFrom": {
+            "subject": "pdeu-refrigeration-and-air-conditioning",
+            "chapter": "introduction",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "necessity-of-multi-staging-multistage-compression-system-and",
+          "name": "necessity of multi-staging, multistage compression system, and their analysis, multi-evaporator system and their analysis, necessity and working of cascading system",
+          "requires": ["actual-cycle-influence-of-various-parameters-on-system"],
+          "movedFrom": {
+            "subject": "pdeu-refrigeration-and-air-conditioning",
+            "chapter": "introduction",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cop",
+          "name": "COP",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["necessity-of-multi-staging-multistage-compression-system-and"]
+        },
+        {
+          "id": "representation-of-cycle-on-t-s-and-p-h-charts",
+          "name": "Representation of cycle on T-S and P-h charts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cop"]
+        },
+        {
+          "id": "actual-cycle",
+          "name": "Actual cycle",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["representation-of-cycle-on-t-s-and-p-h-charts"]
+        },
+        {
+          "id": "multi-evaporator-system-and-their-analysis",
+          "name": "multi-evaporator system and their analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["actual-cycle"]
+        },
+        {
+          "id": "cascade-system",
+          "name": "cascade system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multi-evaporator-system-and-their-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "reduced-air-refrigeration-system",
+          "name": "reduced air refrigeration system",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "comparison-of-various-air-refrigeration-systems",
+          "name": "comparison of various air refrigeration systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reduced-air-refrigeration-system"]
+        },
+        {
+          "id": "vapour-absorption-refrigeration-working-principles",
+          "name": "Vapour Absorption Refrigeration: working principles",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["comparison-of-various-air-refrigeration-systems"]
+        },
+        {
+          "id": "steam-jet-refrigeration-system",
+          "name": "Steam jet refrigeration system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vapour-absorption-refrigeration-working-principles"]
+        },
+        {
+          "id": "necessity-and-applications",
+          "name": "Necessity and applications",
+          "requires": ["introduction-to-refrigeration"]
+        },
+        {
+          "id": "ideal-refrigeration-cycles",
+          "name": "Ideal refrigeration cycles",
+          "requires": ["necessity-and-applications"],
+          "status": "retired"
+        },
+        {
+          "id": "air-refrigeration-bell-coleman-cycle-open-and-dense-air",
+          "name": "Bell-Coleman cycle",
+          "requires": ["ideal-refrigeration-cycles"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "open-and-dense-air-systems",
+          "name": "open and dense air systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["air-refrigeration-bell-coleman-cycle-open-and-dense-air"]
+        },
+        {
+          "id": "simple",
+          "name": "simple",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["open-and-dense-air-systems"]
+        },
+        {
+          "id": "boot-strap",
+          "name": "boot strap",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simple"]
+        },
+        {
+          "id": "regenerative",
+          "name": "regenerative",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["boot-strap"]
+        },
+        {
+          "id": "basic-components",
+          "name": "basic components",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["regenerative"]
+        },
+        {
+          "id": "effects-of-sub-cooling-and-super-heating",
+          "name": "effects of sub cooling and super heating",
+          "requires": ["vapour-compression-refrigeration-working-principle-and"],
+          "status": "retired"
+        },
+        {
+          "id": "working-of-expansion-valves-like-capillary-tube-automatic",
+          "name": "Working of expansion valves like capillary tube, automatic, and thermostatic expansion valve",
+          "requires": ["necessity-of-multi-staging-multistage-compression-system-and"],
+          "status": "retired"
+        },
+        {
+          "id": "description-and-working-of-nh3-water-system-and-libr-water",
+          "name": "description and working of NH3- water system and LiBr —water",
+          "requires": ["vapour-absorption-refrigeration-71odell-absorption-system"],
+          "movedFrom": {
+            "subject": "pdeu-refrigeration-and-air-conditioning",
+            "chapter": "refrigerants",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "three-fluid-absorption-system-and-its-salient-features",
+          "name": "three fluid absorption system and its salient features",
+          "requires": ["description-and-working-of-nh3-water-system-and-libr-water"],
+          "movedFrom": {
+            "subject": "pdeu-refrigeration-and-air-conditioning",
+            "chapter": "refrigerants",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
         }
       ]
     },
@@ -146,23 +321,80 @@
         },
         {
           "id": "psychometric-terms",
-          "name": "psychometric terms",
-          "requires": ["psychometric-composition-of-air-and-its-effect-on-human"]
+          "name": "Psychometric",
+          "requires": ["psychometric-composition-of-air-and-its-effect-on-human"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "specific-humidity-relative-humidity-percentage-humidity-and",
-          "name": "specific humidity, relative humidity percentage humidity and absolute humidity",
+          "id": "psychometric-terms-2",
+          "name": "psychometric terms",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["psychometric-terms"]
         },
         {
-          "id": "temperatures-dry-bulb-wet-bulb-and-dew-point",
-          "name": "temperatures — dry bulb, wet bulb and dew point",
+          "id": "specific-humidity-relative-humidity-percentage-humidity-and",
+          "name": "specific humidity",
+          "requires": ["psychometric-terms"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "relative-humidity-percentage-humidity-and-absolute-humidity",
+          "name": "relative humidity percentage humidity and absolute humidity",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["specific-humidity-relative-humidity-percentage-humidity-and"]
         },
         {
-          "id": "psychometric-processes-different-types-of-psychometric",
-          "name": "Psychometric processes: different types of psychometric processes sensible heating and cooling process, Latent heating and cooling process, heating with humidification, cooling with dehumidification, ",
+          "id": "temperatures-dry-bulb-wet-bulb-and-dew-point",
+          "name": "temperatures",
+          "requires": ["specific-humidity-relative-humidity-percentage-humidity-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dry-bulb",
+          "name": "dry bulb",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["temperatures-dry-bulb-wet-bulb-and-dew-point"]
+        },
+        {
+          "id": "wet-bulb-and-dew-point",
+          "name": "wet bulb and dew point",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dry-bulb"]
+        },
+        {
+          "id": "psychometric-processes-different-types-of-psychometric",
+          "name": "Psychometric processes: different types of psychometric processes sensible heating and cooling process",
+          "requires": ["temperatures-dry-bulb-wet-bulb-and-dew-point"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "latent-heating-and-cooling-process",
+          "name": "Latent heating and cooling process",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["psychometric-processes-different-types-of-psychometric"]
+        },
+        {
+          "id": "heating-with-humidification",
+          "name": "heating with humidification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["latent-heating-and-cooling-process"]
+        },
+        {
+          "id": "cooling-with-dehumidification",
+          "name": "cooling with dehumidification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["heating-with-humidification"]
         },
         {
           "id": "air-washer-process",
@@ -192,12 +424,77 @@
         {
           "id": "calculation-of-adp-with-the-help-of-the-chart",
           "name": "calculation of ADP with the help of the chart",
-          "requires": ["sensible-heat-factor"]
+          "requires": ["sensible-heat-factor"],
+          "status": "retired"
         },
         {
           "id": "requirement-of-human-comfort",
           "name": "Requirement of human comfort",
           "requires": ["calculation-of-adp-with-the-help-of-the-chart"]
+        },
+        {
+          "id": "adiabatic-cooling",
+          "name": "adiabatic cooling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["requirement-of-human-comfort"]
+        }
+      ]
+    },
+    {
+      "id": "cooling-heating-load-calculation-air-conditioning-systems-an",
+      "name": "Cooling/Heating Load Calculation, Air Conditioning Systems & Components Design",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "cooling-heating-load-calculation-for-various-industrial-and",
+          "name": "Cooling/Heating load calculation for various industrial & commercial applications",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "selection-of-air-conditioning-system",
+          "name": "Selection of air-conditioning system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cooling-heating-load-calculation-for-various-industrial-and"]
+        },
+        {
+          "id": "requirements-of-industrial-airconditioning-system",
+          "name": "requirements of industrial airconditioning system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["selection-of-air-conditioning-system"]
+        },
+        {
+          "id": "summer",
+          "name": "Summer",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["requirements-of-industrial-airconditioning-system"]
+        },
+        {
+          "id": "winter-and-year-round-air-conditioning-system",
+          "name": "winter and year-round air-conditioning system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["summer"]
+        },
+        {
+          "id": "different-method-of-duct-design-such-as-equal-pressure-drop",
+          "name": "Different method of duct design such as equal pressure drop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["winter-and-year-round-air-conditioning-system"]
+        },
+        {
+          "id": "velocity-reduction-and-static-regain-method",
+          "name": "velocity reduction and static regain method",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["different-method-of-duct-design-such-as-equal-pressure-drop"]
         }
       ]
     },
@@ -230,7 +527,10 @@
           "name": "Refrigeration and air-conditioning control, air handling, air distribution and duct design",
           "requires": ["requirements-of-industrial-air-conditioning-air-conditioning"]
         }
-      ]
+      ],
+      "status": "retired"
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-refrigeration-and-air-conditioning-laboratory-me"]
 }

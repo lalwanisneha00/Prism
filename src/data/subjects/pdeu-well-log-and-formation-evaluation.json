@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Well Log and Formation Evaluation",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -59,8 +59,17 @@
         },
         {
           "id": "types-of-cores-routine-and-special-core-analysis-techniques",
-          "name": "Types of cores, Routine and special core analysis techniques",
-          "requires": ["well-log-tracks-and-their-presentation"]
+          "name": "Types of cores",
+          "requires": ["well-log-tracks-and-their-presentation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "routine-and-special-core-analysis-techniques",
+          "name": "Routine and special core analysis techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-cores-routine-and-special-core-analysis-techniques"]
         },
         {
           "id": "mud-logging-introduction",
@@ -74,8 +83,17 @@
         },
         {
           "id": "basic-principle-data-acquisition-and-interpretation-of",
-          "name": "Basic principle, data acquisition and interpretation of Temperature and Calliper Logs",
-          "requires": ["description-of-cutting-and-oil-shows-in-the-log-and-gas"]
+          "name": "Basic principle",
+          "requires": ["description-of-cutting-and-oil-shows-in-the-log-and-gas"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "data-acquisition-and-interpretation-of-temperature-and-calli",
+          "name": "data acquisition and interpretation of Temperature and Calliper Logs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-principle-data-acquisition-and-interpretation-of"]
         },
         {
           "id": "assignment-on-relevant-topics",
@@ -95,13 +113,38 @@
         },
         {
           "id": "gr-lags-basic-principle-data-acquisition-and-interpretation",
-          "name": "GR lags: Basic principle, data acquisition and interpretation of gamma ray and spectral gamma ray logs",
-          "requires": ["sp-log-basic-principle-and-log-interpretation"]
+          "name": "GR lags: Basic principle",
+          "requires": ["sp-log-basic-principle-and-log-interpretation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "data-acquisition-and-interpretation-of-gamma-ray-and-spectra",
+          "name": "data acquisition and interpretation of gamma ray and spectral gamma ray logs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gr-lags-basic-principle-data-acquisition-and-interpretation"]
         },
         {
           "id": "resistivity-logs-tools-data-acquisition-and-interpretation",
-          "name": "Resistivity Logs: tools, data acquisition and interpretation",
-          "requires": ["gr-lags-basic-principle-data-acquisition-and-interpretation"]
+          "name": "Resistivity Logs: tools",
+          "requires": ["gr-lags-basic-principle-data-acquisition-and-interpretation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "data-acquisition-and-interpretation",
+          "name": "data acquisition and interpretation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["resistivity-logs-tools-data-acquisition-and-interpretation"]
+        },
+        {
+          "id": "resistivity-logs",
+          "name": "Resistivity logs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-acquisition-and-interpretation"]
         },
         {
           "id": "electrical-image-logs",
@@ -110,8 +153,24 @@
         },
         {
           "id": "assignment-on-sp-gr-and-resistivity-logs-shale-volume",
-          "name": "Assignment on SP, GR, and Resistivity logs, Shale volume calculation and identification of gross sand and net sand, Rw calculation and its use in determining S W",
-          "requires": ["electrical-image-logs"]
+          "name": "Assignment on SP",
+          "requires": ["electrical-image-logs"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "shale-volume-calculation-and-identification-of-gross-sand-an",
+          "name": "Shale volume calculation and identification of gross sand and net sand",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["assignment-on-sp-gr-and-resistivity-logs-shale-volume"]
+        },
+        {
+          "id": "rw-calculation-and-its-use-in-determining-sw",
+          "name": "Rw calculation and its use in determining SW",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["shale-volume-calculation-and-identification-of-gross-sand-an"]
         }
       ]
     },
@@ -122,12 +181,37 @@
       "topics": [
         {
           "id": "porosity-logs",
-          "name": "Data acquisition and interpretation of Density porosity, Neutron porosity and Sonic logs"
+          "name": "Data acquisition and interpretation of Density porosity",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "neutron-porosity-and-sonic-logs",
+          "name": "Neutron porosity and Sonic logs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["porosity-logs"]
+        },
+        {
+          "id": "sonic-neutron",
+          "name": "Sonic Neutron",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["neutron-porosity-and-sonic-logs"]
         },
         {
           "id": "porosity",
-          "name": "Porosity and lithology estimations (Neutron-Density, Sonic- Density, Sonic Neutron, MN and MID cross plots)",
-          "requires": ["porosity-logs"]
+          "name": "Porosity and lithology estimations (Neutron-Density",
+          "requires": ["porosity-logs"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "mn-and-mid-cross-plots",
+          "name": "MN and MID cross plots)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["porosity"]
         },
         {
           "id": "acoustic-image-logs-and-their-applications",
@@ -136,13 +220,45 @@
         },
         {
           "id": "nuclear-magnetic-resonance-log-principles-porosity-and",
-          "name": "Nuclear Magnetic Resonance Log (Principles, Porosity and permeability estimation, type of fluid identification)",
-          "requires": ["acoustic-image-logs-and-their-applications"]
+          "name": "Nuclear Magnetic Resonance Log (Principles",
+          "requires": ["acoustic-image-logs-and-their-applications"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "porosity-and-permeability-estimation",
+          "name": "Porosity and permeability estimation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["nuclear-magnetic-resonance-log-principles-porosity-and"]
+        },
+        {
+          "id": "type-of-fluid-identification",
+          "name": "type of fluid identification)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["porosity-and-permeability-estimation"]
         },
         {
           "id": "assignments-to-determine-porosity-lithology-and-mineralogy",
-          "name": "Assignments to determine porosity, lithology and mineralogy from logs and their cross plots",
-          "requires": ["nuclear-magnetic-resonance-log-principles-porosity-and"]
+          "name": "Assignments to determine porosity",
+          "requires": ["nuclear-magnetic-resonance-log-principles-porosity-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lithology-and-mineralogy-from-logs-and-their-cross-plots",
+          "name": "lithology and mineralogy from logs and their cross plots",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["assignments-to-determine-porosity-lithology-and-mineralogy"]
+        },
+        {
+          "id": "sonicdensity",
+          "name": "SonicDensity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lithology-and-mineralogy-from-logs-and-their-cross-plots"]
         }
       ]
     },
@@ -153,7 +269,37 @@
       "topics": [
         {
           "id": "integration-of-different-log-data-to-determine-lithology",
-          "name": "Integration of different log data to determine lithology, shale volume, minerology, porosity, and net pay thickness"
+          "name": "Integration of different log data to determine lithology",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "shale-volume",
+          "name": "shale volume",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["integration-of-different-log-data-to-determine-lithology"]
+        },
+        {
+          "id": "minerology",
+          "name": "minerology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["shale-volume"]
+        },
+        {
+          "id": "porosity-2",
+          "name": "porosity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["minerology"]
+        },
+        {
+          "id": "net-pay-thickness",
+          "name": "net pay thickness",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["porosity-2"]
         },
         {
           "id": "evaluate-reservoir-potential-and-its-production-capability",
@@ -167,5 +313,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

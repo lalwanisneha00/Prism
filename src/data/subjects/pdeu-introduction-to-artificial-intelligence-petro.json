@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,12 +41,30 @@
       "topics": [
         {
           "id": "introduction-to-ai",
-          "name": "Introduction to AI"
+          "name": "Introduction to AI",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "preparing-data-for-ai-models",
+          "name": "preparing data for AI models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-ai"]
         },
         {
           "id": "machine-learning-ml-vs-deep-learning-dl",
-          "name": "Machine Learning (ML) vs. Deep Learning (DL)",
-          "requires": ["introduction-to-ai"]
+          "name": "Machine Learning (ML) vs",
+          "requires": ["introduction-to-ai"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "deep-learning-dl",
+          "name": "Deep Learning (DL)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["machine-learning-ml-vs-deep-learning-dl"]
         },
         {
           "id": "bridging-python-programming",
@@ -55,13 +73,31 @@
         },
         {
           "id": "linear-regression-ml",
-          "name": "Supervised Learning: Algorithms (linear regression, decision trees)",
-          "requires": ["bridging-python-programming"]
+          "name": "Supervised Learning: Algorithms (linear regression",
+          "requires": ["bridging-python-programming"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "decision-trees",
+          "name": "decision trees)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-regression-ml"]
         },
         {
           "id": "unsupervised-learning-techniques-clustering-dimensionality",
-          "name": "Unsupervised Learning: Techniques (clustering, dimensionality reduction)",
-          "requires": ["linear-regression-ml"]
+          "name": "Unsupervised Learning: Techniques (clustering",
+          "requires": ["linear-regression-ml"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dimensionality-reduction",
+          "name": "dimensionality reduction)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["unsupervised-learning-techniques-clustering-dimensionality"]
         },
         {
           "id": "reinforcement-learning",
@@ -70,8 +106,17 @@
         },
         {
           "id": "data-preprocessing-techniques-for-cleaning-transforming-and",
-          "name": "Data Preprocessing: Techniques for cleaning, transforming, and preparing data for AI models",
-          "requires": ["reinforcement-learning"]
+          "name": "Data Preprocessing: Techniques for cleaning",
+          "requires": ["reinforcement-learning"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "transforming",
+          "name": "transforming",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-preprocessing-techniques-for-cleaning-transforming-and"]
         }
       ]
     },
@@ -82,7 +127,16 @@
       "topics": [
         {
           "id": "accuracy",
-          "name": "Accuracy"
+          "name": "Accuracy",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "examples-water-cut-prediction-accuracy",
+          "name": "Examples: water-cut prediction accuracy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["accuracy"]
         },
         {
           "id": "precision",
@@ -126,8 +180,17 @@
         },
         {
           "id": "net-present-value-npv-improvement-from-reservoir-management",
-          "name": "Net Present Value (NPV) improvement from reservoir management strategies, or drilling cost reduction achieved through AI-powered optimization",
-          "requires": ["area-under-the-roc-curve-auc-roc-examples-water-cut"]
+          "name": "Net Present Value (NPV) improvement from reservoir management strategies",
+          "requires": ["area-under-the-roc-curve-auc-roc-examples-water-cut"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "drilling-cost-reduction-achieved-through-ai-powered-optimiza",
+          "name": "drilling cost reduction achieved through AI-powered optimization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["net-present-value-npv-improvement-from-reservoir-management"]
         }
       ]
     },
@@ -172,8 +235,17 @@
         },
         {
           "id": "deep-learning-architectures-and-optimization-algorithms",
-          "name": "Deep Learning Architectures, and Optimization Algorithms",
-          "requires": ["overfitting-and-underfitting"]
+          "name": "Deep Learning Architectures",
+          "requires": ["overfitting-and-underfitting"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "optimization-algorithms",
+          "name": "Optimization Algorithms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["deep-learning-architectures-and-optimization-algorithms"]
         },
         {
           "id": "ann-applications-in-petroleum-engineering-reservoir-property",
@@ -182,8 +254,17 @@
         },
         {
           "id": "production-forecasting-with-rnns-or-wellbore-stability",
-          "name": "production forecasting with RNNs, or wellbore stability analysis with MLPs",
-          "requires": ["ann-applications-in-petroleum-engineering-reservoir-property"]
+          "name": "production forecasting with RNNs",
+          "requires": ["ann-applications-in-petroleum-engineering-reservoir-property"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "wellbore-stability-analysis-with-mlps",
+          "name": "wellbore stability analysis with MLPs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["production-forecasting-with-rnns-or-wellbore-stability"]
         }
       ]
     },
@@ -233,5 +314,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

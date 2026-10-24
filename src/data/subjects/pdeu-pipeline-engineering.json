@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Pipeline Engineering",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -90,8 +90,24 @@
         },
         {
           "id": "factors-affecting-pipeline-design-external-fluid-properties",
-          "name": "Factors affecting pipeline design (External, fluid properties, pipeline parameters and Fluid flow considerations",
-          "requires": ["types-of-onshore-offshore-pipelines"]
+          "name": "Factors affecting pipeline design (External",
+          "requires": ["types-of-onshore-offshore-pipelines"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fluid-properties",
+          "name": "fluid properties",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["factors-affecting-pipeline-design-external-fluid-properties"]
+        },
+        {
+          "id": "pipeline-parameters-and-fluid-flow-considerations",
+          "name": "pipeline parameters and Fluid flow considerations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fluid-properties"]
         },
         {
           "id": "loop-lines",
@@ -173,7 +189,16 @@
       "topics": [
         {
           "id": "commissioning-of-pipeline-pipeline-operations",
-          "name": "Commissioning of pipeline. Pipeline Operations"
+          "name": "Commissioning of pipeline",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pipeline-operations",
+          "name": "Pipeline Operations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["commissioning-of-pipeline-pipeline-operations"]
         },
         {
           "id": "pigging",
@@ -197,5 +222,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

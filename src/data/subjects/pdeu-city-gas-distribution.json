@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): City Gas Distribution",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,51 @@
       "topics": [
         {
           "id": "types-of-natural-gas-introduction-to-concept-of-geographical",
-          "name": "Types of Natural Gas, Introduction to concept of Geographical Area (GA), History of CGD in India"
+          "name": "Types of Natural Gas",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-concept-of-geographical-area-ga",
+          "name": "Introduction to concept of Geographical Area (GA)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-natural-gas-introduction-to-concept-of-geographical"]
+        },
+        {
+          "id": "history-of-cgd-in-india",
+          "name": "History of CGD in India",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-concept-of-geographical-area-ga"]
         },
         {
           "id": "lng-lpg-and-cgd-business-gas-value-chain-gas-transmission",
-          "name": "LNG, LPG, and CGD business. Gas Value Chain: Gas Transmission and Distribution System",
-          "requires": ["types-of-natural-gas-introduction-to-concept-of-geographical"]
+          "name": "LNG",
+          "requires": ["types-of-natural-gas-introduction-to-concept-of-geographical"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lpg",
+          "name": "LPG",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lng-lpg-and-cgd-business-gas-value-chain-gas-transmission"]
+        },
+        {
+          "id": "cgd-business",
+          "name": "CGD business",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lpg"]
+        },
+        {
+          "id": "gas-value-chain-gas-transmission-and-distribution-system",
+          "name": "Gas Value Chain: Gas Transmission and Distribution System",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cgd-business"]
         },
         {
           "id": "city-gate-station-cgs",
@@ -84,8 +123,31 @@
         },
         {
           "id": "cng-infrastructure-mother-station-online-station-daughter",
-          "name": "CNG infrastructure: Mother Station, Online Station, Daughter Station, Daughter Booster Station",
-          "requires": ["steel-and-pe-pipelines"]
+          "name": "CNG infrastructure: Mother Station",
+          "requires": ["steel-and-pe-pipelines"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "online-station",
+          "name": "Online Station",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cng-infrastructure-mother-station-online-station-daughter"]
+        },
+        {
+          "id": "daughter-station",
+          "name": "Daughter Station",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["online-station"]
+        },
+        {
+          "id": "daughter-booster-station",
+          "name": "Daughter Booster Station",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["daughter-station"]
         }
       ]
     },
@@ -100,8 +162,45 @@
         },
         {
           "id": "upstream-and-downstream-regulators-powers-and-functions-of",
-          "name": "Upstream and downstream regulators, Powers and functions of Petroleum and Natural Gas Regulatory Board (PNGRB), Evolution of CGD bidding in India till date, Bidding attributes and Bid authorization, N",
-          "requires": ["introduction-to-ministry-of-petroleum-and-natural-gas-mopng"]
+          "name": "Upstream and downstream regulators",
+          "requires": ["introduction-to-ministry-of-petroleum-and-natural-gas-mopng"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "powers-and-functions-of-petroleum-and-natural-gas-regulatory",
+          "name": "Powers and functions of Petroleum and Natural Gas Regulatory Board (PNGRB)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["upstream-and-downstream-regulators-powers-and-functions-of"]
+        },
+        {
+          "id": "evolution-of-cgd-bidding-in-india-till-date",
+          "name": "Evolution of CGD bidding in India till date",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["powers-and-functions-of-petroleum-and-natural-gas-regulatory"]
+        },
+        {
+          "id": "bidding-attributes-and-bid-authorization",
+          "name": "Bidding attributes and Bid authorization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["evolution-of-cgd-bidding-in-india-till-date"]
+        },
+        {
+          "id": "natural-gas-trend",
+          "name": "Natural gas trend",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bidding-attributes-and-bid-authorization"]
+        },
+        {
+          "id": "technical-standards-and-specifications-including-safety-stan",
+          "name": "Technical Standards and Specifications including Safety Standards (T4S)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["natural-gas-trend"]
         }
       ]
     },
@@ -116,8 +215,45 @@
         },
         {
           "id": "valves-pumps-compressors-welding-cathodic-protection-system",
-          "name": "Valves, Pumps, Compressors, Welding, Cathodic Protection System, QHSE: CNG Safety",
-          "requires": ["annual-o-and-m-plan"]
+          "name": "Valves",
+          "requires": ["annual-o-and-m-plan"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pumps",
+          "name": "Pumps",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["valves-pumps-compressors-welding-cathodic-protection-system"]
+        },
+        {
+          "id": "compressors",
+          "name": "Compressors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pumps"]
+        },
+        {
+          "id": "welding",
+          "name": "Welding",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["compressors"]
+        },
+        {
+          "id": "cathodic-protection-system",
+          "name": "Cathodic Protection System",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["welding"]
+        },
+        {
+          "id": "qhse-cng-safety",
+          "name": "QHSE: CNG Safety",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cathodic-protection-system"]
         },
         {
           "id": "emergency-response-plan",
@@ -202,5 +338,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

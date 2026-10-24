@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Tissue Engineering and Regenerative Medicine",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -105,8 +105,17 @@
         },
         {
           "id": "mechanical-and-biological-properties-scaffolds-and-tissue",
-          "name": "mechanical and biological properties. Scaffolds & tissue engineering",
-          "requires": ["bulk"]
+          "name": "mechanical and biological properties",
+          "requires": ["bulk"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "scaffolds-and-tissue-engineering",
+          "name": "Scaffolds & tissue engineering",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mechanical-and-biological-properties-scaffolds-and-tissue"]
         },
         {
           "id": "types-of-biomaterials",
@@ -147,7 +156,16 @@
       "topics": [
         {
           "id": "stem-cells-introduction",
-          "name": "Stem Cells: Introduction"
+          "name": "Stem Cells: Introduction",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cancer-stem-cells-induced-pleuri-potent-stem-cells-2",
+          "name": "cancer stem cells induced pleuri potent stem cells",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["stem-cells-introduction"]
         },
         {
           "id": "hematopoietic-differentiation-pathway-potency-and-plasticity",
@@ -337,5 +355,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

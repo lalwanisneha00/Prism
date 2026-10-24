@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Computer Aided Drug Design",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -91,12 +91,30 @@
         {
           "id": "visualization",
           "name": "Visualization",
-          "requires": ["classification"]
+          "requires": ["classification"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "visualization-tools-2",
+          "name": "Visualization tools",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["visualization"]
         },
         {
           "id": "protein-structure-database",
           "name": "Protein structure database",
-          "requires": ["visualization"]
+          "requires": ["visualization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "protein",
+          "name": "Protein",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["protein-structure-database"]
         },
         {
           "id": "visualization-tools",
@@ -106,7 +124,16 @@
         {
           "id": "tool-for-protein-ligand-interaction",
           "name": "Tool for protein ligand interaction",
-          "requires": ["visualization-tools"]
+          "requires": ["visualization-tools"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "protein-interaction",
+          "name": "protein interaction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tool-for-protein-ligand-interaction"]
         },
         {
           "id": "motif-and-domains",
@@ -127,7 +154,16 @@
       "topics": [
         {
           "id": "methods-of-sequence-based-structure-prediction",
-          "name": "Methods of sequence based structure prediction"
+          "name": "Methods of sequence based structure prediction",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "methods-of-2-d-structure-prediction-2",
+          "name": "Methods of 2-D structure prediction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["methods-of-sequence-based-structure-prediction"]
         },
         {
           "id": "ab-initio-approach-for-structure-prediction",
@@ -146,8 +182,17 @@
         },
         {
           "id": "homologous-modelling-drug-and-target-discovery-technology",
-          "name": "Homologous modelling. Drug and target discovery technology and strategy",
-          "requires": ["protein-function-prediction"]
+          "name": "Homologous modelling",
+          "requires": ["protein-function-prediction"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "drug-and-target-discovery-technology-and-strategy",
+          "name": "Drug and target discovery technology and strategy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["homologous-modelling-drug-and-target-discovery-technology"]
         },
         {
           "id": "target-validation",
@@ -172,8 +217,17 @@
         },
         {
           "id": "important-parameter-for-drug-discovery-drug-design",
-          "name": "Important parameter for drug discovery. Drug design approaches",
-          "requires": ["snps"]
+          "name": "Important parameter for drug discovery",
+          "requires": ["snps"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "drug-design-approaches",
+          "name": "Drug design approaches",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["important-parameter-for-drug-discovery-drug-design"]
         },
         {
           "id": "structure-based-de-novo-methods",
@@ -192,5 +246,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

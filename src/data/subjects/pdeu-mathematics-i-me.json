@@ -29,59 +29,152 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 13 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
     {
-      "id": "calculus-for-single-variable",
-      "name": "Calculus for single variable",
-      "hours": 8,
+      "id": "infinite-series-and-improper-integrals",
+      "name": "Infinite Series & Improper Integrals",
+      "hours": 11,
       "topics": [
         {
-          "id": "successive-differentiation",
-          "name": "Successive differentiation"
+          "id": "convergence-tests",
+          "name": "Convergence and divergence of Infinite series"
         },
         {
-          "id": "leibnitz-theorem-without-proof",
-          "name": "Leibnitz theorem (without proof)",
-          "requires": ["successive-differentiation"]
+          "id": "comparison-test-d-alemberts-ratio-test-raabes-test",
+          "name": "Comparison test, D' Alembert's ratio test, Raabe's test, logarithmic test, Cauchy's root test",
+          "requires": ["convergence-tests"],
+          "status": "retired"
         },
         {
-          "id": "taylors-and-maclaurins-expansion-of-functions-of-single",
-          "name": "Taylor’s and Maclaurin's expansion of functions of single variable",
-          "requires": ["leibnitz-theorem-without-proof"]
+          "id": "alternating-series",
+          "name": "Alternating series",
+          "requires": ["comparison-test-d-alemberts-ratio-test-raabes-test"]
         },
         {
-          "id": "fundamental-theorem-of-integral-calculus",
-          "name": "Fundamental theorem of Integral calculus",
-          "requires": ["taylors-and-maclaurins-expansion-of-functions-of-single"]
+          "id": "power-series",
+          "name": "Leibnitz test, power series",
+          "requires": ["convergence-tests"]
         },
         {
-          "id": "application-of-integrals-to-length",
-          "name": "Application of integrals to length",
-          "requires": ["fundamental-theorem-of-integral-calculus"]
+          "id": "beta-gamma-functions",
+          "name": "Convergence of improper integrals, Beta and Gamma functions and its properties",
+          "requires": ["power-series"],
+          "status": "retired"
         },
         {
-          "id": "area",
-          "name": "area",
-          "requires": ["application-of-integrals-to-length"]
+          "id": "gradient-divergent-curl",
+          "name": "Gradient divergent curl",
+          "requires": ["line-integrals"],
+          "movedFrom": {
+            "subject": "pdeu-mathematics-i-me",
+            "chapter": "vector-calculus",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "volume-and-surface-area-of-revolution-curve-tracing",
-          "name": "volume and surface area of revolution. Curve Tracing: Asymptotes",
-          "requires": ["area"]
+          "id": "definition",
+          "name": "Definition",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gradient-divergent-curl"]
         },
         {
-          "id": "cartesian",
-          "name": "Cartesian",
-          "requires": ["volume-and-surface-area-of-revolution-curve-tracing"]
+          "id": "convergent",
+          "name": "Convergent",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["definition"]
         },
         {
-          "id": "polar-and-parametric-forms",
-          "name": "polar and parametric forms",
-          "requires": ["cartesian"]
+          "id": "bounded-and-monotone-sequences",
+          "name": "bounded & monotone sequences",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["convergent"]
+        },
+        {
+          "id": "infinite-sums-basics",
+          "name": "Infinite sums: Basics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bounded-and-monotone-sequences"]
+        },
+        {
+          "id": "tests-for-convergence-for-positive-term-series",
+          "name": "Tests for convergence for positive term series",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["infinite-sums-basics"]
+        },
+        {
+          "id": "absolute-convergence",
+          "name": "Absolute convergence",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tests-for-convergence-for-positive-term-series"]
+        },
+        {
+          "id": "conditional-convergence",
+          "name": "conditional convergence",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["absolute-convergence"]
+        },
+        {
+          "id": "convergence-of-power-series",
+          "name": "Convergence of power series",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["conditional-convergence"]
+        }
+      ]
+    },
+    {
+      "id": "partial-derivatives-and-its-applications",
+      "name": "Partial Derivatives and its Applications",
+      "hours": 8,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "partial-derivative-and-its-application",
+          "name": "Partial derivative and its application",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "euler-s-theorem",
+          "name": "Euler’s theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["partial-derivative-and-its-application"]
+        },
+        {
+          "id": "jacobians-2",
+          "name": "Jacobians",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["euler-s-theorem"]
+        },
+        {
+          "id": "maxima-and-minima-of-two-variables-using-lagrange-s-multipli",
+          "name": "Maxima and Minima of two variables using Lagrange’s multipliers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["jacobians-2"]
+        },
+        {
+          "id": "taylor-s-series",
+          "name": "Taylor’s series",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["maxima-and-minima-of-two-variables-using-lagrange-s-multipli"]
         }
       ]
     },
@@ -98,11 +191,6 @@
           "id": "eulers-theorem-homogeneous",
           "name": "Euler's theorem",
           "requires": ["partial-derivatives"]
-        },
-        {
-          "id": "directional-derivative",
-          "name": "directional derivative and gradient",
-          "requires": ["eulers-theorem-homogeneous"]
         },
         {
           "id": "taylors-and-maclaurins-expansion-of-functions-of-several",
@@ -150,45 +238,137 @@
           "requires": ["evaluation-of-area"]
         },
         {
-          "id": "mass",
-          "name": "Mass",
-          "requires": ["volumes-of-solids"]
-        },
-        {
           "id": "center-of-gravity-and-moment-of-inertia",
           "name": "center of gravity and moment of inertia",
           "requires": ["mass"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
-      "id": "infinite-series-and-improper-integrals",
-      "name": "Infinite Series & Improper Integrals",
-      "hours": 11,
+      "id": "calculus-for-single-variable",
+      "name": "Calculus for single variable",
+      "hours": 8,
       "topics": [
         {
-          "id": "convergence-tests",
-          "name": "Convergence and divergence of Infinite series"
+          "id": "successive-differentiation",
+          "name": "Successive differentiation",
+          "status": "retired"
         },
         {
-          "id": "comparison-test-d-alemberts-ratio-test-raabes-test",
-          "name": "Comparison test, D' Alembert's ratio test, Raabe's test, logarithmic test, Cauchy's root test",
-          "requires": ["convergence-tests"]
+          "id": "leibnitz-theorem-without-proof",
+          "name": "Leibnitz theorem (without proof)",
+          "requires": ["successive-differentiation"],
+          "status": "retired"
         },
         {
-          "id": "alternating-series",
-          "name": "Alternating series",
-          "requires": ["comparison-test-d-alemberts-ratio-test-raabes-test"]
+          "id": "taylors-and-maclaurins-expansion-of-functions-of-single",
+          "name": "Taylor’s and Maclaurin's expansion of functions of single variable",
+          "requires": ["leibnitz-theorem-without-proof"],
+          "status": "retired"
         },
         {
-          "id": "power-series",
-          "name": "Leibnitz test, power series",
-          "requires": ["convergence-tests"]
+          "id": "fundamental-theorem-of-integral-calculus",
+          "name": "Fundamental theorem of Integral calculus",
+          "requires": ["taylors-and-maclaurins-expansion-of-functions-of-single"],
+          "status": "retired"
         },
         {
-          "id": "beta-gamma-functions",
-          "name": "Convergence of improper integrals, Beta and Gamma functions and its properties",
-          "requires": ["power-series"]
+          "id": "application-of-integrals-to-length",
+          "name": "Application of integrals to length",
+          "requires": ["fundamental-theorem-of-integral-calculus"],
+          "status": "retired"
+        },
+        {
+          "id": "area",
+          "name": "area",
+          "requires": ["application-of-integrals-to-length"]
+        },
+        {
+          "id": "volume-and-surface-area-of-revolution-curve-tracing",
+          "name": "volume and surface area of revolution. Curve Tracing: Asymptotes",
+          "requires": ["area"]
+        },
+        {
+          "id": "cartesian",
+          "name": "Definition and evaluation of double integral (Cartesian",
+          "requires": ["volume-and-surface-area-of-revolution-curve-tracing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "change-of-variables-cartesian-to-spherical",
+          "name": "change of variables (Cartesian to spherical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cartesian"]
+        },
+        {
+          "id": "polar-and-parametric-forms",
+          "name": "polar and parametric forms",
+          "requires": ["cartesian"],
+          "status": "retired"
+        },
+        {
+          "id": "mass",
+          "name": "Mass",
+          "requires": ["volumes-of-solids"],
+          "movedFrom": {
+            "subject": "pdeu-mathematics-i-me",
+            "chapter": "calculus-for-of-several-variable",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "polar-form",
+          "name": "Polar form)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mass"]
+        },
+        {
+          "id": "change-of-orders",
+          "name": "Change of orders",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polar-form"]
+        },
+        {
+          "id": "change-of-variables",
+          "name": "Change of variables",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["change-of-orders"]
+        },
+        {
+          "id": "evaluation-of-triple-integral",
+          "name": "Evaluation of triple integral",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["change-of-variables"]
+        },
+        {
+          "id": "cylindrical",
+          "name": "cylindrical)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["evaluation-of-triple-integral"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cylindrical"]
+        },
+        {
+          "id": "center-of-gravity-by-double-and-triple-integral",
+          "name": "center of gravity by double and triple integral",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applications"]
         }
       ]
     },
@@ -199,24 +379,91 @@
       "topics": [
         {
           "id": "scalar-and-vector-fields",
-          "name": "Scalar and vector fields"
+          "name": "Scalar and vector fields",
+          "status": "retired"
         },
         {
           "id": "line-integrals",
           "name": "Line and surface Integrals",
-          "requires": ["scalar-and-vector-fields"]
-        },
-        {
-          "id": "gradient-divergent-curl",
-          "name": "Gradient divergent curl",
-          "requires": ["line-integrals"]
+          "requires": ["scalar-and-vector-fields"],
+          "status": "retired"
         },
         {
           "id": "greens-theorem",
           "name": "Green’s Theorem and stoke’s theorem (without proof) with application and physical significance",
-          "requires": ["line-integrals", "double-integrals"]
+          "requires": ["line-integrals", "double-integrals"],
+          "status": "retired"
+        },
+        {
+          "id": "directional-derivative",
+          "name": "directional derivative and gradient",
+          "requires": ["eulers-theorem-homogeneous"],
+          "movedFrom": {
+            "subject": "pdeu-mathematics-i-me",
+            "chapter": "calculus-for-of-several-variable",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "divergence-and-curl",
+          "name": "divergence and curl",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["directional-derivative"]
+        },
+        {
+          "id": "irrotational-and-solenoidal-vector-fields",
+          "name": "Irrotational and Solenoidal vector fields",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["divergence-and-curl"]
+        },
+        {
+          "id": "vector-integration",
+          "name": "Vector Integration",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["irrotational-and-solenoidal-vector-fields"]
+        },
+        {
+          "id": "simple-problems-on-line",
+          "name": "Simple problems on line",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vector-integration"]
+        },
+        {
+          "id": "surface-and-volume-integrals",
+          "name": "surface and volume integrals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simple-problems-on-line"]
+        },
+        {
+          "id": "green-s-theorem-in-a-plane",
+          "name": "Green’s theorem in a plane",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["surface-and-volume-integrals"]
+        },
+        {
+          "id": "gauss-divergence-theorem-and-stokes-theorem-without-proofs",
+          "name": "Gauss divergence theorem and Stokes’ theorem (without proofs)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["green-s-theorem-in-a-plane"]
+        },
+        {
+          "id": "simple-application-involving-cubes-and-rectangular-parallele",
+          "name": "Simple application involving cubes and rectangular parallelepipeds",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gauss-divergence-theorem-and-stokes-theorem-without-proofs"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

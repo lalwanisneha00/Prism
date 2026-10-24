@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Analog IC Design (VLSI/Embedded)",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -38,17 +38,93 @@
       "topics": [
         {
           "id": "introduction-to-mosfets-mosfet-circuits-configurations",
-          "name": "Introduction to MOSFETs, MOSFET-Circuits Configurations: Common-Source, Source Follower, Common- Gate, Cascode, and Basic Differential Pair"
+          "name": "Introduction to MOSFETs",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "current-mirror",
-          "name": "Current Mirrors: Basic Current Mirrors, Cascode Current Mirrors, and Active Current Mirrors",
+          "id": "mosfet-circuits-configurations-common-source",
+          "name": "MOSFET-Circuits Configurations: Common-Source",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["introduction-to-mosfets-mosfet-circuits-configurations"]
         },
         {
-          "id": "biasing-techniques-cs-biasing-cg-biasing-source-follower",
-          "name": "Biasing Techniques: CS Biasing, CG Biasing, Source Follower Biasing, Differential Pair Biasing",
+          "id": "source-follower",
+          "name": "Source Follower",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mosfet-circuits-configurations-common-source"]
+        },
+        {
+          "id": "common-gate",
+          "name": "Common- Gate",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["source-follower"]
+        },
+        {
+          "id": "cascode",
+          "name": "Cascode",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["common-gate"]
+        },
+        {
+          "id": "basic-differential-pair",
+          "name": "Basic Differential Pair",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cascode"]
+        },
+        {
+          "id": "current-mirror",
+          "name": "Current Mirrors: Basic Current Mirrors",
+          "requires": ["introduction-to-mosfets-mosfet-circuits-configurations"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cascode-current-mirrors",
+          "name": "Cascode Current Mirrors",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["current-mirror"]
+        },
+        {
+          "id": "active-current-mirrors",
+          "name": "Active Current Mirrors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cascode-current-mirrors"]
+        },
+        {
+          "id": "biasing-techniques-cs-biasing-cg-biasing-source-follower",
+          "name": "Biasing Techniques: CS Biasing",
+          "requires": ["current-mirror"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cg-biasing",
+          "name": "CG Biasing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biasing-techniques-cs-biasing-cg-biasing-source-follower"]
+        },
+        {
+          "id": "source-follower-biasing",
+          "name": "Source Follower Biasing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cg-biasing"]
+        },
+        {
+          "id": "differential-pair-biasing",
+          "name": "Differential Pair Biasing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["source-follower-biasing"]
         }
       ]
     },
@@ -79,7 +155,23 @@
         {
           "id": "current-voltage-feedback",
           "name": "Current-Voltage Feedback",
-          "requires": ["feedback-topologies-voltage-voltage-feedback"]
+          "requires": ["feedback-topologies-voltage-voltage-feedback"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "voltage-current-feedback-2",
+          "name": "Voltage-Current Feedback",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["current-voltage-feedback"]
+        },
+        {
+          "id": "current-current-feedback-2",
+          "name": "Current-Current Feedback",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["voltage-current-feedback-2"]
         },
         {
           "id": "voltage-current-feedback",
@@ -165,5 +257,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

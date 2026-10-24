@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Corrosion Studies in Petroleum Industry",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,7 +40,44 @@
       "topics": [
         {
           "id": "corrosion-fundamentals-corrosion-in-oil-industry-cost-of",
-          "name": "Corrosion fundamentals, Corrosion in oil Industry, Cost of corrosion in the industry, Corrosivity of hydrocarbon fluids:- Water-oil, emulsion and multiphase flow regime, Wettability of metal surface, "
+          "name": "Corrosion fundamentals",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "corrosion-in-oil-industry",
+          "name": "Corrosion in oil Industry",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["corrosion-fundamentals-corrosion-in-oil-industry-cost-of"]
+        },
+        {
+          "id": "cost-of-corrosion-in-the-industry",
+          "name": "Cost of corrosion in the industry",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["corrosion-in-oil-industry"]
+        },
+        {
+          "id": "corrosivity-of-hydrocarbon-fluids-water-oil",
+          "name": "Corrosivity of hydrocarbon fluids:- Water-oil",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cost-of-corrosion-in-the-industry"]
+        },
+        {
+          "id": "emulsion-and-multiphase-flow-regime",
+          "name": "emulsion and multiphase flow regime",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["corrosivity-of-hydrocarbon-fluids-water-oil"]
+        },
+        {
+          "id": "wettability-of-metal-surface",
+          "name": "Wettability of metal surface",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["emulsion-and-multiphase-flow-regime"]
         },
         {
           "id": "sulphur-and-h-2s-in-hydrocarbon-fluids",
@@ -49,8 +86,17 @@
         },
         {
           "id": "influence-of-oil-chemistry-on-the-corrosivity-of-the-aqueous",
-          "name": "Influence of oil chemistry on the Corrosivity of the aqueous phase. Pipeline corrosion",
-          "requires": ["sulphur-and-h-2s-in-hydrocarbon-fluids"]
+          "name": "Influence of oil chemistry on the Corrosivity of the aqueous phase",
+          "requires": ["sulphur-and-h-2s-in-hydrocarbon-fluids"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pipeline-corrosion",
+          "name": "Pipeline corrosion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["influence-of-oil-chemistry-on-the-corrosivity-of-the-aqueous"]
         },
         {
           "id": "kinetics-of-electrochemical-surface-reactions",
@@ -79,13 +125,36 @@
         },
         {
           "id": "transport-through-the-porous-surface-scales-corrosion",
-          "name": "Transport through the porous surface scales. Corrosion products",
-          "requires": ["transport-from-the-bulk-solution-to-the-steel-surface"]
+          "name": "Transport through the porous surface scales",
+          "requires": ["transport-from-the-bulk-solution-to-the-steel-surface"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "corrosion-products",
+          "name": "Corrosion products",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transport-through-the-porous-surface-scales-corrosion"]
         },
         {
           "id": "kinetics-of-corrosion-products-precipitation-and-corrosion",
           "name": "Kinetics of corrosion products precipitation and corrosion products growth",
           "requires": ["transport-through-the-porous-surface-scales-corrosion"]
+        },
+        {
+          "id": "corrosivity-of-aqueous-phase-in-hydrocarbon-fluids",
+          "name": "Corrosivity of aqueous phase in hydrocarbon fluids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["kinetics-of-corrosion-products-precipitation-and-corrosion"]
+        },
+        {
+          "id": "h2s-in-hydrocarbon-fluids",
+          "name": "H2S in hydrocarbon fluids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["corrosivity-of-aqueous-phase-in-hydrocarbon-fluids"]
         }
       ]
     },
@@ -145,8 +214,17 @@
         },
         {
           "id": "formation-of-hydride-pipeline-flow-corrosivity-effect-of",
-          "name": "Formation of hydride. Pipeline flow Corrosivity: Effect of water wetting",
-          "requires": ["hydrogen-induced-cracking"]
+          "name": "Formation of hydride",
+          "requires": ["hydrogen-induced-cracking"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pipeline-flow-corrosivity-effect-of-water-wetting",
+          "name": "Pipeline flow Corrosivity: Effect of water wetting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["formation-of-hydride-pipeline-flow-corrosivity-effect-of"]
         },
         {
           "id": "effect-of-multiphase-flow-regime",
@@ -176,7 +254,8 @@
         {
           "id": "significance-of-h-2s",
           "name": "Significance of H 2S",
-          "requires": ["significance-of-co2-pressure"]
+          "requires": ["significance-of-co2-pressure"],
+          "status": "retired"
         },
         {
           "id": "significance-of-o2",
@@ -190,13 +269,29 @@
         },
         {
           "id": "effect-of-temperature-materials-selection-significance-of",
-          "name": "Effect of temperature. Materials selection:- Significance of alloying composition",
-          "requires": ["significance-of-ph"]
+          "name": "Effect of temperature",
+          "requires": ["significance-of-ph"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "materials-selection-significance-of-alloying-composition",
+          "name": "Materials selection:- Significance of alloying composition",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["effect-of-temperature-materials-selection-significance-of"]
         },
         {
           "id": "significance-of-steel-microstructure",
           "name": "Significance of steel microstructure",
           "requires": ["effect-of-temperature-materials-selection-significance-of"]
+        },
+        {
+          "id": "significance-of-h2s",
+          "name": "Significance of H2S",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["significance-of-steel-microstructure"]
         }
       ]
     },
@@ -207,7 +302,23 @@
       "topics": [
         {
           "id": "experimental-setups-methods-and-standards-multiphase-flow",
-          "name": "Experimental setups, methods, and standards:- Multiphase flow loop"
+          "name": "Experimental setups",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "methods",
+          "name": "methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["experimental-setups-methods-and-standards-multiphase-flow"]
+        },
+        {
+          "id": "standards-multiphase-flow-loop",
+          "name": "standards:- Multiphase flow loop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["methods"]
         },
         {
           "id": "autoclave",
@@ -307,8 +418,17 @@
         },
         {
           "id": "chemical-treatment-and-corrosion-inhibitors-corrosion",
-          "name": "Chemical treatment and corrosion inhibitors:-Corrosion control by industrial inhibitors, Application methods",
-          "requires": ["internal-coating-liner"]
+          "name": "Chemical treatment and corrosion inhibitors:-Corrosion control by industrial inhibitors",
+          "requires": ["internal-coating-liner"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "application-methods",
+          "name": "Application methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chemical-treatment-and-corrosion-inhibitors-corrosion"]
         },
         {
           "id": "influence-of-operating-conditions",
@@ -317,10 +437,34 @@
         },
         {
           "id": "solubility-partitioning-and-compatibility-biocides",
-          "name": "Solubility, partitioning, and compatibility. Biocides",
-          "requires": ["influence-of-operating-conditions"]
+          "name": "Solubility",
+          "requires": ["influence-of-operating-conditions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "partitioning",
+          "name": "partitioning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["solubility-partitioning-and-compatibility-biocides"]
+        },
+        {
+          "id": "compatibility",
+          "name": "compatibility",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["partitioning"]
+        },
+        {
+          "id": "biocides-max",
+          "name": "Biocides Max <>",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["compatibility"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -1,0 +1,420 @@
+{
+  "id": "pdeu-transformers-and-induction-machines-elec",
+  "name": "Transformers & Induction Machines",
+  "field": "Transformers & Induction Machines",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 3): Transformers & Induction Machines",
+    "note": "Units and topics copied from the course handout PDF (pages 7 of ELEC/sem3/Electrical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE203T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s3-transformers-and-induction-machines",
+      "code": "20EE203T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "single-phase-transformers",
+      "name": "Single Phase Transformers",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "basics-of-magnetics-circuits-and-electromechanical-energy-co",
+          "name": "Basics of Magnetics Circuits and Electromechanical Energy Conversion"
+        },
+        {
+          "id": "types",
+          "name": "Types",
+          "requires": ["basics-of-magnetics-circuits-and-electromechanical-energy-co"]
+        },
+        {
+          "id": "working-principle",
+          "name": "Working Principle",
+          "requires": ["types"]
+        },
+        {
+          "id": "construction",
+          "name": "Construction",
+          "requires": ["working-principle"]
+        },
+        {
+          "id": "emf-equation",
+          "name": "EMF Equation",
+          "requires": ["construction"]
+        },
+        {
+          "id": "transformer-on-no-load-and-on-load",
+          "name": "Transformer on No-Load & ON Load",
+          "requires": ["emf-equation"]
+        },
+        {
+          "id": "ideal-transformer",
+          "name": "Ideal Transformer",
+          "requires": ["transformer-on-no-load-and-on-load"]
+        },
+        {
+          "id": "actual-transformer",
+          "name": "Actual Transformer",
+          "requires": ["ideal-transformer"]
+        },
+        {
+          "id": "vector-diagrams",
+          "name": "Vector Diagrams",
+          "requires": ["actual-transformer"]
+        },
+        {
+          "id": "equivalent-resistance-and-reactance",
+          "name": "Equivalent Resistance & Reactance",
+          "requires": ["vector-diagrams"]
+        },
+        {
+          "id": "equivalent-circuits",
+          "name": "Equivalent Circuits",
+          "requires": ["equivalent-resistance-and-reactance"]
+        },
+        {
+          "id": "losses",
+          "name": "Losses",
+          "requires": ["equivalent-circuits"]
+        },
+        {
+          "id": "efficiency-and-voltage-regulation",
+          "name": "Efficiency & Voltage Regulation",
+          "requires": ["losses"]
+        },
+        {
+          "id": "all-day-efficiency",
+          "name": "All Day Efficiency",
+          "requires": ["efficiency-and-voltage-regulation"]
+        },
+        {
+          "id": "direct-load-test",
+          "name": "Direct Load Test",
+          "requires": ["all-day-efficiency"]
+        },
+        {
+          "id": "o-c-and-s-c",
+          "name": "O.C. &S.C",
+          "requires": ["direct-load-test"]
+        },
+        {
+          "id": "tests",
+          "name": "Tests",
+          "requires": ["o-c-and-s-c"]
+        },
+        {
+          "id": "sumpner-s-test",
+          "name": "Sumpner’s Test",
+          "requires": ["tests"]
+        },
+        {
+          "id": "polarity-test",
+          "name": "Polarity Test",
+          "requires": ["sumpner-s-test"]
+        },
+        {
+          "id": "parallel-operation-and-load-sharing",
+          "name": "Parallel Operation & Load Sharing",
+          "requires": ["polarity-test"]
+        },
+        {
+          "id": "per-unit-impedance",
+          "name": "per unit impedance",
+          "requires": ["parallel-operation-and-load-sharing"]
+        },
+        {
+          "id": "auto-transformers",
+          "name": "Auto Transformers",
+          "requires": ["per-unit-impedance"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["auto-transformers"]
+        },
+        {
+          "id": "testing-and-trouble-shooting-of-single-phase-transformer",
+          "name": "Testing and Trouble Shooting of Single Phase Transformer",
+          "requires": ["applications"]
+        }
+      ]
+    },
+    {
+      "id": "three-phase-transformers",
+      "name": "Three Phase Transformers",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "construction-2",
+          "name": "Construction"
+        },
+        {
+          "id": "types-2",
+          "name": "Types",
+          "requires": ["construction-2"]
+        },
+        {
+          "id": "vector-groups",
+          "name": "Vector Groups",
+          "requires": ["types-2"]
+        },
+        {
+          "id": "connections-including-open-delta",
+          "name": "Connections (Including Open Delta)",
+          "requires": ["vector-groups"]
+        },
+        {
+          "id": "parallel-operation-of-3-phase-transformers",
+          "name": "Parallel Operation of 3-Phase Transformers",
+          "requires": ["connections-including-open-delta"]
+        },
+        {
+          "id": "scott-connection",
+          "name": "Scott Connection",
+          "requires": ["parallel-operation-of-3-phase-transformers"]
+        },
+        {
+          "id": "three-winding-transformer",
+          "name": "Three Winding Transformer",
+          "requires": ["scott-connection"]
+        },
+        {
+          "id": "tertiary-winding",
+          "name": "Tertiary Winding",
+          "requires": ["three-winding-transformer"]
+        },
+        {
+          "id": "voltage-regulation-and-tap-changers",
+          "name": "Voltage Regulation & Tap Changers",
+          "requires": ["tertiary-winding"]
+        },
+        {
+          "id": "magnetizing-inrush",
+          "name": "Magnetizing Inrush",
+          "requires": ["voltage-regulation-and-tap-changers"]
+        },
+        {
+          "id": "harmonics-in-transformer",
+          "name": "Harmonics in Transformer",
+          "requires": ["magnetizing-inrush"]
+        },
+        {
+          "id": "cooling-methods",
+          "name": "Cooling Methods",
+          "requires": ["harmonics-in-transformer"]
+        },
+        {
+          "id": "protective-and-safety-devices-fitted-on-transformers",
+          "name": "Protective & Safety Devices Fitted on Transformers",
+          "requires": ["cooling-methods"]
+        },
+        {
+          "id": "power-and-distribution-transformer",
+          "name": "Power & Distribution Transformer",
+          "requires": ["protective-and-safety-devices-fitted-on-transformers"]
+        },
+        {
+          "id": "testing-and-trouble-shooting-of-three-phase-transformer",
+          "name": "Testing and Trouble Shooting of Three Phase Transformer",
+          "requires": ["power-and-distribution-transformer"]
+        }
+      ]
+    },
+    {
+      "id": "three-phase-induction-machine",
+      "name": "Three Phase Induction Machine",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "classification-of-ac-motors",
+          "name": "Classification of AC Motors"
+        },
+        {
+          "id": "construction-and-types",
+          "name": "Construction & Types",
+          "requires": ["classification-of-ac-motors"]
+        },
+        {
+          "id": "working-principle-2",
+          "name": "Working Principle",
+          "requires": ["construction-and-types"]
+        },
+        {
+          "id": "production-of-rotating-magnetic-field",
+          "name": "Production of Rotating Magnetic Field",
+          "requires": ["working-principle-2"]
+        },
+        {
+          "id": "synchronous-speed",
+          "name": "Synchronous Speed",
+          "requires": ["production-of-rotating-magnetic-field"]
+        },
+        {
+          "id": "slip",
+          "name": "Slip",
+          "requires": ["synchronous-speed"]
+        },
+        {
+          "id": "frequency-of-rotor-current",
+          "name": "Frequency of Rotor Current",
+          "requires": ["slip"]
+        },
+        {
+          "id": "rotor-parameters-under-standstill-and-running-condition",
+          "name": "rotor parameters under standstill and running condition",
+          "requires": ["frequency-of-rotor-current"]
+        },
+        {
+          "id": "torque",
+          "name": "Torque",
+          "requires": ["rotor-parameters-under-standstill-and-running-condition"]
+        },
+        {
+          "id": "torque-slip-characteristics",
+          "name": "Torque/Slip Characteristics",
+          "requires": ["torque"]
+        },
+        {
+          "id": "power-stages",
+          "name": "Power Stages",
+          "requires": ["torque-slip-characteristics"]
+        },
+        {
+          "id": "no-load-and-blocked-rotor-tests",
+          "name": "No Load & Blocked Rotor Tests",
+          "requires": ["power-stages"]
+        },
+        {
+          "id": "phasor-diagram",
+          "name": "Phasor Diagram",
+          "requires": ["no-load-and-blocked-rotor-tests"]
+        },
+        {
+          "id": "equivalent-circuit",
+          "name": "Equivalent Circuit",
+          "requires": ["phasor-diagram"]
+        },
+        {
+          "id": "circle-diagram-and-determination-of-performance-parameters",
+          "name": "Circle Diagram & Determination of Performance Parameters",
+          "requires": ["equivalent-circuit"]
+        },
+        {
+          "id": "deep-bar-and-double-cage-induction-motors",
+          "name": "Deep Bar & Double Cage Induction Motors",
+          "requires": ["circle-diagram-and-determination-of-performance-parameters"]
+        },
+        {
+          "id": "starters-automatic-and-semi",
+          "name": "Starters: Automatic and Semi",
+          "requires": ["deep-bar-and-double-cage-induction-motors"]
+        },
+        {
+          "id": "automatic-starters",
+          "name": "Automatic starters",
+          "requires": ["starters-automatic-and-semi"]
+        },
+        {
+          "id": "methods-of-speed-control",
+          "name": "Methods of Speed Control",
+          "requires": ["automatic-starters"]
+        },
+        {
+          "id": "harmonics-and-its-effects",
+          "name": "Harmonics & its Effects",
+          "requires": ["methods-of-speed-control"]
+        },
+        {
+          "id": "cogging-and-crawling",
+          "name": "Cogging & Crawling",
+          "requires": ["harmonics-and-its-effects"]
+        },
+        {
+          "id": "induction-generators-working",
+          "name": "Induction Generators: Working",
+          "requires": ["cogging-and-crawling"]
+        },
+        {
+          "id": "effect-of-capacitor",
+          "name": "Effect of Capacitor",
+          "requires": ["induction-generators-working"]
+        },
+        {
+          "id": "voltage-build-up-in-self-excited-generators",
+          "name": "Voltage Build up in Self-Excited Generators",
+          "requires": ["effect-of-capacitor"]
+        },
+        {
+          "id": "application",
+          "name": "Application",
+          "requires": ["voltage-build-up-in-self-excited-generators"]
+        },
+        {
+          "id": "testing-and-trouble-shooting-of-three-phase-induction-machin",
+          "name": "Testing and Trouble Shooting of Three Phase Induction Machine",
+          "requires": ["application"]
+        }
+      ]
+    },
+    {
+      "id": "single-phase-induction-motor",
+      "name": "Single Phase Induction Motor",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "types-of-single-phase-motors",
+          "name": "Types of Single Phase Motors"
+        },
+        {
+          "id": "double-revolving-field-theory",
+          "name": "Double Revolving Field Theory",
+          "requires": ["types-of-single-phase-motors"]
+        },
+        {
+          "id": "methods-of-starting",
+          "name": "Methods of Starting",
+          "requires": ["double-revolving-field-theory"]
+        },
+        {
+          "id": "equivalent-circuit-2",
+          "name": "Equivalent Circuit",
+          "requires": ["methods-of-starting"]
+        },
+        {
+          "id": "no-load-and-blocked-rotor-tests-2",
+          "name": "No Load & Blocked Rotor Tests",
+          "requires": ["equivalent-circuit-2"]
+        },
+        {
+          "id": "determination-of-equivalent-circuit-parameters",
+          "name": "Determination of Equivalent Circuit Parameters",
+          "requires": ["no-load-and-blocked-rotor-tests-2"]
+        },
+        {
+          "id": "performance-calculations",
+          "name": "Performance Calculations",
+          "requires": ["determination-of-equivalent-circuit-parameters"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-transformers-and-induction-machines-lab-elec"]
+}

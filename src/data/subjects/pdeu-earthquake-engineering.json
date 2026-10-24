@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Earthquake Engineering",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -87,8 +87,17 @@
         },
         {
           "id": "duration-parameters-common-earthquake-effects-surface",
-          "name": "duration parameters, Common Earthquake effects: Surface rupture",
-          "requires": ["frequency-content-parameters"]
+          "name": "duration parameters",
+          "requires": ["frequency-content-parameters"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "common-earthquake-effects-surface-rupture",
+          "name": "Common Earthquake effects: Surface rupture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["duration-parameters-common-earthquake-effects-surface"]
         },
         {
           "id": "regional-subsidence",
@@ -119,7 +128,16 @@
       "topics": [
         {
           "id": "free-vibrations-of-single-degree-of-freedom-systems-dynamic",
-          "name": "Free Vibrations of Single-Degree-of-Freedom Systems: Dynamic loads and dynamic analysis"
+          "name": "Free Vibrations of Single-Degree-of-Freedom Systems: Dynamic loads and dynamic analysis",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "forced-vibrations-of-single-degree-of-freedom-systems-forced-2",
+          "name": "Forced vibrations of single-degree-of-freedom systems: Forced vibrations (harmonic loading) of single-degree-of-freedom",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["free-vibrations-of-single-degree-of-freedom-systems-dynamic"]
         },
         {
           "id": "degrees-of-freedom",
@@ -138,8 +156,17 @@
         },
         {
           "id": "viscously-damped-vibrations-equations-of-motion-and-solution",
-          "name": "viscously damped vibrations, equations of motion and solution",
-          "requires": ["multiple-elastic-forces"]
+          "name": "viscously damped vibrations",
+          "requires": ["multiple-elastic-forces"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "equations-of-motion-and-solution-2",
+          "name": "equations of motion and solution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["viscously-damped-vibrations-equations-of-motion-and-solution"]
         },
         {
           "id": "logarithmic-decrement",
@@ -178,13 +205,36 @@
         },
         {
           "id": "introduction-types-of-machines-and-foundations-general",
-          "name": "Introduction, Types of Machines and Foundations, General requirements, Permissible Amplitude",
-          "requires": ["response-to-harmonic-support-excitations"]
+          "name": "Types of Machines and Foundations",
+          "requires": ["response-to-harmonic-support-excitations"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "general-requirements",
+          "name": "General requirements",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-types-of-machines-and-foundations-general"]
+        },
+        {
+          "id": "permissible-amplitude",
+          "name": "Permissible Amplitude",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["general-requirements"]
         },
         {
           "id": "design",
           "name": "Design",
           "requires": ["introduction-types-of-machines-and-foundations-general"]
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design"]
         }
       ]
     },
@@ -244,8 +294,17 @@
         },
         {
           "id": "case-studies-effect-of-short-column",
-          "name": "Case Studies. Effect of Short Column",
-          "requires": ["adoptive-systems"]
+          "name": "Case Studies",
+          "requires": ["adoptive-systems"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "effect-of-short-column",
+          "name": "Effect of Short Column",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["case-studies-effect-of-short-column"]
         },
         {
           "id": "soft-storey",
@@ -305,10 +364,20 @@
         },
         {
           "id": "principles-of-design-of-beams-and-columns",
-          "name": "principles of design of beams, and columns",
-          "requires": ["ductile-detailing-ductility-of-r-c-structures-confinement"]
+          "name": "principles of design of beams",
+          "requires": ["ductile-detailing-ductility-of-r-c-structures-confinement"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "columns",
+          "name": "columns",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principles-of-design-of-beams-and-columns"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

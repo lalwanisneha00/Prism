@@ -1,0 +1,379 @@
+{
+  "id": "pdeu-chemical-process-calculations-chem",
+  "name": "Chemical Process Calculations",
+  "field": "Chemical Process Calculations",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 3): Chemical Process Calculations",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of CHEM/sem3/Chemical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH203T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s3-chemical-process-calculations",
+      "code": "24CH203T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "basic-concepts-of-chemical-processes",
+      "name": "Basic Concepts of Chemical Processes",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "units-and-dimensions",
+          "name": "Units and dimensions"
+        },
+        {
+          "id": "basic-chemical-calculations",
+          "name": "basic chemical calculations",
+          "requires": ["units-and-dimensions"]
+        },
+        {
+          "id": "dimensional-consistency",
+          "name": "dimensional consistency",
+          "requires": ["basic-chemical-calculations"]
+        },
+        {
+          "id": "unit-processes-and-unit-operations",
+          "name": "unit processes and unit operations",
+          "requires": ["dimensional-consistency"]
+        },
+        {
+          "id": "concepts-of-atomic-weight",
+          "name": "concepts of atomic weight",
+          "requires": ["unit-processes-and-unit-operations"]
+        },
+        {
+          "id": "equivalent-weight-and-mole",
+          "name": "equivalent weight and mole",
+          "requires": ["concepts-of-atomic-weight"]
+        },
+        {
+          "id": "composition-of-solids",
+          "name": "composition of solids",
+          "requires": ["equivalent-weight-and-mole"]
+        },
+        {
+          "id": "liquids-and-solutions-weight-percent",
+          "name": "liquids and solutions (weight percent",
+          "requires": ["composition-of-solids"]
+        },
+        {
+          "id": "mole-percent",
+          "name": "mole percent",
+          "requires": ["liquids-and-solutions-weight-percent"]
+        },
+        {
+          "id": "molarity",
+          "name": "molarity",
+          "requires": ["mole-percent"]
+        },
+        {
+          "id": "normality",
+          "name": "normality)",
+          "requires": ["molarity"]
+        },
+        {
+          "id": "other-expressions-for-concentration",
+          "name": "other expressions for concentration",
+          "requires": ["normality"]
+        },
+        {
+          "id": "average-molecular-weight-and-density",
+          "name": "average molecular weight and density",
+          "requires": ["other-expressions-for-concentration"]
+        },
+        {
+          "id": "gaseous-mixtures",
+          "name": "gaseous mixtures",
+          "requires": ["average-molecular-weight-and-density"]
+        },
+        {
+          "id": "ideal-gas-laws-and-their-applications",
+          "name": "ideal gas laws and their applications",
+          "requires": ["gaseous-mixtures"]
+        },
+        {
+          "id": "raoult-s-law",
+          "name": "Raoult's law",
+          "requires": ["ideal-gas-laws-and-their-applications"]
+        },
+        {
+          "id": "henry-s-law",
+          "name": "Henry's law",
+          "requires": ["raoult-s-law"]
+        },
+        {
+          "id": "amagat-s-law-and-dalton-s-law",
+          "name": "Amagat's law and Dalton's law",
+          "requires": ["henry-s-law"]
+        },
+        {
+          "id": "humidity-and-saturation",
+          "name": "humidity and saturation",
+          "requires": ["amagat-s-law-and-dalton-s-law"]
+        },
+        {
+          "id": "unit-conversion-from-mg-m-to-ppm-for-tlv",
+          "name": "unit conversion from mg/m³ to ppm for TLV",
+          "requires": ["humidity-and-saturation"]
+        },
+        {
+          "id": "conversion-of-flammability-limits-from-percentage-to-ppm",
+          "name": "conversion of flammability limits from percentage to ppm",
+          "requires": ["unit-conversion-from-mg-m-to-ppm-for-tlv"]
+        }
+      ]
+    },
+    {
+      "id": "material-balances",
+      "name": "Material Balances",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "material-balance-for-non-reacting-multi-phase-systems",
+          "name": "Material balance for non-reacting multi-phase systems"
+        },
+        {
+          "id": "solving-material-balance-problems-without-chemical-reactions",
+          "name": "solving material balance problems without chemical reactions for unit operations such as absorption and stripping",
+          "requires": ["material-balance-for-non-reacting-multi-phase-systems"]
+        },
+        {
+          "id": "distillation",
+          "name": "distillation",
+          "requires": ["solving-material-balance-problems-without-chemical-reactions"]
+        },
+        {
+          "id": "extraction-and-leaching",
+          "name": "extraction and leaching",
+          "requires": ["distillation"]
+        },
+        {
+          "id": "drying",
+          "name": "drying",
+          "requires": ["extraction-and-leaching"]
+        },
+        {
+          "id": "evaporation",
+          "name": "evaporation",
+          "requires": ["drying"]
+        },
+        {
+          "id": "crystallization-and-mixing-blending",
+          "name": "crystallization and mixing/blending",
+          "requires": ["evaporation"]
+        },
+        {
+          "id": "material-balance-for-systems-with-recycle-and-bypass",
+          "name": "material balance for systems with recycle and bypass",
+          "requires": ["crystallization-and-mixing-blending"]
+        },
+        {
+          "id": "material-balances-on-systems-with-reactions",
+          "name": "material balances on systems with reactions",
+          "requires": ["material-balance-for-systems-with-recycle-and-bypass"]
+        },
+        {
+          "id": "concept-of-limiting-and-excess-reactants",
+          "name": "concept of limiting and excess reactants",
+          "requires": ["material-balances-on-systems-with-reactions"]
+        },
+        {
+          "id": "percentage-conversion",
+          "name": "percentage conversion",
+          "requires": ["concept-of-limiting-and-excess-reactants"]
+        },
+        {
+          "id": "selectivity-and-yield",
+          "name": "selectivity and yield",
+          "requires": ["percentage-conversion"]
+        },
+        {
+          "id": "properties-of-gases",
+          "name": "properties of gases",
+          "requires": ["selectivity-and-yield"]
+        },
+        {
+          "id": "liquids-and-solids",
+          "name": "liquids and solids",
+          "requires": ["properties-of-gases"]
+        },
+        {
+          "id": "ideal-and-non-ideal-gas-calculations",
+          "name": "ideal and non-ideal gas calculations",
+          "requires": ["liquids-and-solids"]
+        },
+        {
+          "id": "equations-of-state",
+          "name": "equations of state",
+          "requires": ["ideal-and-non-ideal-gas-calculations"]
+        },
+        {
+          "id": "phase-equilibria-for-ideal-and-real-mixtures",
+          "name": "phase equilibria for ideal and real mixtures",
+          "requires": ["equations-of-state"]
+        },
+        {
+          "id": "humidity-and-saturation-2",
+          "name": "humidity and saturation",
+          "requires": ["phase-equilibria-for-ideal-and-real-mixtures"]
+        }
+      ]
+    },
+    {
+      "id": "energy-balances",
+      "name": "Energy Balances",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "terminologies",
+          "name": "Terminologies"
+        },
+        {
+          "id": "specific-heat-capacity",
+          "name": "specific heat capacity",
+          "requires": ["terminologies"]
+        },
+        {
+          "id": "enthalpy",
+          "name": "enthalpy",
+          "requires": ["specific-heat-capacity"]
+        },
+        {
+          "id": "heat-of-formation",
+          "name": "heat of formation",
+          "requires": ["enthalpy"]
+        },
+        {
+          "id": "combustion",
+          "name": "combustion",
+          "requires": ["heat-of-formation"]
+        },
+        {
+          "id": "reaction-and-solution",
+          "name": "reaction and solution",
+          "requires": ["combustion"]
+        },
+        {
+          "id": "energy-balances-without-reactions-and-for-chemical-reactions",
+          "name": "energy balances without reactions and for chemical reactions",
+          "requires": ["reaction-and-solution"]
+        },
+        {
+          "id": "isothermal-systems",
+          "name": "isothermal systems",
+          "requires": ["energy-balances-without-reactions-and-for-chemical-reactions"]
+        },
+        {
+          "id": "adiabatic-systems",
+          "name": "adiabatic systems",
+          "requires": ["isothermal-systems"]
+        },
+        {
+          "id": "simultaneous-material-and-energy-balances",
+          "name": "simultaneous material and energy balances",
+          "requires": ["adiabatic-systems"]
+        },
+        {
+          "id": "unsteady-state-material-and-energy-balances",
+          "name": "unsteady state material and energy balances",
+          "requires": ["simultaneous-material-and-energy-balances"]
+        },
+        {
+          "id": "exothermic-reactions",
+          "name": "exothermic reactions",
+          "requires": ["unsteady-state-material-and-energy-balances"]
+        },
+        {
+          "id": "adiabatic-temperature-rise-and-thermal-runaway",
+          "name": "adiabatic temperature rise and thermal runaway",
+          "requires": ["exothermic-reactions"]
+        },
+        {
+          "id": "latent-heat-of-vaporization-and-bleve",
+          "name": "latent heat of vaporization and BLEVE",
+          "requires": ["adiabatic-temperature-rise-and-thermal-runaway"]
+        },
+        {
+          "id": "case-study-of-energy-balance-mic-and-non-mic-route",
+          "name": "case study of energy balance: MIC and non-MIC route",
+          "requires": ["latent-heat-of-vaporization-and-bleve"]
+        }
+      ]
+    },
+    {
+      "id": "fuel-and-combustion",
+      "name": "Fuel and Combustion",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "types-of-fuels",
+          "name": "Types of fuels"
+        },
+        {
+          "id": "proximate-and-ultimate-analysis-of-fuel",
+          "name": "proximate and ultimate analysis of fuel",
+          "requires": ["types-of-fuels"]
+        },
+        {
+          "id": "combustion-theory",
+          "name": "combustion theory",
+          "requires": ["proximate-and-ultimate-analysis-of-fuel"]
+        },
+        {
+          "id": "heating-value-of-fuels",
+          "name": "heating value of fuels",
+          "requires": ["combustion-theory"]
+        },
+        {
+          "id": "calculations-involving-theoretical-and-excess-air",
+          "name": "calculations involving theoretical and excess air",
+          "requires": ["heating-value-of-fuels"]
+        },
+        {
+          "id": "heat-and-material-balances-of-combustion-processes",
+          "name": "heat and material balances of combustion processes",
+          "requires": ["calculations-involving-theoretical-and-excess-air"]
+        },
+        {
+          "id": "analysis-of-products-of-combustion",
+          "name": "analysis of products of combustion",
+          "requires": ["heat-and-material-balances-of-combustion-processes"]
+        },
+        {
+          "id": "calorific-value",
+          "name": "calorific value",
+          "requires": ["analysis-of-products-of-combustion"]
+        },
+        {
+          "id": "hcv-and-lcv",
+          "name": "HCV and LCV",
+          "requires": ["calorific-value"]
+        },
+        {
+          "id": "limiting-oxygen-concentration",
+          "name": "limiting oxygen concentration",
+          "requires": ["hcv-and-lcv"]
+        }
+      ]
+    }
+  ]
+}

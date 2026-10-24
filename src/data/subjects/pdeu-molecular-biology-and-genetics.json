@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "chemistry",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -79,8 +79,17 @@
         },
         {
           "id": "lac-trp-operons",
-          "name": "Gene regulation in prokaryotes: Lac operon concept, trp concept",
-          "requires": ["structure-of-prokaryotic-and-eukaryotic-nuclear-and"]
+          "name": "Gene regulation in prokaryotes: Lac operon concept",
+          "requires": ["structure-of-prokaryotic-and-eukaryotic-nuclear-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "trp-concept",
+          "name": "trp concept",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lac-trp-operons"]
         }
       ]
     },
@@ -110,8 +119,17 @@
         },
         {
           "id": "process-of-recombination-programmed-cell-death",
-          "name": "Process of recombination. Programmed cell death",
-          "requires": ["pn-junction-physics"]
+          "name": "Process of recombination",
+          "requires": ["pn-junction-physics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "programmed-cell-death",
+          "name": "Programmed cell death",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["process-of-recombination-programmed-cell-death"]
         },
         {
           "id": "cell-junctions-and-adhesion",
@@ -173,7 +191,44 @@
       "topics": [
         {
           "id": "molecular-basis-of-mutation-and-their-different-types",
-          "name": "Molecular basis of mutation and their different types, Microbial genetics: conjugation, transformation, transduction, Plasmids and transposable elements, Chromosomal variation"
+          "name": "Molecular basis of mutation and their different types",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "microbial-genetics-conjugation",
+          "name": "Microbial genetics: conjugation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["molecular-basis-of-mutation-and-their-different-types"]
+        },
+        {
+          "id": "transformation",
+          "name": "transformation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["microbial-genetics-conjugation"]
+        },
+        {
+          "id": "transduction",
+          "name": "transduction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transformation"]
+        },
+        {
+          "id": "plasmids-and-transposable-elements",
+          "name": "Plasmids and transposable elements",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transduction"]
+        },
+        {
+          "id": "chromosomal-variation",
+          "name": "Chromosomal variation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["plasmids-and-transposable-elements"]
         },
         {
           "id": "genetic-disorders",
@@ -212,5 +267,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

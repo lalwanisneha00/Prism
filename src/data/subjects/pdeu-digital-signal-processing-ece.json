@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 9 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "signals",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,17 +41,180 @@
       "topics": [
         {
           "id": "continuous-time-and-discrete-time-signals-analog-and-digital",
-          "name": "Continuous Time and Discrete Time Signals, Analog and Digital Signals"
+          "name": "Continuous Time and Discrete Time Signals",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "definition-and-examples-classification-of-discrete-time",
-          "name": "Definition and Examples, Classification of Discrete Time Signals, Energy, Power, Periodicity, Signal operations, Discrete time elementary signals, Discrete Time Systems",
+          "id": "analog-and-digital-signals",
+          "name": "Analog and Digital Signals",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["continuous-time-and-discrete-time-signals-analog-and-digital"]
         },
         {
-          "id": "linear-systems",
-          "name": "Definition, Classification, Discrete time LTI system and unit impulse (sample) response, Convolution sum, Linear constant co-efficient difference equation representation, Block Diagram Representation,",
+          "id": "definition-and-examples-classification-of-discrete-time",
+          "name": "Definition and Examples",
+          "requires": ["continuous-time-and-discrete-time-signals-analog-and-digital"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "classification-of-discrete-time-signals",
+          "name": "Classification of Discrete Time Signals",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["definition-and-examples-classification-of-discrete-time"]
+        },
+        {
+          "id": "energy",
+          "name": "Energy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-discrete-time-signals"]
+        },
+        {
+          "id": "power",
+          "name": "Power",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["energy"]
+        },
+        {
+          "id": "periodicity",
+          "name": "Periodicity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["power"]
+        },
+        {
+          "id": "signal-operations",
+          "name": "Signal operations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["periodicity"]
+        },
+        {
+          "id": "discrete-time-elementary-signals",
+          "name": "Discrete time elementary signals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["signal-operations"]
+        },
+        {
+          "id": "discrete-time-systems",
+          "name": "Discrete Time Systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["discrete-time-elementary-signals"]
+        },
+        {
+          "id": "definition",
+          "name": "Definition",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["discrete-time-systems"]
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["definition"]
+        },
+        {
+          "id": "linear-systems",
+          "name": "Discrete time LTI system and unit impulse (sample) response",
+          "requires": ["definition-and-examples-classification-of-discrete-time"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "convolution-sum",
+          "name": "Convolution sum",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-systems"]
+        },
+        {
+          "id": "linear-constant-co-efficient-difference-equation-representat",
+          "name": "Linear constant co-efficient difference equation representation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["convolution-sum"]
+        },
+        {
+          "id": "block-diagram-representation",
+          "name": "Block Diagram Representation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-constant-co-efficient-difference-equation-representat"]
+        },
+        {
+          "id": "practical-filters-stability-and-causality",
+          "name": "Practical Filters: Stability and Causality",
+          "requires": ["ideal-digital-filters"],
+          "movedFrom": {
+            "subject": "pdeu-digital-signal-processing-ece",
+            "chapter": "digital-filters-design-and-structures",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "sampling-of-dtft",
+          "name": "Sampling of DTFT",
+          "requires": ["effect-of-periodicity-and-discretization-on-spectra-of-a"],
+          "movedFrom": {
+            "subject": "pdeu-digital-signal-processing-ece",
+            "chapter": "dft-and-fft-algorithms",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "interconnections",
+          "name": "Interconnections",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sampling-of-dtft"]
+        },
+        {
+          "id": "reconstruction",
+          "name": "Reconstruction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["interconnections"]
+        },
+        {
+          "id": "aliasing",
+          "name": "Aliasing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reconstruction"]
+        },
+        {
+          "id": "concept-of-quantization",
+          "name": "Concept of quantization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["aliasing"]
+        },
+        {
+          "id": "a-to-d-and-d-to-a-conversion",
+          "name": "A to D and D to A conversion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concept-of-quantization"]
+        },
+        {
+          "id": "discrete-time-vs-digital-signal-processing",
+          "name": "Discrete time vs. digital signal processing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["a-to-d-and-d-to-a-conversion"]
         }
       ]
     },
@@ -62,7 +225,16 @@
       "topics": [
         {
           "id": "z-transform",
-          "name": "Z-transform"
+          "name": "Z-transform",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "inverse-z-transform",
+          "name": "Inverse z-transform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["z-transform"]
         },
         {
           "id": "roc-and-properties",
@@ -121,11 +293,6 @@
           "name": "Effect of periodicity and discretization on spectra of a signal"
         },
         {
-          "id": "sampling-of-dtft",
-          "name": "Sampling of DTFT",
-          "requires": ["effect-of-periodicity-and-discretization-on-spectra-of-a"]
-        },
-        {
           "id": "dft-and-idft",
           "name": "DFT and IDFT",
           "requires": ["sampling-of-dtft"]
@@ -172,11 +339,6 @@
           "name": "Ideal Digital Filters"
         },
         {
-          "id": "practical-filters-stability-and-causality",
-          "name": "Practical Filters: Stability and Causality",
-          "requires": ["ideal-digital-filters"]
-        },
-        {
           "id": "iir-basics",
           "name": "FIR and IIR Filters",
           "requires": ["practical-filters-stability-and-causality"]
@@ -204,7 +366,16 @@
         {
           "id": "iir-filter-design",
           "name": "IIR Filter Design",
-          "requires": ["window-method"]
+          "requires": ["window-method"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "iir-filter-coefficients-from-analog-filter-2",
+          "name": "IIR Filter Coefficients from Analog Filter",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["iir-filter-design"]
         },
         {
           "id": "pole-zero-placement-method",
@@ -253,5 +424,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-digital-signal-processing-lab-ece"]
 }

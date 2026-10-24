@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Electronics Devices and Circuits",
     "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -119,8 +119,17 @@
       "topics": [
         {
           "id": "pn-junction-physics",
-          "name": "Junctions: Metal/Semiconductor (Schottky barrier height, rectifying and ohmic contacts)",
-          "requires": ["carrier-transport"]
+          "name": "Junctions: Metal/Semiconductor (Schottky barrier height",
+          "requires": ["carrier-transport"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "rectifying-and-ohmic-contacts",
+          "name": "rectifying and ohmic contacts)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pn-junction-physics"]
         },
         {
           "id": "mathematical-derivation-of-the-potential-barrier",
@@ -129,8 +138,17 @@
         },
         {
           "id": "depletion-width-and-i-v-characteristics",
-          "name": "depletion width, and I-V characteristics",
-          "requires": ["mathematical-derivation-of-the-potential-barrier"]
+          "name": "depletion width",
+          "requires": ["mathematical-derivation-of-the-potential-barrier"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "i-v-characteristics",
+          "name": "I-V characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["depletion-width-and-i-v-characteristics"]
         },
         {
           "id": "junction-break-down-zener-and-avalanche-effects",
@@ -185,8 +203,17 @@
         },
         {
           "id": "different-transient-circuit-configuration-cb-ce-and-cc",
-          "name": "different transient circuit configuration (CB, CE and CC)",
-          "requires": ["transistor-biasing"]
+          "name": "different transient circuit configuration (CB",
+          "requires": ["transistor-biasing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ce-and-cc",
+          "name": "CE and CC)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["different-transient-circuit-configuration-cb-ce-and-cc"]
         },
         {
           "id": "static-characteristic-for-bjt",
@@ -271,5 +298,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-electronics-devices-and-circuits-lab-ece"]
 }

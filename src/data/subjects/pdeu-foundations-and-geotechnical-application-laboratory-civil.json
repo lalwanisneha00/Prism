@@ -1,0 +1,98 @@
+{
+  "id": "pdeu-foundations-and-geotechnical-application-laboratory-civil",
+  "name": "Foundations and Geotechnical Application Laboratory",
+  "field": "Foundations and Geotechnical Application Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CIVIL semester 5): Foundations and Geotechnical Application Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of CIVIL/sem5/Civil_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s5-foundations-and-geotechnical-application-laboratory",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-determination-of-free-swell-index-and-swelling",
+          "name": "Determination of free swell index and swelling pressure of soil",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-determination-of-cbr-value-of-soils",
+          "name": "Determination of CBR value of soils",
+          "number": 2,
+          "requires": ["experiment-1-determination-of-free-swell-index-and-swelling"]
+        },
+        {
+          "id": "experiment-3-determination-of-shear-strength-parameters-usin",
+          "name": "Determination of shear strength parameters using triaxial compression test (undrained)",
+          "number": 3,
+          "requires": ["experiment-2-determination-of-cbr-value-of-soils"]
+        },
+        {
+          "id": "experiment-4-determination-of-shear-strength-of-soft-soils-u",
+          "name": "Determination of shear strength of soft soils using vane shear test",
+          "number": 4,
+          "requires": ["experiment-3-determination-of-shear-strength-parameters-usin"]
+        },
+        {
+          "id": "experiment-5-determination-of-bearing-capacity-of-foundation",
+          "name": "Determination of bearing capacity of foundation using plate load test",
+          "number": 5,
+          "requires": ["experiment-4-determination-of-shear-strength-of-soft-soils-u"]
+        },
+        {
+          "id": "experiment-6-demonstration-of-soil-exploration-and-spt-cpt-t",
+          "name": "Demonstration of soil exploration and SPT, CPT test",
+          "number": 6,
+          "requires": ["experiment-5-determination-of-bearing-capacity-of-foundation"]
+        },
+        {
+          "id": "experiment-7-electrical-resistivity-of-soils",
+          "name": "Electrical resistivity of soils",
+          "number": 7,
+          "requires": ["experiment-6-demonstration-of-soil-exploration-and-spt-cpt-t"]
+        },
+        {
+          "id": "experiment-8-dynamic-cone-penetration-test",
+          "name": "Dynamic cone penetration test",
+          "number": 8,
+          "requires": ["experiment-7-electrical-resistivity-of-soils"]
+        },
+        {
+          "id": "experiment-9-analysis-of-slope-stability-and-bearing-capacit",
+          "name": "Analysis of slope stability and bearing capacity of foundations",
+          "number": 9,
+          "requires": ["experiment-8-dynamic-cone-penetration-test"]
+        },
+        {
+          "id": "experiment-10-laboratory-based-projects",
+          "name": "Laboratory based projects",
+          "number": 10,
+          "requires": ["experiment-9-analysis-of-slope-stability-and-bearing-capacit"]
+        }
+      ]
+    }
+  ]
+}

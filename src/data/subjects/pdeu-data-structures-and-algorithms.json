@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -53,8 +53,17 @@
         },
         {
           "id": "traversal-etc-analysis-of-an-algorithm",
-          "name": "traversal etc. Analysis of an Algorithm",
-          "requires": ["deletion"]
+          "name": "traversal etc",
+          "requires": ["deletion"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "analysis-of-an-algorithm",
+          "name": "Analysis of an Algorithm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["traversal-etc-analysis-of-an-algorithm"]
         },
         {
           "id": "asymptotic-notation",
@@ -89,8 +98,24 @@
         },
         {
           "id": "sparse-matrix-and-its-representation-stacks",
-          "name": "sparse matrix, and its representation. Stacks",
-          "requires": ["array"]
+          "name": "sparse matrix",
+          "requires": ["array"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "its-representation",
+          "name": "its representation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sparse-matrix-and-its-representation-stacks"]
+        },
+        {
+          "id": "stacks",
+          "name": "Stacks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["its-representation"]
         },
         {
           "id": "operations",
@@ -105,7 +130,16 @@
         {
           "id": "polish-expression",
           "name": "Polish Expression",
-          "requires": ["applications"]
+          "requires": ["applications"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "reverse-polish-expression",
+          "name": "Reverse Polish Expression",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polish-expression"]
         },
         {
           "id": "reverse-polish-expression-and-their-compilation-queue",
@@ -120,7 +154,16 @@
         {
           "id": "priority-queue",
           "name": "Priority Queue",
-          "requires": ["queue-types"]
+          "requires": ["queue-types"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "array-representation-of-priority-queue-2",
+          "name": "Array Representation of Priority Queue",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["priority-queue"]
         },
         {
           "id": "array-representation-of-priority-queue",
@@ -166,12 +209,58 @@
       "topics": [
         {
           "id": "binary-search-tree",
-          "name": "Trees: Basic Tree Terminologies, Different types of Trees: Binary Tree, Threaded Binary Tree, Binary Search Tree, AVL Tree"
+          "name": "Trees: Basic Tree Terminologies",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "different-types-of-trees-binary-tree",
+          "name": "Different types of Trees: Binary Tree",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["binary-search-tree"]
+        },
+        {
+          "id": "threaded-binary-tree",
+          "name": "Threaded Binary Tree",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["different-types-of-trees-binary-tree"]
+        },
+        {
+          "id": "binary-search-tree-2",
+          "name": "Binary Search Tree",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["threaded-binary-tree"]
+        },
+        {
+          "id": "avl-tree",
+          "name": "AVL Tree",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["binary-search-tree-2"]
+        },
+        {
+          "id": "b-tree",
+          "name": "B Tree",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["avl-tree"]
         },
         {
           "id": "tree-operations-on-each-of-the-trees-and-their-algorithms",
           "name": "Tree operations on each of the trees and their algorithms with complexity analysis",
-          "requires": ["binary-search-tree"]
+          "requires": ["binary-search-tree"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "algorithms-and-analysis",
+          "name": "algorithms and analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tree-operations-on-each-of-the-trees-and-their-algorithms"]
         },
         {
           "id": "applications-of-binary-trees",
@@ -185,8 +274,17 @@
         },
         {
           "id": "graph-basic-terminologies-and-representations-graph-search",
-          "name": "Graph: Basic Terminologies and Representations, Graph search and traversal algorithms and complexity analysis",
-          "requires": ["b-tree-b-tree-definitions-algorithms-and-analysis"]
+          "name": "Graph: Basic Terminologies and Representations",
+          "requires": ["b-tree-b-tree-definitions-algorithms-and-analysis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "graph-search-and-traversal-algorithms-and-complexity-analysi",
+          "name": "Graph search and traversal algorithms and complexity analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["graph-basic-terminologies-and-representations-graph-search"]
         }
       ]
     },
@@ -197,14 +295,54 @@
       "topics": [
         {
           "id": "basic-sorting",
-          "name": "Sorting and Hashing: Objective and properties of different sorting algorithms: Selection Sort, Bubble Sort, Insertion Sort, Quick Sort, Merge Sort, Heap Sort Note: The detailed syllabus page for this "
+          "name": "Sorting and Hashing: Objective and properties of different sorting algorithms: Selection Sort",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bubble-sort",
+          "name": "Bubble Sort",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-sorting"]
+        },
+        {
+          "id": "insertion-sort",
+          "name": "Insertion Sort",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bubble-sort"]
+        },
+        {
+          "id": "quick-sort",
+          "name": "Quick Sort",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["insertion-sort"]
+        },
+        {
+          "id": "merge-sort",
+          "name": "Merge Sort",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["quick-sort"]
+        },
+        {
+          "id": "heap-sort",
+          "name": "Heap Sort",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["merge-sort"]
         },
         {
           "id": "the-credits-shown-here-follow-the-official-course-structure",
           "name": "the credits shown here follow the official course structure table",
-          "requires": ["basic-sorting"]
+          "requires": ["basic-sorting"],
+          "status": "retired"
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-data-structures-and-algorithms-laboratory-ict"]
 }

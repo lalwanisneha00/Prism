@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Machine Learning (AI)",
     "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -47,13 +47,66 @@
         },
         {
           "id": "concept-of-array-matrix-and-tensor-representation-of-data",
-          "name": "concept of Array, Matrix, and Tensor representation of data",
-          "requires": ["concept-of-feature-and-dimension-of-data"]
+          "name": "concept of Array",
+          "requires": ["concept-of-feature-and-dimension-of-data"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "matrix",
+          "name": "Matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concept-of-array-matrix-and-tensor-representation-of-data"]
+        },
+        {
+          "id": "tensor-representation-of-data",
+          "name": "Tensor representation of data",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["matrix"]
         },
         {
           "id": "concept-of-data-preprocessing-data-imbalance-outliers-data",
-          "name": "concept of data preprocessing, data imbalance, Outliers, data sampling, feature engineering, Various dimensionality reduction techniques",
-          "requires": ["concept-of-array-matrix-and-tensor-representation-of-data"]
+          "name": "concept of data preprocessing",
+          "requires": ["concept-of-array-matrix-and-tensor-representation-of-data"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "data-imbalance",
+          "name": "data imbalance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concept-of-data-preprocessing-data-imbalance-outliers-data"]
+        },
+        {
+          "id": "outliers",
+          "name": "Outliers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-imbalance"]
+        },
+        {
+          "id": "data-sampling",
+          "name": "data sampling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["outliers"]
+        },
+        {
+          "id": "feature-engineering",
+          "name": "feature engineering",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-sampling"]
+        },
+        {
+          "id": "various-dimensionality-reduction-techniques",
+          "name": "Various dimensionality reduction techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["feature-engineering"]
         },
         {
           "id": "correlation-of-features",
@@ -72,8 +125,87 @@
         },
         {
           "id": "various-evaluation-matrix-absolute-error-square-error-sum-of",
-          "name": "Various evaluation Matrix: absolute error, Square error, Sum of square error, Mean Square error, log loss, accuracy, precision, recall, ROC, AUC, F1 score, confusion matrix",
-          "requires": ["concept-of-classification-and-regression"]
+          "name": "Various evaluation Matrix: absolute error",
+          "requires": ["concept-of-classification-and-regression"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "square-error",
+          "name": "Square error",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["various-evaluation-matrix-absolute-error-square-error-sum-of"]
+        },
+        {
+          "id": "sum-of-square-error",
+          "name": "Sum of square error",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["square-error"]
+        },
+        {
+          "id": "mean-square-error",
+          "name": "Mean Square error",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sum-of-square-error"]
+        },
+        {
+          "id": "log-loss",
+          "name": "log loss",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mean-square-error"]
+        },
+        {
+          "id": "accuracy",
+          "name": "accuracy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["log-loss"]
+        },
+        {
+          "id": "precision",
+          "name": "precision",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["accuracy"]
+        },
+        {
+          "id": "recall",
+          "name": "recall",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["precision"]
+        },
+        {
+          "id": "roc",
+          "name": "ROC",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["recall"]
+        },
+        {
+          "id": "auc",
+          "name": "AUC",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["roc"]
+        },
+        {
+          "id": "f1-score",
+          "name": "F1 score",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["auc"]
+        },
+        {
+          "id": "confusion-matrix",
+          "name": "confusion matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["f1-score"]
         },
         {
           "id": "concept-of-bias-and-variance",
@@ -89,7 +221,16 @@
       "topics": [
         {
           "id": "concept-of-optimization",
-          "name": "Concept of optimization"
+          "name": "Concept of optimization",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "concept-of-convex-optimization-2",
+          "name": "concept of convex optimization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concept-of-optimization"]
         },
         {
           "id": "concept-of-convex-optimization",
@@ -104,7 +245,23 @@
         {
           "id": "gradient-descent",
           "name": "Gradient Descent",
-          "requires": ["linear-regression-ml"]
+          "requires": ["linear-regression-ml"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "stochastic-gradient-descent-sgd-2",
+          "name": "Stochastic Gradient Descent (SGD)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gradient-descent"]
+        },
+        {
+          "id": "mini-batch-gradient-descent-2",
+          "name": "Mini-Batch Gradient Descent",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["stochastic-gradient-descent-sgd-2"]
         },
         {
           "id": "concept-of-learning-rate",
@@ -195,7 +352,16 @@
         {
           "id": "random-forest",
           "name": "Random Forest",
-          "requires": ["decision-tree"]
+          "requires": ["decision-tree"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "random-forest-regression-2",
+          "name": "Random Forest Regression",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["random-forest"]
         },
         {
           "id": "support-vector-machine-svm",
@@ -214,7 +380,23 @@
         },
         {
           "id": "linear-regression-ml",
-          "name": "Neural Network, Linear regression, Polynomial Regression"
+          "name": "Neural Network",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "linear-regression",
+          "name": "Linear regression",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-regression-ml"]
+        },
+        {
+          "id": "polynomial-regression",
+          "name": "Polynomial Regression",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-regression"]
         },
         {
           "id": "stepwise-regression",
@@ -233,8 +415,24 @@
         },
         {
           "id": "concept-of-overfitting-underfitting-bias-variance-tradeoff",
-          "name": "Concept of overfitting, underfitting, Bias-Variance Tradeoff",
-          "requires": ["concept-of-boosting-and-bagging"]
+          "name": "Concept of overfitting",
+          "requires": ["concept-of-boosting-and-bagging"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "underfitting",
+          "name": "underfitting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concept-of-overfitting-underfitting-bias-variance-tradeoff"]
+        },
+        {
+          "id": "bias-variance-tradeoff",
+          "name": "Bias-Variance Tradeoff",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["underfitting"]
         }
       ]
     },
@@ -245,12 +443,44 @@
       "topics": [
         {
           "id": "applications-of-ml-in-healthcare-finance-transportation",
-          "name": "Applications of ML in: Healthcare, Finance, Transportation, Manufacturing"
+          "name": "Applications of ML in: Healthcare",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "finance",
+          "name": "Finance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applications-of-ml-in-healthcare-finance-transportation"]
+        },
+        {
+          "id": "transportation",
+          "name": "Transportation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["finance"]
+        },
+        {
+          "id": "manufacturing",
+          "name": "Manufacturing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transportation"]
         },
         {
           "id": "energy-and-environment-agriculture",
-          "name": "energy and environment, Agriculture",
-          "requires": ["applications-of-ml-in-healthcare-finance-transportation"]
+          "name": "energy and environment",
+          "requires": ["applications-of-ml-in-healthcare-finance-transportation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "agriculture",
+          "name": "Agriculture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["energy-and-environment-agriculture"]
         },
         {
           "id": "case-study-current-trends-and-future-of-machine-learning",
@@ -260,9 +490,18 @@
         {
           "id": "the-credits-shown-here-follow-the-official-course-structure",
           "name": "the credits shown here follow the official course structure table",
-          "requires": ["case-study-current-trends-and-future-of-machine-learning"]
+          "requires": ["case-study-current-trends-and-future-of-machine-learning"],
+          "status": "retired"
+        },
+        {
+          "id": "case-study-current-trends-and-future-of-machine-learning-tot",
+          "name": "Case study: Current Trends and Future of Machine Learning Total",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-credits-shown-here-follow-the-official-course-structure"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

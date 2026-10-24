@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -66,7 +66,16 @@
         {
           "id": "address-bus",
           "name": "Address bus",
-          "requires": ["bus-interface-unit"]
+          "requires": ["bus-interface-unit"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "data-bus-and-control-bus-2",
+          "name": "Data bus and control bus",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["address-bus"]
         },
         {
           "id": "data-bus-and-control-bus",
@@ -106,7 +115,16 @@
         {
           "id": "comparison-with-microprocessor",
           "name": "Comparison with microprocessor",
-          "requires": ["microcontroller"]
+          "requires": ["microcontroller"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "comparison-of-ai-processor-with-regular-microprocessor",
+          "name": "comparison of AI Processor with regular Microprocessor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["comparison-with-microprocessor"]
         },
         {
           "id": "intel-8085",
@@ -117,6 +135,34 @@
           "id": "mips-instructions-format",
           "name": "MIPS Instructions format",
           "requires": ["intel-8085"]
+        },
+        {
+          "id": "ai-processor",
+          "name": "AI Processor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mips-instructions-format"]
+        },
+        {
+          "id": "arm-processor-architecture",
+          "name": "ARM processor Architecture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ai-processor"]
+        },
+        {
+          "id": "instruction-interpretation-and-execution",
+          "name": "Instruction interpretation and execution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["arm-processor-architecture"]
+        },
+        {
+          "id": "arm",
+          "name": "ARM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["instruction-interpretation-and-execution"]
         }
       ]
     },
@@ -132,7 +178,16 @@
         {
           "id": "register-configuration-of-signed-magnitude-addition",
           "name": "Register configuration of Signed Magnitude Addition-Subtraction Algorithm",
-          "requires": ["arithmetic-and-logic-unit"]
+          "requires": ["arithmetic-and-logic-unit"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "register-configuration-of-2-s-complement-addition-subtractio",
+          "name": "Register configuration of 2’s complement Addition Subtraction Algorithm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["register-configuration-of-signed-magnitude-addition"]
         },
         {
           "id": "register-configuration-of-2s-complement-addition-subtraction",
@@ -198,22 +253,168 @@
       "topics": [
         {
           "id": "hardwired-control",
-          "name": "CPU control unit design: Hardwired and micro-programmed design approaches, design of a simple hypothetical CPU. CPU"
+          "name": "CPU control unit design: Hardwired and micro-programmed design approaches",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "memory-interconnections-organization-of-memory-modules",
-          "name": "Memory interconnections, Organization of memory modules, Associative memory, Cache Memory, Memory Mapping Techniques",
+          "id": "design-of-a-simple-hypothetical-cpu",
+          "name": "design of a simple hypothetical CPU",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["hardwired-control"]
         },
         {
-          "id": "peripheral-devices-and-their-characteristics-input-output",
-          "name": "Peripheral devices and their characteristics: Input-output subsystems, I/O device interface, I/O transfers",
+          "id": "cpu",
+          "name": "CPU",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-of-a-simple-hypothetical-cpu"]
+        },
+        {
+          "id": "memory-interconnections-organization-of-memory-modules",
+          "name": "Memory interconnections",
+          "requires": ["hardwired-control"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "organization-of-memory-modules",
+          "name": "Organization of memory modules",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["memory-interconnections-organization-of-memory-modules"]
         },
         {
-          "id": "interrupts-dma-mp",
-          "name": "program controlled, interrupt driven and DMA",
+          "id": "associative-memory",
+          "name": "Associative memory",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["organization-of-memory-modules"]
+        },
+        {
+          "id": "cache-memory",
+          "name": "Cache Memory",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["associative-memory"]
+        },
+        {
+          "id": "memory-mapping-techniques",
+          "name": "Memory Mapping Techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cache-memory"]
+        },
+        {
+          "id": "peripheral-devices-and-their-characteristics-input-output",
+          "name": "Peripheral devices and their characteristics: Input-output subsystems",
+          "requires": ["memory-interconnections-organization-of-memory-modules"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "i-o-device-interface",
+          "name": "I/O device interface",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["peripheral-devices-and-their-characteristics-input-output"]
+        },
+        {
+          "id": "i-o-transfers",
+          "name": "I/O transfers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["i-o-device-interface"]
+        },
+        {
+          "id": "interrupts-dma-mp",
+          "name": "program controlled",
+          "requires": ["peripheral-devices-and-their-characteristics-input-output"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "interrupt-driven-and-dma",
+          "name": "interrupt driven and DMA",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["interrupts-dma-mp"]
+        },
+        {
+          "id": "real-world-examples-and-case-studies-illustrating-the-role",
+          "name": "Real-world examples and case studies illustrating the role of interrupts in process state transitions",
+          "requires": ["problem-solving-on-memory-organization"],
+          "movedFrom": {
+            "subject": "pdeu-computer-organization-and-architecture",
+            "chapter": "pipelining-and-multiprocessing-unit",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "privileged-and-non-privileged-instructions",
+          "name": "privileged and non-privileged instructions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["real-world-examples-and-case-studies-illustrating-the-role"]
+        },
+        {
+          "id": "software-interrupts-and-exceptions",
+          "name": "software interrupts and exceptions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["privileged-and-non-privileged-instructions"]
+        },
+        {
+          "id": "programs-and-processes",
+          "name": "Programs and processes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["software-interrupts-and-exceptions"]
+        },
+        {
+          "id": "i-o-device-interfaces",
+          "name": "I/O device interfaces",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["programs-and-processes"]
+        },
+        {
+          "id": "scii",
+          "name": "SCII",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["i-o-device-interfaces"]
+        },
+        {
+          "id": "usb",
+          "name": "USB",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scii"]
+        },
+        {
+          "id": "secondary-storage",
+          "name": "Secondary Storage",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["usb"]
+        },
+        {
+          "id": "solid-state-drive-ssd",
+          "name": "solid-state drive (SSD)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["secondary-storage"]
+        },
+        {
+          "id": "comparison-of-ssd-with-hdd",
+          "name": "Comparison of SSD with HDD",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["solid-state-drive-ssd"]
         }
       ]
     },
@@ -224,12 +425,50 @@
       "topics": [
         {
           "id": "risc",
-          "name": "Pipelining, pipeline hazards, Design issues of pipeline architecture, Instruction level parallelism and advanced issues, RISC and CISC paradigm, Design issues of a RISC processor, Multiprocessor syste"
+          "name": "Pipelining",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pipeline-hazards",
+          "name": "pipeline hazards",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["risc"]
+        },
+        {
+          "id": "design-issues-of-pipeline-architecture",
+          "name": "Design issues of pipeline architecture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pipeline-hazards"]
+        },
+        {
+          "id": "instruction-level-parallelism-and-advanced-issues",
+          "name": "Instruction level parallelism and advanced issues",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-issues-of-pipeline-architecture"]
+        },
+        {
+          "id": "risc-and-cisc-paradigm",
+          "name": "RISC and CISC paradigm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["instruction-level-parallelism-and-advanced-issues"]
+        },
+        {
+          "id": "design-issues-of-a-risc-processor",
+          "name": "Design issues of a RISC processor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["risc-and-cisc-paradigm"]
         },
         {
           "id": "tutorial-1-case-studies-to-differentiate-between-32-bit-and",
           "name": "Tutorial 1: Case Studies to differentiate between 32-bit and 64-bit processors (3 hrs)",
-          "requires": ["risc"]
+          "requires": ["risc"],
+          "status": "retired"
         },
         {
           "id": "exploring-bus-interface-unit-control-unit-segment-registers",
@@ -239,7 +478,8 @@
         {
           "id": "case-studies-and-examples-showcasing-real-world-applications",
           "name": "Case studies and examples showcasing real-world applications of microcontrollers",
-          "requires": ["exploring-bus-interface-unit-control-unit-segment-registers"]
+          "requires": ["exploring-bus-interface-unit-control-unit-segment-registers"],
+          "status": "retired"
         },
         {
           "id": "tutorial-2-real-world-examples-and-applications-of-different",
@@ -249,7 +489,8 @@
         {
           "id": "assembly-programming",
           "name": "language programming",
-          "requires": ["intel-8085"]
+          "requires": ["intel-8085"],
+          "status": "retired"
         },
         {
           "id": "numerical-problem-solving-on-different-addressing-modes",
@@ -264,12 +505,14 @@
         {
           "id": "tutorial-3-comparative-analysis-of-hardwired-and-micro",
           "name": "Tutorial 3: Comparative analysis of hardwired and micro-programmed design approaches in (4 hrs)",
-          "requires": ["exercises-to-implement-subroutine-calls-using-various"]
+          "requires": ["exercises-to-implement-subroutine-calls-using-various"],
+          "status": "retired"
         },
         {
           "id": "terms-of-complexity-flexibility-and-performance",
           "name": "terms of complexity, flexibility, and performance",
-          "requires": ["tutorial-3-comparative-analysis-of-hardwired-and-micro"]
+          "requires": ["tutorial-3-comparative-analysis-of-hardwired-and-micro"],
+          "status": "retired"
         },
         {
           "id": "case-studies-on-cpu-memory-interconnections-and-organization",
@@ -279,12 +522,8 @@
         {
           "id": "problem-solving-on-memory-organization",
           "name": "Problem solving on Memory organization",
-          "requires": ["case-studies-on-cpu-memory-interconnections-and-organization"]
-        },
-        {
-          "id": "real-world-examples-and-case-studies-illustrating-the-role",
-          "name": "Real-world examples and case studies illustrating the role of interrupts in process state transitions",
-          "requires": ["problem-solving-on-memory-organization"]
+          "requires": ["case-studies-on-cpu-memory-interconnections-and-organization"],
+          "status": "retired"
         },
         {
           "id": "tutorial-4-examples-on-pipelining-and-its-advantages-in-cpu",
@@ -299,14 +538,87 @@
         {
           "id": "case-studies-and-examples-illustrating-the-differences",
           "name": "Case studies and examples illustrating the differences between RISC and CISC instruction sets",
-          "requires": ["exercises-on-identifying-and-mitigating-pipeline-hazards-in"]
+          "requires": ["exercises-on-identifying-and-mitigating-pipeline-hazards-in"],
+          "status": "retired"
         },
         {
           "id": "exercises-on-parallel-algorithms-on-multiprocessor-systems",
           "name": "Exercises on parallel algorithms on multiprocessor systems",
-          "requires": ["case-studies-and-examples-illustrating-the-differences"]
+          "requires": ["case-studies-and-examples-illustrating-the-differences"],
+          "status": "retired"
+        },
+        {
+          "id": "multiprocessor-system-and-its-characteristics",
+          "name": "Multiprocessor system and its characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["exercises-on-parallel-algorithms-on-multiprocessor-systems"]
+        },
+        {
+          "id": "advance-research-topics-in-microprocessor",
+          "name": "Advance Research Topics in Microprocessor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multiprocessor-system-and-its-characteristics"]
+        },
+        {
+          "id": "parallel-processing-concepts",
+          "name": "Parallel processing concepts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["advance-research-topics-in-microprocessor"]
+        },
+        {
+          "id": "parallelism-algorithm-for-multiprocessor-systems",
+          "name": "Parallelism algorithm for multiprocessor systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["parallel-processing-concepts"]
+        },
+        {
+          "id": "introduction-to-gpu-architecture",
+          "name": "Introduction to GPU Architecture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["parallelism-algorithm-for-multiprocessor-systems"]
+        },
+        {
+          "id": "comparison-between-gpu-and-cpu-architecture",
+          "name": "Comparison between GPU and CPU Architecture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-gpu-architecture"]
+        },
+        {
+          "id": "interconnection-network",
+          "name": "Interconnection network",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["comparison-between-gpu-and-cpu-architecture"]
+        },
+        {
+          "id": "cache-in-multiprocessor-systems-and-related-problems",
+          "name": "Cache in multiprocessor systems and related problems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["interconnection-network"]
+        },
+        {
+          "id": "cache-coherence-protocols",
+          "name": "Cache coherence protocols",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cache-in-multiprocessor-systems-and-related-problems"]
+        },
+        {
+          "id": "tutorials",
+          "name": "TUTORIALS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cache-coherence-protocols"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Analytical Bioinformatics",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -44,18 +44,73 @@
         },
         {
           "id": "elementary-commands-and-protocols-ftp-telnet-http-databanks",
-          "name": "Elementary commands and Protocols, ftp, telnet, http. Databanks",
-          "requires": ["scope-of-bioinformatics"]
+          "name": "Elementary commands and Protocols",
+          "requires": ["scope-of-bioinformatics"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "nucleotide-databanks",
-          "name": "nucleotide databanks",
+          "id": "ftp",
+          "name": "ftp",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["elementary-commands-and-protocols-ftp-telnet-http-databanks"]
         },
         {
-          "id": "genbank-ncbi-embl-ddbj",
-          "name": "Genbank, NCBI, EMBL, DDBJ",
+          "id": "telnet",
+          "name": "telnet",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ftp"]
+        },
+        {
+          "id": "http",
+          "name": "http",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["telnet"]
+        },
+        {
+          "id": "nucleotide-databanks",
+          "name": "Databanks",
+          "requires": ["elementary-commands-and-protocols-ftp-telnet-http-databanks"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "nucleotide-databanks-2",
+          "name": "nucleotide databanks",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["nucleotide-databanks"]
+        },
+        {
+          "id": "genbank-ncbi-embl-ddbj",
+          "name": "Genbank",
+          "requires": ["nucleotide-databanks"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ncbi",
+          "name": "NCBI",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["genbank-ncbi-embl-ddbj"]
+        },
+        {
+          "id": "embl",
+          "name": "EMBL",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ncbi"]
+        },
+        {
+          "id": "ddbj",
+          "name": "DDBJ",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["embl"]
         },
         {
           "id": "protein-databanks",
@@ -69,8 +124,24 @@
         },
         {
           "id": "pir-swissprot-trembl",
-          "name": "PIR, SWISSPROT, TrEMBL",
-          "requires": ["sequence-databanks"]
+          "name": "PIR",
+          "requires": ["sequence-databanks"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "swissprot",
+          "name": "SWISSPROT",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pir-swissprot-trembl"]
+        },
+        {
+          "id": "trembl",
+          "name": "TrEMBL",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["swissprot"]
         },
         {
           "id": "structural-databases",
@@ -79,8 +150,24 @@
         },
         {
           "id": "pdb-scop-cath",
-          "name": "PDB, SCOP, CATH",
-          "requires": ["structural-databases"]
+          "name": "PDB",
+          "requires": ["structural-databases"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "scop",
+          "name": "SCOP",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pdb-scop-cath"]
+        },
+        {
+          "id": "cath",
+          "name": "CATH",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scop"]
         }
       ]
     },
@@ -131,7 +218,16 @@
         {
           "id": "multiple-alignment",
           "name": "multiple alignment",
-          "requires": ["suboptimal-alignments"]
+          "requires": ["suboptimal-alignments"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "common-multiple-alignment-methods-2",
+          "name": "common multiple alignment methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multiple-alignment"]
         },
         {
           "id": "common-multiple-alignment-methods",
@@ -147,7 +243,23 @@
       "topics": [
         {
           "id": "database-search",
-          "name": "Database search"
+          "name": "Database search",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "algorithms-issues-in-database-search-2",
+          "name": "Algorithms issues in database search",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["database-search"]
+        },
+        {
+          "id": "sequence-database-search-2",
+          "name": "sequence database search",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["algorithms-issues-in-database-search-2"]
         },
         {
           "id": "algorithms-issues-in-database-search",
@@ -171,8 +283,17 @@
         },
         {
           "id": "amino-acid-substitution-matrices-pam250-and-blosum62-mapping",
-          "name": "Amino acid substitution matrices PAM250 and BLOSUM62. Mapping and genome project",
-          "requires": ["blast"]
+          "name": "Amino acid substitution matrices PAM250 and BLOSUM62",
+          "requires": ["blast"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "mapping-and-genome-project",
+          "name": "Mapping and genome project",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["amino-acid-substitution-matrices-pam250-and-blosum62-mapping"]
         },
         {
           "id": "physical-and-genetic-maps",
@@ -212,10 +333,21 @@
         },
         {
           "id": "protein-secondary-structure-prediction-methods-molecular",
-          "name": "Protein secondary structure prediction methods, Molecular Docking methods",
-          "requires": ["molecular-predictions-with-dna-strings"]
+          "name": "Protein secondary structure prediction methods",
+          "requires": ["molecular-predictions-with-dna-strings"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "molecular-docking-methods",
+          "name": "Molecular Docking methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["protein-secondary-structure-prediction-methods-molecular"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-analytical-bioinformatics-lab-biotech"]
 }

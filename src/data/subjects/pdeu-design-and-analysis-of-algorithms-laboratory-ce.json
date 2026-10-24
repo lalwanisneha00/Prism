@@ -1,0 +1,131 @@
+{
+  "id": "pdeu-design-and-analysis-of-algorithms-laboratory-ce",
+  "name": "Design and Analysis of Algorithms Laboratory",
+  "field": "Design and Analysis of Algorithms Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (COMP semester 4): Design and Analysis of Algorithms Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 14 of COMP/sem4/CE_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CS210P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s4-design-and-analysis-of-algorithm-laboratory",
+      "code": "24CS210P",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-selection-sort-insertion-sort-merge-sort-quick",
+          "name": "Selection sort, insertion sort, merge sort, quick sort.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-linear-and-binary-search",
+          "name": "Linear and binary search.",
+          "number": 2,
+          "requires": ["experiment-1-selection-sort-insertion-sort-merge-sort-quick"]
+        },
+        {
+          "id": "experiment-3-implement-fractional-knapsack",
+          "name": "Implement fractional knapsack.",
+          "number": 3,
+          "requires": ["experiment-2-linear-and-binary-search"]
+        },
+        {
+          "id": "experiment-4-implement-kruskal-s-method-for-mst-using-union",
+          "name": "Implement Kruskal’s method for MST using union find data structures.",
+          "number": 4,
+          "requires": ["experiment-3-implement-fractional-knapsack"]
+        },
+        {
+          "id": "experiment-5-implement-interval-scheduling",
+          "name": "Implement Interval scheduling.",
+          "number": 5,
+          "requires": ["experiment-4-implement-kruskal-s-method-for-mst-using-union"]
+        },
+        {
+          "id": "experiment-6-implement-dijkstra-s-algorithm-for-single-sourc",
+          "name": "Implement Dijkstra’s algorithm for single source shortest path.",
+          "number": 6,
+          "requires": ["experiment-5-implement-interval-scheduling"]
+        },
+        {
+          "id": "experiment-7-implement-exponential-function",
+          "name": "Implement exponential function.",
+          "number": 7,
+          "requires": ["experiment-6-implement-dijkstra-s-algorithm-for-single-sourc"]
+        },
+        {
+          "id": "experiment-8-implement-the-strassen-s-matrix-multiplication",
+          "name": "Implement the Strassen’s matrix multiplication.",
+          "number": 8,
+          "requires": ["experiment-7-implement-exponential-function"]
+        },
+        {
+          "id": "experiment-9-implement-program-to-multiply-two-large-integer",
+          "name": "Implement program to multiply two large integers.",
+          "number": 9,
+          "requires": ["experiment-8-implement-the-strassen-s-matrix-multiplication"]
+        },
+        {
+          "id": "experiment-10-implement-assembly-line-scheduling",
+          "name": "Implement assembly line scheduling.",
+          "number": 10,
+          "requires": ["experiment-9-implement-program-to-multiply-two-large-integer"]
+        },
+        {
+          "id": "experiment-11-implement-chained-matrix-multiplication",
+          "name": "Implement chained matrix multiplication.",
+          "number": 11,
+          "requires": ["experiment-10-implement-assembly-line-scheduling"]
+        },
+        {
+          "id": "experiment-12-implement-floyd-warshall-algorithm-for-all-pai",
+          "name": "Implement Floyd Warshall algorithm for all pair shortest path problem.",
+          "number": 12,
+          "requires": ["experiment-11-implement-chained-matrix-multiplication"]
+        },
+        {
+          "id": "experiment-13-implement-the-0-1-knapsack-problem",
+          "name": "Implement the 0/1 knapsack problem.",
+          "number": 13,
+          "requires": ["experiment-12-implement-floyd-warshall-algorithm-for-all-pai"]
+        },
+        {
+          "id": "experiment-14-implement-n-queens-problem-using-backtracking",
+          "name": "Implement n-queens problem using backtracking",
+          "number": 14,
+          "requires": ["experiment-13-implement-the-0-1-knapsack-problem"]
+        },
+        {
+          "id": "experiment-15-implement-tsp-using-branch-and-bound",
+          "name": "Implement TSP using branch and bound.",
+          "number": 15,
+          "requires": ["experiment-14-implement-n-queens-problem-using-backtracking"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-design-and-analysis-of-algorithm"]
+}

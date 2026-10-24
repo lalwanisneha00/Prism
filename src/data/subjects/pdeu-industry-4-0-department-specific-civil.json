@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Industry 4.0 (Department Specific)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -122,8 +122,24 @@
         },
         {
           "id": "transformation-of-industrial-processes-through-the",
-          "name": "Transformation of industrial processes through the integration of modern technologies such as sensing and actuation, communication, and computational processing",
-          "requires": ["overview-of-machine-learning-for-industry-4-0"]
+          "name": "Transformation of industrial processes through the integration of modern technologies such as sensing and actuation",
+          "requires": ["overview-of-machine-learning-for-industry-4-0"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "communication",
+          "name": "communication",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transformation-of-industrial-processes-through-the"]
+        },
+        {
+          "id": "computational-processing",
+          "name": "computational processing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["communication"]
         }
       ]
     },
@@ -143,8 +159,24 @@
         },
         {
           "id": "bim-software-and-tools-for-project-planning-execution-and",
-          "name": "BIM Software and Tools for Project Planning, Execution, and Monitoring",
-          "requires": ["principles-and-concepts-of-bim-in-project-management"]
+          "name": "BIM Software and Tools for Project Planning",
+          "requires": ["principles-and-concepts-of-bim-in-project-management"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "execution",
+          "name": "Execution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bim-software-and-tools-for-project-planning-execution-and"]
+        },
+        {
+          "id": "monitoring",
+          "name": "Monitoring",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["execution"]
         },
         {
           "id": "bim-applications-in-civil-engineering-projects",
@@ -219,8 +251,31 @@
         },
         {
           "id": "green-building-certifications-and-standards-e-g-leed-breeam",
-          "name": "Green building certifications and standards (e.g., LEED, BREEAM, GRIHA)",
-          "requires": ["waste-management-and-recycling-in-construction"]
+          "name": "Green building certifications and standards (e.g",
+          "requires": ["waste-management-and-recycling-in-construction"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "leed",
+          "name": "LEED",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["green-building-certifications-and-standards-e-g-leed-breeam"]
+        },
+        {
+          "id": "breeam",
+          "name": "BREEAM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["leed"]
+        },
+        {
+          "id": "griha",
+          "name": "GRIHA)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["breeam"]
         },
         {
           "id": "indian-building-codes-and-regulations-for-sustainable",
@@ -229,8 +284,31 @@
         },
         {
           "id": "simulation-tools-for-sustainable-building-design-e-g",
-          "name": "Simulation tools for sustainable building design (e.g., EnergyPlus, Designbuilder, IES VE)",
-          "requires": ["indian-building-codes-and-regulations-for-sustainable"]
+          "name": "Simulation tools for sustainable building design (e.g",
+          "requires": ["indian-building-codes-and-regulations-for-sustainable"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "energyplus",
+          "name": "EnergyPlus",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simulation-tools-for-sustainable-building-design-e-g"]
+        },
+        {
+          "id": "designbuilder",
+          "name": "Designbuilder",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["energyplus"]
+        },
+        {
+          "id": "ies-ve",
+          "name": "IES VE)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["designbuilder"]
         },
         {
           "id": "3d-printing-in-construction-for-sustainable-practices",
@@ -295,5 +373,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-industry-4-0-lab-department-specific"]
 }

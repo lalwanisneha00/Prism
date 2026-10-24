@@ -35,8 +35,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE, Civil): Biology for Engineers",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -47,12 +47,44 @@
       "topics": [
         {
           "id": "cell-as-a-basic-unit-of-life-prokaryotic-and-eukaryotic",
-          "name": "Cell as a basic unit of life, prokaryotic and eukaryotic cells, microbes, plant and animal cells"
+          "name": "Cell as a basic unit of life",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "prokaryotic-and-eukaryotic-cells",
+          "name": "prokaryotic and eukaryotic cells",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cell-as-a-basic-unit-of-life-prokaryotic-and-eukaryotic"]
+        },
+        {
+          "id": "microbes",
+          "name": "microbes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["prokaryotic-and-eukaryotic-cells"]
+        },
+        {
+          "id": "plant-and-animal-cells",
+          "name": "plant and animal cells",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["microbes"]
         },
         {
           "id": "cell-organelles-structure-and-function",
-          "name": "Cell organelles – structure and function",
-          "requires": ["cell-as-a-basic-unit-of-life-prokaryotic-and-eukaryotic"]
+          "name": "Cell organelles",
+          "requires": ["cell-as-a-basic-unit-of-life-prokaryotic-and-eukaryotic"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "structure-and-function",
+          "name": "structure and function",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cell-organelles-structure-and-function"]
         },
         {
           "id": "cell-membrane",
@@ -61,8 +93,38 @@
         },
         {
           "id": "vitamins-and-minerals-carbohydrates-lipids-amino-acids-and",
-          "name": "Vitamins and Minerals, Carbohydrates, Lipids, Amino Acids and proteins, Nucleic Acids (DNA and RNA)",
-          "requires": ["cell-membrane"]
+          "name": "Vitamins and Minerals",
+          "requires": ["cell-membrane"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "carbohydrates",
+          "name": "Carbohydrates",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vitamins-and-minerals-carbohydrates-lipids-amino-acids-and"]
+        },
+        {
+          "id": "lipids",
+          "name": "Lipids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carbohydrates"]
+        },
+        {
+          "id": "amino-acids-and-proteins",
+          "name": "Amino Acids and proteins",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lipids"]
+        },
+        {
+          "id": "nucleic-acids-dna-and-rna",
+          "name": "Nucleic Acids (DNA and RNA)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["amino-acids-and-proteins"]
         }
       ]
     },
@@ -73,7 +135,37 @@
       "topics": [
         {
           "id": "brain-as-a-cpu-system-architecture-cns-and-peripheral",
-          "name": "Brain as a CPU system (architecture, CNS and Peripheral Nervous System, signal transmission, EEG, Robotic arms for prosthetics)"
+          "name": "Brain as a CPU system (architecture",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cns-and-peripheral-nervous-system",
+          "name": "CNS and Peripheral Nervous System",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["brain-as-a-cpu-system-architecture-cns-and-peripheral"]
+        },
+        {
+          "id": "signal-transmission",
+          "name": "signal transmission",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cns-and-peripheral-nervous-system"]
+        },
+        {
+          "id": "eeg",
+          "name": "EEG",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["signal-transmission"]
+        },
+        {
+          "id": "robotic-arms-for-prosthetics",
+          "name": "Robotic arms for prosthetics)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["eeg"]
         },
         {
           "id": "the-eye-functions-as-a-camera",
@@ -87,18 +179,59 @@
         },
         {
           "id": "the-ear-and-nose-as-signal-transmission-models-lungs-operate",
-          "name": "The ear and nose as signal transmission models. Lungs operate as an exchange model",
-          "requires": ["heart-as-a-pump-system"]
+          "name": "The ear and nose as signal transmission models",
+          "requires": ["heart-as-a-pump-system"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "kidneys-function-as-a-filtration-system-echolocation",
-          "name": "kidneys function as a filtration system. Echolocation (ultrasonography, sonars)",
+          "id": "lungs-operate-as-an-exchange-model",
+          "name": "Lungs operate as an exchange model",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["the-ear-and-nose-as-signal-transmission-models-lungs-operate"]
         },
         {
-          "id": "photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying",
-          "name": "Photosynthesis (photovoltaic cells, bionic leaf). Bird flying (GPS and aircrafts)",
+          "id": "kidneys-function-as-a-filtration-system-echolocation",
+          "name": "kidneys function as a filtration system",
+          "requires": ["the-ear-and-nose-as-signal-transmission-models-lungs-operate"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "echolocation-ultrasonography",
+          "name": "Echolocation (ultrasonography",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["kidneys-function-as-a-filtration-system-echolocation"]
+        },
+        {
+          "id": "sonars",
+          "name": "sonars)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["echolocation-ultrasonography"]
+        },
+        {
+          "id": "photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying",
+          "name": "Photosynthesis (photovoltaic cells",
+          "requires": ["kidneys-function-as-a-filtration-system-echolocation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bionic-leaf",
+          "name": "bionic leaf)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying"]
+        },
+        {
+          "id": "bird-flying-gps-and-aircrafts",
+          "name": "Bird flying (GPS and aircrafts)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bionic-leaf"]
         },
         {
           "id": "lotus-leaf-effect-super-hydrophobic-and-self-cleaning",
@@ -123,8 +256,17 @@
         },
         {
           "id": "bio-printing-techniques-and-materials-applications-of",
-          "name": "Bio printing techniques and materials. Applications of Bioinformatics",
-          "requires": ["stem-cell-and-its-applications"]
+          "name": "Bio printing techniques and materials",
+          "requires": ["stem-cell-and-its-applications"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "applications-of-bioinformatics",
+          "name": "Applications of Bioinformatics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bio-printing-techniques-and-materials-applications-of"]
         },
         {
           "id": "artificial-intelligence-for-diagnosis-and-detection-of",
@@ -159,15 +301,69 @@
         },
         {
           "id": "at-cell-level-hybridoma-technology-at-tissue-level-plant",
-          "name": "At cell level: Hybridoma technology, At tissue level: Plant Tissue Culture, Animal Tissue Culture",
-          "requires": ["biology-and-engineering-crosstalk"]
+          "name": "At cell level: Hybridoma technology",
+          "requires": ["biology-and-engineering-crosstalk"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "at-tissue-level-plant-tissue-culture",
+          "name": "At tissue level: Plant Tissue Culture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["at-cell-level-hybridoma-technology-at-tissue-level-plant"]
+        },
+        {
+          "id": "animal-tissue-culture",
+          "name": "Animal Tissue Culture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["at-tissue-level-plant-tissue-culture"]
         },
         {
           "id": "tissue-engineering-introduction-to-biomimetics-and",
-          "name": "Tissue Engineering, Introduction to Biomimetics and Biomimicry, Nanobiotechnology, Introduction to Radiology, High- throughput diagnostics in clinics: Molecular Diagnostics (PCR), DNA chips",
-          "requires": ["at-cell-level-hybridoma-technology-at-tissue-level-plant"]
+          "name": "Tissue Engineering",
+          "requires": ["at-cell-level-hybridoma-technology-at-tissue-level-plant"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-biomimetics-and-biomimicry",
+          "name": "Introduction to Biomimetics and Biomimicry",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tissue-engineering-introduction-to-biomimetics-and"]
+        },
+        {
+          "id": "nanobiotechnology",
+          "name": "Nanobiotechnology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-biomimetics-and-biomimicry"]
+        },
+        {
+          "id": "introduction-to-radiology",
+          "name": "Introduction to Radiology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["nanobiotechnology"]
+        },
+        {
+          "id": "dna-chips",
+          "name": "DNA chips",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-radiology"]
+        },
+        {
+          "id": "highthroughput-diagnostics-in-clinics-molecular-diagnostics",
+          "name": "Highthroughput diagnostics in clinics: Molecular Diagnostics (PCR)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dna-chips"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

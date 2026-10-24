@@ -1,0 +1,143 @@
+{
+  "id": "pdeu-renewable-energy-engineering-laboratory-elec",
+  "name": "Renewable Energy Engineering Laboratory",
+  "field": "Renewable Energy Engineering Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 6): Renewable Energy Engineering Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 8 of ELEC/sem6/Electrical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE313P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s6-renewable-energy-engineering-laboratory",
+      "code": "20EE313P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-to-study-electricity-bill-of-house-office-build",
+          "name": "To study electricity bill of house/office/building/commercial complex/industry for last one year and analyse consumption pattern.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-to-demonstrate-the-i-v-and-p-v-characteristics",
+          "name": "To demonstrate the I-V and P-V characteristics of PV module with varying radiation and temperature level with artificial solar PV kit and under natural sunlight.",
+          "number": 2,
+          "requires": ["experiment-1-to-study-electricity-bill-of-house-office-build"]
+        },
+        {
+          "id": "experiment-3-to-demonstrate-the-i-v-and-p-v-characteristics",
+          "name": "To demonstrate the I-V and P-V characteristics of series and parallel combination of PV modules with artificial solar PV kit and under natural sunlight.",
+          "number": 3,
+          "requires": ["experiment-2-to-demonstrate-the-i-v-and-p-v-characteristics"]
+        },
+        {
+          "id": "experiment-4-to-demonstrate-the-effect-of-variation-in-tilt",
+          "name": "To demonstrate the effect of variation in tilt angle on PV module power.",
+          "number": 4,
+          "requires": ["experiment-3-to-demonstrate-the-i-v-and-p-v-characteristics"]
+        },
+        {
+          "id": "experiment-5-to-demonstrate-the-effect-of-shading-on-the-out",
+          "name": "To demonstrate the effect of shading on the output power in PV panel for single module, series connection and parallel connection.",
+          "number": 5,
+          "requires": ["experiment-4-to-demonstrate-the-effect-of-variation-in-tilt"]
+        },
+        {
+          "id": "experiment-6-to-demonstrate-the-working-of-bypass-diode-and",
+          "name": "To demonstrate the working of bypass diode and blocking diode for Solar PV module.",
+          "number": 6,
+          "requires": ["experiment-5-to-demonstrate-the-effect-of-shading-on-the-out"]
+        },
+        {
+          "id": "experiment-7-to-work-out-power-flow-calculations-of-standalo",
+          "name": "To work out power flow calculations of standalone PV system of DC load with battery.",
+          "number": 7,
+          "requires": ["experiment-6-to-demonstrate-the-working-of-bypass-diode-and"]
+        },
+        {
+          "id": "experiment-8-to-evaluate-cut-in-speed-of-wind-turbine-experi",
+          "name": "To evaluate cut-in speed of wind turbine experimentally using wind energy training system.",
+          "number": 8,
+          "requires": ["experiment-7-to-work-out-power-flow-calculations-of-standalo"]
+        },
+        {
+          "id": "experiment-9-to-evaluate-the-tip-speed-ratio-tsr-at-differen",
+          "name": "To evaluate the Tip Speed Ratio (TSR) at different wind speeds using wind energy training system.",
+          "number": 9,
+          "requires": ["experiment-8-to-evaluate-cut-in-speed-of-wind-turbine-experi"]
+        },
+        {
+          "id": "experiment-10-to-evaluate-the-coefficient-of-performance-of",
+          "name": "To evaluate the coefficient of performance of wind turbine using wind energy training system.",
+          "number": 10,
+          "requires": ["experiment-9-to-evaluate-the-tip-speed-ratio-tsr-at-differen"]
+        },
+        {
+          "id": "experiment-11-to-plot-the-turbine-power-versus-wind-speed-cu",
+          "name": "To plot the turbine power versus wind speed curve using wind energy training system.",
+          "number": 11,
+          "requires": ["experiment-10-to-evaluate-the-coefficient-of-performance-of"]
+        },
+        {
+          "id": "experiment-12-to-carry-out-simulation-of-pv-module-connected",
+          "name": "To carry out simulation of PV module connected with buck converter fed to the DC load.",
+          "number": 12,
+          "requires": ["experiment-11-to-plot-the-turbine-power-versus-wind-speed-cu"]
+        },
+        {
+          "id": "experiment-13-to-carry-out-simulation-of-pv-module-connected",
+          "name": "To carry out simulation of PV module connected with boost converter fed to the DC load.",
+          "number": 13,
+          "requires": ["experiment-12-to-carry-out-simulation-of-pv-module-connected"]
+        },
+        {
+          "id": "experiment-14-to-implement-the-maximum-power-point-tracking",
+          "name": "To implement the maximum power point tracking algorithm in solar power plant.",
+          "number": 14,
+          "requires": ["experiment-13-to-carry-out-simulation-of-pv-module-connected"]
+        },
+        {
+          "id": "experiment-15-to-implement-the-maximum-power-point-tracking",
+          "name": "To implement the maximum power point tracking in wind turbine generating system.",
+          "number": 15,
+          "requires": ["experiment-14-to-implement-the-maximum-power-point-tracking"]
+        },
+        {
+          "id": "experiment-16-to-develop-and-simulate-an-integrated-hybrid-m",
+          "name": "To develop and simulate an integrated hybrid model having different renewable energy sources and energy storage.",
+          "number": 16,
+          "requires": ["experiment-15-to-implement-the-maximum-power-point-tracking"]
+        },
+        {
+          "id": "experiment-17-to-estimate-the-wind-forecast-and-wind-potenti",
+          "name": "To estimate the wind forecast and wind potential.",
+          "number": 17,
+          "requires": ["experiment-16-to-develop-and-simulate-an-integrated-hybrid-m"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-renewable-energy-engineering-elec"]
+}

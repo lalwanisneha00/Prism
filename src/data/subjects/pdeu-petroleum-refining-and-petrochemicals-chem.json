@@ -1,0 +1,229 @@
+{
+  "id": "pdeu-petroleum-refining-and-petrochemicals-chem",
+  "name": "Petroleum Refining and Petrochemicals",
+  "field": "Petroleum Refining and Petrochemicals",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 5): Petroleum Refining and Petrochemicals",
+    "note": "Units and topics copied from the course handout PDF (pages 9 of CHEM/sem5/Chemical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH331T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s5-program-elective--petroleum-refining-and-petrochemicals",
+      "code": "24CH331T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "evaluation-and-characterisation-of-crude-oil-and-petroleum-p",
+      "name": "Evaluation and Characterisation of Crude Oil and Petroleum Products",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "origin-and-occurrence",
+          "name": "Origin and occurrence"
+        },
+        {
+          "id": "status-of-indian-petroleum-industries",
+          "name": "status of Indian petroleum industries",
+          "requires": ["origin-and-occurrence"]
+        },
+        {
+          "id": "pre-treatment-of-crude-oil-for-refining",
+          "name": "pre-treatment of crude oil for refining",
+          "requires": ["status-of-indian-petroleum-industries"]
+        },
+        {
+          "id": "petroleum-processing-data",
+          "name": "petroleum processing data",
+          "requires": ["pre-treatment-of-crude-oil-for-refining"]
+        },
+        {
+          "id": "evaluation-of-petroleum",
+          "name": "evaluation of petroleum",
+          "requires": ["petroleum-processing-data"]
+        },
+        {
+          "id": "thermal-properties-of-petroleum-fractions",
+          "name": "thermal properties of petroleum fractions",
+          "requires": ["evaluation-of-petroleum"]
+        },
+        {
+          "id": "characterization-of-crude-oil-and-product-specification",
+          "name": "characterization of crude oil and product specification",
+          "requires": ["thermal-properties-of-petroleum-fractions"]
+        }
+      ]
+    },
+    {
+      "id": "pretreatment-and-fractionation-of-crude-oil",
+      "name": "Pretreatment and Fractionation of Crude Oil",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "dehydration-and-desalting-of-crudes",
+          "name": "Dehydration and desalting of crudes"
+        },
+        {
+          "id": "fractionation-of-petroleum-through-atmospheric-and-vacuum-di",
+          "name": "fractionation of petroleum through atmospheric and vacuum distillation",
+          "requires": ["dehydration-and-desalting-of-crudes"]
+        },
+        {
+          "id": "heating-of-crude",
+          "name": "heating of crude",
+          "requires": ["fractionation-of-petroleum-through-atmospheric-and-vacuum-di"]
+        },
+        {
+          "id": "pipe-still-heaters",
+          "name": "pipe still heaters",
+          "requires": ["heating-of-crude"]
+        },
+        {
+          "id": "treatment-techniques-for-impurities-in-various-fractions",
+          "name": "treatment techniques for impurities in various fractions",
+          "requires": ["pipe-still-heaters"]
+        }
+      ]
+    },
+    {
+      "id": "thermal-and-catalytic-processes-for-product-upgradation",
+      "name": "Thermal and Catalytic Processes for Product Upgradation",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "thermal-and-catalytic-processes-thermal-cracking",
+          "name": "Thermal and catalytic processes: thermal cracking"
+        },
+        {
+          "id": "catalytic-cracking",
+          "name": "catalytic cracking",
+          "requires": ["thermal-and-catalytic-processes-thermal-cracking"]
+        },
+        {
+          "id": "fluidized-catalytic-cracking",
+          "name": "fluidized catalytic cracking",
+          "requires": ["catalytic-cracking"]
+        },
+        {
+          "id": "catalytic-reforming",
+          "name": "catalytic reforming",
+          "requires": ["fluidized-catalytic-cracking"]
+        },
+        {
+          "id": "thermal-reforming",
+          "name": "thermal reforming",
+          "requires": ["catalytic-reforming"]
+        },
+        {
+          "id": "coking-technology",
+          "name": "coking technology",
+          "requires": ["thermal-reforming"]
+        },
+        {
+          "id": "hydrogen-processes",
+          "name": "hydrogen processes",
+          "requires": ["coking-technology"]
+        },
+        {
+          "id": "hydrocracking",
+          "name": "hydrocracking",
+          "requires": ["hydrogen-processes"]
+        },
+        {
+          "id": "hydrotreatment",
+          "name": "hydrotreatment",
+          "requires": ["hydrocracking"]
+        },
+        {
+          "id": "hydrodesulphurization",
+          "name": "hydrodesulphurization",
+          "requires": ["hydrotreatment"]
+        },
+        {
+          "id": "alkylation-and-isomerisation-processes",
+          "name": "alkylation and isomerisation processes",
+          "requires": ["hydrodesulphurization"]
+        }
+      ]
+    },
+    {
+      "id": "process-technology-of-petrochemical-products",
+      "name": "Process Technology of Petrochemical Products",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "indian-petrochemical-industry-overview",
+          "name": "Indian petrochemical industry overview"
+        },
+        {
+          "id": "petrochemical-industry-feedstocks",
+          "name": "petrochemical industry feedstocks",
+          "requires": ["indian-petrochemical-industry-overview"]
+        },
+        {
+          "id": "synthesis-gas-and-chemicals",
+          "name": "synthesis gas and chemicals",
+          "requires": ["petrochemical-industry-feedstocks"]
+        },
+        {
+          "id": "petrochemicals-derived-from-c1",
+          "name": "petrochemicals derived from C1",
+          "requires": ["synthesis-gas-and-chemicals"]
+        },
+        {
+          "id": "c4-and-btx-aromatics",
+          "name": "C4 and BTX aromatics",
+          "requires": ["petrochemicals-derived-from-c1"]
+        },
+        {
+          "id": "synthetic-fibres",
+          "name": "synthetic fibres",
+          "requires": ["c4-and-btx-aromatics"]
+        },
+        {
+          "id": "shale-gas",
+          "name": "shale gas",
+          "requires": ["synthetic-fibres"]
+        },
+        {
+          "id": "gas-hydrates",
+          "name": "gas hydrates",
+          "requires": ["shale-gas"]
+        },
+        {
+          "id": "coal-bed-methane",
+          "name": "coal bed methane",
+          "requires": ["gas-hydrates"]
+        },
+        {
+          "id": "manufacturing-technologies-for-c1",
+          "name": "manufacturing technologies for C1",
+          "requires": ["coal-bed-methane"]
+        },
+        {
+          "id": "c4-and-aromatic-compounds",
+          "name": "C4 and aromatic compounds",
+          "requires": ["manufacturing-technologies-for-c1"]
+        }
+      ]
+    }
+  ]
+}

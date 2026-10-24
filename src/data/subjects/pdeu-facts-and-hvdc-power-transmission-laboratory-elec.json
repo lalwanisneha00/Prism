@@ -1,0 +1,119 @@
+{
+  "id": "pdeu-facts-and-hvdc-power-transmission-laboratory-elec",
+  "name": "FACTS and HVDC Power Transmission Laboratory",
+  "field": "FACTS and HVDC Power Transmission Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 7): FACTS and HVDC Power Transmission Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 7 of ELEC/sem7/Electrical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE404P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s7-facts-and-hvdc-power-transmission-laboratory",
+      "code": "20EE404P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-to-develop-simulation-models-for-cables-and-tra",
+          "name": "To develop simulation models for cables and transmission Lines.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-to-develop-a-6-pulse-bridge-circuit-model-and-a",
+          "name": "To develop a 6-pulse bridge circuit model and analyse its operation without commutation overlap feeding an inductive load.",
+          "number": 2,
+          "requires": ["experiment-1-to-develop-simulation-models-for-cables-and-tra"]
+        },
+        {
+          "id": "experiment-3-to-develop-a-6-pulse-bridge-circuit-model-and-a",
+          "name": "To develop a 6-pulse bridge circuit model and analyse its operation with commutation overlap less than 60 degfeeding an inductive load.",
+          "number": 3,
+          "requires": ["experiment-2-to-develop-a-6-pulse-bridge-circuit-model-and-a"]
+        },
+        {
+          "id": "experiment-4-to-analyse-pwm-pattern-generation-techniques",
+          "name": "To analyse PWM Pattern Generation Techniques.",
+          "number": 4,
+          "requires": ["experiment-3-to-develop-a-6-pulse-bridge-circuit-model-and-a"]
+        },
+        {
+          "id": "experiment-5-to-develop-a-voltage-source-converter-vsc-inver",
+          "name": "To develop a Voltage-Source Converter (VSC) inverter feeding an inductive load from a dc supply and analyse the currents and voltages in pu.",
+          "number": 5,
+          "requires": ["experiment-4-to-analyse-pwm-pattern-generation-techniques"]
+        },
+        {
+          "id": "experiment-6-to-develop-a-voltage-source-converter-vsc-inver",
+          "name": "To develop a Voltage-Source Converter (VSC) inverter model with AC current PWM control.",
+          "number": 6,
+          "requires": ["experiment-5-to-develop-a-voltage-source-converter-vsc-inver"]
+        },
+        {
+          "id": "experiment-7-to-develop-a-model-for-unipolar-hvdc-system-and",
+          "name": "To develop a model for unipolar HVDC system and analyse DC current and voltages of the line.",
+          "number": 7,
+          "requires": ["experiment-6-to-develop-a-voltage-source-converter-vsc-inver"]
+        },
+        {
+          "id": "experiment-8-to-develop-a-model-for-bipolar-hvdc-system-and",
+          "name": "To develop a model for bipolar HVDC system and analyse DC current and voltages of the line",
+          "number": 8,
+          "requires": ["experiment-7-to-develop-a-model-for-unipolar-hvdc-system-and"]
+        },
+        {
+          "id": "experiment-9-to-develop-a-model-for-homopolar-hvdc-system-an",
+          "name": "To develop a model for homopolar HVDC system and analyse DC current and voltages of the line",
+          "number": 9,
+          "requires": ["experiment-8-to-develop-a-model-for-bipolar-hvdc-system-and"]
+        },
+        {
+          "id": "experiment-10-to-analyse-a-hvdc-system-with-dc-line-fault-in",
+          "name": "To analyse a HVDC system with DC line fault in terms of current and voltages.",
+          "number": 10,
+          "requires": ["experiment-9-to-develop-a-model-for-homopolar-hvdc-system-an"]
+        },
+        {
+          "id": "experiment-11-design-power-system-with-using-pscad",
+          "name": "Design power system with using PSCAD",
+          "number": 11,
+          "requires": ["experiment-10-to-analyse-a-hvdc-system-with-dc-line-fault-in"]
+        },
+        {
+          "id": "experiment-12-to-develop-simulation-model-of-a-svc-for-power",
+          "name": "To develop simulation model of a SVC for power system studies",
+          "number": 12,
+          "requires": ["experiment-11-design-power-system-with-using-pscad"]
+        },
+        {
+          "id": "experiment-13-to-develop-simulation-model-of-a-tcsc-for-powe",
+          "name": "To develop simulation model of a TCSC for power system studies",
+          "number": 13,
+          "requires": ["experiment-12-to-develop-simulation-model-of-a-svc-for-power"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-facts-and-hvdc-power-transmission-elec"]
+}

@@ -1,0 +1,255 @@
+{
+  "id": "pdeu-fluid-mechanics-me",
+  "name": "Fluid Mechanics",
+  "field": "Fluid Mechanics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 4): Fluid Mechanics",
+    "note": "Units and topics copied from the course handout PDF (pages 4 of MECH/sem4/Mechanical_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME206T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s4-fluid-mechanics",
+      "code": "24ME206T",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "fluid-static-and-kinematics",
+      "name": "Fluid Static and Kinematics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "fluid-statics-properties-of-fluids",
+          "name": "Fluid Statics: Properties of fluids"
+        },
+        {
+          "id": "archimedes-principle",
+          "name": "Archimedes Principle",
+          "requires": ["fluid-statics-properties-of-fluids"]
+        },
+        {
+          "id": "buoyancy-and-stability-of-floating-and-submerged-bodies",
+          "name": "Buoyancy and stability of floating and submerged bodies",
+          "requires": ["archimedes-principle"]
+        },
+        {
+          "id": "meta-centric-height",
+          "name": "Meta-centric height",
+          "requires": ["buoyancy-and-stability-of-floating-and-submerged-bodies"]
+        },
+        {
+          "id": "manometers",
+          "name": "Manometers",
+          "requires": ["meta-centric-height"]
+        },
+        {
+          "id": "kinematics-types-of-flow",
+          "name": "Kinematics: Types of flow",
+          "requires": ["manometers"]
+        },
+        {
+          "id": "concept-of-continuum",
+          "name": "Concept of continuum",
+          "requires": ["kinematics-types-of-flow"]
+        },
+        {
+          "id": "pressure-and-stress-tensor",
+          "name": "Pressure and stress tensor",
+          "requires": ["concept-of-continuum"]
+        },
+        {
+          "id": "fluid-kinematics-lagrangian-and-eulerian-description",
+          "name": "Fluid Kinematics: Lagrangian and Eulerian description",
+          "requires": ["pressure-and-stress-tensor"]
+        },
+        {
+          "id": "streamline",
+          "name": "Streamline",
+          "requires": ["fluid-kinematics-lagrangian-and-eulerian-description"]
+        },
+        {
+          "id": "streakline-and-pathline",
+          "name": "Streakline and Pathline",
+          "requires": ["streamline"]
+        },
+        {
+          "id": "acceleration-of-a-fluid-element",
+          "name": "Acceleration of a fluid element",
+          "requires": ["streakline-and-pathline"]
+        },
+        {
+          "id": "continuity-equation",
+          "name": "Continuity equation",
+          "requires": ["acceleration-of-a-fluid-element"]
+        },
+        {
+          "id": "stream-function",
+          "name": "Stream function",
+          "requires": ["continuity-equation"]
+        },
+        {
+          "id": "rotation-and-angular-deformation",
+          "name": "Rotation and angular deformation",
+          "requires": ["stream-function"]
+        },
+        {
+          "id": "irrotational-flow",
+          "name": "Irrotational flow",
+          "requires": ["rotation-and-angular-deformation"]
+        },
+        {
+          "id": "velocity-potential",
+          "name": "Velocity potential",
+          "requires": ["irrotational-flow"]
+        }
+      ]
+    },
+    {
+      "id": "fluid-dynamics",
+      "name": "Fluid Dynamics",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "integral-flow-analysis-reynolds-transport-theorem",
+          "name": "Integral Flow Analysis: Reynolds transport theorem"
+        },
+        {
+          "id": "conservation-of-mass-continuity-equation",
+          "name": "Conservation of mass/continuity equation",
+          "requires": ["integral-flow-analysis-reynolds-transport-theorem"]
+        },
+        {
+          "id": "conservation-of-linear-and-angular-momentum-for-a-control-vo",
+          "name": "Conservation of linear and angular momentum for a control volume in inertial and accelerating reference frames",
+          "requires": ["conservation-of-mass-continuity-equation"]
+        },
+        {
+          "id": "energy-equation",
+          "name": "Energy equation",
+          "requires": ["conservation-of-linear-and-angular-momentum-for-a-control-vo"]
+        },
+        {
+          "id": "bernoulli-s-equation-and-engineering-applications",
+          "name": "Bernoulli’s equation and engineering applications",
+          "requires": ["energy-equation"]
+        },
+        {
+          "id": "differential-analysis-of-flow-stokes-law-of-viscosity-and-na",
+          "name": "Differential Analysis of Flow: Stokes law of viscosity and Navier-Stokes equations",
+          "requires": ["bernoulli-s-equation-and-engineering-applications"]
+        }
+      ]
+    },
+    {
+      "id": "viscous-flow",
+      "name": "Viscous Flow",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "reynolds-experiment-laminar-and-turbulent-flow",
+          "name": "Reynolds experiment: laminar and turbulent flow"
+        },
+        {
+          "id": "plane-poiseuille-flow",
+          "name": "Plane Poiseuille flow",
+          "requires": ["reynolds-experiment-laminar-and-turbulent-flow"]
+        },
+        {
+          "id": "couette-flow",
+          "name": "Couette flow",
+          "requires": ["plane-poiseuille-flow"]
+        },
+        {
+          "id": "hagen-poiseuille-flow",
+          "name": "Hagen-Poiseuille flow",
+          "requires": ["couette-flow"]
+        },
+        {
+          "id": "friction-factor-and-moody-s-diagram",
+          "name": "Friction factor and Moody’s diagram",
+          "requires": ["hagen-poiseuille-flow"]
+        },
+        {
+          "id": "losses-in-pipes",
+          "name": "Losses in pipes",
+          "requires": ["friction-factor-and-moody-s-diagram"]
+        },
+        {
+          "id": "pipe-fittings-and-losses",
+          "name": "Pipe fittings and losses",
+          "requires": ["losses-in-pipes"]
+        }
+      ]
+    },
+    {
+      "id": "dimensional-analysis-and-boundary-layer-theory",
+      "name": "Dimensional Analysis and Boundary-Layer Theory",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "dimensional-analysis-and-similitude-buckingham-pi-theorem",
+          "name": "Dimensional Analysis and Similitude: Buckingham-PI theorem"
+        },
+        {
+          "id": "non-dimensional-parameters",
+          "name": "Non-dimensional parameters",
+          "requires": ["dimensional-analysis-and-similitude-buckingham-pi-theorem"]
+        },
+        {
+          "id": "problem-solving-using-non-dimensionalization",
+          "name": "Problem-solving using non-dimensionalization",
+          "requires": ["non-dimensional-parameters"]
+        },
+        {
+          "id": "similitude-and-non-dimensional-numbers",
+          "name": "Similitude and Non-dimensional numbers",
+          "requires": ["problem-solving-using-non-dimensionalization"]
+        },
+        {
+          "id": "boundary-layer-theory-boundary-layer-development-and-boundar",
+          "name": "Boundary-Layer Theory: Boundary layer development and Boundary layer thicknesses",
+          "requires": ["similitude-and-non-dimensional-numbers"]
+        },
+        {
+          "id": "characteristics-of-boundary-layer",
+          "name": "Characteristics of Boundary Layer",
+          "requires": ["boundary-layer-theory-boundary-layer-development-and-boundar"]
+        },
+        {
+          "id": "boundary-layer-equations",
+          "name": "Boundary Layer Equations",
+          "requires": ["characteristics-of-boundary-layer"]
+        },
+        {
+          "id": "flow-around-bluff-bodies",
+          "name": "Flow around bluff bodies",
+          "requires": ["boundary-layer-equations"]
+        },
+        {
+          "id": "development-of-drag-and-lift-on-aerofoil",
+          "name": "development of drag and lift on aerofoil",
+          "requires": ["flow-around-bluff-bodies"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-fluid-mechanics-laboratory-me"]
+}

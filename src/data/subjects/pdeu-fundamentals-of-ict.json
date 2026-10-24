@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Fundamentals of ICT",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,72 @@
       "topics": [
         {
           "id": "overview-of-ict-evolution-and-trends-in-ict-ict",
-          "name": "Overview of ICT: Evolution and Trends in ICT, ICT Infrastructure and Components, Role of ICT in Modern Society, and Industry"
+          "name": "Overview of ICT: Evolution and Trends in ICT",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ict-infrastructure-and-components",
+          "name": "ICT Infrastructure and Components",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["overview-of-ict-evolution-and-trends-in-ict-ict"]
+        },
+        {
+          "id": "role-of-ict-in-modern-society",
+          "name": "Role of ICT in Modern Society",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ict-infrastructure-and-components"]
+        },
+        {
+          "id": "industry",
+          "name": "Industry",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["role-of-ict-in-modern-society"]
         },
         {
           "id": "type-of-ict-services-software-development-computer",
-          "name": "Type of ICT Services: Software Development, Computer Networking, Telecommunication, Cybersecurity, Data Analytics, Cloud Computing",
-          "requires": ["overview-of-ict-evolution-and-trends-in-ict-ict"]
+          "name": "Type of ICT Services: Software Development",
+          "requires": ["overview-of-ict-evolution-and-trends-in-ict-ict"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "computer-networking",
+          "name": "Computer Networking",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["type-of-ict-services-software-development-computer"]
+        },
+        {
+          "id": "telecommunication",
+          "name": "Telecommunication",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["computer-networking"]
+        },
+        {
+          "id": "cybersecurity",
+          "name": "Cybersecurity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["telecommunication"]
+        },
+        {
+          "id": "data-analytics",
+          "name": "Data Analytics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cybersecurity"]
+        },
+        {
+          "id": "cloud-computing",
+          "name": "Cloud Computing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-analytics"]
         }
       ]
     },
@@ -56,12 +116,72 @@
       "topics": [
         {
           "id": "hardware-technologies-data-processing-hardware-data-input",
-          "name": "Hardware Technologies: Data Processing Hardware, Data Input Hardware, Data Output Hardware, Data Transmission Hardware, Data Storage Hardware"
+          "name": "Hardware Technologies: Data Processing Hardware",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "data-input-hardware",
+          "name": "Data Input Hardware",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hardware-technologies-data-processing-hardware-data-input"]
+        },
+        {
+          "id": "data-output-hardware",
+          "name": "Data Output Hardware",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-input-hardware"]
+        },
+        {
+          "id": "data-transmission-hardware",
+          "name": "Data Transmission Hardware",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-output-hardware"]
+        },
+        {
+          "id": "data-storage-hardware",
+          "name": "Data Storage Hardware",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-transmission-hardware"]
         },
         {
           "id": "software-technologies-firmware-operating-systems-it",
-          "name": "Software Technologies: Firmware, Operating Systems, IT Protocols, Programming Languages, Software Development Methodologies",
-          "requires": ["hardware-technologies-data-processing-hardware-data-input"]
+          "name": "Software Technologies: Firmware",
+          "requires": ["hardware-technologies-data-processing-hardware-data-input"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "operating-systems",
+          "name": "Operating Systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["software-technologies-firmware-operating-systems-it"]
+        },
+        {
+          "id": "it-protocols",
+          "name": "IT Protocols",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["operating-systems"]
+        },
+        {
+          "id": "programming-languages",
+          "name": "Programming Languages",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["it-protocols"]
+        },
+        {
+          "id": "software-development-methodologies",
+          "name": "Software Development Methodologies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["programming-languages"]
         },
         {
           "id": "communication-technologies",
@@ -96,8 +216,17 @@
         },
         {
           "id": "data-management",
+          "name": "data management techniques",
+          "requires": ["data-management-techniques-and-information-security"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "data-management-2",
           "name": "data management",
-          "requires": ["data-management-techniques-and-information-security"]
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-management"]
         },
         {
           "id": "modern-technologies-for-ict-using-artificial-intelligence",
@@ -137,5 +266,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

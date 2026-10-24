@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Green Biotechnology and Pollution Abatement",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,7 +40,44 @@
       "topics": [
         {
           "id": "environmental-degradation-impact-of-anthropogenic-activities",
-          "name": "Environmental degradation, Impact of anthropogenic activities of environment: Land, Water, Air, Forest, Oceans and the coasts"
+          "name": "Environmental degradation",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "impact-of-anthropogenic-activities-of-environment-land",
+          "name": "Impact of anthropogenic activities of environment: Land",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["environmental-degradation-impact-of-anthropogenic-activities"]
+        },
+        {
+          "id": "water",
+          "name": "Water",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["impact-of-anthropogenic-activities-of-environment-land"]
+        },
+        {
+          "id": "air",
+          "name": "Air",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["water"]
+        },
+        {
+          "id": "forest",
+          "name": "Forest",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["air"]
+        },
+        {
+          "id": "oceans-and-the-coasts",
+          "name": "Oceans and the coasts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["forest"]
         },
         {
           "id": "biodiversity-destruction-flora-and-fauna",
@@ -51,6 +88,34 @@
           "id": "disturbance-of-ecological-balance-united-nations-millennium",
           "name": "Disturbance of ecological balance United Nations Millennium ecosystem",
           "requires": ["biodiversity-destruction-flora-and-fauna"]
+        },
+        {
+          "id": "exponential-growth-four-spikes-and-the-reason-for-spikes",
+          "name": "Exponential growth: Four spikes and the reason for spikes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["disturbance-of-ecological-balance-united-nations-millennium"]
+        },
+        {
+          "id": "impact-and-significance-of-exponential-growth",
+          "name": "impact and significance of exponential growth",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["exponential-growth-four-spikes-and-the-reason-for-spikes"]
+        },
+        {
+          "id": "sustainability-of-exponential-growth",
+          "name": "Sustainability of exponential growth",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["impact-and-significance-of-exponential-growth"]
+        },
+        {
+          "id": "ecological-balance-and-ecological-footprint",
+          "name": "Ecological balance and ecological footprint",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sustainability-of-exponential-growth"]
         }
       ]
     },
@@ -70,13 +135,59 @@
         },
         {
           "id": "biochemical-aspects-of-arsenic-cadmium-lead-mercury-carbon",
-          "name": "Biochemical aspects of arsenic, cadmium, lead, mercury, carbon monoxide, ozone and PAN pesticide",
-          "requires": ["their-effects-and-biochemical-interactions"]
+          "name": "Biochemical aspects of arsenic",
+          "requires": ["their-effects-and-biochemical-interactions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cadmium",
+          "name": "cadmium",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biochemical-aspects-of-arsenic-cadmium-lead-mercury-carbon"]
+        },
+        {
+          "id": "lead",
+          "name": "lead",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cadmium"]
+        },
+        {
+          "id": "mercury",
+          "name": "mercury",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lead"]
+        },
+        {
+          "id": "carbon-monoxide",
+          "name": "carbon monoxide",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mercury"]
+        },
+        {
+          "id": "ozone-and-pan-pesticide",
+          "name": "ozone and PAN pesticide",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carbon-monoxide"]
         },
         {
           "id": "mode-of-entry-of-toxic-substance-its-breakdown-and",
-          "name": "Mode of entry of toxic substance, its breakdown and detoxification",
-          "requires": ["biochemical-aspects-of-arsenic-cadmium-lead-mercury-carbon"]
+          "name": "Mode of entry of toxic substance",
+          "requires": ["biochemical-aspects-of-arsenic-cadmium-lead-mercury-carbon"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "its-breakdown-and-detoxification",
+          "name": "its breakdown and detoxification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mode-of-entry-of-toxic-substance-its-breakdown-and"]
         },
         {
           "id": "biotransformation-of-xenobiotics",
@@ -85,13 +196,45 @@
         },
         {
           "id": "insecticides-pesticides-in-environment-mic-effects",
-          "name": "Insecticides / Pesticides in environment, MIC effects",
-          "requires": ["biotransformation-of-xenobiotics"]
+          "name": "Insecticides / Pesticides in environment",
+          "requires": ["biotransformation-of-xenobiotics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "mic-effects",
+          "name": "MIC effects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["insecticides-pesticides-in-environment-mic-effects"]
         },
         {
           "id": "carcinogens-in-environment-chemical-carcinogenicity",
-          "name": "Carcinogens in environment, chemical carcinogenicity, mechanism of carcinogenicity, environmental carcinogenicity testing",
-          "requires": ["insecticides-pesticides-in-environment-mic-effects"]
+          "name": "Carcinogens in environment",
+          "requires": ["insecticides-pesticides-in-environment-mic-effects"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "chemical-carcinogenicity",
+          "name": "chemical carcinogenicity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carcinogens-in-environment-chemical-carcinogenicity"]
+        },
+        {
+          "id": "mechanism-of-carcinogenicity",
+          "name": "mechanism of carcinogenicity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chemical-carcinogenicity"]
+        },
+        {
+          "id": "environmental-carcinogenicity-testing",
+          "name": "environmental carcinogenicity testing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mechanism-of-carcinogenicity"]
         },
         {
           "id": "epidemiological-issues-of-toxic-compounds-and-metal",
@@ -112,7 +255,30 @@
         {
           "id": "sampling",
           "name": "Sampling",
-          "requires": ["definition-and-environmental-monitoring-process"]
+          "requires": ["definition-and-environmental-monitoring-process"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "land-site-sampling",
+          "name": "land (site) sampling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sampling"]
+        },
+        {
+          "id": "water-sampling",
+          "name": "water sampling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["land-site-sampling"]
+        },
+        {
+          "id": "air-sampling",
+          "name": "air sampling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["water-sampling"]
         },
         {
           "id": "land-site-sampling-water-sampling-air-sampling-analysis",
@@ -121,8 +287,17 @@
         },
         {
           "id": "physical-chemical-and-biological-analysis-methods-and",
-          "name": "physical, chemical and biological analysis methods and process Use of microbial population for environmental monitoring",
-          "requires": ["land-site-sampling-water-sampling-air-sampling-analysis"]
+          "name": "physical",
+          "requires": ["land-site-sampling-water-sampling-air-sampling-analysis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "chemical-and-biological-analysis-methods-and-process-use-of",
+          "name": "chemical and biological analysis methods and process Use of microbial population for environmental monitoring",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["physical-chemical-and-biological-analysis-methods-and"]
         },
         {
           "id": "recombinant-dna-technology-and-proteomics",
@@ -141,8 +316,17 @@
         },
         {
           "id": "environment-impact-assessment-eia-complete-process",
-          "name": "Environment Impact Assessment: EIA complete process, Importance of EIA",
-          "requires": ["bioindicators-markers-and-genetic-indicators"]
+          "name": "Environment Impact Assessment: EIA complete process",
+          "requires": ["bioindicators-markers-and-genetic-indicators"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "importance-of-eia",
+          "name": "Importance of EIA",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["environment-impact-assessment-eia-complete-process"]
         }
       ]
     },
@@ -153,17 +337,44 @@
       "topics": [
         {
           "id": "biofilters-bioremediation-biotransformation-and",
-          "name": "Biofilters, Bioremediation, Biotransformation and Biodegradation: In situ and Ex situ bioremediation"
+          "name": "Biofilters",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "evaluating-bioremediation",
-          "name": "Evaluating Bioremediation",
+          "id": "biotransformation-and-biodegradation-in-situ-and-ex-situ-bio",
+          "name": "Biotransformation and Biodegradation: In situ and Ex situ bioremediation",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["biofilters-bioremediation-biotransformation-and"]
         },
         {
-          "id": "bioremediation-of-vocs-factors-affecting-process-of",
-          "name": "Bioremediation of VOCs. Factors affecting process of biodegradation",
+          "id": "evaluating-bioremediation",
+          "name": "Bioremediation",
+          "requires": ["biofilters-bioremediation-biotransformation-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "evaluating-bioremediation-2",
+          "name": "Evaluating Bioremediation",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["evaluating-bioremediation"]
+        },
+        {
+          "id": "bioremediation-of-vocs-factors-affecting-process-of",
+          "name": "Bioremediation of VOCs",
+          "requires": ["evaluating-bioremediation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "factors-affecting-process-of-biodegradation",
+          "name": "Factors affecting process of biodegradation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bioremediation-of-vocs-factors-affecting-process-of"]
         },
         {
           "id": "methods-in-determining-biodegradability",
@@ -192,5 +403,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

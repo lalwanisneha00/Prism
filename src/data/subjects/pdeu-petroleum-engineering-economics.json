@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Petroleum Engineering Economics",
     "note": "Skeleton only: units and topics are PDEU's, copied from the handbook. Lessons are built from the material the student uploads (given by their faculty)."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,44 @@
       "topics": [
         {
           "id": "meaning-and-scope-of-petroleum-engineering-economics",
-          "name": "Meaning and scope of petroleum engineering economics, fundamentals of economics: scarcity and choice"
+          "name": "Meaning and scope of petroleum engineering economics",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fundamentals-of-economics-scarcity-and-choice",
+          "name": "fundamentals of economics: scarcity and choice",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["meaning-and-scope-of-petroleum-engineering-economics"]
         },
         {
           "id": "renewable-vs-non-renewable-role-of-petroleum-sector-in",
-          "name": "renewable vs non-renewable, role of petroleum sector in development, objective of a firm, production possibility curve",
-          "requires": ["meaning-and-scope-of-petroleum-engineering-economics"]
+          "name": "renewable vs non-renewable",
+          "requires": ["meaning-and-scope-of-petroleum-engineering-economics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "role-of-petroleum-sector-in-development",
+          "name": "role of petroleum sector in development",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["renewable-vs-non-renewable-role-of-petroleum-sector-in"]
+        },
+        {
+          "id": "objective-of-a-firm",
+          "name": "objective of a firm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["role-of-petroleum-sector-in-development"]
+        },
+        {
+          "id": "production-possibility-curve",
+          "name": "production possibility curve",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["objective-of-a-firm"]
         },
         {
           "id": "types-of-efficiency",
@@ -65,8 +97,17 @@
         },
         {
           "id": "demand-schedule-demand-curve",
-          "name": "demand schedule, demand curve",
-          "requires": ["law-of-demand-and-exceptions-to-the-law"]
+          "name": "demand schedule",
+          "requires": ["law-of-demand-and-exceptions-to-the-law"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "demand-curve",
+          "name": "demand curve",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["demand-schedule-demand-curve"]
         },
         {
           "id": "law-of-supply-and-exceptions-to-the-law",
@@ -90,8 +131,17 @@
         },
         {
           "id": "elasticity-of-demand-and-supply-game-theory",
-          "name": "elasticity of demand and supply, Game theory",
-          "requires": ["movements-vs-shifts"]
+          "name": "elasticity of demand and supply",
+          "requires": ["movements-vs-shifts"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "game-theory",
+          "name": "Game theory",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["elasticity-of-demand-and-supply-game-theory"]
         }
       ]
     },
@@ -138,7 +188,23 @@
       "topics": [
         {
           "id": "competition-in-fossil-fuel-and-gas-industry-issues-of-energy",
-          "name": "Competition in fossil fuel and gas industry, Issues of energy security, Energy price regulations and mechanism"
+          "name": "Competition in fossil fuel and gas industry",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "issues-of-energy-security",
+          "name": "Issues of energy security",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["competition-in-fossil-fuel-and-gas-industry-issues-of-energy"]
+        },
+        {
+          "id": "energy-price-regulations-and-mechanism",
+          "name": "Energy price regulations and mechanism",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["issues-of-energy-security"]
         },
         {
           "id": "supply-chain-case-studies",
@@ -147,5 +213,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

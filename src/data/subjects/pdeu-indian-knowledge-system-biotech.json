@@ -5,7 +5,7 @@
   "tier": "limited",
   "university": "pdeu",
   "courseCategory": "non-core",
-  "branches": ["biotech"],
+  "branches": ["biotech", "chem", "me"],
   "semesters": [2],
   "code": "24HS103T",
   "credits": 2,
@@ -21,6 +21,26 @@
       "credits": 2,
       "semester": 2,
       "kind": "non-core"
+    },
+    {
+      "branch": "chem",
+      "key": "s2-indian-knowledge-system",
+      "code": "24HS103T",
+      "category": "Program Core",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "me",
+      "key": "s2-indian-knowledge-system",
+      "code": "24HS103T",
+      "category": "Program Core",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 2,
+      "kind": "core"
     }
   ],
   "syllabusSource": {
@@ -28,8 +48,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Indian Knowledge System",
     "note": "Skeleton only: units and topics are PDEU's, copied from the handbook. Lessons are built from the material the student uploads (given by their faculty)."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -85,13 +105,31 @@
         },
         {
           "id": "civil-engineering-urban-planning-water-management",
-          "name": "Civil engineering: Urban planning, water management",
-          "requires": ["engineering-marvels-of-ancient-india"]
+          "name": "Civil engineering: Urban planning",
+          "requires": ["engineering-marvels-of-ancient-india"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "water-management",
+          "name": "water management",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["civil-engineering-urban-planning-water-management"]
         },
         {
           "id": "materials-engineering-sustainable-materials-traditional",
-          "name": "Materials engineering: Sustainable materials, traditional construction techniques Material science and Metallurgy in IKS",
-          "requires": ["civil-engineering-urban-planning-water-management"]
+          "name": "Materials engineering: Sustainable materials",
+          "requires": ["civil-engineering-urban-planning-water-management"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "traditional-construction-techniques-material-science-and-met",
+          "name": "traditional construction techniques Material science and Metallurgy in IKS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["materials-engineering-sustainable-materials-traditional"]
         },
         {
           "id": "mechanical-engineering-robotics-and-automation-in-ancient",
@@ -117,12 +155,65 @@
       "topics": [
         {
           "id": "iks-and-indian-mathematics-algebra-geometry-trignometry",
-          "name": "IKS and Indian Mathematics, Algebra, Geometry, Trignometry, Binary Mathematics, Magic"
+          "name": "IKS and Indian Mathematics",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "algebra",
+          "name": "Algebra",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["iks-and-indian-mathematics-algebra-geometry-trignometry"]
+        },
+        {
+          "id": "geometry",
+          "name": "Geometry",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["algebra"]
+        },
+        {
+          "id": "trignometry",
+          "name": "Trignometry",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["geometry"]
+        },
+        {
+          "id": "binary-mathematics",
+          "name": "Binary Mathematics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["trignometry"]
+        },
+        {
+          "id": "magic",
+          "name": "Magic",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["binary-mathematics"]
         },
         {
           "id": "iks-and-indian-astronomy-pancanga-the-indian-calendar-system",
-          "name": "IKS and Indian Astronomy, Pañcāṅga – The Indian calendar system",
-          "requires": ["iks-and-indian-mathematics-algebra-geometry-trignometry"]
+          "name": "IKS and Indian Astronomy",
+          "requires": ["iks-and-indian-mathematics-algebra-geometry-trignometry"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pa-c-ga",
+          "name": "Pañcāṅga",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["iks-and-indian-astronomy-pancanga-the-indian-calendar-system"]
+        },
+        {
+          "id": "the-indian-calendar-system",
+          "name": "The Indian calendar system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pa-c-ga"]
         },
         {
           "id": "astronomical-instruments-yantras",
@@ -142,8 +233,17 @@
         },
         {
           "id": "concept-of-state-anushashan-parwa-of-mahabharat",
-          "name": "Concept of state, Anushashan Parwa of Mahabharat",
-          "requires": ["indian-administration"]
+          "name": "Concept of state",
+          "requires": ["indian-administration"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "anushashan-parwa-of-mahabharat",
+          "name": "Anushashan Parwa of Mahabharat",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concept-of-state-anushashan-parwa-of-mahabharat"]
         },
         {
           "id": "kautilyas-arthshastra",
@@ -157,15 +257,26 @@
         },
         {
           "id": "iks-and-medicine-ayurveda-a-holistic-approach-to-health-and",
-          "name": "IKS and Medicine: Ayurveda - A Holistic Approach to Health and Wellbeing Note: The detailed syllabus page for this course prints L-T-P-C as 1-0-0-1",
-          "requires": ["social-and-political-philosophies-of-ancient-india"]
+          "name": "IKS and Medicine: Ayurveda",
+          "requires": ["social-and-political-philosophies-of-ancient-india"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "a-holistic-approach-to-health-and-wellbeing",
+          "name": "A Holistic Approach to Health and Wellbeing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["iks-and-medicine-ayurveda-a-holistic-approach-to-health-and"]
         },
         {
           "id": "the-credits-shown-here-follow-the-official-course-structure",
           "name": "the credits shown here follow the official course structure table",
-          "requires": ["iks-and-medicine-ayurveda-a-holistic-approach-to-health-and"]
+          "requires": ["iks-and-medicine-ayurveda-a-holistic-approach-to-health-and"],
+          "status": "retired"
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

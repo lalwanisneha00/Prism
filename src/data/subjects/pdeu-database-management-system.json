@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -80,8 +80,17 @@
         },
         {
           "id": "er-model",
-          "name": "Database Users. Entity-Relationship Model",
-          "requires": ["three-levels-of-the-architecture"]
+          "name": "Database Users",
+          "requires": ["three-levels-of-the-architecture"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "entity-relationship-model",
+          "name": "Entity-Relationship Model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["er-model"]
         },
         {
           "id": "relational-data-model",
@@ -162,7 +171,16 @@
         {
           "id": "sub-queries",
           "name": "sub queries",
-          "requires": ["set-operations"]
+          "requires": ["set-operations"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "correlated-sub-queries-2",
+          "name": "correlated sub-queries",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sub-queries"]
         },
         {
           "id": "correlated-sub-queries",
@@ -227,8 +245,17 @@
         },
         {
           "id": "dependency-theory-functional-dependencies",
-          "name": "dependency theory - functional dependencies",
-          "requires": ["problems-encountered-with-bad-schema-designs"]
+          "name": "dependency theory",
+          "requires": ["problems-encountered-with-bad-schema-designs"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "functional-dependencies",
+          "name": "functional dependencies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dependency-theory-functional-dependencies"]
         },
         {
           "id": "armstrongs-axioms-for-fds",
@@ -252,8 +279,17 @@
         },
         {
           "id": "3nf-and-bcnf-file-organization-sequential",
-          "name": "3NF and BCNF. File Organization: Sequential",
-          "requires": ["2nf"]
+          "name": "3NF and BCNF",
+          "requires": ["2nf"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "file-organization-sequential",
+          "name": "File Organization: Sequential",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["3nf-and-bcnf-file-organization-sequential"]
         },
         {
           "id": "indexed-and-random-file-organization",
@@ -299,7 +335,58 @@
       "topics": [
         {
           "id": "serializability",
-          "name": "ACID properties, Schedules, Serializability, Concurrency control protocols, measures of query cost, selection operation, sorting, join"
+          "name": "ACID properties",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "schedules",
+          "name": "Schedules",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["serializability"]
+        },
+        {
+          "id": "serializability-2",
+          "name": "Serializability",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["schedules"]
+        },
+        {
+          "id": "concurrency-control-protocols",
+          "name": "Concurrency control protocols",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["serializability-2"]
+        },
+        {
+          "id": "measures-of-query-cost",
+          "name": "measures of query cost",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concurrency-control-protocols"]
+        },
+        {
+          "id": "selection-operation",
+          "name": "selection operation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["measures-of-query-cost"]
+        },
+        {
+          "id": "sorting",
+          "name": "sorting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["selection-operation"]
+        },
+        {
+          "id": "join",
+          "name": "join",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sorting"]
         },
         {
           "id": "security-discretionary-and-mandatory-access-control",
@@ -323,10 +410,21 @@
         },
         {
           "id": "data-encryption-introduction-to-nosql-databases",
-          "name": "Data Encryption. Introduction to NOSQL Databases",
-          "requires": ["statistical-databases"]
+          "name": "Data Encryption",
+          "requires": ["statistical-databases"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-nosql-databases",
+          "name": "Introduction to NOSQL Databases",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-encryption-introduction-to-nosql-databases"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-database-management-systems-laboratory-ce"]
 }

@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Hydrology and Water Resources (with lab)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -42,8 +42,24 @@
         },
         {
           "id": "hydrologic-cycle-precipitation-types",
-          "name": "Hydrologic Cycle, Precipitation, Types",
-          "requires": ["introduction"]
+          "name": "Hydrologic Cycle",
+          "requires": ["introduction"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "precipitation",
+          "name": "Precipitation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hydrologic-cycle-precipitation-types"]
+        },
+        {
+          "id": "types",
+          "name": "Types",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["precipitation"]
         },
         {
           "id": "measurement",
@@ -72,8 +88,31 @@
         },
         {
           "id": "evaporation-losses-infiltration-process-capacity-rate",
-          "name": "Evaporation Losses, Infiltration: Process-Capacity-Rate-Capacity Curve-Indices -Computation of Runoff- Unit hydrograph, Flood hydrograph, S-Curve Hydrograph",
-          "requires": ["run-off"]
+          "name": "Evaporation Losses",
+          "requires": ["run-off"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "infiltration-process-capacity-rate-capacity-curve-indices-co",
+          "name": "Infiltration: Process-Capacity-Rate-Capacity Curve-Indices -Computation of Runoff- Unit hydrograph",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["evaporation-losses-infiltration-process-capacity-rate"]
+        },
+        {
+          "id": "flood-hydrograph",
+          "name": "Flood hydrograph",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["infiltration-process-capacity-rate-capacity-curve-indices-co"]
+        },
+        {
+          "id": "s-curve-hydrograph",
+          "name": "S-Curve Hydrograph",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flood-hydrograph"]
         }
       ]
     },
@@ -164,8 +203,17 @@
         },
         {
           "id": "reservoir-planning-definition-and-types",
-          "name": "Reservoir Planning, Definition and Types",
-          "requires": ["river-capacity-and-diversion-channel"]
+          "name": "Reservoir Planning",
+          "requires": ["river-capacity-and-diversion-channel"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "definition-and-types",
+          "name": "Definition and Types",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reservoir-planning-definition-and-types"]
         },
         {
           "id": "capacity-elevation-and-area-elevation-curve",
@@ -179,8 +227,17 @@
         },
         {
           "id": "catchment-and-reservoir-yield-reservoir-capacity-and-methods",
-          "name": "Catchment and Reservoir Yield, Reservoir Capacity and Methods of Finding",
-          "requires": ["storage-zones"]
+          "name": "Catchment and Reservoir Yield",
+          "requires": ["storage-zones"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "reservoir-capacity-and-methods-of-finding",
+          "name": "Reservoir Capacity and Methods of Finding",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["catchment-and-reservoir-yield-reservoir-capacity-and-methods"]
         },
         {
           "id": "hydrologic-reservoir-routing-and-methods",
@@ -189,8 +246,17 @@
         },
         {
           "id": "reservoir-sedimentation-reservoir-losses",
-          "name": "Reservoir Sedimentation, Reservoir Losses",
-          "requires": ["hydrologic-reservoir-routing-and-methods"]
+          "name": "Reservoir Sedimentation",
+          "requires": ["hydrologic-reservoir-routing-and-methods"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "reservoir-losses",
+          "name": "Reservoir Losses",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reservoir-sedimentation-reservoir-losses"]
         }
       ]
     },
@@ -201,7 +267,16 @@
       "topics": [
         {
           "id": "introduction-of-model",
-          "name": "Introduction of model"
+          "name": "Introduction of model",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-of-hydrologic-and-hydrodynamic-model",
+          "name": "Introduction of Hydrologic and Hydrodynamic model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-of-model"]
         },
         {
           "id": "types-of-models-introduction-of-hydrologic-and-hydrodynamic",
@@ -221,9 +296,12 @@
         {
           "id": "laboratory",
           "name": "Laboratory",
-          "requires": ["drone-application-in-water-resource-engineering"]
+          "requires": ["drone-application-in-water-resource-engineering"],
+          "status": "retired"
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-hydrology-and-water-resources-engineering-laboratory-civil"]
 }

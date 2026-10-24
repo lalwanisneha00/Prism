@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 9 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,7 +41,8 @@
       "topics": [
         {
           "id": "complex-numbers",
-          "name": "Complex numbers"
+          "name": "Complex numbers",
+          "status": "retired"
         },
         {
           "id": "function-of-a-complex-variable",
@@ -56,17 +57,20 @@
         {
           "id": "cauchy-riemann-equations",
           "name": "Cauchy-Riemann equations",
-          "requires": ["analytic-functions-cauchy-riemann"]
+          "requires": ["analytic-functions-cauchy-riemann"],
+          "status": "retired"
         },
         {
           "id": "conformal-mapping-and-its-type",
           "name": "Conformal mapping and its type",
-          "requires": ["cauchy-riemann-equations"]
+          "requires": ["cauchy-riemann-equations"],
+          "status": "retired"
         },
         {
           "id": "some-standard-and-special-conformal-mappings",
           "name": "Some standard & special conformal mappings",
-          "requires": ["conformal-mapping-and-its-type"]
+          "requires": ["conformal-mapping-and-its-type"],
+          "status": "retired"
         },
         {
           "id": "line-integrals",
@@ -96,7 +100,135 @@
         {
           "id": "evaluation-of-real-definite-integrals",
           "name": "Evaluation of real definite integrals",
-          "requires": ["calculation-of-residues"]
+          "requires": ["calculation-of-residues"],
+          "status": "retired"
+        },
+        {
+          "id": "limit",
+          "name": "Limit",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["evaluation-of-real-definite-integrals"]
+        },
+        {
+          "id": "continuity",
+          "name": "Continuity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["limit"]
+        },
+        {
+          "id": "cauchy-riemann-equation-in-cartesian-coordinates",
+          "name": "Cauchy-Riemann equation (in Cartesian coordinates)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["continuity"]
+        },
+        {
+          "id": "harmonic-function-and-its-significance",
+          "name": "Harmonic function and its significance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cauchy-riemann-equation-in-cartesian-coordinates"]
+        },
+        {
+          "id": "singularities",
+          "name": "Singularities",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["harmonic-function-and-its-significance"]
+        },
+        {
+          "id": "contour-integrals",
+          "name": "Contour integrals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["singularities"]
+        },
+        {
+          "id": "cif-for-derivatives",
+          "name": "CIF for derivatives",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["contour-integrals"]
+        },
+        {
+          "id": "taylor-s-series-and-laurent-series",
+          "name": "Taylor’s series and Laurent Series",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cif-for-derivatives"]
+        },
+        {
+          "id": "applications-of-residues-to-evaluate-real-definite-integrals",
+          "name": "Applications of residues to evaluate real definite integrals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["taylor-s-series-and-laurent-series"]
+        }
+      ]
+    },
+    {
+      "id": "matrix-algebra-and-its-applications",
+      "name": "Matrix Algebra and Its Applications",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "solution-of-system-of-algebraic-equation",
+          "name": "Solution of system of algebraic equation",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "rank-of-a-matrix",
+          "name": "Rank of a matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["solution-of-system-of-algebraic-equation"]
+        },
+        {
+          "id": "consistency-of-system-of-equation",
+          "name": "consistency of system of equation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rank-of-a-matrix"]
+        },
+        {
+          "id": "characteristic-equation-of-a-square-matrixeigen-values-and-e",
+          "name": "Characteristic equation of a square matrixEigen values and Eigenvectors of a real matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["consistency-of-system-of-equation"]
+        },
+        {
+          "id": "properties-of-eigen-values-and-eigen-vectors",
+          "name": "Properties of Eigen values and Eigen vectors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characteristic-equation-of-a-square-matrixeigen-values-and-e"]
+        },
+        {
+          "id": "cayley-hamilton-theorem-without-proof",
+          "name": "Cayley-Hamilton theorem (without proof)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["properties-of-eigen-values-and-eigen-vectors"]
+        },
+        {
+          "id": "finding-inverse-of-a-matrix",
+          "name": "finding inverse of a matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cayley-hamilton-theorem-without-proof"]
+        },
+        {
+          "id": "diagonalization-of-a-matrix",
+          "name": "Diagonalization of a matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["finding-inverse-of-a-matrix"]
         }
       ]
     },
@@ -112,12 +244,22 @@
         {
           "id": "independence-and-dependence-of-functions",
           "name": "Independence and dependence of functions",
-          "requires": ["linear-first-order-ode"]
+          "requires": ["linear-first-order-ode"],
+          "status": "retired"
         },
         {
           "id": "higher-order-linear-ode",
-          "name": "Higher order differential equations with constant, coefficient, Rules for finding C.F. and P.I., Method of variation of parameter, and method of undermined coefficients, Cauchy and Legendre’s linear e",
-          "requires": ["linear-first-order-ode"]
+          "name": "Rules for finding C.F. and P.I",
+          "requires": ["linear-first-order-ode"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cauchy-and-legendre-s-linear-equations",
+          "name": "Cauchy and Legendre's linear equations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["higher-order-linear-ode"]
         },
         {
           "id": "simultaneous-linear-equations-with-constant-coefficients",
@@ -128,6 +270,77 @@
           "id": "various-applications-of-higher-order-differential-equations",
           "name": "Various applications of higher order differential equations in solution of engineering problems, Orthogonal trajectories",
           "requires": ["simultaneous-linear-equations-with-constant-coefficients"]
+        },
+        {
+          "id": "method-of-variation-of-parameters",
+          "name": "Method of variation of parameters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["various-applications-of-higher-order-differential-equations"]
+        }
+      ]
+    },
+    {
+      "id": "fourier-series",
+      "name": "Fourier Series",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "periodic-functions",
+          "name": "Periodic functions",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "odd-and-even-functions",
+          "name": "Odd and even functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["periodic-functions"]
+        },
+        {
+          "id": "euler-s-formulae-for-fourier-series-in-an-interval-of-length",
+          "name": "Euler’s formulae for Fourier series in an interval of length 2 pi",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["odd-and-even-functions"]
+        },
+        {
+          "id": "change-of-interval",
+          "name": "Change of interval",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["euler-s-formulae-for-fourier-series-in-an-interval-of-length"]
+        },
+        {
+          "id": "dirichlet-s-conditions",
+          "name": "Dirichlet’s conditions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["change-of-interval"]
+        },
+        {
+          "id": "half-range-sine-and-cosine-series",
+          "name": "Half range Sine and Cosine series",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dirichlet-s-conditions"]
+        },
+        {
+          "id": "complex-fourier-series",
+          "name": "Complex Fourier series",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["half-range-sine-and-cosine-series"]
+        },
+        {
+          "id": "parseval-s-identity-and-its-applications",
+          "name": "Parseval’s identity and its applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["complex-fourier-series"]
         }
       ]
     },
@@ -165,7 +378,8 @@
           "name": "Rules for finding C.F. & P.I",
           "requires": ["homogeneous-and-non-homogeneous-linear-p-d-e-with-constant"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "laplace-transforms",
@@ -211,7 +425,9 @@
           "name": "Applications for solving differential equations",
           "requires": ["convolution"]
         }
-      ]
+      ],
+      "status": "retired"
     }
-  ]
+  ],
+  "courseType": "theory"
 }

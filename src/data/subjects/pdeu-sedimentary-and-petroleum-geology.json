@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "civil",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,7 +41,44 @@
       "topics": [
         {
           "id": "basins-and-formation-of-sediments-grain-transportation-and",
-          "name": "Basins and formation of sediments, Grain transportation and its deposition, Hjoulstorm curve, Sediment texture (Size, Shape, sorting)"
+          "name": "Basins and formation of sediments",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "grain-transportation-and-its-deposition",
+          "name": "Grain transportation and its deposition",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basins-and-formation-of-sediments-grain-transportation-and"]
+        },
+        {
+          "id": "hjoulstorm-curve",
+          "name": "Hjoulstorm curve",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["grain-transportation-and-its-deposition"]
+        },
+        {
+          "id": "sediment-texture-size",
+          "name": "Sediment texture (Size",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hjoulstorm-curve"]
+        },
+        {
+          "id": "shape",
+          "name": "Shape",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sediment-texture-size"]
+        },
+        {
+          "id": "sorting",
+          "name": "sorting)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["shape"]
         },
         {
           "id": "porosity",
@@ -55,20 +92,54 @@
         },
         {
           "id": "paleocurrent-analysis-diagenesis-fundamentals-of-fluid-flow",
-          "name": "Paleocurrent analysis, diagenesis, fundamentals of fluid flow (Reynolds no; Froude no.)",
-          "requires": ["carbonate-rock-and-its-porosity"]
+          "name": "Paleocurrent analysis",
+          "requires": ["carbonate-rock-and-its-porosity"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "diagenesis",
+          "name": "diagenesis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["paleocurrent-analysis-diagenesis-fundamentals-of-fluid-flow"]
+        },
+        {
+          "id": "fundamentals-of-fluid-flow-reynolds-no",
+          "name": "fundamentals of fluid flow (Reynolds no",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["diagenesis"]
+        },
+        {
+          "id": "froude-no",
+          "name": "Froude no.)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fundamentals-of-fluid-flow-reynolds-no"]
         },
         {
           "id": "flow-regimes-upper-flow-regime-lower-flow-regime",
-          "name": "Flow Regimes (Upper flow regime; Lower flow regime)",
-          "requires": ["paleocurrent-analysis-diagenesis-fundamentals-of-fluid-flow"]
+          "name": "Flow Regimes (Upper flow regime",
+          "requires": ["paleocurrent-analysis-diagenesis-fundamentals-of-fluid-flow"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lower-flow-regime",
+          "name": "Lower flow regime)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flow-regimes-upper-flow-regime-lower-flow-regime"]
         },
         {
           "id": "introduction-to-unidirectional-flows-and-oscillatory-flows",
           "name": "Introduction to Unidirectional flows and oscillatory flows",
           "requires": ["flow-regimes-upper-flow-regime-lower-flow-regime"]
         }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     },
     {
       "id": "unit-2",
@@ -77,7 +148,16 @@
       "topics": [
         {
           "id": "bedforms-formed-under-unidirectional-flow",
-          "name": "Bedforms formed under unidirectional flow"
+          "name": "Bedforms formed under unidirectional flow",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bedforms-formed-under-oscillatory-flow-2",
+          "name": "Bedforms formed under Oscillatory flow",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bedforms-formed-under-unidirectional-flow"]
         },
         {
           "id": "bedforms-formed-under-oscillatory-flow",
@@ -96,8 +176,38 @@
         },
         {
           "id": "interpretation-of-sedimentary-environment-especially",
-          "name": "Interpretation of Sedimentary environment especially, Sedimentology (Grain size, sorting), Sand distribution, Sand geometry, Porosity-permeability trends in reservoirs formed in Continental (Alluvial ",
-          "requires": ["interpreting-depositional-environment-from-outcrops-and"]
+          "name": "Interpretation of Sedimentary environment especially",
+          "requires": ["interpreting-depositional-environment-from-outcrops-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "sedimentology-grain-size",
+          "name": "Sedimentology (Grain size",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["interpretation-of-sedimentary-environment-especially"]
+        },
+        {
+          "id": "sorting-2",
+          "name": "sorting)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sedimentology-grain-size"]
+        },
+        {
+          "id": "sand-distribution",
+          "name": "Sand distribution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sorting-2"]
+        },
+        {
+          "id": "sand-geometry",
+          "name": "Sand geometry",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sand-distribution"]
         },
         {
           "id": "delta-and-estuary-system",
@@ -118,8 +228,24 @@
           "id": "selected-case-studies-of-each-environment",
           "name": "Selected case studies of each environment",
           "requires": ["shelf-and-deep-and-ultra-deep-sedimentary-environments"]
+        },
+        {
+          "id": "porosity-permeability-trends-in-reservoirs-formed-in-contine",
+          "name": "Porosity-permeability trends in reservoirs formed in Continental (Alluvial Fan",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["selected-case-studies-of-each-environment"]
+        },
+        {
+          "id": "fluvial-system-meandering-and-braided",
+          "name": "Fluvial System-Meandering and Braided)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["porosity-permeability-trends-in-reservoirs-formed-in-contine"]
         }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     },
     {
       "id": "unit-3",
@@ -137,8 +263,31 @@
         },
         {
           "id": "kerogen-and-its-types-maturation-of-kerogene-thermal",
-          "name": "Kerogen and its types, Maturation of Kerogene, Thermal maturity indicators, Migration of Hydrocarbons",
-          "requires": ["organic-matter-and-its-composition"]
+          "name": "Kerogen and its types",
+          "requires": ["organic-matter-and-its-composition"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "maturation-of-kerogene",
+          "name": "Maturation of Kerogene",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["kerogen-and-its-types-maturation-of-kerogene-thermal"]
+        },
+        {
+          "id": "thermal-maturity-indicators",
+          "name": "Thermal maturity indicators",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["maturation-of-kerogene"]
+        },
+        {
+          "id": "migration-of-hydrocarbons",
+          "name": "Migration of Hydrocarbons",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermal-maturity-indicators"]
         },
         {
           "id": "primary-migration-theories-and-reasons",
@@ -162,10 +311,21 @@
         },
         {
           "id": "effect-of-isopotential-surfaces-identifying-migration",
-          "name": "effect of isopotential surfaces, identifying migration pathways",
-          "requires": ["migration-under-hydrostatic-and-hydrodynamic-conditions"]
+          "name": "effect of isopotential surfaces",
+          "requires": ["migration-under-hydrostatic-and-hydrodynamic-conditions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "identifying-migration-pathways",
+          "name": "identifying migration pathways",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["effect-of-isopotential-surfaces-identifying-migration"]
         }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     },
     {
       "id": "unit-4",
@@ -188,13 +348,23 @@
         },
         {
           "id": "petroleum-traps",
-          "name": "Traps (Structural; Stratigraphic and combined traps)",
-          "requires": ["seal-and-cap-rock-characterization"]
+          "name": "Traps (Structural",
+          "requires": ["seal-and-cap-rock-characterization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "stratigraphic-and-combined-traps",
+          "name": "Stratigraphic and combined traps)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["petroleum-traps"]
         },
         {
           "id": "total-petroleum-system",
           "name": "Total petroleum System",
-          "requires": ["petroleum-traps"]
+          "requires": ["petroleum-traps"],
+          "status": "retired"
         },
         {
           "id": "evaluation-of-a-petroliferous-sedimentary-basin",
@@ -213,10 +383,23 @@
         },
         {
           "id": "mumbai-high-b-clastic-reservoir-assam-cambay-c-evaporitic",
-          "name": "Mumbai-High (b) Clastic reservoir: Assam, Cambay (c) Evaporitic reservoir: Bikaner-Nagur Basin",
-          "requires": ["selected-case-study-on-a-carbonate-reservoir-field-ghawar"]
+          "name": "Mumbai-High (b) Clastic reservoir: Assam",
+          "requires": ["selected-case-study-on-a-carbonate-reservoir-field-ghawar"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cambay-c-evaporitic-reservoir-bikaner-nagur-basin",
+          "name": "Cambay (c) Evaporitic reservoir: Bikaner-Nagur Basin",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mumbai-high-b-clastic-reservoir-assam-cambay-c-evaporitic"]
         }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-sedimentary-and-petroleum-geology-laboratory-petro"]
 }

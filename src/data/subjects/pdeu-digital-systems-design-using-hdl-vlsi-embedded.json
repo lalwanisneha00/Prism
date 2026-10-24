@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Digital Systems Design using HDL (VLSI/Embedded)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -38,17 +38,65 @@
       "topics": [
         {
           "id": "review-of-combinational-and-sequential-logic-design-moore",
-          "name": "Review of Combinational and Sequential logic design, Moore and Mealy machine, Design of synchronous sequential circuits"
+          "name": "Review of Combinational and Sequential logic design",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "state-diagram-state-table-state-table-assignment-and",
-          "name": "state diagram, state table, state table assignment and reduction, design of iterative circuits",
+          "id": "moore-and-mealy-machine",
+          "name": "Moore and Mealy machine",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["review-of-combinational-and-sequential-logic-design-moore"]
         },
         {
-          "id": "asm-chart-and-realization-of-asm-chart-timing-issues-in",
-          "name": "ASM chart and realization of ASM chart, Timing issues in sequential circuits",
+          "id": "design-of-synchronous-sequential-circuits",
+          "name": "Design of synchronous sequential circuits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["moore-and-mealy-machine"]
+        },
+        {
+          "id": "state-diagram-state-table-state-table-assignment-and",
+          "name": "state diagram",
+          "requires": ["review-of-combinational-and-sequential-logic-design-moore"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "state-table",
+          "name": "state table",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["state-diagram-state-table-state-table-assignment-and"]
+        },
+        {
+          "id": "state-table-assignment-and-reduction",
+          "name": "state table assignment and reduction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["state-table"]
+        },
+        {
+          "id": "design-of-iterative-circuits",
+          "name": "design of iterative circuits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["state-table-assignment-and-reduction"]
+        },
+        {
+          "id": "asm-chart-and-realization-of-asm-chart-timing-issues-in",
+          "name": "ASM chart and realization of ASM chart",
+          "requires": ["state-diagram-state-table-state-table-assignment-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "timing-issues-in-sequential-circuits",
+          "name": "Timing issues in sequential circuits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["asm-chart-and-realization-of-asm-chart-timing-issues-in"]
         }
       ]
     },
@@ -103,8 +151,17 @@
         },
         {
           "id": "gate-level-modelling-introduction-and-gate-primitive",
-          "name": "Gate level modelling: Introduction, AND Gate Primitive",
-          "requires": ["test-bench"]
+          "name": "Gate level modelling: Introduction",
+          "requires": ["test-bench"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gate-primitive",
+          "name": "Gate Primitive",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gate-level-modelling-introduction-and-gate-primitive"]
         },
         {
           "id": "module-structure",
@@ -185,6 +242,13 @@
           "id": "operators",
           "name": "Operators",
           "requires": ["assignment-to-vectors"]
+        },
+        {
+          "id": "gate-level-and-data-flowintroduction",
+          "name": "GATE LEVEL AND DATA FLOWIntroduction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["operators"]
         }
       ]
     },
@@ -195,7 +259,8 @@
       "topics": [
         {
           "id": "introduction",
-          "name": "Introduction"
+          "name": "Introduction",
+          "status": "retired"
         },
         {
           "id": "operations-and-assignments",
@@ -265,7 +330,23 @@
         {
           "id": "for-loop",
           "name": "for loop",
-          "requires": ["repeat-construct"]
+          "requires": ["repeat-construct"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "while-loop-2",
+          "name": "while loop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["for-loop"]
+        },
+        {
+          "id": "forever-loop-2",
+          "name": "forever loop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["while-loop-2"]
         },
         {
           "id": "the-disable-construct",
@@ -306,6 +387,13 @@
           "id": "rom",
           "name": "ROM",
           "requires": ["memory-modelling-ram"]
+        },
+        {
+          "id": "behavioural-modelling-introduction",
+          "name": "BEHAVIOURAL MODELLING Introduction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rom"]
         }
       ]
     },
@@ -331,12 +419,30 @@
         {
           "id": "timing-models",
           "name": "timing models",
-          "requires": ["logic-block-architecture-fpga-logic-cells"]
+          "requires": ["logic-block-architecture-fpga-logic-cells"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "timing-2",
+          "name": "Timing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["timing-models"]
         },
         {
           "id": "power-dissipation",
           "name": "power dissipation",
-          "requires": ["timing-models"]
+          "requires": ["timing-models"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "power-dissipation-2",
+          "name": "Power dissipation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["power-dissipation"]
         },
         {
           "id": "i-o-block-architecture-input-and-output-cell-characteristics",
@@ -355,8 +461,17 @@
         },
         {
           "id": "programmable-interconnect-partitioning-and-placement",
-          "name": "Programmable interconnect - Partitioning and Placement",
-          "requires": ["timing"]
+          "name": "Programmable interconnect",
+          "requires": ["timing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "partitioning-and-placement",
+          "name": "Partitioning and Placement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["programmable-interconnect-partitioning-and-placement"]
         },
         {
           "id": "routing-resources",
@@ -390,5 +505,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

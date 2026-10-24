@@ -47,8 +47,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 13 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -69,7 +69,8 @@
         {
           "id": "total-derivative-chain-rule",
           "name": "Total derivatives",
-          "requires": ["partial-derivatives"]
+          "requires": ["partial-derivatives"],
+          "status": "retired"
         },
         {
           "id": "jacobians",
@@ -83,8 +84,17 @@
         },
         {
           "id": "power-series",
-          "name": "Taylor’s series, Convergence of power series",
-          "requires": ["maxima-minima-two-variables"]
+          "name": "Taylor’s series",
+          "requires": ["maxima-minima-two-variables"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "convergence-of-power-series",
+          "name": "Convergence of power series",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["power-series"]
         }
       ]
     },
@@ -95,8 +105,17 @@
       "topics": [
         {
           "id": "double-integrals",
-          "name": "Definition and evaluation of double integral (Cartesian - Polar form)",
-          "requires": ["partial-derivatives"]
+          "name": "Definition and evaluation of double integral (Cartesian",
+          "requires": ["partial-derivatives"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "polar-form",
+          "name": "Polar form)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["double-integrals"]
         },
         {
           "id": "change-of-order",
@@ -106,17 +125,44 @@
         {
           "id": "change-of-variables",
           "name": "Change of variables",
-          "requires": ["change-of-order"]
+          "requires": ["change-of-order"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "change-of-variables-cartesian-to-spherical",
+          "name": "change of variables (Cartesian to spherical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["change-of-variables"]
         },
         {
           "id": "triple-integrals",
-          "name": "Evaluation of triple integral, change of variables (Cartesian to spherical - and cylindrical)",
-          "requires": ["double-integrals"]
+          "name": "Evaluation of triple integral",
+          "requires": ["double-integrals"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cylindrical",
+          "name": "cylindrical)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["triple-integrals"]
         },
         {
           "id": "applications-area",
-          "name": "Applications, area",
-          "requires": ["triple-integrals"]
+          "name": "Applications",
+          "requires": ["triple-integrals"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "area",
+          "name": "area",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applications-area"]
         },
         {
           "id": "volume",
@@ -142,8 +188,17 @@
       "topics": [
         {
           "id": "gradient-divergence-curl",
-          "name": "Gradient, divergence and curl",
-          "requires": ["partial-derivatives"]
+          "name": "Gradient",
+          "requires": ["partial-derivatives"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "divergence-and-curl",
+          "name": "divergence and curl",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gradient-divergence-curl"]
         },
         {
           "id": "directional-derivative",
@@ -162,13 +217,31 @@
         },
         {
           "id": "line-integrals",
-          "name": "Simple problems on line, surface and volume integrals",
-          "requires": ["gradient-divergence-curl"]
+          "name": "Simple problems on line",
+          "requires": ["gradient-divergence-curl"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "surface-and-volume-integrals",
+          "name": "surface and volume integrals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["line-integrals"]
         },
         {
           "id": "divergence-theorem",
-          "name": "Green’s theorem in a plane, Gauss divergence theorem and Stokes’ theorem (without proofs)",
-          "requires": ["triple-integrals"]
+          "name": "Green’s theorem in a plane",
+          "requires": ["triple-integrals"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gauss-divergence-theorem-and-stokes-theorem-without-proofs",
+          "name": "Gauss divergence theorem and Stokes’ theorem (without proofs)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["divergence-theorem"]
         },
         {
           "id": "simple-application-involving-cubes-and-rectangular",
@@ -184,7 +257,16 @@
       "topics": [
         {
           "id": "definition-convergent",
-          "name": "Definition. Convergent"
+          "name": "Definition",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "convergent",
+          "name": "Convergent",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["definition-convergent"]
         },
         {
           "id": "divergent",
@@ -193,8 +275,17 @@
         },
         {
           "id": "bounded-and-monotone-sequences-infinite-sums-basics-taylor",
-          "name": "bounded & monotone sequences. Infinite sums: Basics Taylor series",
-          "requires": ["divergent"]
+          "name": "bounded & monotone sequences",
+          "requires": ["divergent"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "infinite-sums-basics-taylor-series",
+          "name": "Infinite sums: Basics Taylor series",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bounded-and-monotone-sequences-infinite-sums-basics-taylor"]
         },
         {
           "id": "convergence-and-divergence",
@@ -208,8 +299,17 @@
         },
         {
           "id": "alternating-series-leibnitz-test",
-          "name": "Alternating series – Leibnitz test",
-          "requires": ["tests-for-convergence-for-positive-term-series"]
+          "name": "Alternating series",
+          "requires": ["tests-for-convergence-for-positive-term-series"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "leibnitz-test",
+          "name": "Leibnitz test",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["alternating-series-leibnitz-test"]
         },
         {
           "id": "absolute-convergence",
@@ -223,5 +323,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -1,0 +1,101 @@
+{
+  "id": "pdeu-industry-4-0-laboratory-ce",
+  "name": "Industry 4.0 Laboratory",
+  "field": "Industry 4.0 Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (COMP semester 7): Industry 4.0 Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 7 of COMP/sem7/CE_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CS401P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s7-industry-4-0-laboratory-department-specific",
+      "code": "24CS401P",
+      "category": "Engineering Science",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-introduction-to-programming-basic-computations",
+          "name": "Introduction to programming - Basic computations using Python programming",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-introduction-to-interfacing-introduction-to-int",
+          "name": "Introduction to interfacing - Introduction to Interfacing of Basic I/O devices",
+          "number": 2,
+          "requires": ["experiment-1-introduction-to-programming-basic-computations"]
+        },
+        {
+          "id": "experiment-3-internet-of-thing-study-designing-the-publish-s",
+          "name": "Internet of Thing Study - Designing the Publish Subscribe system using MQTT and Paho on Mosquito Broker",
+          "number": 3,
+          "requires": ["experiment-2-introduction-to-interfacing-introduction-to-int"]
+        },
+        {
+          "id": "experiment-4-understanding-of-interface-and-controller-demo",
+          "name": "Understanding of Interface and Controller- Demo of Interfacing and controlling LED using MQTT protocol and HIVEMQ broker",
+          "number": 4,
+          "requires": ["experiment-3-internet-of-thing-study-designing-the-publish-s"]
+        },
+        {
+          "id": "experiment-5-communication-protocol-demo-of-interfacing-blue",
+          "name": "Communication protocol – Demo of Interfacing Bluetooth/ GSM module with Arduino platform",
+          "number": 5,
+          "requires": ["experiment-4-understanding-of-interface-and-controller-demo"]
+        },
+        {
+          "id": "experiment-6-machine-learning-in-industry-4-0-implementing-a",
+          "name": "Machine Learning in Industry 4.0 – Implementing a Basic Machine Learning Model on Arduino",
+          "number": 6,
+          "requires": ["experiment-5-communication-protocol-demo-of-interfacing-blue"]
+        },
+        {
+          "id": "experiment-7-cloud-computing-in-industry-4-0-study-of-contai",
+          "name": "Cloud Computing in Industry 4.0 – Study of Containerising a python application using docker",
+          "number": 7,
+          "requires": ["experiment-6-machine-learning-in-industry-4-0-implementing-a"]
+        },
+        {
+          "id": "experiment-8-learning-of-uavs-drones-uavs-application-progra",
+          "name": "Learning of UAVs/Drones – UAVs application programming using python",
+          "number": 8,
+          "requires": ["experiment-7-cloud-computing-in-industry-4-0-study-of-contai"]
+        },
+        {
+          "id": "experiment-9-development-of-application-for-industry-4-0-dem",
+          "name": "Development of application for Industry 4.0 - Demo of line follower autonomous vehicle.",
+          "number": 9,
+          "requires": ["experiment-8-learning-of-uavs-drones-uavs-application-progra"]
+        },
+        {
+          "id": "experiment-10-collaborative-learning-case-studies-project-ba",
+          "name": "Collaborative Learning – Case studies/Project based on topics in Unit 4.",
+          "number": 10,
+          "requires": ["experiment-9-development-of-application-for-industry-4-0-dem"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-industry-4-0-department-specific-ce"]
+}

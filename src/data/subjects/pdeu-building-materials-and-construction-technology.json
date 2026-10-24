@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Building Materials and Construction Technology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -47,13 +47,31 @@
         },
         {
           "id": "aggregates-types-and-properties-artificial-cement-types-and",
-          "name": "aggregates types and properties. Artificial: cement types and properties",
-          "requires": ["brick"]
+          "name": "aggregates types and properties",
+          "requires": ["brick"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "artificial-cement-types-and-properties",
+          "name": "Artificial: cement types and properties",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["aggregates-types-and-properties-artificial-cement-types-and"]
         },
         {
           "id": "concrete-blocks-lwc-aac-admixtures",
-          "name": "concrete blocks (LWC, AAC) admixtures",
-          "requires": ["aggregates-types-and-properties-artificial-cement-types-and"]
+          "name": "concrete blocks (LWC",
+          "requires": ["aggregates-types-and-properties-artificial-cement-types-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "aac-admixtures",
+          "name": "AAC) admixtures",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concrete-blocks-lwc-aac-admixtures"]
         },
         {
           "id": "supplementary-cementitious-materials",
@@ -168,8 +186,24 @@
         },
         {
           "id": "roof-truss-terrace-prefab-roof",
-          "name": "roof (truss, terrace, prefab roof)",
-          "requires": ["flooring"]
+          "name": "roof (truss",
+          "requires": ["flooring"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "terrace",
+          "name": "terrace",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["roof-truss-terrace-prefab-roof"]
+        },
+        {
+          "id": "prefab-roof",
+          "name": "prefab roof)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["terrace"]
         },
         {
           "id": "bridges",
@@ -214,8 +248,17 @@
         },
         {
           "id": "scaffoldings-erection-and-dismantling",
-          "name": "scaffoldings – erection and dismantling",
-          "requires": ["brick-masonry"]
+          "name": "scaffoldings",
+          "requires": ["brick-masonry"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "erection-and-dismantling",
+          "name": "erection and dismantling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scaffoldings-erection-and-dismantling"]
         },
         {
           "id": "damp-and-water-proofing",
@@ -239,8 +282,17 @@
         },
         {
           "id": "termite-proofing-and-fire-proof",
-          "name": "termite proofing, and fire proof",
-          "requires": ["waterproofing"]
+          "name": "termite proofing",
+          "requires": ["waterproofing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fire-proof",
+          "name": "fire proof",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["termite-proofing-and-fire-proof"]
         },
         {
           "id": "thermal-and-sound-insulation",
@@ -325,5 +377,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

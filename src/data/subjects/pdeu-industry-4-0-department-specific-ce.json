@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Industry 4.0 (Department Specific)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -119,8 +119,24 @@
         },
         {
           "id": "transformation-of-industrial-processes-through-the",
-          "name": "Transformation of industrial processes through the integration of modern technologies such as sensing and actuation, communication, and computational processing",
-          "requires": ["additive-manufacturing-and-augmented-reality"]
+          "name": "Transformation of industrial processes through the integration of modern technologies such as sensing and actuation",
+          "requires": ["additive-manufacturing-and-augmented-reality"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "communication",
+          "name": "communication",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transformation-of-industrial-processes-through-the"]
+        },
+        {
+          "id": "computational-processing",
+          "name": "computational processing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["communication"]
         }
       ]
     },
@@ -272,5 +288,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-industry-4-0-laboratory-ce"]
 }

@@ -1,0 +1,240 @@
+{
+  "id": "pdeu-chemical-reaction-engineering-1-chem",
+  "name": "Chemical Reaction Engineering - 1",
+  "field": "Chemical Reaction Engineering - 1",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 5): Chemical Reaction Engineering - 1",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of CHEM/sem5/Chemical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH302T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s5-chemical-reaction-engineering-1",
+      "code": "24CH302T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "basics-of-kinetics",
+      "name": "Basics of Kinetics",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "mole-balances",
+          "name": "Mole balances"
+        },
+        {
+          "id": "kinetics-of-homogeneous-reactions",
+          "name": "kinetics of homogeneous reactions",
+          "requires": ["mole-balances"]
+        },
+        {
+          "id": "rate-of-reaction",
+          "name": "rate of reaction",
+          "requires": ["kinetics-of-homogeneous-reactions"]
+        },
+        {
+          "id": "types-of-reactions",
+          "name": "types of reactions",
+          "requires": ["rate-of-reaction"]
+        },
+        {
+          "id": "reaction-mechanism",
+          "name": "reaction mechanism",
+          "requires": ["types-of-reactions"]
+        },
+        {
+          "id": "temperature-and-concentration-dependent-terms-of-a-rate-equa",
+          "name": "temperature and concentration dependent terms of a rate equation",
+          "requires": ["reaction-mechanism"]
+        },
+        {
+          "id": "searching-for-a-reaction-mechanism",
+          "name": "searching for a reaction mechanism",
+          "requires": ["temperature-and-concentration-dependent-terms-of-a-rate-equa"]
+        },
+        {
+          "id": "rate-law-and-stoichiometry",
+          "name": "rate law and stoichiometry",
+          "requires": ["searching-for-a-reaction-mechanism"]
+        },
+        {
+          "id": "concentration-and-conversion-change",
+          "name": "concentration and conversion change",
+          "requires": ["rate-law-and-stoichiometry"]
+        },
+        {
+          "id": "introduction-to-batch-and-continuous-reactor-systems",
+          "name": "introduction to batch and continuous reactor systems",
+          "requires": ["concentration-and-conversion-change"]
+        },
+        {
+          "id": "sizing-and-characteristics-of-reactors",
+          "name": "sizing and characteristics of reactors",
+          "requires": ["introduction-to-batch-and-continuous-reactor-systems"]
+        }
+      ]
+    },
+    {
+      "id": "analysis-of-rate-data",
+      "name": "Analysis of Rate Data",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "collection-and-analysis-of-rate-data",
+          "name": "Collection and analysis of rate data"
+        },
+        {
+          "id": "integral-and-differential-methods-of-analysis-of-data",
+          "name": "integral and differential methods of analysis of data",
+          "requires": ["collection-and-analysis-of-rate-data"]
+        },
+        {
+          "id": "batch-reactor-data",
+          "name": "batch reactor data",
+          "requires": ["integral-and-differential-methods-of-analysis-of-data"]
+        },
+        {
+          "id": "variable-and-constant-volume-systems",
+          "name": "variable and constant volume systems",
+          "requires": ["batch-reactor-data"]
+        },
+        {
+          "id": "method-of-initial-rates",
+          "name": "method of initial rates",
+          "requires": ["variable-and-constant-volume-systems"]
+        },
+        {
+          "id": "method-of-half-life",
+          "name": "method of half-life",
+          "requires": ["method-of-initial-rates"]
+        },
+        {
+          "id": "differential-reactors",
+          "name": "differential reactors",
+          "requires": ["method-of-half-life"]
+        },
+        {
+          "id": "least-square-analysis",
+          "name": "least square analysis",
+          "requires": ["differential-reactors"]
+        }
+      ]
+    },
+    {
+      "id": "isothermal-reactor-design",
+      "name": "Isothermal Reactor Design",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "ideal-reactors-batch-reactors",
+          "name": "Ideal reactors: batch reactors"
+        },
+        {
+          "id": "semi-batch-reactors",
+          "name": "semi-batch reactors",
+          "requires": ["ideal-reactors-batch-reactors"]
+        },
+        {
+          "id": "continuous-flow-reactors-mfr-and-pfr",
+          "name": "continuous-flow reactors (MFR and PFR)",
+          "requires": ["semi-batch-reactors"]
+        },
+        {
+          "id": "recycle-reactors",
+          "name": "recycle reactors",
+          "requires": ["continuous-flow-reactors-mfr-and-pfr"]
+        },
+        {
+          "id": "conversion-and-reactor-sizing",
+          "name": "conversion and reactor sizing",
+          "requires": ["recycle-reactors"]
+        },
+        {
+          "id": "design-equations",
+          "name": "design equations",
+          "requires": ["conversion-and-reactor-sizing"]
+        },
+        {
+          "id": "applications-of-the-design-equations-for-continuous-flow-rea",
+          "name": "applications of the design equations for continuous-flow reactors",
+          "requires": ["design-equations"]
+        },
+        {
+          "id": "steady-and-unsteady-operation-of-ideal-reactors",
+          "name": "steady and unsteady operation of ideal reactors",
+          "requires": ["applications-of-the-design-equations-for-continuous-flow-rea"]
+        },
+        {
+          "id": "reactor-safety",
+          "name": "reactor safety",
+          "requires": ["steady-and-unsteady-operation-of-ideal-reactors"]
+        }
+      ]
+    },
+    {
+      "id": "reactor-sequencing",
+      "name": "Reactor Sequencing",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "reactors-in-series",
+          "name": "Reactors in series"
+        },
+        {
+          "id": "reactors-for-parallel-reactions",
+          "name": "reactors for parallel reactions",
+          "requires": ["reactors-in-series"]
+        },
+        {
+          "id": "maximizing-the-desired-product-in-parallel-reactions",
+          "name": "maximizing the desired product in parallel reactions",
+          "requires": ["reactors-for-parallel-reactions"]
+        },
+        {
+          "id": "maximizing-the-desired-product-in-series-reactions",
+          "name": "maximizing the desired product in series reactions",
+          "requires": ["maximizing-the-desired-product-in-parallel-reactions"]
+        },
+        {
+          "id": "temperature-and-pressure-effects-in-single-and-multiple-reac",
+          "name": "temperature and pressure effects in single and multiple reactions",
+          "requires": ["maximizing-the-desired-product-in-series-reactions"]
+        },
+        {
+          "id": "adiabatic-reactor-design",
+          "name": "adiabatic reactor design",
+          "requires": ["temperature-and-pressure-effects-in-single-and-multiple-reac"]
+        },
+        {
+          "id": "criteria-for-reactor-selection-and-its-operating-conditions",
+          "name": "criteria for reactor selection and its operating conditions",
+          "requires": ["adiabatic-reactor-design"]
+        },
+        {
+          "id": "adiabatic-reactions-and-thermal-runaway",
+          "name": "adiabatic reactions and thermal runaway",
+          "requires": ["criteria-for-reactor-selection-and-its-operating-conditions"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-chemical-reaction-engineering-1-laboratory-chem"]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "pdeu-digital-cmos-vlsi-design-lab-ece",
+  "name": "Digital CMOS VLSI Design Lab",
+  "field": "Digital CMOS VLSI Design Lab",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ECE semester 7): Digital CMOS VLSI Design Lab",
+    "note": "Units and topics copied from the course handout PDF (pages 9-11 of ECE/sem7/ECE_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s7-digital-cmos-vlsi-design-lab",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-to-derive-the-cmos-inv-gate-noise-margins-using",
+          "name": "To derive the CMOS INV gate noise margins using DC analysis.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-to-design-layout-of-the-cmos-inv-and-perform-th",
+          "name": "To design layout of the CMOS INV and perform the RCX extraction and measure the delays.",
+          "number": 2,
+          "requires": ["experiment-1-to-derive-the-cmos-inv-gate-noise-margins-using"]
+        },
+        {
+          "id": "experiment-3-to-design-layout-of-the-cmos-nand2-and-perform",
+          "name": "To design layout of the CMOS NAND2 and perform the RCX extraction and measure the delays.",
+          "number": 3,
+          "requires": ["experiment-2-to-design-layout-of-the-cmos-inv-and-perform-th"]
+        },
+        {
+          "id": "experiment-4-to-design-layout-of-the-cmos-nor2-and-perform-t",
+          "name": "To design layout of the CMOS NOR2 and perform the RCX extraction and measure the delays.",
+          "number": 4,
+          "requires": ["experiment-3-to-design-layout-of-the-cmos-nand2-and-perform"]
+        },
+        {
+          "id": "experiment-5-to-measure-the-dynamic-and-static-power-consump",
+          "name": "To measure the dynamic and static power consumption of the CMOS NAND gate.",
+          "number": 5,
+          "requires": ["experiment-4-to-design-layout-of-the-cmos-nor2-and-perform-t"]
+        },
+        {
+          "id": "experiment-6-to-understand-the-fo4-delay-and-measure-the-fo4",
+          "name": "To understand the FO4 delay and measure the FO4 delay of the INV.",
+          "number": 6,
+          "requires": ["experiment-5-to-measure-the-dynamic-and-static-power-consump"]
+        },
+        {
+          "id": "experiment-7-to-apply-the-logical-effort-technique-to-reduce",
+          "name": "To apply the Logical effort technique to reduce the path delay.",
+          "number": 7,
+          "requires": ["experiment-6-to-understand-the-fo4-delay-and-measure-the-fo4"]
+        },
+        {
+          "id": "experiment-8-to-design-layout-of-the-pass-transistor-and2-an",
+          "name": "To design layout of the Pass transistor AND2 and perform the RCX extraction and measure the delays.",
+          "number": 8,
+          "requires": ["experiment-7-to-apply-the-logical-effort-technique-to-reduce"]
+        },
+        {
+          "id": "experiment-9-to-design-layout-of-the-domino-nand2-and-perfor",
+          "name": "To design layout of the DOMINO NAND2 and perform the RCX extraction and measure the delays.",
+          "number": 9,
+          "requires": ["experiment-8-to-design-layout-of-the-pass-transistor-and2-an"]
+        },
+        {
+          "id": "experiment-10-to-design-layout-of-the-psuedo-nmos-nor2-and-p",
+          "name": "To design layout of the Psuedo-NMOS NOR2 and perform the RCX extraction and measure the delays.",
+          "number": 10,
+          "requires": ["experiment-9-to-design-layout-of-the-domino-nand2-and-perfor"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-digital-cmos-vlsi-design"]
+}

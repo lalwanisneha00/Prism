@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Bioprocess Engineering",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,58 @@
       "topics": [
         {
           "id": "outline-of-an-integrated-bioprocess-upstream-and-downstream",
-          "name": "Outline of an integrated bioprocess: Upstream and downstream, Unit operations involved in bioprocesses, Process flow sheets of metabolite production, Microbial kinetics of growth, Modes of bioreactor "
+          "name": "Outline of an integrated bioprocess: Upstream and downstream",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "unit-operations-involved-in-bioprocesses",
+          "name": "Unit operations involved in bioprocesses",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["outline-of-an-integrated-bioprocess-upstream-and-downstream"]
+        },
+        {
+          "id": "process-flow-sheets-of-metabolite-production",
+          "name": "Process flow sheets of metabolite production",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["unit-operations-involved-in-bioprocesses"]
+        },
+        {
+          "id": "microbial-kinetics-of-growth",
+          "name": "Microbial kinetics of growth",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["process-flow-sheets-of-metabolite-production"]
+        },
+        {
+          "id": "production-kinetics",
+          "name": "Production kinetics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["microbial-kinetics-of-growth"]
         },
         {
           "id": "fed-batch-and-continuous-operation-production-kinetics",
-          "name": "Fed batch and Continuous operation, Production kinetics, Kinetics of substrate uptake and Yields in cell culture",
-          "requires": ["outline-of-an-integrated-bioprocess-upstream-and-downstream"]
+          "name": "Fed batch and Continuous operation",
+          "requires": ["outline-of-an-integrated-bioprocess-upstream-and-downstream"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "kinetics-of-substrate-uptake-and-yields-in-cell-culture",
+          "name": "Kinetics of substrate uptake and Yields in cell culture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fed-batch-and-continuous-operation-production-kinetics"]
+        },
+        {
+          "id": "modes-of-bioreactor-operation-batch",
+          "name": "Modes of bioreactor operation: Batch",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["kinetics-of-substrate-uptake-and-yields-in-cell-culture"]
         }
       ]
     },
@@ -61,7 +107,16 @@
         {
           "id": "design-of-batch-heat-sterilization-process",
           "name": "Design of batch heat sterilization process",
-          "requires": ["type-of-sterilizations"]
+          "requires": ["type-of-sterilizations"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "design-of-continuous-heat-sterilization-process-2",
+          "name": "Design of continuous heat sterilization process",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-of-batch-heat-sterilization-process"]
         },
         {
           "id": "design-of-continuous-heat-sterilization-process",
@@ -156,8 +211,45 @@
         },
         {
           "id": "bioreactor-control-mechanism-physical-chemical-and",
-          "name": "Bioreactor control mechanism, Physical, Chemical and Biological environment of bioreactor, Role of physical, chemical & biological sensors, Online and offline analytical methods",
-          "requires": ["photo-bioreactors"]
+          "name": "Bioreactor control mechanism",
+          "requires": ["photo-bioreactors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "physical",
+          "name": "Physical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bioreactor-control-mechanism-physical-chemical-and"]
+        },
+        {
+          "id": "chemical-and-biological-environment-of-bioreactor",
+          "name": "Chemical and Biological environment of bioreactor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["physical"]
+        },
+        {
+          "id": "role-of-physical",
+          "name": "Role of physical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chemical-and-biological-environment-of-bioreactor"]
+        },
+        {
+          "id": "chemical-and-biological-sensors",
+          "name": "chemical & biological sensors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["role-of-physical"]
+        },
+        {
+          "id": "online-and-offline-analytical-methods",
+          "name": "Online and offline analytical methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chemical-and-biological-sensors"]
         }
       ]
     },
@@ -177,10 +269,21 @@
         },
         {
           "id": "medical-applications-of-bioprocess-engineering-tissue",
-          "name": "Medical Applications of Bioprocess Engineering (Tissue Engineering, Gene Therapy)",
-          "requires": ["environmental-industry-biological-waste-water-treatment"]
+          "name": "Medical Applications of Bioprocess Engineering (Tissue Engineering",
+          "requires": ["environmental-industry-biological-waste-water-treatment"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gene-therapy",
+          "name": "Gene Therapy)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["medical-applications-of-bioprocess-engineering-tissue"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-bioprocess-engineering-lab-biotech"]
 }

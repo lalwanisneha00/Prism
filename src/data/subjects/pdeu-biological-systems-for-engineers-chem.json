@@ -1,0 +1,229 @@
+{
+  "id": "pdeu-biological-systems-for-engineers-chem",
+  "name": "Biological Systems for Engineers",
+  "field": "Biological Systems for Engineers",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [1],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 1): Biological Systems for Engineers",
+    "note": "Units and topics copied from the course handout PDF (pages 10 of CHEM/sem1/Chemical_Semester_1_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24BT101T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s1-biological-systems-for-engineers",
+      "code": "24BT101T",
+      "category": "Program Core",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 1,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-biomolecules",
+      "name": "Introduction to Biomolecules",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "cell-as-the-basic-unit-of-life",
+          "name": "Cell as the basic unit of life"
+        },
+        {
+          "id": "overview-of-cell-structure-and-functions",
+          "name": "overview of cell structure and functions",
+          "requires": ["cell-as-the-basic-unit-of-life"]
+        },
+        {
+          "id": "carbohydrates-properties-and-biological-functions",
+          "name": "Carbohydrates: properties and biological functions",
+          "requires": ["overview-of-cell-structure-and-functions"]
+        },
+        {
+          "id": "nucleic-acids-structure-and-roles-of-dna-and-rna",
+          "name": "Nucleic acids: structure and roles of DNA and RNA",
+          "requires": ["carbohydrates-properties-and-biological-functions"]
+        },
+        {
+          "id": "proteins-structure-and-functions",
+          "name": "Proteins: structure and functions",
+          "requires": ["nucleic-acids-structure-and-roles-of-dna-and-rna"]
+        },
+        {
+          "id": "significance-of-lipids",
+          "name": "Significance of lipids",
+          "requires": ["proteins-structure-and-functions"]
+        },
+        {
+          "id": "role-of-biomolecules-characteristics-and-roles-of-enzymes",
+          "name": "Role of biomolecules: characteristics and roles of enzymes",
+          "requires": ["significance-of-lipids"]
+        },
+        {
+          "id": "vitamins-and-hormones",
+          "name": "vitamins and hormones",
+          "requires": ["role-of-biomolecules-characteristics-and-roles-of-enzymes"]
+        }
+      ]
+    },
+    {
+      "id": "inspiring-bioengineering-design",
+      "name": "Inspiring Bioengineering Design",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "functions-and-classification-of-the-nervous-system",
+          "name": "Functions and classification of the nervous system"
+        },
+        {
+          "id": "the-brain-as-a-central-processing-unit",
+          "name": "the brain as a central processing unit",
+          "requires": ["functions-and-classification-of-the-nervous-system"]
+        },
+        {
+          "id": "concepts-of-artificial-neural-networks-and-machine-learning",
+          "name": "concepts of artificial neural networks and machine learning techniques",
+          "requires": ["the-brain-as-a-central-processing-unit"]
+        },
+        {
+          "id": "the-eye-as-a-camera",
+          "name": "the eye as a camera",
+          "requires": ["concepts-of-artificial-neural-networks-and-machine-learning"]
+        },
+        {
+          "id": "the-heart-as-a-circulatory-system",
+          "name": "the heart as a circulatory system",
+          "requires": ["the-eye-as-a-camera"]
+        },
+        {
+          "id": "the-ear-and-nose-as-signal-transmission-models",
+          "name": "the ear and nose as signal transmission models",
+          "requires": ["the-heart-as-a-circulatory-system"]
+        },
+        {
+          "id": "electronic-nose",
+          "name": "electronic nose",
+          "requires": ["the-ear-and-nose-as-signal-transmission-models"]
+        },
+        {
+          "id": "electronic-tongue",
+          "name": "electronic tongue",
+          "requires": ["electronic-nose"]
+        },
+        {
+          "id": "electronic-skin",
+          "name": "electronic skin",
+          "requires": ["electronic-tongue"]
+        },
+        {
+          "id": "lungs-as-an-exchange-model-and-kidneys-as-a-filtration-syste",
+          "name": "lungs as an exchange model and kidneys as a filtration system",
+          "requires": ["electronic-skin"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-imaging-and-diagnostics",
+      "name": "Advanced Imaging and Diagnostics",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "introduction-to-radiology",
+          "name": "Introduction to radiology"
+        },
+        {
+          "id": "x-ray",
+          "name": "X-ray",
+          "requires": ["introduction-to-radiology"]
+        },
+        {
+          "id": "ultrasound",
+          "name": "ultrasound",
+          "requires": ["x-ray"]
+        },
+        {
+          "id": "eeg",
+          "name": "EEG",
+          "requires": ["ultrasound"]
+        },
+        {
+          "id": "pet",
+          "name": "PET",
+          "requires": ["eeg"]
+        },
+        {
+          "id": "high-throughput-diagnostics-in-clinics",
+          "name": "high-throughput diagnostics in clinics",
+          "requires": ["pet"]
+        },
+        {
+          "id": "molecular-diagnostics",
+          "name": "molecular diagnostics",
+          "requires": ["high-throughput-diagnostics-in-clinics"]
+        },
+        {
+          "id": "pcr",
+          "name": "PCR",
+          "requires": ["molecular-diagnostics"]
+        },
+        {
+          "id": "dna-chip",
+          "name": "DNA chip",
+          "requires": ["pcr"]
+        },
+        {
+          "id": "diagnosis-of-genetic-disorders",
+          "name": "diagnosis of genetic disorders",
+          "requires": ["dna-chip"]
+        }
+      ]
+    },
+    {
+      "id": "trends-in-bioengineering",
+      "name": "Trends in Bioengineering",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "stem-cells-and-their-applications",
+          "name": "Stem cells and their applications"
+        },
+        {
+          "id": "bioprinting-techniques-and-materials",
+          "name": "bioprinting techniques and materials",
+          "requires": ["stem-cells-and-their-applications"]
+        },
+        {
+          "id": "applications-of-bioinformatics",
+          "name": "applications of bioinformatics",
+          "requires": ["bioprinting-techniques-and-materials"]
+        },
+        {
+          "id": "artificial-intelligence-for-diagnosis-and-detection-of-commu",
+          "name": "artificial intelligence for diagnosis and detection of communicable and non-communicable diseases",
+          "requires": ["applications-of-bioinformatics"]
+        },
+        {
+          "id": "biosensors-in-healthcare",
+          "name": "biosensors in healthcare",
+          "requires": ["artificial-intelligence-for-diagnosis-and-detection-of-commu"]
+        },
+        {
+          "id": "environmental-monitoring",
+          "name": "environmental monitoring",
+          "requires": ["biosensors-in-healthcare"]
+        }
+      ]
+    }
+  ]
+}

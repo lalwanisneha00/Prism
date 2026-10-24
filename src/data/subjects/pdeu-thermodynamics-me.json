@@ -1,0 +1,430 @@
+{
+  "id": "pdeu-thermodynamics-me",
+  "name": "Thermodynamics",
+  "field": "Thermodynamics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 3): Thermodynamics",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of MECH/sem3/Mechanical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME203T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s3-thermodynamics",
+      "code": "24ME203T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-and-properties-of-pure-substance",
+      "name": "Introduction and Properties of Pure Substance",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction-role-and-applications-of-thermodynamics-in-engi",
+          "name": "Introduction: Role and applications of thermodynamics in engineering"
+        },
+        {
+          "id": "concepts-of-a-system-and-surrounding",
+          "name": "concepts of a system and surrounding",
+          "requires": ["introduction-role-and-applications-of-thermodynamics-in-engi"]
+        },
+        {
+          "id": "properties-of-a-system",
+          "name": "Properties of a system",
+          "requires": ["concepts-of-a-system-and-surrounding"]
+        },
+        {
+          "id": "equilibrium",
+          "name": "equilibrium",
+          "requires": ["properties-of-a-system"]
+        },
+        {
+          "id": "the-zeroth-law-of-thermodynamics",
+          "name": "the zeroth law of thermodynamics",
+          "requires": ["equilibrium"]
+        },
+        {
+          "id": "heat-and-work",
+          "name": "heat and work",
+          "requires": ["the-zeroth-law-of-thermodynamics"]
+        },
+        {
+          "id": "various-thermodynamic-processes",
+          "name": "various thermodynamic processes",
+          "requires": ["heat-and-work"]
+        },
+        {
+          "id": "1st-law-of-thermodynamics-concept-of-energy-and-various-form",
+          "name": "1st law of thermodynamics: Concept of energy and various forms of energy",
+          "requires": ["various-thermodynamic-processes"]
+        },
+        {
+          "id": "internal-energy",
+          "name": "internal energy",
+          "requires": ["1st-law-of-thermodynamics-concept-of-energy-and-various-form"]
+        },
+        {
+          "id": "enthalpy",
+          "name": "enthalpy",
+          "requires": ["internal-energy"]
+        },
+        {
+          "id": "specific-heats",
+          "name": "specific heats",
+          "requires": ["enthalpy"]
+        },
+        {
+          "id": "application-of-first-law-to-closed-and-open-systems",
+          "name": "application of first law to closed and open systems",
+          "requires": ["specific-heats"]
+        },
+        {
+          "id": "properties-of-pure-substances-thermodynamic-properties-of-pu",
+          "name": "Properties of pure substances: Thermodynamic properties of pure substances in solid",
+          "requires": ["application-of-first-law-to-closed-and-open-systems"]
+        },
+        {
+          "id": "liquid-and-vapour-phases",
+          "name": "liquid and vapour phases",
+          "requires": ["properties-of-pure-substances-thermodynamic-properties-of-pu"]
+        },
+        {
+          "id": "p-v-t-behaviour-of-simple-compressible-substances",
+          "name": "P-v-T behaviour of simple compressible substances",
+          "requires": ["liquid-and-vapour-phases"]
+        },
+        {
+          "id": "thermodynamic-property-tables-and-charts",
+          "name": "thermodynamic property tables and charts",
+          "requires": ["p-v-t-behaviour-of-simple-compressible-substances"]
+        },
+        {
+          "id": "ideal-and-real-gases",
+          "name": "ideal and real gases",
+          "requires": ["thermodynamic-property-tables-and-charts"]
+        },
+        {
+          "id": "ideal-gas-and-van-der-waals-equation-of-state",
+          "name": "ideal gas and van der Waals equation of state",
+          "requires": ["ideal-and-real-gases"]
+        },
+        {
+          "id": "law-of-corresponding-states",
+          "name": "law of corresponding states",
+          "requires": ["ideal-gas-and-van-der-waals-equation-of-state"]
+        },
+        {
+          "id": "compressibility-factor-and-generalized-compressibility-chart",
+          "name": "compressibility factor and generalized compressibility chart",
+          "requires": ["law-of-corresponding-states"]
+        },
+        {
+          "id": "joule-thomson-coefficient-of-volume-expansion",
+          "name": "Joule-Thomson coefficient of volume expansion",
+          "requires": ["compressibility-factor-and-generalized-compressibility-chart"]
+        },
+        {
+          "id": "adiabatic-and-isothermal-compressibility",
+          "name": "adiabatic and isothermal compressibility",
+          "requires": ["joule-thomson-coefficient-of-volume-expansion"]
+        }
+      ]
+    },
+    {
+      "id": "2nd-law-of-thermodynamics-entropy-and-exergy",
+      "name": "2ND Law of Thermodynamics, Entropy, and Exergy",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "second-law-of-thermodynamics-limitations-of-the-first-law-of",
+          "name": "Second law of thermodynamics: Limitations of the first law of Thermodynamics"
+        },
+        {
+          "id": "concept-of-heat-engines-and-heat-pumps-refrigerators",
+          "name": "concept of heat engines and heat pumps/refrigerators",
+          "requires": ["second-law-of-thermodynamics-limitations-of-the-first-law-of"]
+        },
+        {
+          "id": "kelvin-planck-and-clausius-statement-and-their-equivalence",
+          "name": "Kelvin-Planck & Clausius statement and their equivalence",
+          "requires": ["concept-of-heat-engines-and-heat-pumps-refrigerators"]
+        },
+        {
+          "id": "reversible-and-irreversible-processes",
+          "name": "reversible and irreversible processes",
+          "requires": ["kelvin-planck-and-clausius-statement-and-their-equivalence"]
+        },
+        {
+          "id": "carnot-cycle-and-carnot-principles-theorems",
+          "name": "Carnot cycle and Carnot principles/theorems",
+          "requires": ["reversible-and-irreversible-processes"]
+        },
+        {
+          "id": "thermodynamic-temperature-scale",
+          "name": "Thermodynamic temperature scale",
+          "requires": ["carnot-cycle-and-carnot-principles-theorems"]
+        },
+        {
+          "id": "carnot-efficiency",
+          "name": "Carnot efficiency",
+          "requires": ["thermodynamic-temperature-scale"]
+        },
+        {
+          "id": "entropy-calusius-inequality-and-concept-of-entropy",
+          "name": "Entropy: Calusius inequality and concept of entropy",
+          "requires": ["carnot-efficiency"]
+        },
+        {
+          "id": "microscopic-interpretation-of-entropy",
+          "name": "microscopic interpretation of entropy",
+          "requires": ["entropy-calusius-inequality-and-concept-of-entropy"]
+        },
+        {
+          "id": "the-principle-of-increase-of-entropy",
+          "name": "the principle of increase of entropy",
+          "requires": ["microscopic-interpretation-of-entropy"]
+        },
+        {
+          "id": "t-s-diagrams",
+          "name": "T-s diagrams",
+          "requires": ["the-principle-of-increase-of-entropy"]
+        },
+        {
+          "id": "exergy-entropy",
+          "name": "Exergy: entropy",
+          "requires": ["t-s-diagrams"]
+        },
+        {
+          "id": "second-law-analysis-for-a-control-volume",
+          "name": "second law analysis for a control volume",
+          "requires": ["exergy-entropy"]
+        },
+        {
+          "id": "irreversibility-and-availability",
+          "name": "irreversibility and availability",
+          "requires": ["second-law-analysis-for-a-control-volume"]
+        },
+        {
+          "id": "exergy-balance-and-exergy-analysis",
+          "name": "exergy balance and exergy analysis",
+          "requires": ["irreversibility-and-availability"]
+        },
+        {
+          "id": "exergy-analysis-of-open-and-closed-system",
+          "name": "exergy analysis of open and closed system",
+          "requires": ["exergy-balance-and-exergy-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "thermodynamic-cycles",
+      "name": "Thermodynamic Cycles",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "compressor-classification-of-compressors",
+          "name": "Compressor: classification of compressors"
+        },
+        {
+          "id": "comparison-of-adiabatic",
+          "name": "Comparison of adiabatic",
+          "requires": ["compressor-classification-of-compressors"]
+        },
+        {
+          "id": "polytropic",
+          "name": "polytropic",
+          "requires": ["comparison-of-adiabatic"]
+        },
+        {
+          "id": "isothermal-compression-process",
+          "name": "isothermal compression process",
+          "requires": ["polytropic"]
+        },
+        {
+          "id": "isothermal",
+          "name": "isothermal",
+          "requires": ["isothermal-compression-process"]
+        },
+        {
+          "id": "isentropic",
+          "name": "isentropic",
+          "requires": ["isothermal"]
+        },
+        {
+          "id": "mechanical",
+          "name": "mechanical",
+          "requires": ["isentropic"]
+        },
+        {
+          "id": "volumetric-efficiency-of-a-compressor",
+          "name": "volumetric efficiency of a compressor",
+          "requires": ["mechanical"]
+        },
+        {
+          "id": "multistage-compression",
+          "name": "multistage compression",
+          "requires": ["volumetric-efficiency-of-a-compressor"]
+        },
+        {
+          "id": "applications",
+          "name": "applications",
+          "requires": ["multistage-compression"]
+        },
+        {
+          "id": "vapour-power-cycle-carnot-vapor-cycle",
+          "name": "Vapour power cycle: Carnot vapor cycle",
+          "requires": ["applications"]
+        },
+        {
+          "id": "rankine-cycle",
+          "name": "Rankine cycle",
+          "requires": ["vapour-power-cycle-carnot-vapor-cycle"]
+        },
+        {
+          "id": "comparison-of-carnot-and-rankine-cycle",
+          "name": "comparison of Carnot and Rankine cycle",
+          "requires": ["rankine-cycle"]
+        },
+        {
+          "id": "calculation-of-cycle-efficiencies",
+          "name": "calculation of cycle efficiencies",
+          "requires": ["comparison-of-carnot-and-rankine-cycle"]
+        },
+        {
+          "id": "variables-affecting-efficiency-of-rankine-cycle",
+          "name": "variables affecting efficiency of Rankine cycle",
+          "requires": ["calculation-of-cycle-efficiencies"]
+        },
+        {
+          "id": "reheat-cycle",
+          "name": "reheat cycle",
+          "requires": ["variables-affecting-efficiency-of-rankine-cycle"]
+        },
+        {
+          "id": "regenerative-cycle",
+          "name": "regenerative cycle",
+          "requires": ["reheat-cycle"]
+        },
+        {
+          "id": "reheatregenerative-cycle",
+          "name": "reheatregenerative cycle",
+          "requires": ["regenerative-cycle"]
+        },
+        {
+          "id": "feed-water-heaters",
+          "name": "feed water heaters",
+          "requires": ["reheatregenerative-cycle"]
+        },
+        {
+          "id": "gas-power-cycles-recapitulation-of-carnot",
+          "name": "Gas power cycles: Recapitulation of Carnot",
+          "requires": ["feed-water-heaters"]
+        },
+        {
+          "id": "otto-and-diesel-cycle",
+          "name": "Otto and Diesel cycle",
+          "requires": ["gas-power-cycles-recapitulation-of-carnot"]
+        },
+        {
+          "id": "dual-cycle",
+          "name": "dual cycle",
+          "requires": ["otto-and-diesel-cycle"]
+        },
+        {
+          "id": "comparison-of-otto",
+          "name": "comparison of Otto",
+          "requires": ["dual-cycle"]
+        },
+        {
+          "id": "diesel-and-dual-cycles",
+          "name": "Diesel and dual cycles",
+          "requires": ["comparison-of-otto"]
+        },
+        {
+          "id": "air-standard-efficiency",
+          "name": "air standard efficiency",
+          "requires": ["diesel-and-dual-cycles"]
+        },
+        {
+          "id": "mean-effective-pressure",
+          "name": "mean effective pressure",
+          "requires": ["air-standard-efficiency"]
+        },
+        {
+          "id": "brake-thermal-efficiency",
+          "name": "brake thermal efficiency",
+          "requires": ["mean-effective-pressure"]
+        },
+        {
+          "id": "relative-efficiency",
+          "name": "relative efficiency",
+          "requires": ["brake-thermal-efficiency"]
+        },
+        {
+          "id": "ideal-brayton-cycle",
+          "name": "ideal Brayton cycle",
+          "requires": ["relative-efficiency"]
+        }
+      ]
+    },
+    {
+      "id": "gas-mixtures-and-combustion",
+      "name": "Gas Mixtures and Combustion",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "ideal-gas-mixtures-dalton-s-and-amagat-s-laws",
+          "name": "Ideal gas mixtures: Dalton’s and Amagat’s laws"
+        },
+        {
+          "id": "properties-of-ideal-gas-mixtures",
+          "name": "properties of ideal gas mixtures",
+          "requires": ["ideal-gas-mixtures-dalton-s-and-amagat-s-laws"]
+        },
+        {
+          "id": "simple-thermodynamic-processes-involving-gas-mixtures",
+          "name": "simple thermodynamic processes involving gas mixtures",
+          "requires": ["properties-of-ideal-gas-mixtures"]
+        },
+        {
+          "id": "combustion-introduction",
+          "name": "Combustion: Introduction",
+          "requires": ["simple-thermodynamic-processes-involving-gas-mixtures"]
+        },
+        {
+          "id": "combustion-reaction-equations-and-stoichiometric-air-fuel-ra",
+          "name": "combustion reaction equations and stoichiometric air-fuel ratio",
+          "requires": ["combustion-introduction"]
+        },
+        {
+          "id": "low-and-high-calorific-values",
+          "name": "low and high calorific values",
+          "requires": ["combustion-reaction-equations-and-stoichiometric-air-fuel-ra"]
+        },
+        {
+          "id": "bomb-calorimeter-and-junkers-gas-calorimeter",
+          "name": "bomb calorimeter and Junkers gas calorimeter",
+          "requires": ["low-and-high-calorific-values"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-thermodynamics-laboratory-me"]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "pdeu-fluid-mechanics-laboratory-civil",
+  "name": "Fluid Mechanics Laboratory",
+  "field": "Fluid Mechanics Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CIVIL semester 4): Fluid Mechanics Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of CIVIL/sem4/Civil_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s4-fluid-mechanics-laboratory",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-viscosity-measurement-using-efflux-time-for-oil",
+          "name": "Viscosity measurement using Efflux Time for Oil (Only One Liquid)",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-application-of-reynolds-experiment-for-identifi",
+          "name": "Application of Reynolds Experiment for Identification of Flow",
+          "number": 2,
+          "requires": ["experiment-1-viscosity-measurement-using-efflux-time-for-oil"]
+        },
+        {
+          "id": "experiment-3-application-of-venturimeter-and-orificemeter-fo",
+          "name": "Application of Venturimeter and Orificemeter for Flow Measurement",
+          "number": 3,
+          "requires": ["experiment-2-application-of-reynolds-experiment-for-identifi"]
+        },
+        {
+          "id": "experiment-4-determination-of-metacentric-height-for-floatin",
+          "name": "Determination of Metacentric Height for Floating Body using Experimental Setup",
+          "number": 4,
+          "requires": ["experiment-3-application-of-venturimeter-and-orificemeter-fo"]
+        },
+        {
+          "id": "experiment-5-calculation-of-head-loss-friction-loss-for-the",
+          "name": "Calculation of Head Loss (Friction Loss) for the Close Conduits",
+          "number": 5,
+          "requires": ["experiment-4-determination-of-metacentric-height-for-floatin"]
+        },
+        {
+          "id": "experiment-6-determination-of-the-minor-losses-incurred-in-t",
+          "name": "Determination of the Minor Losses incurred in the Pipe Assembly",
+          "number": 6,
+          "requires": ["experiment-5-calculation-of-head-loss-friction-loss-for-the"]
+        },
+        {
+          "id": "experiment-7-experimental-verification-of-bernoulli-s-theore",
+          "name": "Experimental Verification of Bernoulli’s Theorem",
+          "number": 7,
+          "requires": ["experiment-6-determination-of-the-minor-losses-incurred-in-t"]
+        },
+        {
+          "id": "experiment-8-measurement-of-flow-discharge-in-open-channel-f",
+          "name": "Measurement of Flow Discharge in Open Channel Flume using Pitot Tube",
+          "number": 8,
+          "requires": ["experiment-7-experimental-verification-of-bernoulli-s-theore"]
+        },
+        {
+          "id": "experiment-9-evaluate-the-hydraulic-co-efficient-for-orifice",
+          "name": "Evaluate the Hydraulic Co-efficient for Orifice and Mouthpiece",
+          "number": 9,
+          "requires": ["experiment-8-measurement-of-flow-discharge-in-open-channel-f"]
+        },
+        {
+          "id": "experiment-10-field-visit-and-application-of-experiment-for",
+          "name": "Field Visit and Application of Experiment for Pipe Network Distribution",
+          "number": 10,
+          "requires": ["experiment-9-evaluate-the-hydraulic-co-efficient-for-orifice"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-fluid-mechanics-with-lab"]
+}

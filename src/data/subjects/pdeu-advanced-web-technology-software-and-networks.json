@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Advanced Web Technology (Software & Networks)",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -328,14 +328,67 @@
       "topics": [
         {
           "id": "fundamentals-of-secure-deployment-search-engine-optimization",
-          "name": "Fundamentals of Secure Deployment, Search Engine Optimization, DNS Record Management, Deploying MERN Stack Application on Web, Free Hosting Platforms, GitHub, Firebase, Heroku Note: The detailed sylla"
+          "name": "Fundamentals of Secure Deployment",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "search-engine-optimization",
+          "name": "Search Engine Optimization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fundamentals-of-secure-deployment-search-engine-optimization"]
+        },
+        {
+          "id": "dns-record-management",
+          "name": "DNS Record Management",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["search-engine-optimization"]
+        },
+        {
+          "id": "deploying-mern-stack-application-on-web",
+          "name": "Deploying MERN Stack Application on Web",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dns-record-management"]
+        },
+        {
+          "id": "free-hosting-platforms",
+          "name": "Free Hosting Platforms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["deploying-mern-stack-application-on-web"]
+        },
+        {
+          "id": "github",
+          "name": "GitHub",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["free-hosting-platforms"]
+        },
+        {
+          "id": "firebase",
+          "name": "Firebase",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["github"]
         },
         {
           "id": "the-credits-shown-here-follow-the-official-course-structure",
           "name": "the credits shown here follow the official course structure table",
-          "requires": ["fundamentals-of-secure-deployment-search-engine-optimization"]
+          "requires": ["fundamentals-of-secure-deployment-search-engine-optimization"],
+          "status": "retired"
+        },
+        {
+          "id": "heroku-total",
+          "name": "Heroku Total",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-credits-shown-here-follow-the-official-course-structure"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

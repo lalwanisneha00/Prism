@@ -30,8 +30,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -290,7 +290,30 @@
         {
           "id": "intrusion-detection",
           "name": "Intrusion Detection",
-          "requires": ["machine-learning-forensics"]
+          "requires": ["machine-learning-forensics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "host-intrusion-detection-2",
+          "name": "Host Intrusion Detection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["intrusion-detection"]
+        },
+        {
+          "id": "network-intrusion-detection-2",
+          "name": "Network Intrusion Detection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["host-intrusion-detection-2"]
+        },
+        {
+          "id": "web-application-intrusion-detection-2",
+          "name": "Web Application Intrusion Detection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["network-intrusion-detection-2"]
         },
         {
           "id": "anomaly-detection",
@@ -329,5 +352,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 9 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -131,8 +131,17 @@
         },
         {
           "id": "rank-of-matrix",
-          "name": "Rank of a matrix, consistency of system of equation",
-          "requires": ["solution-of-system-of-algebraic-equation"]
+          "name": "Rank of a matrix",
+          "requires": ["solution-of-system-of-algebraic-equation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "consistency-of-system-of-equation",
+          "name": "consistency of system of equation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rank-of-matrix"]
         },
         {
           "id": "characteristic-equation-of-a-square-matrix-eigen-values-and",
@@ -168,12 +177,58 @@
       "topics": [
         {
           "id": "higher-order-linear-ode",
-          "name": "Differential equations of the first order and higher degree, Higher-order differential equations with constant coefficients, Rules for finding C.F. and P.I., Method of variation of parameters, Cauchy "
+          "name": "Differential equations of the first order and higher degree",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "higher-order-differential-equations-with-constant-coefficien",
+          "name": "Higher-order differential equations with constant coefficients",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["higher-order-linear-ode"]
+        },
+        {
+          "id": "rules-for-finding-c-f-and-p-i",
+          "name": "Rules for finding C.F. and P.I",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["higher-order-differential-equations-with-constant-coefficien"]
+        },
+        {
+          "id": "method-of-variation-of-parameters",
+          "name": "Method of variation of parameters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rules-for-finding-c-f-and-p-i"]
         },
         {
           "id": "simultaneous-linear-equations-with-constant-coefficients",
-          "name": "Simultaneous linear equations with constant coefficients, applications of higher-order differential equations in solving engineering problems",
-          "requires": ["higher-order-linear-ode"]
+          "name": "Simultaneous linear equations with constant coefficients",
+          "requires": ["higher-order-linear-ode"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "applications-of-higher-order-differential-equations-in-solvi",
+          "name": "applications of higher-order differential equations in solving engineering problems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simultaneous-linear-equations-with-constant-coefficients"]
+        },
+        {
+          "id": "cauchy-and-legendre-s-linear-equations",
+          "name": "Cauchy and Legendre's linear equations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applications-of-higher-order-differential-equations-in-solvi"]
+        },
+        {
+          "id": "linear-differential-equations-of-second-order-with-variable",
+          "name": "Linear differential equations of second order with variable coefficients",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cauchy-and-legendre-s-linear-equations"]
         }
       ]
     },
@@ -223,5 +278,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

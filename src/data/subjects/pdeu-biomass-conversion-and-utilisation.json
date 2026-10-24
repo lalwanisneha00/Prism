@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Biomass Conversion and Utilisation",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -44,8 +44,38 @@
         },
         {
           "id": "introduction-types-of-biomass-advantages-and-dis-advantages",
-          "name": "Introduction: Types of biomass, advantages and dis advantages in use of biomass as energy, sources of biomass, current biomass applications and trends, Biological",
-          "requires": ["hrs"]
+          "name": "Introduction: Types of biomass",
+          "requires": ["hrs"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "advantages-and-dis-advantages-in-use-of-biomass-as-energy",
+          "name": "advantages and dis advantages in use of biomass as energy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-types-of-biomass-advantages-and-dis-advantages"]
+        },
+        {
+          "id": "sources-of-biomass",
+          "name": "sources of biomass",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["advantages-and-dis-advantages-in-use-of-biomass-as-energy"]
+        },
+        {
+          "id": "current-biomass-applications-and-trends",
+          "name": "current biomass applications and trends",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sources-of-biomass"]
+        },
+        {
+          "id": "biological",
+          "name": "Biological",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["current-biomass-applications-and-trends"]
         },
         {
           "id": "thermal",
@@ -76,7 +106,16 @@
       "topics": [
         {
           "id": "hrs-thermo-chemical-conversion-combustion",
-          "name": "Hrs. Thermo chemical conversion: Combustion"
+          "name": "Hrs",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "thermo-chemical-conversion-combustion",
+          "name": "Thermo chemical conversion: Combustion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hrs-thermo-chemical-conversion-combustion"]
         },
         {
           "id": "gasification",
@@ -122,12 +161,30 @@
       "topics": [
         {
           "id": "hrs-biodegradation-and-biodegradability-of-substrate",
-          "name": "Hrs. Biodegradation and biodegradability of substrate"
+          "name": "Hrs",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "biodegradation-and-biodegradability-of-substrate",
+          "name": "Biodegradation and biodegradability of substrate",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hrs-biodegradation-and-biodegradability-of-substrate"]
         },
         {
           "id": "biochemistry-and-process-parameters-of-biomethanation",
           "name": "Biochemistry and process parameters of biomethanation",
-          "requires": ["hrs-biodegradation-and-biodegradability-of-substrate"]
+          "requires": ["hrs-biodegradation-and-biodegradability-of-substrate"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "biomethanation-process",
+          "name": "Biomethanation Process",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biochemistry-and-process-parameters-of-biomethanation"]
         },
         {
           "id": "biogas-digester-types",
@@ -183,7 +240,16 @@
       "topics": [
         {
           "id": "hrs-biomass-gasification",
-          "name": "Hrs. Biomass gasification"
+          "name": "Hrs",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "biomass-gasification",
+          "name": "Biomass gasification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hrs-biomass-gasification"]
         },
         {
           "id": "chemistry",
@@ -197,8 +263,24 @@
         },
         {
           "id": "gasifier-design-tdr-throughput-a-f-ratio-and-equivalence",
-          "name": "gasifier design : TDR, throughput, A/F ratio and equivalence ratio calculations",
-          "requires": ["types-of-gasifiers"]
+          "name": "gasifier design : TDR",
+          "requires": ["types-of-gasifiers"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "throughput",
+          "name": "throughput",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gasifier-design-tdr-throughput-a-f-ratio-and-equivalence"]
+        },
+        {
+          "id": "a-f-ratio-and-equivalence-ratio-calculations",
+          "name": "A/F ratio and equivalence ratio calculations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["throughput"]
         },
         {
           "id": "advanced-gasification",
@@ -247,8 +329,17 @@
         },
         {
           "id": "eutectic-point-of-biomass-ash-chemical-conversion-hydrolysis",
-          "name": "Eutectic point of biomass ash. Chemical Conversion: Hydrolysis & hydrogenation",
-          "requires": ["applications"]
+          "name": "Eutectic point of biomass ash",
+          "requires": ["applications"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "chemical-conversion-hydrolysis-and-hydrogenation",
+          "name": "Chemical Conversion: Hydrolysis & hydrogenation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["eutectic-point-of-biomass-ash-chemical-conversion-hydrolysis"]
         },
         {
           "id": "solvent-extraction-of-hydrocarbons",
@@ -272,5 +363,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

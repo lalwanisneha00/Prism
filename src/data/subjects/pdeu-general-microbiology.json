@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): General Microbiology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -49,18 +49,52 @@
         },
         {
           "id": "classification-of-bacteria-fungi-and-viruses",
-          "name": "Classification of Bacteria, Fungi, and Viruses",
-          "requires": ["bergey-s-system-of-classification"]
+          "name": "Classification of Bacteria",
+          "requires": ["bergey-s-system-of-classification"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "modern-methods-to-study-microbial-diversity-ngs-miseq",
-          "name": "Modern methods to study microbial diversity: NGS. MiSeq",
+          "id": "fungi",
+          "name": "Fungi",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["classification-of-bacteria-fungi-and-viruses"]
         },
         {
-          "id": "molecular-taxonomy-16s-rrna-gene-sequencing-phylogenetic",
-          "name": "Molecular Taxonomy- 16S rRNA gene sequencing, Phylogenetic grouping",
+          "id": "viruses",
+          "name": "Viruses",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fungi"]
+        },
+        {
+          "id": "modern-methods-to-study-microbial-diversity-ngs-miseq",
+          "name": "Modern methods to study microbial diversity: NGS",
+          "requires": ["classification-of-bacteria-fungi-and-viruses"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "miseq",
+          "name": "MiSeq",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["modern-methods-to-study-microbial-diversity-ngs-miseq"]
+        },
+        {
+          "id": "molecular-taxonomy-16s-rrna-gene-sequencing-phylogenetic",
+          "name": "Molecular Taxonomy- 16S rRNA gene sequencing",
+          "requires": ["modern-methods-to-study-microbial-diversity-ngs-miseq"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "phylogenetic-grouping",
+          "name": "Phylogenetic grouping",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["molecular-taxonomy-16s-rrna-gene-sequencing-phylogenetic"]
         },
         {
           "id": "fatty-acid-methyl-ester-fame-analysis-its",
@@ -69,8 +103,31 @@
         },
         {
           "id": "methods-to-study-microbial-community-dgge-sscp-t-rflp",
-          "name": "Methods to study microbial community: DGGE, SSCP, T-RFLP",
-          "requires": ["fatty-acid-methyl-ester-fame-analysis-its"]
+          "name": "Methods to study microbial community: DGGE",
+          "requires": ["fatty-acid-methyl-ester-fame-analysis-its"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "sscp",
+          "name": "SSCP",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["methods-to-study-microbial-community-dgge-sscp-t-rflp"]
+        },
+        {
+          "id": "t-rflp",
+          "name": "T-RFLP",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sscp"]
+        },
+        {
+          "id": "its",
+          "name": "ITS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["t-rflp"]
         }
       ]
     },
@@ -90,8 +147,17 @@
         },
         {
           "id": "acid-base-chemistry-and-stereochemistry-of-amino-acids",
-          "name": "acid–base chemistry and stereochemistry of amino acids. Proteins: Primary",
-          "requires": ["structure-and-biological-importance-of-amino-acids"]
+          "name": "acid–base chemistry and stereochemistry of amino acids",
+          "requires": ["structure-and-biological-importance-of-amino-acids"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "proteins-primary",
+          "name": "Proteins: Primary",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["acid-base-chemistry-and-stereochemistry-of-amino-acids"]
         },
         {
           "id": "secondary",
@@ -127,17 +193,86 @@
       "topics": [
         {
           "id": "microbial-cell-ultrastructure-of-bacteria-subcellular",
-          "name": "Microbial cell: Ultrastructure of bacteria, subcellular structures and cell envelope"
+          "name": "Microbial cell: Ultrastructure of bacteria",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "slime-capsule-cell-wall-pili-flagella-cell-inclusions",
-          "name": "slime, capsule, cell wall, pili, flagella, cell inclusions, biosynthesis of bacterial cell wall, cell membrane",
+          "id": "subcellular-structures-and-cell-envelope",
+          "name": "subcellular structures and cell envelope",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["microbial-cell-ultrastructure-of-bacteria-subcellular"]
         },
         {
-          "id": "bio-membrane-liposomes",
-          "name": "Bio-membrane, liposomes",
+          "id": "slime-capsule-cell-wall-pili-flagella-cell-inclusions",
+          "name": "slime",
+          "requires": ["microbial-cell-ultrastructure-of-bacteria-subcellular"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "capsule",
+          "name": "capsule",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["slime-capsule-cell-wall-pili-flagella-cell-inclusions"]
+        },
+        {
+          "id": "cell-wall",
+          "name": "cell wall",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["capsule"]
+        },
+        {
+          "id": "pili",
+          "name": "pili",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cell-wall"]
+        },
+        {
+          "id": "flagella",
+          "name": "flagella",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pili"]
+        },
+        {
+          "id": "cell-inclusions",
+          "name": "cell inclusions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flagella"]
+        },
+        {
+          "id": "biosynthesis-of-bacterial-cell-wall",
+          "name": "biosynthesis of bacterial cell wall",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cell-inclusions"]
+        },
+        {
+          "id": "cell-membrane",
+          "name": "cell membrane",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biosynthesis-of-bacterial-cell-wall"]
+        },
+        {
+          "id": "bio-membrane-liposomes",
+          "name": "Bio-membrane",
+          "requires": ["slime-capsule-cell-wall-pili-flagella-cell-inclusions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "liposomes",
+          "name": "liposomes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bio-membrane-liposomes"]
         },
         {
           "id": "membrane-transport",
@@ -146,8 +281,17 @@
         },
         {
           "id": "diffusion-active-and-passive-transport-and-osmoregulation",
-          "name": "diffusion, active and passive transport and osmoregulation",
-          "requires": ["membrane-transport"]
+          "name": "diffusion",
+          "requires": ["membrane-transport"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "active-and-passive-transport-and-osmoregulation",
+          "name": "active and passive transport and osmoregulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["diffusion-active-and-passive-transport-and-osmoregulation"]
         }
       ]
     },
@@ -187,8 +331,38 @@
         },
         {
           "id": "types-of-media-semi-synthetic-synthetic-enriched-enrichment",
-          "name": "Types of media- Semi synthetic, Synthetic, Enriched, Enrichment, Selective and Differential media",
-          "requires": ["solid-and-liquid"]
+          "name": "Types of media- Semi synthetic",
+          "requires": ["solid-and-liquid"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "synthetic",
+          "name": "Synthetic",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-media-semi-synthetic-synthetic-enriched-enrichment"]
+        },
+        {
+          "id": "enriched",
+          "name": "Enriched",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["synthetic"]
+        },
+        {
+          "id": "enrichment",
+          "name": "Enrichment",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["enriched"]
+        },
+        {
+          "id": "selective-and-differential-media",
+          "name": "Selective and Differential media",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["enrichment"]
         },
         {
           "id": "pure-culture-techniques",
@@ -197,15 +371,56 @@
         },
         {
           "id": "tube-dilution-pour-spread-streak-plate",
-          "name": "Tube dilution, Pour, Spread, Streak plate",
-          "requires": ["pure-culture-techniques"]
+          "name": "Tube dilution",
+          "requires": ["pure-culture-techniques"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pour",
+          "name": "Pour",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tube-dilution-pour-spread-streak-plate"]
+        },
+        {
+          "id": "spread",
+          "name": "Spread",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pour"]
+        },
+        {
+          "id": "streak-plate",
+          "name": "Streak plate",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["spread"]
         },
         {
           "id": "anaerobic-culture-technique-wrights-tube-roll-tube-method",
-          "name": "Anaerobic culture technique Wright's Tube, Roll tube method, Anaerobic Jar",
-          "requires": ["tube-dilution-pour-spread-streak-plate"]
+          "name": "Anaerobic culture technique Wright's Tube",
+          "requires": ["tube-dilution-pour-spread-streak-plate"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "roll-tube-method",
+          "name": "Roll tube method",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["anaerobic-culture-technique-wrights-tube-roll-tube-method"]
+        },
+        {
+          "id": "anaerobic-jar",
+          "name": "Anaerobic Jar",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["roll-tube-method"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-general-microbiology-lab-biotech"]
 }

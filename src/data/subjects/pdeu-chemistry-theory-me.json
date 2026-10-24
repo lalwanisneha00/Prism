@@ -28,11 +28,302 @@
     "title": "PDEU B.Tech curriculum handbook (Mech): Chemistry (Theory)",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
+    {
+      "id": "chemistry-of-engineering-materials",
+      "name": "Chemistry of Engineering Materials",
+      "hours": 12,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "traditional-materials-introduction-and-classification-of-mat",
+          "name": "Traditional Materials: Introduction and classification of materials",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "metallic-materials",
+          "name": "metallic materials",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["traditional-materials-introduction-and-classification-of-mat"]
+        },
+        {
+          "id": "polymeric",
+          "name": "polymeric",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["metallic-materials"]
+        },
+        {
+          "id": "ceramic-materials-advanced-materials-introduction-to-nanomat",
+          "name": "ceramic materials Advanced Materials: Introduction to nanomaterials: Properties and application",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polymeric"]
+        },
+        {
+          "id": "carbonaceous-materials-fullerene",
+          "name": "Carbonaceous materials (fullerene",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ceramic-materials-advanced-materials-introduction-to-nanomat"]
+        },
+        {
+          "id": "carbon-nanotube",
+          "name": "carbon nanotube",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carbonaceous-materials-fullerene"]
+        },
+        {
+          "id": "graphene",
+          "name": "graphene",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carbon-nanotube"]
+        },
+        {
+          "id": "etc",
+          "name": "etc.)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["graphene"]
+        },
+        {
+          "id": "composite-materials",
+          "name": "Composite materials",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["etc"]
+        },
+        {
+          "id": "liquid-crystals-classification-and-application",
+          "name": "Liquid crystals: Classification and Application",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["composite-materials"]
+        }
+      ]
+    },
+    {
+      "id": "modern-analytical-techniques",
+      "name": "Modern Analytical Techniques",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "instrumentation",
+          "name": "Instrumentation",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "principle-and-characterization-of-materials-x-ray-diffractio",
+          "name": "principle and characterization of materials: X-ray diffraction (XRD)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["instrumentation"]
+        },
+        {
+          "id": "electro-analytical-techniques",
+          "name": "Electro analytical techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principle-and-characterization-of-materials-x-ray-diffractio"]
+        },
+        {
+          "id": "ftir",
+          "name": "FTIR",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["electro-analytical-techniques"]
+        },
+        {
+          "id": "uv-visible-spectroscopy",
+          "name": "UV-visible spectroscopy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ftir"]
+        },
+        {
+          "id": "thermal-analysis-tga-dta-dsc",
+          "name": "Thermal analysis (TGA-DTA-DSC)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["uv-visible-spectroscopy"]
+        },
+        {
+          "id": "chromatographic-techniques-gc",
+          "name": "Chromatographic techniques (GC",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermal-analysis-tga-dta-dsc"]
+        },
+        {
+          "id": "hplc",
+          "name": "HPLC)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chromatographic-techniques-gc"]
+        }
+      ]
+    },
+    {
+      "id": "adsorption-catalysis-and-kinetics",
+      "name": "Adsorption, Catalysis and Kinetics",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "adsorption",
+          "name": "Adsorption",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "characteristics",
+          "name": "Characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adsorption"]
+        },
+        {
+          "id": "classification-2",
+          "name": "Classification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characteristics"]
+        },
+        {
+          "id": "application",
+          "name": "Application",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-2"]
+        },
+        {
+          "id": "adsorption-isotherms-freundlich",
+          "name": "Adsorption isotherms- Freundlich",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["application"]
+        },
+        {
+          "id": "langmuir-and-bet-chemical-kinetics",
+          "name": "Langmuir & BET Chemical Kinetics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adsorption-isotherms-freundlich"]
+        },
+        {
+          "id": "rate-law",
+          "name": "Rate law",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["langmuir-and-bet-chemical-kinetics"]
+        },
+        {
+          "id": "arrhenius-equation",
+          "name": "Arrhenius equation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rate-law"]
+        },
+        {
+          "id": "transition-state-theory",
+          "name": "Transition state theory",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["arrhenius-equation"]
+        },
+        {
+          "id": "collision-theory",
+          "name": "Collision theory",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transition-state-theory"]
+        },
+        {
+          "id": "complex-reactions-catalysis",
+          "name": "Complex reactions Catalysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["collision-theory"]
+        },
+        {
+          "id": "homogeneous-and-heterogeneous-catalysis",
+          "name": "Homogeneous and Heterogeneous Catalysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["complex-reactions-catalysis"]
+        },
+        {
+          "id": "mechanism-of-catalysis",
+          "name": "Mechanism of Catalysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["homogeneous-and-heterogeneous-catalysis"]
+        },
+        {
+          "id": "industrial-applications-of-catalysts",
+          "name": "Industrial Applications of catalysts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mechanism-of-catalysis"]
+        }
+      ]
+    },
+    {
+      "id": "chemistry-of-energy-devices",
+      "name": "Chemistry of Energy Devices",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "principles-of-primary-and-secondary-batteries",
+          "name": "Principles of primary and secondary batteries",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fuel-cells-and-their-operation-principles",
+          "name": "Fuel Cells and their operation principles",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principles-of-primary-and-secondary-batteries"]
+        },
+        {
+          "id": "principles-and-uses-of-supercapacitors",
+          "name": "Principles and uses of supercapacitors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fuel-cells-and-their-operation-principles"]
+        },
+        {
+          "id": "photocatalytic-hydrogen-production-principles-and-challenges",
+          "name": "Photocatalytic hydrogen production: Principles and challenges",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principles-and-uses-of-supercapacitors"]
+        },
+        {
+          "id": "traditional-and-new-generation-solar-cells",
+          "name": "Traditional and new generation solar cells",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["photocatalytic-hydrogen-production-principles-and-challenges"]
+        }
+      ]
+    },
     {
       "id": "water-and-its-treatment",
       "name": "Water and its Treatment",
@@ -77,7 +368,8 @@
           "name": "Softening of water",
           "requires": ["priming-and-foaming"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "corrosion-and-its-control",
@@ -153,7 +445,8 @@
           "name": "Fuel Cell and Fuel Cell technology",
           "requires": ["determination-of-calorific-value-of-solid-and-liquid-fuels"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "cements",
@@ -219,7 +512,8 @@
           "name": "Green chemical technology",
           "requires": ["depletion-of-ozone-layer"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "polymers",
@@ -255,7 +549,10 @@
           "name": "Epoxy resins. Some aspects of supramolecular chemistry",
           "requires": ["urea-formaldehyde-resin"]
         }
-      ]
+      ],
+      "status": "retired"
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-engineering-chemistry-laboratory-me"]
 }

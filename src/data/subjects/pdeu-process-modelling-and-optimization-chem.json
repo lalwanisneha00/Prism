@@ -1,0 +1,235 @@
+{
+  "id": "pdeu-process-modelling-and-optimization-chem",
+  "name": "Process Modelling and Optimization",
+  "field": "Process Modelling and Optimization",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 7): Process Modelling and Optimization",
+    "note": "Units and topics copied from the course handout PDF (pages 3 of CHEM/sem7/Chemical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH401T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s7-process-modelling-and-optimization",
+      "code": "24CH401T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "overview-of-modelling-of-chemical-processes",
+      "name": "Overview of Modelling of Chemical Processes",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "introduction-to-mathematical-modelling-uses-of-mathematical",
+          "name": "Introduction to mathematical modelling: uses of mathematical models"
+        },
+        {
+          "id": "scope-of-coverage",
+          "name": "scope of coverage",
+          "requires": ["introduction-to-mathematical-modelling-uses-of-mathematical"]
+        },
+        {
+          "id": "principles-of-formulation",
+          "name": "principles of formulation",
+          "requires": ["scope-of-coverage"]
+        },
+        {
+          "id": "fundamental-laws-continuity-equations",
+          "name": "Fundamental laws: continuity equations",
+          "requires": ["principles-of-formulation"]
+        },
+        {
+          "id": "energy-equations",
+          "name": "energy equations",
+          "requires": ["fundamental-laws-continuity-equations"]
+        },
+        {
+          "id": "equations-of-motion",
+          "name": "equations of motion",
+          "requires": ["energy-equations"]
+        },
+        {
+          "id": "transport-equations",
+          "name": "transport equations",
+          "requires": ["equations-of-motion"]
+        },
+        {
+          "id": "equations-of-state",
+          "name": "equations of state",
+          "requires": ["transport-equations"]
+        },
+        {
+          "id": "equilibrium-and-chemical-kinetics",
+          "name": "equilibrium and chemical kinetics",
+          "requires": ["equations-of-state"]
+        }
+      ]
+    },
+    {
+      "id": "mathematical-model-development",
+      "name": "Mathematical Model Development",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "examples-of-mathematical-models-of-chemical-engineering-syst",
+          "name": "Examples of mathematical models of chemical engineering systems: series of isothermal constant-holdup CSTRs"
+        },
+        {
+          "id": "cstrs-with-variable-holdups",
+          "name": "CSTRs with variable holdups",
+          "requires": ["examples-of-mathematical-models-of-chemical-engineering-syst"]
+        },
+        {
+          "id": "two-heated-tanks",
+          "name": "two heated tanks",
+          "requires": ["cstrs-with-variable-holdups"]
+        },
+        {
+          "id": "gas-phase-pressurised-cstrs",
+          "name": "gas phase pressurised CSTRs",
+          "requires": ["two-heated-tanks"]
+        },
+        {
+          "id": "non-isothermal-cstr",
+          "name": "non-isothermal CSTR",
+          "requires": ["gas-phase-pressurised-cstrs"]
+        },
+        {
+          "id": "single-component-vaporizer",
+          "name": "single component vaporizer",
+          "requires": ["non-isothermal-cstr"]
+        },
+        {
+          "id": "multi-component-flash-drum",
+          "name": "multi-component flash drum",
+          "requires": ["single-component-vaporizer"]
+        },
+        {
+          "id": "batch-reactor",
+          "name": "batch reactor",
+          "requires": ["multi-component-flash-drum"]
+        },
+        {
+          "id": "reactor-with-mass-transfer",
+          "name": "reactor with mass transfer",
+          "requires": ["batch-reactor"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-optimization-and-traditional-optimization-te",
+      "name": "Introduction to Optimization and Traditional Optimization Techniques",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "single-variable-optimization-algorithms-optimal-problem-form",
+          "name": "Single variable optimization algorithms: optimal problem formulation"
+        },
+        {
+          "id": "optimization-algorithms",
+          "name": "optimization algorithms",
+          "requires": ["single-variable-optimization-algorithms-optimal-problem-form"]
+        },
+        {
+          "id": "optimality-criteria",
+          "name": "optimality criteria",
+          "requires": ["optimization-algorithms"]
+        },
+        {
+          "id": "bracketing-methods",
+          "name": "bracketing methods",
+          "requires": ["optimality-criteria"]
+        },
+        {
+          "id": "region-elimination-methods",
+          "name": "region elimination methods",
+          "requires": ["bracketing-methods"]
+        },
+        {
+          "id": "point-estimation-method",
+          "name": "point-estimation method",
+          "requires": ["region-elimination-methods"]
+        },
+        {
+          "id": "gradient-based-methods",
+          "name": "gradient based methods",
+          "requires": ["point-estimation-method"]
+        },
+        {
+          "id": "root-finding-using-optimization-techniques",
+          "name": "root finding using optimization techniques",
+          "requires": ["gradient-based-methods"]
+        },
+        {
+          "id": "multivariable-optimization-algorithms-unidirectional-search",
+          "name": "Multivariable optimization algorithms: unidirectional search",
+          "requires": ["root-finding-using-optimization-techniques"]
+        },
+        {
+          "id": "direct-search-methods",
+          "name": "direct search methods",
+          "requires": ["multivariable-optimization-algorithms-unidirectional-search"]
+        },
+        {
+          "id": "linearized-search-techniques",
+          "name": "linearized search techniques",
+          "requires": ["direct-search-methods"]
+        },
+        {
+          "id": "generalized-reduced-gradient-method",
+          "name": "generalized reduced gradient method",
+          "requires": ["linearized-search-techniques"]
+        },
+        {
+          "id": "simplex-method",
+          "name": "simplex method",
+          "requires": ["generalized-reduced-gradient-method"]
+        }
+      ]
+    },
+    {
+      "id": "non-traditional-optimization-techniques",
+      "name": "Non-Traditional Optimization Techniques",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "specialized-algorithms-integer-programming",
+          "name": "Specialized algorithms: integer programming"
+        },
+        {
+          "id": "non-traditional-optimization-algorithms-genetic-algorithms",
+          "name": "Non-traditional optimization algorithms: genetic algorithms",
+          "requires": ["specialized-algorithms-integer-programming"]
+        },
+        {
+          "id": "simulated-annealing",
+          "name": "simulated annealing",
+          "requires": ["non-traditional-optimization-algorithms-genetic-algorithms"]
+        },
+        {
+          "id": "optimization-using-artificial-neural-networks",
+          "name": "optimization using artificial neural networks",
+          "requires": ["simulated-annealing"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-process-modelling-and-optimization-laboratory-chem"]
+}

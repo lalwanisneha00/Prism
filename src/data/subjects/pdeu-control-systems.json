@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "signals",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,7 +41,37 @@
       "topics": [
         {
           "id": "introduction-to-linear-and-non-linear-control-systems-notion",
-          "name": "Introduction to Linear and Non-linear control systems, Notion of feedback, Open-loop and closed-loop control systems, Examples of Control Systems, Design and Compensation of Control Systems"
+          "name": "Introduction to Linear and Non-linear control systems",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "notion-of-feedback",
+          "name": "Notion of feedback",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-linear-and-non-linear-control-systems-notion"]
+        },
+        {
+          "id": "open-loop-and-closed-loop-control-systems",
+          "name": "Open-loop and closed-loop control systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["notion-of-feedback"]
+        },
+        {
+          "id": "examples-of-control-systems",
+          "name": "Examples of Control Systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["open-loop-and-closed-loop-control-systems"]
+        },
+        {
+          "id": "design-and-compensation-of-control-systems",
+          "name": "Design and Compensation of Control Systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["examples-of-control-systems"]
         },
         {
           "id": "block-diagram-and-signal-flow-graphs-representations-and",
@@ -50,8 +80,38 @@
         },
         {
           "id": "mathematical-modelling-and-analogy-differential-equations",
-          "name": "Mathematical modelling and analogy, Differential equations, Transfer Function and Impulse-Response Function, Systems with transport lag, Linearization",
-          "requires": ["block-diagram-and-signal-flow-graphs-representations-and"]
+          "name": "Mathematical modelling and analogy",
+          "requires": ["block-diagram-and-signal-flow-graphs-representations-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "differential-equations",
+          "name": "Differential equations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mathematical-modelling-and-analogy-differential-equations"]
+        },
+        {
+          "id": "transfer-function-and-impulse-response-function",
+          "name": "Transfer Function and Impulse-Response Function",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["differential-equations"]
+        },
+        {
+          "id": "systems-with-transport-lag",
+          "name": "Systems with transport lag",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transfer-function-and-impulse-response-function"]
+        },
+        {
+          "id": "linearization",
+          "name": "Linearization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["systems-with-transport-lag"]
         }
       ]
     },
@@ -108,12 +168,72 @@
         },
         {
           "id": "bode-plots-control",
-          "name": "Gain and Phase margins, Bode plots, Frequency domain specifications and their correlations with time response, Design and performance goals"
+          "name": "Gain and Phase margins",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bode-plots",
+          "name": "Bode plots",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bode-plots-control"]
+        },
+        {
+          "id": "frequency-domain-specifications-and-their-correlations-with",
+          "name": "Frequency domain specifications and their correlations with time response",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bode-plots"]
+        },
+        {
+          "id": "design-and-performance-goals",
+          "name": "Design and performance goals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["frequency-domain-specifications-and-their-correlations-with"]
         },
         {
           "id": "steady-state-transient-and-robustness-specifications",
-          "name": "Steady-state, transient and robustness specifications, Introduction to P, PD, PI and PID controllers and their design, Introduction to Lag and Lead compensator design, Analogy with electronic systems ",
-          "requires": ["bode-plots-control"]
+          "name": "Steady-state",
+          "requires": ["bode-plots-control"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "transient-and-robustness-specifications",
+          "name": "transient and robustness specifications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["steady-state-transient-and-robustness-specifications"]
+        },
+        {
+          "id": "pi-and-pid-controllers-and-their-design",
+          "name": "PI and PID controllers and their design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transient-and-robustness-specifications"]
+        },
+        {
+          "id": "introduction-to-lag-and-lead-compensator-design",
+          "name": "Introduction to Lag and Lead compensator design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pi-and-pid-controllers-and-their-design"]
+        },
+        {
+          "id": "introduction-to-p",
+          "name": "Introduction to P",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-lag-and-lead-compensator-design"]
+        },
+        {
+          "id": "analogy-with-electronic-systems-analysis-and-design",
+          "name": "Analogy with electronic systems analysis and design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-p"]
         }
       ]
     },
@@ -153,10 +273,21 @@
         },
         {
           "id": "introduction-to-modern-control-systems-and-way-forward",
-          "name": "Introduction to modern control systems, and way forward",
-          "requires": ["concepts-of-controllability-and-observability"]
+          "name": "Introduction to modern control systems",
+          "requires": ["concepts-of-controllability-and-observability"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "way-forward",
+          "name": "way forward",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-modern-control-systems-and-way-forward"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-control-systems-laboratory-ece"]
 }

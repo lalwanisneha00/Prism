@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Power Electronics (VLSI/Embedded)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -38,7 +38,16 @@
       "topics": [
         {
           "id": "operation-and-analysis-of-power-amplifiers-class-a-b-c-and",
-          "name": "Operation and analysis of power Amplifiers: Class A, B, C and push-pull configurations"
+          "name": "Operation and analysis of power Amplifiers: Class A",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "c-and-push-pull-configurations",
+          "name": "C and push-pull configurations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["operation-and-analysis-of-power-amplifiers-class-a-b-c-and"]
         },
         {
           "id": "introduction-to-power-electronics-and-its-applications",
@@ -47,13 +56,50 @@
         },
         {
           "id": "overview-of-power-electronic-circuits-and-systems-power",
-          "name": "overview of power electronic circuits and Systems Power semiconductor devices: Diodes, SCR, GTO and transistors (BJT, MOSFET and IGBT): Ratings, static and dynamic characteristics, drive and switching",
-          "requires": ["introduction-to-power-electronics-and-its-applications"]
+          "name": "overview of power electronic circuits and Systems Power semiconductor devices: Diodes",
+          "requires": ["introduction-to-power-electronics-and-its-applications"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "scr",
+          "name": "SCR",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["overview-of-power-electronic-circuits-and-systems-power"]
+        },
+        {
+          "id": "gto-and-transistors-bjt",
+          "name": "GTO and transistors (BJT",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scr"]
+        },
+        {
+          "id": "mosfet-and-igbt-ratings",
+          "name": "MOSFET and IGBT): Ratings",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gto-and-transistors-bjt"]
+        },
+        {
+          "id": "static-and-dynamic-characteristics",
+          "name": "static and dynamic characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mosfet-and-igbt-ratings"]
         },
         {
           "id": "protection-and-cooling-of-power-semiconductor-devices",
           "name": "protection and cooling of power semiconductor devices",
           "requires": ["overview-of-power-electronic-circuits-and-systems-power"]
+        },
+        {
+          "id": "drive-and-switching-aid-circuits",
+          "name": "drive and switching aid circuits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["protection-and-cooling-of-power-semiconductor-devices"]
         }
       ]
     },
@@ -73,8 +119,38 @@
         },
         {
           "id": "performance-parameters-analysis-power-factor-ripple-factor",
-          "name": "performance parameters analysis: power factor, ripple factor, form factor, harmonics, distortion and effect of source Inductance on performance",
-          "requires": ["single-phase-and-three-phase-converter-circuits-with"]
+          "name": "performance parameters analysis: power factor",
+          "requires": ["single-phase-and-three-phase-converter-circuits-with"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ripple-factor",
+          "name": "ripple factor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["performance-parameters-analysis-power-factor-ripple-factor"]
+        },
+        {
+          "id": "form-factor",
+          "name": "form factor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ripple-factor"]
+        },
+        {
+          "id": "harmonics",
+          "name": "harmonics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["form-factor"]
+        },
+        {
+          "id": "distortion-and-effect-of-source-inductance-on-performance",
+          "name": "distortion and effect of source Inductance on performance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["harmonics"]
         },
         {
           "id": "dual-converters-and-their-operation",
@@ -109,8 +185,24 @@
         },
         {
           "id": "design-of-chopper-based-buck-converter-boost-converter-buck",
-          "name": "Design of chopper-based Buck converter, Boost converter, Buck-Boost and Cuk converter: circuit configuration and steady state time domain Analysis with different kinds of loads",
-          "requires": ["working-principle-of-step-up-and-step-down-chopper-circuits"]
+          "name": "Design of chopper-based Buck converter",
+          "requires": ["working-principle-of-step-up-and-step-down-chopper-circuits"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "boost-converter",
+          "name": "Boost converter",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-of-chopper-based-buck-converter-boost-converter-buck"]
+        },
+        {
+          "id": "buck-boost-and-cuk-converter-circuit-configuration-and-stead",
+          "name": "Buck-Boost and Cuk converter: circuit configuration and steady state time domain Analysis with different kinds of loads",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["boost-converter"]
         },
         {
           "id": "design-of-inductors-for-dc-dc-converters",
@@ -119,8 +211,17 @@
         },
         {
           "id": "ac-ac-converter-single-phase-ac-voltage-controllers-ac",
-          "name": "AC-AC converter: single phase AC Voltage controllers, AC chopper",
-          "requires": ["design-of-inductors-for-dc-dc-converters"]
+          "name": "AC-AC converter: single phase AC Voltage controllers",
+          "requires": ["design-of-inductors-for-dc-dc-converters"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ac-chopper",
+          "name": "AC chopper",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ac-ac-converter-single-phase-ac-voltage-controllers-ac"]
         },
         {
           "id": "single-phase-cycloconverters",
@@ -141,7 +242,16 @@
       "topics": [
         {
           "id": "classification-of-inverters-single-phase-voltage-source",
-          "name": "Classification of inverters, single phase voltage source bridge inverter"
+          "name": "Classification of inverters",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "single-phase-voltage-source-bridge-inverter",
+          "name": "single phase voltage source bridge inverter",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-inverters-single-phase-voltage-source"]
         },
         {
           "id": "performance-parameter-analysis-with-various-loads",
@@ -165,5 +275,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

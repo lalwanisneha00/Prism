@@ -1,0 +1,224 @@
+{
+  "id": "pdeu-mathematics-iii-elec",
+  "name": "Mathematics - III",
+  "field": "Mathematics - III",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 3): Mathematics - III",
+    "note": "Units and topics copied from the course handout PDF (pages 3 of ELEC/sem3/Electrical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20MA203T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s3-mathematics-iii",
+      "code": "20MA203T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "fourier-series",
+      "name": "Fourier Series",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "periodic-functions",
+          "name": "Periodic functions"
+        },
+        {
+          "id": "euler-s-formulae",
+          "name": "Euler’s formulae",
+          "requires": ["periodic-functions"]
+        },
+        {
+          "id": "dirichlet-s-conditions",
+          "name": "Dirichlet’s conditions",
+          "requires": ["euler-s-formulae"]
+        },
+        {
+          "id": "expansion-of-even-and-odd-functions",
+          "name": "expansion of even and odd functions",
+          "requires": ["dirichlet-s-conditions"]
+        },
+        {
+          "id": "half-range-fourier-sine-and-cosine-series",
+          "name": "half range Fourier sine and cosine series",
+          "requires": ["expansion-of-even-and-odd-functions"]
+        },
+        {
+          "id": "parseval-s-formula",
+          "name": "Parseval’s formula",
+          "requires": ["half-range-fourier-sine-and-cosine-series"]
+        },
+        {
+          "id": "complex-form-of-fourier-series",
+          "name": "complex form of Fourier series",
+          "requires": ["parseval-s-formula"]
+        }
+      ]
+    },
+    {
+      "id": "fourier-transform-and-z-transform",
+      "name": "Fourier Transform and Z-Transform",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "fourier-transform-integral-transform",
+          "name": "Fourier Transform: Integral transform"
+        },
+        {
+          "id": "fourier-integral-theorem",
+          "name": "Fourier integral theorem",
+          "requires": ["fourier-transform-integral-transform"]
+        },
+        {
+          "id": "fourier-sine-and-cosine-integrals",
+          "name": "Fourier sine and cosine integrals",
+          "requires": ["fourier-integral-theorem"]
+        },
+        {
+          "id": "fourier-transforms",
+          "name": "Fourier transforms",
+          "requires": ["fourier-sine-and-cosine-integrals"]
+        },
+        {
+          "id": "fourier-sine-and-cosine-transforms",
+          "name": "Fourier sine and cosine transforms",
+          "requires": ["fourier-transforms"]
+        },
+        {
+          "id": "properties-of-fourier-transform",
+          "name": "Properties of Fourier transform",
+          "requires": ["fourier-sine-and-cosine-transforms"]
+        },
+        {
+          "id": "convolution",
+          "name": "Convolution",
+          "requires": ["properties-of-fourier-transform"]
+        },
+        {
+          "id": "parseval-s-identity",
+          "name": "Parseval’s identity",
+          "requires": ["convolution"]
+        },
+        {
+          "id": "relationship-between-fourier-and-laplace-transform",
+          "name": "Relationship between Fourier and Laplace transform",
+          "requires": ["parseval-s-identity"]
+        }
+      ]
+    },
+    {
+      "id": "partial-differential-equations-of-first-order",
+      "name": "Partial Differential Equations of First Order",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "formation-of-partial-differential-equations-pdes",
+          "name": "Formation of Partial Differential Equations (PDEs)"
+        },
+        {
+          "id": "solutions-of-pdes-of-first-order",
+          "name": "Solutions of PDEs of first order",
+          "requires": ["formation-of-partial-differential-equations-pdes"]
+        },
+        {
+          "id": "cauchy-problem-for-first-order-pdes",
+          "name": "Cauchy problem for first order PDEs",
+          "requires": ["solutions-of-pdes-of-first-order"]
+        },
+        {
+          "id": "lagrange-s-method",
+          "name": "Lagrange’s method",
+          "requires": ["cauchy-problem-for-first-order-pdes"]
+        },
+        {
+          "id": "charpit-and-jacobi-methods-for-solving-first-order-nonlinear",
+          "name": "Charpit and Jacobi methods for solving first order nonlinear PDEs",
+          "requires": ["lagrange-s-method"]
+        }
+      ]
+    },
+    {
+      "id": "applications-of-advance-linear-algebra-to-electrical-enginee",
+      "name": "Applications of Advance Linear Algebra to Electrical Engineering",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-vector-space",
+          "name": "Introduction to vector space"
+        },
+        {
+          "id": "subspace",
+          "name": "subspace",
+          "requires": ["introduction-to-vector-space"]
+        },
+        {
+          "id": "basis-and-dimensions",
+          "name": "basis and dimensions",
+          "requires": ["subspace"]
+        },
+        {
+          "id": "column-space",
+          "name": "column space",
+          "requires": ["basis-and-dimensions"]
+        },
+        {
+          "id": "null-space",
+          "name": "null space",
+          "requires": ["column-space"]
+        },
+        {
+          "id": "field",
+          "name": "Field",
+          "requires": ["null-space"]
+        },
+        {
+          "id": "least-squares-solutions",
+          "name": "least squares solutions",
+          "requires": ["field"]
+        },
+        {
+          "id": "orthogonalization",
+          "name": "orthogonalization",
+          "requires": ["least-squares-solutions"]
+        },
+        {
+          "id": "linear-transformation",
+          "name": "Linear transformation",
+          "requires": ["orthogonalization"]
+        },
+        {
+          "id": "symmetric-matrices-and-positive-definite-matrices",
+          "name": "Symmetric matrices and positive definite matrices",
+          "requires": ["linear-transformation"]
+        },
+        {
+          "id": "computing-exponential-of-a-matrix",
+          "name": "computing exponential of a Matrix",
+          "requires": ["symmetric-matrices-and-positive-definite-matrices"]
+        },
+        {
+          "id": "linearization-of-non-linear-systems-using-taylor-series-expa",
+          "name": "Linearization of non-linear systems using Taylor series expansion",
+          "requires": ["computing-exponential-of-a-matrix"]
+        }
+      ]
+    }
+  ]
+}

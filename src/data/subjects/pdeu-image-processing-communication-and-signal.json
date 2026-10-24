@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Image Processing (Communication & Signal Processing)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -185,8 +185,17 @@
         },
         {
           "id": "filtering-image-enhancement",
-          "name": "filtering. Image enhancement",
-          "requires": ["haar-transform"]
+          "name": "filtering",
+          "requires": ["haar-transform"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "image-enhancement",
+          "name": "Image enhancement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["filtering-image-enhancement"]
         },
         {
           "id": "restoration",
@@ -212,7 +221,16 @@
       "topics": [
         {
           "id": "feature-extraction",
-          "name": "Feature Extraction"
+          "name": "Feature Extraction",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "feature-vectors-and-feature-spaces-2",
+          "name": "Feature Vectors and Feature Spaces",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["feature-extraction"]
         },
         {
           "id": "shape-features",
@@ -302,5 +320,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -5,8 +5,8 @@
   "tier": "limited",
   "university": "pdeu",
   "courseCategory": "non-core",
-  "branches": ["ce", "ece"],
-  "semesters": [1],
+  "branches": ["ce", "ece", "chem", "me"],
+  "semesters": [1, 2],
   "code": "24CV101T",
   "credits": 2,
   "ltp": "2-0-0",
@@ -30,6 +30,26 @@
       "credits": 2,
       "semester": 1,
       "kind": "non-core"
+    },
+    {
+      "branch": "chem",
+      "key": "s2-environmental-science",
+      "code": "24CV101T",
+      "category": "Program Core",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "me",
+      "key": "s1-environmental-science",
+      "code": "24CV101T",
+      "category": "Program Core",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 1,
+      "kind": "core"
     }
   ],
   "syllabusSource": {
@@ -37,8 +57,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE, ECE): Environment Science",
     "note": "Skeleton only: units and topics are PDEU's, copied from the handbook. Lessons are built from the material the student uploads (given by their faculty)."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -49,7 +69,16 @@
       "topics": [
         {
           "id": "sustainable-development",
-          "name": "Sustainable Development"
+          "name": "Sustainable Development",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "sustainable-development-goals-2",
+          "name": "Sustainable Development Goals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sustainable-development"]
         },
         {
           "id": "sustainable-development-goals",
@@ -63,13 +92,66 @@
         },
         {
           "id": "its-importance-and-multidisciplinary-nature-introduction-to",
-          "name": "Its importance and Multidisciplinary nature, Introduction to Environmental Parameters and their standards (air, water, soil, noise, etc.)",
-          "requires": ["environmental-studies"]
+          "name": "Its importance and Multidisciplinary nature",
+          "requires": ["environmental-studies"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-environmental-parameters-and-their-standards",
+          "name": "Introduction to Environmental Parameters and their standards (air",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["its-importance-and-multidisciplinary-nature-introduction-to"]
+        },
+        {
+          "id": "water",
+          "name": "water",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-environmental-parameters-and-their-standards"]
+        },
+        {
+          "id": "soil",
+          "name": "soil",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["water"]
+        },
+        {
+          "id": "noise",
+          "name": "noise",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["soil"]
         },
         {
           "id": "ecosystem-and-its-types-ideal-ecosystem-biodiversity-its",
-          "name": "Ecosystem and its types, Ideal ecosystem, Biodiversity : Its importance and conservation",
-          "requires": ["its-importance-and-multidisciplinary-nature-introduction-to"]
+          "name": "Ecosystem and its types",
+          "requires": ["its-importance-and-multidisciplinary-nature-introduction-to"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ideal-ecosystem",
+          "name": "Ideal ecosystem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ecosystem-and-its-types-ideal-ecosystem-biodiversity-its"]
+        },
+        {
+          "id": "biodiversity-its-importance-and-conservation",
+          "name": "Biodiversity : Its importance and conservation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ideal-ecosystem"]
+        },
+        {
+          "id": "etc",
+          "name": "etc.)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biodiversity-its-importance-and-conservation"]
         }
       ]
     },
@@ -80,12 +162,121 @@
       "topics": [
         {
           "id": "pollution-causes-and-effects-of-different-types-of-pollution",
-          "name": "Pollution, Causes and Effects of different types of pollution : Air Pollution, Water Pollution, Soil Pollution, Solid Waste (organic and Inorganic) Pollution, Hazardous Waste Pollution, Marine Polluti"
+          "name": "Pollution",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "causes-and-effects-of-different-types-of-pollution-air-pollu",
+          "name": "Causes and Effects of different types of pollution : Air Pollution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pollution-causes-and-effects-of-different-types-of-pollution"]
+        },
+        {
+          "id": "water-pollution",
+          "name": "Water Pollution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["causes-and-effects-of-different-types-of-pollution-air-pollu"]
+        },
+        {
+          "id": "soil-pollution",
+          "name": "Soil Pollution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["water-pollution"]
+        },
+        {
+          "id": "solid-waste-organic-and-inorganic-pollution",
+          "name": "Solid Waste (organic and Inorganic) Pollution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["soil-pollution"]
+        },
+        {
+          "id": "hazardous-waste-pollution",
+          "name": "Hazardous Waste Pollution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["solid-waste-organic-and-inorganic-pollution"]
+        },
+        {
+          "id": "marine-pollution",
+          "name": "Marine Pollution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hazardous-waste-pollution"]
+        },
+        {
+          "id": "water-pollution-2",
+          "name": "water pollution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["marine-pollution"]
         },
         {
           "id": "introduction-to-man-made-disasters-like-floods-heat-waves",
-          "name": "Introduction to man-made disasters like floods, heat waves, landslides, etc., Introduction to the various instruments for measuring air pollution, water pollution, noise, etc",
-          "requires": ["pollution-causes-and-effects-of-different-types-of-pollution"]
+          "name": "Noise Pollution",
+          "requires": ["pollution-causes-and-effects-of-different-types-of-pollution"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-man-made-disasters-like-floods",
+          "name": "Introduction to man-made disasters like floods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-man-made-disasters-like-floods-heat-waves"]
+        },
+        {
+          "id": "heat-waves",
+          "name": "heat waves",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-man-made-disasters-like-floods"]
+        },
+        {
+          "id": "landslides",
+          "name": "landslides",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["heat-waves"]
+        },
+        {
+          "id": "introduction-to-the-various-instruments-for-measuring-air-po",
+          "name": "Introduction to the various instruments for measuring air pollution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["landslides"]
+        },
+        {
+          "id": "noise-2",
+          "name": "noise",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-the-various-instruments-for-measuring-air-po"]
+        },
+        {
+          "id": "thermal-pollution",
+          "name": "Thermal Pollution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["noise-2"]
+        },
+        {
+          "id": "radioactive-pollution",
+          "name": "Radioactive Pollution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermal-pollution"]
+        },
+        {
+          "id": "etc-2",
+          "name": "etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radioactive-pollution"]
         }
       ]
     },
@@ -117,6 +308,13 @@
           "id": "etc-indian-culture-and-traditional-wisdom-for-managing",
           "name": "etc. Indian Culture and Traditional Wisdom for managing environment",
           "requires": ["mission-life-lifestyle-for-environment"]
+        },
+        {
+          "id": "etc-3",
+          "name": "etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["etc-indian-culture-and-traditional-wisdom-for-managing"]
         }
       ]
     },
@@ -166,5 +364,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

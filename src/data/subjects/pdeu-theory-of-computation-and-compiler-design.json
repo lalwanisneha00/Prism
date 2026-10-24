@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 8 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -39,7 +39,23 @@
       "topics": [
         {
           "id": "fundamentals-of-formal-languages-grammars-and-computation",
-          "name": "Fundamentals of formal languages, grammars, and computation models"
+          "name": "Fundamentals of formal languages",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "grammars",
+          "name": "grammars",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fundamentals-of-formal-languages-grammars-and-computation"]
+        },
+        {
+          "id": "computation-models",
+          "name": "computation models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["grammars"]
         },
         {
           "id": "compiler-phases",
@@ -281,5 +297,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

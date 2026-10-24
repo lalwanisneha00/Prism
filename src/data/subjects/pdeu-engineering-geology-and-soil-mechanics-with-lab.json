@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Engineering Geology and Soil Mechanics (with lab)",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -62,13 +62,45 @@
         },
         {
           "id": "engineering-properties",
+          "name": "properties",
+          "requires": ["occurrence"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "engineering-properties-2",
           "name": "Engineering properties",
-          "requires": ["occurrence"]
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["engineering-properties"]
         },
         {
           "id": "folds-faults",
-          "name": "Structural geology: Dip, strike, folds, faults and joints-their engineering aspects",
-          "requires": ["engineering-properties"]
+          "name": "Structural geology: Dip",
+          "requires": ["engineering-properties"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "strike",
+          "name": "strike",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["folds-faults"]
+        },
+        {
+          "id": "folds",
+          "name": "folds",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["strike"]
+        },
+        {
+          "id": "faults-and-joints-their-engineering-aspects",
+          "name": "faults and joints-their engineering aspects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["folds"]
         },
         {
           "id": "case-studies",
@@ -241,7 +273,16 @@
         {
           "id": "darcy-permeability",
           "name": "Field and laboratory permeability tests",
-          "requires": ["darcys-law"]
+          "requires": ["darcys-law"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "laboratory-and-field-tests-2",
+          "name": "Laboratory and field tests",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["darcy-permeability"]
         },
         {
           "id": "flow-through-stratified-soil",
@@ -300,5 +341,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-engineering-geology-and-soil-mechanics-laboratory-civil"]
 }

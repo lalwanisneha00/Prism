@@ -1,0 +1,369 @@
+{
+  "id": "pdeu-energy-conversion-device-engineering-chem",
+  "name": "Energy Conversion Device Engineering",
+  "field": "Energy Conversion Device Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 7): Energy Conversion Device Engineering",
+    "note": "Units and topics copied from the course handout PDF (pages 9 of CHEM/sem7/Chemical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH432T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s7-program-elective--energy-conversion-device-engineering",
+      "code": "24CH432T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-and-basic-principles",
+      "name": "Introduction and Basic Principles",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "electrochemical-cells",
+          "name": "Electrochemical cells"
+        },
+        {
+          "id": "characteristics-of-electrochemical-reactions",
+          "name": "characteristics of electrochemical reactions",
+          "requires": ["electrochemical-cells"]
+        },
+        {
+          "id": "importance-of-electrochemical-systems",
+          "name": "importance of electrochemical systems",
+          "requires": ["characteristics-of-electrochemical-reactions"]
+        },
+        {
+          "id": "faraday-s-law",
+          "name": "Faraday's law",
+          "requires": ["importance-of-electrochemical-systems"]
+        },
+        {
+          "id": "cell-potentials",
+          "name": "cell potentials",
+          "requires": ["faraday-s-law"]
+        },
+        {
+          "id": "nernst-equation-and-variants",
+          "name": "Nernst equation and variants",
+          "requires": ["cell-potentials"]
+        },
+        {
+          "id": "standard-potentials",
+          "name": "standard potentials",
+          "requires": ["nernst-equation-and-variants"]
+        },
+        {
+          "id": "use-of-the-cell-potential",
+          "name": "use of the cell potential",
+          "requires": ["standard-potentials"]
+        },
+        {
+          "id": "pourbaix-diagrams",
+          "name": "Pourbaix diagrams",
+          "requires": ["use-of-the-cell-potential"]
+        },
+        {
+          "id": "reference-electrodes",
+          "name": "reference electrodes",
+          "requires": ["pourbaix-diagrams"]
+        },
+        {
+          "id": "impact-of-potential-on-reaction-rate",
+          "name": "impact of potential on reaction rate",
+          "requires": ["reference-electrodes"]
+        },
+        {
+          "id": "butler-volmer-equation",
+          "name": "Butler-Volmer equation",
+          "requires": ["impact-of-potential-on-reaction-rate"]
+        },
+        {
+          "id": "the-influence-of-mass-transfer-on-the-reaction-rate",
+          "name": "the influence of mass transfer on the reaction rate",
+          "requires": ["butler-volmer-equation"]
+        },
+        {
+          "id": "kinetics-in-full-cells",
+          "name": "kinetics in full cells",
+          "requires": ["the-influence-of-mass-transfer-on-the-reaction-rate"]
+        },
+        {
+          "id": "various-efficiency-measurements-in-electrochemical-systems",
+          "name": "various efficiency measurements in electrochemical systems",
+          "requires": ["kinetics-in-full-cells"]
+        },
+        {
+          "id": "electric-and-hybrid-systems",
+          "name": "electric and hybrid systems",
+          "requires": ["various-efficiency-measurements-in-electrochemical-systems"]
+        },
+        {
+          "id": "power-demand-in-vehicles",
+          "name": "power demand in vehicles",
+          "requires": ["electric-and-hybrid-systems"]
+        },
+        {
+          "id": "hybrid-vehicle-architectures",
+          "name": "hybrid vehicle architectures",
+          "requires": ["power-demand-in-vehicles"]
+        }
+      ]
+    },
+    {
+      "id": "battery-fundamentals",
+      "name": "Battery Fundamentals",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "components-of-a-cell",
+          "name": "Components of a cell"
+        },
+        {
+          "id": "classification-of-batteries-and-cell-chemistries",
+          "name": "classification of batteries and cell chemistries",
+          "requires": ["components-of-a-cell"]
+        },
+        {
+          "id": "theoretical-capacity-and-the-state-of-charge",
+          "name": "theoretical capacity and the state of charge",
+          "requires": ["classification-of-batteries-and-cell-chemistries"]
+        },
+        {
+          "id": "cell-characteristics-and-electrochemical-performance",
+          "name": "cell characteristics and electrochemical performance",
+          "requires": ["theoretical-capacity-and-the-state-of-charge"]
+        },
+        {
+          "id": "ragone-plots",
+          "name": "Ragone plots",
+          "requires": ["cell-characteristics-and-electrochemical-performance"]
+        },
+        {
+          "id": "efficiency-of-secondary-cells",
+          "name": "efficiency of secondary cells",
+          "requires": ["ragone-plots"]
+        },
+        {
+          "id": "charge-retention-and-self-discharge",
+          "name": "charge retention and self-discharge",
+          "requires": ["efficiency-of-secondary-cells"]
+        },
+        {
+          "id": "capacity-fade-in-secondary-cells",
+          "name": "capacity fade in secondary cells",
+          "requires": ["charge-retention-and-self-discharge"]
+        },
+        {
+          "id": "redox-flow-batteries",
+          "name": "redox-flow batteries",
+          "requires": ["capacity-fade-in-secondary-cells"]
+        },
+        {
+          "id": "scaling-of-cells-to-adjust-capacity",
+          "name": "scaling of cells to adjust capacity",
+          "requires": ["redox-flow-batteries"]
+        },
+        {
+          "id": "thermal-management",
+          "name": "thermal management",
+          "requires": ["scaling-of-cells-to-adjust-capacity"]
+        },
+        {
+          "id": "mechanical-considerations",
+          "name": "mechanical considerations",
+          "requires": ["thermal-management"]
+        },
+        {
+          "id": "battery-electric-vehicles",
+          "name": "battery electric vehicles",
+          "requires": ["mechanical-considerations"]
+        },
+        {
+          "id": "batteries-for-full-hybrid-electric-vehicles",
+          "name": "batteries for full-hybrid electric vehicles",
+          "requires": ["battery-electric-vehicles"]
+        }
+      ]
+    },
+    {
+      "id": "fuel-cell-fundamentals",
+      "name": "Fuel-Cell Fundamentals",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "types-and-components-of-fuel-cells",
+          "name": "Types and components of fuel cells"
+        },
+        {
+          "id": "current-voltage-characteristics-and-polarizations",
+          "name": "current-voltage characteristics and polarizations",
+          "requires": ["types-and-components-of-fuel-cells"]
+        },
+        {
+          "id": "effect-of-operating-conditions-and-maximum-power",
+          "name": "effect of operating conditions and maximum power",
+          "requires": ["current-voltage-characteristics-and-polarizations"]
+        },
+        {
+          "id": "electrode-structure",
+          "name": "electrode structure",
+          "requires": ["effect-of-operating-conditions-and-maximum-power"]
+        },
+        {
+          "id": "proton-exchange-membrane-fuel-cells",
+          "name": "proton-exchange membrane fuel cells",
+          "requires": ["electrode-structure"]
+        },
+        {
+          "id": "solid-oxide-fuel-cells",
+          "name": "solid oxide fuel cells",
+          "requires": ["proton-exchange-membrane-fuel-cells"]
+        },
+        {
+          "id": "basic-stack-design-concepts",
+          "name": "basic stack design concepts",
+          "requires": ["solid-oxide-fuel-cells"]
+        },
+        {
+          "id": "cell-stack-configurations",
+          "name": "cell stack configurations",
+          "requires": ["basic-stack-design-concepts"]
+        },
+        {
+          "id": "utilization-of-oxidant-and-fuel",
+          "name": "utilization of oxidant and fuel",
+          "requires": ["cell-stack-configurations"]
+        },
+        {
+          "id": "flow-field-design",
+          "name": "flow-field design",
+          "requires": ["utilization-of-oxidant-and-fuel"]
+        },
+        {
+          "id": "water-and-thermal-management",
+          "name": "water and thermal management",
+          "requires": ["flow-field-design"]
+        },
+        {
+          "id": "structural-mechanical-considerations",
+          "name": "structural-mechanical considerations",
+          "requires": ["water-and-thermal-management"]
+        },
+        {
+          "id": "fuel-cell-hybrid-systems-for-vehicles",
+          "name": "fuel-cell hybrid systems for vehicles",
+          "requires": ["structural-mechanical-considerations"]
+        }
+      ]
+    },
+    {
+      "id": "photoelectrochemical-cells-and-electrochemical-double-layer",
+      "name": "Photoelectrochemical Cells and Electrochemical Double-Layer Capacitors",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "semiconductor-basics",
+          "name": "Semiconductor basics"
+        },
+        {
+          "id": "energy-scales",
+          "name": "energy scales",
+          "requires": ["semiconductor-basics"]
+        },
+        {
+          "id": "semiconductor-electrolyte-interface",
+          "name": "semiconductor-electrolyte interface",
+          "requires": ["energy-scales"]
+        },
+        {
+          "id": "current-flow-in-the-dark",
+          "name": "current flow in the dark",
+          "requires": ["semiconductor-electrolyte-interface"]
+        },
+        {
+          "id": "light-absorption",
+          "name": "light absorption",
+          "requires": ["current-flow-in-the-dark"]
+        },
+        {
+          "id": "photoelectrochemical-effects",
+          "name": "photoelectrochemical effects",
+          "requires": ["light-absorption"]
+        },
+        {
+          "id": "photoelectrochemical-cells",
+          "name": "photoelectrochemical cells",
+          "requires": ["photoelectrochemical-effects"]
+        },
+        {
+          "id": "electrical-double-layer-capacitance",
+          "name": "electrical double-layer capacitance",
+          "requires": ["photoelectrochemical-cells"]
+        },
+        {
+          "id": "current-voltage-relationship-for-capacitors",
+          "name": "current-voltage relationship for capacitors",
+          "requires": ["electrical-double-layer-capacitance"]
+        },
+        {
+          "id": "electrode-structure-2",
+          "name": "electrode structure",
+          "requires": ["current-voltage-relationship-for-capacitors"]
+        },
+        {
+          "id": "impedance-analysis",
+          "name": "impedance analysis",
+          "requires": ["electrode-structure-2"]
+        },
+        {
+          "id": "full-cell-analysis",
+          "name": "full cell analysis",
+          "requires": ["impedance-analysis"]
+        },
+        {
+          "id": "power-and-energy-capabilities",
+          "name": "power and energy capabilities",
+          "requires": ["full-cell-analysis"]
+        },
+        {
+          "id": "cell-design",
+          "name": "cell design",
+          "requires": ["power-and-energy-capabilities"]
+        },
+        {
+          "id": "practical-operation-and-electrochemical-capacitor-performanc",
+          "name": "practical operation and electrochemical capacitor performance",
+          "requires": ["cell-design"]
+        },
+        {
+          "id": "pseudo-capacitance",
+          "name": "pseudo-capacitance",
+          "requires": ["practical-operation-and-electrochemical-capacitor-performanc"]
+        },
+        {
+          "id": "applications-in-hybrid-and-electric-vehicles",
+          "name": "applications in hybrid and electric vehicles",
+          "requires": ["pseudo-capacitance"]
+        }
+      ]
+    }
+  ]
+}

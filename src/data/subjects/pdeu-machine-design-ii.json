@@ -28,14 +28,57 @@
     "title": "PDEU B.Tech curriculum handbook (Mech): Machine Design - II",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
     {
+      "id": "18",
+      "name": "Design of Gear Drives",
+      "topics": [
+        {
+          "id": "design-of-gear-drives-gear-terminology",
+          "name": "Design of Gear Drives: Gear terminology"
+        },
+        {
+          "id": "kinematics-of-gear-drive",
+          "name": "Kinematics of gear drive",
+          "requires": ["design-of-gear-drives-gear-terminology"]
+        },
+        {
+          "id": "standard-system-of-gear-tooth",
+          "name": "Standard system of gear tooth",
+          "requires": ["kinematics-of-gear-drive"]
+        },
+        {
+          "id": "gear-materials",
+          "name": "Gear materials",
+          "requires": ["standard-system-of-gear-tooth"]
+        },
+        {
+          "id": "design-of-spur",
+          "name": "Design of Spur",
+          "requires": ["gear-materials"]
+        },
+        {
+          "id": "helical-and-bevel-gears-tooth-proportions-force-analysis",
+          "name": "helical and bevel gears (Tooth proportions, Force analysis, Dynamic loading of gear tooth, Heat Treatment and Wear Resistance, Gear Construction and stress concentration)",
+          "requires": ["design-of-spur"]
+        },
+        {
+          "id": "design-of-worm-gear-set",
+          "name": "Design of worm gear set",
+          "requires": ["helical-and-bevel-gears-tooth-proportions-force-analysis"],
+          "status": "retired"
+        }
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
+    },
+    {
       "id": "20",
-      "name": "20",
+      "name": "Design of Bearings",
       "topics": [
         {
           "id": "design-of-bearings-types",
@@ -86,51 +129,13 @@
           "name": "Load and life rating of bearings",
           "requires": ["ball-and-roller-bearings"]
         }
-      ]
-    },
-    {
-      "id": "18",
-      "name": "18",
-      "topics": [
-        {
-          "id": "design-of-gear-drives-gear-terminology",
-          "name": "Design of Gear Drives: Gear terminology"
-        },
-        {
-          "id": "kinematics-of-gear-drive",
-          "name": "Kinematics of gear drive",
-          "requires": ["design-of-gear-drives-gear-terminology"]
-        },
-        {
-          "id": "standard-system-of-gear-tooth",
-          "name": "Standard system of gear tooth",
-          "requires": ["kinematics-of-gear-drive"]
-        },
-        {
-          "id": "gear-materials",
-          "name": "Gear materials",
-          "requires": ["standard-system-of-gear-tooth"]
-        },
-        {
-          "id": "design-of-spur",
-          "name": "Design of Spur",
-          "requires": ["gear-materials"]
-        },
-        {
-          "id": "helical-and-bevel-gears-tooth-proportions-force-analysis",
-          "name": "helical and bevel gears (Tooth proportions, Force analysis, Dynamic loading of gear tooth, Heat Treatment and Wear Resistance, Gear Construction and stress concentration)",
-          "requires": ["design-of-spur"]
-        },
-        {
-          "id": "design-of-worm-gear-set",
-          "name": "Design of worm gear set",
-          "requires": ["helical-and-bevel-gears-tooth-proportions-force-analysis"]
-        }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     },
     {
       "id": "08",
-      "name": "08",
+      "name": "Design of Gear Box",
       "topics": [
         {
           "id": "design-of-gear-boxes-geometric-progression-standard-step",
@@ -139,7 +144,8 @@
         {
           "id": "vehicle-motion-resistance",
           "name": "vehicle motion resistance",
-          "requires": ["design-of-gear-boxes-geometric-progression-standard-step"]
+          "requires": ["design-of-gear-boxes-geometric-progression-standard-step"],
+          "status": "retired"
         },
         {
           "id": "sliding-mesh-gear-box",
@@ -159,18 +165,21 @@
         {
           "id": "epicyclic-gear-box",
           "name": "Epicyclic gear box",
-          "requires": ["synchromesh-gearbox"]
+          "requires": ["synchromesh-gearbox"],
+          "status": "retired"
         },
         {
           "id": "multi-speed-gear-box",
           "name": "multi speed gear box",
           "requires": ["epicyclic-gear-box"]
         }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     },
     {
       "id": "14",
-      "name": "14",
+      "name": "Design of Material Handling Equipment",
       "topics": [
         {
           "id": "design-of-material-handling-equipment-introduction-of",
@@ -189,19 +198,32 @@
         {
           "id": "sheaves",
           "name": "sheaves",
-          "requires": ["design-of-hooks"]
+          "requires": ["design-of-hooks"],
+          "status": "retired"
         },
         {
           "id": "drums",
           "name": "drums",
-          "requires": ["sheaves"]
+          "requires": ["sheaves"],
+          "status": "retired"
         },
         {
           "id": "grab-buckets-and-cranes",
           "name": "grab buckets and cranes",
-          "requires": ["drums"]
+          "requires": ["drums"],
+          "status": "retired"
+        },
+        {
+          "id": "design-of-ropes",
+          "name": "design of ropes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["grab-buckets-and-cranes"]
         }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): IC Technology (VLSI/Embedded)",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -38,27 +38,135 @@
       "topics": [
         {
           "id": "moore-s-law-cmos-scaling-overview-of-key-semiconductor",
-          "name": "Moore‟s law, CMOS scaling, Overview of key semiconductor technologies, Crystal Structure: Bravais lattice, Miller‟s indices, Crystal planes"
+          "name": "Moore‟s law",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "crystal-defects-point-defects-linear-defects-and-volume",
-          "name": "Crystal defects - point defects, Linear defects, and volume defects",
+          "id": "cmos-scaling",
+          "name": "CMOS scaling",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["moore-s-law-cmos-scaling-overview-of-key-semiconductor"]
         },
         {
-          "id": "raw-materials-and-purification-crystal-growth-czochralski",
-          "name": "Raw materials and purification, Crystal growth: Czochralski and Float-Zone processes, Silicon wafers, their specifications and measurements",
+          "id": "overview-of-key-semiconductor-technologies",
+          "name": "Overview of key semiconductor technologies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cmos-scaling"]
+        },
+        {
+          "id": "crystal-structure-bravais-lattice",
+          "name": "Crystal Structure: Bravais lattice",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["overview-of-key-semiconductor-technologies"]
+        },
+        {
+          "id": "miller-s-indices",
+          "name": "Miller‟s indices",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["crystal-structure-bravais-lattice"]
+        },
+        {
+          "id": "crystal-planes",
+          "name": "Crystal planes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["miller-s-indices"]
+        },
+        {
+          "id": "crystal-defects-point-defects-linear-defects-and-volume",
+          "name": "Crystal defects",
+          "requires": ["moore-s-law-cmos-scaling-overview-of-key-semiconductor"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "point-defects",
+          "name": "point defects",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["crystal-defects-point-defects-linear-defects-and-volume"]
         },
         {
-          "id": "contamination-control-cleanrooms-features-classifications",
-          "name": "Contamination Control: Cleanrooms - features, classifications and guidelines",
+          "id": "linear-defects",
+          "name": "Linear defects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["point-defects"]
+        },
+        {
+          "id": "volume-defects",
+          "name": "volume defects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-defects"]
+        },
+        {
+          "id": "raw-materials-and-purification-crystal-growth-czochralski",
+          "name": "Raw materials and purification",
+          "requires": ["crystal-defects-point-defects-linear-defects-and-volume"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "crystal-growth-czochralski-and-float-zone-processes",
+          "name": "Crystal growth: Czochralski and Float-Zone processes",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["raw-materials-and-purification-crystal-growth-czochralski"]
         },
         {
-          "id": "wafer-cleaning-gettering",
-          "name": "Wafer Cleaning, Gettering",
+          "id": "silicon-wafers",
+          "name": "Silicon wafers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["crystal-growth-czochralski-and-float-zone-processes"]
+        },
+        {
+          "id": "their-specifications-and-measurements",
+          "name": "their specifications and measurements",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["silicon-wafers"]
+        },
+        {
+          "id": "contamination-control-cleanrooms-features-classifications",
+          "name": "Contamination Control: Cleanrooms",
+          "requires": ["raw-materials-and-purification-crystal-growth-czochralski"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "features",
+          "name": "features",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["contamination-control-cleanrooms-features-classifications"]
+        },
+        {
+          "id": "classifications-and-guidelines",
+          "name": "classifications and guidelines",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["features"]
+        },
+        {
+          "id": "wafer-cleaning-gettering",
+          "name": "Wafer Cleaning",
+          "requires": ["contamination-control-cleanrooms-features-classifications"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gettering",
+          "name": "Gettering",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wafer-cleaning-gettering"]
         }
       ]
     },
@@ -69,7 +177,37 @@
       "topics": [
         {
           "id": "photolithography-introduction-and-its-application-to-ic",
-          "name": "Photolithography: introduction and its application to IC manufacturing, Light sources, Photomask, Wafer exposure system: contact proximity and projection printing, Immersion lithography, Resolution an"
+          "name": "Photolithography: introduction and its application to IC manufacturing",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "light-sources",
+          "name": "Light sources",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["photolithography-introduction-and-its-application-to-ic"]
+        },
+        {
+          "id": "photomask",
+          "name": "Photomask",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["light-sources"]
+        },
+        {
+          "id": "wafer-exposure-system-contact-proximity-and-projection-print",
+          "name": "Wafer exposure system: contact proximity and projection printing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["photomask"]
+        },
+        {
+          "id": "immersion-lithography",
+          "name": "Immersion lithography",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wafer-exposure-system-contact-proximity-and-projection-print"]
         },
         {
           "id": "process-flow-for-lithography",
@@ -83,13 +221,94 @@
         },
         {
           "id": "oxidation-dry-vs-wet-oxidation-locos-thermal-oxidation",
-          "name": "Oxidation: Dry vs wet oxidation, LOCOS, Thermal oxidation furnaces: Horizontal vs. vertical - their mechanism, Si/SiO2 interface, Oxide growth charges",
-          "requires": ["euv-and-electron-beam-lithography"]
+          "name": "Oxidation: Dry vs wet oxidation",
+          "requires": ["euv-and-electron-beam-lithography"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "locos",
+          "name": "LOCOS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["oxidation-dry-vs-wet-oxidation-locos-thermal-oxidation"]
+        },
+        {
+          "id": "thermal-oxidation-furnaces-horizontal-vs-vertical",
+          "name": "Thermal oxidation furnaces: Horizontal vs. vertical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["locos"]
+        },
+        {
+          "id": "their-mechanism",
+          "name": "their mechanism",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermal-oxidation-furnaces-horizontal-vs-vertical"]
+        },
+        {
+          "id": "si-sio2-interface",
+          "name": "Si/SiO2 interface",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["their-mechanism"]
+        },
+        {
+          "id": "oxide-growth-charges",
+          "name": "Oxide growth charges",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["si-sio2-interface"]
         },
         {
           "id": "growth-kinetics-deal-grove-model-physical-measurement",
-          "name": "growth kinetics, Deal-Grove model, Physical measurement: ellipsometry, measurement by CV method",
-          "requires": ["oxidation-dry-vs-wet-oxidation-locos-thermal-oxidation"]
+          "name": "growth kinetics",
+          "requires": ["oxidation-dry-vs-wet-oxidation-locos-thermal-oxidation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "deal-grove-model",
+          "name": "Deal-Grove model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["growth-kinetics-deal-grove-model-physical-measurement"]
+        },
+        {
+          "id": "physical-measurement-ellipsometry",
+          "name": "Physical measurement: ellipsometry",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["deal-grove-model"]
+        },
+        {
+          "id": "measurement-by-cv-method",
+          "name": "measurement by CV method",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["physical-measurement-ellipsometry"]
+        },
+        {
+          "id": "resolution-and-depth-of-focus",
+          "name": "Resolution and depth of focus",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["measurement-by-cv-method"]
+        },
+        {
+          "id": "photoresists-types",
+          "name": "Photoresists: types",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["resolution-and-depth-of-focus"]
+        },
+        {
+          "id": "issues",
+          "name": "issues",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["photoresists-types"]
         }
       ]
     },
@@ -100,27 +319,163 @@
       "topics": [
         {
           "id": "pn-junction-physics",
-          "name": "Doping process: doping profile of PN-junction, Trends in diffusion, Solid solubility, Fick‟s second law and its analytical solution, Gaussian solutions, Diffusion furnaces - horizontal vs. vertical"
+          "name": "Doping process: doping profile of PN-junction",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "ion-implantation-process-dose-energy-and-angle",
-          "name": "Ion implantation process: Dose, Energy and Angle considerations, Implantation damage and annealing - RTA, Channeling and shadowing effect, Diffusion vs. ion-implantation and their applications",
+          "id": "trends-in-diffusion",
+          "name": "Trends in diffusion",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["pn-junction-physics"]
         },
         {
-          "id": "thin-film-deposition-requirements-characteristics-and-step",
-          "name": "Thin film deposition: requirements, characteristics and step coverage",
+          "id": "solid-solubility",
+          "name": "Solid solubility",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["trends-in-diffusion"]
+        },
+        {
+          "id": "fick-s-second-law-and-its-analytical-solution",
+          "name": "Fick‟s second law and its analytical solution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["solid-solubility"]
+        },
+        {
+          "id": "gaussian-solutions",
+          "name": "Gaussian solutions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fick-s-second-law-and-its-analytical-solution"]
+        },
+        {
+          "id": "diffusion-furnaces",
+          "name": "Diffusion furnaces",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gaussian-solutions"]
+        },
+        {
+          "id": "horizontal-vs-vertical",
+          "name": "horizontal vs. vertical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["diffusion-furnaces"]
+        },
+        {
+          "id": "ion-implantation-process-dose-energy-and-angle",
+          "name": "Ion implantation process: Dose",
+          "requires": ["pn-junction-physics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "energy-and-angle-considerations",
+          "name": "Energy and Angle considerations",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["ion-implantation-process-dose-energy-and-angle"]
         },
         {
-          "id": "pvd-techniques-thermal-and-e-beam-sputtering-types-dc-and-rf",
-          "name": "PVD techniques: thermal and e-beam, Sputtering: types - DC and RF sputtering, process parameters and applications",
+          "id": "implantation-damage-and-annealing",
+          "name": "Implantation damage and annealing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["energy-and-angle-considerations"]
+        },
+        {
+          "id": "rta",
+          "name": "RTA",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["implantation-damage-and-annealing"]
+        },
+        {
+          "id": "channeling-and-shadowing-effect",
+          "name": "Channeling and shadowing effect",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rta"]
+        },
+        {
+          "id": "diffusion-vs-ion-implantation-and-their-applications",
+          "name": "Diffusion vs. ion-implantation and their applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["channeling-and-shadowing-effect"]
+        },
+        {
+          "id": "thin-film-deposition-requirements-characteristics-and-step",
+          "name": "Thin film deposition: requirements",
+          "requires": ["ion-implantation-process-dose-energy-and-angle"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "characteristics-and-step-coverage",
+          "name": "characteristics and step coverage",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["thin-film-deposition-requirements-characteristics-and-step"]
         },
         {
-          "id": "cvd-techniques-and-types-apcvd-lpcvd-pecvd-mocvd",
-          "name": "CVD techniques and types: APCVD, LPCVD, PECVD, MOCVD",
+          "id": "pvd-techniques-thermal-and-e-beam-sputtering-types-dc-and-rf",
+          "name": "PVD techniques: thermal and e-beam",
+          "requires": ["thin-film-deposition-requirements-characteristics-and-step"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "sputtering-types",
+          "name": "Sputtering: types",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["pvd-techniques-thermal-and-e-beam-sputtering-types-dc-and-rf"]
+        },
+        {
+          "id": "dc-and-rf-sputtering",
+          "name": "DC and RF sputtering",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sputtering-types"]
+        },
+        {
+          "id": "process-parameters-and-applications",
+          "name": "process parameters and applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dc-and-rf-sputtering"]
+        },
+        {
+          "id": "cvd-techniques-and-types-apcvd-lpcvd-pecvd-mocvd",
+          "name": "CVD techniques and types: APCVD",
+          "requires": ["pvd-techniques-thermal-and-e-beam-sputtering-types-dc-and-rf"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lpcvd",
+          "name": "LPCVD",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cvd-techniques-and-types-apcvd-lpcvd-pecvd-mocvd"]
+        },
+        {
+          "id": "pecvd",
+          "name": "PECVD",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lpcvd"]
+        },
+        {
+          "id": "mocvd",
+          "name": "MOCVD",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pecvd"]
         },
         {
           "id": "atomic-layer-deposition-ald-techniques-thermal-and-peald",
@@ -141,34 +496,186 @@
       "topics": [
         {
           "id": "etching-types-wet-and-dry-etch-anisotropic-and-isotropic",
-          "name": "Etching: types - wet and dry etch, anisotropic and isotropic, selectivity, plasma etching and RIE"
+          "name": "Etching: types",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "wafer-testing-and-sorting-probe-card-setup-electrical",
-          "name": "Wafer testing and sorting: Probe card setup, Electrical testing, Test data collection, Yield analysis, Defect mapping and diagnosis, Die sorting",
+          "id": "wet-and-dry-etch",
+          "name": "wet and dry etch",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["etching-types-wet-and-dry-etch-anisotropic-and-isotropic"]
         },
         {
-          "id": "back-end-technology-interconnects-in-cmos-technology",
-          "name": "Back-end technology: Interconnects in CMOS technology, Metallic interconnects, Copper interconnects",
+          "id": "anisotropic-and-isotropic",
+          "name": "anisotropic and isotropic",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wet-and-dry-etch"]
+        },
+        {
+          "id": "selectivity",
+          "name": "selectivity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["anisotropic-and-isotropic"]
+        },
+        {
+          "id": "plasma-etching-and-rie",
+          "name": "plasma etching and RIE",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["selectivity"]
+        },
+        {
+          "id": "wafer-testing-and-sorting-probe-card-setup-electrical",
+          "name": "Wafer testing and sorting: Probe card setup",
+          "requires": ["etching-types-wet-and-dry-etch-anisotropic-and-isotropic"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "electrical-testing",
+          "name": "Electrical testing",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["wafer-testing-and-sorting-probe-card-setup-electrical"]
         },
         {
-          "id": "advantages-challenges-posed-interconnect-fabrication-process",
-          "name": "Advantages, Challenges posed, Interconnect fabrication process",
+          "id": "test-data-collection",
+          "name": "Test data collection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["electrical-testing"]
+        },
+        {
+          "id": "yield-analysis",
+          "name": "Yield analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["test-data-collection"]
+        },
+        {
+          "id": "defect-mapping-and-diagnosis",
+          "name": "Defect mapping and diagnosis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["yield-analysis"]
+        },
+        {
+          "id": "die-sorting",
+          "name": "Die sorting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["defect-mapping-and-diagnosis"]
+        },
+        {
+          "id": "back-end-technology-interconnects-in-cmos-technology",
+          "name": "Back-end technology: Interconnects in CMOS technology",
+          "requires": ["wafer-testing-and-sorting-probe-card-setup-electrical"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "metallic-interconnects",
+          "name": "Metallic interconnects",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["back-end-technology-interconnects-in-cmos-technology"]
         },
         {
-          "id": "packaging-assembly-technology-wafer-thinning-dicing-die",
-          "name": "Packaging assembly technology: Wafer thinning, Dicing, Die-attach, Wire-bond & Flip-chip process, Encapsulation, Laser marking, Solder ball attach, Singulation",
+          "id": "copper-interconnects",
+          "name": "Copper interconnects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["metallic-interconnects"]
+        },
+        {
+          "id": "advantages-challenges-posed-interconnect-fabrication-process",
+          "name": "Advantages",
+          "requires": ["back-end-technology-interconnects-in-cmos-technology"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "challenges-posed",
+          "name": "Challenges posed",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["advantages-challenges-posed-interconnect-fabrication-process"]
+        },
+        {
+          "id": "interconnect-fabrication-process",
+          "name": "Interconnect fabrication process",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["challenges-posed"]
+        },
+        {
+          "id": "packaging-assembly-technology-wafer-thinning-dicing-die",
+          "name": "Packaging assembly technology: Wafer thinning",
+          "requires": ["advantages-challenges-posed-interconnect-fabrication-process"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dicing",
+          "name": "Dicing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["packaging-assembly-technology-wafer-thinning-dicing-die"]
+        },
+        {
+          "id": "die-attach",
+          "name": "Die-attach",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dicing"]
+        },
+        {
+          "id": "wire-bond-and-flip-chip-process",
+          "name": "Wire-bond & Flip-chip process",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["die-attach"]
+        },
+        {
+          "id": "encapsulation",
+          "name": "Encapsulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wire-bond-and-flip-chip-process"]
+        },
+        {
+          "id": "laser-marking",
+          "name": "Laser marking",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["encapsulation"]
+        },
+        {
+          "id": "solder-ball-attach",
+          "name": "Solder ball attach",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["laser-marking"]
+        },
+        {
+          "id": "singulation",
+          "name": "Singulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["solder-ball-attach"]
         },
         {
           "id": "max-hrs",
           "name": "Max Hrs.:",
-          "requires": ["packaging-assembly-technology-wafer-thinning-dicing-die"]
+          "requires": ["packaging-assembly-technology-wafer-thinning-dicing-die"],
+          "status": "retired"
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

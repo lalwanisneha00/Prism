@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Pharmacology of Drug Action",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -44,8 +44,17 @@
         },
         {
           "id": "regulation-of-receptors-drugs-used-in-congestive-heart",
-          "name": "regulation of receptors. Drugs used in congestive heart failure",
-          "requires": ["receptor-theories-and-classification-of-receptors"]
+          "name": "regulation of receptors",
+          "requires": ["receptor-theories-and-classification-of-receptors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "drugs-used-in-congestive-heart-failure",
+          "name": "Drugs used in congestive heart failure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["regulation-of-receptors-drugs-used-in-congestive-heart"]
         },
         {
           "id": "anti-anginal-drugs",
@@ -147,8 +156,17 @@
         },
         {
           "id": "mechanism-of-action-of-sulfonamides-and-cotrimoxazole",
-          "name": "Mechanism of action of Sulfonamides and cotrimoxazole. Penicillins",
-          "requires": ["general-principles-of-chemotherapy"]
+          "name": "Mechanism of action of Sulfonamides and cotrimoxazole",
+          "requires": ["general-principles-of-chemotherapy"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "penicillins",
+          "name": "Penicillins",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mechanism-of-action-of-sulfonamides-and-cotrimoxazole"]
         },
         {
           "id": "cephalosporins",
@@ -187,5 +205,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-pharmacology-of-drug-action-laboratory-biotech"]
 }

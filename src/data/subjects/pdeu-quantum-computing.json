@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Quantum Computing",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -213,8 +213,17 @@
         },
         {
           "id": "superconducting-circuits-and-nuclear-magnetic-resonance",
-          "name": "superconducting circuits, and nuclear magnetic resonance",
-          "requires": ["quantum-computers-using-ion-traps"]
+          "name": "superconducting circuits",
+          "requires": ["quantum-computers-using-ion-traps"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "nuclear-magnetic-resonance",
+          "name": "nuclear magnetic resonance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["superconducting-circuits-and-nuclear-magnetic-resonance"]
         },
         {
           "id": "development-libraries-for-quantum-computer-programming",
@@ -233,5 +242,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

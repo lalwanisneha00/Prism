@@ -1,0 +1,101 @@
+{
+  "id": "pdeu-chemical-engineering-industry-4-0-laboratory-chem",
+  "name": "Chemical Engineering Industry 4.0 Laboratory",
+  "field": "Chemical Engineering Industry 4.0 Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 4): Chemical Engineering Industry 4.0 Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 4 of CHEM/sem4/Chemical_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH206P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s4-chemical-engineering-industry-4-0-laboratory",
+      "code": "24CH206P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-data-analysis-and-data-visualization-using-the",
+          "name": "Data analysis and data visualization using the Python programming language.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-implementation-of-a-logistic-regression-problem",
+          "name": "Implementation of a logistic regression problem in Python.",
+          "number": 2,
+          "requires": ["experiment-1-data-analysis-and-data-visualization-using-the"]
+        },
+        {
+          "id": "experiment-3-implementation-of-an-artificial-neural-network",
+          "name": "Implementation of an artificial neural network (ANN) using Python.",
+          "number": 3,
+          "requires": ["experiment-2-implementation-of-a-logistic-regression-problem"]
+        },
+        {
+          "id": "experiment-4-development-of-a-plant-dashboard-using-python",
+          "name": "Development of a plant dashboard using Python.",
+          "number": 4,
+          "requires": ["experiment-3-implementation-of-an-artificial-neural-network"]
+        },
+        {
+          "id": "experiment-5-implementation-of-a-convolutional-neural-networ",
+          "name": "Implementation of a convolutional neural network (CNN) for biomedical image analysis.",
+          "number": 5,
+          "requires": ["experiment-4-development-of-a-plant-dashboard-using-python"]
+        },
+        {
+          "id": "experiment-6-solving-fluid-flow-equations-with-python-progra",
+          "name": "Solving fluid flow equations with Python programming.",
+          "number": 6,
+          "requires": ["experiment-5-implementation-of-a-convolutional-neural-networ"]
+        },
+        {
+          "id": "experiment-7-introduction-to-open-source-cfd-simulation-soft",
+          "name": "Introduction to open-source CFD simulation software.",
+          "number": 7,
+          "requires": ["experiment-6-solving-fluid-flow-equations-with-python-progra"]
+        },
+        {
+          "id": "experiment-8-introduction-to-aspen",
+          "name": "Introduction to ASPEN.",
+          "number": 8,
+          "requires": ["experiment-7-introduction-to-open-source-cfd-simulation-soft"]
+        },
+        {
+          "id": "experiment-9-arduino-for-portable-spectrophotometric-detecti",
+          "name": "Arduino for portable spectrophotometric detection.",
+          "number": 9,
+          "requires": ["experiment-8-introduction-to-aspen"]
+        },
+        {
+          "id": "experiment-10-arduino-for-water-level-monitoring-using-ultra",
+          "name": "Arduino for water level monitoring using ultrasonic sound. Max 26 Hrs",
+          "number": 10,
+          "requires": ["experiment-9-arduino-for-portable-spectrophotometric-detecti"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-chemical-engineering-industry-4-0-chem"]
+}

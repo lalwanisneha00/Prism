@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Stem Cell Technology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -64,8 +64,24 @@
         },
         {
           "id": "epidermis-testis-and-neural-tissues",
-          "name": "epidermis, testis, and neural tissues",
-          "requires": ["bone-marrow"]
+          "name": "epidermis",
+          "requires": ["bone-marrow"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "testis",
+          "name": "testis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["epidermis-testis-and-neural-tissues"]
+        },
+        {
+          "id": "neural-tissues",
+          "name": "neural tissues",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["testis"]
         }
       ]
     },
@@ -121,8 +137,31 @@
         },
         {
           "id": "organogenesis-and-morphogenesis-metamorphosis-animal-life",
-          "name": "organogenesis and morphogenesis, metamorphosis, animal life cycle, sex determination and role of apoptosis in organ development",
-          "requires": ["early-asymmetric-division-and-generation-of-symmetry-in"]
+          "name": "organogenesis and morphogenesis",
+          "requires": ["early-asymmetric-division-and-generation-of-symmetry-in"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "metamorphosis",
+          "name": "metamorphosis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["organogenesis-and-morphogenesis-metamorphosis-animal-life"]
+        },
+        {
+          "id": "animal-life-cycle",
+          "name": "animal life cycle",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["metamorphosis"]
+        },
+        {
+          "id": "sex-determination-and-role-of-apoptosis-in-organ-development",
+          "name": "sex determination and role of apoptosis in organ development",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["animal-life-cycle"]
         },
         {
           "id": "role-of-morphogens-and-their-gradient-in-axis-patterning-and",
@@ -131,8 +170,24 @@
         },
         {
           "id": "concept-of-anteroposterior-dorso-ventral-and-medio-lateral",
-          "name": "Concept of anteroposterior, dorso-ventral, and medio-lateral axis formation",
-          "requires": ["role-of-morphogens-and-their-gradient-in-axis-patterning-and"]
+          "name": "Concept of anteroposterior",
+          "requires": ["role-of-morphogens-and-their-gradient-in-axis-patterning-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dorso-ventral",
+          "name": "dorso-ventral",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concept-of-anteroposterior-dorso-ventral-and-medio-lateral"]
+        },
+        {
+          "id": "medio-lateral-axis-formation",
+          "name": "medio-lateral axis formation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dorso-ventral"]
         }
       ]
     },
@@ -187,5 +242,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

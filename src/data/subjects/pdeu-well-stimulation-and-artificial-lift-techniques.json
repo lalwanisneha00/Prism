@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Well Stimulation and Artificial Lift Techniques",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -44,8 +44,52 @@
         },
         {
           "id": "well-analysis-and-remedial-measures-principles-and",
-          "name": "Well analysis and remedial measures, Principles and application of workover methods, workover rig, Coil tubing unit, workover fluids, Water Control Techniques-Reasons, identification and control techn",
-          "requires": ["introduction-to-well-stimulation"]
+          "name": "Well analysis and remedial measures",
+          "requires": ["introduction-to-well-stimulation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "principles-and-application-of-workover-methods",
+          "name": "Principles and application of workover methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["well-analysis-and-remedial-measures-principles-and"]
+        },
+        {
+          "id": "workover-rig",
+          "name": "workover rig",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principles-and-application-of-workover-methods"]
+        },
+        {
+          "id": "coil-tubing-unit",
+          "name": "Coil tubing unit",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["workover-rig"]
+        },
+        {
+          "id": "workover-fluids",
+          "name": "workover fluids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["coil-tubing-unit"]
+        },
+        {
+          "id": "water-control-techniques-reasons",
+          "name": "Water Control Techniques-Reasons",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["workover-fluids"]
+        },
+        {
+          "id": "identification-and-control-techniques",
+          "name": "identification and control techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["water-control-techniques-reasons"]
         },
         {
           "id": "well-stimulation-methods-to-mitigate-formation-damage",
@@ -84,8 +128,17 @@
         },
         {
           "id": "stress-profile-and-fracture-height-containment-well",
-          "name": "Stress profile and fracture height containment, well placement",
-          "requires": ["effect-of-rock-mechanical-properties"]
+          "name": "Stress profile and fracture height containment",
+          "requires": ["effect-of-rock-mechanical-properties"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "well-placement",
+          "name": "well placement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["stress-profile-and-fracture-height-containment-well"]
         },
         {
           "id": "proppants-characteristics-and-its-selection",
@@ -104,8 +157,31 @@
         },
         {
           "id": "treatment-stage-design-calculations-of-clean-and-slurry",
-          "name": "Treatment stage design, Calculations of clean and slurry volumes for treatment designs, surface pumping pressure and no. of pumps and other relevant topics",
-          "requires": ["fracture-pressure-analysis-and-step-rate-and-leak-off-tests"]
+          "name": "Treatment stage design",
+          "requires": ["fracture-pressure-analysis-and-step-rate-and-leak-off-tests"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "calculations-of-clean-and-slurry-volumes-for-treatment-desig",
+          "name": "Calculations of clean and slurry volumes for treatment designs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["treatment-stage-design-calculations-of-clean-and-slurry"]
+        },
+        {
+          "id": "surface-pumping-pressure-and-no-of-pumps-and-other-relevant",
+          "name": "surface pumping pressure and no. of pumps and other relevant topics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["calculations-of-clean-and-slurry-volumes-for-treatment-desig"]
+        },
+        {
+          "id": "sand-control-techniques-reasons",
+          "name": "Sand Control Techniques Reasons",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["surface-pumping-pressure-and-no-of-pumps-and-other-relevant"]
         }
       ]
     },
@@ -125,8 +201,31 @@
         },
         {
           "id": "multi-stage-fracturing-stage-length-and-cluster-spacing",
-          "name": "Multi-stage fracturing: Stage length and cluster spacing, Multistage fracturing techniques: Plug & perf, sliding sleeves, Fluid diverters",
-          "requires": ["well-spacing-and-fracture-driven-interactions"]
+          "name": "Multi-stage fracturing: Stage length and cluster spacing",
+          "requires": ["well-spacing-and-fracture-driven-interactions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "multistage-fracturing-techniques-plug-and-perf",
+          "name": "Multistage fracturing techniques: Plug & perf",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multi-stage-fracturing-stage-length-and-cluster-spacing"]
+        },
+        {
+          "id": "sliding-sleeves",
+          "name": "sliding sleeves",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multistage-fracturing-techniques-plug-and-perf"]
+        },
+        {
+          "id": "fluid-diverters",
+          "name": "Fluid diverters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sliding-sleeves"]
         },
         {
           "id": "proppants-selection",
@@ -135,18 +234,73 @@
         },
         {
           "id": "refracturing-benefits-and-limitations-candidate-selection",
-          "name": "Refracturing: benefits and limitations, candidate selection, procedures",
-          "requires": ["proppants-selection"]
+          "name": "Refracturing: benefits and limitations",
+          "requires": ["proppants-selection"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "diagnostic-methods-microseismic-fiber-sensing-das-and-dts",
-          "name": "Diagnostic methods: microseismic, fiber sensing-DAS and DTS, radioactive tracers, and tiltmeter",
+          "id": "candidate-selection",
+          "name": "candidate selection",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["refracturing-benefits-and-limitations-candidate-selection"]
         },
         {
-          "id": "modelling-2d-pseudo3d-and-3d-models",
-          "name": "Modelling 2D, Pseudo3D, and 3D models",
+          "id": "procedures",
+          "name": "procedures",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["candidate-selection"]
+        },
+        {
+          "id": "diagnostic-methods-microseismic-fiber-sensing-das-and-dts",
+          "name": "Diagnostic methods: microseismic",
+          "requires": ["refracturing-benefits-and-limitations-candidate-selection"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fiber-sensing-das-and-dts",
+          "name": "fiber sensing-DAS and DTS",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["diagnostic-methods-microseismic-fiber-sensing-das-and-dts"]
+        },
+        {
+          "id": "radioactive-tracers",
+          "name": "radioactive tracers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fiber-sensing-das-and-dts"]
+        },
+        {
+          "id": "tiltmeter",
+          "name": "tiltmeter",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radioactive-tracers"]
+        },
+        {
+          "id": "modelling-2d-pseudo3d-and-3d-models",
+          "name": "Modelling 2D",
+          "requires": ["diagnostic-methods-microseismic-fiber-sensing-das-and-dts"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pseudo3d",
+          "name": "Pseudo3D",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["modelling-2d-pseudo3d-and-3d-models"]
+        },
+        {
+          "id": "3d-models",
+          "name": "3D models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pseudo3d"]
         },
         {
           "id": "flow-chart-of-fracture-simulator",
@@ -262,5 +416,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

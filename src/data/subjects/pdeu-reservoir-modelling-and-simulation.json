@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Reservoir Modelling and Simulation",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,100 @@
       "topics": [
         {
           "id": "introduction-to-geological-modelling-geostatistical",
-          "name": "Introduction to Geological Modelling, Geostatistical Modelling & Variogram correction, classification of Models, Need for reservoir simulation, Applications of reservoir simulation, Steps of reservoir"
+          "name": "Introduction to Geological Modelling",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "geostatistical-modelling-and-variogram-correction",
+          "name": "Geostatistical Modelling & Variogram correction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-geological-modelling-geostatistical"]
+        },
+        {
+          "id": "classification-of-models",
+          "name": "classification of Models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["geostatistical-modelling-and-variogram-correction"]
+        },
+        {
+          "id": "need-for-reservoir-simulation",
+          "name": "Need for reservoir simulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-models"]
+        },
+        {
+          "id": "applications-of-reservoir-simulation",
+          "name": "Applications of reservoir simulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["need-for-reservoir-simulation"]
+        },
+        {
+          "id": "steps-of-reservoir-simulation",
+          "name": "Steps of reservoir simulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applications-of-reservoir-simulation"]
         },
         {
           "id": "continuity-equation-equation-of-motion-darcy-and-non-darcy",
-          "name": "Continuity Equation, Equation of Motion, Darcy and Non-Darcy Flow",
-          "requires": ["introduction-to-geological-modelling-geostatistical"]
+          "name": "Continuity Equation",
+          "requires": ["introduction-to-geological-modelling-geostatistical"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "equation-of-motion",
+          "name": "Equation of Motion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["continuity-equation-equation-of-motion-darcy-and-non-darcy"]
+        },
+        {
+          "id": "darcy-and-non-darcy-flow",
+          "name": "Darcy and Non-Darcy Flow",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["equation-of-motion"]
+        },
+        {
+          "id": "representative-elementary-volume-rev",
+          "name": "Representative Elementary Volume (REV)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["darcy-and-non-darcy-flow"]
+        },
+        {
+          "id": "property-upscaling",
+          "name": "Property upscaling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["representative-elementary-volume-rev"]
+        },
+        {
+          "id": "rock-and-fluid-properties",
+          "name": "Rock and fluid properties",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["property-upscaling"]
+        },
+        {
+          "id": "pvt-models",
+          "name": "PVT models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rock-and-fluid-properties"]
+        },
+        {
+          "id": "conservation-of-mass-and-momentum",
+          "name": "Conservation of Mass and Momentum",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pvt-models"]
         }
       ]
     },
@@ -117,7 +205,30 @@
       "topics": [
         {
           "id": "linearization-of-flow-equations-immiscible-two-phase-fluid",
-          "name": "Linearization of Flow Equations, Immiscible two-phase fluid flow equations, Pseudo functions, Explicit & implicit grid system, Reservoir Model Solution Techniques: Implicit pressure and Explicit Satur"
+          "name": "Linearization of Flow Equations",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "immiscible-two-phase-fluid-flow-equations",
+          "name": "Immiscible two-phase fluid flow equations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linearization-of-flow-equations-immiscible-two-phase-fluid"]
+        },
+        {
+          "id": "pseudo-functions",
+          "name": "Pseudo functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["immiscible-two-phase-fluid-flow-equations"]
+        },
+        {
+          "id": "explicit-and-implicit-grid-system",
+          "name": "Explicit & implicit grid system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pseudo-functions"]
         },
         {
           "id": "sequential-and-fully-implicit-method",
@@ -126,8 +237,31 @@
         },
         {
           "id": "preview-of-numerical-solution-methods-direct-and-iterative",
-          "name": "Preview of Numerical Solution Methods: Direct & Iterative method, stability criteria, Well representation",
-          "requires": ["sequential-and-fully-implicit-method"]
+          "name": "Preview of Numerical Solution Methods: Direct & Iterative method",
+          "requires": ["sequential-and-fully-implicit-method"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "stability-criteria",
+          "name": "stability criteria",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["preview-of-numerical-solution-methods-direct-and-iterative"]
+        },
+        {
+          "id": "well-representation",
+          "name": "Well representation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["stability-criteria"]
+        },
+        {
+          "id": "reservoir-model-solution-techniques-implicit-pressure-and-ex",
+          "name": "Reservoir Model Solution Techniques: Implicit pressure and Explicit Saturation (IMPES)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["well-representation"]
         }
       ]
     },
@@ -138,7 +272,23 @@
       "topics": [
         {
           "id": "model-validation-verification-history-matching-optimization",
-          "name": "Model validation/verification: History Matching, Optimization algorithms in History Matching, performance prediction"
+          "name": "Model validation/verification: History Matching",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "optimization-algorithms-in-history-matching",
+          "name": "Optimization algorithms in History Matching",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["model-validation-verification-history-matching-optimization"]
+        },
+        {
+          "id": "performance-prediction",
+          "name": "performance prediction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["optimization-algorithms-in-history-matching"]
         },
         {
           "id": "introduction-to-reactive-transport-modelling",
@@ -147,10 +297,20 @@
         },
         {
           "id": "introduction-to-streamline-simulation-comparison-of",
-          "name": "Introduction to Streamline Simulation, comparison of Conventional / Streamline Simulation",
-          "requires": ["introduction-to-reactive-transport-modelling"]
+          "name": "Introduction to Streamline Simulation",
+          "requires": ["introduction-to-reactive-transport-modelling"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "comparison-of-conventional-streamline-simulation",
+          "name": "comparison of Conventional / Streamline Simulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-streamline-simulation-comparison-of"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

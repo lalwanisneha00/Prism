@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Soft Computing",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,7 +41,44 @@
       "topics": [
         {
           "id": "perceptron",
-          "name": "Introduction: Feed-forward, recurrent and multi-layer architectures, Supervised and unsupervised learning, Characteristics: Adaptability, fault tolerance, generalization, limitations of neuro-computin"
+          "name": "Introduction: Feed-forward",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "recurrent-and-multi-layer-architectures",
+          "name": "recurrent and multi-layer architectures",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["perceptron"]
+        },
+        {
+          "id": "supervised-and-unsupervised-learning",
+          "name": "Supervised and unsupervised learning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["recurrent-and-multi-layer-architectures"]
+        },
+        {
+          "id": "characteristics-adaptability",
+          "name": "Characteristics: Adaptability",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["supervised-and-unsupervised-learning"]
+        },
+        {
+          "id": "fault-tolerance",
+          "name": "fault tolerance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characteristics-adaptability"]
+        },
+        {
+          "id": "generalization",
+          "name": "generalization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fault-tolerance"]
         },
         {
           "id": "simple-perceptron",
@@ -50,8 +87,17 @@
         },
         {
           "id": "perceptron-learning-algorithms",
-          "name": "Perceptron learning, algorithms",
-          "requires": ["simple-perceptron"]
+          "name": "Perceptron learning",
+          "requires": ["simple-perceptron"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "algorithms",
+          "name": "algorithms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["perceptron-learning-algorithms"]
         },
         {
           "id": "adaline",
@@ -67,6 +113,20 @@
           "id": "limitation-of-perceptron-dichotomizer",
           "name": "Limitation of perceptron dichotomizer",
           "requires": ["madaline"]
+        },
+        {
+          "id": "limitations-of-neuro-computing",
+          "name": "limitations of neuro-computing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["limitation-of-perceptron-dichotomizer"]
+        },
+        {
+          "id": "perceptron-linear-classifiers",
+          "name": "Perceptron: Linear classifiers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["limitations-of-neuro-computing"]
         }
       ]
     },
@@ -77,32 +137,189 @@
       "topics": [
         {
           "id": "multi-layer-perceptron-gradient-decent-scheme-for-error",
-          "name": "Multi-Layer Perceptron, Gradient decent scheme for error, minimization, Generalized delta learning rule, Back-propagation learning for multi-layer networks, Multi-layer perceptron's for multi- dimensi"
+          "name": "Multi-Layer Perceptron",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "hetero-association-linear-associative-networks-hebbian",
-          "name": "Hetero-association, Linear associative networks: Hebbian learning, perfect recall, cross-talk",
+          "id": "gradient-decent-scheme-for-error",
+          "name": "Gradient decent scheme for error",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["multi-layer-perceptron-gradient-decent-scheme-for-error"]
         },
         {
-          "id": "bidirectional-associative-memory-brain-state-in-a-box",
-          "name": "Bidirectional associative memory, Brain-State-in-a-Box network, Hopfield Networks: Binary Hopfield network, basic structure, asynchronous updating, convergence, associative memory, Continuous-valued H",
+          "id": "minimization",
+          "name": "minimization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gradient-decent-scheme-for-error"]
+        },
+        {
+          "id": "generalized-delta-learning-rule",
+          "name": "Generalized delta learning rule",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["minimization"]
+        },
+        {
+          "id": "back-propagation-learning-for-multi-layer-networks",
+          "name": "Back-propagation learning for multi-layer networks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["generalized-delta-learning-rule"]
+        },
+        {
+          "id": "hetero-association-linear-associative-networks-hebbian",
+          "name": "Hetero-association",
+          "requires": ["multi-layer-perceptron-gradient-decent-scheme-for-error"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "linear-associative-networks-hebbian-learning",
+          "name": "Linear associative networks: Hebbian learning",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["hetero-association-linear-associative-networks-hebbian"]
         },
         {
-          "id": "advantages-and-limitations-kohonen-networks-self-organizing",
-          "name": "Advantages and limitations, Kohonen Networks: Self-organizing networks, Similarity measures",
+          "id": "perfect-recall",
+          "name": "perfect recall",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-associative-networks-hebbian-learning"]
+        },
+        {
+          "id": "cross-talk",
+          "name": "cross-talk",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["perfect-recall"]
+        },
+        {
+          "id": "bidirectional-associative-memory-brain-state-in-a-box",
+          "name": "Bidirectional associative memory",
+          "requires": ["hetero-association-linear-associative-networks-hebbian"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "brain-state-in-a-box-network",
+          "name": "Brain-State-in-a-Box network",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["bidirectional-associative-memory-brain-state-in-a-box"]
         },
         {
-          "id": "kohonens-winner-take-all-network-geometrical-interpretation",
-          "name": "Kohonen’s winner-take-all network, Geometrical interpretation of Kohonen’s learning, Functional specificity of human brain, Kohonen’s self-organizing feature map algorithm",
+          "id": "hopfield-networks-binary-hopfield-network",
+          "name": "Hopfield Networks: Binary Hopfield network",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["brain-state-in-a-box-network"]
+        },
+        {
+          "id": "basic-structure",
+          "name": "basic structure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hopfield-networks-binary-hopfield-network"]
+        },
+        {
+          "id": "asynchronous-updating",
+          "name": "asynchronous updating",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-structure"]
+        },
+        {
+          "id": "convergence",
+          "name": "convergence",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["asynchronous-updating"]
+        },
+        {
+          "id": "associative-memory",
+          "name": "associative memory",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["convergence"]
+        },
+        {
+          "id": "continuous-valued-hopfield-network",
+          "name": "Continuous-valued Hopfield network",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["associative-memory"]
+        },
+        {
+          "id": "advantages-and-limitations-kohonen-networks-self-organizing",
+          "name": "Advantages and limitations",
+          "requires": ["bidirectional-associative-memory-brain-state-in-a-box"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "kohonen-networks-self-organizing-networks",
+          "name": "Kohonen Networks: Self-organizing networks",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["advantages-and-limitations-kohonen-networks-self-organizing"]
+        },
+        {
+          "id": "similarity-measures",
+          "name": "Similarity measures",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["kohonen-networks-self-organizing-networks"]
+        },
+        {
+          "id": "kohonens-winner-take-all-network-geometrical-interpretation",
+          "name": "Kohonen’s winner-take-all network",
+          "requires": ["advantages-and-limitations-kohonen-networks-self-organizing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "geometrical-interpretation-of-kohonen-s-learning",
+          "name": "Geometrical interpretation of Kohonen’s learning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["kohonens-winner-take-all-network-geometrical-interpretation"]
+        },
+        {
+          "id": "functional-specificity-of-human-brain",
+          "name": "Functional specificity of human brain",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["geometrical-interpretation-of-kohonen-s-learning"]
+        },
+        {
+          "id": "kohonen-s-self-organizing-feature-map-algorithm",
+          "name": "Kohonen’s self-organizing feature map algorithm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["functional-specificity-of-human-brain"]
         },
         {
           "id": "conscience-algorithm",
           "name": "Conscience algorithm",
           "requires": ["kohonens-winner-take-all-network-geometrical-interpretation"]
+        },
+        {
+          "id": "multi-layer-perceptron-s-for-multi-dimensional-functional-ma",
+          "name": "Multi-layer perceptron's for multi- dimensional functional mappings",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["conscience-algorithm"]
+        },
+        {
+          "id": "associated-memory-networks-auto-association",
+          "name": "Associated Memory Networks: Auto-association",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multi-layer-perceptron-s-for-multi-dimensional-functional-ma"]
         }
       ]
     },
@@ -117,8 +334,101 @@
         },
         {
           "id": "svm",
-          "name": "ART-1 architecture and algorithm, search, comparison and recognition phases, effect of vigilance, Radial Basis Function Networks: radial basis vs. linear basis, Gaussian basis functions, K-means learn",
-          "requires": ["art-and-stability-plasticity-dilemma"]
+          "name": "ART-1 architecture and algorithm",
+          "requires": ["art-and-stability-plasticity-dilemma"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "search",
+          "name": "search",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["svm"]
+        },
+        {
+          "id": "comparison-and-recognition-phases",
+          "name": "comparison and recognition phases",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["search"]
+        },
+        {
+          "id": "effect-of-vigilance",
+          "name": "effect of vigilance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["comparison-and-recognition-phases"]
+        },
+        {
+          "id": "radial-basis-function-networks-radial-basis-vs-linear-basis",
+          "name": "Radial Basis Function Networks: radial basis vs. linear basis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["effect-of-vigilance"]
+        },
+        {
+          "id": "gaussian-basis-functions",
+          "name": "Gaussian basis functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radial-basis-function-networks-radial-basis-vs-linear-basis"]
+        },
+        {
+          "id": "k-means-learning",
+          "name": "K-means learning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gaussian-basis-functions"]
+        },
+        {
+          "id": "lms-algorithm",
+          "name": "LMS algorithm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["k-means-learning"]
+        },
+        {
+          "id": "comparison-with-multi-layer-perceptron-networks",
+          "name": "comparison with Multi-Layer Perceptron networks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lms-algorithm"]
+        },
+        {
+          "id": "support-vector-machines-svm-optimal-hyperplane-for-linear-se",
+          "name": "Support Vector Machines (SVM): Optimal hyperplane for linear separability",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["comparison-with-multi-layer-perceptron-networks"]
+        },
+        {
+          "id": "quadratic-optimization",
+          "name": "quadratic optimization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["support-vector-machines-svm-optimal-hyperplane-for-linear-se"]
+        },
+        {
+          "id": "svm-for-pattern-recognition",
+          "name": "SVM for pattern recognition",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["quadratic-optimization"]
+        },
+        {
+          "id": "different-kernels-for-hidden-layer",
+          "name": "different kernels for hidden-layer",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["svm-for-pattern-recognition"]
+        },
+        {
+          "id": "optimal-design-of-svm",
+          "name": "optimal design of SVM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["different-kernels-for-hidden-layer"]
         }
       ]
     },
@@ -129,7 +439,16 @@
       "topics": [
         {
           "id": "different-faces-of-imprecision-inexactness",
-          "name": "Different faces of imprecision - inexactness"
+          "name": "Different faces of imprecision",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "inexactness",
+          "name": "inexactness",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["different-faces-of-imprecision-inexactness"]
         },
         {
           "id": "ambiguity",
@@ -213,5 +532,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

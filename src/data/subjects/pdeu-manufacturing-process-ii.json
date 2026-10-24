@@ -6,7 +6,7 @@
   "university": "pdeu",
   "courseCategory": "core",
   "branches": ["me"],
-  "semesters": [5],
+  "semesters": [6],
   "code": "18ME301T",
   "credits": 4,
   "ltp": "3-1-0",
@@ -19,7 +19,7 @@
       "category": "Program Core",
       "ltp": "3-1-0",
       "credits": 4,
-      "semester": 5,
+      "semester": 6,
       "kind": "core"
     }
   ],
@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Mech): Manufacturing Process II",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -50,37 +50,44 @@
         {
           "id": "machining-requirements-introduction-to-machine-tools",
           "name": "machining requirements. Introduction to machine tools",
-          "requires": ["classification-of-machining"]
+          "requires": ["classification-of-machining"],
+          "status": "retired"
         },
         {
           "id": "functional-principles",
           "name": "functional principles",
-          "requires": ["machining-requirements-introduction-to-machine-tools"]
+          "requires": ["machining-requirements-introduction-to-machine-tools"],
+          "status": "retired"
         },
         {
           "id": "machine-tool-power-drives",
           "name": "machine tool power drives",
-          "requires": ["functional-principles"]
+          "requires": ["functional-principles"],
+          "status": "retired"
         },
         {
           "id": "role-and-forms-of-kinematic-structure-in-machine-tools",
           "name": "role and forms of kinematic structure in machine tools",
-          "requires": ["machine-tool-power-drives"]
+          "requires": ["machine-tool-power-drives"],
+          "status": "retired"
         },
         {
           "id": "methods-of-changing-speed-and-feed-in-machine-tools",
           "name": "methods of changing speed and feed in machine tools",
-          "requires": ["role-and-forms-of-kinematic-structure-in-machine-tools"]
+          "requires": ["role-and-forms-of-kinematic-structure-in-machine-tools"],
+          "status": "retired"
         },
         {
           "id": "design-of-speed-gear-box-of-machine-tools",
           "name": "design of speed gear box of machine tools",
-          "requires": ["methods-of-changing-speed-and-feed-in-machine-tools"]
+          "requires": ["methods-of-changing-speed-and-feed-in-machine-tools"],
+          "status": "retired"
         },
         {
           "id": "classification-of-machine-tools-single-point-cutting-tool",
           "name": "classification of machine tools. Single point cutting tool: Working and auxiliary motions",
-          "requires": ["design-of-speed-gear-box-of-machine-tools"]
+          "requires": ["design-of-speed-gear-box-of-machine-tools"],
+          "status": "retired"
         },
         {
           "id": "introduction-to-single-point-cutting-tool",
@@ -105,37 +112,44 @@
         {
           "id": "importance-of-chips",
           "name": "importance of chips",
-          "requires": ["different-systems-of-tool-geometry"]
+          "requires": ["different-systems-of-tool-geometry"],
+          "status": "retired"
         },
         {
           "id": "mechanism-of-chip-formation",
           "name": "mechanism of chip formation",
-          "requires": ["importance-of-chips"]
+          "requires": ["importance-of-chips"],
+          "status": "retired"
         },
         {
           "id": "mechanics-of-machining",
           "name": "mechanics of machining",
-          "requires": ["mechanism-of-chip-formation"]
+          "requires": ["mechanism-of-chip-formation"],
+          "status": "retired"
         },
         {
           "id": "use-of-chip-breakers",
           "name": "use of chip breakers",
-          "requires": ["mechanics-of-machining"]
+          "requires": ["mechanics-of-machining"],
+          "status": "retired"
         },
         {
           "id": "orthogonal-and-oblique-cutting-purpose-of-cutting-fluids",
           "name": "orthogonal and oblique cutting. Purpose of cutting fluids",
-          "requires": ["use-of-chip-breakers"]
+          "requires": ["use-of-chip-breakers"],
+          "status": "retired"
         },
         {
           "id": "essential-properties-of-cutting-fluids",
           "name": "essential properties of cutting fluids",
-          "requires": ["orthogonal-and-oblique-cutting-purpose-of-cutting-fluids"]
+          "requires": ["orthogonal-and-oblique-cutting-purpose-of-cutting-fluids"],
+          "status": "retired"
         },
         {
           "id": "types-of-cutting-fluids-and-their-application",
           "name": "types of cutting fluids and their application",
-          "requires": ["essential-properties-of-cutting-fluids"]
+          "requires": ["essential-properties-of-cutting-fluids"],
+          "status": "retired"
         },
         {
           "id": "machinability",
@@ -145,7 +159,22 @@
         {
           "id": "failure-life-and-materials-of-cutting-tools",
           "name": "failure, life and materials of cutting tools",
-          "requires": ["machinability"]
+          "requires": ["machinability"],
+          "status": "retired"
+        },
+        {
+          "id": "introduction-to-machine-tools-and-power-drives",
+          "name": "Introduction to machine tools and power drives",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["failure-life-and-materials-of-cutting-tools"]
+        },
+        {
+          "id": "tool-life-and-tool-failure",
+          "name": "tool life and tool failure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-machine-tools-and-power-drives"]
         }
       ]
     },
@@ -160,23 +189,35 @@
         },
         {
           "id": "principle-of-working",
+          "name": "Lathe: Lathe: Principle of working",
+          "requires": ["kinematic-system"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "principle-of-working-3",
           "name": "principle of working",
-          "requires": ["kinematic-system"]
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principle-of-working"]
         },
         {
           "id": "cutting-speed-feed-and-depth-of-cut",
           "name": "cutting speed, feed and depth of cut",
-          "requires": ["principle-of-working"]
+          "requires": ["principle-of-working"],
+          "status": "retired"
         },
         {
           "id": "material-removal-rate-cutting-power-specific-energy-and",
           "name": "material removal rate, cutting power, specific energy and machining time",
-          "requires": ["cutting-speed-feed-and-depth-of-cut"]
+          "requires": ["cutting-speed-feed-and-depth-of-cut"],
+          "status": "retired"
         },
         {
           "id": "tool-and-job-holders-in-lathes",
           "name": "Tool and job holders in lathes",
-          "requires": ["material-removal-rate-cutting-power-specific-energy-and"]
+          "requires": ["material-removal-rate-cutting-power-specific-energy-and"],
+          "status": "retired"
         },
         {
           "id": "various-lathe-operations",
@@ -195,8 +236,24 @@
         },
         {
           "id": "shaping-slotting-planning-and-broaching-machines-kinematic",
-          "name": "Shaping, slotting, planning and broaching machines: Kinematic systems",
-          "requires": ["classification-and-specification-of-lathe-machines"]
+          "name": "Shaping",
+          "requires": ["classification-and-specification-of-lathe-machines"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "slotting",
+          "name": "slotting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["shaping-slotting-planning-and-broaching-machines-kinematic"]
+        },
+        {
+          "id": "planning-machines-kinematic-systems",
+          "name": "planning machines: Kinematic systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["slotting"]
         },
         {
           "id": "classifications-specification-and-operations-performed",
@@ -231,12 +288,20 @@
         {
           "id": "twist-drill",
           "name": "twist drill",
-          "requires": ["operations-performed"]
+          "requires": ["operations-performed"],
+          "status": "retired"
         },
         {
           "id": "deep-hole-drilling-machines-boring-machines-and",
           "name": "deep hole drilling machines. Boring machines and classifications",
           "requires": ["twist-drill"]
+        },
+        {
+          "id": "numerical-and-experimental-study-effect-of-process-parameter",
+          "name": "numerical and experimental study-effect of process parameters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["deep-hole-drilling-machines-boring-machines-and"]
         }
       ]
     },
@@ -257,7 +322,16 @@
         {
           "id": "classifications-2",
           "name": "classifications",
-          "requires": ["principle-of-working-2"]
+          "requires": ["principle-of-working-2"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "classifications-of-cutters",
+          "name": "classifications of cutters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classifications-2"]
         },
         {
           "id": "specifications-2",
@@ -287,27 +361,40 @@
         {
           "id": "methods-of-indexing",
           "name": "methods of indexing",
-          "requires": ["classifications-of-cutters-introduction-to-indexing"]
+          "requires": ["classifications-of-cutters-introduction-to-indexing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "calculations-of-gear-indexing-methods-manufacturing-methods",
+          "name": "calculations of gear indexing methods– manufacturing methods of gears",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["methods-of-indexing"]
         },
         {
           "id": "gear-cutting-methods-grinding-introduction",
           "name": "gear cutting methods. Grinding: Introduction",
-          "requires": ["methods-of-indexing"]
+          "requires": ["methods-of-indexing"],
+          "status": "retired"
         },
         {
           "id": "differences-between-machining-and-grinding",
           "name": "differences between machining and grinding",
-          "requires": ["gear-cutting-methods-grinding-introduction"]
+          "requires": ["gear-cutting-methods-grinding-introduction"],
+          "status": "retired"
         },
         {
           "id": "basic-principles-methods-and-applications-of-grinding",
           "name": "basic principles, methods and applications of grinding",
-          "requires": ["differences-between-machining-and-grinding"]
+          "requires": ["differences-between-machining-and-grinding"],
+          "status": "retired"
         },
         {
           "id": "grinding-requirements",
           "name": "grinding requirements",
-          "requires": ["basic-principles-methods-and-applications-of-grinding"]
+          "requires": ["basic-principles-methods-and-applications-of-grinding"],
+          "status": "retired"
         },
         {
           "id": "grinding-wheels",
@@ -332,12 +419,14 @@
         {
           "id": "selection-of-grinding-wheel",
           "name": "selection of grinding wheel",
-          "requires": ["different-bonds-and-abrasives"]
+          "requires": ["different-bonds-and-abrasives"],
+          "status": "retired"
         },
         {
           "id": "faults-in-grinding",
           "name": "faults in grinding",
-          "requires": ["selection-of-grinding-wheel"]
+          "requires": ["selection-of-grinding-wheel"],
+          "status": "retired"
         },
         {
           "id": "truing-and-dressing",
@@ -347,62 +436,159 @@
         {
           "id": "super-abrasive-wheels-and-their-bonds",
           "name": "Super abrasive wheels and their bonds",
-          "requires": ["truing-and-dressing"]
+          "requires": ["truing-and-dressing"],
+          "status": "retired"
         },
         {
           "id": "super-finishing-purpose-and-order-of-super-finishing",
           "name": "Super finishing: Purpose and order of super finishing",
-          "requires": ["super-abrasive-wheels-and-their-bonds"]
+          "requires": ["super-abrasive-wheels-and-their-bonds"],
+          "status": "retired"
         },
         {
           "id": "micro-and-super-finishing-methods",
           "name": "micro and super finishing methods",
-          "requires": ["super-finishing-purpose-and-order-of-super-finishing"]
+          "requires": ["super-finishing-purpose-and-order-of-super-finishing"],
+          "status": "retired"
         },
         {
           "id": "characteristics-and-applications",
           "name": "characteristics and applications",
-          "requires": ["micro-and-super-finishing-methods"]
+          "requires": ["micro-and-super-finishing-methods"],
+          "status": "retired"
         },
         {
           "id": "lapping",
           "name": "lapping",
-          "requires": ["characteristics-and-applications"]
+          "requires": ["characteristics-and-applications"],
+          "status": "retired"
         },
         {
           "id": "honing",
           "name": "honing",
-          "requires": ["lapping"]
+          "requires": ["lapping"],
+          "status": "retired"
         },
         {
           "id": "super-finishing",
           "name": "super finishing",
-          "requires": ["honing"]
+          "requires": ["honing"],
+          "status": "retired"
         },
         {
           "id": "burnishing",
           "name": "burnishing",
-          "requires": ["super-finishing"]
+          "requires": ["super-finishing"],
+          "status": "retired"
         },
         {
           "id": "polishing",
           "name": "polishing",
-          "requires": ["burnishing"]
+          "requires": ["burnishing"],
+          "status": "retired"
         },
         {
           "id": "magnetic-float-polishing",
           "name": "magnetic float polishing",
-          "requires": ["polishing"]
+          "requires": ["polishing"],
+          "status": "retired"
         },
         {
           "id": "magnetic-field-assisted-polishing",
           "name": "magnetic field assisted polishing",
-          "requires": ["magnetic-float-polishing"]
+          "requires": ["magnetic-float-polishing"],
+          "status": "retired"
         },
         {
           "id": "electro-polishing",
           "name": "electro polishing",
-          "requires": ["magnetic-field-assisted-polishing"]
+          "requires": ["magnetic-field-assisted-polishing"],
+          "status": "retired"
+        },
+        {
+          "id": "introduction-to-gear-indexing",
+          "name": "Introduction to gear indexing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["electro-polishing"]
+        }
+      ]
+    },
+    {
+      "id": "drilling-boring-and-grinding-machines",
+      "name": "Drilling, Boring and Grinding Machines",
+      "hours": 8,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "drilling-and-boring-machines-kinematic-system",
+          "name": "Drilling and Boring machines: Kinematic system",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "principle-of-working-4",
+          "name": "principle of working",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["drilling-and-boring-machines-kinematic-system"]
+        },
+        {
+          "id": "classifications-3",
+          "name": "classifications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principle-of-working-4"]
+        },
+        {
+          "id": "specifications-3",
+          "name": "specifications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classifications-3"]
+        },
+        {
+          "id": "operations-performed-3",
+          "name": "operations performed",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["specifications-3"]
+        },
+        {
+          "id": "machining-time-calculations",
+          "name": "machining time calculations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["operations-performed-3"]
+        },
+        {
+          "id": "classifications-of-grinding-machines-2",
+          "name": "Classifications of grinding machines",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["machining-time-calculations"]
+        },
+        {
+          "id": "specifications-grinding-wheels",
+          "name": "specifications grinding wheels",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classifications-of-grinding-machines-2"]
+        },
+        {
+          "id": "mechanism-of-grinding-2",
+          "name": "mechanism of grinding",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["specifications-grinding-wheels"]
+        },
+        {
+          "id": "different-bonds-and-abrasives-truing-and-dressing",
+          "name": "different bonds and abrasives–truing and dressing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mechanism-of-grinding-2"]
         }
       ]
     },
@@ -460,7 +646,10 @@
           "name": "recent advances in conventional machine tools",
           "requires": ["automation-of-machine-tools"]
         }
-      ]
+      ],
+      "status": "retired"
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-manufacturing-process-ii-laboratory-me"]
 }

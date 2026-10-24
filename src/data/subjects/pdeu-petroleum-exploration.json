@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "civil",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -51,7 +51,16 @@
         {
           "id": "reservoir",
           "name": "reservoir",
-          "requires": ["concept-of-source"]
+          "requires": ["concept-of-source"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lease-and-reservoir-2",
+          "name": "Lease and Reservoir",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reservoir"]
         },
         {
           "id": "migration",
@@ -151,8 +160,17 @@
         },
         {
           "id": "burial-history-curve-with-oil-and-gas-window-seeps-and",
-          "name": "Burial history curve with oil and gas window. Seeps and surface geochemical exploration",
-          "requires": ["petroleum-geochemistry-in-exploration"]
+          "name": "Burial history curve with oil and gas window",
+          "requires": ["petroleum-geochemistry-in-exploration"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "seeps-and-surface-geochemical-exploration",
+          "name": "Seeps and surface geochemical exploration",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["burial-history-curve-with-oil-and-gas-window-seeps-and"]
         },
         {
           "id": "rock-eval-pyrolysis-and-maturity-assessment",
@@ -252,8 +270,17 @@
         },
         {
           "id": "anomaly-and-well-placement-based-on-electrical-data-basic",
-          "name": "Anomaly and well placement based on electrical data. Basic well logs, GR",
-          "requires": ["potential-estimation-for-various-buried-bodies"]
+          "name": "Anomaly and well placement based on electrical data",
+          "requires": ["potential-estimation-for-various-buried-bodies"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "basic-well-logs",
+          "name": "Basic well logs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["anomaly-and-well-placement-based-on-electrical-data-basic"]
         }
       ]
     },
@@ -368,8 +395,17 @@
         },
         {
           "id": "time-slice-and-its-importance-horizon-and-fault-mapping",
-          "name": "time slice and its importance. Horizon and Fault mapping",
-          "requires": ["3d-fold"]
+          "name": "time slice and its importance",
+          "requires": ["3d-fold"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "horizon-and-fault-mapping",
+          "name": "Horizon and Fault mapping",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["time-slice-and-its-importance-horizon-and-fault-mapping"]
         },
         {
           "id": "seismic-impedance-and-reflection-coefficient",
@@ -438,5 +474,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-petroleum-exploration-laboratory-petro"]
 }

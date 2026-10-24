@@ -1,0 +1,365 @@
+{
+  "id": "pdeu-facts-and-hvdc-power-transmission-elec",
+  "name": "FACTS and HVDC Power Transmission",
+  "field": "FACTS and HVDC Power Transmission",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 7): FACTS and HVDC Power Transmission",
+    "note": "Units and topics copied from the course handout PDF (pages 6 of ELEC/sem7/Electrical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE404T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s7-facts-and-hvdc-power-transmission",
+      "code": "20EE404T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "flexible-transmission-system",
+      "name": "Flexible Transmission System",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "basics-of-ac-transmission",
+          "name": "Basics of AC Transmission"
+        },
+        {
+          "id": "comparison-of-ac-and-dc-transmission-economics",
+          "name": "Comparison of AC and DC Transmission (Economics",
+          "requires": ["basics-of-ac-transmission"]
+        },
+        {
+          "id": "technical-performance-and-reliability",
+          "name": "Technical Performance and Reliability)",
+          "requires": ["comparison-of-ac-and-dc-transmission-economics"]
+        },
+        {
+          "id": "application-of-dc-transmission",
+          "name": "Application of DC Transmission",
+          "requires": ["technical-performance-and-reliability"]
+        },
+        {
+          "id": "hvdc-system-introduction",
+          "name": "HVDC System: Introduction",
+          "requires": ["application-of-dc-transmission"]
+        },
+        {
+          "id": "types-of-hvdc-systems-monopolar-link",
+          "name": "Types of HVDC Systems: Monopolar Link",
+          "requires": ["hvdc-system-introduction"]
+        },
+        {
+          "id": "bipolar-link",
+          "name": "Bipolar Link",
+          "requires": ["types-of-hvdc-systems-monopolar-link"]
+        },
+        {
+          "id": "homopolarlink",
+          "name": "Homopolarlink",
+          "requires": ["bipolar-link"]
+        },
+        {
+          "id": "facts-compensation-of-transmission-lines",
+          "name": "FACTS: Compensation of Transmission lines",
+          "requires": ["homopolarlink"]
+        },
+        {
+          "id": "basic-types-svc",
+          "name": "Basic types: SVC",
+          "requires": ["facts-compensation-of-transmission-lines"]
+        },
+        {
+          "id": "statcom",
+          "name": "STATCOM",
+          "requires": ["basic-types-svc"]
+        },
+        {
+          "id": "tssc",
+          "name": "TSSC",
+          "requires": ["statcom"]
+        },
+        {
+          "id": "tcsc",
+          "name": "TCSC",
+          "requires": ["tssc"]
+        },
+        {
+          "id": "sssc",
+          "name": "SSSC",
+          "requires": ["tcsc"]
+        },
+        {
+          "id": "upfc",
+          "name": "UPFC",
+          "requires": ["sssc"]
+        },
+        {
+          "id": "ipfc",
+          "name": "IPFC",
+          "requires": ["upfc"]
+        },
+        {
+          "id": "flexible-systems-vs-conventional-transmissions-systems",
+          "name": "Flexible Systems Vs Conventional transmissions Systems",
+          "requires": ["ipfc"]
+        }
+      ]
+    },
+    {
+      "id": "hvdc-system",
+      "name": "HVDC System",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "components-of-hvdc-systems-smoothing-reactors",
+          "name": "Components of HVDC systems: Smoothing Reactors"
+        },
+        {
+          "id": "reactive-power-sources-and-filters-in-lcc-hvdc-systems-dc-li",
+          "name": "Reactive Power Sources and Filters in LCC HVDC systems DC line: Corona Effects",
+          "requires": ["components-of-hvdc-systems-smoothing-reactors"]
+        },
+        {
+          "id": "insulators",
+          "name": "Insulators",
+          "requires": ["reactive-power-sources-and-filters-in-lcc-hvdc-systems-dc-li"]
+        },
+        {
+          "id": "transient-over-voltages",
+          "name": "Transient Over-voltages",
+          "requires": ["insulators"]
+        },
+        {
+          "id": "dc-breakers",
+          "name": "DC breakers",
+          "requires": ["transient-over-voltages"]
+        },
+        {
+          "id": "monopolar-operation",
+          "name": "Monopolar Operation",
+          "requires": ["dc-breakers"]
+        },
+        {
+          "id": "ground-electrodes",
+          "name": "Ground Electrodes",
+          "requires": ["monopolar-operation"]
+        },
+        {
+          "id": "line-commutated-converters-lccs-six-pulse-converter",
+          "name": "Line Commutated Converters (LCCs): Six pulse converter",
+          "requires": ["ground-electrodes"]
+        },
+        {
+          "id": "analysis-neglecting-commutation-overlap",
+          "name": "Analysis neglecting commutation overlap",
+          "requires": ["line-commutated-converters-lccs-six-pulse-converter"]
+        },
+        {
+          "id": "harmonics",
+          "name": "harmonics",
+          "requires": ["analysis-neglecting-commutation-overlap"]
+        },
+        {
+          "id": "twelve-pulse-converters",
+          "name": "Twelve Pulse Converters",
+          "requires": ["harmonics"]
+        },
+        {
+          "id": "inverter-operation",
+          "name": "Inverter Operation",
+          "requires": ["twelve-pulse-converters"]
+        },
+        {
+          "id": "effect-of-commutation-overlap",
+          "name": "Effect of Commutation Overlap",
+          "requires": ["inverter-operation"]
+        },
+        {
+          "id": "expressions-for-average-dc-voltage",
+          "name": "Expressions for average dc voltage",
+          "requires": ["effect-of-commutation-overlap"]
+        },
+        {
+          "id": "ac-current-and-reactive-power-absorbed-by-the-converters",
+          "name": "AC current and reactive power absorbed by the converters",
+          "requires": ["expressions-for-average-dc-voltage"]
+        },
+        {
+          "id": "effect-of-commutation-failure",
+          "name": "Effect of Commutation Failure",
+          "requires": ["ac-current-and-reactive-power-absorbed-by-the-converters"]
+        },
+        {
+          "id": "misfire-and-current-extinction-in-lcc-links",
+          "name": "Misfire and Current Extinction in LCC links",
+          "requires": ["effect-of-commutation-failure"]
+        },
+        {
+          "id": "dc-line-faults-in-lcc-systems",
+          "name": "DC line faults in LCC systems",
+          "requires": ["misfire-and-current-extinction-in-lcc-links"]
+        },
+        {
+          "id": "voltage-source-converters-vscs-two-and-three-level-vscs",
+          "name": "Voltage Source Converters (VSCs): Two and Three-level VSCs",
+          "requires": ["dc-line-faults-in-lcc-systems"]
+        },
+        {
+          "id": "pwm-schemes-selective-harmonic-elimination",
+          "name": "PWM schemes: Selective Harmonic Elimination",
+          "requires": ["voltage-source-converters-vscs-two-and-three-level-vscs"]
+        },
+        {
+          "id": "sinusoidal-pulse-width-modulation",
+          "name": "Sinusoidal Pulse Width Modulation",
+          "requires": ["pwm-schemes-selective-harmonic-elimination"]
+        },
+        {
+          "id": "analysis-of-a-six-pulse-converter",
+          "name": "Analysis of a six pulse converter",
+          "requires": ["sinusoidal-pulse-width-modulation"]
+        },
+        {
+          "id": "equations-in-the-rotating-frame",
+          "name": "Equations in the rotating frame",
+          "requires": ["analysis-of-a-six-pulse-converter"]
+        },
+        {
+          "id": "real-and-reactive-power-control-using-a-vsc",
+          "name": "Real and Reactive power control using a VSC",
+          "requires": ["equations-in-the-rotating-frame"]
+        },
+        {
+          "id": "dc-line-faults-in-vsc-systems",
+          "name": "DC line faults in VSC systems",
+          "requires": ["real-and-reactive-power-control-using-a-vsc"]
+        }
+      ]
+    },
+    {
+      "id": "facts-controllers",
+      "name": "Facts Controllers",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "thyristor-based-flexible-ac-transmission-controllers-descrip",
+          "name": "Thyristor-based Flexible AC Transmission Controllers: Description and Characteristics of Thyristor-based FACTS devices:"
+        },
+        {
+          "id": "thyristor-controlled-series-capacitor-tcsc",
+          "name": "Thyristor Controlled Series Capacitor (TCSC)",
+          "requires": ["thyristor-based-flexible-ac-transmission-controllers-descrip"]
+        },
+        {
+          "id": "thyristor-controlled-braking-resistor-and-single-pole-single",
+          "name": "Thyristor Controlled Braking Resistor and Single Pole Single Throw (SPST) Switch",
+          "requires": ["thyristor-controlled-series-capacitor-tcsc"]
+        },
+        {
+          "id": "configurations-modes-of-operation",
+          "name": "Configurations/Modes of Operation",
+          "requires": ["thyristor-controlled-braking-resistor-and-single-pole-single"]
+        },
+        {
+          "id": "harmonics-and-control-of-svc-and-tcsc",
+          "name": "Harmonics and control of SVC and TCSC",
+          "requires": ["configurations-modes-of-operation"]
+        },
+        {
+          "id": "fault-current-limiter",
+          "name": "Fault Current Limiter",
+          "requires": ["harmonics-and-control-of-svc-and-tcsc"]
+        },
+        {
+          "id": "voltage-source-converter-based-facts-controllers-voltage-sou",
+          "name": "Voltage Source Converter based FACTS controllers: Voltage Source Converters (VSC): Six Pulse VSC",
+          "requires": ["fault-current-limiter"]
+        },
+        {
+          "id": "multi-pulse-and-multi-level-converters",
+          "name": "Multi-pulse and Multi-level Converters",
+          "requires": ["voltage-source-converter-based-facts-controllers-voltage-sou"]
+        },
+        {
+          "id": "pulse-width-modulation-for-vscs",
+          "name": "Pulse-Width Modulation for VSCs",
+          "requires": ["multi-pulse-and-multi-level-converters"]
+        },
+        {
+          "id": "selective-harmonic-elimination",
+          "name": "Selective Harmonic Elimination",
+          "requires": ["pulse-width-modulation-for-vscs"]
+        },
+        {
+          "id": "sinusoidal-pwm-and-space-vector-modulation",
+          "name": "Sinusoidal PWM and Space Vector Modulation",
+          "requires": ["selective-harmonic-elimination"]
+        },
+        {
+          "id": "statcom-principle-of-operation",
+          "name": "STATCOM: Principle of Operation",
+          "requires": ["sinusoidal-pwm-and-space-vector-modulation"]
+        },
+        {
+          "id": "reactive-power-control-type-i-and-type-ii-controllers",
+          "name": "Reactive Power Control: Type I and Type II controllers",
+          "requires": ["statcom-principle-of-operation"]
+        },
+        {
+          "id": "static-synchronous-series-compensator-sssc-and-unified-power",
+          "name": "Static Synchronous Series Compensator (SSSC) and Unified Power Flow Controller (UPFC): Principle of Operation and Contro",
+          "requires": ["reactive-power-control-type-i-and-type-ii-controllers"]
+        },
+        {
+          "id": "working-principle-of-interphase-power-flow-controller",
+          "name": "Working principle of Interphase Power Flow Controller",
+          "requires": ["static-synchronous-series-compensator-sssc-and-unified-power"]
+        },
+        {
+          "id": "other-devices-gto-controlled-series-compensator",
+          "name": "Other Devices: GTO Controlled Series Compensator",
+          "requires": ["working-principle-of-interphase-power-flow-controller"]
+        }
+      ]
+    },
+    {
+      "id": "flexible-transmission-for-smart-grids",
+      "name": "Flexible Transmission for Smart Grids",
+      "hours": 4,
+      "topics": [
+        {
+          "id": "dc-microgrid-configuration",
+          "name": "DC Microgrid configuration"
+        },
+        {
+          "id": "synchro-phasor-measurement-technology-pmus",
+          "name": "Synchro-Phasor Measurement Technology: PMUs",
+          "requires": ["dc-microgrid-configuration"]
+        },
+        {
+          "id": "future-developments-and-challenges",
+          "name": "Future Developments and Challenges",
+          "requires": ["synchro-phasor-measurement-technology-pmus"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-facts-and-hvdc-power-transmission-laboratory-elec"]
+}

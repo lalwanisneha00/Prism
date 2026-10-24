@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Agile and DevOps",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,7 +41,16 @@
       "topics": [
         {
           "id": "software-processes-process-models",
-          "name": "Software processes, Process Models"
+          "name": "Software processes",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "process-models",
+          "name": "Process Models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["software-processes-process-models"]
         },
         {
           "id": "overview-agile-model-and-various-agile-methodologies",
@@ -50,8 +59,24 @@
         },
         {
           "id": "scrum-xp-lean-and-kanban",
-          "name": "Scrum, XP, Lean, and Kanban",
-          "requires": ["overview-agile-model-and-various-agile-methodologies"]
+          "name": "Scrum",
+          "requires": ["overview-agile-model-and-various-agile-methodologies"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lean",
+          "name": "Lean",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scrum-xp-lean-and-kanban"]
+        },
+        {
+          "id": "kanban",
+          "name": "Kanban",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lean"]
         },
         {
           "id": "scope-of-each-model-and-their-comparison-in-real-world-case",
@@ -82,7 +107,16 @@
         {
           "id": "devops-lifecycle",
           "name": "DevOps Lifecycle",
-          "requires": ["devops-culture-and-mindset"]
+          "requires": ["devops-culture-and-mindset"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "overview-of-the-devops-lifecycle-stages-2",
+          "name": "Overview of the DevOps lifecycle stages",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["devops-lifecycle"]
         },
         {
           "id": "overview-of-the-devops-lifecycle-stages",
@@ -106,8 +140,17 @@
         },
         {
           "id": "introduction-to-version-control-systems-e-g-git",
-          "name": "Introduction to version control systems (e.g., Git)",
-          "requires": ["configuration-management"]
+          "name": "Introduction to version control systems (e.g",
+          "requires": ["configuration-management"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "git",
+          "name": "Git)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-version-control-systems-e-g-git"]
         },
         {
           "id": "branching-and-merging-strategies",
@@ -116,8 +159,24 @@
         },
         {
           "id": "configuration-management-tools-e-g-ansible-puppet",
-          "name": "Configuration management tools (e.g., Ansible, Puppet)",
-          "requires": ["branching-and-merging-strategies"]
+          "name": "Configuration management tools (e.g",
+          "requires": ["branching-and-merging-strategies"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ansible",
+          "name": "Ansible",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["configuration-management-tools-e-g-ansible-puppet"]
+        },
+        {
+          "id": "puppet",
+          "name": "Puppet)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ansible"]
         }
       ]
     },
@@ -132,8 +191,24 @@
         },
         {
           "id": "infrastructure-provisioning-tools-e-g-terraform-cloud",
-          "name": "Infrastructure provisioning tools (e.g., Terraform, Cloud Formation)",
-          "requires": ["introduction-to-infrastructure-as-code-iac-concepts-and"]
+          "name": "Infrastructure provisioning tools (e.g",
+          "requires": ["introduction-to-infrastructure-as-code-iac-concepts-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "terraform",
+          "name": "Terraform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["infrastructure-provisioning-tools-e-g-terraform-cloud"]
+        },
+        {
+          "id": "cloud-formation",
+          "name": "Cloud Formation)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["terraform"]
         },
         {
           "id": "managing-infrastructure-configurations",
@@ -198,8 +273,24 @@
         },
         {
           "id": "understanding-repositories-commits-and-revisions",
-          "name": "Understanding repositories, commits, and revisions",
-          "requires": ["introduction-to-centralized-and-distributed-scm"]
+          "name": "Understanding repositories",
+          "requires": ["introduction-to-centralized-and-distributed-scm"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "commits",
+          "name": "commits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["understanding-repositories-commits-and-revisions"]
+        },
+        {
+          "id": "revisions",
+          "name": "revisions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["commits"]
         },
         {
           "id": "exploring-the-concepts-of-working-directory",
@@ -208,8 +299,17 @@
         },
         {
           "id": "staging-area-and-remote-repositories",
-          "name": "staging area, and remote repositories",
-          "requires": ["exploring-the-concepts-of-working-directory"]
+          "name": "staging area",
+          "requires": ["exploring-the-concepts-of-working-directory"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "remote-repositories",
+          "name": "remote repositories",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["staging-area-and-remote-repositories"]
         },
         {
           "id": "introduction-to-branching-and-tagging",
@@ -238,8 +338,24 @@
         },
         {
           "id": "cloning-pushing-and-pulling-changes",
-          "name": "Cloning, pushing, and pulling changes",
-          "requires": ["working-with-remote-repositories"]
+          "name": "Cloning",
+          "requires": ["working-with-remote-repositories"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pushing",
+          "name": "pushing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cloning-pushing-and-pulling-changes"]
+        },
+        {
+          "id": "pulling-changes",
+          "name": "pulling changes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pushing"]
         },
         {
           "id": "collaboration-workflows-and-managing-multiple-contributors",
@@ -283,5 +399,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

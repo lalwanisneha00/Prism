@@ -1,0 +1,101 @@
+{
+  "id": "pdeu-refrigeration-and-air-conditioning-laboratory-me",
+  "name": "Refrigeration and Air-conditioning Laboratory",
+  "field": "Refrigeration and Air-conditioning Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 6): Refrigeration and Air-conditioning Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 7 of MECH/sem6/Mechanical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME304P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s6-refrigeration-and-air-conditioning-laboratory",
+      "code": "24ME304P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-performance-test-on-vapor-compression-refrigera",
+          "name": "Performance test on vapor compression refrigeration system to measure the COP of the system",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-performance-test-on-vcr-system-with-continuous",
+          "name": "Performance test on VCR system with continuous flow condition and measure the COP of the system",
+          "number": 2,
+          "requires": ["experiment-1-performance-test-on-vapor-compression-refrigera"]
+        },
+        {
+          "id": "experiment-3-performance-comparison-of-the-water-cooled-and",
+          "name": "Performance comparison of the water-cooled and air-cooled condenser of VCR system",
+          "number": 3,
+          "requires": ["experiment-2-performance-test-on-vcr-system-with-continuous"]
+        },
+        {
+          "id": "experiment-4-performance-test-on-the-heat-pump-system",
+          "name": "Performance test on the heat pump system",
+          "number": 4,
+          "requires": ["experiment-3-performance-comparison-of-the-water-cooled-and"]
+        },
+        {
+          "id": "experiment-5-performance-test-on-cascade-refrigeration-syste",
+          "name": "Performance test on CASCADE refrigeration system",
+          "number": 5,
+          "requires": ["experiment-4-performance-test-on-the-heat-pump-system"]
+        },
+        {
+          "id": "experiment-6-performance-test-on-nh3-h2o-vapor-absorption-re",
+          "name": "Performance test on NH3-H2O vapor absorption refrigeration system",
+          "number": 6,
+          "requires": ["experiment-5-performance-test-on-cascade-refrigeration-syste"]
+        },
+        {
+          "id": "experiment-7-performance-test-on-three-fluid-vapor-absorptio",
+          "name": "Performance test on three fluid vapor absorption refrigeration system",
+          "number": 7,
+          "requires": ["experiment-6-performance-test-on-nh3-h2o-vapor-absorption-re"]
+        },
+        {
+          "id": "experiment-8-performance-test-to-obtain-various-psychrometri",
+          "name": "Performance test to obtain various psychrometric processes",
+          "number": 8,
+          "requires": ["experiment-7-performance-test-on-three-fluid-vapor-absorptio"]
+        },
+        {
+          "id": "experiment-9-performance-test-on-the-air-conditioning-system",
+          "name": "Performance test on the air-conditioning system and measure the cooling capacity and COP of the system",
+          "number": 9,
+          "requires": ["experiment-8-performance-test-to-obtain-various-psychrometri"]
+        },
+        {
+          "id": "experiment-10-perform-the-cooling-load-calculation-for-the-g",
+          "name": "Perform the cooling load calculation for the given space",
+          "number": 10,
+          "requires": ["experiment-9-performance-test-on-the-air-conditioning-system"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-refrigeration-and-air-conditioning"]
+}

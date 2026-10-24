@@ -6,7 +6,7 @@
   "university": "pdeu",
   "courseCategory": "core",
   "branches": ["me"],
-  "semesters": [6],
+  "semesters": [7],
   "code": "18ME315T",
   "credits": 4,
   "ltp": "3-1-0",
@@ -19,7 +19,7 @@
       "category": "Program Core",
       "ltp": "3-1-0",
       "credits": 4,
-      "semester": 6,
+      "semester": 7,
       "kind": "core"
     }
   ],
@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Mech): Computer Aided Design",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,22 @@
       "topics": [
         {
           "id": "introduction-reasons-for-implementing-a-cad-system-computer",
-          "name": "Introduction, Reasons for implementing a CAD system, Computer aided process application, benefits, CAD software’s, Elements of programming, CAD programming, Need and scope of computer aided design"
+          "name": "Introduction to CAD its benefits",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cad-programming",
+          "name": "CAD programming",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-reasons-for-implementing-a-cad-system-computer"]
         },
         {
           "id": "computer-graphics-scan-conversion",
           "name": "Computer Graphics: Scan conversion",
-          "requires": ["introduction-reasons-for-implementing-a-cad-system-computer"]
+          "requires": ["introduction-reasons-for-implementing-a-cad-system-computer"],
+          "status": "retired"
         },
         {
           "id": "bresenhams-algorithm-for-line-circle-and-ellipse",
@@ -56,6 +66,13 @@
           "id": "standards-for-graphics-programming-features-of-gks-other",
           "name": "Standards for graphics programming, features of GKS, other graphics standards, PHIGS, IGES, PDES. Standards in CAD",
           "requires": ["bresenhams-algorithm-for-line-circle-and-ellipse"]
+        },
+        {
+          "id": "dda-and-bresenham-s-algorithm-of-line",
+          "name": "DDA and Bresenham’s Algorithm of line",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["standards-for-graphics-programming-features-of-gks-other"]
         }
       ]
     },
@@ -87,6 +104,20 @@
           "id": "homogeneous-transformations",
           "name": "homogeneous transformations",
           "requires": ["shear-and-reflection"]
+        },
+        {
+          "id": "projections",
+          "name": "Projections",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["homogeneous-transformations"]
+        },
+        {
+          "id": "orthographic-and-affine-transformations",
+          "name": "Orthographic and Affine transformations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["projections"]
         }
       ]
     },
@@ -97,12 +128,14 @@
       "topics": [
         {
           "id": "types-of-mathematical-representation-of-curves",
-          "name": "Types of mathematical representation of curves"
+          "name": "Types of mathematical representation of curves",
+          "status": "retired"
         },
         {
           "id": "parametric-representation-of-line",
           "name": "parametric representation of line",
-          "requires": ["types-of-mathematical-representation-of-curves"]
+          "requires": ["types-of-mathematical-representation-of-curves"],
+          "status": "retired"
         },
         {
           "id": "circle",
@@ -117,17 +150,20 @@
         {
           "id": "parabola",
           "name": "parabola",
-          "requires": ["ellipse"]
+          "requires": ["ellipse"],
+          "status": "retired"
         },
         {
           "id": "hyperbola-wire-frame-models",
           "name": "hyperbola. Wire frame models",
-          "requires": ["parabola"]
+          "requires": ["parabola"],
+          "status": "retired"
         },
         {
           "id": "wire-frame-entities",
           "name": "wire frame entities",
-          "requires": ["hyperbola-wire-frame-models"]
+          "requires": ["hyperbola-wire-frame-models"],
+          "status": "retired"
         },
         {
           "id": "parametric-representation-of-synthetic-curves-hermit-cubic",
@@ -148,6 +184,45 @@
           "id": "constructive-solid-geometry",
           "name": "constructive solid geometry",
           "requires": ["b-splines"]
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "movedFrom": {
+            "subject": "pdeu-computer-aided-design",
+            "chapter": "finite-element-method",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "nurbs",
+          "name": "NURBS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "introduction-to-reverse-engineering",
+          "name": "Introduction to Reverse Engineering",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["nurbs"]
+        },
+        {
+          "id": "introduction-to-virtual-prototyping",
+          "name": "Introduction to Virtual prototyping",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-reverse-engineering"]
+        },
+        {
+          "id": "case-studies",
+          "name": "Case Studies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-virtual-prototyping"]
         }
       ]
     },
@@ -156,10 +231,6 @@
       "name": "Finite Element Method",
       "hours": 12,
       "topics": [
-        {
-          "id": "introduction",
-          "name": "Introduction"
-        },
         {
           "id": "fem-procedure",
           "name": "FEM procedure",
@@ -187,8 +258,17 @@
         },
         {
           "id": "assembly-of-element-matrices-and-vectors-and-derivation-of",
-          "name": "Assembly of Element Matrices and Vectors and Derivation of System Equations",
-          "requires": ["derivation-of-element-matrices-and-vectors"]
+          "name": "Assembly of Element Matrices",
+          "requires": ["derivation-of-element-matrices-and-vectors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "derivation-of-system-equations",
+          "name": "Derivation of System Equations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["assembly-of-element-matrices-and-vectors-and-derivation-of"]
         },
         {
           "id": "numerical-solution-of-finite-element-equations",
@@ -213,39 +293,47 @@
         {
           "id": "development-of-computer-program-using-matlab-for-machine",
           "name": "development of computer program using Matlab for machine components like shaft",
-          "requires": ["beams-computer-programming-use-of-computer-programming-in"]
+          "requires": ["beams-computer-programming-use-of-computer-programming-in"],
+          "status": "retired"
         },
         {
           "id": "spring",
           "name": "spring",
-          "requires": ["development-of-computer-program-using-matlab-for-machine"]
+          "requires": ["development-of-computer-program-using-matlab-for-machine"],
+          "status": "retired"
         },
         {
           "id": "gears",
           "name": "gears",
-          "requires": ["spring"]
+          "requires": ["spring"],
+          "status": "retired"
         },
         {
           "id": "bearing-etc",
           "name": "bearing etc",
-          "requires": ["gears"]
+          "requires": ["gears"],
+          "status": "retired"
         },
         {
           "id": "plotting-graphs-using-programming-language",
           "name": "plotting graphs using programming language",
-          "requires": ["bearing-etc"]
+          "requires": ["bearing-etc"],
+          "status": "retired"
         },
         {
           "id": "generalized-programming",
           "name": "generalized programming",
-          "requires": ["plotting-graphs-using-programming-language"]
+          "requires": ["plotting-graphs-using-programming-language"],
+          "status": "retired"
         },
         {
           "id": "optimization-in-design",
           "name": "optimization in design",
-          "requires": ["generalized-programming"]
+          "requires": ["generalized-programming"],
+          "status": "retired"
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

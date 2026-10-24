@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Blockchain Technology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,7 +41,16 @@
       "topics": [
         {
           "id": "basic-data-structure-concepts-related-to-blockchain",
-          "name": "Basic Data Structure concepts related to blockchain. Introduction to Blockchain"
+          "name": "Basic Data Structure concepts related to blockchain",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-blockchain",
+          "name": "Introduction to Blockchain",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-data-structure-concepts-related-to-blockchain"]
         },
         {
           "id": "cryptographic-primitives-used-in-blockchain",
@@ -76,8 +85,17 @@
         },
         {
           "id": "types-of-blockchain-introduction-to-crypto-currency",
-          "name": "Types of Blockchain. Introduction to Crypto Currency",
-          "requires": ["proof-of-stake-based-chains"]
+          "name": "Types of Blockchain",
+          "requires": ["proof-of-stake-based-chains"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-crypto-currency",
+          "name": "Introduction to Crypto Currency",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-blockchain-introduction-to-crypto-currency"]
         },
         {
           "id": "crypto-currency-as-application-of-blockchain-technology",
@@ -93,7 +111,16 @@
       "topics": [
         {
           "id": "blockchains-with-smart-contracts-ethereum-platform-and-its",
-          "name": "Blockchains with smart contracts - Ethereum platform and its smart contract mechanism"
+          "name": "Blockchains with smart contracts",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ethereum-platform-and-its-smart-contract-mechanism",
+          "name": "Ethereum platform and its smart contract mechanism",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["blockchains-with-smart-contracts-ethereum-platform-and-its"]
         }
       ]
     },
@@ -104,7 +131,16 @@
       "topics": [
         {
           "id": "blockchain-use-cases-finance",
-          "name": "Blockchain Use Cases – Finance"
+          "name": "Blockchain Use Cases",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "finance",
+          "name": "Finance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["blockchain-use-cases-finance"]
         },
         {
           "id": "industry",
@@ -123,5 +159,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

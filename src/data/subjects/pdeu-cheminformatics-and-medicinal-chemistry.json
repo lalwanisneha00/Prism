@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Cheminformatics and Medicinal Chemistry",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -49,8 +49,17 @@
         },
         {
           "id": "in-silico-representation-of-chemical-information-chemical",
-          "name": "in-silico representation of chemical information. Chemical Databases: Data Mining",
-          "requires": ["ligands-and-targets"]
+          "name": "in-silico representation of chemical information",
+          "requires": ["ligands-and-targets"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "chemical-databases-data-mining",
+          "name": "Chemical Databases: Data Mining",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["in-silico-representation-of-chemical-information-chemical"]
         },
         {
           "id": "chemical-biochemical-data-collation",
@@ -80,8 +89,17 @@
         },
         {
           "id": "molecular-modeling-computer-aided-drug-design-overview",
-          "name": "Molecular Modeling. Computer-Aided Drug Design: Overview",
-          "requires": ["building-molecules-on-a-computer"]
+          "name": "Molecular Modeling",
+          "requires": ["building-molecules-on-a-computer"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "computer-aided-drug-design-overview",
+          "name": "Computer-Aided Drug Design: Overview",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["molecular-modeling-computer-aided-drug-design-overview"]
         },
         {
           "id": "structural-homology-modeling-tools",
@@ -90,8 +108,24 @@
         },
         {
           "id": "docking-tools-and-screening-tools-chemical-data-science",
-          "name": "Docking Tools, and Screening Tools. Chemical data science: Artificial intelligence in chemistry",
-          "requires": ["structural-homology-modeling-tools"]
+          "name": "Docking Tools",
+          "requires": ["structural-homology-modeling-tools"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "screening-tools",
+          "name": "Screening Tools",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["docking-tools-and-screening-tools-chemical-data-science"]
+        },
+        {
+          "id": "chemical-data-science-artificial-intelligence-in-chemistry",
+          "name": "Chemical data science: Artificial intelligence in chemistry",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["screening-tools"]
         },
         {
           "id": "simulation-methods-for-molecules-and-materials",
@@ -116,8 +150,17 @@
         },
         {
           "id": "in-silico-tools-for-medicinal-chemistry-docking-md-de-novo",
-          "name": "in silico tools for medicinal chemistry (docking, MD, de novo drug design)",
-          "requires": ["coordination-chemistry-for-drug-design"]
+          "name": "in silico tools for medicinal chemistry (docking",
+          "requires": ["coordination-chemistry-for-drug-design"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "de-novo-drug-design",
+          "name": "de novo drug design)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["in-silico-tools-for-medicinal-chemistry-docking-md-de-novo"]
         },
         {
           "id": "organic-reaction-mechanism",
@@ -208,7 +251,8 @@
         {
           "id": "anti-arrhythmic-drugs",
           "name": "Anti- arrhythmic drugs",
-          "requires": ["anti-hypertensive-agents"]
+          "requires": ["anti-hypertensive-agents"],
+          "status": "retired"
         },
         {
           "id": "anti-hyperlipidemic-agents",
@@ -234,8 +278,16 @@
           "id": "antidiabetic-agents",
           "name": "Antidiabetic agents",
           "requires": ["drugs-acting-on-endocrine-system"]
+        },
+        {
+          "id": "antiarrhythmic-drugs",
+          "name": "Antiarrhythmic drugs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["antidiabetic-agents"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

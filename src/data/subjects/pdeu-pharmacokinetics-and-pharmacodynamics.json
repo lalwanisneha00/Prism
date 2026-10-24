@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Pharmacokinetics and Pharmacodynamics",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,7 +40,23 @@
       "topics": [
         {
           "id": "absorption",
-          "name": "Absorption"
+          "name": "Absorption",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "mechanisms-of-drug-absorption",
+          "name": "Mechanisms of Drug Absorption",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["absorption"]
+        },
+        {
+          "id": "factors-influencing-drug-absorption",
+          "name": "Factors Influencing Drug Absorption",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mechanisms-of-drug-absorption"]
         },
         {
           "id": "introduction-mechanisms-of-drug-absorption-factors",
@@ -49,8 +65,24 @@
         },
         {
           "id": "factors-influencing-distribution-of-drug-volume-of",
-          "name": "Factors influencing Distribution of Drug, Volume of Distribution and its significance",
-          "requires": ["introduction-mechanisms-of-drug-absorption-factors"]
+          "name": "Factors influencing Distribution of Drug",
+          "requires": ["introduction-mechanisms-of-drug-absorption-factors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "volume-of-distribution-and-its-significance",
+          "name": "Volume of Distribution and its significance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["factors-influencing-distribution-of-drug-volume-of"]
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["volume-of-distribution-and-its-significance"]
         }
       ]
     },
@@ -61,7 +93,16 @@
       "topics": [
         {
           "id": "drug-metabolism",
-          "name": "Drug Metabolism"
+          "name": "Drug Metabolism",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "factors-affecting-drug-metabolism",
+          "name": "Factors Affecting drug metabolism",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["drug-metabolism"]
         },
         {
           "id": "introduction-drug-metabolism-metabolic-pathways-factors",
@@ -71,12 +112,51 @@
         {
           "id": "excretion",
           "name": "Excretion",
-          "requires": ["introduction-drug-metabolism-metabolic-pathways-factors"]
+          "requires": ["introduction-drug-metabolism-metabolic-pathways-factors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "renal-excretion-of-drugs",
+          "name": "Renal Excretion of Drugs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["excretion"]
+        },
+        {
+          "id": "factors-affecting-the-renal-excretion-of-drugs",
+          "name": "Factors Affecting the Renal Excretion of Drugs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["renal-excretion-of-drugs"]
+        },
+        {
+          "id": "non-renal-routes-of-the-drug-excretion",
+          "name": "Non-renal Routes of the Drug Excretion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["factors-affecting-the-renal-excretion-of-drugs"]
         },
         {
           "id": "introduction-renal-excretion-of-drugs-factors-affecting-the",
-          "name": "Introduction, Renal Excretion of Drugs, Factors Affecting the Renal Excretion of Drugs, Clearance, Renal Clearance, Non-renal Routes of the Drug Excretion",
-          "requires": ["excretion"]
+          "name": "Clearance",
+          "requires": ["excretion"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "renal-clearance",
+          "name": "Renal Clearance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-renal-excretion-of-drugs-factors-affecting-the"]
+        },
+        {
+          "id": "introduction-2",
+          "name": "Introduction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["renal-clearance"]
         }
       ]
     },
@@ -92,7 +172,16 @@
         {
           "id": "drug-interactions-effect-of-protein-binding-interactions",
           "name": "Drug interactions: Effect of protein- binding interactions",
-          "requires": ["principles-and-mechanism-of-drug-action"]
+          "requires": ["principles-and-mechanism-of-drug-action"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "drug-interactions-linked-to-drug-drug-2",
+          "name": "drug interactions linked to drug-drug",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["drug-interactions-effect-of-protein-binding-interactions"]
         },
         {
           "id": "the-effect-of-tissue-binding-interactions",
@@ -137,8 +226,17 @@
         },
         {
           "id": "factors-modifying-drug-action-modified-release-drug",
-          "name": "factors modifying drug action. Modified-Release Drug formulations",
-          "requires": ["therapeutic-index"]
+          "name": "factors modifying drug action",
+          "requires": ["therapeutic-index"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "modified-release-drug-formulations",
+          "name": "Modified-Release Drug formulations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["factors-modifying-drug-action-modified-release-drug"]
         },
         {
           "id": "targeted-drug-delivery-systems",
@@ -157,5 +255,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

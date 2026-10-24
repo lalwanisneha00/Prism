@@ -1,0 +1,93 @@
+{
+  "id": "pdeu-embedded-systems-lab-ece",
+  "name": "Embedded Systems Lab",
+  "field": "Embedded Systems Lab",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ECE semester 7): Embedded Systems Lab",
+    "note": "Units and topics copied from the course handout PDF (pages 7 of ECE/sem7/ECE_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s7-embedded-systems-lab",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-familiarization-with-ide-and-trainer-kits-board",
+          "name": "Familiarization with IDE and trainer kits/boards.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-program-for-blinking-led-pattern-generation",
+          "name": "Program for blinking LED pattern generation.",
+          "number": 2,
+          "requires": ["experiment-1-familiarization-with-ide-and-trainer-kits-board"]
+        },
+        {
+          "id": "experiment-3-program-for-interfacing-multi-digit-7-segment-d",
+          "name": "Program for interfacing multi-digit 7 segment display and implementing counter.",
+          "number": 3,
+          "requires": ["experiment-2-program-for-blinking-led-pattern-generation"]
+        },
+        {
+          "id": "experiment-4-program-for-interfacing-toggle-and-push-button",
+          "name": "Program for interfacing toggle and push button switches, simple keypad, and matrix keypad.",
+          "number": 4,
+          "requires": ["experiment-3-program-for-interfacing-multi-digit-7-segment-d"]
+        },
+        {
+          "id": "experiment-5-program-for-interfacing-buzzer-relay-dc-motor-s",
+          "name": "Program for interfacing Buzzer, Relay, DC motor, Servo motor, Stepper motor.",
+          "number": 5,
+          "requires": ["experiment-4-program-for-interfacing-toggle-and-push-button"]
+        },
+        {
+          "id": "experiment-6-program-for-interfacing-lcd-and-displaying-text",
+          "name": "Program for interfacing LCD and displaying text on it.",
+          "number": 6,
+          "requires": ["experiment-5-program-for-interfacing-buzzer-relay-dc-motor-s"]
+        },
+        {
+          "id": "experiment-7-program-for-interfacing-various-sensors-and-dis",
+          "name": "Program for interfacing various sensors and displaying quantity on LCD.",
+          "number": 7,
+          "requires": ["experiment-6-program-for-interfacing-lcd-and-displaying-text"]
+        },
+        {
+          "id": "experiment-8-program-for-interfacing-speech-and-voice-recogn",
+          "name": "Program for interfacing speech and voice recognition modules and controlling peripherals.",
+          "number": 8,
+          "requires": ["experiment-7-program-for-interfacing-various-sensors-and-dis"]
+        },
+        {
+          "id": "experiment-9-program-for-interfacing-camera-modules-11-progr",
+          "name": "Program for interfacing camera modules. 11. Program for interfacing RS 232 serial modules and file transfer using it. 12. Program for interfacing Ethernet module and transferring files using it. 13. Program for interfacing wireless modules: Zig bee, Bluetooth, GSM modem, GPS module, RFID etc.",
+          "number": 9,
+          "requires": ["experiment-8-program-for-interfacing-speech-and-voice-recogn"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-embedded-systems"]
+}

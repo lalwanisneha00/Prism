@@ -6,7 +6,7 @@
   "university": "pdeu",
   "courseCategory": "core",
   "branches": ["me"],
-  "semesters": [5],
+  "semesters": [6],
   "code": "18ME302T",
   "credits": 4,
   "ltp": "3-1-0",
@@ -19,7 +19,7 @@
       "category": "Program Core",
       "ltp": "3-1-0",
       "credits": 4,
-      "semester": 5,
+      "semester": 6,
       "kind": "core"
     }
   ],
@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Mech): Production Operation Management",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,29 @@
       "topics": [
         {
           "id": "introduction",
-          "name": "Introduction"
+          "name": "Introduction",
+          "status": "retired"
         },
         {
           "id": "operations-management-and-strategy",
+          "name": "Operations Management: Introduction",
+          "requires": ["introduction"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "operations-management-and-strategy-2",
           "name": "Operations Management and Strategy",
-          "requires": ["introduction"]
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["operations-management-and-strategy"]
+        },
+        {
+          "id": "operations-strategy",
+          "name": "operations strategy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["operations-management-and-strategy-2"]
         },
         {
           "id": "tools-for-implementation-of-operations",
@@ -65,7 +82,8 @@
         {
           "id": "benefits",
           "name": "Benefits",
-          "requires": ["the-strategic-importance-of-forecasting"]
+          "requires": ["the-strategic-importance-of-forecasting"],
+          "status": "retired"
         },
         {
           "id": "cost-implications-and-decision-making-using-forecasting",
@@ -79,8 +97,24 @@
         },
         {
           "id": "methods-of-forecasting",
-          "name": "Methods of Forecasting",
-          "requires": ["classification-of-forecasting-process"]
+          "name": "Forecasting",
+          "requires": ["classification-of-forecasting-process"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "time-series-methods-of-forecasting",
+          "name": "time series methods of forecasting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["methods-of-forecasting"]
+        },
+        {
+          "id": "causal-methods-of-forecasting",
+          "name": "causal methods of forecasting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["time-series-methods-of-forecasting"]
         },
         {
           "id": "components-of-demand-forecasting-and-product-life-cycle",
@@ -100,17 +134,20 @@
         {
           "id": "historical-analogy",
           "name": "historical analogy",
-          "requires": ["qualitative-methods-of-forecasting-market-research"]
+          "requires": ["qualitative-methods-of-forecasting-market-research"],
+          "status": "retired"
         },
         {
           "id": "delphi-method-and-other-methods",
           "name": "Delphi method and other methods",
-          "requires": ["historical-analogy"]
+          "requires": ["historical-analogy"],
+          "status": "retired"
         },
         {
           "id": "quantitative-methods",
           "name": "Quantitative Methods",
-          "requires": ["delphi-method-and-other-methods"]
+          "requires": ["delphi-method-and-other-methods"],
+          "status": "retired"
         },
         {
           "id": "web-based-forecasting-collaborative-planning",
@@ -135,12 +172,14 @@
         {
           "id": "purposes-of-inventory",
           "name": "purposes of inventory",
-          "requires": ["case-studies-in-fore-casting-inventory-management-definition"]
+          "requires": ["case-studies-in-fore-casting-inventory-management-definition"],
+          "status": "retired"
         },
         {
           "id": "independent-vs-dependent-demand",
           "name": "independent vs dependent demand",
-          "requires": ["purposes-of-inventory"]
+          "requires": ["purposes-of-inventory"],
+          "status": "retired"
         },
         {
           "id": "inventory-costs",
@@ -150,22 +189,20 @@
         {
           "id": "fixed-order-quantity-models-and-fixed-time-period-models",
           "name": "fixed order quantity models and fixed time period models",
-          "requires": ["inventory-costs"]
+          "requires": ["inventory-costs"],
+          "status": "retired"
         },
         {
           "id": "abc-inventory-planning",
           "name": "ABC inventory planning",
-          "requires": ["fixed-order-quantity-models-and-fixed-time-period-models"]
+          "requires": ["fixed-order-quantity-models-and-fixed-time-period-models"],
+          "status": "retired"
         },
         {
           "id": "inventory-accuracy-and-cycle",
           "name": "inventory accuracy and cycle",
-          "requires": ["abc-inventory-planning"]
-        },
-        {
-          "id": "the-basic-eoq-model",
-          "name": "the basic EOQ model",
-          "requires": ["inventory-accuracy-and-cycle"]
+          "requires": ["abc-inventory-planning"],
+          "status": "retired"
         },
         {
           "id": "eoq-with-gradual-replenishment",
@@ -175,22 +212,26 @@
         {
           "id": "price-break-models",
           "name": "price break models",
-          "requires": ["eoq-with-gradual-replenishment"]
+          "requires": ["eoq-with-gradual-replenishment"],
+          "status": "retired"
         },
         {
           "id": "reorder-point",
           "name": "reorder point",
-          "requires": ["price-break-models"]
+          "requires": ["price-break-models"],
+          "status": "retired"
         },
         {
           "id": "safety-stock",
           "name": "safety stock",
-          "requires": ["reorder-point"]
+          "requires": ["reorder-point"],
+          "status": "retired"
         },
         {
           "id": "the-newsboy-problem",
           "name": "the Newsboy problem",
-          "requires": ["safety-stock"]
+          "requires": ["safety-stock"],
+          "status": "retired"
         },
         {
           "id": "inventory-control-and-supply-chain-management",
@@ -200,31 +241,20 @@
         {
           "id": "case-studies-in-inventory-control",
           "name": "case studies in inventory control",
-          "requires": ["inventory-control-and-supply-chain-management"]
-        },
-        {
-          "id": "material-requirements-planning-mrp-components-and-structure",
-          "name": "Material Requirements Planning (MRP): Components and structure of MRP (demand for products, bill of materials, inventory records, MRP computer program)",
-          "requires": ["case-studies-in-inventory-control"]
-        },
-        {
-          "id": "mrp-logic",
-          "name": "MRP logic",
-          "requires": ["material-requirements-planning-mrp-components-and-structure"]
-        },
-        {
-          "id": "lot-sizing-in-mrp-systems-lfl-eoq-poq-ltc-luc-etc",
-          "name": "lot sizing in MRP systems (LFL, EOQ, POQ, LTC, LUC, etc.)",
-          "requires": ["mrp-logic"]
+          "requires": ["inventory-control-and-supply-chain-management"],
+          "status": "retired"
         },
         {
           "id": "case-studies-on-mrp",
           "name": "case studies on MRP",
-          "requires": ["lot-sizing-in-mrp-systems-lfl-eoq-poq-ltc-luc-etc"]
+          "requires": ["lot-sizing-in-mrp-systems-lfl-eoq-poq-ltc-luc-etc"],
+          "status": "retired"
         },
         {
-          "id": "introduction-to-erp",
-          "name": "introduction to ERP",
+          "id": "measures-of-error",
+          "name": "measures of error",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["case-studies-on-mrp"]
         }
       ]
@@ -236,7 +266,8 @@
       "topics": [
         {
           "id": "introduction-2",
-          "name": "Introduction"
+          "name": "Introduction",
+          "status": "retired"
         },
         {
           "id": "purpose-of-operations-scheduling",
@@ -315,8 +346,17 @@
         },
         {
           "id": "probabilistic-time-estimates-and-project-crashing",
-          "name": "probabilistic time estimates, and project crashing",
-          "requires": ["the-critical-path"]
+          "name": "probabilistic time estimates",
+          "requires": ["the-critical-path"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "project-crashing",
+          "name": "project crashing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["probabilistic-time-estimates-and-project-crashing"]
         },
         {
           "id": "case-studies-in-project-management",
@@ -331,12 +371,14 @@
         {
           "id": "customer-arrival",
           "name": "customer arrival",
-          "requires": ["service-processes-the-queuing-system"]
+          "requires": ["service-processes-the-queuing-system"],
+          "status": "retired"
         },
         {
           "id": "distribution-of-arrivals",
           "name": "distribution of arrivals",
-          "requires": ["customer-arrival"]
+          "requires": ["customer-arrival"],
+          "status": "retired"
         },
         {
           "id": "waiting-line-models",
@@ -351,27 +393,32 @@
         {
           "id": "m-g-1",
           "name": "M/G/1",
-          "requires": ["various-types-of-queues-m-m-1-m-d-1"]
+          "requires": ["various-types-of-queues-m-m-1-m-d-1"],
+          "status": "retired"
         },
         {
           "id": "m-m-s-and-their-corresponding-derivations-to-measure-various",
           "name": "M/M/S and their corresponding derivations to measure various quantities such as length of queue",
-          "requires": ["m-g-1"]
+          "requires": ["m-g-1"],
+          "status": "retired"
         },
         {
           "id": "length-of-system",
           "name": "length of system",
-          "requires": ["m-m-s-and-their-corresponding-derivations-to-measure-various"]
+          "requires": ["m-m-s-and-their-corresponding-derivations-to-measure-various"],
+          "status": "retired"
         },
         {
           "id": "average-waiting-time-in-queue-and-in-system",
           "name": "average waiting time in queue and in system",
-          "requires": ["length-of-system"]
+          "requires": ["length-of-system"],
+          "status": "retired"
         },
         {
           "id": "probability-of-waiting-in-line",
           "name": "probability of waiting in line",
-          "requires": ["average-waiting-time-in-queue-and-in-system"]
+          "requires": ["average-waiting-time-in-queue-and-in-system"],
+          "status": "retired"
         },
         {
           "id": "measures-of-queue-performance",
@@ -387,6 +434,256 @@
           "id": "computer-simulation-of-waiting-lines-case-studies-in-waiting",
           "name": "computer simulation of waiting lines. Case studies in waiting line models",
           "requires": ["management-of-waiting-lines"]
+        },
+        {
+          "id": "material-requirements-planning-mrp-components-and-structure",
+          "name": "Material Requirements Planning (MRP): Components and structure of MRP (demand for products, bill of materials, inventory records, MRP computer program)",
+          "requires": ["case-studies-in-inventory-control"],
+          "movedFrom": {
+            "subject": "pdeu-production-operation-management",
+            "chapter": "operations-management",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "mrp-logic",
+          "name": "MRP logic",
+          "requires": ["material-requirements-planning-mrp-components-and-structure"],
+          "movedFrom": {
+            "subject": "pdeu-production-operation-management",
+            "chapter": "operations-management",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lot-sizing-in-mrp-systems-lfl-eoq-poq-ltc-luc-etc",
+          "name": "lot sizing in MRP systems (LFL, EOQ, POQ, LTC, LUC, etc.)",
+          "requires": ["mrp-logic"],
+          "movedFrom": {
+            "subject": "pdeu-production-operation-management",
+            "chapter": "operations-management",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "the-basic-eoq-model",
+          "name": "the basic EOQ model",
+          "requires": ["inventory-accuracy-and-cycle"],
+          "movedFrom": {
+            "subject": "pdeu-production-operation-management",
+            "chapter": "operations-management",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-erp",
+          "name": "introduction to ERP",
+          "requires": ["case-studies-on-mrp"],
+          "movedFrom": {
+            "subject": "pdeu-production-operation-management",
+            "chapter": "operations-management",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "components-of-mrp",
+          "name": "components of MRP",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-erp"]
+        },
+        {
+          "id": "poq",
+          "name": "POQ",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["components-of-mrp"]
+        },
+        {
+          "id": "ltc",
+          "name": "LTC",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["poq"]
+        },
+        {
+          "id": "luc",
+          "name": "LUC",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ltc"]
+        },
+        {
+          "id": "etc",
+          "name": "etc.)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["luc"]
+        },
+        {
+          "id": "loading",
+          "name": "loading",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["etc"]
+        },
+        {
+          "id": "cpm",
+          "name": "CPM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["loading"]
+        },
+        {
+          "id": "introduction-to-manufacturing-planning-and-control",
+          "name": "Introduction to manufacturing planning and control",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cpm"]
+        },
+        {
+          "id": "brief-about-planning",
+          "name": "brief about planning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-manufacturing-planning-and-control"]
+        },
+        {
+          "id": "routing",
+          "name": "routing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["brief-about-planning"]
+        },
+        {
+          "id": "dispatching",
+          "name": "dispatching",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["routing"]
+        }
+      ]
+    },
+    {
+      "id": "service-processes",
+      "name": "Service Processes",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "waiting-line-models-2",
+          "name": "Waiting line models",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "various-types-of-queues",
+          "name": "various types of queues",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["waiting-line-models-2"]
+        },
+        {
+          "id": "measures-of-queue-performance-2",
+          "name": "measures of queue performance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["various-types-of-queues"]
+        },
+        {
+          "id": "management-of-waiting-lines-2",
+          "name": "management of waiting lines",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["measures-of-queue-performance-2"]
+        },
+        {
+          "id": "introduction-to-facility-planning",
+          "name": "Introduction to facility planning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["management-of-waiting-lines-2"]
+        },
+        {
+          "id": "the-facility-location-problem-2",
+          "name": "the facility location problem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-facility-planning"]
+        },
+        {
+          "id": "factors-influencing-facility-location-2",
+          "name": "factors influencing facility location",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-facility-location-problem-2"]
+        },
+        {
+          "id": "facility-location-models-2",
+          "name": "facility location models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["factors-influencing-facility-location-2"]
+        },
+        {
+          "id": "process-layouts-2",
+          "name": "process layouts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["facility-location-models-2"]
+        },
+        {
+          "id": "layout-methods-2",
+          "name": "layout methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["process-layouts-2"]
+        },
+        {
+          "id": "computerized-algorithms-for-facility-layout-2",
+          "name": "computerized algorithms for facility layout",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["layout-methods-2"]
+        },
+        {
+          "id": "product-layouts-2",
+          "name": "product layouts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["computerized-algorithms-for-facility-layout-2"]
+        },
+        {
+          "id": "fixed-position-layouts-2",
+          "name": "fixed position layouts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["product-layouts-2"]
+        },
+        {
+          "id": "cellular-layouts-2",
+          "name": "cellular layouts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fixed-position-layouts-2"]
+        },
+        {
+          "id": "layout-of-service-facilities-2",
+          "name": "layout of service facilities",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cellular-layouts-2"]
         }
       ]
     },
@@ -397,17 +694,20 @@
       "topics": [
         {
           "id": "introduction-3",
-          "name": "Introduction"
+          "name": "Introduction",
+          "status": "retired"
         },
         {
           "id": "objectives-of-the-layout",
           "name": "objectives of the layout",
-          "requires": ["introduction-3"]
+          "requires": ["introduction-3"],
+          "status": "retired"
         },
         {
           "id": "types-of-layouts",
           "name": "types of layouts",
-          "requires": ["objectives-of-the-layout"]
+          "requires": ["objectives-of-the-layout"],
+          "status": "retired"
         },
         {
           "id": "the-facility-location-problem",
@@ -467,7 +767,8 @@
         {
           "id": "quality-specification",
           "name": "quality specification",
-          "requires": ["case-studies-in-facility-planning-quality-management"]
+          "requires": ["case-studies-in-facility-planning-quality-management"],
+          "status": "retired"
         },
         {
           "id": "quality-cost",
@@ -502,7 +803,8 @@
         {
           "id": "statistical-quality-control",
           "name": "statistical quality control",
-          "requires": ["concept-of-six-sigma"]
+          "requires": ["concept-of-six-sigma"],
+          "status": "retired"
         },
         {
           "id": "control-charts-x-and-r-charts-p-chart-np-chart-c-chart",
@@ -512,32 +814,38 @@
         {
           "id": "acceptance-sampling",
           "name": "acceptance sampling",
-          "requires": ["control-charts-x-and-r-charts-p-chart-np-chart-c-chart"]
+          "requires": ["control-charts-x-and-r-charts-p-chart-np-chart-c-chart"],
+          "status": "retired"
         },
         {
           "id": "aql",
           "name": "AQL",
-          "requires": ["acceptance-sampling"]
+          "requires": ["acceptance-sampling"],
+          "status": "retired"
         },
         {
           "id": "ltpd",
           "name": "LTPD",
-          "requires": ["aql"]
+          "requires": ["aql"],
+          "status": "retired"
         },
         {
           "id": "oc-curves-six-sigma-quality",
           "name": "OC curves. Six-sigma quality",
-          "requires": ["ltpd"]
+          "requires": ["ltpd"],
+          "status": "retired"
         },
         {
           "id": "six-sigma-methodology",
           "name": "six-sigma methodology",
-          "requires": ["oc-curves-six-sigma-quality"]
+          "requires": ["oc-curves-six-sigma-quality"],
+          "status": "retired"
         },
         {
           "id": "process-control-procedures",
           "name": "process control procedures",
-          "requires": ["six-sigma-methodology"]
+          "requires": ["six-sigma-methodology"],
+          "status": "retired"
         },
         {
           "id": "case-studies-in-quality-management-lean-manufacturing-lean",
@@ -547,22 +855,26 @@
         {
           "id": "lean-implementation-requirements",
           "name": "lean implementation requirements",
-          "requires": ["case-studies-in-quality-management-lean-manufacturing-lean"]
+          "requires": ["case-studies-in-quality-management-lean-manufacturing-lean"],
+          "status": "retired"
         },
         {
           "id": "lean-layout-and-design-flow",
           "name": "lean layout and design flow",
-          "requires": ["lean-implementation-requirements"]
+          "requires": ["lean-implementation-requirements"],
+          "status": "retired"
         },
         {
           "id": "lean-applications-for-line-flow",
           "name": "lean applications for line flow",
-          "requires": ["lean-layout-and-design-flow"]
+          "requires": ["lean-layout-and-design-flow"],
+          "status": "retired"
         },
         {
           "id": "lean-services",
           "name": "lean services",
-          "requires": ["lean-applications-for-line-flow"]
+          "requires": ["lean-applications-for-line-flow"],
+          "status": "retired"
         },
         {
           "id": "case-studies-in-lean-manufacturing",
@@ -586,8 +898,17 @@
         },
         {
           "id": "the-toyota-production-system-elimination-of-waste-and",
-          "name": "the Toyota Production System: elimination of waste and respect for people",
-          "requires": ["implementation-of-jit"]
+          "name": "the Toyota Production System",
+          "requires": ["implementation-of-jit"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "waste-elimination",
+          "name": "waste elimination",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-toyota-production-system-elimination-of-waste-and"]
         },
         {
           "id": "push-vs-pull-systems",
@@ -725,7 +1046,9 @@
           "name": "simo chart. Introduction to work measurement, definition, uses, procedure",
           "requires": ["two-hand-chart"]
         }
-      ]
+      ],
+      "status": "retired"
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Analog Electronics",
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -88,8 +88,17 @@
         },
         {
           "id": "analysis-of-ce-cc-and-cb-amplifiers",
-          "name": "Analysis of CE, CC, and CB Amplifiers",
-          "requires": ["two-port-device-and-hybrid-model"]
+          "name": "Analysis of CE",
+          "requires": ["two-port-device-and-hybrid-model"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cb-amplifiers",
+          "name": "CB Amplifiers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["analysis-of-ce-cc-and-cb-amplifiers"]
         },
         {
           "id": "ce-amplifier-with-emitter-resistance",
@@ -104,7 +113,16 @@
         {
           "id": "miller-s-theorem",
           "name": "Miller‟s Theorem",
-          "requires": ["low-frequency-response-of-bjt-amplifiers"]
+          "requires": ["low-frequency-response-of-bjt-amplifiers"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dual-of-miller-s-theorem-2",
+          "name": "Dual of Miller‟s theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["miller-s-theorem"]
         },
         {
           "id": "dual-of-miller-s-theorem",
@@ -250,10 +268,28 @@
         },
         {
           "id": "wien-s-bridge-and-crystal-oscillator",
-          "name": "Wien‟s bridge, and crystal oscillator",
-          "requires": ["hartley-colpitts"]
+          "name": "crystal oscillator",
+          "requires": ["hartley-colpitts"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "wien-s-bridge",
+          "name": "Wien‟s bridge",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wien-s-bridge-and-crystal-oscillator"]
+        },
+        {
+          "id": "crystal-oscillator",
+          "name": "crystal oscillator",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wien-s-bridge"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-analog-electronics-lab-ece"]
 }

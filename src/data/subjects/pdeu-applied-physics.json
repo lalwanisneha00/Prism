@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 11 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "physics",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -45,8 +45,24 @@
         },
         {
           "id": "gradient-divergence-curl",
-          "name": "Fundamental theorems of Gradient, Curls, and Divergence",
-          "requires": ["vector-algebra"]
+          "name": "Fundamental theorems of Gradient",
+          "requires": ["vector-algebra"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "curls",
+          "name": "Curls",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gradient-divergence-curl"]
+        },
+        {
+          "id": "divergence",
+          "name": "Divergence",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["curls"]
         },
         {
           "id": "curvilinear-co-ordinates",
@@ -247,8 +263,17 @@
         },
         {
           "id": "hall-effect",
-          "name": "Hall Effect, and magnetic materials",
-          "requires": ["electrical-conductivity-in-semiconductors"]
+          "name": "Hall Effect",
+          "requires": ["electrical-conductivity-in-semiconductors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "magnetic-materials",
+          "name": "magnetic materials",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hall-effect"]
         }
       ]
     },
@@ -318,5 +343,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-applied-physics-laboratory-ce"]
 }

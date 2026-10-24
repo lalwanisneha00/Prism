@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Mobile Computing",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -102,7 +102,16 @@
         {
           "id": "network-architecture",
           "name": "Network Architecture",
-          "requires": ["gprs-protocols"]
+          "requires": ["gprs-protocols"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "umts-network-protocol-architecture-2",
+          "name": "UMTS- Network Protocol Architecture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["network-architecture"]
         },
         {
           "id": "umts-network-protocol-architecture",
@@ -203,5 +212,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

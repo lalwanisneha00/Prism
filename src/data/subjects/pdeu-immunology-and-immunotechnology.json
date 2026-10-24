@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Immunology and Immunotechnology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,58 @@
       "topics": [
         {
           "id": "history-and-scope-of-immunology-innate-and-acquired-immunity",
-          "name": "History and Scope of Immunology, Innate and Acquired Immunity"
+          "name": "History and Scope of Immunology",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "innate-and-acquired-immunity",
+          "name": "Innate and Acquired Immunity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["history-and-scope-of-immunology-innate-and-acquired-immunity"]
         },
         {
           "id": "haematopoiesis-cells-of-the-immune-system-primary-and",
-          "name": "Haematopoiesis, Cells of the immune system, Primary and Secondary lymphoid organs, Characteristics of T and B cell receptors, T and B cell maturation, activation and differentiation",
-          "requires": ["history-and-scope-of-immunology-innate-and-acquired-immunity"]
+          "name": "Haematopoiesis",
+          "requires": ["history-and-scope-of-immunology-innate-and-acquired-immunity"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cells-of-the-immune-system",
+          "name": "Cells of the immune system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["haematopoiesis-cells-of-the-immune-system-primary-and"]
+        },
+        {
+          "id": "primary-and-secondary-lymphoid-organs",
+          "name": "Primary and Secondary lymphoid organs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cells-of-the-immune-system"]
+        },
+        {
+          "id": "characteristics-of-t-and-b-cell-receptors",
+          "name": "Characteristics of T and B cell receptors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["primary-and-secondary-lymphoid-organs"]
+        },
+        {
+          "id": "t-and-b-cell-maturation",
+          "name": "T and B cell maturation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characteristics-of-t-and-b-cell-receptors"]
+        },
+        {
+          "id": "activation-and-differentiation",
+          "name": "activation and differentiation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["t-and-b-cell-maturation"]
         }
       ]
     },
@@ -56,22 +102,135 @@
       "topics": [
         {
           "id": "antigens-characteristics-and-types-of-antigens-factors",
-          "name": "Antigens: Characteristics and Types of Antigens, Factors affecting the immunogenicity, Haptens, Antigenic Determinants, Adjuvants, Vaccines, Routes of Immunization"
+          "name": "Antigens: Characteristics and Types of Antigens",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "theory-ofclonal-selection-immunoglobulins-basic-structures",
-          "name": "Theory ofclonal selection, Immunoglobulins: Basic structures, classes and sub classes",
+          "id": "factors-affecting-the-immunogenicity",
+          "name": "Factors affecting the immunogenicity",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["antigens-characteristics-and-types-of-antigens-factors"]
         },
         {
-          "id": "molecular-biology-of-immunoglobulin-synthesis-effector",
-          "name": "Molecular Biology of Immunoglobulin synthesis, Effector functions",
+          "id": "haptens",
+          "name": "Haptens",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["factors-affecting-the-immunogenicity"]
+        },
+        {
+          "id": "antigenic-determinants",
+          "name": "Antigenic Determinants",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["haptens"]
+        },
+        {
+          "id": "adjuvants",
+          "name": "Adjuvants",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["antigenic-determinants"]
+        },
+        {
+          "id": "vaccines",
+          "name": "Vaccines",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adjuvants"]
+        },
+        {
+          "id": "routes-of-immunization",
+          "name": "Routes of Immunization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vaccines"]
+        },
+        {
+          "id": "theory-ofclonal-selection-immunoglobulins-basic-structures",
+          "name": "Theory ofclonal selection",
+          "requires": ["antigens-characteristics-and-types-of-antigens-factors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "immunoglobulins-basic-structures",
+          "name": "Immunoglobulins: Basic structures",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["theory-ofclonal-selection-immunoglobulins-basic-structures"]
         },
         {
-          "id": "isotope-allotype-idiotype-monoclonal-antibodies-complement",
-          "name": "Isotope, Allotype, Idiotype, Monoclonal antibodies, Complement system - Alternate, Classical and Lectin pathways",
+          "id": "classes-and-sub-classes",
+          "name": "classes and sub classes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["immunoglobulins-basic-structures"]
+        },
+        {
+          "id": "molecular-biology-of-immunoglobulin-synthesis-effector",
+          "name": "Molecular Biology of Immunoglobulin synthesis",
+          "requires": ["theory-ofclonal-selection-immunoglobulins-basic-structures"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "effector-functions",
+          "name": "Effector functions",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["molecular-biology-of-immunoglobulin-synthesis-effector"]
+        },
+        {
+          "id": "isotope-allotype-idiotype-monoclonal-antibodies-complement",
+          "name": "Isotope",
+          "requires": ["molecular-biology-of-immunoglobulin-synthesis-effector"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "allotype",
+          "name": "Allotype",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["isotope-allotype-idiotype-monoclonal-antibodies-complement"]
+        },
+        {
+          "id": "idiotype",
+          "name": "Idiotype",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["allotype"]
+        },
+        {
+          "id": "monoclonal-antibodies",
+          "name": "Monoclonal antibodies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["idiotype"]
+        },
+        {
+          "id": "complement-system",
+          "name": "Complement system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["monoclonal-antibodies"]
+        },
+        {
+          "id": "alternate",
+          "name": "Alternate",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["complement-system"]
+        },
+        {
+          "id": "classical-and-lectin-pathways",
+          "name": "Classical and Lectin pathways",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["alternate"]
         }
       ]
     },
@@ -82,17 +241,93 @@
       "topics": [
         {
           "id": "structure-types-and-function-of-mhc-phagocytosis-exogenous",
-          "name": "Structure, types and function of MHC, Phagocytosis, Exogenous and Endogenous pathways of antigen processing and presentation"
+          "name": "Structure",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "cytokines-structure-function-application-and-regulation-of",
-          "name": "Cytokines - Structure, function, application and regulation of the immune response",
+          "id": "types-and-function-of-mhc",
+          "name": "types and function of MHC",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["structure-types-and-function-of-mhc-phagocytosis-exogenous"]
         },
         {
-          "id": "self-tolerance-and-possible-mechanisms-of-induction-of",
-          "name": "Self-tolerance and possible mechanisms of induction of autoimmunity, Organ specific and systemic autoimmune diseases, IgE mediated (Type I) hypersensitivity, antibody mediated cytotoxic (Type II) hype",
+          "id": "phagocytosis",
+          "name": "Phagocytosis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-and-function-of-mhc"]
+        },
+        {
+          "id": "exogenous-and-endogenous-pathways-of-antigen-processing-and",
+          "name": "Exogenous and Endogenous pathways of antigen processing and presentation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["phagocytosis"]
+        },
+        {
+          "id": "function",
+          "name": "function",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["exogenous-and-endogenous-pathways-of-antigen-processing-and"]
+        },
+        {
+          "id": "cytokines-structure-function-application-and-regulation-of",
+          "name": "Cytokines",
+          "requires": ["structure-types-and-function-of-mhc-phagocytosis-exogenous"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "application-and-regulation-of-the-immune-response",
+          "name": "application and regulation of the immune response",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["cytokines-structure-function-application-and-regulation-of"]
+        },
+        {
+          "id": "self-tolerance-and-possible-mechanisms-of-induction-of",
+          "name": "Self-tolerance and possible mechanisms of induction of autoimmunity",
+          "requires": ["cytokines-structure-function-application-and-regulation-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "organ-specific-and-systemic-autoimmune-diseases",
+          "name": "Organ specific and systemic autoimmune diseases",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["self-tolerance-and-possible-mechanisms-of-induction-of"]
+        },
+        {
+          "id": "ige-mediated-type-i-hypersensitivity",
+          "name": "IgE mediated (Type I) hypersensitivity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["organ-specific-and-systemic-autoimmune-diseases"]
+        },
+        {
+          "id": "antibody-mediated-cytotoxic-type-ii-hypersensitivity",
+          "name": "antibody mediated cytotoxic (Type II) hypersensitivity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ige-mediated-type-i-hypersensitivity"]
+        },
+        {
+          "id": "immune-complex-mediated-type-iii-hypersensitivity-and-delaye",
+          "name": "immune complex mediated (type III) hypersensitivity and delayed type (Type IV) hypersensitivity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["antibody-mediated-cytotoxic-type-ii-hypersensitivity"]
+        },
+        {
+          "id": "immunological-basis-of-graft-rejection",
+          "name": "Immunological basis of graft rejection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["immune-complex-mediated-type-iii-hypersensitivity-and-delaye"]
         }
       ]
     },
@@ -117,8 +352,17 @@
         },
         {
           "id": "agglutination-reactions-immunodiffusion-and",
-          "name": "Agglutination reactions - Immunodiffusion and Immunoelectrophoretic techniques",
-          "requires": ["precipitation-reactions"]
+          "name": "Agglutination reactions",
+          "requires": ["precipitation-reactions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "immunodiffusion-and-immunoelectrophoretic-techniques",
+          "name": "Immunodiffusion and Immunoelectrophoretic techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["agglutination-reactions-immunodiffusion-and"]
         },
         {
           "id": "immunofluorescences",
@@ -137,10 +381,21 @@
         },
         {
           "id": "elisa-detection-of-bacterial-endotoxins-using-immunological",
-          "name": "ELISA. Detection of bacterial endotoxins using immunological methods (LAL Test)",
-          "requires": ["ria"]
+          "name": "ELISA",
+          "requires": ["ria"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "detection-of-bacterial-endotoxins-using-immunological-method",
+          "name": "Detection of bacterial endotoxins using immunological methods (LAL Test)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["elisa-detection-of-bacterial-endotoxins-using-immunological"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-immunology-and-immunotechnology-laboratory-biotech"]
 }

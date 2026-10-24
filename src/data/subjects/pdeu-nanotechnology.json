@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Nanotechnology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -85,8 +85,24 @@
         },
         {
           "id": "colloidal-sol-gel-or-simple-pyrolysis",
-          "name": "colloidal, sol-gel, or simple pyrolysis",
-          "requires": ["plasma-assisted-deposition-processes"]
+          "name": "colloidal",
+          "requires": ["plasma-assisted-deposition-processes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "sol-gel",
+          "name": "sol-gel",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["colloidal-sol-gel-or-simple-pyrolysis"]
+        },
+        {
+          "id": "simple-pyrolysis",
+          "name": "simple pyrolysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sol-gel"]
         },
         {
           "id": "top-down-approach-miniaturization-of-smaller-structures-from",
@@ -153,24 +169,81 @@
       "topics": [
         {
           "id": "applications-of-nanoscale-materials-catalysis-sensing-energy",
-          "name": "Applications of Nanoscale materials: Catalysis, Sensing, Energy storage, Environmental remediation, etc"
+          "name": "Applications of Nanoscale materials: Catalysis",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "energy-conversion-and-storage-solar-cells-fuel-cells-li-na",
-          "name": "Energy Conversion and Storage (solar cells, Fuel Cells, Li/Na-ion Batteries)",
+          "id": "sensing",
+          "name": "Sensing",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["applications-of-nanoscale-materials-catalysis-sensing-energy"]
         },
         {
-          "id": "nanoscale-materials-for-waste-reduction-and-improved-energy",
-          "name": "Nanoscale materials for waste reduction and improved energy efficiency, nanotechnology-based water treatment strategies",
+          "id": "energy-storage",
+          "name": "Energy storage",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sensing"]
+        },
+        {
+          "id": "environmental-remediation",
+          "name": "Environmental remediation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["energy-storage"]
+        },
+        {
+          "id": "energy-conversion-and-storage-solar-cells-fuel-cells-li-na",
+          "name": "Energy Conversion and Storage (solar cells",
+          "requires": ["applications-of-nanoscale-materials-catalysis-sensing-energy"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fuel-cells",
+          "name": "Fuel Cells",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["energy-conversion-and-storage-solar-cells-fuel-cells-li-na"]
+        },
+        {
+          "id": "li-na-ion-batteries",
+          "name": "Li/Na-ion Batteries)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fuel-cells"]
+        },
+        {
+          "id": "nanoscale-materials-for-waste-reduction-and-improved-energy",
+          "name": "Nanoscale materials for waste reduction and improved energy efficiency",
+          "requires": ["energy-conversion-and-storage-solar-cells-fuel-cells-li-na"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "nanotechnology-based-water-treatment-strategies",
+          "name": "nanotechnology-based water treatment strategies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["nanoscale-materials-for-waste-reduction-and-improved-energy"]
         },
         {
           "id": "nano-sensors-and-devices",
           "name": "Nano sensors and Devices",
           "requires": ["nanoscale-materials-for-waste-reduction-and-improved-energy"]
+        },
+        {
+          "id": "etc",
+          "name": "etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["nano-sensors-and-devices"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-nanotechnology-lab-biotech"]
 }

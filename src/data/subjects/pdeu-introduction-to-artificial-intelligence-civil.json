@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -48,18 +48,73 @@
         },
         {
           "id": "applications-in-engineering-predictive-maintenance-quality",
-          "name": "Applications in Engineering: Predictive maintenance, quality control, design optimization, autonomous systems",
-          "requires": ["applications-and-techniques-of-ai"]
+          "name": "Applications in Engineering: Predictive maintenance",
+          "requires": ["applications-and-techniques-of-ai"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "ethical-and-social-implications-bias-privacy-job",
-          "name": "Ethical and Social Implications: Bias, privacy, job displacement",
+          "id": "quality-control",
+          "name": "quality control",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["applications-in-engineering-predictive-maintenance-quality"]
         },
         {
-          "id": "future-trends-explainable-ai-ethics-regulation",
-          "name": "Future Trends: Explainable AI, Ethics, Regulation",
+          "id": "design-optimization",
+          "name": "design optimization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["quality-control"]
+        },
+        {
+          "id": "autonomous-systems",
+          "name": "autonomous systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-optimization"]
+        },
+        {
+          "id": "ethical-and-social-implications-bias-privacy-job",
+          "name": "Ethical and Social Implications: Bias",
+          "requires": ["applications-in-engineering-predictive-maintenance-quality"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "privacy",
+          "name": "privacy",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["ethical-and-social-implications-bias-privacy-job"]
+        },
+        {
+          "id": "job-displacement",
+          "name": "job displacement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["privacy"]
+        },
+        {
+          "id": "future-trends-explainable-ai-ethics-regulation",
+          "name": "Future Trends: Explainable AI",
+          "requires": ["ethical-and-social-implications-bias-privacy-job"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ethics",
+          "name": "Ethics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["future-trends-explainable-ai-ethics-regulation"]
+        },
+        {
+          "id": "regulation",
+          "name": "Regulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ethics"]
         },
         {
           "id": "future-of-work",
@@ -89,13 +144,87 @@
         },
         {
           "id": "descriptive-statistics-mean-median-variance-etc-with-numpy",
-          "name": "Descriptive Statistics (Mean, Median, variance etc) with NumPy and Pandas",
-          "requires": ["introduction-to-statistics-and-data-visualization"]
+          "name": "Descriptive Statistics (Mean",
+          "requires": ["introduction-to-statistics-and-data-visualization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "median",
+          "name": "Median",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["descriptive-statistics-mean-median-variance-etc-with-numpy"]
+        },
+        {
+          "id": "variance-etc-with-numpy-and-pandas",
+          "name": "variance etc) with NumPy and Pandas",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["median"]
         },
         {
           "id": "visualization-line-plot-scatter-plot-bar-chart-histogram-pie",
-          "name": "Visualization (Line Plot, Scatter Plot, Bar Chart, Histogram, Pie Chart, Box Plot, Heatmap, Area Plot, Contour Plot)",
-          "requires": ["descriptive-statistics-mean-median-variance-etc-with-numpy"]
+          "name": "Visualization (Line Plot",
+          "requires": ["descriptive-statistics-mean-median-variance-etc-with-numpy"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "scatter-plot",
+          "name": "Scatter Plot",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["visualization-line-plot-scatter-plot-bar-chart-histogram-pie"]
+        },
+        {
+          "id": "bar-chart",
+          "name": "Bar Chart",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scatter-plot"]
+        },
+        {
+          "id": "histogram",
+          "name": "Histogram",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bar-chart"]
+        },
+        {
+          "id": "pie-chart",
+          "name": "Pie Chart",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["histogram"]
+        },
+        {
+          "id": "box-plot",
+          "name": "Box Plot",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pie-chart"]
+        },
+        {
+          "id": "heatmap",
+          "name": "Heatmap",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["box-plot"]
+        },
+        {
+          "id": "area-plot",
+          "name": "Area Plot",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["heatmap"]
+        },
+        {
+          "id": "contour-plot",
+          "name": "Contour Plot)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["area-plot"]
         },
         {
           "id": "customizing-plots-for-better-presentation",
@@ -109,8 +238,17 @@
         },
         {
           "id": "real-world-case-studies-and-examples-hands-on-exercises",
-          "name": "Real-World Case Studies and Examples, Hands-On Exercises using Python/R etc",
-          "requires": ["exploratory-data-analysis-eda"]
+          "name": "Real-World Case Studies and Examples",
+          "requires": ["exploratory-data-analysis-eda"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "hands-on-exercises-using-python-r-etc",
+          "name": "Hands-On Exercises using Python/R etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["real-world-case-studies-and-examples-hands-on-exercises"]
         }
       ]
     },
@@ -121,12 +259,72 @@
       "topics": [
         {
           "id": "types-of-learning",
-          "name": "Introduction to Machine Learning, ML Techniques: Supervised Learning, Unsupervised Learning and Reinforcement Learning"
+          "name": "Introduction to Machine Learning",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ml-techniques-supervised-learning",
+          "name": "ML Techniques: Supervised Learning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-learning"]
+        },
+        {
+          "id": "unsupervised-learning-and-reinforcement-learning",
+          "name": "Unsupervised Learning and Reinforcement Learning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ml-techniques-supervised-learning"]
         },
         {
           "id": "linear-regression-ml",
-          "name": "ML applications across different sectors, ML Data Preparation, Training and Test Sets, Regression Models (Linear Regression, Decision Tree, Random Forest, Support Vector etc)",
-          "requires": ["types-of-learning"]
+          "name": "ML applications across different sectors",
+          "requires": ["types-of-learning"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ml-data-preparation",
+          "name": "ML Data Preparation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-regression-ml"]
+        },
+        {
+          "id": "training-and-test-sets",
+          "name": "Training and Test Sets",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ml-data-preparation"]
+        },
+        {
+          "id": "regression-models-linear-regression",
+          "name": "Regression Models (Linear Regression",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["training-and-test-sets"]
+        },
+        {
+          "id": "decision-tree",
+          "name": "Decision Tree",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["regression-models-linear-regression"]
+        },
+        {
+          "id": "random-forest",
+          "name": "Random Forest",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["decision-tree"]
+        },
+        {
+          "id": "support-vector-etc",
+          "name": "Support Vector etc)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["random-forest"]
         },
         {
           "id": "accuracy-assessment",
@@ -156,18 +354,73 @@
         },
         {
           "id": "logistic-regression",
-          "name": "Working Principles of Unsupervised and Supervised Classification Algorithms: K- Nearest Neighbor, Linear Regression, Logistic Regression, Support Vector Machine",
-          "requires": ["linear-regression-ml"]
+          "name": "Working Principles of Unsupervised and Supervised Classification Algorithms: K- Nearest Neighbor",
+          "requires": ["linear-regression-ml"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "clustering-algorithms-hierarchical-agglomerative-clustering",
-          "name": "Clustering Algorithms: Hierarchical, Agglomerative Clustering, Partitional etc",
+          "id": "linear-regression",
+          "name": "Linear Regression",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["logistic-regression"]
         },
         {
-          "id": "confusion-matrix-accuracy-assessment-hyperparameters",
-          "name": "Confusion Matrix, Accuracy Assessment, Hyperparameters",
+          "id": "logistic-regression-2",
+          "name": "Logistic Regression",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-regression"]
+        },
+        {
+          "id": "support-vector-machine",
+          "name": "Support Vector Machine",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["logistic-regression-2"]
+        },
+        {
+          "id": "clustering-algorithms-hierarchical-agglomerative-clustering",
+          "name": "Clustering Algorithms: Hierarchical",
+          "requires": ["logistic-regression"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "agglomerative-clustering",
+          "name": "Agglomerative Clustering",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["clustering-algorithms-hierarchical-agglomerative-clustering"]
+        },
+        {
+          "id": "partitional-etc",
+          "name": "Partitional etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["agglomerative-clustering"]
+        },
+        {
+          "id": "confusion-matrix-accuracy-assessment-hyperparameters",
+          "name": "Confusion Matrix",
+          "requires": ["clustering-algorithms-hierarchical-agglomerative-clustering"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "accuracy-assessment-2",
+          "name": "Accuracy Assessment",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["confusion-matrix-accuracy-assessment-hyperparameters"]
+        },
+        {
+          "id": "hyperparameters",
+          "name": "Hyperparameters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["accuracy-assessment-2"]
         },
         {
           "id": "practice-on-real-world-datasets-max-42-hours",
@@ -176,5 +429,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -1,0 +1,104 @@
+{
+  "id": "pdeu-modern-wireless-communication-lab-ece",
+  "name": "Modern Wireless Communication Lab",
+  "field": "Modern Wireless Communication Lab",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ECE semester 7): Modern Wireless Communication Lab",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of ECE/sem7/ECE_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s7-modern-wireless-communication-lab",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-generating-pdf-and-cdf-of-diverse-random-variab",
+          "name": "Generating PDF and CDF of diverse random variables and validating with Histogram analysis.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-simulating-and-analyzing-path-loss-and-shadowin",
+          "name": "Simulating and analyzing path loss and shadowing models in wireless communication systems.",
+          "number": 2,
+          "requires": ["experiment-1-generating-pdf-and-cdf-of-diverse-random-variab"]
+        },
+        {
+          "id": "experiment-3-investigating-the-impact-of-awgn-noise-on-data",
+          "name": "Investigating the impact of AWGN noise on data transmission quality.",
+          "number": 3,
+          "requires": ["experiment-2-simulating-and-analyzing-path-loss-and-shadowin"]
+        },
+        {
+          "id": "experiment-4-simulating-and-exploring-different-fading-chann",
+          "name": "Simulating and exploring different fading channel models in wireless communication scenarios.",
+          "number": 4,
+          "requires": ["experiment-3-investigating-the-impact-of-awgn-noise-on-data"]
+        },
+        {
+          "id": "experiment-5-analyzing-the-outage-probability-for-a-siso-wir",
+          "name": "Analyzing the outage probability for a SISO wireless communication system through simulation.",
+          "number": 5,
+          "requires": ["experiment-4-simulating-and-exploring-different-fading-chann"]
+        },
+        {
+          "id": "experiment-6-evaluating-the-aser-of-wireless-communication-s",
+          "name": "Evaluating the ASER of wireless communication systems under Rayleigh fading conditions.",
+          "number": 6,
+          "requires": ["experiment-5-analyzing-the-outage-probability-for-a-siso-wir"]
+        },
+        {
+          "id": "experiment-7-implementing-the-ofdm-scheme-with-integrated-ch",
+          "name": "Implementing the OFDM scheme with integrated channel equalization for performance evaluation.",
+          "number": 7,
+          "requires": ["experiment-6-evaluating-the-aser-of-wireless-communication-s"]
+        },
+        {
+          "id": "experiment-8-investigating-and-contrasting-spatial-diversity",
+          "name": "Investigating and contrasting spatial diversity techniques such as SISO, MISO, SIMO, and MIMO.",
+          "number": 8,
+          "requires": ["experiment-7-implementing-the-ofdm-scheme-with-integrated-ch"]
+        },
+        {
+          "id": "experiment-9-generating-ber-plots-for-different-spatial-dive",
+          "name": "Generating BER plots for different spatial diversity techniques to analyze their performance.",
+          "number": 9,
+          "requires": ["experiment-8-investigating-and-contrasting-spatial-diversity"]
+        },
+        {
+          "id": "experiment-10-studying-various-combining-techniques-includin",
+          "name": "Studying various combining techniques including MRC, EGC, and Selection Combining for wireless systems.",
+          "number": 10,
+          "requires": ["experiment-9-generating-ber-plots-for-different-spatial-dive"]
+        },
+        {
+          "id": "experiment-11-implementing-and-analyzing-the-alamouti-space",
+          "name": "Implementing and analyzing the Alamouti space-time coding scheme.",
+          "number": 11,
+          "requires": ["experiment-10-studying-various-combining-techniques-includin"]
+        }
+      ]
+    }
+  ]
+}

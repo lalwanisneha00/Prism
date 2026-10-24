@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Computer Networks",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -69,8 +69,17 @@
         },
         {
           "id": "media-access-control-aloha-csma-cd",
-          "name": "Media Access Control (ALOHA, CSMA/CD)",
-          "requires": ["error-control"]
+          "name": "Media Access Control (ALOHA",
+          "requires": ["error-control"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "csma-cd",
+          "name": "CSMA/CD)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["media-access-control-aloha-csma-cd"]
         },
         {
           "id": "ethernet-802-3",
@@ -186,8 +195,17 @@
         },
         {
           "id": "traffic-engineering-and-quality-of-service",
-          "name": "Traffic engineering and Quality of Service",
-          "requires": ["congestion-control"]
+          "name": "Traffic engineering and",
+          "requires": ["congestion-control"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "quality-of-service",
+          "name": "Quality of Service",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["traffic-engineering-and-quality-of-service"]
         },
         {
           "id": "tcp-and-udp",
@@ -212,8 +230,17 @@
         },
         {
           "id": "file-transfer-protocol",
-          "name": "File Transfer Protocol",
-          "requires": ["application-layer-protocols-domain-name-system"]
+          "name": "File",
+          "requires": ["application-layer-protocols-domain-name-system"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "transfer-protocol",
+          "name": "Transfer Protocol",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["file-transfer-protocol"]
         },
         {
           "id": "hyper-text-transfer-protocol",
@@ -232,5 +259,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-computer-networks-laboratory-ce"]
 }

@@ -1,0 +1,113 @@
+{
+  "id": "pdeu-modelling-and-analysis-of-electrical-machines-laboratory-elec",
+  "name": "Modelling and Analysis of Electrical Machines Laboratory",
+  "field": "Modelling and Analysis of Electrical Machines Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 7): Modelling and Analysis of Electrical Machines Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 13 of ELEC/sem7/Electrical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE407P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s7-modelling-and-analysis-of-electrical-machines-laboratory",
+      "code": "20EE407P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-to-simulate-conversion-of-time-varying-waveform",
+          "name": "To simulate conversion of time varying waveforms of three phase (abc) quantities to two phase (dq0) by different reference frames",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-to-simulate-the-transformation-between-various",
+          "name": "To simulate the transformation between various reference frames (abc to dq and dq to abc) and its comparison.",
+          "number": 2,
+          "requires": ["experiment-1-to-simulate-conversion-of-time-varying-waveform"]
+        },
+        {
+          "id": "experiment-3-to-develop-the-mathematical-model-and-simulatio",
+          "name": "To develop the mathematical model and simulation of three phase symmetrical induction machines for analysis of its steady state characteristics.",
+          "number": 3,
+          "requires": ["experiment-2-to-simulate-the-transformation-between-various"]
+        },
+        {
+          "id": "experiment-4-to-simulate-the-induction-motor-model-to-evalua",
+          "name": "To simulate the induction motor model to evaluate its dynamic performance.",
+          "number": 4,
+          "requires": ["experiment-3-to-develop-the-mathematical-model-and-simulatio"]
+        },
+        {
+          "id": "experiment-5-to-simulate-single-phase-induction-motor-to-stu",
+          "name": "To simulate single phase induction motor to study its characteristics.",
+          "number": 5,
+          "requires": ["experiment-4-to-simulate-the-induction-motor-model-to-evalua"]
+        },
+        {
+          "id": "experiment-6-to-model-a-three-phase-synchronous-machines-to",
+          "name": "To model a three phase synchronous machines to determine the operational characteristics of the generator with parameter variations.",
+          "number": 6,
+          "requires": ["experiment-5-to-simulate-single-phase-induction-motor-to-stu"]
+        },
+        {
+          "id": "experiment-7-to-examine-the-response-of-synchronous-generato",
+          "name": "To examine the response of synchronous generator operating under fixed rotor speed and fixed excitation voltage to several kinds of electrical faults at its stator terminals.",
+          "number": 7,
+          "requires": ["experiment-6-to-model-a-three-phase-synchronous-machines-to"]
+        },
+        {
+          "id": "experiment-8-to-perform-6-pulse-operation-for-brushless-dc-m",
+          "name": "To perform 6 pulse operation for Brushless DC Motor Drive.",
+          "number": 8,
+          "requires": ["experiment-7-to-examine-the-response-of-synchronous-generato"]
+        },
+        {
+          "id": "experiment-9-to-perform-pwm-control-for-brushless-dc-motor-d",
+          "name": "To perform PWM control for Brushless DC Motor Drive with Speed Feedback.",
+          "number": 9,
+          "requires": ["experiment-8-to-perform-6-pulse-operation-for-brushless-dc-m"]
+        },
+        {
+          "id": "experiment-10-to-simulate-open-loop-induction-motor-drive",
+          "name": "To simulate open loop induction motor drive.",
+          "number": 10,
+          "requires": ["experiment-9-to-perform-pwm-control-for-brushless-dc-motor-d"]
+        },
+        {
+          "id": "experiment-11-to-simulate-closed-loop-volts-hertz-speed-cont",
+          "name": "To simulate closed loop volts/hertz speed control drive.",
+          "number": 11,
+          "requires": ["experiment-10-to-simulate-open-loop-induction-motor-drive"]
+        },
+        {
+          "id": "experiment-12-to-simulate-current-regulated-induction-motor",
+          "name": "To simulate current regulated induction motor drive with indirect field oriented control.",
+          "number": 12,
+          "requires": ["experiment-11-to-simulate-closed-loop-volts-hertz-speed-cont"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-modelling-and-analysis-of-electrical-machines-elec"]
+}

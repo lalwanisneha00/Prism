@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 11 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -49,8 +49,10 @@
           "requires": ["regular-languages-alphabets"]
         },
         {
-          "id": "regular-expressions",
-          "name": "Regular Expression",
+          "id": "conversion-of-dfa-to-regular-expression-2",
+          "name": "Conversion of DFA to Regular Expression",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["language"]
         },
         {
@@ -62,11 +64,6 @@
           "id": "transition-graphs",
           "name": "Transition Graphs",
           "requires": ["definitions-of-finite-state-automata"]
-        },
-        {
-          "id": "conversion-of-dfa-to-regular-expression",
-          "name": "Conversion of DFA to Regular Expression",
-          "requires": ["transition-graphs"]
         },
         {
           "id": "dfa",
@@ -94,11 +91,6 @@
           "requires": ["product-construction"]
         },
         {
-          "id": "nfa-with-epsilon-transitions",
-          "name": "NFA with epsilon transitions",
-          "requires": ["equivalence-of-nfa-and-dfa"]
-        },
-        {
           "id": "thompsons-construction-to-convert-regular-expression-to-ndfa",
           "name": "Thompson’s Construction to Convert Regular Expression to NDFA",
           "requires": ["nfa-with-epsilon-transitions"]
@@ -107,11 +99,6 @@
           "id": "subset-algorithm-to-convert-ndfa-to-dfa",
           "name": "Subset Algorithm to convert NDFA to DFA",
           "requires": ["thompsons-construction-to-convert-regular-expression-to-ndfa"]
-        },
-        {
-          "id": "minimization-of-dfa",
-          "name": "Minimization of DFA",
-          "requires": ["subset-algorithm-to-convert-ndfa-to-dfa"]
         },
         {
           "id": "finite-state-machines",
@@ -184,11 +171,6 @@
           "id": "equivalence-of-pdas-and-cfgs",
           "name": "Equivalence of PDAs and CFGs",
           "requires": ["the-languages-of-a-pda"]
-        },
-        {
-          "id": "equivalence-of-pdas-accepting-by-final-state-and-by-empty",
-          "name": "Equivalence of PDAs accepting by final state and by empty stack",
-          "requires": ["equivalence-of-pdas-and-cfgs"]
         },
         {
           "id": "non-determinism-in-pdas",
@@ -282,9 +264,18 @@
           "requires": ["decidability"]
         },
         {
-          "id": "turing-machines-acceptability-decidabilities-and",
-          "name": "Turing machines Acceptability, Decidabilities, and Reducibility",
+          "id": "decidabilities",
+          "name": "Decidabilities",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["turing-enumerability"]
+        },
+        {
+          "id": "reducibility",
+          "name": "Reducibility",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["decidabilities"]
         },
         {
           "id": "unsolvable-problems-about-turing-machines",
@@ -300,6 +291,13 @@
           "id": "the-church-turing-thesis",
           "name": "The Church- Turing Thesis",
           "requires": ["rices-theorem"]
+        },
+        {
+          "id": "the-churchturing-thesis",
+          "name": "The ChurchTuring Thesis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-church-turing-thesis"]
         }
       ]
     },
@@ -325,17 +323,44 @@
         {
           "id": "sat",
           "name": "SAT",
-          "requires": ["p-and-np-complexity-class"]
+          "requires": ["p-and-np-complexity-class"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "problems-on-sat",
+          "name": "Problems on SAT",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sat"]
         },
         {
           "id": "polynomial-time-reducibility",
           "name": "Polynomial time Reducibility",
-          "requires": ["sat"]
+          "requires": ["sat"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "polynomial-time-reducibility-2",
+          "name": "Polynomial time reducibility",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polynomial-time-reducibility"]
         },
         {
           "id": "the-time-hierarchy-theorem",
           "name": "The time hierarchy theorem",
-          "requires": ["polynomial-time-reducibility"]
+          "requires": ["polynomial-time-reducibility"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "time-hierarchy-theorem",
+          "name": "time hierarchy theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-time-hierarchy-theorem"]
         },
         {
           "id": "definition-of-np-via-non-deterministic-turing-machines",
@@ -345,7 +370,16 @@
         {
           "id": "np-complete-problems",
           "name": "NP-complete problems",
-          "requires": ["definition-of-np-via-non-deterministic-turing-machines"]
+          "requires": ["definition-of-np-via-non-deterministic-turing-machines"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "np-complete-problems-via-reductions-2",
+          "name": "NP-complete problems via reductions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["np-complete-problems"]
         },
         {
           "id": "cook-levin-theorem",
@@ -376,8 +410,172 @@
           "id": "bpp-complexity-class-and-relation-with-the-other-classes",
           "name": "BPP complexity class and relation with the other classes",
           "requires": ["pspace-npspace"]
+        },
+        {
+          "id": "regular-expressions",
+          "name": "Regular Expression",
+          "requires": ["language"],
+          "source": "admin_handout",
+          "confidence": "verified",
+          "movedFrom": {
+            "subject": "pdeu-theory-of-computation",
+            "chapter": "finite-automata-and-regular-language",
+            "at": "2026-10-24T23:22:41.746Z"
+          }
+        },
+        {
+          "id": "nfa-with-epsilon-transitions",
+          "name": "NFA with epsilon transitions",
+          "requires": ["equivalence-of-nfa-and-dfa"],
+          "movedFrom": {
+            "subject": "pdeu-theory-of-computation",
+            "chapter": "finite-automata-and-regular-language",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "minimization-of-dfa",
+          "name": "Minimization of DFA",
+          "requires": ["subset-algorithm-to-convert-ndfa-to-dfa"],
+          "movedFrom": {
+            "subject": "pdeu-theory-of-computation",
+            "chapter": "finite-automata-and-regular-language",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "conversion-of-dfa-to-regular-expression",
+          "name": "Conversion of DFA to Regular Expression",
+          "requires": ["transition-graphs"],
+          "movedFrom": {
+            "subject": "pdeu-theory-of-computation",
+            "chapter": "finite-automata-and-regular-language",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "equivalence-of-pdas-accepting-by-final-state-and-by-empty",
+          "name": "Equivalence of PDAs accepting by final state and by empty stack",
+          "requires": ["equivalence-of-pdas-and-cfgs"],
+          "movedFrom": {
+            "subject": "pdeu-theory-of-computation",
+            "chapter": "pushdown-automata-and-context-free-language",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "turing-machines-acceptability-decidabilities-and",
+          "name": "Turing machines Acceptability",
+          "requires": ["turing-enumerability"],
+          "source": "admin_handout",
+          "confidence": "verified",
+          "movedFrom": {
+            "subject": "pdeu-theory-of-computation",
+            "chapter": "turing-machine-and-recursive-language",
+            "at": "2026-10-24T23:22:41.746Z"
+          }
+        },
+        {
+          "id": "tutorials-1",
+          "name": "TUTORIALS 1",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["turing-machines-acceptability-decidabilities-and"]
+        },
+        {
+          "id": "problems-dfa-construction",
+          "name": "Problems DFA construction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tutorials-1"]
+        },
+        {
+          "id": "problems-on-nfa-to-dfa-conversion-4",
+          "name": "Problems on NFA to DFA Conversion. 4",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["problems-dfa-construction"]
+        },
+        {
+          "id": "problems-on-mealy-and-moore-machine-construction",
+          "name": "Problems on Mealy and Moore machine construction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["problems-on-nfa-to-dfa-conversion-4"]
+        },
+        {
+          "id": "pumping-lemma-and-problems-on-grammar-construction-7",
+          "name": "Pumping Lemma and Problems on Grammar construction. 7",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["problems-on-mealy-and-moore-machine-construction"]
+        },
+        {
+          "id": "problems-on-parsing-and-ambiguity-removal-8",
+          "name": "Problems on parsing and ambiguity removal. 8",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pumping-lemma-and-problems-on-grammar-construction-7"]
+        },
+        {
+          "id": "problems-on-pda-construction",
+          "name": "Problems on PDA construction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["problems-on-parsing-and-ambiguity-removal-8"]
+        },
+        {
+          "id": "problems-on-npda-construction-and-pumping-lemma-for-cfl-10",
+          "name": "Problems on NPDA construction and Pumping Lemma for CFL. 10",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["problems-on-pda-construction"]
+        },
+        {
+          "id": "conversion-from-cnf-to-gnf-11",
+          "name": "Conversion from CNF to GNF. 11",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["problems-on-npda-construction-and-pumping-lemma-for-cfl-10"]
+        },
+        {
+          "id": "problems-on-deterministic-and-non-deterministic-tm-construct",
+          "name": "Problems on Deterministic and Non-Deterministic TM Construction. 12",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["conversion-from-cnf-to-gnf-11"]
+        },
+        {
+          "id": "problems-on-multi-tape-tm-and-its-equivalence-conversion-13",
+          "name": "Problems on Multi-tape TM and its equivalence conversion. 13",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["problems-on-deterministic-and-non-deterministic-tm-construct"]
+        },
+        {
+          "id": "problems-on-tm-acceptability",
+          "name": "Problems on TM acceptability",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["problems-on-multi-tape-tm-and-its-equivalence-conversion-13"]
+        },
+        {
+          "id": "reducibility-14",
+          "name": "reducibility. 14",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["problems-on-tm-acceptability"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

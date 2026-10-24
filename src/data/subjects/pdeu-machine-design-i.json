@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Mech): Machine Design - I",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -100,7 +100,16 @@
         {
           "id": "fatigue-strength",
           "name": "fatigue strength",
-          "requires": ["endurance-limit"]
+          "requires": ["endurance-limit"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "surface-fatigue-strength-2",
+          "name": "surface fatigue strength",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fatigue-strength"]
         },
         {
           "id": "notch-sensitivity",
@@ -120,7 +129,16 @@
         {
           "id": "goodmans-line",
           "name": "Goodman’s line",
-          "requires": ["fluctuating-stress-characterization"]
+          "requires": ["fluctuating-stress-characterization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "modified-goodman-s-line",
+          "name": "Modified Goodman’s line",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["goodmans-line"]
         },
         {
           "id": "soderbergs-line",
@@ -165,8 +183,17 @@
         },
         {
           "id": "design-of-interference-joints-press-shrink-fitted-assemblies",
-          "name": "Design of interference joints — press / shrink fitted assemblies",
-          "requires": ["compounding-of-cylinders"]
+          "name": "Design of interference joints",
+          "requires": ["compounding-of-cylinders"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "press-shrink-fitted-assemblies",
+          "name": "press / shrink fitted assemblies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-of-interference-joints-press-shrink-fitted-assemblies"]
         },
         {
           "id": "design-of-cylinder-covers",
@@ -181,7 +208,8 @@
         {
           "id": "pipes-and-pipe-flanges-for-pipe-joints",
           "name": "pipes and pipe flanges for pipe joints",
-          "requires": ["cover-plates"]
+          "requires": ["cover-plates"],
+          "status": "retired"
         }
       ]
     },
@@ -237,7 +265,16 @@
         {
           "id": "design-selection-of-flat-belt-drive",
           "name": "Design/selection of flat belt drive",
-          "requires": ["transmission-efficiencies"]
+          "requires": ["transmission-efficiencies"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "design-selection-of-v-belt-drive-2",
+          "name": "design/selection of V-belt drive",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-selection-of-flat-belt-drive"]
         },
         {
           "id": "design-selection-of-v-belt-drive",
@@ -258,7 +295,16 @@
       "topics": [
         {
           "id": "components-of-i-c-engine",
-          "name": "Components of I.C. engine"
+          "name": "Components of I.C. engine",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "materials-for-engine-components-2",
+          "name": "materials for engine components",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["components-of-i-c-engine"]
         },
         {
           "id": "materials-for-engine-components",
@@ -302,5 +348,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-machine-design-i-laboratory-me"]
 }

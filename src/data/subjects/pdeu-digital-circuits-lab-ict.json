@@ -1,0 +1,99 @@
+{
+  "id": "pdeu-digital-circuits-lab-ict",
+  "name": "Digital Circuits Lab",
+  "field": "Digital Circuits Lab",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ICT semester 3): Digital Circuits Lab",
+    "note": "Units and topics copied from the course handout PDF (pages 4 of ICT/sem3/ICT_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s3-digital-circuits-lab",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-study-of-different-types-of-logic-gates-and-imp",
+          "name": "Study of Different types of logic gates and implement them using NAND and NOR gates.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-design-a-simple-combinational-circuit-with-four",
+          "name": "Design a simple combinational circuit with four variables and obtain minimal expression and verify the truth table.",
+          "number": 2,
+          "requires": ["experiment-1-study-of-different-types-of-logic-gates-and-imp"]
+        },
+        {
+          "id": "experiment-3-study-of-half-and-full-adder-circuits",
+          "name": "Study of Half and full adder circuits.",
+          "number": 3,
+          "requires": ["experiment-2-design-a-simple-combinational-circuit-with-four"]
+        },
+        {
+          "id": "experiment-4-study-of-binary-and-bcd-parallel-adder-circuits",
+          "name": "Study of Binary and BCD parallel adder circuits.",
+          "number": 4,
+          "requires": ["experiment-3-study-of-half-and-full-adder-circuits"]
+        },
+        {
+          "id": "experiment-5-study-of-decoder-and-encoder-circuits",
+          "name": "Study of Decoder and Encoder circuits.",
+          "number": 5,
+          "requires": ["experiment-4-study-of-binary-and-bcd-parallel-adder-circuits"]
+        },
+        {
+          "id": "experiment-6-study-of-multiplexer-and-de-multiplexer-circuit",
+          "name": "Study of Multiplexer and De-multiplexer circuits.",
+          "number": 6,
+          "requires": ["experiment-5-study-of-decoder-and-encoder-circuits"]
+        },
+        {
+          "id": "experiment-7-study-of-different-types-of-flip-flops",
+          "name": "Study of Different types of flip flops.",
+          "number": 7,
+          "requires": ["experiment-6-study-of-multiplexer-and-de-multiplexer-circuit"]
+        },
+        {
+          "id": "experiment-8-study-of-asynchronous-and-synchronous-binary-co",
+          "name": "Study of Asynchronous and synchronous binary counters.",
+          "number": 8,
+          "requires": ["experiment-7-study-of-different-types-of-flip-flops"]
+        },
+        {
+          "id": "experiment-9-study-of-various-types-of-registers",
+          "name": "Study of Various types of registers.",
+          "number": 9,
+          "requires": ["experiment-8-study-of-asynchronous-and-synchronous-binary-co"]
+        },
+        {
+          "id": "experiment-10-design-a-bcd-to-7-segment-display-decoder-circ",
+          "name": "Design a BCD to 7-segment display decoder circuit and interface with a 7-sgment display.",
+          "number": 10,
+          "requires": ["experiment-9-study-of-various-types-of-registers"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-digital-circuits-ict"]
+}

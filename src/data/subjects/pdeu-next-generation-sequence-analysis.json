@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Next Generation Sequence Analysis",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -111,7 +111,16 @@
         {
           "id": "exome-sequencing-and-analysis",
           "name": "Exome sequencing and analysis",
-          "requires": ["differential-gene-expression-analysis"]
+          "requires": ["differential-gene-expression-analysis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "exome-sequencing-2",
+          "name": "Exome sequencing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["exome-sequencing-and-analysis"]
         },
         {
           "id": "exome-sequencing",
@@ -187,5 +196,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

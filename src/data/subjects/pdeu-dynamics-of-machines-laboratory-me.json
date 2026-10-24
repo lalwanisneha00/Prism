@@ -1,0 +1,112 @@
+{
+  "id": "pdeu-dynamics-of-machines-laboratory-me",
+  "name": "Dynamics of Machines Laboratory",
+  "field": "Dynamics of Machines Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 5): Dynamics of Machines Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 9 of MECH/sem5/Mechanical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME302P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s5-dynamics-of-machines-laboratory",
+      "code": "24ME302P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-to-study-undamped-free-vibrations-longitudinal",
+          "name": "To study Undamped free vibrations (longitudinal) of a spring mass system",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-to-study-undamped-free-vibrations-torsional-of",
+          "name": "To study Undamped free vibrations (torsional) of a single rotor system",
+          "number": 2,
+          "requires": ["experiment-1-to-study-undamped-free-vibrations-longitudinal"]
+        },
+        {
+          "id": "experiment-3-to-determine-the-natural-frequency-of-a-two-rot",
+          "name": "To determine the natural frequency of a two rotor system",
+          "number": 3,
+          "requires": ["experiment-2-to-study-undamped-free-vibrations-torsional-of"]
+        },
+        {
+          "id": "experiment-4-to-determine-the-gyroscopic-couple-and-its-effe",
+          "name": "To determine the Gyroscopic couple and its effect on a rotating disc",
+          "number": 4,
+          "requires": ["experiment-3-to-determine-the-natural-frequency-of-a-two-rot"]
+        },
+        {
+          "id": "experiment-5-to-demonstrate-the-effect-of-static-and-dynamic",
+          "name": "To demonstrate the effect of static and dynamic unbalance in a system.",
+          "number": 5,
+          "requires": ["experiment-4-to-determine-the-gyroscopic-couple-and-its-effe"]
+        },
+        {
+          "id": "experiment-6-to-completely-balance-a-system-of-rotating-mass",
+          "name": "To completely balance a system of rotating masses.",
+          "number": 6,
+          "requires": ["experiment-5-to-demonstrate-the-effect-of-static-and-dynamic"]
+        },
+        {
+          "id": "experiment-7-to-find-the-damping-coefficient-of-a-system-und",
+          "name": "To find the damping coefficient of a system undergoing torsional oscillations",
+          "number": 7,
+          "requires": ["experiment-6-to-completely-balance-a-system-of-rotating-mass"]
+        },
+        {
+          "id": "experiment-8-to-plot-the-characteristics-of-forced-damped-vi",
+          "name": "To plot the characteristics of Forced Damped Vibrations for the given system",
+          "number": 8,
+          "requires": ["experiment-7-to-find-the-damping-coefficient-of-a-system-und"]
+        },
+        {
+          "id": "experiment-9-to-demonstrate-whirling-of-shafts",
+          "name": "To demonstrate whirling of shafts",
+          "number": 9,
+          "requires": ["experiment-8-to-plot-the-characteristics-of-forced-damped-vi"]
+        },
+        {
+          "id": "experiment-10-to-determine-the-characteristics-of-governors",
+          "name": "To determine the characteristics of governors",
+          "number": 10,
+          "requires": ["experiment-9-to-demonstrate-whirling-of-shafts"]
+        },
+        {
+          "id": "experiment-11-to-determine-the-jump-speed-of-a-cam-follower",
+          "name": "To determine the jump speed of a Cam-follower system",
+          "number": 11,
+          "requires": ["experiment-10-to-determine-the-characteristics-of-governors"]
+        },
+        {
+          "id": "experiment-12-to-determine-the-radius-of-gyration-of-a-body",
+          "name": "To determine the radius of gyration of a body using Bi-filar and Tri-filar Suspension.",
+          "number": 12,
+          "requires": ["experiment-11-to-determine-the-jump-speed-of-a-cam-follower"]
+        }
+      ]
+    }
+  ]
+}

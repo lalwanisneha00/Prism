@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Food Biotechnology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,7 +40,65 @@
       "topics": [
         {
           "id": "introduction-to-food-processing-of-various-foods-including",
-          "name": "Introduction to food processing of various foods including dairy, bakery, brewing, fruit and vegetable products, plantation products, oilseeds, meat, fish, poultry"
+          "name": "Introduction to food processing of various foods including dairy",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bakery",
+          "name": "bakery",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-food-processing-of-various-foods-including"]
+        },
+        {
+          "id": "brewing",
+          "name": "brewing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bakery"]
+        },
+        {
+          "id": "fruit-and-vegetable-products",
+          "name": "fruit and vegetable products",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["brewing"]
+        },
+        {
+          "id": "plantation-products",
+          "name": "plantation products",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fruit-and-vegetable-products"]
+        },
+        {
+          "id": "oilseeds",
+          "name": "oilseeds",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["plantation-products"]
+        },
+        {
+          "id": "meat",
+          "name": "meat",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["oilseeds"]
+        },
+        {
+          "id": "fish",
+          "name": "fish",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["meat"]
+        },
+        {
+          "id": "poultry",
+          "name": "poultry",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fish"]
         },
         {
           "id": "pro-and-prebiotics-and-nutraceuticals",
@@ -49,8 +107,113 @@
         },
         {
           "id": "principles-of-food-preservation-by-dehydration-thermal",
-          "name": "Principles of food preservation by dehydration, thermal treatments like pasteurization, sterilization, canning, retorting etc., low temperature i.e., chilling and freezing, chemical preservation/ bio-",
-          "requires": ["pro-and-prebiotics-and-nutraceuticals"]
+          "name": "Principles of food preservation by dehydration",
+          "requires": ["pro-and-prebiotics-and-nutraceuticals"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "thermal-treatments-like-pasteurization",
+          "name": "thermal treatments like pasteurization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principles-of-food-preservation-by-dehydration-thermal"]
+        },
+        {
+          "id": "sterilization",
+          "name": "sterilization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermal-treatments-like-pasteurization"]
+        },
+        {
+          "id": "canning",
+          "name": "canning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sterilization"]
+        },
+        {
+          "id": "retorting-etc",
+          "name": "retorting etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["canning"]
+        },
+        {
+          "id": "low-temperature-i-e",
+          "name": "low temperature i.e",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["retorting-etc"]
+        },
+        {
+          "id": "chilling-and-freezing",
+          "name": "chilling and freezing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["low-temperature-i-e"]
+        },
+        {
+          "id": "chemical-preservation-bio-preservation",
+          "name": "chemical preservation/ bio-preservation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chilling-and-freezing"]
+        },
+        {
+          "id": "solid-state-fermentation",
+          "name": "solid state fermentation",
+          "requires": ["fermentative-production-of-enzymes-used-in-food-industry"],
+          "movedFrom": {
+            "subject": "pdeu-food-biotechnology",
+            "chapter": "food-biotechnology",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "traditional-methods-like-salting-syruping",
+          "name": "traditional methods like salting/ syruping",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["solid-state-fermentation"]
+        },
+        {
+          "id": "pickling",
+          "name": "pickling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["traditional-methods-like-salting-syruping"]
+        },
+        {
+          "id": "non-thermal-processes-like-map",
+          "name": "non- thermal processes like MAP",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pickling"]
+        },
+        {
+          "id": "irradiation",
+          "name": "irradiation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["non-thermal-processes-like-map"]
+        },
+        {
+          "id": "high-pressure-processing-etc",
+          "name": "high pressure processing etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["irradiation"]
+        },
+        {
+          "id": "hurdle-technology",
+          "name": "hurdle technology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["high-pressure-processing-etc"]
         }
       ]
     },
@@ -64,24 +227,58 @@
           "name": "Fermentative production of enzymes used in food industry"
         },
         {
-          "id": "solid-state-fermentation",
-          "name": "solid state fermentation",
-          "requires": ["fermentative-production-of-enzymes-used-in-food-industry"]
-        },
-        {
           "id": "recovery-of-enzymes-from-natural-sources",
           "name": "recovery of enzymes from natural sources",
           "requires": ["solid-state-fermentation"]
         },
         {
           "id": "cheese-making-and-whey-processing-impact-of-enzyme",
-          "name": "cheese making and whey processing, impact of enzyme technology (bioethanol, protein hydrolysates, bioactive peptides)",
-          "requires": ["recovery-of-enzymes-from-natural-sources"]
+          "name": "cheese making and whey processing",
+          "requires": ["recovery-of-enzymes-from-natural-sources"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "impact-of-enzyme-technology-bioethanol",
+          "name": "impact of enzyme technology (bioethanol",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cheese-making-and-whey-processing-impact-of-enzyme"]
+        },
+        {
+          "id": "protein-hydrolysates",
+          "name": "protein hydrolysates",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["impact-of-enzyme-technology-bioethanol"]
+        },
+        {
+          "id": "bioactive-peptides",
+          "name": "bioactive peptides)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["protein-hydrolysates"]
         },
         {
           "id": "enzymatic-processing-of-fruit-juices-role-of-enzymes-in",
-          "name": "enzymatic processing of fruit juices. Role of enzymes in baking, meat and meat processing",
-          "requires": ["cheese-making-and-whey-processing-impact-of-enzyme"]
+          "name": "enzymatic processing of fruit juices",
+          "requires": ["cheese-making-and-whey-processing-impact-of-enzyme"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "role-of-enzymes-in-baking",
+          "name": "Role of enzymes in baking",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["enzymatic-processing-of-fruit-juices-role-of-enzymes-in"]
+        },
+        {
+          "id": "meat-and-meat-processing",
+          "name": "meat and meat processing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["role-of-enzymes-in-baking"]
         },
         {
           "id": "comparative-methods-of-toxicity-test-in-novel-foods",
@@ -117,22 +314,79 @@
       "topics": [
         {
           "id": "fermented-foods-dairy-products-oriental-fermentations",
-          "name": "Fermented foods: Dairy products, oriental fermentations, alcoholic beverages, and food ingredients"
+          "name": "Fermented foods: Dairy products",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "the-role-of-biotechnology-in-fermented-food-products-dairy",
-          "name": "the role of biotechnology in fermented food products (dairy, meat, vegetable)",
+          "id": "oriental-fermentations",
+          "name": "oriental fermentations",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["fermented-foods-dairy-products-oriental-fermentations"]
         },
         {
-          "id": "starter-culture-development-process-development",
-          "name": "Starter culture development, process development",
+          "id": "alcoholic-beverages",
+          "name": "alcoholic beverages",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["oriental-fermentations"]
+        },
+        {
+          "id": "food-ingredients",
+          "name": "food ingredients",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["alcoholic-beverages"]
+        },
+        {
+          "id": "the-role-of-biotechnology-in-fermented-food-products-dairy",
+          "name": "the role of biotechnology in fermented food products (dairy",
+          "requires": ["fermented-foods-dairy-products-oriental-fermentations"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "meat-2",
+          "name": "meat",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["the-role-of-biotechnology-in-fermented-food-products-dairy"]
         },
         {
-          "id": "enzymes-in-the-dairy-industry-cheese-making-and-whey",
-          "name": "Enzymes in the dairy industry: cheese making and whey processing, impact of enzyme technology",
+          "id": "vegetable",
+          "name": "vegetable)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["meat-2"]
+        },
+        {
+          "id": "starter-culture-development-process-development",
+          "name": "Starter culture development",
+          "requires": ["the-role-of-biotechnology-in-fermented-food-products-dairy"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "process-development",
+          "name": "process development",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["starter-culture-development-process-development"]
+        },
+        {
+          "id": "enzymes-in-the-dairy-industry-cheese-making-and-whey",
+          "name": "Enzymes in the dairy industry: cheese making and whey processing",
+          "requires": ["starter-culture-development-process-development"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "impact-of-enzyme-technology",
+          "name": "impact of enzyme technology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["enzymes-in-the-dairy-industry-cheese-making-and-whey"]
         },
         {
           "id": "functional-foods",
@@ -141,8 +395,17 @@
         },
         {
           "id": "nutraceuticals-use-of-antibiotics-and-hormones-in-food",
-          "name": "Nutraceuticals, Use of Antibiotics & Hormones in Food Processing & Agricultural Practices etc",
-          "requires": ["functional-foods"]
+          "name": "Nutraceuticals",
+          "requires": ["functional-foods"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "use-of-antibiotics-and-hormones-in-food-processing-and-agric",
+          "name": "Use of Antibiotics & Hormones in Food Processing & Agricultural Practices etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["nutraceuticals-use-of-antibiotics-and-hormones-in-food"]
         }
       ]
     },
@@ -153,34 +416,173 @@
       "topics": [
         {
           "id": "role-of-who-to-improve-evaluation-of-gm-food-benefits-and",
-          "name": "Role of WHO to improve evaluation of GM food, Benefits & Controversies, Irradiated Food, Labelling of Irradiated Food"
+          "name": "Role of WHO to improve evaluation of GM food",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "freeze-dried-food-functional-foods-and-nutraceuticals",
-          "name": "Freeze dried food, Functional Foods & Nutraceuticals, Functional foods from plant sources, animal sources, dietary supplements, Regulation",
+          "id": "benefits-and-controversies",
+          "name": "Benefits & Controversies",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["role-of-who-to-improve-evaluation-of-gm-food-benefits-and"]
         },
         {
-          "id": "fao-in-india-technical-cooperation-programmes-biosecurity-in",
-          "name": "FAO in India, Technical Cooperation programmes, Biosecurity in Food and Agriculture, World Health Organization (WHO), World Animal Health Organization (OIE), International Plant Protection Convention ",
+          "id": "irradiated-food",
+          "name": "Irradiated Food",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["benefits-and-controversies"]
+        },
+        {
+          "id": "labelling-of-irradiated-food",
+          "name": "Labelling of Irradiated Food",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["irradiated-food"]
+        },
+        {
+          "id": "freeze-dried-food-functional-foods-and-nutraceuticals",
+          "name": "Freeze dried food",
+          "requires": ["role-of-who-to-improve-evaluation-of-gm-food-benefits-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "functional-foods-and-nutraceuticals",
+          "name": "Functional Foods & Nutraceuticals",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["freeze-dried-food-functional-foods-and-nutraceuticals"]
         },
         {
-          "id": "codex-alimentarius-commission-codex-india",
-          "name": "Codex Alimentarius Commission - Codex India",
+          "id": "functional-foods-from-plant-sources",
+          "name": "Functional foods from plant sources",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["functional-foods-and-nutraceuticals"]
+        },
+        {
+          "id": "animal-sources",
+          "name": "animal sources",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["functional-foods-from-plant-sources"]
+        },
+        {
+          "id": "dietary-supplements",
+          "name": "dietary supplements",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["animal-sources"]
+        },
+        {
+          "id": "regulation",
+          "name": "Regulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dietary-supplements"]
+        },
+        {
+          "id": "fao-in-india-technical-cooperation-programmes-biosecurity-in",
+          "name": "FAO in India",
+          "requires": ["freeze-dried-food-functional-foods-and-nutraceuticals"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "technical-cooperation-programmes",
+          "name": "Technical Cooperation programmes",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["fao-in-india-technical-cooperation-programmes-biosecurity-in"]
         },
         {
-          "id": "role-of-codex-contact-point-national-codex-contact-point",
-          "name": "Role of Codex Contact point, National Codex contact point (NCCP), National Codex Committee of India",
+          "id": "biosecurity-in-food-and-agriculture",
+          "name": "Biosecurity in Food and Agriculture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["technical-cooperation-programmes"]
+        },
+        {
+          "id": "world-health-organization-who",
+          "name": "World Health Organization (WHO)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biosecurity-in-food-and-agriculture"]
+        },
+        {
+          "id": "world-animal-health-organization-oie",
+          "name": "World Animal Health Organization (OIE)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["world-health-organization-who"]
+        },
+        {
+          "id": "codex-alimentarius-commission-codex-india",
+          "name": "Codex Alimentarius Commission",
+          "requires": ["fao-in-india-technical-cooperation-programmes-biosecurity-in"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "codex-india",
+          "name": "Codex India",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["codex-alimentarius-commission-codex-india"]
         },
         {
-          "id": "tor-functions-shadow-committees-etc",
-          "name": "ToR, Functions, Shadow Committees etc",
+          "id": "role-of-codex-contact-point-national-codex-contact-point",
+          "name": "Role of Codex Contact point",
+          "requires": ["codex-alimentarius-commission-codex-india"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "national-codex-contact-point-nccp",
+          "name": "National Codex contact point (NCCP)",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["role-of-codex-contact-point-national-codex-contact-point"]
+        },
+        {
+          "id": "national-codex-committee-of-india",
+          "name": "National Codex Committee of India",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["national-codex-contact-point-nccp"]
+        },
+        {
+          "id": "tor-functions-shadow-committees-etc",
+          "name": "ToR",
+          "requires": ["role-of-codex-contact-point-national-codex-contact-point"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "functions",
+          "name": "Functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tor-functions-shadow-committees-etc"]
+        },
+        {
+          "id": "shadow-committees-etc",
+          "name": "Shadow Committees etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["functions"]
+        },
+        {
+          "id": "international-plant-protection-convention-ippc",
+          "name": "International Plant Protection Convention (IPPC)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["shadow-committees-etc"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

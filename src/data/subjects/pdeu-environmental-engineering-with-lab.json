@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Environmental Engineering (with lab)",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -52,8 +52,17 @@
         },
         {
           "id": "impact-of-water-quality-on-human-health",
-          "name": "Impact of water quality on - human health",
-          "requires": ["water-quality-standards"]
+          "name": "Impact of water quality on",
+          "requires": ["water-quality-standards"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "human-health",
+          "name": "human health",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["impact-of-water-quality-on-human-health"]
         },
         {
           "id": "agriculture",
@@ -79,6 +88,13 @@
           "id": "population-forecasting-methods",
           "name": "Population Forecasting Methods",
           "requires": ["water-budget"]
+        },
+        {
+          "id": "etc",
+          "name": "etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["population-forecasting-methods"]
         }
       ]
     },
@@ -159,8 +175,17 @@
         },
         {
           "id": "characterization-of-wastewater-physical-chemical-and",
-          "name": "Characterization of wastewater (physical, chemical and biological)",
-          "requires": ["composition-of-wastewater"]
+          "name": "Characterization of wastewater (physical",
+          "requires": ["composition-of-wastewater"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "chemical-and-biological",
+          "name": "chemical and biological)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characterization-of-wastewater-physical-chemical-and"]
         },
         {
           "id": "basics-of-sewage-quality-assessment",
@@ -200,8 +225,17 @@
         },
         {
           "id": "design-of-a-sewage-treatment-plant-screening",
-          "name": "design of a sewage treatment plant - Screening",
-          "requires": ["classification-of-treatment-processes"]
+          "name": "design of a sewage treatment plant",
+          "requires": ["classification-of-treatment-processes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "screening",
+          "name": "Screening",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-of-a-sewage-treatment-plant-screening"]
         },
         {
           "id": "grit-removal-basin",
@@ -240,5 +274,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

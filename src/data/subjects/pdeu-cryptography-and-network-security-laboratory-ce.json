@@ -1,0 +1,95 @@
+{
+  "id": "pdeu-cryptography-and-network-security-laboratory-ce",
+  "name": "Cryptography and Network Security Laboratory",
+  "field": "Cryptography and Network Security Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (COMP semester 6): Cryptography and Network Security Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 7 of COMP/sem6/CE_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CS305P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s6-cryptography-and-network-security-laboratory",
+      "code": "24CS305P",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-download-and-practice-cryptool",
+          "name": "Download and Practice Cryptool.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-study-and-implement-program-for-ceaser-cipher-w",
+          "name": "Study and Implement program for Ceaser Cipher with Encryption, Decryption, Brute Force Attack, and Frequency Analysis functions.",
+          "number": 2,
+          "requires": ["experiment-1-download-and-practice-cryptool"]
+        },
+        {
+          "id": "experiment-3-study-and-implement-a-program-for-transposition",
+          "name": "Study and Implement a program for Transposition (Columnar) Cipher to encrypt and decrypt the message.",
+          "number": 3,
+          "requires": ["experiment-2-study-and-implement-program-for-ceaser-cipher-w"]
+        },
+        {
+          "id": "experiment-4-study-and-implement-a-program-for-rail-fence-tr",
+          "name": "Study and Implement a program for Rail Fence Transposition Cipher to encrypt and decrypt the message.",
+          "number": 4,
+          "requires": ["experiment-3-study-and-implement-a-program-for-transposition"]
+        },
+        {
+          "id": "experiment-5-study-and-implement-a-program-for-vigen-re-ciph",
+          "name": "Study and Implement a program for Vigenère Cipher to encrypt and decrypt the message.",
+          "number": 5,
+          "requires": ["experiment-4-study-and-implement-a-program-for-rail-fence-tr"]
+        },
+        {
+          "id": "experiment-6-study-and-implement-a-program-for-6x6-playfair",
+          "name": "Study and Implement a program for 6x6 Playfair Cipher.",
+          "number": 6,
+          "requires": ["experiment-5-study-and-implement-a-program-for-vigen-re-ciph"]
+        },
+        {
+          "id": "experiment-7-study-and-implement-a-program-for-n-gram-hill-c",
+          "name": "Study and Implement a program for n-gram Hill Cipher.",
+          "number": 7,
+          "requires": ["experiment-6-study-and-implement-a-program-for-6x6-playfair"]
+        },
+        {
+          "id": "experiment-8-use-crypto-library-to-implement-encryption-and",
+          "name": "Use Crypto++ library to implement encryption and decryption functions for different block ciphers.",
+          "number": 8,
+          "requires": ["experiment-7-study-and-implement-a-program-for-n-gram-hill-c"]
+        },
+        {
+          "id": "experiment-9-study-and-implement-rsa-encryption-and-decrypti",
+          "name": "Study and Implement RSA Encryption and Decryption function.",
+          "number": 9,
+          "requires": ["experiment-8-use-crypto-library-to-implement-encryption-and"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-cryptography-and-network-security-ce"]
+}

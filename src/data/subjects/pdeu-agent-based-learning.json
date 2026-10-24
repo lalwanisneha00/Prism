@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Agent based Learning",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,12 +41,37 @@
       "topics": [
         {
           "id": "reinforcement-learning",
-          "name": "Overview of reinforcement learning (RL) concepts, terminology, and applications. History and evolution of RL"
+          "name": "Overview of reinforcement learning (RL) concepts",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "terminology",
+          "name": "terminology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reinforcement-learning"]
+        },
+        {
+          "id": "history-and-evolution-of-rl",
+          "name": "History and evolution of RL",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["terminology"]
         },
         {
           "id": "from-early-research-to-modern-deep-reinforcement-learning",
-          "name": "from early research to modern deep reinforcement learning. Basic components of RL: agent",
-          "requires": ["reinforcement-learning"]
+          "name": "from early research to modern deep reinforcement learning",
+          "requires": ["reinforcement-learning"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "basic-components-of-rl-agent",
+          "name": "Basic components of RL: agent",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["from-early-research-to-modern-deep-reinforcement-learning"]
         },
         {
           "id": "environment",
@@ -60,8 +85,31 @@
         },
         {
           "id": "action-reward-and-policy-types-of-rl-problems-episodic-vs",
-          "name": "action, reward, and policy. Types of RL problems: episodic vs. continuing tasks",
-          "requires": ["state"]
+          "name": "action",
+          "requires": ["state"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "reward",
+          "name": "reward",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["action-reward-and-policy-types-of-rl-problems-episodic-vs"]
+        },
+        {
+          "id": "policy",
+          "name": "policy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reward"]
+        },
+        {
+          "id": "types-of-rl-problems-episodic-vs-continuing-tasks",
+          "name": "Types of RL problems: episodic vs. continuing tasks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["policy"]
         },
         {
           "id": "finite-vs-infinite-horizon",
@@ -75,13 +123,38 @@
         },
         {
           "id": "exploration-vs-exploitation-trade-off-and-its-importance-in",
-          "name": "Exploration vs. exploitation trade-off and its importance in RL. Key algorithms: Multi-Armed Bandits",
-          "requires": ["deterministic-vs-stochastic-environments"]
+          "name": "Exploration vs. exploitation trade-off and its importance in RL",
+          "requires": ["deterministic-vs-stochastic-environments"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "key-algorithms-multi-armed-bandits",
+          "name": "Key algorithms: Multi-Armed Bandits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["exploration-vs-exploitation-trade-off-and-its-importance-in"]
         },
         {
           "id": "markov-decision-processes-mdps-and-dynamic-programming",
-          "name": "Markov Decision Processes (MDPs), and Dynamic Programming",
-          "requires": ["exploration-vs-exploitation-trade-off-and-its-importance-in"]
+          "name": "Markov Decision Processes (MDPs)",
+          "requires": ["exploration-vs-exploitation-trade-off-and-its-importance-in"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dynamic-programming",
+          "name": "Dynamic Programming",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["markov-decision-processes-mdps-and-dynamic-programming"]
+        },
+        {
+          "id": "applications",
+          "name": "applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dynamic-programming"]
         }
       ]
     },
@@ -137,8 +210,17 @@
         },
         {
           "id": "focusing-on-learning-a-policy-directly-policy-gradient",
-          "name": "focusing on learning a policy directly. Policy Gradient methods: REINFORCE",
-          "requires": ["introduction-to-policy-based-methods-for-rl"]
+          "name": "focusing on learning a policy directly",
+          "requires": ["introduction-to-policy-based-methods-for-rl"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "policy-gradient-methods-reinforce",
+          "name": "Policy Gradient methods: REINFORCE",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["focusing-on-learning-a-policy-directly-policy-gradient"]
         },
         {
           "id": "actor-critic-architectures",
@@ -153,7 +235,16 @@
         {
           "id": "trust-region-policy-optimization-trpo-and-its-successor",
           "name": "Trust Region Policy Optimization (TRPO) and its successor",
-          "requires": ["advantage-actor-critic-a2c-and-proximal-policy-optimization"]
+          "requires": ["advantage-actor-critic-a2c-and-proximal-policy-optimization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "trust-region-policy-optimization-trpo-2",
+          "name": "Trust Region Policy Optimization (TRPO)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["trust-region-policy-optimization-trpo-and-its-successor"]
         },
         {
           "id": "trust-region-policy-optimization-trpo",
@@ -223,10 +314,20 @@
         },
         {
           "id": "multi-agent-rl-emerging-trends-and-future-directions-in-rl",
-          "name": "multi-agent RL. Emerging trends and future directions in RL research and applications",
-          "requires": ["imitation-learning"]
+          "name": "multi-agent RL",
+          "requires": ["imitation-learning"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "emerging-trends-and-future-directions-in-rl-research-and-app",
+          "name": "Emerging trends and future directions in RL research and applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multi-agent-rl-emerging-trends-and-future-directions-in-rl"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

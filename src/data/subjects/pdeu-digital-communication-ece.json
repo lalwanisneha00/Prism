@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Digital Communication",
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,7 +40,23 @@
       "topics": [
         {
           "id": "sampling-theorem",
-          "name": "Sources and Signals, Basic Signal Processing, Sampling Theorem"
+          "name": "Sources and Signals",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "basic-signal-processing",
+          "name": "Basic Signal Processing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sampling-theorem"]
+        },
+        {
+          "id": "sampling-theorem-2",
+          "name": "Sampling Theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-signal-processing"]
         },
         {
           "id": "quadrature-sampling-of-band-pass-signals",
@@ -49,8 +65,80 @@
         },
         {
           "id": "tdm-comm",
-          "name": "Practical Aspects of Sampling and Signal Recovery, Time-Division Multiplexing, Uncertainty, Information, Entropy, Source Coding Theorem, Huffman Coding, Discrete Memoryless Channels, Mutual Informatio",
-          "requires": ["quadrature-sampling-of-band-pass-signals"]
+          "name": "Practical Aspects of Sampling and Signal Recovery",
+          "requires": ["quadrature-sampling-of-band-pass-signals"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "time-division-multiplexing",
+          "name": "Time-Division Multiplexing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tdm-comm"]
+        },
+        {
+          "id": "uncertainty",
+          "name": "Uncertainty",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["time-division-multiplexing"]
+        },
+        {
+          "id": "information",
+          "name": "Information",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["uncertainty"]
+        },
+        {
+          "id": "entropy",
+          "name": "Entropy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["information"]
+        },
+        {
+          "id": "source-coding-theorem",
+          "name": "Source Coding Theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["entropy"]
+        },
+        {
+          "id": "huffman-coding",
+          "name": "Huffman Coding",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["source-coding-theorem"]
+        },
+        {
+          "id": "discrete-memoryless-channels",
+          "name": "Discrete Memoryless Channels",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["huffman-coding"]
+        },
+        {
+          "id": "mutual-information",
+          "name": "Mutual Information",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["discrete-memoryless-channels"]
+        },
+        {
+          "id": "channel-capacity",
+          "name": "Channel Capacity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mutual-information"]
+        },
+        {
+          "id": "channel-coding-theorem",
+          "name": "Channel Coding Theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["channel-capacity"]
         }
       ]
     },
@@ -132,6 +220,13 @@
           "id": "eye-pattern",
           "name": "Eye Pattern",
           "requires": ["inter-symbol-interference"]
+        },
+        {
+          "id": "differential-pulsecode-modulation",
+          "name": "Differential PulseCode Modulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["eye-pattern"]
         }
       ]
     },
@@ -222,5 +317,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-digital-communication-lab-ece"]
 }

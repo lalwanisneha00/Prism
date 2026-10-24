@@ -5,7 +5,7 @@
   "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["ict"],
+  "branches": ["ict", "ece"],
   "semesters": [6],
   "code": "24ICT***T",
   "credits": 3,
@@ -21,6 +21,15 @@
       "credits": 3,
       "semester": 6,
       "kind": "core"
+    },
+    {
+      "branch": "ece",
+      "key": "s6-computer-communication-and-networking",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
     }
   ],
   "syllabusSource": {
@@ -28,8 +37,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Computer Communication and Networking",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -69,8 +78,17 @@
         },
         {
           "id": "media-access-protocols-aloha-csma-based",
-          "name": "Media access protocols (ALOHA, CSMA based)",
-          "requires": ["data-link-layer-introduction"]
+          "name": "Media access protocols (ALOHA",
+          "requires": ["data-link-layer-introduction"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "csma-based",
+          "name": "CSMA based)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["media-access-protocols-aloha-csma-based"]
         },
         {
           "id": "ethernet-802-3",
@@ -150,8 +168,24 @@
         },
         {
           "id": "intra-and-inter-autonomous-system-routing-ospf-rip-bgp",
-          "name": "Intra and Inter Autonomous System Routing (OSPF, RIP, BGP)",
-          "requires": ["routing-algorithms"]
+          "name": "Intra and Inter Autonomous System Routing (OSPF",
+          "requires": ["routing-algorithms"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "rip",
+          "name": "RIP",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["intra-and-inter-autonomous-system-routing-ospf-rip-bgp"]
+        },
+        {
+          "id": "bgp",
+          "name": "BGP)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rip"]
         },
         {
           "id": "broadcast-and-multicast-routing-issues",
@@ -231,8 +265,31 @@
         },
         {
           "id": "advanced-topics-qos-over-ip-ipv6-and-infrastructure-less",
-          "name": "Advanced Topics: QoS over IP, IPV6, and Infrastructure-less networks: wireless ad hoc and sensor networks, and Internet of Things (IoT)",
-          "requires": ["udp"]
+          "name": "Advanced Topics: QoS over IP",
+          "requires": ["udp"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ipv6",
+          "name": "IPV6",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["advanced-topics-qos-over-ip-ipv6-and-infrastructure-less"]
+        },
+        {
+          "id": "infrastructure-less-networks-wireless-ad-hoc-and-sensor-netw",
+          "name": "Infrastructure-less networks: wireless ad hoc and sensor networks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ipv6"]
+        },
+        {
+          "id": "internet-of-things-iot",
+          "name": "Internet of Things (IoT)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["infrastructure-less-networks-wireless-ad-hoc-and-sensor-netw"]
         },
         {
           "id": "green-computer-networking",
@@ -292,5 +349,10 @@
         }
       ]
     }
+  ],
+  "courseType": "theory",
+  "relatedCourses": [
+    "pdeu-computer-communication-and-networking-lab-ece",
+    "pdeu-computer-communication-and-networking-lab-ict"
   ]
 }

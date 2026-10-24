@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Solid Mechanics",
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -42,8 +42,24 @@
         },
         {
           "id": "free-body-diagrams",
-          "name": "moments, equilibrium, and free-body diagrams",
-          "requires": ["review-of-forces"]
+          "name": "moments",
+          "requires": ["review-of-forces"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "equilibrium",
+          "name": "equilibrium",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["free-body-diagrams"]
+        },
+        {
+          "id": "free-body-diagrams-2",
+          "name": "free-body diagrams",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["equilibrium"]
         },
         {
           "id": "sfd-bmd",
@@ -165,5 +181,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

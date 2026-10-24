@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Natural Language Processing",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -65,8 +65,17 @@
         },
         {
           "id": "syntax-constituency-parsing",
-          "name": "Syntax – Constituency Parsing",
-          "requires": ["wordnet-and-lexical-resources"]
+          "name": "Syntax",
+          "requires": ["wordnet-and-lexical-resources"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "constituency-parsing",
+          "name": "Constituency Parsing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["syntax-constituency-parsing"]
         },
         {
           "id": "dependency-parsing",
@@ -97,7 +106,16 @@
         {
           "id": "language-modelling",
           "name": "Language Modelling",
-          "requires": ["basic-text-processing"]
+          "requires": ["basic-text-processing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "advanced-smoothing-for-language-modelling-2",
+          "name": "Advanced smoothing for language modelling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["language-modelling"]
         },
         {
           "id": "advanced-smoothing-for-language-modelling",
@@ -116,8 +134,17 @@
         },
         {
           "id": "models-for-sequential-tagging-maxent",
-          "name": "Models for Sequential Tagging – MaxEnt",
-          "requires": ["spelling-correction"]
+          "name": "Models for Sequential Tagging",
+          "requires": ["spelling-correction"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "maxent",
+          "name": "MaxEnt",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["models-for-sequential-tagging-maxent"]
         },
         {
           "id": "crf",
@@ -163,7 +190,8 @@
         {
           "id": "advanced-pre-training-for-language-models",
           "name": "Advanced Pre- training for Language Models",
-          "requires": ["neural-and-pre-trained-language-models"]
+          "requires": ["neural-and-pre-trained-language-models"],
+          "status": "retired"
         },
         {
           "id": "gpt3-and-beyond-few-shot-learning",
@@ -174,6 +202,13 @@
           "id": "prompt-learning",
           "name": "Prompt Learning",
           "requires": ["gpt3-and-beyond-few-shot-learning"]
+        },
+        {
+          "id": "advanced-pretraining-for-language-models",
+          "name": "Advanced Pretraining for Language Models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["prompt-learning"]
         }
       ]
     },
@@ -208,5 +243,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

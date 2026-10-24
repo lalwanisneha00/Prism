@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Nanotechnology in Oil and Gas Industry",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -54,13 +54,59 @@
         },
         {
           "id": "surface-area-surface-energy-and-quantum-effects",
-          "name": "Surface area, surface energy, and quantum effects",
-          "requires": ["size-dependent-physical-and-chemical-properties"]
+          "name": "Surface area",
+          "requires": ["size-dependent-physical-and-chemical-properties"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "surface-energy",
+          "name": "surface energy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["surface-area-surface-energy-and-quantum-effects"]
+        },
+        {
+          "id": "quantum-effects",
+          "name": "quantum effects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["surface-energy"]
         },
         {
           "id": "types-of-nanoparticles-metal-non-metal-oxide-carbon-based",
-          "name": "Types of nanoparticles: metal, non-metal oxide, carbon-based, polymeric, and nanocomposites",
-          "requires": ["surface-area-surface-energy-and-quantum-effects"]
+          "name": "Types of nanoparticles: metal",
+          "requires": ["surface-area-surface-energy-and-quantum-effects"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "non-metal-oxide",
+          "name": "non-metal oxide",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-nanoparticles-metal-non-metal-oxide-carbon-based"]
+        },
+        {
+          "id": "carbon-based",
+          "name": "carbon-based",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["non-metal-oxide"]
+        },
+        {
+          "id": "polymeric",
+          "name": "polymeric",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carbon-based"]
+        },
+        {
+          "id": "nanocomposites",
+          "name": "nanocomposites",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polymeric"]
         },
         {
           "id": "synthesis-methods-top-down-and-bottom-up-approaches",
@@ -74,8 +120,59 @@
         },
         {
           "id": "characterization-techniques-sem-tem-xrd-ftir-dls-zeta",
-          "name": "Characterization techniques: SEM, TEM, XRD, FTIR, DLS, Zeta potential, BET, TGA",
-          "requires": ["green-synthesis-of-nanoparticles"]
+          "name": "Characterization techniques: SEM",
+          "requires": ["green-synthesis-of-nanoparticles"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "tem",
+          "name": "TEM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characterization-techniques-sem-tem-xrd-ftir-dls-zeta"]
+        },
+        {
+          "id": "xrd",
+          "name": "XRD",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tem"]
+        },
+        {
+          "id": "ftir",
+          "name": "FTIR",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["xrd"]
+        },
+        {
+          "id": "dls",
+          "name": "DLS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ftir"]
+        },
+        {
+          "id": "zeta-potential",
+          "name": "Zeta potential",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dls"]
+        },
+        {
+          "id": "bet",
+          "name": "BET",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["zeta-potential"]
+        },
+        {
+          "id": "tga",
+          "name": "TGA",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bet"]
         },
         {
           "id": "stability-and-dispersion-of-nanoparticles",
@@ -84,8 +181,24 @@
         },
         {
           "id": "health-safety-and-environmental-considerations",
-          "name": "Health, safety, and environmental considerations",
-          "requires": ["stability-and-dispersion-of-nanoparticles"]
+          "name": "Health",
+          "requires": ["stability-and-dispersion-of-nanoparticles"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "safety",
+          "name": "safety",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["health-safety-and-environmental-considerations"]
+        },
+        {
+          "id": "environmental-considerations",
+          "name": "environmental considerations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["safety"]
         }
       ]
     },
@@ -126,7 +239,8 @@
         {
           "id": "self-healing-and-smart-cement-systems",
           "name": "Self- healing and smart cement systems",
-          "requires": ["different-nanoparticles-in-cement-properties-modification"]
+          "requires": ["different-nanoparticles-in-cement-properties-modification"],
+          "status": "retired"
         },
         {
           "id": "nanotechnology-for-reservoir-characterization",
@@ -142,6 +256,13 @@
           "id": "formation-damage-diagnosis-and-mitigation",
           "name": "Formation damage diagnosis and mitigation",
           "requires": ["nano-sensors-and-pore-scale-imaging"]
+        },
+        {
+          "id": "selfhealing-and-smart-cement-systems",
+          "name": "Selfhealing and smart cement systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["formation-damage-diagnosis-and-mitigation"]
         }
       ]
     },
@@ -201,8 +322,24 @@
         },
         {
           "id": "wax-asphaltene-and-scale-control",
-          "name": "Wax, asphaltene, and scale control",
-          "requires": ["hybrid-chemical-eor-processes"]
+          "name": "Wax",
+          "requires": ["hybrid-chemical-eor-processes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "asphaltene",
+          "name": "asphaltene",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wax-asphaltene-and-scale-control"]
+        },
+        {
+          "id": "scale-control",
+          "name": "scale control",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["asphaltene"]
         },
         {
           "id": "corrosion-inhibition-using-nanoparticles",
@@ -237,8 +374,24 @@
         },
         {
           "id": "nanotechnology-in-carbon-capture-utilization-and-storage",
-          "name": "Nanotechnology in carbon capture, utilization, and storage (CCUS)",
-          "requires": ["oil-spill-remediation-and-wastewater-treatment"]
+          "name": "Nanotechnology in carbon capture",
+          "requires": ["oil-spill-remediation-and-wastewater-treatment"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "utilization",
+          "name": "utilization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["nanotechnology-in-carbon-capture-utilization-and-storage"]
+        },
+        {
+          "id": "storage-ccus",
+          "name": "storage (CCUS)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["utilization"]
         },
         {
           "id": "nanotechnology-for-hydrogen-and-geothermal-energy",
@@ -257,5 +410,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Deep Learning",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -163,7 +163,16 @@
         {
           "id": "cnn",
           "name": "CNN",
-          "requires": ["data-augmentation"]
+          "requires": ["data-augmentation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cnn-layers-2",
+          "name": "CNN Layers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cnn"]
         },
         {
           "id": "cnn-layers",
@@ -238,5 +247,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

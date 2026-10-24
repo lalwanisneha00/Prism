@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Information Theory and Coding (Communication Systems)",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -149,7 +149,23 @@
         {
           "id": "cyclic-codes",
           "name": "Cyclic codes",
-          "requires": ["low-density-parity-check-ldpc-codes"]
+          "requires": ["low-density-parity-check-ldpc-codes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "generation-and-decoding-of-cyclic-codes-2",
+          "name": "Generation and Decoding of Cyclic codes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cyclic-codes"]
+        },
+        {
+          "id": "circuit-implementation-of-cyclic-codes-2",
+          "name": "Circuit Implementation of Cyclic Codes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["generation-and-decoding-of-cyclic-codes-2"]
         },
         {
           "id": "polynomial-representation",
@@ -246,6 +262,13 @@
           "id": "decoder-and-performance",
           "name": "Decoder and Performance",
           "requires": ["trellis-coded-modulation"]
+        },
+        {
+          "id": "space-time-trellis-codes",
+          "name": "Space Time Trellis Codes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["decoder-and-performance"]
         }
       ]
     },
@@ -280,5 +303,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

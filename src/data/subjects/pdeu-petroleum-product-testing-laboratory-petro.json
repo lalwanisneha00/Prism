@@ -1,0 +1,118 @@
+{
+  "id": "pdeu-petroleum-product-testing-laboratory-petro",
+  "name": "Petroleum Product Testing Laboratory",
+  "field": "Petroleum Product Testing Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (PETRO semester 6): Petroleum Product Testing Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 10 of PETRO/sem6/Petroleum_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24PE310P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s6-petroleum-product-testing-laboratory",
+      "code": "24PE310P",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-estimation-of-the-acid-number-of-fossil-oil-sam",
+          "name": "Estimation of the acid number of fossil oil samples.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-analysis-of-the-percentage-purity-of-refinery-p",
+          "name": "Analysis of the percentage purity of refinery product by Auto distillation apparatus.",
+          "number": 2,
+          "requires": ["experiment-1-estimation-of-the-acid-number-of-fossil-oil-sam"]
+        },
+        {
+          "id": "experiment-3-measurement-of-viscosity-of-given-sample-by-say",
+          "name": "Measurement of viscosity of given sample by Say Bolt viscometer.",
+          "number": 3,
+          "requires": ["experiment-2-analysis-of-the-percentage-purity-of-refinery-p"]
+        },
+        {
+          "id": "experiment-4-determination-of-viscosity-of-given-oil-sample",
+          "name": "Determination of viscosity of given oil sample by Red- wood Viscometer.",
+          "number": 4,
+          "requires": ["experiment-3-measurement-of-viscosity-of-given-sample-by-say"]
+        },
+        {
+          "id": "experiment-5-evaluation-of-smoke-point-and-luminosity-number",
+          "name": "Evaluation of smoke point and Luminosity number of given kerosene sample.",
+          "number": 5,
+          "requires": ["experiment-4-determination-of-viscosity-of-given-oil-sample"]
+        },
+        {
+          "id": "experiment-6-calculation-of-calorific-value-of-coal-lignite",
+          "name": "Calculation of calorific value of coal, lignite, and oil samples by Bomb Calorimeter.",
+          "number": 6,
+          "requires": ["experiment-5-evaluation-of-smoke-point-and-luminosity-number"]
+        },
+        {
+          "id": "experiment-7-determination-of-flash-and-fire-point-of-refine",
+          "name": "Determination of Flash and Fire point of refinery products by semi-automatic Prensky & Martin Apparatus.",
+          "number": 7,
+          "requires": ["experiment-6-calculation-of-calorific-value-of-coal-lignite"]
+        },
+        {
+          "id": "experiment-8-measurement-of-flash-and-fire-point-of-refinery",
+          "name": "Measurement of Flash and Fire point of refinery products by Cleveland open cup apparatus.",
+          "number": 8,
+          "requires": ["experiment-7-determination-of-flash-and-fire-point-of-refine"]
+        },
+        {
+          "id": "experiment-9-evaluation-of-cloud-and-pour-point-of-a-given-o",
+          "name": "Evaluation of Cloud and Pour point of a given oil sample.",
+          "number": 9,
+          "requires": ["experiment-8-measurement-of-flash-and-fire-point-of-refinery"]
+        },
+        {
+          "id": "experiment-10-determination-of-aniline-point-of-a-given-refi",
+          "name": "Determination of Aniline point of a given refinery products sample.",
+          "number": 10,
+          "requires": ["experiment-9-evaluation-of-cloud-and-pour-point-of-a-given-o"]
+        },
+        {
+          "id": "experiment-11-estimation-of-diesel-index-and-cetane-number-o",
+          "name": "Estimation of Diesel Index and Cetane number of a given diesel sample.",
+          "number": 11,
+          "requires": ["experiment-10-determination-of-aniline-point-of-a-given-refi"]
+        },
+        {
+          "id": "experiment-12-evaluation-of-moisture-content-of-given-liquid",
+          "name": "Evaluation of moisture content of given liquid fuel sample using Dean and Stark apparatus.",
+          "number": 12,
+          "requires": ["experiment-11-estimation-of-diesel-index-and-cetane-number-o"]
+        },
+        {
+          "id": "experiment-13-determination-of-saponification-value-of-given",
+          "name": "Determination of Saponification value of given oil sample. Max <26Hrs>",
+          "number": 13,
+          "requires": ["experiment-12-evaluation-of-moisture-content-of-given-liquid"]
+        }
+      ]
+    }
+  ]
+}

@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -39,22 +39,187 @@
       "topics": [
         {
           "id": "introduction-general-introduction-to-database-systems",
-          "name": "Introduction - General introduction to database systems"
+          "name": "General introduction to database systems",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "er-model",
-          "name": "Database - DBMS distinction, approaches to building a database, data models, database management system, three-schema architecture of a database, challenges in building a DBMS, various components of a",
+          "id": "database",
+          "name": "Database",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["introduction-general-introduction-to-database-systems"]
         },
         {
-          "id": "relational-data-model-concept-of-relations-schema-instance",
-          "name": "Relational Data Model - Concept of relations, schema- instance distinction, keys, referential integrity, and foreign keys",
+          "id": "er-model",
+          "name": "DBMS distinction",
+          "requires": ["introduction-general-introduction-to-database-systems"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "approaches-to-building-a-database",
+          "name": "approaches to building a database",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["er-model"]
+        },
+        {
+          "id": "data-models",
+          "name": "data models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["approaches-to-building-a-database"]
+        },
+        {
+          "id": "database-management-system",
+          "name": "database management system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-models"]
+        },
+        {
+          "id": "three-schema-architecture-of-a-database",
+          "name": "three-schema architecture of a database",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["database-management-system"]
+        },
+        {
+          "id": "challenges-in-building-a-dbms",
+          "name": "challenges in building a DBMS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["three-schema-architecture-of-a-database"]
+        },
+        {
+          "id": "relational-data-model-concept-of-relations-schema-instance",
+          "name": "Relational Data Model",
+          "requires": ["er-model"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "concept-of-relations",
+          "name": "Concept of relations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["relational-data-model-concept-of-relations-schema-instance"]
+        },
+        {
+          "id": "keys",
+          "name": "keys",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concept-of-relations"]
+        },
+        {
+          "id": "referential-integrity",
+          "name": "referential integrity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["keys"]
+        },
+        {
+          "id": "foreign-keys",
+          "name": "foreign keys",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["referential-integrity"]
         },
         {
           "id": "converting-the-database-specification-in-e-r-notation-to-the",
           "name": "Converting the database specification in E/R notation to the relational schema",
           "requires": ["relational-data-model-concept-of-relations-schema-instance"]
+        },
+        {
+          "id": "introduction-to-sql",
+          "name": "Introduction to SQL",
+          "requires": ["relational-calculus"],
+          "source": "admin_handout",
+          "confidence": "verified",
+          "movedFrom": {
+            "subject": "pdeu-database-management-systems-computer-systems-ece",
+            "chapter": "relational-approach-and-sql-query-basics",
+            "at": "2026-10-24T23:22:41.746Z"
+          }
+        },
+        {
+          "id": "various-components-of-a-dbms-e-r-model",
+          "name": "various components of a DBMS.E/R Model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-sql"]
+        },
+        {
+          "id": "conceptual-data-modeling",
+          "name": "Conceptual data modeling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["various-components-of-a-dbms-e-r-model"]
+        },
+        {
+          "id": "motivation",
+          "name": "motivation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["conceptual-data-modeling"]
+        },
+        {
+          "id": "entities",
+          "name": "entities",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["motivation"]
+        },
+        {
+          "id": "entity-types",
+          "name": "entity types",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["entities"]
+        },
+        {
+          "id": "various-types-of-attributes",
+          "name": "various types of attributes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["entity-types"]
+        },
+        {
+          "id": "relationships",
+          "name": "relationships",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["various-types-of-attributes"]
+        },
+        {
+          "id": "relationship-types",
+          "name": "relationship types",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["relationships"]
+        },
+        {
+          "id": "e-r-diagram-notation",
+          "name": "E/R diagram notation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["relationship-types"]
+        },
+        {
+          "id": "examples",
+          "name": "examples",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["e-r-diagram-notation"]
+        },
+        {
+          "id": "schemainstance-distinction",
+          "name": "schemainstance distinction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["examples"]
         }
       ]
     },
@@ -104,8 +269,10 @@
           "requires": ["relational-algebra"]
         },
         {
-          "id": "introduction-to-sql",
-          "name": "Introduction to SQL",
+          "id": "basic-sql-operations-rename",
+          "name": "Basic SQL operations (rename",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["relational-calculus"]
         },
         {
@@ -120,8 +287,24 @@
         },
         {
           "id": "basic-sql-operations-rename-string-operations-order-by-where",
-          "name": "Basic SQL operations (rename, string operations, order by, where clause)",
-          "requires": ["basic-structure-of-sql-queries"]
+          "name": "string operations",
+          "requires": ["basic-structure-of-sql-queries"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "order-by",
+          "name": "order by",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-sql-operations-rename-string-operations-order-by-where"]
+        },
+        {
+          "id": "where-clause",
+          "name": "where clause)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["order-by"]
         },
         {
           "id": "set-operations",
@@ -180,8 +363,17 @@
         },
         {
           "id": "dependency-theory-functional-dependencies",
-          "name": "dependency theory - functional dependencies",
-          "requires": ["dependencies-and-normal-forms"]
+          "name": "dependency theory",
+          "requires": ["dependencies-and-normal-forms"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "functional-dependencies",
+          "name": "functional dependencies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dependency-theory-functional-dependencies"]
         },
         {
           "id": "armstrongs-axioms-for-fds",
@@ -211,7 +403,16 @@
         {
           "id": "3nf-and-bcnf",
           "name": "3NF and BCNF",
-          "requires": ["2nf"]
+          "requires": ["2nf"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "algorithms-for-3nf-and-bcnf-normalization",
+          "name": "algorithms for 3NF and BCNF normalization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["3nf-and-bcnf"]
         },
         {
           "id": "decompositions-and-desirable-properties-of-them",
@@ -220,8 +421,17 @@
         },
         {
           "id": "algorithms-for-3nf-and-bcnf-normalization-4nf-and-5nf",
-          "name": "algorithms for 3NF and BCNF normalization, 4NF, and 5NF",
-          "requires": ["decompositions-and-desirable-properties-of-them"]
+          "name": "4NF",
+          "requires": ["decompositions-and-desirable-properties-of-them"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "5nf",
+          "name": "5NF",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["algorithms-for-3nf-and-bcnf-normalization-4nf-and-5nf"]
         }
       ]
     },
@@ -256,8 +466,17 @@
         },
         {
           "id": "recoverability-concurrency-control-lock-based-protocols",
-          "name": "recoverability. Concurrency Control: Lock-based protocols",
-          "requires": ["serializability"]
+          "name": "recoverability",
+          "requires": ["serializability"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "concurrency-control-lock-based-protocols",
+          "name": "Concurrency Control: Lock-based protocols",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["recoverability-concurrency-control-lock-based-protocols"]
         },
         {
           "id": "timestamp-based-protocols",
@@ -281,8 +500,17 @@
         },
         {
           "id": "deadlock-handling-recovery-failure-classification",
-          "name": "deadlock handling. Recovery: Failure classification",
-          "requires": ["multiversion-schemes"]
+          "name": "deadlock handling",
+          "requires": ["multiversion-schemes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "recovery-failure-classification",
+          "name": "Recovery: Failure classification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["deadlock-handling-recovery-failure-classification"]
         },
         {
           "id": "storage-structure",
@@ -311,5 +539,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

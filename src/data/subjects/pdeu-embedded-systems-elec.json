@@ -1,0 +1,364 @@
+{
+  "id": "pdeu-embedded-systems-elec",
+  "name": "Embedded Systems",
+  "field": "Embedded Systems",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 6): Embedded Systems",
+    "note": "Units and topics copied from the course handout PDF (pages 13 of ELEC/sem6/Electrical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE316T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s6-embedded-systems",
+      "code": "20EE316T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-embedded-systems",
+      "name": "Introduction to Embedded Systems",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "embedded-systems",
+          "name": "Embedded Systems"
+        },
+        {
+          "id": "definition",
+          "name": "Definition",
+          "requires": ["embedded-systems"]
+        },
+        {
+          "id": "significance",
+          "name": "Significance",
+          "requires": ["definition"]
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "requires": ["significance"]
+        },
+        {
+          "id": "features",
+          "name": "Features",
+          "requires": ["classification"]
+        },
+        {
+          "id": "examples-and-applications",
+          "name": "Examples and Applications",
+          "requires": ["features"]
+        },
+        {
+          "id": "basic-architecture-of-microcontrollers-risc-and-cisc-archite",
+          "name": "Basic Architecture of Microcontrollers (RISC and CISC architecture",
+          "requires": ["examples-and-applications"]
+        },
+        {
+          "id": "flash",
+          "name": "Flash",
+          "requires": ["basic-architecture-of-microcontrollers-risc-and-cisc-archite"]
+        },
+        {
+          "id": "sram",
+          "name": "SRAM",
+          "requires": ["flash"]
+        },
+        {
+          "id": "eeprom-and-solid-state-memories",
+          "name": "EEPROM and Solid State Memories)",
+          "requires": ["sram"]
+        },
+        {
+          "id": "inside-the-embedded-systems",
+          "name": "Inside the Embedded Systems",
+          "requires": ["eeprom-and-solid-state-memories"]
+        }
+      ]
+    },
+    {
+      "id": "microcontroller-architecture",
+      "name": "Microcontroller Architecture",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "popular-platforms",
+          "name": "Popular Platforms"
+        },
+        {
+          "id": "device-overview",
+          "name": "Device Overview",
+          "requires": ["popular-platforms"]
+        },
+        {
+          "id": "features-2",
+          "name": "Features",
+          "requires": ["device-overview"]
+        },
+        {
+          "id": "functional-block-diagram",
+          "name": "Functional Block Diagram",
+          "requires": ["features-2"]
+        },
+        {
+          "id": "pin-diagram",
+          "name": "Pin Diagram",
+          "requires": ["functional-block-diagram"]
+        },
+        {
+          "id": "specifications",
+          "name": "Specifications",
+          "requires": ["pin-diagram"]
+        },
+        {
+          "id": "cpu",
+          "name": "CPU",
+          "requires": ["specifications"]
+        },
+        {
+          "id": "memory-and-bus-architecture",
+          "name": "Memory and Bus Architecture",
+          "requires": ["cpu"]
+        },
+        {
+          "id": "flash-memory",
+          "name": "Flash Memory",
+          "requires": ["memory-and-bus-architecture"]
+        },
+        {
+          "id": "clock",
+          "name": "Clock",
+          "requires": ["flash-memory"]
+        },
+        {
+          "id": "oscillator-and-phase-locked-loop",
+          "name": "Oscillator and Phase Locked Loop",
+          "requires": ["clock"]
+        },
+        {
+          "id": "general-purpose-input-output-registers",
+          "name": "General Purpose Input Output Registers",
+          "requires": ["oscillator-and-phase-locked-loop"]
+        },
+        {
+          "id": "general-and-specific-register-sets",
+          "name": "General and Specific Register Sets",
+          "requires": ["general-purpose-input-output-registers"]
+        },
+        {
+          "id": "dma-controller",
+          "name": "DMA Controller",
+          "requires": ["general-and-specific-register-sets"]
+        },
+        {
+          "id": "time-delays",
+          "name": "Time Delays",
+          "requires": ["dma-controller"]
+        },
+        {
+          "id": "pipeline",
+          "name": "Pipeline",
+          "requires": ["time-delays"]
+        },
+        {
+          "id": "board-power-management",
+          "name": "Board Power Management",
+          "requires": ["pipeline"]
+        },
+        {
+          "id": "programming-the-microcontroller",
+          "name": "Programming the Microcontroller",
+          "requires": ["board-power-management"]
+        }
+      ]
+    },
+    {
+      "id": "microcontroller-peripherals",
+      "name": "Microcontroller Peripherals",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "analog-to-digital-converter",
+          "name": "Analog to Digital Converter"
+        },
+        {
+          "id": "digital-to-analog-converter",
+          "name": "Digital to Analog Converter",
+          "requires": ["analog-to-digital-converter"]
+        },
+        {
+          "id": "timers",
+          "name": "Timers",
+          "requires": ["digital-to-analog-converter"]
+        },
+        {
+          "id": "counters-up-counter",
+          "name": "Counters (Up Counter",
+          "requires": ["timers"]
+        },
+        {
+          "id": "down-counter",
+          "name": "Down Counter",
+          "requires": ["counters-up-counter"]
+        },
+        {
+          "id": "up-down-counter",
+          "name": "Up-Down Counter)",
+          "requires": ["down-counter"]
+        },
+        {
+          "id": "watchdog-timer",
+          "name": "Watchdog Timer",
+          "requires": ["up-down-counter"]
+        },
+        {
+          "id": "interrupts",
+          "name": "Interrupts",
+          "requires": ["watchdog-timer"]
+        },
+        {
+          "id": "capture",
+          "name": "Capture",
+          "requires": ["interrupts"]
+        },
+        {
+          "id": "pulse-width-modulation-control-synchronous-and-asynchronous",
+          "name": "Pulse Width Modulation Control (Synchronous and Asynchronous Modulation)",
+          "requires": ["capture"]
+        },
+        {
+          "id": "quadrature-encoder-pulse-circuitry",
+          "name": "Quadrature Encoder Pulse Circuitry",
+          "requires": ["pulse-width-modulation-control-synchronous-and-asynchronous"]
+        },
+        {
+          "id": "basics-of-serial-and-parallel-communication",
+          "name": "Basics of Serial and Parallel Communication",
+          "requires": ["quadrature-encoder-pulse-circuitry"]
+        },
+        {
+          "id": "serial-peripheral-interface-spi",
+          "name": "Serial Peripheral Interface (SPI)",
+          "requires": ["basics-of-serial-and-parallel-communication"]
+        },
+        {
+          "id": "usart",
+          "name": "USART",
+          "requires": ["serial-peripheral-interface-spi"]
+        },
+        {
+          "id": "inter-integrated-communication",
+          "name": "Inter-integrated Communication",
+          "requires": ["usart"]
+        },
+        {
+          "id": "usb-communication",
+          "name": "USB Communication",
+          "requires": ["inter-integrated-communication"]
+        },
+        {
+          "id": "enhanced-controller-area-network",
+          "name": "Enhanced Controller Area Network",
+          "requires": ["usb-communication"]
+        },
+        {
+          "id": "programming-microcontroller-peripherals",
+          "name": "Programming Microcontroller Peripherals",
+          "requires": ["enhanced-controller-area-network"]
+        }
+      ]
+    },
+    {
+      "id": "interfacing-and-applications",
+      "name": "Interfacing and Applications",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "interfacing-leds",
+          "name": "Interfacing LEDs"
+        },
+        {
+          "id": "relays",
+          "name": "Relays",
+          "requires": ["interfacing-leds"]
+        },
+        {
+          "id": "buzzers",
+          "name": "Buzzers",
+          "requires": ["relays"]
+        },
+        {
+          "id": "sensors-current-sensors",
+          "name": "Sensors (Current Sensors",
+          "requires": ["buzzers"]
+        },
+        {
+          "id": "voltage-sensors",
+          "name": "Voltage Sensors",
+          "requires": ["sensors-current-sensors"]
+        },
+        {
+          "id": "speed-and-positions-sensors",
+          "name": "Speed and Positions Sensors",
+          "requires": ["voltage-sensors"]
+        },
+        {
+          "id": "light-sensors",
+          "name": "Light Sensors",
+          "requires": ["speed-and-positions-sensors"]
+        },
+        {
+          "id": "temperature-sensors",
+          "name": "Temperature Sensors",
+          "requires": ["light-sensors"]
+        },
+        {
+          "id": "proximity-sensors",
+          "name": "Proximity Sensors",
+          "requires": ["temperature-sensors"]
+        },
+        {
+          "id": "etc",
+          "name": "etc.)",
+          "requires": ["proximity-sensors"]
+        },
+        {
+          "id": "programming-microcontroller-with-peripherals-and-interfaced",
+          "name": "Programming Microcontroller with peripherals and interfaced devices",
+          "requires": ["etc"]
+        },
+        {
+          "id": "application-in-control-of-electric-drives",
+          "name": "Application in Control of Electric Drives",
+          "requires": ["programming-microcontroller-with-peripherals-and-interfaced"]
+        },
+        {
+          "id": "electric-vehicles",
+          "name": "Electric Vehicles",
+          "requires": ["application-in-control-of-electric-drives"]
+        },
+        {
+          "id": "etc-2",
+          "name": "etc",
+          "requires": ["electric-vehicles"]
+        }
+      ]
+    }
+  ]
+}

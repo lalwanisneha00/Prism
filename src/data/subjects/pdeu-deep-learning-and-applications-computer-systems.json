@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Deep Learning and Applications (Computer Systems)",
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,7 +40,16 @@
       "topics": [
         {
           "id": "introduction-to-neural-networks",
-          "name": "Introduction to Neural networks"
+          "name": "Introduction to Neural networks",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "optimization-of-neural-networks-gs",
+          "name": "Optimization of neural networks (GS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-neural-networks"]
         },
         {
           "id": "perceptron",
@@ -84,8 +93,45 @@
         },
         {
           "id": "optimization-of-neural-networks-gs-sgd-adagrad-adadelta",
-          "name": "Optimization of neural networks (GS, SGD, Adagrad, Adadelta, RMSprop, Adam, NAG)",
-          "requires": ["single-layer-and-multi-layer-perceptron-mlp-network"]
+          "name": "SGD",
+          "requires": ["single-layer-and-multi-layer-perceptron-mlp-network"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "adagrad",
+          "name": "Adagrad",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["optimization-of-neural-networks-gs-sgd-adagrad-adadelta"]
+        },
+        {
+          "id": "adadelta",
+          "name": "Adadelta",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adagrad"]
+        },
+        {
+          "id": "rmsprop",
+          "name": "RMSprop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adadelta"]
+        },
+        {
+          "id": "adam",
+          "name": "Adam",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rmsprop"]
+        },
+        {
+          "id": "nag",
+          "name": "NAG)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adam"]
         },
         {
           "id": "bias-vs-variance-trade-off",
@@ -106,12 +152,135 @@
       "topics": [
         {
           "id": "cnn",
-          "name": "Introduction to Deep Learning (DL) Techniques, Convolutional Neural Networks (CNN), Basic architecture, Convolutional Layers, Pooling Layers, Activation functions, Handling vanishing gradient problem,"
+          "name": "Introduction to Deep Learning (DL) Techniques",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "convolutional-neural-networks-cnn",
+          "name": "Convolutional Neural Networks (CNN)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cnn"]
+        },
+        {
+          "id": "basic-architecture",
+          "name": "Basic architecture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["convolutional-neural-networks-cnn"]
+        },
+        {
+          "id": "convolutional-layers",
+          "name": "Convolutional Layers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-architecture"]
+        },
+        {
+          "id": "pooling-layers",
+          "name": "Pooling Layers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["convolutional-layers"]
+        },
+        {
+          "id": "activation-functions",
+          "name": "Activation functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pooling-layers"]
+        },
+        {
+          "id": "handling-vanishing-gradient-problem",
+          "name": "Handling vanishing gradient problem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["activation-functions"]
         },
         {
           "id": "different-cnn-models-lenet-alexnet-vggnet-googlenet-resnet",
-          "name": "Different CNN Models: LeNet, AlexNet, VGGNet, GoogleNet, ResNet, DenseNet, Training of Deep neural Networks, Hyper parameter tuning, transfer learning, Dataset augmentation",
-          "requires": ["cnn"]
+          "name": "Different CNN Models: LeNet",
+          "requires": ["cnn"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "alexnet",
+          "name": "AlexNet",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["different-cnn-models-lenet-alexnet-vggnet-googlenet-resnet"]
+        },
+        {
+          "id": "vggnet",
+          "name": "VGGNet",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["alexnet"]
+        },
+        {
+          "id": "googlenet",
+          "name": "GoogleNet",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vggnet"]
+        },
+        {
+          "id": "resnet",
+          "name": "ResNet",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["googlenet"]
+        },
+        {
+          "id": "densenet",
+          "name": "DenseNet",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["resnet"]
+        },
+        {
+          "id": "training-of-deep-neural-networks",
+          "name": "Training of Deep neural Networks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["densenet"]
+        },
+        {
+          "id": "hyper-parameter-tuning",
+          "name": "Hyper parameter tuning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["training-of-deep-neural-networks"]
+        },
+        {
+          "id": "transfer-learning",
+          "name": "transfer learning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hyper-parameter-tuning"]
+        },
+        {
+          "id": "dataset-augmentation",
+          "name": "Dataset augmentation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transfer-learning"]
+        },
+        {
+          "id": "dropout",
+          "name": "Dropout",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dataset-augmentation"]
+        },
+        {
+          "id": "batch-normalization",
+          "name": "Batch Normalization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dropout"]
         }
       ]
     },
@@ -212,5 +381,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

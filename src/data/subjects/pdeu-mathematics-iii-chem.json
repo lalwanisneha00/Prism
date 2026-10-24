@@ -1,0 +1,194 @@
+{
+  "id": "pdeu-mathematics-iii-chem",
+  "name": "Mathematics - III",
+  "field": "Mathematics - III",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 3): Mathematics - III",
+    "note": "Units and topics copied from the course handout PDF (pages 3 of CHEM/sem3/Chemical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24MA201T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s3-mathematics-iii",
+      "code": "24MA201T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "fourier-series",
+      "name": "Fourier Series",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "periodic-functions",
+          "name": "Periodic functions"
+        },
+        {
+          "id": "odd-and-even-functions",
+          "name": "odd and even functions",
+          "requires": ["periodic-functions"]
+        },
+        {
+          "id": "euler-s-formulae-for-fourier-series-in-an-interval-of-2",
+          "name": "Euler's formulae for Fourier series in an interval of 2π",
+          "requires": ["odd-and-even-functions"]
+        },
+        {
+          "id": "change-of-interval",
+          "name": "change of interval",
+          "requires": ["euler-s-formulae-for-fourier-series-in-an-interval-of-2"]
+        },
+        {
+          "id": "dirichlet-s-conditions",
+          "name": "Dirichlet's conditions",
+          "requires": ["change-of-interval"]
+        },
+        {
+          "id": "half-range-sine-and-cosine-series",
+          "name": "half-range sine and cosine series",
+          "requires": ["dirichlet-s-conditions"]
+        },
+        {
+          "id": "complex-fourier-series",
+          "name": "complex Fourier series",
+          "requires": ["half-range-sine-and-cosine-series"]
+        },
+        {
+          "id": "parseval-s-identity-and-its-applications",
+          "name": "Parseval's identity and its applications",
+          "requires": ["complex-fourier-series"]
+        }
+      ]
+    },
+    {
+      "id": "fourier-transform",
+      "name": "Fourier Transform",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "fourier-integral-theorem",
+          "name": "Fourier integral theorem"
+        },
+        {
+          "id": "sine-and-cosine-integrals",
+          "name": "sine and cosine integrals",
+          "requires": ["fourier-integral-theorem"]
+        },
+        {
+          "id": "fourier-transform",
+          "name": "Fourier transform",
+          "requires": ["sine-and-cosine-integrals"]
+        },
+        {
+          "id": "fourier-sine-and-cosine-transforms",
+          "name": "Fourier sine and cosine transforms",
+          "requires": ["fourier-transform"]
+        },
+        {
+          "id": "properties",
+          "name": "properties",
+          "requires": ["fourier-sine-and-cosine-transforms"]
+        },
+        {
+          "id": "inverse-fourier-transform",
+          "name": "inverse Fourier transform",
+          "requires": ["properties"]
+        },
+        {
+          "id": "applications-of-the-fourier-transform-to-problems-on-one-dim",
+          "name": "applications of the Fourier transform to problems on one-dimensional and two-dimensional heat flow",
+          "requires": ["inverse-fourier-transform"]
+        }
+      ]
+    },
+    {
+      "id": "partial-differential-equations-of-first-order",
+      "name": "Partial Differential Equations of First Order",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "formation-of-partial-differential-equations-pdes",
+          "name": "Formation of partial differential equations (PDEs)"
+        },
+        {
+          "id": "solutions-of-pdes-of-first-order",
+          "name": "solutions of PDEs of first order",
+          "requires": ["formation-of-partial-differential-equations-pdes"]
+        },
+        {
+          "id": "cauchy-problem-for-first-order-pdes",
+          "name": "Cauchy problem for first order PDEs",
+          "requires": ["solutions-of-pdes-of-first-order"]
+        },
+        {
+          "id": "lagrange-s-method",
+          "name": "Lagrange's method",
+          "requires": ["cauchy-problem-for-first-order-pdes"]
+        },
+        {
+          "id": "charpit-and-jacobi-methods-for-solving-first-order-nonlinear",
+          "name": "Charpit and Jacobi methods for solving first order nonlinear PDEs",
+          "requires": ["lagrange-s-method"]
+        }
+      ]
+    },
+    {
+      "id": "partial-differential-equations-of-second-order-with-applicat",
+      "name": "Partial Differential Equations of Second Order with Applications",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "classification-of-second-order-pdes",
+          "name": "Classification of second order PDEs"
+        },
+        {
+          "id": "method-of-separation-of-variables",
+          "name": "method of separation of variables",
+          "requires": ["classification-of-second-order-pdes"]
+        },
+        {
+          "id": "fourier-series-solutions-of-the-one-dimensional-wave-equatio",
+          "name": "Fourier series solutions of the one-dimensional wave equation",
+          "requires": ["method-of-separation-of-variables"]
+        },
+        {
+          "id": "one-dimensional-heat-equation",
+          "name": "one-dimensional heat equation",
+          "requires": ["fourier-series-solutions-of-the-one-dimensional-wave-equatio"]
+        },
+        {
+          "id": "steady-state-solution-of-the-two-dimensional-heat-equation",
+          "name": "steady state solution of the two-dimensional heat equation",
+          "requires": ["one-dimensional-heat-equation"]
+        },
+        {
+          "id": "applications-of-pdes-to-string-and-rod-problems",
+          "name": "applications of PDEs to string and rod problems",
+          "requires": ["steady-state-solution-of-the-two-dimensional-heat-equation"]
+        },
+        {
+          "id": "finite-and-infinite-plate-problems-and-reaction-engineering",
+          "name": "finite and infinite plate problems and reaction engineering",
+          "requires": ["applications-of-pdes-to-string-and-rod-problems"]
+        }
+      ]
+    }
+  ]
+}

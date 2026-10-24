@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Integrated Reservoir Management and Enhanced Oil Recovery Methods",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,86 @@
       "topics": [
         {
           "id": "concept-of-integrated-reservoir-management-evolution-of",
-          "name": "Concept of integrated reservoir management, Evolution of reservoir management with time, Fundamentals of reservoir management, synergic team approach"
+          "name": "Concept of integrated reservoir management",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "evolution-of-reservoir-management-with-time",
+          "name": "Evolution of reservoir management with time",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concept-of-integrated-reservoir-management-evolution-of"]
+        },
+        {
+          "id": "fundamentals-of-reservoir-management",
+          "name": "Fundamentals of reservoir management",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["evolution-of-reservoir-management-with-time"]
+        },
+        {
+          "id": "synergic-team-approach",
+          "name": "synergic team approach",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fundamentals-of-reservoir-management"]
         },
         {
           "id": "importance-of-reservoir-management-reservoir-data-types",
-          "name": "Importance of reservoir management, Reservoir Data types: Geosciences, Fluid and PVT, Petrophysical properties from core, Well logs, Transient well test, and Production, Data validation and workflow d",
-          "requires": ["concept-of-integrated-reservoir-management-evolution-of"]
+          "name": "Importance of reservoir management",
+          "requires": ["concept-of-integrated-reservoir-management-evolution-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "reservoir-data-types-geosciences",
+          "name": "Reservoir Data types: Geosciences",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["importance-of-reservoir-management-reservoir-data-types"]
+        },
+        {
+          "id": "fluid-and-pvt",
+          "name": "Fluid and PVT",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reservoir-data-types-geosciences"]
+        },
+        {
+          "id": "petrophysical-properties-from-core",
+          "name": "Petrophysical properties from core",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fluid-and-pvt"]
+        },
+        {
+          "id": "well-logs",
+          "name": "Well logs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["petrophysical-properties-from-core"]
+        },
+        {
+          "id": "transient-well-test",
+          "name": "Transient well test",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["well-logs"]
+        },
+        {
+          "id": "production",
+          "name": "Production",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transient-well-test"]
+        },
+        {
+          "id": "data-validation-and-workflow-development-for-reservoir-chara",
+          "name": "Data validation and workflow development for reservoir characterization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["production"]
         }
       ]
     },
@@ -85,8 +159,17 @@
         },
         {
           "id": "scenarios-for-development-plans-and-techno-economic",
-          "name": "Scenarios for development plans & Techno-economic evaluation. Risk management",
-          "requires": ["development-plans-for-newly-explored-developed-and-matured"]
+          "name": "Scenarios for development plans & Techno-economic evaluation",
+          "requires": ["development-plans-for-newly-explored-developed-and-matured"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "risk-management",
+          "name": "Risk management",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scenarios-for-development-plans-and-techno-economic"]
         },
         {
           "id": "uncertainties-and-economic-optimization",
@@ -102,27 +185,156 @@
       "topics": [
         {
           "id": "definition-of-enhanced-oil-recovery-and-improved-oil",
-          "name": "Definition of enhanced oil recovery and improved oil recovery, Difference of IOR and EOR, Target oil resource for EOR, General Classification"
+          "name": "Definition of enhanced oil recovery and improved oil recovery",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "description-and-potential-of-different-eor-processes",
-          "name": "Description and potential of different EOR processes, Microscopic and macroscopic displacement of fluids in a reservoir, Displacement efficiency in different system",
+          "id": "difference-of-ior-and-eor",
+          "name": "Difference of IOR and EOR",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["definition-of-enhanced-oil-recovery-and-improved-oil"]
         },
         {
-          "id": "linear-areal-volumetric-definition-and-discussion-of",
-          "name": "linear, areal, volumetric, Definition and discussion of mobility ratio and mobility control processes for different types of fluids, Miscible/Immiscible displacement processes",
+          "id": "target-oil-resource-for-eor",
+          "name": "Target oil resource for EOR",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["difference-of-ior-and-eor"]
+        },
+        {
+          "id": "general-classification",
+          "name": "General Classification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["target-oil-resource-for-eor"]
+        },
+        {
+          "id": "description-and-potential-of-different-eor-processes",
+          "name": "Description and potential of different EOR processes",
+          "requires": ["definition-of-enhanced-oil-recovery-and-improved-oil"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "microscopic-and-macroscopic-displacement-of-fluids-in-a-rese",
+          "name": "Microscopic and macroscopic displacement of fluids in a reservoir",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["description-and-potential-of-different-eor-processes"]
         },
         {
-          "id": "water-flooding-gas-injection-micro-emulsion-flooding",
-          "name": "water flooding, gas injection, micro-emulsion flooding Chemical Flooding",
+          "id": "displacement-efficiency-in-different-system",
+          "name": "Displacement efficiency in different system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["microscopic-and-macroscopic-displacement-of-fluids-in-a-rese"]
+        },
+        {
+          "id": "linear-areal-volumetric-definition-and-discussion-of",
+          "name": "linear",
+          "requires": ["description-and-potential-of-different-eor-processes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "areal",
+          "name": "areal",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["linear-areal-volumetric-definition-and-discussion-of"]
         },
         {
-          "id": "polymer-flooding-surfactant-flooding-micellar-flooding",
-          "name": "polymer flooding, Surfactant flooding, Micellar flooding related methods Thermal recovery processes- in situ combustion, hot-water injection, steam flooding, SAGD Microbial EOR. EOR screening criteria",
+          "id": "volumetric",
+          "name": "volumetric",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["areal"]
+        },
+        {
+          "id": "definition-and-discussion-of-mobility-ratio-and-mobility-con",
+          "name": "Definition and discussion of mobility ratio and mobility control processes for different types of fluids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["volumetric"]
+        },
+        {
+          "id": "miscible-immiscible-displacement-processes",
+          "name": "Miscible/Immiscible displacement processes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["definition-and-discussion-of-mobility-ratio-and-mobility-con"]
+        },
+        {
+          "id": "water-flooding-gas-injection-micro-emulsion-flooding",
+          "name": "water flooding",
+          "requires": ["linear-areal-volumetric-definition-and-discussion-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gas-injection",
+          "name": "gas injection",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["water-flooding-gas-injection-micro-emulsion-flooding"]
+        },
+        {
+          "id": "micro-emulsion-flooding-chemical-flooding",
+          "name": "micro-emulsion flooding Chemical Flooding",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gas-injection"]
+        },
+        {
+          "id": "polymer-flooding-surfactant-flooding-micellar-flooding",
+          "name": "polymer flooding",
+          "requires": ["water-flooding-gas-injection-micro-emulsion-flooding"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "surfactant-flooding",
+          "name": "Surfactant flooding",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polymer-flooding-surfactant-flooding-micellar-flooding"]
+        },
+        {
+          "id": "micellar-flooding-related-methods-thermal-recovery-processes",
+          "name": "Micellar flooding related methods Thermal recovery processes- in situ combustion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["surfactant-flooding"]
+        },
+        {
+          "id": "hot-water-injection",
+          "name": "hot-water injection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["micellar-flooding-related-methods-thermal-recovery-processes"]
+        },
+        {
+          "id": "steam-flooding",
+          "name": "steam flooding",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hot-water-injection"]
+        },
+        {
+          "id": "sagd-microbial-eor",
+          "name": "SAGD Microbial EOR",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["steam-flooding"]
+        },
+        {
+          "id": "eor-screening-criteria",
+          "name": "EOR screening criteria",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sagd-microbial-eor"]
         }
       ]
     },
@@ -147,5 +359,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

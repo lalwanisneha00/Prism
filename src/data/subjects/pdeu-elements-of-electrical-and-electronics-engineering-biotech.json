@@ -5,8 +5,8 @@
   "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["biotech"],
-  "semesters": [2],
+  "branches": ["biotech", "chem", "civil", "ece", "me"],
+  "semesters": [1, 2],
   "code": "24EE101T",
   "credits": 3,
   "ltp": "3-0-0",
@@ -21,6 +21,44 @@
       "credits": 3,
       "semester": 2,
       "kind": "core"
+    },
+    {
+      "branch": "chem",
+      "key": "s1-elements-of-electrical-and-electronics-engineering",
+      "code": "24EE101T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "civil",
+      "key": "s2-elements-of-electrical-and-electronics-engineering",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "ece",
+      "key": "s2-elements-of-electrical-and-electronics-engineering",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "me",
+      "key": "s2-elements-of-electrical-and-electronics-engineering",
+      "code": "24EE101T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
     }
   ],
   "syllabusSource": {
@@ -29,8 +67,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 13 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "circuits",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,17 +79,72 @@
       "topics": [
         {
           "id": "rectifiers",
-          "name": "Semiconductor Diodes and Applications, Diode as a Switch, Diode as a Rectifier, Half Wave and Full Wave Rectifiers with and without Filters"
+          "name": "Semiconductor Diodes and Applications",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "breakdown-mechanisms-zener-diode-operation-and-applications",
-          "name": "Breakdown Mechanisms, Zener Diode – Operation and Applications",
+          "id": "diode-as-a-switch",
+          "name": "Diode as a Switch",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["rectifiers"]
         },
         {
-          "id": "opto-electronic-devices-leds-photo-diode-and-applications",
-          "name": "Opto-Electronic Devices–LEDs, Photo Diode and Applications",
+          "id": "diode-as-a-rectifier",
+          "name": "Diode as a Rectifier",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["diode-as-a-switch"]
+        },
+        {
+          "id": "half-wave-and-full-wave-rectifiers-with-and-without-filters",
+          "name": "Half Wave and Full Wave Rectifiers with and without Filters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["diode-as-a-rectifier"]
+        },
+        {
+          "id": "breakdown-mechanisms-zener-diode-operation-and-applications",
+          "name": "Breakdown Mechanisms",
+          "requires": ["rectifiers"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "zener-diode",
+          "name": "Zener Diode",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["breakdown-mechanisms-zener-diode-operation-and-applications"]
+        },
+        {
+          "id": "operation-and-applications",
+          "name": "Operation and Applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["zener-diode"]
+        },
+        {
+          "id": "operation",
+          "name": "Operation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["operation-and-applications"]
+        },
+        {
+          "id": "opto-electronic-devices-leds-photo-diode-and-applications",
+          "name": "Opto-Electronic Devices–LEDs",
+          "requires": ["breakdown-mechanisms-zener-diode-operation-and-applications"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "photo-diode-and-applications",
+          "name": "Photo Diode and Applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["opto-electronic-devices-leds-photo-diode-and-applications"]
         },
         {
           "id": "silicon-controlled-rectifier-scr",
@@ -60,23 +153,78 @@
         },
         {
           "id": "operation-construction-characteristics-ratings-applications",
-          "name": "Operation, Construction, Characteristics, Ratings, Applications",
-          "requires": ["silicon-controlled-rectifier-scr"]
+          "name": "Construction",
+          "requires": ["silicon-controlled-rectifier-scr"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "pn-junction-physics",
-          "name": "Transistor Characteristics covering, Bipolar Junction Transistor (BJT)",
+          "id": "characteristics",
+          "name": "Characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["operation-construction-characteristics-ratings-applications"]
         },
         {
-          "id": "construction-operation-amplifying-action-common-base-common",
-          "name": "Construction, Operation, Amplifying Action, Common Base, Common Emitter and Common Collector Configurations, Field Effect Transistor (FET)",
+          "id": "ratings",
+          "name": "Ratings",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characteristics"]
+        },
+        {
+          "id": "pn-junction-physics",
+          "name": "Transistor Characteristics covering",
+          "requires": ["operation-construction-characteristics-ratings-applications"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bipolar-junction-transistor-bjt",
+          "name": "Bipolar Junction Transistor (BJT)",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["pn-junction-physics"]
+        },
+        {
+          "id": "construction-operation-amplifying-action-common-base-common",
+          "name": "Amplifying Action",
+          "requires": ["pn-junction-physics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "common-base",
+          "name": "Common Base",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["construction-operation-amplifying-action-common-base-common"]
+        },
+        {
+          "id": "common-emitter-and-common-collector-configurations",
+          "name": "Common Emitter and Common Collector Configurations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["common-base"]
+        },
+        {
+          "id": "field-effect-transistor-fet",
+          "name": "Field Effect Transistor (FET)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["common-emitter-and-common-collector-configurations"]
         },
         {
           "id": "construction-characteristics-of-junction-fet",
           "name": "Construction, Characteristics of Junction FET",
           "requires": ["construction-operation-amplifying-action-common-base-common"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["construction-characteristics-of-junction-fet"]
         }
       ]
     },
@@ -143,6 +291,13 @@
           "id": "rl-rc-transients",
           "name": "Time domain analysis/natural response of first order RL and RC Circuit",
           "requires": ["star-delta-transformation"]
+        },
+        {
+          "id": "l-and-c",
+          "name": "L and C)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rl-rc-transients"]
         }
       ]
     },
@@ -188,7 +343,16 @@
         {
           "id": "instantaneous-power",
           "name": "instantaneous power",
-          "requires": ["rlc-combinations"]
+          "requires": ["rlc-combinations"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "average-power-and-reactive-power-2",
+          "name": "average power and reactive power",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["instantaneous-power"]
         },
         {
           "id": "average-power-and-reactive-power",
@@ -208,7 +372,16 @@
         {
           "id": "polyphase-circuits",
           "name": "polyphase circuits",
-          "requires": ["ac-resonance"]
+          "requires": ["ac-resonance"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "power-measurement-in-polyphase-circuits-2",
+          "name": "power measurement in polyphase circuits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polyphase-circuits"]
         },
         {
           "id": "star-and-delta-representation-of-polyphase-circuits",
@@ -229,24 +402,194 @@
       "topics": [
         {
           "id": "faradays-law",
-          "name": "Magnetic materials and its B-H characteristic, Faraday’s Law of Electromagnetic Induction"
+          "name": "Magnetic materials and its B-H characteristic",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "ideal-practical-transformer",
-          "name": "Single Phase Transformers: Construction, working principle, types, EMF equation, ideal transformer, practical transformer, Operation of transformer on no- load and load, Induction Machine: constructio",
+          "id": "faraday-s-law-of-electromagnetic-induction",
+          "name": "Faraday’s Law of Electromagnetic Induction",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["faradays-law"]
         },
         {
-          "id": "lt-switchgear",
-          "name": "Components of LT Switchgear: Switch Fuse Unit (SFU), MCB, ELCB, MCCB, Types of Wires and Cables, Earthing, Types of Batteries, Important Characteristics for Batteries",
+          "id": "ideal-practical-transformer",
+          "name": "Single Phase Transformers: Construction",
+          "requires": ["faradays-law"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "working-principle",
+          "name": "working principle",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["ideal-practical-transformer"]
         },
         {
-          "id": "elementary-calculations-for-energy-consumption-electrical",
-          "name": "Elementary calculations for energy consumption, Electrical safety rules",
+          "id": "types",
+          "name": "types",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["working-principle"]
+        },
+        {
+          "id": "emf-equation",
+          "name": "EMF equation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types"]
+        },
+        {
+          "id": "ideal-transformer",
+          "name": "ideal transformer",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["emf-equation"]
+        },
+        {
+          "id": "practical-transformer",
+          "name": "practical transformer",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ideal-transformer"]
+        },
+        {
+          "id": "induction-machine-construction",
+          "name": "Induction Machine: construction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["practical-transformer"]
+        },
+        {
+          "id": "operation-2",
+          "name": "operation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["induction-machine-construction"]
+        },
+        {
+          "id": "lt-switchgear",
+          "name": "Components of LT Switchgear: Switch Fuse Unit (SFU)",
+          "requires": ["ideal-practical-transformer"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "mcb",
+          "name": "MCB",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["lt-switchgear"]
+        },
+        {
+          "id": "elcb",
+          "name": "ELCB",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mcb"]
+        },
+        {
+          "id": "mccb",
+          "name": "MCCB",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["elcb"]
+        },
+        {
+          "id": "types-of-wires-and-cables",
+          "name": "Types of Wires and Cables",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mccb"]
+        },
+        {
+          "id": "earthing",
+          "name": "Earthing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-wires-and-cables"]
+        },
+        {
+          "id": "types-of-batteries",
+          "name": "Types of Batteries",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["earthing"]
+        },
+        {
+          "id": "important-characteristics-for-batteries",
+          "name": "Important Characteristics for Batteries",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-batteries"]
+        },
+        {
+          "id": "elementary-calculations-for-energy-consumption-electrical",
+          "name": "Elementary calculations for energy consumption",
+          "requires": ["lt-switchgear"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "electrical-safety-rules",
+          "name": "Electrical safety rules",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["elementary-calculations-for-energy-consumption-electrical"]
+        },
+        {
+          "id": "operation-of-transformer-on-noload-and-load",
+          "name": "Operation of transformer on noload and load",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["electrical-safety-rules"]
+        },
+        {
+          "id": "types-of-3-phase-induction-motors",
+          "name": "types of 3-phase induction motors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["operation-of-transformer-on-noload-and-load"]
+        },
+        {
+          "id": "production-of-rotating-magnetic-field",
+          "name": "production of rotating magnetic field",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-3-phase-induction-motors"]
+        },
+        {
+          "id": "starting-and-running-torques",
+          "name": "starting and running torques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["production-of-rotating-magnetic-field"]
+        },
+        {
+          "id": "torque-slip-characteristics",
+          "name": "Torque-slip characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["starting-and-running-torques"]
+        },
+        {
+          "id": "power-stages-in-an-induction-motor",
+          "name": "Power Stages in an induction motor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["torque-slip-characteristics"]
         }
       ]
     }
+  ],
+  "courseType": "theory",
+  "relatedCourses": [
+    "pdeu-elements-of-electrical-and-electronics-engineering-laboratory-biotech",
+    "pdeu-elements-of-electrical-and-electronics-engineering-laboratory-chem",
+    "pdeu-elements-of-electrical-and-electronics-engineering-laboratory-civil",
+    "pdeu-elements-of-electrical-and-electronics-engineering-laboratory-ece",
+    "pdeu-elements-of-electrical-and-electronics-engineering-lab-me"
   ]
 }

@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Mixed Signal VLSI Design (VLSI/Embedded)",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -54,11 +54,6 @@
           "id": "basic-to-data-conversion-and-processing",
           "name": "Basic to data conversion and processing",
           "requires": ["applications"]
-        },
-        {
-          "id": "sampling",
-          "name": "Sampling",
-          "requires": ["basic-to-data-conversion-and-processing"]
         },
         {
           "id": "switched-capacitor",
@@ -148,8 +143,17 @@
         },
         {
           "id": "over-sampling-adc-noise-shaping",
-          "name": "Over sampling ADC – Noise shaping",
-          "requires": ["interleaved-architectures"]
+          "name": "Over sampling ADC",
+          "requires": ["interleaved-architectures"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "noise-shaping",
+          "name": "Noise shaping",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["over-sampling-adc-noise-shaping"]
         },
         {
           "id": "sigma-delta-modulator",
@@ -255,8 +259,24 @@
         },
         {
           "id": "flicker-1-f-burst-and-avalanche-noise",
-          "name": "Flicker (1/f), Burst, and avalanche noise",
-          "requires": ["thermal"]
+          "name": "Flicker (1/f)",
+          "requires": ["thermal"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "burst",
+          "name": "Burst",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flicker-1-f-burst-and-avalanche-noise"]
+        },
+        {
+          "id": "avalanche-noise",
+          "name": "avalanche noise",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["burst"]
         },
         {
           "id": "noise-models-of-ic-components-diode",
@@ -275,8 +295,24 @@
         },
         {
           "id": "resistor-capacitors-and-inductors",
-          "name": "Resistor, capacitors, and inductors",
-          "requires": ["mos-transistor"]
+          "name": "Resistor",
+          "requires": ["mos-transistor"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "capacitors",
+          "name": "capacitors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["resistor-capacitors-and-inductors"]
+        },
+        {
+          "id": "inductors",
+          "name": "inductors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["capacitors"]
         },
         {
           "id": "noise-power-trade-off",
@@ -297,8 +333,49 @@
           "id": "noise-temperature",
           "name": "Noise Temperature",
           "requires": ["noise-figure"]
+        },
+        {
+          "id": "sampling",
+          "name": "Sampling",
+          "requires": ["basic-to-data-conversion-and-processing"],
+          "movedFrom": {
+            "subject": "pdeu-mixed-signal-vlsi-design-vlsi-embedded",
+            "chapter": "introduction-to-mixed-signal",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "testing-general-consideration",
+          "name": "Testing: General Consideration",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sampling"]
+        },
+        {
+          "id": "d-a-converters",
+          "name": "D/A converters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["testing-general-consideration"]
+        },
+        {
+          "id": "a-d-convertors-static-and-dynamic-testing",
+          "name": "A/D convertors: static and dynamic testing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["d-a-converters"]
+        },
+        {
+          "id": "project",
+          "name": "Project",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["a-d-convertors-static-and-dynamic-testing"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

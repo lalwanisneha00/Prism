@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Introduction to Robotics (Control)",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -69,8 +69,17 @@
         },
         {
           "id": "navigation-and-mapping-types-of-robots-stationary-and-mobile",
-          "name": "Navigation and mapping. Types of robots: Stationary and Mobile robots",
-          "requires": ["path-and-trajectory-generation"]
+          "name": "Navigation and mapping",
+          "requires": ["path-and-trajectory-generation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "types-of-robots-stationary-and-mobile-robots",
+          "name": "Types of robots: Stationary and Mobile robots",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["navigation-and-mapping-types-of-robots-stationary-and-mobile"]
         },
         {
           "id": "manipulators-and-industrial-robots",
@@ -111,22 +120,100 @@
       "topics": [
         {
           "id": "basics-configuration-space-dofs-fully-actuated-underactuated",
-          "name": "Basics: Configuration space, DOFs, Fully actuated, underactuated & overactuated robots"
+          "name": "Basics: Configuration space",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "kinematic-modeling-motions-in-3d-positions-and-rotations",
-          "name": "Kinematic modeling: Motions in 3D, Positions & rotations, Coordinate frames & transformations, Euler angles, Forward & inverse kinematics",
+          "id": "dofs",
+          "name": "DOFs",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["basics-configuration-space-dofs-fully-actuated-underactuated"]
         },
         {
-          "id": "dynamical-modeling-kinetic-and-potential-energy-robot",
-          "name": "Dynamical modeling: Kinetic & potential energy, Robot motions using Euler-Lagrange formulation",
+          "id": "fully-actuated",
+          "name": "Fully actuated",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dofs"]
+        },
+        {
+          "id": "underactuated-and-overactuated-robots",
+          "name": "underactuated & overactuated robots",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fully-actuated"]
+        },
+        {
+          "id": "kinematic-modeling-motions-in-3d-positions-and-rotations",
+          "name": "Kinematic modeling: Motions in 3D",
+          "requires": ["basics-configuration-space-dofs-fully-actuated-underactuated"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "positions-and-rotations",
+          "name": "Positions & rotations",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["kinematic-modeling-motions-in-3d-positions-and-rotations"]
         },
         {
-          "id": "modelling-examples-2-link-robotic-manipulators-inverted",
-          "name": "Modelling examples: 2-link robotic manipulators, Inverted pendulum on a cart, Slosh-container",
+          "id": "coordinate-frames-and-transformations",
+          "name": "Coordinate frames & transformations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["positions-and-rotations"]
+        },
+        {
+          "id": "euler-angles",
+          "name": "Euler angles",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["coordinate-frames-and-transformations"]
+        },
+        {
+          "id": "forward-and-inverse-kinematics",
+          "name": "Forward & inverse kinematics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["euler-angles"]
+        },
+        {
+          "id": "dynamical-modeling-kinetic-and-potential-energy-robot",
+          "name": "Dynamical modeling: Kinetic & potential energy",
+          "requires": ["kinematic-modeling-motions-in-3d-positions-and-rotations"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "robot-motions-using-euler-lagrange-formulation",
+          "name": "Robot motions using Euler-Lagrange formulation",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["dynamical-modeling-kinetic-and-potential-energy-robot"]
+        },
+        {
+          "id": "modelling-examples-2-link-robotic-manipulators-inverted",
+          "name": "Modelling examples: 2-link robotic manipulators",
+          "requires": ["dynamical-modeling-kinetic-and-potential-energy-robot"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "inverted-pendulum-on-a-cart",
+          "name": "Inverted pendulum on a cart",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["modelling-examples-2-link-robotic-manipulators-inverted"]
+        },
+        {
+          "id": "slosh-container",
+          "name": "Slosh-container",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["inverted-pendulum-on-a-cart"]
         },
         {
           "id": "input-output-modeling-transfer-functions",
@@ -135,8 +222,24 @@
         },
         {
           "id": "linear-systems",
-          "name": "State-space modeling: State variables, Linear & nonlinear system equations, Eigen structure",
-          "requires": ["input-output-modeling-transfer-functions"]
+          "name": "State-space modeling: State variables",
+          "requires": ["input-output-modeling-transfer-functions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "linear-and-nonlinear-system-equations",
+          "name": "Linear & nonlinear system equations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-systems"]
+        },
+        {
+          "id": "eigen-structure",
+          "name": "Eigen structure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-and-nonlinear-system-equations"]
         }
       ]
     },
@@ -201,8 +304,17 @@
         },
         {
           "id": "using-ai-ml-for-control-systems-motion-planning-motivating",
-          "name": "Using AI/ML for control systems. Motion Planning: Motivating examples",
-          "requires": ["control-in-cps-and-iot-systems"]
+          "name": "Using AI/ML for control systems",
+          "requires": ["control-in-cps-and-iot-systems"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "motion-planning-motivating-examples",
+          "name": "Motion Planning: Motivating examples",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["using-ai-ml-for-control-systems-motion-planning-motivating"]
         },
         {
           "id": "basic-ingredients-of-planning",
@@ -253,12 +365,37 @@
       "topics": [
         {
           "id": "simulations-2dof-underactuated-robot-quadrotor-drone",
-          "name": "Simulations: 2DOF underactuated robot, Quadrotor drone"
+          "name": "SIMULATIONS",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "experiments-and-simulations-2dof-underactuated-robot",
+          "name": "EXPERIMENTS & Simulations: 2DOF underactuated robot",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simulations-2dof-underactuated-robot-quadrotor-drone"]
+        },
+        {
+          "id": "quadrotor-drone",
+          "name": "Quadrotor drone",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["experiments-and-simulations-2dof-underactuated-robot"]
         },
         {
           "id": "experimental-robotics-how-to-build-a-robot-using-arduino",
-          "name": "Experimental robotics: How to build a robot using Arduino like microcontrollers, Practical aspects for ground & flying robots/drones",
-          "requires": ["simulations-2dof-underactuated-robot-quadrotor-drone"]
+          "name": "Experimental robotics: How to build a robot using Arduino like microcontrollers",
+          "requires": ["simulations-2dof-underactuated-robot-quadrotor-drone"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "practical-aspects-for-ground-and-flying-robots-drones",
+          "name": "Practical aspects for ground & flying robots/drones",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["experimental-robotics-how-to-build-a-robot-using-arduino"]
         },
         {
           "id": "introduction-to-spark-v-and-firebird-robots",
@@ -267,13 +404,66 @@
         },
         {
           "id": "programming-and-simulators-introduction-to-ros-concepts-and",
-          "name": "Programming & simulators: Introduction to ROS: Concepts & basic programming, Introduction to Gazebo Simulator: The environment, Building a simple robot in Gazebo",
-          "requires": ["introduction-to-spark-v-and-firebird-robots"]
+          "name": "Programming & simulators: Introduction to ROS: Concepts & basic programming",
+          "requires": ["introduction-to-spark-v-and-firebird-robots"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-gazebo-simulator-the-environment",
+          "name": "Introduction to Gazebo Simulator: The environment",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["programming-and-simulators-introduction-to-ros-concepts-and"]
+        },
+        {
+          "id": "building-a-simple-robot-in-gazebo",
+          "name": "Building a simple robot in Gazebo",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-gazebo-simulator-the-environment"]
         },
         {
           "id": "multiple-robots-based-applications-multi-agent-systems",
-          "name": "Multiple robots based applications: Multi-agent systems, Surveillance, Monitoring, Package delivery, Agriculture, Smart solutions",
-          "requires": ["programming-and-simulators-introduction-to-ros-concepts-and"]
+          "name": "Multiple robots based applications: Multi-agent systems",
+          "requires": ["programming-and-simulators-introduction-to-ros-concepts-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "surveillance",
+          "name": "Surveillance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multiple-robots-based-applications-multi-agent-systems"]
+        },
+        {
+          "id": "monitoring",
+          "name": "Monitoring",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["surveillance"]
+        },
+        {
+          "id": "package-delivery",
+          "name": "Package delivery",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["monitoring"]
+        },
+        {
+          "id": "agriculture",
+          "name": "Agriculture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["package-delivery"]
+        },
+        {
+          "id": "smart-solutions",
+          "name": "Smart solutions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["agriculture"]
         },
         {
           "id": "problem-statements-and-challenges",
@@ -282,5 +472,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -33,6 +33,10 @@ const CourseFields = {
   /** Lab courses list experiments instead of units. */
   experiments: z.array(z.string()).optional(),
   notes: z.array(z.string()).optional(),
+  /** Syllabus fix: dropped from the current handouts (soft delete: hidden, the key stays valid). */
+  retired: z.boolean().optional(),
+  /** Syllabus fix: "handout" = updated from the 2024-25 course handout PDFs (else the old handbook). */
+  source: z.enum(["handbook", "handout"]).optional(),
 };
 
 const OptionSchema = z.object(CourseFields);

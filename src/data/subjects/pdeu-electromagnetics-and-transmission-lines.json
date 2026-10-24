@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 11 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "physics",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -121,12 +121,20 @@
         {
           "id": "co-axial-and-spherical-capacitors",
           "name": "Co- axial and Spherical capacitors",
-          "requires": ["capacitance-parallel-plate"]
+          "requires": ["capacitance-parallel-plate"],
+          "status": "retired"
         },
         {
           "id": "illustrative-problems",
           "name": "Illustrative Problems",
           "requires": ["co-axial-and-spherical-capacitors"]
+        },
+        {
+          "id": "coaxial-and-spherical-capacitors",
+          "name": "Coaxial and Spherical capacitors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["illustrative-problems"]
         }
       ]
     },
@@ -273,7 +281,8 @@
         {
           "id": "total-internal-reflection",
           "name": "Total Internal Reflection",
-          "requires": ["critical-angle"]
+          "requires": ["critical-angle"],
+          "status": "retired"
         },
         {
           "id": "surface-impedance",
@@ -379,12 +388,14 @@
         {
           "id": "4",
           "name": "λ/4",
-          "requires": ["uhf-lines-as-circuit-elements"]
+          "requires": ["uhf-lines-as-circuit-elements"],
+          "status": "retired"
         },
         {
           "id": "2-and-8-lines-impedance-transformations",
           "name": "λ/2 and λ/8 Lines- Impedance Transformations",
-          "requires": ["4"]
+          "requires": ["4"],
+          "status": "retired"
         },
         {
           "id": "significance-of-zmin-and-zmax",
@@ -405,8 +416,16 @@
           "id": "illustrative-problems-max",
           "name": "Illustrative Problems. Max",
           "requires": ["single-and-double-stub-matching"]
+        },
+        {
+          "id": "2-and-inesimpedance-transformations",
+          "name": "λ/2 and λ/inesImpedance Transformations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["illustrative-problems-max"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "circuits",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -65,13 +65,31 @@
         },
         {
           "id": "design-and-implementation-of-digital-systems-truth-table",
-          "name": "design and implementation of digital systems. Truth table",
-          "requires": ["analysis"]
+          "name": "design and implementation of digital systems",
+          "requires": ["analysis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "truth-table",
+          "name": "Truth table",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-and-implementation-of-digital-systems-truth-table"]
         },
         {
           "id": "basic-logic-operation-and-logic-gates-number-systems-and",
-          "name": "Basic logic operation and logic gates. Number Systems and Codes: Positional number system",
-          "requires": ["design-and-implementation-of-digital-systems-truth-table"]
+          "name": "Basic logic operation and logic gates",
+          "requires": ["design-and-implementation-of-digital-systems-truth-table"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "number-systems-and-codes-positional-number-system",
+          "name": "Number Systems and Codes: Positional number system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-logic-operation-and-logic-gates-number-systems-and"]
         },
         {
           "id": "binary",
@@ -115,8 +133,17 @@
         },
         {
           "id": "error-detection-and-correction-codes-parity-check-codes-and",
-          "name": "Error detection and correction codes - parity check codes and Hamming codes",
-          "requires": ["gray-codes"]
+          "name": "Error detection and correction codes",
+          "requires": ["gray-codes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "parity-check-codes-and-hamming-codes",
+          "name": "parity check codes and Hamming codes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["error-detection-and-correction-codes-parity-check-codes-and"]
         }
       ]
     },
@@ -223,7 +250,23 @@
         {
           "id": "d-flip-flop",
           "name": "D flip-flop",
-          "requires": ["d-latch"]
+          "requires": ["d-latch"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "jk-flip-flop-2",
+          "name": "JK flip-flop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["d-flip-flop"]
+        },
+        {
+          "id": "t-flip-flop-2",
+          "name": "T flip-flop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["jk-flip-flop-2"]
         },
         {
           "id": "jk-flip-flop",
@@ -247,8 +290,17 @@
         },
         {
           "id": "design-of-state-machines-state-table",
-          "name": "Design of state machines - state table",
-          "requires": ["analysis-of-state-machines-using-d-flip-flops-and-jk-flip"]
+          "name": "Design of state machines",
+          "requires": ["analysis-of-state-machines-using-d-flip-flops-and-jk-flip"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "state-table",
+          "name": "state table",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-of-state-machines-state-table"]
         },
         {
           "id": "state-assignment",
@@ -318,13 +370,31 @@
         },
         {
           "id": "cmos-programmable-logic-devices-plas-and-their-applications",
-          "name": "CMOS. Programmable Logic Devices: PLAs and their applications",
-          "requires": ["mosfet"]
+          "name": "CMOS",
+          "requires": ["mosfet"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "programmable-logic-devices-plas-and-their-applications",
+          "name": "Programmable Logic Devices: PLAs and their applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cmos-programmable-logic-devices-plas-and-their-applications"]
         },
         {
           "id": "sequential-plds-and-their-applications",
           "name": "Sequential PLDs and their applications",
-          "requires": ["cmos-programmable-logic-devices-plas-and-their-applications"]
+          "requires": ["cmos-programmable-logic-devices-plas-and-their-applications"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "statemachine-design-with-sequential-plds",
+          "name": "Statemachine design with sequential PLDs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sequential-plds-and-their-applications"]
         },
         {
           "id": "state-machine-design-with-sequential-plds",
@@ -339,7 +409,8 @@
         {
           "id": "tutorial-1-case-studies-to-design-different-circuits-from",
           "name": "Tutorial 1: Case Studies to design different circuits from basic gates (3 hrs)",
-          "requires": ["introduction-to-field-programmable-gate-arrays-fpgas"]
+          "requires": ["introduction-to-field-programmable-gate-arrays-fpgas"],
+          "status": "retired"
         },
         {
           "id": "simplify-the-circuits-using-boolean-algebra",
@@ -354,7 +425,8 @@
         {
           "id": "tutorial-2-solve-problems-using-k-map-for-simplification-of",
           "name": "Tutorial 2: Solve problems using K-map for simplification of boolean expression (5 hrs)",
-          "requires": ["case-studies-and-examples-of-binary-codes-and-conversion"]
+          "requires": ["case-studies-and-examples-of-binary-codes-and-conversion"],
+          "status": "retired"
         },
         {
           "id": "examples-to-design-and-solve-encoder-decoder-mux-demux-adder",
@@ -390,8 +462,16 @@
           "id": "logic-realization-tutorial-4-case-studies-based-on-pla-pld",
           "name": "logic realization Tutorial 4: Case studies based on PLA, PLD, FPGA (1 hrs)",
           "requires": ["excitation-maps-and-equations-2"]
+        },
+        {
+          "id": "tutorials",
+          "name": "TUTORIALS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["logic-realization-tutorial-4-case-studies-based-on-pla-pld"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

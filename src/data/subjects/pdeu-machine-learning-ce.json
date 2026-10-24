@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -237,8 +237,17 @@
         },
         {
           "id": "hierarchical-clustering-with-advanced-linkage-methods",
-          "name": "Hierarchical Clustering with Advanced Linkage Methods",
-          "requires": ["optics"]
+          "name": "Hierarchical",
+          "requires": ["optics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "clustering-with-advanced-linkage-methods",
+          "name": "Clustering with Advanced Linkage Methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hierarchical-clustering-with-advanced-linkage-methods"]
         },
         {
           "id": "spectral-clustering-for-non-convex-clusters",
@@ -288,8 +297,17 @@
         },
         {
           "id": "co-training-and-multi-view-learning-approaches",
-          "name": "Co-Training and Multi-View Learning Approaches",
-          "requires": ["self-training"]
+          "name": "Co-Training and Multi-View Learning",
+          "requires": ["self-training"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "approaches",
+          "name": "Approaches",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["co-training-and-multi-view-learning-approaches"]
         },
         {
           "id": "label-propagation-and-graph-based-methods-for-semi",
@@ -328,5 +346,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-machine-learning-laboratory-ce"]
 }

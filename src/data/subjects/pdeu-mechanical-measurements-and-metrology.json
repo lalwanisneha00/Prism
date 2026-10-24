@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Mech): Mechanical Measurements & Metrology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -65,52 +65,62 @@
         {
           "id": "errors-in-measurements",
           "name": "errors in measurements",
-          "requires": ["precision"]
+          "requires": ["precision"],
+          "status": "retired"
         },
         {
           "id": "repeatability",
           "name": "repeatability",
-          "requires": ["errors-in-measurements"]
+          "requires": ["errors-in-measurements"],
+          "status": "retired"
         },
         {
           "id": "reproducibility",
           "name": "reproducibility",
-          "requires": ["repeatability"]
+          "requires": ["repeatability"],
+          "status": "retired"
         },
         {
           "id": "sensitivity",
           "name": "sensitivity",
-          "requires": ["reproducibility"]
+          "requires": ["reproducibility"],
+          "status": "retired"
         },
         {
           "id": "range-and-span",
           "name": "range and span",
-          "requires": ["sensitivity"]
+          "requires": ["sensitivity"],
+          "status": "retired"
         },
         {
           "id": "hysteresis",
           "name": "hysteresis",
-          "requires": ["range-and-span"]
+          "requires": ["range-and-span"],
+          "status": "retired"
         },
         {
           "id": "dead-zone",
           "name": "dead zone",
-          "requires": ["hysteresis"]
+          "requires": ["hysteresis"],
+          "status": "retired"
         },
         {
           "id": "drift",
           "name": "drift",
-          "requires": ["dead-zone"]
+          "requires": ["dead-zone"],
+          "status": "retired"
         },
         {
           "id": "backlash",
           "name": "backlash",
-          "requires": ["drift"]
+          "requires": ["drift"],
+          "status": "retired"
         },
         {
           "id": "dynamic-characteristics-in-measurements",
           "name": "dynamic characteristics in measurements",
-          "requires": ["backlash"]
+          "requires": ["backlash"],
+          "status": "retired"
         },
         {
           "id": "uncertainty-analysis-standard-of-measurement-roles-of",
@@ -125,7 +135,8 @@
         {
           "id": "types-of-standard",
           "name": "types of standard",
-          "requires": ["material-standards"]
+          "requires": ["material-standards"],
+          "status": "retired"
         },
         {
           "id": "subdivision-of-standards",
@@ -134,13 +145,23 @@
         },
         {
           "id": "calibrations-transducers-for-measurement-introduction",
-          "name": "calibrations. Transducers for Measurement: Introduction",
-          "requires": ["subdivision-of-standards"]
+          "name": "calibrations",
+          "requires": ["subdivision-of-standards"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "transducers-for-measurement-introduction-to-transducers",
+          "name": "Transducers for Measurement: Introduction to Transducers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["calibrations-transducers-for-measurement-introduction"]
         },
         {
           "id": "transfer-efficiency",
           "name": "Transfer Efficiency",
-          "requires": ["calibrations-transducers-for-measurement-introduction"]
+          "requires": ["calibrations-transducers-for-measurement-introduction"],
+          "status": "retired"
         },
         {
           "id": "classification-of-transducers",
@@ -155,22 +176,33 @@
         {
           "id": "intermediate-modifying-devices",
           "name": "Intermediate Modifying Devices",
-          "requires": ["quality-attributes-for-transducers"]
+          "requires": ["quality-attributes-for-transducers"],
+          "status": "retired"
         },
         {
           "id": "advantages-of-electrical-intermediate",
           "name": "Advantages of Electrical Intermediate",
-          "requires": ["intermediate-modifying-devices"]
+          "requires": ["intermediate-modifying-devices"],
+          "status": "retired"
         },
         {
           "id": "electrical-intermediate-modifying-devices",
           "name": "Electrical Intermediate Modifying Devices",
-          "requires": ["advantages-of-electrical-intermediate"]
+          "requires": ["advantages-of-electrical-intermediate"],
+          "status": "retired"
         },
         {
           "id": "terminating-devices",
           "name": "Terminating Devices",
-          "requires": ["electrical-intermediate-modifying-devices"]
+          "requires": ["electrical-intermediate-modifying-devices"],
+          "status": "retired"
+        },
+        {
+          "id": "types-of-standards",
+          "name": "types of standards",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["terminating-devices"]
         }
       ]
     },
@@ -181,12 +213,79 @@
       "topics": [
         {
           "id": "principle-of-interchangeability-selective-assembly",
-          "name": "Principle of Interchangeability, selective assembly, Tolerances, allowance, Maximum and Minimum Metal Conditions, Fits, System of Limits and Fits, Hole basis and shaft basis systems, Design of Limit g"
+          "name": "Principle of Interchangeability",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "selective-assembly",
+          "name": "Selective Assembly",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principle-of-interchangeability-selective-assembly"]
+        },
+        {
+          "id": "tolerances",
+          "name": "Tolerances",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["selective-assembly"]
+        },
+        {
+          "id": "allowance",
+          "name": "allowance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tolerances"]
+        },
+        {
+          "id": "maximum-and-minimum-metal-conditions",
+          "name": "Maximum and Minimum Metal Conditions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["allowance"]
+        },
+        {
+          "id": "fits",
+          "name": "Fits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["maximum-and-minimum-metal-conditions"]
+        },
+        {
+          "id": "system-of-limits-and-fits",
+          "name": "System of Limits and Fits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fits"]
+        },
+        {
+          "id": "hole-basis-and-shaft-basis-systems",
+          "name": "Hole basis and shaft basis systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["system-of-limits-and-fits"]
         },
         {
           "id": "measurements-of-force-torque-and-pressure-measurement-of",
-          "name": "Measurements of Force, Torque, and Pressure: Measurement of Force: platform balance, load cell, proving ring",
-          "requires": ["principle-of-interchangeability-selective-assembly"]
+          "name": "Measurement of Force: load cell",
+          "requires": ["principle-of-interchangeability-selective-assembly"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "proving-ring",
+          "name": "proving ring",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["measurements-of-force-torque-and-pressure-measurement-of"]
+        },
+        {
+          "id": "ring-balance",
+          "name": "Ring Balance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["proving-ring"]
         },
         {
           "id": "measurement-of-torque-dynamometer",
@@ -195,13 +294,80 @@
         },
         {
           "id": "pressure-measurement-scales-method-of-pressure-measurement",
-          "name": "Pressure Measurement Scales, Method of Pressure Measurement, Ring Balance, Inverted Bell Manometer, Elastic Transducers, Electrical Pressure Transducer, Dead-weight Pressure Gauge, Measurement of Vacu",
-          "requires": ["measurement-of-torque-dynamometer"]
+          "name": "Pressure Measurement Scales",
+          "requires": ["measurement-of-torque-dynamometer"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "inverted-bell-manometer",
+          "name": "Inverted Bell Manometer",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pressure-measurement-scales-method-of-pressure-measurement"]
+        },
+        {
+          "id": "dead-weight-pressure-gauge",
+          "name": "Dead-weight Pressure Gauge",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["inverted-bell-manometer"]
         },
         {
           "id": "measurements-of-strain-speed-and-temperature-measurement-of",
-          "name": "Measurements of Strain, Speed, and Temperature: Measurement of Strain, Strain Gauge Material, Backing or Carrier Materials, Adhesives, Protective Coatings, Bonding of Gauges, Gauge Factor, Theory of S",
-          "requires": ["pressure-measurement-scales-method-of-pressure-measurement"]
+          "name": "Measurement of Strain: Strain Gauge Material",
+          "requires": ["pressure-measurement-scales-method-of-pressure-measurement"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "backing-or-carrier-materials",
+          "name": "Backing or Carrier Materials",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["measurements-of-strain-speed-and-temperature-measurement-of"]
+        },
+        {
+          "id": "adhesives",
+          "name": "Adhesives",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["backing-or-carrier-materials"]
+        },
+        {
+          "id": "protective-coatings",
+          "name": "Protective Coatings",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adhesives"]
+        },
+        {
+          "id": "bonding-of-gauges",
+          "name": "Bonding of Gauges",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["protective-coatings"]
+        },
+        {
+          "id": "design-of-limit-gauging-taylor-s-principle",
+          "name": "Design of Limit gauging: Taylor’s Principle",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bonding-of-gauges"]
+        },
+        {
+          "id": "measurement-of-vacuum",
+          "name": "Measurement of Vacuum",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-of-limit-gauging-taylor-s-principle"]
+        },
+        {
+          "id": "highpressure-measurement",
+          "name": "HighPressure Measurement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["measurement-of-vacuum"]
         }
       ]
     },
@@ -216,8 +382,24 @@
         },
         {
           "id": "angle-measurement-instruments-bevel-protector-sine-bar-and",
-          "name": "Angle measurement instruments: bevel protector, sine bar and centre, clinometers, collimator",
-          "requires": ["linear-measurements-instruments-verniers-and-micrometers"]
+          "name": "Angle measurement instruments: bevel protector",
+          "requires": ["linear-measurements-instruments-verniers-and-micrometers"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "clinometers",
+          "name": "clinometers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["angle-measurement-instruments-bevel-protector-sine-bar-and"]
+        },
+        {
+          "id": "collimator",
+          "name": "collimator",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["clinometers"]
         },
         {
           "id": "calibrations-of-the-instruments-slip-gauges",
@@ -226,13 +408,57 @@
         },
         {
           "id": "comparators-need-for-comparators-characteristics-of",
-          "name": "Comparators: Need for comparators, characteristics of comparators, classifications: mechanical, optical, mechanical-optical, electrical, and pneumatic",
-          "requires": ["calibrations-of-the-instruments-slip-gauges"]
+          "name": "Comparators: Need for comparators",
+          "requires": ["calibrations-of-the-instruments-slip-gauges"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "characteristics-of-comparators",
+          "name": "characteristics of comparators",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["comparators-need-for-comparators-characteristics-of"]
+        },
+        {
+          "id": "their-classifications",
+          "name": "their classifications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characteristics-of-comparators"]
         },
         {
           "id": "measurement-of-surface-roughness-and-texture-significance-of",
           "name": "Measurement of surface roughness and texture: Significance of surface finish, terminology of surface",
           "requires": ["comparators-need-for-comparators-characteristics-of"]
+        },
+        {
+          "id": "sine-bar-and-center",
+          "name": "sine bar and center",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["measurement-of-surface-roughness-and-texture-significance-of"]
+        },
+        {
+          "id": "calibration-of-the-instruments",
+          "name": "Calibration of the instruments",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sine-bar-and-center"]
+        },
+        {
+          "id": "symbolic-representation",
+          "name": "symbolic representation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["calibration-of-the-instruments"]
+        },
+        {
+          "id": "measurement-techniques",
+          "name": "measurement techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["symbolic-representation"]
         }
       ]
     },
@@ -248,7 +474,8 @@
         {
           "id": "specifying-limits-of-variability",
           "name": "Specifying Limits of Variability",
-          "requires": ["introduction-to-inspection-and-quality-control"]
+          "requires": ["introduction-to-inspection-and-quality-control"],
+          "status": "retired"
         },
         {
           "id": "dimensions-and-tolerances",
@@ -258,12 +485,14 @@
         {
           "id": "selection-of-gauging-equipment",
           "name": "Selection of Gauging Equipment",
-          "requires": ["dimensions-and-tolerances"]
+          "requires": ["dimensions-and-tolerances"],
+          "status": "retired"
         },
         {
           "id": "gauge-control",
           "name": "Gauge Control",
-          "requires": ["selection-of-gauging-equipment"]
+          "requires": ["selection-of-gauging-equipment"],
+          "status": "retired"
         },
         {
           "id": "quality-control-and-quality-assurance",
@@ -278,7 +507,8 @@
         {
           "id": "total-quality-management",
           "name": "Total Quality Management",
-          "requires": ["statistical-quality-control"]
+          "requires": ["statistical-quality-control"],
+          "status": "retired"
         },
         {
           "id": "six-sigma",
@@ -293,32 +523,38 @@
         {
           "id": "types-of-nanomaterial",
           "name": "types of nanomaterial",
-          "requires": ["quality-standards-nanometrology-introduction"]
+          "requires": ["quality-standards-nanometrology-introduction"],
+          "status": "retired"
         },
         {
           "id": "applications-of-nanotechnology",
           "name": "applications of nanotechnology",
-          "requires": ["types-of-nanomaterial"]
+          "requires": ["types-of-nanomaterial"],
+          "status": "retired"
         },
         {
           "id": "techniques-of-nanometrology-transmission-electron-microscope",
           "name": "techniques of nanometrology: transmission electron microscope",
-          "requires": ["applications-of-nanotechnology"]
+          "requires": ["applications-of-nanotechnology"],
+          "status": "retired"
         },
         {
           "id": "scanning-electron-microscope",
           "name": "scanning electron microscope",
-          "requires": ["techniques-of-nanometrology-transmission-electron-microscope"]
+          "requires": ["techniques-of-nanometrology-transmission-electron-microscope"],
+          "status": "retired"
         },
         {
           "id": "atomic-force-microscope",
           "name": "atomic force microscope",
-          "requires": ["scanning-electron-microscope"]
+          "requires": ["scanning-electron-microscope"],
+          "status": "retired"
         },
         {
           "id": "x-ray-diffraction-systems",
           "name": "X- ray diffraction systems",
-          "requires": ["atomic-force-microscope"]
+          "requires": ["atomic-force-microscope"],
+          "status": "retired"
         },
         {
           "id": "miscellaneous-metrology-precision-instrumentation-based-on",
@@ -344,8 +580,24 @@
           "id": "machine-vision",
           "name": "Machine Vision",
           "requires": ["automated-inspection"]
+        },
+        {
+          "id": "uncertainty-of-measurement-uncertainty-issues",
+          "name": "Uncertainty of Measurement-Uncertainty Issues",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["machine-vision"]
+        },
+        {
+          "id": "uncertainty-calculations",
+          "name": "Uncertainty Calculations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["uncertainty-of-measurement-uncertainty-issues"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-mechanical-measurements-and-metrology-laboratory-me"]
 }

@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Surface and Offshore Production Operations",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -145,8 +145,17 @@
         },
         {
           "id": "flow-improver-pour-point-depression-and-drag-reducer-heat",
-          "name": "Flow improver (Pour point depression and Drag reducer, heat treatment)",
-          "requires": ["flow-assurance-problems-and-mitigation"]
+          "name": "Flow improver (Pour point depression and Drag reducer",
+          "requires": ["flow-assurance-problems-and-mitigation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "heat-treatment",
+          "name": "heat treatment)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flow-improver-pour-point-depression-and-drag-reducer-heat"]
         },
         {
           "id": "pigging-in-pipe-lines",
@@ -160,10 +169,6 @@
       "name": "Shallow and Deep-Water Development",
       "hours": 12,
       "topics": [
-        {
-          "id": "introduction-to-offshore",
-          "name": "Introduction to Offshore"
-        },
         {
           "id": "environmental-conditions-wave",
           "name": "Environmental conditions: Wave",
@@ -183,11 +188,6 @@
           "id": "deep-water-development-and-flow-assurance-strategy",
           "name": "Deep water development & Flow assurance strategy",
           "requires": ["types-and-classification-of-offshore-platforms"]
-        },
-        {
-          "id": "floating-platforms",
-          "name": "floating platforms",
-          "requires": ["deep-water-development-and-flow-assurance-strategy"]
         },
         {
           "id": "mooring-and-anchoring-systems",
@@ -213,29 +213,124 @@
       "topics": [
         {
           "id": "techniques-of-drilling-and-completing-in-shallow-water",
-          "name": "Techniques of drilling and completing in shallow water, Techniques of drilling and completion in deep water, subsea completion, Drilling and production risers, flexible risers: configuration and layin"
+          "name": "Techniques of drilling and completing in shallow water",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "smart-and-intelligent-well-completion-oil-processing-in",
-          "name": "Smart and intelligent well completion, Oil processing in offshore and comparison with onshore",
+          "id": "techniques-of-drilling-and-completion-in-deep-water",
+          "name": "Techniques of drilling and completion in deep water",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["techniques-of-drilling-and-completing-in-shallow-water"]
         },
         {
-          "id": "offshore-safety-and-fire-protection-safety-systems-for",
-          "name": "Offshore Safety and fire protection, Safety systems for offshore operations, Case history analysis and lessons learned",
+          "id": "subsea-completion",
+          "name": "subsea completion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["techniques-of-drilling-and-completion-in-deep-water"]
+        },
+        {
+          "id": "drilling-and-production-risers",
+          "name": "Drilling and production risers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["subsea-completion"]
+        },
+        {
+          "id": "subsea",
+          "name": "subsea",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["drilling-and-production-risers"]
+        },
+        {
+          "id": "smart-and-intelligent-well-completion-oil-processing-in",
+          "name": "Smart and intelligent well completion",
+          "requires": ["techniques-of-drilling-and-completing-in-shallow-water"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "oil-processing-in-offshore-and-comparison-with-onshore",
+          "name": "Oil processing in offshore and comparison with onshore",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["smart-and-intelligent-well-completion-oil-processing-in"]
+        },
+        {
+          "id": "offshore-safety-and-fire-protection-safety-systems-for",
+          "name": "Offshore Safety and fire protection",
+          "requires": ["smart-and-intelligent-well-completion-oil-processing-in"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "safety-systems-for-offshore-operations",
+          "name": "Safety systems for offshore operations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["offshore-safety-and-fire-protection-safety-systems-for"]
+        },
+        {
+          "id": "case-history-analysis-and-lessons-learned",
+          "name": "Case history analysis and lessons learned",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["safety-systems-for-offshore-operations"]
         },
         {
           "id": "note-the-detailed-syllabus-page-for-this-course-prints-l-t-p",
           "name": "Note: The detailed syllabus page for this course prints L-T-P-C as 3-0-0-3",
-          "requires": ["offshore-safety-and-fire-protection-safety-systems-for"]
+          "requires": ["offshore-safety-and-fire-protection-safety-systems-for"],
+          "status": "retired"
         },
         {
           "id": "the-credits-shown-here-follow-the-official-course-structure",
           "name": "the credits shown here follow the official course structure table",
-          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"]
+          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"],
+          "status": "retired"
+        },
+        {
+          "id": "introduction-to-offshore",
+          "name": "Introduction to Offshore",
+          "movedFrom": {
+            "subject": "pdeu-surface-and-offshore-production-operations",
+            "chapter": "shallow-and-deep-water-development",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "floating-platforms",
+          "name": "floating platforms",
+          "requires": ["deep-water-development-and-flow-assurance-strategy"],
+          "movedFrom": {
+            "subject": "pdeu-surface-and-offshore-production-operations",
+            "chapter": "shallow-and-deep-water-development",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "flexible-risers-configuration-and-laying-techniques",
+          "name": "flexible risers: configuration and laying techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["floating-platforms"]
+        },
+        {
+          "id": "offshore-production-system-fixed",
+          "name": "Offshore production system: Fixed",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flexible-risers-configuration-and-laying-techniques"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -222,8 +222,17 @@
         },
         {
           "id": "deadlock-detection-and-recovery-from-deadlock-resource",
-          "name": "Deadlock Detection, and Recovery from Deadlock: Resource allocation graph and wait-for-graph",
-          "requires": ["bankers-algorithm"]
+          "name": "Deadlock Detection",
+          "requires": ["bankers-algorithm"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "recovery-from-deadlock-resource-allocation-graph-and-wait-fo",
+          "name": "Recovery from Deadlock: Resource allocation graph and wait-for-graph",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["deadlock-detection-and-recovery-from-deadlock-resource"]
         }
       ]
     },
@@ -258,8 +267,17 @@
         },
         {
           "id": "demand-paging",
+          "name": "Paging",
+          "requires": ["paging-virtual-memory-management-background"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "demand-paging-2",
           "name": "Demand Paging",
-          "requires": ["paging-virtual-memory-management-background"]
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["demand-paging"]
         },
         {
           "id": "copy-on-write",
@@ -269,7 +287,16 @@
         {
           "id": "page-replacement",
           "name": "Page Replacement",
-          "requires": ["copy-on-write"]
+          "requires": ["copy-on-write"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "page-replacement-algorithms-2",
+          "name": "Page Replacement Algorithms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["page-replacement"]
         },
         {
           "id": "page-replacement-algorithms",
@@ -283,8 +310,17 @@
         },
         {
           "id": "thrashing-storage-management-file-and-directory-structure",
-          "name": "Thrashing. Storage Management- File and Directory structure",
-          "requires": ["allocation-of-frames"]
+          "name": "Thrashing",
+          "requires": ["allocation-of-frames"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "storage-management-file-and-directory-structure",
+          "name": "Storage Management- File and Directory structure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thrashing-storage-management-file-and-directory-structure"]
         },
         {
           "id": "unix-i-node-structure",
@@ -308,5 +344,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-operating-system-laboratory-ce"]
 }

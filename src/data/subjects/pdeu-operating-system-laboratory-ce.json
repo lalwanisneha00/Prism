@@ -1,0 +1,101 @@
+{
+  "id": "pdeu-operating-system-laboratory-ce",
+  "name": "Operating System Laboratory",
+  "field": "Operating System Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (COMP semester 5): Operating System Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 10-11 of COMP/sem5/CE_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CS304P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-operating-system-laboratory",
+      "code": "24CS304P",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-implementation-of-linux-basic-commands-on-unix",
+          "name": "Implementation of Linux basic commands on Unix/Linux",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-cal-echo-date-ls-lp-man-who-whomi-unname-hostna",
+          "name": "cal, echo, date, ls, lp, man, who, whomi, unname, hostname, bc, uname, uptime, help, cd, mkdir, ls -ltr, bc -l, Unix editor commands: vi, touch, nano, File manipulation commands: cat, grep, rm, touch, cp, mv, cut, head, tail, chmod, wc 2. Implementation of Shell fundamentals on Unix/Linux",
+          "number": 2,
+          "requires": ["experiment-1-implementation-of-linux-basic-commands-on-unix"]
+        },
+        {
+          "id": "experiment-3-if-else-construct-looping-concepts-switch-case",
+          "name": "If Else construct, looping concepts, switch case concepts, user defined function and the recursion concepts 3. Programming simple shell programs using shell fundamentals.",
+          "number": 3,
+          "requires": ["experiment-2-cal-echo-date-ls-lp-man-who-whomi-unname-hostna"]
+        },
+        {
+          "id": "experiment-4-to-check-the-given-number-is-even-or-odd",
+          "name": "To check the given number is even or odd.",
+          "number": 4,
+          "requires": ["experiment-3-if-else-construct-looping-concepts-switch-case"]
+        },
+        {
+          "id": "experiment-5-to-check-the-given-year-is-leap-year-or-not",
+          "name": "To check the given year is leap year or not.",
+          "number": 5,
+          "requires": ["experiment-4-to-check-the-given-number-is-even-or-odd"]
+        },
+        {
+          "id": "experiment-6-to-find-the-factorial-of-a-number",
+          "name": "To find the factorial of a number.",
+          "number": 6,
+          "requires": ["experiment-5-to-check-the-given-year-is-leap-year-or-not"]
+        },
+        {
+          "id": "experiment-7-to-swap-the-two-integers",
+          "name": "To swap the two integers.",
+          "number": 7,
+          "requires": ["experiment-6-to-find-the-factorial-of-a-number"]
+        },
+        {
+          "id": "experiment-8-to-create-user-defined-functions-for-computing",
+          "name": "To create user defined functions for computing minimum and maximum values from the input by the user using command line arguments. 4. Implementation of system calls of UNIX operating system in C",
+          "number": 8,
+          "requires": ["experiment-7-to-swap-the-two-integers"]
+        },
+        {
+          "id": "experiment-9-fork-exec-getpid-exit-wait-close-stat-opendir-r",
+          "name": "fork, exec, getpid, exit, wait, close, stat, opendir, readdir 5. Simulation of unix commands",
+          "number": 9,
+          "requires": ["experiment-8-to-create-user-defined-functions-for-computing"]
+        },
+        {
+          "id": "experiment-10-cp-ls-grep-rm-6-group-projects",
+          "name": "cp, ls, grep, rm 6. Group projects",
+          "number": 10,
+          "requires": ["experiment-9-fork-exec-getpid-exit-wait-close-stat-opendir-r"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-operating-system"]
+}

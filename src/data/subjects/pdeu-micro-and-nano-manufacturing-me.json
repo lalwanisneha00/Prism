@@ -1,0 +1,379 @@
+{
+  "id": "pdeu-micro-and-nano-manufacturing-me",
+  "name": "Micro and Nano Manufacturing",
+  "field": "Micro and Nano Manufacturing",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 7): Micro and Nano Manufacturing",
+    "note": "Units and topics copied from the course handout PDF (pages 4 of MECH/sem7/Mechanical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME433T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s7-program-elective--micro-and-nano-manufacturing",
+      "code": "24ME433T",
+      "category": "Program Elective",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "unit-1",
+      "name": "Unit 1",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-precision-engineering",
+          "name": "Introduction to Precision Engineering"
+        },
+        {
+          "id": "micro-electromechanical-systems",
+          "name": "Micro-electromechanical systems",
+          "requires": ["introduction-to-precision-engineering"]
+        },
+        {
+          "id": "micro-instrumentation",
+          "name": "micro instrumentation",
+          "requires": ["micro-electromechanical-systems"]
+        },
+        {
+          "id": "micro-mechatronics-merits-and-applications",
+          "name": "micro mechatronics merits and applications",
+          "requires": ["micro-instrumentation"]
+        },
+        {
+          "id": "introduction-to-bulk-micromachining",
+          "name": "Introduction to Bulk micromachining",
+          "requires": ["micro-mechatronics-merits-and-applications"]
+        },
+        {
+          "id": "surface-micromachining",
+          "name": "Surface micromachining",
+          "requires": ["introduction-to-bulk-micromachining"]
+        },
+        {
+          "id": "liga-and-sliga",
+          "name": "LIGA and SLIGA",
+          "requires": ["surface-micromachining"]
+        },
+        {
+          "id": "introduction-to-micro-and-nano-fabrication-basics",
+          "name": "Introduction to Micro and Nano Fabrication: basics",
+          "requires": ["liga-and-sliga"]
+        },
+        {
+          "id": "photolithography-and-bulk-micromachining",
+          "name": "Photolithography and Bulk micromachining",
+          "requires": ["introduction-to-micro-and-nano-fabrication-basics"]
+        },
+        {
+          "id": "flowchart",
+          "name": "Flowchart",
+          "requires": ["photolithography-and-bulk-micromachining"]
+        },
+        {
+          "id": "basic-chip-making-processes",
+          "name": "basic chip making processes",
+          "requires": ["flowchart"]
+        },
+        {
+          "id": "principles-and-applications",
+          "name": "principles and applications",
+          "requires": ["basic-chip-making-processes"]
+        },
+        {
+          "id": "examples-field-effect-transistor",
+          "name": "Examples (Field Effect Transistor)",
+          "requires": ["principles-and-applications"]
+        },
+        {
+          "id": "nanofabrication-using-soft-lithography-and-various-approache",
+          "name": "Nanofabrication using soft lithography and various approaches of soft lithography",
+          "requires": ["examples-field-effect-transistor"]
+        }
+      ]
+    },
+    {
+      "id": "unit-2",
+      "name": "Unit 2",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-mechanical-micromachining",
+          "name": "Introduction to mechanical micromachining"
+        },
+        {
+          "id": "micro-drilling",
+          "name": "Micro drilling",
+          "requires": ["introduction-to-mechanical-micromachining"]
+        },
+        {
+          "id": "micro-turning",
+          "name": "Micro turning",
+          "requires": ["micro-drilling"]
+        },
+        {
+          "id": "micro-milling-and-micro-grinding",
+          "name": "Micro milling and Micro grinding",
+          "requires": ["micro-turning"]
+        },
+        {
+          "id": "process",
+          "name": "process",
+          "requires": ["micro-milling-and-micro-grinding"]
+        },
+        {
+          "id": "tools-and-applications",
+          "name": "tools and applications",
+          "requires": ["process"]
+        },
+        {
+          "id": "introduction-to-non-conventional-micro-nano-manufacturing",
+          "name": "Introduction to Non‐conventional micro‐nano manufacturing",
+          "requires": ["tools-and-applications"]
+        },
+        {
+          "id": "process-2",
+          "name": "Process",
+          "requires": ["introduction-to-non-conventional-micro-nano-manufacturing"]
+        },
+        {
+          "id": "principle-and-applications",
+          "name": "principle and applications",
+          "requires": ["process-2"]
+        },
+        {
+          "id": "micro-ebm",
+          "name": "Micro EBM",
+          "requires": ["principle-and-applications"]
+        },
+        {
+          "id": "process-principle",
+          "name": "Process principle",
+          "requires": ["micro-ebm"]
+        },
+        {
+          "id": "description-and-applications",
+          "name": "description and applications",
+          "requires": ["process-principle"]
+        },
+        {
+          "id": "electron-beam-micro-welding",
+          "name": "Electron Beam Micro-welding",
+          "requires": ["description-and-applications"]
+        },
+        {
+          "id": "laser-micro-welding",
+          "name": "Laser Micro welding",
+          "requires": ["electron-beam-micro-welding"]
+        },
+        {
+          "id": "abrasive-jet-micro-machining",
+          "name": "Abrasive Jet Micro Machining",
+          "requires": ["laser-micro-welding"]
+        },
+        {
+          "id": "wajmm",
+          "name": "WAJMM",
+          "requires": ["abrasive-jet-micro-machining"]
+        },
+        {
+          "id": "micro-edm",
+          "name": "Micro EDM",
+          "requires": ["wajmm"]
+        },
+        {
+          "id": "micro-wedm",
+          "name": "Micro WEDM",
+          "requires": ["micro-edm"]
+        },
+        {
+          "id": "micro-ecm",
+          "name": "Micro ECM",
+          "requires": ["micro-wedm"]
+        },
+        {
+          "id": "micro-lbm",
+          "name": "Micro LBM",
+          "requires": ["micro-ecm"]
+        }
+      ]
+    },
+    {
+      "id": "unit-3",
+      "name": "Unit 3",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-micro-and-nano-finishing-processes",
+          "name": "Introduction to Micro and Nano Finishing Processes"
+        },
+        {
+          "id": "chemical-mechanical-polishing-cmp",
+          "name": "Chemical Mechanical Polishing (CMP)",
+          "requires": ["introduction-to-micro-and-nano-finishing-processes"]
+        },
+        {
+          "id": "schematic-diagram",
+          "name": "Schematic diagram",
+          "requires": ["chemical-mechanical-polishing-cmp"]
+        },
+        {
+          "id": "principle-and-applications-2",
+          "name": "principle and applications",
+          "requires": ["schematic-diagram"]
+        },
+        {
+          "id": "magnetorheological-finishing-mrf-processes",
+          "name": "Magnetorheological Finishing (MRF) processes",
+          "requires": ["principle-and-applications-2"]
+        },
+        {
+          "id": "magnetorheological-abrasive-flow-finishing-processes-mraff",
+          "name": "Magnetorheological abrasive flow finishing processes (MRAFF)",
+          "requires": ["magnetorheological-finishing-mrf-processes"]
+        },
+        {
+          "id": "force-analysis-of-mraff-process",
+          "name": "Force analysis of MRAFF process",
+          "requires": ["magnetorheological-abrasive-flow-finishing-processes-mraff"]
+        },
+        {
+          "id": "magnetorheological-jet-finishing-processes",
+          "name": "Magnetorheological Jet finishing processes",
+          "requires": ["force-analysis-of-mraff-process"]
+        },
+        {
+          "id": "working-principle-and-polishing-performance-of-mr-jet-machin",
+          "name": "Working principle and polishing performance of MR Jet Machine",
+          "requires": ["magnetorheological-jet-finishing-processes"]
+        },
+        {
+          "id": "elastic-emission-machining-eem",
+          "name": "Elastic Emission Machining (EEM)",
+          "requires": ["working-principle-and-polishing-performance-of-mr-jet-machin"]
+        },
+        {
+          "id": "machine-description",
+          "name": "machine description",
+          "requires": ["elastic-emission-machining-eem"]
+        },
+        {
+          "id": "applications",
+          "name": "applications",
+          "requires": ["machine-description"]
+        },
+        {
+          "id": "ion-beam-machining-ibm",
+          "name": "Ion Beam Machining (IBM)",
+          "requires": ["applications"]
+        },
+        {
+          "id": "principle",
+          "name": "principle",
+          "requires": ["ion-beam-machining-ibm"]
+        },
+        {
+          "id": "mechanism-of-material-removal",
+          "name": "mechanism of material removal",
+          "requires": ["principle"]
+        }
+      ]
+    },
+    {
+      "id": "unit-4",
+      "name": "Unit 4",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-nanotechnology",
+          "name": "Introduction to Nanotechnology"
+        },
+        {
+          "id": "nanomaterials-classification",
+          "name": "Nanomaterials Classification",
+          "requires": ["introduction-to-nanotechnology"]
+        },
+        {
+          "id": "carbon-nano-tubes",
+          "name": "Carbon Nano-tubes",
+          "requires": ["nanomaterials-classification"]
+        },
+        {
+          "id": "properties-and-structures",
+          "name": "properties and structures",
+          "requires": ["carbon-nano-tubes"]
+        },
+        {
+          "id": "molecular-logic-gates-and-nano-level-biosensors",
+          "name": "Molecular Logic Gates and Nano level Biosensors",
+          "requires": ["properties-and-structures"]
+        },
+        {
+          "id": "applications-2",
+          "name": "applications",
+          "requires": ["molecular-logic-gates-and-nano-level-biosensors"]
+        },
+        {
+          "id": "introduction-to-micro-and-nano-measurements-metrology",
+          "name": "Introduction to micro and nano measurements (metrology)",
+          "requires": ["applications-2"]
+        },
+        {
+          "id": "defining-the-scale",
+          "name": "defining the scale",
+          "requires": ["introduction-to-micro-and-nano-measurements-metrology"]
+        },
+        {
+          "id": "uncertainty",
+          "name": "uncertainty",
+          "requires": ["defining-the-scale"]
+        },
+        {
+          "id": "optical-microscopy",
+          "name": "Optical Microscopy",
+          "requires": ["uncertainty"]
+        },
+        {
+          "id": "description",
+          "name": "description",
+          "requires": ["optical-microscopy"]
+        },
+        {
+          "id": "applications-and-limitations",
+          "name": "applications and limitations",
+          "requires": ["description"]
+        },
+        {
+          "id": "scanning-electron-microscopy-and-fib",
+          "name": "Scanning Electron Microscopy and FIB",
+          "requires": ["applications-and-limitations"]
+        },
+        {
+          "id": "principle-and-applications-3",
+          "name": "principle and applications",
+          "requires": ["scanning-electron-microscopy-and-fib"]
+        },
+        {
+          "id": "scanning-probe-microscopy",
+          "name": "Scanning Probe Microscopy",
+          "requires": ["principle-and-applications-3"]
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["ce"],
+  "branches": ["ce", "chem"],
   "semesters": [2],
   "code": "24CP102T",
   "credits": 1,
@@ -21,6 +21,16 @@
       "credits": 1,
       "semester": 2,
       "kind": "core"
+    },
+    {
+      "branch": "chem",
+      "key": "s2-computer-programming-ii",
+      "code": "24CP102T",
+      "category": "Program Core",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 2,
+      "kind": "core"
     }
   ],
   "syllabusSource": {
@@ -28,8 +38,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Computer Programming - II",
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -44,8 +54,17 @@
         },
         {
           "id": "comparison-with-other-programming-languages-python-ides",
-          "name": "Comparison with other programming languages. Python IDEs Tokens: Identifiers",
-          "requires": ["definition-and-its-historical-background"]
+          "name": "Comparison with other programming languages",
+          "requires": ["definition-and-its-historical-background"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "python-ides-tokens-identifiers",
+          "name": "Python IDEs Tokens: Identifiers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["comparison-with-other-programming-languages-python-ides"]
         },
         {
           "id": "keyword-data-types-int",
@@ -125,7 +144,16 @@
         {
           "id": "elif-and-else",
           "name": "elif and else",
-          "requires": ["input-and-output-methods-control-flow-conditional-statements"]
+          "requires": ["input-and-output-methods-control-flow-conditional-statements"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "for-else-and-while-else-2",
+          "name": "for else and while else",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["elif-and-else"]
         },
         {
           "id": "nesting",
@@ -216,7 +244,16 @@
         {
           "id": "decorator-function",
           "name": "Decorator function",
-          "requires": ["nested-function"]
+          "requires": ["nested-function"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "decorator-chaining-generator-function-2",
+          "name": "Decorator chaining Generator function",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["decorator-function"]
         },
         {
           "id": "decorator-chaining-generator-function",
@@ -237,7 +274,16 @@
         {
           "id": "object",
           "name": "Object",
-          "requires": ["class"]
+          "requires": ["class"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "object-reference-2",
+          "name": "Object reference",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["object"]
         },
         {
           "id": "object-reference",
@@ -333,9 +379,15 @@
         {
           "id": "max",
           "name": "Max",
-          "requires": ["raising-exceptions-and-custom-exception-classes"]
+          "requires": ["raising-exceptions-and-custom-exception-classes"],
+          "status": "retired"
         }
       ]
     }
+  ],
+  "courseType": "theory",
+  "relatedCourses": [
+    "pdeu-computer-programming-ii-laboratory-chem",
+    "pdeu-computer-programming-ii-laboratory-ce"
   ]
 }

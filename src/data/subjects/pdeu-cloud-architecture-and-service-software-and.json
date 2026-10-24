@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Cloud Architecture and Service (Software & Networks)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -162,7 +162,16 @@
       "topics": [
         {
           "id": "load-balancing",
-          "name": "Load balancing"
+          "name": "Load balancing",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dynamic-and-static-load-balancing-2",
+          "name": "dynamic and static load balancing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["load-balancing"]
         },
         {
           "id": "dynamic-and-static-load-balancing",
@@ -227,5 +236,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

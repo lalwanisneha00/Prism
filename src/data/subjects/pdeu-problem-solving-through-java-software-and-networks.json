@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Problem Solving through Java (Software & Networks)",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -82,8 +82,24 @@
         },
         {
           "id": "python-classes",
-          "name": "finals & blank finals. Classes and Objects: Concepts",
-          "requires": ["type-conversion-and-casting"]
+          "name": "finals & blank finals",
+          "requires": ["type-conversion-and-casting"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "classes-and-objects-concepts",
+          "name": "Classes and Objects: Concepts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["python-classes"]
+        },
+        {
+          "id": "basic-concepts",
+          "name": "Basic concepts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classes-and-objects-concepts"]
         },
         {
           "id": "methods",
@@ -188,8 +204,17 @@
         },
         {
           "id": "variables-in-interface-and-extending-interfaces-packages",
-          "name": "variables in interface and extending interfaces. Packages: Creating a Package",
-          "requires": ["implementing-interface"]
+          "name": "variables in interface and extending interfaces",
+          "requires": ["implementing-interface"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "packages-creating-a-package",
+          "name": "Packages: Creating a Package",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["variables-in-interface-and-extending-interfaces-packages"]
         },
         {
           "id": "setting-classpath",
@@ -203,8 +228,17 @@
         },
         {
           "id": "exceptions-oop",
-          "name": "importing packages. Exception Handling: Concepts of Exception handling",
-          "requires": ["access-control-protection"]
+          "name": "importing packages",
+          "requires": ["access-control-protection"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "exception-handling-concepts-of-exception-handling",
+          "name": "Exception Handling: Concepts of Exception handling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["exceptions-oop"]
         },
         {
           "id": "types-of-exceptions",
@@ -259,8 +293,17 @@
         },
         {
           "id": "command-line-arguments-library-date-class",
-          "name": "Command-line arguments. Library: Date class",
-          "requires": ["string-buffer-class"]
+          "name": "Command-line arguments",
+          "requires": ["string-buffer-class"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "library-date-class",
+          "name": "Library: Date class",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["command-line-arguments-library-date-class"]
         },
         {
           "id": "wrapper-classes-multithreading-concepts-of-multithreading",
@@ -375,10 +418,20 @@
         },
         {
           "id": "handling-events",
+          "name": "Events",
+          "requires": ["delegation-event-model"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "handling-events-2",
           "name": "handling events",
-          "requires": ["delegation-event-model"]
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["handling-events"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

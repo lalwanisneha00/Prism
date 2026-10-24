@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "circuits",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -96,7 +96,16 @@
         {
           "id": "differential-amplifier-using-single-and-two-op-amp",
           "name": "Differential amplifier using single and two op-amp",
-          "requires": ["voltage-follower"]
+          "requires": ["voltage-follower"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "instrumentation-amplifier-using-op-amp-2",
+          "name": "Instrumentation amplifier using Op-Amp",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["differential-amplifier-using-single-and-two-op-amp"]
         },
         {
           "id": "instrumentation-amplifier-using-op-amp",
@@ -155,8 +164,24 @@
         },
         {
           "id": "active-filters",
-          "name": "Active RC Filters: Idealistic & Realistic response of filters (Low pass, High pass, Band pass and Band reject)",
-          "requires": ["inverting-and-non-inverting-schmitt-trigger-circuit"]
+          "name": "Active RC Filters: Idealistic & Realistic response of filters (Low pass",
+          "requires": ["inverting-and-non-inverting-schmitt-trigger-circuit"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "high-pass",
+          "name": "High pass",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["active-filters"]
+        },
+        {
+          "id": "band-pass-and-band-reject",
+          "name": "Band pass and Band reject)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["high-pass"]
         },
         {
           "id": "notch-filter",
@@ -181,8 +206,38 @@
         },
         {
           "id": "sine-wave-generator-phase-shift-wein-bridge-hartley-colpitts",
-          "name": "Sine wave generator (Phase shift, Wein bridge, Hartley, Colpitts, and Crystal oscillator)",
-          "requires": ["conditions-for-oscillation"]
+          "name": "Sine wave generator (Phase shift",
+          "requires": ["conditions-for-oscillation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "wein-bridge",
+          "name": "Wein bridge",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sine-wave-generator-phase-shift-wein-bridge-hartley-colpitts"]
+        },
+        {
+          "id": "hartley",
+          "name": "Hartley",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wein-bridge"]
+        },
+        {
+          "id": "colpitts",
+          "name": "Colpitts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hartley"]
+        },
+        {
+          "id": "crystal-oscillator",
+          "name": "Crystal oscillator)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["colpitts"]
         },
         {
           "id": "square-and-triangular-waveform-generators-period-and",
@@ -227,8 +282,17 @@
         },
         {
           "id": "bistable-and-monostable-multivibrators-introduction-to-ota",
-          "name": "Bistable and Monostable Multivibrators. Introduction to OTA",
-          "requires": ["application-of-555-timer-as-astable"]
+          "name": "Bistable and Monostable Multivibrators",
+          "requires": ["application-of-555-timer-as-astable"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-ota",
+          "name": "Introduction to OTA",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bistable-and-monostable-multivibrators-introduction-to-ota"]
         },
         {
           "id": "ota-as-integrator-and-differentiator",
@@ -258,7 +322,16 @@
         {
           "id": "analog-to-digital-converter",
           "name": "Analog-to-Digital Converter",
-          "requires": ["ic-vco"]
+          "requires": ["ic-vco"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "digital-to-analog-converter-2",
+          "name": "Digital-to-Analog Converter",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["analog-to-digital-converter"]
         },
         {
           "id": "digital-to-analog-converter",
@@ -267,5 +340,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-linear-integrated-circuits-and-applications-lab-ece"]
 }

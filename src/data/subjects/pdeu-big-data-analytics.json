@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Big Data Analytics",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -115,8 +115,17 @@
         },
         {
           "id": "avro-and-file-based-data-structures-introduction-to-scala",
-          "name": "Avro and File-Based Data structures. Introduction to Scala programming and platforms",
-          "requires": ["hadoop-i-o"]
+          "name": "Avro and File-Based Data structures",
+          "requires": ["hadoop-i-o"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-scala-programming-and-platforms",
+          "name": "Introduction to Scala programming and platforms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["avro-and-file-based-data-structures-introduction-to-scala"]
         }
       ]
     },
@@ -222,5 +231,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

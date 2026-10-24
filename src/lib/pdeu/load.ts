@@ -47,10 +47,11 @@ export function applyOverrides(branch: PdeuBranch): PdeuBranch {
   return {
     ...branch,
     subjects: branch.subjects
-      .filter((s) => !excluded(s.semester, s) && !isLab(s))
+      .filter((s) => !excluded(s.semester, s) && !isLab(s) && !s.retired)
       .map((s) => {
         const rule = rules.find((r) => r.re.test(s.name));
-        return rule ? { ...s, core: rule.core } : s;
+        const options = s.options?.filter((o) => !o.retired);
+        return { ...s, ...(rule ? { core: rule.core } : {}), ...(options ? { options } : {}) };
       }),
   };
 }

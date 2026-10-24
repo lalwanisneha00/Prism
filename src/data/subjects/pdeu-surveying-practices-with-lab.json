@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "civil",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -94,7 +94,16 @@
         {
           "id": "contouring",
           "name": "contouring",
-          "requires": ["curvature-and-refraction-corrections"]
+          "requires": ["curvature-and-refraction-corrections"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "methods-of-contouring-2",
+          "name": "methods of contouring",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["contouring"]
         },
         {
           "id": "methods-of-contouring",
@@ -115,7 +124,16 @@
       "topics": [
         {
           "id": "theodolite-angles",
-          "name": "Theodolite survey: Instruments, Measurement of horizontal and vertical angle"
+          "name": "Theodolite survey: Instruments",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "measurement-of-horizontal-and-vertical-angle",
+          "name": "Measurement of horizontal and vertical angle",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["theodolite-angles"]
         },
         {
           "id": "horizontal-and-vertical-control",
@@ -129,8 +147,38 @@
         },
         {
           "id": "simple-curves",
-          "name": "Elements of simple, compound, and Reverse curves, Method of setting out simple circular curve, Computation of area of regular and irregular boundary computation of volume for earthwork in cutting & fi",
-          "requires": ["theodolite-angles"]
+          "name": "Elements of simple",
+          "requires": ["theodolite-angles"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "compound",
+          "name": "compound",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simple-curves"]
+        },
+        {
+          "id": "reverse-curves",
+          "name": "Reverse curves",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["compound"]
+        },
+        {
+          "id": "method-of-setting-out-simple-circular-curve",
+          "name": "Method of setting out simple circular curve",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reverse-curves"]
+        },
+        {
+          "id": "computation-of-area-of-regular-and-irregular-boundary-comput",
+          "name": "Computation of area of regular and irregular boundary computation of volume for earthwork in cutting & filling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["method-of-setting-out-simple-circular-curve"]
         }
       ]
     },
@@ -141,13 +189,108 @@
       "topics": [
         {
           "id": "edm-total-station",
-          "name": "Principle of Electronic Distance Measurement, Modulation, Types of EDM instrument modern surveying equipment, Total Station - Parts, Accessories, Advantages and Applications, land surveying with total",
-          "requires": ["theodolite-angles"]
+          "name": "Principle of Electronic Distance Measurement",
+          "requires": ["theodolite-angles"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "modulation",
+          "name": "Modulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["edm-total-station"]
+        },
+        {
+          "id": "types-of-edm-instrument-modern-surveying-equipment",
+          "name": "Types of EDM instrument modern surveying equipment",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["modulation"]
+        },
+        {
+          "id": "parts",
+          "name": "Parts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-edm-instrument-modern-surveying-equipment"]
+        },
+        {
+          "id": "accessories",
+          "name": "Accessories",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["parts"]
+        },
+        {
+          "id": "advantages-and-applications",
+          "name": "Advantages and Applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["accessories"]
         },
         {
           "id": "global-positioning-systems-segments-gps-measurements-errors",
-          "name": "Global Positioning Systems- Segments, GPS measurements, errors and biases, Surveying with GPS, Co-ordinate transformation, accuracy considerations",
-          "requires": ["edm-total-station"]
+          "name": "Global Positioning Systems- Segments",
+          "requires": ["edm-total-station"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gps-measurements",
+          "name": "GPS measurements",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["global-positioning-systems-segments-gps-measurements-errors"]
+        },
+        {
+          "id": "errors-and-biases",
+          "name": "errors and biases",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gps-measurements"]
+        },
+        {
+          "id": "surveying-with-gps",
+          "name": "Surveying with GPS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["errors-and-biases"]
+        },
+        {
+          "id": "co-ordinate-transformation",
+          "name": "Co-ordinate transformation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["surveying-with-gps"]
+        },
+        {
+          "id": "accuracy-considerations",
+          "name": "accuracy considerations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["co-ordinate-transformation"]
+        },
+        {
+          "id": "land-surveying-with-total-stations",
+          "name": "land surveying with total stations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["accuracy-considerations"]
+        },
+        {
+          "id": "field-procedure-for-total-station-survey",
+          "name": "Field Procedure for total station survey",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["land-surveying-with-total-stations"]
+        },
+        {
+          "id": "errors-in-total-station-survey",
+          "name": "Errors in Total Station Survey",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["field-procedure-for-total-station-survey"]
         }
       ]
     },
@@ -213,7 +356,16 @@
         {
           "id": "gis-applications",
           "name": "GIS applications",
-          "requires": ["cartography"]
+          "requires": ["cartography"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "applications-of-gis-in-civil-engineering",
+          "name": "applications of GIS in Civil Engineering",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gis-applications"]
         },
         {
           "id": "introduction-of-qgis-in-advanced-surveying",
@@ -227,5 +379,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-surveying-practices-laboratory-civil"]
 }

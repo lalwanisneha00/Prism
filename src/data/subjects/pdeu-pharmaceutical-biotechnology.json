@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Pharmaceutical Biotechnology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,44 @@
       "topics": [
         {
           "id": "classification-of-dosage-forms-i-solid-dosage-powders",
-          "name": "Classification of Dosage forms I. Solid Dosage: Powders"
+          "name": "Classification of Dosage forms I",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "solid-dosage-powders",
+          "name": "Solid Dosage: Powders",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-dosage-forms-i-solid-dosage-powders"]
         },
         {
           "id": "tablets-capsules-and-granules-ii-semi-solid-dosage-creams",
-          "name": "Tablets, Capsules, and Granules. II. Semi solid Dosage: Creams",
-          "requires": ["classification-of-dosage-forms-i-solid-dosage-powders"]
+          "name": "Tablets",
+          "requires": ["classification-of-dosage-forms-i-solid-dosage-powders"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "capsules",
+          "name": "Capsules",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tablets-capsules-and-granules-ii-semi-solid-dosage-creams"]
+        },
+        {
+          "id": "granules",
+          "name": "Granules",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["capsules"]
+        },
+        {
+          "id": "semi-solid-dosage-creams",
+          "name": "Semi solid Dosage: Creams",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["granules"]
         },
         {
           "id": "gels",
@@ -54,8 +86,24 @@
         },
         {
           "id": "ointment-and-paste-iii-liquid-dosage-monophasic-syrups-and",
-          "name": "Ointment and Paste. III. Liquid Dosage: Monophasic (Syrups & Elixirs)",
-          "requires": ["gels"]
+          "name": "Ointment and Paste",
+          "requires": ["gels"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "iii",
+          "name": "III",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ointment-and-paste-iii-liquid-dosage-monophasic-syrups-and"]
+        },
+        {
+          "id": "liquid-dosage-monophasic-syrups-and-elixirs",
+          "name": "Liquid Dosage: Monophasic (Syrups & Elixirs)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["iii"]
         },
         {
           "id": "biphasic-liquids-suspension",
@@ -64,8 +112,24 @@
         },
         {
           "id": "emulsion-iv-gas-dosage-aerosols-different-routes-of-drug",
-          "name": "Emulsion. IV. Gas Dosage: Aerosols. Different routes of drug administration: Oral",
-          "requires": ["biphasic-liquids-suspension"]
+          "name": "Emulsion",
+          "requires": ["biphasic-liquids-suspension"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gas-dosage-aerosols",
+          "name": "Gas Dosage: Aerosols",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["emulsion-iv-gas-dosage-aerosols-different-routes-of-drug"]
+        },
+        {
+          "id": "different-routes-of-drug-administration-oral",
+          "name": "Different routes of drug administration: Oral",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gas-dosage-aerosols"]
         },
         {
           "id": "parenteral",
@@ -89,8 +153,17 @@
         },
         {
           "id": "rectal-and-their-merits-and-demerits-types-of-impurities-in",
-          "name": "Rectal and their merits & demerits. Types of impurities in pharmaceuticals",
-          "requires": ["ocular"]
+          "name": "Rectal and their merits & demerits",
+          "requires": ["ocular"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "types-of-impurities-in-pharmaceuticals",
+          "name": "Types of impurities in pharmaceuticals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rectal-and-their-merits-and-demerits-types-of-impurities-in"]
         },
         {
           "id": "analytical-techniques-for-impurity-profiling",
@@ -120,8 +193,17 @@
         },
         {
           "id": "antitoxins-screening-of-vaccines-in-animal-models",
-          "name": "antitoxins. Screening of vaccines in animal models",
-          "requires": ["viral-vaccine"]
+          "name": "antitoxins",
+          "requires": ["viral-vaccine"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "screening-of-vaccines-in-animal-models",
+          "name": "Screening of vaccines in animal models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["antitoxins-screening-of-vaccines-in-animal-models"]
         }
       ]
     },
@@ -192,5 +274,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

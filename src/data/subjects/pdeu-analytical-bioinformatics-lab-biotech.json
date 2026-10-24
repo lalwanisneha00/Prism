@@ -1,0 +1,101 @@
+{
+  "id": "pdeu-analytical-bioinformatics-lab-biotech",
+  "name": "Analytical Bioinformatics Lab",
+  "field": "Analytical Bioinformatics Lab",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (BIOTECH semester 4): Analytical Bioinformatics Lab",
+    "note": "Units and topics copied from the course handout PDF (pages 9 of BIOTECH/sem4/Biotech_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24BT210P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s4-analytical-bioinformatics-laboratory",
+      "code": "24BT210P",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-exploration-of-the-resources-available-in-ncbi",
+          "name": "Exploration of the resources available in NCBI and PUBMED",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-retrieval-of-a-genbank-entry-using-an-accession",
+          "name": "Retrieval of a Genbank Entry using an accession number",
+          "number": 2,
+          "requires": ["experiment-1-exploration-of-the-resources-available-in-ncbi"]
+        },
+        {
+          "id": "experiment-3-retrieval-and-analysis-of-a-gene-sequence-in-fa",
+          "name": "Retrieval and analysis of a gene sequence in FASTA format",
+          "number": 3,
+          "requires": ["experiment-2-retrieval-of-a-genbank-entry-using-an-accession"]
+        },
+        {
+          "id": "experiment-4-finding-the-official-symbol-alias-name-chromoso",
+          "name": "Finding the official Symbol, alias name, chromosome number and ID for gene using NCBI",
+          "number": 4,
+          "requires": ["experiment-3-retrieval-and-analysis-of-a-gene-sequence-in-fa"]
+        },
+        {
+          "id": "experiment-5-retrieval-and-analysis-of-a-protein-sequence-fr",
+          "name": "Retrieval and analysis of a protein sequence from protein database",
+          "number": 5,
+          "requires": ["experiment-4-finding-the-official-symbol-alias-name-chromoso"]
+        },
+        {
+          "id": "experiment-6-primary-structure-analysis-of-a-protein",
+          "name": "Primary structure analysis of a protein",
+          "number": 6,
+          "requires": ["experiment-5-retrieval-and-analysis-of-a-protein-sequence-fr"]
+        },
+        {
+          "id": "experiment-7-secondary-structure-analysis-of-a-protein",
+          "name": "Secondary structure analysis of a protein",
+          "number": 7,
+          "requires": ["experiment-6-primary-structure-analysis-of-a-protein"]
+        },
+        {
+          "id": "experiment-8-tertiary-protein-structure-analysis-using-rasmo",
+          "name": "Tertiary protein structure analysis using RASMOL",
+          "number": 8,
+          "requires": ["experiment-7-secondary-structure-analysis-of-a-protein"]
+        },
+        {
+          "id": "experiment-9-pair-wise-and-multiple-sequence-alignment-using",
+          "name": "Pair-wise and multiple sequence alignment using ClustalW",
+          "number": 9,
+          "requires": ["experiment-8-tertiary-protein-structure-analysis-using-rasmo"]
+        },
+        {
+          "id": "experiment-10-pair-wise-and-multiple-sequence-alignment-usin",
+          "name": "Pair-wise and multiple sequence alignment using BLAST",
+          "number": 10,
+          "requires": ["experiment-9-pair-wise-and-multiple-sequence-alignment-using"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-analytical-bioinformatics"]
+}

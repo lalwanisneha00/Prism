@@ -21,6 +21,9 @@
     "test:e2e": "playwright test",
     "pretest": "node scripts/build-subject-index.mjs",
     "handouts:split": "node scripts/split-handouts.mjs",
+    "handouts:import": "tsx --tsconfig tsconfig.json scripts/import-handouts.ts",
+    "handouts:match": "tsx --tsconfig tsconfig.json scripts/match-handouts.ts",
+    "syllabus:check": "tsx --tsconfig tsconfig.json scripts/check-syllabus-ids.ts",
     "backup:firestore": "tsx --tsconfig tsconfig.json scripts/backup-firestore.ts",
     "golden:check": "tsx --tsconfig tsconfig.json eval/check-quotes.ts"
   },

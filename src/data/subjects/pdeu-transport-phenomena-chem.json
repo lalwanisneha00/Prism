@@ -1,0 +1,194 @@
+{
+  "id": "pdeu-transport-phenomena-chem",
+  "name": "Transport Phenomena",
+  "field": "Transport Phenomena",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 7): Transport Phenomena",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of CHEM/sem7/Chemical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH402T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s7-transport-phenomena",
+      "code": "24CH402T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "fundamentals-of-transport-processes",
+      "name": "Fundamentals of Transport Processes",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "vector-and-tensor-analysis",
+          "name": "Vector and tensor analysis"
+        },
+        {
+          "id": "curvilinear-coordinates",
+          "name": "curvilinear coordinates",
+          "requires": ["vector-and-tensor-analysis"]
+        },
+        {
+          "id": "continuum-approximation",
+          "name": "continuum approximation",
+          "requires": ["curvilinear-coordinates"]
+        },
+        {
+          "id": "eulerian-and-lagrangian-approaches",
+          "name": "Eulerian and Lagrangian approaches",
+          "requires": ["continuum-approximation"]
+        },
+        {
+          "id": "reynolds-transport-theorem",
+          "name": "Reynolds transport theorem",
+          "requires": ["eulerian-and-lagrangian-approaches"]
+        },
+        {
+          "id": "general-forms-of-conservation-equations",
+          "name": "general forms of conservation equations",
+          "requires": ["reynolds-transport-theorem"]
+        },
+        {
+          "id": "conservation-of-mass",
+          "name": "conservation of mass",
+          "requires": ["general-forms-of-conservation-equations"]
+        },
+        {
+          "id": "momentum-and-energy",
+          "name": "momentum and energy",
+          "requires": ["conservation-of-mass"]
+        },
+        {
+          "id": "constitutive-equations",
+          "name": "constitutive equations",
+          "requires": ["momentum-and-energy"]
+        },
+        {
+          "id": "viscosity-and-the-mechanism-of-momentum-transport",
+          "name": "viscosity and the mechanism of momentum transport",
+          "requires": ["constitutive-equations"]
+        },
+        {
+          "id": "thermal-conductivity-and-the-mechanism-of-energy-transport",
+          "name": "thermal conductivity and the mechanism of energy transport",
+          "requires": ["viscosity-and-the-mechanism-of-momentum-transport"]
+        },
+        {
+          "id": "diffusivity-and-the-mechanism-of-mass-transport",
+          "name": "diffusivity and the mechanism of mass transport",
+          "requires": ["thermal-conductivity-and-the-mechanism-of-energy-transport"]
+        }
+      ]
+    },
+    {
+      "id": "shell-balance-method",
+      "name": "Shell Balance Method",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "application-of-shell-momentum-balance-to-cartesian",
+          "name": "Application of shell momentum balance to Cartesian"
+        },
+        {
+          "id": "cylindrical-and-spherical-coordinate-systems",
+          "name": "cylindrical and spherical coordinate systems",
+          "requires": ["application-of-shell-momentum-balance-to-cartesian"]
+        },
+        {
+          "id": "derivation-of-momentum-transport",
+          "name": "derivation of momentum transport",
+          "requires": ["cylindrical-and-spherical-coordinate-systems"]
+        },
+        {
+          "id": "heat-transport-and-mass-transport-equations-using-steady-sta",
+          "name": "heat transport and mass transport equations using steady state shell balances in different coordinate systems",
+          "requires": ["derivation-of-momentum-transport"]
+        },
+        {
+          "id": "different-types-of-boundary-conditions",
+          "name": "different types of boundary conditions",
+          "requires": ["heat-transport-and-mass-transport-equations-using-steady-sta"]
+        },
+        {
+          "id": "solving-simple-transport-problems-using-shell-balances",
+          "name": "solving simple transport problems using shell balances",
+          "requires": ["different-types-of-boundary-conditions"]
+        }
+      ]
+    },
+    {
+      "id": "equations-of-change",
+      "name": "Equations of Change",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "application-of-frame-independent-forms-of-momentum",
+          "name": "Application of frame-independent forms of momentum"
+        },
+        {
+          "id": "energy-and-mass-conservation-equations",
+          "name": "energy and mass conservation equations",
+          "requires": ["application-of-frame-independent-forms-of-momentum"]
+        },
+        {
+          "id": "dimensional-analysis-and-different-flow-regimes",
+          "name": "dimensional analysis and different flow regimes",
+          "requires": ["energy-and-mass-conservation-equations"]
+        },
+        {
+          "id": "obtaining-analytical-solutions-of-transport-problems-using-t",
+          "name": "obtaining analytical solutions of transport problems using the Navier-Stokes and Cauchy momentum equations and energy an",
+          "requires": ["dimensional-analysis-and-different-flow-regimes"]
+        },
+        {
+          "id": "coupling-between-various-equations-and-a-brief-introduction",
+          "name": "coupling between various equations and a brief introduction to CFD",
+          "requires": ["obtaining-analytical-solutions-of-transport-problems-using-t"]
+        }
+      ]
+    },
+    {
+      "id": "more-than-one-independent-variable-systems",
+      "name": "More Than One Independent Variable Systems",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "solving-transport-problems-with-more-than-one-independent-va",
+          "name": "Solving transport problems with more than one independent variable: velocity distribution"
+        },
+        {
+          "id": "temperature-distribution-and-concentration-distribution",
+          "name": "temperature distribution and concentration distribution",
+          "requires": ["solving-transport-problems-with-more-than-one-independent-va"]
+        },
+        {
+          "id": "cfd-based-transport-modelling-one-demonstration-example",
+          "name": "CFD- based transport modelling (one demonstration example)",
+          "requires": ["temperature-distribution-and-concentration-distribution"]
+        },
+        {
+          "id": "introduction-to-turbulent-flow",
+          "name": "introduction to turbulent flow",
+          "requires": ["cfd-based-transport-modelling-one-demonstration-example"]
+        }
+      ]
+    }
+  ]
+}

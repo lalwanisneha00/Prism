@@ -1,0 +1,95 @@
+{
+  "id": "pdeu-fluid-mechanics-laboratory-me",
+  "name": "Fluid Mechanics Laboratory",
+  "field": "Fluid Mechanics Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 4): Fluid Mechanics Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of MECH/sem4/Mechanical_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME206P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s4-fluid-mechanics-laboratory",
+      "code": "24ME206P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-measurement-of-viscosity",
+          "name": "Measurement of viscosity",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-verification-of-bernoulli-s-principle",
+          "name": "Verification of Bernoulli’s principle",
+          "number": 2,
+          "requires": ["experiment-1-measurement-of-viscosity"]
+        },
+        {
+          "id": "experiment-3-discharge-coefficient-of-venturimeter",
+          "name": "Discharge coefficient of Venturimeter",
+          "number": 3,
+          "requires": ["experiment-2-verification-of-bernoulli-s-principle"]
+        },
+        {
+          "id": "experiment-4-discharge-coefficient-of-orificemeter",
+          "name": "Discharge coefficient of Orificemeter",
+          "number": 4,
+          "requires": ["experiment-3-discharge-coefficient-of-venturimeter"]
+        },
+        {
+          "id": "experiment-5-calibration-of-rotameter",
+          "name": "Calibration of Rotameter",
+          "number": 5,
+          "requires": ["experiment-4-discharge-coefficient-of-orificemeter"]
+        },
+        {
+          "id": "experiment-6-reynolds-apparatus",
+          "name": "Reynolds apparatus",
+          "number": 6,
+          "requires": ["experiment-5-calibration-of-rotameter"]
+        },
+        {
+          "id": "experiment-7-flow-measurement-with-pitot-tube",
+          "name": "Flow measurement with Pitot tube",
+          "number": 7,
+          "requires": ["experiment-6-reynolds-apparatus"]
+        },
+        {
+          "id": "experiment-8-friction-losses-in-circular-pipe",
+          "name": "Friction losses in circular pipe",
+          "number": 8,
+          "requires": ["experiment-7-flow-measurement-with-pitot-tube"]
+        },
+        {
+          "id": "experiment-9-effect-of-pipe-diameter-and-length-on-friction",
+          "name": "Effect of pipe diameter and length on friction losses in pipe",
+          "number": 9,
+          "requires": ["experiment-8-friction-losses-in-circular-pipe"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-fluid-mechanics-me"]
+}

@@ -1,0 +1,305 @@
+{
+  "id": "pdeu-mechanical-unit-operations-chem",
+  "name": "Mechanical Unit Operations",
+  "field": "Mechanical Unit Operations",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 3): Mechanical Unit Operations",
+    "note": "Units and topics copied from the course handout PDF (pages 6 of CHEM/sem3/Chemical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH204T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s3-mechanical-unit-operations",
+      "code": "24CH204T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "solid-characterization-classification-and-size-reduction",
+      "name": "Solid Characterization - Classification and Size Reduction",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-unit-operations-and-their-role-in-chemical-indu",
+          "name": "Introduction: unit operations and their role in chemical industries"
+        },
+        {
+          "id": "properties-and-handling-of-particulate-solids-characterizati",
+          "name": "Properties and handling of particulate solids: characterization of solid particles",
+          "requires": ["introduction-unit-operations-and-their-role-in-chemical-indu"]
+        },
+        {
+          "id": "properties-of-masses-of-particles",
+          "name": "properties of masses of particles",
+          "requires": ["properties-and-handling-of-particulate-solids-characterizati"]
+        },
+        {
+          "id": "classification-of-solids",
+          "name": "classification of solids",
+          "requires": ["properties-of-masses-of-particles"]
+        },
+        {
+          "id": "sieving-and-screening-equipment",
+          "name": "sieving and screening equipment",
+          "requires": ["classification-of-solids"]
+        },
+        {
+          "id": "mixing-of-solids",
+          "name": "mixing of solids",
+          "requires": ["sieving-and-screening-equipment"]
+        },
+        {
+          "id": "size-reduction-laws-of-size-reduction",
+          "name": "Size reduction: laws of size reduction",
+          "requires": ["mixing-of-solids"]
+        },
+        {
+          "id": "energy-relationships-in-size-reduction",
+          "name": "energy relationships in size reduction",
+          "requires": ["size-reduction-laws-of-size-reduction"]
+        },
+        {
+          "id": "power-requirement",
+          "name": "power requirement",
+          "requires": ["energy-relationships-in-size-reduction"]
+        },
+        {
+          "id": "work-index",
+          "name": "work index",
+          "requires": ["power-requirement"]
+        },
+        {
+          "id": "methods-of-size-reduction",
+          "name": "methods of size reduction",
+          "requires": ["work-index"]
+        },
+        {
+          "id": "classification-of-equipment",
+          "name": "classification of equipment",
+          "requires": ["methods-of-size-reduction"]
+        },
+        {
+          "id": "crushers",
+          "name": "crushers",
+          "requires": ["classification-of-equipment"]
+        },
+        {
+          "id": "grinders",
+          "name": "grinders",
+          "requires": ["crushers"]
+        },
+        {
+          "id": "disintegrators-for-coarse",
+          "name": "disintegrators for coarse",
+          "requires": ["grinders"]
+        },
+        {
+          "id": "intermediate-and-fine-grinding",
+          "name": "intermediate and fine grinding",
+          "requires": ["disintegrators-for-coarse"]
+        },
+        {
+          "id": "ultrafine-grinders",
+          "name": "ultrafine grinders",
+          "requires": ["intermediate-and-fine-grinding"]
+        }
+      ]
+    },
+    {
+      "id": "solid-fluid-operations",
+      "name": "Solid-Fluid Operations",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "gravity-settling-free-and-hindered-settling",
+          "name": "Gravity settling: free and hindered settling"
+        },
+        {
+          "id": "sedimentation",
+          "name": "sedimentation",
+          "requires": ["gravity-settling-free-and-hindered-settling"]
+        },
+        {
+          "id": "thickening",
+          "name": "thickening",
+          "requires": ["sedimentation"]
+        },
+        {
+          "id": "elutriation",
+          "name": "elutriation",
+          "requires": ["thickening"]
+        },
+        {
+          "id": "double-cone-classifier",
+          "name": "double cone classifier",
+          "requires": ["elutriation"]
+        },
+        {
+          "id": "rake-classifier",
+          "name": "rake classifier",
+          "requires": ["double-cone-classifier"]
+        },
+        {
+          "id": "bowl-classifier",
+          "name": "bowl classifier",
+          "requires": ["rake-classifier"]
+        },
+        {
+          "id": "centrifugal-separation-continuous-centrifuges",
+          "name": "Centrifugal separation: continuous centrifuges",
+          "requires": ["bowl-classifier"]
+        },
+        {
+          "id": "design-of-basket-centrifuges",
+          "name": "design of basket centrifuges",
+          "requires": ["centrifugal-separation-continuous-centrifuges"]
+        },
+        {
+          "id": "flow-through-packed-beds-fixed-bed-and-fluidized-bed",
+          "name": "Flow through packed beds: fixed bed and fluidized bed",
+          "requires": ["design-of-basket-centrifuges"]
+        },
+        {
+          "id": "pneumatic-conveying",
+          "name": "pneumatic conveying",
+          "requires": ["flow-through-packed-beds-fixed-bed-and-fluidized-bed"]
+        },
+        {
+          "id": "industrial-dust-removing-equipment",
+          "name": "industrial dust removing equipment",
+          "requires": ["pneumatic-conveying"]
+        },
+        {
+          "id": "cyclones-and-hydrocyclones",
+          "name": "cyclones and hydrocyclones",
+          "requires": ["industrial-dust-removing-equipment"]
+        },
+        {
+          "id": "electrostatic-and-magnetic-separators",
+          "name": "electrostatic and magnetic separators",
+          "requires": ["cyclones-and-hydrocyclones"]
+        },
+        {
+          "id": "heavy-media-separation",
+          "name": "heavy media separation",
+          "requires": ["electrostatic-and-magnetic-separators"]
+        },
+        {
+          "id": "flotation",
+          "name": "flotation",
+          "requires": ["heavy-media-separation"]
+        }
+      ]
+    },
+    {
+      "id": "solid-fluid-separation-filtration",
+      "name": "Solid-Fluid Separation - Filtration",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "theory-of-filtration",
+          "name": "Theory of filtration"
+        },
+        {
+          "id": "batch-and-continuous-filters",
+          "name": "batch and continuous filters",
+          "requires": ["theory-of-filtration"]
+        },
+        {
+          "id": "flow-through-filter-cake-and-filter-media",
+          "name": "flow through filter cake and filter media",
+          "requires": ["batch-and-continuous-filters"]
+        },
+        {
+          "id": "compressible-and-incompressible-filter-cakes",
+          "name": "compressible and incompressible filter cakes",
+          "requires": ["flow-through-filter-cake-and-filter-media"]
+        },
+        {
+          "id": "filtration-equipment",
+          "name": "filtration equipment",
+          "requires": ["compressible-and-incompressible-filter-cakes"]
+        },
+        {
+          "id": "selection",
+          "name": "selection",
+          "requires": ["filtration-equipment"]
+        },
+        {
+          "id": "operation-and-design-of-filters",
+          "name": "operation and design of filters",
+          "requires": ["selection"]
+        },
+        {
+          "id": "optimum-cycle-of-operation",
+          "name": "optimum cycle of operation",
+          "requires": ["operation-and-design-of-filters"]
+        },
+        {
+          "id": "filter-aids",
+          "name": "filter aids",
+          "requires": ["optimum-cycle-of-operation"]
+        },
+        {
+          "id": "safety-issues-related-to-high-speed-rotating-equipment",
+          "name": "safety issues related to high-speed rotating equipment",
+          "requires": ["filter-aids"]
+        }
+      ]
+    },
+    {
+      "id": "storage-and-transportation-of-solids",
+      "name": "Storage and Transportation of Solids",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "agitation-and-mixing-of-liquids",
+          "name": "Agitation and mixing of liquids"
+        },
+        {
+          "id": "storage-and-conveying-of-solids",
+          "name": "storage and conveying of solids",
+          "requires": ["agitation-and-mixing-of-liquids"]
+        },
+        {
+          "id": "bunkers",
+          "name": "bunkers",
+          "requires": ["storage-and-conveying-of-solids"]
+        },
+        {
+          "id": "silos",
+          "name": "silos",
+          "requires": ["bunkers"]
+        },
+        {
+          "id": "bins-and-hoppers",
+          "name": "bins and hoppers",
+          "requires": ["silos"]
+        },
+        {
+          "id": "transportation-of-solids-in-bulk-different-types-of-conveyor",
+          "name": "transportation of solids in bulk: different types of conveyors and their performance characteristics",
+          "requires": ["bins-and-hoppers"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-mechanical-unit-operations-laboratory-chem"]
+}

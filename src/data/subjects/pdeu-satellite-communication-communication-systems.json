@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Satellite Communication (Communication Systems)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -79,8 +79,17 @@
         },
         {
           "id": "introduction-to-geo-synchronous-and-geo-stationary",
-          "name": "Introduction to Geo-synchronous and Geo-stationary satellites. Orbital Mechanics",
-          "requires": ["space-debris"]
+          "name": "Introduction to Geo-synchronous and Geo-stationary satellites",
+          "requires": ["space-debris"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "orbital-mechanics",
+          "name": "Orbital Mechanics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-geo-synchronous-and-geo-stationary"]
         },
         {
           "id": "kepler-s-three-laws-of-planetary-motion",
@@ -135,8 +144,24 @@
         },
         {
           "id": "tracking-and-command-control-system-and-power-supply-system",
-          "name": "Tracking and command control system, and Power supply system. Satellite Link Design: Basic transmission theory",
-          "requires": ["telemetry"]
+          "name": "Tracking and command control system",
+          "requires": ["telemetry"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "power-supply-system",
+          "name": "Power supply system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tracking-and-command-control-system-and-power-supply-system"]
+        },
+        {
+          "id": "satellite-link-design-basic-transmission-theory",
+          "name": "Satellite Link Design: Basic transmission theory",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["power-supply-system"]
         },
         {
           "id": "system-noise-temperature-and-g-t-ratio",
@@ -166,8 +191,17 @@
         },
         {
           "id": "direct-broadcast-satellite-television-and-radio",
-          "name": "Direct broadcast satellite television, and radio",
-          "requires": ["vsat"]
+          "name": "Direct broadcast satellite television",
+          "requires": ["vsat"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "radio",
+          "name": "radio",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["direct-broadcast-satellite-television-and-radio"]
         },
         {
           "id": "satellite-navigation-and-the-global-positioning-systems",
@@ -272,5 +306,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

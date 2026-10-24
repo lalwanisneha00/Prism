@@ -1,0 +1,101 @@
+{
+  "id": "pdeu-immunology-and-immunotechnology-laboratory-biotech",
+  "name": "Immunology and Immunotechnology Laboratory",
+  "field": "Immunology and Immunotechnology Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (BIOTECH semester 5): Immunology and Immunotechnology Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 8 of BIOTECH/sem5/Biotech_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24BT302P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s5-immunology-and-immunotechnology-laboratory",
+      "code": "24BT302P",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-isolation-of-lymphocytes-from-blood-spleen",
+          "name": "Isolation of lymphocytes from blood / spleen.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-purification-of-immunoglobulins-from-serum",
+          "name": "Purification of immunoglobulins from serum",
+          "number": 2,
+          "requires": ["experiment-1-isolation-of-lymphocytes-from-blood-spleen"]
+        },
+        {
+          "id": "experiment-3-assays-based-on-precipitation-reactions-ouchter",
+          "name": "Assays based on precipitation reactions - Ouchterlony double immunodiffusion (DID) and Mancini radial immunodiffusion (SRID).",
+          "number": 3,
+          "requires": ["experiment-2-purification-of-immunoglobulins-from-serum"]
+        },
+        {
+          "id": "experiment-4-assays-based-on-agglutination-reactions-blood-t",
+          "name": "Assays based on agglutination reactions - Blood typing (active) & passive agglutination",
+          "number": 4,
+          "requires": ["experiment-3-assays-based-on-precipitation-reactions-ouchter"]
+        },
+        {
+          "id": "experiment-5-enzyme-linked-immunosorbent-assay-elisa-and-dot",
+          "name": "Enzyme linked immunosorbent assay (ELISA) & DOT ELISA)",
+          "number": 5,
+          "requires": ["experiment-4-assays-based-on-agglutination-reactions-blood-t"]
+        },
+        {
+          "id": "experiment-6-precipitation-assays-immunodiffusion-immunoelec",
+          "name": "Precipitation assays:Immunodiffusion /immunoelectrophoresis",
+          "number": 6,
+          "requires": ["experiment-5-enzyme-linked-immunosorbent-assay-elisa-and-dot"]
+        },
+        {
+          "id": "experiment-7-antibody-titer",
+          "name": "Antibody Titer",
+          "number": 7,
+          "requires": ["experiment-6-precipitation-assays-immunodiffusion-immunoelec"]
+        },
+        {
+          "id": "experiment-8-western-blotting",
+          "name": "Western blotting",
+          "number": 8,
+          "requires": ["experiment-7-antibody-titer"]
+        },
+        {
+          "id": "experiment-9-preparation-of-antigen-and-adjuvant-emulsion-mi",
+          "name": "Preparation of antigen and adjuvant emulsion (mineral oil, alum, Freund’s adjuvants,etc.)",
+          "number": 9,
+          "requires": ["experiment-8-western-blotting"]
+        },
+        {
+          "id": "experiment-10-immunization-of-mouse-through-intra-muscular-a",
+          "name": "Immunization of mouse through intra muscular and intra peritoneal routes",
+          "number": 10,
+          "requires": ["experiment-9-preparation-of-antigen-and-adjuvant-emulsion-mi"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-immunology-and-immunotechnology"]
+}

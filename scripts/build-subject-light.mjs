@@ -35,6 +35,7 @@ const light = files.map((f) => {
     ...(s.source && s.source !== "official_site" ? { source: s.source } : {}),
     ...(s.confidence && s.confidence !== "unverified" ? { confidence: s.confidence } : {}),
     ...(s.status === "retired" ? { status: s.status } : {}),
+    ...(s.courseType && s.courseType !== "theory" ? { courseType: s.courseType } : {}),
     chapters: s.chapters.map((c) => ({ id: c.id, name: c.name, topics: c.topics.length })),
   };
 });

@@ -1,0 +1,101 @@
+{
+  "id": "pdeu-machine-learning-laboratory-ce",
+  "name": "Machine Learning Laboratory",
+  "field": "Machine Learning Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (COMP semester 7): Machine Learning Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 9-10 of COMP/sem7/CE_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CS402P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s7-machine-learning-laboratory",
+      "code": "24CS402P",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-implement-regression-algorithms-like-and-unders",
+          "name": "Implement regression algorithms like and understand their performance metrics. Implement linear regression using gradient descent. Train the regression models on sample datasets and evaluate their performance using metrics like Mean Squared Error (MSE) and R-squared. Also explore different regularization techniques (e.g., Lasso, Ridge) and analyze their impact on model performance.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-implement-classifiers-such-as-naive-bayes-logis",
+          "name": "Implement classifiers such as Naive Bayes, logistic regression, decision trees, and SVMs. Train the classifiers on sample datasets and evaluate their performance using confusion matrices, accuracy, precision, recall, and F1-score. Visualize decision boundaries and analyze the model's behavior.",
+          "number": 2,
+          "requires": ["experiment-1-implement-regression-algorithms-like-and-unders"]
+        },
+        {
+          "id": "experiment-3-apply-imbalanced-data-handling-techniques-smote",
+          "name": "Apply imbalanced data handling techniques (SMOTE, ADASYN) on a dataset with class imbalance.",
+          "number": 3,
+          "requires": ["experiment-2-implement-classifiers-such-as-naive-bayes-logis"]
+        },
+        {
+          "id": "experiment-4-implement-k-means-hierarchical-clustering-dbsca",
+          "name": "Implement k-means, hierarchical clustering, DBSCAN clustering etc.",
+          "number": 4,
+          "requires": ["experiment-3-apply-imbalanced-data-handling-techniques-smote"]
+        },
+        {
+          "id": "experiment-5-apply-pca-for-dimensionality-reduction-and-visu",
+          "name": "Apply PCA for dimensionality reduction and visualize the reduced-dimensional data take suitable dataset to demonstrate the concept.",
+          "number": 5,
+          "requires": ["experiment-4-implement-k-means-hierarchical-clustering-dbsca"]
+        },
+        {
+          "id": "experiment-6-implement-gaussian-mixture-models-gmm-for-densi",
+          "name": "Implement Gaussian Mixture Models (GMM) for density estimation and clustering.",
+          "number": 6,
+          "requires": ["experiment-5-apply-pca-for-dimensionality-reduction-and-visu"]
+        },
+        {
+          "id": "experiment-7-implement-ensemble-methods-such-as-bagging-boos",
+          "name": "Implement ensemble methods such as bagging, boosting, and random forests. Train ensemble classifiers on sample datasets and compare their performance against individual classifiers. Conduct an empirical comparison among ensemble methods and analyze their strengths and weaknesses.",
+          "number": 7,
+          "requires": ["experiment-6-implement-gaussian-mixture-models-gmm-for-densi"]
+        },
+        {
+          "id": "experiment-8-apply-machine-learning-techniques-to-real-world",
+          "name": "Apply machine learning techniques to real-world datasets and problems. Choose a real-world dataset relevant to the students' domain or interests. Perform exploratory data analysis (EDA) and feature engineering. Select appropriate machine learning models and train/test them on the dataset. Evaluate model performance and iterate on the model selection and tuning process.",
+          "number": 8,
+          "requires": ["experiment-7-implement-ensemble-methods-such-as-bagging-boos"]
+        },
+        {
+          "id": "experiment-9-case-study-on-the-application-of-machine-learni",
+          "name": "Case study on the application of machine learning in various domains like NLP, Computer Vision, Speech and Audio.",
+          "number": 9,
+          "requires": ["experiment-8-apply-machine-learning-techniques-to-real-world"]
+        },
+        {
+          "id": "experiment-10-course-project-students-are-required-to-submit",
+          "name": "Course project:Students are required to submit a course project that involves the development of a Machine learning system to provide a solution to a real-world problem using sample or real-time data sets.",
+          "number": 10,
+          "requires": ["experiment-9-case-study-on-the-application-of-machine-learni"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-machine-learning-ce"]
+}

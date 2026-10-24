@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Synthetic and Systems Biology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,7 +40,16 @@
       "topics": [
         {
           "id": "hrs-transcriptional-and-post-transcriptional-regulation",
-          "name": "Hrs. Transcriptional and Post-transcriptional regulation: Biology & engineering systems"
+          "name": "Hrs",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "transcriptional-and-post-transcriptional-regulation-biology",
+          "name": "Transcriptional and Post-transcriptional regulation: Biology & engineering systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hrs-transcriptional-and-post-transcriptional-regulation"]
         },
         {
           "id": "modeling-foundation-chemical-kinetics-m-m-equation-and-hill",
@@ -49,13 +58,45 @@
         },
         {
           "id": "deterministic-models-and-stochastic-models-spatiotemporal",
-          "name": "Deterministic models, And Stochastic models Spatiotemporal models. Noise in gene expression: Origin",
-          "requires": ["modeling-foundation-chemical-kinetics-m-m-equation-and-hill"]
+          "name": "Deterministic models",
+          "requires": ["modeling-foundation-chemical-kinetics-m-m-equation-and-hill"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "stochastic-models-spatiotemporal-models",
+          "name": "Stochastic models Spatiotemporal models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["deterministic-models-and-stochastic-models-spatiotemporal"]
+        },
+        {
+          "id": "noise-in-gene-expression-origin",
+          "name": "Noise in gene expression: Origin",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["stochastic-models-spatiotemporal-models"]
         },
         {
           "id": "propagation-consequences-and-control",
-          "name": "propagation, consequences, and control",
-          "requires": ["deterministic-models-and-stochastic-models-spatiotemporal"]
+          "name": "propagation",
+          "requires": ["deterministic-models-and-stochastic-models-spatiotemporal"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "consequences",
+          "name": "consequences",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["propagation-consequences-and-control"]
+        },
+        {
+          "id": "control",
+          "name": "control",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["consequences"]
         },
         {
           "id": "robustness-and-evaluability-of-genetic-networks",
@@ -80,8 +121,31 @@
         },
         {
           "id": "genetic-circuits-in-eukaryotes-how-to-build-genetic-circuits",
-          "name": "Genetic Circuits in Eukaryotes: How to build genetic circuits in yeast Logic gates in yeast Scale up to mammalian cells, Introduction to non-coding RNAs, ncRNAs Characteristics, biogenesis, and activi",
-          "requires": ["hrs"]
+          "name": "Genetic Circuits in Eukaryotes: How to build genetic circuits in yeast Logic gates in yeast Scale up to mammalian cells",
+          "requires": ["hrs"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-non-coding-rnas",
+          "name": "Introduction to non-coding RNAs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["genetic-circuits-in-eukaryotes-how-to-build-genetic-circuits"]
+        },
+        {
+          "id": "ncrnas-characteristics",
+          "name": "ncRNAs Characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-non-coding-rnas"]
+        },
+        {
+          "id": "biogenesis",
+          "name": "biogenesis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ncrnas-characteristics"]
         },
         {
           "id": "micrornas",
@@ -92,6 +156,20 @@
           "id": "sirnas",
           "name": "siRNAs",
           "requires": ["micrornas"]
+        },
+        {
+          "id": "activities-in-cell-physiology-and-developmental-process",
+          "name": "activities in cell physiology and developmental process",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sirnas"]
+        },
+        {
+          "id": "application-of-ncrnas-on-circuit-designs-riboswitches",
+          "name": "Application of ncRNAs on circuit designs Riboswitches",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["activities-in-cell-physiology-and-developmental-process"]
         }
       ]
     },
@@ -102,7 +180,16 @@
       "topics": [
         {
           "id": "hrs-network-biology-and-human-diseases",
-          "name": "Hrs. Network biology and human diseases"
+          "name": "Hrs",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "network-biology-and-human-diseases",
+          "name": "Network biology and human diseases",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hrs-network-biology-and-human-diseases"]
         },
         {
           "id": "signal-transduction-and-gene-networks",
@@ -112,7 +199,16 @@
         {
           "id": "protein-protein-interaction-networks",
           "name": "Protein–protein interaction networks",
-          "requires": ["signal-transduction-and-gene-networks"]
+          "requires": ["signal-transduction-and-gene-networks"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gene-regulatory-networks-dna-protein-interaction-networks-2",
+          "name": "Gene regulatory networks (DNA–protein interaction networks)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["protein-protein-interaction-networks"]
         },
         {
           "id": "gene-regulatory-networks-dna-protein-interaction-networks",
@@ -133,7 +229,16 @@
       "topics": [
         {
           "id": "hrs-sbml-models-and-mathsbml",
-          "name": "Hrs. SBML models and MATHSBML"
+          "name": "Hrs",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "sbml-models-and-mathsbml",
+          "name": "SBML models and MATHSBML",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hrs-sbml-models-and-mathsbml"]
         },
         {
           "id": "cell-designer",
@@ -157,5 +262,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -5,7 +5,7 @@
   "tier": "limited",
   "university": "pdeu",
   "courseCategory": "non-core",
-  "branches": ["ce", "biotech"],
+  "branches": ["ce", "biotech", "chem"],
   "semesters": [1],
   "code": "24HS101T",
   "credits": 2,
@@ -31,6 +31,16 @@
       "credits": 2,
       "semester": 1,
       "kind": "non-core"
+    },
+    {
+      "branch": "chem",
+      "key": "s1-english-communication",
+      "code": "24HS101T",
+      "category": "Program Core",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 1,
+      "kind": "core"
     }
   ],
   "syllabusSource": {
@@ -38,8 +48,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE, Biotech): English Communication",
     "note": "Skeleton only: units and topics are PDEU's, copied from the handbook. Lessons are built from the material the student uploads (given by their faculty)."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -54,8 +64,17 @@
         },
         {
           "id": "why-english-types-of-communication",
-          "name": "Why English? Types of Communication",
-          "requires": ["the-fundamentals-of-language-and-communication"]
+          "name": "Why English?",
+          "requires": ["the-fundamentals-of-language-and-communication"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "types-of-communication",
+          "name": "Types of Communication",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["why-english-types-of-communication"]
         },
         {
           "id": "barriers-to-effective-communication",
@@ -76,7 +95,30 @@
       "topics": [
         {
           "id": "tenses-articles-prepositions-active-voice-passive-voice-and",
-          "name": "Tenses, Articles, prepositions, active voice passive voice and concord"
+          "name": "Tenses",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "articles",
+          "name": "Articles",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tenses-articles-prepositions-active-voice-passive-voice-and"]
+        },
+        {
+          "id": "prepositions",
+          "name": "prepositions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["articles"]
+        },
+        {
+          "id": "active-voice-passive-voice-and-concord",
+          "name": "active voice passive voice and concord",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["prepositions"]
         },
         {
           "id": "tools-for-vocabulary-building",
@@ -85,13 +127,73 @@
         },
         {
           "id": "homophones-homonyms-one-word-substitution-antonyms-synonyms",
-          "name": "Homophones, homonyms, one word substitution, antonyms, synonyms, Root Words, Prefixes and Suffixes, Connotations",
-          "requires": ["tools-for-vocabulary-building"]
+          "name": "Homophones",
+          "requires": ["tools-for-vocabulary-building"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "homonyms",
+          "name": "homonyms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["homophones-homonyms-one-word-substitution-antonyms-synonyms"]
+        },
+        {
+          "id": "one-word-substitution",
+          "name": "one word substitution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["homonyms"]
+        },
+        {
+          "id": "antonyms",
+          "name": "antonyms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["one-word-substitution"]
+        },
+        {
+          "id": "synonyms",
+          "name": "synonyms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["antonyms"]
+        },
+        {
+          "id": "root-words",
+          "name": "Root Words",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["synonyms"]
+        },
+        {
+          "id": "prefixes-and-suffixes",
+          "name": "Prefixes and Suffixes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["root-words"]
+        },
+        {
+          "id": "connotations",
+          "name": "Connotations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["prefixes-and-suffixes"]
         },
         {
           "id": "collocations-idioms-phrases",
-          "name": "Collocations, Idioms. phrases",
-          "requires": ["homophones-homonyms-one-word-substitution-antonyms-synonyms"]
+          "name": "Collocations",
+          "requires": ["homophones-homonyms-one-word-substitution-antonyms-synonyms"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "idioms-phrases",
+          "name": "Idioms. phrases",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["collocations-idioms-phrases"]
         }
       ]
     },
@@ -102,17 +204,58 @@
       "topics": [
         {
           "id": "listening-skills-difference-between-listening-and-hearing",
-          "name": "Listening Skills: Difference between listening and hearing, Active listening and passive listening"
+          "name": "Listening Skills: Difference between listening and hearing",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "types-of-listening-traits-of-good-listener",
-          "name": "Types of listening, Traits of good listener",
+          "id": "active-listening-and-passive-listening",
+          "name": "Active listening and passive listening",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["listening-skills-difference-between-listening-and-hearing"]
         },
         {
-          "id": "reading-skills-why-reading-is-important-effective-reading",
-          "name": "Reading Skills: Why reading is important, Effective reading techniques, Speed Reading, The SQ3R Method",
+          "id": "types-of-listening-traits-of-good-listener",
+          "name": "Types of listening",
+          "requires": ["listening-skills-difference-between-listening-and-hearing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "traits-of-good-listener",
+          "name": "Traits of good listener",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["types-of-listening-traits-of-good-listener"]
+        },
+        {
+          "id": "reading-skills-why-reading-is-important-effective-reading",
+          "name": "Reading Skills: Why reading is important",
+          "requires": ["types-of-listening-traits-of-good-listener"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "effective-reading-techniques",
+          "name": "Effective reading techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reading-skills-why-reading-is-important-effective-reading"]
+        },
+        {
+          "id": "speed-reading",
+          "name": "Speed Reading",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["effective-reading-techniques"]
+        },
+        {
+          "id": "the-sq3r-method",
+          "name": "The SQ3R Method",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["speed-reading"]
         }
       ]
     },
@@ -123,7 +266,23 @@
       "topics": [
         {
           "id": "note-taking-and-note-making-physical-digital-collective",
-          "name": "Note Taking and Note Making: physical, digital, collective"
+          "name": "Note Taking and Note Making: physical",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "digital",
+          "name": "digital",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["note-taking-and-note-making-physical-digital-collective"]
+        },
+        {
+          "id": "collective",
+          "name": "collective",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["digital"]
         },
         {
           "id": "summarizing",
@@ -137,5 +296,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Blockchain Technology (Software & Networks)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -103,8 +103,17 @@
         },
         {
           "id": "proof-of-work-introducing-bitcoin",
-          "name": "Proof of work. Introducing Bitcoin",
-          "requires": ["hashing"]
+          "name": "Proof of work",
+          "requires": ["hashing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introducing-bitcoin",
+          "name": "Introducing Bitcoin",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["proof-of-work-introducing-bitcoin"]
         },
         {
           "id": "bitcoin-digital-keys-and-addresses",
@@ -118,8 +127,17 @@
         },
         {
           "id": "blockchain-mining-bitcoin-network-and-payments",
-          "name": "Blockchain mining. Bitcoin Network and payments",
-          "requires": ["transactions"]
+          "name": "Blockchain mining",
+          "requires": ["transactions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bitcoin-network-and-payments",
+          "name": "Bitcoin Network and payments",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["blockchain-mining-bitcoin-network-and-payments"]
         },
         {
           "id": "bitcoin-network",
@@ -143,8 +161,24 @@
         },
         {
           "id": "bitcoin-clients-and-apis-alternative-coins-limitations-of",
-          "name": "Bitcoin Clients and APIs. Alternative Coins. Limitations of Bitcoin",
-          "requires": ["innovation-in-bitcoin"]
+          "name": "Bitcoin Clients and APIs",
+          "requires": ["innovation-in-bitcoin"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "alternative-coins",
+          "name": "Alternative Coins",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bitcoin-clients-and-apis-alternative-coins-limitations-of"]
+        },
+        {
+          "id": "limitations-of-bitcoin",
+          "name": "Limitations of Bitcoin",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["alternative-coins"]
         }
       ]
     },
@@ -211,6 +245,13 @@
           "id": "blockchain-applications",
           "name": "Blockchain applications",
           "requires": ["design-a-distributed-application"]
+        },
+        {
+          "id": "etc",
+          "name": "etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["blockchain-applications"]
         }
       ]
     },
@@ -221,12 +262,37 @@
       "topics": [
         {
           "id": "pseudo-anonymity-vs-anonymity-zcash-and-zk-snarks-for",
-          "name": "Pseudo-anonymity vs. anonymity, Zcash and Zk-SNARKS for anonymity preservation, attacks on Blockchains"
+          "name": "Pseudo-anonymity vs. anonymity",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "zcash-and-zk-snarks-for-anonymity-preservation",
+          "name": "Zcash and Zk-SNARKS for anonymity preservation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pseudo-anonymity-vs-anonymity-zcash-and-zk-snarks-for"]
+        },
+        {
+          "id": "attacks-on-blockchains",
+          "name": "attacks on Blockchains",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["zcash-and-zk-snarks-for-anonymity-preservation"]
         },
         {
           "id": "such-as-sybil-attacks-selfish-mining-and-51-attacks",
-          "name": "such as Sybil attacks, selfish mining and 51% attacks",
-          "requires": ["pseudo-anonymity-vs-anonymity-zcash-and-zk-snarks-for"]
+          "name": "such as Sybil attacks",
+          "requires": ["pseudo-anonymity-vs-anonymity-zcash-and-zk-snarks-for"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "selfish-mining-and-51-attacks",
+          "name": "selfish mining and 51% attacks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["such-as-sybil-attacks-selfish-mining-and-51-attacks"]
         },
         {
           "id": "sharding-based-consensus-algorithms",
@@ -235,10 +301,20 @@
         },
         {
           "id": "case-studies-of-blockchain-in-finance-management-and",
-          "name": "Case Studies of blockchain in Finance, Management and Government",
-          "requires": ["sharding-based-consensus-algorithms"]
+          "name": "Case Studies of blockchain in Finance",
+          "requires": ["sharding-based-consensus-algorithms"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "management-and-government",
+          "name": "Management and Government",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["case-studies-of-blockchain-in-finance-management-and"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

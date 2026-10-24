@@ -5,8 +5,8 @@
   "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["biotech"],
-  "semesters": [1],
+  "branches": ["biotech", "chem"],
+  "semesters": [1, 2],
   "code": "24PH103T",
   "credits": 3,
   "ltp": "3-0-0",
@@ -21,6 +21,16 @@
       "credits": 3,
       "semester": 1,
       "kind": "core"
+    },
+    {
+      "branch": "chem",
+      "key": "s2-modern-physics",
+      "code": "24PH103T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
     }
   ],
   "syllabusSource": {
@@ -29,8 +39,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "physics",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -80,8 +90,17 @@
         },
         {
           "id": "engineering-physics-related-applications-davisson-germer",
-          "name": "Engineering Physics related applications. Davisson Germer experiment",
-          "requires": ["diffraction-and-polarization"]
+          "name": "Engineering Physics related applications",
+          "requires": ["diffraction-and-polarization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "davisson-germer-experiment",
+          "name": "Davisson Germer experiment",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["engineering-physics-related-applications-davisson-germer"]
         },
         {
           "id": "uncertainty-principle",
@@ -97,7 +116,30 @@
       "topics": [
         {
           "id": "gradient-divergence-curl",
-          "name": "Physical and mathematical concepts of gradient, divergence and curl, Gauss theorem, applications in gravitation and electrostatics"
+          "name": "Physical and mathematical concepts of gradient",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "divergence-and-curl",
+          "name": "divergence and curl",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gradient-divergence-curl"]
+        },
+        {
+          "id": "gauss-theorem",
+          "name": "Gauss theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["divergence-and-curl"]
+        },
+        {
+          "id": "applications-in-gravitation-and-electrostatics",
+          "name": "applications in gravitation and electrostatics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gauss-theorem"]
         },
         {
           "id": "stokes-theorem",
@@ -106,8 +148,17 @@
         },
         {
           "id": "biot-savart-law",
-          "name": "Equation of continuity, Biot Savart law",
-          "requires": ["stokes-theorem"]
+          "name": "Equation of continuity",
+          "requires": ["stokes-theorem"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "biot-savart-law-2",
+          "name": "Biot Savart law",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biot-savart-law"]
         },
         {
           "id": "amperes-law",
@@ -116,8 +167,31 @@
         },
         {
           "id": "maxwells-equations",
-          "name": "magnetization and magnetic intensity, Faraday’s law of Maxwell’s equations, wave equation for electromagnetic radiation, applications of optical fibers in communication",
-          "requires": ["amperes-law"]
+          "name": "magnetization and magnetic intensity",
+          "requires": ["amperes-law"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "faraday-s-law-of-maxwell-s-equations",
+          "name": "Faraday’s law of Maxwell’s equations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["maxwells-equations"]
+        },
+        {
+          "id": "wave-equation-for-electromagnetic-radiation",
+          "name": "wave equation for electromagnetic radiation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["faraday-s-law-of-maxwell-s-equations"]
+        },
+        {
+          "id": "applications-of-optical-fibers-in-communication",
+          "name": "applications of optical fibers in communication",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wave-equation-for-electromagnetic-radiation"]
         }
       ]
     },
@@ -177,8 +251,17 @@
         },
         {
           "id": "introduction-to-bcs-theory-concepts-of-laser",
-          "name": "Introduction to BCS Theory. Concepts of LASER",
-          "requires": ["superconductivity"]
+          "name": "Introduction to BCS Theory",
+          "requires": ["superconductivity"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "concepts-of-laser",
+          "name": "Concepts of LASER",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-bcs-theory-concepts-of-laser"]
         },
         {
           "id": "interaction-of-radiation-of-matter-quantum-mechanical-view",
@@ -253,5 +336,10 @@
         }
       ]
     }
+  ],
+  "courseType": "theory",
+  "relatedCourses": [
+    "pdeu-modern-physics-laboratory-biotech",
+    "pdeu-modern-physics-laboratory-chem"
   ]
 }

@@ -22,6 +22,8 @@ export const FLAGS = {
   /** PDEU's syllabus: its Core / Non-core sections on the subjects page (default on). */
   pdeuSyllabus: flag(process.env.NEXT_PUBLIC_FLAG_PDEU_SYLLABUS, true),
   community: flag(process.env.NEXT_PUBLIC_FLAG_COMMUNITY, false),
+  /** Lab (practical) courses in subject lists: off until their lesson format exists (Phase 7B). */
+  practicalCourses: flag(process.env.NEXT_PUBLIC_FLAG_PRACTICAL_COURSES, false),
 } as const;
 
 export type FlagName = keyof typeof FLAGS;

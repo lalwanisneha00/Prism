@@ -30,8 +30,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "signals",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -46,18 +46,176 @@
         },
         {
           "id": "process-of-data-communication-transmitter-receiver-medium",
-          "name": "Process of Data Communication, Transmitter, Receiver, Medium and Message Protocol, Protocols, Standards and Standard organizations, Bandwidth, Data Transmission Rate, Baud rate and Bits per second, mo",
-          "requires": ["introduction"]
+          "name": "Process of Data Communication",
+          "requires": ["introduction"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "signals-analog-digital-analog-vs",
-          "name": "Signals, Analog, Digital, Analog vs",
+          "id": "transmitter",
+          "name": "Transmitter",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["process-of-data-communication-transmitter-receiver-medium"]
         },
         {
-          "id": "digital-transmission-impairment-data-rate-limits-noiseless",
-          "name": "Digital, Transmission impairment, Data Rate Limits, Noiseless and Noisy channel, Performance",
+          "id": "receiver",
+          "name": "Receiver",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transmitter"]
+        },
+        {
+          "id": "medium-and-message-protocol",
+          "name": "Medium and Message Protocol",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["receiver"]
+        },
+        {
+          "id": "protocols",
+          "name": "Protocols",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["medium-and-message-protocol"]
+        },
+        {
+          "id": "standards-and-standard-organizations",
+          "name": "Standards and Standard organizations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["protocols"]
+        },
+        {
+          "id": "bandwidth",
+          "name": "Bandwidth",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["standards-and-standard-organizations"]
+        },
+        {
+          "id": "data-transmission-rate",
+          "name": "Data Transmission Rate",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bandwidth"]
+        },
+        {
+          "id": "baud-rate-and-bits-per-second",
+          "name": "Baud rate and Bits per second",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-transmission-rate"]
+        },
+        {
+          "id": "signals-analog-digital-analog-vs",
+          "name": "Signals",
+          "requires": ["process-of-data-communication-transmitter-receiver-medium"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "analog",
+          "name": "Analog",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["signals-analog-digital-analog-vs"]
+        },
+        {
+          "id": "digital",
+          "name": "Digital",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["analog"]
+        },
+        {
+          "id": "analog-vs",
+          "name": "Analog vs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["digital"]
+        },
+        {
+          "id": "digital-transmission-impairment-data-rate-limits-noiseless",
+          "name": "Transmission impairment",
+          "requires": ["signals-analog-digital-analog-vs"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "data-rate-limits",
+          "name": "Data Rate Limits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["digital-transmission-impairment-data-rate-limits-noiseless"]
+        },
+        {
+          "id": "noiseless-and-noisy-channel",
+          "name": "Noiseless and Noisy channel",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-rate-limits"]
+        },
+        {
+          "id": "performance",
+          "name": "Performance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["noiseless-and-noisy-channel"]
+        },
+        {
+          "id": "switching",
+          "name": "FHSS",
+          "requires": ["tdm-comm"],
+          "source": "admin_handout",
+          "confidence": "verified",
+          "movedFrom": {
+            "subject": "pdeu-data-communication",
+            "chapter": "multiplexing",
+            "at": "2026-10-24T23:22:41.746Z"
+          }
+        },
+        {
+          "id": "modes-of-communication",
+          "name": "modes of communication",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["switching"]
+        },
+        {
+          "id": "osi-tcip-model",
+          "name": "OSI/TCIP Model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["modes-of-communication"]
+        },
+        {
+          "id": "internet",
+          "name": "Internet",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["osi-tcip-model"]
+        },
+        {
+          "id": "intranet",
+          "name": "Intranet",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["internet"]
+        },
+        {
+          "id": "telephone-and-cable-network",
+          "name": "Telephone and Cable network",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["intranet"]
+        },
+        {
+          "id": "physical-layer",
+          "name": "Physical Layer",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["telephone-and-cable-network"]
         }
       ]
     },
@@ -72,13 +230,143 @@
         },
         {
           "id": "psk-fsk-qam",
-          "name": "Analog to Analog conversion: Amplitude Modulation, Frequency Modulation, and Phase Modulation, Digital to Analog conversion: ASK, FSK, PSK, and QAM. Digital Transmission",
-          "requires": ["analog-transmission"]
+          "name": "Analog to Analog conversion: Amplitude Modulation",
+          "requires": ["analog-transmission"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "frequency-modulation",
+          "name": "Frequency Modulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["psk-fsk-qam"]
+        },
+        {
+          "id": "phase-modulation",
+          "name": "Phase Modulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["frequency-modulation"]
+        },
+        {
+          "id": "digital-to-analog-conversion-ask",
+          "name": "Digital to Analog conversion: ASK",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["phase-modulation"]
+        },
+        {
+          "id": "fsk",
+          "name": "FSK",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["digital-to-analog-conversion-ask"]
+        },
+        {
+          "id": "psk",
+          "name": "PSK",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fsk"]
+        },
+        {
+          "id": "qam",
+          "name": "QAM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["psk"]
+        },
+        {
+          "id": "digital-transmission",
+          "name": "Digital Transmission",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["qam"]
+        },
+        {
+          "id": "analog-to-digital-conversion",
+          "name": "Analog to digital conversion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["digital-transmission"]
         },
         {
           "id": "analog-to-digital-conversion-digitization-pcm-transmission",
-          "name": "Analog to digital conversion, Digitization, PCM, Transmission Modes, Line Coding (Unipolar, Polar, Biphase), Block Coding (4B/5B Encoding), DTE-DCE Interface, Modems, 56K Modems, Cable Modems",
-          "requires": ["psk-fsk-qam"]
+          "name": "Digitization",
+          "requires": ["psk-fsk-qam"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pcm",
+          "name": "PCM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["analog-to-digital-conversion-digitization-pcm-transmission"]
+        },
+        {
+          "id": "transmission-modes",
+          "name": "Transmission Modes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pcm"]
+        },
+        {
+          "id": "line-coding-unipolar",
+          "name": "Line Coding (Unipolar",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transmission-modes"]
+        },
+        {
+          "id": "polar",
+          "name": "Polar",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["line-coding-unipolar"]
+        },
+        {
+          "id": "biphase",
+          "name": "Biphase)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polar"]
+        },
+        {
+          "id": "block-coding-4b-5b-encoding",
+          "name": "Block Coding (4B/5B Encoding)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biphase"]
+        },
+        {
+          "id": "dte-dce-interface",
+          "name": "DTE-DCE Interface",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["block-coding-4b-5b-encoding"]
+        },
+        {
+          "id": "modems",
+          "name": "Modems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dte-dce-interface"]
+        },
+        {
+          "id": "56k-modems",
+          "name": "56K Modems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["modems"]
+        },
+        {
+          "id": "cable-modems",
+          "name": "Cable Modems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["56k-modems"]
         }
       ]
     },
@@ -89,17 +377,51 @@
       "topics": [
         {
           "id": "transmission-media",
-          "name": "Transmission Media – Guided Media: Twisted Pair cable"
+          "name": "Transmission Media",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "coaxial-cable-and-fiber-optic-cable",
-          "name": "Coaxial cable, and Fiber optic cable",
+          "id": "guided-media-twisted-pair-cable",
+          "name": "Guided Media: Twisted Pair cable",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["transmission-media"]
         },
         {
-          "id": "unguided-media-radio-waves-microwaves-and-infrared-satellite",
-          "name": "Unguided Media: Radio Waves, Microwaves, and Infrared satellite",
+          "id": "coaxial-cable-and-fiber-optic-cable",
+          "name": "Coaxial cable",
+          "requires": ["transmission-media"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fiber-optic-cable",
+          "name": "Fiber optic cable",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["coaxial-cable-and-fiber-optic-cable"]
+        },
+        {
+          "id": "unguided-media-radio-waves-microwaves-and-infrared-satellite",
+          "name": "Unguided Media: Radio Waves",
+          "requires": ["coaxial-cable-and-fiber-optic-cable"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "microwaves",
+          "name": "Microwaves",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["unguided-media-radio-waves-microwaves-and-infrared-satellite"]
+        },
+        {
+          "id": "infrared-satellite",
+          "name": "Infrared satellite",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["microwaves"]
         },
         {
           "id": "line-of-site-transmission-point-to-point-and-broadcast",
@@ -115,17 +437,93 @@
       "topics": [
         {
           "id": "multiplexing",
-          "name": "Multiplexing"
+          "name": "Multiplexing",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "tdm-comm",
-          "name": "FDM, WDM, Synchronous TDM (time slots & frames, interleaving, data rate management), Statistical Time Division Multiplexing, Spread Spectrum",
+          "id": "statistical-time-division-multiplexing",
+          "name": "Statistical Time Division Multiplexing",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["multiplexing"]
         },
         {
-          "id": "switching",
-          "name": "FHSS, DSSS, Switching: Circuit-Switched Networks, Datagram networks, Concept of Virtual circuit networks, structure of circuit and packet switch",
+          "id": "tdm-comm",
+          "name": "FDM",
+          "requires": ["multiplexing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "wdm",
+          "name": "WDM",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["tdm-comm"]
+        },
+        {
+          "id": "synchronous-tdm-time-slots-and-frames",
+          "name": "Synchronous TDM (time slots & frames",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wdm"]
+        },
+        {
+          "id": "interleaving",
+          "name": "interleaving",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["synchronous-tdm-time-slots-and-frames"]
+        },
+        {
+          "id": "data-rate-management",
+          "name": "data rate management)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["interleaving"]
+        },
+        {
+          "id": "spread-spectrum",
+          "name": "Spread Spectrum",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-rate-management"]
+        },
+        {
+          "id": "dsss",
+          "name": "DSSS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["spread-spectrum"]
+        },
+        {
+          "id": "switching-circuit-switched-networks",
+          "name": "Switching: Circuit-Switched Networks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dsss"]
+        },
+        {
+          "id": "datagram-networks",
+          "name": "Datagram networks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["switching-circuit-switched-networks"]
+        },
+        {
+          "id": "concept-of-virtual-circuit-networks",
+          "name": "Concept of Virtual circuit networks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["datagram-networks"]
+        },
+        {
+          "id": "structure-of-circuit-and-packet-switch",
+          "name": "structure of circuit and packet switch",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concept-of-virtual-circuit-networks"]
         },
         {
           "id": "concepts-of-dsl-and-adsl",
@@ -134,5 +532,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

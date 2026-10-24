@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Machine Learning and Applications (Computer Systems)",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -45,7 +45,16 @@
         {
           "id": "dimensionality",
           "name": "Dimensionality",
-          "requires": ["concept-of-data"]
+          "requires": ["concept-of-data"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "curse-of-dimensionality-2",
+          "name": "Curse of dimensionality",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dimensionality"]
         },
         {
           "id": "concept-of-features",
@@ -101,7 +110,16 @@
       "topics": [
         {
           "id": "cnn",
-          "name": "Neural Network"
+          "name": "Neural Network",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "convolutional-neural-network-2",
+          "name": "Convolutional Neural Network",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cnn"]
         },
         {
           "id": "back-propagation",
@@ -115,8 +133,17 @@
         },
         {
           "id": "one-class-classification-multiclass-classification",
-          "name": "(One class classification, Multiclass Classification)",
-          "requires": ["concept-of-regression-and-classification"]
+          "name": "(One class classification",
+          "requires": ["concept-of-regression-and-classification"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "multiclass-classification",
+          "name": "Multiclass Classification)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["one-class-classification-multiclass-classification"]
         },
         {
           "id": "knn",
@@ -137,7 +164,16 @@
       "topics": [
         {
           "id": "boosting",
-          "name": "Boosting"
+          "name": "Boosting",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gradient-boosting-2",
+          "name": "Gradient boosting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["boosting"]
         },
         {
           "id": "bagging",
@@ -207,5 +243,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

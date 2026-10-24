@@ -1,0 +1,315 @@
+{
+  "id": "pdeu-chemical-engineering-thermodynamics-chem",
+  "name": "Chemical Engineering Thermodynamics",
+  "field": "Chemical Engineering Thermodynamics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 4): Chemical Engineering Thermodynamics",
+    "note": "Units and topics copied from the course handout PDF (pages 10 of CHEM/sem4/Chemical_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH210T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s4-chemical-engineering-thermodynamics",
+      "code": "24CH210T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "laws-of-thermodynamics",
+      "name": "Laws of Thermodynamics",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "scope-of-chemical-engineering-thermodynamics",
+          "name": "Scope of chemical engineering thermodynamics"
+        },
+        {
+          "id": "system-and-surroundings",
+          "name": "system and surroundings",
+          "requires": ["scope-of-chemical-engineering-thermodynamics"]
+        },
+        {
+          "id": "quasi-static-processes",
+          "name": "quasi-static processes",
+          "requires": ["system-and-surroundings"]
+        },
+        {
+          "id": "diathermal-and-adiabatic-boundaries",
+          "name": "diathermal and adiabatic boundaries",
+          "requires": ["quasi-static-processes"]
+        },
+        {
+          "id": "zeroth-law-and-its-implications",
+          "name": "zeroth law and its implications",
+          "requires": ["diathermal-and-adiabatic-boundaries"]
+        },
+        {
+          "id": "thermodynamic-work",
+          "name": "thermodynamic work",
+          "requires": ["zeroth-law-and-its-implications"]
+        },
+        {
+          "id": "first-law-and-its-implications",
+          "name": "first law and its implications",
+          "requires": ["thermodynamic-work"]
+        },
+        {
+          "id": "heat",
+          "name": "heat",
+          "requires": ["first-law-and-its-implications"]
+        },
+        {
+          "id": "heat-capacities",
+          "name": "heat capacities",
+          "requires": ["heat"]
+        },
+        {
+          "id": "state-of-a-pure-component",
+          "name": "state of a pure component",
+          "requires": ["heat-capacities"]
+        },
+        {
+          "id": "closed-thermodynamic-system",
+          "name": "closed thermodynamic system",
+          "requires": ["state-of-a-pure-component"]
+        },
+        {
+          "id": "statements-of-the-second-law",
+          "name": "statements of the second law",
+          "requires": ["closed-thermodynamic-system"]
+        },
+        {
+          "id": "entropy-of-system-and-surroundings",
+          "name": "entropy of system and surroundings",
+          "requires": ["statements-of-the-second-law"]
+        },
+        {
+          "id": "spontaneity",
+          "name": "spontaneity",
+          "requires": ["entropy-of-system-and-surroundings"]
+        },
+        {
+          "id": "first-and-second-laws-for-open-systems",
+          "name": "first and second laws for open systems",
+          "requires": ["spontaneity"]
+        }
+      ]
+    },
+    {
+      "id": "volumetric-properties-of-pure-fluids",
+      "name": "Volumetric Properties of Pure Fluids",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "general-nature-of-pvt-behaviour-of-pure-substances",
+          "name": "General nature of PVT behaviour of pure substances"
+        },
+        {
+          "id": "equations-of-state-ideal-gas-law",
+          "name": "equations of state: ideal gas law",
+          "requires": ["general-nature-of-pvt-behaviour-of-pure-substances"]
+        },
+        {
+          "id": "cubic-equations-of-state",
+          "name": "cubic equations of state",
+          "requires": ["equations-of-state-ideal-gas-law"]
+        },
+        {
+          "id": "van-der-waals",
+          "name": "van der Waals",
+          "requires": ["cubic-equations-of-state"]
+        },
+        {
+          "id": "redlich-kwong",
+          "name": "Redlich-Kwong",
+          "requires": ["van-der-waals"]
+        },
+        {
+          "id": "soaveredlich-kwong-and-peng-robinson-equations-of-state",
+          "name": "SoaveRedlich-Kwong and Peng-Robinson equations of state",
+          "requires": ["redlich-kwong"]
+        },
+        {
+          "id": "generalized-equations-of-state",
+          "name": "generalized equations of state",
+          "requires": ["soaveredlich-kwong-and-peng-robinson-equations-of-state"]
+        },
+        {
+          "id": "the-law-of-corresponding-states",
+          "name": "the law of corresponding states",
+          "requires": ["generalized-equations-of-state"]
+        },
+        {
+          "id": "compressibility-factor-calculations-using-generalized-correl",
+          "name": "compressibility factor calculations using generalized correlation tables",
+          "requires": ["the-law-of-corresponding-states"]
+        },
+        {
+          "id": "virial-equation-of-state",
+          "name": "virial equation of state",
+          "requires": ["compressibility-factor-calculations-using-generalized-correl"]
+        },
+        {
+          "id": "pressure-temperature-relations-and-the-associated-safety-asp",
+          "name": "pressure–temperature relations and the associated safety aspects",
+          "requires": ["virial-equation-of-state"]
+        }
+      ]
+    },
+    {
+      "id": "thermodynamic-property-relations-and-introduction-to-vle",
+      "name": "Thermodynamic Property Relations and Introduction to Vle",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "fundamental-property-relations",
+          "name": "Fundamental property relations"
+        },
+        {
+          "id": "maxwell-s-relations",
+          "name": "Maxwell's relations",
+          "requires": ["fundamental-property-relations"]
+        },
+        {
+          "id": "enthalpy-and-entropy-as-functions-of-t-and-p",
+          "name": "enthalpy and entropy as functions of T and P",
+          "requires": ["maxwell-s-relations"]
+        },
+        {
+          "id": "internal-energy-and-entropy-as-functions-of-t-and-v",
+          "name": "internal energy and entropy as functions of T and V",
+          "requires": ["enthalpy-and-entropy-as-functions-of-t-and-p"]
+        },
+        {
+          "id": "the-gibbs-energy-as-a-generating-function",
+          "name": "the Gibbs energy as a generating function",
+          "requires": ["internal-energy-and-entropy-as-functions-of-t-and-v"]
+        },
+        {
+          "id": "residual-properties-from-various-equations-of-state",
+          "name": "residual properties from various equations of state",
+          "requires": ["the-gibbs-energy-as-a-generating-function"]
+        },
+        {
+          "id": "generalized-property-correlations-for-gases",
+          "name": "generalized property correlations for gases",
+          "requires": ["residual-properties-from-various-equations-of-state"]
+        },
+        {
+          "id": "two-phase-systems",
+          "name": "two-phase systems",
+          "requires": ["generalized-property-correlations-for-gases"]
+        },
+        {
+          "id": "clapeyron-equation",
+          "name": "Clapeyron equation",
+          "requires": ["two-phase-systems"]
+        },
+        {
+          "id": "antoine-equation",
+          "name": "Antoine equation",
+          "requires": ["clapeyron-equation"]
+        },
+        {
+          "id": "raoult-s-law",
+          "name": "Raoult's law",
+          "requires": ["antoine-equation"]
+        },
+        {
+          "id": "modified-raoult-s-law",
+          "name": "modified Raoult's law",
+          "requires": ["raoult-s-law"]
+        },
+        {
+          "id": "bubble-point-and-dew-point-calculations",
+          "name": "bubble point and dew point calculations",
+          "requires": ["modified-raoult-s-law"]
+        },
+        {
+          "id": "vapour-liquid-equilibrium",
+          "name": "vapour–liquid equilibrium",
+          "requires": ["bubble-point-and-dew-point-calculations"]
+        },
+        {
+          "id": "evaporation-rate-of-a-chemical-after-a-leak-using-the-clausi",
+          "name": "evaporation rate of a chemical after a leak using the Clausius–Clapeyron equation",
+          "requires": ["vapour-liquid-equilibrium"]
+        }
+      ]
+    },
+    {
+      "id": "solution-thermodynamics",
+      "name": "Solution Thermodynamics",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "gibbs-phase-rule",
+          "name": "Gibbs phase rule"
+        },
+        {
+          "id": "chemical-potential-and-the-condition-for-phase-equilibrium",
+          "name": "chemical potential and the condition for phase equilibrium",
+          "requires": ["gibbs-phase-rule"]
+        },
+        {
+          "id": "partial-properties",
+          "name": "partial properties",
+          "requires": ["chemical-potential-and-the-condition-for-phase-equilibrium"]
+        },
+        {
+          "id": "the-ideal-gas-state-mixture-model",
+          "name": "the ideal-gas-state mixture model",
+          "requires": ["partial-properties"]
+        },
+        {
+          "id": "fugacity-activity-and-fugacity-activity-coefficient-calculat",
+          "name": "fugacity/activity and fugacity/activity coefficient calculations for pure species and mixtures",
+          "requires": ["the-ideal-gas-state-mixture-model"]
+        },
+        {
+          "id": "the-ideal-solution-model",
+          "name": "the ideal-solution model",
+          "requires": ["fugacity-activity-and-fugacity-activity-coefficient-calculat"]
+        },
+        {
+          "id": "excess-properties",
+          "name": "excess properties",
+          "requires": ["the-ideal-solution-model"]
+        },
+        {
+          "id": "property-changes-of-mixing",
+          "name": "property changes of mixing",
+          "requires": ["excess-properties"]
+        },
+        {
+          "id": "heat-effects-of-mixing-processes",
+          "name": "heat effects of mixing processes",
+          "requires": ["property-changes-of-mixing"]
+        },
+        {
+          "id": "chemical-reaction-equilibrium",
+          "name": "chemical reaction equilibrium",
+          "requires": ["heat-effects-of-mixing-processes"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-chemical-engineering-thermodynamics-laboratory-chem"]
+}

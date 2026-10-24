@@ -1,0 +1,89 @@
+{
+  "id": "pdeu-compiler-design-laboratory-ce",
+  "name": "Compiler Design Laboratory",
+  "field": "Compiler Design Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (COMP semester 5): Compiler Design Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 8 of COMP/sem5/CE_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CS303P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-compiler-design-laboratory",
+      "code": "24CS303P",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-lexical-analysis-using-higher-level-programming",
+          "name": "Lexical analysis using higher level programming: Program to identify keywords, identifiers and others from the given input file using higher level programming.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-lexical-analysis-tool-programs-based-on-lexical",
+          "name": "Lexical Analysis Tool: Programs based on lexical analysis tool (flex or similar).",
+          "number": 2,
+          "requires": ["experiment-1-lexical-analysis-using-higher-level-programming"]
+        },
+        {
+          "id": "experiment-3-top-down-parser-write-a-program-to-implement-re",
+          "name": "Top-down parser: Write a program to implement Recursive Decent Parser (RDP) or similar for given grammar.",
+          "number": 3,
+          "requires": ["experiment-2-lexical-analysis-tool-programs-based-on-lexical"]
+        },
+        {
+          "id": "experiment-4-bottom-up-parser-program-to-implement-any-one-s",
+          "name": "Bottom-up parser: Program to implement any one shift-reduce parser.",
+          "number": 4,
+          "requires": ["experiment-3-top-down-parser-write-a-program-to-implement-re"]
+        },
+        {
+          "id": "experiment-5-yacc-tool-programs-based-on-yacc-tool-and-conte",
+          "name": "YACC tool: Programs based on YACC tool and context free grammars.",
+          "number": 5,
+          "requires": ["experiment-4-bottom-up-parser-program-to-implement-any-one-s"]
+        },
+        {
+          "id": "experiment-6-intermediate-code-generation-program-related-to",
+          "name": "Intermediate code generation: Program related to intermediate code generation from given expression.",
+          "number": 6,
+          "requires": ["experiment-5-yacc-tool-programs-based-on-yacc-tool-and-conte"]
+        },
+        {
+          "id": "experiment-7-target-code-generation-program-to-generate-targ",
+          "name": "Target code generation: Program to generate target code from the intermediate code.",
+          "number": 7,
+          "requires": ["experiment-6-intermediate-code-generation-program-related-to"]
+        },
+        {
+          "id": "experiment-8-demo-compiler-implement-a-demo-compiler",
+          "name": "Demo compiler: Implement a demo compiler.",
+          "number": 8,
+          "requires": ["experiment-7-target-code-generation-program-to-generate-targ"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-compiler-design"]
+}

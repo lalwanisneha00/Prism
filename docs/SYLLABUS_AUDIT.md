@@ -80,19 +80,19 @@ All keyed by **subject id + topic id** strings (chapter id in a few places). Top
 
 ## 6. Branch folder mapping (`handouts/`)
 
-| Folder  | Prism branch id | Status                                                            |
-| ------- | --------------- | ----------------------------------------------------------------- |
-| COMP    | `ce`            | 8 PDFs                                                            |
-| ICT     | `ict`           | 8 PDFs                                                            |
-| ECE     | `ece`           | 8 PDFs                                                            |
-| MECH    | `me`            | 8 PDFs                                                            |
-| CIVIL   | `civil`         | 8 PDFs                                                            |
-| PETRO   | `petro`         | 8 PDFs                                                            |
-| BIOTECH | `biotech`       | 8 PDFs                                                            |
-| ELEC    | new `elec`      | 8 PDFs. Owner decided: add Electrical as a new branch in Phase 2. |
-| CHEM    | new `chem`      | 8 PDFs. Owner decided: add Chemical as a new branch in Phase 2.   |
-| CSBS    | **none**        | Folders empty. Skipped (plan says so).                            |
-| CSSE    | **none**        | Folder deleted by the owner on 2026-10-25. Skipped.               |
+| Folder  | Prism branch id | Status                                                                                                                      |
+| ------- | --------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| COMP    | `ce`            | 8 PDFs                                                                                                                      |
+| ICT     | `ict`           | 8 PDFs                                                                                                                      |
+| ECE     | `ece`           | 8 PDFs                                                                                                                      |
+| MECH    | `me`            | 8 PDFs                                                                                                                      |
+| CIVIL   | `civil`         | 8 PDFs                                                                                                                      |
+| PETRO   | `petro`         | 8 PDFs                                                                                                                      |
+| BIOTECH | `biotech`       | 8 PDFs                                                                                                                      |
+| ELEC    | `elec` (added)  | 8 PDFs. Added in Phase 2 (`branches.json`); no handbook file, uses the 2020 `20EE` scheme; sem 2 has no course (known gap). |
+| CHEM    | `chem` (added)  | 8 PDFs. Added in Phase 2 (`branches.json`); no handbook file.                                                               |
+| CSBS    | **none**        | Folders empty. Skipped (plan says so).                                                                                      |
+| CSSE    | **none**        | Folder deleted by the owner on 2026-10-25. Skipped.                                                                         |
 
 Each semester folder holds one PDF named `<Branch>_Semester_<N>_Course_Handout.pdf`, i.e. **one combined PDF per semester**, so the split step is needed everywhere. CSBS/CSSE: there is no Prism data for them, so nothing to protect yet.
 
@@ -115,6 +115,14 @@ Each semester folder holds one PDF named `<Branch>_Semester_<N>_Course_Handout.p
 - **Migrations:** `scripts/syllabus-migrations/NNN-*.ts`, run with `npx tsx --tsconfig tsconfig.json <file> up|down`; `down` only removes values the migration wrote, and both directions log to `history.jsonl`. Run `npx prettier --write "src/data/subjects/pdeu-*.json"` after any script that writes subject files.
 - **Batch year:** `AppSettings.batchYear?` (`src/lib/storage/db.ts`) + `recordSchemas.ts` settings (2000 to 2100). No UI yet.
 - **Backup:** `npm run backup:firestore` (`scripts/backup-firestore.ts`) dumps `lessons` + the syllabus-fix collections to `backups/` (git-ignored). Not run yet (each doc = 1 read of the 50k/day).
+
+## 7c. Phase 2 building blocks (use these in later phases)
+
+- **Handout pipeline:** `npm run handouts:split` → `handouts:import` → `handouts:match` (dry run: `handouts/_parsed/REARRANGE_REPORT.md`, `rearrange-plan.json`). Logic in `src/lib/syllabusFix/handoutCourse.ts` (units, experiments, course type, `tidyCaps`), `handoutOutline.ts` (course tables), `handoutMatch.ts` (matcher). Phase 3 reuses these on a student's upload (port `scripts/lib/handout-text.mjs` `detectCourseStarts` into `src/lib` first; it is Node-only today).
+- **Applied as migration `scripts/syllabus-migrations/002-handout-rearrange.ts` up|down.** `up` tags `pre-syllabus-phase2-apply`, records every written file in `data/university/pdeu/migrations/002-handout-rearrange.json` (+ items not applied); `down` restores those files from the tag and deletes the 253 created subject files (tested twice). Run `npx prettier --write` on the data afterwards, then `node scripts/build-subject-index.mjs` and `build-subject-light.mjs`.
+- **New schema fields:** subject `courseType` (`theory|practice|practical`, missing = theory), `relatedCourses` (theory course ↔ its lab); topic `number`, `aim` (lab experiments; a lab has one chapter `experiments`). Handbook course `retired`, `source: handout`. Flag `FLAGS.practicalCourses` (env `NEXT_PUBLIC_FLAG_PRACTICAL_COURSES`, default off) hides labs from `subjects`, `subjectIndex` and so from every list until Phase 7B.
+- **`subjectsFor(branch, sem)` now uses the branch's own offering semester** (a shared course in CE sem 2 and ICT sem 3 no longer shows in CE sem 3). `nameSimilarity` (`src/lib/university/match.ts`) now returns 0 for different numbers of one series (Mathematics I vs III); student uploads benefit too.
+- **ID integrity:** `npm run syllabus:check` (`scripts/check-syllabus-ids.ts`): every locked id resolves (moved topics through `movedFrom`), subject-map / offerings / related / stale links valid. The lock test in `subjects.test.ts` accepts moved topics the same way.
 
 ## 8. Backing up for free
 
@@ -146,10 +154,12 @@ Evals: out of scope. Existing eval results are based on the old syllabus and are
   - Database changes: none in Firestore. Data: additive fields only; migration 001 is reversible (`down` tested: byte-identical files).
   - Checks: `npm run check` 764/766 in the full run (2 timeouts in `src/app/api/lesson/route.test.ts` under load; that file passes 5/5 alone), `npm run build` passes.
   - **Next step:** Phase 2 (split handouts, import dry-run report, stop for the owner's approval). Read §2, §3 (ID lock note), §6 and §7b first.
-- **Phase 2 (import + rearrange): partly done, 2026-10-25. Step 0 (split) done, waiting for the owner's OK on the course counts before parsing.**
-  - New: `scripts/lib/handout-text.mjs` (shared: `readPdfLines` sorts text top-to-bottom and drops "ghost" text, `detectCourseStarts`, `splitHeading`, `CODE_RE`, `isPlaceholderCode`, `BRANCH_FOLDERS`), `scripts/split-handouts.mjs` (`npm run handouts:split`), output `handouts/_split/<BRANCH>/sem<N>/<CODE>_<title>.pdf` (git-ignored), `handouts/_split/manifest.json` (every course: code, title, kind theory/lab/other, page range `from`/`to`, `fromLine`) and `handouts/_split/SPLIT_REPORT.md`.
-  - Result: 72 PDFs → 624 pieces (see counts below). Database changes: none.
-  - What the PDFs are like: a course starts at a "Teaching Scheme" table with code + title above it; title is sometimes the last line of the previous page, sometimes split around a `<Course Code>` line; 11 courses start mid-page (page goes to both pieces); MECH sem 7 has a hidden duplicate heading stamped on every page (filtered: same text at same x twice per page on 60%+ of pages). Many codes are missing or placeholders (`24ICXXXT`, `<Course Code>`, `XXXX`); all of CIVIL has no codes, so matching needs fuzzy titles. ELEC sem 1-2 and ICT sem 1-2 hold only the department's own courses (ELEC uses the old `20EE` 2020 scheme). Sem 8 is projects only everywhere. Semesters 6-7 list the whole elective pool (COMP 15 theory). Page 1 of most PDFs is a course outline table listing every course of every semester: use it in the import to catch courses that have no handout page (e.g. ICT sem 3 outline lists Introduction to AI and Discrete Mathematics, which have no handout pages).
-  - Owner spot-checked CIVIL 7, MECH 7, CHEM 7, PETRO 4. Fixed: "Project Management" was wrongly "other" (only internships, seminars, major/comprehensive projects, orientation/training, yoga/NSS/NCC are "other" now); labs now also use the L-T-P row (`parseLtp`, "-" = 0): 0-0-P means lab (e.g. 24PE210T field work) unless the semester has a separate "<same name> Laboratory" (MECH 4 24ME206T prints 0-0-2 by mistake, kept theory). Name/L-T-P disagreements are listed in the report's Notes. Counts now: 401 theory, 189 lab, 34 other. The four cells match the owner's numbers; no other cell changed.
-  - Committed as `Syllabus fix: Phase 2 step 0, split handouts` (owner asked to commit and wait).
-  - **Next step:** wait for the owner's instructions. Then, Phase 2 step 1: `scripts/import-handouts.mjs` reading `handouts/_split/manifest.json` + text (reuse `handout-text.mjs`), parse units/topics, plus the outline tables; then matcher + `REARRANGE_REPORT.md` dry run; stop for approval.
+- **Phase 2 (import + rearrange): done, 2026-10-25.** See §6, §7c.
+  - Steps 0-2 (split 72 PDFs → 624 pieces; import; dry run): course types 399 theory, 2 practice, 189 practical, 34 not taught, 0 undetected (no handout prints a type: title + L-T-P + units/experiments, checked against the T/P code letter). Owner spot-checked 4 count cells; "Project Management" and 0-0-P field work fixed. Committed `Syllabus fix: Phase 2 step 0, split handouts`.
+  - Owner's decisions (2026-10-25): (1) Introduction to AI added as its own course for ICT sem 3 and ECE sem 3 (`pdeu-introduction-to-artificial-intelligence-ict`/`-ece`), topics copied from `...-department-ce` as a draft, `official_site`/`unverified` (upload banner applies in Phase 3). (2) The 15 same-name-different-syllabus courses (ICT ML, IoT, Blockchain, CHEM Maths III, ...) got their own per-branch course. (3) Matcher approved, plus: generic words (introduction, basics, overview, applications, fundamentals) ignored; weak matches (name 0.4-0.85 without topic support) → needs_review; an old topic holding several handout topics is split, first piece keeps the id. Electives: middle code digit ≥3 (24ME431T); new ones go into a slot (one per semester when the handbook has none: ME sem 7 really picks 3, review in Phase 6).
+  - Applied (migration 002 up): 27 links to branch/semester, 6 semester moves, 58 + 15 + 2 new theory courses, 178 new labs (4 had no experiment list), 22 missing units, 13 reorders, 18 placeholder chapter names renamed, 80 topic moves (`movedFrom` kept), 482 missing topics, 1,279 topic splits (+2,566 topics; 835 one-word pieces like "digital"), 380 retirements (soft), ME's old handbook courses retired. 253 subject files created, 284 files changed, 6,124 history entries, 1,349 topics stale, lock 12,274 → 21,324 ids. Every changed node is `admin_handout`/`verified`. New topics need the topic before them (concept map convention).
+  - Not applied (in the migration manifest): 7 existing courses the handout calls labs (Engineering Graphics x4, CIVIL lab-named courses) stay listed as theory, decide in Phase 7B; 4 labs with no experiment list. needs_review: 174 (37 unsure matches, several only singular/plural: "Dynamics of Machines" vs "...Machine", "Microwave and Antennas" vs "Antenna"; 93 course-table rows without a handout page; 20 parsing/type; 9 incomplete handouts; 15 decided). Phase 6 admin queue should take these.
+  - Checks: `npm run syllabus:check` OK (21,324 locked ids resolve, no record points at a missing id), `npm run check` 802/802, `npm run build` passes. Light index 44 KB → 62 KB gzipped (hidden labs included).
+  - Database changes: none in Firestore. Bugs: ICT sem 3 lists 6 courses incl. AI; ME spring topics left Design of Shafts (tests in `pdeuCatalogue.test.ts`).
+  - Not committed yet.
+  - **Next step:** Phase 3 (student handout upload). First consider: a plural-aware matcher pass to clear the obvious unsure matches; generating handbook files for `elec`/`chem`.

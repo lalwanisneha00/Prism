@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Building Planning and Computer Aided Drawing",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -124,20 +124,62 @@
         },
         {
           "id": "perspective-drawing-necessity-principles-and-characteristics",
-          "name": "Perspective Drawing: Necessity, Principles and Characteristics of Perspective Drawing Terminology Related with Perspective Drawing, Classification of Perspective Drawing",
-          "requires": ["planning-of-different-public-building"]
+          "name": "Perspective Drawing: Necessity",
+          "requires": ["planning-of-different-public-building"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "principles-and-characteristics-of-perspective-drawing-termin",
+          "name": "Principles and Characteristics of Perspective Drawing Terminology Related with Perspective Drawing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["perspective-drawing-necessity-principles-and-characteristics"]
+        },
+        {
+          "id": "classification-of-perspective-drawing",
+          "name": "Classification of Perspective Drawing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principles-and-characteristics-of-perspective-drawing-termin"]
         },
         {
           "id": "planning-of-public-building-school-bank-commercial-complex",
-          "name": "Planning of Public Building (School, Bank, Commercial Complex, etc- Two Point Perspective Drawing",
-          "requires": ["perspective-drawing-necessity-principles-and-characteristics"]
+          "name": "Planning of Public Building (School",
+          "requires": ["perspective-drawing-necessity-principles-and-characteristics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bank",
+          "name": "Bank",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["planning-of-public-building-school-bank-commercial-complex"]
+        },
+        {
+          "id": "commercial-complex",
+          "name": "Commercial Complex",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bank"]
+        },
+        {
+          "id": "etc-two-point-perspective-drawing",
+          "name": "etc- Two Point Perspective Drawing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["commercial-complex"]
         },
         {
           "id": "laboratory-contents-1-list-out-abbreviations-and-symbols",
           "name": "Laboratory Contents: 1. List out abbreviations and symbols used in building planning. (2 A-2 size sheet). 2. Draw a layout of different types of doors, windows, trusses and stairs used in building. (4",
-          "requires": ["planning-of-public-building-school-bank-commercial-complex"]
+          "requires": ["planning-of-public-building-school-bank-commercial-complex"],
+          "status": "retired"
         }
       ]
     }
-  ]
+  ],
+  "courseType": "practice",
+  "relatedCourses": ["pdeu-building-planning-and-computer-aided-drawing-lab-civil"]
 }

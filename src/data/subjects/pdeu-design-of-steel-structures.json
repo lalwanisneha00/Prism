@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Design of Steel Structures",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -47,8 +47,17 @@
         },
         {
           "id": "types-of-connections-bolted-connections-types-bolts",
-          "name": "types of connections . Bolted connections: types bolts",
-          "requires": ["scope-of-the-subject"]
+          "name": "types of connections",
+          "requires": ["scope-of-the-subject"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bolted-connections-types-bolts",
+          "name": "Bolted connections: types bolts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-connections-bolted-connections-types-bolts"]
         },
         {
           "id": "specification",
@@ -78,7 +87,16 @@
         {
           "id": "beam-to-column-connections-connections-subjected-axial-load",
           "name": "Beam to column connections: Connections subjected axial load and twisting moments",
-          "requires": ["beam-to-beam-connections-numerical-examples"]
+          "requires": ["beam-to-beam-connections-numerical-examples"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "beam-to-column-connections-connections-subjected-axial-load-3",
+          "name": "Beam to column connections: Connections subjected axial load and bending moments",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["beam-to-column-connections-connections-subjected-axial-load"]
         },
         {
           "id": "beam-to-column-connections-connections-subjected-axial-load-2",
@@ -104,7 +122,16 @@
         {
           "id": "beam-to-column-welded-connections-connections-subjected",
           "name": "Beam to column welded connections: Connections subjected axial load and twisting moments",
-          "requires": ["numerical-examples-2"]
+          "requires": ["numerical-examples-2"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "beam-to-column-welded-connections-connections-subjected-axia",
+          "name": "Beam to column welded connections: Connections subjected axial load and bending moments",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["beam-to-column-welded-connections-connections-subjected"]
         },
         {
           "id": "beam-to-column-welded-connections-connections-subjected-2",
@@ -191,7 +218,16 @@
         {
           "id": "design-of-laterally-supported-beams-subjected-to-uniformly",
           "name": "Design of laterally supported beams subjected to uniformly distributed loads",
-          "requires": ["code-provisions"]
+          "requires": ["code-provisions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "design-of-laterally-un-supported-beams-subjected-to-uniforml",
+          "name": "Design of laterally un supported beams subjected to uniformly distributed loads",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-of-laterally-supported-beams-subjected-to-uniformly"]
         },
         {
           "id": "design-procedure",
@@ -201,7 +237,16 @@
         {
           "id": "design-numerical-examples",
           "name": "design numerical examples",
-          "requires": ["design-procedure"]
+          "requires": ["design-procedure"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "code-provisions-design-numerical-examples-2",
+          "name": "code provisions design numerical examples",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-numerical-examples"]
         },
         {
           "id": "design-of-laterally-un-supported-beams-subjected-to",
@@ -215,5 +260,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

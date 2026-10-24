@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Downstream Processing",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -81,17 +81,72 @@
       "topics": [
         {
           "id": "flocculation-and-sedimentation-centrifugation-differential",
-          "name": "Flocculation and sedimentation, Centrifugation-differential and density gradient"
+          "name": "Flocculation and sedimentation",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "filtration-incompressible-and-compressible-cakes-pre",
-          "name": "Filtration: incompressible and compressible cakes, Pre-treatment of fermentation broth, Filter media and equipment for batch and continuous Filtration",
+          "id": "centrifugation-differential-and-density-gradient",
+          "name": "Centrifugation-differential and density gradient",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["flocculation-and-sedimentation-centrifugation-differential"]
         },
         {
-          "id": "membrane-separation-processes-basic-principles-and",
-          "name": "Membrane separation processes: Basic principles and advantages, Modes of operation, Pressure-driven processes (MF, UF, NF & RO), Concentration-driven processes (Dialysis &Pervaporation), and Electrica",
+          "id": "filtration-incompressible-and-compressible-cakes-pre",
+          "name": "Filtration: incompressible and compressible cakes",
+          "requires": ["flocculation-and-sedimentation-centrifugation-differential"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pre-treatment-of-fermentation-broth",
+          "name": "Pre-treatment of fermentation broth",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["filtration-incompressible-and-compressible-cakes-pre"]
+        },
+        {
+          "id": "filter-media-and-equipment-for-batch-and-continuous-filtrati",
+          "name": "Filter media and equipment for batch and continuous Filtration",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pre-treatment-of-fermentation-broth"]
+        },
+        {
+          "id": "membrane-separation-processes-basic-principles-and",
+          "name": "Membrane separation processes: Basic principles and advantages",
+          "requires": ["filtration-incompressible-and-compressible-cakes-pre"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "modes-of-operation",
+          "name": "Modes of operation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["membrane-separation-processes-basic-principles-and"]
+        },
+        {
+          "id": "pressure-driven-processes-mf",
+          "name": "Pressure-driven processes (MF",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["modes-of-operation"]
+        },
+        {
+          "id": "nf-and-ro",
+          "name": "NF & RO)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pressure-driven-processes-mf"]
+        },
+        {
+          "id": "concentration-driven-processes-dialysis-and-pervaporation",
+          "name": "Concentration-driven processes (Dialysis &Pervaporation)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["nf-and-ro"]
         },
         {
           "id": "applications-of-the-different-types-of-membrane-separation",
@@ -102,6 +157,13 @@
           "id": "chromatographic-separation-processes",
           "name": "Chromatographic separation processes",
           "requires": ["applications-of-the-different-types-of-membrane-separation"]
+        },
+        {
+          "id": "electrically-driven-processes-electro-dialysis",
+          "name": "Electrically-driven processes (Electro dialysis)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chromatographic-separation-processes"]
         }
       ]
     },
@@ -112,7 +174,16 @@
       "topics": [
         {
           "id": "extraction-processes-solvent-extraction-principles",
-          "name": "Extraction processes - solvent extraction principles"
+          "name": "Extraction processes",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "solvent-extraction-principles",
+          "name": "solvent extraction principles",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["extraction-processes-solvent-extraction-principles"]
         },
         {
           "id": "operating-modes-of-extraction",
@@ -131,8 +202,24 @@
         },
         {
           "id": "reverse-micellar-and-supercritical-fluid-extraction",
-          "name": "reverse micellar, and supercritical fluid extraction. Colloidal stability of protein solutions",
-          "requires": ["aqueous-two-phase"]
+          "name": "reverse micellar",
+          "requires": ["aqueous-two-phase"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "supercritical-fluid-extraction",
+          "name": "supercritical fluid extraction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reverse-micellar-and-supercritical-fluid-extraction"]
+        },
+        {
+          "id": "colloidal-stability-of-protein-solutions",
+          "name": "Colloidal stability of protein solutions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["supercritical-fluid-extraction"]
         },
         {
           "id": "precipitation-of-biomolecules-by-isoelectric",
@@ -187,5 +274,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-downstream-processing-lab-biotech"]
 }

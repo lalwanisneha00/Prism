@@ -1,0 +1,268 @@
+{
+  "id": "pdeu-power-system-operations-and-control-elec",
+  "name": "Power System Operations and Control",
+  "field": "Power System Operations and Control",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): Power System Operations and Control",
+    "note": "Units and topics copied from the course handout PDF (pages 3 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE301T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-power-system-operations-and-control",
+      "code": "20EE301T",
+      "category": "Program Core",
+      "ltp": "4-0-0",
+      "credits": 4,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "power-flow-analysis-and-economic-dispatch-of-power-system",
+      "name": "Power Flow Analysis and Economic Dispatch of Power System",
+      "topics": [
+        {
+          "id": "per-unit-system",
+          "name": "Per unit system"
+        },
+        {
+          "id": "bus-admittance-matrix-y-bus",
+          "name": "bus admittance matrix(Y Bus)",
+          "requires": ["per-unit-system"]
+        },
+        {
+          "id": "static-load-flow-equation",
+          "name": "static load flow equation",
+          "requires": ["bus-admittance-matrix-y-bus"]
+        },
+        {
+          "id": "bus-classification",
+          "name": "bus classification",
+          "requires": ["static-load-flow-equation"]
+        },
+        {
+          "id": "load-flow-solution-using-gauss-seidel",
+          "name": "load flow solution using Gauss Seidel",
+          "requires": ["bus-classification"]
+        },
+        {
+          "id": "newton-raphson-and-fdlf-method",
+          "name": "Newton-Raphson and FDLF method",
+          "requires": ["load-flow-solution-using-gauss-seidel"]
+        },
+        {
+          "id": "line-flow-equations-and-losses-calculation",
+          "name": "line flow equations and losses calculation",
+          "requires": ["newton-raphson-and-fdlf-method"]
+        },
+        {
+          "id": "economic-dispatch-ed-operating-cost-of-thermal-generating-un",
+          "name": "ECONOMIC DISPATCH (ED): Operating cost of thermal generating unit",
+          "requires": ["line-flow-equations-and-losses-calculation"]
+        },
+        {
+          "id": "ed-neglecting-line-losses-and-generator-limits",
+          "name": "ED neglecting line losses and generator limits",
+          "requires": ["economic-dispatch-ed-operating-cost-of-thermal-generating-un"]
+        },
+        {
+          "id": "ed-considering-line-losses-and-generator-limits",
+          "name": "ED considering line losses and generator limits",
+          "requires": ["ed-neglecting-line-losses-and-generator-limits"]
+        },
+        {
+          "id": "kuhntucker-conditions",
+          "name": "KuhnTucker Conditions",
+          "requires": ["ed-considering-line-losses-and-generator-limits"]
+        },
+        {
+          "id": "derivation-of-loss-formula",
+          "name": "derivation of loss formula",
+          "requires": ["kuhntucker-conditions"]
+        }
+      ]
+    },
+    {
+      "id": "fault-analysis-of-power-system",
+      "name": "Fault Analysis of Power System",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "symmetrical-fault-analysis-r-l-circuit-with-sinusoidal-excit",
+          "name": "Symmetrical Fault Analysis: R-L Circuit with sinusoidal excitation"
+        },
+        {
+          "id": "calculation-of-3-phase-short-circuit-current-and-reactance-o",
+          "name": "calculation of 3-phase short circuit current and reactance of synchronous machine",
+          "requires": ["symmetrical-fault-analysis-r-l-circuit-with-sinusoidal-excit"]
+        },
+        {
+          "id": "internal-voltage-of-loaded-machine-under-transient-condition",
+          "name": "internal voltage of loaded machine under transient conditions",
+          "requires": ["calculation-of-3-phase-short-circuit-current-and-reactance-o"]
+        },
+        {
+          "id": "analysis-of-symmetrical-fault-using-thevenin-s-equivalent-ci",
+          "name": "Analysis of Symmetrical Fault using Thevenin’s Equivalent circuit",
+          "requires": ["internal-voltage-of-loaded-machine-under-transient-condition"]
+        },
+        {
+          "id": "symmetrical-components-symmetrical-components-of-unbalanced",
+          "name": "Symmetrical Components: Symmetrical components of unbalanced phasors",
+          "requires": ["analysis-of-symmetrical-fault-using-thevenin-s-equivalent-ci"]
+        },
+        {
+          "id": "power-in-terms-of-symmetrical-components",
+          "name": "power in terms of symmetrical components",
+          "requires": ["symmetrical-components-symmetrical-components-of-unbalanced"]
+        },
+        {
+          "id": "sequence-impedances-and-sequence-networks-for-power-system-c",
+          "name": "sequence impedances and sequence networks for power system components",
+          "requires": ["power-in-terms-of-symmetrical-components"]
+        },
+        {
+          "id": "unsymmetrical-fault-analysis-analysis-of-faulted-power-syste",
+          "name": "Unsymmetrical Fault Analysis: Analysis of faulted power system considering unsymmetrical faults",
+          "requires": ["sequence-impedances-and-sequence-networks-for-power-system-c"]
+        }
+      ]
+    },
+    {
+      "id": "power-system-stability",
+      "name": "Power System Stability",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "classification-of-power-system-stability",
+          "name": "Classification of power system stability"
+        },
+        {
+          "id": "solution-of-swing-equation-for-synchronous-generator",
+          "name": "solution of swing equation for synchronous generator",
+          "requires": ["classification-of-power-system-stability"]
+        },
+        {
+          "id": "synchronous-machine-model-without-and-with-saliency-for-stab",
+          "name": "synchronous machine model without and with saliency for stability studies",
+          "requires": ["solution-of-swing-equation-for-synchronous-generator"]
+        },
+        {
+          "id": "transient-stability-analysis-with-equal-area-criteria",
+          "name": "transient stability analysis with equal area criteria",
+          "requires": ["synchronous-machine-model-without-and-with-saliency-for-stab"]
+        },
+        {
+          "id": "numerical-solution-of-swing-equation",
+          "name": "numerical solution of swing equation",
+          "requires": ["transient-stability-analysis-with-equal-area-criteria"]
+        },
+        {
+          "id": "multi-machine-stability",
+          "name": "multi-machine stability",
+          "requires": ["numerical-solution-of-swing-equation"]
+        },
+        {
+          "id": "small-disturbance-steady-state-stability",
+          "name": "small disturbance steady state stability",
+          "requires": ["multi-machine-stability"]
+        },
+        {
+          "id": "voltage-stability",
+          "name": "voltage stability",
+          "requires": ["small-disturbance-steady-state-stability"]
+        },
+        {
+          "id": "pv-qv-curve",
+          "name": "PV-QV curve",
+          "requires": ["voltage-stability"]
+        },
+        {
+          "id": "factors-affecting-voltage-stability",
+          "name": "factors affecting voltage stability",
+          "requires": ["pv-qv-curve"]
+        },
+        {
+          "id": "methods-for-power-system-stability-improvement",
+          "name": "Methods for power system stability improvement",
+          "requires": ["factors-affecting-voltage-stability"]
+        }
+      ]
+    },
+    {
+      "id": "automatic-generation-control",
+      "name": "Automatic Generation Control",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "frequency-control-basic-voltage-and-frequency-control-loops",
+          "name": "Frequency Control: Basic voltage and frequency control loops for generator"
+        },
+        {
+          "id": "mathematical-model-of-speed-governing-system",
+          "name": "mathematical model of speed governing system",
+          "requires": ["frequency-control-basic-voltage-and-frequency-control-loops"]
+        },
+        {
+          "id": "prime-mover",
+          "name": "prime mover",
+          "requires": ["mathematical-model-of-speed-governing-system"]
+        },
+        {
+          "id": "generator",
+          "name": "generator",
+          "requires": ["prime-mover"]
+        },
+        {
+          "id": "load-and-speed-droop-characteristic-for-load-frequency-contr",
+          "name": "load and speed droop characteristic for load frequency control",
+          "requires": ["generator"]
+        },
+        {
+          "id": "its-importance",
+          "name": "its importance",
+          "requires": ["load-and-speed-droop-characteristic-for-load-frequency-contr"]
+        },
+        {
+          "id": "automatic-generation-control-in-single-area-and-multi-area-w",
+          "name": "Automatic generation control in single area and multi area without and with secondary frequency controller",
+          "requires": ["its-importance"]
+        },
+        {
+          "id": "tie-line-bias-control-reactive-power-and-voltage-control-mat",
+          "name": "tie-line bias control.Reactive Power and Voltage Control: Mathematical model of amplifier",
+          "requires": ["automatic-generation-control-in-single-area-and-multi-area-w"]
+        },
+        {
+          "id": "exciter",
+          "name": "exciter",
+          "requires": ["tie-line-bias-control-reactive-power-and-voltage-control-mat"]
+        },
+        {
+          "id": "sensor",
+          "name": "sensor",
+          "requires": ["exciter"]
+        },
+        {
+          "id": "excitation-system-stabilizer-with-rate-feedback-and-pid-cont",
+          "name": "Excitation system stabilizer with rate feedback and PID controller",
+          "requires": ["sensor"]
+        }
+      ]
+    }
+  ]
+}

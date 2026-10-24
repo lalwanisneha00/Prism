@@ -1,0 +1,269 @@
+{
+  "id": "pdeu-open-source-technologies-ce",
+  "name": "Open Source Technologies",
+  "field": "Open Source Technologies",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (COMP semester 4): Open Source Technologies",
+    "note": "Units and topics copied from the course handout PDF (pages 3 of COMP/sem4/CE_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CS221T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s4-open-source-technologies",
+      "code": "24CS221T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "linux-operating-system",
+      "name": "Linux Operating System",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-linux-operating-system",
+          "name": "Introduction to Linux Operating System"
+        },
+        {
+          "id": "linux-file-system-hierarchy",
+          "name": "Linux File System Hierarchy",
+          "requires": ["introduction-to-linux-operating-system"]
+        },
+        {
+          "id": "essential-commands-for-navigating-the-file-system",
+          "name": "Essential commands for navigating the file system",
+          "requires": ["linux-file-system-hierarchy"]
+        },
+        {
+          "id": "file-and-directory-manipulation-commands",
+          "name": "File and directory manipulation commands",
+          "requires": ["essential-commands-for-navigating-the-file-system"]
+        },
+        {
+          "id": "understanding-file-permissions-read",
+          "name": "Understanding file permissions (read",
+          "requires": ["file-and-directory-manipulation-commands"]
+        },
+        {
+          "id": "write",
+          "name": "write",
+          "requires": ["understanding-file-permissions-read"]
+        },
+        {
+          "id": "execute-and-ownership",
+          "name": "execute) and ownership",
+          "requires": ["write"]
+        },
+        {
+          "id": "using-chmod-and-chown-commands-to-modify-permissions-and-own",
+          "name": "Using chmod and chown commands to modify permissions and ownership",
+          "requires": ["execute-and-ownership"]
+        },
+        {
+          "id": "shell-scripting-basics",
+          "name": "Shell scripting basics",
+          "requires": ["using-chmod-and-chown-commands-to-modify-permissions-and-own"]
+        },
+        {
+          "id": "overview-of-shell-scripting-and-its-importance",
+          "name": "Overview of shell scripting and its importance",
+          "requires": ["shell-scripting-basics"]
+        },
+        {
+          "id": "writing-and-executing-simple-shell-scripts",
+          "name": "Writing and executing simple shell scripts",
+          "requires": ["overview-of-shell-scripting-and-its-importance"]
+        }
+      ]
+    },
+    {
+      "id": "apache-web-server",
+      "name": "Apache Web Server",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-apache-web-server",
+          "name": "Introduction to Apache web server"
+        },
+        {
+          "id": "installing-apache-on-linux-platforms",
+          "name": "Installing apache on Linux platforms",
+          "requires": ["introduction-to-apache-web-server"]
+        },
+        {
+          "id": "apache-configuration-file-structure",
+          "name": "Apache configuration file structure",
+          "requires": ["installing-apache-on-linux-platforms"]
+        },
+        {
+          "id": "apache-log-files",
+          "name": "Apache log files",
+          "requires": ["apache-configuration-file-structure"]
+        },
+        {
+          "id": "apache-related-commands",
+          "name": "Apache-related commands",
+          "requires": ["apache-log-files"]
+        },
+        {
+          "id": "starting-apache-for-the-first-time-php-installation-and-conf",
+          "name": "Starting apache for the first time PHP Installation and Configuration",
+          "requires": ["apache-related-commands"]
+        },
+        {
+          "id": "current-and-future-version-of-php-mysql",
+          "name": "Current and Future version of PHP/MySQL",
+          "requires": ["starting-apache-for-the-first-time-php-installation-and-conf"]
+        },
+        {
+          "id": "installing-building-php-mysql-on-different-platforms-with-ap",
+          "name": "Installing / Building PHP/MySQL on different platforms with Apache",
+          "requires": ["current-and-future-version-of-php-mysql"]
+        }
+      ]
+    },
+    {
+      "id": "mysql-database",
+      "name": "MySQL Database",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-mysql-database",
+          "name": "Introduction to MySQL Database"
+        },
+        {
+          "id": "mysql-database-management",
+          "name": "MySQL database management",
+          "requires": ["introduction-to-mysql-database"]
+        },
+        {
+          "id": "installation",
+          "name": "installation",
+          "requires": ["mysql-database-management"]
+        },
+        {
+          "id": "configuration",
+          "name": "configuration",
+          "requires": ["installation"]
+        },
+        {
+          "id": "database-design",
+          "name": "database design",
+          "requires": ["configuration"]
+        },
+        {
+          "id": "mysql-datatypes",
+          "name": "MySQL datatypes",
+          "requires": ["database-design"]
+        },
+        {
+          "id": "sql-querying",
+          "name": "SQL querying",
+          "requires": ["mysql-datatypes"]
+        },
+        {
+          "id": "data-definition-language",
+          "name": "Data definition language",
+          "requires": ["sql-querying"]
+        },
+        {
+          "id": "data-manipulation-language",
+          "name": "Data manipulation language",
+          "requires": ["data-definition-language"]
+        },
+        {
+          "id": "transaction-and-stored-procedures-in-mysql",
+          "name": "Transaction and stored procedures in MySQL",
+          "requires": ["data-manipulation-language"]
+        },
+        {
+          "id": "administration-tasks-and-integration-with-programming-langua",
+          "name": "Administration tasks and integration with programming languages",
+          "requires": ["transaction-and-stored-procedures-in-mysql"]
+        }
+      ]
+    },
+    {
+      "id": "php-server-side-language",
+      "name": "PHP – Server side language",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-to-php",
+          "name": "Introduction to PHP"
+        },
+        {
+          "id": "php-syntax-and-variables",
+          "name": "PHP Syntax and Variables",
+          "requires": ["introduction-to-php"]
+        },
+        {
+          "id": "control-structures",
+          "name": "Control Structures",
+          "requires": ["php-syntax-and-variables"]
+        },
+        {
+          "id": "functions-and-arrays",
+          "name": "Functions and Arrays",
+          "requires": ["control-structures"]
+        },
+        {
+          "id": "string-manipulation-and-regular-expressions",
+          "name": "String Manipulation and Regular Expressions",
+          "requires": ["functions-and-arrays"]
+        },
+        {
+          "id": "form-handling-and-super-global-variables",
+          "name": "Form Handling and Super Global Variables",
+          "requires": ["string-manipulation-and-regular-expressions"]
+        },
+        {
+          "id": "file-handling",
+          "name": "File Handling",
+          "requires": ["form-handling-and-super-global-variables"]
+        },
+        {
+          "id": "error-handling-and-exception-handling",
+          "name": "Error Handling and Exception Handling",
+          "requires": ["file-handling"]
+        },
+        {
+          "id": "object-oriented-programming-in-php",
+          "name": "Object-Oriented Programming in PHP",
+          "requires": ["error-handling-and-exception-handling"]
+        },
+        {
+          "id": "database-connectivity-with-mysql",
+          "name": "Database Connectivity with MySQL",
+          "requires": ["object-oriented-programming-in-php"]
+        },
+        {
+          "id": "session-management-and-cookies",
+          "name": "Session Management and Cookies",
+          "requires": ["database-connectivity-with-mysql"]
+        },
+        {
+          "id": "web-application-development",
+          "name": "Web Application Development",
+          "requires": ["session-management-and-cookies"]
+        }
+      ]
+    }
+  ]
+}

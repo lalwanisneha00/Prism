@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Cryptography and Network Security",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -116,8 +116,52 @@
         },
         {
           "id": "eulers-totient-function-fermat-and-eulers-theorem-chinese",
-          "name": "Euler’s Totient Function, Fermat and Euler’s theorem, Chinese Reminder Theorem, Euclidean and Extended Euclidean algorithm, RSA, Diffie- Hellman Key Exchange, MITM attack",
-          "requires": ["mathematical-foundations-for-pkc"]
+          "name": "Euler’s Totient Function",
+          "requires": ["mathematical-foundations-for-pkc"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fermat-and-euler-s-theorem",
+          "name": "Fermat and Euler’s theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["eulers-totient-function-fermat-and-eulers-theorem-chinese"]
+        },
+        {
+          "id": "chinese-reminder-theorem",
+          "name": "Chinese Reminder Theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fermat-and-euler-s-theorem"]
+        },
+        {
+          "id": "euclidean-and-extended-euclidean-algorithm",
+          "name": "Euclidean and Extended Euclidean algorithm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chinese-reminder-theorem"]
+        },
+        {
+          "id": "rsa",
+          "name": "RSA",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["euclidean-and-extended-euclidean-algorithm"]
+        },
+        {
+          "id": "mitm-attack",
+          "name": "MITM attack",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rsa"]
+        },
+        {
+          "id": "diffiehellman-key-exchange",
+          "name": "DiffieHellman Key Exchange",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mitm-attack"]
         }
       ]
     },
@@ -172,5 +216,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-cryptography-and-network-security-laboratory-ce"]
 }

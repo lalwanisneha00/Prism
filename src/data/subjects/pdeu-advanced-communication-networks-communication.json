@@ -28,11 +28,82 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Advanced Communication Networks (Communication Systems)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
+    {
+      "id": "introduction-to-5g-broadband-wireless-communications",
+      "name": "Introduction to 5G Broadband Wireless Communications",
+      "hours": 11,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "evaluation-of-mobile-technologies-1g-to-4g-lte",
+          "name": "Evaluation of mobile technologies 1G to 4G (LTE",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ltea",
+          "name": "LTEA",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["evaluation-of-mobile-technologies-1g-to-4g-lte"]
+        },
+        {
+          "id": "ltea-pro",
+          "name": "LTEA Pro)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ltea"]
+        },
+        {
+          "id": "5g-standardization",
+          "name": "5G Standardization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ltea-pro"]
+        },
+        {
+          "id": "an-overview-of-5g-requirements",
+          "name": "An Overview of 5G requirements",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["5g-standardization"]
+        },
+        {
+          "id": "regulations-for-5g",
+          "name": "Regulations for 5G",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["an-overview-of-5g-requirements"]
+        },
+        {
+          "id": "spectrum-for-5g",
+          "name": "Spectrum for 5G",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["regulations-for-5g"]
+        },
+        {
+          "id": "introduction-to",
+          "name": "Introduction to",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["spectrum-for-5g"]
+        },
+        {
+          "id": "lte",
+          "name": "LTE",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to"]
+        }
+      ]
+    },
     {
       "id": "5g-physical-layer-and-application",
       "name": "5G Physical Layer and Application",
@@ -76,6 +147,13 @@
           "id": "5g-d2d-communication",
           "name": "5G D2D Communication",
           "requires": ["5g-v2v-communication"]
+        },
+        {
+          "id": "lte-nr-interworking-and-coexistence",
+          "name": "LTE/NR Interworking and Coexistence",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["5g-d2d-communication"]
         }
       ]
     },
@@ -137,14 +215,17 @@
         {
           "id": "max",
           "name": "Max",
-          "requires": ["ai-in-physical-layer-wireless-communication-6g-use-cases-and"]
+          "requires": ["ai-in-physical-layer-wireless-communication-6g-use-cases-and"],
+          "status": "retired"
         },
         {
           "id": "hrs-42",
           "name": "Hrs.: 42",
-          "requires": ["max"]
+          "requires": ["max"],
+          "status": "retired"
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -1,0 +1,239 @@
+{
+  "id": "pdeu-exergy-analysis-of-thermal-system-me",
+  "name": "Exergy Analysis of Thermal System",
+  "field": "Exergy Analysis of Thermal System",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 7): Exergy Analysis of Thermal System",
+    "note": "Units and topics copied from the course handout PDF (pages 2 of MECH/sem7/Mechanical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME431T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s7-program-elective--exergy-analysis-of-thermal-system",
+      "code": "24ME431T",
+      "category": "Program Elective",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "exergy-fundamentals",
+      "name": "Exergy Fundamentals",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "thermodynamics-and-laws-in-thermal-systems-basic-concepts-of",
+          "name": "THERMODYNAMICS AND LAWS IN THERMAL SYSTEMS Basic Concepts Of Thermodynamics"
+        },
+        {
+          "id": "thermodynamic-properties",
+          "name": "Thermodynamic Properties",
+          "requires": ["thermodynamics-and-laws-in-thermal-systems-basic-concepts-of"]
+        },
+        {
+          "id": "introduction-of-steady-state-and-steady-flow-properties",
+          "name": "Introduction Of Steady State And Steady Flow Properties",
+          "requires": ["thermodynamic-properties"]
+        },
+        {
+          "id": "application-of-the-first-law-of-thermodynamics-for-closed-op",
+          "name": "Application Of The First Law Of Thermodynamics For Closed / Open Systems",
+          "requires": ["introduction-of-steady-state-and-steady-flow-properties"]
+        },
+        {
+          "id": "application-of-the-second-law-of-thermodynamics-for-closed-o",
+          "name": "Application Of The Second Law Of Thermodynamics For Closed / Open Systems",
+          "requires": ["application-of-the-first-law-of-thermodynamics-for-closed-op"]
+        }
+      ]
+    },
+    {
+      "id": "exergy-analysis-and-thermodynamic-efficiency-in-thermal-syst",
+      "name": "Exergy Analysis and Thermodynamic Efficiency in Thermal Systems",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "exergy",
+          "name": "Exergy"
+        },
+        {
+          "id": "environment",
+          "name": "Environment",
+          "requires": ["exergy"]
+        },
+        {
+          "id": "dead-state",
+          "name": "Dead State",
+          "requires": ["environment"]
+        },
+        {
+          "id": "limited-dead-state",
+          "name": "Limited Dead State",
+          "requires": ["dead-state"]
+        },
+        {
+          "id": "definition-of-exergy-related-to-kinetic-and-potential-energy",
+          "name": "Definition Of Exergy Related To Kinetic And Potential Energy",
+          "requires": ["limited-dead-state"]
+        },
+        {
+          "id": "reversible-work-and-irreversibility",
+          "name": "Reversible Work And Irreversibility",
+          "requires": ["definition-of-exergy-related-to-kinetic-and-potential-energy"]
+        },
+        {
+          "id": "explanation-of-the-second-law-efficiency",
+          "name": "Explanation Of The Second Law Efficiency",
+          "requires": ["reversible-work-and-irreversibility"]
+        },
+        {
+          "id": "thermo-mechanical-exergy",
+          "name": "Thermo Mechanical Exergy",
+          "requires": ["explanation-of-the-second-law-efficiency"]
+        },
+        {
+          "id": "exergy-transfer",
+          "name": "Exergy Transfer",
+          "requires": ["thermo-mechanical-exergy"]
+        },
+        {
+          "id": "exergy-of-a-mass",
+          "name": "Exergy Of A Mass",
+          "requires": ["exergy-transfer"]
+        },
+        {
+          "id": "exergy-transfer-by-work-and-heat",
+          "name": "Exergy Transfer By Work And Heat",
+          "requires": ["exergy-of-a-mass"]
+        },
+        {
+          "id": "determination-of-flow-exergy-for-closed-open-systems",
+          "name": "Determination Of Flow Exergy For Closed / Open Systems",
+          "requires": ["exergy-transfer-by-work-and-heat"]
+        },
+        {
+          "id": "establishing-basic-exergy-equations",
+          "name": "Establishing Basic Exergy Equations",
+          "requires": ["determination-of-flow-exergy-for-closed-open-systems"]
+        },
+        {
+          "id": "the-decrease-of-exergy-principle-and-exergy-destruction",
+          "name": "The Decrease Of Exergy Principle And Exergy Destruction",
+          "requires": ["establishing-basic-exergy-equations"]
+        }
+      ]
+    },
+    {
+      "id": "exergy-analysis-of-thermal-systems",
+      "name": "Exergy Analysis of Thermal Systems",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "exergy-applications-for-close-and-open-systems",
+          "name": "Exergy Applications For Close And Open Systems"
+        },
+        {
+          "id": "for-continuous-flow-systems-such-as-turbine",
+          "name": "For Continuous Flow Systems Such As Turbine",
+          "requires": ["exergy-applications-for-close-and-open-systems"]
+        },
+        {
+          "id": "pump",
+          "name": "Pump",
+          "requires": ["for-continuous-flow-systems-such-as-turbine"]
+        },
+        {
+          "id": "compressor",
+          "name": "Compressor",
+          "requires": ["pump"]
+        },
+        {
+          "id": "nozzle",
+          "name": "Nozzle",
+          "requires": ["compressor"]
+        },
+        {
+          "id": "heat-exchanger",
+          "name": "Heat Exchanger",
+          "requires": ["nozzle"]
+        },
+        {
+          "id": "mixer",
+          "name": "Mixer",
+          "requires": ["heat-exchanger"]
+        },
+        {
+          "id": "energy-storage-systems-etc",
+          "name": "Energy Storage Systems Etc",
+          "requires": ["mixer"]
+        },
+        {
+          "id": "exergy-balance-and-second-law-efficiency",
+          "name": "Exergy Balance And Second Law Efficiency",
+          "requires": ["energy-storage-systems-etc"]
+        }
+      ]
+    },
+    {
+      "id": "thermo-economic-applications-of-exergy",
+      "name": "Thermo-Economic Applications of Exergy",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "linkages-between-exergy",
+          "name": "Linkages Between Exergy"
+        },
+        {
+          "id": "economics",
+          "name": "Economics",
+          "requires": ["linkages-between-exergy"]
+        },
+        {
+          "id": "the-environment-and-sustainability",
+          "name": "The Environment And Sustainability",
+          "requires": ["economics"]
+        },
+        {
+          "id": "life-cycle-assessment-stages-of-life-cycle-assessment",
+          "name": "Life Cycle Assessment: Stages Of Life Cycle Assessment",
+          "requires": ["the-environment-and-sustainability"]
+        },
+        {
+          "id": "exergetic-life-cycle-assessment",
+          "name": "Exergetic Life Cycle Assessment",
+          "requires": ["life-cycle-assessment-stages-of-life-cycle-assessment"]
+        },
+        {
+          "id": "levelized-cost-of-energy",
+          "name": "Levelized Cost Of Energy",
+          "requires": ["exergetic-life-cycle-assessment"]
+        },
+        {
+          "id": "capital-recovery-factor",
+          "name": "Capital Recovery Factor",
+          "requires": ["levelized-cost-of-energy"]
+        },
+        {
+          "id": "case-studies-of-exergy-costing-in-different-thermal-componen",
+          "name": "Case Studies Of Exergy Costing In Different Thermal Components",
+          "requires": ["capital-recovery-factor"]
+        }
+      ]
+    }
+  ]
+}

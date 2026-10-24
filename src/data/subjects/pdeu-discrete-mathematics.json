@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -80,18 +80,52 @@
         },
         {
           "id": "types-of-functions",
-          "name": "types of functions",
-          "requires": ["partial-ordered-relations-functions"]
+          "name": "Functions",
+          "requires": ["partial-ordered-relations-functions"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "logic-and-propositional-calculus-simple-and-compound",
-          "name": "Logic and Propositional calculus – Simple and Compound Propositions",
+          "id": "types-of-functions-2",
+          "name": "types of functions",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["types-of-functions"]
         },
         {
-          "id": "basic-logical-operators-truth-tables-tautologies",
-          "name": "Basic logical operators. Truth tables. Tautologies",
+          "id": "logic-and-propositional-calculus-simple-and-compound",
+          "name": "Logic and Propositional calculus",
+          "requires": ["types-of-functions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "simple-and-compound-propositions",
+          "name": "Simple and Compound Propositions",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["logic-and-propositional-calculus-simple-and-compound"]
+        },
+        {
+          "id": "basic-logical-operators-truth-tables-tautologies",
+          "name": "Basic logical operators",
+          "requires": ["logic-and-propositional-calculus-simple-and-compound"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "truth-tables",
+          "name": "Truth tables",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-logical-operators-truth-tables-tautologies"]
+        },
+        {
+          "id": "tautologies",
+          "name": "Tautologies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["truth-tables"]
         },
         {
           "id": "contradictions",
@@ -137,7 +171,16 @@
         {
           "id": "pigeonhole",
           "name": "Pigeonhole principle",
-          "requires": ["combination"]
+          "requires": ["combination"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "extended-pigeonhole-principle-2",
+          "name": "Extended Pigeonhole principle",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pigeonhole"]
         },
         {
           "id": "extended-pigeonhole-principle",
@@ -187,8 +230,24 @@
         },
         {
           "id": "paths-and-connectivity-traversable-and-eulerian-graphs-and",
-          "name": "Paths and Connectivity. Traversable and Eulerian graphs, and Konigsberg Bridge problem",
-          "requires": ["homomorphism-and-isomorphism"]
+          "name": "Paths and Connectivity",
+          "requires": ["homomorphism-and-isomorphism"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "traversable-and-eulerian-graphs",
+          "name": "Traversable and Eulerian graphs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["paths-and-connectivity-traversable-and-eulerian-graphs-and"]
+        },
+        {
+          "id": "konigsberg-bridge-problem",
+          "name": "Konigsberg Bridge problem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["traversable-and-eulerian-graphs"]
         },
         {
           "id": "hamiltonian-graphs",
@@ -197,8 +256,17 @@
         },
         {
           "id": "labeled-and-weighted-graphs-complete",
-          "name": "Labeled and weighted graphs. Complete",
-          "requires": ["hamiltonian-graphs"]
+          "name": "Labeled and weighted graphs",
+          "requires": ["hamiltonian-graphs"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "complete",
+          "name": "Complete",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["labeled-and-weighted-graphs-complete"]
         },
         {
           "id": "regular-and-bipartite-graphs",
@@ -212,8 +280,17 @@
         },
         {
           "id": "graph-coloring-four-color-problem-directed-graphs",
-          "name": "Graph coloring. Four color problem. Directed graphs",
-          "requires": ["graph-colouring-planar"]
+          "name": "Graph coloring",
+          "requires": ["graph-colouring-planar"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "four-color-problem",
+          "name": "Four color problem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["graph-coloring-four-color-problem-directed-graphs"]
         },
         {
           "id": "strongly-and-weakly-connected-graphs",
@@ -223,7 +300,16 @@
         {
           "id": "trees",
           "name": "Trees",
-          "requires": ["strongly-and-weakly-connected-graphs"]
+          "requires": ["strongly-and-weakly-connected-graphs"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "rooted-trees-2",
+          "name": "rooted trees",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["trees"]
         },
         {
           "id": "rooted-trees",
@@ -232,13 +318,31 @@
         },
         {
           "id": "sequential-representation-of-directed-graphs",
+          "name": "Directed graphs",
+          "requires": ["rooted-trees"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "sequential-representation-of-directed-graphs-2",
           "name": "sequential representation of directed graphs",
-          "requires": ["rooted-trees"]
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sequential-representation-of-directed-graphs"]
         },
         {
           "id": "adjacency-matrix",
           "name": "Adjacency matrix",
-          "requires": ["sequential-representation-of-directed-graphs"]
+          "requires": ["sequential-representation-of-directed-graphs"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "powers-of-the-adjacency-matrix-2",
+          "name": "Powers of the adjacency matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adjacency-matrix"]
         },
         {
           "id": "powers-of-the-adjacency-matrix",
@@ -254,7 +358,37 @@
       "topics": [
         {
           "id": "group",
-          "name": "Group"
+          "name": "Group",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "semi-group-2",
+          "name": "Semi group",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["group"]
+        },
+        {
+          "id": "properties-of-a-group-2",
+          "name": "Properties of a Group",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["semi-group-2"]
+        },
+        {
+          "id": "order-of-a-group-2",
+          "name": "Order of a group",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["properties-of-a-group-2"]
+        },
+        {
+          "id": "cyclic-group",
+          "name": "Cyclic Group",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["order-of-a-group-2"]
         },
         {
           "id": "semi-group",
@@ -298,8 +432,17 @@
         },
         {
           "id": "lagranges-theorem-ring",
-          "name": "Lagrange’s Theorem. Ring",
-          "requires": ["generator"]
+          "name": "Lagrange’s Theorem",
+          "requires": ["generator"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ring",
+          "name": "Ring",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lagranges-theorem-ring"]
         },
         {
           "id": "properties-of-rings",
@@ -318,5 +461,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

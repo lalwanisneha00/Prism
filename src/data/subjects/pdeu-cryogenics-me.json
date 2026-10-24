@@ -1,0 +1,369 @@
+{
+  "id": "pdeu-cryogenics-me",
+  "name": "Cryogenics",
+  "field": "Cryogenics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 7): Cryogenics",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of MECH/sem7/Mechanical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME434T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s7-program-elective--cryogenics",
+      "code": "24ME434T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "cryogenics-liquification-systems",
+      "name": "Cryogenics Liquification Systems",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "introduction-to-cryogenic-engineering",
+          "name": "Introduction to Cryogenic engineering"
+        },
+        {
+          "id": "properties-of-cryogenic-fluids-like-oxygen",
+          "name": "properties of cryogenic fluids like Oxygen",
+          "requires": ["introduction-to-cryogenic-engineering"]
+        },
+        {
+          "id": "nitrogen",
+          "name": "Nitrogen",
+          "requires": ["properties-of-cryogenic-fluids-like-oxygen"]
+        },
+        {
+          "id": "argon",
+          "name": "Argon",
+          "requires": ["nitrogen"]
+        },
+        {
+          "id": "neon",
+          "name": "Neon",
+          "requires": ["argon"]
+        },
+        {
+          "id": "florin",
+          "name": "Florin",
+          "requires": ["neon"]
+        },
+        {
+          "id": "helium",
+          "name": "Helium",
+          "requires": ["florin"]
+        },
+        {
+          "id": "hydrogen",
+          "name": "Hydrogen",
+          "requires": ["helium"]
+        },
+        {
+          "id": "safety-in-handling-of-cryogens",
+          "name": "Safety in handling of cryogens",
+          "requires": ["hydrogen"]
+        },
+        {
+          "id": "properties-of-material-at-cryogenic-temperature-mechanical",
+          "name": "Properties of material at cryogenic temperature- mechanical",
+          "requires": ["safety-in-handling-of-cryogens"]
+        },
+        {
+          "id": "thermal",
+          "name": "thermal",
+          "requires": ["properties-of-material-at-cryogenic-temperature-mechanical"]
+        },
+        {
+          "id": "electrical",
+          "name": "electrical",
+          "requires": ["thermal"]
+        },
+        {
+          "id": "super-conductivity",
+          "name": "Super conductivity",
+          "requires": ["electrical"]
+        },
+        {
+          "id": "formation-of-superconductivity",
+          "name": "formation of superconductivity",
+          "requires": ["super-conductivity"]
+        },
+        {
+          "id": "super-conducting-material-behaviour",
+          "name": "super conducting material behaviour",
+          "requires": ["formation-of-superconductivity"]
+        },
+        {
+          "id": "application-of-cryogenic-systems-in-space",
+          "name": "application of cryogenic systems in space",
+          "requires": ["super-conducting-material-behaviour"]
+        },
+        {
+          "id": "medical",
+          "name": "medical",
+          "requires": ["application-of-cryogenic-systems-in-space"]
+        },
+        {
+          "id": "industries",
+          "name": "industries",
+          "requires": ["medical"]
+        },
+        {
+          "id": "biological",
+          "name": "biological",
+          "requires": ["industries"]
+        },
+        {
+          "id": "super-conductive-devices-such-as-bearings",
+          "name": "Super conductive devices such as bearings",
+          "requires": ["biological"]
+        },
+        {
+          "id": "motors",
+          "name": "motors",
+          "requires": ["super-conductive-devices-such-as-bearings"]
+        },
+        {
+          "id": "cryotrons",
+          "name": "cryotrons",
+          "requires": ["motors"]
+        },
+        {
+          "id": "magnets",
+          "name": "magnets",
+          "requires": ["cryotrons"]
+        },
+        {
+          "id": "d-c-transformers",
+          "name": "D.C. transformers",
+          "requires": ["magnets"]
+        },
+        {
+          "id": "space-simulation",
+          "name": "space simulation",
+          "requires": ["d-c-transformers"]
+        }
+      ]
+    },
+    {
+      "id": "cryogenics-liquification-systems-2",
+      "name": "Cryogenics Liquification Systems",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "thermodynamically-ideal-systems-and-its-performance-assessme",
+          "name": "thermodynamically ideal systems and its performance assessment",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "j-t-effect-and-analysis",
+          "name": "J-T effect and analysis",
+          "requires": ["thermodynamically-ideal-systems-and-its-performance-assessme"]
+        },
+        {
+          "id": "inversion-curve-and-its-importance",
+          "name": "inversion curve and its importance",
+          "requires": ["j-t-effect-and-analysis"]
+        },
+        {
+          "id": "liquefaction-systems-for-oxygen",
+          "name": "liquefaction systems for oxygen",
+          "requires": ["inversion-curve-and-its-importance"]
+        },
+        {
+          "id": "nitrogen-2",
+          "name": "nitrogen",
+          "requires": ["liquefaction-systems-for-oxygen"]
+        },
+        {
+          "id": "air",
+          "name": "air",
+          "requires": ["nitrogen-2"]
+        },
+        {
+          "id": "hydrogen-2",
+          "name": "hydrogen",
+          "requires": ["air"]
+        },
+        {
+          "id": "helium-etc",
+          "name": "helium etc",
+          "requires": ["hydrogen-2"]
+        },
+        {
+          "id": "assessment-of-its-performance-parameters",
+          "name": "assessment of its performance parameters",
+          "requires": ["helium-etc"]
+        },
+        {
+          "id": "parametric-analysis-of-the-system-and-its-effect-of-performa",
+          "name": "parametric analysis of the system and its effect of performance parameter",
+          "requires": ["assessment-of-its-performance-parameters"]
+        },
+        {
+          "id": "comparison-of-all-such-systems-based-on-the-performance-para",
+          "name": "comparison of all such systems based on the performance parameters",
+          "requires": ["parametric-analysis-of-the-system-and-its-effect-of-performa"]
+        }
+      ]
+    },
+    {
+      "id": "cryocoolers-and-cryorefrigerator",
+      "name": "Cryocoolers and Cryorefrigerator",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "thermodynamically-ideal-refrigeration-cycles",
+          "name": "Thermodynamically ideal refrigeration cycles"
+        },
+        {
+          "id": "simple-and-precooled-j-t-refrigerator",
+          "name": "simple and precooled J-T refrigerator",
+          "requires": ["thermodynamically-ideal-refrigeration-cycles"]
+        },
+        {
+          "id": "expander-based-refrigeration-system",
+          "name": "expander-based refrigeration system",
+          "requires": ["simple-and-precooled-j-t-refrigerator"]
+        },
+        {
+          "id": "cry-coolers-sterling-refrigerator",
+          "name": "Cry coolers: Sterling refrigerator",
+          "requires": ["expander-based-refrigeration-system"]
+        },
+        {
+          "id": "regenerator-and-its-effect-on-the-performance-of-sterling-re",
+          "name": "regenerator and its effect on the performance of sterling refrigerator",
+          "requires": ["cry-coolers-sterling-refrigerator"]
+        },
+        {
+          "id": "parametric-study-schmidt-s-analysis",
+          "name": "Parametric study (Schmidt’s Analysis)",
+          "requires": ["regenerator-and-its-effect-on-the-performance-of-sterling-re"]
+        },
+        {
+          "id": "walker-s-optimization-charts",
+          "name": "Walker’s optimization charts",
+          "requires": ["parametric-study-schmidt-s-analysis"]
+        },
+        {
+          "id": "design-methodology-of-a-stirling-cryocooler-single-and-doubl",
+          "name": "Design methodology of a Stirling cryocooler. single and double volume G-M refrigerator",
+          "requires": ["walker-s-optimization-charts"]
+        },
+        {
+          "id": "performance-comparison-between-sterling-and-g-m-refrigerator",
+          "name": "performance comparison between sterling and G-M refrigerator",
+          "requires": ["design-methodology-of-a-stirling-cryocooler-single-and-doubl"]
+        },
+        {
+          "id": "pulse-tube-refrigerators",
+          "name": "pulse tube refrigerators",
+          "requires": ["performance-comparison-between-sterling-and-g-m-refrigerator"]
+        },
+        {
+          "id": "adiabatic-magnetization-and-demagnetization",
+          "name": "adiabatic magnetization and demagnetization",
+          "requires": ["pulse-tube-refrigerators"]
+        },
+        {
+          "id": "magnetic-refrigerator",
+          "name": "magnetic refrigerator",
+          "requires": ["adiabatic-magnetization-and-demagnetization"]
+        },
+        {
+          "id": "dilution-refrigerator-thermodynamically",
+          "name": "dilution refrigerator Thermodynamically",
+          "requires": ["magnetic-refrigerator"]
+        }
+      ]
+    },
+    {
+      "id": "cryogenic-insulation-and-measurement",
+      "name": "Cryogenic Insulation and Measurement",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "cryogenic-insulation",
+          "name": "Cryogenic insulation"
+        },
+        {
+          "id": "expanded-foams",
+          "name": "expanded foams",
+          "requires": ["cryogenic-insulation"]
+        },
+        {
+          "id": "gas-filled-and-fibrous-insulation",
+          "name": "gas filled & fibrous insulation",
+          "requires": ["expanded-foams"]
+        },
+        {
+          "id": "vacuum-insulation",
+          "name": "vacuum insulation",
+          "requires": ["gas-filled-and-fibrous-insulation"]
+        },
+        {
+          "id": "evacuated-powder-and-fibrous-insulation",
+          "name": "evacuated powder & fibrous insulation",
+          "requires": ["vacuum-insulation"]
+        },
+        {
+          "id": "opacified-powder-insulation",
+          "name": "opacified powder insulation",
+          "requires": ["evacuated-powder-and-fibrous-insulation"]
+        },
+        {
+          "id": "multilayer-insulation",
+          "name": "multilayer insulation",
+          "requires": ["opacified-powder-insulation"]
+        },
+        {
+          "id": "comparison-of-performance-of-various-insulations",
+          "name": "comparison of performance of various insulations",
+          "requires": ["multilayer-insulation"]
+        },
+        {
+          "id": "dewar-vessel-for-storage-of-cryogenic-liquid",
+          "name": "Dewar vessel for storage of cryogenic liquid",
+          "requires": ["comparison-of-performance-of-various-insulations"]
+        },
+        {
+          "id": "cryogenic-temperature",
+          "name": "Cryogenic temperature",
+          "requires": ["dewar-vessel-for-storage-of-cryogenic-liquid"]
+        },
+        {
+          "id": "pressure",
+          "name": "pressure",
+          "requires": ["cryogenic-temperature"]
+        },
+        {
+          "id": "flow-measurement-lecture",
+          "name": "Flow measurement LECTURE",
+          "requires": ["pressure"]
+        }
+      ]
+    }
+  ]
+}

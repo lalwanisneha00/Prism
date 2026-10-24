@@ -29,11 +29,224 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 8 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
+    {
+      "id": "laplace-transform",
+      "name": "Laplace Transform",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "piecewise-continuous-functions-and-exponential-functions",
+          "name": "Piecewise continuous functions and exponential functions",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "definition",
+          "name": "Definition",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["piecewise-continuous-functions-and-exponential-functions"]
+        },
+        {
+          "id": "existence-and-properties-of-laplace-transforms",
+          "name": "Existence and Properties of Laplace transforms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["definition"]
+        },
+        {
+          "id": "heaviside-function",
+          "name": "Heaviside function",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["existence-and-properties-of-laplace-transforms"]
+        },
+        {
+          "id": "impulse-function",
+          "name": "Impulse function",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["heaviside-function"]
+        },
+        {
+          "id": "inverse-laplace-transform",
+          "name": "Inverse Laplace transform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["impulse-function"]
+        },
+        {
+          "id": "properties-of-inverse-laplace-transforms",
+          "name": "Properties of inverse Laplace transforms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["inverse-laplace-transform"]
+        },
+        {
+          "id": "convolution-theorem",
+          "name": "Convolution theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["properties-of-inverse-laplace-transforms"]
+        },
+        {
+          "id": "applications-of-laplace-transforms-in-solving-differential-e",
+          "name": "Applications of Laplace Transforms in solving differential equations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["convolution-theorem"]
+        }
+      ]
+    },
+    {
+      "id": "difference-equation-and-z-transform",
+      "name": "Difference Equation and Z-Transform",
+      "hours": 11,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "first-and-second-order-difference-equation-with-constant-coe",
+          "name": "First and second order difference equation with constant coefficient",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "solution-of-difference-equation-complementary-function-parti",
+          "name": "Solution of difference equation-complementary function-Particular integral",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["first-and-second-order-difference-equation-with-constant-coe"]
+        },
+        {
+          "id": "transform",
+          "name": "transform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["solution-of-difference-equation-complementary-function-parti"]
+        },
+        {
+          "id": "properties-of-z-transforms",
+          "name": "Properties of Z-transforms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transform"]
+        },
+        {
+          "id": "convolution-of-two-sequences",
+          "name": "Convolution of two sequences",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["properties-of-z-transforms"]
+        },
+        {
+          "id": "inverse-z-transform",
+          "name": "inverse Z-transform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["convolution-of-two-sequences"]
+        },
+        {
+          "id": "solution-of-difference-equations-using-z-transform",
+          "name": "Solution of Difference equations using Z-transform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["inverse-z-transform"]
+        }
+      ]
+    },
+    {
+      "id": "fourier-transform",
+      "name": "Fourier Transform",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "fourier-integral",
+          "name": "Fourier Integral",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fourier-cosine-and-sine-transform",
+          "name": "Fourier Cosine and Sine transform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fourier-integral"]
+        },
+        {
+          "id": "discrete-fourier-transform",
+          "name": "Discrete Fourier Transform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fourier-cosine-and-sine-transform"]
+        },
+        {
+          "id": "continuous-fourier-transform",
+          "name": "Continuous Fourier Transform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["discrete-fourier-transform"]
+        },
+        {
+          "id": "linearity",
+          "name": "Linearity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["continuous-fourier-transform"]
+        },
+        {
+          "id": "time-shifting",
+          "name": "time shifting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linearity"]
+        },
+        {
+          "id": "frequency-shifting",
+          "name": "frequency shifting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["time-shifting"]
+        },
+        {
+          "id": "convolution-properties",
+          "name": "convolution properties",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["frequency-shifting"]
+        },
+        {
+          "id": "applications-in-image-processing",
+          "name": "Applications in image processing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["convolution-properties"]
+        },
+        {
+          "id": "communication-systems",
+          "name": "communication systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applications-in-image-processing"]
+        },
+        {
+          "id": "quantum-mechanics",
+          "name": "quantum mechanics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["communication-systems"]
+        }
+      ]
+    },
     {
       "id": "systems-of-linear-equations",
       "name": "Systems of linear equations",
@@ -88,7 +301,8 @@
           "name": "Solving system of equation using inverse of a Matrix and Cramer’s rule",
           "requires": ["solution-by-gauss-and-gauss-jordan-elimination-method"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "vector-spaces",
@@ -134,7 +348,8 @@
           "name": "Least squares approximation, Orthogonal Matrices, Eigen values and Eigen vectors, Diagonalization",
           "requires": ["gram-schmidt-process"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "fourier-series",
@@ -204,7 +419,8 @@
           "name": "Bessel’s equation and orthogonality",
           "requires": ["rodrigues-formula"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "partial-differential-equations-and-its",
@@ -222,10 +438,69 @@
         },
         {
           "id": "laplace-transform",
-          "name": "one dimensional unsteady heat flow equation in Cartesian and polar coordinates by variable separable method with reference to Fourier trigonometric series and by Laplace transform technique",
-          "requires": ["solutions-of-one-dimensional-wave-equation"]
+          "name": "one-dimensional heat equation",
+          "requires": ["solutions-of-one-dimensional-wave-equation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "laplace-equation",
+          "name": "Laplace equation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["laplace-transform"]
+        },
+        {
+          "id": "formation-of-partial-differential-equations-pdes",
+          "name": "Formation of Partial Differential Equations (PDEs)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["laplace-equation"]
+        },
+        {
+          "id": "solutions-of-pdes-of-the-first-order",
+          "name": "Solutions of PDEs of the first order",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["formation-of-partial-differential-equations-pdes"]
+        },
+        {
+          "id": "cauchy-problem-for-first-order-pdes",
+          "name": "Cauchy problem for first-order PDEs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["solutions-of-pdes-of-the-first-order"]
+        },
+        {
+          "id": "lagrange-s-method",
+          "name": "Lagrange’s method",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cauchy-problem-for-first-order-pdes"]
+        },
+        {
+          "id": "charpit-and-jacobi-methods-for-solving-first-order-nonlinear",
+          "name": "Charpit and Jacobi methods for solving first-order nonlinear PDEs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lagrange-s-method"]
+        },
+        {
+          "id": "classification-of-second-order-pdes",
+          "name": "Classification of second order PDEs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["charpit-and-jacobi-methods-for-solving-first-order-nonlinear"]
+        },
+        {
+          "id": "applications-of-pde-s-to-wave-analysis",
+          "name": "Applications of PDE’s to wave analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-second-order-pdes"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

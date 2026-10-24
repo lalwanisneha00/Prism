@@ -1,0 +1,101 @@
+{
+  "id": "pdeu-advanced-power-system-analysis-laboratory-elec",
+  "name": "Advanced Power System Analysis Laboratory",
+  "field": "Advanced Power System Analysis Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 6): Advanced Power System Analysis Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 12 of ELEC/sem6/Electrical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE315P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s6-advanced-power-system-analysis-laboratory",
+      "code": "20EE315P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-to-solve-constrained-parameter-optimization-wit",
+          "name": "To solve constrained parameter optimization with equality constraints using Newton’s method",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-to-solve-ed-problem-of-thermal-generating-units",
+          "name": "To solve ED problem of thermal generating units using lambda iteration method",
+          "number": 2,
+          "requires": ["experiment-1-to-solve-constrained-parameter-optimization-wit"]
+        },
+        {
+          "id": "experiment-3-to-solve-ed-problem-of-thermal-generating-units",
+          "name": "To solve ED problem of thermal generating units considering generation limits and transmission line losses",
+          "number": 3,
+          "requires": ["experiment-2-to-solve-ed-problem-of-thermal-generating-units"]
+        },
+        {
+          "id": "experiment-4-to-simulate-optimal-power-flow-opf-for-intercon",
+          "name": "To simulate Optimal Power Flow (OPF) for interconnected power systems in simulation software",
+          "number": 4,
+          "requires": ["experiment-3-to-solve-ed-problem-of-thermal-generating-units"]
+        },
+        {
+          "id": "experiment-5-to-simulate-and-compare-multi-area-optimization",
+          "name": "To simulate and compare multi-area optimization problem as ED, OPF and Security Constrained Optimal Power Flow (SCOPF)",
+          "number": 5,
+          "requires": ["experiment-4-to-simulate-optimal-power-flow-opf-for-intercon"]
+        },
+        {
+          "id": "experiment-6-to-simulate-contingency-analysis-considering-si",
+          "name": "To simulate contingency analysis considering single/multiple outage of line or generators from interconnected power system",
+          "number": 6,
+          "requires": ["experiment-5-to-simulate-and-compare-multi-area-optimization"]
+        },
+        {
+          "id": "experiment-7-formulation-of-lodf-ptdf-and-generation-shift-f",
+          "name": "Formulation of LODF, PTDF and Generation Shift Factors for Contingency Analysis",
+          "number": 7,
+          "requires": ["experiment-6-to-simulate-contingency-analysis-considering-si"]
+        },
+        {
+          "id": "experiment-8-to-use-locational-marginal-price-lmp-to-identif",
+          "name": "To use locational marginal price (LMP) to identify congestion in power systems",
+          "number": 8,
+          "requires": ["experiment-7-formulation-of-lodf-ptdf-and-generation-shift-f"]
+        },
+        {
+          "id": "experiment-9-to-simulate-available-transfer-capability-for-c",
+          "name": "To simulate available transfer capability for congestion management in power system",
+          "number": 9,
+          "requires": ["experiment-8-to-use-locational-marginal-price-lmp-to-identif"]
+        },
+        {
+          "id": "experiment-10-to-carry-out-state-estimation-of-power-system",
+          "name": "To carry out state estimation of power system",
+          "number": 10,
+          "requires": ["experiment-9-to-simulate-available-transfer-capability-for-c"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-advanced-power-system-analysis-elec"]
+}

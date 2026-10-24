@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Human Anatomy and Physiology - II",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -44,8 +44,17 @@
         },
         {
           "id": "physiology-of-digestion-and-absorption-of-nutrients",
-          "name": "Physiology of digestion and absorption of Nutrients. disorders of GIT. Anatomy and physiology of urinary system",
-          "requires": ["anatomy-and-physiology-of-the-git-with-special-reference-to"]
+          "name": "Physiology of digestion and absorption of Nutrients. disorders of GIT",
+          "requires": ["anatomy-and-physiology-of-the-git-with-special-reference-to"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "anatomy-and-physiology-of-urinary-system",
+          "name": "Anatomy and physiology of urinary system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["physiology-of-digestion-and-absorption-of-nutrients"]
         },
         {
           "id": "physiology-of-urine-formation",
@@ -59,8 +68,17 @@
         },
         {
           "id": "regulation-of-renin-angiotensin-system",
-          "name": "Regulation of Renin - angiotensin system",
-          "requires": ["mechanism-of-micturition"]
+          "name": "Regulation of Renin",
+          "requires": ["mechanism-of-micturition"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "angiotensin-system",
+          "name": "angiotensin system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["regulation-of-renin-angiotensin-system"]
         }
       ]
     },
@@ -95,8 +113,17 @@
         },
         {
           "id": "pn-junction-physics",
-          "name": "neuromuscular junction. Structural and functional classification",
-          "requires": ["physiology-of-muscle-contraction"]
+          "name": "neuromuscular junction",
+          "requires": ["physiology-of-muscle-contraction"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "structural-and-functional-classification",
+          "name": "Structural and functional classification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pn-junction-physics"]
         },
         {
           "id": "types-of-joints-movements-and-its-articulation",
@@ -153,7 +180,16 @@
       "topics": [
         {
           "id": "anatomy-of-male-and-female-reproductive-system",
-          "name": "Anatomy of male and female reproductive system"
+          "name": "Anatomy of male and female reproductive system",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "functions-of-male-and-female-reproductive-system-2",
+          "name": "Functions of male and female reproductive system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["anatomy-of-male-and-female-reproductive-system"]
         },
         {
           "id": "functions-of-male-and-female-reproductive-system",
@@ -177,5 +213,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-human-anatomy-and-physiology-lab-ii-biotech"]
 }

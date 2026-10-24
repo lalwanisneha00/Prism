@@ -1,0 +1,113 @@
+{
+  "id": "pdeu-fluid-mechanics-laboratory-chem",
+  "name": "Fluid Mechanics Laboratory",
+  "field": "Fluid Mechanics Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 3): Fluid Mechanics Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 9 of CHEM/sem3/Chemical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH205P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s3-fluid-mechanics-laboratory",
+      "code": "24CH205P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-study-of-flow-regimes-using-reynolds-apparatus",
+          "name": "Study of flow regimes using Reynolds' apparatus.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-study-of-bernoulli-s-equation",
+          "name": "Study of Bernoulli's equation.",
+          "number": 2,
+          "requires": ["experiment-1-study-of-flow-regimes-using-reynolds-apparatus"]
+        },
+        {
+          "id": "experiment-3-determination-of-viscosity-by-efflux-time-measu",
+          "name": "Determination of viscosity by efflux time measurement.",
+          "number": 3,
+          "requires": ["experiment-2-study-of-bernoulli-s-equation"]
+        },
+        {
+          "id": "experiment-4-study-of-friction-factor-in-closed-conduits",
+          "name": "Study of friction factor in closed conduits.",
+          "number": 4,
+          "requires": ["experiment-3-determination-of-viscosity-by-efflux-time-measu"]
+        },
+        {
+          "id": "experiment-5-study-of-minor-losses-and-determination-of-equi",
+          "name": "Study of minor losses and determination of equivalent length of pipe fittings.",
+          "number": 5,
+          "requires": ["experiment-4-study-of-friction-factor-in-closed-conduits"]
+        },
+        {
+          "id": "experiment-6-study-of-a-venturi-meter",
+          "name": "Study of a venturi meter.",
+          "number": 6,
+          "requires": ["experiment-5-study-of-minor-losses-and-determination-of-equi"]
+        },
+        {
+          "id": "experiment-7-study-of-an-orifice-meter",
+          "name": "Study of an orifice meter.",
+          "number": 7,
+          "requires": ["experiment-6-study-of-a-venturi-meter"]
+        },
+        {
+          "id": "experiment-8-calibration-of-a-rotameter",
+          "name": "Calibration of a rotameter.",
+          "number": 8,
+          "requires": ["experiment-7-study-of-an-orifice-meter"]
+        },
+        {
+          "id": "experiment-9-study-of-a-pitot-tube",
+          "name": "Study of a pitot tube.",
+          "number": 9,
+          "requires": ["experiment-8-calibration-of-a-rotameter"]
+        },
+        {
+          "id": "experiment-10-characteristics-of-a-centrifugal-pump",
+          "name": "Characteristics of a centrifugal pump.",
+          "number": 10,
+          "requires": ["experiment-9-study-of-a-pitot-tube"]
+        },
+        {
+          "id": "experiment-11-study-of-friction-factor-in-annular-flow",
+          "name": "Study of friction factor in annular flow.",
+          "number": 11,
+          "requires": ["experiment-10-characteristics-of-a-centrifugal-pump"]
+        },
+        {
+          "id": "experiment-12-determination-of-viscosity-by-stokes-law-max-2",
+          "name": "Determination of viscosity by Stokes' law. Max 26 Hrs",
+          "number": 12,
+          "requires": ["experiment-11-study-of-friction-factor-in-annular-flow"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-fluid-mechanics-chem"]
+}

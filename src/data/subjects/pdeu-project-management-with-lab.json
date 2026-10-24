@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Project Management (with lab)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -49,6 +49,32 @@
           "id": "functionally-oriented-wbs",
           "name": "Functionally oriented WBS",
           "requires": ["work-break-down-structure-wbs-role-of-project-manager-in"]
+        },
+        {
+          "id": "sustainable-development-project-management-for-sustainable",
+          "name": "Sustainable development: Project management for sustainable development Max",
+          "requires": ["introduction-to-monte-carlo-process-for-project-risk"],
+          "movedFrom": {
+            "subject": "pdeu-project-management-with-lab",
+            "chapter": "advanced-topics-in-construction-management",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "feasibility",
+          "name": "Feasibility",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sustainable-development-project-management-for-sustainable"]
+        },
+        {
+          "id": "implementation-and-operation",
+          "name": "Implementation and Operation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["feasibility"]
         }
       ]
     },
@@ -70,6 +96,13 @@
           "id": "independent-floats-case-studies",
           "name": "Independent floats- Case studies",
           "requires": ["factors-responsible-for-organizational-revolution-formal-and"]
+        },
+        {
+          "id": "factors-responsible-for-organizational-revolution-formal-and-2",
+          "name": "Factors responsible for organizational revolution- Formal & informal organization structuresRequirements of a project or",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["independent-floats-case-studies"]
         }
       ]
     },
@@ -89,8 +122,31 @@
         },
         {
           "id": "three-time-estimates-optimistic-most-likely-pessimistic-beta",
-          "name": "Three time estimates (optimistic, most likely, pessimistic)- Beta distribution- Expected time- Variance in project duration- Case Studies Project Control: Concept- Control cycle- Basic controlling par",
-          "requires": ["pert-project-evaluation-and-review-techniques"]
+          "name": "Three time estimates (optimistic",
+          "requires": ["pert-project-evaluation-and-review-techniques"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "most-likely",
+          "name": "most likely",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["three-time-estimates-optimistic-most-likely-pessimistic-beta"]
+        },
+        {
+          "id": "pessimistic-beta-distribution-expected-time-variance-in-proj",
+          "name": "pessimistic)- Beta distribution- Expected time- Variance in project duration- Case Studies Project Control: ConceptContr",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["most-likely"]
+        },
+        {
+          "id": "time-cost-trade-off-planning-for-minimum-costs-cost-slope-co",
+          "name": "Time cost trade-off planning for minimum costs- Cost slope concept- Crash point- Normal Point- Total project costControl",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pessimistic-beta-distribution-expected-time-variance-in-proj"]
         }
       ]
     },
@@ -106,7 +162,8 @@
         {
           "id": "laboratory",
           "name": "Laboratory",
-          "requires": ["project-monitoring-measurement-of-performance-reporting-of"]
+          "requires": ["project-monitoring-measurement-of-performance-reporting-of"],
+          "status": "retired"
         }
       ]
     },
@@ -149,7 +206,8 @@
           "name": "Creating a project timeline using Gantt charts",
           "requires": ["adding-tasks-task-durations-and-dependencies"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "project-planning-and-scheduling-2",
@@ -185,7 +243,8 @@
           "name": "Analyzing project schedules using the critical path method (CPM) and resource histograms",
           "requires": ["fine-tuning-project-schedules-using-task-types-and-effort"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "project-tracking-and-monitoring",
@@ -211,7 +270,8 @@
           "name": "Communicating project status to stakeholders using Microsoft Project",
           "requires": ["generating-project-reports-and-dashboards"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "advanced-topics-in-construction-management",
@@ -241,13 +301,11 @@
           "id": "introduction-to-monte-carlo-process-for-project-risk",
           "name": "Introduction to Monte Carlo process for project risk analysis",
           "requires": ["reporting-capabilities-of-microsoft-project-for-effective"]
-        },
-        {
-          "id": "sustainable-development-project-management-for-sustainable",
-          "name": "Sustainable development: Project management for sustainable development Max",
-          "requires": ["introduction-to-monte-carlo-process-for-project-risk"]
         }
-      ]
+      ],
+      "status": "retired"
     }
-  ]
+  ],
+  "courseType": "practice",
+  "relatedCourses": ["pdeu-project-management-laboratory-civil"]
 }

@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Carbon Utilization and Storage",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -79,13 +79,23 @@
         },
         {
           "id": "fundamentals-of-co-capture-carbon-capture-pathways",
-          "name": "Fundamentals of CO₂ capture, Carbon capture pathways",
-          "requires": ["dehydration-and-purification"]
+          "name": "Fundamentals of CO₂ capture",
+          "requires": ["dehydration-and-purification"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "carbon-capture-pathways",
+          "name": "Carbon capture pathways",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fundamentals-of-co-capture-carbon-capture-pathways"]
         },
         {
           "id": "pre-combustion-capture",
           "name": "Pre- combustion capture",
-          "requires": ["fundamentals-of-co-capture-carbon-capture-pathways"]
+          "requires": ["fundamentals-of-co-capture-carbon-capture-pathways"],
+          "status": "retired"
         },
         {
           "id": "post-combustion-capture",
@@ -106,6 +116,13 @@
           "id": "carbon-capture-efficiency-and-economics",
           "name": "Carbon capture efficiency and economics",
           "requires": ["emerging-carbon-capture-technologies"]
+        },
+        {
+          "id": "precombustion-capture",
+          "name": "Precombustion capture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carbon-capture-efficiency-and-economics"]
         }
       ]
     },
@@ -201,13 +218,52 @@
         },
         {
           "id": "trapping-mechanisms-structural-trapping-residual-trapping",
-          "name": "Trapping mechanisms (Structural trapping, Residual trapping, Solubility trapping, and Mineral trapping)",
-          "requires": ["caprock-integrity"]
+          "name": "Trapping mechanisms (Structural trapping",
+          "requires": ["caprock-integrity"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "residual-trapping",
+          "name": "Residual trapping",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["trapping-mechanisms-structural-trapping-residual-trapping"]
+        },
+        {
+          "id": "solubility-trapping",
+          "name": "Solubility trapping",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["residual-trapping"]
+        },
+        {
+          "id": "mineral-trapping",
+          "name": "Mineral trapping)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["solubility-trapping"]
         },
         {
           "id": "co-injectivity-subsurface-co-injection-co-plume-migration",
-          "name": "CO₂ injectivity, Subsurface CO₂ injection, CO₂ plume migration and reservoir pressure management",
-          "requires": ["trapping-mechanisms-structural-trapping-residual-trapping"]
+          "name": "CO₂ injectivity",
+          "requires": ["trapping-mechanisms-structural-trapping-residual-trapping"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "subsurface-co-injection",
+          "name": "Subsurface CO₂ injection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["co-injectivity-subsurface-co-injection-co-plume-migration"]
+        },
+        {
+          "id": "co-plume-migration-and-reservoir-pressure-management",
+          "name": "CO₂ plume migration and reservoir pressure management",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["subsurface-co-injection"]
         }
       ]
     },
@@ -218,7 +274,37 @@
       "topics": [
         {
           "id": "monitoring-techniques-seismic-monitoring-well-logging",
-          "name": "Monitoring techniques: Seismic monitoring, Well logging, Pressure monitoring, Soil gas monitoring, Satellite monitoring"
+          "name": "Monitoring techniques: Seismic monitoring",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "well-logging",
+          "name": "Well logging",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["monitoring-techniques-seismic-monitoring-well-logging"]
+        },
+        {
+          "id": "pressure-monitoring",
+          "name": "Pressure monitoring",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["well-logging"]
+        },
+        {
+          "id": "soil-gas-monitoring",
+          "name": "Soil gas monitoring",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pressure-monitoring"]
+        },
+        {
+          "id": "satellite-monitoring",
+          "name": "Satellite monitoring",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["soil-gas-monitoring"]
         },
         {
           "id": "leakage-pathways",
@@ -254,8 +340,16 @@
           "id": "techno-economic-evaluation-of-projects-indian-and-global",
           "name": "Techno- economic evaluation of projects, Indian and global case studies",
           "requires": ["life-cycle-assessment"]
+        },
+        {
+          "id": "technoeconomic-evaluation-of-projects",
+          "name": "Technoeconomic evaluation of projects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["techno-economic-evaluation-of-projects-indian-and-global"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Secure Software Engineering",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -72,7 +72,16 @@
       "topics": [
         {
           "id": "integer-overflow-and-buffer-overread-and-heap-overflow-more",
-          "name": "Integer overflow and buffer overread and heap overflow, More on heap overflow"
+          "name": "Integer overflow and buffer overread and heap overflow",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "more-on-heap-overflow",
+          "name": "More on heap overflow",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["integer-overflow-and-buffer-overread-and-heap-overflow-more"]
         },
         {
           "id": "access-control",
@@ -88,7 +97,16 @@
       "topics": [
         {
           "id": "confinement",
-          "name": "Confinement"
+          "name": "Confinement",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "confinement-in-applications-2",
+          "name": "Confinement in Applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["confinement"]
         },
         {
           "id": "sgx-and-trustzone",
@@ -143,5 +161,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

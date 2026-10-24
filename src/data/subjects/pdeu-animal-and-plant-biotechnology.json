@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Animal and Plant Biotechnology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -76,6 +76,13 @@
           "id": "green-house-technology",
           "name": "green house technology",
           "requires": ["transfer-and-establishment-of-whole-plants-in-soil"]
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["green-house-technology"]
         }
       ]
     },
@@ -86,7 +93,16 @@
       "topics": [
         {
           "id": "chemically-defined-and-serum-free-media-laboratory-design",
-          "name": "Chemically defined and serum free media. Laboratory design"
+          "name": "Chemically defined and serum free media",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "laboratory-design",
+          "name": "Laboratory design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chemically-defined-and-serum-free-media-laboratory-design"]
         },
         {
           "id": "primary-cell-culture",
@@ -100,8 +116,17 @@
         },
         {
           "id": "maintenance-and-preservation-of-cell-line-characterization",
-          "name": "Maintenance and Preservation of cell line. Characterization",
-          "requires": ["establishment-of-cell-line"]
+          "name": "Maintenance and Preservation of cell line",
+          "requires": ["establishment-of-cell-line"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "characterization",
+          "name": "Characterization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["maintenance-and-preservation-of-cell-line-characterization"]
         },
         {
           "id": "cross-contamination",
@@ -137,7 +162,16 @@
         {
           "id": "transgene-silencing",
           "name": "Transgene silencing",
-          "requires": ["positive-selection"]
+          "requires": ["positive-selection"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "strategies-to-avoid-transgene-silencing-2",
+          "name": "Strategies to avoid transgene silencing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transgene-silencing"]
         },
         {
           "id": "strategies-to-avoid-transgene-silencing",
@@ -146,13 +180,38 @@
         },
         {
           "id": "advanced-technologies-cis-genesis-and-intragenesis",
-          "name": "advanced technologies – cis genesis and intragenesis",
-          "requires": ["strategies-to-avoid-transgene-silencing"]
+          "name": "advanced technologies",
+          "requires": ["strategies-to-avoid-transgene-silencing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cis-genesis-and-intragenesis",
+          "name": "cis genesis and intragenesis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["advanced-technologies-cis-genesis-and-intragenesis"]
         },
         {
           "id": "rnai-technology-genome-editing-technology-crispr-cas",
-          "name": "RNAi technology, genome editing technology, CRISPR/Cas",
-          "requires": ["advanced-technologies-cis-genesis-and-intragenesis"]
+          "name": "RNAi technology",
+          "requires": ["advanced-technologies-cis-genesis-and-intragenesis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "genome-editing-technology",
+          "name": "genome editing technology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rnai-technology-genome-editing-technology-crispr-cas"]
+        },
+        {
+          "id": "crispr-cas",
+          "name": "CRISPR/Cas",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["genome-editing-technology"]
         }
       ]
     },
@@ -182,10 +241,28 @@
         },
         {
           "id": "transgenic-animals-and-their-significance-ethical-issues-in",
-          "name": "Transgenic Animals and their significance. Ethical issues in transgenic plants and animals",
-          "requires": ["in-vitro-fertilization"]
+          "name": "Transgenic Animals and their significance",
+          "requires": ["in-vitro-fertilization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ethical-issues-in-transgenic-plants-and-animals",
+          "name": "Ethical issues in transgenic plants and animals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transgenic-animals-and-their-significance-ethical-issues-in"]
+        },
+        {
+          "id": "embryo-transfermicromanipulation-technology",
+          "name": "Embryo transferMicromanipulation technology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ethical-issues-in-transgenic-plants-and-animals"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-animal-and-plant-biotechnology-lab-biotech"]
 }

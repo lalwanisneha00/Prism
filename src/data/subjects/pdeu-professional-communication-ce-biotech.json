@@ -5,7 +5,7 @@
   "tier": "limited",
   "university": "pdeu",
   "courseCategory": "non-core",
-  "branches": ["ce", "biotech"],
+  "branches": ["ce", "biotech", "chem"],
   "semesters": [2],
   "code": "24HS105T",
   "credits": 2,
@@ -31,6 +31,16 @@
       "credits": 2,
       "semester": 2,
       "kind": "non-core"
+    },
+    {
+      "branch": "chem",
+      "key": "s2-professional-communication",
+      "code": "24HS105T",
+      "category": "Program Core",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 2,
+      "kind": "core"
     }
   ],
   "syllabusSource": {
@@ -38,8 +48,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE, Biotech): Professional Communication",
     "note": "Skeleton only: units and topics are PDEU's, copied from the handbook. Lessons are built from the material the student uploads (given by their faculty)."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -59,8 +69,17 @@
         },
         {
           "id": "proposal-writing-project-research-and-business",
-          "name": "Proposal writing (Project, Research and Business)",
-          "requires": ["report-writing"]
+          "name": "Proposal writing (Project",
+          "requires": ["report-writing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "research-and-business",
+          "name": "Research and Business)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["proposal-writing-project-research-and-business"]
         },
         {
           "id": "review-writing-books-and-articles",
@@ -132,10 +151,41 @@
         },
         {
           "id": "language-and-communication-ethical-considerations",
-          "name": "Language and Communication: Ethical Considerations: Interdisciplinary Perspective: Communication Skills: Philosophy of Science",
-          "requires": ["critical-thinking"]
+          "name": "Language and Communication",
+          "requires": ["critical-thinking"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ethical-considerations",
+          "name": "Ethical Considerations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["language-and-communication-ethical-considerations"]
+        },
+        {
+          "id": "interdisciplinary-perspective",
+          "name": "Interdisciplinary Perspective",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ethical-considerations"]
+        },
+        {
+          "id": "communication-skills",
+          "name": "Communication Skills",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["interdisciplinary-perspective"]
+        },
+        {
+          "id": "philosophy-of-science",
+          "name": "Philosophy of Science",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["communication-skills"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

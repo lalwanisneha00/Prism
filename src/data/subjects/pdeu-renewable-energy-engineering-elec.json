@@ -1,0 +1,420 @@
+{
+  "id": "pdeu-renewable-energy-engineering-elec",
+  "name": "Renewable Energy Engineering",
+  "field": "Renewable Energy Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 6): Renewable Energy Engineering",
+    "note": "Units and topics copied from the course handout PDF (pages 7 of ELEC/sem6/Electrical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE313T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s6-renewable-energy-engineering",
+      "code": "20EE313T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-the-energy-engineering",
+      "name": "Introduction to the Energy Engineering",
+      "hours": 3,
+      "topics": [
+        {
+          "id": "fundamentals-and-classification-of-energy-sources",
+          "name": "Fundamentals and Classification of Energy Sources"
+        },
+        {
+          "id": "significance-of-renewable-energy",
+          "name": "Significance of Renewable Energy",
+          "requires": ["fundamentals-and-classification-of-energy-sources"]
+        },
+        {
+          "id": "global-and-indian-statistics",
+          "name": "Global and Indian Statistics",
+          "requires": ["significance-of-renewable-energy"]
+        },
+        {
+          "id": "energy-efficiency-and-conservation",
+          "name": "Energy Efficiency and Conservation",
+          "requires": ["global-and-indian-statistics"]
+        },
+        {
+          "id": "indian-electricity-grid-code",
+          "name": "Indian Electricity Grid Code",
+          "requires": ["energy-efficiency-and-conservation"]
+        },
+        {
+          "id": "electricity-act2003",
+          "name": "Electricity Act2003",
+          "requires": ["indian-electricity-grid-code"]
+        },
+        {
+          "id": "mnre-and-national-smart-grid-mission",
+          "name": "MNRE and National Smart Grid Mission",
+          "requires": ["electricity-act2003"]
+        }
+      ]
+    },
+    {
+      "id": "solar-energyconversion-system",
+      "name": "Solar Energyconversion System",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "solar-energy-basic-definitions-and-angles-related-with-solar",
+          "name": "Solar Energy: Basic Definitions and Angles Related with Solar Energy"
+        },
+        {
+          "id": "history",
+          "name": "History",
+          "requires": ["solar-energy-basic-definitions-and-angles-related-with-solar"]
+        },
+        {
+          "id": "harnessing-solar-energy",
+          "name": "Harnessing Solar Energy",
+          "requires": ["history"]
+        },
+        {
+          "id": "solar-water-heating",
+          "name": "Solar Water Heating",
+          "requires": ["harnessing-solar-energy"]
+        },
+        {
+          "id": "passive-and-active-solar-cooling",
+          "name": "Passive and Active Solar Cooling",
+          "requires": ["solar-water-heating"]
+        },
+        {
+          "id": "solar-thermal-electricity",
+          "name": "Solar Thermal Electricity",
+          "requires": ["passive-and-active-solar-cooling"]
+        },
+        {
+          "id": "solar-photovoltaics",
+          "name": "Solar Photovoltaics",
+          "requires": ["solar-thermal-electricity"]
+        },
+        {
+          "id": "solar-collectors",
+          "name": "Solar Collectors",
+          "requires": ["solar-photovoltaics"]
+        },
+        {
+          "id": "solar-photovoltaic-spv-system-operating-principle-and-constr",
+          "name": "Solar Photovoltaic (SPV) System: Operating Principle and Construction of PV Cell",
+          "requires": ["solar-collectors"]
+        },
+        {
+          "id": "technologies-amorphous",
+          "name": "Technologies-Amorphous",
+          "requires": ["solar-photovoltaic-spv-system-operating-principle-and-constr"]
+        },
+        {
+          "id": "monocrystalline",
+          "name": "Monocrystalline",
+          "requires": ["technologies-amorphous"]
+        },
+        {
+          "id": "polycrystalline",
+          "name": "Polycrystalline",
+          "requires": ["monocrystalline"]
+        },
+        {
+          "id": "equivalent-circuit-of-cell",
+          "name": "Equivalent Circuit of Cell",
+          "requires": ["polycrystalline"]
+        },
+        {
+          "id": "cells-to-modules-to-arrays",
+          "name": "Cells to Modules to Arrays",
+          "requires": ["equivalent-circuit-of-cell"]
+        },
+        {
+          "id": "standard-test-conditions-stc-of-photovoltaics",
+          "name": "Standard Test Conditions (STC) of Photovoltaics",
+          "requires": ["cells-to-modules-to-arrays"]
+        },
+        {
+          "id": "i-v-and-p-v-characteristics",
+          "name": "I-V &P-V Characteristics",
+          "requires": ["standard-test-conditions-stc-of-photovoltaics"]
+        },
+        {
+          "id": "impacts-of-temperature-and-insolation",
+          "name": "Impacts of Temperature and Insolation",
+          "requires": ["i-v-and-p-v-characteristics"]
+        },
+        {
+          "id": "shading-effect",
+          "name": "Shading Effect",
+          "requires": ["impacts-of-temperature-and-insolation"]
+        },
+        {
+          "id": "bypass-and-blocking-diode",
+          "name": "Bypass and Blocking Diode",
+          "requires": ["shading-effect"]
+        },
+        {
+          "id": "spv-balance-of-system-bos",
+          "name": "SPV Balance of System(BOS)",
+          "requires": ["bypass-and-blocking-diode"]
+        },
+        {
+          "id": "sizing-and-designing-a-spv-system",
+          "name": "Sizing and Designing A SPV System",
+          "requires": ["spv-balance-of-system-bos"]
+        },
+        {
+          "id": "power-electronic-converters-for-spv-systems",
+          "name": "Power Electronic Converters for SPV Systems",
+          "requires": ["sizing-and-designing-a-spv-system"]
+        },
+        {
+          "id": "maximum-power-point-tracking-mppt-algorithms",
+          "name": "Maximum Power Point Tracking (MPPT) Algorithms",
+          "requires": ["power-electronic-converters-for-spv-systems"]
+        },
+        {
+          "id": "battery-energy-storage-system-bess",
+          "name": "Battery Energy Storage System(BESS)",
+          "requires": ["maximum-power-point-tracking-mppt-algorithms"]
+        },
+        {
+          "id": "lead-acid",
+          "name": "Lead-Acid",
+          "requires": ["battery-energy-storage-system-bess"]
+        },
+        {
+          "id": "nickel-cadmium-and-lithium",
+          "name": "Nickel-Cadmium and Lithium",
+          "requires": ["lead-acid"]
+        },
+        {
+          "id": "grid-connected-and-off-grid-topologies",
+          "name": "Grid Connected and Off-Grid Topologies",
+          "requires": ["nickel-cadmium-and-lithium"]
+        },
+        {
+          "id": "socio-technoeconomic-analysis",
+          "name": "Socio-TechnoEconomic Analysis",
+          "requires": ["grid-connected-and-off-grid-topologies"]
+        }
+      ]
+    },
+    {
+      "id": "wind-energy-conversion-system",
+      "name": "Wind Energy Conversion System",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "wind-energy-physics-components-of-wind-turbine-generating-sy",
+          "name": "Wind Energy Physics: Components of Wind Turbine Generating System and its Function"
+        },
+        {
+          "id": "betz-limit",
+          "name": "Betz Limit",
+          "requires": ["wind-energy-physics-components-of-wind-turbine-generating-sy"]
+        },
+        {
+          "id": "tip-speed-ratio",
+          "name": "Tip Speed Ratio",
+          "requires": ["betz-limit"]
+        },
+        {
+          "id": "active-and-passive-stall-and-pitch-control",
+          "name": "Active and Passive Stall and Pitch Control",
+          "requires": ["tip-speed-ratio"]
+        },
+        {
+          "id": "yaw-control",
+          "name": "Yaw control",
+          "requires": ["active-and-passive-stall-and-pitch-control"]
+        },
+        {
+          "id": "performance-co-efficient",
+          "name": "Performance Co-efficient",
+          "requires": ["yaw-control"]
+        },
+        {
+          "id": "wind-power",
+          "name": "Wind Power",
+          "requires": ["performance-co-efficient"]
+        },
+        {
+          "id": "power-speed-and-power-torque-characteristics",
+          "name": "Power-Speed &Power-Torque Characteristics",
+          "requires": ["wind-power"]
+        },
+        {
+          "id": "wind-speed-statistics-wind-energy-estimation",
+          "name": "Wind Speed Statistics- Wind Energy Estimation",
+          "requires": ["power-speed-and-power-torque-characteristics"]
+        },
+        {
+          "id": "discrete-wind-histogram",
+          "name": "Discrete Wind Histogram",
+          "requires": ["wind-speed-statistics-wind-energy-estimation"]
+        },
+        {
+          "id": "wind-power-probability-density-functions",
+          "name": "Wind Power Probability Density Functions",
+          "requires": ["discrete-wind-histogram"]
+        },
+        {
+          "id": "weibull-and-rayleigh-statistics",
+          "name": "Weibull and Rayleigh Statistics",
+          "requires": ["wind-power-probability-density-functions"]
+        },
+        {
+          "id": "wind-generators-classification-of-wind-turbines",
+          "name": "Wind Generators: Classification of Wind Turbines",
+          "requires": ["weibull-and-rayleigh-statistics"]
+        },
+        {
+          "id": "review-of-modern-technologies",
+          "name": "Review of Modern Technologies",
+          "requires": ["wind-generators-classification-of-wind-turbines"]
+        },
+        {
+          "id": "types-of-wind-energy-systems-in-context-with-type-of-generat",
+          "name": "Types of Wind Energy Systems in Context with Type of Generator Used (Type A",
+          "requires": ["review-of-modern-technologies"]
+        },
+        {
+          "id": "performance-calculations",
+          "name": "Performance Calculations",
+          "requires": ["types-of-wind-energy-systems-in-context-with-type-of-generat"]
+        },
+        {
+          "id": "working-of-fixed-speed-induction-generator",
+          "name": "Working of Fixed Speed Induction Generator",
+          "requires": ["performance-calculations"]
+        },
+        {
+          "id": "effect-of-capacitance",
+          "name": "Effect of Capacitance",
+          "requires": ["working-of-fixed-speed-induction-generator"]
+        },
+        {
+          "id": "fsig-with-statcom",
+          "name": "FSIG with STATCOM",
+          "requires": ["effect-of-capacitance"]
+        },
+        {
+          "id": "working-and-operation-of-doubly-fed-induction-generator",
+          "name": "Working and Operation of Doubly Fed Induction Generator",
+          "requires": ["fsig-with-statcom"]
+        },
+        {
+          "id": "control-from-rotor-side-and-grid-side-convertor",
+          "name": "Control from Rotor Side and Grid Side Convertor",
+          "requires": ["working-and-operation-of-doubly-fed-induction-generator"]
+        },
+        {
+          "id": "comparison-of-gear-and-direct-drive-generators",
+          "name": "Comparison of Gear and Direct Drive Generators",
+          "requires": ["control-from-rotor-side-and-grid-side-convertor"]
+        },
+        {
+          "id": "operation-of-fully-rated-convertor-types-of-generator-ddpmsg",
+          "name": "Operation of Fully Rated Convertor Types of Generator (DDPMSG-Direct Drive Permanent Magnet Synchronous Generator",
+          "requires": ["comparison-of-gear-and-direct-drive-generators"]
+        },
+        {
+          "id": "basics-of-standalone-and-grid-connected-systems",
+          "name": "Basics of Standalone and Grid Connected Systems",
+          "requires": ["operation-of-fully-rated-convertor-types-of-generator-ddpmsg"]
+        }
+      ]
+    },
+    {
+      "id": "otherrenewable-energy-sources",
+      "name": "Otherrenewable Energy Sources",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "small-hydro-power-shp-definition-and-classification-micro",
+          "name": "Small Hydro Power (SHP): Definition & Classification (micro"
+        },
+        {
+          "id": "mini-and-small",
+          "name": "mini & small)",
+          "requires": ["small-hydro-power-shp-definition-and-classification-micro"]
+        },
+        {
+          "id": "types-of-shp-plants-components-and-characteristics",
+          "name": "Types of SHP Plants: Components & Characteristics",
+          "requires": ["mini-and-small"]
+        },
+        {
+          "id": "tidal-power-concept",
+          "name": "Tidal Power: Concept",
+          "requires": ["types-of-shp-plants-components-and-characteristics"]
+        },
+        {
+          "id": "tidal-turbine",
+          "name": "Tidal Turbine",
+          "requires": ["tidal-power-concept"]
+        },
+        {
+          "id": "types-of-tidal-power-plant",
+          "name": "Types of Tidal Power Plant",
+          "requires": ["tidal-turbine"]
+        },
+        {
+          "id": "biomass",
+          "name": "Biomass",
+          "requires": ["types-of-tidal-power-plant"]
+        },
+        {
+          "id": "geothermal-and-fuel-cell-definition-and-overview",
+          "name": "Geothermal & Fuel Cell: Definition & Overview",
+          "requires": ["biomass"]
+        },
+        {
+          "id": "gridlevel-storage-pumped-hydro",
+          "name": "GridLevel Storage: Pumped Hydro",
+          "requires": ["geothermal-and-fuel-cell-definition-and-overview"]
+        },
+        {
+          "id": "compressed-air",
+          "name": "Compressed Air",
+          "requires": ["gridlevel-storage-pumped-hydro"]
+        },
+        {
+          "id": "ultra-capacitor-and-super-magnetic-energy-storage-smes",
+          "name": "Ultra capacitor & Super Magnetic Energy Storage (SMES)",
+          "requires": ["compressed-air"]
+        },
+        {
+          "id": "decentralized-energy-systems-concept",
+          "name": "Decentralized Energy Systems: Concept",
+          "requires": ["ultra-capacitor-and-super-magnetic-energy-storage-smes"]
+        },
+        {
+          "id": "microgrids",
+          "name": "Microgrids",
+          "requires": ["decentralized-energy-systems-concept"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-renewable-energy-engineering-laboratory-elec"]
+}

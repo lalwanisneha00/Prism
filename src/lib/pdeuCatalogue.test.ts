@@ -9,10 +9,14 @@ import { allSubjects, branches, findSubject, subjects, subjectsFor } from "@/lib
  * Prism's catalogue is PDEU's syllabus: every core PDEU course that has a unit-wise syllabus is a
  * subject, named, credited and divided into units and topics as in the handbook.
  */
+const HANDOUT_ONLY_BRANCHES = ["elec", "chem"];
+const KNOWN_GAPS = ["elec/2"];
 describe("the catalogue follows PDEU's syllabus", () => {
   it("has only PDEU's branches", () => {
-    expect(branches.map((b) => b.id).sort()).toEqual([...PDEU_BRANCH_IDS].sort());
-    for (const s of subjects) for (const b of s.branches) expect(PDEU_BRANCH_IDS).toContain(b);
+    // Electrical and Chemical come from the 2024-25 handouts only (no handbook file yet).
+    const all = [...PDEU_BRANCH_IDS, ...HANDOUT_ONLY_BRANCHES].sort();
+    expect(branches.map((b) => b.id).sort()).toEqual(all);
+    for (const s of subjects) for (const b of s.branches) expect(all).toContain(b);
   });
 
   it("has a subject for every PDEU core course that prints a syllabus, with PDEU's credits", async () => {
@@ -31,7 +35,10 @@ describe("the catalogue follows PDEU's syllabus", () => {
         expect(subject!.branches).toContain(id);
         // Units are chapters, in order.
         const unitTitles = c.units.filter((u) => u.topics.length > 0).map((u) => u.title);
-        expect(subject!.chapters.length).toBe(unitTitles.length);
+        // Retired chapters (not in the current handout) stay in the file but are not counted.
+        expect(subject!.chapters.filter((ch) => ch.status !== "retired").length).toBe(
+          unitTitles.length,
+        );
       }
     }
   });
@@ -53,6 +60,9 @@ describe("the catalogue follows PDEU's syllabus", () => {
     for (const b of branches) {
       // Semester 8 is the major project and seminar: no unit-wise syllabus.
       for (let sem = 1; sem <= 7; sem++) {
+        // Electrical's semester 2 handout lists no course of its own (known gap, see
+        // docs/SYLLABUS_AUDIT.md): students add theirs with "My subject isn't here" (Phase 4).
+        if (KNOWN_GAPS.includes(`${b.id}/${sem}`)) continue;
         expect(subjectsFor(b.id, sem).length, `${b.id} sem ${sem}`).toBeGreaterThan(0);
       }
     }
@@ -99,5 +109,46 @@ describe("the catalogue follows PDEU's syllabus", () => {
     const ids = physics.chapters.flatMap((c) => c.topics.map((t) => t.id));
     expect(ids).toContain("faradays-law");
     expect(sourcesForTopic("pdeu-applied-physics", "faradays-law").length).toBeGreaterThan(0);
+  });
+});
+
+describe("syllabus fix, Phase 2 (2024-25 handouts)", () => {
+  it("ICT semester 3 lists all six courses, Introduction to Artificial Intelligence included", () => {
+    const names = subjectsFor("ict", 3).map((s) => s.name);
+    expect(names).toHaveLength(6);
+    expect(names).toContain("Introduction to Artificial Intelligence");
+    const ai = findSubject("pdeu-introduction-to-artificial-intelligence-ict")!;
+    expect(ai.confidence).toBe("unverified");
+    expect(ai.branches).toEqual(["ict"]);
+  });
+
+  it("Mechanical: spring design is no longer under Design of Shafts", () => {
+    const course = findSubject("pdeu-design-and-kinematics-of-machines")!;
+    const shafts = course.chapters.find((c) => c.name === "Design of Shafts")!;
+    const active = shafts.topics.filter((t) => t.status !== "retired").map((t) => t.name);
+    expect(active.some((t) => /spring/i.test(t))).toBe(false);
+    // The moved topics keep their ids and remember where they came from.
+    const moved = course.chapters.flatMap((c) => c.topics).filter((t) => t.movedFrom);
+    expect(moved.some((t) => t.movedFrom?.chapter === shafts.id)).toBe(true);
+  });
+
+  it("uses each branch's own semester for a shared course", () => {
+    const shared = subjects.find((s) => new Set(s.offerings?.map((o) => o.semester)).size > 1)!;
+    const [a, b] = shared.offerings!.filter(
+      (o, i, all) => all.findIndex((x) => x.semester === o.semester) === i,
+    );
+    expect(subjectsFor(a.branch, a.semester)).toContain(shared);
+    if (
+      a.branch !== b.branch &&
+      !shared.offerings!.some((o) => o.branch === a.branch && o.semester === b.semester)
+    )
+      expect(subjectsFor(a.branch, b.semester)).not.toContain(shared);
+  });
+
+  it("keeps lab courses out of the lists until their lesson format exists", () => {
+    const labs = allSubjects.filter((s) => s.courseType === "practical");
+    expect(labs.length).toBeGreaterThan(100);
+    for (const lab of labs) expect(subjects).not.toContain(lab);
+    expect(labs.every((l) => l.chapters[0].topics.every((t) => t.number))).toBe(true);
   });
 });

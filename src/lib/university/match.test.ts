@@ -26,6 +26,10 @@ describe("nameSimilarity", () => {
     expect(nameSimilarity("Environmental Science", "Environmental Engineering")).toBeLessThan(0.6);
     expect(nameSimilarity("Engineering Biology", "Molecular Biology")).toBeLessThan(0.6);
   });
+  it("never matches two courses of one series", () => {
+    expect(nameSimilarity("Mathematics – I", "Mathematics III")).toBe(0);
+    expect(nameSimilarity("Mathematics - II", "Mathematics 2")).toBe(1);
+  });
 });
 
 describe("matchSubject", () => {

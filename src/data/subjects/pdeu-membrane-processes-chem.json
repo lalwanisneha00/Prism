@@ -1,0 +1,284 @@
+{
+  "id": "pdeu-membrane-processes-chem",
+  "name": "Membrane Processes",
+  "field": "Membrane Processes",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 6): Membrane Processes",
+    "note": "Units and topics copied from the course handout PDF (pages 12 of CHEM/sem6/Chemical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH338T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s6-program-elective--membrane-processes",
+      "code": "24CH338T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "membrane-overview-and-transport-theory",
+      "name": "Membrane Overview and Transport Theory",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "historical-development-of-membranes",
+          "name": "Historical development of membranes"
+        },
+        {
+          "id": "membrane-materials",
+          "name": "membrane materials",
+          "requires": ["historical-development-of-membranes"]
+        },
+        {
+          "id": "polymeric",
+          "name": "polymeric",
+          "requires": ["membrane-materials"]
+        },
+        {
+          "id": "inorganic-and-liquid",
+          "name": "inorganic and liquid",
+          "requires": ["polymeric"]
+        },
+        {
+          "id": "isotropic-membranes",
+          "name": "isotropic membranes",
+          "requires": ["inorganic-and-liquid"]
+        },
+        {
+          "id": "anisotropic-membranes",
+          "name": "anisotropic membranes",
+          "requires": ["isotropic-membranes"]
+        },
+        {
+          "id": "inorganic-membranes",
+          "name": "inorganic membranes",
+          "requires": ["anisotropic-membranes"]
+        },
+        {
+          "id": "liquid-membranes",
+          "name": "liquid membranes",
+          "requires": ["inorganic-membranes"]
+        },
+        {
+          "id": "pore-flow-model",
+          "name": "pore flow model",
+          "requires": ["liquid-membranes"]
+        },
+        {
+          "id": "solution-diffusion-model",
+          "name": "solution-diffusion model",
+          "requires": ["pore-flow-model"]
+        },
+        {
+          "id": "structure-permeability-relationships",
+          "name": "structure-permeability relationships",
+          "requires": ["solution-diffusion-model"]
+        }
+      ]
+    },
+    {
+      "id": "membrane-fabrication-techniques-and-modules",
+      "name": "Membrane Fabrication Techniques and Modules",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "membrane-preparation-phase-inversion",
+          "name": "Membrane preparation: phase inversion"
+        },
+        {
+          "id": "immersion-precipitation",
+          "name": "immersion precipitation",
+          "requires": ["membrane-preparation-phase-inversion"]
+        },
+        {
+          "id": "solution-evaporation",
+          "name": "solution evaporation",
+          "requires": ["immersion-precipitation"]
+        },
+        {
+          "id": "track-etch-method",
+          "name": "track-etch method",
+          "requires": ["solution-evaporation"]
+        },
+        {
+          "id": "sol-gel-process",
+          "name": "sol-gel process",
+          "requires": ["track-etch-method"]
+        },
+        {
+          "id": "interfacial-polymerization",
+          "name": "interfacial polymerization",
+          "requires": ["sol-gel-process"]
+        },
+        {
+          "id": "dipcoating-process",
+          "name": "dipcoating process",
+          "requires": ["interfacial-polymerization"]
+        },
+        {
+          "id": "film-stretching-and-template-leaching",
+          "name": "film stretching and template leaching",
+          "requires": ["dipcoating-process"]
+        },
+        {
+          "id": "membrane-modules",
+          "name": "membrane modules",
+          "requires": ["film-stretching-and-template-leaching"]
+        },
+        {
+          "id": "hollow-fibre",
+          "name": "hollow fibre",
+          "requires": ["membrane-modules"]
+        },
+        {
+          "id": "spiral-wound-and-flat-sheet",
+          "name": "spiral wound and flat sheet",
+          "requires": ["hollow-fibre"]
+        }
+      ]
+    },
+    {
+      "id": "membrane-characterization",
+      "name": "Membrane Characterization",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "membrane-characterization-morphology",
+          "name": "Membrane characterization: morphology"
+        },
+        {
+          "id": "top-surface-and-cross-section-structure",
+          "name": "top surface and cross-section structure",
+          "requires": ["membrane-characterization-morphology"]
+        },
+        {
+          "id": "surface-properties",
+          "name": "surface properties",
+          "requires": ["top-surface-and-cross-section-structure"]
+        },
+        {
+          "id": "hydrophilicity-and-hydrophobicity",
+          "name": "hydrophilicity and hydrophobicity",
+          "requires": ["surface-properties"]
+        },
+        {
+          "id": "porosity",
+          "name": "porosity",
+          "requires": ["hydrophilicity-and-hydrophobicity"]
+        },
+        {
+          "id": "water-flux",
+          "name": "water flux",
+          "requires": ["porosity"]
+        },
+        {
+          "id": "permeability",
+          "name": "permeability",
+          "requires": ["water-flux"]
+        },
+        {
+          "id": "pore-size",
+          "name": "pore size",
+          "requires": ["permeability"]
+        },
+        {
+          "id": "ftir-analysis",
+          "name": "FTIR analysis",
+          "requires": ["pore-size"]
+        },
+        {
+          "id": "solute-rejection-properties-and-protein-adsorption-property",
+          "name": "solute rejection properties and protein adsorption property",
+          "requires": ["ftir-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "membrane-processes-and-fouling",
+      "name": "Membrane Processes and Fouling",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "reverse-osmosis",
+          "name": "Reverse osmosis"
+        },
+        {
+          "id": "nanofiltration",
+          "name": "nanofiltration",
+          "requires": ["reverse-osmosis"]
+        },
+        {
+          "id": "ultrafiltration",
+          "name": "ultrafiltration",
+          "requires": ["nanofiltration"]
+        },
+        {
+          "id": "microfiltration",
+          "name": "microfiltration",
+          "requires": ["ultrafiltration"]
+        },
+        {
+          "id": "gas-separation",
+          "name": "gas separation",
+          "requires": ["microfiltration"]
+        },
+        {
+          "id": "membrane-distillation",
+          "name": "membrane distillation",
+          "requires": ["gas-separation"]
+        },
+        {
+          "id": "membrane-bioreactors",
+          "name": "membrane bioreactors",
+          "requires": ["membrane-distillation"]
+        },
+        {
+          "id": "concentration-polarization-in-liquid-separation-processes",
+          "name": "concentration polarization in liquid separation processes",
+          "requires": ["membrane-bioreactors"]
+        },
+        {
+          "id": "gel-layer-model",
+          "name": "gel layer model",
+          "requires": ["concentration-polarization-in-liquid-separation-processes"]
+        },
+        {
+          "id": "osmotic-pressure-model",
+          "name": "osmotic pressure model",
+          "requires": ["gel-layer-model"]
+        },
+        {
+          "id": "boundary-layer-resistance-model",
+          "name": "boundary layer resistance model",
+          "requires": ["osmotic-pressure-model"]
+        },
+        {
+          "id": "membrane-fouling",
+          "name": "membrane fouling",
+          "requires": ["boundary-layer-resistance-model"]
+        },
+        {
+          "id": "fouling-control",
+          "name": "fouling control",
+          "requires": ["membrane-fouling"]
+        }
+      ]
+    }
+  ]
+}

@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -51,22 +51,14 @@
         {
           "id": "java-programming-constructs",
           "name": "Java Programming Constructs",
-          "requires": ["difference-between-oop-and-procedure-oriented-programming"]
-        },
-        {
-          "id": "math-class",
-          "name": "Math class",
-          "requires": ["java-programming-constructs"]
+          "requires": ["difference-between-oop-and-procedure-oriented-programming"],
+          "status": "retired"
         },
         {
           "id": "arrays-in-java",
           "name": "Arrays in java",
-          "requires": ["math-class"]
-        },
-        {
-          "id": "classes",
-          "name": "Classes",
-          "requires": ["arrays-in-java"]
+          "requires": ["math-class"],
+          "status": "retired"
         },
         {
           "id": "class-members-and-objects",
@@ -99,9 +91,18 @@
           "requires": ["access-specifiers"]
         },
         {
-          "id": "static-data-and-function",
-          "name": "Static Data and Function",
+          "id": "destructors-and-memory-management-through-destructors",
+          "name": "Destructors and memory management through destructors",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["constructors"]
+        },
+        {
+          "id": "execution-order",
+          "name": "Execution order",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["destructors-and-memory-management-through-destructors"]
         }
       ]
     },
@@ -112,12 +113,106 @@
       "topics": [
         {
           "id": "introduction-to-inheritance-and-polymorphism-types-of",
-          "name": "Introduction to inheritance and polymorphism, Types of inheritance, Function Overloading and Function overriding, and Abstract Classes, Inbuilt classes in Java, this reference"
+          "name": "Introduction to inheritance and polymorphism",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "function-overriding",
+          "name": "Function overriding",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-inheritance-and-polymorphism-types-of"]
         },
         {
           "id": "inheritance-in-java-object-class-polymorphism-dynamic",
           "name": "Inheritance in java, Object class, Polymorphism, Dynamic binding, Abstract class, Interface in java, Package in java",
           "requires": ["introduction-to-inheritance-and-polymorphism-types-of"]
+        },
+        {
+          "id": "math-class",
+          "name": "Math class",
+          "requires": ["java-programming-constructs"],
+          "movedFrom": {
+            "subject": "pdeu-object-oriented-programming",
+            "chapter": "introduction-to-object-oriented-programming",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "classes",
+          "name": "Classes",
+          "requires": ["arrays-in-java"],
+          "movedFrom": {
+            "subject": "pdeu-object-oriented-programming",
+            "chapter": "introduction-to-object-oriented-programming",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "static-data-and-function",
+          "name": "Static Data and Function",
+          "requires": ["constructors"],
+          "movedFrom": {
+            "subject": "pdeu-object-oriented-programming",
+            "chapter": "introduction-to-object-oriented-programming",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "types-of-inheritance-single",
+          "name": "Types of inheritance: single",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["static-data-and-function"]
+        },
+        {
+          "id": "multiple",
+          "name": "multiple",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-inheritance-single"]
+        },
+        {
+          "id": "multilevel",
+          "name": "multilevel",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multiple"]
+        },
+        {
+          "id": "hierarchical",
+          "name": "hierarchical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multilevel"]
+        },
+        {
+          "id": "hierarchies-and-multiple-inheritance",
+          "name": "Hierarchies and Multiple Inheritance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hierarchical"]
+        },
+        {
+          "id": "function-overloading-and-operator-overloading",
+          "name": "Function Overloading and Operator Overloading",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hierarchies-and-multiple-inheritance"]
+        },
+        {
+          "id": "friend-functions",
+          "name": "Friend Functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["function-overloading-and-operator-overloading"]
         }
       ]
     },
@@ -133,22 +228,26 @@
         {
           "id": "introduction-to-java-io-streams",
           "name": "Introduction to Java IO streams",
-          "requires": ["streams-and-multifile-programs"]
+          "requires": ["streams-and-multifile-programs"],
+          "status": "retired"
         },
         {
           "id": "character-and-binary-streams",
           "name": "Character and Binary streams",
-          "requires": ["introduction-to-java-io-streams"]
+          "requires": ["introduction-to-java-io-streams"],
+          "status": "retired"
         },
         {
           "id": "reading-data-from-and-writing-data-to-files",
           "name": "reading data from and writing data to files",
-          "requires": ["character-and-binary-streams"]
+          "requires": ["character-and-binary-streams"],
+          "status": "retired"
         },
         {
           "id": "difference-between-error-and-exception",
           "name": "Difference between error and exception",
-          "requires": ["reading-data-from-and-writing-data-to-files"]
+          "requires": ["reading-data-from-and-writing-data-to-files"],
+          "status": "retired"
         },
         {
           "id": "exceptions-oop",
@@ -158,22 +257,54 @@
         {
           "id": "multithreading-in-java",
           "name": "Multithreading in Java",
-          "requires": ["exceptions-oop"]
+          "requires": ["exceptions-oop"],
+          "status": "retired"
         },
         {
           "id": "thread-life-cycle-and-methods",
           "name": "Thread life cycle and methods",
-          "requires": ["multithreading-in-java"]
+          "requires": ["multithreading-in-java"],
+          "status": "retired"
         },
         {
           "id": "runnable-interface",
           "name": "Runnable interface",
-          "requires": ["thread-life-cycle-and-methods"]
+          "requires": ["thread-life-cycle-and-methods"],
+          "status": "retired"
         },
         {
           "id": "thread-synchronization",
           "name": "Thread synchronization",
-          "requires": ["runnable-interface"]
+          "requires": ["runnable-interface"],
+          "status": "retired"
+        },
+        {
+          "id": "this-pointer",
+          "name": "‘this’ pointer",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thread-synchronization"]
+        },
+        {
+          "id": "dynamic-memory-allocation",
+          "name": "Dynamic Memory allocation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["this-pointer"]
+        },
+        {
+          "id": "standard-template-library-stl-overview-and-usage",
+          "name": "Standard Template Library (STL) Overview and Usage",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dynamic-memory-allocation"]
+        },
+        {
+          "id": "performance-optimization-techniques",
+          "name": "Performance optimization techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["standard-template-library-stl-overview-and-usage"]
         }
       ]
     },
@@ -189,12 +320,14 @@
         {
           "id": "abstract-factory",
           "name": "Abstract Factory",
-          "requires": ["design-patterns-overview-creational-design-pattern-factory"]
+          "requires": ["design-patterns-overview-creational-design-pattern-factory"],
+          "status": "retired"
         },
         {
           "id": "builder",
           "name": "Builder",
-          "requires": ["abstract-factory"]
+          "requires": ["abstract-factory"],
+          "status": "retired"
         },
         {
           "id": "structural-design-pattern-adapter",
@@ -204,29 +337,71 @@
         {
           "id": "composite",
           "name": "Composite",
-          "requires": ["structural-design-pattern-adapter"]
+          "requires": ["structural-design-pattern-adapter"],
+          "status": "retired"
         },
         {
           "id": "facade-design-pattern",
           "name": "Façade Design Pattern",
-          "requires": ["composite"]
+          "requires": ["composite"],
+          "status": "retired"
         },
         {
           "id": "behavioral-patterns-observer",
           "name": "Behavioral Patterns :Observer",
-          "requires": ["facade-design-pattern"]
+          "requires": ["facade-design-pattern"],
+          "status": "retired"
         },
         {
           "id": "state",
           "name": "State",
-          "requires": ["behavioral-patterns-observer"]
+          "requires": ["behavioral-patterns-observer"],
+          "status": "retired"
         },
         {
           "id": "iterator",
           "name": "Iterator",
-          "requires": ["state"]
+          "requires": ["state"],
+          "status": "retired"
+        },
+        {
+          "id": "behavioural-patterns",
+          "name": "Behavioural Patterns",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["iterator"]
+        },
+        {
+          "id": "applying-design-patterns-in-c",
+          "name": "Applying Design Patterns in C++",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["behavioural-patterns"]
+        },
+        {
+          "id": "object-oriented-design-principles-solid",
+          "name": "Object-Oriented Design Principles (SOLID)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applying-design-patterns-in-c"]
+        },
+        {
+          "id": "code-refactoring-techniques",
+          "name": "Code Refactoring Techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["object-oriented-design-principles-solid"]
+        },
+        {
+          "id": "unit-testing-and-test-driven-development-tdd",
+          "name": "Unit Testing and Test-Driven Development (TDD)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["code-refactoring-techniques"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-object-oriented-programming-paradigms-laboratory-ce"]
 }

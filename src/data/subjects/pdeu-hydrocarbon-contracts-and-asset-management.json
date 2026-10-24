@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Hydrocarbon Contracts and Asset Management",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -44,8 +44,17 @@
         },
         {
           "id": "fiscal-system-in-hydrocarbon-industry-progressive-regressive",
-          "name": "Fiscal System in hydrocarbon industry (Progressive, regressive fiscal policy tax and non-tax components of Fiscal Policy)",
-          "requires": ["life-cycle-of-petroleum-project"]
+          "name": "Fiscal System in hydrocarbon industry (Progressive",
+          "requires": ["life-cycle-of-petroleum-project"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "regressive-fiscal-policy-tax-and-non-tax-components-of-fisca",
+          "name": "regressive fiscal policy tax and non-tax components of Fiscal Policy)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fiscal-system-in-hydrocarbon-industry-progressive-regressive"]
         },
         {
           "id": "basic-elements-of-contracts",
@@ -97,7 +106,9 @@
           "name": "Net Present value",
           "requires": ["internal-rate-of-return"]
         }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     },
     {
       "id": "unit-2",
@@ -106,12 +117,37 @@
       "topics": [
         {
           "id": "upstream-agreements-concessionary-production-sharing-risk",
-          "name": "Upstream Agreements (Concessionary, Production sharing, Risk sharing,)"
+          "name": "Upstream Agreements (Concessionary",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "production-sharing",
+          "name": "Production sharing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["upstream-agreements-concessionary-production-sharing-risk"]
+        },
+        {
+          "id": "risk-sharing",
+          "name": "Risk sharing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["production-sharing"]
         },
         {
           "id": "indian-policy-on-hydrocarbon-exploration-and-licensing",
-          "name": "Indian policy on Hydrocarbon Exploration and Licensing Policy (HELP). Drilling Contracts",
-          "requires": ["upstream-agreements-concessionary-production-sharing-risk"]
+          "name": "Indian policy on Hydrocarbon Exploration and Licensing Policy (HELP)",
+          "requires": ["upstream-agreements-concessionary-production-sharing-risk"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "drilling-contracts",
+          "name": "Drilling Contracts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["indian-policy-on-hydrocarbon-exploration-and-licensing"]
         },
         {
           "id": "farm-in-and-farm-out",
@@ -130,10 +166,21 @@
         },
         {
           "id": "gas-sale-and-supply-agreement-lng-agreement",
-          "name": "Gas sale and supply agreement. LNG Agreement",
-          "requires": ["comingling-allocation-and-attribution-agreement"]
+          "name": "Gas sale and supply agreement",
+          "requires": ["comingling-allocation-and-attribution-agreement"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lng-agreement",
+          "name": "LNG Agreement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gas-sale-and-supply-agreement-lng-agreement"]
         }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     },
     {
       "id": "unit-3",
@@ -142,19 +189,55 @@
       "topics": [
         {
           "id": "hydrocarbon-trading-oil-trading-physical-and-paper",
-          "name": "Hydrocarbon trading-Oil trading, Physical and Paper"
+          "name": "Hydrocarbon trading-Oil trading",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "crude-oil-markets-spot-barter-future-and-forward",
-          "name": "Crude oil Markets- Spot, Barter, Future and forward",
+          "id": "physical-and-paper",
+          "name": "Physical and Paper",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["hydrocarbon-trading-oil-trading-physical-and-paper"]
         },
         {
-          "id": "oil-pricing-mechanism-short-term-and-long-term-oil-pricing",
-          "name": "Oil pricing mechanism, short term and long term Oil Pricing",
+          "id": "crude-oil-markets-spot-barter-future-and-forward",
+          "name": "Crude oil Markets- Spot",
+          "requires": ["hydrocarbon-trading-oil-trading-physical-and-paper"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "barter",
+          "name": "Barter",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["crude-oil-markets-spot-barter-future-and-forward"]
+        },
+        {
+          "id": "future-and-forward",
+          "name": "Future and forward",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["barter"]
+        },
+        {
+          "id": "oil-pricing-mechanism-short-term-and-long-term-oil-pricing",
+          "name": "Oil pricing mechanism",
+          "requires": ["crude-oil-markets-spot-barter-future-and-forward"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "short-term-and-long-term-oil-pricing",
+          "name": "short term and long term Oil Pricing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["oil-pricing-mechanism-short-term-and-long-term-oil-pricing"]
         }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     },
     {
       "id": "unit-4",
@@ -163,7 +246,16 @@
       "topics": [
         {
           "id": "asset-integrity-management-introduction-to-concept-of-asset",
-          "name": "Asset Integrity Management Introduction to concept of Asset Management& Asset Integrity Management, The Asset Management System"
+          "name": "Asset Integrity Management Introduction to concept of Asset Management& Asset Integrity Management",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "the-asset-management-system",
+          "name": "The Asset Management System",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["asset-integrity-management-introduction-to-concept-of-asset"]
         },
         {
           "id": "asset-management-policy",
@@ -202,8 +294,17 @@
         },
         {
           "id": "risk-management-using-the-risk-matrix-risk-register-and",
-          "name": "Risk management: using the risk matrix, risk register & hazard log",
-          "requires": ["identification-and-assessment-of-risk"]
+          "name": "Risk management: using the risk matrix",
+          "requires": ["identification-and-assessment-of-risk"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "risk-register-and-hazard-log",
+          "name": "risk register & hazard log",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["risk-management-using-the-risk-matrix-risk-register-and"]
         },
         {
           "id": "risk-based-maintenance-deterioration-the-way-assets-could",
@@ -220,7 +321,10 @@
           "name": "Failure behaviour of onshore & offshore systems",
           "requires": ["failure-mode-effects-and-criticality-analysis"]
         }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     }
-  ]
+  ],
+  "courseType": "theory"
 }

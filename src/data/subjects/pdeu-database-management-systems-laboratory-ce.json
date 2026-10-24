@@ -1,0 +1,83 @@
+{
+  "id": "pdeu-database-management-systems-laboratory-ce",
+  "name": "Database Management Systems Laboratory",
+  "field": "Database Management Systems Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (COMP semester 3): Database Management Systems Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of COMP/sem3/CE_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CS202P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s3-database-management-system-laboratory",
+      "code": "24CS202P",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-database-models-entity-relationship-model-relat",
+          "name": "Database models: Entity Relationship model, Relational model.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-normalization-techniques-1nf-2nf-3nf-bcnf",
+          "name": "Normalization Techniques: 1NF, 2NF, 3NF, BCNF",
+          "number": 2,
+          "requires": ["experiment-1-database-models-entity-relationship-model-relat"]
+        },
+        {
+          "id": "experiment-3-ddl-commands-in-sql-database-and-table-creation",
+          "name": "DDL Commands in SQL: Database and table creation, alteration, defining constraints, primary key, foreign key, unique, not null, check.",
+          "number": 3,
+          "requires": ["experiment-2-normalization-techniques-1nf-2nf-3nf-bcnf"]
+        },
+        {
+          "id": "experiment-4-dml-commands-in-sql-in-operator-inbuilt-sql-fun",
+          "name": "DML Commands in SQL: IN operator, inbuilt SQL functions - aggregate functions, built-in functions numeric, date, string functions, set operations, sub-queries, correlated sub-queries in SQL, group by, having, order by, join operations, exist, any, all, and types of views.",
+          "number": 4,
+          "requires": ["experiment-3-ddl-commands-in-sql-database-and-table-creation"]
+        },
+        {
+          "id": "experiment-5-dcl-commands-in-sql-transaction-control-command",
+          "name": "DCL Commands in SQL: Transaction control commands, Commit, Rollback, Save point.",
+          "number": 5,
+          "requires": ["experiment-4-dml-commands-in-sql-in-operator-inbuilt-sql-fun"]
+        },
+        {
+          "id": "experiment-6-implementation-of-embedded-sql-pl-sql-concepts",
+          "name": "Implementation of Embedded SQL, PL SQL Concepts.",
+          "number": 6,
+          "requires": ["experiment-5-dcl-commands-in-sql-transaction-control-command"]
+        },
+        {
+          "id": "experiment-7-implementation-of-cursors-stored-procedures-sto",
+          "name": "Implementation of Cursors, Stored Procedures, Stored Function, Triggers.",
+          "number": 7,
+          "requires": ["experiment-6-implementation-of-embedded-sql-pl-sql-concepts"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-database-management-system"]
+}

@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 7 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -56,7 +56,8 @@
         {
           "id": "total-derivative-chain-rule",
           "name": "Total derivatives",
-          "requires": ["partial-derivatives"]
+          "requires": ["partial-derivatives"],
+          "status": "retired"
         },
         {
           "id": "maxima-minima-one-variable",
@@ -77,8 +78,73 @@
       "topics": [
         {
           "id": "double-integrals",
-          "name": "Definition Evaluation of double integral (Cartesian - Polar form), Change of orders, Change of variables, Evaluation of triple integral, change of variables (Cartesian to spherical - and cylindrical),",
-          "requires": ["partial-derivatives"]
+          "name": "Definition Evaluation of double integral (Cartesian",
+          "requires": ["partial-derivatives"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "polar-form",
+          "name": "Polar form)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["double-integrals"]
+        },
+        {
+          "id": "change-of-orders",
+          "name": "Change of orders",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polar-form"]
+        },
+        {
+          "id": "change-of-variables",
+          "name": "Change of variables",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["change-of-orders"]
+        },
+        {
+          "id": "evaluation-of-triple-integral",
+          "name": "Evaluation of triple integral",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["change-of-variables"]
+        },
+        {
+          "id": "change-of-variables-cartesian-to-spherical",
+          "name": "change of variables (Cartesian to spherical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["evaluation-of-triple-integral"]
+        },
+        {
+          "id": "cylindrical",
+          "name": "cylindrical)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["change-of-variables-cartesian-to-spherical"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cylindrical"]
+        },
+        {
+          "id": "area",
+          "name": "Area",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applications"]
+        },
+        {
+          "id": "volume",
+          "name": "Volume",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["area"]
         }
       ]
     },
@@ -133,8 +199,17 @@
         },
         {
           "id": "axioms-interpretations-and-properties-of-probability",
-          "name": "Axioms, Interpretations and Properties of Probability",
-          "requires": ["sample-space-and-events"]
+          "name": "Axioms",
+          "requires": ["sample-space-and-events"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "interpretations-and-properties-of-probability",
+          "name": "Interpretations and Properties of Probability",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["axioms-interpretations-and-properties-of-probability"]
         },
         {
           "id": "expectation",
@@ -148,8 +223,17 @@
         },
         {
           "id": "total-probability-bayes-rule-random-variables",
-          "name": "Total probability, Bayes’ Rule, Random variables",
-          "requires": ["conditional-probability"]
+          "name": "Bayes’ Rule",
+          "requires": ["conditional-probability"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "random-variables",
+          "name": "Random variables",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["total-probability-bayes-rule-random-variables"]
         },
         {
           "id": "measures-of-central-tendency-and-dispersion",
@@ -158,5 +242,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

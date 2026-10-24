@@ -1,0 +1,184 @@
+{
+  "id": "pdeu-renewable-energy-engineering-chem",
+  "name": "Renewable Energy Engineering",
+  "field": "Renewable Energy Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 5): Renewable Energy Engineering",
+    "note": "Units and topics copied from the course handout PDF (pages 10 of CHEM/sem5/Chemical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH332T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s5-program-elective--renewable-energy-engineering",
+      "code": "24CH332T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "solar-energy-technologies",
+      "name": "Solar Energy Technologies",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "solar-radiation",
+          "name": "Solar radiation"
+        },
+        {
+          "id": "photovoltaic-pv-technology",
+          "name": "photovoltaic (PV) technology",
+          "requires": ["solar-radiation"]
+        },
+        {
+          "id": "pv-cell-materials-and-fabrication-techniques",
+          "name": "PV cell materials and fabrication techniques",
+          "requires": ["photovoltaic-pv-technology"]
+        },
+        {
+          "id": "solar-thermal-energy-conversion-systems",
+          "name": "solar thermal energy conversion systems",
+          "requires": ["pv-cell-materials-and-fabrication-techniques"]
+        },
+        {
+          "id": "concentrating-solar-power-csp-technologies",
+          "name": "concentrating solar power (CSP) technologies",
+          "requires": ["solar-thermal-energy-conversion-systems"]
+        },
+        {
+          "id": "design-and-performance-analysis-of-pv-and-csp-systems",
+          "name": "design and performance analysis of PV and CSP systems",
+          "requires": ["concentrating-solar-power-csp-technologies"]
+        },
+        {
+          "id": "integration-of-solar-energy-systems-into-the-grid",
+          "name": "integration of solar energy systems into the grid",
+          "requires": ["design-and-performance-analysis-of-pv-and-csp-systems"]
+        }
+      ]
+    },
+    {
+      "id": "wind-and-hydropower-systems-engineering",
+      "name": "Wind and Hydropower Systems Engineering",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "wind-turbine-technology-and-aerodynamics",
+          "name": "Wind turbine technology and aerodynamics"
+        },
+        {
+          "id": "wind-resource-assessment-and-wind-farm-design",
+          "name": "wind resource assessment and wind farm design",
+          "requires": ["wind-turbine-technology-and-aerodynamics"]
+        },
+        {
+          "id": "hydropower-system-components-and-design",
+          "name": "hydropower system components and design",
+          "requires": ["wind-resource-assessment-and-wind-farm-design"]
+        },
+        {
+          "id": "tidal-and-wave-energy-conversion-mechanisms",
+          "name": "tidal and wave energy conversion mechanisms",
+          "requires": ["hydropower-system-components-and-design"]
+        },
+        {
+          "id": "environmental-impact-and-sustainability-considerations",
+          "name": "environmental impact and sustainability considerations",
+          "requires": ["tidal-and-wave-energy-conversion-mechanisms"]
+        }
+      ]
+    },
+    {
+      "id": "bioenergy-and-geothermal-energy-systems",
+      "name": "Bioenergy and Geothermal Energy Systems",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "biomass-energy-sources-and-conversion-technologies",
+          "name": "Biomass energy sources and conversion technologies"
+        },
+        {
+          "id": "biofuels-production-and-waste-to-energy-systems",
+          "name": "biofuels production and waste-to-energy systems",
+          "requires": ["biomass-energy-sources-and-conversion-technologies"]
+        },
+        {
+          "id": "geothermal-heat-extraction-and-power-generation",
+          "name": "geothermal heat extraction and power generation",
+          "requires": ["biofuels-production-and-waste-to-energy-systems"]
+        },
+        {
+          "id": "ground-source-heat-pumps-and-direct-use-applications",
+          "name": "ground-source heat pumps and direct use applications",
+          "requires": ["geothermal-heat-extraction-and-power-generation"]
+        },
+        {
+          "id": "environmental-impact-and-resource-management",
+          "name": "environmental impact and resource management",
+          "requires": ["ground-source-heat-pumps-and-direct-use-applications"]
+        }
+      ]
+    },
+    {
+      "id": "smart-grids-energy-storage-and-policy",
+      "name": "Smart Grids, Energy Storage and Policy",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "smart-grid-technologies-and-renewable-integration",
+          "name": "Smart grid technologies and renewable integration"
+        },
+        {
+          "id": "energy-storage-solutions",
+          "name": "energy storage solutions",
+          "requires": ["smart-grid-technologies-and-renewable-integration"]
+        },
+        {
+          "id": "batteries",
+          "name": "batteries",
+          "requires": ["energy-storage-solutions"]
+        },
+        {
+          "id": "fuel-cells-and-mechanical-systems",
+          "name": "fuel cells and mechanical systems",
+          "requires": ["batteries"]
+        },
+        {
+          "id": "energy-policy",
+          "name": "energy policy",
+          "requires": ["fuel-cells-and-mechanical-systems"]
+        },
+        {
+          "id": "economics-and-market-mechanisms",
+          "name": "economics and market mechanisms",
+          "requires": ["energy-policy"]
+        },
+        {
+          "id": "regulatory-framework-and-incentives-for-renewable-energy",
+          "name": "regulatory framework and incentives for renewable energy",
+          "requires": ["economics-and-market-mechanisms"]
+        },
+        {
+          "id": "case-studies-in-renewable-energy-implementation-and-best-pra",
+          "name": "case studies in renewable energy implementation and best practices",
+          "requires": ["regulatory-framework-and-incentives-for-renewable-energy"]
+        }
+      ]
+    }
+  ]
+}

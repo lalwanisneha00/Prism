@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Data Analytics for Petroleum Engineers",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -59,8 +59,24 @@
         },
         {
           "id": "exploratory-data-analysis-univariate-bivariate-and",
-          "name": "Exploratory Data Analysis: Univariate, Bivariate, and Multivariate analysis",
-          "requires": ["probability-and-statistics"]
+          "name": "Exploratory Data Analysis: Univariate",
+          "requires": ["probability-and-statistics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bivariate",
+          "name": "Bivariate",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["exploratory-data-analysis-univariate-bivariate-and"]
+        },
+        {
+          "id": "multivariate-analysis",
+          "name": "Multivariate analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bivariate"]
         },
         {
           "id": "parametric-distribution-models",
@@ -76,7 +92,30 @@
       "topics": [
         {
           "id": "linear-regression-ml",
-          "name": "Regression Modeling and Analysis, Simple linear regression, multiple regression, nonparametric transformation and regression"
+          "name": "Regression Modeling and Analysis",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "simple-linear-regression",
+          "name": "Simple linear regression",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-regression-ml"]
+        },
+        {
+          "id": "multiple-regression",
+          "name": "multiple regression",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simple-linear-regression"]
+        },
+        {
+          "id": "nonparametric-transformation-and-regression",
+          "name": "nonparametric transformation and regression",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multiple-regression"]
         },
         {
           "id": "classification-and-clustering-algorithms",
@@ -85,13 +124,31 @@
         },
         {
           "id": "multi-attribute-regression-modeling-data-driven-modelling",
-          "name": "multi-attribute regression modeling, data driven modelling",
-          "requires": ["classification-and-clustering-algorithms"]
+          "name": "multi-attribute regression modeling",
+          "requires": ["classification-and-clustering-algorithms"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "data-driven-modelling",
+          "name": "data driven modelling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multi-attribute-regression-modeling-data-driven-modelling"]
         },
         {
           "id": "field-applications-and-case-studies-coding-assignments",
-          "name": "field applications and case studies, coding assignments",
-          "requires": ["multi-attribute-regression-modeling-data-driven-modelling"]
+          "name": "field applications and case studies",
+          "requires": ["multi-attribute-regression-modeling-data-driven-modelling"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "coding-assignments",
+          "name": "coding assignments",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["field-applications-and-case-studies-coding-assignments"]
         }
       ]
     },
@@ -182,5 +239,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

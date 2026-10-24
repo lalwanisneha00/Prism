@@ -55,7 +55,24 @@ function contentWords(name: string): string[] {
 }
 
 /** 0–1: the share of meaningful words the two names have in common. */
+const SERIES: Record<string, number> = { i: 1, ii: 2, iii: 3, iv: 4, v: 5, vi: 6 };
+
+/** "Mathematics – III" → {3}: the number of a course in a series. */
+function seriesNumbers(name: string): Set<number> {
+  const out = new Set<number>();
+  for (const w of normalize(name).split(" ")) {
+    if (/^[1-6]$/.test(w)) out.add(Number(w));
+    else if (w in SERIES) out.add(SERIES[w]);
+  }
+  return out;
+}
+
 export function nameSimilarity(a: string, b: string): number {
+  // Numbers are ignored as words ("Applied Physics I" ≈ "Engineering Physics"), but two courses
+  // of one series are different courses: "Mathematics I" is not "Mathematics III".
+  const na = seriesNumbers(a);
+  const nb = seriesNumbers(b);
+  if (na.size && nb.size && ![...na].some((n) => nb.has(n))) return 0;
   const wa = contentWords(a);
   const wb = contentWords(b);
   if (wa.length === 0 || wb.length === 0) return 0;

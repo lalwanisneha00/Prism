@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 9 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "signals",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -56,7 +56,16 @@
         {
           "id": "z-transform",
           "name": "Z-transform",
-          "requires": ["discrete-time-signals-and-systems"]
+          "requires": ["discrete-time-signals-and-systems"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "inverse-z-transform",
+          "name": "Inverse z-transform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["z-transform"]
         },
         {
           "id": "roc-and-properties",
@@ -147,7 +156,16 @@
         {
           "id": "iir-filter-design",
           "name": "IIR Filter Design",
-          "requires": ["window-method"]
+          "requires": ["window-method"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "iir-filter-coefficients-from-analog-filter-2",
+          "name": "IIR Filter Coefficients from Analog Filter",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["iir-filter-design"]
         },
         {
           "id": "pole-zero-placement-method",
@@ -254,7 +272,16 @@
         {
           "id": "the-time-dependent-fourier-transform",
           "name": "The Time-Dependent Fourier Transform",
-          "requires": ["dft-analysis-of-sinusoidal-signals"]
+          "requires": ["dft-analysis-of-sinusoidal-signals"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "block-convolution-using-the-time-dependent-fourier-transform",
+          "name": "Block Convolution using the Time Dependent Fourier Transform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-time-dependent-fourier-transform"]
         },
         {
           "id": "convolution",
@@ -263,13 +290,31 @@
         },
         {
           "id": "application-of-dft-in-linear-filtering-fourier-analysis-of",
-          "name": "Application of DFT in Linear Filtering, Fourier Analysis of Nonstationary Signals",
-          "requires": ["convolution"]
+          "name": "Application of DFT in Linear Filtering",
+          "requires": ["convolution"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fourier-analysis-of-nonstationary-signals",
+          "name": "Fourier Analysis of Nonstationary Signals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["application-of-dft-in-linear-filtering-fourier-analysis-of"]
         },
         {
           "id": "fourier-analysis-of-stationary-random-signals-the",
-          "name": "Fourier Analysis of Stationary Random Signals: The Periodogram, Fourier Transform for Causal Sequences",
-          "requires": ["application-of-dft-in-linear-filtering-fourier-analysis-of"]
+          "name": "Fourier Analysis of Stationary Random Signals: The Periodogram",
+          "requires": ["application-of-dft-in-linear-filtering-fourier-analysis-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fourier-transform-for-causal-sequences",
+          "name": "Fourier Transform for Causal Sequences",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fourier-analysis-of-stationary-random-signals-the"]
         },
         {
           "id": "relationships-between-magnitude-and-phase",
@@ -283,5 +328,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-digital-signal-processing-lab-ict"]
 }

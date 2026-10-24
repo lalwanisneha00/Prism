@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Biology for Engineers",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -45,7 +45,16 @@
         {
           "id": "overview-of-cell-structure-and-functions",
           "name": "Overview of cell structure and functions",
-          "requires": ["cell-as-the-basic-unit-of-life"]
+          "requires": ["cell-as-the-basic-unit-of-life"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "its-functions",
+          "name": "its functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["overview-of-cell-structure-and-functions"]
         },
         {
           "id": "carbohydrates-properties-and-biological-functions",
@@ -54,13 +63,45 @@
         },
         {
           "id": "dna-rna-structure",
-          "name": "Nucleic Acids: Structure and roles of DNA and RNA. Proteins: Structure, and its functions",
-          "requires": ["carbohydrates-properties-and-biological-functions"]
+          "name": "Nucleic Acids: Structure and roles of DNA and RNA",
+          "requires": ["carbohydrates-properties-and-biological-functions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "proteins-structure",
+          "name": "Proteins: Structure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dna-rna-structure"]
         },
         {
           "id": "significance-of-lipids-role-of-biomolecules-characteristics",
-          "name": "Significance of lipids. Role of biomolecules: Characteristics and roles of enzymes, vitamins, and hormones",
-          "requires": ["dna-rna-structure"]
+          "name": "Significance of lipids",
+          "requires": ["dna-rna-structure"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "role-of-biomolecules-characteristics-and-roles-of-enzymes",
+          "name": "Role of biomolecules: Characteristics and roles of enzymes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["significance-of-lipids-role-of-biomolecules-characteristics"]
+        },
+        {
+          "id": "vitamins",
+          "name": "vitamins",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["role-of-biomolecules-characteristics-and-roles-of-enzymes"]
+        },
+        {
+          "id": "hormones",
+          "name": "hormones",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vitamins"]
         }
       ]
     },
@@ -71,12 +112,37 @@
       "topics": [
         {
           "id": "echolocation-ultrasonography-sonars",
-          "name": "Echolocation (ultrasonography, sonars)"
+          "name": "Echolocation (ultrasonography",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "sonars",
+          "name": "sonars)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["echolocation-ultrasonography-sonars"]
         },
         {
           "id": "photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying",
-          "name": "Photosynthesis (photovoltaic cells, bionic leaf). Bird flying (GPS and aircrafts)",
-          "requires": ["echolocation-ultrasonography-sonars"]
+          "name": "Photosynthesis (photovoltaic cells",
+          "requires": ["echolocation-ultrasonography-sonars"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bionic-leaf",
+          "name": "bionic leaf)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying"]
+        },
+        {
+          "id": "bird-flying-gps-and-aircrafts",
+          "name": "Bird flying (GPS and aircrafts)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bionic-leaf"]
         },
         {
           "id": "lotus-leaf-effect-super-hydrophobic-and-self-cleaning",
@@ -112,12 +178,65 @@
       "topics": [
         {
           "id": "biology-and-engineering-crosstalk-hybridoma-technology-plant",
-          "name": "Biology and engineering crosstalk –Hybridoma technology, Plant Tissue Culture, Animal Tissue Culture"
+          "name": "Biology and engineering crosstalk –Hybridoma technology",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "plant-tissue-culture",
+          "name": "Plant Tissue Culture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biology-and-engineering-crosstalk-hybridoma-technology-plant"]
+        },
+        {
+          "id": "animal-tissue-culture",
+          "name": "Animal Tissue Culture",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["plant-tissue-culture"]
+        },
+        {
+          "id": "tissue-engineering",
+          "name": "Tissue Engineering",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["animal-tissue-culture"]
         },
         {
           "id": "tissue-engineering-introduction-to-biomimetics-and",
-          "name": "Tissue Engineering, Introduction to Biomimetics and Biomimicry, Nanobiotechnology, Introduction to Radiology, High-throughput diagnostics in clinics, Bioprocessing and Biomaterials",
-          "requires": ["biology-and-engineering-crosstalk-hybridoma-technology-plant"]
+          "name": "Introduction to Biomimetics and Biomimicry",
+          "requires": ["biology-and-engineering-crosstalk-hybridoma-technology-plant"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "nanobiotechnology",
+          "name": "Nanobiotechnology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tissue-engineering-introduction-to-biomimetics-and"]
+        },
+        {
+          "id": "introduction-to-radiology",
+          "name": "Introduction to Radiology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["nanobiotechnology"]
+        },
+        {
+          "id": "high-throughput-diagnostics-in-clinics",
+          "name": "High-throughput diagnostics in clinics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-radiology"]
+        },
+        {
+          "id": "bioprocessing-and-biomaterials",
+          "name": "Bioprocessing and Biomaterials",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["high-throughput-diagnostics-in-clinics"]
         }
       ]
     },
@@ -132,8 +251,17 @@
         },
         {
           "id": "bio-printing-techniques-and-materials-applications-of",
-          "name": "Bio printing techniques and materials. Applications of Bioinformatics",
-          "requires": ["stem-cell-and-its-applications"]
+          "name": "Bio printing techniques and materials",
+          "requires": ["stem-cell-and-its-applications"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "applications-of-bioinformatics",
+          "name": "Applications of Bioinformatics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bio-printing-techniques-and-materials-applications-of"]
         },
         {
           "id": "artificial-intelligence-for-diagnosis-and-detection-of",
@@ -152,5 +280,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -1,0 +1,280 @@
+{
+  "id": "pdeu-fluid-mechanics-chem",
+  "name": "Fluid Mechanics",
+  "field": "Fluid Mechanics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 3): Fluid Mechanics",
+    "note": "Units and topics copied from the course handout PDF (pages 8 of CHEM/sem3/Chemical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH205T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s3-fluid-mechanics",
+      "code": "24CH205T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "fluid-statics-and-its-application",
+      "name": "Fluid Statics and Its Application",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "introduction-to-fluid-mechanics-definition-and-properties-of",
+          "name": "Introduction to fluid mechanics: definition and properties of fluids"
+        },
+        {
+          "id": "fluid-statics",
+          "name": "fluid statics",
+          "requires": ["introduction-to-fluid-mechanics-definition-and-properties-of"]
+        },
+        {
+          "id": "pressure-distribution-in-a-fluid",
+          "name": "pressure distribution in a fluid",
+          "requires": ["fluid-statics"]
+        },
+        {
+          "id": "dimensional-analysis",
+          "name": "dimensional analysis",
+          "requires": ["pressure-distribution-in-a-fluid"]
+        },
+        {
+          "id": "different-methods-of-dimensional-analysis-applied-to-fluid-f",
+          "name": "different methods of dimensional analysis applied to fluid flow problems",
+          "requires": ["dimensional-analysis"]
+        },
+        {
+          "id": "types-of-flow",
+          "name": "types of flow",
+          "requires": ["different-methods-of-dimensional-analysis-applied-to-fluid-f"]
+        },
+        {
+          "id": "relationship-between-shear-stress-and-pressure-gradient",
+          "name": "relationship between shear stress and pressure gradient",
+          "requires": ["types-of-flow"]
+        },
+        {
+          "id": "fluid-flow-in-different-channels",
+          "name": "fluid flow in different channels",
+          "requires": ["relationship-between-shear-stress-and-pressure-gradient"]
+        },
+        {
+          "id": "hagen-poiseuille-equation",
+          "name": "Hagen-Poiseuille equation",
+          "requires": ["fluid-flow-in-different-channels"]
+        },
+        {
+          "id": "losses-in-pipes-and-fittings",
+          "name": "losses in pipes and fittings",
+          "requires": ["hagen-poiseuille-equation"]
+        },
+        {
+          "id": "pipe-joints",
+          "name": "pipe joints",
+          "requires": ["losses-in-pipes-and-fittings"]
+        },
+        {
+          "id": "fittings",
+          "name": "fittings",
+          "requires": ["pipe-joints"]
+        },
+        {
+          "id": "bends-and-erosion-issues",
+          "name": "bends and erosion issues",
+          "requires": ["fittings"]
+        }
+      ]
+    },
+    {
+      "id": "basic-equations-of-fluid-flow",
+      "name": "Basic Equations of Fluid Flow",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "navier-stokes-equations",
+          "name": "Navier-Stokes equations"
+        },
+        {
+          "id": "continuity-equation",
+          "name": "continuity equation",
+          "requires": ["navier-stokes-equations"]
+        },
+        {
+          "id": "bernoulli-equation",
+          "name": "Bernoulli equation",
+          "requires": ["continuity-equation"]
+        },
+        {
+          "id": "euler-equation",
+          "name": "Euler equation",
+          "requires": ["bernoulli-equation"]
+        },
+        {
+          "id": "equation-of-motion",
+          "name": "equation of motion",
+          "requires": ["euler-equation"]
+        },
+        {
+          "id": "darcy-weisbach-equation-for-frictional-head-loss",
+          "name": "Darcy-Weisbach equation for frictional head loss",
+          "requires": ["equation-of-motion"]
+        },
+        {
+          "id": "friction-factor",
+          "name": "friction factor",
+          "requires": ["darcy-weisbach-equation-for-frictional-head-loss"]
+        },
+        {
+          "id": "moody-diagram",
+          "name": "Moody diagram",
+          "requires": ["friction-factor"]
+        },
+        {
+          "id": "velocity-profile-and-boundary-layer-calculations-for-turbule",
+          "name": "velocity profile and boundary layer calculations for turbulent flow",
+          "requires": ["moody-diagram"]
+        },
+        {
+          "id": "detailed-leak-flow-rate-calculations-integrating-the-time-de",
+          "name": "detailed leak flow rate calculations (integrating the time derivative",
+          "requires": ["velocity-profile-and-boundary-layer-calculations-for-turbule"]
+        },
+        {
+          "id": "for-both-liquids-and-gases",
+          "name": "for both liquids and gases)",
+          "requires": ["detailed-leak-flow-rate-calculations-integrating-the-time-de"]
+        }
+      ]
+    },
+    {
+      "id": "transportation-of-fluids",
+      "name": "Transportation of Fluids",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "handling-of-fluids-pumps",
+          "name": "Handling of fluids: pumps"
+        },
+        {
+          "id": "compressors-and-blowers-for-handling-different-fluids",
+          "name": "compressors and blowers for handling different fluids",
+          "requires": ["handling-of-fluids-pumps"]
+        },
+        {
+          "id": "standards-for-pumps",
+          "name": "standards for pumps",
+          "requires": ["compressors-and-blowers-for-handling-different-fluids"]
+        },
+        {
+          "id": "compressors-and-blowers",
+          "name": "compressors and blowers",
+          "requires": ["standards-for-pumps"]
+        },
+        {
+          "id": "valves",
+          "name": "valves",
+          "requires": ["compressors-and-blowers"]
+        },
+        {
+          "id": "pipe-fittings-and-their-standards",
+          "name": "pipe fittings and their standards",
+          "requires": ["valves"]
+        },
+        {
+          "id": "power-requirement-for-flow",
+          "name": "power requirement for flow",
+          "requires": ["pipe-fittings-and-their-standards"]
+        },
+        {
+          "id": "piping-layout-and-economical-pipe-diameter",
+          "name": "piping layout and economical pipe diameter",
+          "requires": ["power-requirement-for-flow"]
+        },
+        {
+          "id": "priming-of-pumps",
+          "name": "priming of pumps",
+          "requires": ["piping-layout-and-economical-pipe-diameter"]
+        },
+        {
+          "id": "safety-issues-in-pumping-volatile-substances",
+          "name": "safety issues in pumping volatile substances",
+          "requires": ["priming-of-pumps"]
+        }
+      ]
+    },
+    {
+      "id": "metering-of-fluids",
+      "name": "Metering of Fluids",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "flow-metering-devices-orifice-meter",
+          "name": "Flow metering devices: orifice meter"
+        },
+        {
+          "id": "venturi-meter",
+          "name": "venturi meter",
+          "requires": ["flow-metering-devices-orifice-meter"]
+        },
+        {
+          "id": "rotameter",
+          "name": "rotameter",
+          "requires": ["venturi-meter"]
+        },
+        {
+          "id": "pitot-tube",
+          "name": "pitot tube",
+          "requires": ["rotameter"]
+        },
+        {
+          "id": "anemometer",
+          "name": "anemometer",
+          "requires": ["pitot-tube"]
+        },
+        {
+          "id": "flow-through-open-channels-such-as-notches",
+          "name": "flow through open channels such as notches",
+          "requires": ["anemometer"]
+        },
+        {
+          "id": "weirs-and-nozzles",
+          "name": "weirs and nozzles",
+          "requires": ["flow-through-open-channels-such-as-notches"]
+        },
+        {
+          "id": "vacuum-producing-devices",
+          "name": "vacuum producing devices",
+          "requires": ["weirs-and-nozzles"]
+        },
+        {
+          "id": "two-phase-flow",
+          "name": "two-phase flow",
+          "requires": ["vacuum-producing-devices"]
+        },
+        {
+          "id": "basic-principles-and-applications",
+          "name": "basic principles and applications",
+          "requires": ["two-phase-flow"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-fluid-mechanics-laboratory-chem"]
+}

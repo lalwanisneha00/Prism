@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): English Communication",
     "note": "Skeleton only: units and topics are PDEU's, copied from the handbook. Lessons are built from the material the student uploads (given by their faculty)."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -125,8 +125,17 @@
         },
         {
           "id": "connotations-collocations",
-          "name": "Connotations. Collocations",
-          "requires": ["prefixes-and-suffixes"]
+          "name": "Connotations",
+          "requires": ["prefixes-and-suffixes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "collocations",
+          "name": "Collocations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["connotations-collocations"]
         },
         {
           "id": "idioms-phrases",
@@ -212,5 +221,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

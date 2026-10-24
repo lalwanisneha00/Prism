@@ -1,5 +1,6 @@
 import { subjectIndexData } from "@/data/subjects/index.light.generated";
 import { subjectLoaders } from "@/data/subjects/loaders.generated";
+import { FLAGS } from "@/lib/flags";
 import type { Offering, Subject } from "@/lib/subjects";
 
 /*
@@ -27,6 +28,7 @@ export type IndexedSubject = {
   source?: Subject["source"];
   confidence?: Subject["confidence"];
   status?: Subject["status"];
+  courseType?: Subject["courseType"];
   chapters: readonly IndexedChapter[];
 };
 
@@ -37,7 +39,10 @@ const everyIndexed = subjectIndexData as unknown as IndexedSubject[];
  * retired courses stay findable by id (lookups only).
  */
 export const subjectIndex: readonly IndexedSubject[] = everyIndexed.filter(
-  (s) => s.university === "pdeu" && s.status !== "retired",
+  (s) =>
+    s.university === "pdeu" &&
+    s.status !== "retired" &&
+    (s.courseType !== "practical" || FLAGS.practicalCourses),
 );
 
 /** Any subject by id, including the older topic-bank subjects (saved progress still finds them). */

@@ -1,0 +1,310 @@
+{
+  "id": "pdeu-elements-of-electrical-engineering-elec",
+  "name": "Elements of Electrical Engineering",
+  "field": "Elements of Electrical Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [1],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 1): Elements of Electrical Engineering",
+    "note": "Units and topics copied from the course handout PDF (pages 3 of ELEC/sem1/Electrical_Semester_1_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE101T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s1-elements-of-electrical-engineering",
+      "code": "20EE101T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 1,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "dc-circuits",
+      "name": "DC Circuits",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "electrical-circuit-elements-r",
+          "name": "Electrical circuit elements (R"
+        },
+        {
+          "id": "l-and-c",
+          "name": "L and C)",
+          "requires": ["electrical-circuit-elements-r"]
+        },
+        {
+          "id": "voltage-and-current-sources",
+          "name": "voltage and current sources",
+          "requires": ["l-and-c"]
+        },
+        {
+          "id": "dependent-and-independent-sources",
+          "name": "dependent and independent sources",
+          "requires": ["voltage-and-current-sources"]
+        },
+        {
+          "id": "ohms-law",
+          "name": "Ohms Law",
+          "requires": ["dependent-and-independent-sources"]
+        },
+        {
+          "id": "temperature-co-efficient-of-resistance",
+          "name": "temperature co-efficient of resistance",
+          "requires": ["ohms-law"]
+        },
+        {
+          "id": "kirchhoff-current-and-voltage-laws",
+          "name": "Kirchhoff current and voltage laws",
+          "requires": ["temperature-co-efficient-of-resistance"]
+        },
+        {
+          "id": "voltage-and-current-divider-circuit",
+          "name": "voltage and current divider circuit",
+          "requires": ["kirchhoff-current-and-voltage-laws"]
+        },
+        {
+          "id": "thevenin-and-norton-theorems-and-their-equivalents",
+          "name": "Thevenin and Norton Theorems and their equivalents",
+          "requires": ["voltage-and-current-divider-circuit"]
+        },
+        {
+          "id": "maximum-power-transfer-and-superposition-theorems",
+          "name": "maximum power transfer and superposition theorems",
+          "requires": ["thevenin-and-norton-theorems-and-their-equivalents"]
+        },
+        {
+          "id": "nodal-and-mesh-analysis",
+          "name": "nodal and mesh analysis",
+          "requires": ["maximum-power-transfer-and-superposition-theorems"]
+        },
+        {
+          "id": "star-delta-transformation",
+          "name": "star-delta transformation",
+          "requires": ["nodal-and-mesh-analysis"]
+        },
+        {
+          "id": "time-domain-analysis-natural-response-of-first-order-rl-and",
+          "name": "Time domain analysis/natural response of first order RL and RC Circuit",
+          "requires": ["star-delta-transformation"]
+        }
+      ]
+    },
+    {
+      "id": "ac-circuits",
+      "name": "AC Circuits",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "generation-of-ac-voltage",
+          "name": "Generation of AC voltage"
+        },
+        {
+          "id": "representation-of-sinusoidal-waveforms",
+          "name": "representation of sinusoidal waveforms",
+          "requires": ["generation-of-ac-voltage"]
+        },
+        {
+          "id": "rms-values-of-different-sinusoidal-waveforms",
+          "name": "RMS values of different sinusoidal waveforms",
+          "requires": ["representation-of-sinusoidal-waveforms"]
+        },
+        {
+          "id": "rectangular-and-polar-representation-of-phasor",
+          "name": "Rectangular and Polar representation of phasor",
+          "requires": ["rms-values-of-different-sinusoidal-waveforms"]
+        },
+        {
+          "id": "sinusoid-representation-in-time-and-frequency-domain",
+          "name": "Sinusoid representation in time and frequency domain",
+          "requires": ["rectangular-and-polar-representation-of-phasor"]
+        },
+        {
+          "id": "analysis-of-single-phase-ac-series-circuits-consisting-of-r",
+          "name": "Analysis of single-phase ac series circuits consisting of R",
+          "requires": ["sinusoid-representation-in-time-and-frequency-domain"]
+        },
+        {
+          "id": "rlc-combinations",
+          "name": "RLC combinations",
+          "requires": ["analysis-of-single-phase-ac-series-circuits-consisting-of-r"]
+        },
+        {
+          "id": "instantaneous-power",
+          "name": "instantaneous power",
+          "requires": ["rlc-combinations"]
+        },
+        {
+          "id": "average-power-and-reactive-power",
+          "name": "average power and reactive power",
+          "requires": ["instantaneous-power"]
+        },
+        {
+          "id": "complex-power-and-power-factor-ac-parallel-circuit-and-its-s",
+          "name": "complex power and power factor.AC parallel circuit and its solution in admittance form",
+          "requires": ["average-power-and-reactive-power"]
+        },
+        {
+          "id": "resonance-in-ac-series-and-parallel-circuits",
+          "name": "resonance in AC series and parallel circuits",
+          "requires": ["complex-power-and-power-factor-ac-parallel-circuit-and-its-s"]
+        },
+        {
+          "id": "polyphase-circuits",
+          "name": "polyphase circuits",
+          "requires": ["resonance-in-ac-series-and-parallel-circuits"]
+        },
+        {
+          "id": "star-and-delta-representation-of-polyphase-circuits",
+          "name": "star and delta representation of polyphase circuits",
+          "requires": ["polyphase-circuits"]
+        },
+        {
+          "id": "power-measurement-in-polyphase-circuits",
+          "name": "power measurement in polyphase circuits",
+          "requires": ["star-and-delta-representation-of-polyphase-circuits"]
+        }
+      ]
+    },
+    {
+      "id": "transformers-and-induction-machines",
+      "name": "Transformers and Induction Machines",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "magnetic-material-and-its-b-h-characteristic",
+          "name": "Magnetic material and its B-H characteristic"
+        },
+        {
+          "id": "faraday-s-law-of-electromagnetic-induction-transformers-idea",
+          "name": "Faraday’s Law of Electromagnetic Induction Transformers: ideal transformer",
+          "requires": ["magnetic-material-and-its-b-h-characteristic"]
+        },
+        {
+          "id": "emf-equation-for-transformer",
+          "name": "EMF equation for transformer",
+          "requires": ["faraday-s-law-of-electromagnetic-induction-transformers-idea"]
+        },
+        {
+          "id": "working-of-a-practical-transformer-on-no-load-and-load-induc",
+          "name": "working of a practical transformer on no-load and load Induction Machine: Types of induction motors",
+          "requires": ["emf-equation-for-transformer"]
+        },
+        {
+          "id": "production-of-rotating-magnetic-field-from-a-3-phase-supply",
+          "name": "production of rotating magnetic field from a 3-phase supply",
+          "requires": ["working-of-a-practical-transformer-on-no-load-and-load-induc"]
+        },
+        {
+          "id": "operation-of-a-3-phase-phase-induction-motor",
+          "name": "operation of a 3-phase phase induction motor",
+          "requires": ["production-of-rotating-magnetic-field-from-a-3-phase-supply"]
+        },
+        {
+          "id": "starting-and-running-torques",
+          "name": "starting and running torques",
+          "requires": ["operation-of-a-3-phase-phase-induction-motor"]
+        },
+        {
+          "id": "torque-slip-characteristics-of-induction-motor",
+          "name": "Torque-slip characteristics of induction motor",
+          "requires": ["starting-and-running-torques"]
+        },
+        {
+          "id": "power-stages-inan-induction-motor",
+          "name": "Power Stages inan induction motor",
+          "requires": ["torque-slip-characteristics-of-induction-motor"]
+        }
+      ]
+    },
+    {
+      "id": "electrical-installation-safety-and-protection",
+      "name": "Electrical Installation, Safety and Protection",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "fuse",
+          "name": "Fuse"
+        },
+        {
+          "id": "mcb",
+          "name": "MCB",
+          "requires": ["fuse"]
+        },
+        {
+          "id": "elcb",
+          "name": "ELCB",
+          "requires": ["mcb"]
+        },
+        {
+          "id": "mccb",
+          "name": "MCCB",
+          "requires": ["elcb"]
+        },
+        {
+          "id": "underground-cables",
+          "name": "underground cables",
+          "requires": ["mccb"]
+        },
+        {
+          "id": "domestic-and-industrial-wiring",
+          "name": "Domestic and Industrial Wiring",
+          "requires": ["underground-cables"]
+        },
+        {
+          "id": "types-of-lamps",
+          "name": "Types of lamps",
+          "requires": ["domestic-and-industrial-wiring"]
+        },
+        {
+          "id": "illumination-schemes-and-lumen-requirements-for-domestic-and",
+          "name": "illumination schemes and lumen requirements for domestic and industrial applications",
+          "requires": ["types-of-lamps"]
+        },
+        {
+          "id": "earthing-and-it-schemes",
+          "name": "Earthing and it schemes",
+          "requires": ["illumination-schemes-and-lumen-requirements-for-domestic-and"]
+        },
+        {
+          "id": "electrical-safety-rules",
+          "name": "Electrical safety rules",
+          "requires": ["earthing-and-it-schemes"]
+        },
+        {
+          "id": "electric-shock-and-first-aid",
+          "name": "electric shock and first aid",
+          "requires": ["electrical-safety-rules"]
+        },
+        {
+          "id": "energy-conservation-methods",
+          "name": "energy conservation methods",
+          "requires": ["electric-shock-and-first-aid"]
+        },
+        {
+          "id": "elementary-calculation-of-energy-consumptions",
+          "name": "elementary calculation of energy consumptions",
+          "requires": ["energy-conservation-methods"]
+        },
+        {
+          "id": "tariffs",
+          "name": "tariffs",
+          "requires": ["elementary-calculation-of-energy-consumptions"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-elements-of-electrical-engineering-laboratory-elec"]
+}

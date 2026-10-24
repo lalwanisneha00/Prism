@@ -1,0 +1,101 @@
+{
+  "id": "pdeu-thermodynamics-laboratory-me",
+  "name": "Thermodynamics Laboratory",
+  "field": "Thermodynamics Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 3): Thermodynamics Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 6 of MECH/sem3/Mechanical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME203P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s3-thermodynamics-laboratory",
+      "code": "24ME203P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-construction-and-working-of-reciprocating-air-c",
+          "name": "Construction and working of reciprocating air compressors",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-performance-test-on-a-reciprocating-air-compres",
+          "name": "Performance test on a reciprocating air compressor",
+          "number": 2,
+          "requires": ["experiment-1-construction-and-working-of-reciprocating-air-c"]
+        },
+        {
+          "id": "experiment-3-measurement-of-calorific-value-of-a-liquid-fuel",
+          "name": "Measurement of calorific value of a liquid fuel by bomb calorimeter",
+          "number": 3,
+          "requires": ["experiment-2-performance-test-on-a-reciprocating-air-compres"]
+        },
+        {
+          "id": "experiment-4-to-study-working-of-a-single-cylinder-4-stroke",
+          "name": "To study working of a single cylinder 4-stroke diesel engine",
+          "number": 4,
+          "requires": ["experiment-3-measurement-of-calorific-value-of-a-liquid-fuel"]
+        },
+        {
+          "id": "experiment-5-load-test-on-a-four-stroke-single-cylinder-mahi",
+          "name": "Load test on a four-stroke single cylinder Mahindra diesel engine",
+          "number": 5,
+          "requires": ["experiment-4-to-study-working-of-a-single-cylinder-4-stroke"]
+        },
+        {
+          "id": "experiment-6-heat-balance-test-on-a-four-stroke-single-cylin",
+          "name": "Heat balance test on a four stroke single cylinder Mahindra diesel engine",
+          "number": 6,
+          "requires": ["experiment-5-load-test-on-a-four-stroke-single-cylinder-mahi"]
+        },
+        {
+          "id": "experiment-7-measurement-of-dryness-fraction-by-separating-c",
+          "name": "Measurement of dryness fraction by separating calorimeter, throttling calorimeter, and separating-throttling calorimeter",
+          "number": 7,
+          "requires": ["experiment-6-heat-balance-test-on-a-four-stroke-single-cylin"]
+        },
+        {
+          "id": "experiment-8-study-of-rankine-cycle-for-steam-power-plant",
+          "name": "Study of Rankine cycle for steam power plant",
+          "number": 8,
+          "requires": ["experiment-7-measurement-of-dryness-fraction-by-separating-c"]
+        },
+        {
+          "id": "experiment-9-study-vapour-compression-refrigeration-cycle",
+          "name": "Study vapour compression refrigeration cycle",
+          "number": 9,
+          "requires": ["experiment-8-study-of-rankine-cycle-for-steam-power-plant"]
+        },
+        {
+          "id": "experiment-10-exergy-analysis-of-reciprocating-air-compresso",
+          "name": "Exergy analysis of reciprocating air compressor",
+          "number": 10,
+          "requires": ["experiment-9-study-vapour-compression-refrigeration-cycle"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-thermodynamics-me"]
+}

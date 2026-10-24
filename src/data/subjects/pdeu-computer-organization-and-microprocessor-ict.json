@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Computer Organization & Microprocessor",
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -44,8 +44,17 @@
         },
         {
           "id": "moore-and-mealy-machines-basic-architecture-of-micro",
-          "name": "Moore and Mealy machines. Basic architecture of micro-computer and Central processing unit",
-          "requires": ["introduction-to-fsm"]
+          "name": "Moore and Mealy machines",
+          "requires": ["introduction-to-fsm"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "basic-architecture-of-micro-computer-and-central-processing",
+          "name": "Basic architecture of micro-computer and Central processing unit",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["moore-and-mealy-machines-basic-architecture-of-micro"]
         },
         {
           "id": "concept-of-data",
@@ -99,8 +108,17 @@
         },
         {
           "id": "hardwired-control",
-          "name": "design of Basic central processing unit. Hardwired and microprogramed control Units",
-          "requires": ["types-of-instructions"]
+          "name": "design of Basic central processing unit",
+          "requires": ["types-of-instructions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "hardwired-and-microprogramed-control-units",
+          "name": "Hardwired and microprogramed control Units",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hardwired-control"]
         },
         {
           "id": "interrupts-in-basic-computer",
@@ -135,8 +153,17 @@
         },
         {
           "id": "arithmetic-and-instruction-pipeline-memory-organization",
-          "name": "arithmetic and instruction pipeline. Memory organization",
-          "requires": ["vector-processing"]
+          "name": "arithmetic and instruction pipeline",
+          "requires": ["vector-processing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "memory-organization",
+          "name": "Memory organization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["arithmetic-and-instruction-pipeline-memory-organization"]
         },
         {
           "id": "cache-and-virtual-memory-management",
@@ -156,8 +183,31 @@
         },
         {
           "id": "pin-diagram-signals-and-register-set-of-8086-addressing",
-          "name": "Pin diagram, signals, and register set of 8086. Addressing modes",
-          "requires": ["evolution-of-microprocessor"]
+          "name": "Pin diagram",
+          "requires": ["evolution-of-microprocessor"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "signals",
+          "name": "signals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pin-diagram-signals-and-register-set-of-8086-addressing"]
+        },
+        {
+          "id": "register-set-of-8086",
+          "name": "register set of 8086",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["signals"]
+        },
+        {
+          "id": "addressing-modes",
+          "name": "Addressing modes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["register-set-of-8086"]
         },
         {
           "id": "intel-8085",
@@ -232,10 +282,21 @@
         },
         {
           "id": "interfacing-ppi-8255-and-interrupt-controller-8259",
-          "name": "interfacing PPI 8255, and Interrupt controller 8259",
-          "requires": ["interfacing-of-basic-devices"]
+          "name": "interfacing PPI 8255",
+          "requires": ["interfacing-of-basic-devices"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "interrupt-controller-8259",
+          "name": "Interrupt controller 8259",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["interfacing-ppi-8255-and-interrupt-controller-8259"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-computer-organization-and-microprocessor-lab-ict"]
 }

@@ -1,0 +1,107 @@
+{
+  "id": "pdeu-computer-networks-laboratory-ce",
+  "name": "Computer Networks Laboratory",
+  "field": "Computer Networks Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (COMP semester 5): Computer Networks Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 6 of COMP/sem5/CE_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CS302P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s5-computer-networks-laboratory",
+      "code": "24CS302P",
+      "category": "Program Core",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-network-devices-hubs-l-2-and-l-3-switches-route",
+          "name": "Network Devices Hubs, L-2 and L-3 Switches, Router, Repeater, Transmission Media",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-network-topologies-design-network-topologies-me",
+          "name": "Network Topologies Design Network Topologies – Mesh, Star, Bus, Ring, Hybrid",
+          "number": 2,
+          "requires": ["experiment-1-network-devices-hubs-l-2-and-l-3-switches-route"]
+        },
+        {
+          "id": "experiment-3-sliding-window-protocol-stop-and-wait-go-back-n",
+          "name": "Sliding Window Protocol Stop and Wait, Go Back N, Selective Repeat",
+          "number": 3,
+          "requires": ["experiment-2-network-topologies-design-network-topologies-me"]
+        },
+        {
+          "id": "experiment-4-framing-bit-stuffing-byte-stuffing-escape-seque",
+          "name": "Framing Bit Stuffing, Byte Stuffing, Escape Sequence",
+          "number": 4,
+          "requires": ["experiment-3-sliding-window-protocol-stop-and-wait-go-back-n"]
+        },
+        {
+          "id": "experiment-5-error-control-single-bit-error-burst-error-chec",
+          "name": "Error Control Single Bit Error, Burst Error, Checksum, Cyclic Redundancy Check",
+          "number": 5,
+          "requires": ["experiment-4-framing-bit-stuffing-byte-stuffing-escape-seque"]
+        },
+        {
+          "id": "experiment-6-virtual-local-area-network-virtual-local-area-n",
+          "name": "Virtual Local Area Network Virtual Local Area Network, Traffic Load Estimation",
+          "number": 6,
+          "requires": ["experiment-5-error-control-single-bit-error-burst-error-chec"]
+        },
+        {
+          "id": "experiment-7-loop-avoidance-techniques-spanning-tree-protoco",
+          "name": "Loop Avoidance Techniques Spanning Tree Protocol, Rapid Spanning Tree Protocol",
+          "number": 7,
+          "requires": ["experiment-6-virtual-local-area-network-virtual-local-area-n"]
+        },
+        {
+          "id": "experiment-8-interior-routing-protocol-open-shortest-path-fi",
+          "name": "Interior Routing Protocol Open Shortest Path First, Routing Information Protocol",
+          "number": 8,
+          "requires": ["experiment-7-loop-avoidance-techniques-spanning-tree-protoco"]
+        },
+        {
+          "id": "experiment-9-exterior-routing-protocol-border-gateway-protoc",
+          "name": "Exterior Routing Protocol Border Gateway Protocol",
+          "number": 9,
+          "requires": ["experiment-8-interior-routing-protocol-open-shortest-path-fi"]
+        },
+        {
+          "id": "experiment-10-socket-programming-transmission-control-protoc",
+          "name": "Socket Programming Transmission Control Protocol Socket, User Datagram Protocol Socket.",
+          "number": 10,
+          "requires": ["experiment-9-exterior-routing-protocol-border-gateway-protoc"]
+        },
+        {
+          "id": "experiment-11-application-layer-protocol-domain-name-system",
+          "name": "Application Layer Protocol Domain Name System, Hyper Text Transfer Protocol, Simple Mail Transfer Protocol, File Transfer Protocol",
+          "number": 11,
+          "requires": ["experiment-10-socket-programming-transmission-control-protoc"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-computer-networks"]
+}

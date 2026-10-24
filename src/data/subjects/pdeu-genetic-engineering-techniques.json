@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Genetic Engineering Techniques",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,7 +40,16 @@
       "topics": [
         {
           "id": "overview-of-gene-cloning-restriction",
-          "name": "Overview of gene cloning. Restriction"
+          "name": "Overview of gene cloning",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "restriction",
+          "name": "Restriction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["overview-of-gene-cloning-restriction"]
         },
         {
           "id": "modification-systems-and-dna-modifying-enzymes",
@@ -69,8 +78,24 @@
         },
         {
           "id": "pgem3z-cloning-vectors-based-on-m13-and-bacteriophage-ti",
-          "name": "pGEM3Z. Cloning vectors based on M13 and λ bacteriophage. Ti plasmid",
-          "requires": ["puc8"]
+          "name": "pGEM3Z",
+          "requires": ["puc8"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cloning-vectors-based-on-m13-and-bacteriophage",
+          "name": "Cloning vectors based on M13 and λ bacteriophage",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pgem3z-cloning-vectors-based-on-m13-and-bacteriophage-ti"]
+        },
+        {
+          "id": "ti-plasmid",
+          "name": "Ti plasmid",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cloning-vectors-based-on-m13-and-bacteriophage"]
         },
         {
           "id": "bac-and-yac",
@@ -86,7 +111,16 @@
       "topics": [
         {
           "id": "ligation-of-dna-molecules-introduction-of-dna-into-cells",
-          "name": "Ligation of DNA molecules. Introduction of DNA into cells"
+          "name": "Ligation of DNA molecules",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-of-dna-into-cells",
+          "name": "Introduction of DNA into cells",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ligation-of-dna-molecules-introduction-of-dna-into-cells"]
         },
         {
           "id": "transformation",
@@ -95,13 +129,31 @@
         },
         {
           "id": "selection-for-transformed-cells-identification-of",
-          "name": "selection for transformed cells. Identification of recombinants",
-          "requires": ["transformation"]
+          "name": "selection for transformed cells",
+          "requires": ["transformation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "identification-of-recombinants",
+          "name": "Identification of recombinants",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["selection-for-transformed-cells-identification-of"]
         },
         {
           "id": "blue-white-selection-identification-of-recombinant-phages",
-          "name": "blue-white selection. Identification of recombinant phages. cDNA and Genomic libraries",
-          "requires": ["selection-for-transformed-cells-identification-of"]
+          "name": "blue-white selection",
+          "requires": ["selection-for-transformed-cells-identification-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "identification-of-recombinant-phages-cdna-and-genomic-librar",
+          "name": "Identification of recombinant phages. cDNA and Genomic libraries",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["blue-white-selection-identification-of-recombinant-phages"]
         }
       ]
     },
@@ -116,8 +168,17 @@
         },
         {
           "id": "designing-primers-for-pcr-dna-sequencing-by-sangers-method",
-          "name": "designing primers for PCR. DNA sequencing by Sanger’s method and automated DNA sequencing",
-          "requires": ["fundamentals-of-polymerase-chain-reaction"]
+          "name": "designing primers for PCR",
+          "requires": ["fundamentals-of-polymerase-chain-reaction"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dna-sequencing-by-sanger-s-method-and-automated-dna-sequenci",
+          "name": "DNA sequencing by Sanger’s method and automated DNA sequencing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["designing-primers-for-pcr-dna-sequencing-by-sangers-method"]
         },
         {
           "id": "vectors-for-expression-of-foreign-genes-in-e-coli",
@@ -148,7 +209,58 @@
       "topics": [
         {
           "id": "blotting-technique-rt-pcr-in-situ-hybridization-rapd-rflp",
-          "name": "Blotting technique, RT-PCR, In-situ hybridization, RAPD, RFLP, Antisense RNA and Ribozyme technology, CRISPR/Cas9 gene editing, Site-directed mutagenesis and protein engineering"
+          "name": "Blotting technique",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "rt-pcr",
+          "name": "RT-PCR",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["blotting-technique-rt-pcr-in-situ-hybridization-rapd-rflp"]
+        },
+        {
+          "id": "in-situ-hybridization",
+          "name": "In-situ hybridization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rt-pcr"]
+        },
+        {
+          "id": "rapd",
+          "name": "RAPD",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["in-situ-hybridization"]
+        },
+        {
+          "id": "rflp",
+          "name": "RFLP",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rapd"]
+        },
+        {
+          "id": "antisense-rna-and-ribozyme-technology",
+          "name": "Antisense RNA and Ribozyme technology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rflp"]
+        },
+        {
+          "id": "crispr-cas9-gene-editing",
+          "name": "CRISPR/Cas9 gene editing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["antisense-rna-and-ribozyme-technology"]
+        },
+        {
+          "id": "site-directed-mutagenesis-and-protein-engineering",
+          "name": "Site-directed mutagenesis and protein engineering",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["crispr-cas9-gene-editing"]
         },
         {
           "id": "applications-of-recombinant-dna-technology",
@@ -162,5 +274,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

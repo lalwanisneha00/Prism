@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "civil",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -43,8 +43,24 @@
         },
         {
           "id": "method-of-superposition-plane-trusses-deflection-of-trusses",
-          "name": "Method of superposition, Plane Trusses, Deflection of Trusses",
-          "requires": ["stability-and-determinacy-of-structure-statically"]
+          "name": "Method of superposition",
+          "requires": ["stability-and-determinacy-of-structure-statically"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "plane-trusses",
+          "name": "Plane Trusses",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["method-of-superposition-plane-trusses-deflection-of-trusses"]
+        },
+        {
+          "id": "deflection-of-trusses",
+          "name": "Deflection of Trusses",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["plane-trusses"]
         },
         {
           "id": "deflections-of-beam-and-frame",
@@ -137,5 +153,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

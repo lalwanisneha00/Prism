@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "signals",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -39,17 +39,100 @@
       "topics": [
         {
           "id": "signal",
-          "name": "Signal"
+          "name": "Signal",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "definition-examples-classifications-continuous-time-signals",
-          "name": "Definition, Examples, Classifications, Continuous time signals: Energy, power, periodicity, Signal operations, Elementary Signals, System",
+          "id": "signal-operations",
+          "name": "Signal operations",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["signal"]
         },
         {
-          "id": "convolution",
-          "name": "Definition, Classification, Continuous time LTI systems: Convolution integral and unit impulse response, Interconnections, stability and causality",
+          "id": "definition-examples-classifications-continuous-time-signals",
+          "name": "Definition",
+          "requires": ["signal"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "examples",
+          "name": "Examples",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["definition-examples-classifications-continuous-time-signals"]
+        },
+        {
+          "id": "classifications",
+          "name": "Classifications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["examples"]
+        },
+        {
+          "id": "continuous-time-signals-energy",
+          "name": "Continuous time signals: Energy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classifications"]
+        },
+        {
+          "id": "power",
+          "name": "power",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["continuous-time-signals-energy"]
+        },
+        {
+          "id": "periodicity",
+          "name": "periodicity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["power"]
+        },
+        {
+          "id": "elementary-signals",
+          "name": "Elementary Signals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["periodicity"]
+        },
+        {
+          "id": "system",
+          "name": "System",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["elementary-signals"]
+        },
+        {
+          "id": "convolution",
+          "name": "Classification",
+          "requires": ["definition-examples-classifications-continuous-time-signals"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "continuous-time-lti-systems-convolution-integral-and-unit-im",
+          "name": "Continuous time LTI systems: Convolution integral and unit impulse response",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["convolution"]
+        },
+        {
+          "id": "interconnections",
+          "name": "Interconnections",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["continuous-time-lti-systems-convolution-integral-and-unit-im"]
+        },
+        {
+          "id": "stability-and-causality",
+          "name": "stability and causality",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["interconnections"]
         }
       ]
     },
@@ -150,8 +233,17 @@
         },
         {
           "id": "am-schemes-modulation-and-detection-dsbfc",
-          "name": "AM Schemes: modulation and detection – DSBFC",
-          "requires": ["baseband-and-carrier-communication"]
+          "name": "AM Schemes: modulation and detection",
+          "requires": ["baseband-and-carrier-communication"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dsbfc",
+          "name": "DSBFC",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["am-schemes-modulation-and-detection-dsbfc"]
         },
         {
           "id": "dsbsc",
@@ -191,7 +283,16 @@
         {
           "id": "noise-types",
           "name": "Noise types",
-          "requires": ["principles-and-working-of-super-heterodyne-receiver"]
+          "requires": ["principles-and-working-of-super-heterodyne-receiver"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "noise-factor-and-noise-figure-2",
+          "name": "Noise factor and Noise figure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["noise-types"]
         },
         {
           "id": "signal-to-noise-ratio-snr",
@@ -287,5 +388,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

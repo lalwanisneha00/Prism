@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -50,8 +50,17 @@
         },
         {
           "id": "elementary-operation-analysis-techniques-analyzing-control",
-          "name": "Elementary Operation Analysis Techniques. Analyzing control structures",
-          "requires": ["average-and-worst-case-analysis"]
+          "name": "Elementary Operation Analysis Techniques",
+          "requires": ["average-and-worst-case-analysis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "analyzing-control-structures",
+          "name": "Analyzing control structures",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["elementary-operation-analysis-techniques-analyzing-control"]
         },
         {
           "id": "amortized-analysis-recurrence-solving-intelligent-guesswork",
@@ -72,6 +81,84 @@
           "id": "recurrences-master-theorem",
           "name": "master theorem",
           "requires": ["recurrence-tree"]
+        }
+      ]
+    },
+    {
+      "id": "recurrence-solving-and-divide-and-conquer",
+      "name": "Recurrence Solving And Divide & Conquer",
+      "hours": 12,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "recurrence-solving-intelligent-guesswork-and-proof-by-induct",
+          "name": "Recurrence solving: Intelligent guesswork and proof by induction",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "change-of-variable-2",
+          "name": "change of variable",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["recurrence-solving-intelligent-guesswork-and-proof-by-induct"]
+        },
+        {
+          "id": "recurrence-tree-2",
+          "name": "recurrence tree",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["change-of-variable-2"]
+        },
+        {
+          "id": "master-theorem",
+          "name": "master theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["recurrence-tree-2"]
+        },
+        {
+          "id": "dnc-binary-search-2",
+          "name": "DnC: Binary Search",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["master-theorem"]
+        },
+        {
+          "id": "merge-sort",
+          "name": "Merge sort",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dnc-binary-search-2"]
+        },
+        {
+          "id": "multiplying-large-integers-2",
+          "name": "multiplying large integers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["merge-sort"]
+        },
+        {
+          "id": "finding-the-median-2",
+          "name": "finding the median",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multiplying-large-integers-2"]
+        },
+        {
+          "id": "matrix-multiplication",
+          "name": "Matrix multiplication",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["finding-the-median-2"]
+        },
+        {
+          "id": "exponentiation",
+          "name": "Exponentiation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["matrix-multiplication"]
         }
       ]
     },
@@ -112,7 +199,16 @@
         {
           "id": "fractional-knapsack",
           "name": "fractional knapsack",
-          "requires": ["job-sequencing-with-deadline"]
+          "requires": ["job-sequencing-with-deadline"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "0-1-knapsack",
+          "name": "0/1 Knapsack",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fractional-knapsack"]
         },
         {
           "id": "mst-using-kruskal-algorithm",
@@ -123,6 +219,77 @@
           "id": "dijkstras-algorithm",
           "name": "Dijkstra’s algorithm",
           "requires": ["mst-using-kruskal-algorithm"]
+        },
+        {
+          "id": "floyd-warshall-algorithm",
+          "name": "Floyd-Warshall algorithm",
+          "requires": ["dynamic-programming"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "dynamic-programming-backtracking-branch-and-bound",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "matrix-chain-multiplication",
+          "name": "Matrix chain multiplication",
+          "requires": ["floyd-warshall-algorithm"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "dynamic-programming-backtracking-branch-and-bound",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "travelling-salesman-problem-backtracking-0-1-knapsack",
+          "name": "Travelling Salesman Problem. Backtracking: 0/1 Knapsack",
+          "requires": ["matrix-chain-multiplication"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "dynamic-programming-backtracking-branch-and-bound",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "greedy-coin-change",
+          "name": "Greedy: Coin change",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["travelling-salesman-problem-backtracking-0-1-knapsack"]
+        },
+        {
+          "id": "interval-partitioning",
+          "name": "interval partitioning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["greedy-coin-change"]
+        },
+        {
+          "id": "huffman-coding",
+          "name": "Huffman coding",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["interval-partitioning"]
+        },
+        {
+          "id": "dynamic-coin-change",
+          "name": "Dynamic: Coin change",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["huffman-coding"]
+        },
+        {
+          "id": "assembly-line-scheduling",
+          "name": "Assembly line scheduling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dynamic-coin-change"]
         }
       ]
     },
@@ -134,33 +301,9 @@
         {
           "id": "dynamic-programming",
           "name": "Dynamic: 0/1 Knapsack"
-        },
-        {
-          "id": "floyd-warshall-algorithm",
-          "name": "Floyd-Warshall algorithm",
-          "requires": ["dynamic-programming"]
-        },
-        {
-          "id": "matrix-chain-multiplication",
-          "name": "Matrix chain multiplication",
-          "requires": ["floyd-warshall-algorithm"]
-        },
-        {
-          "id": "travelling-salesman-problem-backtracking-0-1-knapsack",
-          "name": "Travelling Salesman Problem. Backtracking: 0/1 Knapsack",
-          "requires": ["matrix-chain-multiplication"]
-        },
-        {
-          "id": "n-queens-problem-branch-and-bound-0-1-knapsack",
-          "name": "n-queens problem. Branch and Bound: 0/1 Knapsack",
-          "requires": ["travelling-salesman-problem-backtracking-0-1-knapsack"]
-        },
-        {
-          "id": "travelling-salesman-problem",
-          "name": "Travelling Salesman Problem",
-          "requires": ["n-queens-problem-branch-and-bound-0-1-knapsack"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "intractability-randomized-and-approximation",
@@ -169,14 +312,84 @@
       "topics": [
         {
           "id": "intractability-brief-overview-of-np-theory-some-npc-problems",
-          "name": "Intractability: Brief Overview of NP theory, Some NPC problems: Independent set, vertex cover, clique, Hamiltonian cycle"
+          "name": "Intractability: Brief Overview of NP theory",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "some-npc-problems-independent-set",
+          "name": "Some NPC problems: Independent set",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["intractability-brief-overview-of-np-theory-some-npc-problems"]
+        },
+        {
+          "id": "vertex-cover",
+          "name": "vertex cover",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["some-npc-problems-independent-set"]
+        },
+        {
+          "id": "clique",
+          "name": "clique",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vertex-cover"]
+        },
+        {
+          "id": "hamiltonian-cycle",
+          "name": "Hamiltonian cycle",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["clique"]
         },
         {
           "id": "approximation-randomized",
           "name": "Polynomial time reduction: Reduction of 3 SAT to clique Randomized Algorithm: Subset Sum Problem Approximation Algorithm: Vertex Cover Problem",
           "requires": ["intractability-brief-overview-of-np-theory-some-npc-problems"]
+        },
+        {
+          "id": "n-queens-problem-branch-and-bound-0-1-knapsack",
+          "name": "n-queens problem. Branch and Bound: 0/1 Knapsack",
+          "requires": ["travelling-salesman-problem-backtracking-0-1-knapsack"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "dynamic-programming-backtracking-branch-and-bound",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "travelling-salesman-problem",
+          "name": "Travelling Salesman Problem",
+          "requires": ["n-queens-problem-branch-and-bound-0-1-knapsack"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "dynamic-programming-backtracking-branch-and-bound",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "backtracking-0-1-knapsack",
+          "name": "Backtracking: 0/1 Knapsack",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["travelling-salesman-problem"]
+        },
+        {
+          "id": "branch-and-bound-0-1-knapsack",
+          "name": "Branch and Bound: 0/1 Knapsack",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["backtracking-0-1-knapsack"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-design-and-analysis-of-algorithms-laboratory-ce"]
 }

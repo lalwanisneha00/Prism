@@ -1,0 +1,530 @@
+{
+  "id": "pdeu-power-system-protection-elec",
+  "name": "Power System Protection",
+  "field": "Power System Protection",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 6): Power System Protection",
+    "note": "Units and topics copied from the course handout PDF (pages 3 of ELEC/sem6/Electrical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE311T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s6-power-system-protection",
+      "code": "20EE311T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "basics-of-power-system-protection",
+      "name": "Basics of Power System Protection",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-and-philosophy-of-a-protective-relaying-system",
+          "name": "Introduction and Philosophy of A Protective Relaying System: Types of Faults"
+        },
+        {
+          "id": "abnormalities",
+          "name": "Abnormalities",
+          "requires": ["introduction-and-philosophy-of-a-protective-relaying-system"]
+        },
+        {
+          "id": "functions-of-protective-relay-schemes",
+          "name": "Functions of Protective Relay Schemes",
+          "requires": ["abnormalities"]
+        },
+        {
+          "id": "major-components-of-power-system",
+          "name": "major Components of Power system",
+          "requires": ["functions-of-protective-relay-schemes"]
+        },
+        {
+          "id": "basic-tripping-circuit",
+          "name": "Basic Tripping Circuit",
+          "requires": ["major-components-of-power-system"]
+        },
+        {
+          "id": "testing-and-maintenance-of-relay",
+          "name": "Testing and Maintenance of Relay",
+          "requires": ["basic-tripping-circuit"]
+        },
+        {
+          "id": "zones-of-protection",
+          "name": "Zones of Protection",
+          "requires": ["testing-and-maintenance-of-relay"]
+        },
+        {
+          "id": "requirements-of-protective-systems",
+          "name": "Requirements of Protective Systems",
+          "requires": ["zones-of-protection"]
+        },
+        {
+          "id": "relay-operating-criteria",
+          "name": "Relay Operating Criteria",
+          "requires": ["requirements-of-protective-systems"]
+        },
+        {
+          "id": "main-and-backup-protection",
+          "name": "Main and Backup Protection",
+          "requires": ["relay-operating-criteria"]
+        },
+        {
+          "id": "historical-review-of-protective-relay-technology",
+          "name": "Historical Review of Protective Relay Technology",
+          "requires": ["main-and-backup-protection"]
+        },
+        {
+          "id": "protective-current-and-potential-transformer-ct-equivalent-c",
+          "name": "Protective Current And Potential Transformer: CT Equivalent Circuit",
+          "requires": ["historical-review-of-protective-relay-technology"]
+        },
+        {
+          "id": "vector-diagram",
+          "name": "Vector diagram",
+          "requires": ["protective-current-and-potential-transformer-ct-equivalent-c"]
+        },
+        {
+          "id": "construction",
+          "name": "Construction",
+          "requires": ["vector-diagram"]
+        },
+        {
+          "id": "magnetization-curve",
+          "name": "magnetization Curve",
+          "requires": ["construction"]
+        },
+        {
+          "id": "core",
+          "name": "Core",
+          "requires": ["magnetization-curve"]
+        },
+        {
+          "id": "errors",
+          "name": "Errors",
+          "requires": ["core"]
+        },
+        {
+          "id": "accuracy",
+          "name": "accuracy",
+          "requires": ["errors"]
+        },
+        {
+          "id": "specifications",
+          "name": "Specifications",
+          "requires": ["accuracy"]
+        },
+        {
+          "id": "factors-affecting-selection-pt-equivalent-circuit",
+          "name": "Factors affecting selection PT: Equivalent circuit",
+          "requires": ["specifications"]
+        },
+        {
+          "id": "cvt",
+          "name": "CVT",
+          "requires": ["factors-affecting-selection-pt-equivalent-circuit"]
+        },
+        {
+          "id": "different-types-of-relays-electromagnetic-relays-classificat",
+          "name": "Different Types of Relays: Electromagnetic Relays: Classification",
+          "requires": ["cvt"]
+        },
+        {
+          "id": "thermal-o-l-relays",
+          "name": "Thermal O/L Relays",
+          "requires": ["different-types-of-relays-electromagnetic-relays-classificat"]
+        },
+        {
+          "id": "types-over-current-relays",
+          "name": "Types Over Current Relays",
+          "requires": ["thermal-o-l-relays"]
+        },
+        {
+          "id": "differential-relay",
+          "name": "Differential Relay",
+          "requires": ["types-over-current-relays"]
+        },
+        {
+          "id": "directional-relay",
+          "name": "Directional Relay",
+          "requires": ["differential-relay"]
+        },
+        {
+          "id": "impedance-relays",
+          "name": "Impedance Relays",
+          "requires": ["directional-relay"]
+        },
+        {
+          "id": "static-relays-advantages-and-limitations",
+          "name": "Static Relays: Advantages and Limitations",
+          "requires": ["impedance-relays"]
+        },
+        {
+          "id": "basic-elements",
+          "name": "basic Elements",
+          "requires": ["static-relays-advantages-and-limitations"]
+        },
+        {
+          "id": "static-relays-architecture",
+          "name": "Static Relays Architecture",
+          "requires": ["basic-elements"]
+        },
+        {
+          "id": "microprocessor-based-digital-protection-advantages-of-numeri",
+          "name": "Microprocessor Based Digital Protection: Advantages of Numerical Relays",
+          "requires": ["static-relays-architecture"]
+        },
+        {
+          "id": "numerical-relay-hardware",
+          "name": "Numerical Relay Hardware",
+          "requires": ["microprocessor-based-digital-protection-advantages-of-numeri"]
+        },
+        {
+          "id": "digital-signal-processing",
+          "name": "Digital Signal Processing",
+          "requires": ["numerical-relay-hardware"]
+        },
+        {
+          "id": "estimation-of-phasors",
+          "name": "Estimation of Phasors",
+          "requires": ["digital-signal-processing"]
+        },
+        {
+          "id": "full-cycle-fourier-algorithm",
+          "name": "Full Cycle Fourier Algorithm",
+          "requires": ["estimation-of-phasors"]
+        },
+        {
+          "id": "half-cycle-fourier-algorithm",
+          "name": "Half Cycle Fourier Algorithm",
+          "requires": ["full-cycle-fourier-algorithm"]
+        },
+        {
+          "id": "practical-consideration-for-selection-of-algorithm",
+          "name": "Practical Consideration for Selection of Algorithm",
+          "requires": ["half-cycle-fourier-algorithm"]
+        },
+        {
+          "id": "dft-fft",
+          "name": "DFT- FFT",
+          "requires": ["practical-consideration-for-selection-of-algorithm"]
+        }
+      ]
+    },
+    {
+      "id": "equipement-protection",
+      "name": "Equipement Protection",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "generator-protection-differential-protection",
+          "name": "Generator Protection: Differential Protection"
+        },
+        {
+          "id": "inter-turn-fault-protection",
+          "name": "Inter-turn fault Protection",
+          "requires": ["generator-protection-differential-protection"]
+        },
+        {
+          "id": "stator-e-f",
+          "name": "stator E/F",
+          "requires": ["inter-turn-fault-protection"]
+        },
+        {
+          "id": "rotor-e-f",
+          "name": "Rotor E/F",
+          "requires": ["stator-e-f"]
+        },
+        {
+          "id": "nps",
+          "name": "NPS",
+          "requires": ["rotor-e-f"]
+        },
+        {
+          "id": "field-failure",
+          "name": "Field Failure",
+          "requires": ["nps"]
+        },
+        {
+          "id": "over-load",
+          "name": "Over Load",
+          "requires": ["field-failure"]
+        },
+        {
+          "id": "over-voltage",
+          "name": "Over Voltage",
+          "requires": ["over-load"]
+        },
+        {
+          "id": "reverse-power",
+          "name": "Reverse Power",
+          "requires": ["over-voltage"]
+        },
+        {
+          "id": "pole-slipping",
+          "name": "Pole-Slipping",
+          "requires": ["reverse-power"]
+        },
+        {
+          "id": "back-up-impedance",
+          "name": "Back-up Impedance",
+          "requires": ["pole-slipping"]
+        },
+        {
+          "id": "under-frequency",
+          "name": "Under Frequency",
+          "requires": ["back-up-impedance"]
+        },
+        {
+          "id": "miscellaneous-protection",
+          "name": "Miscellaneous Protection",
+          "requires": ["under-frequency"]
+        },
+        {
+          "id": "transformer-protection-faults-in-transformers",
+          "name": "Transformer Protection: Faults in Transformers",
+          "requires": ["miscellaneous-protection"]
+        },
+        {
+          "id": "gas-operated-relays",
+          "name": "Gas operated relays",
+          "requires": ["transformer-protection-faults-in-transformers"]
+        },
+        {
+          "id": "over-current-protection",
+          "name": "Over Current Protection",
+          "requires": ["gas-operated-relays"]
+        },
+        {
+          "id": "ref-protection",
+          "name": "REF Protection",
+          "requires": ["over-current-protection"]
+        },
+        {
+          "id": "differential-protection",
+          "name": "Differential Protection",
+          "requires": ["ref-protection"]
+        },
+        {
+          "id": "protection-against-over-fluxing",
+          "name": "Protection against over fluxing",
+          "requires": ["differential-protection"]
+        },
+        {
+          "id": "protection-of-grounding-transformers",
+          "name": "Protection of Grounding transformers",
+          "requires": ["protection-against-over-fluxing"]
+        },
+        {
+          "id": "protection-against-overheating",
+          "name": "Protection Against Overheating",
+          "requires": ["protection-of-grounding-transformers"]
+        },
+        {
+          "id": "protection-for-small-transformers",
+          "name": "Protection for small transformers",
+          "requires": ["protection-against-overheating"]
+        },
+        {
+          "id": "induction-motor-protection-starting-of-im",
+          "name": "Induction Motor Protection: Starting of IM",
+          "requires": ["protection-for-small-transformers"]
+        },
+        {
+          "id": "faults-in-im",
+          "name": "Faults in IM",
+          "requires": ["induction-motor-protection-starting-of-im"]
+        },
+        {
+          "id": "abnormalities-of-im",
+          "name": "Abnormalities of IM",
+          "requires": ["faults-in-im"]
+        },
+        {
+          "id": "protection-of-small-im",
+          "name": "Protection of small IM",
+          "requires": ["abnormalities-of-im"]
+        },
+        {
+          "id": "protection-of-large-im",
+          "name": "Protection of Large IM",
+          "requires": ["protection-of-small-im"]
+        },
+        {
+          "id": "numerical-approach-to-apparatus-protection-overview-generato",
+          "name": "Numerical Approach to Apparatus Protection (Overview): Generator Protection",
+          "requires": ["protection-of-large-im"]
+        },
+        {
+          "id": "transformer-protection",
+          "name": "Transformer Protection",
+          "requires": ["numerical-approach-to-apparatus-protection-overview-generato"]
+        },
+        {
+          "id": "induction-motor-protection",
+          "name": "Induction Motor Protection",
+          "requires": ["transformer-protection"]
+        }
+      ]
+    },
+    {
+      "id": "protection-of-transmission-lines",
+      "name": "Protection of Transmission Lines",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "protection-of-lines-by-over-current-relays-and-distance-rela",
+          "name": "Protection of Lines by Over Current Relays and Distance Relays"
+        },
+        {
+          "id": "carrier-current-protection-for-lines",
+          "name": "Carrier Current Protection for lines",
+          "requires": ["protection-of-lines-by-over-current-relays-and-distance-rela"]
+        },
+        {
+          "id": "bus-zone-protection-protection-requirements",
+          "name": "Bus Zone Protection: Protection Requirements",
+          "requires": ["carrier-current-protection-for-lines"]
+        },
+        {
+          "id": "non-unit-protection",
+          "name": "Non unit protection",
+          "requires": ["bus-zone-protection-protection-requirements"]
+        },
+        {
+          "id": "unit-protection-schemes",
+          "name": "Unit protection schemes",
+          "requires": ["non-unit-protection"]
+        },
+        {
+          "id": "breaker-back-up-protection",
+          "name": "Breaker Back-up Protection",
+          "requires": ["unit-protection-schemes"]
+        }
+      ]
+    },
+    {
+      "id": "theories-of-circuit-interruption-and-circuit-breakers",
+      "name": "Theories of Circuit Interruption & Circuit Breakers",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "theory-of-circuit-interruption-introduction",
+          "name": "Theory Of Circuit Interruption: Introduction"
+        },
+        {
+          "id": "physics-of-arc-phenomena",
+          "name": "Physics of arc phenomena",
+          "requires": ["theory-of-circuit-interruption-introduction"]
+        },
+        {
+          "id": "maintenance-of-the-arc",
+          "name": "Maintenance of the arc",
+          "requires": ["physics-of-arc-phenomena"]
+        },
+        {
+          "id": "essential-properties-of-arc",
+          "name": "Essential properties of arc",
+          "requires": ["maintenance-of-the-arc"]
+        },
+        {
+          "id": "arc-interruption-theories-important-terms",
+          "name": "Arc interruption theories.Important Terms",
+          "requires": ["essential-properties-of-arc"]
+        },
+        {
+          "id": "phenomena-s-and-ratings-related-to-circuit-breakers-introduc",
+          "name": "Phenomena’s &Ratings related to circuit breakers: Introduction",
+          "requires": ["arc-interruption-theories-important-terms"]
+        },
+        {
+          "id": "arc-voltage",
+          "name": "Arc-voltage",
+          "requires": ["phenomena-s-and-ratings-related-to-circuit-breakers-introduc"]
+        },
+        {
+          "id": "re-striking-voltage",
+          "name": "Re-striking Voltage",
+          "requires": ["arc-voltage"]
+        },
+        {
+          "id": "recovery-voltage",
+          "name": "Recovery voltage",
+          "requires": ["re-striking-voltage"]
+        },
+        {
+          "id": "rrrv",
+          "name": "RRRV",
+          "requires": ["recovery-voltage"]
+        },
+        {
+          "id": "current-chopping",
+          "name": "Current chopping",
+          "requires": ["rrrv"]
+        },
+        {
+          "id": "capacitive-current-breaking",
+          "name": "Capacitive current breaking",
+          "requires": ["current-chopping"]
+        },
+        {
+          "id": "resistance-switching",
+          "name": "Resistance Switching",
+          "requires": ["capacitive-current-breaking"]
+        },
+        {
+          "id": "circuit-breaker-ratings",
+          "name": "Circuit Breaker Ratings",
+          "requires": ["resistance-switching"]
+        },
+        {
+          "id": "theory-and-practice-of-conventional-circuit-breakers-classif",
+          "name": "Theory and Practice Of Conventional Circuit Breakers: Classification of Circuit breakers",
+          "requires": ["circuit-breaker-ratings"]
+        },
+        {
+          "id": "types-construction-operating-principle-relative-merit-demeri",
+          "name": "Types-Construction- Operating Principle- Relative merit-demerits of conventional circuit breakers (OIL Circuit Breaker",
+          "requires": ["theory-and-practice-of-conventional-circuit-breakers-classif"]
+        },
+        {
+          "id": "air-circuit-breaker-recent-developments-in-circuit-breakers",
+          "name": "AIR Circuit Breaker)Recent Developments In Circuit Breakers",
+          "requires": ["types-construction-operating-principle-relative-merit-demeri"]
+        },
+        {
+          "id": "sulphur-hexafluoride-sf6-circuit-breaker",
+          "name": "Sulphur hexafluoride (SF6) circuit breaker",
+          "requires": ["air-circuit-breaker-recent-developments-in-circuit-breakers"]
+        },
+        {
+          "id": "vacuum-circuit-breaker",
+          "name": "Vacuum circuit breaker",
+          "requires": ["sulphur-hexafluoride-sf6-circuit-breaker"]
+        },
+        {
+          "id": "hvdc-circuit-breaker-max",
+          "name": "HVDC circuit breaker Max",
+          "requires": ["vacuum-circuit-breaker"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-power-system-protection-laboratory-elec"]
+}

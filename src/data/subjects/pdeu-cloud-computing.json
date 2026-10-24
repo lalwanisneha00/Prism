@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Cloud Computing",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -50,8 +50,17 @@
         },
         {
           "id": "grid-computing-cloud-service-models",
-          "name": "Grid computing. Cloud Service Models",
-          "requires": ["cluster-computing"]
+          "name": "Grid computing",
+          "requires": ["cluster-computing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cloud-service-models",
+          "name": "Cloud Service Models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["grid-computing-cloud-service-models"]
         }
       ]
     },
@@ -62,7 +71,16 @@
       "topics": [
         {
           "id": "virtualization-concepts-types-of-virtualization",
-          "name": "Virtualization concepts - Types of Virtualization"
+          "name": "Virtualization concepts",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "types-of-virtualization",
+          "name": "Types of Virtualization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["virtualization-concepts-types-of-virtualization"]
         },
         {
           "id": "introduction-to-various-hypervisors",
@@ -81,8 +99,17 @@
         },
         {
           "id": "virtualization-technology-examples-distributed-management-of",
-          "name": "Virtualization Technology examples. Distributed Management of Virtual Infrastructures",
-          "requires": ["pros-and-cons-of-virtualization"]
+          "name": "Virtualization Technology examples",
+          "requires": ["pros-and-cons-of-virtualization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "distributed-management-of-virtual-infrastructures",
+          "name": "Distributed Management of Virtual Infrastructures",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["virtualization-technology-examples-distributed-management-of"]
         },
         {
           "id": "scheduling",
@@ -112,8 +139,17 @@
         },
         {
           "id": "google-app-engine-and-microsoft-azure",
-          "name": "Google App Engine, and Microsoft Azure",
-          "requires": ["study-of-cloud-computing-systems-like-amazon-ec2-and-s3"]
+          "name": "Google App Engine",
+          "requires": ["study-of-cloud-computing-systems-like-amazon-ec2-and-s3"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "microsoft-azure",
+          "name": "Microsoft Azure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["google-app-engine-and-microsoft-azure"]
         },
         {
           "id": "build-private-hybrid-cloud-using-open-source-tools",
@@ -127,8 +163,17 @@
         },
         {
           "id": "cloud-application-programming-and-the-aneka-platform",
-          "name": "Cloud Application Programming, and the Aneka Platform",
-          "requires": ["mapreduce-and-its-extensions-to-cloud-computing"]
+          "name": "Cloud Application Programming",
+          "requires": ["mapreduce-and-its-extensions-to-cloud-computing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "the-aneka-platform",
+          "name": "the Aneka Platform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cloud-application-programming-and-the-aneka-platform"]
         }
       ]
     },
@@ -158,5 +203,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -1,0 +1,310 @@
+{
+  "id": "pdeu-high-voltage-engineering-elec",
+  "name": "High Voltage Engineering",
+  "field": "High Voltage Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): High Voltage Engineering",
+    "note": "Units and topics copied from the course handout PDF (pages 9 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE304T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-high-voltage-engineering",
+      "code": "20EE304T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "breakdown-mechanisms-in-various-dielectrics",
+      "name": "Breakdown Mechanisms in Various Dielectrics",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "breakdown-in-gases-gases-as-insulating-medium",
+          "name": "Breakdown in Gases: Gases as insulating medium"
+        },
+        {
+          "id": "properties",
+          "name": "Properties",
+          "requires": ["breakdown-in-gases-gases-as-insulating-medium"]
+        },
+        {
+          "id": "ionization-processes",
+          "name": "Ionization processes",
+          "requires": ["properties"]
+        },
+        {
+          "id": "townsend-s-theory",
+          "name": "Townsend’s theory",
+          "requires": ["ionization-processes"]
+        },
+        {
+          "id": "current-growth-equation",
+          "name": "Current growth equation",
+          "requires": ["townsend-s-theory"]
+        },
+        {
+          "id": "townsend-s-criteria-of-breakdown",
+          "name": "Townsend’s criteria of breakdown",
+          "requires": ["current-growth-equation"]
+        },
+        {
+          "id": "breakdown-in-electronegative-gases-and-vacuum",
+          "name": "Breakdown in electronegative gases and Vacuum",
+          "requires": ["townsend-s-criteria-of-breakdown"]
+        },
+        {
+          "id": "streamer-theory",
+          "name": "streamer theory",
+          "requires": ["breakdown-in-electronegative-gases-and-vacuum"]
+        },
+        {
+          "id": "paschen-s-law",
+          "name": "Paschen’s law",
+          "requires": ["streamer-theory"]
+        },
+        {
+          "id": "breakdown-in-non-uniform-field",
+          "name": "Breakdown in non-uniform field",
+          "requires": ["paschen-s-law"]
+        },
+        {
+          "id": "breakdown-in-liquid-dielectrics-liquid-dielectrics-applicati",
+          "name": "Breakdown in Liquid Dielectrics: Liquid dielectrics: Application and properties",
+          "requires": ["breakdown-in-non-uniform-field"]
+        },
+        {
+          "id": "classification-of-liquid-dielectrics",
+          "name": "Classification of liquid dielectrics",
+          "requires": ["breakdown-in-liquid-dielectrics-liquid-dielectrics-applicati"]
+        },
+        {
+          "id": "breakdown-in-pure-liquid",
+          "name": "Breakdown in pure liquid",
+          "requires": ["classification-of-liquid-dielectrics"]
+        },
+        {
+          "id": "breakdown-in-commercial-liquid-suspended-particle",
+          "name": "Breakdown in commercial liquid: suspended particle",
+          "requires": ["breakdown-in-pure-liquid"]
+        },
+        {
+          "id": "cavitation-and-bubble",
+          "name": "cavitation and bubble",
+          "requires": ["breakdown-in-commercial-liquid-suspended-particle"]
+        },
+        {
+          "id": "stressed-oil-volume-mechanism",
+          "name": "stressed oil volume mechanism",
+          "requires": ["cavitation-and-bubble"]
+        },
+        {
+          "id": "breakdown-in-solid-dielectrics-applications-and-properties",
+          "name": "Breakdown in Solid Dielectrics: applications and properties",
+          "requires": ["stressed-oil-volume-mechanism"]
+        },
+        {
+          "id": "various-breakdown-mechanisms-intrinsic",
+          "name": "Various breakdown mechanisms: Intrinsic",
+          "requires": ["breakdown-in-solid-dielectrics-applications-and-properties"]
+        },
+        {
+          "id": "electromechanical",
+          "name": "electromechanical",
+          "requires": ["various-breakdown-mechanisms-intrinsic"]
+        },
+        {
+          "id": "thermal-breakdown",
+          "name": "thermal breakdown",
+          "requires": ["electromechanical"]
+        },
+        {
+          "id": "breakdown-due-to-treeing-and-tracking",
+          "name": "breakdown due to treeing and tracking",
+          "requires": ["thermal-breakdown"]
+        },
+        {
+          "id": "breakdown-due-to-internal-discharges",
+          "name": "breakdown due to internal discharges",
+          "requires": ["breakdown-due-to-treeing-and-tracking"]
+        },
+        {
+          "id": "breakdown-in-composite-dielectrics",
+          "name": "breakdown in composite dielectrics",
+          "requires": ["breakdown-due-to-internal-discharges"]
+        }
+      ]
+    },
+    {
+      "id": "generation-of-high-voltages-and-currents",
+      "name": "Generation of High Voltages and Currents",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "need-of-generation-of-high-ac",
+          "name": "Need of Generation of High ac"
+        },
+        {
+          "id": "dc-and-impulse-voltages",
+          "name": "dc and impulse voltages",
+          "requires": ["need-of-generation-of-high-ac"]
+        },
+        {
+          "id": "different-techniques-used-for-the-generation-of-high-dc-and",
+          "name": "Different techniques used for the generation of high dc and ac voltages",
+          "requires": ["dc-and-impulse-voltages"]
+        },
+        {
+          "id": "generation-of-high-frequency-high-voltages",
+          "name": "Generation of high frequency high voltages",
+          "requires": ["different-techniques-used-for-the-generation-of-high-dc-and"]
+        },
+        {
+          "id": "generation-of-high-impulse-voltages-and-currents",
+          "name": "Generation of high impulse voltages and currents",
+          "requires": ["generation-of-high-frequency-high-voltages"]
+        },
+        {
+          "id": "specifications-of-standard-impulse-wave",
+          "name": "Specifications of standard impulse wave",
+          "requires": ["generation-of-high-impulse-voltages-and-currents"]
+        },
+        {
+          "id": "circuits-for-producing-impulse-waves-and-its-analysis-and-co",
+          "name": "circuits for producing impulse waves and its analysis and control",
+          "requires": ["specifications-of-standard-impulse-wave"]
+        },
+        {
+          "id": "multistage-impulse-generators",
+          "name": "Multistage impulse generators",
+          "requires": ["circuits-for-producing-impulse-waves-and-its-analysis-and-co"]
+        },
+        {
+          "id": "modified-marx-circuit",
+          "name": "Modified Marx circuit",
+          "requires": ["multistage-impulse-generators"]
+        },
+        {
+          "id": "tripping-and-control-of-impulse-generators",
+          "name": "tripping and control of impulse generators",
+          "requires": ["modified-marx-circuit"]
+        }
+      ]
+    },
+    {
+      "id": "measurement-of-high-voltages-and-currents",
+      "name": "Measurement of High Voltages and Currents",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "different-methods-techniques-used-for-the-measurement-of-hig",
+          "name": "Different methods/techniques used for the measurement of High dc"
+        },
+        {
+          "id": "ac-and-impulse-voltages",
+          "name": "ac and impulse voltages",
+          "requires": ["different-methods-techniques-used-for-the-measurement-of-hig"]
+        },
+        {
+          "id": "measurement-of-high-dc",
+          "name": "measurement of High dc",
+          "requires": ["ac-and-impulse-voltages"]
+        },
+        {
+          "id": "ac-and-impulse-currents",
+          "name": "ac and impulse currents",
+          "requires": ["measurement-of-high-dc"]
+        },
+        {
+          "id": "cro-dso-for-impulse-voltage-and-current-measurements",
+          "name": "CRO/DSO for impulse voltage and current measurements",
+          "requires": ["ac-and-impulse-currents"]
+        }
+      ]
+    },
+    {
+      "id": "high-voltage-testing-of-electrical-apparatus",
+      "name": "High Voltage Testing of Electrical Apparatus",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "high-voltage-testing-high-voltage-testing-of-line-insulators",
+          "name": "High Voltage Testing: High voltage testing of line Insulators"
+        },
+        {
+          "id": "bushings",
+          "name": "Bushings",
+          "requires": ["high-voltage-testing-high-voltage-testing-of-line-insulators"]
+        },
+        {
+          "id": "isolators",
+          "name": "isolators",
+          "requires": ["bushings"]
+        },
+        {
+          "id": "circuit-breakers-and-surge-arresters",
+          "name": "circuit Breakers and surge arresters",
+          "requires": ["isolators"]
+        },
+        {
+          "id": "high-voltage-testing-of-cables",
+          "name": "high voltage testing of Cables",
+          "requires": ["circuit-breakers-and-surge-arresters"]
+        },
+        {
+          "id": "high-voltage-testing-of-transformers",
+          "name": "High voltage Testing of Transformers",
+          "requires": ["high-voltage-testing-of-cables"]
+        },
+        {
+          "id": "measurement-of-breakdown-strength-of-transformer-oil",
+          "name": "Measurement of breakdown strength of transformer oil",
+          "requires": ["high-voltage-testing-of-transformers"]
+        },
+        {
+          "id": "radio-interference-measurement",
+          "name": "Radio interference measurement",
+          "requires": ["measurement-of-breakdown-strength-of-transformer-oil"]
+        },
+        {
+          "id": "non-destructive-testing-measurement-of-dc-resistivity",
+          "name": "Non-Destructive Testing: Measurement of dc resistivity",
+          "requires": ["radio-interference-measurement"]
+        },
+        {
+          "id": "measurement-of-dielectric-constant-and-loss-factor",
+          "name": "measurement of dielectric constant and loss factor",
+          "requires": ["non-destructive-testing-measurement-of-dc-resistivity"]
+        },
+        {
+          "id": "partial-discharge-measurements",
+          "name": "partial discharge measurements",
+          "requires": ["measurement-of-dielectric-constant-and-loss-factor"]
+        },
+        {
+          "id": "high-voltage-schering-bridge",
+          "name": "High Voltage Schering bridge",
+          "requires": ["partial-discharge-measurements"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-high-voltage-engineering-laboratory-elec"]
+}

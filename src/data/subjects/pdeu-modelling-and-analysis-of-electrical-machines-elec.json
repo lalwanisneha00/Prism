@@ -1,0 +1,309 @@
+{
+  "id": "pdeu-modelling-and-analysis-of-electrical-machines-elec",
+  "name": "Modelling and Analysis of Electrical Machines",
+  "field": "Modelling and Analysis of Electrical Machines",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 7): Modelling and Analysis of Electrical Machines",
+    "note": "Units and topics copied from the course handout PDF (pages 12 of ELEC/sem7/Electrical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE407T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s7-modelling-and-analysis-of-electrical-machines",
+      "code": "20EE407T",
+      "category": "Program Core",
+      "credits": 0,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "fundamentals-of-electric-machinery",
+      "name": "Fundamentals of Electric Machinery",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "introduction",
+          "name": "Introduction"
+        },
+        {
+          "id": "basics-of-magnetic-circuit",
+          "name": "Basics of Magnetic Circuit",
+          "requires": ["introduction"]
+        },
+        {
+          "id": "magnetically-coupled-circuits",
+          "name": "Magnetically Coupled Circuits",
+          "requires": ["basics-of-magnetic-circuit"]
+        },
+        {
+          "id": "analysis-of-singly-excited-electromechanical-system",
+          "name": "Analysis of Singly Excited Electromechanical System",
+          "requires": ["magnetically-coupled-circuits"]
+        },
+        {
+          "id": "energy-and-co-energy-principles-in-linear-and-non-linear-mag",
+          "name": "Energy and Co-Energy Principles in Linear and Non-Linear Magnetics",
+          "requires": ["analysis-of-singly-excited-electromechanical-system"]
+        },
+        {
+          "id": "analysis-of-doubly-excited-electromechanical-system",
+          "name": "Analysis of Doubly Excited Electromechanical System",
+          "requires": ["energy-and-co-energy-principles-in-linear-and-non-linear-mag"]
+        },
+        {
+          "id": "machine-winding-and-air-gap-mmf",
+          "name": "Machine Winding and Air Gap MMF",
+          "requires": ["analysis-of-doubly-excited-electromechanical-system"]
+        },
+        {
+          "id": "winding-inductances-and-voltage-equations",
+          "name": "Winding Inductances and Voltage Equations",
+          "requires": ["machine-winding-and-air-gap-mmf"]
+        }
+      ]
+    },
+    {
+      "id": "reference-frame-theory",
+      "name": "Reference-Frame Theory",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-2",
+          "name": "Introduction"
+        },
+        {
+          "id": "equations-of-transformation",
+          "name": "Equations of Transformation",
+          "requires": ["introduction-2"]
+        },
+        {
+          "id": "stationary-circuit-transformed-to-arbitrary-reference-frame",
+          "name": "Stationary Circuit Transformed to Arbitrary Reference Frame",
+          "requires": ["equations-of-transformation"]
+        },
+        {
+          "id": "balanced-steady-state-phasor-relationships",
+          "name": "Balanced Steady-State Phasor Relationships",
+          "requires": ["stationary-circuit-transformed-to-arbitrary-reference-frame"]
+        },
+        {
+          "id": "commonly-used-reference-frames",
+          "name": "Commonly Used Reference Frames",
+          "requires": ["balanced-steady-state-phasor-relationships"]
+        },
+        {
+          "id": "transformations-between-reference-frames",
+          "name": "Transformations Between Reference Frames",
+          "requires": ["commonly-used-reference-frames"]
+        },
+        {
+          "id": "reference-frames-power-invariance",
+          "name": "Reference Frames Power Invariance",
+          "requires": ["transformations-between-reference-frames"]
+        },
+        {
+          "id": "transformations-of-balanced-set",
+          "name": "Transformations of Balanced Set",
+          "requires": ["reference-frames-power-invariance"]
+        },
+        {
+          "id": "balanced-steady-state-phasor-relationship",
+          "name": "Balanced Steady State Phasor Relationship",
+          "requires": ["transformations-of-balanced-set"]
+        },
+        {
+          "id": "balanced-steady-state-voltage-equations",
+          "name": "Balanced Steady State Voltage Equations",
+          "requires": ["balanced-steady-state-phasor-relationship"]
+        }
+      ]
+    },
+    {
+      "id": "modelling-of-three-phase-ac-machine",
+      "name": "Modelling of Three Phase AC Machine",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "induction-machine-analysis-equivalent-circuit",
+          "name": "Induction Machine Analysis: Equivalent Circuit"
+        },
+        {
+          "id": "steady-state-performance-and-its-equations",
+          "name": "Steady State Performance and its Equations",
+          "requires": ["induction-machine-analysis-equivalent-circuit"]
+        },
+        {
+          "id": "dynamic-modelling-of-induction-machine",
+          "name": "Dynamic Modelling of Induction Machine",
+          "requires": ["steady-state-performance-and-its-equations"]
+        },
+        {
+          "id": "three-phase-to-two-phase-conversion",
+          "name": "Three Phase to Two Phase Conversion",
+          "requires": ["dynamic-modelling-of-induction-machine"]
+        },
+        {
+          "id": "generalized-model",
+          "name": "Generalized Model",
+          "requires": ["three-phase-to-two-phase-conversion"]
+        },
+        {
+          "id": "analysis-of-induction-machine",
+          "name": "Analysis of Induction Machine",
+          "requires": ["generalized-model"]
+        },
+        {
+          "id": "synchronous-reference-frame",
+          "name": "Synchronous Reference Frame",
+          "requires": ["analysis-of-induction-machine"]
+        },
+        {
+          "id": "with-currents-as-variables",
+          "name": "With Currents as Variables",
+          "requires": ["synchronous-reference-frame"]
+        },
+        {
+          "id": "with-rotor-flux-as-variables",
+          "name": "With Rotor Flux as Variables",
+          "requires": ["with-currents-as-variables"]
+        },
+        {
+          "id": "equation-of-flux-linkages",
+          "name": "Equation of Flux Linkages",
+          "requires": ["with-rotor-flux-as-variables"]
+        },
+        {
+          "id": "per-unit-model",
+          "name": "Per Unit Model",
+          "requires": ["equation-of-flux-linkages"]
+        },
+        {
+          "id": "basis-for-vector-control",
+          "name": "Basis for Vector Control",
+          "requires": ["per-unit-model"]
+        },
+        {
+          "id": "small-signal-modelling-of-induction-machinesynchronous-machi",
+          "name": "Small Signal Modelling of Induction MachineSynchronous Machines Analysis: Steady State and Transient Equations",
+          "requires": ["basis-for-vector-control"]
+        },
+        {
+          "id": "derivation-of-cylindrical-and-salient-rotor-machine-phasor-d",
+          "name": "Derivation of Cylindrical and Salient Rotor Machine Phasor Diagram",
+          "requires": ["small-signal-modelling-of-induction-machinesynchronous-machi"]
+        },
+        {
+          "id": "concept-of-synchronous-machine-reactance",
+          "name": "Concept of Synchronous Machine Reactance",
+          "requires": ["derivation-of-cylindrical-and-salient-rotor-machine-phasor-d"]
+        },
+        {
+          "id": "analysis-of-equivalent-circuit-of-synchronous-machine",
+          "name": "Analysis of Equivalent Circuit of Synchronous Machine",
+          "requires": ["concept-of-synchronous-machine-reactance"]
+        },
+        {
+          "id": "voltage-and-torque-equation",
+          "name": "Voltage and Torque Equation",
+          "requires": ["analysis-of-equivalent-circuit-of-synchronous-machine"]
+        },
+        {
+          "id": "analysis-of-steady-state-operation",
+          "name": "Analysis of Steady State Operation",
+          "requires": ["voltage-and-torque-equation"]
+        },
+        {
+          "id": "dynamic-performance-during-sudden-change-in-load-torque",
+          "name": "Dynamic Performance During Sudden Change in Load Torque",
+          "requires": ["analysis-of-steady-state-operation"]
+        },
+        {
+          "id": "dynamic-performance-during-three-phase-short-circuitat-machi",
+          "name": "Dynamic Performance During Three Phase Short Circuitat Machine Terminals and Various Time Constants",
+          "requires": ["dynamic-performance-during-sudden-change-in-load-torque"]
+        }
+      ]
+    },
+    {
+      "id": "brushless-dc-machine-and-drives-for-bldc",
+      "name": "Brushless DC Machine & Drives for BLDC",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-and-concept-of-brushless-dc-machines",
+          "name": "Introduction and Concept of Brushless DC machines"
+        },
+        {
+          "id": "voltage-and-torque-equations-in-machine-variables",
+          "name": "Voltage and Torque Equations in Machine Variables",
+          "requires": ["introduction-and-concept-of-brushless-dc-machines"]
+        },
+        {
+          "id": "voltage-and-torque-equations-in-rotor-reference-frame-variab",
+          "name": "Voltage and Torque Equations in Rotor Reference Frame Variables",
+          "requires": ["voltage-and-torque-equations-in-machine-variables"]
+        },
+        {
+          "id": "analysis-of-steady-state-operations",
+          "name": "Analysis of Steady State Operations",
+          "requires": ["voltage-and-torque-equations-in-rotor-reference-frame-variab"]
+        },
+        {
+          "id": "dynamic-performance-of-bldc-voltage-source-inverter-drives",
+          "name": "Dynamic Performance of BLDC.Voltage Source Inverter Drives",
+          "requires": ["analysis-of-steady-state-operations"]
+        },
+        {
+          "id": "equivalence-of-vsi-schemes",
+          "name": "Equivalence of VSI Schemes",
+          "requires": ["dynamic-performance-of-bldc-voltage-source-inverter-drives"]
+        },
+        {
+          "id": "average-value-analysis-of-vsi-drives",
+          "name": "Average-Value Analysis of VSI Drives",
+          "requires": ["equivalence-of-vsi-schemes"]
+        },
+        {
+          "id": "steady-state-performance-of-vsi-drives",
+          "name": "Steady State Performance of VSI Drives",
+          "requires": ["average-value-analysis-of-vsi-drives"]
+        },
+        {
+          "id": "transient-and-dynamic-performance-of-vsi-drives",
+          "name": "Transient and Dynamic performance of VSI drives",
+          "requires": ["steady-state-performance-of-vsi-drives"]
+        },
+        {
+          "id": "steady-state-harmonics",
+          "name": "Steady State Harmonics",
+          "requires": ["transient-and-dynamic-performance-of-vsi-drives"]
+        },
+        {
+          "id": "case-studies-related-with-bldc-drives",
+          "name": "Case Studies Related with BLDC Drives",
+          "requires": ["steady-state-harmonics"]
+        },
+        {
+          "id": "hrs",
+          "name": "Hrs",
+          "requires": ["case-studies-related-with-bldc-drives"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-modelling-and-analysis-of-electrical-machines-laboratory-elec"]
+}

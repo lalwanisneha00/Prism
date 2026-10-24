@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Introduction to Computer Programming - 2",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -84,7 +84,16 @@
         {
           "id": "if-else-statements",
           "name": "If-else statements",
-          "requires": ["decision-statements-if-statements"]
+          "requires": ["decision-statements-if-statements"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "nested-if-else-statements-2",
+          "name": "Nested If-else statements",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["if-else-statements"]
         },
         {
           "id": "nested-if-else-statements",
@@ -99,7 +108,16 @@
         {
           "id": "while",
           "name": "While",
-          "requires": ["control-statements-for"]
+          "requires": ["control-statements-for"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "while-else-2",
+          "name": "While-Else",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["while"]
         },
         {
           "id": "for-else",
@@ -115,6 +133,13 @@
           "id": "continue-and-break-statements",
           "name": "Continue and Break statements",
           "requires": ["while-else"]
+        },
+        {
+          "id": "for",
+          "name": "For",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["continue-and-break-statements"]
         }
       ]
     },
@@ -180,5 +205,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

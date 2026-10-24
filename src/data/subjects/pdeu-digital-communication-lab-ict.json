@@ -1,0 +1,93 @@
+{
+  "id": "pdeu-digital-communication-lab-ict",
+  "name": "Digital Communication Lab",
+  "field": "Digital Communication Lab",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ICT semester 6): Digital Communication Lab",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of ICT/sem6/ICT_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s6-digital-communication-lab",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-pam-ppm-pwm-baseband-techniques",
+          "name": "PAM, PPM, PWM baseband techniques",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-sampling-quantization-pcm-and-variants",
+          "name": "Sampling, Quantization, PCM and variants",
+          "number": 2,
+          "requires": ["experiment-1-pam-ppm-pwm-baseband-techniques"]
+        },
+        {
+          "id": "experiment-3-digital-carrier-communication-ask-fsk-psk-etc-t",
+          "name": "Digital carrier communication (ASK, FSK, PSK etc.) techniques",
+          "number": 3,
+          "requires": ["experiment-2-sampling-quantization-pcm-and-variants"]
+        },
+        {
+          "id": "experiment-4-tdm-techniques-and-synchronization",
+          "name": "TDM techniques and synchronization",
+          "number": 4,
+          "requires": ["experiment-3-digital-carrier-communication-ask-fsk-psk-etc-t"]
+        },
+        {
+          "id": "experiment-5-qam-and-fdm-techniques",
+          "name": "QAM and FDM Techniques",
+          "number": 5,
+          "requires": ["experiment-4-tdm-techniques-and-synchronization"]
+        },
+        {
+          "id": "experiment-6-error-detection-and-correction-techniques",
+          "name": "Error detection and correction techniques",
+          "number": 6,
+          "requires": ["experiment-5-qam-and-fdm-techniques"]
+        },
+        {
+          "id": "experiment-7-noise-and-ber-analysis-in-various-digital-commu",
+          "name": "Noise and BER analysis in various digital communication systems",
+          "number": 7,
+          "requires": ["experiment-6-error-detection-and-correction-techniques"]
+        },
+        {
+          "id": "experiment-8-ofdm-techniques",
+          "name": "OFDM Techniques",
+          "number": 8,
+          "requires": ["experiment-7-noise-and-ber-analysis-in-various-digital-commu"]
+        },
+        {
+          "id": "experiment-9-spread-spectrum-communication",
+          "name": "Spread spectrum communication",
+          "number": 9,
+          "requires": ["experiment-8-ofdm-techniques"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-digital-communication-ict"]
+}

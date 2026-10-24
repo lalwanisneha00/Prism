@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Mathematics - 3",
     "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -98,8 +98,17 @@
         },
         {
           "id": "z-transform",
-          "name": "Z - transform",
-          "requires": ["solution-of-difference-equation-complementary-function"]
+          "name": "transform",
+          "requires": ["solution-of-difference-equation-complementary-function"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "inverse-z-transform-2",
+          "name": "inverse Z-transform",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["z-transform"]
         },
         {
           "id": "fourier-transform",
@@ -159,8 +168,17 @@
         },
         {
           "id": "frequency-shifting-and-convolution-properties",
-          "name": "frequency shifting, and convolution properties",
-          "requires": ["time-shifting"]
+          "name": "frequency shifting",
+          "requires": ["time-shifting"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "convolution-properties",
+          "name": "convolution properties",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["frequency-shifting-and-convolution-properties"]
         },
         {
           "id": "applications-in-image-processing",
@@ -169,8 +187,17 @@
         },
         {
           "id": "communication-systems-and-quantum-mechanics",
-          "name": "communication systems, and quantum mechanics",
-          "requires": ["applications-in-image-processing"]
+          "name": "communication systems",
+          "requires": ["applications-in-image-processing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "quantum-mechanics",
+          "name": "quantum mechanics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["communication-systems-and-quantum-mechanics"]
         }
       ]
     },
@@ -211,19 +238,37 @@
         {
           "id": "one-dimensional-heat-equation",
           "name": "one- dimensional heat equation",
-          "requires": ["classification-of-second-order-pdes"]
+          "requires": ["classification-of-second-order-pdes"],
+          "status": "retired"
         },
         {
           "id": "wave-equation-and-laplace-equation",
-          "name": "wave equation, and Laplace equation",
-          "requires": ["one-dimensional-heat-equation"]
+          "name": "wave equation",
+          "requires": ["one-dimensional-heat-equation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "laplace-equation",
+          "name": "Laplace equation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wave-equation-and-laplace-equation"]
         },
         {
           "id": "applications-of-pdes-to-wave-analysis",
           "name": "Applications of PDE’s to wave analysis",
           "requires": ["wave-equation-and-laplace-equation"]
+        },
+        {
+          "id": "onedimensional-heat-equation",
+          "name": "onedimensional heat equation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applications-of-pdes-to-wave-analysis"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

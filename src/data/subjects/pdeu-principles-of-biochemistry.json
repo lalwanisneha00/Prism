@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Principles of Biochemistry",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,58 @@
       "topics": [
         {
           "id": "introduction-to-biological-system-review-on-cellular",
-          "name": "Introduction to biological system, Review on cellular, chemical, physical, genetic and evolutionary backgrounds to biochemistry"
+          "name": "Introduction to biological system",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "review-on-cellular",
+          "name": "Review on cellular",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-biological-system-review-on-cellular"]
+        },
+        {
+          "id": "chemical",
+          "name": "chemical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["review-on-cellular"]
+        },
+        {
+          "id": "physical",
+          "name": "physical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chemical"]
+        },
+        {
+          "id": "genetic-and-evolutionary-backgrounds-to-biochemistry",
+          "name": "genetic and evolutionary backgrounds to biochemistry",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["physical"]
         },
         {
           "id": "properties-of-water-solubility-ionization-property-and-water",
-          "name": "Properties of water- solubility, ionization property and water as a reactant, pH and buffers and their importance",
-          "requires": ["introduction-to-biological-system-review-on-cellular"]
+          "name": "Properties of water- solubility",
+          "requires": ["introduction-to-biological-system-review-on-cellular"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ionization-property-and-water-as-a-reactant",
+          "name": "ionization property and water as a reactant",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["properties-of-water-solubility-ionization-property-and-water"]
+        },
+        {
+          "id": "ph-and-buffers-and-their-importance",
+          "name": "pH and buffers and their importance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ionization-property-and-water-as-a-reactant"]
         }
       ]
     },
@@ -65,8 +111,17 @@
         },
         {
           "id": "acid-base-chemistry-and-stereochemistry-of-amino-acids",
-          "name": "acid–base chemistry and stereochemistry of amino acids. Proteins: Primary",
-          "requires": ["structure-and-biological-importance-of-amino-acids"]
+          "name": "acid–base chemistry and stereochemistry of amino acids",
+          "requires": ["structure-and-biological-importance-of-amino-acids"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "proteins-primary",
+          "name": "Proteins: Primary",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["acid-base-chemistry-and-stereochemistry-of-amino-acids"]
         },
         {
           "id": "secondary",
@@ -153,7 +208,16 @@
         {
           "id": "properties-and-function",
           "name": "properties and function",
-          "requires": ["nucleic-acids-composition"]
+          "requires": ["nucleic-acids-composition"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "properties-2",
+          "name": "properties",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["properties-and-function"]
         },
         {
           "id": "metabolism-synthesis-of-purines-and-pyrimidine",
@@ -163,12 +227,30 @@
         {
           "id": "lipids-classification",
           "name": "Lipids: Classification",
-          "requires": ["metabolism-synthesis-of-purines-and-pyrimidine"]
+          "requires": ["metabolism-synthesis-of-purines-and-pyrimidine"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lipids-classification"]
         },
         {
           "id": "structure",
           "name": "structure",
-          "requires": ["lipids-classification"]
+          "requires": ["lipids-classification"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cholesterol-structure-2",
+          "name": "Cholesterol- structure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["structure"]
         },
         {
           "id": "properties",
@@ -207,5 +289,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-principles-of-biochemistry-laboratory-biotech"]
 }

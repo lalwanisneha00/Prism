@@ -1,0 +1,299 @@
+{
+  "id": "pdeu-introduction-to-composite-materials-me",
+  "name": "Introduction to Composite Materials",
+  "field": "Introduction to Composite Materials",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 5): Introduction to Composite Materials",
+    "note": "Units and topics copied from the course handout PDF (pages 2 of MECH/sem5/Mechanical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME331T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s5-program-elective--introduction-to-composite-materials",
+      "code": "24ME331T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "classifications-of-engineering-materials",
+          "name": "Classifications of Engineering Materials"
+        },
+        {
+          "id": "concept-of-composite-materials",
+          "name": "Concept of composite materials",
+          "requires": ["classifications-of-engineering-materials"]
+        },
+        {
+          "id": "matrix-materials",
+          "name": "Matrix materials",
+          "requires": ["concept-of-composite-materials"]
+        },
+        {
+          "id": "functions-of-a-matrix",
+          "name": "Functions of a Matrix",
+          "requires": ["matrix-materials"]
+        },
+        {
+          "id": "desired-properties-of-a-matrix",
+          "name": "Desired Properties of a Matrix",
+          "requires": ["functions-of-a-matrix"]
+        },
+        {
+          "id": "types-of-matrix",
+          "name": "Types of matrix",
+          "requires": ["desired-properties-of-a-matrix"]
+        },
+        {
+          "id": "types-of-reinforcements-fibers-role-and-selection-or-reinfor",
+          "name": "Types of Reinforcements/Fibers: Role and Selection or reinforcement materials",
+          "requires": ["types-of-matrix"]
+        },
+        {
+          "id": "types-of-fibres",
+          "name": "Types of fibres",
+          "requires": ["types-of-reinforcements-fibers-role-and-selection-or-reinfor"]
+        },
+        {
+          "id": "mechanical-properties-of-fibres",
+          "name": "Mechanical properties of fibres",
+          "requires": ["types-of-fibres"]
+        },
+        {
+          "id": "material-properties-that-can-be-improved-by-forming-a-compos",
+          "name": "Material properties that can be improved by forming a composite material and its engineering potential",
+          "requires": ["mechanical-properties-of-fibres"]
+        }
+      ]
+    },
+    {
+      "id": "composite-classification",
+      "name": "Composite Classification",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "classification-based-on-matrix-material-organic-matrix-compo",
+          "name": "Classification based on Matrix Material: Organic Matrix composites"
+        },
+        {
+          "id": "polymer-matrix-composites-pmc",
+          "name": "Polymer matrix composites (PMC)",
+          "requires": ["classification-based-on-matrix-material-organic-matrix-compo"]
+        },
+        {
+          "id": "metal-matrix-composites-mmc",
+          "name": "Metal matrix composites (MMC)",
+          "requires": ["polymer-matrix-composites-pmc"]
+        },
+        {
+          "id": "ceramic-matrix-composites-cmc",
+          "name": "Ceramic matrix composites (CMC)",
+          "requires": ["metal-matrix-composites-mmc"]
+        },
+        {
+          "id": "classification-based-on-reinforcements-fiber-reinforced-comp",
+          "name": "Classification based on reinforcements: Fiber Reinforced Composites",
+          "requires": ["ceramic-matrix-composites-cmc"]
+        },
+        {
+          "id": "fiber-reinforced-polymer-frp-composites",
+          "name": "Fiber Reinforced Polymer (FRP) Composites",
+          "requires": ["classification-based-on-reinforcements-fiber-reinforced-comp"]
+        },
+        {
+          "id": "laminar-composites",
+          "name": "Laminar Composites",
+          "requires": ["fiber-reinforced-polymer-frp-composites"]
+        },
+        {
+          "id": "particulate-composites",
+          "name": "Particulate Composites",
+          "requires": ["laminar-composites"]
+        },
+        {
+          "id": "comparison-with-metals",
+          "name": "Comparison with Metals",
+          "requires": ["particulate-composites"]
+        },
+        {
+          "id": "advantages-and-limitations-of-composites",
+          "name": "Advantages & limitations of Composites",
+          "requires": ["comparison-with-metals"]
+        },
+        {
+          "id": "isotropic",
+          "name": "Isotropic",
+          "requires": ["advantages-and-limitations-of-composites"]
+        },
+        {
+          "id": "anisotropic",
+          "name": "Anisotropic",
+          "requires": ["isotropic"]
+        },
+        {
+          "id": "symmetric",
+          "name": "symmetric",
+          "requires": ["anisotropic"]
+        },
+        {
+          "id": "unsymmetric-laminates",
+          "name": "Unsymmetric laminates",
+          "requires": ["symmetric"]
+        },
+        {
+          "id": "introduction-to-micromechanics-of-composites-and-failure-cri",
+          "name": "Introduction to micromechanics of composites and failure criterion",
+          "requires": ["unsymmetric-laminates"]
+        }
+      ]
+    },
+    {
+      "id": "manufacturing-processes-of-composites",
+      "name": "Manufacturing Processes of Composites",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "manufacturing-processes-selection-and-considerations",
+          "name": "Manufacturing Processes: Selection and Considerations"
+        },
+        {
+          "id": "hand-lay-up",
+          "name": "Hand Lay-up",
+          "requires": ["manufacturing-processes-selection-and-considerations"]
+        },
+        {
+          "id": "prepreg-lay-up",
+          "name": "Prepreg Lay-up",
+          "requires": ["hand-lay-up"]
+        },
+        {
+          "id": "bag-molding",
+          "name": "Bag Molding",
+          "requires": ["prepreg-lay-up"]
+        },
+        {
+          "id": "autoclave-processing",
+          "name": "Autoclave Processing",
+          "requires": ["bag-molding"]
+        },
+        {
+          "id": "compression-molding",
+          "name": "Compression Molding",
+          "requires": ["autoclave-processing"]
+        },
+        {
+          "id": "resin-transfer-molding",
+          "name": "Resin Transfer Molding",
+          "requires": ["compression-molding"]
+        },
+        {
+          "id": "vacuum-assisted-resin-transfer-molding",
+          "name": "Vacuum Assisted Resin Transfer Molding",
+          "requires": ["resin-transfer-molding"]
+        },
+        {
+          "id": "pultrusion",
+          "name": "Pultrusion",
+          "requires": ["vacuum-assisted-resin-transfer-molding"]
+        },
+        {
+          "id": "filament-winding",
+          "name": "Filament Winding",
+          "requires": ["pultrusion"]
+        },
+        {
+          "id": "carbon-matrix-composites-or-carbon-carbon-composites",
+          "name": "Carbon matrix Composites or Carbon-Carbon Composites",
+          "requires": ["filament-winding"]
+        },
+        {
+          "id": "nanocomposites",
+          "name": "Nanocomposites",
+          "requires": ["carbon-matrix-composites-or-carbon-carbon-composites"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-application-of-composites",
+      "name": "Advanced Application of Composites",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "aircraft-composite-components-in-aircraft",
+          "name": "Aircraft: Composite Components in Aircraft"
+        },
+        {
+          "id": "specific-aspects-of-structural-resistance",
+          "name": "Specific Aspects of Structural Resistance",
+          "requires": ["aircraft-composite-components-in-aircraft"]
+        },
+        {
+          "id": "large-carriers",
+          "name": "Large Carriers",
+          "requires": ["specific-aspects-of-structural-resistance"]
+        },
+        {
+          "id": "regional-jets",
+          "name": "Regional Jets",
+          "requires": ["large-carriers"]
+        },
+        {
+          "id": "light-aircraft",
+          "name": "Light Aircraft",
+          "requires": ["regional-jets"]
+        },
+        {
+          "id": "fighter-aircraft",
+          "name": "Fighter Aircraft",
+          "requires": ["light-aircraft"]
+        },
+        {
+          "id": "turbine-blades-in-composites",
+          "name": "Turbine Blades in Composites",
+          "requires": ["fighter-aircraft"]
+        },
+        {
+          "id": "helicopters",
+          "name": "Helicopters",
+          "requires": ["turbine-blades-in-composites"]
+        },
+        {
+          "id": "composite-materials-and-the-manufacturing-of-automobiles",
+          "name": "Composite Materials and the Manufacturing of Automobiles",
+          "requires": ["helicopters"]
+        },
+        {
+          "id": "composites-in-naval-construction",
+          "name": "Composites in Naval Construction",
+          "requires": ["composite-materials-and-the-manufacturing-of-automobiles"]
+        },
+        {
+          "id": "sports-and-recreation",
+          "name": "Sports and Recreation",
+          "requires": ["composites-in-naval-construction"]
+        }
+      ]
+    }
+  ]
+}

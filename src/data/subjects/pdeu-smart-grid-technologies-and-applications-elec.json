@@ -1,0 +1,364 @@
+{
+  "id": "pdeu-smart-grid-technologies-and-applications-elec",
+  "name": "Smart Grid: Technologies and Applications",
+  "field": "Smart Grid: Technologies and Applications",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 7): Smart Grid: Technologies and Applications",
+    "note": "Units and topics copied from the course handout PDF (pages 4 of ELEC/sem7/Electrical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE402T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s7-smart-grid-technologies-and-applications",
+      "code": "20EE402T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "sg-and-smart-energy-resources",
+      "name": "SG and Smart Energy Resources",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "evolution-of-smart-grid",
+          "name": "Evolution of smart grid"
+        },
+        {
+          "id": "need-for-sg",
+          "name": "Need for SG",
+          "requires": ["evolution-of-smart-grid"]
+        },
+        {
+          "id": "sg-definitions",
+          "name": "SG Definitions",
+          "requires": ["need-for-sg"]
+        },
+        {
+          "id": "characteristic-of-sg",
+          "name": "characteristic of SG",
+          "requires": ["sg-definitions"]
+        },
+        {
+          "id": "sg-technology-framework-smart-energy-recourses-renewable-pow",
+          "name": "SG technology framework Smart Energy Recourses: Renewable power generation",
+          "requires": ["characteristic-of-sg"]
+        },
+        {
+          "id": "energy-storage",
+          "name": "Energy Storage",
+          "requires": ["sg-technology-framework-smart-energy-recourses-renewable-pow"]
+        },
+        {
+          "id": "electric-vehicle",
+          "name": "Electric Vehicle",
+          "requires": ["energy-storage"]
+        },
+        {
+          "id": "microgrid-mg-and-its-drivers",
+          "name": "Microgrid (MG) and its drivers",
+          "requires": ["electric-vehicle"]
+        },
+        {
+          "id": "mg-benefits",
+          "name": "MG benefits",
+          "requires": ["microgrid-mg-and-its-drivers"]
+        },
+        {
+          "id": "challenges-for-mg-development",
+          "name": "challenges for MG development",
+          "requires": ["mg-benefits"]
+        },
+        {
+          "id": "types-of-mg",
+          "name": "types of MG",
+          "requires": ["challenges-for-mg-development"]
+        },
+        {
+          "id": "building-blocks-of-mg",
+          "name": "building blocks of MG",
+          "requires": ["types-of-mg"]
+        },
+        {
+          "id": "dc-microgrid",
+          "name": "DC microgrid",
+          "requires": ["building-blocks-of-mg"]
+        },
+        {
+          "id": "energy-resources-integration-standards-and-their-grid-impact",
+          "name": "Energy Resources Integration standards and their grid impacts",
+          "requires": ["dc-microgrid"]
+        }
+      ]
+    },
+    {
+      "id": "communication-technologies-for-smart-grid",
+      "name": "Communication Technologies for Smart Grid",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "communication-technologies-for-sg-review-on-communication-ch",
+          "name": "Communication Technologies for SG: Review on communication channels"
+        },
+        {
+          "id": "wired-communication",
+          "name": "Wired Communication",
+          "requires": ["communication-technologies-for-sg-review-on-communication-ch"]
+        },
+        {
+          "id": "optical-fibre",
+          "name": "Optical Fibre",
+          "requires": ["wired-communication"]
+        },
+        {
+          "id": "radio-communication",
+          "name": "Radio Communication",
+          "requires": ["optical-fibre"]
+        },
+        {
+          "id": "layered-architecture-and-protocol",
+          "name": "Layered Architecture and Protocol",
+          "requires": ["radio-communication"]
+        },
+        {
+          "id": "ieee-802-standards-for-sub-networks",
+          "name": "IEEE 802 standards for sub-networks",
+          "requires": ["layered-architecture-and-protocol"]
+        },
+        {
+          "id": "ethernet-lan",
+          "name": "Ethernet LAN",
+          "requires": ["ieee-802-standards-for-sub-networks"]
+        },
+        {
+          "id": "wireless-lan",
+          "name": "wireless LAN",
+          "requires": ["ethernet-lan"]
+        },
+        {
+          "id": "bluetooth",
+          "name": "Bluetooth",
+          "requires": ["wireless-lan"]
+        },
+        {
+          "id": "zigbee",
+          "name": "Zigbee",
+          "requires": ["bluetooth"]
+        },
+        {
+          "id": "owpan",
+          "name": "oWPAN",
+          "requires": ["zigbee"]
+        },
+        {
+          "id": "standards-for-information-exchange",
+          "name": "Standards for information exchange",
+          "requires": ["owpan"]
+        },
+        {
+          "id": "evolution-of-smart-metering-and-its-key-components-and-hardw",
+          "name": "Evolution of smart metering and its key components and hardware",
+          "requires": ["standards-for-information-exchange"]
+        },
+        {
+          "id": "communication-infrastructure-and-protocol-for-smart-metering",
+          "name": "Communication Infrastructure and Protocol for Smart Metering",
+          "requires": ["evolution-of-smart-metering-and-its-key-components-and-hardw"]
+        },
+        {
+          "id": "han",
+          "name": "HAN",
+          "requires": ["communication-infrastructure-and-protocol-for-smart-metering"]
+        },
+        {
+          "id": "nan",
+          "name": "NAN",
+          "requires": ["han"]
+        },
+        {
+          "id": "data-concentrators-and-protocols-for-communication",
+          "name": "Data Concentrators and protocols for communication",
+          "requires": ["nan"]
+        },
+        {
+          "id": "pmu-and-wams",
+          "name": "PMU and WAMS",
+          "requires": ["data-concentrators-and-protocols-for-communication"]
+        }
+      ]
+    },
+    {
+      "id": "smart-substations",
+      "name": "Smart Substations",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "sub-station-automation-equipment",
+          "name": "Sub-station automation equipment"
+        },
+        {
+          "id": "ied-for-protection",
+          "name": "IED for protection",
+          "requires": ["sub-station-automation-equipment"]
+        },
+        {
+          "id": "measurement-and-recording",
+          "name": "measurement and recording",
+          "requires": ["ied-for-protection"]
+        },
+        {
+          "id": "sensors",
+          "name": "sensors",
+          "requires": ["measurement-and-recording"]
+        },
+        {
+          "id": "rtus",
+          "name": "RTUs",
+          "requires": ["sensors"]
+        },
+        {
+          "id": "one-line-diagram-of-smart-sub-station",
+          "name": "one-line diagram of smart sub-station",
+          "requires": ["rtus"]
+        },
+        {
+          "id": "station-bay-process-level",
+          "name": "station-bay-process level",
+          "requires": ["one-line-diagram-of-smart-sub-station"]
+        },
+        {
+          "id": "scada-master-station-energy-management-systems-ems",
+          "name": "SCADA: Master Station/Energy Management Systems (EMS)",
+          "requires": ["station-bay-process-level"]
+        },
+        {
+          "id": "structure-of-ems",
+          "name": "structure of EMS",
+          "requires": ["scada-master-station-energy-management-systems-ems"]
+        },
+        {
+          "id": "data-flow-architecture",
+          "name": "Data flow architecture",
+          "requires": ["structure-of-ems"]
+        },
+        {
+          "id": "rtu-data-flow-architecture",
+          "name": "RTU data flow architecture",
+          "requires": ["data-flow-architecture"]
+        },
+        {
+          "id": "server-based-substation-control-system-architecture",
+          "name": "Server-based substation control system architecture",
+          "requires": ["rtu-data-flow-architecture"]
+        },
+        {
+          "id": "smart-substations-in-the-smart-grid-architecture",
+          "name": "Smart substations in the smart grid architecture",
+          "requires": ["server-based-substation-control-system-architecture"]
+        },
+        {
+          "id": "interoperability-and-iec-61850-interfaces-within-a-substatio",
+          "name": "Interoperability and IEC 61850: Interfaces within a substation automation system",
+          "requires": ["smart-substations-in-the-smart-grid-architecture"]
+        },
+        {
+          "id": "engineering-approach-in-iec-61850",
+          "name": "Engineering approach in IEC 61850",
+          "requires": ["interoperability-and-iec-61850-interfaces-within-a-substatio"]
+        }
+      ]
+    },
+    {
+      "id": "demand-side-management",
+      "name": "Demand Side Management",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "demand-side-management-ds-ds-planning",
+          "name": "Demand Side Management (DS): DS planning"
+        },
+        {
+          "id": "key-definitions",
+          "name": "key definitions",
+          "requires": ["demand-side-management-ds-ds-planning"]
+        },
+        {
+          "id": "ds-requirement",
+          "name": "DS requirement",
+          "requires": ["key-definitions"]
+        },
+        {
+          "id": "issues-in-ds-planning",
+          "name": "issues in DS planning",
+          "requires": ["ds-requirement"]
+        },
+        {
+          "id": "hierarchy-of-planning-objectives",
+          "name": "hierarchy of planning objectives",
+          "requires": ["issues-in-ds-planning"]
+        },
+        {
+          "id": "load-shape-objectives",
+          "name": "load shape objectives",
+          "requires": ["hierarchy-of-planning-objectives"]
+        },
+        {
+          "id": "residential-demand-side-technology-alternatives",
+          "name": "residential demand-side technology alternatives",
+          "requires": ["load-shape-objectives"]
+        },
+        {
+          "id": "implementation-of-demand-side-integration-dsi",
+          "name": "implementation of demand side integration (DSI)",
+          "requires": ["residential-demand-side-technology-alternatives"]
+        },
+        {
+          "id": "price-based-and-incentive-based-dsi",
+          "name": "price-based and incentive-based DSI",
+          "requires": ["implementation-of-demand-side-integration-dsi"]
+        },
+        {
+          "id": "hardware-support-for-dsi",
+          "name": "hardware support for DSI",
+          "requires": ["price-based-and-incentive-based-dsi"]
+        },
+        {
+          "id": "fault-location",
+          "name": "Fault location",
+          "requires": ["hardware-support-for-dsi"]
+        },
+        {
+          "id": "isolation-and-restoration",
+          "name": "isolation and restoration",
+          "requires": ["fault-location"]
+        },
+        {
+          "id": "power-flow-analysis-using-forward-backward-sweep-algorithm",
+          "name": "Power flow analysis using forward/backward sweep algorithm",
+          "requires": ["isolation-and-restoration"]
+        },
+        {
+          "id": "volt-var-control-with-optimization-approach",
+          "name": "Volt/var Control with optimization approach",
+          "requires": ["power-flow-analysis-using-forward-backward-sweep-algorithm"]
+        }
+      ]
+    }
+  ]
+}

@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Novel Separation Processes - Dyes and Pigments",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -38,10 +38,6 @@
       "name": "Novel Separation Process",
       "hours": 12,
       "topics": [
-        {
-          "id": "introduction",
-          "name": "Introduction"
-        },
         {
           "id": "need-for-separation-process",
           "name": "Need for separation process",
@@ -54,8 +50,17 @@
         },
         {
           "id": "types-and-classification-membrane-processes",
-          "name": "types and classification. Membrane processes",
-          "requires": ["overview-of-separation-processes"]
+          "name": "types and classification",
+          "requires": ["overview-of-separation-processes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "membrane-processes",
+          "name": "Membrane processes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-and-classification-membrane-processes"]
         },
         {
           "id": "choice-of-membranes-membrane-filtration",
@@ -64,8 +69,17 @@
         },
         {
           "id": "micro-nano-and-ultrafiltration",
-          "name": "micro, nano and ultrafiltration",
-          "requires": ["choice-of-membranes-membrane-filtration"]
+          "name": "micro",
+          "requires": ["choice-of-membranes-membrane-filtration"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "nano-and-ultrafiltration",
+          "name": "nano and ultrafiltration",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["micro-nano-and-ultrafiltration"]
         },
         {
           "id": "dialysis-and-reverse-osmosis",
@@ -95,23 +109,117 @@
         },
         {
           "id": "origin-structure-intermolecular-interactions-types-of",
-          "name": "origin, structure, intermolecular interactions, Types of polymerization",
-          "requires": ["introduction-classification-of-polymers"]
+          "name": "origin",
+          "requires": ["introduction-classification-of-polymers"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "addition-condensation-radical-ionic-and-copolymerization",
-          "name": "addition, condensation, radical, ionic and copolymerization",
+          "id": "structure",
+          "name": "structure",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["origin-structure-intermolecular-interactions-types-of"]
         },
         {
-          "id": "inorganic-polymers-organic-polymers-biodegradable-polymers",
-          "name": "Inorganic polymers, organic polymers, biodegradable polymers, Photonic polymers, fire retarding polymers, membranes and smart materials",
+          "id": "intermolecular-interactions",
+          "name": "intermolecular interactions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["structure"]
+        },
+        {
+          "id": "types-of-polymerization",
+          "name": "Types of polymerization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["intermolecular-interactions"]
+        },
+        {
+          "id": "addition-condensation-radical-ionic-and-copolymerization",
+          "name": "addition",
+          "requires": ["origin-structure-intermolecular-interactions-types-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "condensation",
+          "name": "condensation",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["addition-condensation-radical-ionic-and-copolymerization"]
+        },
+        {
+          "id": "radical",
+          "name": "radical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["condensation"]
+        },
+        {
+          "id": "ionic-and-copolymerization",
+          "name": "ionic and copolymerization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radical"]
+        },
+        {
+          "id": "inorganic-polymers-organic-polymers-biodegradable-polymers",
+          "name": "Inorganic polymers",
+          "requires": ["addition-condensation-radical-ionic-and-copolymerization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "organic-polymers",
+          "name": "organic polymers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["inorganic-polymers-organic-polymers-biodegradable-polymers"]
+        },
+        {
+          "id": "biodegradable-polymers",
+          "name": "biodegradable polymers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["organic-polymers"]
+        },
+        {
+          "id": "photonic-polymers",
+          "name": "Photonic polymers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biodegradable-polymers"]
+        },
+        {
+          "id": "fire-retarding-polymers",
+          "name": "fire retarding polymers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["photonic-polymers"]
+        },
+        {
+          "id": "membranes-and-smart-materials",
+          "name": "membranes and smart materials",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fire-retarding-polymers"]
         },
         {
           "id": "introduction-types-and-applications",
           "name": "Introduction, types and applications",
           "requires": ["inorganic-polymers-organic-polymers-biodegradable-polymers"]
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "movedFrom": {
+            "subject": "pdeu-novel-separation-processes-dyes-and-pigments",
+            "chapter": "novel-separation-process",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
         }
       ]
     },
@@ -122,22 +230,65 @@
       "topics": [
         {
           "id": "introduction-nomenclature-and-classification-of-natural-and",
-          "name": "Introduction, Nomenclature and Classification of Natural and Synthetic dyes, Color and constitution"
+          "name": "Nomenclature and Classification of Natural and Synthetic dyes",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "chromospheres-and-auxochromes-with-suitable-examples-azo",
-          "name": "chromospheres and auxochromes with suitable examples, Azo dyes",
+          "id": "color-and-constitution",
+          "name": "Color and constitution",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["introduction-nomenclature-and-classification-of-natural-and"]
         },
         {
-          "id": "types-of-azo-dyes-synthesis-of-acidic-and-basic-azo-dyes",
-          "name": "types of azo dyes, synthesis of acidic and basic azo dyes. Natural dyes",
+          "id": "natural-dyes",
+          "name": "Natural dyes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["color-and-constitution"]
+        },
+        {
+          "id": "chromospheres-and-auxochromes-with-suitable-examples-azo",
+          "name": "chromospheres and auxochromes with suitable examples",
+          "requires": ["introduction-nomenclature-and-classification-of-natural-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "azo-dyes",
+          "name": "Azo dyes",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["chromospheres-and-auxochromes-with-suitable-examples-azo"]
         },
         {
-          "id": "structure-determination-and-synthesis-of-alizarine",
-          "name": "structure determination and synthesis of alizarine, Quinazarin and Indigo",
+          "id": "types-of-azo-dyes-synthesis-of-acidic-and-basic-azo-dyes",
+          "name": "types of azo dyes",
+          "requires": ["chromospheres-and-auxochromes-with-suitable-examples-azo"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "synthesis-of-acidic-and-basic-azo-dyes",
+          "name": "synthesis of acidic and basic azo dyes",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["types-of-azo-dyes-synthesis-of-acidic-and-basic-azo-dyes"]
+        },
+        {
+          "id": "structure-determination-and-synthesis-of-alizarine",
+          "name": "structure determination and synthesis of alizarine",
+          "requires": ["types-of-azo-dyes-synthesis-of-acidic-and-basic-azo-dyes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "quinazarin-and-indigo",
+          "name": "Quinazarin and Indigo",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["structure-determination-and-synthesis-of-alizarine"]
         },
         {
           "id": "food-colours",
@@ -151,8 +302,31 @@
         },
         {
           "id": "pigments-introduction-structures-of-porphyrins-plant",
-          "name": "Pigments: Introduction, Structures of Porphyrins, plant pigments and classification, Bile pigments",
-          "requires": ["introduction-to-fluorescence-dyes-and-introduction-to-laser"]
+          "name": "Pigments: Introduction",
+          "requires": ["introduction-to-fluorescence-dyes-and-introduction-to-laser"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "structures-of-porphyrins",
+          "name": "Structures of Porphyrins",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pigments-introduction-structures-of-porphyrins-plant"]
+        },
+        {
+          "id": "plant-pigments-and-classification",
+          "name": "plant pigments and classification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["structures-of-porphyrins"]
+        },
+        {
+          "id": "bile-pigments",
+          "name": "Bile pigments",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["plant-pigments-and-classification"]
         },
         {
           "id": "synthesis-of-haemin-and-chlorophyll",
@@ -168,6 +342,13 @@
           "id": "preparation-of-phthalocyanines",
           "name": "preparation of Phthalocyanines",
           "requires": ["synthetic-pigments"]
+        },
+        {
+          "id": "introduction-2",
+          "name": "Introduction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["preparation-of-phthalocyanines"]
         }
       ]
     },
@@ -207,5 +388,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

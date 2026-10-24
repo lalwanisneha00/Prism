@@ -1,0 +1,100 @@
+{
+  "id": "pdeu-artificial-intelligence-in-electrical-systems-laboratory-elec",
+  "name": "Artificial Intelligence in Electrical Systems Laboratory",
+  "field": "Artificial Intelligence in Electrical Systems Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): Artificial Intelligence in Electrical Systems Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 16 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE307P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-artificial-intelligence-in-electrical-systems-laboratory",
+      "code": "20EE307P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-design-of-fuzzy-pid-controller-for-the-given-pl",
+          "name": "Design of fuzzy PID controller for the given plant",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-design-of-fuzzy-system-for-estimation-of-electr",
+          "name": "Design of fuzzy system for estimation of electrical motor parameter",
+          "number": 2,
+          "requires": ["experiment-1-design-of-fuzzy-pid-controller-for-the-given-pl"]
+        },
+        {
+          "id": "experiment-3-demonstrate-training-of-an-artificial-neural-ne",
+          "name": "Demonstrate training of an artificial neural network for the given mathematical function",
+          "number": 3,
+          "requires": ["experiment-2-design-of-fuzzy-system-for-estimation-of-electr"]
+        },
+        {
+          "id": "experiment-4-demonstrate-training-of-an-artificial-neural-ne",
+          "name": "Demonstrate training of an artificial neural network for filtering",
+          "number": 4,
+          "requires": ["experiment-3-demonstrate-training-of-an-artificial-neural-ne"]
+        },
+        {
+          "id": "experiment-5-demonstrate-application-of-an-artificial-neural",
+          "name": "Demonstrate application of an artificial neural network in electric power system",
+          "number": 5,
+          "requires": ["experiment-4-demonstrate-training-of-an-artificial-neural-ne"]
+        },
+        {
+          "id": "experiment-6-demonstrate-an-application-of-machine-learning",
+          "name": "Demonstrate an application of machine learning classification algorithm in electrical systems",
+          "number": 6,
+          "requires": ["experiment-5-demonstrate-application-of-an-artificial-neural"]
+        },
+        {
+          "id": "experiment-7-demonstrate-an-application-of-machine-learning",
+          "name": "Demonstrate an application of machine learning regression algorithm in electrical systems",
+          "number": 7,
+          "requires": ["experiment-6-demonstrate-an-application-of-machine-learning"]
+        },
+        {
+          "id": "experiment-8-to-write-matlab-code-to-minimize-rosenbrock-s-f",
+          "name": "To write MATLAB code to minimize Rosenbrock's function using GA",
+          "number": 8,
+          "requires": ["experiment-7-demonstrate-an-application-of-machine-learning"]
+        },
+        {
+          "id": "experiment-9-to-minimize-maximize-objective-functions-using",
+          "name": "To minimize/maximize objective functions using Genetic Algorithm toolbox in MATLAB",
+          "number": 9,
+          "requires": ["experiment-8-to-write-matlab-code-to-minimize-rosenbrock-s-f"]
+        },
+        {
+          "id": "experiment-10-to-formulate-economic-dispatch-problem-and-min",
+          "name": "To formulate Economic Dispatch problem and minimize operating cost function using GA",
+          "number": 10,
+          "requires": ["experiment-9-to-minimize-maximize-objective-functions-using"]
+        }
+      ]
+    }
+  ]
+}

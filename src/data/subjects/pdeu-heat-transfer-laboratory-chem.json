@@ -1,0 +1,112 @@
+{
+  "id": "pdeu-heat-transfer-laboratory-chem",
+  "name": "Heat Transfer Laboratory",
+  "field": "Heat Transfer Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 4): Heat Transfer Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 6 of CHEM/sem4/Chemical_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH207P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s4-heat-transfer-laboratory",
+      "code": "24CH207P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-heat-transfer-in-natural-convection",
+          "name": "Heat transfer in natural convection.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-heat-transfer-in-forced-convection",
+          "name": "Heat transfer in forced convection.",
+          "number": 2,
+          "requires": ["experiment-1-heat-transfer-in-natural-convection"]
+        },
+        {
+          "id": "experiment-3-stefan-boltzmann-constant-verification",
+          "name": "Stefan-Boltzmann constant verification.",
+          "number": 3,
+          "requires": ["experiment-2-heat-transfer-in-forced-convection"]
+        },
+        {
+          "id": "experiment-4-parallel-and-counter-flow-heat-exchangers",
+          "name": "Parallel and counter flow heat exchangers.",
+          "number": 4,
+          "requires": ["experiment-3-stefan-boltzmann-constant-verification"]
+        },
+        {
+          "id": "experiment-5-emissivity-apparatus",
+          "name": "Emissivity apparatus.",
+          "number": 5,
+          "requires": ["experiment-4-parallel-and-counter-flow-heat-exchangers"]
+        },
+        {
+          "id": "experiment-6-thermal-conductivity-of-insulating-powder",
+          "name": "Thermal conductivity of insulating powder.",
+          "number": 6,
+          "requires": ["experiment-5-emissivity-apparatus"]
+        },
+        {
+          "id": "experiment-7-thermal-conductivity-of-a-metal-bar",
+          "name": "Thermal conductivity of a metal bar.",
+          "number": 7,
+          "requires": ["experiment-6-thermal-conductivity-of-insulating-powder"]
+        },
+        {
+          "id": "experiment-8-heat-transfer-by-vertical-and-horizontal-heat-e",
+          "name": "Heat transfer by vertical and horizontal heat exchangers in natural convection.",
+          "number": 8,
+          "requires": ["experiment-7-thermal-conductivity-of-a-metal-bar"]
+        },
+        {
+          "id": "experiment-9-plate-type-heat-exchanger",
+          "name": "Plate type heat exchanger.",
+          "number": 9,
+          "requires": ["experiment-8-heat-transfer-by-vertical-and-horizontal-heat-e"]
+        },
+        {
+          "id": "experiment-10-finned-tube-heat-exchanger",
+          "name": "Finned tube heat exchanger.",
+          "number": 10,
+          "requires": ["experiment-9-plate-type-heat-exchanger"]
+        },
+        {
+          "id": "experiment-11-heat-transfer-in-an-agitated-vessel",
+          "name": "Heat transfer in an agitated vessel.",
+          "number": 11,
+          "requires": ["experiment-10-finned-tube-heat-exchanger"]
+        },
+        {
+          "id": "experiment-12-evaporator-max-26-hrs",
+          "name": "Evaporator. Max 26 Hrs",
+          "number": 12,
+          "requires": ["experiment-11-heat-transfer-in-an-agitated-vessel"]
+        }
+      ]
+    }
+  ]
+}

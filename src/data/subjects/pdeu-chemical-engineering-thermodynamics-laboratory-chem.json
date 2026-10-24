@@ -1,0 +1,107 @@
+{
+  "id": "pdeu-chemical-engineering-thermodynamics-laboratory-chem",
+  "name": "Chemical Engineering Thermodynamics Laboratory",
+  "field": "Chemical Engineering Thermodynamics Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 4): Chemical Engineering Thermodynamics Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 11 of CHEM/sem4/Chemical_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH210P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s4-chemical-engineering-thermodynamics-laboratory",
+      "code": "24CH210P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-understanding-and-creating-cubic-equations-of-s",
+          "name": "Understanding and creating cubic equations of state models in the Julia programming language.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-estimation-of-pure-component-enthalpy-entropy-r",
+          "name": "Estimation of pure component enthalpy, entropy, residual enthalpy and residual entropy using cubic equations of state models.",
+          "number": 2,
+          "requires": ["experiment-1-understanding-and-creating-cubic-equations-of-s"]
+        },
+        {
+          "id": "experiment-3-computation-of-gibbs-free-energy-helmholtz-free",
+          "name": "Computation of Gibbs free energy, Helmholtz free energy, chemical potential and fugacity coefficients.",
+          "number": 3,
+          "requires": ["experiment-2-estimation-of-pure-component-enthalpy-entropy-r"]
+        },
+        {
+          "id": "experiment-4-computation-of-isothermal-compressibility-isoba",
+          "name": "Computation of isothermal compressibility, isobaric expansivity, and isobaric and isochoric heat capacities.",
+          "number": 4,
+          "requires": ["experiment-3-computation-of-gibbs-free-energy-helmholtz-free"]
+        },
+        {
+          "id": "experiment-5-computation-of-mixing-functions-for-a-specified",
+          "name": "Computation of mixing functions for a specified property.",
+          "number": 5,
+          "requires": ["experiment-4-computation-of-isothermal-compressibility-isoba"]
+        },
+        {
+          "id": "experiment-6-application-of-iterative-methods-to-find-soluti",
+          "name": "Application of iterative methods to find solutions of cubic equations of state.",
+          "number": 6,
+          "requires": ["experiment-5-computation-of-mixing-functions-for-a-specified"]
+        },
+        {
+          "id": "experiment-7-dew-point-temperature-and-pressure-estimation-u",
+          "name": "Dew point temperature and pressure estimation using the equation of state and activity coefficient models.",
+          "number": 7,
+          "requires": ["experiment-6-application-of-iterative-methods-to-find-soluti"]
+        },
+        {
+          "id": "experiment-8-bubble-point-temperature-and-pressure-estimatio",
+          "name": "Bubble point temperature and pressure estimation using the equation of state and activity coefficient models.",
+          "number": 8,
+          "requires": ["experiment-7-dew-point-temperature-and-pressure-estimation-u"]
+        },
+        {
+          "id": "experiment-9-generating-t-xy-p-xy-and-y-x-diagrams-for-vapou",
+          "name": "Generating T-xy, P-xy and y-x diagrams for vapour-liquid equilibrium and prediction of the presence of azeotropes.",
+          "number": 9,
+          "requires": ["experiment-8-bubble-point-temperature-and-pressure-estimatio"]
+        },
+        {
+          "id": "experiment-10-generating-and-understanding-the-residue-curve",
+          "name": "Generating and understanding the residue curve map for a multicomponent system.",
+          "number": 10,
+          "requires": ["experiment-9-generating-t-xy-p-xy-and-y-x-diagrams-for-vapou"]
+        },
+        {
+          "id": "experiment-11-development-of-a-flash-drum-for-isothermal-and",
+          "name": "Development of a flash drum for isothermal and adiabatic processes. Max 26 Hrs",
+          "number": 11,
+          "requires": ["experiment-10-generating-and-understanding-the-residue-curve"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-chemical-engineering-thermodynamics-chem"]
+}

@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "process",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -123,8 +123,31 @@
         },
         {
           "id": "processes-operating-parameters-feed-stock-selection-and",
-          "name": "Processes, operating parameters, feed stock selection and product yields, Advantages –Types and functions of secondary processing",
-          "requires": ["thermal-cracking-coking"]
+          "name": "Processes",
+          "requires": ["thermal-cracking-coking"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "operating-parameters",
+          "name": "operating parameters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["processes-operating-parameters-feed-stock-selection-and"]
+        },
+        {
+          "id": "feed-stock-selection-and-product-yields",
+          "name": "feed stock selection and product yields",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["operating-parameters"]
+        },
+        {
+          "id": "advantages-types-and-functions-of-secondary-processing",
+          "name": "Advantages –Types and functions of secondary processing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["feed-stock-selection-and-product-yields"]
         },
         {
           "id": "visbreaking",
@@ -138,8 +161,17 @@
         },
         {
           "id": "fcc",
-          "name": "Fluid catalytic cracking –processes, operating parameters, feed stock selection and product yields –Advantages",
-          "requires": ["thermal-cracking-coking"]
+          "name": "Fluid catalytic cracking –processes",
+          "requires": ["thermal-cracking-coking"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "feed-stock-selection-and-product-yields-advantages",
+          "name": "feed stock selection and product yields –Advantages",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fcc"]
         }
       ]
     },
@@ -150,7 +182,23 @@
       "topics": [
         {
           "id": "principle-processes-operating-parameter-and-advantages-of",
-          "name": "Principle, Processes, Operating Parameter and advantages of Reforming"
+          "name": "Principle",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "processes",
+          "name": "Processes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principle-processes-operating-parameter-and-advantages-of"]
+        },
+        {
+          "id": "operating-parameter-and-advantages-of-reforming",
+          "name": "Operating Parameter and advantages of Reforming",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["processes"]
         },
         {
           "id": "isomerisation",
@@ -169,10 +217,34 @@
         },
         {
           "id": "asphalt-manufacture-air-blowing-technology-bitumen-types-and",
-          "name": "Asphalt manufacture, Air blowing technology, Bitumen Types and their properties, Acid gas removal and sulphur removal techniques",
-          "requires": ["polymerization"]
+          "name": "Asphalt manufacture",
+          "requires": ["polymerization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "air-blowing-technology",
+          "name": "Air blowing technology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["asphalt-manufacture-air-blowing-technology-bitumen-types-and"]
+        },
+        {
+          "id": "bitumen-types-and-their-properties",
+          "name": "Bitumen Types and their properties",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["air-blowing-technology"]
+        },
+        {
+          "id": "acid-gas-removal-and-sulphur-removal-techniques",
+          "name": "Acid gas removal and sulphur removal techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bitumen-types-and-their-properties"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

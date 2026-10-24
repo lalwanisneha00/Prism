@@ -1,0 +1,114 @@
+{
+  "id": "pdeu-engineering-chemistry-laboratory-civil",
+  "name": "Engineering Chemistry Laboratory",
+  "field": "Engineering Chemistry Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["civil"],
+  "semesters": [2],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CIVIL semester 2): Engineering Chemistry Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 4 of CIVIL/sem2/Civil_Semester_2_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "civil",
+      "key": "s2-engineering-chemistry-laboratory",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 2,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-iodometry",
+          "name": "Iodometry",
+          "number": 1,
+          "aim": "To determine the strength of given copper sulphate solution by titrating against N/20 sodium thiosulphate (hypo) solution"
+        },
+        {
+          "id": "experiment-2-iodimetry",
+          "name": "Iodimetry",
+          "number": 2,
+          "aim": "To determine the strength of given ascorbic acid by titrating against standard N/10 iodine solution",
+          "requires": ["experiment-1-iodometry"]
+        },
+        {
+          "id": "experiment-3-complexometric-titration",
+          "name": "Complexometric Titration",
+          "number": 3,
+          "aim": "To determine the total, permanent and temporary hardness of given water by complexometric titration using standard 0.01M EDTA solution",
+          "requires": ["experiment-2-iodimetry"]
+        },
+        {
+          "id": "experiment-4-ph-metric-titration",
+          "name": "pH metric titration",
+          "number": 4,
+          "aim": "To determine the strength of given HCl solution using a standard NaOH solution by performing a pH-metric titration",
+          "requires": ["experiment-3-complexometric-titration"]
+        },
+        {
+          "id": "experiment-5-conductometric-titration",
+          "name": "Conductometric titration",
+          "number": 5,
+          "aim": "To determine the strength of given HCl solution using a standard NaOH solution by performing a conductometric titration",
+          "requires": ["experiment-4-ph-metric-titration"]
+        },
+        {
+          "id": "experiment-6-chemical-kinetics",
+          "name": "Chemical Kinetics",
+          "number": 6,
+          "aim": "To study the kinetics of decomposition of sodium thiosulphate by a mineral acid",
+          "requires": ["experiment-5-conductometric-titration"]
+        },
+        {
+          "id": "experiment-7-drawing-chemical-structures",
+          "name": "Drawing chemical structures",
+          "number": 7,
+          "aim": "To Draw Chemical Structures of organic molecules using ChemDraw",
+          "requires": ["experiment-6-chemical-kinetics"]
+        },
+        {
+          "id": "experiment-8-colorimetric-determination",
+          "name": "Colorimetric determination",
+          "number": 8,
+          "aim": "To determine the concentration of copper present in the effluent of electroplating industries by using colorimeter.",
+          "requires": ["experiment-7-drawing-chemical-structures"]
+        },
+        {
+          "id": "experiment-9-detection-of-biomolecule-detection-of-the-prese",
+          "name": "Detection of biomolecule: Detection of the presence of carbohydrates in test solution by using Benedict’s reagent",
+          "number": 9,
+          "requires": ["experiment-8-colorimetric-determination"]
+        },
+        {
+          "id": "experiment-10-preparation-of-drug-molecule-preparation-of-as",
+          "name": "Preparation of drug molecule: Preparation of Aspirin from salicylic acid",
+          "number": 10,
+          "requires": ["experiment-9-detection-of-biomolecule-detection-of-the-prese"]
+        },
+        {
+          "id": "experiment-11-polymerization",
+          "name": "Polymerization",
+          "number": 11,
+          "aim": "To prepare a polymer (Nylon 6,10), identify the functional groups by FT-IR",
+          "requires": ["experiment-10-preparation-of-drug-molecule-preparation-of-as"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-chemistry-ece-civil"]
+}

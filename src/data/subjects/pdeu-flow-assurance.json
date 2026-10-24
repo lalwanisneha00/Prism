@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Flow Assurance",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -212,8 +212,17 @@
         },
         {
           "id": "scale-deposition-and-gas-hydrates-formation",
-          "name": "scale deposition, and gas hydrates formation",
-          "requires": ["asphaltenes-precipitation"]
+          "name": "scale deposition",
+          "requires": ["asphaltenes-precipitation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gas-hydrates-formation",
+          "name": "gas hydrates formation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scale-deposition-and-gas-hydrates-formation"]
         },
         {
           "id": "case-studies-on-flow-assurance-in-industry",
@@ -222,5 +231,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

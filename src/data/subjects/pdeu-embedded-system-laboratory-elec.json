@@ -1,0 +1,106 @@
+{
+  "id": "pdeu-embedded-system-laboratory-elec",
+  "name": "Embedded System Laboratory",
+  "field": "Embedded System Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 6): Embedded System Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 14 of ELEC/sem6/Electrical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE316P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s6-embedded-system-laboratory",
+      "code": "20EE316P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-blink-an-led-connected-to-gpio-pin-configured-a",
+          "name": "Blink an LED connected to GPIO pin configured as an output pin of microcontroller",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-accept-input-through-a-push-button-switch-conne",
+          "name": "Accept input through a push button switch connected to a GPIO pin configured as an inputof microcontroller",
+          "number": 2,
+          "requires": ["experiment-1-blink-an-led-connected-to-gpio-pin-configured-a"]
+        },
+        {
+          "id": "experiment-3-interface-an-lcd-with-a-microcontroller-todispl",
+          "name": "Interface an LCD with a microcontroller todisplay the Integers",
+          "number": 3,
+          "requires": ["experiment-2-accept-input-through-a-push-button-switch-conne"]
+        },
+        {
+          "id": "experiment-4-control-an-output-voltage-at-dac-using-potentio",
+          "name": "Control an output voltage at DAC using potentiometer connected to the ADC of the microcontroller",
+          "number": 4,
+          "requires": ["experiment-3-interface-an-lcd-with-a-microcontroller-todispl"]
+        },
+        {
+          "id": "experiment-5-display-floatingnumbers-on-an-lcd-with-microcon",
+          "name": "Display floatingnumbers on an LCD with microcontroller",
+          "number": 5,
+          "requires": ["experiment-4-control-an-output-voltage-at-dac-using-potentio"]
+        },
+        {
+          "id": "experiment-6-perform-a-to-d-conversion-and-measure-the-data",
+          "name": "Perform A to D Conversion and measure the data using DAC",
+          "number": 6,
+          "requires": ["experiment-5-display-floatingnumbers-on-an-lcd-with-microcon"]
+        },
+        {
+          "id": "experiment-7-interface-a-temperature-sensor-with-the-adc-and",
+          "name": "Interface a temperature sensor with the ADC and display the temperature",
+          "number": 7,
+          "requires": ["experiment-6-perform-a-to-d-conversion-and-measure-the-data"]
+        },
+        {
+          "id": "experiment-8-use-timers-counters-and-the-prescaler-on-the-mi",
+          "name": "Use Timers Counters and the Prescaler on the microcontroller",
+          "number": 8,
+          "requires": ["experiment-7-interface-a-temperature-sensor-with-the-adc-and"]
+        },
+        {
+          "id": "experiment-9-demonstrate-up-down-and-up-down-counter-operati",
+          "name": "Demonstrate Up, Down and Up-Down counter operation using a microcontroller",
+          "number": 9,
+          "requires": ["experiment-8-use-timers-counters-and-the-prescaler-on-the-mi"]
+        },
+        {
+          "id": "experiment-10-demonstrate-a-pwm-pulse-width-modulation-using",
+          "name": "Demonstrate a PWM (Pulse Width Modulation) using a microcontroller",
+          "number": 10,
+          "requires": ["experiment-9-demonstrate-up-down-and-up-down-counter-operati"]
+        },
+        {
+          "id": "experiment-11-control-the-pwm-output-with-the-adc-and-a-pote",
+          "name": "Control the PWM Output with the ADC and a potentiometer",
+          "number": 11,
+          "requires": ["experiment-10-demonstrate-a-pwm-pulse-width-modulation-using"]
+        }
+      ]
+    }
+  ]
+}

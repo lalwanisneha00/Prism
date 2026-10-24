@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "process",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -96,8 +96,31 @@
         },
         {
           "id": "single-phase-and-multiphase-fluid-flow-in-different-state",
-          "name": "Single phase and multiphase fluid flow in different state (steady and unsteady) and different systems (linear, radial, turbulent, spherical) considering compressible",
-          "requires": ["classification-of-flow-system-in-porous-media"]
+          "name": "Single phase and multiphase fluid flow in different state (steady and unsteady) and different systems (linear",
+          "requires": ["classification-of-flow-system-in-porous-media"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "radial",
+          "name": "radial",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["single-phase-and-multiphase-fluid-flow-in-different-state"]
+        },
+        {
+          "id": "turbulent",
+          "name": "turbulent",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radial"]
+        },
+        {
+          "id": "spherical-considering-compressible",
+          "name": "spherical) considering compressible",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["turbulent"]
         },
         {
           "id": "slightly-compressible-and-incompressible-fluid",
@@ -118,17 +141,58 @@
       "topics": [
         {
           "id": "reservoir-field-operation-data-acquisition-basic-data-of",
-          "name": "Reservoir Field operation data acquisition, Basic data of reservoir engineering"
+          "name": "Reservoir Field operation data acquisition",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "pvt-data-core-data-well-logging-and-transient-well-testing",
-          "name": "PVT data, Core data, Well logging and transient well testing information",
+          "id": "basic-data-of-reservoir-engineering",
+          "name": "Basic data of reservoir engineering",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["reservoir-field-operation-data-acquisition-basic-data-of"]
         },
         {
-          "id": "reservoir-drive-mechanism-application-of-reservoir",
-          "name": "Reservoir Drive Mechanism, Application of reservoir engineering principles: volumetric, material balance and decline curve analysis",
+          "id": "pvt-data-core-data-well-logging-and-transient-well-testing",
+          "name": "PVT data",
+          "requires": ["reservoir-field-operation-data-acquisition-basic-data-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "core-data",
+          "name": "Core data",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["pvt-data-core-data-well-logging-and-transient-well-testing"]
+        },
+        {
+          "id": "well-logging-and-transient-well-testing-information",
+          "name": "Well logging and transient well testing information",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["core-data"]
+        },
+        {
+          "id": "reservoir-drive-mechanism-application-of-reservoir",
+          "name": "Reservoir Drive Mechanism",
+          "requires": ["pvt-data-core-data-well-logging-and-transient-well-testing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "application-of-reservoir-engineering-principles-volumetric",
+          "name": "Application of reservoir engineering principles: volumetric",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reservoir-drive-mechanism-application-of-reservoir"]
+        },
+        {
+          "id": "material-balance-and-decline-curve-analysis",
+          "name": "material balance and decline curve analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["application-of-reservoir-engineering-principles-volumetric"]
         }
       ]
     },
@@ -173,5 +237,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

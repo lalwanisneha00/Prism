@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Design of RCC Structures",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -38,7 +38,16 @@
       "topics": [
         {
           "id": "introduction",
-          "name": "Introduction"
+          "name": "Introduction",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-and-scope-2",
+          "name": "Introduction and scope",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction"]
         },
         {
           "id": "introduction-and-scope",
@@ -148,8 +157,17 @@
         },
         {
           "id": "t-and-l-beams-for-under-reinforced-and-balanced-sections-and",
-          "name": "T and L beams for under- reinforced and balanced sections, & singly and doubly reinforced",
-          "requires": ["rectangular"]
+          "name": "T and L beams for under- reinforced and balanced sections",
+          "requires": ["rectangular"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "and-singly-and-doubly-reinforced",
+          "name": "& singly and doubly reinforced",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["t-and-l-beams-for-under-reinforced-and-balanced-sections-and"]
         },
         {
           "id": "design-of-shear-reinforcement",
@@ -174,8 +192,17 @@
         },
         {
           "id": "design-of-one-way-two-way-and-cantilever-slabs-for-flexure",
-          "name": "Design of one way, two-way and cantilever slabs for flexure and check for shear deflections Design Staircase",
-          "requires": ["design-of-slabs"]
+          "name": "Design of one way",
+          "requires": ["design-of-slabs"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "two-way-and-cantilever-slabs-for-flexure-and-check-for-shear",
+          "name": "two-way and cantilever slabs for flexure and check for shear deflections Design Staircase",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-of-one-way-two-way-and-cantilever-slabs-for-flexure"]
         },
         {
           "id": "types-of-staircase",
@@ -240,8 +267,24 @@
         },
         {
           "id": "effective-lengths-slenderness-ratio-short-and-long-columns",
-          "name": "Effective lengths, slenderness ratio, Short and long columns definitions",
-          "requires": ["design-of-compression-members"]
+          "name": "Effective lengths",
+          "requires": ["design-of-compression-members"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "slenderness-ratio",
+          "name": "slenderness ratio",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["effective-lengths-slenderness-ratio-short-and-long-columns"]
+        },
+        {
+          "id": "short-and-long-columns-definitions",
+          "name": "Short and long columns definitions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["slenderness-ratio"]
         },
         {
           "id": "design-of-short-columns-subjected-to-axial-load",
@@ -275,5 +318,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

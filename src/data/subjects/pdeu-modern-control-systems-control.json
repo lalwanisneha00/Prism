@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Modern Control Systems (Control)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -196,7 +196,16 @@
         {
           "id": "nonlinear-systems",
           "name": "Nonlinear Systems",
-          "requires": ["energy-based-modelling-of-modern-control-systems"]
+          "requires": ["energy-based-modelling-of-modern-control-systems"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "local-behaviour-of-nonlinear-systems-2",
+          "name": "Local behaviour of nonlinear systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["nonlinear-systems"]
         },
         {
           "id": "qualitative-analysis",
@@ -206,7 +215,16 @@
         {
           "id": "linearization",
           "name": "Linearization",
-          "requires": ["qualitative-analysis"]
+          "requires": ["qualitative-analysis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "feedback-linearization-2",
+          "name": "Feedback Linearization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linearization"]
         },
         {
           "id": "local-behaviour-of-nonlinear-systems",
@@ -273,7 +291,16 @@
         {
           "id": "state-feedback-control-with-pole-placement",
           "name": "State feedback control with pole placement",
-          "requires": ["review-of-pid-control"]
+          "requires": ["review-of-pid-control"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "output-feedback-control-with-pole-placement-2",
+          "name": "Output feedback control with pole placement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["state-feedback-control-with-pole-placement"]
         },
         {
           "id": "output-feedback-control-with-pole-placement",
@@ -347,20 +374,38 @@
         },
         {
           "id": "future-trends-and-the-way-forward-control-and-estimation-for",
-          "name": "Future trends and the way forward - Control and estimation for modern applications like robotics",
-          "requires": ["high-gain-observer-and-sliding-mode-observer"]
+          "name": "Future trends and the way forward",
+          "requires": ["high-gain-observer-and-sliding-mode-observer"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "control-and-estimation-for-modern-applications-like-robotics",
+          "name": "Control and estimation for modern applications like robotics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["future-trends-and-the-way-forward-control-and-estimation-for"]
         },
         {
           "id": "drones-and-multi-agent-systems",
           "name": "drones and Multi- agent systems",
-          "requires": ["future-trends-and-the-way-forward-control-and-estimation-for"]
+          "requires": ["future-trends-and-the-way-forward-control-and-estimation-for"],
+          "status": "retired"
         },
         {
           "id": "data-driven-control-in-ai-applications",
           "name": "Data-driven control in AI applications",
           "requires": ["drones-and-multi-agent-systems"]
+        },
+        {
+          "id": "drones-and-multiagent-systems",
+          "name": "drones and Multiagent systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-driven-control-in-ai-applications"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

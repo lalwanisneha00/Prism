@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Computer Graphics",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -70,8 +70,24 @@
         },
         {
           "id": "circle-ellipse-and-polygon-drawing-algorithms",
-          "name": "circle, ellipse, and polygon drawing algorithms",
-          "requires": ["line"]
+          "name": "circle",
+          "requires": ["line"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ellipse",
+          "name": "ellipse",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["circle-ellipse-and-polygon-drawing-algorithms"]
+        },
+        {
+          "id": "polygon-drawing-algorithms",
+          "name": "polygon drawing algorithms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ellipse"]
         },
         {
           "id": "polygon-filling-algorithms",
@@ -81,7 +97,8 @@
         {
           "id": "introduction-to-ar-vr",
           "name": "Introduction to AR-VR",
-          "requires": ["polygon-filling-algorithms"]
+          "requires": ["polygon-filling-algorithms"],
+          "status": "retired"
         }
       ]
     },
@@ -92,7 +109,37 @@
       "topics": [
         {
           "id": "two-dimensional-transformations-translation-rotation-scaling",
-          "name": "Two-dimensional transformations (translation, rotation, scaling, reflection, shearing)"
+          "name": "Two-dimensional transformations (translation",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "rotation",
+          "name": "rotation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["two-dimensional-transformations-translation-rotation-scaling"]
+        },
+        {
+          "id": "scaling",
+          "name": "scaling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rotation"]
+        },
+        {
+          "id": "reflection",
+          "name": "reflection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scaling"]
+        },
+        {
+          "id": "shearing",
+          "name": "shearing)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reflection"]
         },
         {
           "id": "matrix-representation",
@@ -122,7 +169,15 @@
         {
           "id": "unity-essentials",
           "name": "Unity essentials",
-          "requires": ["line-clipping"]
+          "requires": ["line-clipping"],
+          "status": "retired"
+        },
+        {
+          "id": "polygon-clipping",
+          "name": "polygon clipping",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["unity-essentials"]
         }
       ]
     },
@@ -137,8 +192,38 @@
         },
         {
           "id": "three-dimensional-transformations-translation-rotation",
-          "name": "Three-dimensional transformations (translation, rotation, scaling, reflection, shearing)",
-          "requires": ["three-dimensional-object-representations"]
+          "name": "Three-dimensional transformations (translation",
+          "requires": ["three-dimensional-object-representations"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "rotation-2",
+          "name": "rotation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["three-dimensional-transformations-translation-rotation"]
+        },
+        {
+          "id": "scaling-2",
+          "name": "scaling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rotation-2"]
+        },
+        {
+          "id": "reflection-2",
+          "name": "reflection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scaling-2"]
+        },
+        {
+          "id": "shearing-2",
+          "name": "shearing)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reflection-2"]
         },
         {
           "id": "projection-and-types-of-projection",
@@ -163,7 +248,15 @@
         {
           "id": "concepts-related-to-augmented-reality",
           "name": "Concepts Related to Augmented Reality",
-          "requires": ["curved-lines-and-surfaces"]
+          "requires": ["curved-lines-and-surfaces"],
+          "status": "retired"
+        },
+        {
+          "id": "visible-surfaces",
+          "name": "Visible surfaces",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concepts-related-to-augmented-reality"]
         }
       ]
     },
@@ -178,8 +271,24 @@
         },
         {
           "id": "colour-models-rgb-yiq-cmy",
-          "name": "Colour models (RGB, YIQ, CMY)",
-          "requires": ["polygon-rendering-methods"]
+          "name": "Colour models (RGB",
+          "requires": ["polygon-rendering-methods"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "yiq",
+          "name": "YIQ",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["colour-models-rgb-yiq-cmy"]
+        },
+        {
+          "id": "cmy",
+          "name": "CMY)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["yiq"]
         },
         {
           "id": "animation-computer-assisted-animation-and-real-time",
@@ -189,9 +298,25 @@
         {
           "id": "concepts-related-to-virtual-reality",
           "name": "Concepts Related to Virtual Reality",
-          "requires": ["animation-computer-assisted-animation-and-real-time"]
+          "requires": ["animation-computer-assisted-animation-and-real-time"],
+          "status": "retired"
+        },
+        {
+          "id": "texture-mapping",
+          "name": "Texture mapping",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concepts-related-to-virtual-reality"]
+        },
+        {
+          "id": "modelling-techniques-and-fractals",
+          "name": "Modelling techniques and fractals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["texture-mapping"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

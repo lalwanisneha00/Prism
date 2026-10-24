@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Drones: Design, Theory and Applications (Control)",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,7 +40,23 @@
       "topics": [
         {
           "id": "overview-of-drone-technology-history-evolution-and-current",
-          "name": "Overview of drone technology: history, evolution, and current trends"
+          "name": "Overview of drone technology: history",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "evolution",
+          "name": "evolution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["overview-of-drone-technology-history-evolution-and-current"]
+        },
+        {
+          "id": "current-trends",
+          "name": "current trends",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["evolution"]
         },
         {
           "id": "types-of-drones-fixed-wing",
@@ -49,13 +65,31 @@
         },
         {
           "id": "rotary-wing-quadcopters-hexa-and-octacopters-etc",
-          "name": "rotary-wing (quadcopters, hexa and octacopters, etc.)",
-          "requires": ["types-of-drones-fixed-wing"]
+          "name": "rotary-wing (quadcopters",
+          "requires": ["types-of-drones-fixed-wing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "hexa-and-octacopters",
+          "name": "hexa and octacopters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rotary-wing-quadcopters-hexa-and-octacopters-etc"]
         },
         {
           "id": "hybrid-components-of-a-drone-frame",
-          "name": "hybrid. Components of a drone: frame",
-          "requires": ["rotary-wing-quadcopters-hexa-and-octacopters-etc"]
+          "name": "hybrid",
+          "requires": ["rotary-wing-quadcopters-hexa-and-octacopters-etc"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "components-of-a-drone-frame",
+          "name": "Components of a drone: frame",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hybrid-components-of-a-drone-frame"]
         },
         {
           "id": "motors",
@@ -99,8 +133,31 @@
         },
         {
           "id": "regulations-in-drone-operations-safety-measures-and-best",
-          "name": "Regulations in drone operations. Safety measures and best practices for drone operation",
-          "requires": ["etc-drone-design-aspects"]
+          "name": "Regulations in drone operations",
+          "requires": ["etc-drone-design-aspects"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "safety-measures-and-best-practices-for-drone-operation",
+          "name": "Safety measures and best practices for drone operation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["regulations-in-drone-operations-safety-measures-and-best"]
+        },
+        {
+          "id": "etc",
+          "name": "etc.)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["safety-measures-and-best-practices-for-drone-operation"]
+        },
+        {
+          "id": "etc-2",
+          "name": "etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["etc"]
         }
       ]
     },
@@ -283,7 +340,16 @@
       "topics": [
         {
           "id": "2-d-quadrotor-control",
-          "name": "2-D Quadrotor Control"
+          "name": "2-D Quadrotor Control",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "3-d-quadrotor-control-2",
+          "name": "3-D Quadrotor Control",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["2-d-quadrotor-control"]
         },
         {
           "id": "3-d-quadrotor-control",
@@ -292,8 +358,24 @@
         },
         {
           "id": "time-motion-and-trajectories",
-          "name": "Time, Motion, and Trajectories",
-          "requires": ["3-d-quadrotor-control"]
+          "name": "Time",
+          "requires": ["3-d-quadrotor-control"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "motion",
+          "name": "Motion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["time-motion-and-trajectories"]
+        },
+        {
+          "id": "trajectories",
+          "name": "Trajectories",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["motion"]
         },
         {
           "id": "motion-planning-for-quadrotors",
@@ -337,10 +419,20 @@
         },
         {
           "id": "agriculture-drone-with-mobile-robot-operations",
-          "name": "Agriculture. Drone with Mobile Robot operations",
-          "requires": ["transportation"]
+          "name": "Agriculture",
+          "requires": ["transportation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "drone-with-mobile-robot-operations",
+          "name": "Drone with Mobile Robot operations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["agriculture-drone-with-mobile-robot-operations"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

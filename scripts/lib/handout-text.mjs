@@ -188,7 +188,7 @@ export function detectCourseStarts(lines, prevLines = []) {
   return starts;
 }
 
-function isPageHeader(text) {
+export function isPageHeader(text) {
   return NOISE_RE.test(text) || text.replace(HEADER_RE, "").trim() === "";
 }
 

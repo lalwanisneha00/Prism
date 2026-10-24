@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "civil",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -50,7 +50,16 @@
       "topics": [
         {
           "id": "sight-distance",
-          "name": "Importance of geometric design- Terrain classification- Design speed- Factors affecting geometric design, Cross sectional elements-Camber- width of pavement- Sight Distance design- Stopping sight dist"
+          "name": "Importance of geometric design- Terrain classification- Design speed- Factors affecting geometric design",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cross-sectional-elements-camber-width-of-pavement-sight-dist",
+          "name": "Cross sectional elements-Camber- width of pavement- Sight Distance design- Stopping sight distance- Overtaking sight dis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sight-distance"]
         },
         {
           "id": "extra-widening-transition-curve-and-its-length-setback",
@@ -59,8 +68,17 @@
         },
         {
           "id": "vertical-curves",
-          "name": "Examples, Vertical alignment-Gradient summit and valley curves",
-          "requires": ["sight-distance"]
+          "name": "Examples",
+          "requires": ["sight-distance"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "vertical-alignment-gradient-summit-and-valley-curves",
+          "name": "Vertical alignment-Gradient summit and valley curves",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vertical-curves"]
         }
       ]
     },
@@ -71,7 +89,37 @@
       "topics": [
         {
           "id": "pavement-materials",
-          "name": "Desirable properties and different test procedure of pavement materials (tests for soil, aggregate, bitumen etc.- Road construction methods- PAVEMENT DESIGN- Pavement types- component parts of flexibl"
+          "name": "Desirable properties and different test procedure of pavement materials (tests for soil",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "aggregate",
+          "name": "aggregate",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pavement-materials"]
+        },
+        {
+          "id": "bitumen-etc-road-construction-methods-pavement-design-paveme",
+          "name": "bitumen etc.- Road construction methods- PAVEMENT DESIGN- Pavement types- component parts of flexible and rigid pavement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["aggregate"]
+        },
+        {
+          "id": "rigid-pavement-westergaard-s-equations-for-load-and-temperat",
+          "name": "Rigid pavement- Westergaard’s equations for load and temperature stresses- Design of slab thickness only as per IRC: 58-",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bitumen-etc-road-construction-methods-pavement-design-paveme"]
+        },
+        {
+          "id": "different-types-of-flexible-and-rigid-pavement-failures-and",
+          "name": "Different types of Flexible and Rigid pavement failures and pavement management methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rigid-pavement-westergaard-s-equations-for-load-and-temperat"]
         }
       ]
     },
@@ -86,13 +134,45 @@
         },
         {
           "id": "traffic-studies-on-flow-and-speed-peak-hour-factor-accident",
-          "name": "Traffic studies on flow and speed, peak hour factor, accident study, statistical analysis of traffic data",
-          "requires": ["various-traffic-parameters-and-its-importance-in-the-safe"]
+          "name": "Traffic studies on flow and speed",
+          "requires": ["various-traffic-parameters-and-its-importance-in-the-safe"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "peak-hour-factor",
+          "name": "peak hour factor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["traffic-studies-on-flow-and-speed-peak-hour-factor-accident"]
+        },
+        {
+          "id": "accident-study",
+          "name": "accident study",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["peak-hour-factor"]
+        },
+        {
+          "id": "statistical-analysis-of-traffic-data",
+          "name": "statistical analysis of traffic data",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["accident-study"]
         },
         {
           "id": "microscopic-and-macroscopic-parameters-of-traffic-flow",
-          "name": "Microscopic and macroscopic parameters of traffic flow, fundamental relationships",
-          "requires": ["traffic-studies-on-flow-and-speed-peak-hour-factor-accident"]
+          "name": "Microscopic and macroscopic parameters of traffic flow",
+          "requires": ["traffic-studies-on-flow-and-speed-peak-hour-factor-accident"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fundamental-relationships",
+          "name": "fundamental relationships",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["microscopic-and-macroscopic-parameters-of-traffic-flow"]
         },
         {
           "id": "traffic-signs",
@@ -117,9 +197,12 @@
         {
           "id": "laboratory",
           "name": "Laboratory",
-          "requires": ["highway-capacity-introduction-to-intelligent-transportation"]
+          "requires": ["highway-capacity-introduction-to-intelligent-transportation"],
+          "status": "retired"
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-highway-and-traffic-engineering-laboratory-civil"]
 }

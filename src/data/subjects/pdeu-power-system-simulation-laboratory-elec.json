@@ -1,0 +1,124 @@
+{
+  "id": "pdeu-power-system-simulation-laboratory-elec",
+  "name": "Power System Simulation Laboratory",
+  "field": "Power System Simulation Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): Power System Simulation Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 4 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE301P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-power-system-simulation-laboratory",
+      "code": "20EE301P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-introduction-to-matlab-simulink-mipower-pscad-a",
+          "name": "Introduction to MATLAB/Simulink, MiPower,PSCAD and PowerWorld software.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-to-calculate-voltage-regulation-of-transmission",
+          "name": "To calculate voltage regulation of transmission line under different loading conditions.",
+          "number": 2,
+          "requires": ["experiment-1-introduction-to-matlab-simulink-mipower-pscad-a"]
+        },
+        {
+          "id": "experiment-3-to-perform-compensation-of-transmission-line-un",
+          "name": "To perform compensation of transmission line under different loading conditions.",
+          "number": 3,
+          "requires": ["experiment-2-to-calculate-voltage-regulation-of-transmission"]
+        },
+        {
+          "id": "experiment-4-to-simulate-transient-behaviour-of-long-transmi",
+          "name": "To simulate transient behaviour of long transmission line.",
+          "number": 4,
+          "requires": ["experiment-3-to-perform-compensation-of-transmission-line-un"]
+        },
+        {
+          "id": "experiment-5-to-obtain-bus-admittance-matrix-ybus-of-a-test",
+          "name": "To obtain bus admittance matrix (Ybus) of a test power system.",
+          "number": 5,
+          "requires": ["experiment-4-to-simulate-transient-behaviour-of-long-transmi"]
+        },
+        {
+          "id": "experiment-6-to-simulate-power-flow-analysis-using-gauss-sie",
+          "name": "To simulate power flow analysis using Gauss-Siedel, Newton-Raphson and Fast Decoupled Methods.",
+          "number": 6,
+          "requires": ["experiment-5-to-obtain-bus-admittance-matrix-ybus-of-a-test"]
+        },
+        {
+          "id": "experiment-7-to-perform-economic-operation-of-interconnected",
+          "name": "To perform economic operation of interconnected power system without constraints and line losses.",
+          "number": 7,
+          "requires": ["experiment-6-to-simulate-power-flow-analysis-using-gauss-sie"]
+        },
+        {
+          "id": "experiment-8-to-perform-economic-operation-of-interconnected",
+          "name": "To perform economic operation of interconnected power system with constraints and line losses.",
+          "number": 8,
+          "requires": ["experiment-7-to-perform-economic-operation-of-interconnected"]
+        },
+        {
+          "id": "experiment-9-to-simulate-symmetrical-fault-and-unsymmetrical",
+          "name": "To simulate symmetrical fault and unsymmetrical faults for a test power system",
+          "number": 9,
+          "requires": ["experiment-8-to-perform-economic-operation-of-interconnected"]
+        },
+        {
+          "id": "experiment-10-to-simulate-transient-stability-of-smib-system",
+          "name": "To simulate transient stability of SMIB system using equal-area criteria for different large disturbances.",
+          "number": 10,
+          "requires": ["experiment-9-to-simulate-symmetrical-fault-and-unsymmetrical"]
+        },
+        {
+          "id": "experiment-11-to-simulate-transient-stability-of-smib-by-sol",
+          "name": "To simulate transient stability of SMIB by solving swing equation for different large disturbances.",
+          "number": 11,
+          "requires": ["experiment-10-to-simulate-transient-stability-of-smib-system"]
+        },
+        {
+          "id": "experiment-12-to-obtain-pv-and-qv-curve-to-analyze-voltage-s",
+          "name": "To obtain PV and QV curve to analyze voltage stability of a test power system",
+          "number": 12,
+          "requires": ["experiment-11-to-simulate-transient-stability-of-smib-by-sol"]
+        },
+        {
+          "id": "experiment-13-to-perform-load-frequency-control-for-single-a",
+          "name": "To perform load frequency control for single area power system.",
+          "number": 13,
+          "requires": ["experiment-12-to-obtain-pv-and-qv-curve-to-analyze-voltage-s"]
+        },
+        {
+          "id": "experiment-14-to-perform-load-frequency-control-for-multi-ar",
+          "name": "To perform load frequency control for multi-area power systems.",
+          "number": 14,
+          "requires": ["experiment-13-to-perform-load-frequency-control-for-single-a"]
+        }
+      ]
+    }
+  ]
+}

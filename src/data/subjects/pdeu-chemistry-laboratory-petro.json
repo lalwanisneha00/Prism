@@ -1,0 +1,125 @@
+{
+  "id": "pdeu-chemistry-laboratory-petro",
+  "name": "Chemistry Laboratory",
+  "field": "Chemistry Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["petro"],
+  "semesters": [2],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (PETRO semester 2): Chemistry Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 6 of PETRO/sem2/Petroleum_Semester_2_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH102P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "petro",
+      "key": "s2-chemistry-practical",
+      "code": "24CH102P",
+      "category": "Basic Science",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 2,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-determination-of-the-concentration-strength-of",
+          "name": "Determination of the concentration (strength) of a given sodium hydroxide solution by titrating it against a standard solution of hydrochloric acid",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-determination-of-total-temporary-and-permanent",
+          "name": "Determination of total temporary and permanent hardness of a given water samples",
+          "number": 2,
+          "requires": ["experiment-1-determination-of-the-concentration-strength-of"]
+        },
+        {
+          "id": "experiment-3-determination-of-the-biological-oxygen-demand-b",
+          "name": "Determination of the Biological Oxygen Demand (BOD) of a given water sample",
+          "number": 3,
+          "requires": ["experiment-2-determination-of-total-temporary-and-permanent"]
+        },
+        {
+          "id": "experiment-4-determination-of-the-chemical-oxygen-demand-cod",
+          "name": "Determination of the Chemical Oxygen Demand (COD) of a given water sample",
+          "number": 4,
+          "requires": ["experiment-3-determination-of-the-biological-oxygen-demand-b"]
+        },
+        {
+          "id": "experiment-5-determination-of-viscosity-of-a-given-liquid-by",
+          "name": "Determination of viscosity of a given liquid by Ostwald viscometer",
+          "number": 5,
+          "requires": ["experiment-4-determination-of-the-chemical-oxygen-demand-cod"]
+        },
+        {
+          "id": "experiment-6-adsorption-studies-langmuir-and-freundlich-adso",
+          "name": "Adsorption Studies – Langmuir and Freundlich Adsorption Isotherms",
+          "number": 6,
+          "requires": ["experiment-5-determination-of-viscosity-of-a-given-liquid-by"]
+        },
+        {
+          "id": "experiment-7-determination-of-saponification-value-of-an-oil",
+          "name": "Determination of Saponification value of an oil",
+          "number": 7,
+          "requires": ["experiment-6-adsorption-studies-langmuir-and-freundlich-adso"]
+        },
+        {
+          "id": "experiment-8-determination-the-moisture-and-volatile-content",
+          "name": "Determination the moisture & volatile contents in a given coal sample by proximate analysis",
+          "number": 8,
+          "requires": ["experiment-7-determination-of-saponification-value-of-an-oil"]
+        },
+        {
+          "id": "experiment-9-identification-of-alcoholic-group-in-organic-sa",
+          "name": "Identification of alcoholic group in organic sample",
+          "number": 9,
+          "requires": ["experiment-8-determination-the-moisture-and-volatile-content"]
+        },
+        {
+          "id": "experiment-10-identification-of-keto-group-in-organic-sample",
+          "name": "Identification of keto group in organic sample",
+          "number": 10,
+          "requires": ["experiment-9-identification-of-alcoholic-group-in-organic-sa"]
+        },
+        {
+          "id": "experiment-11-identification-of-phenolic-oh-determination-in",
+          "name": "Identification of Phenolic OH determination in organic sample",
+          "number": 11,
+          "requires": ["experiment-10-identification-of-keto-group-in-organic-sample"]
+        },
+        {
+          "id": "experiment-12-identification-of-amines-in-organic-sample",
+          "name": "Identification of Amines in organic sample",
+          "number": 12,
+          "requires": ["experiment-11-identification-of-phenolic-oh-determination-in"]
+        },
+        {
+          "id": "experiment-13-identification-of-carboxylic-group-cooh-in-org",
+          "name": "Identification of carboxylic group (-COOH) in organic sample",
+          "number": 13,
+          "requires": ["experiment-12-identification-of-amines-in-organic-sample"]
+        },
+        {
+          "id": "experiment-14-determination-of-salinity-and-chlorinity-of-se",
+          "name": "Determination of salinity and chlorinity of sea water Max <26Hrs>",
+          "number": 14,
+          "requires": ["experiment-13-identification-of-carboxylic-group-cooh-in-org"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-chemistry-petro"]
+}

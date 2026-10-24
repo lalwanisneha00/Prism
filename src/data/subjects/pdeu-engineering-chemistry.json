@@ -38,8 +38,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE, Biotech): Engineering Chemistry",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -54,13 +54,45 @@
         },
         {
           "id": "metallic-materials-polymeric-ceramic-materials-advanced",
-          "name": "metallic materials, polymeric, ceramic materials Advanced Materials: Introduction to nanomaterials: Properties and application",
-          "requires": ["traditional-materials-introduction-and-classification-of"]
+          "name": "metallic materials",
+          "requires": ["traditional-materials-introduction-and-classification-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "polymeric",
+          "name": "polymeric",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["metallic-materials-polymeric-ceramic-materials-advanced"]
+        },
+        {
+          "id": "ceramic-materials-advanced-materials-introduction-to-nanomat",
+          "name": "ceramic materials Advanced Materials: Introduction to nanomaterials: Properties and application",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polymeric"]
         },
         {
           "id": "carbonaceous-materials-fullerene-carbon-nanotube-graphene",
-          "name": "Carbonaceous materials (fullerene, carbon nanotube, graphene, etc.)",
-          "requires": ["metallic-materials-polymeric-ceramic-materials-advanced"]
+          "name": "Carbonaceous materials (fullerene",
+          "requires": ["metallic-materials-polymeric-ceramic-materials-advanced"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "carbon-nanotube",
+          "name": "carbon nanotube",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carbonaceous-materials-fullerene-carbon-nanotube-graphene"]
+        },
+        {
+          "id": "graphene",
+          "name": "graphene",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carbon-nanotube"]
         },
         {
           "id": "composite-materials",
@@ -71,6 +103,13 @@
           "id": "liquid-crystals-classification-and-application",
           "name": "Liquid crystals: Classification and Application",
           "requires": ["composite-materials"]
+        },
+        {
+          "id": "etc",
+          "name": "etc.)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["liquid-crystals-classification-and-application"]
         }
       ]
     },
@@ -81,12 +120,37 @@
       "topics": [
         {
           "id": "instrumentation-principle-and-characterization-of-materials",
-          "name": "Instrumentation, principle and characterization of materials: X-ray diffraction (XRD), Electro analytical techniques"
+          "name": "Instrumentation",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "principle-and-characterization-of-materials-x-ray-diffractio",
+          "name": "principle and characterization of materials: X-ray diffraction (XRD)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["instrumentation-principle-and-characterization-of-materials"]
+        },
+        {
+          "id": "electro-analytical-techniques",
+          "name": "Electro analytical techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principle-and-characterization-of-materials-x-ray-diffractio"]
         },
         {
           "id": "ftir-uv-visible-spectroscopy",
-          "name": "FTIR, UV- visible spectroscopy",
-          "requires": ["instrumentation-principle-and-characterization-of-materials"]
+          "name": "FTIR",
+          "requires": ["instrumentation-principle-and-characterization-of-materials"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "uv-visible-spectroscopy",
+          "name": "UV- visible spectroscopy",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ftir-uv-visible-spectroscopy"]
         },
         {
           "id": "thermal-analysis-tga-dta-dsc",
@@ -95,8 +159,17 @@
         },
         {
           "id": "chromatographic-techniques-gc-hplc",
-          "name": "Chromatographic techniques (GC, HPLC)",
-          "requires": ["thermal-analysis-tga-dta-dsc"]
+          "name": "Chromatographic techniques (GC",
+          "requires": ["thermal-analysis-tga-dta-dsc"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "hplc",
+          "name": "HPLC)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chromatographic-techniques-gc-hplc"]
         }
       ]
     },
@@ -107,12 +180,79 @@
       "topics": [
         {
           "id": "adsorption-characteristics-classification-application",
-          "name": "Adsorption - Characteristics, Classification, Application , Adsorption isotherms- Freundlich, Langmuir & BET Chemical Kinetics - Rate law, Arrhenius equation, Transition state theory, Collision theory"
+          "name": "Adsorption",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "characteristics",
+          "name": "Characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adsorption-characteristics-classification-application"]
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characteristics"]
+        },
+        {
+          "id": "adsorption-isotherms-freundlich",
+          "name": "Adsorption isotherms- Freundlich",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification"]
+        },
+        {
+          "id": "langmuir-and-bet-chemical-kinetics",
+          "name": "Langmuir & BET Chemical Kinetics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adsorption-isotherms-freundlich"]
+        },
+        {
+          "id": "rate-law",
+          "name": "Rate law",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["langmuir-and-bet-chemical-kinetics"]
+        },
+        {
+          "id": "arrhenius-equation",
+          "name": "Arrhenius equation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rate-law"]
+        },
+        {
+          "id": "transition-state-theory",
+          "name": "Transition state theory",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["arrhenius-equation"]
+        },
+        {
+          "id": "collision-theory",
+          "name": "Collision theory",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transition-state-theory"]
         },
         {
           "id": "complex-reactions-catalysis-homogeneous-and-heterogeneous",
-          "name": "Complex reactions Catalysis - Homogeneous and Heterogeneous Catalysis",
-          "requires": ["adsorption-characteristics-classification-application"]
+          "name": "Complex reactions Catalysis",
+          "requires": ["adsorption-characteristics-classification-application"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "homogeneous-and-heterogeneous-catalysis",
+          "name": "Homogeneous and Heterogeneous Catalysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["complex-reactions-catalysis-homogeneous-and-heterogeneous"]
         },
         {
           "id": "mechanism-of-catalysis",
@@ -123,6 +263,13 @@
           "id": "industrial-applications-of-catalysts",
           "name": "Industrial Applications of catalysts",
           "requires": ["mechanism-of-catalysis"]
+        },
+        {
+          "id": "application",
+          "name": "Application",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["industrial-applications-of-catalysts"]
         }
       ]
     },
@@ -133,7 +280,23 @@
       "topics": [
         {
           "id": "principles-of-primary-and-secondary-batteries-fuel-cells-and",
-          "name": "Principles of primary and secondary batteries, Fuel Cells and their operation principles, Principles and uses of supercapacitors"
+          "name": "Principles of primary and secondary batteries",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fuel-cells-and-their-operation-principles",
+          "name": "Fuel Cells and their operation principles",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principles-of-primary-and-secondary-batteries-fuel-cells-and"]
+        },
+        {
+          "id": "principles-and-uses-of-supercapacitors",
+          "name": "Principles and uses of supercapacitors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fuel-cells-and-their-operation-principles"]
         },
         {
           "id": "photocatalytic-hydrogen-production-principles-and-challenges",
@@ -147,5 +310,10 @@
         }
       ]
     }
+  ],
+  "courseType": "theory",
+  "relatedCourses": [
+    "pdeu-engineering-chemistry-laboratory-biotech",
+    "pdeu-engineering-chemistry-practical-ce"
   ]
 }

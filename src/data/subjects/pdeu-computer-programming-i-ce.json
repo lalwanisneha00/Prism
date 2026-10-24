@@ -5,7 +5,7 @@
   "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["ce"],
+  "branches": ["ce", "chem", "me"],
   "semesters": [1],
   "code": "24CP101T",
   "credits": 1,
@@ -21,6 +21,26 @@
       "credits": 1,
       "semester": 1,
       "kind": "core"
+    },
+    {
+      "branch": "chem",
+      "key": "s1-computer-programming-i",
+      "code": "24CP101T",
+      "category": "Program Core",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "me",
+      "key": "s1-computer-programming-i",
+      "code": "24CP101T",
+      "category": "Program Core",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
     }
   ],
   "syllabusSource": {
@@ -29,8 +49,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -90,8 +110,17 @@
         },
         {
           "id": "go-to-statement-loop-control-structures-while",
-          "name": "go to statement. Loop control structures- while",
-          "requires": ["switch"]
+          "name": "go to statement",
+          "requires": ["switch"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "loop-control-structures-while",
+          "name": "Loop control structures- while",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["go-to-statement-loop-control-structures-while"]
         },
         {
           "id": "loops",
@@ -136,8 +165,17 @@
         },
         {
           "id": "array-manipulations-matrix-operations",
-          "name": "Array Manipulations. Matrix operations",
-          "requires": ["initialization"]
+          "name": "Array Manipulations",
+          "requires": ["initialization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "matrix-operations",
+          "name": "Matrix operations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["array-manipulations-matrix-operations"]
         },
         {
           "id": "string-basic-concepts",
@@ -152,7 +190,23 @@
         {
           "id": "pointer",
           "name": "Pointer",
-          "requires": ["inbuilt-string-manipulation-functions"]
+          "requires": ["inbuilt-string-manipulation-functions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "pointer-arithmetic",
+          "name": "Pointer arithmetic",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pointer"]
+        },
+        {
+          "id": "pointer-to-pointer-2",
+          "name": "Pointer to pointer",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pointer-arithmetic"]
         },
         {
           "id": "pointers",
@@ -268,5 +322,11 @@
         }
       ]
     }
+  ],
+  "courseType": "theory",
+  "relatedCourses": [
+    "pdeu-computer-programming-i-laboratory-chem",
+    "pdeu-computer-programming-i-laboratory-ce",
+    "pdeu-computer-programming-laboratory-i-me"
   ]
 }

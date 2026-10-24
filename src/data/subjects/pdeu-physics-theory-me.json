@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 8 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "physics",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,7 +41,30 @@
       "topics": [
         {
           "id": "gradient-divergence-curl",
-          "name": "Introduction to vector algebra, Physical concepts in vector fields and Scalar fields with examples, Physical and mathematical concepts of gradient, divergence and curl, Green’s theorem, Gauss theorem,"
+          "name": "Introduction to vector algebra",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "vector-fields-and-scalar-fields",
+          "name": "Vector fields and scalar fields",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gradient-divergence-curl"]
+        },
+        {
+          "id": "concepts-of-gradient",
+          "name": "Concepts of gradient",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vector-fields-and-scalar-fields"]
+        },
+        {
+          "id": "divergence-and-curl",
+          "name": "Divergence and Curl",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concepts-of-gradient"]
         },
         {
           "id": "stokes-theorem",
@@ -51,22 +74,237 @@
         {
           "id": "biot-savart-law",
           "name": "Electrostatics and Electrodynamics: Gauss’s law in dielectric medium, Equation of continuity, Biot Savart law",
-          "requires": ["stokes-theorem"]
+          "requires": ["stokes-theorem"],
+          "status": "retired"
         },
         {
           "id": "amperes-law",
           "name": "Ampere’s law",
-          "requires": ["biot-savart-law"]
+          "requires": ["biot-savart-law"],
+          "status": "retired"
         },
         {
           "id": "faradays-law",
           "name": "magnetization and magnetic intensity, Faraday’s law of induction",
-          "requires": ["amperes-law"]
+          "requires": ["amperes-law"],
+          "status": "retired"
         },
         {
           "id": "displacement-current",
           "name": "generalization of Ampere’s law, displacement current, Maxwell’s equations, wave equation for electromagnetic radiation, electromagnetic wave propagation in free space and isotropic dielectric medium, ",
-          "requires": ["faradays-law"]
+          "requires": ["faradays-law"],
+          "status": "retired"
+        },
+        {
+          "id": "gaussdivergence-theorem",
+          "name": "GaussDivergence Theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["displacement-current"]
+        },
+        {
+          "id": "the-everyday-forces-of-physics",
+          "name": "The everyday forces of Physics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gaussdivergence-theorem"]
+        },
+        {
+          "id": "work-energy-theorem",
+          "name": "Work-energy theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-everyday-forces-of-physics"]
+        },
+        {
+          "id": "rigid-body-motion-and-the-conservation-of-angular-momentum",
+          "name": "Rigid body motion and the conservation of angular momentum",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["work-energy-theorem"]
+        },
+        {
+          "id": "center-of-mass",
+          "name": "Center of mass",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rigid-body-motion-and-the-conservation-of-angular-momentum"]
+        },
+        {
+          "id": "center-of-gravity",
+          "name": "Center of gravity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["center-of-mass"]
+        },
+        {
+          "id": "moment-of-inertia-definition",
+          "name": "Moment of inertia: Definition",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["center-of-gravity"]
+        },
+        {
+          "id": "moment-of-inertia-of-simple-planar-laminas",
+          "name": "Moment of inertia of simple planar laminas",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["moment-of-inertia-definition"]
+        }
+      ]
+    },
+    {
+      "id": "physics-of-solids",
+      "name": "Physics of Solids",
+      "hours": 10,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "elasticity",
+          "name": "Elasticity",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "stress-and-strain",
+          "name": "Stress & Strain",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["elasticity"]
+        },
+        {
+          "id": "hook-s-law",
+          "name": "Hook’s law",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["stress-and-strain"]
+        },
+        {
+          "id": "young-s-modulus",
+          "name": "Young’s modulus",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hook-s-law"]
+        },
+        {
+          "id": "poisson-s-ratio",
+          "name": "Poisson’s ratio",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["young-s-modulus"]
+        },
+        {
+          "id": "rigidity-modulus",
+          "name": "Rigidity modulus",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["poisson-s-ratio"]
+        },
+        {
+          "id": "relationship-between-elastic-constants",
+          "name": "Relationship between elastic constants",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rigidity-modulus"]
+        },
+        {
+          "id": "properties-of-solids",
+          "name": "Properties of solids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["relationship-between-elastic-constants"]
+        },
+        {
+          "id": "electrical-conductivity",
+          "name": "electrical conductivity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["properties-of-solids"]
+        },
+        {
+          "id": "wiede-mann-franz-law",
+          "name": "Wiede-mann Franz Law",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["electrical-conductivity"]
+        },
+        {
+          "id": "band-structure-of-conductor",
+          "name": "Band structure of conductor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wiede-mann-franz-law"]
+        },
+        {
+          "id": "insulator-and-semiconductor",
+          "name": "insulator and semiconductor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["band-structure-of-conductor"]
+        },
+        {
+          "id": "intrinsic-and-extrinsic-semiconductor",
+          "name": "Intrinsic and extrinsic semiconductor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["insulator-and-semiconductor"]
+        },
+        {
+          "id": "conductivity-of-semiconductors",
+          "name": "Conductivity of semiconductors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["intrinsic-and-extrinsic-semiconductor"]
+        },
+        {
+          "id": "charge-concentrations",
+          "name": "charge concentrations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["conductivity-of-semiconductors"]
+        },
+        {
+          "id": "hall-effect",
+          "name": "Hall effect",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["charge-concentrations"]
+        },
+        {
+          "id": "led-and-solar-cells",
+          "name": "LED and Solar cells",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hall-effect"]
+        },
+        {
+          "id": "magnetism-and-its-origin",
+          "name": "Magnetism and its origin",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["led-and-solar-cells"]
+        },
+        {
+          "id": "magnetic-properties-of-solids",
+          "name": "Magnetic properties of solids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["magnetism-and-its-origin"]
+        },
+        {
+          "id": "physics-of-superconductors",
+          "name": "Physics of superconductors",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["magnetic-properties-of-solids"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["physics-of-superconductors"]
         }
       ]
     },
@@ -82,7 +320,16 @@
         {
           "id": "simple-harmonic-motion",
           "name": "Simple harmonic motion",
-          "requires": ["types-of-waves"]
+          "requires": ["types-of-waves"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "damped-simple-harmonic-motion-2",
+          "name": "Damped simple harmonic motion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simple-harmonic-motion"]
         },
         {
           "id": "damped-simple-harmonic-motion",
@@ -106,8 +353,17 @@
         },
         {
           "id": "energy-transport-in-wave-motion-acoustics-and-ultrasonic",
-          "name": "Energy Transport in Wave motion. Acoustics & Ultrasonic: Introduction to Sound",
-          "requires": ["resonance"]
+          "name": "Energy Transport in Wave motion",
+          "requires": ["resonance"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "acoustics-and-ultrasonic-introduction-to-sound",
+          "name": "Acoustics & Ultrasonic: Introduction to Sound",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["energy-transport-in-wave-motion-acoustics-and-ultrasonic"]
         },
         {
           "id": "sabines-reverberation-theory",
@@ -121,8 +377,17 @@
         },
         {
           "id": "doppler-effect-ultrasonic-waves",
-          "name": "Doppler Effect. Ultrasonic waves",
-          "requires": ["acoustical-defects-and-their-remedies"]
+          "name": "Doppler Effect",
+          "requires": ["acoustical-defects-and-their-remedies"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ultrasonic-waves",
+          "name": "Ultrasonic waves",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["doppler-effect-ultrasonic-waves"]
         },
         {
           "id": "methods-of-their-generation-and-detection",
@@ -133,6 +398,147 @@
           "id": "properties-and-application-of-ultrasonic-waves",
           "name": "properties and application of ultrasonic waves",
           "requires": ["methods-of-their-generation-and-detection"]
+        }
+      ]
+    },
+    {
+      "id": "thermal-physics",
+      "name": "Thermal Physics",
+      "hours": 12,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "thermodynamic-systems-closed-and-open",
+          "name": "Thermodynamic systems (closed and open)",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "thermodynamic-properties-and-equilibrium",
+          "name": "Thermodynamic properties and equilibrium",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermodynamic-systems-closed-and-open"]
+        },
+        {
+          "id": "concepts-of-heat-and-work",
+          "name": "Concepts of heat and work",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermodynamic-properties-and-equilibrium"]
+        },
+        {
+          "id": "laws-of-thermodynamics",
+          "name": "Laws of thermodynamics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concepts-of-heat-and-work"]
+        },
+        {
+          "id": "carnot-cycle",
+          "name": "Carnot cycle",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["laws-of-thermodynamics"]
+        },
+        {
+          "id": "heat-transfer-thermal-expansion-of-solids-and-liquids",
+          "name": "Heat transfer-thermal expansion of solids and liquids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carnot-cycle"]
+        },
+        {
+          "id": "conduction-in-solids",
+          "name": "Conduction in solids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["heat-transfer-thermal-expansion-of-solids-and-liquids"]
+        },
+        {
+          "id": "thermal-conductivity",
+          "name": "Thermal conductivity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["conduction-in-solids"]
+        },
+        {
+          "id": "forbe-s-method",
+          "name": "Forbe’s method",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermal-conductivity"]
+        },
+        {
+          "id": "lees-disc-method",
+          "name": "Lees’ disc method",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["forbe-s-method"]
+        },
+        {
+          "id": "thermal-insulation-and-its-applications",
+          "name": "Thermal insulation and its applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lees-disc-method"]
+        },
+        {
+          "id": "thermal-convection-and-its-applications",
+          "name": "Thermal Convection and its applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermal-insulation-and-its-applications"]
+        },
+        {
+          "id": "newton-s-law-of-cooling",
+          "name": "Newton’s law of cooling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermal-convection-and-its-applications"]
+        },
+        {
+          "id": "thermal-radiation",
+          "name": "Thermal Radiation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["newton-s-law-of-cooling"]
+        },
+        {
+          "id": "emission-and-absorption-radiation",
+          "name": "emission and absorption radiation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["thermal-radiation"]
+        },
+        {
+          "id": "emissive-power",
+          "name": "emissive power",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["emission-and-absorption-radiation"]
+        },
+        {
+          "id": "black-body-radiation",
+          "name": "Black body radiation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["emissive-power"]
+        },
+        {
+          "id": "stefan-s-laws",
+          "name": "Stefan’s laws",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["black-body-radiation"]
+        },
+        {
+          "id": "wien-s-law",
+          "name": "Wien’s law",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["stefan-s-laws"]
         }
       ]
     },
@@ -160,7 +566,8 @@
           "name": "Polarization: Polarization of light, production of polarized light, types of polarization and their representation, Malus's law, polarizer and analyser, Double refraction, Interference of Polarized li",
           "requires": ["single-slit-diffraction"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "laser-and-fibre-optics",
@@ -181,7 +588,10 @@
           "name": "principle, effect of nuclear radiation on materials, radiation protection and environment",
           "requires": ["nuclear-science-and-engineering-basics-of-nuclear-physics"]
         }
-      ]
+      ],
+      "status": "retired"
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-engineering-physics-laboratory-me"]
 }

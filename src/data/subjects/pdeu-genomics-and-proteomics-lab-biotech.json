@@ -1,0 +1,101 @@
+{
+  "id": "pdeu-genomics-and-proteomics-lab-biotech",
+  "name": "Genomics and Proteomics Lab",
+  "field": "Genomics and Proteomics Lab",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["biotech"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (BIOTECH semester 5): Genomics and Proteomics Lab",
+    "note": "Units and topics copied from the course handout PDF (pages 6 of BIOTECH/sem5/Biotech_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24BT301TP",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "biotech",
+      "key": "s5-genomics-and-proteomics-lab",
+      "code": "24BT301TP",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-molecular-dynamics-simulation",
+          "name": "Molecular Dynamics simulation",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-monte-carlo-simulation",
+          "name": "Monte Carlo simulation",
+          "number": 2,
+          "requires": ["experiment-1-molecular-dynamics-simulation"]
+        },
+        {
+          "id": "experiment-3-visualization-of-molecular-dynamics",
+          "name": "Visualization of Molecular Dynamics",
+          "number": 3,
+          "requires": ["experiment-2-monte-carlo-simulation"]
+        },
+        {
+          "id": "experiment-4-molecular-docking-studies",
+          "name": "Molecular Docking studies",
+          "number": 4,
+          "requires": ["experiment-3-visualization-of-molecular-dynamics"]
+        },
+        {
+          "id": "experiment-5-protein-structure-function-relationship-activit",
+          "name": "Protein structure function relationship activity",
+          "number": 5,
+          "requires": ["experiment-4-molecular-docking-studies"]
+        },
+        {
+          "id": "experiment-6-ngs-different-platforms",
+          "name": "NGS different Platforms",
+          "number": 6,
+          "requires": ["experiment-5-protein-structure-function-relationship-activit"]
+        },
+        {
+          "id": "experiment-7-sequence-data-analysis",
+          "name": "Sequence Data analysis",
+          "number": 7,
+          "requires": ["experiment-6-ngs-different-platforms"]
+        },
+        {
+          "id": "experiment-8-ngs-resources-tools-and-databases",
+          "name": "NGS Resources Tools & Databases",
+          "number": 8,
+          "requires": ["experiment-7-sequence-data-analysis"]
+        },
+        {
+          "id": "experiment-9-whole-genome-sequencing-and-exome-sequencing",
+          "name": "Whole Genome Sequencing & Exome Sequencing",
+          "number": 9,
+          "requires": ["experiment-8-ngs-resources-tools-and-databases"]
+        },
+        {
+          "id": "experiment-10-genome-annotation-gene-fusions-isoforms-and-st",
+          "name": "Genome Annotation (gene fusions, isoforms, and structural variants)",
+          "number": 10,
+          "requires": ["experiment-9-whole-genome-sequencing-and-exome-sequencing"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-genomics-and-proteomics"]
+}

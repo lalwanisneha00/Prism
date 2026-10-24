@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): UI/UX Design",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -57,7 +57,23 @@
       "topics": [
         {
           "id": "learning-various-user-research-techniques-including",
-          "name": "Learning various user research techniques including interviews, surveys, and usability testing"
+          "name": "Learning various user research techniques including interviews",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "surveys",
+          "name": "surveys",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["learning-various-user-research-techniques-including"]
+        },
+        {
+          "id": "usability-testing",
+          "name": "usability testing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["surveys"]
         },
         {
           "id": "introduction-to-prototyping-tools-and-techniques-for",
@@ -73,7 +89,23 @@
       "topics": [
         {
           "id": "understanding-color-theory-typography-and-layout-in",
-          "name": "Understanding color theory, typography, and layout in interface design"
+          "name": "Understanding color theory",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "typography",
+          "name": "typography",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["understanding-color-theory-typography-and-layout-in"]
+        },
+        {
+          "id": "layout-in-interface-design",
+          "name": "layout in interface design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["typography"]
         },
         {
           "id": "designing-intuitive-and-interactive-user-interfaces",
@@ -98,5 +130,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

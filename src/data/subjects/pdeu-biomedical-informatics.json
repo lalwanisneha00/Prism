@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Biomedical Informatics",
     "note": "Skeleton only: units and topics are PDEU's, copied from the handbook. Lessons are built from the material the student uploads (given by their faculty)."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -44,8 +44,24 @@
         },
         {
           "id": "biomedical-data-their-acquisition-storage-and-use",
-          "name": "Biomedical Data: Their Acquisition, Storage, and Use",
-          "requires": ["biomedical-informatics-the-science-and-the-pragmatics"]
+          "name": "Biomedical Data: Their Acquisition",
+          "requires": ["biomedical-informatics-the-science-and-the-pragmatics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "storage",
+          "name": "Storage",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biomedical-data-their-acquisition-storage-and-use"]
+        },
+        {
+          "id": "use",
+          "name": "Use",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["storage"]
         },
         {
           "id": "biomedical-decision-making-probabilistic-clinical-reasoning",
@@ -96,8 +112,24 @@
         },
         {
           "id": "ethics-in-biomedical-and-health-informatics-users-standards",
-          "name": "Ethics in Biomedical and Health Informatics: Users, Standards, and Outcomes",
-          "requires": ["biomedical-imaging-informatics"]
+          "name": "Ethics in Biomedical and Health Informatics: Users",
+          "requires": ["biomedical-imaging-informatics"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "standards",
+          "name": "Standards",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ethics-in-biomedical-and-health-informatics-users-standards"]
+        },
+        {
+          "id": "outcomes",
+          "name": "Outcomes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["standards"]
         },
         {
           "id": "biomedical-and-health-information-resources",
@@ -157,5 +189,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

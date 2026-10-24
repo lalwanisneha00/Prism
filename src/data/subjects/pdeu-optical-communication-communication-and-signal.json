@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Optical Communication (Communication & Signal Processing)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -47,8 +47,17 @@
         },
         {
           "id": "modes-and-rays-basic-optical-communication-system",
-          "name": "Modes & Rays. Basic Optical Communication System",
-          "requires": ["wave-propagation-in-step-index-and-graded-index-fiber"]
+          "name": "Modes & Rays",
+          "requires": ["wave-propagation-in-step-index-and-graded-index-fiber"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "basic-optical-communication-system",
+          "name": "Basic Optical Communication System",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["modes-and-rays-basic-optical-communication-system"]
         },
         {
           "id": "advantage-and-applications-of-optical-communication-system",
@@ -195,13 +204,31 @@
         },
         {
           "id": "network-topologies-advanced-multiplexing-strategies-ofdm",
-          "name": "Network Topologies. Advanced Multiplexing Strategies- OFDM",
-          "requires": ["ethernet"]
+          "name": "Network Topologies",
+          "requires": ["ethernet"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "advanced-multiplexing-strategies-ofdm",
+          "name": "Advanced Multiplexing Strategies- OFDM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["network-topologies-advanced-multiplexing-strategies-ofdm"]
         },
         {
           "id": "sdm-subcarrier-multiplexing",
-          "name": "SDM. Subcarrier Multiplexing",
-          "requires": ["network-topologies-advanced-multiplexing-strategies-ofdm"]
+          "name": "SDM",
+          "requires": ["network-topologies-advanced-multiplexing-strategies-ofdm"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "subcarrier-multiplexing",
+          "name": "Subcarrier Multiplexing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sdm-subcarrier-multiplexing"]
         },
         {
           "id": "wdm-network-architectures",
@@ -225,5 +252,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

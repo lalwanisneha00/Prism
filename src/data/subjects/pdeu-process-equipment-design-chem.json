@@ -1,0 +1,200 @@
+{
+  "id": "pdeu-process-equipment-design-chem",
+  "name": "Process Equipment Design",
+  "field": "Process Equipment Design",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 5): Process Equipment Design",
+    "note": "Units and topics copied from the course handout PDF (pages 7 of CHEM/sem5/Chemical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH303T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s5-process-equipment-design",
+      "code": "24CH303T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "design-of-fluid-transport-equipment",
+      "name": "Design of Fluid Transport Equipment",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "process-design-of-piping",
+          "name": "Process design of piping"
+        },
+        {
+          "id": "designs-based-on-internal-and-external-design-pressures",
+          "name": "designs based on internal and external design pressures",
+          "requires": ["process-design-of-piping"]
+        },
+        {
+          "id": "process-design-of-centrifugal-pumps",
+          "name": "process design of centrifugal pumps",
+          "requires": ["designs-based-on-internal-and-external-design-pressures"]
+        },
+        {
+          "id": "fans",
+          "name": "fans",
+          "requires": ["process-design-of-centrifugal-pumps"]
+        },
+        {
+          "id": "blowers-and-compressors",
+          "name": "blowers and compressors",
+          "requires": ["fans"]
+        },
+        {
+          "id": "piping-networks",
+          "name": "piping networks",
+          "requires": ["blowers-and-compressors"]
+        },
+        {
+          "id": "fundamentals-of-piping-and-instrumentation-p-and-i",
+          "name": "fundamentals of piping and instrumentation (P&I)",
+          "requires": ["piping-networks"]
+        },
+        {
+          "id": "safety-issues-of-high-pressure-and-high-vacuum-vessels",
+          "name": "safety issues of high-pressure and high-vacuum vessels",
+          "requires": ["fundamentals-of-piping-and-instrumentation-p-and-i"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-heat-transport-equipment",
+      "name": "Design of Heat Transport Equipment",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "process-design-of-heat-exchangers",
+          "name": "Process design of heat exchangers"
+        },
+        {
+          "id": "shell-and-tube-heat-exchangers",
+          "name": "shell and tube heat exchangers",
+          "requires": ["process-design-of-heat-exchangers"]
+        },
+        {
+          "id": "the-design-method-of-shell-and-tube-heat-exchangers",
+          "name": "the design method of shell and tube heat exchangers",
+          "requires": ["shell-and-tube-heat-exchangers"]
+        },
+        {
+          "id": "general-mechanical-design-considerations",
+          "name": "general mechanical design considerations",
+          "requires": ["the-design-method-of-shell-and-tube-heat-exchangers"]
+        },
+        {
+          "id": "reboilers",
+          "name": "reboilers",
+          "requires": ["general-mechanical-design-considerations"]
+        },
+        {
+          "id": "heat-exchanger-networks",
+          "name": "heat-exchanger networks",
+          "requires": ["reboilers"]
+        },
+        {
+          "id": "safety-in-storage-systems-for-thermal-fluids-and-hot-oils",
+          "name": "safety in storage systems for thermal fluids and hot oils",
+          "requires": ["heat-exchanger-networks"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-mass-transport-equipment",
+      "name": "Design of Mass Transport Equipment",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "process-design-of-tray-based-distillation-and-absorption-col",
+          "name": "Process design of tray-based distillation and absorption columns"
+        },
+        {
+          "id": "process-design-and-selection-criteria-for-various-internals",
+          "name": "process design and selection criteria for various internals",
+          "requires": ["process-design-of-tray-based-distillation-and-absorption-col"]
+        },
+        {
+          "id": "considerations-in-packed-columns",
+          "name": "considerations in packed columns",
+          "requires": ["process-design-and-selection-criteria-for-various-internals"]
+        },
+        {
+          "id": "process-design-of-a-column-network",
+          "name": "process design of a column network",
+          "requires": ["considerations-in-packed-columns"]
+        },
+        {
+          "id": "general-mechanical-design-considerations-2",
+          "name": "general mechanical design considerations",
+          "requires": ["process-design-of-a-column-network"]
+        },
+        {
+          "id": "safety-aspects-for-tall-vertical-towers-e-g-wind-loading",
+          "name": "safety aspects for tall vertical towers (e.g. wind loading",
+          "requires": ["general-mechanical-design-considerations-2"]
+        },
+        {
+          "id": "structural-stability",
+          "name": "structural stability",
+          "requires": ["safety-aspects-for-tall-vertical-towers-e-g-wind-loading"]
+        },
+        {
+          "id": "fall-protection",
+          "name": "fall protection)",
+          "requires": ["structural-stability"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-chemical-reactors",
+      "name": "Design of Chemical Reactors",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "process-design-of-chemical-storage-vessels-and-adiabatic-and",
+          "name": "Process design of chemical storage vessels and adiabatic and isothermal reactors"
+        },
+        {
+          "id": "process-design-of-reactors-in-batch",
+          "name": "process design of reactors in batch",
+          "requires": ["process-design-of-chemical-storage-vessels-and-adiabatic-and"]
+        },
+        {
+          "id": "semi-batch-and-continuous-operations",
+          "name": "semi-batch and continuous operations",
+          "requires": ["process-design-of-reactors-in-batch"]
+        },
+        {
+          "id": "general-mechanical-design-considerations-3",
+          "name": "general mechanical design considerations",
+          "requires": ["semi-batch-and-continuous-operations"]
+        },
+        {
+          "id": "safety-considerations-in-handling-reactive-and-pressurized-c",
+          "name": "safety considerations in handling reactive and pressurized chemicals",
+          "requires": ["general-mechanical-design-considerations-3"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-process-equipment-design-laboratory-chem"]
+}

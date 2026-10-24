@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 4 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "fluids",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -55,8 +55,17 @@
         },
         {
           "id": "compressibility-fluid-properties-density",
-          "name": "compressibility. Fluid Properties: Density",
-          "requires": ["viscosity"]
+          "name": "compressibility",
+          "requires": ["viscosity"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fluid-properties-density",
+          "name": "Fluid Properties: Density",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["compressibility-fluid-properties-density"]
         },
         {
           "id": "specific-gravity",
@@ -70,13 +79,38 @@
         },
         {
           "id": "vapour-pressure-and-compressibility-factor",
-          "name": "vapour pressure, and compressibility factor",
-          "requires": ["surface-tension"]
+          "name": "vapour pressure",
+          "requires": ["surface-tension"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "compressibility-factor",
+          "name": "compressibility factor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vapour-pressure-and-compressibility-factor"]
         },
         {
           "id": "fluid-statics-pressure-and-its-measurement-manometers",
-          "name": "Fluid Statics: Pressure and its measurement (manometers, Bourdon gauge, piezometer)",
-          "requires": ["vapour-pressure-and-compressibility-factor"]
+          "name": "Fluid Statics: Pressure and its measurement (manometers",
+          "requires": ["vapour-pressure-and-compressibility-factor"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bourdon-gauge",
+          "name": "Bourdon gauge",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fluid-statics-pressure-and-its-measurement-manometers"]
+        },
+        {
+          "id": "piezometer",
+          "name": "piezometer)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bourdon-gauge"]
         },
         {
           "id": "variation-of-pressure-with-depth",
@@ -107,7 +141,16 @@
       "topics": [
         {
           "id": "kinematics-of-fluid-flow-types-of-flow-steady-unsteady",
-          "name": "Kinematics of Fluid Flow: Types of flow – steady/unsteady"
+          "name": "Kinematics of Fluid Flow: Types of flow",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "steady-unsteady",
+          "name": "steady/unsteady",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["kinematics-of-fluid-flow-types-of-flow-steady-unsteady"]
         },
         {
           "id": "uniform-non-uniform",
@@ -121,13 +164,87 @@
         },
         {
           "id": "euler-bernoulli-fm",
-          "name": "rotational/irrotational. Streamlines, Pathlines, and Streaklines. Continuity Equation. Euler’s and Bernoulli’s Equations: Derivation, assumptions, and practical applications",
-          "requires": ["laminar-turbulent"]
+          "name": "rotational/irrotational",
+          "requires": ["laminar-turbulent"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "streamlines",
+          "name": "Streamlines",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["euler-bernoulli-fm"]
+        },
+        {
+          "id": "pathlines",
+          "name": "Pathlines",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["streamlines"]
+        },
+        {
+          "id": "streaklines",
+          "name": "Streaklines",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pathlines"]
+        },
+        {
+          "id": "continuity-equation",
+          "name": "Continuity Equation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["streaklines"]
+        },
+        {
+          "id": "euler-s-and-bernoulli-s-equations-derivation",
+          "name": "Euler’s and Bernoulli’s Equations: Derivation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["continuity-equation"]
+        },
+        {
+          "id": "assumptions",
+          "name": "assumptions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["euler-s-and-bernoulli-s-equations-derivation"]
+        },
+        {
+          "id": "practical-applications",
+          "name": "practical applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["assumptions"]
         },
         {
           "id": "energy-and-momentum-principles-momentum-equation-and",
-          "name": "Energy and Momentum Principles: Momentum equation and applications (nozzle, diffuser, bend, and jet impingement)",
-          "requires": ["euler-bernoulli-fm"]
+          "name": "Energy and Momentum Principles: Momentum equation and applications (nozzle",
+          "requires": ["euler-bernoulli-fm"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "diffuser",
+          "name": "diffuser",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["energy-and-momentum-principles-momentum-equation-and"]
+        },
+        {
+          "id": "bend",
+          "name": "bend",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["diffuser"]
+        },
+        {
+          "id": "jet-impingement",
+          "name": "jet impingement)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bend"]
         }
       ]
     },
@@ -172,8 +289,31 @@
         },
         {
           "id": "permeability-darcy-res",
-          "name": "contractions. Flow Through Porous Media: Darcy’s Law, permeability, and porosity concepts",
-          "requires": ["expansions"]
+          "name": "contractions",
+          "requires": ["expansions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "flow-through-porous-media-darcy-s-law",
+          "name": "Flow Through Porous Media: Darcy’s Law",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["permeability-darcy-res"]
+        },
+        {
+          "id": "permeability",
+          "name": "permeability",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flow-through-porous-media-darcy-s-law"]
+        },
+        {
+          "id": "porosity-concepts",
+          "name": "porosity concepts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["permeability"]
         },
         {
           "id": "non-darcy-forchheimer-flow",
@@ -208,13 +348,52 @@
         },
         {
           "id": "venturimeter-orifice-meter-rotameter-turbine-and-positive",
-          "name": "Venturimeter, Orifice meter, Rotameter, Turbine and Positive Displacement meters",
-          "requires": ["types-of-flow-meters-and-measuring-devices"]
+          "name": "Venturimeter",
+          "requires": ["types-of-flow-meters-and-measuring-devices"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "orifice-meter",
+          "name": "Orifice meter",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["venturimeter-orifice-meter-rotameter-turbine-and-positive"]
+        },
+        {
+          "id": "rotameter",
+          "name": "Rotameter",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["orifice-meter"]
+        },
+        {
+          "id": "turbine-and-positive-displacement-meters",
+          "name": "Turbine and Positive Displacement meters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rotameter"]
         },
         {
           "id": "construction-working-principles-calibration-and-applications",
-          "name": "construction, working principles, calibration, and applications",
-          "requires": ["venturimeter-orifice-meter-rotameter-turbine-and-positive"]
+          "name": "construction",
+          "requires": ["venturimeter-orifice-meter-rotameter-turbine-and-positive"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "working-principles",
+          "name": "working principles",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["construction-working-principles-calibration-and-applications"]
+        },
+        {
+          "id": "calibration",
+          "name": "calibration",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["working-principles"]
         },
         {
           "id": "valves",
@@ -223,8 +402,52 @@
         },
         {
           "id": "types-gate-globe-ball-check-butterfly-functions-and-flow",
-          "name": "types (gate, globe, ball, check, butterfly), functions, and flow control characteristics",
-          "requires": ["valves"]
+          "name": "types (gate",
+          "requires": ["valves"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "globe",
+          "name": "globe",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-gate-globe-ball-check-butterfly-functions-and-flow"]
+        },
+        {
+          "id": "ball",
+          "name": "ball",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["globe"]
+        },
+        {
+          "id": "check",
+          "name": "check",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ball"]
+        },
+        {
+          "id": "butterfly",
+          "name": "butterfly)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["check"]
+        },
+        {
+          "id": "functions",
+          "name": "functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["butterfly"]
+        },
+        {
+          "id": "flow-control-characteristics",
+          "name": "flow control characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["functions"]
         },
         {
           "id": "pumps-and-compressors",
@@ -233,10 +456,34 @@
         },
         {
           "id": "classification-working-principles-performance",
-          "name": "classification, working principles, performance characteristics, and selection criteria for petroleum",
-          "requires": ["pumps-and-compressors"]
+          "name": "classification",
+          "requires": ["pumps-and-compressors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "performance-characteristics",
+          "name": "performance characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-working-principles-performance"]
+        },
+        {
+          "id": "selection-criteria-for-petroleum",
+          "name": "selection criteria for petroleum",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["performance-characteristics"]
+        },
+        {
+          "id": "applications",
+          "name": "applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["selection-criteria-for-petroleum"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -1,0 +1,460 @@
+{
+  "id": "pdeu-synchronous-and-dc-machines-elec",
+  "name": "Synchronous and DC Machines",
+  "field": "Synchronous and DC Machines",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 4): Synchronous and DC Machines",
+    "note": "Units and topics copied from the course handout PDF (pages 6 of ELEC/sem4/Electrical_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE207T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s4-synchronous-and-dc-machines",
+      "code": "20EE207T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "three-phase-synchronous-generator",
+      "name": "Three Phase Synchronous Generator",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "construction",
+          "name": "Construction"
+        },
+        {
+          "id": "types",
+          "name": "Types",
+          "requires": ["construction"]
+        },
+        {
+          "id": "operating-principle",
+          "name": "Operating Principle",
+          "requires": ["types"]
+        },
+        {
+          "id": "terms-related-to-ac-armature-winding",
+          "name": "Terms Related to AC Armature Winding",
+          "requires": ["operating-principle"]
+        },
+        {
+          "id": "pitch-and-distribution-factors",
+          "name": "Pitch & Distribution Factors",
+          "requires": ["terms-related-to-ac-armature-winding"]
+        },
+        {
+          "id": "generated-emf",
+          "name": "Generated EMF",
+          "requires": ["pitch-and-distribution-factors"]
+        },
+        {
+          "id": "effect-of-harmonics-on-induced-emf",
+          "name": "Effect of Harmonics on Induced EMF",
+          "requires": ["generated-emf"]
+        },
+        {
+          "id": "operation-on-load",
+          "name": "Operation on Load",
+          "requires": ["effect-of-harmonics-on-induced-emf"]
+        },
+        {
+          "id": "standalone-operation-of-an-alternator",
+          "name": "Standalone operation of an Alternator",
+          "requires": ["operation-on-load"]
+        },
+        {
+          "id": "phasor-diagrams",
+          "name": "Phasor Diagrams",
+          "requires": ["standalone-operation-of-an-alternator"]
+        },
+        {
+          "id": "power-output-equation",
+          "name": "Power Output Equation",
+          "requires": ["phasor-diagrams"]
+        },
+        {
+          "id": "armature-reaction",
+          "name": "Armature Reaction",
+          "requires": ["power-output-equation"]
+        },
+        {
+          "id": "scr-of-an-alternator",
+          "name": "SCR of an Alternator",
+          "requires": ["armature-reaction"]
+        },
+        {
+          "id": "voltage-regulation",
+          "name": "Voltage Regulation",
+          "requires": ["scr-of-an-alternator"]
+        },
+        {
+          "id": "determination-of-voltage-regulation-by-direct-loading",
+          "name": "Determination of Voltage Regulation by Direct Loading",
+          "requires": ["voltage-regulation"]
+        },
+        {
+          "id": "synchronous-impedance",
+          "name": "Synchronous Impedance",
+          "requires": ["determination-of-voltage-regulation-by-direct-loading"]
+        },
+        {
+          "id": "mmf-and-zpf-methods",
+          "name": "MMF & ZPF Methods",
+          "requires": ["synchronous-impedance"]
+        },
+        {
+          "id": "two-reaction-theory",
+          "name": "Two Reaction Theory",
+          "requires": ["mmf-and-zpf-methods"]
+        },
+        {
+          "id": "condition-of-parallel-operation",
+          "name": "Condition of Parallel Operation",
+          "requires": ["two-reaction-theory"]
+        },
+        {
+          "id": "synchronizing-of-alternators-and-methods-of-synchronization",
+          "name": "Synchronizing of Alternators & Methods of Synchronization",
+          "requires": ["condition-of-parallel-operation"]
+        },
+        {
+          "id": "house-diagram",
+          "name": "House Diagram",
+          "requires": ["synchronizing-of-alternators-and-methods-of-synchronization"]
+        },
+        {
+          "id": "operation-of-two-or-more-machines",
+          "name": "Operation of two or more machines",
+          "requires": ["house-diagram"]
+        },
+        {
+          "id": "load-sharing",
+          "name": "load sharing",
+          "requires": ["operation-of-two-or-more-machines"]
+        },
+        {
+          "id": "operation-on-infinite-bus",
+          "name": "Operation on Infinite Bus",
+          "requires": ["load-sharing"]
+        },
+        {
+          "id": "f-p",
+          "name": "F-P",
+          "requires": ["operation-on-infinite-bus"]
+        },
+        {
+          "id": "q-v-characteristics",
+          "name": "Q-V Characteristics",
+          "requires": ["f-p"]
+        },
+        {
+          "id": "effect-of-change-in-excitation",
+          "name": "Effect of change in excitation",
+          "requires": ["q-v-characteristics"]
+        },
+        {
+          "id": "effect-of-change-in-prime-mover-speed",
+          "name": "Effect of change in prime mover speed",
+          "requires": ["effect-of-change-in-excitation"]
+        },
+        {
+          "id": "slip-test",
+          "name": "Slip Test",
+          "requires": ["effect-of-change-in-prime-mover-speed"]
+        },
+        {
+          "id": "hunting-of-synchronous-machines-and-its-prevention",
+          "name": "Hunting of Synchronous Machines & Its Prevention",
+          "requires": ["slip-test"]
+        },
+        {
+          "id": "capability-curves",
+          "name": "Capability Curves",
+          "requires": ["hunting-of-synchronous-machines-and-its-prevention"]
+        },
+        {
+          "id": "short-circuit-transients",
+          "name": "Short Circuit Transients",
+          "requires": ["capability-curves"]
+        },
+        {
+          "id": "short-circuit-on-generator",
+          "name": "Short Circuit on Generator",
+          "requires": ["short-circuit-transients"]
+        },
+        {
+          "id": "constant-flux-linkage-theorem",
+          "name": "Constant Flux Linkage Theorem",
+          "requires": ["short-circuit-on-generator"]
+        },
+        {
+          "id": "mathematical-solution-of-series-rl-circuit",
+          "name": "Mathematical Solution of series RL circuit",
+          "requires": ["constant-flux-linkage-theorem"]
+        },
+        {
+          "id": "transient",
+          "name": "Transient",
+          "requires": ["mathematical-solution-of-series-rl-circuit"]
+        },
+        {
+          "id": "sub-transient",
+          "name": "Sub-transient",
+          "requires": ["transient"]
+        },
+        {
+          "id": "steady-state-single-phase-generator-short-circuit",
+          "name": "Steady state Single Phase Generator Short Circuit",
+          "requires": ["sub-transient"]
+        },
+        {
+          "id": "testing-and-trouble-shooting-of-three-phase-alternator",
+          "name": "Testing and Trouble Shooting of Three Phase Alternator",
+          "requires": ["steady-state-single-phase-generator-short-circuit"]
+        }
+      ]
+    },
+    {
+      "id": "three-phase-synchronous-motor",
+      "name": "Three Phase Synchronous Motor",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "construction-2",
+          "name": "Construction"
+        },
+        {
+          "id": "operating-principle-2",
+          "name": "Operating Principle",
+          "requires": ["construction-2"]
+        },
+        {
+          "id": "phasor-diagrams-2",
+          "name": "Phasor Diagrams",
+          "requires": ["operating-principle-2"]
+        },
+        {
+          "id": "starting-methods",
+          "name": "Starting Methods",
+          "requires": ["phasor-diagrams-2"]
+        },
+        {
+          "id": "effect-of-varying-field-current-at-different-loads",
+          "name": "Effect of Varying Field Current at Different Loads",
+          "requires": ["starting-methods"]
+        },
+        {
+          "id": "v-curves",
+          "name": "V- Curves",
+          "requires": ["effect-of-varying-field-current-at-different-loads"]
+        },
+        {
+          "id": "hunting-and-damping",
+          "name": "Hunting & Damping",
+          "requires": ["v-curves"]
+        },
+        {
+          "id": "synchronous-condenser",
+          "name": "Synchronous Condenser",
+          "requires": ["hunting-and-damping"]
+        },
+        {
+          "id": "power-developed-by-synchronous-motor",
+          "name": "Power Developed by Synchronous Motor",
+          "requires": ["synchronous-condenser"]
+        }
+      ]
+    },
+    {
+      "id": "dc-generator",
+      "name": "DC Generator",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "principle-and-construction-of-a-dc-machine",
+          "name": "Principle & Construction of a DC Machine"
+        },
+        {
+          "id": "types-of-dc-generators",
+          "name": "Types of DC Generators",
+          "requires": ["principle-and-construction-of-a-dc-machine"]
+        },
+        {
+          "id": "dc-machine-armature-winding",
+          "name": "DC Machine Armature Winding",
+          "requires": ["types-of-dc-generators"]
+        },
+        {
+          "id": "characteristics-of-dc-generators",
+          "name": "Characteristics of DC Generators",
+          "requires": ["dc-machine-armature-winding"]
+        },
+        {
+          "id": "emf-equation",
+          "name": "EMF Equation",
+          "requires": ["characteristics-of-dc-generators"]
+        },
+        {
+          "id": "voltage-build-up-in-a-shunt-generator",
+          "name": "Voltage Build-Up in a Shunt Generator",
+          "requires": ["emf-equation"]
+        },
+        {
+          "id": "critical-resistance-and-speed",
+          "name": "Critical Resistance & Speed",
+          "requires": ["voltage-build-up-in-a-shunt-generator"]
+        },
+        {
+          "id": "losses-in-dc-machine",
+          "name": "Losses in DC Machine",
+          "requires": ["critical-resistance-and-speed"]
+        },
+        {
+          "id": "power-stages-and-efficiency",
+          "name": "Power Stages & Efficiency",
+          "requires": ["losses-in-dc-machine"]
+        },
+        {
+          "id": "armature-reaction-and-its-effects",
+          "name": "Armature Reaction & its Effects",
+          "requires": ["power-stages-and-efficiency"]
+        },
+        {
+          "id": "inter-poles-and-compensating-winding",
+          "name": "Inter Poles & Compensating Winding",
+          "requires": ["armature-reaction-and-its-effects"]
+        },
+        {
+          "id": "commutation-and-methods-to-improve-commutation",
+          "name": "Commutation & Methods to Improve Commutation",
+          "requires": ["inter-poles-and-compensating-winding"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["commutation-and-methods-to-improve-commutation"]
+        }
+      ]
+    },
+    {
+      "id": "dc-motor",
+      "name": "DC Motor",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "working-principle",
+          "name": "Working Principle"
+        },
+        {
+          "id": "back-emf",
+          "name": "Back EMF",
+          "requires": ["working-principle"]
+        },
+        {
+          "id": "voltage-and-power-equations",
+          "name": "Voltage & Power Equations",
+          "requires": ["back-emf"]
+        },
+        {
+          "id": "types-2",
+          "name": "Types",
+          "requires": ["voltage-and-power-equations"]
+        },
+        {
+          "id": "torque-of-a-dc-motor",
+          "name": "Torque of a DC Motor",
+          "requires": ["types-2"]
+        },
+        {
+          "id": "power-stages",
+          "name": "Power Stages",
+          "requires": ["torque-of-a-dc-motor"]
+        },
+        {
+          "id": "efficiency",
+          "name": "Efficiency",
+          "requires": ["power-stages"]
+        },
+        {
+          "id": "performance-characteristics",
+          "name": "Performance Characteristics",
+          "requires": ["efficiency"]
+        },
+        {
+          "id": "necessity-of-starter",
+          "name": "Necessity of Starter",
+          "requires": ["performance-characteristics"]
+        },
+        {
+          "id": "three-and-four-point-starters",
+          "name": "Three & Four Point Starters",
+          "requires": ["necessity-of-starter"]
+        },
+        {
+          "id": "speed-control-of-dc-motors",
+          "name": "Speed Control of DC Motors",
+          "requires": ["three-and-four-point-starters"]
+        },
+        {
+          "id": "applications-2",
+          "name": "Applications",
+          "requires": ["speed-control-of-dc-motors"]
+        },
+        {
+          "id": "efficiency-and-testing-of-dc-machines-methods-of-testing",
+          "name": "Efficiency and Testing of DC Machines: Methods of Testing",
+          "requires": ["applications-2"]
+        },
+        {
+          "id": "brake-test",
+          "name": "Brake Test",
+          "requires": ["efficiency-and-testing-of-dc-machines-methods-of-testing"]
+        },
+        {
+          "id": "swinburne-s-test",
+          "name": "Swinburne’s Test",
+          "requires": ["brake-test"]
+        },
+        {
+          "id": "hopkinson-s-test",
+          "name": "Hopkinson’s Test",
+          "requires": ["swinburne-s-test"]
+        },
+        {
+          "id": "field-test",
+          "name": "Field Test",
+          "requires": ["hopkinson-s-test"]
+        },
+        {
+          "id": "retardation-test",
+          "name": "Retardation Test",
+          "requires": ["field-test"]
+        },
+        {
+          "id": "trouble-shooting-of-dc-machines",
+          "name": "Trouble Shooting of DC Machines",
+          "requires": ["retardation-test"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-synchronous-and-dc-machines-laboratory-elec"]
+}

@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Web Technology (Software & Networks)",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -151,7 +151,16 @@
         {
           "id": "using-css",
           "name": "using CSS",
-          "requires": ["basic-syntax-and-structure"]
+          "requires": ["basic-syntax-and-structure"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "positioning-using-css-2",
+          "name": "positioning using CSS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["using-css"]
         },
         {
           "id": "background-images",
@@ -247,7 +256,23 @@
         {
           "id": "javascript-and-objects",
           "name": "JavaScript and objects",
-          "requires": ["modern-javascript-concepts"]
+          "requires": ["modern-javascript-concepts"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "javascript-own-objects-2",
+          "name": "JavaScript own objects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["javascript-and-objects"]
+        },
+        {
+          "id": "javascript-objects-2",
+          "name": "JavaScript Objects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["javascript-own-objects-2"]
         },
         {
           "id": "javascript-own-objects",
@@ -281,8 +306,17 @@
         },
         {
           "id": "introduction-to-ecmascript-6-javascript-variables-var",
-          "name": "Introduction to ECMAScript 6 JavaScript Variables - var",
-          "requires": ["controlling-your-browser"]
+          "name": "Introduction to ECMAScript 6 JavaScript Variables",
+          "requires": ["controlling-your-browser"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "var",
+          "name": "var",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-ecmascript-6-javascript-variables-var"]
         },
         {
           "id": "let",
@@ -323,19 +357,122 @@
       "topics": [
         {
           "id": "introduction-to-frontend-web-development-single-page-web",
-          "name": "Introduction to Frontend web development, Single page web applications, Fundamentals of React.js, Components: Class Components and Functional Components, React Hooks - useEffect, useReducer, useContex"
+          "name": "Introduction to Frontend web development",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "single-page-web-applications",
+          "name": "Single page web applications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-frontend-web-development-single-page-web"]
+        },
+        {
+          "id": "fundamentals-of-react-js",
+          "name": "Fundamentals of React.js",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["single-page-web-applications"]
+        },
+        {
+          "id": "components-class-components-and-functional-components",
+          "name": "Components: Class Components and Functional Components",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fundamentals-of-react-js"]
+        },
+        {
+          "id": "react-hooks",
+          "name": "React Hooks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["components-class-components-and-functional-components"]
+        },
+        {
+          "id": "useeffect",
+          "name": "useEffect",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["react-hooks"]
+        },
+        {
+          "id": "usereducer",
+          "name": "useReducer",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["useeffect"]
         },
         {
           "id": "note-the-detailed-syllabus-page-for-this-course-prints-l-t-p",
           "name": "Note: The detailed syllabus page for this course prints L-T-P-C as 2-1-0-3",
-          "requires": ["introduction-to-frontend-web-development-single-page-web"]
+          "requires": ["introduction-to-frontend-web-development-single-page-web"],
+          "status": "retired"
         },
         {
           "id": "the-credits-shown-here-follow-the-official-course-structure",
           "name": "the credits shown here follow the official course structure table",
-          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"]
+          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"],
+          "status": "retired"
+        },
+        {
+          "id": "usecontext",
+          "name": "useContext",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-credits-shown-here-follow-the-official-course-structure"]
+        },
+        {
+          "id": "usecallback",
+          "name": "useCallback",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["usecontext"]
+        },
+        {
+          "id": "fetching-data-with-react-hooks",
+          "name": "fetching data with React Hooks",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["usecallback"]
+        },
+        {
+          "id": "jsx",
+          "name": "JSX",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fetching-data-with-react-hooks"]
+        },
+        {
+          "id": "props",
+          "name": "Props",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["jsx"]
+        },
+        {
+          "id": "methods-as-props",
+          "name": "Methods as props",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["props"]
+        },
+        {
+          "id": "state-and-setstate",
+          "name": "State and setState",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["methods-as-props"]
+        },
+        {
+          "id": "destructuring-props-and-state",
+          "name": "Destructuring props and state",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["state-and-setstate"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

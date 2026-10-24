@@ -30,8 +30,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -118,7 +118,37 @@
         {
           "id": "2-3-trees",
           "name": "2-3 Trees",
-          "requires": ["red-black-trees"]
+          "requires": ["red-black-trees"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "b-trees-2",
+          "name": "B-Trees",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["2-3-trees"]
+        },
+        {
+          "id": "splay-trees-2",
+          "name": "Splay Trees",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["b-trees-2"]
+        },
+        {
+          "id": "quad-trees-2",
+          "name": "Quad trees",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["splay-trees-2"]
+        },
+        {
+          "id": "k-d-trees-2",
+          "name": "k-D Trees",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["quad-trees-2"]
         },
         {
           "id": "b-trees",
@@ -174,7 +204,8 @@
         {
           "id": "maxflow-mincut-theorem",
           "name": "Maxflow- mincut theorem",
-          "requires": ["edmonds-blossom-algorithm-for-augmenting-path"]
+          "requires": ["edmonds-blossom-algorithm-for-augmenting-path"],
+          "status": "retired"
         },
         {
           "id": "ford-fulkerson-and-edmond-karp-maximum-flow-algorithm",
@@ -195,6 +226,13 @@
           "id": "simplex-method",
           "name": "Simplex method",
           "requires": ["dft-and-fft-algorithms"]
+        },
+        {
+          "id": "maxflowmincut-theorem",
+          "name": "Maxflowmincut theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simplex-method"]
         }
       ]
     },
@@ -234,5 +272,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

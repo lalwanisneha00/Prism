@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 3 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "maths",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,12 +41,58 @@
       "topics": [
         {
           "id": "sets-and-their-representation-union-intersection-and",
-          "name": "Sets and their representation. Union, intersection, and complement. Mapping or function. One-one"
+          "name": "Sets and their representation",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "union",
+          "name": "Union",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sets-and-their-representation-union-intersection-and"]
+        },
+        {
+          "id": "intersection",
+          "name": "intersection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["union"]
+        },
+        {
+          "id": "complement",
+          "name": "complement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["intersection"]
+        },
+        {
+          "id": "mapping-or-function",
+          "name": "Mapping or function",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["complement"]
+        },
+        {
+          "id": "one-one",
+          "name": "One-one",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mapping-or-function"]
         },
         {
           "id": "onto-mappings-inverse-and-composite-mappings",
-          "name": "onto mappings. Inverse and composite mappings",
-          "requires": ["sets-and-their-representation-union-intersection-and"]
+          "name": "onto mappings",
+          "requires": ["sets-and-their-representation-union-intersection-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "inverse-and-composite-mappings",
+          "name": "Inverse and composite mappings",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["onto-mappings-inverse-and-composite-mappings"]
         }
       ]
     },
@@ -168,5 +214,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

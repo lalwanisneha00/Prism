@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "circuits",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,7 +41,16 @@
       "topics": [
         {
           "id": "trends-in-vlsi-semiconductor-industry-related-to-technology",
-          "name": "Trends in VLSI/Semiconductor industry, related to technology (Moore’s) scaling"
+          "name": "Trends in VLSI/Semiconductor industry",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "related-to-technology-moore-s-scaling",
+          "name": "related to technology (Moore’s) scaling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["trends-in-vlsi-semiconductor-industry-related-to-technology"]
         },
         {
           "id": "itrs-roadmap",
@@ -50,13 +59,52 @@
         },
         {
           "id": "overview-of-semiconductor-devices-inherent-in-the-mosfet",
-          "name": "Overview of semiconductor devices inherent in the MOSFET: MOSFET I/V Characteristics, MOSFET C/V Characteristics, Second Order Effects",
-          "requires": ["itrs-roadmap"]
+          "name": "Overview of semiconductor devices inherent in the MOSFET: MOSFET I/V Characteristics",
+          "requires": ["itrs-roadmap"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "mosfet-c-v-characteristics",
+          "name": "MOSFET C/V Characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["overview-of-semiconductor-devices-inherent-in-the-mosfet"]
+        },
+        {
+          "id": "second-order-effects",
+          "name": "Second Order Effects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mosfet-c-v-characteristics"]
         },
         {
           "id": "dc-transfer-characteristics-cmos-inverter-dc-characteristics",
-          "name": "DC Transfer Characteristics: CMOS inverter DC Characteristics, Beta Ratio Effects, Noise Margins, Pass Transistor DC Characteristics",
-          "requires": ["overview-of-semiconductor-devices-inherent-in-the-mosfet"]
+          "name": "DC Transfer Characteristics: CMOS inverter DC Characteristics",
+          "requires": ["overview-of-semiconductor-devices-inherent-in-the-mosfet"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "beta-ratio-effects",
+          "name": "Beta Ratio Effects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dc-transfer-characteristics-cmos-inverter-dc-characteristics"]
+        },
+        {
+          "id": "noise-margins",
+          "name": "Noise Margins",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["beta-ratio-effects"]
+        },
+        {
+          "id": "pass-transistor-dc-characteristics",
+          "name": "Pass Transistor DC Characteristics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["noise-margins"]
         }
       ]
     },
@@ -91,8 +139,17 @@
         },
         {
           "id": "delay-in-multistage-logic-networks-timing-analysis-delay",
-          "name": "Delay in Multistage Logic Networks. Timing analysis delay models Power: Sources of power",
-          "requires": ["delay-in-a-logic-gate"]
+          "name": "Delay in Multistage Logic Networks",
+          "requires": ["delay-in-a-logic-gate"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "timing-analysis-delay-models-power-sources-of-power",
+          "name": "Timing analysis delay models Power: Sources of power",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["delay-in-multistage-logic-networks-timing-analysis-delay"]
         },
         {
           "id": "cmos-power",
@@ -127,8 +184,24 @@
         },
         {
           "id": "cpl-transmission-gates-dpl-etc",
-          "name": "CPL, transmission gates, DPL, etc)",
-          "requires": ["combinational-design-circuit-families-pass-transistor-tree"]
+          "name": "CPL",
+          "requires": ["combinational-design-circuit-families-pass-transistor-tree"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "transmission-gates",
+          "name": "transmission gates",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cpl-transmission-gates-dpl-etc"]
+        },
+        {
+          "id": "dpl",
+          "name": "DPL",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transmission-gates"]
         },
         {
           "id": "pseudo-nmos-logic",
@@ -142,18 +215,101 @@
         },
         {
           "id": "dynamic-logic-domino-np-domino-zipper",
-          "name": "Dynamic logic (domino, NP domino, Zipper)",
-          "requires": ["cvls-logic"]
+          "name": "Dynamic logic (domino",
+          "requires": ["cvls-logic"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "hybrid-logic-style-and-examples-full-adder-mux-xor-pitfalls",
-          "name": "Hybrid logic style and examples (Full-Adder, MUX, XOR), Pitfalls of various families, Stick diagram",
+          "id": "np-domino",
+          "name": "NP domino",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["dynamic-logic-domino-np-domino-zipper"]
         },
         {
-          "id": "sequential-design-sequencing-static-circuits-max-delay",
-          "name": "Sequential Design: Sequencing Static Circuits, Max-Delay Constraints, Min-Delay Constraints, Time Borrowing, Clock Skew, Circuit Design of Latches and Flip-Flops",
+          "id": "zipper",
+          "name": "Zipper)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["np-domino"]
+        },
+        {
+          "id": "hybrid-logic-style-and-examples-full-adder-mux-xor-pitfalls",
+          "name": "Hybrid logic style and examples (Full-Adder",
+          "requires": ["dynamic-logic-domino-np-domino-zipper"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "mux",
+          "name": "MUX",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["hybrid-logic-style-and-examples-full-adder-mux-xor-pitfalls"]
+        },
+        {
+          "id": "xor",
+          "name": "XOR)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mux"]
+        },
+        {
+          "id": "pitfalls-of-various-families",
+          "name": "Pitfalls of various families",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["xor"]
+        },
+        {
+          "id": "stick-diagram",
+          "name": "Stick diagram",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pitfalls-of-various-families"]
+        },
+        {
+          "id": "sequential-design-sequencing-static-circuits-max-delay",
+          "name": "Sequential Design: Sequencing Static Circuits",
+          "requires": ["hybrid-logic-style-and-examples-full-adder-mux-xor-pitfalls"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "min-delay-constraints",
+          "name": "Min-Delay Constraints",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sequential-design-sequencing-static-circuits-max-delay"]
+        },
+        {
+          "id": "time-borrowing",
+          "name": "Time Borrowing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["min-delay-constraints"]
+        },
+        {
+          "id": "clock-skew",
+          "name": "Clock Skew",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["time-borrowing"]
+        },
+        {
+          "id": "circuit-design-of-latches-and-flip-flops",
+          "name": "Circuit Design of Latches and Flip-Flops",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["clock-skew"]
+        },
+        {
+          "id": "etc",
+          "name": "etc)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["circuit-design-of-latches-and-flip-flops"]
         }
       ]
     },
@@ -164,19 +320,88 @@
       "topics": [
         {
           "id": "carry-ripple-adder-carry-look-ahead-adder-manchester-carry",
-          "name": "Carry ripple adder, carry look ahead adder, Manchester carry chain adder, carry skip adder, carry select adder, shifters, multipliers, SRAM, DRAM, and other memories"
+          "name": "Carry ripple adder",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "carry-look-ahead-adder",
+          "name": "carry look ahead adder",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carry-ripple-adder-carry-look-ahead-adder-manchester-carry"]
+        },
+        {
+          "id": "manchester-carry-chain-adder",
+          "name": "Manchester carry chain adder",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carry-look-ahead-adder"]
+        },
+        {
+          "id": "carry-skip-adder",
+          "name": "carry skip adder",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["manchester-carry-chain-adder"]
+        },
+        {
+          "id": "carry-select-adder",
+          "name": "carry select adder",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carry-skip-adder"]
+        },
+        {
+          "id": "shifters",
+          "name": "shifters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carry-select-adder"]
+        },
+        {
+          "id": "multipliers",
+          "name": "multipliers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["shifters"]
+        },
+        {
+          "id": "sram",
+          "name": "SRAM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multipliers"]
+        },
+        {
+          "id": "dram",
+          "name": "DRAM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sram"]
+        },
+        {
+          "id": "other-memories",
+          "name": "other memories",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dram"]
         },
         {
           "id": "note-the-detailed-syllabus-page-for-this-course-prints-l-t-p",
           "name": "Note: The detailed syllabus page for this course prints L-T-P-C as 3-0-0-0",
-          "requires": ["carry-ripple-adder-carry-look-ahead-adder-manchester-carry"]
+          "requires": ["carry-ripple-adder-carry-look-ahead-adder-manchester-carry"],
+          "status": "retired"
         },
         {
           "id": "the-credits-shown-here-follow-the-official-course-structure",
           "name": "the credits shown here follow the official course structure table",
-          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"]
+          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"],
+          "status": "retired"
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-digital-cmos-and-vlsi-design-lab-ict"]
 }

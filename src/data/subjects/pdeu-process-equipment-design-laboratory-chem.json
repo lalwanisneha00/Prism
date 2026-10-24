@@ -1,0 +1,101 @@
+{
+  "id": "pdeu-process-equipment-design-laboratory-chem",
+  "name": "Process Equipment Design Laboratory",
+  "field": "Process Equipment Design Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 5): Process Equipment Design Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 8 of CHEM/sem5/Chemical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH303P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s5-process-equipment-design-laboratory",
+      "code": "24CH303P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-introduction-to-various-process-simulation-soft",
+          "name": "Introduction to various process simulation software and understanding the modelling of unit operations.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-process-calculation-and-simulation-for-mixing-s",
+          "name": "Process calculation and simulation for mixing streams using a pipeline network.",
+          "number": 2,
+          "requires": ["experiment-1-introduction-to-various-process-simulation-soft"]
+        },
+        {
+          "id": "experiment-3-process-calculation-and-simulation-of-a-pumping",
+          "name": "Process calculation and simulation of a pumping system for liquid streams.",
+          "number": 3,
+          "requires": ["experiment-2-process-calculation-and-simulation-for-mixing-s"]
+        },
+        {
+          "id": "experiment-4-process-calculation-and-simulation-of-a-compres",
+          "name": "Process calculation and simulation of a compressor/blower system.",
+          "number": 4,
+          "requires": ["experiment-3-process-calculation-and-simulation-of-a-pumping"]
+        },
+        {
+          "id": "experiment-5-process-calculation-and-simulation-of-heat-exch",
+          "name": "Process calculation and simulation of heat exchangers.",
+          "number": 5,
+          "requires": ["experiment-4-process-calculation-and-simulation-of-a-compres"]
+        },
+        {
+          "id": "experiment-6-process-calculation-and-simulation-of-multi-eff",
+          "name": "Process calculation and simulation of multi-effect evaporators.",
+          "number": 6,
+          "requires": ["experiment-5-process-calculation-and-simulation-of-heat-exch"]
+        },
+        {
+          "id": "experiment-7-process-calculation-and-simulation-of-distillat",
+          "name": "Process calculation and simulation of distillation operation using the McCabe-Thiele method.",
+          "number": 7,
+          "requires": ["experiment-6-process-calculation-and-simulation-of-multi-eff"]
+        },
+        {
+          "id": "experiment-8-process-calculation-and-simulation-of-short-cut",
+          "name": "Process calculation and simulation of short-cut approaches for water-methanol separation using distillation.",
+          "number": 8,
+          "requires": ["experiment-7-process-calculation-and-simulation-of-distillat"]
+        },
+        {
+          "id": "experiment-9-process-calculation-and-simulation-of-rigorous",
+          "name": "Process calculation and simulation of rigorous approaches for water-methanol separation using distillation.",
+          "number": 9,
+          "requires": ["experiment-8-process-calculation-and-simulation-of-short-cut"]
+        },
+        {
+          "id": "experiment-10-process-calculation-and-simulation-of-the-abso",
+          "name": "Process calculation and simulation of the absorption of acetic acid using water as solvent. Max 26 Hrs",
+          "number": 10,
+          "requires": ["experiment-9-process-calculation-and-simulation-of-rigorous"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-process-equipment-design-chem"]
+}

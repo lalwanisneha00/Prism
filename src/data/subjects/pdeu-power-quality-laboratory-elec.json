@@ -1,0 +1,106 @@
+{
+  "id": "pdeu-power-quality-laboratory-elec",
+  "name": "Power Quality Laboratory",
+  "field": "Power Quality Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 7): Power Quality Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 11 of ELEC/sem7/Electrical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE406P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s7-power-quality-laboratory",
+      "code": "20EE406P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-generation-of-voltage-sag-and-swell",
+          "name": "Generation of voltage Sag and Swell.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-generation-of-voltage-interruption-voltage-flic",
+          "name": "Generation of voltage interruption, voltage flicker and voltage unbalance.",
+          "number": 2,
+          "requires": ["experiment-1-generation-of-voltage-sag-and-swell"]
+        },
+        {
+          "id": "experiment-3-generation-of-voltage-notching-and-power-freque",
+          "name": "Generation of voltage notching & power frequency voltage variation.",
+          "number": 3,
+          "requires": ["experiment-2-generation-of-voltage-interruption-voltage-flic"]
+        },
+        {
+          "id": "experiment-4-power-quality-analysis-of-linear-and-non-linear",
+          "name": "Power Quality analysis of linear and non-linear load.",
+          "number": 4,
+          "requires": ["experiment-3-generation-of-voltage-notching-and-power-freque"]
+        },
+        {
+          "id": "experiment-5-harmonic-analysis-using-fft-and-power-gui-block",
+          "name": "Harmonic analysis using FFT and Power GUI block in MATLAB.",
+          "number": 5,
+          "requires": ["experiment-4-power-quality-analysis-of-linear-and-non-linear"]
+        },
+        {
+          "id": "experiment-6-impact-of-harmonics-and-unbalanced-voltage-on-i",
+          "name": "Impact of harmonics and unbalanced voltage on induction motor.",
+          "number": 6,
+          "requires": ["experiment-5-harmonic-analysis-using-fft-and-power-gui-block"]
+        },
+        {
+          "id": "experiment-7-measurement-of-power-factor-of-a-load",
+          "name": "Measurement of power factor of a load.",
+          "number": 7,
+          "requires": ["experiment-6-impact-of-harmonics-and-unbalanced-voltage-on-i"]
+        },
+        {
+          "id": "experiment-8-measurement-of-displacement-factor-distortion-f",
+          "name": "Measurement of displacement factor, distortion factor and power factor for linear load.",
+          "number": 8,
+          "requires": ["experiment-7-measurement-of-power-factor-of-a-load"]
+        },
+        {
+          "id": "experiment-9-measurement-of-displacement-factor-distortion-f",
+          "name": "Measurement of displacement factor, distortion factor and power factor for nonlinear load.",
+          "number": 9,
+          "requires": ["experiment-8-measurement-of-displacement-factor-distortion-f"]
+        },
+        {
+          "id": "experiment-10-measurement-of-power-quality-parameters-using",
+          "name": "Measurement of power quality parameters using power analyzer.",
+          "number": 10,
+          "requires": ["experiment-9-measurement-of-displacement-factor-distortion-f"]
+        },
+        {
+          "id": "experiment-11-experimental-study-on-power-quality-analysis-f",
+          "name": "Experimental study on power quality analysis for linear and nonlinear loads.",
+          "number": 11,
+          "requires": ["experiment-10-measurement-of-power-quality-parameters-using"]
+        }
+      ]
+    }
+  ]
+}

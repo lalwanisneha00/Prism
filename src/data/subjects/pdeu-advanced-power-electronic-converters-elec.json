@@ -1,0 +1,295 @@
+{
+  "id": "pdeu-advanced-power-electronic-converters-elec",
+  "name": "Advanced Power Electronic Converters",
+  "field": "Advanced Power Electronic Converters",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 6): Advanced Power Electronic Converters",
+    "note": "Units and topics copied from the course handout PDF (pages 9 of ELEC/sem6/Electrical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE314T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s6-advanced-power-electronic-converters",
+      "code": "20EE314T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "power-semiconductor-switches-and-power-converters",
+      "name": "Power Semiconductor Switches& Power Converters",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "review-of-semiconductor-switches-power-diode",
+          "name": "Review of Semiconductor Switches (Power Diode"
+        },
+        {
+          "id": "scr",
+          "name": "SCR",
+          "requires": ["review-of-semiconductor-switches-power-diode"]
+        },
+        {
+          "id": "diac",
+          "name": "DIAC",
+          "requires": ["scr"]
+        },
+        {
+          "id": "triac",
+          "name": "TRIAC",
+          "requires": ["diac"]
+        },
+        {
+          "id": "power-bjt",
+          "name": "Power BJT",
+          "requires": ["triac"]
+        },
+        {
+          "id": "mosfet",
+          "name": "MOSFET",
+          "requires": ["power-bjt"]
+        },
+        {
+          "id": "igbt",
+          "name": "IGBT",
+          "requires": ["mosfet"]
+        },
+        {
+          "id": "gto-and-power-converters",
+          "name": "GTO) and Power Converters",
+          "requires": ["igbt"]
+        },
+        {
+          "id": "wide-band-gap-power-semiconductor-switches",
+          "name": "Wide Band Gap Power Semiconductor Switches",
+          "requires": ["gto-and-power-converters"]
+        },
+        {
+          "id": "heat-sink-and-emi-filter-design",
+          "name": "Heat Sink and EMI filter Design",
+          "requires": ["wide-band-gap-power-semiconductor-switches"]
+        },
+        {
+          "id": "gate-drive-ics",
+          "name": "Gate Drive ICs",
+          "requires": ["heat-sink-and-emi-filter-design"]
+        }
+      ]
+    },
+    {
+      "id": "multilevel-inverters-and-multi-pulse-rectifiers",
+      "name": "Multilevel Inverters & Multi-Pulse Rectifiers",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "multilevel-inverters-significance",
+          "name": "Multilevel Inverters: Significance"
+        },
+        {
+          "id": "merits-and-demerits",
+          "name": "Merits and Demerits",
+          "requires": ["multilevel-inverters-significance"]
+        },
+        {
+          "id": "power-quality-and-dv-dt-rating",
+          "name": "Power Quality and dv/dt rating",
+          "requires": ["merits-and-demerits"]
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "requires": ["power-quality-and-dv-dt-rating"]
+        },
+        {
+          "id": "operational-analysis-of-neutral-point-clamped",
+          "name": "Operational Analysis of Neutral Point Clamped",
+          "requires": ["classification"]
+        },
+        {
+          "id": "flying-capacitor-and-cascaded-multilevel-inverters",
+          "name": "Flying Capacitor and Cascaded Multilevel Inverters",
+          "requires": ["operational-analysis-of-neutral-point-clamped"]
+        },
+        {
+          "id": "pulse-width-modulation-for-multilevel-inverters",
+          "name": "Pulse Width Modulation for Multilevel Inverters",
+          "requires": ["flying-capacitor-and-cascaded-multilevel-inverters"]
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "requires": ["pulse-width-modulation-for-multilevel-inverters"]
+        },
+        {
+          "id": "multi-pulse-rectifiers-power-quality-issues-with-6-pulse-rec",
+          "name": "Multi-pulse Rectifiers: Power Quality Issues with 6-pulse Rectifiers",
+          "requires": ["applications"]
+        },
+        {
+          "id": "significance-of-multi-pulse-rectifiers",
+          "name": "Significance of Multi-pulse Rectifiers",
+          "requires": ["multi-pulse-rectifiers-power-quality-issues-with-6-pulse-rec"]
+        },
+        {
+          "id": "operational-analysis-of-12-pulse",
+          "name": "Operational Analysis of 12-Pulse",
+          "requires": ["significance-of-multi-pulse-rectifiers"]
+        },
+        {
+          "id": "pulse-and-24-pulse-rectifiers",
+          "name": "Pulse and 24-Pulse Rectifiers",
+          "requires": ["operational-analysis-of-12-pulse"]
+        },
+        {
+          "id": "pwm-rectifiers",
+          "name": "PWM rectifiers",
+          "requires": ["pulse-and-24-pulse-rectifiers"]
+        }
+      ]
+    },
+    {
+      "id": "matrix-converters-and-resonant-inverters",
+      "name": "Matrix Converters & Resonant Inverters",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "matrix-converters-features",
+          "name": "Matrix Converters: Features"
+        },
+        {
+          "id": "classification-2",
+          "name": "Classification",
+          "requires": ["matrix-converters-features"]
+        },
+        {
+          "id": "working-of-direct",
+          "name": "Working of Direct",
+          "requires": ["classification-2"]
+        },
+        {
+          "id": "indirect-and-sparse-matrix-converters",
+          "name": "Indirect and Sparse Matrix Converters",
+          "requires": ["working-of-direct"]
+        },
+        {
+          "id": "modulation-techniques",
+          "name": "Modulation Techniques",
+          "requires": ["indirect-and-sparse-matrix-converters"]
+        },
+        {
+          "id": "application-in-wind-energy-conversion-system-and-electric-dr",
+          "name": "Application in Wind Energy Conversion System and Electric Drives",
+          "requires": ["modulation-techniques"]
+        },
+        {
+          "id": "resonant-inverters-hard-switching",
+          "name": "Resonant Inverters: Hard Switching",
+          "requires": ["application-in-wind-energy-conversion-system-and-electric-dr"]
+        },
+        {
+          "id": "effects-of-hard-switching",
+          "name": "Effects of Hard Switching",
+          "requires": ["resonant-inverters-hard-switching"]
+        },
+        {
+          "id": "soft-switching",
+          "name": "Soft Switching",
+          "requires": ["effects-of-hard-switching"]
+        },
+        {
+          "id": "resonant-inverters",
+          "name": "Resonant Inverters",
+          "requires": ["soft-switching"]
+        }
+      ]
+    },
+    {
+      "id": "switched-mode-and-uninterruptible-power-supplies",
+      "name": "Switched Mode and Uninterruptible Power Supplies",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "switched-mode-power-supplies-operation-of-buck-and-boost-dc",
+          "name": "Switched Mode Power Supplies: Operation of Buck and Boost dc-dc Converter with Discontinuous Current Conduction"
+        },
+        {
+          "id": "flyback-converter",
+          "name": "Flyback Converter",
+          "requires": ["switched-mode-power-supplies-operation-of-buck-and-boost-dc"]
+        },
+        {
+          "id": "forward-converter",
+          "name": "Forward Converter",
+          "requires": ["flyback-converter"]
+        },
+        {
+          "id": "push-pull-converter",
+          "name": "Push-Pull Converter",
+          "requires": ["forward-converter"]
+        },
+        {
+          "id": "half-bridge-converter",
+          "name": "Half Bridge Converter",
+          "requires": ["push-pull-converter"]
+        },
+        {
+          "id": "full-bridge-converter",
+          "name": "Full Bridge Converter",
+          "requires": ["half-bridge-converter"]
+        },
+        {
+          "id": "single-active-bridge-and-dural-active-bridge-converter",
+          "name": "Single Active Bridge and Dural Active Bridge Converter",
+          "requires": ["full-bridge-converter"]
+        },
+        {
+          "id": "high-frequency-inductors-and-transformers",
+          "name": "High Frequency Inductors and Transformers",
+          "requires": ["single-active-bridge-and-dural-active-bridge-converter"]
+        },
+        {
+          "id": "zero-voltage-switching",
+          "name": "Zero Voltage Switching",
+          "requires": ["high-frequency-inductors-and-transformers"]
+        },
+        {
+          "id": "zero-current-switching",
+          "name": "Zero Current Switching",
+          "requires": ["zero-voltage-switching"]
+        },
+        {
+          "id": "uninterruptible-power-supplies-significance",
+          "name": "Uninterruptible Power Supplies: Significance",
+          "requires": ["zero-current-switching"]
+        },
+        {
+          "id": "classification-3",
+          "name": "Classification",
+          "requires": ["uninterruptible-power-supplies-significance"]
+        },
+        {
+          "id": "power-and-control-architecture",
+          "name": "Power and Control Architecture",
+          "requires": ["classification-3"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-advanced-power-electronic-converters-laboratory-elec"]
+}

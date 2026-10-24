@@ -27,8 +27,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "circuits",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -63,8 +63,17 @@
         },
         {
           "id": "v-i-characteristics-diode-applications-rectification",
-          "name": "V-I Characteristics. Diode Applications: rectification",
-          "requires": ["cut-in-voltage"]
+          "name": "V-I Characteristics",
+          "requires": ["cut-in-voltage"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "diode-applications-rectification",
+          "name": "Diode Applications: rectification",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["v-i-characteristics-diode-applications-rectification"]
         },
         {
           "id": "rectifiers",
@@ -88,8 +97,17 @@
         },
         {
           "id": "clampers-zener-diodes-voltage-regulator",
-          "name": "clampers. Zener Diodes: voltage regulator",
-          "requires": ["clippers"]
+          "name": "clampers",
+          "requires": ["clippers"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "zener-diodes-voltage-regulator",
+          "name": "Zener Diodes: voltage regulator",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["clampers-zener-diodes-voltage-regulator"]
         },
         {
           "id": "regulator-design",
@@ -149,8 +167,17 @@
         },
         {
           "id": "characteristics-and-region-of-operation",
-          "name": "characteristics, and region of operation",
-          "requires": ["working-principal"]
+          "name": "characteristics",
+          "requires": ["working-principal"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "region-of-operation",
+          "name": "region of operation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characteristics-and-region-of-operation"]
         },
         {
           "id": "load-line-analysis",
@@ -159,8 +186,17 @@
         },
         {
           "id": "biasing-techniques-transistor-as-an-amplifier",
-          "name": "biasing techniques. Transistor as an amplifier",
-          "requires": ["load-line-analysis"]
+          "name": "biasing techniques",
+          "requires": ["load-line-analysis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "transistor-as-an-amplifier",
+          "name": "Transistor as an amplifier",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["biasing-techniques-transistor-as-an-amplifier"]
         },
         {
           "id": "design-of-a-single-stage-amplifier",
@@ -174,8 +210,17 @@
         },
         {
           "id": "bandwidth-and-frequency-response-frequency-response-of",
-          "name": "bandwidth and frequency response. Frequency response of multistage amplifiers",
-          "requires": ["gain"]
+          "name": "bandwidth and frequency response",
+          "requires": ["gain"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "frequency-response-of-multistage-amplifiers",
+          "name": "Frequency response of multistage amplifiers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bandwidth-and-frequency-response-frequency-response-of"]
         }
       ]
     },
@@ -200,8 +245,17 @@
         },
         {
           "id": "scaling-and-averaging-amplifiers-linear-applications",
-          "name": "scaling & averaging amplifiers. Linear Applications: Instrumentation Amplifiers",
-          "requires": ["summing"]
+          "name": "scaling & averaging amplifiers",
+          "requires": ["summing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "linear-applications-instrumentation-amplifiers",
+          "name": "Linear Applications: Instrumentation Amplifiers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scaling-and-averaging-amplifiers-linear-applications"]
         },
         {
           "id": "v-i-and-i-v-converters",
@@ -235,8 +289,17 @@
         },
         {
           "id": "sample-and-hold-circuits-waveform-generators-sine",
-          "name": "Sample and Hold circuits. Waveform Generators: Sine",
-          "requires": ["comparators-and-its-applications"]
+          "name": "Sample and Hold circuits",
+          "requires": ["comparators-and-its-applications"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "waveform-generators-sine",
+          "name": "Waveform Generators: Sine",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["sample-and-hold-circuits-waveform-generators-sine"]
         },
         {
           "id": "square-and-triangular-wave-generators",
@@ -301,5 +364,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -1,0 +1,624 @@
+{
+  "id": "pdeu-automobile-engineering-me",
+  "name": "Automobile Engineering",
+  "field": "Automobile Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 7): Automobile Engineering",
+    "note": "Units and topics copied from the course handout PDF (pages 8 of MECH/sem7/Mechanical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME437T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s7-program-elective--automobile-engineering",
+      "code": "24ME437T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "introduction-to-automobile-and-its-performance-automobile-pa",
+          "name": "Introduction to Automobile and its Performance: Automobile parts"
+        },
+        {
+          "id": "assembly-of-vehicle",
+          "name": "assembly of vehicle",
+          "requires": ["introduction-to-automobile-and-its-performance-automobile-pa"]
+        },
+        {
+          "id": "power-required-for-acceleration",
+          "name": "power required for acceleration",
+          "requires": ["assembly-of-vehicle"]
+        },
+        {
+          "id": "stability-of-a-vehicle-on-a-slope",
+          "name": "stability of a vehicle on a slope",
+          "requires": ["power-required-for-acceleration"]
+        },
+        {
+          "id": "dynamics-of-a-vehicle-running-on-banked-track",
+          "name": "dynamics of a vehicle running on banked track",
+          "requires": ["stability-of-a-vehicle-on-a-slope"]
+        },
+        {
+          "id": "stability-of-a-vehicle-taking-a-turn",
+          "name": "stability of a vehicle taking a turn",
+          "requires": ["dynamics-of-a-vehicle-running-on-banked-track"]
+        },
+        {
+          "id": "chassis",
+          "name": "Chassis",
+          "requires": ["stability-of-a-vehicle-taking-a-turn"]
+        },
+        {
+          "id": "frame-and-body-types",
+          "name": "Frame & Body: Types",
+          "requires": ["chassis"]
+        },
+        {
+          "id": "twowheeler-chassis",
+          "name": "Twowheeler Chassis",
+          "requires": ["frame-and-body-types"]
+        },
+        {
+          "id": "comparison",
+          "name": "comparison",
+          "requires": ["twowheeler-chassis"]
+        },
+        {
+          "id": "comparison-of-front-and-rear-mounting-of-engine",
+          "name": "Comparison of front and rear mounting of engine",
+          "requires": ["comparison"]
+        },
+        {
+          "id": "aerodynamic-considerations-in-body-profiling",
+          "name": "aerodynamic considerations in body profiling",
+          "requires": ["comparison-of-front-and-rear-mounting-of-engine"]
+        },
+        {
+          "id": "ergonomic-considerations",
+          "name": "Ergonomic considerations",
+          "requires": ["aerodynamic-considerations-in-body-profiling"]
+        },
+        {
+          "id": "defects-in-frames-and-body",
+          "name": "defects in frames and body",
+          "requires": ["ergonomic-considerations"]
+        }
+      ]
+    },
+    {
+      "id": "transmission-systems",
+      "name": "Transmission Systems",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "clutch-constructional-features-and-working-of-different-type",
+          "name": "Clutch: Constructional features and working of different types of clutch (like single plate"
+        },
+        {
+          "id": "multi-plate",
+          "name": "multi plate",
+          "requires": ["clutch-constructional-features-and-working-of-different-type"]
+        },
+        {
+          "id": "cone",
+          "name": "cone",
+          "requires": ["multi-plate"]
+        },
+        {
+          "id": "semi-centrifugal",
+          "name": "semi− centrifugal",
+          "requires": ["cone"]
+        },
+        {
+          "id": "fully",
+          "name": "fully",
+          "requires": ["semi-centrifugal"]
+        },
+        {
+          "id": "centrifugal",
+          "name": "centrifugal",
+          "requires": ["fully"]
+        },
+        {
+          "id": "wet-etc-used-in-automobiles",
+          "name": "wet etc.) used in automobiles",
+          "requires": ["centrifugal"]
+        },
+        {
+          "id": "calculation-of-surface-area-and-number-of-driving-and-driven",
+          "name": "calculation of surface area and number of driving and driven plates",
+          "requires": ["wet-etc-used-in-automobiles"]
+        },
+        {
+          "id": "fluid-coupling",
+          "name": "fluid coupling",
+          "requires": ["calculation-of-surface-area-and-number-of-driving-and-driven"]
+        },
+        {
+          "id": "gear-box-functions-of-gearbox",
+          "name": "Gear Box: Functions of gearbox",
+          "requires": ["fluid-coupling"]
+        },
+        {
+          "id": "need-of-gear-box",
+          "name": "need of gear box",
+          "requires": ["gear-box-functions-of-gearbox"]
+        },
+        {
+          "id": "gears-and-gear-ratios",
+          "name": "gears & gear ratios",
+          "requires": ["need-of-gear-box"]
+        },
+        {
+          "id": "principle-of-gearing",
+          "name": "principle of gearing",
+          "requires": ["gears-and-gear-ratios"]
+        },
+        {
+          "id": "types-of-gear-boxes",
+          "name": "types of gear boxes",
+          "requires": ["principle-of-gearing"]
+        },
+        {
+          "id": "manual-gearboxes",
+          "name": "manual gearboxes",
+          "requires": ["types-of-gear-boxes"]
+        },
+        {
+          "id": "automatic-transmission-basic-devices-used-in-automatic-trans",
+          "name": "Automatic Transmission: Basic devices used in automatic transmission",
+          "requires": ["manual-gearboxes"]
+        },
+        {
+          "id": "principle-of-epicyclic-gearing",
+          "name": "principle of epicyclic gearing",
+          "requires": ["automatic-transmission-basic-devices-used-in-automatic-trans"]
+        },
+        {
+          "id": "torque-converter",
+          "name": "torque converter",
+          "requires": ["principle-of-epicyclic-gearing"]
+        },
+        {
+          "id": "free-wheel-clutch",
+          "name": "free wheel clutch",
+          "requires": ["torque-converter"]
+        },
+        {
+          "id": "over-speed-drive-and-its-working",
+          "name": "over speed drive and its working",
+          "requires": ["free-wheel-clutch"]
+        },
+        {
+          "id": "semi",
+          "name": "semi",
+          "requires": ["over-speed-drive-and-its-working"]
+        },
+        {
+          "id": "fully-automatic-transmission",
+          "name": "fully automatic transmission",
+          "requires": ["semi"]
+        },
+        {
+          "id": "continuously-variable-transmission-cvt",
+          "name": "continuously variable transmission (CVT)",
+          "requires": ["fully-automatic-transmission"]
+        },
+        {
+          "id": "adaptive-4-wheel-drive-system",
+          "name": "Adaptive 4-wheel Drive System",
+          "requires": ["continuously-variable-transmission-cvt"]
+        },
+        {
+          "id": "propeller-shaft-propeller-shafts-and-their-types",
+          "name": "Propeller Shaft: Propeller shafts and their types",
+          "requires": ["adaptive-4-wheel-drive-system"]
+        },
+        {
+          "id": "fluid-drive-and-fluid-flywheel",
+          "name": "fluid drive and fluid flywheel",
+          "requires": ["propeller-shaft-propeller-shafts-and-their-types"]
+        },
+        {
+          "id": "universal-joints",
+          "name": "universal joints",
+          "requires": ["fluid-drive-and-fluid-flywheel"]
+        },
+        {
+          "id": "hotch-kiss-drive",
+          "name": "hotch-kiss drive",
+          "requires": ["universal-joints"]
+        },
+        {
+          "id": "torque-tube-drive",
+          "name": "torque tube drive",
+          "requires": ["hotch-kiss-drive"]
+        },
+        {
+          "id": "differential-principle-of-the-differential",
+          "name": "Differential: Principle of the differential",
+          "requires": ["torque-tube-drive"]
+        },
+        {
+          "id": "locking-differential",
+          "name": "locking differential",
+          "requires": ["differential-principle-of-the-differential"]
+        },
+        {
+          "id": "limited-slip-differential-final-drive-and-rear-axle-final-dr",
+          "name": "limited slip differential Final Drive and Rear Axle: Final drives and its types",
+          "requires": ["locking-differential"]
+        },
+        {
+          "id": "hypoid-type-final-drive",
+          "name": "hypoid type final drive",
+          "requires": ["limited-slip-differential-final-drive-and-rear-axle-final-dr"]
+        },
+        {
+          "id": "rear-axle",
+          "name": "rear axle",
+          "requires": ["hypoid-type-final-drive"]
+        },
+        {
+          "id": "rear-axle-drives",
+          "name": "rear axle drives",
+          "requires": ["rear-axle"]
+        },
+        {
+          "id": "rear-axle-shaft-supporting",
+          "name": "rear axle shaft supporting",
+          "requires": ["rear-axle-drives"]
+        },
+        {
+          "id": "rear-axle-casing",
+          "name": "rear axle casing",
+          "requires": ["rear-axle-shaft-supporting"]
+        },
+        {
+          "id": "axle-breather",
+          "name": "axle breather",
+          "requires": ["rear-axle-casing"]
+        },
+        {
+          "id": "oil-retention",
+          "name": "oil retention",
+          "requires": ["axle-breather"]
+        }
+      ]
+    },
+    {
+      "id": "automotive-sub-assemblies",
+      "name": "Automotive Sub-Assemblies",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "front-axle-types",
+          "name": "Front Axle: Types"
+        },
+        {
+          "id": "construction",
+          "name": "construction",
+          "requires": ["front-axle-types"]
+        },
+        {
+          "id": "components-and-their-functions",
+          "name": "components and their functions",
+          "requires": ["construction"]
+        },
+        {
+          "id": "suspension-system-principle",
+          "name": "Suspension System: Principle",
+          "requires": ["components-and-their-functions"]
+        },
+        {
+          "id": "type-of-suspension-system",
+          "name": "type of suspension system",
+          "requires": ["suspension-system-principle"]
+        },
+        {
+          "id": "conventional-and-independent-front-and-rear-axle",
+          "name": "conventional and independent front and rear axle",
+          "requires": ["type-of-suspension-system"]
+        },
+        {
+          "id": "spring",
+          "name": "spring",
+          "requires": ["conventional-and-independent-front-and-rear-axle"]
+        },
+        {
+          "id": "rubber-and-air-suspensions",
+          "name": "rubber and air suspensions",
+          "requires": ["spring"]
+        },
+        {
+          "id": "automatic",
+          "name": "automatic",
+          "requires": ["rubber-and-air-suspensions"]
+        },
+        {
+          "id": "hydro-suspension-system",
+          "name": "hydro suspension system",
+          "requires": ["automatic"]
+        },
+        {
+          "id": "shock-absorbers",
+          "name": "shock absorbers",
+          "requires": ["hydro-suspension-system"]
+        },
+        {
+          "id": "semiactive-and-fully-active-suspension-system",
+          "name": "SemiActive and Fully Active Suspension System",
+          "requires": ["shock-absorbers"]
+        },
+        {
+          "id": "steering-system-steering-layout",
+          "name": "Steering System: Steering layout",
+          "requires": ["semiactive-and-fully-active-suspension-system"]
+        },
+        {
+          "id": "types-of-steering-gears",
+          "name": "types of steering gears",
+          "requires": ["steering-system-steering-layout"]
+        },
+        {
+          "id": "steering-linkages",
+          "name": "steering linkages",
+          "requires": ["types-of-steering-gears"]
+        },
+        {
+          "id": "steering-mechanism",
+          "name": "steering mechanism",
+          "requires": ["steering-linkages"]
+        },
+        {
+          "id": "steering-geometry",
+          "name": "steering geometry",
+          "requires": ["steering-mechanism"]
+        },
+        {
+          "id": "measurement-and-adjustment-of-various-steering-system-layout",
+          "name": "measurement and adjustment of various steering system layouts",
+          "requires": ["steering-geometry"]
+        },
+        {
+          "id": "steering-ratio",
+          "name": "steering ratio",
+          "requires": ["measurement-and-adjustment-of-various-steering-system-layout"]
+        },
+        {
+          "id": "under-steering-and-over-steering",
+          "name": "under steering and over steering",
+          "requires": ["steering-ratio"]
+        },
+        {
+          "id": "power-assisted-steering",
+          "name": "power assisted steering",
+          "requires": ["under-steering-and-over-steering"]
+        },
+        {
+          "id": "wheel-alignment",
+          "name": "wheel alignment",
+          "requires": ["power-assisted-steering"]
+        },
+        {
+          "id": "brakes-principle",
+          "name": "Brakes: Principle",
+          "requires": ["wheel-alignment"]
+        },
+        {
+          "id": "braking-distance",
+          "name": "braking distance",
+          "requires": ["brakes-principle"]
+        },
+        {
+          "id": "braking-efficiency",
+          "name": "braking efficiency",
+          "requires": ["braking-distance"]
+        },
+        {
+          "id": "weight-transfer",
+          "name": "weight transfer",
+          "requires": ["braking-efficiency"]
+        },
+        {
+          "id": "wheel-skidding",
+          "name": "wheel skidding",
+          "requires": ["weight-transfer"]
+        },
+        {
+          "id": "principle-and-working-of-various-types-of-brakes",
+          "name": "principle and working of various types of brakes",
+          "requires": ["wheel-skidding"]
+        },
+        {
+          "id": "anti-lock-brake-systems-abs",
+          "name": "anti−lock brake systems (ABS)",
+          "requires": ["principle-and-working-of-various-types-of-brakes"]
+        },
+        {
+          "id": "battery-construction",
+          "name": "Battery: Construction",
+          "requires": ["anti-lock-brake-systems-abs"]
+        },
+        {
+          "id": "types-of-batteries",
+          "name": "Types of batteries",
+          "requires": ["battery-construction"]
+        },
+        {
+          "id": "working",
+          "name": "working",
+          "requires": ["types-of-batteries"]
+        },
+        {
+          "id": "methods-of-rating",
+          "name": "methods of rating",
+          "requires": ["working"]
+        },
+        {
+          "id": "faults",
+          "name": "faults",
+          "requires": ["methods-of-rating"]
+        },
+        {
+          "id": "charging-methods",
+          "name": "charging methods",
+          "requires": ["faults"]
+        },
+        {
+          "id": "lighting-system-wiring-system",
+          "name": "Lighting system: Wiring system",
+          "requires": ["charging-methods"]
+        },
+        {
+          "id": "head-lights",
+          "name": "head lights",
+          "requires": ["lighting-system-wiring-system"]
+        },
+        {
+          "id": "indicating-lights",
+          "name": "indicating lights",
+          "requires": ["head-lights"]
+        },
+        {
+          "id": "accessories-and-safety-systems-like-air-bags",
+          "name": "Accessories and Safety systems like air bags",
+          "requires": ["indicating-lights"]
+        },
+        {
+          "id": "safety-belts",
+          "name": "safety belts",
+          "requires": ["accessories-and-safety-systems-like-air-bags"]
+        }
+      ]
+    },
+    {
+      "id": "regulation-and-modern-vehicles",
+      "name": "Regulation and Modern Vehicles",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "regulation-and-standardization-of-vehicles-motor-vehicle-act",
+          "name": "Regulation and Standardization of Vehicles: Motor vehicle act"
+        },
+        {
+          "id": "registration-of-motor-vehicles",
+          "name": "registration of motor vehicles",
+          "requires": ["regulation-and-standardization-of-vehicles-motor-vehicle-act"]
+        },
+        {
+          "id": "driving-license",
+          "name": "driving license",
+          "requires": ["registration-of-motor-vehicles"]
+        },
+        {
+          "id": "control-of-traffic",
+          "name": "control of traffic",
+          "requires": ["driving-license"]
+        },
+        {
+          "id": "insurance-against-third-party",
+          "name": "insurance against third party",
+          "requires": ["control-of-traffic"]
+        },
+        {
+          "id": "traffic-signs",
+          "name": "traffic signs",
+          "requires": ["insurance-against-third-party"]
+        },
+        {
+          "id": "central-motor-vehicle-rules",
+          "name": "central motor vehicle rules",
+          "requires": ["traffic-signs"]
+        },
+        {
+          "id": "vehicle-safety-standards-and-regulations",
+          "name": "vehicle safety standards and regulations",
+          "requires": ["central-motor-vehicle-rules"]
+        },
+        {
+          "id": "vehicle-pollution-norms",
+          "name": "vehicle Pollution Norms",
+          "requires": ["vehicle-safety-standards-and-regulations"]
+        },
+        {
+          "id": "modern-vehicles-construction-and-operational-features-of-fou",
+          "name": "Modern Vehicles: Construction and operational features of four wheelers available in Indian market",
+          "requires": ["vehicle-pollution-norms"]
+        },
+        {
+          "id": "vehicle-management-systems",
+          "name": "Vehicle Management Systems",
+          "requires": ["modern-vehicles-construction-and-operational-features-of-fou"]
+        },
+        {
+          "id": "esp",
+          "name": "ESP",
+          "requires": ["vehicle-management-systems"]
+        },
+        {
+          "id": "hill-assist",
+          "name": "Hill Assist",
+          "requires": ["esp"]
+        },
+        {
+          "id": "acc",
+          "name": "ACC",
+          "requires": ["hill-assist"]
+        },
+        {
+          "id": "ebd",
+          "name": "EBD",
+          "requires": ["acc"]
+        },
+        {
+          "id": "lane-assist",
+          "name": "Lane Assist",
+          "requires": ["ebd"]
+        },
+        {
+          "id": "smart-features",
+          "name": "Smart Features",
+          "requires": ["lane-assist"]
+        },
+        {
+          "id": "introduction-to-electric-vehicles-and-hybrid-vehicles",
+          "name": "Introduction to electric vehicles & hybrid vehicles",
+          "requires": ["smart-features"]
+        },
+        {
+          "id": "connected-cars-and-iot",
+          "name": "Connected Cars and IOT",
+          "requires": ["introduction-to-electric-vehicles-and-hybrid-vehicles"]
+        },
+        {
+          "id": "adas-and-autonomous-vehicles",
+          "name": "ADAS and Autonomous Vehicles",
+          "requires": ["connected-cars-and-iot"]
+        }
+      ]
+    }
+  ]
+}

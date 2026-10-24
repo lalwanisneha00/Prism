@@ -1,0 +1,111 @@
+{
+  "id": "pdeu-digital-communication-lab-ece",
+  "name": "Digital Communication Lab",
+  "field": "Digital Communication Lab",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ECE semester 5): Digital Communication Lab",
+    "note": "Units and topics copied from the course handout PDF (pages 8 of ECE/sem5/ECE_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s5-digital-communication-lab",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-pam-ppm-pwm-baseband-techniques",
+          "name": "PAM, PPM, PWM baseband techniques",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-sampling-quantization-pcm-and-variants",
+          "name": "Sampling, Quantization, PCM and variants",
+          "number": 2,
+          "requires": ["experiment-1-pam-ppm-pwm-baseband-techniques"]
+        },
+        {
+          "id": "experiment-3-digital-carrier-communication-ask-fsk-psk-etc-t",
+          "name": "Digital carrier communication (ASK, FSK, PSK etc.) techniques",
+          "number": 3,
+          "requires": ["experiment-2-sampling-quantization-pcm-and-variants"]
+        },
+        {
+          "id": "experiment-4-tdm-techniques-and-synchronization",
+          "name": "TDM techniques and synchronization",
+          "number": 4,
+          "requires": ["experiment-3-digital-carrier-communication-ask-fsk-psk-etc-t"]
+        },
+        {
+          "id": "experiment-5-generation-of-digital-modulated-demodulated-wav",
+          "name": "Generation of digital modulated/demodulated waveforms such as, BPSK, and QPSK using MATLAB and Simulink.",
+          "number": 5,
+          "requires": ["experiment-4-tdm-techniques-and-synchronization"]
+        },
+        {
+          "id": "experiment-6-system-performance-in-presence-of-noise-probabi",
+          "name": "System performance in presence of noise. Probability of error calculation and scatterplot.",
+          "number": 6,
+          "requires": ["experiment-5-generation-of-digital-modulated-demodulated-wav"]
+        },
+        {
+          "id": "experiment-7-generation-of-digital-modulated-demodulated-qam",
+          "name": "Generation of digital modulated/demodulated QAM waveform and its performance using MATLAB and Simulink.",
+          "number": 7,
+          "requires": ["experiment-6-system-performance-in-presence-of-noise-probabi"]
+        },
+        {
+          "id": "experiment-8-investigation-of-the-characteristics-of-matched",
+          "name": "Investigation of the characteristics of Matched Filter and implement Matched Filter based signal detection. Investigations of the eye diagrams.",
+          "number": 8,
+          "requires": ["experiment-7-generation-of-digital-modulated-demodulated-qam"]
+        },
+        {
+          "id": "experiment-9-simulation-of-baseband-and-band-pass-digital-co",
+          "name": "Simulation of baseband and band-pass digital communication system in MATLAB and Simulink.",
+          "number": 9,
+          "requires": ["experiment-8-investigation-of-the-characteristics-of-matched"]
+        },
+        {
+          "id": "experiment-10-convolution-codes-and-viterbi-detection",
+          "name": "Convolution Codes and Viterbi Detection",
+          "number": 10,
+          "requires": ["experiment-9-simulation-of-baseband-and-band-pass-digital-co"]
+        },
+        {
+          "id": "experiment-11-spread-spectrum-communication",
+          "name": "Spread spectrum communication",
+          "number": 11,
+          "requires": ["experiment-10-convolution-codes-and-viterbi-detection"]
+        },
+        {
+          "id": "experiment-12-ofdm-implementation",
+          "name": "OFDM Implementation",
+          "number": 12,
+          "requires": ["experiment-11-spread-spectrum-communication"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-digital-communication-ece"]
+}

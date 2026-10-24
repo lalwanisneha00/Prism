@@ -1,0 +1,359 @@
+{
+  "id": "pdeu-electrical-power-generation-transmission-and-distribution-elec",
+  "name": "Electrical Power Generation, Transmission and Distribution",
+  "field": "Electrical Power Generation, Transmission and Distribution",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 4): Electrical Power Generation, Transmission and Distribution",
+    "note": "Units and topics copied from the course handout PDF (pages 3 of ELEC/sem4/Electrical_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE205T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s4-electrical-power-generation-transmission-and-distribution",
+      "code": "20EE205T",
+      "category": "Program Core",
+      "ltp": "4-0-0",
+      "credits": 4,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "electrical-power-generation-and-loads",
+      "name": "Electrical Power Generation and Loads",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-to-structure-of-power-system",
+          "name": "Introduction to structure of power system"
+        },
+        {
+          "id": "schematic-diagram-for-thermal",
+          "name": "Schematic diagram for thermal",
+          "requires": ["introduction-to-structure-of-power-system"]
+        },
+        {
+          "id": "gas",
+          "name": "gas",
+          "requires": ["schematic-diagram-for-thermal"]
+        },
+        {
+          "id": "hydro-and-nuclear-power-plant-and-associated-equipment-and-a",
+          "name": "hydro and nuclear power plant and associated equipment and auxiliaries",
+          "requires": ["gas"]
+        },
+        {
+          "id": "load-curves-and-load-duration-curves",
+          "name": "Load curves and load duration curves",
+          "requires": ["hydro-and-nuclear-power-plant-and-associated-equipment-and-a"]
+        },
+        {
+          "id": "associate-terms-and-factors",
+          "name": "associate terms and factors",
+          "requires": ["load-curves-and-load-duration-curves"]
+        },
+        {
+          "id": "importance-of-high-load-factor",
+          "name": "importance of high load factor",
+          "requires": ["associate-terms-and-factors"]
+        },
+        {
+          "id": "different-types-of-loads",
+          "name": "different types of loads",
+          "requires": ["importance-of-high-load-factor"]
+        },
+        {
+          "id": "tariffs",
+          "name": "tariffs",
+          "requires": ["different-types-of-loads"]
+        },
+        {
+          "id": "power-factor-improvement-methods",
+          "name": "power factor improvement methods",
+          "requires": ["tariffs"]
+        },
+        {
+          "id": "derivation-of-most-economical-power-factor",
+          "name": "derivation of most economical power factor",
+          "requires": ["power-factor-improvement-methods"]
+        }
+      ]
+    },
+    {
+      "id": "overhead-transmission-line",
+      "name": "Overhead Transmission Line",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "types-of-conductors",
+          "name": "Types of conductors"
+        },
+        {
+          "id": "resistance-of-transmission-line",
+          "name": "resistance of transmission line",
+          "requires": ["types-of-conductors"]
+        },
+        {
+          "id": "calculation-of-inductance-and-capacitance-of-single-phase-an",
+          "name": "Calculation of inductance and capacitance of single phase & three phase line with different line configuration",
+          "requires": ["resistance-of-transmission-line"]
+        },
+        {
+          "id": "concepts-of-gmd",
+          "name": "Concepts of GMD",
+          "requires": ["calculation-of-inductance-and-capacitance-of-single-phase-an"]
+        },
+        {
+          "id": "gmr",
+          "name": "GMR",
+          "requires": ["concepts-of-gmd"]
+        },
+        {
+          "id": "transposition-of-line",
+          "name": "transposition of line",
+          "requires": ["gmr"]
+        },
+        {
+          "id": "characteristic-and-performance-analysis-of-short",
+          "name": "Characteristic and performance analysis of short",
+          "requires": ["transposition-of-line"]
+        },
+        {
+          "id": "medium-and-long-lines-through-abcd-parameters",
+          "name": "medium and long lines through ABCD parameters",
+          "requires": ["characteristic-and-performance-analysis-of-short"]
+        },
+        {
+          "id": "voltage-regulation-and-transmission-efficiency-of-lines-unde",
+          "name": "voltage regulation and transmission efficiency of lines under different loading conditions",
+          "requires": ["medium-and-long-lines-through-abcd-parameters"]
+        },
+        {
+          "id": "surge-impedance-loading",
+          "name": "Surge Impedance Loading",
+          "requires": ["voltage-regulation-and-transmission-efficiency-of-lines-unde"]
+        },
+        {
+          "id": "ferranti-effect",
+          "name": "Ferranti effect",
+          "requires": ["surge-impedance-loading"]
+        },
+        {
+          "id": "active-and-reactive-power-flow-through-tine-and-their-impact",
+          "name": "active and reactive power flow through tine and their impact on bus voltage magnitude and phase angle",
+          "requires": ["ferranti-effect"]
+        },
+        {
+          "id": "shunt-and-series-compensation-of-line",
+          "name": "shunt and series compensation of line",
+          "requires": ["active-and-reactive-power-flow-through-tine-and-their-impact"]
+        }
+      ]
+    },
+    {
+      "id": "electrical-and-mechanical-design-of-transmission-line",
+      "name": "Electrical and Mechanical Design of Transmission Line",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "mechanical-design-of-overhead-lines-choice-of-line-insulator",
+          "name": "Mechanical Design of Overhead Lines: Choice of line insulators"
+        },
+        {
+          "id": "voltage-distribution-across-insulators-disc",
+          "name": "voltage distribution across insulators disc",
+          "requires": ["mechanical-design-of-overhead-lines-choice-of-line-insulator"]
+        },
+        {
+          "id": "string-efficiency",
+          "name": "string efficiency",
+          "requires": ["voltage-distribution-across-insulators-disc"]
+        },
+        {
+          "id": "methods-of-equalizing-potential-across-insulator",
+          "name": "methods of equalizing potential across insulator",
+          "requires": ["string-efficiency"]
+        },
+        {
+          "id": "sag-and-tension-calculations",
+          "name": "Sag and tension calculations",
+          "requires": ["methods-of-equalizing-potential-across-insulator"]
+        },
+        {
+          "id": "effect-of-ice-and-wind",
+          "name": "Effect of ice and wind",
+          "requires": ["sag-and-tension-calculations"]
+        },
+        {
+          "id": "stringing-chart",
+          "name": "Stringing chart",
+          "requires": ["effect-of-ice-and-wind"]
+        },
+        {
+          "id": "sag-template",
+          "name": "Sag template",
+          "requires": ["stringing-chart"]
+        },
+        {
+          "id": "tower-design",
+          "name": "Tower design",
+          "requires": ["sag-template"]
+        },
+        {
+          "id": "spacing-and-clearance",
+          "name": "Spacing and clearance",
+          "requires": ["tower-design"]
+        },
+        {
+          "id": "vibration-damper-electrical-design-of-line-choice-of-voltage",
+          "name": "Vibration damper Electrical Design of Line: Choice of voltage level",
+          "requires": ["spacing-and-clearance"]
+        },
+        {
+          "id": "kw-km-loading",
+          "name": "kW-km loading",
+          "requires": ["vibration-damper-electrical-design-of-line-choice-of-voltage"]
+        },
+        {
+          "id": "choice-of-conductors",
+          "name": "choice of conductors",
+          "requires": ["kw-km-loading"]
+        },
+        {
+          "id": "their-spacing-and-current-carrying-capacity",
+          "name": "their spacing and current carrying capacity",
+          "requires": ["choice-of-conductors"]
+        },
+        {
+          "id": "consideration-of-corona-discharge-and-corona-loss",
+          "name": "consideration of corona discharge and corona loss",
+          "requires": ["their-spacing-and-current-carrying-capacity"]
+        },
+        {
+          "id": "sample-case-study-for-complete-design-of-transmission-line",
+          "name": "Sample case study for complete design of transmission line",
+          "requires": ["consideration-of-corona-discharge-and-corona-loss"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-distribution-system-and-sub-stations",
+      "name": "Design of Distribution System and Sub Stations",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "radial",
+          "name": "Radial"
+        },
+        {
+          "id": "loop-and-grid-type-sub-transmission",
+          "name": "loop and grid type sub-transmission",
+          "requires": ["radial"]
+        },
+        {
+          "id": "distribution-substation-bus-schemes",
+          "name": "distribution substation bus schemes",
+          "requires": ["loop-and-grid-type-sub-transmission"]
+        },
+        {
+          "id": "location-and-rating-of-substation",
+          "name": "location and rating of substation",
+          "requires": ["distribution-substation-bus-schemes"]
+        },
+        {
+          "id": "ac-power-supply-scheme",
+          "name": "AC power supply scheme",
+          "requires": ["location-and-rating-of-substation"]
+        },
+        {
+          "id": "advantage-of-higher-transmission-voltage",
+          "name": "advantage of higher transmission voltage",
+          "requires": ["ac-power-supply-scheme"]
+        },
+        {
+          "id": "various-supply-schemes-in-distribution-systems",
+          "name": "various supply schemes in distribution systems",
+          "requires": ["advantage-of-higher-transmission-voltage"]
+        },
+        {
+          "id": "voltage-drop-and-power-loss-calculations-in-distribution-sys",
+          "name": "voltage drop and power loss calculations in distribution systems",
+          "requires": ["various-supply-schemes-in-distribution-systems"]
+        },
+        {
+          "id": "types-of-cables",
+          "name": "types of cables",
+          "requires": ["voltage-drop-and-power-loss-calculations-in-distribution-sys"]
+        },
+        {
+          "id": "economics-of-power-supply-considering-economic-choice-of-con",
+          "name": "economics of power supply considering economic choice of conductor size and voltage level",
+          "requires": ["types-of-cables"]
+        },
+        {
+          "id": "power-station-and-substation-grounding-objectives-of-groundi",
+          "name": "Power station and substation grounding: Objectives of grounding",
+          "requires": ["economics-of-power-supply-considering-economic-choice-of-con"]
+        },
+        {
+          "id": "definitions",
+          "name": "definitions",
+          "requires": ["power-station-and-substation-grounding-objectives-of-groundi"]
+        },
+        {
+          "id": "tolerable-limits-of-body-currents",
+          "name": "tolerable limits of body currents",
+          "requires": ["definitions"]
+        },
+        {
+          "id": "soil-resistivity",
+          "name": "soil resistivity",
+          "requires": ["tolerable-limits-of-body-currents"]
+        },
+        {
+          "id": "measurement-of-soil-resistivity",
+          "name": "measurement of soil resistivity",
+          "requires": ["soil-resistivity"]
+        },
+        {
+          "id": "earth-resistance",
+          "name": "earth resistance",
+          "requires": ["measurement-of-soil-resistivity"]
+        },
+        {
+          "id": "measurement-of-earth-resistance",
+          "name": "measurement of earth resistance",
+          "requires": ["earth-resistance"]
+        },
+        {
+          "id": "tolerable-step-and-touch-potential",
+          "name": "tolerable step and touch potential",
+          "requires": ["measurement-of-earth-resistance"]
+        },
+        {
+          "id": "actual-step-and-touch-potential",
+          "name": "actual step and touch potential",
+          "requires": ["tolerable-step-and-touch-potential"]
+        },
+        {
+          "id": "design-of-earthing-grid",
+          "name": "design of earthing grid",
+          "requires": ["actual-step-and-touch-potential"]
+        }
+      ]
+    }
+  ]
+}

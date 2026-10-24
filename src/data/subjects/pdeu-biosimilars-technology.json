@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Biosimilars Technology",
     "note": "Skeleton only: units and topics are PDEU's, copied from the handbook. Lessons are built from the material the student uploads (given by their faculty)."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,7 +40,16 @@
       "topics": [
         {
           "id": "introduction",
-          "name": "Introduction"
+          "name": "Introduction",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "introduction-to-biosimilars",
+          "name": "Introduction to biosimilars",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction"]
         },
         {
           "id": "protein-and-its-broad-functions",
@@ -74,8 +83,17 @@
         },
         {
           "id": "uses-and-applications-overview-of-pharmaceutical",
-          "name": "uses and applications. Overview of Pharmaceutical Biotechnology and Biosimilars technology",
-          "requires": ["examples"]
+          "name": "uses and applications",
+          "requires": ["examples"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "overview-of-pharmaceutical-biotechnology-and-biosimilars-tec",
+          "name": "Overview of Pharmaceutical Biotechnology and Biosimilars technology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["uses-and-applications-overview-of-pharmaceutical"]
         }
       ]
     },
@@ -86,17 +104,86 @@
       "topics": [
         {
           "id": "biologics-biosimilars-a-regulatory-overview-different",
-          "name": "Biologics/Biosimilars: A Regulatory Overview, Different expression hosts with history and genotypes Prokaryotes"
+          "name": "Biologics/Biosimilars: A Regulatory Overview",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "e-coli-dh5-alpha-e-coli-bl21a1-e-coli-bl21de3-etc-eukaryotes",
-          "name": "E.coli DH5 alpha , E.coli BL21A1, E.coli BL21DE3 etc. Eukaryotes",
+          "id": "different-expression-hosts-with-history-and-genotypes-prokar",
+          "name": "Different expression hosts with history and genotypes Prokaryotes",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["biologics-biosimilars-a-regulatory-overview-different"]
         },
         {
-          "id": "yeast-hosts-like-pichia-pastoris-mammalian-hosts-like-chok1",
-          "name": "Yeast hosts like Pichia pastoris , Mammalian hosts like CHOK1, CHO DuxB11, CHO DG44, NS0, SP02 cell line",
+          "id": "e-coli-dh5-alpha-e-coli-bl21a1-e-coli-bl21de3-etc-eukaryotes",
+          "name": "E.coli DH5 alpha",
+          "requires": ["biologics-biosimilars-a-regulatory-overview-different"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "e-coli-bl21a1",
+          "name": "E.coli BL21A1",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["e-coli-dh5-alpha-e-coli-bl21a1-e-coli-bl21de3-etc-eukaryotes"]
+        },
+        {
+          "id": "e-coli-bl21de3-etc",
+          "name": "E.coli BL21DE3 etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["e-coli-bl21a1"]
+        },
+        {
+          "id": "eukaryotes",
+          "name": "Eukaryotes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["e-coli-bl21de3-etc"]
+        },
+        {
+          "id": "yeast-hosts-like-pichia-pastoris-mammalian-hosts-like-chok1",
+          "name": "Yeast hosts like Pichia pastoris",
+          "requires": ["e-coli-dh5-alpha-e-coli-bl21a1-e-coli-bl21de3-etc-eukaryotes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "mammalian-hosts-like-chok1",
+          "name": "Mammalian hosts like CHOK1",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["yeast-hosts-like-pichia-pastoris-mammalian-hosts-like-chok1"]
+        },
+        {
+          "id": "cho-duxb11",
+          "name": "CHO DuxB11",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mammalian-hosts-like-chok1"]
+        },
+        {
+          "id": "cho-dg44",
+          "name": "CHO DG44",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cho-duxb11"]
+        },
+        {
+          "id": "ns0",
+          "name": "NS0",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cho-dg44"]
+        },
+        {
+          "id": "sp02-cell-line",
+          "name": "SP02 cell line",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ns0"]
         }
       ]
     },
@@ -163,14 +250,46 @@
       "topics": [
         {
           "id": "regulatory-compliance-for-biopharmaceuticals-and-other",
-          "name": "Regulatory Compliance for Biopharmaceuticals and Other Biologics, Concepts of non-clinical animal trials and clinical trials on human volunteers (Phase I, II, III, IV clinical trials), Guidelines and "
+          "name": "Regulatory Compliance for Biopharmaceuticals and Other Biologics",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "concepts-of-non-clinical-animal-trials-and-clinical-trials-o",
+          "name": "Concepts of non-clinical animal trials and clinical trials on human volunteers (Phase I",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["regulatory-compliance-for-biopharmaceuticals-and-other"]
+        },
+        {
+          "id": "iii",
+          "name": "III",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concepts-of-non-clinical-animal-trials-and-clinical-trials-o"]
+        },
+        {
+          "id": "iv-clinical-trials",
+          "name": "IV clinical trials)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["iii"]
         },
         {
           "id": "the-credits-shown-here-follow-the-official-course-structure",
           "name": "the credits shown here follow the official course structure table",
-          "requires": ["regulatory-compliance-for-biopharmaceuticals-and-other"]
+          "requires": ["regulatory-compliance-for-biopharmaceuticals-and-other"],
+          "status": "retired"
+        },
+        {
+          "id": "guidelines-and-case-studies",
+          "name": "Guidelines and Case studies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-credits-shown-here-follow-the-official-course-structure"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

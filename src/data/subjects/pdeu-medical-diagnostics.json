@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Medical Diagnostics",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -49,8 +49,24 @@
         },
         {
           "id": "laboratory-test-serology-hematology-urine-and-stool",
-          "name": "Laboratory test (Serology, Hematology, Urine & stool)",
-          "requires": ["assessment-of-clinical-history"]
+          "name": "Laboratory test (Serology",
+          "requires": ["assessment-of-clinical-history"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "hematology",
+          "name": "Hematology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["laboratory-test-serology-hematology-urine-and-stool"]
+        },
+        {
+          "id": "urine-and-stool",
+          "name": "Urine & stool)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hematology"]
         },
         {
           "id": "molecular-diagnostics-pcr",
@@ -69,8 +85,17 @@
         },
         {
           "id": "fundamental-of-radiological-assessment-model-case",
-          "name": "Fundamental of radiological assessment. Model case presentation",
-          "requires": ["preservation-and-processing-of-tissue-specimens"]
+          "name": "Fundamental of radiological assessment",
+          "requires": ["preservation-and-processing-of-tissue-specimens"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "model-case-presentation",
+          "name": "Model case presentation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fundamental-of-radiological-assessment-model-case"]
         }
       ]
     },
@@ -207,5 +232,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

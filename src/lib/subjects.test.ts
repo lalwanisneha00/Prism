@@ -40,6 +40,13 @@ describe("subject catalogue", () => {
         s.chapters.flatMap((c) => c.topics.map((t) => `${s.id}/${c.id}/${t.id}`)),
       ),
     );
+    // A topic moved to another chapter of its subject (syllabus fix) keeps its id and records
+    // the chapter it came from, so the old subject/chapter/topic still resolves.
+    for (const s of subjects)
+      for (const c of s.chapters)
+        for (const t of c.topics)
+          if (t.movedFrom?.chapter && t.movedFrom.subject === s.id)
+            now.add(`${s.id}/${t.movedFrom.chapter}/${t.id}`);
     const missing = lock.ids.filter((id) => !now.has(id));
     expect(missing).toEqual([]);
   });

@@ -1,0 +1,113 @@
+{
+  "id": "pdeu-high-voltage-engineering-laboratory-elec",
+  "name": "High Voltage Engineering Laboratory",
+  "field": "High Voltage Engineering Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): High Voltage Engineering Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 10 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE304P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-high-voltage-engineering-laboratory",
+      "code": "20EE304P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-design-planning-and-layout-of-the-high-voltage",
+          "name": "Design, planning and layout of the high voltage laboratory.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-to-measure-the-breakdown-strength-of-transforme",
+          "name": "To measure the breakdown strength of transformer oil.",
+          "number": 2,
+          "requires": ["experiment-1-design-planning-and-layout-of-the-high-voltage"]
+        },
+        {
+          "id": "experiment-3-to-measure-the-insulation-level-of-solid-materi",
+          "name": "To measure the insulation level of solid material.",
+          "number": 3,
+          "requires": ["experiment-2-to-measure-the-breakdown-strength-of-transforme"]
+        },
+        {
+          "id": "experiment-4-to-determine-the-breakdown-characteristics-of-a",
+          "name": "To determine the breakdown characteristics of air for different types/shapes of electrodes",
+          "number": 4,
+          "requires": ["experiment-3-to-measure-the-insulation-level-of-solid-materi"]
+        },
+        {
+          "id": "experiment-5-electric-field-plotting-by-electrolytic-tank",
+          "name": "Electric field plotting by electrolytic tank",
+          "number": 5,
+          "requires": ["experiment-4-to-determine-the-breakdown-characteristics-of-a"]
+        },
+        {
+          "id": "experiment-6-to-measure-the-a-c-voltage-using-rod-gap-appara",
+          "name": "To Measure the A.C. Voltage using Rod gap apparatus",
+          "number": 6,
+          "requires": ["experiment-5-electric-field-plotting-by-electrolytic-tank"]
+        },
+        {
+          "id": "experiment-7-to-measure-the-d-c-voltage-using-sphere-gap-app",
+          "name": "To Measure the D.C. Voltage using sphere gap apparatus",
+          "number": 7,
+          "requires": ["experiment-6-to-measure-the-a-c-voltage-using-rod-gap-appara"]
+        },
+        {
+          "id": "experiment-8-to-understand-the-components-control-and-operat",
+          "name": "To understand the components, control and operation of 140kV, 1kJ impulse generator and observe the Impulse Voltage waveform as per IS (1.2/50 microseconds) on digital storage oscilloscope",
+          "number": 8,
+          "requires": ["experiment-7-to-measure-the-d-c-voltage-using-sphere-gap-app"]
+        },
+        {
+          "id": "experiment-9-to-perform-generation-of-switching-surges-impul",
+          "name": "To perform generation of switching surges impulse wave.",
+          "number": 9,
+          "requires": ["experiment-8-to-understand-the-components-control-and-operat"]
+        },
+        {
+          "id": "experiment-10-to-study-the-phenomenon-of-corona-formation-us",
+          "name": "To study the phenomenon of corona formation (using horn gap Apparatus).",
+          "number": 10,
+          "requires": ["experiment-9-to-perform-generation-of-switching-surges-impul"]
+        },
+        {
+          "id": "experiment-11-testing-of-11kv-pin-insulator",
+          "name": "Testing of 11kV pin insulator",
+          "number": 11,
+          "requires": ["experiment-10-to-study-the-phenomenon-of-corona-formation-us"]
+        },
+        {
+          "id": "experiment-12-determination-of-loss-factor-tan-and-capacitan",
+          "name": "Determination of loss factor tanδ and capacitance C of the dielectrics by using high voltage Schering Bridge",
+          "number": 12,
+          "requires": ["experiment-11-testing-of-11kv-pin-insulator"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-high-voltage-engineering-elec"]
+}

@@ -1,0 +1,345 @@
+{
+  "id": "pdeu-power-electronic-converters-elec",
+  "name": "Power Electronic Converters",
+  "field": "Power Electronic Converters",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): Power Electronic Converters",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE302T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-power-electronic-converters",
+      "code": "20EE302T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "power-semiconductor-switches",
+      "name": "Power Semiconductor Switches",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "significance-of-power-electronics",
+          "name": "Significance of Power Electronics"
+        },
+        {
+          "id": "classification-of-power-converters-and-their-applications",
+          "name": "Classification of Power Converters & their Applications",
+          "requires": ["significance-of-power-electronics"]
+        },
+        {
+          "id": "power-semiconductor-switches-power-diode",
+          "name": "Power Semiconductor Switches (Power Diode",
+          "requires": ["classification-of-power-converters-and-their-applications"]
+        },
+        {
+          "id": "scr",
+          "name": "SCR",
+          "requires": ["power-semiconductor-switches-power-diode"]
+        },
+        {
+          "id": "diac",
+          "name": "DIAC",
+          "requires": ["scr"]
+        },
+        {
+          "id": "triac",
+          "name": "TRIAC",
+          "requires": ["diac"]
+        },
+        {
+          "id": "power-bjt",
+          "name": "Power BJT",
+          "requires": ["triac"]
+        },
+        {
+          "id": "mosfet",
+          "name": "MOSFET",
+          "requires": ["power-bjt"]
+        },
+        {
+          "id": "igbt",
+          "name": "IGBT",
+          "requires": ["mosfet"]
+        },
+        {
+          "id": "gto",
+          "name": "GTO)",
+          "requires": ["igbt"]
+        },
+        {
+          "id": "introduction-to-commutation-techniques",
+          "name": "Introduction to Commutation Techniques",
+          "requires": ["gto"]
+        },
+        {
+          "id": "gating-characteristics",
+          "name": "Gating Characteristics",
+          "requires": ["introduction-to-commutation-techniques"]
+        },
+        {
+          "id": "gating-techniques",
+          "name": "Gating Techniques",
+          "requires": ["gating-characteristics"]
+        },
+        {
+          "id": "optical-isolation",
+          "name": "Optical Isolation",
+          "requires": ["gating-techniques"]
+        },
+        {
+          "id": "snubber-circuit-design",
+          "name": "Snubber Circuit Design",
+          "requires": ["optical-isolation"]
+        },
+        {
+          "id": "heat-sink-design",
+          "name": "Heat Sink Design",
+          "requires": ["snubber-circuit-design"]
+        },
+        {
+          "id": "series",
+          "name": "Series",
+          "requires": ["heat-sink-design"]
+        },
+        {
+          "id": "parallel-operation-of-scr",
+          "name": "Parallel Operation of SCR",
+          "requires": ["series"]
+        }
+      ]
+    },
+    {
+      "id": "controlled-rectifiers-and-dc-dc-converters",
+      "name": "Controlled Rectifiers and Dc–dc Converters",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "1-phase-controlled-rectifier-half-wave",
+          "name": "1-Phase Controlled Rectifier: Half Wave"
+        },
+        {
+          "id": "full-wave-and-semi-controlled-rectifiers",
+          "name": "Full Wave and Semi Controlled Rectifiers",
+          "requires": ["1-phase-controlled-rectifier-half-wave"]
+        },
+        {
+          "id": "effect-of-free-wheeling-diode-on-converter-operation",
+          "name": "Effect of Free-Wheeling Diode on Converter Operation",
+          "requires": ["full-wave-and-semi-controlled-rectifiers"]
+        },
+        {
+          "id": "triggering-circuit-design",
+          "name": "Triggering Circuit Design",
+          "requires": ["effect-of-free-wheeling-diode-on-converter-operation"]
+        },
+        {
+          "id": "dual-converters-3-phase-controlled-rectifier-half-wave",
+          "name": "Dual Converters. 3-Phase Controlled Rectifier: Half Wave",
+          "requires": ["triggering-circuit-design"]
+        },
+        {
+          "id": "full-wave",
+          "name": "Full Wave",
+          "requires": ["dual-converters-3-phase-controlled-rectifier-half-wave"]
+        },
+        {
+          "id": "semi-controlled-rectifiers",
+          "name": "Semi Controlled Rectifiers",
+          "requires": ["full-wave"]
+        },
+        {
+          "id": "effect-of-free-wheeling-diode-on-converter-operation-2",
+          "name": "Effect of Free Wheeling Diode on Converter Operation",
+          "requires": ["semi-controlled-rectifiers"]
+        },
+        {
+          "id": "comparison-of-controlled-rectifier-and-pwm-rectifier",
+          "name": "Comparison of Controlled Rectifier & PWM Rectifier",
+          "requires": ["effect-of-free-wheeling-diode-on-converter-operation-2"]
+        },
+        {
+          "id": "choppers-and-dc-dc-converters-classification-of-choppers",
+          "name": "Choppers & dc-dc Converters: Classification of Choppers",
+          "requires": ["comparison-of-controlled-rectifier-and-pwm-rectifier"]
+        },
+        {
+          "id": "design-of-buck-converter",
+          "name": "Design of Buck Converter",
+          "requires": ["choppers-and-dc-dc-converters-classification-of-choppers"]
+        },
+        {
+          "id": "boost-converter",
+          "name": "Boost Converter",
+          "requires": ["design-of-buck-converter"]
+        },
+        {
+          "id": "buck-boost-converter",
+          "name": "Buck-Boost Converter",
+          "requires": ["boost-converter"]
+        },
+        {
+          "id": "cuk-converter",
+          "name": "Cuk Converter",
+          "requires": ["buck-boost-converter"]
+        },
+        {
+          "id": "triggering-circuit-design-for-dc-dc-converters",
+          "name": "Triggering Circuit Design for dc-dc converters",
+          "requires": ["cuk-converter"]
+        }
+      ]
+    },
+    {
+      "id": "dc-ac-and-ac-ac-converters",
+      "name": "Dc–ac & Ac–ac Converters",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "o-dc-ac-converters-principle-of-operation",
+          "name": "o dc–ac Converters: Principle of Operation"
+        },
+        {
+          "id": "1-phase-half-bridge-and-full-bridge-inverter",
+          "name": "1-Phase Half Bridge and Full Bridge Inverter",
+          "requires": ["o-dc-ac-converters-principle-of-operation"]
+        },
+        {
+          "id": "3-phase-voltage-source-inverter-180and-o-120mode-of-conducti",
+          "name": "3-Phase Voltage Source Inverter (180and o 120Mode of Conduction)",
+          "requires": ["1-phase-half-bridge-and-full-bridge-inverter"]
+        },
+        {
+          "id": "pulse-width-modulation-techniques",
+          "name": "Pulse Width Modulation Techniques",
+          "requires": ["3-phase-voltage-source-inverter-180and-o-120mode-of-conducti"]
+        },
+        {
+          "id": "unipolar-and-bipolar-modulation",
+          "name": "Unipolar and Bipolar Modulation",
+          "requires": ["pulse-width-modulation-techniques"]
+        },
+        {
+          "id": "harmonics",
+          "name": "Harmonics",
+          "requires": ["unipolar-and-bipolar-modulation"]
+        },
+        {
+          "id": "power-factor",
+          "name": "Power Factor",
+          "requires": ["harmonics"]
+        },
+        {
+          "id": "distortion-factor",
+          "name": "Distortion Factor",
+          "requires": ["power-factor"]
+        },
+        {
+          "id": "displacement-factor",
+          "name": "Displacement Factor",
+          "requires": ["distortion-factor"]
+        },
+        {
+          "id": "harmonic-factor",
+          "name": "Harmonic Factor",
+          "requires": ["displacement-factor"]
+        },
+        {
+          "id": "impact-of-harmonics-on-load-operation",
+          "name": "Impact of Harmonics on Load Operation",
+          "requires": ["harmonic-factor"]
+        },
+        {
+          "id": "current-source-and-voltage-inverters",
+          "name": "Current Source and Voltage Inverters",
+          "requires": ["impact-of-harmonics-on-load-operation"]
+        },
+        {
+          "id": "triggering-circuit-design-for-inverters-ac-ac-converters-cla",
+          "name": "Triggering Circuit Design for Inverters. ac–ac Converters: Classification",
+          "requires": ["current-source-and-voltage-inverters"]
+        },
+        {
+          "id": "operational-analysis-of-1-phase-ac-voltage-controllers-feedi",
+          "name": "Operational Analysis of 1-phase ac voltage controllers feeding R and R-L Loads",
+          "requires": ["triggering-circuit-design-for-inverters-ac-ac-converters-cla"]
+        },
+        {
+          "id": "3-phase-ac-voltage-controller",
+          "name": "3-Phase ac Voltage Controller",
+          "requires": ["operational-analysis-of-1-phase-ac-voltage-controllers-feedi"]
+        },
+        {
+          "id": "ac-voltage-controller-as-a-soft-starter",
+          "name": "ac Voltage Controller as a Soft Starter",
+          "requires": ["3-phase-ac-voltage-controller"]
+        },
+        {
+          "id": "operating-principle-and-topological-overview-of-cycloconvert",
+          "name": "Operating Principle & Topological Overview of Cycloconverter",
+          "requires": ["ac-voltage-controller-as-a-soft-starter"]
+        }
+      ]
+    },
+    {
+      "id": "power-electronic-converters-recent-trends-and-applications",
+      "name": "Power Electronic Converters – Recent Trends & Applications",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "wide-band-gap-semiconductor-devices",
+          "name": "Wide Band Gap Semiconductor Devices"
+        },
+        {
+          "id": "applications-of-power-converters-in-electric-drives",
+          "name": "Applications of Power Converters in Electric Drives",
+          "requires": ["wide-band-gap-semiconductor-devices"]
+        },
+        {
+          "id": "electric-vehicles",
+          "name": "Electric Vehicles",
+          "requires": ["applications-of-power-converters-in-electric-drives"]
+        },
+        {
+          "id": "wind-energy-conversion-system",
+          "name": "Wind Energy Conversion System",
+          "requires": ["electric-vehicles"]
+        },
+        {
+          "id": "solar-photovoltaic-systems",
+          "name": "Solar Photovoltaic Systems",
+          "requires": ["wind-energy-conversion-system"]
+        },
+        {
+          "id": "industrial-automation",
+          "name": "Industrial Automation",
+          "requires": ["solar-photovoltaic-systems"]
+        },
+        {
+          "id": "electronics-appliances-and-smart-grids",
+          "name": "Electronics Appliances & Smart Grids",
+          "requires": ["industrial-automation"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-power-electronic-converters-laboratory-elec"]
+}

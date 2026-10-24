@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Object Oriented Modelling and Design",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,12 +41,37 @@
       "topics": [
         {
           "id": "overview-of-object-oriented-modelling-and-design-oomd",
-          "name": "Overview of Object-Oriented Modelling and Design (OOMD) principles, Contrasting OOMD with traditional modelling approaches, Understanding the core concepts of OOMD, Modelling Fundamentals: Object and "
+          "name": "Overview of Object-Oriented Modelling and Design (OOMD) principles",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "contrasting-oomd-with-traditional-modelling-approaches",
+          "name": "Contrasting OOMD with traditional modelling approaches",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["overview-of-object-oriented-modelling-and-design-oomd"]
+        },
+        {
+          "id": "understanding-the-core-concepts-of-oomd",
+          "name": "Understanding the core concepts of OOMD",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["contrasting-oomd-with-traditional-modelling-approaches"]
         },
         {
           "id": "advanced-class-modelling-advanced-object-and-class-concepts",
-          "name": "Advanced Class Modelling, Advanced object and class concepts",
-          "requires": ["overview-of-object-oriented-modelling-and-design-oomd"]
+          "name": "Advanced Class Modelling",
+          "requires": ["overview-of-object-oriented-modelling-and-design-oomd"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "advanced-object-and-class-concepts",
+          "name": "Advanced object and class concepts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["advanced-class-modelling-advanced-object-and-class-concepts"]
         },
         {
           "id": "association-ends",
@@ -97,6 +122,55 @@
           "id": "packages",
           "name": "Packages",
           "requires": ["derived-data"]
+        },
+        {
+          "id": "modelling-fundamentals-object-and-class-concept-in-modelling",
+          "name": "Modelling Fundamentals: Object and Class Concept in modelling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["packages"]
+        },
+        {
+          "id": "introduction-to-associations-and-relationships",
+          "name": "Introduction to associations and relationships",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["modelling-fundamentals-object-and-class-concept-in-modelling"]
+        },
+        {
+          "id": "encapsulation-and-abstraction-in-modelling",
+          "name": "Encapsulation and abstraction in modelling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-associations-and-relationships"]
+        },
+        {
+          "id": "access-control-and-visibility-modifiers",
+          "name": "Access control and visibility modifiers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["encapsulation-and-abstraction-in-modelling"]
+        },
+        {
+          "id": "constructors-and-destructors-in-modelling",
+          "name": "Constructors and Destructors in modelling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["access-control-and-visibility-modifiers"]
+        },
+        {
+          "id": "introduction-to-inheritance-and-its-significance-in-design",
+          "name": "Introduction to Inheritance and its significance in design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["constructors-and-destructors-in-modelling"]
+        },
+        {
+          "id": "navigation-of-class-models",
+          "name": "Navigation of class models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-inheritance-and-its-significance-in-design"]
         }
       ]
     },
@@ -162,8 +236,17 @@
         },
         {
           "id": "crafting-a-problem-statement-domain-analysis-comprehensive",
-          "name": "Crafting a Problem Statement. Domain Analysis: Comprehensive Analysis Overview",
-          "requires": ["elaborating-the-concept"]
+          "name": "Crafting a Problem Statement",
+          "requires": ["elaborating-the-concept"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "domain-analysis-comprehensive-analysis-overview",
+          "name": "Domain Analysis: Comprehensive Analysis Overview",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["crafting-a-problem-statement-domain-analysis-comprehensive"]
         },
         {
           "id": "domain-class-model-detailed-domain-state-model",
@@ -228,5 +311,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

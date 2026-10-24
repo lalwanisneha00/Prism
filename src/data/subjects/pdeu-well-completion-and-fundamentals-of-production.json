@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "process",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -70,8 +70,24 @@
         },
         {
           "id": "tubular-and-flow-lines-surface-and-subsurface-chokes",
-          "name": "tubular and flow lines. Surface and subsurface chokes. Fundamentals of Well Testing",
-          "requires": ["packers"]
+          "name": "tubular and flow lines",
+          "requires": ["packers"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "surface-and-subsurface-chokes",
+          "name": "Surface and subsurface chokes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tubular-and-flow-lines-surface-and-subsurface-chokes"]
+        },
+        {
+          "id": "fundamentals-of-well-testing",
+          "name": "Fundamentals of Well Testing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["surface-and-subsurface-chokes"]
         },
         {
           "id": "well-completion-well-completion-methods",
@@ -80,8 +96,17 @@
         },
         {
           "id": "perforating-oil-and-gas-wells-conventional-and",
-          "name": "Perforating Oil & Gas Wells - Conventional and Unconventional techniques viz. through tubing and tubing conveyed underbalanced perforating techniques",
-          "requires": ["well-completion-well-completion-methods"]
+          "name": "Perforating Oil & Gas Wells",
+          "requires": ["well-completion-well-completion-methods"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "conventional-and-unconventional-techniques-viz-through-tubin",
+          "name": "Conventional and Unconventional techniques viz. through tubing and tubing conveyed underbalanced perforating techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["perforating-oil-and-gas-wells-conventional-and"]
         },
         {
           "id": "type-size-and-orientation-of-perforation-holes",
@@ -141,8 +166,17 @@
         },
         {
           "id": "productivity-index-formation-damage-diagnosis",
-          "name": "Productivity index. Formation damage diagnosis",
-          "requires": ["introduction-to-inflow-performance"]
+          "name": "Productivity index",
+          "requires": ["introduction-to-inflow-performance"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "formation-damage-diagnosis",
+          "name": "Formation damage diagnosis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["productivity-index-formation-damage-diagnosis"]
         },
         {
           "id": "skin-effect",
@@ -171,13 +205,31 @@
         },
         {
           "id": "multiphase-flow-regimes-choke-performance",
-          "name": "multiphase flow regimes. Choke performance",
-          "requires": ["pressure-drop-in-tubing"]
+          "name": "multiphase flow regimes",
+          "requires": ["pressure-drop-in-tubing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "choke-performance",
+          "name": "Choke performance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multiphase-flow-regimes-choke-performance"]
         },
         {
           "id": "types-of-chokes-overall-production-system-pressure-losses",
-          "name": "types of chokes. Overall production system pressure losses",
-          "requires": ["multiphase-flow-regimes-choke-performance"]
+          "name": "types of chokes",
+          "requires": ["multiphase-flow-regimes-choke-performance"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "overall-production-system-pressure-losses",
+          "name": "Overall production system pressure losses",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-chokes-overall-production-system-pressure-losses"]
         }
       ]
     },
@@ -202,8 +254,38 @@
         },
         {
           "id": "fluid-identification-tools-temperature-log-nuclear-fluid",
-          "name": "Fluid identification tools (Temperature log, Nuclear fluid density, GHOST, and DEFT) Advanced logging tools (Flow Scan Imager Tool and Multiple Array Production Suit, and Noise logs)",
-          "requires": ["spinner-flow-meters-and-spinner-crossplots"]
+          "name": "Fluid identification tools (Temperature log",
+          "requires": ["spinner-flow-meters-and-spinner-crossplots"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "nuclear-fluid-density",
+          "name": "Nuclear fluid density",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fluid-identification-tools-temperature-log-nuclear-fluid"]
+        },
+        {
+          "id": "ghost",
+          "name": "GHOST",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["nuclear-fluid-density"]
+        },
+        {
+          "id": "deft-advanced-logging-tools-flow-scan-imager-tool-and-multip",
+          "name": "DEFT) Advanced logging tools (Flow Scan Imager Tool and Multiple Array Production Suit",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ghost"]
+        },
+        {
+          "id": "noise-logs",
+          "name": "Noise logs)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["deft-advanced-logging-tools-flow-scan-imager-tool-and-multip"]
         }
       ]
     },
@@ -233,10 +315,27 @@
         },
         {
           "id": "chokes-and-surface-flow-lines-production-optimization-nodal",
-          "name": "chokes and surface flow lines. Production Optimization – Nodal System analysis",
-          "requires": ["selection-and-performance-of-tubing"]
+          "name": "chokes and surface flow lines",
+          "requires": ["selection-and-performance-of-tubing"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "production-optimization",
+          "name": "Production Optimization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chokes-and-surface-flow-lines-production-optimization-nodal"]
+        },
+        {
+          "id": "nodal-system-analysis",
+          "name": "Nodal System analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["production-optimization"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

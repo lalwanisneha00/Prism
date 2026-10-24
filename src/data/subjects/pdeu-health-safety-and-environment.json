@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Health Safety and Environment",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -55,12 +55,30 @@
         {
           "id": "environmental",
           "name": "Environmental",
-          "requires": ["biological"]
+          "requires": ["biological"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "environmental-issues-and-management",
+          "name": "Environmental issues and management",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["environmental"]
         },
         {
           "id": "ergonomical-etc-hazards-and-their-remediations-environmental",
-          "name": "Ergonomical etc. Hazards and their remediations. Environmental issues and management",
-          "requires": ["environmental"]
+          "name": "Ergonomical etc",
+          "requires": ["environmental"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "hazards-and-their-remediations",
+          "name": "Hazards and their remediations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ergonomical-etc-hazards-and-their-remediations-environmental"]
         },
         {
           "id": "environmental-impact-and-management-impact-of-oil-and-gas",
@@ -96,17 +114,231 @@
       "topics": [
         {
           "id": "operational-safety-introduction-to-hse-safety-assurance",
-          "name": "Operational Safety, Introduction to HSE Safety assurance, Safety in design and operations, Organizing for safety Hazard, classification and assessment, Hazard evaluation and control, Hazop, FMEA, Risk"
+          "name": "Operational Safety",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "classification-of-hazardous-locations-hazardous-area-ref-ier",
-          "name": "Classification of Hazardous locations, Hazardous area (Ref IER, OISD, OMR, API RP 500 & 14 F) Accident Investigations: Study of major Accidents like Piper Alpha, Flixborough, Bhopal etc., Investigatio",
+          "id": "introduction-to-hse-safety-assurance",
+          "name": "Introduction to HSE Safety assurance",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["operational-safety-introduction-to-hse-safety-assurance"]
         },
         {
-          "id": "audit-methodology-protocol-typical-checklists-for-drilling",
-          "name": "Audit methodology, protocol, typical checklists for Drilling rigs, Work over activities, logging, etc",
+          "id": "safety-in-design-and-operations",
+          "name": "Safety in design and operations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-hse-safety-assurance"]
+        },
+        {
+          "id": "organizing-for-safety-hazard",
+          "name": "Organizing for safety Hazard",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["safety-in-design-and-operations"]
+        },
+        {
+          "id": "classification-and-assessment",
+          "name": "classification and assessment",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["organizing-for-safety-hazard"]
+        },
+        {
+          "id": "hazard-evaluation-and-control",
+          "name": "Hazard evaluation and control",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-and-assessment"]
+        },
+        {
+          "id": "hazop",
+          "name": "Hazop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hazard-evaluation-and-control"]
+        },
+        {
+          "id": "fmea",
+          "name": "FMEA",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hazop"]
+        },
+        {
+          "id": "hazop-2",
+          "name": "HAZOP",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fmea"]
+        },
+        {
+          "id": "classification-of-hazardous-locations-hazardous-area-ref-ier",
+          "name": "OISD)",
+          "requires": ["operational-safety-introduction-to-hse-safety-assurance"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "oisd-2",
+          "name": "OISD",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["classification-of-hazardous-locations-hazardous-area-ref-ier"]
+        },
+        {
+          "id": "omr",
+          "name": "OMR)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["oisd-2"]
+        },
+        {
+          "id": "classification-of-hazardous-locations",
+          "name": "Classification of Hazardous locations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["omr"]
+        },
+        {
+          "id": "hazardous-area-ref-ier",
+          "name": "Hazardous area (Ref IER",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-hazardous-locations"]
+        },
+        {
+          "id": "omr-2",
+          "name": "OMR",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hazardous-area-ref-ier"]
+        },
+        {
+          "id": "api-rp-500-and-14-f-accident-investigations-study-of-major-a",
+          "name": "API RP 500 & 14 F) Accident Investigations: Study of major Accidents like Piper Alpha",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["omr-2"]
+        },
+        {
+          "id": "flixborough",
+          "name": "Flixborough",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["api-rp-500-and-14-f-accident-investigations-study-of-major-a"]
+        },
+        {
+          "id": "bhopal-etc",
+          "name": "Bhopal etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flixborough"]
+        },
+        {
+          "id": "audit-methodology-protocol-typical-checklists-for-drilling",
+          "name": "Audit methodology",
+          "requires": ["classification-of-hazardous-locations-hazardous-area-ref-ier"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "protocol",
+          "name": "protocol",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["audit-methodology-protocol-typical-checklists-for-drilling"]
+        },
+        {
+          "id": "typical-checklists-for-drilling-rigs",
+          "name": "typical checklists for Drilling rigs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["protocol"]
+        },
+        {
+          "id": "work-over-activities",
+          "name": "Work over activities",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["typical-checklists-for-drilling-rigs"]
+        },
+        {
+          "id": "logging",
+          "name": "logging",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["work-over-activities"]
+        },
+        {
+          "id": "api-rp-75",
+          "name": "API RP 75",
+          "requires": ["oisd"],
+          "movedFrom": {
+            "subject": "pdeu-health-safety-and-environment",
+            "chapter": "hse-management-system",
+            "at": "2026-10-24T23:22:41.746Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "risk-matrix",
+          "name": "Risk Matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["api-rp-75"]
+        },
+        {
+          "id": "hazid",
+          "name": "HAZID",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["risk-matrix"]
+        },
+        {
+          "id": "qra-api-14-j",
+          "name": "QRA (API 14 J",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hazid"]
+        },
+        {
+          "id": "safe-work-practices-ptw",
+          "name": "Safe Work Practices: PTW",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["qra-api-14-j"]
+        },
+        {
+          "id": "moc",
+          "name": "MOC",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["safe-work-practices-ptw"]
+        },
+        {
+          "id": "electrical-safety",
+          "name": "Electrical Safety",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["moc"]
+        },
+        {
+          "id": "investigation-techniques-emergency-response-planning-audits",
+          "name": "Investigation techniques Emergency Response planning Audits & Inspection",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["electrical-safety"]
+        },
+        {
+          "id": "etc",
+          "name": "etc",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["investigation-techniques-emergency-response-planning-audits"]
         }
       ]
     },
@@ -175,11 +407,6 @@
           "requires": ["software-used-in-hse"]
         },
         {
-          "id": "api-rp-75",
-          "name": "API RP 75",
-          "requires": ["oisd"]
-        },
-        {
           "id": "iso",
           "name": "ISO",
           "requires": ["api-rp-75"]
@@ -207,8 +434,38 @@
         },
         {
           "id": "air-water-and-soil-of-hcs-environmental-impact-assessment",
-          "name": "Air, Water, & Soil of HCs, Environmental Impact Assessment, Oil Spills Control and their Management",
-          "requires": ["environment-concepts-effect-on-eco-system"]
+          "name": "Air",
+          "requires": ["environment-concepts-effect-on-eco-system"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "water",
+          "name": "Water",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["air-water-and-soil-of-hcs-environmental-impact-assessment"]
+        },
+        {
+          "id": "and-soil-of-hcs",
+          "name": "& Soil of HCs",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["water"]
+        },
+        {
+          "id": "environmental-impact-assessment",
+          "name": "Environmental Impact Assessment",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["and-soil-of-hcs"]
+        },
+        {
+          "id": "oil-spills-control-and-their-management",
+          "name": "Oil Spills Control and their Management",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["environmental-impact-assessment"]
         },
         {
           "id": "maritime-environmental-rules-and-regulations",
@@ -222,13 +479,52 @@
         },
         {
           "id": "directorate-of-mine-safety-dgms-downstream-safety",
-          "name": "Directorate of Mine Safety, DGMS. Downstream Safety: Implementing Agency PNGRB",
-          "requires": ["drilling-oil-storage-effluent-water-waste-solid-and-sludge"]
+          "name": "Directorate of Mine Safety",
+          "requires": ["drilling-oil-storage-effluent-water-waste-solid-and-sludge"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dgms",
+          "name": "DGMS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["directorate-of-mine-safety-dgms-downstream-safety"]
+        },
+        {
+          "id": "downstream-safety-implementing-agency-pngrb",
+          "name": "Downstream Safety: Implementing Agency PNGRB",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["dgms"]
         },
         {
           "id": "safety-regulations-technical-standard-specification-and",
-          "name": "Safety Regulations (Technical Standard, Specification and Safety Standards T4S), Emergencies, Mutual Aida",
-          "requires": ["directorate-of-mine-safety-dgms-downstream-safety"]
+          "name": "Safety Regulations (Technical Standard",
+          "requires": ["directorate-of-mine-safety-dgms-downstream-safety"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "specification-and-safety-standards-t4s",
+          "name": "Specification and Safety Standards T4S)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["safety-regulations-technical-standard-specification-and"]
+        },
+        {
+          "id": "emergencies",
+          "name": "Emergencies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["specification-and-safety-standards-t4s"]
+        },
+        {
+          "id": "mutual-aida",
+          "name": "Mutual Aida",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["emergencies"]
         },
         {
           "id": "emergency-response-and-disaster-management-plan-erdmp",
@@ -237,5 +533,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

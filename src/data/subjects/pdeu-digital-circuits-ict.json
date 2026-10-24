@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "circuits",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -50,8 +50,17 @@
         },
         {
           "id": "binary-octal-and-hexadecimal-representation-of-integer-fixed",
-          "name": "binary, octal and hexadecimal representation of integer/fixed-point numbers",
-          "requires": ["positional-number-system"]
+          "name": "binary",
+          "requires": ["positional-number-system"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "octal-and-hexadecimal-representation-of-integer-fixed-point",
+          "name": "octal and hexadecimal representation of integer/fixed-point numbers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["binary-octal-and-hexadecimal-representation-of-integer-fixed"]
         },
         {
           "id": "methods-of-base-conversions",
@@ -70,8 +79,17 @@
         },
         {
           "id": "signed-unsigned-binary-octal-and-hexadecimal-arithmetic",
-          "name": "signed/unsigned binary, octal and hexadecimal arithmetic",
-          "requires": ["representation-of-signed-numbers"]
+          "name": "signed/unsigned binary",
+          "requires": ["representation-of-signed-numbers"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "octal-and-hexadecimal-arithmetic",
+          "name": "octal and hexadecimal arithmetic",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["signed-unsigned-binary-octal-and-hexadecimal-arithmetic"]
         },
         {
           "id": "binary-coded-decimal-codes",
@@ -85,13 +103,38 @@
         },
         {
           "id": "excess-3-codes-logic-gates-and-truth-table",
-          "name": "Excess-3 codes, Logic Gates, and Truth Table",
-          "requires": ["gray-codes"]
+          "name": "Excess-3 codes",
+          "requires": ["gray-codes"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "logic-gates",
+          "name": "Logic Gates",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["excess-3-codes-logic-gates-and-truth-table"]
+        },
+        {
+          "id": "truth-table",
+          "name": "Truth Table",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["logic-gates"]
         },
         {
           "id": "error-detection-and-correction-codes-parity-check-codes-and",
-          "name": "Error detection and correction codes - parity check codes and Hamming codes",
-          "requires": ["excess-3-codes-logic-gates-and-truth-table"]
+          "name": "Error detection and correction codes",
+          "requires": ["excess-3-codes-logic-gates-and-truth-table"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "parity-check-codes-and-hamming-codes",
+          "name": "parity check codes and Hamming codes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["error-detection-and-correction-codes-parity-check-codes-and"]
         }
       ]
     },
@@ -156,13 +199,38 @@
         },
         {
           "id": "arithmetic-modules-ripple-carry-adder-subtractor-carry-look",
-          "name": "Arithmetic modules- ripple carry adder, subtractor, carry look ahead adder",
-          "requires": ["comparators"]
+          "name": "Arithmetic modules- ripple carry adder",
+          "requires": ["comparators"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "subtractor",
+          "name": "subtractor",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["arithmetic-modules-ripple-carry-adder-subtractor-carry-look"]
+        },
+        {
+          "id": "carry-look-ahead-adder",
+          "name": "carry look ahead adder",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["subtractor"]
         },
         {
           "id": "basic-multiplier-bcd-adder",
-          "name": "basic multiplier, BCD Adder",
-          "requires": ["arithmetic-modules-ripple-carry-adder-subtractor-carry-look"]
+          "name": "basic multiplier",
+          "requires": ["arithmetic-modules-ripple-carry-adder-subtractor-carry-look"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bcd-adder",
+          "name": "BCD Adder",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-multiplier-bcd-adder"]
         },
         {
           "id": "shannon-expansion-theorem",
@@ -183,7 +251,16 @@
         {
           "id": "latches-and-flip-flops-sr-latch",
           "name": "Latches and flip-flops: SR-latch",
-          "requires": ["definition-of-sequential-circuits"]
+          "requires": ["definition-of-sequential-circuits"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "jk-flip-flops-and-t-flip-flops",
+          "name": "JK flip-flops and T flip-flops",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["latches-and-flip-flops-sr-latch"]
         },
         {
           "id": "d-latch",
@@ -193,7 +270,23 @@
         {
           "id": "d-flip-flop",
           "name": "D flip-flop",
-          "requires": ["d-latch"]
+          "requires": ["d-latch"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "jk-flip-flop-2",
+          "name": "JK flip-flop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["d-flip-flop"]
+        },
+        {
+          "id": "t-flip-flop",
+          "name": "T flip-flop",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["jk-flip-flop-2"]
         },
         {
           "id": "jk-flip-flop",
@@ -207,8 +300,24 @@
         },
         {
           "id": "finite-state-machines",
-          "name": "Moore and Mealy Finite State Machines (FSM): state diagram, state table, state assignment",
-          "requires": ["t-flip-flop-synchronous-sequential-circuit"]
+          "name": "Moore and Mealy Finite State Machines (FSM): state diagram",
+          "requires": ["t-flip-flop-synchronous-sequential-circuit"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "state-table",
+          "name": "state table",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["finite-state-machines"]
+        },
+        {
+          "id": "state-assignment",
+          "name": "state assignment",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["state-table"]
         },
         {
           "id": "analysis-and-implementation-of-fsm-using-d-flip-flops-jk",
@@ -217,13 +326,52 @@
         },
         {
           "id": "implementation-of-fsm-using-decoders-or-gates-multiplexors",
-          "name": "Implementation of FSM using Decoders, OR gates, Multiplexors and ROM. Various Registers and counters: asynchronous counters, synchronous counters",
-          "requires": ["analysis-and-implementation-of-fsm-using-d-flip-flops-jk"]
+          "name": "Implementation of FSM using Decoders",
+          "requires": ["analysis-and-implementation-of-fsm-using-d-flip-flops-jk"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gates",
+          "name": "gates",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["implementation-of-fsm-using-decoders-or-gates-multiplexors"]
+        },
+        {
+          "id": "multiplexors-and-rom",
+          "name": "Multiplexors and ROM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gates"]
+        },
+        {
+          "id": "various-registers-and-counters-asynchronous-counters",
+          "name": "Various Registers and counters: asynchronous counters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multiplexors-and-rom"]
+        },
+        {
+          "id": "synchronous-counters",
+          "name": "synchronous counters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["various-registers-and-counters-asynchronous-counters"]
         },
         {
           "id": "ring-counter-johnson-counter",
-          "name": "ring counter, Johnson counter",
-          "requires": ["implementation-of-fsm-using-decoders-or-gates-multiplexors"]
+          "name": "ring counter",
+          "requires": ["implementation-of-fsm-using-decoders-or-gates-multiplexors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "johnson-counter",
+          "name": "Johnson counter",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ring-counter-johnson-counter"]
         }
       ]
     },
@@ -249,7 +397,16 @@
         {
           "id": "programmable-logic-array",
           "name": "programmable logic array",
-          "requires": ["read-only-memory"]
+          "requires": ["read-only-memory"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "programmable-array-logic-2",
+          "name": "programmable array logic",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["programmable-logic-array"]
         },
         {
           "id": "programmable-array-logic",
@@ -268,5 +425,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-digital-circuits-lab-ict"]
 }

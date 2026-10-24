@@ -1,0 +1,111 @@
+{
+  "id": "pdeu-analog-communication-lab-ece",
+  "name": "Analog Communication Lab",
+  "field": "Analog Communication Lab",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ece"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ECE semester 4): Analog Communication Lab",
+    "note": "Units and topics copied from the course handout PDF (pages 6 of ECE/sem4/ECE_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ece",
+      "key": "s4-analog-communication-lab",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-generation-of-amplitude-modulated-am-signals-fo",
+          "name": "Generation of Amplitude Modulated (AM) Signals for different values of modulation index",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-demodulation-of-am-signals",
+          "name": "Demodulation of AM signals",
+          "number": 2,
+          "requires": ["experiment-1-generation-of-amplitude-modulated-am-signals-fo"]
+        },
+        {
+          "id": "experiment-3-generation-of-dsbsc-signal",
+          "name": "Generation of DSBSC signal",
+          "number": 3,
+          "requires": ["experiment-2-demodulation-of-am-signals"]
+        },
+        {
+          "id": "experiment-4-demodulation-of-dsbsc-signal",
+          "name": "Demodulation of DSBSC signal",
+          "number": 4,
+          "requires": ["experiment-3-generation-of-dsbsc-signal"]
+        },
+        {
+          "id": "experiment-5-generation-of-ssbsc-signal",
+          "name": "Generation of SSBSC signal",
+          "number": 5,
+          "requires": ["experiment-4-demodulation-of-dsbsc-signal"]
+        },
+        {
+          "id": "experiment-6-demodulation-of-ssbsc-signal-phase-shift-method",
+          "name": "Demodulation of SSBSC signal (Phase-shift method)",
+          "number": 6,
+          "requires": ["experiment-5-generation-of-ssbsc-signal"]
+        },
+        {
+          "id": "experiment-7-generation-of-fm-signal-and-finding-its-bandwid",
+          "name": "Generation of FM signal and finding its bandwidth using spectrum analysis",
+          "number": 7,
+          "requires": ["experiment-6-demodulation-of-ssbsc-signal-phase-shift-method"]
+        },
+        {
+          "id": "experiment-8-fm-demodulation",
+          "name": "FM demodulation",
+          "number": 8,
+          "requires": ["experiment-7-generation-of-fm-signal-and-finding-its-bandwid"]
+        },
+        {
+          "id": "experiment-9-study-the-operation-of-superheterodyne-receiver",
+          "name": "Study the operation of Superheterodyne receiver",
+          "number": 9,
+          "requires": ["experiment-8-fm-demodulation"]
+        },
+        {
+          "id": "experiment-10-study-the-operation-of-phase-locked-loop-pll",
+          "name": "Study the operation of Phase-locked-loop (PLL)",
+          "number": 10,
+          "requires": ["experiment-9-study-the-operation-of-superheterodyne-receiver"]
+        },
+        {
+          "id": "experiment-11-design-and-implementation-of-pre-emphasis-de-e",
+          "name": "Design and implementation of Pre Emphasis - De Emphasis Circuits",
+          "number": 11,
+          "requires": ["experiment-10-study-the-operation-of-phase-locked-loop-pll"]
+        },
+        {
+          "id": "experiment-12-design-and-implementation-of-analog-mixer",
+          "name": "Design and implementation of Analog mixer",
+          "number": 12,
+          "requires": ["experiment-11-design-and-implementation-of-pre-emphasis-de-e"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-analog-communication"]
+}

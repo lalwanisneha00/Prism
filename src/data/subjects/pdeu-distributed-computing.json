@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Distributed Computing",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -64,8 +64,17 @@
         },
         {
           "id": "distributed-computation-logical-clocks-scalar-time",
-          "name": "Distributed Computation. Logical Clocks-Scalar Time",
-          "requires": ["communication-message-passing-systems-versus-shared-memory"]
+          "name": "Distributed Computation",
+          "requires": ["communication-message-passing-systems-versus-shared-memory"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "logical-clocks-scalar-time",
+          "name": "Logical Clocks-Scalar Time",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["distributed-computation-logical-clocks-scalar-time"]
         },
         {
           "id": "vector-time",
@@ -86,12 +95,65 @@
       "topics": [
         {
           "id": "global-state-and-snapshot-recording-algorithms-detecting",
-          "name": "Global State and Snapshot Recording Algorithms, Detecting Global Predicate- Modalities on predicates, Centralized algorithm for relational predicates, Conjunctive predicates, Distributed algorithms fo"
+          "name": "Global State and Snapshot Recording Algorithms",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "detecting-global-predicate-modalities-on-predicates",
+          "name": "Detecting Global Predicate- Modalities on predicates",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["global-state-and-snapshot-recording-algorithms-detecting"]
+        },
+        {
+          "id": "centralized-algorithm-for-relational-predicates",
+          "name": "Centralized algorithm for relational predicates",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["detecting-global-predicate-modalities-on-predicates"]
+        },
+        {
+          "id": "conjunctive-predicates",
+          "name": "Conjunctive predicates",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["centralized-algorithm-for-relational-predicates"]
+        },
+        {
+          "id": "distributed-algorithms-for-conjunctive-predicates",
+          "name": "Distributed algorithms for conjunctive predicates",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["conjunctive-predicates"]
         },
         {
           "id": "election-algorithm-leader-election-in-rings-asynchronous",
-          "name": "Election Algorithm- Leader election in rings, Asynchronous leader election with identities, Synchronous leader election by abusing the synchronous model, Message Ordering and Group Communication- Term",
-          "requires": ["global-state-and-snapshot-recording-algorithms-detecting"]
+          "name": "Election Algorithm- Leader election in rings",
+          "requires": ["global-state-and-snapshot-recording-algorithms-detecting"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "asynchronous-leader-election-with-identities",
+          "name": "Asynchronous leader election with identities",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["election-algorithm-leader-election-in-rings-asynchronous"]
+        },
+        {
+          "id": "synchronous-leader-election-by-abusing-the-synchronous-model",
+          "name": "Synchronous leader election by abusing the synchronous model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["asynchronous-leader-election-with-identities"]
+        },
+        {
+          "id": "message-ordering-and-group-communication-termination-detecti",
+          "name": "Message Ordering and Group Communication- Termination Detection Algorithms and Reasoning with Knowledge",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["synchronous-leader-election-by-abusing-the-synchronous-model"]
         }
       ]
     },
@@ -102,22 +164,100 @@
       "topics": [
         {
           "id": "distributed-mutual-exclusion-algorithms-lamports-algorithm",
-          "name": "Distributed Mutual Exclusion Algorithms- Lamport’s algorithm, Ricart–Agrawala algorithm, Hr and Deadlock Detection Algorithms, Distributed Deadlock Detection Algorithm, Distributed s"
+          "name": "Distributed Mutual Exclusion Algorithms- Lamport’s algorithm",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "shared-memory-memory-consistency-models-shared-memory-mutual",
-          "name": "Shared Memory- Memory Consistency Models, Shared Memory Mutual Exclusion, Wait- Freedom Algorithm",
+          "id": "ricart-agrawala-algorithm",
+          "name": "Ricart–Agrawala algorithm",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["distributed-mutual-exclusion-algorithms-lamports-algorithm"]
         },
         {
-          "id": "byzantine-fault-tolerance-checkpointing-and-rollback",
-          "name": "Byzantine Fault Tolerance, Checkpointing and Rollback Recovery- Checkpoint-based recovery and Log-based rollback recovery",
+          "id": "hr-and-deadlock-detection-algorithms",
+          "name": "Hr and Deadlock Detection Algorithms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ricart-agrawala-algorithm"]
+        },
+        {
+          "id": "distributed-deadlock-detection-algorithm",
+          "name": "Distributed Deadlock Detection Algorithm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hr-and-deadlock-detection-algorithms"]
+        },
+        {
+          "id": "shared-memory-memory-consistency-models-shared-memory-mutual",
+          "name": "Shared Memory- Memory Consistency Models",
+          "requires": ["distributed-mutual-exclusion-algorithms-lamports-algorithm"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "shared-memory-mutual-exclusion",
+          "name": "Shared Memory Mutual Exclusion",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["shared-memory-memory-consistency-models-shared-memory-mutual"]
         },
         {
-          "id": "consensus-and-agreement-agreement-in-a-failure-free-system",
-          "name": "Consensus and Agreement- : Agreement in a failure-free system (synchronous or asynchronous) , Agreement in (message- passing) synchronous systems with Failures, Agreement in asynchronous message-passi",
+          "id": "byzantine-fault-tolerance-checkpointing-and-rollback",
+          "name": "Byzantine Fault Tolerance",
+          "requires": ["shared-memory-memory-consistency-models-shared-memory-mutual"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "checkpointing-and-rollback-recoverycheckpoint-based-recovery",
+          "name": "Checkpointing and Rollback RecoveryCheckpoint-based recovery and Log-based rollback recovery",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["byzantine-fault-tolerance-checkpointing-and-rollback"]
+        },
+        {
+          "id": "consensus-and-agreement-agreement-in-a-failure-free-system",
+          "name": "Consensus and Agreement- : Agreement in a failure-free system (synchronous or asynchronous)",
+          "requires": ["byzantine-fault-tolerance-checkpointing-and-rollback"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "agreement-in-asynchronous-message-passing-systems-with-failu",
+          "name": "Agreement in asynchronous message-passing systems with failures",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["consensus-and-agreement-agreement-in-a-failure-free-system"]
+        },
+        {
+          "id": "distributeds",
+          "name": "Distributeds",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["agreement-in-asynchronous-message-passing-systems-with-failu"]
+        },
+        {
+          "id": "waitfreedom-algorithm",
+          "name": "WaitFreedom Algorithm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["distributeds"]
+        },
+        {
+          "id": "agreement-in-messagepassing-synchronous-systems-with-failure",
+          "name": "Agreement in (messagepassing) synchronous systems with Failures",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["waitfreedom-algorithm"]
+        },
+        {
+          "id": "wait-free-shared-memory-consensus-in-asynchronous-systems",
+          "name": "Wait-free shared memory consensus in asynchronous systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["agreement-in-messagepassing-synchronous-systems-with-failure"]
         }
       ]
     },
@@ -128,19 +268,61 @@
       "topics": [
         {
           "id": "distributed-file-servers-gfs-mapreduce",
-          "name": "Distributed file servers- GFS, MapReduce"
+          "name": "Distributed file servers- GFS",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "selected-case-studies-pnuts-paxos-spark-cryptocurrencies",
-          "name": "Selected case studies- PNUTS, PAXOS, SPARK, Cryptocurrencies",
+          "id": "mapreduce",
+          "name": "MapReduce",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["distributed-file-servers-gfs-mapreduce"]
         },
         {
-          "id": "advanced-topics-ml-in-distributed-systems-tensorflow",
-          "name": "Advanced Topics: ML in Distributed Systems-Tensorflow, Parameter Server Max",
+          "id": "selected-case-studies-pnuts-paxos-spark-cryptocurrencies",
+          "name": "Selected case studies- PNUTS",
+          "requires": ["distributed-file-servers-gfs-mapreduce"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "paxos",
+          "name": "PAXOS",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["selected-case-studies-pnuts-paxos-spark-cryptocurrencies"]
+        },
+        {
+          "id": "spark",
+          "name": "SPARK",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["paxos"]
+        },
+        {
+          "id": "cryptocurrencies",
+          "name": "Cryptocurrencies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["spark"]
+        },
+        {
+          "id": "advanced-topics-ml-in-distributed-systems-tensorflow",
+          "name": "Advanced Topics: ML in Distributed Systems-Tensorflow",
+          "requires": ["selected-case-studies-pnuts-paxos-spark-cryptocurrencies"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "parameter-server-max",
+          "name": "Parameter Server Max",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["advanced-topics-ml-in-distributed-systems-tensorflow"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

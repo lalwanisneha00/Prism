@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Unconventional Hydrocarbon Energy Resources",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -71,22 +71,156 @@
       "topics": [
         {
           "id": "oil-shale-geological-features-oil-shale-formations-chemical",
-          "name": "Oil Shale: Geological features Oil Shale formations, Chemical composition, Components of Oil Shale: Bitumen, Kerogen, Mineral matrix, Resource recovery technologies, Commercial value and Environmental"
+          "name": "Oil Shale: Geological features Oil Shale formations",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "shale-gas-definition-and-prospect-geological-conditions-for",
-          "name": "Shale gas: Definition and prospect, geological conditions for the formation of oil shale, oil shale recovery technology, ex-situ and in-situ extraction processes of shale oil, various retorting proces",
+          "id": "chemical-composition",
+          "name": "Chemical composition",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["oil-shale-geological-features-oil-shale-formations-chemical"]
         },
         {
-          "id": "shale-gas-definition-and-prospect-the-conditions-of",
-          "name": "Shale Gas: Definition and prospect, the conditions of formation of shale gas, debate over-extraction of shale gas from the subsurface, environmental issues, American experience, Marcellus shale gas pr",
+          "id": "components-of-oil-shale-bitumen",
+          "name": "Components of Oil Shale: Bitumen",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chemical-composition"]
+        },
+        {
+          "id": "kerogen",
+          "name": "Kerogen",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["components-of-oil-shale-bitumen"]
+        },
+        {
+          "id": "mineral-matrix",
+          "name": "Mineral matrix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["kerogen"]
+        },
+        {
+          "id": "resource-recovery-technologies",
+          "name": "Resource recovery technologies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mineral-matrix"]
+        },
+        {
+          "id": "shale-gas-definition-and-prospect-geological-conditions-for",
+          "name": "Shale gas: Definition and prospect",
+          "requires": ["oil-shale-geological-features-oil-shale-formations-chemical"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "geological-conditions-for-the-formation-of-oil-shale",
+          "name": "geological conditions for the formation of oil shale",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["shale-gas-definition-and-prospect-geological-conditions-for"]
         },
         {
-          "id": "an-example-of-the-success-story-of-shale-gas-exploitation",
-          "name": "an example of the success story of shale gas exploitation, methods of production, hydrofracturing, the composition of fracking fluid, water management, shale gas",
+          "id": "oil-shale-recovery-technology",
+          "name": "oil shale recovery technology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["geological-conditions-for-the-formation-of-oil-shale"]
+        },
+        {
+          "id": "ex-situ-and-in-situ-extraction-processes-of-shale-oil",
+          "name": "ex-situ and in-situ extraction processes of shale oil",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["oil-shale-recovery-technology"]
+        },
+        {
+          "id": "various-retorting-processes",
+          "name": "various retorting processes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ex-situ-and-in-situ-extraction-processes-of-shale-oil"]
+        },
+        {
+          "id": "shale-gas-definition-and-prospect",
+          "name": "Shale Gas: Definition and prospect",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["various-retorting-processes"]
+        },
+        {
+          "id": "the-conditions-of-formation-of-shale-gas",
+          "name": "the conditions of formation of shale gas",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["shale-gas-definition-and-prospect"]
+        },
+        {
+          "id": "shale-gas",
+          "name": "shale gas",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-conditions-of-formation-of-shale-gas"]
+        },
+        {
+          "id": "shale-gas-definition-and-prospect-the-conditions-of",
+          "name": "debate over-extraction of shale gas from the subsurface",
+          "requires": ["shale-gas-definition-and-prospect-geological-conditions-for"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "environmental-issues",
+          "name": "environmental issues",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["shale-gas-definition-and-prospect-the-conditions-of"]
+        },
+        {
+          "id": "american-experience",
+          "name": "American experience",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["environmental-issues"]
+        },
+        {
+          "id": "an-example-of-the-success-story-of-shale-gas-exploitation",
+          "name": "an example of the success story of shale gas exploitation",
+          "requires": ["shale-gas-definition-and-prospect-the-conditions-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "methods-of-production",
+          "name": "methods of production",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["an-example-of-the-success-story-of-shale-gas-exploitation"]
+        },
+        {
+          "id": "hydrofracturing",
+          "name": "hydrofracturing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["methods-of-production"]
+        },
+        {
+          "id": "the-composition-of-fracking-fluid",
+          "name": "the composition of fracking fluid",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hydrofracturing"]
+        },
+        {
+          "id": "water-management",
+          "name": "water management",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-composition-of-fracking-fluid"]
         },
         {
           "id": "indian-perspective",
@@ -95,8 +229,59 @@
         },
         {
           "id": "tar-sand-definition-and-prospect-the-distinction-between",
-          "name": "Tar Sand: Definition and prospect, the distinction between heavy oil and bitumen, mineralogy and properties of oil sand, elemental composition and properties of bitumen, methods of recovery of bitumen",
-          "requires": ["indian-perspective"]
+          "name": "Tar Sand: Definition and prospect",
+          "requires": ["indian-perspective"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "the-distinction-between-heavy-oil-and-bitumen",
+          "name": "the distinction between heavy oil and bitumen",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tar-sand-definition-and-prospect-the-distinction-between"]
+        },
+        {
+          "id": "mineralogy-and-properties-of-oil-sand",
+          "name": "mineralogy and properties of oil sand",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-distinction-between-heavy-oil-and-bitumen"]
+        },
+        {
+          "id": "elemental-composition-and-properties-of-bitumen",
+          "name": "elemental composition and properties of bitumen",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mineralogy-and-properties-of-oil-sand"]
+        },
+        {
+          "id": "commercial-value-and-environmental-impacts",
+          "name": "Commercial value and Environmental impacts",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["elemental-composition-and-properties-of-bitumen"]
+        },
+        {
+          "id": "processes-leading-to-maximization-of-shale-oil-production",
+          "name": "processes leading to maximization of shale oil production",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["commercial-value-and-environmental-impacts"]
+        },
+        {
+          "id": "marcellus-shale-gas-project",
+          "name": "Marcellus shale gas project",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["processes-leading-to-maximization-of-shale-oil-production"]
+        },
+        {
+          "id": "methods-of-recovery-of-bitumen-by-mining-and-advanced-in-sit",
+          "name": "methods of recovery of bitumen by mining and advanced in-situ processes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["marcellus-shale-gas-project"]
         }
       ]
     },
@@ -107,17 +292,105 @@
       "topics": [
         {
           "id": "definition-history-of-hydrate-r-and-d-prospect-types-of",
-          "name": "Definition, History of Hydrate R&D, prospect, types of methane hydrate deposits, chemistry and structure of natural methane hydrate, Necessary Conditions for Methane Hydrate Formation, typical conditi"
+          "name": "Definition",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "history-of-hydrate-r-and-d",
+          "name": "History of Hydrate R&D",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["definition-history-of-hydrate-r-and-d-prospect-types-of"]
+        },
+        {
+          "id": "prospect",
+          "name": "prospect",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["history-of-hydrate-r-and-d"]
+        },
+        {
+          "id": "types-of-methane-hydrate-deposits",
+          "name": "types of methane hydrate deposits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["prospect"]
+        },
+        {
+          "id": "chemistry-and-structure-of-natural-methane-hydrate",
+          "name": "chemistry and structure of natural methane hydrate",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-methane-hydrate-deposits"]
+        },
+        {
+          "id": "necessary-conditions-for-methane-hydrate-formation",
+          "name": "Necessary Conditions for Methane Hydrate Formation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["chemistry-and-structure-of-natural-methane-hydrate"]
         },
         {
           "id": "geological-geochemical-and-geophysical-gas-hydrate",
-          "name": "geological, geochemical, and geophysical, gas hydrate",
-          "requires": ["definition-history-of-hydrate-r-and-d-prospect-types-of"]
+          "name": "geological",
+          "requires": ["definition-history-of-hydrate-r-and-d-prospect-types-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "geochemical",
+          "name": "geochemical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["geological-geochemical-and-geophysical-gas-hydrate"]
+        },
+        {
+          "id": "geophysical",
+          "name": "geophysical",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["geochemical"]
+        },
+        {
+          "id": "gas-hydrate",
+          "name": "gas hydrate",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["geophysical"]
         },
         {
           "id": "indian-perspective-2",
           "name": "Indian perspective",
           "requires": ["geological-geochemical-and-geophysical-gas-hydrate"]
+        },
+        {
+          "id": "typical-conditions-of-methane-hydrate-formation-in-nature-vi",
+          "name": "typical conditions of methane hydrate formation in nature vis-à vis different gas hydrate stability zones",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["indian-perspective-2"]
+        },
+        {
+          "id": "physical-properties-of-hydrates-and-ice",
+          "name": "physical properties of hydrates and ice",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["typical-conditions-of-methane-hydrate-formation-in-nature-vi"]
+        },
+        {
+          "id": "geology-of-methane-hydrates",
+          "name": "geology of methane hydrates",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["physical-properties-of-hydrates-and-ice"]
+        },
+        {
+          "id": "exploration-for-methane-hydrates",
+          "name": "exploration for methane hydrates",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["geology-of-methane-hydrates"]
         }
       ]
     },
@@ -128,7 +401,30 @@
       "topics": [
         {
           "id": "definition-and-prospect-cbm-cmm-and-amm",
-          "name": "Definition and prospect, CBM, CMM, and AMM"
+          "name": "Definition and prospect",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cbm",
+          "name": "CBM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["definition-and-prospect-cbm-cmm-and-amm"]
+        },
+        {
+          "id": "cmm",
+          "name": "CMM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cbm"]
+        },
+        {
+          "id": "amm",
+          "name": "AMM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cmm"]
         },
         {
           "id": "an-overview-on-cbm-vs",
@@ -137,8 +433,66 @@
         },
         {
           "id": "conventional-reservoir-gas-composition-adsorption-water",
-          "name": "Conventional Reservoir –Gas Composition, Adsorption, Water Production, Gas Flow, Rock Physical Properties, Gas Content, Coal Rank, Gas Production",
-          "requires": ["an-overview-on-cbm-vs"]
+          "name": "Conventional Reservoir –Gas Composition",
+          "requires": ["an-overview-on-cbm-vs"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "adsorption",
+          "name": "Adsorption",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["conventional-reservoir-gas-composition-adsorption-water"]
+        },
+        {
+          "id": "water-production",
+          "name": "Water Production",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adsorption"]
+        },
+        {
+          "id": "gas-flow",
+          "name": "Gas Flow",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["water-production"]
+        },
+        {
+          "id": "rock-physical-properties",
+          "name": "Rock Physical Properties",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gas-flow"]
+        },
+        {
+          "id": "gas-content",
+          "name": "Gas Content",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rock-physical-properties"]
+        },
+        {
+          "id": "coal-rank",
+          "name": "Coal Rank",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gas-content"]
+        },
+        {
+          "id": "gas-production",
+          "name": "Gas Production",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["coal-rank"]
+        },
+        {
+          "id": "physical-properties",
+          "name": "Physical Properties",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gas-production"]
         },
         {
           "id": "fundamentals-of-coal-geology-genesis-of-coal",
@@ -167,8 +521,45 @@
         },
         {
           "id": "molecular-structure-macerals-lithotypes-functional-groups",
-          "name": "Molecular Structure, Macerals, Lithotypes, Functional Groups, Proximate Analysis, Ultimate Analysis",
-          "requires": ["coal-chemistry"]
+          "name": "Molecular Structure",
+          "requires": ["coal-chemistry"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "macerals",
+          "name": "Macerals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["molecular-structure-macerals-lithotypes-functional-groups"]
+        },
+        {
+          "id": "lithotypes",
+          "name": "Lithotypes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["macerals"]
+        },
+        {
+          "id": "functional-groups",
+          "name": "Functional Groups",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lithotypes"]
+        },
+        {
+          "id": "proximate-analysis",
+          "name": "Proximate Analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["functional-groups"]
+        },
+        {
+          "id": "ultimate-analysis",
+          "name": "Ultimate Analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["proximate-analysis"]
         },
         {
           "id": "significance-of-rank",
@@ -177,8 +568,31 @@
         },
         {
           "id": "definition-and-measurement-vitrinite-reflectance-measurement",
-          "name": "Definition and Measurement, Vitrinite Reflectance Measurement, Physical Properties, Volatiles Generated, Micropores",
-          "requires": ["significance-of-rank"]
+          "name": "Definition and Measurement",
+          "requires": ["significance-of-rank"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "vitrinite-reflectance-measurement",
+          "name": "Vitrinite Reflectance Measurement",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["definition-and-measurement-vitrinite-reflectance-measurement"]
+        },
+        {
+          "id": "volatiles-generated",
+          "name": "Volatiles Generated",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vitrinite-reflectance-measurement"]
+        },
+        {
+          "id": "micropores",
+          "name": "Micropores",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["volatiles-generated"]
         },
         {
           "id": "cleat-system-and-natural-fracturing",
@@ -192,8 +606,24 @@
         },
         {
           "id": "different-types-of-isotherms-langmuir-isotherm-methane",
-          "name": "different types of isotherms, Langmuir Isotherm, Methane Retention",
-          "requires": ["sorption-principles-of-adsorption"]
+          "name": "different types of isotherms",
+          "requires": ["sorption-principles-of-adsorption"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "langmuir-isotherm",
+          "name": "Langmuir Isotherm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["different-types-of-isotherms-langmuir-isotherm-methane"]
+        },
+        {
+          "id": "methane-retention",
+          "name": "Methane Retention",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["langmuir-isotherm"]
         },
         {
           "id": "effects-of-ash-and-moisture-on-methane-adsorption",
@@ -212,5 +642,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

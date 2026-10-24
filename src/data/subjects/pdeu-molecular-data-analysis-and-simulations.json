@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Molecular Data Analysis and Simulations",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -86,12 +86,58 @@
       "topics": [
         {
           "id": "force-fields-bond-stretching-angle-bending-torsional-terms",
-          "name": "Force Fields, Bond Stretching, Angle Bending, Torsional Terms, Introduction to Non-bonded Interactions: Electrostatic Interactions"
+          "name": "Force Fields",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "bond-stretching",
+          "name": "Bond Stretching",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["force-fields-bond-stretching-angle-bending-torsional-terms"]
+        },
+        {
+          "id": "angle-bending",
+          "name": "Angle Bending",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bond-stretching"]
+        },
+        {
+          "id": "torsional-terms",
+          "name": "Torsional Terms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["angle-bending"]
+        },
+        {
+          "id": "introduction-to-non-bonded-interactions-electrostatic-intera",
+          "name": "Introduction to Non-bonded Interactions: Electrostatic Interactions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["torsional-terms"]
         },
         {
           "id": "vander-waals-interactions-hydrogen-bonding-in-molecular",
-          "name": "Vander Waals Interactions, Hydrogen Bonding in Molecular Mechanics, Force Field Models for the Simulation of Liquid Water",
-          "requires": ["force-fields-bond-stretching-angle-bending-torsional-terms"]
+          "name": "Vander Waals Interactions",
+          "requires": ["force-fields-bond-stretching-angle-bending-torsional-terms"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "hydrogen-bonding-in-molecular-mechanics",
+          "name": "Hydrogen Bonding in Molecular Mechanics",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["vander-waals-interactions-hydrogen-bonding-in-molecular"]
+        },
+        {
+          "id": "force-field-models-for-the-simulation-of-liquid-water",
+          "name": "Force Field Models for the Simulation of Liquid Water",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hydrogen-bonding-in-molecular-mechanics"]
         }
       ]
     },
@@ -172,5 +218,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

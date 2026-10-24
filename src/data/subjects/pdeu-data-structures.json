@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "computing",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -60,8 +60,17 @@
         },
         {
           "id": "asymptotic-notations-searching-and-sorting-in-arrays",
-          "name": "Asymptotic Notations, Searching and sorting in arrays",
-          "requires": ["performance-analysis-and-measurement-time-and-space-analysis"]
+          "name": "Asymptotic Notations",
+          "requires": ["performance-analysis-and-measurement-time-and-space-analysis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "searching-and-sorting-in-arrays",
+          "name": "Searching and sorting in arrays",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["asymptotic-notations-searching-and-sorting-in-arrays"]
         }
       ]
     },
@@ -72,7 +81,16 @@
       "topics": [
         {
           "id": "stack-definition-and-concepts-push-and-pop-operations",
-          "name": "Stack: Definition and concepts, Push and Pop operations"
+          "name": "Stack: Definition and concepts",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "push-and-pop-operations",
+          "name": "Push and Pop operations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["stack-definition-and-concepts-push-and-pop-operations"]
         },
         {
           "id": "representation-in-memory",
@@ -81,23 +99,87 @@
         },
         {
           "id": "applications-infix-to-prefix-and-postfix-evaluate-postfix",
-          "name": "Applications: Infix to prefix and postfix, evaluate postfix, recursion",
-          "requires": ["representation-in-memory"]
+          "name": "Applications: Infix to prefix and postfix",
+          "requires": ["representation-in-memory"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "evaluate-postfix",
+          "name": "evaluate postfix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["applications-infix-to-prefix-and-postfix-evaluate-postfix"]
+        },
+        {
+          "id": "recursion",
+          "name": "recursion",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["evaluate-postfix"]
         },
         {
           "id": "queue-definition-and-concept-enqueue-and-dequeue-operations",
-          "name": "Queue: Definition and concept, Enqueue and Dequeue operations",
-          "requires": ["applications-infix-to-prefix-and-postfix-evaluate-postfix"]
+          "name": "Queue: Definition and concept",
+          "requires": ["applications-infix-to-prefix-and-postfix-evaluate-postfix"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "enqueue-and-dequeue-operations",
+          "name": "Enqueue and Dequeue operations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["queue-definition-and-concept-enqueue-and-dequeue-operations"]
         },
         {
           "id": "types-circular-and-priority-queue",
           "name": "Types: circular & priority queue",
-          "requires": ["queue-definition-and-concept-enqueue-and-dequeue-operations"]
+          "requires": ["queue-definition-and-concept-enqueue-and-dequeue-operations"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "circular",
+          "name": "Circular",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-circular-and-priority-queue"]
         },
         {
           "id": "doubly-circular-lists",
-          "name": "Linked list: Definition and concept, Insert and delete operations, Representation in memory, implementing stack and queue using LL, Types: Singly, Doubly, Circular",
-          "requires": ["types-circular-and-priority-queue"]
+          "name": "Linked list: Definition and concept",
+          "requires": ["types-circular-and-priority-queue"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "insert-and-delete-operations",
+          "name": "Insert and delete operations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["doubly-circular-lists"]
+        },
+        {
+          "id": "implementing-stack-and-queue-using-ll",
+          "name": "implementing stack and queue using LL",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["insert-and-delete-operations"]
+        },
+        {
+          "id": "types-singly",
+          "name": "Types: Singly",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["implementing-stack-and-queue-using-ll"]
+        },
+        {
+          "id": "doubly",
+          "name": "Doubly",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-singly"]
         }
       ]
     },
@@ -117,13 +199,52 @@
         },
         {
           "id": "types-of-trees-binary-complete-binary-full-perfect",
-          "name": "Types of trees: Binary, complete binary, full, perfect",
-          "requires": ["memory-representation"]
+          "name": "Types of trees: Binary",
+          "requires": ["memory-representation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "complete-binary",
+          "name": "complete binary",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-trees-binary-complete-binary-full-perfect"]
+        },
+        {
+          "id": "full",
+          "name": "full",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["complete-binary"]
+        },
+        {
+          "id": "perfect",
+          "name": "perfect",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["full"]
         },
         {
           "id": "binary-tree-traversal",
-          "name": "Traversal: pre-order, in-order, post-order",
-          "requires": ["types-of-trees-binary-complete-binary-full-perfect"]
+          "name": "Traversal: pre-order",
+          "requires": ["types-of-trees-binary-complete-binary-full-perfect"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "in-order",
+          "name": "in-order",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["binary-tree-traversal"]
+        },
+        {
+          "id": "post-order",
+          "name": "post-order",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["in-order"]
         },
         {
           "id": "binary-search-tree",
@@ -147,8 +268,38 @@
         },
         {
           "id": "types-of-graphs-complete-connected-directed-undirected",
-          "name": "Types of graphs: complete, connected, directed/ undirected, weighted/ unweighted, cyclic/ non-cyclic",
-          "requires": ["graphs-definition-and-concept"]
+          "name": "Types of graphs: complete",
+          "requires": ["graphs-definition-and-concept"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "connected",
+          "name": "connected",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-graphs-complete-connected-directed-undirected"]
+        },
+        {
+          "id": "directed-undirected",
+          "name": "directed/ undirected",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["connected"]
+        },
+        {
+          "id": "weighted-unweighted",
+          "name": "weighted/ unweighted",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["directed-undirected"]
+        },
+        {
+          "id": "cyclic-non-cyclic",
+          "name": "cyclic/ non-cyclic",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["weighted-unweighted"]
         },
         {
           "id": "bfs-dfs",
@@ -164,14 +315,55 @@
       "topics": [
         {
           "id": "symbol-table",
-          "name": "The symbol table, Hashing Functions: Division, Multiplication, Mid Square and Folding"
+          "name": "The symbol table",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "hashing-functions-division",
+          "name": "Hashing Functions: Division",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["symbol-table"]
+        },
+        {
+          "id": "multiplication",
+          "name": "Multiplication",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hashing-functions-division"]
+        },
+        {
+          "id": "mid-square-and-folding",
+          "name": "Mid Square and Folding",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multiplication"]
         },
         {
           "id": "collision-resolution-techniques-separate-chaining-linear",
-          "name": "Collision Resolution Techniques: Separate Chaining, Linear Probing, Quadratic Probing and Double Hashing",
-          "requires": ["symbol-table"]
+          "name": "Collision Resolution Techniques: Separate Chaining",
+          "requires": ["symbol-table"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "linear-probing",
+          "name": "Linear Probing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["collision-resolution-techniques-separate-chaining-linear"]
+        },
+        {
+          "id": "quadratic-probing-and-double-hashing",
+          "name": "Quadratic Probing and Double Hashing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["linear-probing"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-data-structures-laboratory-ce"]
 }

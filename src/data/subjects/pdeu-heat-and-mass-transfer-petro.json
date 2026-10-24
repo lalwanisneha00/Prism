@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Heat and Mass Transfer",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -50,7 +50,16 @@
         {
           "id": "overall-heat-transfer-coefficient",
           "name": "overall heat transfer coefficient",
-          "requires": ["convection-lmtd-and-ntu"]
+          "requires": ["convection-lmtd-and-ntu"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "heat-transfer-rate-and-heat-transfer-coefficient-calculation",
+          "name": "Heat transfer rate and Heat transfer coefficient calculations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["overall-heat-transfer-coefficient"]
         },
         {
           "id": "application-of-dimensional-analysis-to-convection",
@@ -74,8 +83,24 @@
         },
         {
           "id": "shell-and-tube-heat-exchanger-and-finned-tube-heat-exchanger",
-          "name": "Shell and tube heat exchanger, and finned tube heat exchanger. Boiling of liquids and condensation of vapours",
-          "requires": ["natural-and-forced-convection-through-tubes-and-outside"]
+          "name": "Shell and tube heat exchanger",
+          "requires": ["natural-and-forced-convection-through-tubes-and-outside"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "finned-tube-heat-exchanger",
+          "name": "finned tube heat exchanger",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["shell-and-tube-heat-exchanger-and-finned-tube-heat-exchanger"]
+        },
+        {
+          "id": "boiling-of-liquids-and-condensation-of-vapours",
+          "name": "Boiling of liquids and condensation of vapours",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["finned-tube-heat-exchanger"]
         }
       ]
     },
@@ -86,17 +111,114 @@
       "topics": [
         {
           "id": "em-spectrum",
-          "name": "Introduction, theories of radiation, electromagnetic spectrum, spectral emissive power, surface emission, total emissive power, emissivity"
+          "name": "theories of radiation",
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "radiative-properties-emission-irradiation-absorptivity",
-          "name": "Radiative properties, emission, irradiation, absorptivity, reflectivity and transmissivity",
+          "id": "electromagnetic-spectrum",
+          "name": "electromagnetic spectrum",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["em-spectrum"]
         },
         {
-          "id": "concept-of-black-and-grey-body-radiation-intensity-laws-of",
-          "name": "Concept of black and grey body, radiation intensity, laws of black body radiation, non-black surfaces, radiation between black and grey surfaces",
+          "id": "spectral-emissive-power",
+          "name": "spectral emissive power",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["electromagnetic-spectrum"]
+        },
+        {
+          "id": "surface-emission",
+          "name": "surface emission",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["spectral-emissive-power"]
+        },
+        {
+          "id": "emissivity",
+          "name": "emissivity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["surface-emission"]
+        },
+        {
+          "id": "emission",
+          "name": "emission",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["emissivity"]
+        },
+        {
+          "id": "radiative-properties-emission-irradiation-absorptivity",
+          "name": "Radiative properties",
+          "requires": ["em-spectrum"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "irradiation",
+          "name": "irradiation",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["radiative-properties-emission-irradiation-absorptivity"]
+        },
+        {
+          "id": "absorptivity",
+          "name": "absorptivity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["irradiation"]
+        },
+        {
+          "id": "reflectivity-and-transmissivity",
+          "name": "reflectivity and transmissivity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["absorptivity"]
+        },
+        {
+          "id": "concept-of-black-and-grey-body-radiation-intensity-laws-of",
+          "name": "Concept of black and grey body",
+          "requires": ["radiative-properties-emission-irradiation-absorptivity"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "radiation-intensity",
+          "name": "radiation intensity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concept-of-black-and-grey-body-radiation-intensity-laws-of"]
+        },
+        {
+          "id": "laws-of-black-body-radiation",
+          "name": "laws of black body radiation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radiation-intensity"]
+        },
+        {
+          "id": "non-black-surfaces",
+          "name": "non-black surfaces",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["laws-of-black-body-radiation"]
+        },
+        {
+          "id": "radiation-between-black-and-grey-surfaces",
+          "name": "radiation between black and grey surfaces",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["non-black-surfaces"]
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radiation-between-black-and-grey-surfaces"]
         }
       ]
     },
@@ -107,7 +229,16 @@
       "topics": [
         {
           "id": "diffusion-in-gases-ficks-law-determination-and-estimation-of",
-          "name": "Diffusion in gases: Fick’s law, determination and estimation of diffusion coefficient"
+          "name": "Diffusion in gases: Fick’s law",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "determination-and-estimation-of-diffusion-coefficient",
+          "name": "determination and estimation of diffusion coefficient",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["diffusion-in-gases-ficks-law-determination-and-estimation-of"]
         },
         {
           "id": "diffusion-through-stagnant-gas-and-equimolecular-counter",
@@ -116,8 +247,17 @@
         },
         {
           "id": "diffusion-in-liquids-mass-transfer-across-phase-boundaries",
-          "name": "Diffusion in liquids: Mass transfer across phase boundaries, two-film theory and mass transfer coefficient",
-          "requires": ["diffusion-through-stagnant-gas-and-equimolecular-counter"]
+          "name": "Diffusion in liquids: Mass transfer across phase boundaries",
+          "requires": ["diffusion-through-stagnant-gas-and-equimolecular-counter"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "two-film-theory-and-mass-transfer-coefficient",
+          "name": "two-film theory and mass transfer coefficient",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["diffusion-in-liquids-mass-transfer-across-phase-boundaries"]
         }
       ]
     },
@@ -137,8 +277,31 @@
         },
         {
           "id": "extraction-and-distillation-flash-and-differential-basic",
-          "name": "Extraction and Distillation (flash and differential): Basic principles, laws, and calculations. Equilibrium",
-          "requires": ["adsorption"]
+          "name": "Extraction and Distillation (flash and differential): Basic principles",
+          "requires": ["adsorption"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "laws",
+          "name": "laws",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["extraction-and-distillation-flash-and-differential-basic"]
+        },
+        {
+          "id": "calculations",
+          "name": "calculations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["laws"]
+        },
+        {
+          "id": "equilibrium",
+          "name": "Equilibrium",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["calculations"]
         },
         {
           "id": "co-current-and-counter-current-operations",
@@ -157,5 +320,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

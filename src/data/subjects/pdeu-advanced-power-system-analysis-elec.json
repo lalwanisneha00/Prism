@@ -1,0 +1,230 @@
+{
+  "id": "pdeu-advanced-power-system-analysis-elec",
+  "name": "Advanced Power System Analysis",
+  "field": "Advanced Power System Analysis",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 6): Advanced Power System Analysis",
+    "note": "Units and topics copied from the course handout PDF (pages 11 of ELEC/sem6/Electrical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE315T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s6-advanced-power-system-analysis",
+      "code": "20EE315T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "optimal-power-flow-opf",
+      "name": "Optimal Power Flow (opf)",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "economic-dispatch-ed-background",
+          "name": "Economic dispatch (ED) background"
+        },
+        {
+          "id": "difference-between-ed-and-opf",
+          "name": "difference between ED and OPF",
+          "requires": ["economic-dispatch-ed-background"]
+        },
+        {
+          "id": "opf-applications",
+          "name": "OPF applications",
+          "requires": ["difference-between-ed-and-opf"]
+        },
+        {
+          "id": "opf-solution-techniques",
+          "name": "OPF solution techniques",
+          "requires": ["opf-applications"]
+        },
+        {
+          "id": "gradient-and-newton-method-for-opf",
+          "name": "Gradient and Newton method for OPF",
+          "requires": ["opf-solution-techniques"]
+        }
+      ]
+    },
+    {
+      "id": "restructured-power-systems",
+      "name": "Restructured Power Systems",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "reasons-for-restructuring-deregulation-of-power-industry",
+          "name": "Reasons for restructuring / deregulation of power industry"
+        },
+        {
+          "id": "understanding-the-restructuring-process",
+          "name": "Understanding the restructuring process",
+          "requires": ["reasons-for-restructuring-deregulation-of-power-industry"]
+        },
+        {
+          "id": "introduction-to-issues-involved-in-deregulation",
+          "name": "Introduction to issues involved in deregulation",
+          "requires": ["understanding-the-restructuring-process"]
+        },
+        {
+          "id": "reasons-and-objectives-of-deregulation-of-various-power-syst",
+          "name": "Reasons and objectives of deregulation of various power systems across the world",
+          "requires": ["introduction-to-issues-involved-in-deregulation"]
+        },
+        {
+          "id": "consumer-behaviour",
+          "name": "Consumer behaviour",
+          "requires": ["reasons-and-objectives-of-deregulation-of-various-power-syst"]
+        },
+        {
+          "id": "supplier-behaviour",
+          "name": "Supplier behaviour",
+          "requires": ["consumer-behaviour"]
+        },
+        {
+          "id": "market-equilibrium",
+          "name": "Market equilibrium",
+          "requires": ["supplier-behaviour"]
+        },
+        {
+          "id": "relationship-between-short-run-and-long-run-average-costs",
+          "name": "Relationship between short-run and long-run average costs",
+          "requires": ["market-equilibrium"]
+        },
+        {
+          "id": "perfectly-competitive-market",
+          "name": "Perfectly competitive market",
+          "requires": ["relationship-between-short-run-and-long-run-average-costs"]
+        },
+        {
+          "id": "market-models-based-on-contractual-arrangements",
+          "name": "Market models based on contractual arrangements",
+          "requires": ["perfectly-competitive-market"]
+        },
+        {
+          "id": "market-architecture",
+          "name": "Market architecture",
+          "requires": ["market-models-based-on-contractual-arrangements"]
+        }
+      ]
+    },
+    {
+      "id": "power-system-secuirty-and-congestion-management",
+      "name": "Power System Secuirty and Congestion Management",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "functions-of-power-security",
+          "name": "Functions of power security"
+        },
+        {
+          "id": "optimal-secure-dispatch",
+          "name": "optimal-secure dispatch",
+          "requires": ["functions-of-power-security"]
+        },
+        {
+          "id": "factors-affecting-security",
+          "name": "factors affecting security",
+          "requires": ["optimal-secure-dispatch"]
+        },
+        {
+          "id": "derivation-of-generation-shift-factors-and-line-outage-distr",
+          "name": "derivation of generation shift factors and line outage distribution factors",
+          "requires": ["factors-affecting-security"]
+        },
+        {
+          "id": "contingency-analysis-using-sensitivity-factors",
+          "name": "contingency analysis using sensitivity factors",
+          "requires": ["derivation-of-generation-shift-factors-and-line-outage-distr"]
+        },
+        {
+          "id": "ptdf",
+          "name": "PTDF",
+          "requires": ["contingency-analysis-using-sensitivity-factors"]
+        },
+        {
+          "id": "contingency-selection",
+          "name": "contingency selection",
+          "requires": ["ptdf"]
+        },
+        {
+          "id": "congestion-management",
+          "name": "congestion management",
+          "requires": ["contingency-selection"]
+        },
+        {
+          "id": "available-transfer-capability",
+          "name": "available transfer capability",
+          "requires": ["congestion-management"]
+        },
+        {
+          "id": "locational-marginal-prices",
+          "name": "locational marginal prices",
+          "requires": ["available-transfer-capability"]
+        },
+        {
+          "id": "nodal-pricing",
+          "name": "nodal pricing",
+          "requires": ["locational-marginal-prices"]
+        },
+        {
+          "id": "inter-zonal-and-intra-zonal-congestion-management",
+          "name": "inter-zonal and intra-zonal congestion management",
+          "requires": ["nodal-pricing"]
+        }
+      ]
+    },
+    {
+      "id": "power-system-state-estimatiom",
+      "name": "Power System State Estimatiom",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "need-of-state-estimation",
+          "name": "Need of state estimation"
+        },
+        {
+          "id": "least-square-methods-for-state-estimation",
+          "name": "least square methods for state estimation",
+          "requires": ["need-of-state-estimation"]
+        },
+        {
+          "id": "state-estimation-of-ac-power-network",
+          "name": "state estimation of AC power network",
+          "requires": ["least-square-methods-for-state-estimation"]
+        },
+        {
+          "id": "state-estimation-solution-algorithm",
+          "name": "state estimation solution algorithm",
+          "requires": ["state-estimation-of-ac-power-network"]
+        },
+        {
+          "id": "application-of-state-estimation",
+          "name": "application of state estimation",
+          "requires": ["state-estimation-solution-algorithm"]
+        },
+        {
+          "id": "derivation-of-hessian-matrix",
+          "name": "derivation of Hessian Matrix",
+          "requires": ["application-of-state-estimation"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-advanced-power-system-analysis-laboratory-elec"]
+}

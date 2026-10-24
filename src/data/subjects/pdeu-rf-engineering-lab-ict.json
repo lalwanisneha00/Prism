@@ -1,0 +1,105 @@
+{
+  "id": "pdeu-rf-engineering-lab-ict",
+  "name": "RF Engineering Lab",
+  "field": "RF Engineering Lab",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ict"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ICT semester 5): RF Engineering Lab",
+    "note": "Units and topics copied from the course handout PDF (pages 9-11 of ICT/sem5/ICT_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "ict",
+      "key": "s5-rf-engineering-lab",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-to-measure-position-of-fault-in-cable",
+          "name": "To measure position of fault in cable",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-to-measure-the-frequency-and-wavelength-using-s",
+          "name": "To measure the frequency and wavelength using slotted line section and frequency meter.",
+          "number": 2,
+          "requires": ["experiment-1-to-measure-position-of-fault-in-cable"]
+        },
+        {
+          "id": "experiment-3-to-measure-the-isolation-and-insertion-loss-of",
+          "name": "To measure the Isolation and Insertion loss of Isolator and Circulator.",
+          "number": 3,
+          "requires": ["experiment-2-to-measure-the-frequency-and-wavelength-using-s"]
+        },
+        {
+          "id": "experiment-4-to-study-e-plane-h-plane-magic-tee",
+          "name": "To study E-plane/H-plane/Magic Tee.",
+          "number": 4,
+          "requires": ["experiment-3-to-measure-the-isolation-and-insertion-loss-of"]
+        },
+        {
+          "id": "experiment-5-to-measure-coupling-factor-directivity-and-isol",
+          "name": "To measure Coupling Factor, Directivity and Isolation of directional coupler.",
+          "number": 5,
+          "requires": ["experiment-4-to-study-e-plane-h-plane-magic-tee"]
+        },
+        {
+          "id": "experiment-6-to-measure-vswr-and-reflection-coefficient-of-d",
+          "name": "To measure VSWR and Reflection coefficient of different loads.",
+          "number": 6,
+          "requires": ["experiment-5-to-measure-coupling-factor-directivity-and-isol"]
+        },
+        {
+          "id": "experiment-7-to-study-the-characteristics-of-klystron-and-gu",
+          "name": "To study the characteristics of Klystron and Gunn diode.",
+          "number": 7,
+          "requires": ["experiment-6-to-measure-vswr-and-reflection-coefficient-of-d"]
+        },
+        {
+          "id": "experiment-8-to-study-the-behavior-of-transmission-line-wave",
+          "name": "To study the behavior of Transmission line: Waveguide/Coaxial cable/microstrip line.*",
+          "number": 8,
+          "requires": ["experiment-7-to-study-the-characteristics-of-klystron-and-gu"]
+        },
+        {
+          "id": "experiment-9-to-study-the-s-parameter-of-directional-coupler",
+          "name": "To study the S-parameter of directional coupler.*",
+          "number": 9,
+          "requires": ["experiment-8-to-study-the-behavior-of-transmission-line-wave"]
+        },
+        {
+          "id": "experiment-10-to-study-the-s-parameter-of-e-plane-h-plane-te",
+          "name": "To study the S-parameter of E-plane/H-plane Tee.*",
+          "number": 10,
+          "requires": ["experiment-9-to-study-the-s-parameter-of-directional-coupler"]
+        },
+        {
+          "id": "experiment-11-to-design-and-study-mic-based-lpf-some-of-thes",
+          "name": "To design and study MIC Based LPF.* * Some of these experiments need to be using simulation software.",
+          "number": 11,
+          "requires": ["experiment-10-to-study-the-s-parameter-of-e-plane-h-plane-te"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-rf-engineering"]
+}

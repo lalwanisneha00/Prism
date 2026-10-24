@@ -1,0 +1,124 @@
+{
+  "id": "pdeu-analog-and-digital-communication-laboratory-elec",
+  "name": "Analog and Digital Communication Laboratory",
+  "field": "Analog and Digital Communication Laboratory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): Analog and Digital Communication Laboratory",
+    "note": "Units and topics copied from the course handout PDF (pages 14 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE306P",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "practical",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-analog-and-digital-communication-laboratory",
+      "code": "20EE306P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "experiments",
+      "name": "Experiments",
+      "topics": [
+        {
+          "id": "experiment-1-to-observe-the-double-sided-full-carrier-am-wav",
+          "name": "To observe the double sided full carrier AM waveform and calculate the depth of modulation (Modulation Index) also observe the AM detection using diode detector circuit.",
+          "number": 1
+        },
+        {
+          "id": "experiment-2-to-observe-the-fm-waveform-and-to-measure-peak",
+          "name": "To observe the FM waveform and to measure peak frequency deviation for 2V peak to peak modulating signal also observe the FM detection using PLL detector.",
+          "number": 2,
+          "requires": ["experiment-1-to-observe-the-double-sided-full-carrier-am-wav"]
+        },
+        {
+          "id": "experiment-3-to-observe-the-frequency-response-of-the-pre-em",
+          "name": "To observe the frequency response of the Pre-emphasis and de-emphasis circuits.",
+          "number": 3,
+          "requires": ["experiment-2-to-observe-the-fm-waveform-and-to-measure-peak"]
+        },
+        {
+          "id": "experiment-4-to-observe-the-generation-of-ssb-signal-using-b",
+          "name": "To observe the generation of SSB signal using balance modulator and single sideband filter.",
+          "number": 4,
+          "requires": ["experiment-3-to-observe-the-frequency-response-of-the-pre-em"]
+        },
+        {
+          "id": "experiment-5-to-observe-the-demodulation-of-ssb-signal-using",
+          "name": "To observe the demodulation of SSB signal using diode detector and product modulator.",
+          "number": 5,
+          "requires": ["experiment-4-to-observe-the-generation-of-ssb-signal-using-b"]
+        },
+        {
+          "id": "experiment-6-to-study-pam-pwm-and-ppm-modulation-and-demodul",
+          "name": "To study PAM, PWM and PPM modulation and demodulation and also sketch the output waveform.",
+          "number": 6,
+          "requires": ["experiment-5-to-observe-the-demodulation-of-ssb-signal-using"]
+        },
+        {
+          "id": "experiment-7-to-observe-the-working-of-radio-receiver-and-an",
+          "name": "To observe the working of Radio receiver and analyze the significance of the AGC circuit.",
+          "number": 7,
+          "requires": ["experiment-6-to-study-pam-pwm-and-ppm-modulation-and-demodul"]
+        },
+        {
+          "id": "experiment-8-to-study-the-output-of-the-sample-and-hold-circ",
+          "name": "To study the output of the Sample and Hold circuit and it’s reconstruction at 4KHz sampling frequency (to analyze the Nyquist Rate/ Criteria)",
+          "number": 8,
+          "requires": ["experiment-7-to-observe-the-working-of-radio-receiver-and-an"]
+        },
+        {
+          "id": "experiment-9-to-understand-the-concept-of-pcm-and-observe-th",
+          "name": "To understand the concept of PCM and observe the PCM waveforms.",
+          "number": 9,
+          "requires": ["experiment-8-to-study-the-output-of-the-sample-and-hold-circ"]
+        },
+        {
+          "id": "experiment-10-to-understand-the-concept-of-delta-modulation",
+          "name": "To understand the concept of Delta modulation and achieve delta modulation and demodulation.",
+          "number": 10,
+          "requires": ["experiment-9-to-understand-the-concept-of-pcm-and-observe-th"]
+        },
+        {
+          "id": "experiment-11-to-study-the-ask-modulation-and-demodulation-a",
+          "name": "To study the ASK modulation and demodulation also to sketch the modulated and demodulated waveforms.",
+          "number": 11,
+          "requires": ["experiment-10-to-understand-the-concept-of-delta-modulation"]
+        },
+        {
+          "id": "experiment-12-to-study-the-fsk-modulation-and-demodulation-a",
+          "name": "To study the FSK modulation and demodulation also to sketch the modulated and demodulated waveforms.",
+          "number": 12,
+          "requires": ["experiment-11-to-study-the-ask-modulation-and-demodulation-a"]
+        },
+        {
+          "id": "experiment-13-to-study-the-psk-modulation-and-demodulation-a",
+          "name": "To study the PSK modulation and demodulation also to sketch the modulated and demodulated waveforms.",
+          "number": 13,
+          "requires": ["experiment-12-to-study-the-fsk-modulation-and-demodulation-a"]
+        },
+        {
+          "id": "experiment-14-to-study-the-qpsk-modulation-and-demodulation",
+          "name": "To study the QPSK modulation and demodulation also to sketch the modulated and demodulated waveforms. .",
+          "number": 14,
+          "requires": ["experiment-13-to-study-the-psk-modulation-and-demodulation-a"]
+        }
+      ]
+    }
+  ]
+}

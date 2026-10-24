@@ -1,0 +1,269 @@
+{
+  "id": "pdeu-heat-exchanger-design-me",
+  "name": "Heat Exchanger Design",
+  "field": "Heat Exchanger Design",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 6): Heat Exchanger Design",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of MECH/sem6/Mechanical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME338T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s6-program-elective--heat-exchanger-design",
+      "code": "24ME338T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "advanced-fundamentals-of-heat-exchanger-design",
+      "name": "Advanced Fundamentals of Heat Exchanger Design",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "classification-of-heat-exchanger",
+          "name": "Classification of heat exchanger"
+        },
+        {
+          "id": "selection-of-heat-exchanger",
+          "name": "selection of heat exchanger",
+          "requires": ["classification-of-heat-exchanger"]
+        },
+        {
+          "id": "review-of-lmtd-and-e-ntu-method",
+          "name": "review of LMTD & e-NTU method",
+          "requires": ["selection-of-heat-exchanger"]
+        },
+        {
+          "id": "multi-pass-and-cross-flow-heat-exchanger",
+          "name": "multi-pass and cross flow heat exchanger",
+          "requires": ["review-of-lmtd-and-e-ntu-method"]
+        },
+        {
+          "id": "fouling",
+          "name": "fouling",
+          "requires": ["multi-pass-and-cross-flow-heat-exchanger"]
+        },
+        {
+          "id": "cleanliness-factor",
+          "name": "cleanliness factor",
+          "requires": ["fouling"]
+        },
+        {
+          "id": "over-surface-design",
+          "name": "over surface design",
+          "requires": ["cleanliness-factor"]
+        },
+        {
+          "id": "techniques-to-control-fouling",
+          "name": "techniques to control fouling",
+          "requires": ["over-surface-design"]
+        },
+        {
+          "id": "additives",
+          "name": "additives",
+          "requires": ["techniques-to-control-fouling"]
+        },
+        {
+          "id": "rating-and-sizing-problems",
+          "name": "rating and sizing problems",
+          "requires": ["additives"]
+        },
+        {
+          "id": "enhancement-of-heat-transfer",
+          "name": "enhancement of heat transfer",
+          "requires": ["rating-and-sizing-problems"]
+        },
+        {
+          "id": "performance-evaluation-of-heat-transfer-enhancement-techniqu",
+          "name": "performance evaluation of heat transfer enhancement technique",
+          "requires": ["enhancement-of-heat-transfer"]
+        },
+        {
+          "id": "real-world-case-studies",
+          "name": "Real-world case studies",
+          "requires": ["performance-evaluation-of-heat-transfer-enhancement-techniqu"]
+        }
+      ]
+    },
+    {
+      "id": "shell-and-tube-heat-exchanger-design",
+      "name": "Shell and Tube Heat Exchanger Design",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "basic-components-of-various-sthe",
+          "name": "Basic components of various STHE"
+        },
+        {
+          "id": "tema-standard",
+          "name": "TEMA standard",
+          "requires": ["basic-components-of-various-sthe"]
+        },
+        {
+          "id": "classification-as-per-tema-standard",
+          "name": "Classification as per TEMA standard",
+          "requires": ["tema-standard"]
+        },
+        {
+          "id": "thermal-design-theory-for-shell-and-tube-heat-exchanger",
+          "name": "Thermal Design Theory for shell and tube heat exchanger",
+          "requires": ["classification-as-per-tema-standard"]
+        },
+        {
+          "id": "as-per-kern-and-bell-delaware-method",
+          "name": "as per Kern and Bell-Delaware method",
+          "requires": ["thermal-design-theory-for-shell-and-tube-heat-exchanger"]
+        },
+        {
+          "id": "hydraulic-design-of-shell-and-tube-heat-exchanger-as-per-ker",
+          "name": "hydraulic design of shell and tube heat exchanger as per Kern method",
+          "requires": ["as-per-kern-and-bell-delaware-method"]
+        },
+        {
+          "id": "bell-delaware-method-for-shell-and-tube-heat-exchanger-desig",
+          "name": "Bell-Delaware method for Shell and tube heat exchanger design",
+          "requires": ["hydraulic-design-of-shell-and-tube-heat-exchanger-as-per-ker"]
+        },
+        {
+          "id": "introduction-to-htri-software-for-sthe-design",
+          "name": "introduction to HTRI software for STHE design",
+          "requires": ["bell-delaware-method-for-shell-and-tube-heat-exchanger-desig"]
+        }
+      ]
+    },
+    {
+      "id": "compact-heat-exchanger-design",
+      "name": "Compact Heat Exchanger Design",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "thermal-design-of-plate-fin-heat-exchanger",
+          "name": "Thermal design of plate-fin heat exchanger"
+        },
+        {
+          "id": "fin-and-tube-heat-exchanger-and-plate-heat-exchanger",
+          "name": "fin and tube heat exchanger and plate heat exchanger",
+          "requires": ["thermal-design-of-plate-fin-heat-exchanger"]
+        },
+        {
+          "id": "estimation-of-pressure-drop-and-hydraulic-design-of-plate-fi",
+          "name": "Estimation of pressure drop and hydraulic design of plate-fin",
+          "requires": ["fin-and-tube-heat-exchanger-and-plate-heat-exchanger"]
+        },
+        {
+          "id": "fin-and-tube",
+          "name": "fin and tube",
+          "requires": ["estimation-of-pressure-drop-and-hydraulic-design-of-plate-fi"]
+        },
+        {
+          "id": "plate-heat-exchange",
+          "name": "plate heat exchange",
+          "requires": ["fin-and-tube"]
+        },
+        {
+          "id": "effect-of-geometric-parameters-and-operating-parameters-on-p",
+          "name": "Effect of geometric parameters and operating parameters on performance of heat exchanger",
+          "requires": ["plate-heat-exchange"]
+        },
+        {
+          "id": "design-of-double-pipe-heat-exchangers",
+          "name": "Design of double pipe heat exchangers",
+          "requires": ["effect-of-geometric-parameters-and-operating-parameters-on-p"]
+        },
+        {
+          "id": "selection-of-materials-and-innovative-designs-suitable-for-h",
+          "name": "Selection of materials and innovative designs suitable for highefficiency applications in aerospace",
+          "requires": ["design-of-double-pipe-heat-exchangers"]
+        },
+        {
+          "id": "automotive",
+          "name": "automotive",
+          "requires": ["selection-of-materials-and-innovative-designs-suitable-for-h"]
+        },
+        {
+          "id": "renewable-energy-sectors",
+          "name": "renewable energy sectors",
+          "requires": ["automotive"]
+        },
+        {
+          "id": "incorporating-computational-tools-for-design-and-analysis",
+          "name": "incorporating computational tools for design and analysis",
+          "requires": ["renewable-energy-sectors"]
+        }
+      ]
+    },
+    {
+      "id": "regenerative-heat-exchanger-design",
+      "name": "Regenerative Heat Exchanger Design",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "assumptions-for-regenerator-heat-transfer-analysis",
+          "name": "Assumptions for Regenerator Heat Transfer Analysis"
+        },
+        {
+          "id": "method-for-regenerator-design",
+          "name": "Λ-Π method for regenerator design",
+          "requires": ["assumptions-for-regenerator-heat-transfer-analysis"]
+        },
+        {
+          "id": "balance-and-symmetric-regenerator-design",
+          "name": "balance and symmetric regenerator design",
+          "requires": ["method-for-regenerator-design"]
+        },
+        {
+          "id": "unbalanced-and-unsymmetrical-regenerator-design",
+          "name": "unbalanced and unsymmetrical regenerator design",
+          "requires": ["balance-and-symmetric-regenerator-design"]
+        },
+        {
+          "id": "influence-of-matrix-material",
+          "name": "Influence of Matrix Material",
+          "requires": ["unbalanced-and-unsymmetrical-regenerator-design"]
+        },
+        {
+          "id": "size",
+          "name": "Size",
+          "requires": ["influence-of-matrix-material"]
+        },
+        {
+          "id": "arrangement",
+          "name": "Arrangement",
+          "requires": ["size"]
+        },
+        {
+          "id": "influence-of-longitudinal-and-transverse-heat-conduction",
+          "name": "Influence of longitudinal and transverse heat conduction",
+          "requires": ["arrangement"]
+        },
+        {
+          "id": "applicability-of-phase-change-materials-pcms-and-additive-ma",
+          "name": "Applicability of phase change materials (PCMs) and additive manufacturing in regenerative heat exchangers",
+          "requires": ["influence-of-longitudinal-and-transverse-heat-conduction"]
+        },
+        {
+          "id": "focusing-on-energy-efficiency-and-innovation",
+          "name": "focusing on energy efficiency and innovation",
+          "requires": ["applicability-of-phase-change-materials-pcms-and-additive-ma"]
+        }
+      ]
+    }
+  ]
+}

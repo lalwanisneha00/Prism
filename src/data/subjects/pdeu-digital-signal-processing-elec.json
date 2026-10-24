@@ -1,0 +1,320 @@
+{
+  "id": "pdeu-digital-signal-processing-elec",
+  "name": "Digital Signal Processing",
+  "field": "Digital Signal Processing",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): Digital Signal Processing",
+    "note": "Units and topics copied from the course handout PDF (pages 11 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE305T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-digital-signal-processing",
+      "code": "20EE305T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "discrete-time-signals-and-systems",
+      "name": "Discrete-Time Signals and Systems",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "overview-of-digital-signal-processing",
+          "name": "Overview of Digital Signal Processing"
+        },
+        {
+          "id": "applications-of-digital-signal-processing",
+          "name": "Applications of Digital Signal Processing",
+          "requires": ["overview-of-digital-signal-processing"]
+        },
+        {
+          "id": "discrete-time-signals-and-its-properties",
+          "name": "Discrete-time Signals and its properties",
+          "requires": ["applications-of-digital-signal-processing"]
+        },
+        {
+          "id": "discrete-systems-and-its-properties",
+          "name": "Discrete Systems and its properties",
+          "requires": ["discrete-time-signals-and-its-properties"]
+        },
+        {
+          "id": "convolution",
+          "name": "Convolution",
+          "requires": ["discrete-systems-and-its-properties"]
+        },
+        {
+          "id": "difference-equations",
+          "name": "Difference Equations",
+          "requires": ["convolution"]
+        },
+        {
+          "id": "discrete-time-fourier-transform-dtft",
+          "name": "Discrete-time Fourier Transform (DTFT)",
+          "requires": ["difference-equations"]
+        },
+        {
+          "id": "properties-of-dtft",
+          "name": "Properties of DTFT",
+          "requires": ["discrete-time-fourier-transform-dtft"]
+        },
+        {
+          "id": "frequency-domain-representation-of-lti-systems",
+          "name": "Frequency Domain Representation of LTI Systems",
+          "requires": ["properties-of-dtft"]
+        },
+        {
+          "id": "sampling-and-reconstruction-of-analog-signals",
+          "name": "Sampling and Reconstruction of Analog Signals",
+          "requires": ["frequency-domain-representation-of-lti-systems"]
+        }
+      ]
+    },
+    {
+      "id": "the-z-transform-and-the-discrete-fourier-transform",
+      "name": "The Z- Transform &the Discrete Fourier Transform",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "z-transform-bilateral-z-transform",
+          "name": "Z-TRANSFORM: Bilateral z-Transform"
+        },
+        {
+          "id": "important-properties-of-z-transform",
+          "name": "Important Properties of z-Transform",
+          "requires": ["z-transform-bilateral-z-transform"]
+        },
+        {
+          "id": "inversion-of-z-transform",
+          "name": "Inversion of z-Transform",
+          "requires": ["important-properties-of-z-transform"]
+        },
+        {
+          "id": "system-representation-in-z-domain",
+          "name": "System Representation in z-Domain",
+          "requires": ["inversion-of-z-transform"]
+        },
+        {
+          "id": "solutions-of-difference-equations",
+          "name": "Solutions of Difference Equations",
+          "requires": ["system-representation-in-z-domain"]
+        },
+        {
+          "id": "discrete-fourier-transform-discrete-fourier-series",
+          "name": "DISCRETE FOURIER TRANSFORM: Discrete Fourier Series",
+          "requires": ["solutions-of-difference-equations"]
+        },
+        {
+          "id": "sampling-and-reconstruction-in-the-z-domain",
+          "name": "Sampling and Reconstruction in the z-Domain",
+          "requires": ["discrete-fourier-transform-discrete-fourier-series"]
+        },
+        {
+          "id": "discrete-fourier-transform",
+          "name": "Discrete Fourier Transform",
+          "requires": ["sampling-and-reconstruction-in-the-z-domain"]
+        },
+        {
+          "id": "properties-of-discrete-fourier-transform",
+          "name": "Properties of Discrete Fourier Transform",
+          "requires": ["discrete-fourier-transform"]
+        },
+        {
+          "id": "linear-convolution-using-dft",
+          "name": "Linear Convolution using DFT",
+          "requires": ["properties-of-discrete-fourier-transform"]
+        },
+        {
+          "id": "fast-fourier-transform",
+          "name": "Fast Fourier Transform",
+          "requires": ["linear-convolution-using-dft"]
+        }
+      ]
+    },
+    {
+      "id": "implementation-of-discrete-time-filters",
+      "name": "Implementation of Discrete-Time Filters",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "basic-elements",
+          "name": "Basic Elements"
+        },
+        {
+          "id": "iir-filter-structures",
+          "name": "IIR Filter Structures",
+          "requires": ["basic-elements"]
+        },
+        {
+          "id": "fir-filter-structures",
+          "name": "FIR Filter Structures",
+          "requires": ["iir-filter-structures"]
+        },
+        {
+          "id": "lattice-filter-structures",
+          "name": "Lattice Filter Structures",
+          "requires": ["fir-filter-structures"]
+        },
+        {
+          "id": "overview-of-finite-precision-numerical-effects",
+          "name": "Overview of Finite-Precision Numerical Effects",
+          "requires": ["lattice-filter-structures"]
+        },
+        {
+          "id": "representation-of-numbers",
+          "name": "Representation of Numbers",
+          "requires": ["overview-of-finite-precision-numerical-effects"]
+        },
+        {
+          "id": "process-of-quantization-and-error-characterizations",
+          "name": "Process of Quantization and Error Characterizations",
+          "requires": ["representation-of-numbers"]
+        },
+        {
+          "id": "quantization-of-filter-coefficients-fir-filter-design-proper",
+          "name": "Quantization of Filter Coefficients FIR FILTER DESIGN: Properties of Linear-phase FIR Filters",
+          "requires": ["process-of-quantization-and-error-characterizations"]
+        },
+        {
+          "id": "window-design-techniques",
+          "name": "Window Design Techniques",
+          "requires": ["quantization-of-filter-coefficients-fir-filter-design-proper"]
+        },
+        {
+          "id": "frequency-sampling-design-techniques",
+          "name": "Frequency Sampling Design Techniques",
+          "requires": ["window-design-techniques"]
+        },
+        {
+          "id": "optimal-equi-ripple-design-technique",
+          "name": "Optimal Equi-ripple Design Technique",
+          "requires": ["frequency-sampling-design-techniques"]
+        },
+        {
+          "id": "iir-filter-design-characteristics-of-prototype-analog-filter",
+          "name": "IIR FILTER DESIGN: Characteristics of Prototype Analog Filters",
+          "requires": ["optimal-equi-ripple-design-technique"]
+        },
+        {
+          "id": "analog-to-digital-filter-transformations",
+          "name": "Analog-to-Digital Filter Transformations",
+          "requires": ["iir-filter-design-characteristics-of-prototype-analog-filter"]
+        },
+        {
+          "id": "low-pass-filter-design",
+          "name": "Low-pass Filter Design",
+          "requires": ["analog-to-digital-filter-transformations"]
+        },
+        {
+          "id": "frequency-band-transformations",
+          "name": "Frequency-band Transformations",
+          "requires": ["low-pass-filter-design"]
+        }
+      ]
+    },
+    {
+      "id": "dsp-on-arm-processors",
+      "name": "DSP on ARM Processors",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-stm32",
+          "name": "Introduction to STM32"
+        },
+        {
+          "id": "basic-dsp-notions",
+          "name": "Basic DSP notions",
+          "requires": ["introduction-to-stm32"]
+        },
+        {
+          "id": "data-types",
+          "name": "Data types",
+          "requires": ["basic-dsp-notions"]
+        },
+        {
+          "id": "floating-point",
+          "name": "Floating point",
+          "requires": ["data-types"]
+        },
+        {
+          "id": "fixed-point",
+          "name": "Fixed point",
+          "requires": ["floating-point"]
+        },
+        {
+          "id": "fixed-point-vs-floating-point",
+          "name": "Fixed-point vs. floating-point",
+          "requires": ["fixed-point"]
+        },
+        {
+          "id": "cortex-dsp-instructions",
+          "name": "Cortex® DSP instructions",
+          "requires": ["fixed-point-vs-floating-point"]
+        },
+        {
+          "id": "saturation-instructions",
+          "name": "Saturation instructions",
+          "requires": ["cortex-dsp-instructions"]
+        },
+        {
+          "id": "mac-instructions",
+          "name": "MAC instructions",
+          "requires": ["saturation-instructions"]
+        },
+        {
+          "id": "simd-instructions",
+          "name": "SIMD instructions",
+          "requires": ["mac-instructions"]
+        },
+        {
+          "id": "cmsis-library",
+          "name": "CMSIS Library",
+          "requires": ["simd-instructions"]
+        },
+        {
+          "id": "fft-demonstration",
+          "name": "FFT demonstration",
+          "requires": ["cmsis-library"]
+        },
+        {
+          "id": "fft-performance",
+          "name": "FFT performance",
+          "requires": ["fft-demonstration"]
+        },
+        {
+          "id": "fir-filter-demonstration",
+          "name": "FIR filter demonstration",
+          "requires": ["fft-performance"]
+        },
+        {
+          "id": "fir-filter-design-specification",
+          "name": "FIR filter design specification",
+          "requires": ["fir-filter-demonstration"]
+        },
+        {
+          "id": "fir-performance",
+          "name": "FIR performance",
+          "requires": ["fir-filter-design-specification"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-digital-signal-processing-laboratory-elec"]
+}

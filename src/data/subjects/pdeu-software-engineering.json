@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 6 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "theory",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -125,8 +125,17 @@
         },
         {
           "id": "specification-software-engineering-essence",
-          "name": "Specification. Software engineering essence",
-          "requires": ["negotiation"]
+          "name": "Specification",
+          "requires": ["negotiation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "software-engineering-essence",
+          "name": "Software engineering essence",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["specification-software-engineering-essence"]
         },
         {
           "id": "essence-language",
@@ -191,8 +200,17 @@
         },
         {
           "id": "architecture-styles-system-modelling-and-uml-diagrams",
-          "name": "Architecture Styles. System modelling and UML diagrams",
-          "requires": ["software-components-and-connectors"]
+          "name": "Architecture Styles",
+          "requires": ["software-components-and-connectors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "system-modelling-and-uml-diagrams",
+          "name": "System modelling and UML diagrams",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["architecture-styles-system-modelling-and-uml-diagrams"]
         }
       ]
     },
@@ -203,7 +221,16 @@
       "topics": [
         {
           "id": "software-testing-strategies-verification-vs-validation",
-          "name": "Software Testing Strategies: verification vs validation"
+          "name": "Software Testing Strategies: verification vs validation",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "validation",
+          "name": "validation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["software-testing-strategies-verification-vs-validation"]
         },
         {
           "id": "types-of-testing-and-sub-testing-adopted-for-various",
@@ -217,8 +244,17 @@
         },
         {
           "id": "validation-system-and-acceptance-testing",
-          "name": "validation, system, and acceptance testing",
-          "requires": ["integration"]
+          "name": "system",
+          "requires": ["integration"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "acceptance-testing",
+          "name": "acceptance testing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["validation-system-and-acceptance-testing"]
         },
         {
           "id": "software-quality-assurance-vs-control",
@@ -284,7 +320,16 @@
         {
           "id": "rmmm",
           "name": "RMMM",
-          "requires": ["risk-refinement"]
+          "requires": ["risk-refinement"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "rmmm-plan",
+          "name": "RMMM Plan",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rmmm"]
         },
         {
           "id": "rmmm-plan-software-versioning-and-continuous-integration",
@@ -308,5 +353,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-software-engineering-laboratory-ce"]
 }

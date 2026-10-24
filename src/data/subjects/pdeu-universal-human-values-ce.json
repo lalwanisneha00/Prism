@@ -5,8 +5,8 @@
   "tier": "limited",
   "university": "pdeu",
   "courseCategory": "non-core",
-  "branches": ["ce"],
-  "semesters": [1],
+  "branches": ["ce", "chem", "me"],
+  "semesters": [1, 2],
   "code": "24HS102T",
   "credits": 1,
   "ltp": "1-0-0",
@@ -21,6 +21,26 @@
       "credits": 1,
       "semester": 1,
       "kind": "non-core"
+    },
+    {
+      "branch": "chem",
+      "key": "s2-universal-human-values",
+      "code": "24HS102T",
+      "category": "Program Core",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "me",
+      "key": "s1-universal-human-values",
+      "code": "24HS102T",
+      "category": "Program Core",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
     }
   ],
   "syllabusSource": {
@@ -28,8 +48,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Universal Human Values",
     "note": "Skeleton only: units and topics are PDEU's, copied from the handbook. Lessons are built from the material the student uploads (given by their faculty)."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -85,8 +105,17 @@
         },
         {
           "id": "understanding-material-physical-facilities-and-spiritual",
-          "name": "understanding material (physical facilities) and spiritual needs - need of mind and body",
-          "requires": ["capabilities-and-challenges"]
+          "name": "understanding material (physical facilities) and spiritual needs",
+          "requires": ["capabilities-and-challenges"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "need-of-mind-and-body",
+          "name": "need of mind and body",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["understanding-material-physical-facilities-and-spiritual"]
         },
         {
           "id": "understanding-body-as-an-instrument",
@@ -126,8 +155,17 @@
         },
         {
           "id": "harmony-in-family-and-society",
-          "name": "harmony in family, and society",
-          "requires": ["values-for-harmony-in-any-human-human-interaction"]
+          "name": "harmony in family",
+          "requires": ["values-for-harmony-in-any-human-human-interaction"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "society",
+          "name": "society",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["harmony-in-family-and-society"]
         },
         {
           "id": "trust-and-respect-for-others",
@@ -162,7 +200,15 @@
         {
           "id": "understanding-co-existence-and-sync-with-nature",
           "name": "understanding co- existence and sync with nature",
-          "requires": ["concept-of-vasudhaiva-kutumbakam"]
+          "requires": ["concept-of-vasudhaiva-kutumbakam"],
+          "status": "retired"
+        },
+        {
+          "id": "understanding-coexistence-and-sync-with-nature",
+          "name": "understanding coexistence and sync with nature",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["understanding-co-existence-and-sync-with-nature"]
         }
       ]
     },
@@ -202,5 +248,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

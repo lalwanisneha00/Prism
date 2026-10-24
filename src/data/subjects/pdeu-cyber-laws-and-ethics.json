@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Cyber Laws and Ethics",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -44,13 +44,38 @@
         },
         {
           "id": "legal-frameworks-international-national-and-regional-laws",
-          "name": "Legal Frameworks: International, national, and regional laws governing cyberspace",
-          "requires": ["overview-of-cyber-law-historical-development-and-key"]
+          "name": "Legal Frameworks: International",
+          "requires": ["overview-of-cyber-law-historical-development-and-key"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "national",
+          "name": "national",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["legal-frameworks-international-national-and-regional-laws"]
+        },
+        {
+          "id": "regional-laws-governing-cyberspace",
+          "name": "regional laws governing cyberspace",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["national"]
         },
         {
           "id": "ethical-dimensions-understanding-ethical-theories-and-their",
-          "name": "Ethical Dimensions: Understanding ethical theories and their application in the digital realm",
-          "requires": ["legal-frameworks-international-national-and-regional-laws"]
+          "name": "Ethical Dimensions",
+          "requires": ["legal-frameworks-international-national-and-regional-laws"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "understanding-ethical-theories-and-their-application-in-the",
+          "name": "Understanding ethical theories and their application in the digital realm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ethical-dimensions-understanding-ethical-theories-and-their"]
         },
         {
           "id": "case-studies-analysis-of-landmark-cyber-law-cases-and",
@@ -70,13 +95,45 @@
         },
         {
           "id": "intellectual-property-rights-copyright-trademark-and-patent",
-          "name": "Intellectual Property Rights: Copyright, trademark, and patent laws in the digital age",
-          "requires": ["jurisdiction-in-cyberspace-challenges-and-solutions"]
+          "name": "Intellectual Property Rights: Copyright",
+          "requires": ["jurisdiction-in-cyberspace-challenges-and-solutions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "trademark",
+          "name": "trademark",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["intellectual-property-rights-copyright-trademark-and-patent"]
+        },
+        {
+          "id": "patent-laws-in-the-digital-age",
+          "name": "patent laws in the digital age",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["trademark"]
         },
         {
           "id": "cybercrimes-and-prosecution-legal-responses-to-hacking",
-          "name": "Cybercrimes and Prosecution: Legal responses to hacking, cyberterrorism, and online fraud",
-          "requires": ["intellectual-property-rights-copyright-trademark-and-patent"]
+          "name": "Cybercrimes and Prosecution: Legal. responses to hacking",
+          "requires": ["intellectual-property-rights-copyright-trademark-and-patent"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cyberterrorism",
+          "name": "cyberterrorism",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cybercrimes-and-prosecution-legal-responses-to-hacking"]
+        },
+        {
+          "id": "online-fraud",
+          "name": "online fraud",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cyberterrorism"]
         },
         {
           "id": "privacy-and-data-protection-legal-frameworks-for",
@@ -106,8 +163,17 @@
         },
         {
           "id": "cybersecurity-ethics-balancing-security-measures-with",
-          "name": "Cybersecurity Ethics: Balancing security measures with individual privacy rights",
-          "requires": ["digital-citizenship-responsibilities-and-rights-of"]
+          "name": "Cybersecurity Ethics",
+          "requires": ["digital-citizenship-responsibilities-and-rights-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "balancing-security-measures-with-individual-privacy-rights",
+          "name": "Balancing security measures with individual privacy rights",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cybersecurity-ethics-balancing-security-measures-with"]
         },
         {
           "id": "emerging-ethical-issues-ai-ethics-and-tools",
@@ -116,8 +182,17 @@
         },
         {
           "id": "algorithmic-biases-and-the-ethics-of-autonomous-systems",
-          "name": "algorithmic biases, and the ethics of autonomous systems",
-          "requires": ["emerging-ethical-issues-ai-ethics-and-tools"]
+          "name": "algorithmic biases",
+          "requires": ["emerging-ethical-issues-ai-ethics-and-tools"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "the-ethics-of-autonomous-systems",
+          "name": "the ethics of autonomous systems",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["algorithmic-biases-and-the-ethics-of-autonomous-systems"]
         }
       ]
     },
@@ -128,19 +203,59 @@
       "topics": [
         {
           "id": "principles-and-methodologies-digital-evidence-collection",
-          "name": "Principles and methodologies, Digital Evidence Collection: Techniques for preserving, collecting, and analyzing digital evidence, Forensic Tools and Techniques: Overview of software and hardware used "
+          "name": "Principles and methodologies",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "digital-evidence-collection-techniques-for-preserving",
+          "name": "Digital Evidence Collection: Techniques for preserving",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["principles-and-methodologies-digital-evidence-collection"]
+        },
+        {
+          "id": "collecting",
+          "name": "collecting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["digital-evidence-collection-techniques-for-preserving"]
+        },
+        {
+          "id": "analyzing-digital-evidence",
+          "name": "analyzing digital evidence",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["collecting"]
         },
         {
           "id": "note-the-detailed-syllabus-page-for-this-course-prints-l-t-p",
           "name": "Note: The detailed syllabus page for this course prints L-T-P-C as 3-0-0-3",
-          "requires": ["principles-and-methodologies-digital-evidence-collection"]
+          "requires": ["principles-and-methodologies-digital-evidence-collection"],
+          "status": "retired"
         },
         {
           "id": "the-credits-shown-here-follow-the-official-course-structure",
           "name": "the credits shown here follow the official course structure table",
-          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"]
+          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"],
+          "status": "retired"
+        },
+        {
+          "id": "forensic-tools-and-techniques-overview-of-software-and-hardw",
+          "name": "Forensic Tools and Techniques: Overview of. software and hardware used in digital investigations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-credits-shown-here-follow-the-official-course-structure"]
+        },
+        {
+          "id": "case-studies-in-digital-forensics-realworld-examples-of-digi",
+          "name": "Case Studies in Digital Forensics: Realworld examples of digital forensic investigations and their legal implications",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["forensic-tools-and-techniques-overview-of-software-and-hardw"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

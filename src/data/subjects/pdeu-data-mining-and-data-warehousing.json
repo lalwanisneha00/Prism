@@ -29,8 +29,8 @@
     "title": "PDEU B.Tech curriculum handbook (CE): Data Mining and Data Warehousing",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -41,7 +41,16 @@
       "topics": [
         {
           "id": "data-warehouse-definition",
-          "name": "Data Warehouse Definition"
+          "name": "Data Warehouse Definition",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "data-warehouse-v-s-data-mining-2",
+          "name": "Data Warehouse v/s Data Mining",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-warehouse-definition"]
         },
         {
           "id": "multidimensional-data-models",
@@ -85,8 +94,17 @@
         },
         {
           "id": "classification-of-data-mining-system",
-          "name": "Classification of Data Mining System",
-          "requires": ["data-mining-functionalities"]
+          "name": "Classification of Data Mining",
+          "requires": ["data-mining-functionalities"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "system",
+          "name": "System",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["classification-of-data-mining-system"]
         },
         {
           "id": "data-warehouse-v-s-data-mining",
@@ -137,7 +155,16 @@
         {
           "id": "data-cleaning",
           "name": "Data Cleaning",
-          "requires": ["descriptive-data-summarization"]
+          "requires": ["descriptive-data-summarization"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "data",
+          "name": "Data",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["data-cleaning"]
         },
         {
           "id": "integration-and-transformation",
@@ -213,7 +240,16 @@
         {
           "id": "apriori-algorithm",
           "name": "Apriori Algorithm",
-          "requires": ["market-basket-analysis"]
+          "requires": ["market-basket-analysis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "algorithm",
+          "name": "Algorithm",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["apriori-algorithm"]
         },
         {
           "id": "eclat-algorithm",
@@ -304,7 +340,16 @@
         {
           "id": "algorithms-for-mining-of-spatial-data",
           "name": "Algorithms for mining of spatial data",
-          "requires": ["cluster-analysis"]
+          "requires": ["cluster-analysis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "spatial-mining-2",
+          "name": "Spatial Mining",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["algorithms-for-mining-of-spatial-data"]
         },
         {
           "id": "social-impacts-of-data-mining",
@@ -348,5 +393,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

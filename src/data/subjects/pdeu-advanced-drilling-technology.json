@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Advanced Drilling Technology",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -74,8 +74,17 @@
         },
         {
           "id": "well-surveying-objectives-and-tools-for-surveying-methods",
-          "name": "Well surveying objectives, & tools for surveying/methods",
-          "requires": ["directional-drilling-problems-and-their-remedies"]
+          "name": "Well surveying objectives",
+          "requires": ["directional-drilling-problems-and-their-remedies"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "and-tools-for-surveying-methods",
+          "name": "& tools for surveying/methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["well-surveying-objectives-and-tools-for-surveying-methods"]
         },
         {
           "id": "well-path-correction-methods-and-its-execution-in-drilling",
@@ -110,8 +119,17 @@
         },
         {
           "id": "extended-reach-drilling-special-mud-requirements-and-their",
-          "name": "Extended reach drilling, Special mud requirements and their characteristics for horizontal drilling",
-          "requires": ["horizontal-well-profiles"]
+          "name": "Extended reach drilling",
+          "requires": ["horizontal-well-profiles"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "special-mud-requirements-and-their-characteristics-for-horiz",
+          "name": "Special mud requirements and their characteristics for horizontal drilling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["extended-reach-drilling-special-mud-requirements-and-their"]
         },
         {
           "id": "objectives-of-mwd-lwd-tools",
@@ -188,14 +206,40 @@
       "topics": [
         {
           "id": "the-anatomy-of-a-well-kick-and-blowouts-problem-symptoms-and",
-          "name": "The anatomy of a well kick and blowouts: Problem, symptoms and controlling measures"
+          "name": "The anatomy of a well kick and blowouts: Problem",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "symptoms-and-controlling-measures",
+          "name": "symptoms and controlling measures",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-anatomy-of-a-well-kick-and-blowouts-problem-symptoms-and"]
         },
         {
           "id": "kick-control-methods-dynamic-kick-control-driller-method-and",
-          "name": "Kick control methods: Dynamic kick control, Driller method & Engineer methods, Well killing calculations",
-          "requires": ["the-anatomy-of-a-well-kick-and-blowouts-problem-symptoms-and"]
+          "name": "Kick control methods: Dynamic kick control",
+          "requires": ["the-anatomy-of-a-well-kick-and-blowouts-problem-symptoms-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "driller-method-and-engineer-methods",
+          "name": "Driller method & Engineer methods",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["kick-control-methods-dynamic-kick-control-driller-method-and"]
+        },
+        {
+          "id": "well-killing-calculations",
+          "name": "Well killing calculations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["driller-method-and-engineer-methods"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

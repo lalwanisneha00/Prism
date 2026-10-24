@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Biomaterial and Implants",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -166,8 +166,17 @@
         },
         {
           "id": "carcinogenicity-response-of-biomaterial-to-human-body-blood",
-          "name": "Carcinogenicity. Response of Biomaterial to Human Body: Blood-Biomaterial Interactions",
-          "requires": ["genotoxicity"]
+          "name": "Carcinogenicity",
+          "requires": ["genotoxicity"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "response-of-biomaterial-to-human-body-blood-biomaterial-inte",
+          "name": "Response of Biomaterial to Human Body: Blood-Biomaterial Interactions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carcinogenicity-response-of-biomaterial-to-human-body-blood"]
         },
         {
           "id": "biomaterials-tissue-interactions",
@@ -186,8 +195,17 @@
         },
         {
           "id": "wound-healing-and-foreign-body-response",
-          "name": "Wound Healing, and Foreign Body Response",
-          "requires": ["inflammation"]
+          "name": "Wound Healing",
+          "requires": ["inflammation"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "foreign-body-response",
+          "name": "Foreign Body Response",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["wound-healing-and-foreign-body-response"]
         },
         {
           "id": "impact-of-biofilm-formation-on-biomaterials",
@@ -238,12 +256,14 @@
         {
           "id": "total-hip-replacement",
           "name": "Total Hip Replacement",
-          "requires": ["temporary-fixation-devices"]
+          "requires": ["temporary-fixation-devices"],
+          "status": "retired"
         },
         {
           "id": "total-knee-replacement",
           "name": "Total Knee Replacement",
-          "requires": ["total-hip-replacement"]
+          "requires": ["total-hip-replacement"],
+          "status": "retired"
         },
         {
           "id": "dental-filling-and-restoration-material",
@@ -272,5 +292,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

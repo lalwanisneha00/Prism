@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Analog Communication",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -104,13 +104,38 @@
         },
         {
           "id": "cross-correlation-functions-central-limit-theorem",
-          "name": "cross – correlation functions. Central limit theorem",
-          "requires": ["correlation-and-covariance-function-principles-of"]
+          "name": "cross",
+          "requires": ["correlation-and-covariance-function-principles-of"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "correlation-functions",
+          "name": "correlation functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cross-correlation-functions-central-limit-theorem"]
+        },
+        {
+          "id": "central-limit-theorem",
+          "name": "Central limit theorem",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["correlation-functions"]
         },
         {
           "id": "properties-of-gaussian-process-measure-of-central-tendency",
-          "name": "Properties of Gaussian process. Measure of central tendency:",
-          "requires": ["cross-correlation-functions-central-limit-theorem"]
+          "name": "Properties of Gaussian process",
+          "requires": ["cross-correlation-functions-central-limit-theorem"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "measure-of-central-tendency",
+          "name": "Measure of central tendency",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["properties-of-gaussian-process-measure-of-central-tendency"]
         }
       ]
     },
@@ -126,17 +151,44 @@
         {
           "id": "am-time-domain-description",
           "name": "AM: Time-Domain description",
-          "requires": ["introduction-general-architecture-of-a-communication-system"]
+          "requires": ["introduction-general-architecture-of-a-communication-system"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "frequency-domain-description-generation-of-am-wave-square",
-          "name": "Frequency – Domain description. Generation of AM wave: square law modulator",
+          "id": "domain-description",
+          "name": "Domain description",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["am-time-domain-description"]
         },
         {
-          "id": "switching-modulator-detection-of-am-waves-square-law",
-          "name": "switching modulator. Detection of AM waves: square law detector",
+          "id": "frequency-domain-description-generation-of-am-wave-square",
+          "name": "Frequency",
+          "requires": ["am-time-domain-description"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "generation-of-am-wave-square-law-modulator",
+          "name": "Generation of AM wave: square law modulator",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["frequency-domain-description-generation-of-am-wave-square"]
+        },
+        {
+          "id": "switching-modulator-detection-of-am-waves-square-law",
+          "name": "switching modulator",
+          "requires": ["frequency-domain-description-generation-of-am-wave-square"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "detection-of-am-waves-square-law-detector",
+          "name": "Detection of AM waves: square law detector",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["switching-modulator-detection-of-am-waves-square-law"]
         },
         {
           "id": "envelop-detector",
@@ -160,8 +212,17 @@
         },
         {
           "id": "ring-modulator-coherent-detection-of-dsbsc-modulated-waves",
-          "name": "ring modulator. Coherent detection of DSBSC modulated waves",
-          "requires": ["generation-of-dsbsc-waves-balanced-modulator"]
+          "name": "ring modulator",
+          "requires": ["generation-of-dsbsc-waves-balanced-modulator"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "coherent-detection-of-dsbsc-modulated-waves",
+          "name": "Coherent detection of DSBSC modulated waves",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["ring-modulator-coherent-detection-of-dsbsc-modulated-waves"]
         },
         {
           "id": "superheterodyne-receiver",
@@ -170,8 +231,17 @@
         },
         {
           "id": "costas-loop-quadrature-carrier-multiplexing",
-          "name": "Costas loop. Quadrature carrier multiplexing",
-          "requires": ["superheterodyne-receiver"]
+          "name": "Costas loop",
+          "requires": ["superheterodyne-receiver"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "quadrature-carrier-multiplexing",
+          "name": "Quadrature carrier multiplexing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["costas-loop-quadrature-carrier-multiplexing"]
         },
         {
           "id": "hilbert-transform",
@@ -181,7 +251,8 @@
         {
           "id": "pre-envelope",
           "name": "Pre- envelope",
-          "requires": ["hilbert-transform"]
+          "requires": ["hilbert-transform"],
+          "status": "retired"
         },
         {
           "id": "canonical-representation-of-band-pass-signals",
@@ -197,6 +268,20 @@
           "id": "comparison-of-amplitude-modulation-techniques",
           "name": "comparison of amplitude modulation techniques",
           "requires": ["single-side-band-ssb-and-vestigial-side-band-vsb-generation"]
+        },
+        {
+          "id": "frequencydomain-representation",
+          "name": "FrequencyDomain representation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["comparison-of-amplitude-modulation-techniques"]
+        },
+        {
+          "id": "preenvelope",
+          "name": "Preenvelope",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["frequencydomain-representation"]
         }
       ]
     },
@@ -232,7 +317,16 @@
         {
           "id": "transmission-bandwidth-of-fm-waves",
           "name": "transmission bandwidth of FM waves",
-          "requires": ["spectrum-analysis-of-nbfm-and-wbfm"]
+          "requires": ["spectrum-analysis-of-nbfm-and-wbfm"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "generation-of-fm-waves-indirect-fm-and-direct-fm-2",
+          "name": "generation of FM waves: indirect FM and direct FM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transmission-bandwidth-of-fm-waves"]
         },
         {
           "id": "generation-of-fm-waves-indirect-fm-and-direct-fm",
@@ -292,8 +386,17 @@
         },
         {
           "id": "equivalent-noise-temperature-noise-in-dsb-sc-receivers",
-          "name": "Equivalent noise temperature. Noise in DSB-SC receivers",
-          "requires": ["noise-figure"]
+          "name": "Equivalent noise temperature",
+          "requires": ["noise-figure"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "noise-in-dsb-sc-receivers",
+          "name": "Noise in DSB-SC receivers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["equivalent-noise-temperature-noise-in-dsb-sc-receivers"]
         },
         {
           "id": "noise-in-ssb-receivers",
@@ -313,7 +416,8 @@
         {
           "id": "pre-emphasis-and-de-emphasis-in-fm",
           "name": "Pre-emphasis and De- emphasis in FM",
-          "requires": ["noise-in-fm-receivers"]
+          "requires": ["noise-in-fm-receivers"],
+          "status": "retired"
         },
         {
           "id": "auto-correlation",
@@ -334,8 +438,17 @@
           "id": "power-spectral-density-and-their-applications-in",
           "name": "Power spectral density and their applications in communication signal/noise analysis",
           "requires": ["energy-spectral-density"]
+        },
+        {
+          "id": "pre-emphasis-and-deemphasis-in-fm",
+          "name": "Pre-emphasis and Deemphasis in FM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["power-spectral-density-and-their-applications-in"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-analog-communication-lab-ece"]
 }

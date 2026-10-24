@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Biotech): Metabolic Engineering",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,7 +40,16 @@
       "topics": [
         {
           "id": "hrs-induction-jacob-monod-model",
-          "name": "Hrs. Induction-Jacob Monod Model"
+          "name": "Hrs",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "induction-jacob-monod-model",
+          "name": "Induction-Jacob Monod Model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hrs-induction-jacob-monod-model"]
         },
         {
           "id": "catabolite-regulation",
@@ -60,7 +69,23 @@
         {
           "id": "feedback-regulation",
           "name": "feedback regulation",
-          "requires": ["camp-deficiency"]
+          "requires": ["camp-deficiency"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "concerted-feedback-regulation-2",
+          "name": "concerted feedback regulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["feedback-regulation"]
+        },
+        {
+          "id": "cumulative-feedback-regulation-2",
+          "name": "cumulative feedback regulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["concerted-feedback-regulation-2"]
         },
         {
           "id": "regulation-in-branched-pathways",
@@ -116,7 +141,16 @@
       "topics": [
         {
           "id": "hrs-alteration-of-feedback-regulation",
-          "name": "Hrs. Alteration of feedback regulation"
+          "name": "Hrs",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "alteration-of-feedback-regulation",
+          "name": "Alteration of feedback regulation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hrs-alteration-of-feedback-regulation"]
         },
         {
           "id": "limiting-accumulation-of-end-products",
@@ -147,7 +181,16 @@
       "topics": [
         {
           "id": "hrs-precursor-effects",
-          "name": "Hrs. Precursor effects"
+          "name": "Hrs",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "precursor-effects",
+          "name": "Precursor effects",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hrs-precursor-effects"]
         },
         {
           "id": "prophophase",
@@ -188,7 +231,16 @@
       "topics": [
         {
           "id": "hrs-advantages-of-bioconversions",
-          "name": "Hrs. Advantages of Bioconversions"
+          "name": "Hrs",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "advantages-of-bioconversions",
+          "name": "Advantages of Bioconversions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hrs-advantages-of-bioconversions"]
         },
         {
           "id": "specificity",
@@ -239,8 +291,16 @@
           "id": "conversion-of-insoluble-substances-otal",
           "name": "conversion of insoluble substances. OTAL",
           "requires": ["mixed-or-sequential-bioconversions"]
+        },
+        {
+          "id": "otal-hours",
+          "name": "OTAL HOURS",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["conversion-of-insoluble-substances-otal"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

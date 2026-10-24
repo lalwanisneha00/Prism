@@ -2,6 +2,7 @@ import { TIERS } from "@/lib/tiers";
 import { z } from "zod";
 import branchData from "@/data/branches.json";
 import { subjectFiles } from "@/data/subjects/index.generated";
+import { FLAGS } from "@/lib/flags";
 import { isRetired, MovedFromSchema, nodeMetaFields } from "@/lib/syllabusFix/tree";
 
 /*
@@ -23,6 +24,9 @@ const TopicSchema = z.object({
   /** Syllabus fix: source, confidence, status, votes (src/lib/syllabusFix/tree.ts). */
   ...nodeMetaFields,
   movedFrom: MovedFromSchema.optional(),
+  /** Practical courses: a topic is one experiment, with its number and aim from the handout. */
+  number: z.int().positive().optional(),
+  aim: z.string().min(1).optional(),
 });
 const ChapterSchema = z.object({
   id: slug,
@@ -114,6 +118,13 @@ export const SubjectSchema = z.object({
   sameAs: slug.optional(),
   /** A retired subject whose content now lives in another subject. */
   movedTo: slug.optional(),
+  /**
+   * PDEU's course type (syllabus fix, Phase 2): theory, practice (lectures plus practical hours)
+   * or practical (a lab; its topics are experiments). Missing = theory.
+   */
+  courseType: z.enum(["theory", "practice", "practical"]).optional(),
+  /** The theory course of a lab, or the lab of a theory course. */
+  relatedCourses: z.array(slug).optional(),
 });
 
 export type Topic = z.infer<typeof TopicSchema>;
@@ -216,9 +227,15 @@ function loadCatalogue(files: readonly unknown[]): Subject[] {
 const everySubject: readonly Subject[] =
   typeof window === "undefined" ? loadCatalogue(subjectFiles) : (subjectFiles as Subject[]);
 
-/** Every subject Prism lists: PDEU's courses that are still taught (retired ones stay findable by id). */
+/**
+ * Every subject Prism lists: PDEU's courses that are still taught (retired ones stay findable by
+ * id). Lab courses are only listed once their own lesson format is switched on (Phase 7B).
+ */
 export const subjects: readonly Subject[] = everySubject.filter(
-  (s) => s.university === "pdeu" && !isRetired(s),
+  (s) =>
+    s.university === "pdeu" &&
+    !isRetired(s) &&
+    (s.courseType !== "practical" || FLAGS.practicalCourses),
 );
 
 /**
@@ -247,13 +264,20 @@ export function findBranch(id: string): Branch | undefined {
   return branches.find((b) => b.id === id);
 }
 
-/** Subjects a branch studies (common first-year subjects included), optionally in one semester. */
+/**
+ * Subjects a branch studies (common first-year subjects included), optionally in one semester.
+ * A PDEU course's semester is the branch's own (its offering): a course taught in sem 2 for one
+ * branch and sem 3 for another is not listed in sem 3 for the first.
+ */
 export function subjectsFor(branchId: string, semester?: number): Subject[] {
-  return subjects.filter(
-    (s) =>
+  return subjects.filter((s) => {
+    const mine = s.offerings?.filter((o) => o.branch === branchId) ?? [];
+    if (mine.length > 0) return semester === undefined || mine.some((o) => o.semester === semester);
+    return (
       (s.branches.includes("all") || s.branches.includes(branchId)) &&
-      (semester === undefined || s.semesters.includes(semester)),
-  );
+      (semester === undefined || s.semesters.includes(semester))
+    );
+  });
 }
 
 /** The semesters in which a branch has at least one subject. */

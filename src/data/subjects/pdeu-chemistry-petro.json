@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (Petro): Chemistry",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -40,12 +40,51 @@
       "topics": [
         {
           "id": "surface-chemistry-interparticle-forces-adsorption-isotherms",
-          "name": "Surface Chemistry: Interparticle forces, adsorption isotherms, determination of the surface area of fine powders using BET theory, surface films"
+          "name": "Surface Chemistry: Interparticle forces",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "adsorption-isotherms",
+          "name": "adsorption isotherms",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["surface-chemistry-interparticle-forces-adsorption-isotherms"]
+        },
+        {
+          "id": "determination-of-the-surface-area-of-fine-powders-using-bet",
+          "name": "determination of the surface area of fine powders using BET theory",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["adsorption-isotherms"]
+        },
+        {
+          "id": "surface-films",
+          "name": "surface films",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["determination-of-the-surface-area-of-fine-powders-using-bet"]
         },
         {
           "id": "colligative-properties-and-their-experimental-determination",
-          "name": "Colligative Properties and their Experimental Determination: Boiling Point Elevation, Freezing Point depression, Osmotic Pressure",
-          "requires": ["surface-chemistry-interparticle-forces-adsorption-isotherms"]
+          "name": "Colligative Properties and their Experimental Determination: Boiling Point Elevation",
+          "requires": ["surface-chemistry-interparticle-forces-adsorption-isotherms"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "freezing-point-depression",
+          "name": "Freezing Point depression",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["colligative-properties-and-their-experimental-determination"]
+        },
+        {
+          "id": "osmotic-pressure",
+          "name": "Osmotic Pressure",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["freezing-point-depression"]
         }
       ]
     },
@@ -56,7 +95,23 @@
       "topics": [
         {
           "id": "alkanes-alkenes-alkynes",
-          "name": "Alkanes, Alkenes, Alkynes"
+          "name": "Alkanes",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "alkenes",
+          "name": "Alkenes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["alkanes-alkenes-alkynes"]
+        },
+        {
+          "id": "alkynes",
+          "name": "Alkynes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["alkenes"]
         },
         {
           "id": "markovnikovs-rule",
@@ -212,7 +267,23 @@
         {
           "id": "coal",
           "name": "Coal",
-          "requires": ["peat"]
+          "requires": ["peat"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "analysis-of-coal-2",
+          "name": "Analysis of coal",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["coal"]
+        },
+        {
+          "id": "coal-and-its-environment-2",
+          "name": "Coal and its environment",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["analysis-of-coal-2"]
         },
         {
           "id": "analysis-of-coal",
@@ -236,8 +307,17 @@
         },
         {
           "id": "fluidized-bed-combustion-and-coke-liquid-fuels-diesel-engine",
-          "name": "fluidized bed combustion and coke. Liquid Fuels: Diesel Engine",
-          "requires": ["coal-and-its-environment"]
+          "name": "fluidized bed combustion and coke",
+          "requires": ["coal-and-its-environment"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "liquid-fuels-diesel-engine",
+          "name": "Liquid Fuels: Diesel Engine",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fluidized-bed-combustion-and-coke-liquid-fuels-diesel-engine"]
         },
         {
           "id": "diesel-fuel",
@@ -252,7 +332,16 @@
         {
           "id": "flash-point",
           "name": "flash point",
-          "requires": ["ignition-temperature"]
+          "requires": ["ignition-temperature"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fire-point-and-smoke-point-2",
+          "name": "fire point and smoke point",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flash-point"]
         },
         {
           "id": "fire-point-and-smoke-point",
@@ -266,8 +355,17 @@
         },
         {
           "id": "gasoline-fuel-gaseous-fuel-natural-gas-and-its-uses",
-          "name": "gasoline fuel. Gaseous fuel: Natural gas and its uses",
-          "requires": ["the-spark-ignition-internal-combustion-engine"]
+          "name": "gasoline fuel",
+          "requires": ["the-spark-ignition-internal-combustion-engine"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "gaseous-fuel-natural-gas-and-its-uses",
+          "name": "Gaseous fuel: Natural gas and its uses",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gasoline-fuel-gaseous-fuel-natural-gas-and-its-uses"]
         },
         {
           "id": "natural-gas-as-a-fuel",
@@ -276,8 +374,24 @@
         },
         {
           "id": "other-carbon-based-fuel-gases-and-explosion-limits-hydrogen",
-          "name": "other carbon based fuel gases, and explosion limits. Hydrogen",
-          "requires": ["natural-gas-as-a-fuel"]
+          "name": "other carbon based fuel gases",
+          "requires": ["natural-gas-as-a-fuel"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "explosion-limits",
+          "name": "explosion limits",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["other-carbon-based-fuel-gases-and-explosion-limits-hydrogen"]
+        },
+        {
+          "id": "hydrogen",
+          "name": "Hydrogen",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["explosion-limits"]
         },
         {
           "id": "methods-for-the-preparation-of-h2",
@@ -302,13 +416,52 @@
         },
         {
           "id": "a-brief-biological-background-organic-compound-and-their",
-          "name": "A brief Biological background, Organic Compound and their nomenclature, Biologically important organic compounds",
-          "requires": ["organic-geochemistry"]
+          "name": "A brief Biological background",
+          "requires": ["organic-geochemistry"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "organic-compound-and-their-nomenclature",
+          "name": "Organic Compound and their nomenclature",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["a-brief-biological-background-organic-compound-and-their"]
+        },
+        {
+          "id": "biologically-important-organic-compounds",
+          "name": "Biologically important organic compounds",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["organic-compound-and-their-nomenclature"]
         },
         {
           "id": "carbohydrate-lipids-proteins-introduction-to-isotope-geology",
-          "name": "Carbohydrate, Lipids, Proteins, Introduction to isotope geology",
-          "requires": ["a-brief-biological-background-organic-compound-and-their"]
+          "name": "Carbohydrate",
+          "requires": ["a-brief-biological-background-organic-compound-and-their"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "lipids",
+          "name": "Lipids",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carbohydrate-lipids-proteins-introduction-to-isotope-geology"]
+        },
+        {
+          "id": "proteins",
+          "name": "Proteins",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["lipids"]
+        },
+        {
+          "id": "introduction-to-isotope-geology",
+          "name": "Introduction to isotope geology",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["proteins"]
         },
         {
           "id": "discovery-or-radioactivity-and-isotopes",
@@ -352,5 +505,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-chemistry-laboratory-petro"]
 }

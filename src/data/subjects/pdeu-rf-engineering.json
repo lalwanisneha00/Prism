@@ -28,8 +28,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): RF Engineering",
     "note": "Units and topics are PDEU's, copied from the handbook. 1 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -44,18 +44,136 @@
         },
         {
           "id": "antenna-parameters",
-          "name": "Fundamental Parameters related to antenna (Radiation Pattern, Radiation Power Density, Directivity, Gain, Beam width, Bandwidth, Polarization, Radiation Efficiency, Antenna Efficiency, Far Field Radia",
-          "requires": ["basics-radiation-mechanism-and-current-distribution"]
+          "name": "Fundamental Parameters related to antenna (Radiation Pattern",
+          "requires": ["basics-radiation-mechanism-and-current-distribution"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "antenna-array-two-element-array-n-element-linear-array-with",
-          "name": "Antenna Array: Two Element Array N-Element Linear Array with uniform amplitude and spacing, Broadside and End-Fire Arrays, N-Element 2D Array",
+          "id": "radiation-power-density",
+          "name": "Radiation Power Density",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["antenna-parameters"]
         },
         {
-          "id": "microstrip-antenna-introduction-to-strip-line-and-microstrip",
-          "name": "Microstrip antenna: Introduction to strip line and microstrip lines, Advantages and limitations, feeding techniques, introduction to rectangular microstrip antenna, RMSA and CMSA design, filters desig",
+          "id": "directivity",
+          "name": "Directivity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radiation-power-density"]
+        },
+        {
+          "id": "gain",
+          "name": "Gain",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["directivity"]
+        },
+        {
+          "id": "beam-width",
+          "name": "Beam width",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gain"]
+        },
+        {
+          "id": "bandwidth",
+          "name": "Bandwidth",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["beam-width"]
+        },
+        {
+          "id": "polarization",
+          "name": "Polarization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["bandwidth"]
+        },
+        {
+          "id": "radiation-efficiency",
+          "name": "Radiation Efficiency",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["polarization"]
+        },
+        {
+          "id": "antenna-efficiency",
+          "name": "Antenna Efficiency",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radiation-efficiency"]
+        },
+        {
+          "id": "far-field-radiation",
+          "name": "Far Field Radiation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["antenna-efficiency"]
+        },
+        {
+          "id": "antenna-array-two-element-array-n-element-linear-array-with",
+          "name": "Antenna Array: Two Element Array N-Element Linear Array with uniform amplitude and spacing",
+          "requires": ["antenna-parameters"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "broadside-and-end-fire-arrays",
+          "name": "Broadside and End-Fire Arrays",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["antenna-array-two-element-array-n-element-linear-array-with"]
+        },
+        {
+          "id": "n-element-2d-array",
+          "name": "N-Element 2D Array",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["broadside-and-end-fire-arrays"]
+        },
+        {
+          "id": "microstrip-antenna-introduction-to-strip-line-and-microstrip",
+          "name": "Microstrip antenna: Introduction to strip line and microstrip lines",
+          "requires": ["antenna-array-two-element-array-n-element-linear-array-with"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "advantages-and-limitations",
+          "name": "Advantages and limitations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["microstrip-antenna-introduction-to-strip-line-and-microstrip"]
+        },
+        {
+          "id": "feeding-techniques",
+          "name": "feeding techniques",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["advantages-and-limitations"]
+        },
+        {
+          "id": "introduction-to-rectangular-microstrip-antenna",
+          "name": "introduction to rectangular microstrip antenna",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["feeding-techniques"]
+        },
+        {
+          "id": "rmsa-and-cmsa-design",
+          "name": "RMSA and CMSA design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-rectangular-microstrip-antenna"]
+        },
+        {
+          "id": "filters-design-using-microstrip-line",
+          "name": "filters design using microstrip line",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["rmsa-and-cmsa-design"]
         }
       ]
     },
@@ -85,8 +203,17 @@
         },
         {
           "id": "radar-resolution-modes-of-wave-propagation",
-          "name": "radar resolution. Modes of wave propagation",
-          "requires": ["pulse-and-mti-radars-blind-speed"]
+          "name": "radar resolution",
+          "requires": ["pulse-and-mti-radars-blind-speed"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "modes-of-wave-propagation",
+          "name": "Modes of wave propagation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radar-resolution-modes-of-wave-propagation"]
         },
         {
           "id": "ground-wave-propagation",
@@ -161,5 +288,7 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-rf-engineering-lab-ict"]
 }
