@@ -1,0 +1,264 @@
+{
+  "id": "pdeu-introduction-to-data-science-ce",
+  "name": "Introduction to Data Science",
+  "field": "Introduction to Data Science",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["ce"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (COMP semester 4): Introduction to Data Science",
+    "note": "Units and topics copied from the course handout PDF (pages 4 of COMP/sem4/CE_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CS222T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "ce",
+      "key": "s4-introduction-to-data-science",
+      "code": "24CS222T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-data-and-science-behind-the-data",
+      "name": "Introduction to Data and Science behind the data",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-data-science",
+          "name": "Introduction to Data Science"
+        },
+        {
+          "id": "toolboxes-python",
+          "name": "Toolboxes: Python",
+          "requires": ["introduction-to-data-science"]
+        },
+        {
+          "id": "fundamental-libraries-for-data-scientists",
+          "name": "fundamental libraries for data Scientists",
+          "requires": ["toolboxes-python"]
+        },
+        {
+          "id": "integrated-development-environment-ide",
+          "name": "Integrated development environment (IDE)",
+          "requires": ["fundamental-libraries-for-data-scientists"]
+        },
+        {
+          "id": "data-operations-reading-selecting-filtering-manipulating",
+          "name": "Data operations: Reading, selecting, filtering, manipulating",
+          "requires": ["integrated-development-environment-ide"]
+        },
+        {
+          "id": "sorting-grouping-rearranging-ranking-plotting",
+          "name": "sorting, grouping, rearranging, ranking, plotting",
+          "requires": ["data-operations-reading-selecting-filtering-manipulating"]
+        }
+      ]
+    },
+    {
+      "id": "data-collection-pre-processing-and-eda",
+      "name": "Data Collection, Pre-Processing and EDA",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "data-collection-strategies",
+          "name": "Data Collection Strategies"
+        },
+        {
+          "id": "data-pre-processing-overview",
+          "name": "Data Pre-Processing Overview",
+          "requires": ["data-collection-strategies"]
+        },
+        {
+          "id": "data-cleaning",
+          "name": "Data Cleaning",
+          "requires": ["data-pre-processing-overview"]
+        },
+        {
+          "id": "data-integration-and-transformation",
+          "name": "Data Integration and Transformation",
+          "requires": ["data-cleaning"]
+        },
+        {
+          "id": "data-reduction",
+          "name": "Data Reduction",
+          "requires": ["data-integration-and-transformation"]
+        },
+        {
+          "id": "data-discretization",
+          "name": "Data Discretization",
+          "requires": ["data-reduction"]
+        },
+        {
+          "id": "descriptive-statistics",
+          "name": "Descriptive statistics",
+          "requires": ["data-discretization"]
+        },
+        {
+          "id": "data-preparation",
+          "name": "data preparation",
+          "requires": ["descriptive-statistics"]
+        },
+        {
+          "id": "exploratory-data-analysis-data-summarization",
+          "name": "Exploratory Data Analysis data summarization",
+          "requires": ["data-preparation"]
+        },
+        {
+          "id": "data-distribution",
+          "name": "data distribution",
+          "requires": ["exploratory-data-analysis-data-summarization"]
+        },
+        {
+          "id": "measuring-asymmetry",
+          "name": "measuring asymmetry",
+          "requires": ["data-distribution"]
+        },
+        {
+          "id": "sample-and-estimated-mean",
+          "name": "Sample and estimated mean",
+          "requires": ["measuring-asymmetry"]
+        },
+        {
+          "id": "variance-and-standard-score",
+          "name": "variance and standard score",
+          "requires": ["sample-and-estimated-mean"]
+        },
+        {
+          "id": "statistical-inference-frequency-approach",
+          "name": "Statistical Inference frequency approach",
+          "requires": ["variance-and-standard-score"]
+        },
+        {
+          "id": "variability-of-estimates",
+          "name": "variability of estimates",
+          "requires": ["statistical-inference-frequency-approach"]
+        },
+        {
+          "id": "hypothesis-testing-using-confidence-intervals",
+          "name": "hypothesis testing using confidence intervals",
+          "requires": ["variability-of-estimates"]
+        },
+        {
+          "id": "box-plots",
+          "name": "Box Plots",
+          "requires": ["hypothesis-testing-using-confidence-intervals"]
+        },
+        {
+          "id": "pivot-table",
+          "name": "Pivot Table",
+          "requires": ["box-plots"]
+        },
+        {
+          "id": "heat-map",
+          "name": "Heat Map",
+          "requires": ["pivot-table"]
+        },
+        {
+          "id": "correlation-statistics",
+          "name": "Correlation Statistics",
+          "requires": ["heat-map"]
+        }
+      ]
+    },
+    {
+      "id": "model-development",
+      "name": "Model Development",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "supervised-learning-first-step",
+          "name": "Supervised Learning: First step"
+        },
+        {
+          "id": "learning-curves",
+          "name": "learning curves",
+          "requires": ["supervised-learning-first-step"]
+        },
+        {
+          "id": "training-validation-and-test",
+          "name": "training-validation and test",
+          "requires": ["learning-curves"]
+        },
+        {
+          "id": "learning-models-generalities",
+          "name": "Learning models generalities",
+          "requires": ["training-validation-and-test"]
+        },
+        {
+          "id": "regression-techniques-linear-polynomial-regression",
+          "name": "Regression techniques: Linear/Polynomial regression",
+          "requires": ["learning-models-generalities"]
+        },
+        {
+          "id": "classifications-na-ve-bayes",
+          "name": "Classifications: Naïve Bayes",
+          "requires": ["regression-techniques-linear-polynomial-regression"]
+        },
+        {
+          "id": "logistic-regression",
+          "name": "Logistic Regression",
+          "requires": ["classifications-na-ve-bayes"]
+        },
+        {
+          "id": "support-vector-machines",
+          "name": "support vector machines",
+          "requires": ["logistic-regression"]
+        }
+      ]
+    },
+    {
+      "id": "model-evaluation",
+      "name": "Model Evaluation",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "generalization-error",
+          "name": "Generalization Error"
+        },
+        {
+          "id": "out-of-sample-evaluation-metrics",
+          "name": "Out-of-Sample Evaluation Metrics",
+          "requires": ["generalization-error"]
+        },
+        {
+          "id": "cross-validation-overfitting",
+          "name": "Cross Validation, Overfitting",
+          "requires": ["out-of-sample-evaluation-metrics"]
+        },
+        {
+          "id": "under-fitting-and-model-selection",
+          "name": "Under Fitting and Model Selection",
+          "requires": ["cross-validation-overfitting"]
+        },
+        {
+          "id": "prediction-by-using-ridge-regression",
+          "name": "Prediction by using Ridge Regression",
+          "requires": ["under-fitting-and-model-selection"]
+        },
+        {
+          "id": "testing-multiple-parameters-by-using-grid-search-precision-r",
+          "name": "Testing Multiple Parameters by using Grid Search, precision, recall",
+          "requires": ["prediction-by-using-ridge-regression"]
+        },
+        {
+          "id": "f1-score",
+          "name": "F1 score",
+          "requires": ["testing-multiple-parameters-by-using-grid-search-precision-r"]
+        }
+      ]
+    }
+  ]
+}

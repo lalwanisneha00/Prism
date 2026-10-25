@@ -40,16 +40,7 @@
       "topics": [
         {
           "id": "overview-of-gene-cloning-restriction",
-          "name": "Overview of gene cloning",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "restriction",
-          "name": "Restriction",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["overview-of-gene-cloning-restriction"]
+          "name": "Overview of gene cloning. Restriction"
         },
         {
           "id": "modification-systems-and-dna-modifying-enzymes",
@@ -78,29 +69,32 @@
         },
         {
           "id": "pgem3z-cloning-vectors-based-on-m13-and-bacteriophage-ti",
-          "name": "pGEM3Z",
+          "name": "Cloning vectors based on M13 and λ bacteriophage",
           "requires": ["puc8"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "cloning-vectors-based-on-m13-and-bacteriophage",
-          "name": "Cloning vectors based on M13 and λ bacteriophage",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pgem3z-cloning-vectors-based-on-m13-and-bacteriophage-ti"]
         },
         {
           "id": "ti-plasmid",
           "name": "Ti plasmid",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["cloning-vectors-based-on-m13-and-bacteriophage"]
+          "requires": ["pgem3z-cloning-vectors-based-on-m13-and-bacteriophage-ti"]
         },
         {
           "id": "bac-and-yac",
           "name": "BAC and YAC",
           "requires": ["pgem3z-cloning-vectors-based-on-m13-and-bacteriophage-ti"]
+        },
+        {
+          "id": "restriction",
+          "name": "Restriction",
+          "status": "retired"
+        },
+        {
+          "id": "cloning-vectors-based-on-m13-and-bacteriophage",
+          "name": "Cloning vectors based on M13 and λ bacteriophage",
+          "status": "retired"
         }
       ]
     },
@@ -116,8 +110,8 @@
           "confidence": "verified"
         },
         {
-          "id": "introduction-of-dna-into-cells",
-          "name": "Introduction of DNA into cells",
+          "id": "introduction-of-dna-into-cells-transformation",
+          "name": "Introduction of DNA into cells, Transformation",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["ligation-of-dna-molecules-introduction-of-dna-into-cells"]
@@ -154,6 +148,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["blue-white-selection-identification-of-recombinant-phages"]
+        },
+        {
+          "id": "introduction-of-dna-into-cells",
+          "name": "Introduction of DNA into cells",
+          "status": "retired"
         }
       ]
     },

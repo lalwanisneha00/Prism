@@ -5,7 +5,7 @@
   "tier": "limited",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["ict", "ece"],
+  "branches": ["ict"],
   "semesters": [7],
   "code": "24ICxxxT",
   "credits": 3,
@@ -17,15 +17,6 @@
       "key": "s7-program-elective-4--modern-wireless-communications-communication-and-signal-proc",
       "code": "24ICxxxT",
       "category": "Program Elective",
-      "ltp": "3-0-0",
-      "credits": 3,
-      "semester": 7,
-      "kind": "core"
-    },
-    {
-      "branch": "ece",
-      "key": "s7-modern-wireless-communications",
-      "category": "Program Core",
       "ltp": "3-0-0",
       "credits": 3,
       "semester": 7,
@@ -63,25 +54,28 @@
           "requires": ["evaluation-of-wireless-communications-2g-to-5g"]
         },
         {
-          "id": "frequency-reuse",
-          "name": "Frequency Reuse",
+          "id": "frequency-reuse-handoff",
+          "name": "Frequency Reuse, Handoff",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["cellular-concept-system-design-fundamentals"]
-        },
-        {
-          "id": "handoff",
-          "name": "Handoff",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["frequency-reuse"]
         },
         {
           "id": "cochannel-interference-and-system-capacity",
           "name": "Cochannel Interference and System Capacity",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["handoff"]
+          "requires": ["frequency-reuse-handoff"]
+        },
+        {
+          "id": "frequency-reuse",
+          "name": "Frequency Reuse",
+          "status": "retired"
+        },
+        {
+          "id": "handoff",
+          "name": "Handoff",
+          "status": "retired"
         }
       ]
     },
@@ -144,18 +138,21 @@
           "confidence": "verified"
         },
         {
-          "id": "average-probability-of-error",
-          "name": "Average Probability of Error",
+          "id": "average-probability-of-error-capacity",
+          "name": "Average Probability of Error, Capacity",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["performance-analysis-over-fading-channel-outage-probability"]
         },
         {
+          "id": "average-probability-of-error",
+          "name": "Average Probability of Error",
+          "status": "retired"
+        },
+        {
           "id": "capacity",
           "name": "Capacity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["average-probability-of-error"]
+          "status": "retired"
         }
       ]
     },

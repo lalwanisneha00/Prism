@@ -1,0 +1,199 @@
+{
+  "id": "pdeu-mechanical-vibrations-me",
+  "name": "Mechanical Vibrations",
+  "field": "Mechanical Vibrations",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 6): Mechanical Vibrations",
+    "note": "Units and topics copied from the course handout PDF (pages 2 of MECH/sem6/Mechanical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME335T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s6-program-elective--mechanical-vibrations",
+      "code": "24ME335T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "review-of-single-degree-of-undamped",
+          "name": "Review of Single Degree of Undamped"
+        },
+        {
+          "id": "damped-and-forced-vibration",
+          "name": "Damped and Forced Vibration",
+          "requires": ["review-of-single-degree-of-undamped"]
+        },
+        {
+          "id": "two-degree-of-freedom-system-mode-shapes",
+          "name": "Two Degree of Freedom System: Mode Shapes",
+          "requires": ["damped-and-forced-vibration"]
+        },
+        {
+          "id": "eigen-values-and-eigen-vectors",
+          "name": "Eigen Values and Eigen Vectors",
+          "requires": ["two-degree-of-freedom-system-mode-shapes"]
+        },
+        {
+          "id": "static-and-dynamic-coupling",
+          "name": "Static and Dynamic Coupling",
+          "requires": ["eigen-values-and-eigen-vectors"]
+        },
+        {
+          "id": "semi-definite-system",
+          "name": "Semi-Definite System",
+          "requires": ["static-and-dynamic-coupling"]
+        },
+        {
+          "id": "double-pendulum",
+          "name": "Double Pendulum",
+          "requires": ["semi-definite-system"]
+        },
+        {
+          "id": "lagrange-s-methods-etc",
+          "name": "Lagrange’s Methods etc",
+          "requires": ["double-pendulum"]
+        }
+      ]
+    },
+    {
+      "id": "multi-degree-of-freedom-system",
+      "name": "Multi Degree of Freedom System",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "fourier-transform-integral-transform",
+          "name": "Fourier Transform: Integral transform"
+        },
+        {
+          "id": "fourier-integral-theorem",
+          "name": "Fourier integral theorem",
+          "requires": ["fourier-transform-integral-transform"]
+        },
+        {
+          "id": "fourier-sine-and-cosine-integrals",
+          "name": "Fourier sine and cosine integrals",
+          "requires": ["fourier-integral-theorem"]
+        },
+        {
+          "id": "fourier-transforms",
+          "name": "Fourier transforms",
+          "requires": ["fourier-sine-and-cosine-integrals"]
+        },
+        {
+          "id": "fourier-sine-and-cosine-transforms",
+          "name": "Fourier sine and cosine transforms",
+          "requires": ["fourier-transforms"]
+        },
+        {
+          "id": "properties-of-fourier-transform",
+          "name": "Properties of Fourier transform",
+          "requires": ["fourier-sine-and-cosine-transforms"]
+        },
+        {
+          "id": "convolution",
+          "name": "Convolution",
+          "requires": ["properties-of-fourier-transform"]
+        },
+        {
+          "id": "parseval-s-identity",
+          "name": "Parseval’s identity",
+          "requires": ["convolution"]
+        },
+        {
+          "id": "relationship-between-fourier-and-laplace-transform",
+          "name": "Relationship between Fourier and Laplace transform",
+          "requires": ["parseval-s-identity"]
+        }
+      ]
+    },
+    {
+      "id": "continuous-systems",
+      "name": "Continuous Systems",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "formulation-of-initial-conditions-and-boundary-conditions",
+          "name": "Formulation of Initial Conditions and Boundary Conditions"
+        },
+        {
+          "id": "derivation-of-longitudinal",
+          "name": "Derivation of Longitudinal",
+          "requires": ["formulation-of-initial-conditions-and-boundary-conditions"]
+        },
+        {
+          "id": "transverse-and-torsional-vibrations-of-shafts",
+          "name": "Transverse and Torsional Vibrations of Shafts",
+          "requires": ["derivation-of-longitudinal"]
+        }
+      ]
+    },
+    {
+      "id": "vibration-control-and-measurement",
+      "name": "Vibration Control and Measurement",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "vibration-control-and-measurement-vibration-isolators",
+          "name": "Vibration Control and Measurement: Vibration Isolators"
+        },
+        {
+          "id": "vibration-isolation-with-rigid-and-flexible-foundations",
+          "name": "Vibration Isolation with Rigid and Flexible Foundations",
+          "requires": ["vibration-control-and-measurement-vibration-isolators"]
+        },
+        {
+          "id": "active-vibration-control",
+          "name": "Active Vibration Control",
+          "requires": ["vibration-isolation-with-rigid-and-flexible-foundations"]
+        },
+        {
+          "id": "use-of-vibration-absorbers",
+          "name": "Use of Vibration Absorbers",
+          "requires": ["active-vibration-control"]
+        },
+        {
+          "id": "vibration-pickups",
+          "name": "Vibration Pickups",
+          "requires": ["use-of-vibration-absorbers"]
+        },
+        {
+          "id": "vibration-exciters",
+          "name": "Vibration Exciters",
+          "requires": ["vibration-pickups"]
+        },
+        {
+          "id": "signal-analysis",
+          "name": "Signal Analysis",
+          "requires": ["vibration-exciters"]
+        },
+        {
+          "id": "dynamic-testing-of-machines",
+          "name": "Dynamic Testing of Machines",
+          "requires": ["signal-analysis"]
+        }
+      ]
+    }
+  ]
+}

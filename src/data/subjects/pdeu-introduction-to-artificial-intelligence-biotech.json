@@ -186,46 +186,32 @@
           "confidence": "verified"
         },
         {
-          "id": "support-vector-machines",
-          "name": "support vector machines",
+          "id": "support-vector-machines-kernels",
+          "name": "support vector machines, kernels",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["svm"]
-        },
-        {
-          "id": "kernels",
-          "name": "kernels",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["support-vector-machines"]
         },
         {
           "id": "neural-networks",
           "name": "neural networks",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["kernels"]
+          "requires": ["support-vector-machines-kernels"]
         },
         {
-          "id": "unsupervised-learning",
-          "name": "Unsupervised learning",
+          "id": "unsupervised-learning-clustering",
+          "name": "Unsupervised learning, clustering",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["neural-networks"]
-        },
-        {
-          "id": "clustering",
-          "name": "clustering",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["unsupervised-learning"]
         },
         {
           "id": "dimensionality-reduction",
           "name": "dimensionality reduction",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["clustering"]
+          "requires": ["unsupervised-learning-clustering"]
         },
         {
           "id": "recommender-systems",
@@ -248,7 +234,7 @@
           "movedFrom": {
             "subject": "pdeu-introduction-to-artificial-intelligence-biotech",
             "chapter": "applications-of-ai-in-biotechnology",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -273,6 +259,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["innovation-process-in-machine-learning-and-ai"]
+        },
+        {
+          "id": "support-vector-machines",
+          "name": "support vector machines",
+          "status": "retired"
+        },
+        {
+          "id": "kernels",
+          "name": "kernels",
+          "status": "retired"
+        },
+        {
+          "id": "unsupervised-learning",
+          "name": "Unsupervised learning",
+          "status": "retired"
+        },
+        {
+          "id": "clustering",
+          "name": "clustering",
+          "status": "retired"
         }
       ]
     },

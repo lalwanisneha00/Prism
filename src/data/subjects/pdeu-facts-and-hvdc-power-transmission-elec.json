@@ -66,34 +66,24 @@
           "requires": ["hvdc-system-introduction"]
         },
         {
-          "id": "bipolar-link",
-          "name": "Bipolar Link",
+          "id": "bipolar-link-homopolarlink",
+          "name": "Bipolar Link, Homopolarlink",
           "requires": ["types-of-hvdc-systems-monopolar-link"]
-        },
-        {
-          "id": "homopolarlink",
-          "name": "Homopolarlink",
-          "requires": ["bipolar-link"]
         },
         {
           "id": "facts-compensation-of-transmission-lines",
           "name": "FACTS: Compensation of Transmission lines",
-          "requires": ["homopolarlink"]
+          "requires": ["bipolar-link-homopolarlink"]
         },
         {
-          "id": "basic-types-svc",
-          "name": "Basic types: SVC",
+          "id": "basic-types-svc-statcom",
+          "name": "Basic types: SVC, STATCOM",
           "requires": ["facts-compensation-of-transmission-lines"]
-        },
-        {
-          "id": "statcom",
-          "name": "STATCOM",
-          "requires": ["basic-types-svc"]
         },
         {
           "id": "tssc",
           "name": "TSSC",
-          "requires": ["statcom"]
+          "requires": ["basic-types-svc-statcom"]
         },
         {
           "id": "tcsc",
@@ -119,6 +109,26 @@
           "id": "flexible-systems-vs-conventional-transmissions-systems",
           "name": "Flexible Systems Vs Conventional transmissions Systems",
           "requires": ["ipfc"]
+        },
+        {
+          "id": "bipolar-link",
+          "name": "Bipolar Link",
+          "status": "retired"
+        },
+        {
+          "id": "homopolarlink",
+          "name": "Homopolarlink",
+          "status": "retired"
+        },
+        {
+          "id": "basic-types-svc",
+          "name": "Basic types: SVC",
+          "status": "retired"
+        },
+        {
+          "id": "statcom",
+          "name": "STATCOM",
+          "status": "retired"
         }
       ]
     },
@@ -133,18 +143,13 @@
         },
         {
           "id": "reactive-power-sources-and-filters-in-lcc-hvdc-systems-dc-li",
-          "name": "Reactive Power Sources and Filters in LCC HVDC systems DC line: Corona Effects",
+          "name": "Reactive Power Sources and Filters in LCC HVDC systems DC line: Corona Effects, Insulators",
           "requires": ["components-of-hvdc-systems-smoothing-reactors"]
-        },
-        {
-          "id": "insulators",
-          "name": "Insulators",
-          "requires": ["reactive-power-sources-and-filters-in-lcc-hvdc-systems-dc-li"]
         },
         {
           "id": "transient-over-voltages",
           "name": "Transient Over-voltages",
-          "requires": ["insulators"]
+          "requires": ["reactive-power-sources-and-filters-in-lcc-hvdc-systems-dc-li"]
         },
         {
           "id": "dc-breakers",
@@ -167,19 +172,14 @@
           "requires": ["ground-electrodes"]
         },
         {
-          "id": "analysis-neglecting-commutation-overlap",
-          "name": "Analysis neglecting commutation overlap",
+          "id": "analysis-neglecting-commutation-overlap-harmonics",
+          "name": "Analysis neglecting commutation overlap, harmonics",
           "requires": ["line-commutated-converters-lccs-six-pulse-converter"]
-        },
-        {
-          "id": "harmonics",
-          "name": "harmonics",
-          "requires": ["analysis-neglecting-commutation-overlap"]
         },
         {
           "id": "twelve-pulse-converters",
           "name": "Twelve Pulse Converters",
-          "requires": ["harmonics"]
+          "requires": ["analysis-neglecting-commutation-overlap-harmonics"]
         },
         {
           "id": "inverter-operation",
@@ -250,6 +250,21 @@
           "id": "dc-line-faults-in-vsc-systems",
           "name": "DC line faults in VSC systems",
           "requires": ["real-and-reactive-power-control-using-a-vsc"]
+        },
+        {
+          "id": "insulators",
+          "name": "Insulators",
+          "status": "retired"
+        },
+        {
+          "id": "analysis-neglecting-commutation-overlap",
+          "name": "Analysis neglecting commutation overlap",
+          "status": "retired"
+        },
+        {
+          "id": "harmonics",
+          "name": "harmonics",
+          "status": "retired"
         }
       ]
     },

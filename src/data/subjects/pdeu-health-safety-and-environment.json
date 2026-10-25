@@ -55,30 +55,12 @@
         {
           "id": "environmental",
           "name": "Environmental",
-          "requires": ["biological"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "environmental-issues-and-management",
-          "name": "Environmental issues and management",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["environmental"]
+          "requires": ["biological"]
         },
         {
           "id": "ergonomical-etc-hazards-and-their-remediations-environmental",
-          "name": "Ergonomical etc",
-          "requires": ["environmental"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "hazards-and-their-remediations",
-          "name": "Hazards and their remediations",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ergonomical-etc-hazards-and-their-remediations-environmental"]
+          "name": "Ergonomical etc. Hazards and their remediations. Environmental issues and management",
+          "requires": ["environmental"]
         },
         {
           "id": "environmental-impact-and-management-impact-of-oil-and-gas",
@@ -104,6 +86,16 @@
           "id": "hazard",
           "name": "Hazard",
           "requires": ["dispersion-models-and-atmospheric-pollution-dispersion"]
+        },
+        {
+          "id": "environmental-issues-and-management",
+          "name": "Environmental issues and management",
+          "status": "retired"
+        },
+        {
+          "id": "hazards-and-their-remediations",
+          "name": "Hazards and their remediations",
+          "status": "retired"
         }
       ]
     },
@@ -147,28 +139,21 @@
           "requires": ["organizing-for-safety-hazard"]
         },
         {
-          "id": "hazard-evaluation-and-control",
-          "name": "Hazard evaluation and control",
+          "id": "hazard-evaluation-and-control-hazop",
+          "name": "Hazard evaluation and control, Hazop",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["classification-and-assessment"]
-        },
-        {
-          "id": "hazop",
-          "name": "Hazop",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["hazard-evaluation-and-control"]
         },
         {
           "id": "fmea",
           "name": "FMEA",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["hazop"]
+          "requires": ["hazard-evaluation-and-control-hazop"]
         },
         {
-          "id": "hazop-2",
+          "id": "hazop",
           "name": "HAZOP",
           "source": "admin_handout",
           "confidence": "verified",
@@ -176,31 +161,17 @@
         },
         {
           "id": "classification-of-hazardous-locations-hazardous-area-ref-ier",
-          "name": "OISD)",
+          "name": "OISD, OMR)",
           "requires": ["operational-safety-introduction-to-hse-safety-assurance"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "oisd-2",
-          "name": "OISD",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["classification-of-hazardous-locations-hazardous-area-ref-ier"]
-        },
-        {
-          "id": "omr",
-          "name": "OMR)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["oisd-2"]
         },
         {
           "id": "classification-of-hazardous-locations",
           "name": "Classification of Hazardous locations",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["omr"]
+          "requires": ["classification-of-hazardous-locations-hazardous-area-ref-ier"]
         },
         {
           "id": "hazardous-area-ref-ier",
@@ -210,7 +181,7 @@
           "requires": ["classification-of-hazardous-locations"]
         },
         {
-          "id": "omr-2",
+          "id": "omr",
           "name": "OMR",
           "source": "admin_handout",
           "confidence": "verified",
@@ -218,59 +189,43 @@
         },
         {
           "id": "api-rp-500-and-14-f-accident-investigations-study-of-major-a",
-          "name": "API RP 500 & 14 F) Accident Investigations: Study of major Accidents like Piper Alpha",
+          "name": "API RP 500 & 14 F) Accident Investigations: Study of major Accidents like Piper Alpha, Flixborough, Bhopal etc",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["omr-2"]
-        },
-        {
-          "id": "flixborough",
-          "name": "Flixborough",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["api-rp-500-and-14-f-accident-investigations-study-of-major-a"]
-        },
-        {
-          "id": "bhopal-etc",
-          "name": "Bhopal etc",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["flixborough"]
+          "requires": ["omr"]
         },
         {
           "id": "audit-methodology-protocol-typical-checklists-for-drilling",
-          "name": "Audit methodology",
+          "name": "Audit methodology, protocol",
           "requires": ["classification-of-hazardous-locations-hazardous-area-ref-ier"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "protocol",
-          "name": "protocol",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["audit-methodology-protocol-typical-checklists-for-drilling"]
         },
         {
           "id": "typical-checklists-for-drilling-rigs",
           "name": "typical checklists for Drilling rigs",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["protocol"]
+          "requires": ["audit-methodology-protocol-typical-checklists-for-drilling"]
         },
         {
-          "id": "work-over-activities",
-          "name": "Work over activities",
+          "id": "work-over-activities-logging-etc",
+          "name": "Work over activities, logging, etc",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["typical-checklists-for-drilling-rigs"]
         },
         {
-          "id": "logging",
-          "name": "logging",
+          "id": "oisd",
+          "name": "OISD",
+          "requires": ["software-used-in-hse"],
+          "movedFrom": {
+            "subject": "pdeu-health-safety-and-environment",
+            "chapter": "hse-management-system",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
           "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["work-over-activities"]
+          "confidence": "verified"
         },
         {
           "id": "api-rp-75",
@@ -279,7 +234,7 @@
           "movedFrom": {
             "subject": "pdeu-health-safety-and-environment",
             "chapter": "hse-management-system",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -299,18 +254,11 @@
           "requires": ["risk-matrix"]
         },
         {
-          "id": "qra-api-14-j",
-          "name": "QRA (API 14 J",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["hazid"]
-        },
-        {
           "id": "safe-work-practices-ptw",
           "name": "Safe Work Practices: PTW",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["qra-api-14-j"]
+          "requires": ["hazid"]
         },
         {
           "id": "moc",
@@ -334,11 +282,59 @@
           "requires": ["electrical-safety"]
         },
         {
+          "id": "hazard-evaluation-and-control",
+          "name": "Hazard evaluation and control",
+          "status": "retired"
+        },
+        {
+          "id": "hazop-2",
+          "name": "HAZOP",
+          "status": "retired"
+        },
+        {
+          "id": "oisd-2",
+          "name": "OISD",
+          "status": "retired"
+        },
+        {
+          "id": "omr-2",
+          "name": "OMR",
+          "status": "retired"
+        },
+        {
+          "id": "flixborough",
+          "name": "Flixborough",
+          "status": "retired"
+        },
+        {
+          "id": "bhopal-etc",
+          "name": "Bhopal etc",
+          "status": "retired"
+        },
+        {
+          "id": "protocol",
+          "name": "protocol",
+          "status": "retired"
+        },
+        {
+          "id": "work-over-activities",
+          "name": "Work over activities",
+          "status": "retired"
+        },
+        {
+          "id": "logging",
+          "name": "logging",
+          "status": "retired"
+        },
+        {
+          "id": "qra-api-14-j",
+          "name": "QRA (API 14 J",
+          "status": "retired"
+        },
+        {
           "id": "etc",
           "name": "etc",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["investigation-techniques-emergency-response-planning-audits"]
+          "status": "retired"
         }
       ]
     },
@@ -402,11 +398,6 @@
           "requires": ["process-safety-management"]
         },
         {
-          "id": "oisd",
-          "name": "OISD",
-          "requires": ["software-used-in-hse"]
-        },
-        {
           "id": "iso",
           "name": "ISO",
           "requires": ["api-rp-75"]
@@ -434,31 +425,17 @@
         },
         {
           "id": "air-water-and-soil-of-hcs-environmental-impact-assessment",
-          "name": "Air",
+          "name": "& Soil of HCs",
           "requires": ["environment-concepts-effect-on-eco-system"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "water",
-          "name": "Water",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["air-water-and-soil-of-hcs-environmental-impact-assessment"]
-        },
-        {
-          "id": "and-soil-of-hcs",
-          "name": "& Soil of HCs",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["water"]
         },
         {
           "id": "environmental-impact-assessment",
           "name": "Environmental Impact Assessment",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["and-soil-of-hcs"]
+          "requires": ["air-water-and-soil-of-hcs-environmental-impact-assessment"]
         },
         {
           "id": "oil-spills-control-and-their-management",
@@ -506,30 +483,43 @@
           "confidence": "verified"
         },
         {
-          "id": "specification-and-safety-standards-t4s",
-          "name": "Specification and Safety Standards T4S)",
+          "id": "specification-and-safety-standards-t4s-emergencies",
+          "name": "Specification and Safety Standards T4S), Emergencies",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["safety-regulations-technical-standard-specification-and"]
-        },
-        {
-          "id": "emergencies",
-          "name": "Emergencies",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["specification-and-safety-standards-t4s"]
         },
         {
           "id": "mutual-aida",
           "name": "Mutual Aida",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["emergencies"]
+          "requires": ["specification-and-safety-standards-t4s-emergencies"]
         },
         {
           "id": "emergency-response-and-disaster-management-plan-erdmp",
           "name": "Emergency Response and Disaster Management Plan ERDMP)",
           "requires": ["safety-regulations-technical-standard-specification-and"]
+        },
+        {
+          "id": "water",
+          "name": "Water",
+          "status": "retired"
+        },
+        {
+          "id": "and-soil-of-hcs",
+          "name": "& Soil of HCs",
+          "status": "retired"
+        },
+        {
+          "id": "specification-and-safety-standards-t4s",
+          "name": "Specification and Safety Standards T4S)",
+          "status": "retired"
+        },
+        {
+          "id": "emergencies",
+          "name": "Emergencies",
+          "status": "retired"
         }
       ]
     }

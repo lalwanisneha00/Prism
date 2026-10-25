@@ -1,0 +1,285 @@
+{
+  "id": "pdeu-power-quality-elec",
+  "name": "Power Quality",
+  "field": "Power Quality",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 7): Power Quality",
+    "note": "Units and topics copied from the course handout PDF (pages 10 of ELEC/sem7/Electrical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE406T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s7-power-quality",
+      "code": "20EE406T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-power-quality",
+      "name": "Introduction to Power Quality",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "ieee-standards-519-2014",
+          "name": "IEEE Standards 519:2014"
+        },
+        {
+          "id": "terms-and-definitions-of-transients",
+          "name": "Terms and definitions of transients",
+          "requires": ["ieee-standards-519-2014"]
+        },
+        {
+          "id": "long-duration-voltage-variations-under-voltage",
+          "name": "Long Duration Voltage Variations: under Voltage",
+          "requires": ["terms-and-definitions-of-transients"]
+        },
+        {
+          "id": "under-voltage-and-sustained-interruptions",
+          "name": "Under Voltage and Sustained Interruptions",
+          "requires": ["long-duration-voltage-variations-under-voltage"]
+        },
+        {
+          "id": "short-duration-voltage-variations-interruption-sag-swell",
+          "name": "Short Duration Voltage Variations: interruption, Sag, Swell",
+          "requires": ["under-voltage-and-sustained-interruptions"]
+        },
+        {
+          "id": "voltage-imbalance-notching-d-c-offset",
+          "name": "Voltage Imbalance, Notching, D C offset",
+          "requires": ["short-duration-voltage-variations-interruption-sag-swell"]
+        },
+        {
+          "id": "waveform-distortion",
+          "name": "waveform distortion",
+          "requires": ["voltage-imbalance-notching-d-c-offset"]
+        },
+        {
+          "id": "voltage-fluctuation",
+          "name": "voltage fluctuation",
+          "requires": ["waveform-distortion"]
+        },
+        {
+          "id": "power-frequency-variations",
+          "name": "power frequency variations",
+          "requires": ["voltage-fluctuation"]
+        },
+        {
+          "id": "electromagnetic-interference",
+          "name": "Electromagnetic Interference",
+          "requires": ["power-frequency-variations"]
+        }
+      ]
+    },
+    {
+      "id": "power-quality-issues",
+      "name": "Power Quality Issues",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "voltage-sag-and-swell-sources-of-voltage-sag-and-swell",
+          "name": "Voltage Sag & Swell: Sources of voltage sag & swell"
+        },
+        {
+          "id": "motor-starting",
+          "name": "motor starting",
+          "requires": ["voltage-sag-and-swell-sources-of-voltage-sag-and-swell"]
+        },
+        {
+          "id": "arc-furnace",
+          "name": "arc furnace",
+          "requires": ["motor-starting"]
+        },
+        {
+          "id": "fault-clearing-etc",
+          "name": "fault clearing etc",
+          "requires": ["arc-furnace"]
+        },
+        {
+          "id": "estimating-voltage-sag-and-swell",
+          "name": "estimating voltage sag &swell",
+          "requires": ["fault-clearing-etc"]
+        },
+        {
+          "id": "performance-and-principle-of-its-protection",
+          "name": "performance and principle of its protection",
+          "requires": ["estimating-voltage-sag-and-swell"]
+        },
+        {
+          "id": "solutions-at-end-user-level-isolation-transformer",
+          "name": "solutions at end user level- Isolation Transformer",
+          "requires": ["performance-and-principle-of-its-protection"]
+        },
+        {
+          "id": "voltage-regulator",
+          "name": "Voltage Regulator",
+          "requires": ["solutions-at-end-user-level-isolation-transformer"]
+        },
+        {
+          "id": "static-ups",
+          "name": "Static UPS",
+          "requires": ["voltage-regulator"]
+        },
+        {
+          "id": "rotary-ups",
+          "name": "Rotary UPS",
+          "requires": ["static-ups"]
+        },
+        {
+          "id": "active-series-compensator",
+          "name": "Active Series Compensator",
+          "requires": ["rotary-ups"]
+        },
+        {
+          "id": "electrical-transients-sources-of-transient-over-voltages-atm",
+          "name": "Electrical Transients: Sources of Transient Over voltages- Atmospheric and switching transients- motor starting transien",
+          "requires": ["active-series-compensator"]
+        },
+        {
+          "id": "pf-correction-capacitor-switching-transients",
+          "name": "PF correction capacitor switching transients",
+          "requires": ["electrical-transients-sources-of-transient-over-voltages-atm"]
+        },
+        {
+          "id": "ups-switching-transients",
+          "name": "ups switching transients",
+          "requires": ["pf-correction-capacitor-switching-transients"]
+        },
+        {
+          "id": "neutral-voltage-swing-etc",
+          "name": "neutral voltage swing etc",
+          "requires": ["ups-switching-transients"]
+        },
+        {
+          "id": "devices-for-over-voltage-protection",
+          "name": "devices for over voltage protection",
+          "requires": ["neutral-voltage-swing-etc"]
+        },
+        {
+          "id": "harmonics-causes-of-harmonics",
+          "name": "Harmonics: Causes of harmonics",
+          "requires": ["devices-for-over-voltage-protection"]
+        },
+        {
+          "id": "current-and-voltage-harmonics-measurement-of-harmonics",
+          "name": "current and voltage harmonics: measurement of harmonics",
+          "requires": ["harmonics-causes-of-harmonics"]
+        },
+        {
+          "id": "effects-of-harmonics-on",
+          "name": "effects of harmonics on",
+          "requires": ["current-and-voltage-harmonics-measurement-of-harmonics"]
+        },
+        {
+          "id": "transformers",
+          "name": "Transformers",
+          "requires": ["effects-of-harmonics-on"]
+        },
+        {
+          "id": "ac-motors",
+          "name": "AC Motors",
+          "requires": ["transformers"]
+        },
+        {
+          "id": "capacitor-banks-cables",
+          "name": "Capacitor Banks, Cables",
+          "requires": ["ac-motors"]
+        },
+        {
+          "id": "protection-devices",
+          "name": "Protection Devices",
+          "requires": ["capacitor-banks-cables"]
+        },
+        {
+          "id": "energy-metering",
+          "name": "Energy Metering",
+          "requires": ["protection-devices"]
+        },
+        {
+          "id": "communication-lines-etc-harmonic-mitigation-techniques",
+          "name": "Communication Lines etc. harmonic mitigation techniques",
+          "requires": ["energy-metering"]
+        }
+      ]
+    },
+    {
+      "id": "power-quality-monitoring",
+      "name": "Power Quality Monitoring",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "power-quality-measurement-devices",
+          "name": "Power quality measurement devices"
+        },
+        {
+          "id": "harmonic-analyzer",
+          "name": "Harmonic Analyzer",
+          "requires": ["power-quality-measurement-devices"]
+        },
+        {
+          "id": "transient-disturbance-analyzer",
+          "name": "Transient Disturbance Analyzer",
+          "requires": ["harmonic-analyzer"]
+        },
+        {
+          "id": "wiring-and-grounding-tester",
+          "name": "wiring and grounding tester",
+          "requires": ["transient-disturbance-analyzer"]
+        },
+        {
+          "id": "flicker-meter-oscilloscope-multimeteretc",
+          "name": "Flicker Meter, Oscilloscope, Multimeteretc",
+          "requires": ["wiring-and-grounding-tester"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-custom-powr-devices",
+      "name": "Introduction to Custom Powr Devices",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "passive-filters-types-analysis-design-issues",
+          "name": "Passive Filters (Types/ Analysis/ Design/ Issues)"
+        },
+        {
+          "id": "introduction-to-custom-power-devices-and-their-applications",
+          "name": "Introduction to custom power devices and their Applications in power system",
+          "requires": ["passive-filters-types-analysis-design-issues"]
+        },
+        {
+          "id": "load-compensation-and-voltage-regulation-using-dstatcom",
+          "name": "Load compensation and voltage regulation using DSTATCOM",
+          "requires": ["introduction-to-custom-power-devices-and-their-applications"]
+        },
+        {
+          "id": "protecting-sensitive-loads-using-dvr",
+          "name": "protecting sensitive loads using DVR",
+          "requires": ["load-compensation-and-voltage-regulation-using-dstatcom"]
+        },
+        {
+          "id": "unified-power-quality-conditioner-upqc",
+          "name": "Unified power Quality Conditioner (UPQC)",
+          "requires": ["protecting-sensitive-loads-using-dvr"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-power-quality-laboratory-elec"]
+}

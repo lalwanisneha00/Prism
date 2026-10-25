@@ -40,16 +40,7 @@
       "topics": [
         {
           "id": "introduction",
-          "name": "Introduction",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "introduction-to-biosimilars",
-          "name": "Introduction to biosimilars",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction"]
+          "name": "Introduction"
         },
         {
           "id": "protein-and-its-broad-functions",
@@ -94,6 +85,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["uses-and-applications-overview-of-pharmaceutical"]
+        },
+        {
+          "id": "introduction-to-biosimilars",
+          "name": "Introduction to biosimilars",
+          "status": "retired"
         }
       ]
     },
@@ -130,18 +126,11 @@
           "requires": ["e-coli-dh5-alpha-e-coli-bl21a1-e-coli-bl21de3-etc-eukaryotes"]
         },
         {
-          "id": "e-coli-bl21de3-etc",
-          "name": "E.coli BL21DE3 etc",
+          "id": "e-coli-bl21de3-etc-eukaryotes",
+          "name": "E.coli BL21DE3 etc, Eukaryotes",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["e-coli-bl21a1"]
-        },
-        {
-          "id": "eukaryotes",
-          "name": "Eukaryotes",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["e-coli-bl21de3-etc"]
         },
         {
           "id": "yeast-hosts-like-pichia-pastoris-mammalian-hosts-like-chok1",
@@ -184,6 +173,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["ns0"]
+        },
+        {
+          "id": "e-coli-bl21de3-etc",
+          "name": "E.coli BL21DE3 etc",
+          "status": "retired"
+        },
+        {
+          "id": "eukaryotes",
+          "name": "Eukaryotes",
+          "status": "retired"
         }
       ]
     },

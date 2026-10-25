@@ -211,24 +211,17 @@
         },
         {
           "id": "bioreactor-control-mechanism-physical-chemical-and",
-          "name": "Bioreactor control mechanism",
+          "name": "Bioreactor control mechanism, Physical",
           "requires": ["photo-bioreactors"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "physical",
-          "name": "Physical",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bioreactor-control-mechanism-physical-chemical-and"]
         },
         {
           "id": "chemical-and-biological-environment-of-bioreactor",
           "name": "Chemical and Biological environment of bioreactor",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["physical"]
+          "requires": ["bioreactor-control-mechanism-physical-chemical-and"]
         },
         {
           "id": "role-of-physical",
@@ -250,6 +243,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["chemical-and-biological-sensors"]
+        },
+        {
+          "id": "physical",
+          "name": "Physical",
+          "status": "retired"
         }
       ]
     },

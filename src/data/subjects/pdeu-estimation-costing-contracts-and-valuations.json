@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (Civil): Estimation Costing Contracts and Valuations",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -58,7 +58,16 @@
         {
           "id": "task-work",
           "name": "Task Work",
-          "requires": ["schedules-of-rate"]
+          "requires": ["schedules-of-rate"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cement-concrete-c-c-work-r-c-c-work",
+          "name": "Cement Concrete (C.C) Work, R.C.C, Work",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["task-work"]
         },
         {
           "id": "rate-analysis-of-different-items-excavation",
@@ -82,8 +91,24 @@
         },
         {
           "id": "r-c-c-work",
-          "name": "R.C.C. Work",
-          "requires": ["cement-concrete-c-c-work"]
+          "name": "Plastering Work",
+          "requires": ["cement-concrete-c-c-work"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "flooring-work-2",
+          "name": "Flooring Work",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["r-c-c-work"]
+        },
+        {
+          "id": "roofing-work-2",
+          "name": "Roofing Work",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flooring-work-2"]
         },
         {
           "id": "plastering-work",
@@ -143,8 +168,17 @@
         },
         {
           "id": "standard-specification-writing-for-construction-items",
-          "name": "Standard Specification Writing for Construction Items – Earthwork for Foundation",
-          "requires": ["principles-of-writing-specification"]
+          "name": "Standard Specification Writing for Construction Items",
+          "requires": ["principles-of-writing-specification"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "earthwork-for-foundation",
+          "name": "Earthwork for Foundation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["standard-specification-writing-for-construction-items"]
         },
         {
           "id": "cement-concrete",
@@ -158,8 +192,17 @@
         },
         {
           "id": "brick-work-in-cement-mortar-class-i-ii-and-iii",
-          "name": "Brick Work in Cement Mortar (Class I, II and III)",
-          "requires": ["r-c-c-work-2"]
+          "name": "Brick Work in Cement Mortar (Class I",
+          "requires": ["r-c-c-work-2"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "ii-and-iii",
+          "name": "II and III)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["brick-work-in-cement-mortar-class-i-ii-and-iii"]
         },
         {
           "id": "different-types-of-flooring",
@@ -189,7 +232,8 @@
         {
           "id": "etc",
           "name": "etc",
-          "requires": ["canal-earthwork"]
+          "requires": ["canal-earthwork"],
+          "status": "retired"
         }
       ]
     },
@@ -229,8 +273,24 @@
         },
         {
           "id": "r-c-c-structures-slab-beam-column-footing-retaining-wall",
-          "name": "R.C.C Structures (Slab, Beam, Column-Footing, Retaining Wall)",
-          "requires": ["culverts"]
+          "name": "R.C.C Structures (Slab, Beam",
+          "requires": ["culverts"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "column-footing",
+          "name": "Column-Footing",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["r-c-c-structures-slab-beam-column-footing-retaining-wall"]
+        },
+        {
+          "id": "retaining-wall",
+          "name": "Retaining Wall)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["column-footing"]
         },
         {
           "id": "road-work-quantity-of-cutting-and-filling",
@@ -255,5 +315,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

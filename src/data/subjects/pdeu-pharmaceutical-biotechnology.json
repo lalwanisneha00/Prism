@@ -40,44 +40,21 @@
       "topics": [
         {
           "id": "classification-of-dosage-forms-i-solid-dosage-powders",
-          "name": "Classification of Dosage forms I",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "solid-dosage-powders",
-          "name": "Solid Dosage: Powders",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["classification-of-dosage-forms-i-solid-dosage-powders"]
+          "name": "Classification of Dosage forms I. Solid Dosage: Powders"
         },
         {
           "id": "tablets-capsules-and-granules-ii-semi-solid-dosage-creams",
-          "name": "Tablets",
+          "name": "Solid Dosage: Powders, Tablets, Capsules, Granules",
           "requires": ["classification-of-dosage-forms-i-solid-dosage-powders"],
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
-          "id": "capsules",
-          "name": "Capsules",
+          "id": "semi-solid-dosage-creams-gels",
+          "name": "Semi solid Dosage: Creams, Gels",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["tablets-capsules-and-granules-ii-semi-solid-dosage-creams"]
-        },
-        {
-          "id": "granules",
-          "name": "Granules",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["capsules"]
-        },
-        {
-          "id": "semi-solid-dosage-creams",
-          "name": "Semi solid Dosage: Creams",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["granules"]
         },
         {
           "id": "gels",
@@ -112,24 +89,8 @@
         },
         {
           "id": "emulsion-iv-gas-dosage-aerosols-different-routes-of-drug",
-          "name": "Emulsion",
-          "requires": ["biphasic-liquids-suspension"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "gas-dosage-aerosols",
-          "name": "Gas Dosage: Aerosols",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["emulsion-iv-gas-dosage-aerosols-different-routes-of-drug"]
-        },
-        {
-          "id": "different-routes-of-drug-administration-oral",
-          "name": "Different routes of drug administration: Oral",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["gas-dosage-aerosols"]
+          "name": "Emulsion. IV. Gas Dosage: Aerosols. Different routes of drug administration: Oral",
+          "requires": ["biphasic-liquids-suspension"]
         },
         {
           "id": "parenteral",
@@ -174,6 +135,36 @@
           "id": "role-of-stability-studies-in-impurity-profiling",
           "name": "Role of stability studies in impurity profiling",
           "requires": ["analytical-techniques-for-impurity-profiling"]
+        },
+        {
+          "id": "solid-dosage-powders",
+          "name": "Solid Dosage: Powders",
+          "status": "retired"
+        },
+        {
+          "id": "capsules",
+          "name": "Capsules",
+          "status": "retired"
+        },
+        {
+          "id": "granules",
+          "name": "Granules",
+          "status": "retired"
+        },
+        {
+          "id": "semi-solid-dosage-creams",
+          "name": "Semi solid Dosage: Creams",
+          "status": "retired"
+        },
+        {
+          "id": "gas-dosage-aerosols",
+          "name": "Gas Dosage: Aerosols",
+          "status": "retired"
+        },
+        {
+          "id": "different-routes-of-drug-administration-oral",
+          "name": "Different routes of drug administration: Oral",
+          "status": "retired"
         }
       ]
     },
@@ -193,17 +184,13 @@
         },
         {
           "id": "antitoxins-screening-of-vaccines-in-animal-models",
-          "name": "antitoxins",
-          "requires": ["viral-vaccine"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "antitoxins. Screening of vaccines in animal models",
+          "requires": ["viral-vaccine"]
         },
         {
           "id": "screening-of-vaccines-in-animal-models",
           "name": "Screening of vaccines in animal models",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["antitoxins-screening-of-vaccines-in-animal-models"]
+          "status": "retired"
         }
       ]
     },

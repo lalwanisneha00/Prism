@@ -183,24 +183,17 @@
         },
         {
           "id": "pin-diagram-signals-and-register-set-of-8086-addressing",
-          "name": "Pin diagram",
+          "name": "Pin diagram, signals",
           "requires": ["evolution-of-microprocessor"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "signals",
-          "name": "signals",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pin-diagram-signals-and-register-set-of-8086-addressing"]
         },
         {
           "id": "register-set-of-8086",
           "name": "register set of 8086",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["signals"]
+          "requires": ["pin-diagram-signals-and-register-set-of-8086-addressing"]
         },
         {
           "id": "addressing-modes",
@@ -248,6 +241,11 @@
           "id": "interrupts-of-8086",
           "name": "interrupts of 8086",
           "requires": ["conditional-call-and-return-instructions"]
+        },
+        {
+          "id": "signals",
+          "name": "signals",
+          "status": "retired"
         }
       ]
     },

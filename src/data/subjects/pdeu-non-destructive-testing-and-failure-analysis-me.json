@@ -37,23 +37,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "failure-analysis",
-          "name": "Failure analysis"
-        },
-        {
-          "id": "methodology",
-          "name": "methodology",
-          "requires": ["failure-analysis"]
-        },
-        {
-          "id": "approaches",
-          "name": "approaches",
-          "requires": ["methodology"]
+          "id": "failure-analysis-methodology-approaches",
+          "name": "Failure analysis, methodology, approaches"
         },
         {
           "id": "tools-and-techniques-of-failure-analysis",
           "name": "tools and techniques of failure analysis",
-          "requires": ["approaches"]
+          "requires": ["failure-analysis-methodology-approaches"]
         },
         {
           "id": "modes-of-failure",
@@ -84,6 +74,21 @@
           "id": "electron-microscopy",
           "name": "Electron microscopy",
           "requires": ["x-ray-diffraction"]
+        },
+        {
+          "id": "failure-analysis",
+          "name": "Failure analysis",
+          "status": "retired"
+        },
+        {
+          "id": "methodology",
+          "name": "methodology",
+          "status": "retired"
+        },
+        {
+          "id": "approaches",
+          "name": "approaches",
+          "status": "retired"
         }
       ]
     },
@@ -93,18 +98,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "introduction-to-non-destructive-testing-ndt",
-          "name": "Introduction to Non-Destructive Testing (NDT)"
-        },
-        {
-          "id": "its-relevance",
-          "name": "its relevance",
-          "requires": ["introduction-to-non-destructive-testing-ndt"]
+          "id": "introduction-to-non-destructive-testing-ndt-its-relevance",
+          "name": "Introduction to Non-Destructive Testing (NDT), its relevance"
         },
         {
           "id": "importance-and-key-features",
           "name": "importance and key features",
-          "requires": ["its-relevance"]
+          "requires": ["introduction-to-non-destructive-testing-ndt-its-relevance"]
         },
         {
           "id": "classification-of-ndt-techniques-and-its-various-application",
@@ -142,34 +142,54 @@
           "requires": ["tools-and-techniques-for-visual-observation"]
         },
         {
-          "id": "liquid-penetrant-testing",
-          "name": "Liquid penetrant testing",
+          "id": "liquid-penetrant-testing-procedure",
+          "name": "Liquid penetrant testing, procedure",
           "requires": ["acceptance-standards-and-application"]
-        },
-        {
-          "id": "procedure",
-          "name": "procedure",
-          "requires": ["liquid-penetrant-testing"]
         },
         {
           "id": "penetrant-testing-materials",
           "name": "penetrant testing materials",
-          "requires": ["procedure"]
+          "requires": ["liquid-penetrant-testing-procedure"]
         },
         {
-          "id": "penetrant-testing-method",
-          "name": "penetrant testing method",
+          "id": "penetrant-testing-method-sensitivity",
+          "name": "penetrant testing method, sensitivity",
           "requires": ["penetrant-testing-materials"]
-        },
-        {
-          "id": "sensitivity",
-          "name": "sensitivity",
-          "requires": ["penetrant-testing-method"]
         },
         {
           "id": "application-and-limitations",
           "name": "application and limitations",
-          "requires": ["sensitivity"]
+          "requires": ["penetrant-testing-method-sensitivity"]
+        },
+        {
+          "id": "introduction-to-non-destructive-testing-ndt",
+          "name": "Introduction to Non-Destructive Testing (NDT)",
+          "status": "retired"
+        },
+        {
+          "id": "its-relevance",
+          "name": "its relevance",
+          "status": "retired"
+        },
+        {
+          "id": "liquid-penetrant-testing",
+          "name": "Liquid penetrant testing",
+          "status": "retired"
+        },
+        {
+          "id": "procedure",
+          "name": "procedure",
+          "status": "retired"
+        },
+        {
+          "id": "penetrant-testing-method",
+          "name": "penetrant testing method",
+          "status": "retired"
+        },
+        {
+          "id": "sensitivity",
+          "name": "sensitivity",
+          "status": "retired"
         }
       ]
     },
@@ -183,19 +203,14 @@
           "name": "MPT: Definition and principle"
         },
         {
-          "id": "magnetizing-technique",
-          "name": "magnetizing technique",
+          "id": "magnetizing-technique-procedure",
+          "name": "magnetizing technique, procedure",
           "requires": ["mpt-definition-and-principle"]
-        },
-        {
-          "id": "procedure-2",
-          "name": "procedure",
-          "requires": ["magnetizing-technique"]
         },
         {
           "id": "equipment-sensitivity-and-limitation",
           "name": "equipment sensitivity and limitation",
-          "requires": ["procedure-2"]
+          "requires": ["magnetizing-technique-procedure"]
         },
         {
           "id": "application-and-acceptance-standards-radiography-basic-princ",
@@ -213,24 +228,14 @@
           "requires": ["electromagnetic-radiation-in-film"]
         },
         {
-          "id": "inspection-techniques",
-          "name": "inspection techniques",
+          "id": "inspection-techniques-applications-limitations",
+          "name": "inspection techniques, applications, limitations",
           "requires": ["radiographic-imaging"]
-        },
-        {
-          "id": "applications",
-          "name": "applications",
-          "requires": ["inspection-techniques"]
-        },
-        {
-          "id": "limitations",
-          "name": "limitations",
-          "requires": ["applications"]
         },
         {
           "id": "real-time-radiography",
           "name": "real time radiography",
-          "requires": ["limitations"]
+          "requires": ["inspection-techniques-applications-limitations"]
         },
         {
           "id": "safety-in-industrial-radiography",
@@ -241,6 +246,31 @@
           "id": "application-and-acceptance-standards",
           "name": "Application & Acceptance Standards",
           "requires": ["safety-in-industrial-radiography"]
+        },
+        {
+          "id": "magnetizing-technique",
+          "name": "magnetizing technique",
+          "status": "retired"
+        },
+        {
+          "id": "procedure-2",
+          "name": "procedure",
+          "status": "retired"
+        },
+        {
+          "id": "inspection-techniques",
+          "name": "inspection techniques",
+          "status": "retired"
+        },
+        {
+          "id": "applications",
+          "name": "applications",
+          "status": "retired"
+        },
+        {
+          "id": "limitations",
+          "name": "limitations",
+          "status": "retired"
         }
       ]
     },
@@ -274,24 +304,14 @@
           "requires": ["flaw-characterization-technique"]
         },
         {
-          "id": "immersion-testing",
-          "name": "immersion testing",
+          "id": "immersion-testing-advantage-limitations",
+          "name": "immersion testing, advantage, limitations",
           "requires": ["ultrasonic-flaw-detection-equipment-modes-of-display"]
-        },
-        {
-          "id": "advantage",
-          "name": "advantage",
-          "requires": ["immersion-testing"]
-        },
-        {
-          "id": "limitations-2",
-          "name": "limitations",
-          "requires": ["advantage"]
         },
         {
           "id": "application-and-acceptance-standards-eddy-current-testing-pr",
           "name": "Application & Acceptance Standards Eddy current testing: Principle",
-          "requires": ["limitations-2"]
+          "requires": ["immersion-testing-advantage-limitations"]
         },
         {
           "id": "instrument-techniques",
@@ -299,19 +319,14 @@
           "requires": ["application-and-acceptance-standards-eddy-current-testing-pr"]
         },
         {
-          "id": "sensitivity-application",
-          "name": "sensitivity application",
+          "id": "sensitivity-application-limitation",
+          "name": "sensitivity application, limitation",
           "requires": ["instrument-techniques"]
-        },
-        {
-          "id": "limitation",
-          "name": "limitation",
-          "requires": ["sensitivity-application"]
         },
         {
           "id": "ultrasonic-testing",
           "name": "ultrasonic testing",
-          "requires": ["limitation"]
+          "requires": ["sensitivity-application-limitation"]
         },
         {
           "id": "basic-properties-of-sound-beam",
@@ -320,18 +335,13 @@
         },
         {
           "id": "application-and-acceptance-standards-acoustic-emission-testi",
-          "name": "Application & Acceptance Standards Acoustic emission testing: Principles of AET and techniques",
+          "name": "Application & Acceptance Standards Acoustic emission testing: Principles of AET and techniques, its application",
           "requires": ["basic-properties-of-sound-beam"]
-        },
-        {
-          "id": "its-application",
-          "name": "its application",
-          "requires": ["application-and-acceptance-standards-acoustic-emission-testi"]
         },
         {
           "id": "acceptance-standards",
           "name": "Acceptance standards",
-          "requires": ["its-application"]
+          "requires": ["application-and-acceptance-standards-acoustic-emission-testi"]
         },
         {
           "id": "use-of-automation",
@@ -342,6 +352,36 @@
           "id": "ai-and-industry-4-0-in-testing-techniques-and-its-case-studi",
           "name": "AI and Industry 4.0 in testing techniques and its case studies",
           "requires": ["use-of-automation"]
+        },
+        {
+          "id": "immersion-testing",
+          "name": "immersion testing",
+          "status": "retired"
+        },
+        {
+          "id": "advantage",
+          "name": "advantage",
+          "status": "retired"
+        },
+        {
+          "id": "limitations-2",
+          "name": "limitations",
+          "status": "retired"
+        },
+        {
+          "id": "sensitivity-application",
+          "name": "sensitivity application",
+          "status": "retired"
+        },
+        {
+          "id": "limitation",
+          "name": "limitation",
+          "status": "retired"
+        },
+        {
+          "id": "its-application",
+          "name": "its application",
+          "status": "retired"
         }
       ]
     }

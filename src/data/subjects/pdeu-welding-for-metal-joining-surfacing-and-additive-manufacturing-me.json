@@ -86,24 +86,14 @@
           "requires": ["saw"]
         },
         {
-          "id": "gmaw",
-          "name": "GMAW",
+          "id": "gmaw-basics-application",
+          "name": "GMAW, Basics, application",
           "requires": ["gtaw"]
-        },
-        {
-          "id": "basics",
-          "name": "Basics",
-          "requires": ["gmaw"]
-        },
-        {
-          "id": "application",
-          "name": "application",
-          "requires": ["basics"]
         },
         {
           "id": "advantages-and-disadvantages",
           "name": "advantages and disadvantages",
-          "requires": ["application"]
+          "requires": ["gmaw-basics-application"]
         },
         {
           "id": "pulsed-and-synergic-welding",
@@ -114,6 +104,21 @@
           "id": "effect-of-welding-parameters-on-welding-quality",
           "name": "Effect of welding parameters on welding quality",
           "requires": ["pulsed-and-synergic-welding"]
+        },
+        {
+          "id": "gmaw",
+          "name": "GMAW",
+          "status": "retired"
+        },
+        {
+          "id": "basics",
+          "name": "Basics",
+          "status": "retired"
+        },
+        {
+          "id": "application",
+          "name": "application",
+          "status": "retired"
         }
       ]
     },
@@ -123,18 +128,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "resistance",
-          "name": "Resistance"
-        },
-        {
-          "id": "beam-and-solid-state-welding-processes",
-          "name": "Beam and solid state welding processes",
-          "requires": ["resistance"]
+          "id": "resistance-beam-and-solid-state-welding-processes",
+          "name": "Resistance, Beam and solid state welding processes"
         },
         {
           "id": "types-of-processes",
           "name": "Types of processes",
-          "requires": ["beam-and-solid-state-welding-processes"]
+          "requires": ["resistance-beam-and-solid-state-welding-processes"]
         },
         {
           "id": "fundamental-principles-of-operation",
@@ -175,6 +175,16 @@
           "id": "metallography-of-weld",
           "name": "Metallography of weld",
           "requires": ["electro-slag-and-electro-gas-welding"]
+        },
+        {
+          "id": "resistance",
+          "name": "Resistance",
+          "status": "retired"
+        },
+        {
+          "id": "beam-and-solid-state-welding-processes",
+          "name": "Beam and solid state welding processes",
+          "status": "retired"
         }
       ]
     },
@@ -285,18 +295,18 @@
         },
         {
           "id": "cold-metal-transfer-and-friction-stir-welding-for-additive-m",
-          "name": "cold metal transfer and friction stir welding for additive manufacturing and other solid state additive manufacturing",
+          "name": "cold metal transfer and friction stir welding for additive manufacturing and other solid state additive manufacturing, Weld 4.0",
           "requires": ["welding-processes-for-additive-manufacturing-includes-wire-a"]
-        },
-        {
-          "id": "weld-4-0",
-          "name": "Weld 4.0",
-          "requires": ["cold-metal-transfer-and-friction-stir-welding-for-additive-m"]
         },
         {
           "id": "welding-simulators",
           "name": "Welding simulators",
-          "requires": ["weld-4-0"]
+          "requires": ["cold-metal-transfer-and-friction-stir-welding-for-additive-m"]
+        },
+        {
+          "id": "weld-4-0",
+          "name": "Weld 4.0",
+          "status": "retired"
         }
       ]
     }

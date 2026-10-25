@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Microwave and Antenna",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -43,7 +43,16 @@
         {
           "id": "radiation-mechanism",
           "name": "radiation mechanism",
-          "requires": ["microwave-frequency-bands"]
+          "requires": ["microwave-frequency-bands"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "radiation-mechanism-2",
+          "name": "Radiation mechanism",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["radiation-mechanism"]
         },
         {
           "id": "near-and-far-field-regions",
@@ -118,13 +127,31 @@
         },
         {
           "id": "image-theory-and-monopole-antenna-aperture-antennas",
-          "name": "image theory and monopole antenna. Aperture antennas: waveguide",
-          "requires": ["yagi-uda-antenna"]
+          "name": "image theory and monopole antenna",
+          "requires": ["yagi-uda-antenna"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "aperture-antennas-waveguide",
+          "name": "Aperture antennas: waveguide",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["image-theory-and-monopole-antenna-aperture-antennas"]
         },
         {
           "id": "horn-and-reflector-antennas-basic-characteristics-of",
-          "name": "horn and reflector antennas. Basic characteristics of microstrip antennas",
-          "requires": ["image-theory-and-monopole-antenna-aperture-antennas"]
+          "name": "horn and reflector antennas",
+          "requires": ["image-theory-and-monopole-antenna-aperture-antennas"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "basic-characteristics-of-microstrip-antennas",
+          "name": "Basic characteristics of microstrip antennas",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["horn-and-reflector-antennas-basic-characteristics-of"]
         },
         {
           "id": "feeding-methods",
@@ -138,8 +165,17 @@
         },
         {
           "id": "design-of-rectangular-and-circular-patch-antennas-antenna",
-          "name": "design of rectangular and circular patch antennas. Antenna Array: Two element arrays",
-          "requires": ["methods-of-analysis"]
+          "name": "design of rectangular and circular patch antennas",
+          "requires": ["methods-of-analysis"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "antenna-array-two-element-arrays",
+          "name": "Antenna Array: Two element arrays",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["design-of-rectangular-and-circular-patch-antennas-antenna"]
         },
         {
           "id": "n-element-linear-array",
@@ -184,8 +220,24 @@
         },
         {
           "id": "directional-couplers-circulators-and-isolators-microwave",
-          "name": "directional couplers, circulators, and isolators. Microwave filters. Microwave Semiconductor Devices: Gunn Diodes",
-          "requires": ["scattering-parameters-of-wave-guide-tees"]
+          "name": "directional couplers, circulators, isolators",
+          "requires": ["scattering-parameters-of-wave-guide-tees"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "microwave-filters",
+          "name": "Microwave filters",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["directional-couplers-circulators-and-isolators-microwave"]
+        },
+        {
+          "id": "microwave-semiconductor-devices-gunn-diodes",
+          "name": "Microwave Semiconductor Devices: Gunn Diodes",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["microwave-filters"]
         },
         {
           "id": "impatt-diodes",
@@ -300,5 +352,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

@@ -76,24 +76,14 @@
           "requires": ["composition-of-solids"]
         },
         {
-          "id": "mole-percent",
-          "name": "mole percent",
+          "id": "mole-percent-molarity-normality",
+          "name": "mole percent, molarity, normality)",
           "requires": ["liquids-and-solutions-weight-percent"]
-        },
-        {
-          "id": "molarity",
-          "name": "molarity",
-          "requires": ["mole-percent"]
-        },
-        {
-          "id": "normality",
-          "name": "normality)",
-          "requires": ["molarity"]
         },
         {
           "id": "other-expressions-for-concentration",
           "name": "other expressions for concentration",
-          "requires": ["normality"]
+          "requires": ["mole-percent-molarity-normality"]
         },
         {
           "id": "average-molecular-weight-and-density",
@@ -139,6 +129,21 @@
           "id": "conversion-of-flammability-limits-from-percentage-to-ppm",
           "name": "conversion of flammability limits from percentage to ppm",
           "requires": ["unit-conversion-from-mg-m-to-ppm-for-tlv"]
+        },
+        {
+          "id": "mole-percent",
+          "name": "mole percent",
+          "status": "retired"
+        },
+        {
+          "id": "molarity",
+          "name": "molarity",
+          "status": "retired"
+        },
+        {
+          "id": "normality",
+          "name": "normality)",
+          "status": "retired"
         }
       ]
     },
@@ -244,33 +249,18 @@
       "hours": 14,
       "topics": [
         {
-          "id": "terminologies",
-          "name": "Terminologies"
+          "id": "terminologies-specific-heat-capacity-enthalpy",
+          "name": "Terminologies, specific heat capacity, enthalpy"
         },
         {
-          "id": "specific-heat-capacity",
-          "name": "specific heat capacity",
-          "requires": ["terminologies"]
-        },
-        {
-          "id": "enthalpy",
-          "name": "enthalpy",
-          "requires": ["specific-heat-capacity"]
-        },
-        {
-          "id": "heat-of-formation",
-          "name": "heat of formation",
-          "requires": ["enthalpy"]
-        },
-        {
-          "id": "combustion",
-          "name": "combustion",
-          "requires": ["heat-of-formation"]
+          "id": "heat-of-formation-combustion",
+          "name": "heat of formation, combustion",
+          "requires": ["terminologies-specific-heat-capacity-enthalpy"]
         },
         {
           "id": "reaction-and-solution",
           "name": "reaction and solution",
-          "requires": ["combustion"]
+          "requires": ["heat-of-formation-combustion"]
         },
         {
           "id": "energy-balances-without-reactions-and-for-chemical-reactions",
@@ -316,6 +306,31 @@
           "id": "case-study-of-energy-balance-mic-and-non-mic-route",
           "name": "case study of energy balance: MIC and non-MIC route",
           "requires": ["latent-heat-of-vaporization-and-bleve"]
+        },
+        {
+          "id": "terminologies",
+          "name": "Terminologies",
+          "status": "retired"
+        },
+        {
+          "id": "specific-heat-capacity",
+          "name": "specific heat capacity",
+          "status": "retired"
+        },
+        {
+          "id": "enthalpy",
+          "name": "enthalpy",
+          "status": "retired"
+        },
+        {
+          "id": "heat-of-formation",
+          "name": "heat of formation",
+          "status": "retired"
+        },
+        {
+          "id": "combustion",
+          "name": "combustion",
+          "status": "retired"
         }
       ]
     },

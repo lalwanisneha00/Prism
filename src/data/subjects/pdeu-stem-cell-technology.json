@@ -64,24 +64,18 @@
         },
         {
           "id": "epidermis-testis-and-neural-tissues",
-          "name": "epidermis",
-          "requires": ["bone-marrow"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "epidermis, testis, and neural tissues",
+          "requires": ["bone-marrow"]
         },
         {
           "id": "testis",
           "name": "testis",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["epidermis-testis-and-neural-tissues"]
+          "status": "retired"
         },
         {
           "id": "neural-tissues",
           "name": "neural tissues",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["testis"]
+          "status": "retired"
         }
       ]
     },
@@ -137,24 +131,17 @@
         },
         {
           "id": "organogenesis-and-morphogenesis-metamorphosis-animal-life",
-          "name": "organogenesis and morphogenesis",
+          "name": "organogenesis and morphogenesis, metamorphosis",
           "requires": ["early-asymmetric-division-and-generation-of-symmetry-in"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "metamorphosis",
-          "name": "metamorphosis",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["organogenesis-and-morphogenesis-metamorphosis-animal-life"]
         },
         {
           "id": "animal-life-cycle",
           "name": "animal life cycle",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["metamorphosis"]
+          "requires": ["organogenesis-and-morphogenesis-metamorphosis-animal-life"]
         },
         {
           "id": "sex-determination-and-role-of-apoptosis-in-organ-development",
@@ -188,6 +175,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["dorso-ventral"]
+        },
+        {
+          "id": "metamorphosis",
+          "name": "metamorphosis",
+          "status": "retired"
         }
       ]
     },

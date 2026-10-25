@@ -147,29 +147,14 @@
           "requires": ["ieee-802-standards-for-sub-networks"]
         },
         {
-          "id": "wireless-lan",
-          "name": "wireless LAN",
+          "id": "wireless-lan-bluetooth-zigbee-owpan",
+          "name": "wireless LAN, Bluetooth, Zigbee, oWPAN",
           "requires": ["ethernet-lan"]
-        },
-        {
-          "id": "bluetooth",
-          "name": "Bluetooth",
-          "requires": ["wireless-lan"]
-        },
-        {
-          "id": "zigbee",
-          "name": "Zigbee",
-          "requires": ["bluetooth"]
-        },
-        {
-          "id": "owpan",
-          "name": "oWPAN",
-          "requires": ["zigbee"]
         },
         {
           "id": "standards-for-information-exchange",
           "name": "Standards for information exchange",
-          "requires": ["owpan"]
+          "requires": ["wireless-lan-bluetooth-zigbee-owpan"]
         },
         {
           "id": "evolution-of-smart-metering-and-its-key-components-and-hardw",
@@ -200,6 +185,26 @@
           "id": "pmu-and-wams",
           "name": "PMU and WAMS",
           "requires": ["data-concentrators-and-protocols-for-communication"]
+        },
+        {
+          "id": "wireless-lan",
+          "name": "wireless LAN",
+          "status": "retired"
+        },
+        {
+          "id": "bluetooth",
+          "name": "Bluetooth",
+          "status": "retired"
+        },
+        {
+          "id": "zigbee",
+          "name": "Zigbee",
+          "status": "retired"
+        },
+        {
+          "id": "owpan",
+          "name": "oWPAN",
+          "status": "retired"
         }
       ]
     },
@@ -218,24 +223,14 @@
           "requires": ["sub-station-automation-equipment"]
         },
         {
-          "id": "measurement-and-recording",
-          "name": "measurement and recording",
+          "id": "measurement-and-recording-sensors-rtus",
+          "name": "measurement and recording, sensors, RTUs",
           "requires": ["ied-for-protection"]
-        },
-        {
-          "id": "sensors",
-          "name": "sensors",
-          "requires": ["measurement-and-recording"]
-        },
-        {
-          "id": "rtus",
-          "name": "RTUs",
-          "requires": ["sensors"]
         },
         {
           "id": "one-line-diagram-of-smart-sub-station",
           "name": "one-line diagram of smart sub-station",
-          "requires": ["rtus"]
+          "requires": ["measurement-and-recording-sensors-rtus"]
         },
         {
           "id": "station-bay-process-level",
@@ -281,6 +276,21 @@
           "id": "engineering-approach-in-iec-61850",
           "name": "Engineering approach in IEC 61850",
           "requires": ["interoperability-and-iec-61850-interfaces-within-a-substatio"]
+        },
+        {
+          "id": "measurement-and-recording",
+          "name": "measurement and recording",
+          "status": "retired"
+        },
+        {
+          "id": "sensors",
+          "name": "sensors",
+          "status": "retired"
+        },
+        {
+          "id": "rtus",
+          "name": "RTUs",
+          "status": "retired"
         }
       ]
     },

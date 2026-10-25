@@ -76,19 +76,14 @@
           "requires": ["industry-4-0-core-technologies"]
         },
         {
-          "id": "advanced-robotics",
-          "name": "advanced robotics",
+          "id": "advanced-robotics-simulation",
+          "name": "advanced robotics, simulation",
           "requires": ["big-data"]
-        },
-        {
-          "id": "simulation",
-          "name": "simulation",
-          "requires": ["advanced-robotics"]
         },
         {
           "id": "integration",
           "name": "integration",
-          "requires": ["simulation"]
+          "requires": ["advanced-robotics-simulation"]
         },
         {
           "id": "internet-of-things-iot",
@@ -96,19 +91,14 @@
           "requires": ["integration"]
         },
         {
-          "id": "artificial-intelligence-ai",
-          "name": "artificial intelligence (AI)",
+          "id": "artificial-intelligence-ai-cybersecurity",
+          "name": "artificial intelligence (AI), cybersecurity",
           "requires": ["internet-of-things-iot"]
-        },
-        {
-          "id": "cybersecurity",
-          "name": "cybersecurity",
-          "requires": ["artificial-intelligence-ai"]
         },
         {
           "id": "cloud-computing",
           "name": "cloud computing",
-          "requires": ["cybersecurity"]
+          "requires": ["artificial-intelligence-ai-cybersecurity"]
         },
         {
           "id": "additive-manufacturing-and-augmented-reality",
@@ -129,6 +119,26 @@
           "id": "communication-and-computational-processing",
           "name": "communication and computational processing",
           "requires": ["transformation-of-industrial-processes-through-integration-o"]
+        },
+        {
+          "id": "advanced-robotics",
+          "name": "advanced robotics",
+          "status": "retired"
+        },
+        {
+          "id": "simulation",
+          "name": "simulation",
+          "status": "retired"
+        },
+        {
+          "id": "artificial-intelligence-ai",
+          "name": "artificial intelligence (AI)",
+          "status": "retired"
+        },
+        {
+          "id": "cybersecurity",
+          "name": "cybersecurity",
+          "status": "retired"
         }
       ]
     },
@@ -138,28 +148,13 @@
       "hours": 6,
       "topics": [
         {
-          "id": "fundamentals-of-python-with-emphasis-on-numpy",
-          "name": "Fundamentals of Python with emphasis on NumPy"
-        },
-        {
-          "id": "pandas",
-          "name": "Pandas",
-          "requires": ["fundamentals-of-python-with-emphasis-on-numpy"]
-        },
-        {
-          "id": "matplotlib",
-          "name": "Matplotlib",
-          "requires": ["pandas"]
-        },
-        {
-          "id": "opencv",
-          "name": "OpenCV",
-          "requires": ["matplotlib"]
+          "id": "fundamentals-of-python-with-emphasis-on-numpy-pandas-matplot",
+          "name": "Fundamentals of Python with emphasis on NumPy, Pandas, Matplotlib, OpenCV"
         },
         {
           "id": "tensorflow-and-keras",
           "name": "TensorFlow and Keras",
-          "requires": ["opencv"]
+          "requires": ["fundamentals-of-python-with-emphasis-on-numpy-pandas-matplot"]
         },
         {
           "id": "data-handling",
@@ -195,6 +190,26 @@
           "id": "for-controlling-chemical-unit-operations-and-for-plant-logis",
           "name": "for controlling chemical unit operations and for plant logistics",
           "requires": ["machine-learning-for-chemical-reactor-design"]
+        },
+        {
+          "id": "fundamentals-of-python-with-emphasis-on-numpy",
+          "name": "Fundamentals of Python with emphasis on NumPy",
+          "status": "retired"
+        },
+        {
+          "id": "pandas",
+          "name": "Pandas",
+          "status": "retired"
+        },
+        {
+          "id": "matplotlib",
+          "name": "Matplotlib",
+          "status": "retired"
+        },
+        {
+          "id": "opencv",
+          "name": "OpenCV",
+          "status": "retired"
         }
       ]
     },

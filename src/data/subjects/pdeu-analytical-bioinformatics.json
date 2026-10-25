@@ -44,73 +44,27 @@
         },
         {
           "id": "elementary-commands-and-protocols-ftp-telnet-http-databanks",
-          "name": "Elementary commands and Protocols",
+          "name": "Elementary commands and Protocols, ftp, telnet",
           "requires": ["scope-of-bioinformatics"],
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
-          "id": "ftp",
-          "name": "ftp",
+          "id": "http-databanks",
+          "name": "http, Databanks",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["elementary-commands-and-protocols-ftp-telnet-http-databanks"]
         },
         {
-          "id": "telnet",
-          "name": "telnet",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ftp"]
-        },
-        {
-          "id": "http",
-          "name": "http",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["telnet"]
-        },
-        {
           "id": "nucleotide-databanks",
-          "name": "Databanks",
-          "requires": ["elementary-commands-and-protocols-ftp-telnet-http-databanks"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "nucleotide-databanks-2",
           "name": "nucleotide databanks",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["nucleotide-databanks"]
+          "requires": ["elementary-commands-and-protocols-ftp-telnet-http-databanks"]
         },
         {
           "id": "genbank-ncbi-embl-ddbj",
-          "name": "Genbank",
-          "requires": ["nucleotide-databanks"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "ncbi",
-          "name": "NCBI",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["genbank-ncbi-embl-ddbj"]
-        },
-        {
-          "id": "embl",
-          "name": "EMBL",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ncbi"]
-        },
-        {
-          "id": "ddbj",
-          "name": "DDBJ",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["embl"]
+          "name": "Genbank, NCBI, EMBL, DDBJ",
+          "requires": ["nucleotide-databanks"]
         },
         {
           "id": "protein-databanks",
@@ -124,24 +78,8 @@
         },
         {
           "id": "pir-swissprot-trembl",
-          "name": "PIR",
-          "requires": ["sequence-databanks"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "swissprot",
-          "name": "SWISSPROT",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pir-swissprot-trembl"]
-        },
-        {
-          "id": "trembl",
-          "name": "TrEMBL",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["swissprot"]
+          "name": "PIR, SWISSPROT, TrEMBL",
+          "requires": ["sequence-databanks"]
         },
         {
           "id": "structural-databases",
@@ -168,6 +106,51 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["scop"]
+        },
+        {
+          "id": "ftp",
+          "name": "ftp",
+          "status": "retired"
+        },
+        {
+          "id": "telnet",
+          "name": "telnet",
+          "status": "retired"
+        },
+        {
+          "id": "http",
+          "name": "http",
+          "status": "retired"
+        },
+        {
+          "id": "nucleotide-databanks-2",
+          "name": "nucleotide databanks",
+          "status": "retired"
+        },
+        {
+          "id": "ncbi",
+          "name": "NCBI",
+          "status": "retired"
+        },
+        {
+          "id": "embl",
+          "name": "EMBL",
+          "status": "retired"
+        },
+        {
+          "id": "ddbj",
+          "name": "DDBJ",
+          "status": "retired"
+        },
+        {
+          "id": "swissprot",
+          "name": "SWISSPROT",
+          "status": "retired"
+        },
+        {
+          "id": "trembl",
+          "name": "TrEMBL",
+          "status": "retired"
         }
       ]
     },

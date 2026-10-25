@@ -37,33 +37,13 @@
       "hours": 9,
       "topics": [
         {
-          "id": "concept",
-          "name": "Concept"
-        },
-        {
-          "id": "significance",
-          "name": "Significance",
-          "requires": ["concept"]
-        },
-        {
-          "id": "classification",
-          "name": "Classification",
-          "requires": ["significance"]
-        },
-        {
-          "id": "components",
-          "name": "Components",
-          "requires": ["classification"]
-        },
-        {
-          "id": "vehicle-dynamics",
-          "name": "Vehicle Dynamics",
-          "requires": ["components"]
+          "id": "concept-significance-classification-components-vehicle-dynam",
+          "name": "Concept, Significance, Classification, Components, Vehicle Dynamics"
         },
         {
           "id": "merits-and-demerits",
           "name": "Merits and Demerits",
-          "requires": ["vehicle-dynamics"]
+          "requires": ["concept-significance-classification-components-vehicle-dynam"]
         },
         {
           "id": "challenges-and-constraints",
@@ -94,6 +74,31 @@
           "id": "government-policies-on-electric-vehicles",
           "name": "Government Policies on Electric Vehicles",
           "requires": ["technical-specifications-of-commercial-electric-vehicles"]
+        },
+        {
+          "id": "concept",
+          "name": "Concept",
+          "status": "retired"
+        },
+        {
+          "id": "significance",
+          "name": "Significance",
+          "status": "retired"
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "status": "retired"
+        },
+        {
+          "id": "components",
+          "name": "Components",
+          "status": "retired"
+        },
+        {
+          "id": "vehicle-dynamics",
+          "name": "Vehicle Dynamics",
+          "status": "retired"
         }
       ]
     },
@@ -103,53 +108,28 @@
       "hours": 11,
       "topics": [
         {
-          "id": "concept-2",
-          "name": "Concept"
-        },
-        {
-          "id": "classification-2",
-          "name": "Classification",
-          "requires": ["concept-2"]
-        },
-        {
-          "id": "power-train-architecture",
-          "name": "Power Train Architecture",
-          "requires": ["classification-2"]
-        },
-        {
-          "id": "components-2",
-          "name": "Components",
-          "requires": ["power-train-architecture"]
+          "id": "concept-classification-power-train-architecture-components",
+          "name": "Concept, Classification, Power Train Architecture, Components"
         },
         {
           "id": "propulsion-motors",
           "name": "Propulsion Motors",
-          "requires": ["components-2"]
+          "requires": ["concept-classification-power-train-architecture-components"]
         },
         {
-          "id": "permanent-brushless-dc-motors",
-          "name": "Permanent Brushless dc Motors",
+          "id": "permanent-brushless-dc-motors-sensors",
+          "name": "Permanent Brushless dc Motors, Sensors",
           "requires": ["propulsion-motors"]
         },
         {
-          "id": "sensors",
-          "name": "Sensors",
-          "requires": ["permanent-brushless-dc-motors"]
-        },
-        {
-          "id": "power-converters",
-          "name": "Power Converters",
-          "requires": ["sensors"]
-        },
-        {
-          "id": "controller",
-          "name": "Controller",
-          "requires": ["power-converters"]
+          "id": "power-converters-controller",
+          "name": "Power Converters, Controller",
+          "requires": ["permanent-brushless-dc-motors-sensors"]
         },
         {
           "id": "power-and-control-architecture",
           "name": "Power and Control Architecture",
-          "requires": ["controller"]
+          "requires": ["power-converters-controller"]
         },
         {
           "id": "battery-management-system",
@@ -175,6 +155,46 @@
           "id": "hybrid-electric-vehicle-drive-trains",
           "name": "Hybrid Electric Vehicle Drive Trains",
           "requires": ["2-wheeler-and-4-wheeler-electric-vehicle"]
+        },
+        {
+          "id": "concept-2",
+          "name": "Concept",
+          "status": "retired"
+        },
+        {
+          "id": "classification-2",
+          "name": "Classification",
+          "status": "retired"
+        },
+        {
+          "id": "power-train-architecture",
+          "name": "Power Train Architecture",
+          "status": "retired"
+        },
+        {
+          "id": "components-2",
+          "name": "Components",
+          "status": "retired"
+        },
+        {
+          "id": "permanent-brushless-dc-motors",
+          "name": "Permanent Brushless dc Motors",
+          "status": "retired"
+        },
+        {
+          "id": "sensors",
+          "name": "Sensors",
+          "status": "retired"
+        },
+        {
+          "id": "power-converters",
+          "name": "Power Converters",
+          "status": "retired"
+        },
+        {
+          "id": "controller",
+          "name": "Controller",
+          "status": "retired"
         }
       ]
     },
@@ -184,28 +204,18 @@
       "hours": 11,
       "topics": [
         {
-          "id": "energy-storage-elements",
-          "name": "Energy Storage Elements"
+          "id": "energy-storage-elements-battery",
+          "name": "Energy Storage Elements, Battery"
         },
         {
-          "id": "battery",
-          "name": "Battery",
-          "requires": ["energy-storage-elements"]
-        },
-        {
-          "id": "fuel-cell",
-          "name": "Fuel Cell",
-          "requires": ["battery"]
-        },
-        {
-          "id": "ultracapacitors",
-          "name": "Ultracapacitors",
-          "requires": ["fuel-cell"]
+          "id": "fuel-cell-ultracapacitors",
+          "name": "Fuel Cell, Ultracapacitors",
+          "requires": ["energy-storage-elements-battery"]
         },
         {
           "id": "mathematical-modelling-of-energy-storage",
           "name": "Mathematical Modelling of Energy Storage",
-          "requires": ["ultracapacitors"]
+          "requires": ["fuel-cell-ultracapacitors"]
         },
         {
           "id": "hybrid-energy-storage",
@@ -261,6 +271,26 @@
           "id": "vehicle-to-grid-and-grid-to-vehicle-interface-elements",
           "name": "Vehicle to Grid and Grid to Vehicle Interface Elements",
           "requires": ["on-board-and-wireless-battery-charging"]
+        },
+        {
+          "id": "energy-storage-elements",
+          "name": "Energy Storage Elements",
+          "status": "retired"
+        },
+        {
+          "id": "battery",
+          "name": "Battery",
+          "status": "retired"
+        },
+        {
+          "id": "fuel-cell",
+          "name": "Fuel Cell",
+          "status": "retired"
+        },
+        {
+          "id": "ultracapacitors",
+          "name": "Ultracapacitors",
+          "status": "retired"
         }
       ]
     },

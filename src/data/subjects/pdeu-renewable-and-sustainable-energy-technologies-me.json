@@ -101,19 +101,14 @@
           "requires": ["advanced-collectors"]
         },
         {
-          "id": "different-methods",
-          "name": "Different methods",
+          "id": "different-methods-sensible",
+          "name": "Different methods, Sensible",
           "requires": ["solar-energy-storage-and-applications"]
-        },
-        {
-          "id": "sensible",
-          "name": "Sensible",
-          "requires": ["different-methods"]
         },
         {
           "id": "latent-heat-and-stratified-storage",
           "name": "latent heat and stratified storage",
-          "requires": ["sensible"]
+          "requires": ["different-methods-sensible"]
         },
         {
           "id": "solar-ponds",
@@ -131,24 +126,14 @@
           "requires": ["solar-applications-solar-heating-cooling-technique"]
         },
         {
-          "id": "photovoltaic-energy-conversion",
-          "name": "Photovoltaic energy conversion",
+          "id": "photovoltaic-energy-conversion-photovoltaic-p-n-junction",
+          "name": "Photovoltaic energy conversion, Photovoltaic, p-n junction",
           "requires": ["solar-distillation-and-drying"]
-        },
-        {
-          "id": "photovoltaic",
-          "name": "Photovoltaic",
-          "requires": ["photovoltaic-energy-conversion"]
-        },
-        {
-          "id": "p-n-junction",
-          "name": "p-n junction",
-          "requires": ["photovoltaic"]
         },
         {
           "id": "solar-cells",
           "name": "solar cells",
-          "requires": ["p-n-junction"]
+          "requires": ["photovoltaic-energy-conversion-photovoltaic-p-n-junction"]
         },
         {
           "id": "pv-systems",
@@ -164,6 +149,31 @@
           "id": "grid-connected-solar-power",
           "name": "Grid connected solar power",
           "requires": ["stand-alone"]
+        },
+        {
+          "id": "different-methods",
+          "name": "Different methods",
+          "status": "retired"
+        },
+        {
+          "id": "sensible",
+          "name": "Sensible",
+          "status": "retired"
+        },
+        {
+          "id": "photovoltaic-energy-conversion",
+          "name": "Photovoltaic energy conversion",
+          "status": "retired"
+        },
+        {
+          "id": "photovoltaic",
+          "name": "Photovoltaic",
+          "status": "retired"
+        },
+        {
+          "id": "p-n-junction",
+          "name": "p-n junction",
+          "status": "retired"
         }
       ]
     },
@@ -173,18 +183,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "biogas",
-          "name": "Biogas"
-        },
-        {
-          "id": "principles-of-bio-conversion",
-          "name": "Principles of Bio-Conversion",
-          "requires": ["biogas"]
+          "id": "biogas-principles-of-bio-conversion",
+          "name": "Biogas, Principles of Bio-Conversion"
         },
         {
           "id": "anaerobic-aerobic-digestion",
           "name": "Anaerobic/aerobic digestion",
-          "requires": ["principles-of-bio-conversion"]
+          "requires": ["biogas-principles-of-bio-conversion"]
         },
         {
           "id": "types-of-bio-gas-digesters",
@@ -217,19 +222,14 @@
           "requires": ["biomass-gasification"]
         },
         {
-          "id": "constructional-details-of-gasifier",
-          "name": "Constructional details of gasifier",
+          "id": "constructional-details-of-gasifier-biofuels",
+          "name": "Constructional details of gasifier, Biofuels",
           "requires": ["biomass-conversion-technologies"]
-        },
-        {
-          "id": "biofuels",
-          "name": "Biofuels",
-          "requires": ["constructional-details-of-gasifier"]
         },
         {
           "id": "introduction-and-perspective-of-biofuels",
           "name": "Introduction and perspective of biofuels",
-          "requires": ["biofuels"]
+          "requires": ["constructional-details-of-gasifier-biofuels"]
         },
         {
           "id": "biofuel-production-and-applications",
@@ -260,6 +260,26 @@
           "id": "biomass-pallets-and-its-applications",
           "name": "Biomass pallets and its applications",
           "requires": ["engine-operation-and-economic-aspects"]
+        },
+        {
+          "id": "biogas",
+          "name": "Biogas",
+          "status": "retired"
+        },
+        {
+          "id": "principles-of-bio-conversion",
+          "name": "Principles of Bio-Conversion",
+          "status": "retired"
+        },
+        {
+          "id": "constructional-details-of-gasifier",
+          "name": "Constructional details of gasifier",
+          "status": "retired"
+        },
+        {
+          "id": "biofuels",
+          "name": "Biofuels",
+          "status": "retired"
         }
       ]
     },
@@ -344,19 +364,14 @@
           "requires": ["basic-principle-of-tidal-power"]
         },
         {
-          "id": "fuel-cells",
-          "name": "Fuel Cells",
+          "id": "fuel-cells-introduction",
+          "name": "Fuel Cells, Introduction",
           "requires": ["wave-energy-conversion-devices"]
-        },
-        {
-          "id": "introduction",
-          "name": "Introduction",
-          "requires": ["fuel-cells"]
         },
         {
           "id": "design-principle-and-operation-of-fuel-cell",
           "name": "Design principle and operation of fuel cell",
-          "requires": ["introduction"]
+          "requires": ["fuel-cells-introduction"]
         },
         {
           "id": "types-of-fuel-cells",
@@ -437,6 +452,16 @@
           "id": "hydrogen-as-alternative-fuel-for-vehicles",
           "name": "hydrogen as alternative fuel for vehicles",
           "requires": ["utilization-of-hydrogen-gas"]
+        },
+        {
+          "id": "fuel-cells",
+          "name": "Fuel Cells",
+          "status": "retired"
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "status": "retired"
         }
       ]
     }

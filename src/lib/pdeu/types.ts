@@ -51,6 +51,8 @@ const CourseSchema = z.object({
   options: z.array(OptionSchema).optional(),
   /** Slots that share their options with another slot ("PE-2 / PE-3") name the slot that lists them. */
   optionsListedUnder: z.string().optional(),
+  /** How many options a student takes from this slot (ME semester 7: 3). Missing = 1. */
+  picks: z.int().min(1).max(6).optional(),
 });
 export type PdeuCourse = z.infer<typeof CourseSchema>;
 

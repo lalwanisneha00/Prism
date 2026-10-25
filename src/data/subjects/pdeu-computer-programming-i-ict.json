@@ -169,24 +169,17 @@
         },
         {
           "id": "pointer",
-          "name": "Pointer",
+          "name": "Pointer arithmetic",
           "requires": ["inbuilt-string-manipulation-functions"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "pointer-arithmetic",
-          "name": "Pointer arithmetic",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pointer"]
         },
         {
           "id": "pointer-to-pointer-2",
           "name": "Pointer to pointer",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["pointer-arithmetic"]
+          "requires": ["pointer"]
         },
         {
           "id": "pointers",
@@ -207,6 +200,11 @@
           "id": "dynamic-memory-allocation",
           "name": "Dynamic memory allocation",
           "requires": ["array-of-pointers"]
+        },
+        {
+          "id": "pointer-arithmetic",
+          "name": "Pointer arithmetic",
+          "status": "retired"
         }
       ]
     },

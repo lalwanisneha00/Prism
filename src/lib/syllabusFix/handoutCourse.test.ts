@@ -3,8 +3,10 @@ import {
   baseCourseName,
   codeSuffixType,
   decideCourseType,
+  mergeFragments,
   parseExperiments,
   parseUnits,
+  standsAlone,
   tidyCaps,
   type TypeInput,
 } from "./handoutCourse";
@@ -26,7 +28,7 @@ describe("parseUnits", () => {
       [1, "Number Systems and Logic Gates", 8],
       [2, "Sequential Circuits", 14],
     ]);
-    expect(units[0].topics).toContain("Methods of base conversions");
+    expect(units[0].topics).toContain("Methods of base conversions, complements");
     expect(units[1].topics).toEqual(["Latches and flip-flops", "counters"]);
   });
 
@@ -47,7 +49,7 @@ describe("parseUnits", () => {
       "UNIT I: Cementing 5 Hrs.",
       "11 Introduction to Cementing, types, and issues, Max <>",
     ]);
-    expect(unit.topics).toEqual(["Introduction to Cementing", "types", "issues"]);
+    expect(unit.topics).toEqual(["Introduction to Cementing, types, issues"]);
   });
 
   it("reads 'Hours: 12' and title-cases names printed in capitals, keeping acronyms", () => {
@@ -211,5 +213,28 @@ describe("codeSuffixType and baseCourseName", () => {
   it("pairs a course with its lab", () => {
     expect(baseCourseName("Fluid Mechanics Laboratory")).toBe(baseCourseName("Fluid Mechanics"));
     expect(baseCourseName("Physics Lab (For CS, ICT)")).toBe("physics");
+  });
+});
+
+describe("mergeFragments", () => {
+  it("keeps fragments joined to their phrase and splits real topics", () => {
+    expect(
+      mergeFragments(["Note Taking and Note Making: physical", "digital", "collective"]),
+    ).toEqual(["Note Taking and Note Making: physical, digital, collective"]);
+    expect(mergeFragments(["Excess-3 codes", "Logic Gates", "Truth Table"])).toEqual([
+      "Excess-3 codes",
+      "Logic Gates",
+      "Truth Table",
+    ]);
+    expect(mergeFragments(["Union", "intersection", "complement", "Mapping or function"])).toEqual([
+      "Union, intersection, complement, Mapping or function",
+    ]);
+    expect(mergeFragments(["Decoders", "encoders", "multiplexers"])).toEqual([
+      "Decoders",
+      "encoders",
+      "multiplexers",
+    ]);
+    expect(standsAlone("FPGA")).toBe(true);
+    expect(standsAlone("digital")).toBe(false);
   });
 });

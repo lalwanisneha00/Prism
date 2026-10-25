@@ -335,30 +335,16 @@
       "topics": [
         {
           "id": "serializability",
-          "name": "ACID properties",
+          "name": "ACID properties, Schedules, Serializability",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "schedules",
-          "name": "Schedules",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["serializability"]
-        },
-        {
-          "id": "serializability-2",
-          "name": "Serializability",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["schedules"]
         },
         {
           "id": "concurrency-control-protocols",
           "name": "Concurrency control protocols",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["serializability-2"]
+          "requires": ["serializability"]
         },
         {
           "id": "measures-of-query-cost",
@@ -375,18 +361,11 @@
           "requires": ["measures-of-query-cost"]
         },
         {
-          "id": "sorting",
-          "name": "sorting",
+          "id": "sorting-join",
+          "name": "sorting, join",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["selection-operation"]
-        },
-        {
-          "id": "join",
-          "name": "join",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sorting"]
         },
         {
           "id": "security-discretionary-and-mandatory-access-control",
@@ -421,6 +400,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["data-encryption-introduction-to-nosql-databases"]
+        },
+        {
+          "id": "schedules",
+          "name": "Schedules",
+          "status": "retired"
+        },
+        {
+          "id": "serializability-2",
+          "name": "Serializability",
+          "status": "retired"
+        },
+        {
+          "id": "sorting",
+          "name": "sorting",
+          "status": "retired"
+        },
+        {
+          "id": "join",
+          "name": "join",
+          "status": "retired"
         }
       ]
     }

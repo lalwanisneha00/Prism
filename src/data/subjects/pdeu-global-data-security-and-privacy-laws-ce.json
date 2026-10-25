@@ -50,19 +50,14 @@
           "requires": ["introduction-to-major-global-data-protection-regulations-e-g"]
         },
         {
-          "id": "ccpa",
-          "name": "CCPA",
+          "id": "ccpa-lgpd",
+          "name": "CCPA, LGPD)",
           "requires": ["gdpr"]
-        },
-        {
-          "id": "lgpd",
-          "name": "LGPD)",
-          "requires": ["ccpa"]
         },
         {
           "id": "understanding-the-importance-of-data-protection-in-a-global",
           "name": "Understanding the importance of data protection. in a global context",
-          "requires": ["lgpd"]
+          "requires": ["ccpa-lgpd"]
         },
         {
           "id": "case-studies-highlighting-the-impact-of-data-breaches-on-bus",
@@ -85,39 +80,56 @@
           "requires": ["key-global-data-protection-regulations-and-frameworks"]
         },
         {
-          "id": "ccpa-2",
+          "id": "ccpa",
           "name": "CCPA",
+          "formerChapters": ["introduction-to-global-data-security-and-privacy-laws"],
           "requires": ["comparative-analysis-of-gdpr"]
         },
         {
-          "id": "lgpd-2",
+          "id": "lgpd",
           "name": "LGPD",
-          "requires": ["ccpa-2"]
+          "formerChapters": ["introduction-to-global-data-security-and-privacy-laws"],
+          "requires": ["ccpa"]
         },
         {
           "id": "other-relevant-laws",
           "name": "other relevant laws",
-          "requires": ["lgpd-2"]
+          "requires": ["lgpd"]
         },
         {
-          "id": "understanding-the-requirements-for-data-collection",
-          "name": "Understanding the requirements for data collection",
+          "id": "understanding-the-requirements-for-data-collection-processin",
+          "name": "Understanding the requirements for data collection, processing, storage",
           "requires": ["other-relevant-laws"]
-        },
-        {
-          "id": "processing",
-          "name": "processing",
-          "requires": ["understanding-the-requirements-for-data-collection"]
-        },
-        {
-          "id": "storage",
-          "name": "storage",
-          "requires": ["processing"]
         },
         {
           "id": "practical-guidance-on-achieving-compliance-with-internationa",
           "name": "Practical guidance on achieving compliance with international data security standards",
-          "requires": ["storage"]
+          "requires": ["understanding-the-requirements-for-data-collection-processin"]
+        },
+        {
+          "id": "ccpa-2",
+          "name": "CCPA",
+          "status": "retired"
+        },
+        {
+          "id": "lgpd-2",
+          "name": "LGPD",
+          "status": "retired"
+        },
+        {
+          "id": "understanding-the-requirements-for-data-collection",
+          "name": "Understanding the requirements for data collection",
+          "status": "retired"
+        },
+        {
+          "id": "processing",
+          "name": "processing",
+          "status": "retired"
+        },
+        {
+          "id": "storage",
+          "name": "storage",
+          "status": "retired"
         }
       ]
     },

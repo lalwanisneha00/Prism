@@ -1,5 +1,6 @@
 import type { QuizAttempt } from "@/lib/storage/db";
 import type { Subject } from "@/lib/subjects";
+import { activeChapters } from "@/lib/syllabusFix/active";
 
 /*
  * The prerequisite concept map (SPEC §8, V2 · Step 8). Topics are nodes; "requires" lists
@@ -14,7 +15,7 @@ export type ConceptGraph = { nodes: Map<string, MapNode>; edges: MapEdge[] };
 export function buildGraph(subject: Subject): ConceptGraph {
   const nodes = new Map<string, MapNode>();
   const edges: MapEdge[] = [];
-  for (const chapter of subject.chapters) {
+  for (const chapter of activeChapters(subject)) {
     for (const topic of chapter.topics) {
       nodes.set(topic.id, {
         id: topic.id,
@@ -24,7 +25,7 @@ export function buildGraph(subject: Subject): ConceptGraph {
       });
     }
   }
-  for (const chapter of subject.chapters) {
+  for (const chapter of activeChapters(subject)) {
     for (const topic of chapter.topics) {
       for (const req of topic.requires ?? []) {
         if (nodes.has(req)) edges.push({ from: req, to: topic.id });

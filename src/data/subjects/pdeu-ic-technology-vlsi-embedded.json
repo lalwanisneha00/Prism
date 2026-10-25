@@ -135,38 +135,32 @@
         },
         {
           "id": "contamination-control-cleanrooms-features-classifications",
-          "name": "Contamination Control: Cleanrooms",
+          "name": "Contamination Control: Cleanrooms, features",
           "requires": ["raw-materials-and-purification-crystal-growth-czochralski"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "features",
-          "name": "features",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["contamination-control-cleanrooms-features-classifications"]
         },
         {
           "id": "classifications-and-guidelines",
           "name": "classifications and guidelines",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["features"]
+          "requires": ["contamination-control-cleanrooms-features-classifications"]
         },
         {
           "id": "wafer-cleaning-gettering",
-          "name": "Wafer Cleaning",
-          "requires": ["contamination-control-cleanrooms-features-classifications"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "Wafer Cleaning, Gettering",
+          "requires": ["contamination-control-cleanrooms-features-classifications"]
+        },
+        {
+          "id": "features",
+          "name": "features",
+          "status": "retired"
         },
         {
           "id": "gettering",
           "name": "Gettering",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["wafer-cleaning-gettering"]
+          "status": "retired"
         }
       ]
     },
@@ -182,25 +176,18 @@
           "confidence": "verified"
         },
         {
-          "id": "light-sources",
-          "name": "Light sources",
+          "id": "light-sources-photomask",
+          "name": "Light sources, Photomask",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["photolithography-introduction-and-its-application-to-ic"]
-        },
-        {
-          "id": "photomask",
-          "name": "Photomask",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["light-sources"]
         },
         {
           "id": "wafer-exposure-system-contact-proximity-and-projection-print",
           "name": "Wafer exposure system: contact proximity and projection printing",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["photomask"]
+          "requires": ["light-sources-photomask"]
         },
         {
           "id": "immersion-lithography",
@@ -234,25 +221,18 @@
           "requires": ["oxidation-dry-vs-wet-oxidation-locos-thermal-oxidation"]
         },
         {
-          "id": "thermal-oxidation-furnaces-horizontal-vs-vertical",
-          "name": "Thermal oxidation furnaces: Horizontal vs. vertical",
+          "id": "thermal-oxidation-furnaces-horizontal-vs-vertical-their-mech",
+          "name": "Thermal oxidation furnaces: Horizontal vs. vertical, their mechanism",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["locos"]
-        },
-        {
-          "id": "their-mechanism",
-          "name": "their mechanism",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["thermal-oxidation-furnaces-horizontal-vs-vertical"]
         },
         {
           "id": "si-sio2-interface",
           "name": "Si/SiO2 interface",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["their-mechanism"]
+          "requires": ["thermal-oxidation-furnaces-horizontal-vs-vertical-their-mech"]
         },
         {
           "id": "oxide-growth-charges",
@@ -297,18 +277,41 @@
           "requires": ["measurement-by-cv-method"]
         },
         {
-          "id": "photoresists-types",
-          "name": "Photoresists: types",
+          "id": "photoresists-types-issues",
+          "name": "Photoresists: types, issues",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["resolution-and-depth-of-focus"]
         },
         {
+          "id": "light-sources",
+          "name": "Light sources",
+          "status": "retired"
+        },
+        {
+          "id": "photomask",
+          "name": "Photomask",
+          "status": "retired"
+        },
+        {
+          "id": "thermal-oxidation-furnaces-horizontal-vs-vertical",
+          "name": "Thermal oxidation furnaces: Horizontal vs. vertical",
+          "status": "retired"
+        },
+        {
+          "id": "their-mechanism",
+          "name": "their mechanism",
+          "status": "retired"
+        },
+        {
+          "id": "photoresists-types",
+          "name": "Photoresists: types",
+          "status": "retired"
+        },
+        {
           "id": "issues",
           "name": "issues",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["photoresists-types"]
+          "status": "retired"
         }
       ]
     },
@@ -508,25 +511,18 @@
           "requires": ["etching-types-wet-and-dry-etch-anisotropic-and-isotropic"]
         },
         {
-          "id": "anisotropic-and-isotropic",
-          "name": "anisotropic and isotropic",
+          "id": "anisotropic-and-isotropic-selectivity",
+          "name": "anisotropic and isotropic, selectivity",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["wet-and-dry-etch"]
-        },
-        {
-          "id": "selectivity",
-          "name": "selectivity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["anisotropic-and-isotropic"]
         },
         {
           "id": "plasma-etching-and-rie",
           "name": "plasma etching and RIE",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["selectivity"]
+          "requires": ["anisotropic-and-isotropic-selectivity"]
         },
         {
           "id": "wafer-testing-and-sorting-probe-card-setup-electrical",
@@ -585,53 +581,32 @@
           "requires": ["back-end-technology-interconnects-in-cmos-technology"]
         },
         {
-          "id": "copper-interconnects",
-          "name": "Copper interconnects",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["metallic-interconnects"]
-        },
-        {
           "id": "advantages-challenges-posed-interconnect-fabrication-process",
-          "name": "Advantages",
+          "name": "Challenges posed",
           "requires": ["back-end-technology-interconnects-in-cmos-technology"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "challenges-posed",
-          "name": "Challenges posed",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["advantages-challenges-posed-interconnect-fabrication-process"]
         },
         {
           "id": "interconnect-fabrication-process",
           "name": "Interconnect fabrication process",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["challenges-posed"]
+          "requires": ["advantages-challenges-posed-interconnect-fabrication-process"]
         },
         {
           "id": "packaging-assembly-technology-wafer-thinning-dicing-die",
-          "name": "Packaging assembly technology: Wafer thinning",
+          "name": "Packaging assembly technology: Wafer thinning, Dicing",
           "requires": ["advantages-challenges-posed-interconnect-fabrication-process"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "dicing",
-          "name": "Dicing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["packaging-assembly-technology-wafer-thinning-dicing-die"]
         },
         {
           "id": "die-attach",
           "name": "Die-attach",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["dicing"]
+          "requires": ["packaging-assembly-technology-wafer-thinning-dicing-die"]
         },
         {
           "id": "wire-bond-and-flip-chip-process",
@@ -655,23 +630,58 @@
           "requires": ["encapsulation"]
         },
         {
-          "id": "solder-ball-attach",
-          "name": "Solder ball attach",
+          "id": "solder-ball-attach-singulation",
+          "name": "Solder ball attach, Singulation",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["laser-marking"]
         },
         {
-          "id": "singulation",
-          "name": "Singulation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["solder-ball-attach"]
-        },
-        {
           "id": "max-hrs",
           "name": "Max Hrs.:",
           "requires": ["packaging-assembly-technology-wafer-thinning-dicing-die"],
+          "status": "retired"
+        },
+        {
+          "id": "copper-interconnects-advantages",
+          "name": "Copper interconnects, Advantages",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["max-hrs"]
+        },
+        {
+          "id": "anisotropic-and-isotropic",
+          "name": "anisotropic and isotropic",
+          "status": "retired"
+        },
+        {
+          "id": "selectivity",
+          "name": "selectivity",
+          "status": "retired"
+        },
+        {
+          "id": "copper-interconnects",
+          "name": "Copper interconnects",
+          "status": "retired"
+        },
+        {
+          "id": "challenges-posed",
+          "name": "Challenges posed",
+          "status": "retired"
+        },
+        {
+          "id": "dicing",
+          "name": "Dicing",
+          "status": "retired"
+        },
+        {
+          "id": "solder-ball-attach",
+          "name": "Solder ball attach",
+          "status": "retired"
+        },
+        {
+          "id": "singulation",
+          "name": "Singulation",
           "status": "retired"
         }
       ]

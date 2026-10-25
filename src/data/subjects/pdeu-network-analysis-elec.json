@@ -1,0 +1,399 @@
+{
+  "id": "pdeu-network-analysis-elec",
+  "name": "Network Analysis",
+  "field": "Network Analysis",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 3): Network Analysis",
+    "note": "Units and topics copied from the course handout PDF (pages 4 of ELEC/sem3/Electrical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE201T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s3-network-analysis",
+      "code": "20EE201T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "network-theorems-and-graph-theory",
+      "name": "Network Theorems and Graph Theory",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "network-theorems-and-circuit-analysis-techniques-superpositi",
+          "name": "Network theorems & circuit analysis techniques: Superposition theorem"
+        },
+        {
+          "id": "thevenin-theorem",
+          "name": "Thevenin theorem",
+          "requires": ["network-theorems-and-circuit-analysis-techniques-superpositi"]
+        },
+        {
+          "id": "norton-theorem",
+          "name": "Norton theorem",
+          "requires": ["thevenin-theorem"]
+        },
+        {
+          "id": "maximum-power-transfer-theorem",
+          "name": "Maximum power transfer theorem",
+          "requires": ["norton-theorem"]
+        },
+        {
+          "id": "reciprocity-theorem",
+          "name": "Reciprocity theorem",
+          "requires": ["maximum-power-transfer-theorem"]
+        },
+        {
+          "id": "compensation-theorem",
+          "name": "Compensation theorem",
+          "requires": ["reciprocity-theorem"]
+        },
+        {
+          "id": "tellegen-s-theorem",
+          "name": "Tellegen’s theorem",
+          "requires": ["compensation-theorem"]
+        },
+        {
+          "id": "analysis-with-dependent-and-independent-current-and-voltage",
+          "name": "Analysis with dependent &independent current and voltage sources",
+          "requires": ["tellegen-s-theorem"]
+        },
+        {
+          "id": "node-and-mesh-analysis",
+          "name": "Node & Mesh Analysis",
+          "requires": ["analysis-with-dependent-and-independent-current-and-voltage"]
+        },
+        {
+          "id": "concept-of-duality-and-dual-networks",
+          "name": "Concept of duality & dual networks",
+          "requires": ["node-and-mesh-analysis"]
+        },
+        {
+          "id": "dot-convention-and-magnetically-coupled-circuit-analysis",
+          "name": "Dot convention & Magnetically Coupled Circuit Analysis",
+          "requires": ["concept-of-duality-and-dual-networks"]
+        },
+        {
+          "id": "applications-of-graph-theory-definition-of-graph-and-various",
+          "name": "Applications of Graph theory: Definition of Graph & Various Related Terms",
+          "requires": ["dot-convention-and-magnetically-coupled-circuit-analysis"]
+        },
+        {
+          "id": "paths-and-circuit-connections",
+          "name": "Paths & Circuit Connections",
+          "requires": ["applications-of-graph-theory-definition-of-graph-and-various"]
+        },
+        {
+          "id": "trees-of-a-graph",
+          "name": "Trees of a Graph",
+          "requires": ["paths-and-circuit-connections"]
+        },
+        {
+          "id": "cut-sets-and-tie-sets",
+          "name": "Cut Sets & Tie Sets",
+          "requires": ["trees-of-a-graph"]
+        },
+        {
+          "id": "non-separable-planner-and-dual-graphs",
+          "name": "Non-Separable Planner & Dual Graphs",
+          "requires": ["cut-sets-and-tie-sets"]
+        },
+        {
+          "id": "matrices-of-oriented-graphs",
+          "name": "Matrices of Oriented Graphs",
+          "requires": ["non-separable-planner-and-dual-graphs"]
+        },
+        {
+          "id": "properties-and-inter-relationships-of-incidence",
+          "name": "Properties & Inter Relationships of Incidence",
+          "requires": ["matrices-of-oriented-graphs"]
+        },
+        {
+          "id": "tie-and-cut-set-matrices",
+          "name": "Tie & Cut Set Matrices",
+          "requires": ["properties-and-inter-relationships-of-incidence"]
+        },
+        {
+          "id": "complete-circuit-analysis-using-tie-set-and-cut-set-matrices",
+          "name": "Complete Circuit Analysis using Tie Set & Cut Set Matrices",
+          "requires": ["tie-and-cut-set-matrices"]
+        }
+      ]
+    },
+    {
+      "id": "signals-and-linear-time-invariant-systems",
+      "name": "Signals and Linear Time-Invariant Systems",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "introduction-to-signals-and-systems-signal-properties-period",
+          "name": "Introduction to signals and systems: Signal properties: periodicity"
+        },
+        {
+          "id": "absolute-integrability",
+          "name": "absolute integrability",
+          "requires": ["introduction-to-signals-and-systems-signal-properties-period"]
+        },
+        {
+          "id": "determinism-and-stochastic-character",
+          "name": "determinism & stochastic character",
+          "requires": ["absolute-integrability"]
+        },
+        {
+          "id": "standard-signals-the-unit-step",
+          "name": "Standard signals: the unit step",
+          "requires": ["determinism-and-stochastic-character"]
+        },
+        {
+          "id": "the-unit-impulse-the-sinusoid",
+          "name": "the unit impulse, the sinusoid",
+          "requires": ["standard-signals-the-unit-step"]
+        },
+        {
+          "id": "the-complex-exponential",
+          "name": "the complex exponential",
+          "requires": ["the-unit-impulse-the-sinusoid"]
+        },
+        {
+          "id": "time-limited-signals",
+          "name": "Time-limited signals",
+          "requires": ["the-complex-exponential"]
+        },
+        {
+          "id": "continuous-and-discrete-time-signals",
+          "name": "continuous & discrete time signals",
+          "requires": ["time-limited-signals"]
+        },
+        {
+          "id": "continuous-and-discrete-amplitude-signals",
+          "name": "continuous and discrete amplitude signals",
+          "requires": ["continuous-and-discrete-time-signals"]
+        },
+        {
+          "id": "system-properties-linearity-additivity-and-homogeneity-shift",
+          "name": "System properties: linearity: additivity and homogeneity, shiftinvariance, causality, stability, realizability, Examples",
+          "requires": ["continuous-and-discrete-amplitude-signals"]
+        },
+        {
+          "id": "behaviour-of-continuous-lti-systems-impulse-response-and-ste",
+          "name": "Behaviour of continuous LTI systems: Impulse response and step response",
+          "requires": ["system-properties-linearity-additivity-and-homogeneity-shift"]
+        },
+        {
+          "id": "convolution",
+          "name": "convolution",
+          "requires": ["behaviour-of-continuous-lti-systems-impulse-response-and-ste"]
+        },
+        {
+          "id": "correlation",
+          "name": "correlation",
+          "requires": ["convolution"]
+        },
+        {
+          "id": "input-output-behaviour-with-aperiodic-convergent-inputs",
+          "name": "input-output behaviour with aperiodic convergent inputs",
+          "requires": ["correlation"]
+        },
+        {
+          "id": "cascade-interconnections",
+          "name": "cascade interconnections",
+          "requires": ["input-output-behaviour-with-aperiodic-convergent-inputs"]
+        },
+        {
+          "id": "characterization-of-causality-and-stability-of-lti-systems",
+          "name": "Characterization of causality and stability of LTI systems",
+          "requires": ["cascade-interconnections"]
+        },
+        {
+          "id": "system-representation-through-differential-equations",
+          "name": "System representation through differential equations",
+          "requires": ["characterization-of-causality-and-stability-of-lti-systems"]
+        },
+        {
+          "id": "concepts-of-complementary-function",
+          "name": "Concepts of complementary function",
+          "requires": ["system-representation-through-differential-equations"]
+        },
+        {
+          "id": "particular-integral",
+          "name": "particular integral",
+          "requires": ["concepts-of-complementary-function"]
+        },
+        {
+          "id": "system-function",
+          "name": "system function",
+          "requires": ["particular-integral"]
+        },
+        {
+          "id": "periodic-inputs-to-an-lti-system",
+          "name": "Periodic inputs to an LTI system",
+          "requires": ["system-function"]
+        },
+        {
+          "id": "notion-of-a-frequency-response-and-its-relation-to-the-impul",
+          "name": "notion of a frequency response and its relation to the impulse response",
+          "requires": ["periodic-inputs-to-an-lti-system"]
+        }
+      ]
+    },
+    {
+      "id": "dc-and-ac-transient-analysis",
+      "name": "DC and AC Transient Analysis",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "transient-analysis-using-time-domain-approach-solution-of-fi",
+          "name": "Transient analysis using time domain approach: Solution of first & second order differential equations for Series & para, R-C"
+        },
+        {
+          "id": "rl-c-circuits",
+          "name": "RL-C circuits",
+          "requires": ["transient-analysis-using-time-domain-approach-solution-of-fi"]
+        },
+        {
+          "id": "initial-and-final-conditions-in-network-elements",
+          "name": "initial & final conditions in network elements",
+          "requires": ["rl-c-circuits"]
+        },
+        {
+          "id": "forced-and-free-response",
+          "name": "forced and free response",
+          "requires": ["initial-and-final-conditions-in-network-elements"]
+        },
+        {
+          "id": "time-constants",
+          "name": "time constants",
+          "requires": ["forced-and-free-response"]
+        },
+        {
+          "id": "steady-state-and-transient-state-response-for-ac-and-dc-exci",
+          "name": "steady state and transient state response for AC & DC excitation Transient analysis using Laplace transform approach: Re",
+          "requires": ["time-constants"]
+        },
+        {
+          "id": "analysis-of-electrical-circuits-using-laplace-transform-for",
+          "name": "Analysis of electrical circuits using Laplace Transform for standard inputs",
+          "requires": ["steady-state-and-transient-state-response-for-ac-and-dc-exci"]
+        },
+        {
+          "id": "convolution-integral",
+          "name": "convolution integral",
+          "requires": ["analysis-of-electrical-circuits-using-laplace-transform-for"]
+        },
+        {
+          "id": "inverse-laplace-transform",
+          "name": "inverse Laplace transform",
+          "requires": ["convolution-integral"]
+        },
+        {
+          "id": "transformed-network-with-initial-conditions",
+          "name": "transformed network with initial conditions",
+          "requires": ["inverse-laplace-transform"]
+        },
+        {
+          "id": "transfer-function-representation",
+          "name": "Transfer function representation",
+          "requires": ["transformed-network-with-initial-conditions"]
+        },
+        {
+          "id": "concept-of-poles-and-zeroes-representation",
+          "name": "Concept of Poles &Zeroes representation",
+          "requires": ["transfer-function-representation"]
+        }
+      ]
+    },
+    {
+      "id": "two-port-networks-and-network-functions",
+      "name": "Two Port Networks and Network Functions",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "two-port-networks-two-port-networks",
+          "name": "Two Port Networks: Two Port Networks"
+        },
+        {
+          "id": "terminal-pairs",
+          "name": "terminal pairs",
+          "requires": ["two-port-networks-two-port-networks"]
+        },
+        {
+          "id": "relationship-of-two-port-variables",
+          "name": "relationship of two port variables",
+          "requires": ["terminal-pairs"]
+        },
+        {
+          "id": "impedance-parameters",
+          "name": "impedance parameters",
+          "requires": ["relationship-of-two-port-variables"]
+        },
+        {
+          "id": "admittance-parameters",
+          "name": "admittance parameters",
+          "requires": ["impedance-parameters"]
+        },
+        {
+          "id": "transmission-parameters-and-hybrid-parameters",
+          "name": "transmission parameters and hybrid parameters",
+          "requires": ["admittance-parameters"]
+        },
+        {
+          "id": "interdependence-and-relationship",
+          "name": "interdependence & relationship",
+          "requires": ["transmission-parameters-and-hybrid-parameters"]
+        },
+        {
+          "id": "interconnections-of-two-port-networks",
+          "name": "interconnections of two port networks",
+          "requires": ["interdependence-and-relationship"]
+        },
+        {
+          "id": "network-functions-concepts-of-complex-frequency",
+          "name": "Network functions: Concepts of Complex Frequency",
+          "requires": ["interconnections-of-two-port-networks"]
+        },
+        {
+          "id": "transform-impedance",
+          "name": "Transform Impedance",
+          "requires": ["network-functions-concepts-of-complex-frequency"]
+        },
+        {
+          "id": "network-functions-of-1-and-2-port-networks",
+          "name": "Network Functions of 1&2 Port Networks",
+          "requires": ["transform-impedance"]
+        },
+        {
+          "id": "concept-of-poles-and-zeroes",
+          "name": "Concept of Poles &Zeroes",
+          "requires": ["network-functions-of-1-and-2-port-networks"]
+        },
+        {
+          "id": "properties-of-driving-point-and-transfer-functions",
+          "name": "Properties of Driving Point & Transfer Functions",
+          "requires": ["concept-of-poles-and-zeroes"]
+        },
+        {
+          "id": "time-response-stability-from-pole-zero-plot",
+          "name": "Time Response Stability from Pole-Zero Plot",
+          "requires": ["properties-of-driving-point-and-transfer-functions"]
+        }
+      ]
+    }
+  ]
+}

@@ -28,11 +28,47 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Modern Wireless Communication",
     "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
+    {
+      "id": "introduction-to-wireless-communications",
+      "name": "Introduction to Wireless Communications",
+      "hours": 9,
+      "source": "admin_handout",
+      "confidence": "verified",
+      "topics": [
+        {
+          "id": "evaluation-of-wireless-communications-2g-to-5g",
+          "name": "Evaluation of Wireless Communications (2G to 5G)",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cellular-concept-system-design-fundamentals",
+          "name": "Cellular Concept: System Design Fundamentals",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["evaluation-of-wireless-communications-2g-to-5g"]
+        },
+        {
+          "id": "frequency-reuse-handoff",
+          "name": "Frequency Reuse, Handoff",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cellular-concept-system-design-fundamentals"]
+        },
+        {
+          "id": "cochannel-interference-and-system-capacity",
+          "name": "Cochannel Interference and System Capacity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["frequency-reuse-handoff"]
+        }
+      ]
+    },
     {
       "id": "mobile-radio-propagation",
       "name": "Mobile Radio Propagation",
@@ -40,12 +76,44 @@
       "topics": [
         {
           "id": "path-loss-and-shadowing-radio-wave-propagation-transmit-and",
-          "name": "Path Loss and Shadowing: Radio Wave Propagation, Transmit & Receive Signal Models, Free-Space Path Loss, Shadow Fading"
+          "name": "Path Loss and Shadowing: Radio Wave Propagation",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "transmit-and-receive-signal-models",
+          "name": "Transmit & Receive Signal Models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["path-loss-and-shadowing-radio-wave-propagation-transmit-and"]
+        },
+        {
+          "id": "free-space-path-loss",
+          "name": "Free-Space Path Loss",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["transmit-and-receive-signal-models"]
+        },
+        {
+          "id": "shadow-fading",
+          "name": "Shadow Fading",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["free-space-path-loss"]
         },
         {
           "id": "statistical-multipath-channel-models-narrowband-and-wideband",
-          "name": "Statistical Multipath Channel Models: Narrowband and Wideband Fading, Rayleigh and Rician Fading Distribution",
-          "requires": ["path-loss-and-shadowing-radio-wave-propagation-transmit-and"]
+          "name": "Statistical Multipath Channel Models: Narrowband and Wideband Fading",
+          "requires": ["path-loss-and-shadowing-radio-wave-propagation-transmit-and"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "rayleigh-and-rician-fading-distribution",
+          "name": "Rayleigh and Rician Fading Distribution",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["statistical-multipath-channel-models-narrowband-and-wideband"]
         },
         {
           "id": "channel-equalizer",
@@ -54,8 +122,17 @@
         },
         {
           "id": "performance-analysis-over-fading-channel-outage-probability",
-          "name": "Performance Analysis over Fading Channel: Outage Probability, Average Probability of Error, Capacity",
-          "requires": ["channel-equalizer"]
+          "name": "Performance Analysis over Fading Channel: Outage Probability",
+          "requires": ["channel-equalizer"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "average-probability-of-error-capacity",
+          "name": "Average Probability of Error, Capacity",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["performance-analysis-over-fading-channel-outage-probability"]
         }
       ]
     },
@@ -66,12 +143,44 @@
       "topics": [
         {
           "id": "simo-miso-and-mimo-models",
-          "name": "SIMO, MISO and MIMO Models"
+          "name": "SIMO",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "miso-and-mimo-models",
+          "name": "MISO and MIMO Models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["simo-miso-and-mimo-models"]
         },
         {
           "id": "receiver-diversity-selection-combining-equal-gain-combining",
-          "name": "Receiver Diversity: Selection Combining, Equal Gain Combining, Maximal-Ratio Combining, Transmit Diversity: Alamouti Space-Time Coding Scheme",
-          "requires": ["simo-miso-and-mimo-models"]
+          "name": "Receiver Diversity: Selection Combining",
+          "requires": ["simo-miso-and-mimo-models"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "equal-gain-combining",
+          "name": "Equal Gain Combining",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["receiver-diversity-selection-combining-equal-gain-combining"]
+        },
+        {
+          "id": "maximal-ratio-combining",
+          "name": "Maximal-Ratio Combining",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["equal-gain-combining"]
+        },
+        {
+          "id": "transmit-diversity-alamouti-space-time-coding-scheme",
+          "name": "Transmit Diversity: Alamouti Space-Time Coding Scheme",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["maximal-ratio-combining"]
         },
         {
           "id": "spatial-multiplexing",
@@ -87,12 +196,44 @@
       "topics": [
         {
           "id": "spread-spectrum-communication-spread-spectrum-principles",
-          "name": "Spread Spectrum Communication: Spread Spectrum Principles, Direct Sequence Spread Spectrum, Frequency Hoping Spread Spectrum"
+          "name": "Spread Spectrum Communication: Spread Spectrum Principles",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "direct-sequence-spread-spectrum",
+          "name": "Direct Sequence Spread Spectrum",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["spread-spectrum-communication-spread-spectrum-principles"]
+        },
+        {
+          "id": "frequency-hoping-spread-spectrum",
+          "name": "Frequency Hoping Spread Spectrum",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["direct-sequence-spread-spectrum"]
         },
         {
           "id": "multicarrier-modulation-schemes-orthogonal-frequency",
-          "name": "Multicarrier Modulation Schemes: Orthogonal Frequency Division Multiplexing (OFDM), Cyclic Prefix, Case Study: The IEEE 802.11a Wireless LAN Standard",
-          "requires": ["spread-spectrum-communication-spread-spectrum-principles"]
+          "name": "Multicarrier Modulation Schemes: Orthogonal Frequency Division Multiplexing (OFDM)",
+          "requires": ["spread-spectrum-communication-spread-spectrum-principles"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "cyclic-prefix",
+          "name": "Cyclic Prefix",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["multicarrier-modulation-schemes-orthogonal-frequency"]
+        },
+        {
+          "id": "case-study-the-ieee-802-11a-wireless-lan-standard",
+          "name": "Case Study: The IEEE 802.11a Wireless LAN Standard",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cyclic-prefix"]
         },
         {
           "id": "introduction-to-next-generation-wireless-communication",
@@ -101,5 +242,6 @@
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

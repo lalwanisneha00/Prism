@@ -61,34 +61,24 @@
           "requires": ["stability-of-a-vehicle-on-a-slope"]
         },
         {
-          "id": "stability-of-a-vehicle-taking-a-turn",
-          "name": "stability of a vehicle taking a turn",
+          "id": "stability-of-a-vehicle-taking-a-turn-chassis",
+          "name": "stability of a vehicle taking a turn, Chassis",
           "requires": ["dynamics-of-a-vehicle-running-on-banked-track"]
-        },
-        {
-          "id": "chassis",
-          "name": "Chassis",
-          "requires": ["stability-of-a-vehicle-taking-a-turn"]
         },
         {
           "id": "frame-and-body-types",
           "name": "Frame & Body: Types",
-          "requires": ["chassis"]
+          "requires": ["stability-of-a-vehicle-taking-a-turn-chassis"]
         },
         {
-          "id": "twowheeler-chassis",
-          "name": "Twowheeler Chassis",
+          "id": "twowheeler-chassis-comparison",
+          "name": "Twowheeler Chassis, comparison",
           "requires": ["frame-and-body-types"]
-        },
-        {
-          "id": "comparison",
-          "name": "comparison",
-          "requires": ["twowheeler-chassis"]
         },
         {
           "id": "comparison-of-front-and-rear-mounting-of-engine",
           "name": "Comparison of front and rear mounting of engine",
-          "requires": ["comparison"]
+          "requires": ["twowheeler-chassis-comparison"]
         },
         {
           "id": "aerodynamic-considerations-in-body-profiling",
@@ -104,6 +94,26 @@
           "id": "defects-in-frames-and-body",
           "name": "defects in frames and body",
           "requires": ["ergonomic-considerations"]
+        },
+        {
+          "id": "stability-of-a-vehicle-taking-a-turn",
+          "name": "stability of a vehicle taking a turn",
+          "status": "retired"
+        },
+        {
+          "id": "chassis",
+          "name": "Chassis",
+          "status": "retired"
+        },
+        {
+          "id": "twowheeler-chassis",
+          "name": "Twowheeler Chassis",
+          "status": "retired"
+        },
+        {
+          "id": "comparison",
+          "name": "comparison",
+          "status": "retired"
         }
       ]
     },
@@ -117,34 +127,19 @@
           "name": "Clutch: Constructional features and working of different types of clutch (like single plate"
         },
         {
-          "id": "multi-plate",
-          "name": "multi plate",
+          "id": "multi-plate-cone",
+          "name": "multi plate, cone",
           "requires": ["clutch-constructional-features-and-working-of-different-type"]
         },
         {
-          "id": "cone",
-          "name": "cone",
-          "requires": ["multi-plate"]
-        },
-        {
-          "id": "semi-centrifugal",
-          "name": "semi− centrifugal",
-          "requires": ["cone"]
-        },
-        {
-          "id": "fully",
-          "name": "fully",
-          "requires": ["semi-centrifugal"]
-        },
-        {
-          "id": "centrifugal",
-          "name": "centrifugal",
-          "requires": ["fully"]
+          "id": "semi-centrifugal-fully-centrifugal",
+          "name": "semi− centrifugal, fully, centrifugal",
+          "requires": ["multi-plate-cone"]
         },
         {
           "id": "wet-etc-used-in-automobiles",
           "name": "wet etc.) used in automobiles",
-          "requires": ["centrifugal"]
+          "requires": ["semi-centrifugal-fully-centrifugal"]
         },
         {
           "id": "calculation-of-surface-area-and-number-of-driving-and-driven",
@@ -207,19 +202,14 @@
           "requires": ["torque-converter"]
         },
         {
-          "id": "over-speed-drive-and-its-working",
-          "name": "over speed drive and its working",
+          "id": "over-speed-drive-and-its-working-semi",
+          "name": "over speed drive and its working, semi",
           "requires": ["free-wheel-clutch"]
-        },
-        {
-          "id": "semi",
-          "name": "semi",
-          "requires": ["over-speed-drive-and-its-working"]
         },
         {
           "id": "fully-automatic-transmission",
           "name": "fully automatic transmission",
-          "requires": ["semi"]
+          "requires": ["over-speed-drive-and-its-working-semi"]
         },
         {
           "id": "continuously-variable-transmission-cvt",
@@ -305,6 +295,41 @@
           "id": "oil-retention",
           "name": "oil retention",
           "requires": ["axle-breather"]
+        },
+        {
+          "id": "multi-plate",
+          "name": "multi plate",
+          "status": "retired"
+        },
+        {
+          "id": "cone",
+          "name": "cone",
+          "status": "retired"
+        },
+        {
+          "id": "semi-centrifugal",
+          "name": "semi− centrifugal",
+          "status": "retired"
+        },
+        {
+          "id": "fully",
+          "name": "fully",
+          "status": "retired"
+        },
+        {
+          "id": "centrifugal",
+          "name": "centrifugal",
+          "status": "retired"
+        },
+        {
+          "id": "over-speed-drive-and-its-working",
+          "name": "over speed drive and its working",
+          "status": "retired"
+        },
+        {
+          "id": "semi",
+          "name": "semi",
+          "status": "retired"
         }
       ]
     },
@@ -314,18 +339,13 @@
       "hours": 11,
       "topics": [
         {
-          "id": "front-axle-types",
-          "name": "Front Axle: Types"
-        },
-        {
-          "id": "construction",
-          "name": "construction",
-          "requires": ["front-axle-types"]
+          "id": "front-axle-types-construction",
+          "name": "Front Axle: Types, construction"
         },
         {
           "id": "components-and-their-functions",
           "name": "components and their functions",
-          "requires": ["construction"]
+          "requires": ["front-axle-types-construction"]
         },
         {
           "id": "suspension-system-principle",
@@ -338,29 +358,19 @@
           "requires": ["suspension-system-principle"]
         },
         {
-          "id": "conventional-and-independent-front-and-rear-axle",
-          "name": "conventional and independent front and rear axle",
+          "id": "conventional-and-independent-front-and-rear-axle-spring",
+          "name": "conventional and independent front and rear axle, spring",
           "requires": ["type-of-suspension-system"]
         },
         {
-          "id": "spring",
-          "name": "spring",
-          "requires": ["conventional-and-independent-front-and-rear-axle"]
-        },
-        {
-          "id": "rubber-and-air-suspensions",
-          "name": "rubber and air suspensions",
-          "requires": ["spring"]
-        },
-        {
-          "id": "automatic",
-          "name": "automatic",
-          "requires": ["rubber-and-air-suspensions"]
+          "id": "rubber-and-air-suspensions-automatic",
+          "name": "rubber and air suspensions, automatic",
+          "requires": ["conventional-and-independent-front-and-rear-axle-spring"]
         },
         {
           "id": "hydro-suspension-system",
           "name": "hydro suspension system",
-          "requires": ["automatic"]
+          "requires": ["rubber-and-air-suspensions-automatic"]
         },
         {
           "id": "shock-absorbers",
@@ -463,29 +473,19 @@
           "requires": ["anti-lock-brake-systems-abs"]
         },
         {
-          "id": "types-of-batteries",
-          "name": "Types of batteries",
+          "id": "types-of-batteries-working",
+          "name": "Types of batteries, working",
           "requires": ["battery-construction"]
         },
         {
-          "id": "working",
-          "name": "working",
-          "requires": ["types-of-batteries"]
-        },
-        {
-          "id": "methods-of-rating",
-          "name": "methods of rating",
-          "requires": ["working"]
-        },
-        {
-          "id": "faults",
-          "name": "faults",
-          "requires": ["methods-of-rating"]
+          "id": "methods-of-rating-faults",
+          "name": "methods of rating, faults",
+          "requires": ["types-of-batteries-working"]
         },
         {
           "id": "charging-methods",
           "name": "charging methods",
-          "requires": ["faults"]
+          "requires": ["methods-of-rating-faults"]
         },
         {
           "id": "lighting-system-wiring-system",
@@ -511,6 +511,56 @@
           "id": "safety-belts",
           "name": "safety belts",
           "requires": ["accessories-and-safety-systems-like-air-bags"]
+        },
+        {
+          "id": "front-axle-types",
+          "name": "Front Axle: Types",
+          "status": "retired"
+        },
+        {
+          "id": "construction",
+          "name": "construction",
+          "status": "retired"
+        },
+        {
+          "id": "conventional-and-independent-front-and-rear-axle",
+          "name": "conventional and independent front and rear axle",
+          "status": "retired"
+        },
+        {
+          "id": "spring",
+          "name": "spring",
+          "status": "retired"
+        },
+        {
+          "id": "rubber-and-air-suspensions",
+          "name": "rubber and air suspensions",
+          "status": "retired"
+        },
+        {
+          "id": "automatic",
+          "name": "automatic",
+          "status": "retired"
+        },
+        {
+          "id": "types-of-batteries",
+          "name": "Types of batteries",
+          "status": "retired"
+        },
+        {
+          "id": "working",
+          "name": "working",
+          "status": "retired"
+        },
+        {
+          "id": "methods-of-rating",
+          "name": "methods of rating",
+          "status": "retired"
+        },
+        {
+          "id": "faults",
+          "name": "faults",
+          "status": "retired"
         }
       ]
     },

@@ -36,18 +36,13 @@
       "hours": 5,
       "topics": [
         {
-          "id": "introduction",
-          "name": "Introduction"
-        },
-        {
-          "id": "basics-of-magnetic-circuit",
-          "name": "Basics of Magnetic Circuit",
-          "requires": ["introduction"]
+          "id": "introduction-basics-of-magnetic-circuit",
+          "name": "Introduction, Basics of Magnetic Circuit"
         },
         {
           "id": "magnetically-coupled-circuits",
           "name": "Magnetically Coupled Circuits",
-          "requires": ["basics-of-magnetic-circuit"]
+          "requires": ["introduction-basics-of-magnetic-circuit"]
         },
         {
           "id": "analysis-of-singly-excited-electromechanical-system",
@@ -73,6 +68,16 @@
           "id": "winding-inductances-and-voltage-equations",
           "name": "Winding Inductances and Voltage Equations",
           "requires": ["machine-winding-and-air-gap-mmf"]
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "status": "retired"
+        },
+        {
+          "id": "basics-of-magnetic-circuit",
+          "name": "Basics of Magnetic Circuit",
+          "status": "retired"
         }
       ]
     },
@@ -82,18 +87,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "introduction-2",
-          "name": "Introduction"
-        },
-        {
-          "id": "equations-of-transformation",
-          "name": "Equations of Transformation",
-          "requires": ["introduction-2"]
+          "id": "introduction-equations-of-transformation",
+          "name": "Introduction, Equations of Transformation"
         },
         {
           "id": "stationary-circuit-transformed-to-arbitrary-reference-frame",
           "name": "Stationary Circuit Transformed to Arbitrary Reference Frame",
-          "requires": ["equations-of-transformation"]
+          "requires": ["introduction-equations-of-transformation"]
         },
         {
           "id": "balanced-steady-state-phasor-relationships",
@@ -129,6 +129,16 @@
           "id": "balanced-steady-state-voltage-equations",
           "name": "Balanced Steady State Voltage Equations",
           "requires": ["balanced-steady-state-phasor-relationship"]
+        },
+        {
+          "id": "introduction-2",
+          "name": "Introduction",
+          "status": "retired"
+        },
+        {
+          "id": "equations-of-transformation",
+          "name": "Equations of Transformation",
+          "status": "retired"
         }
       ]
     },
@@ -293,14 +303,19 @@
           "requires": ["transient-and-dynamic-performance-of-vsi-drives"]
         },
         {
+          "id": "case-studies-related-with-bldc-drives-hrs",
+          "name": "Case Studies Related with BLDC Drives, Hrs",
+          "requires": ["steady-state-harmonics"]
+        },
+        {
           "id": "case-studies-related-with-bldc-drives",
           "name": "Case Studies Related with BLDC Drives",
-          "requires": ["steady-state-harmonics"]
+          "status": "retired"
         },
         {
           "id": "hrs",
           "name": "Hrs",
-          "requires": ["case-studies-related-with-bldc-drives"]
+          "status": "retired"
         }
       ]
     }

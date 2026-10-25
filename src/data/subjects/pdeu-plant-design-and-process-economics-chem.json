@@ -128,19 +128,14 @@
           "name": "Factors affecting investment and production costs"
         },
         {
-          "id": "estimation-of-capital-investment-and-total-product-costs",
-          "name": "estimation of capital investment and total product costs",
+          "id": "estimation-of-capital-investment-and-total-product-costs-int",
+          "name": "estimation of capital investment and total product costs, interest",
           "requires": ["factors-affecting-investment-and-production-costs"]
-        },
-        {
-          "id": "interest",
-          "name": "interest",
-          "requires": ["estimation-of-capital-investment-and-total-product-costs"]
         },
         {
           "id": "time-value-of-money",
           "name": "time value of money",
-          "requires": ["interest"]
+          "requires": ["estimation-of-capital-investment-and-total-product-costs-int"]
         },
         {
           "id": "break-even-analysis",
@@ -158,19 +153,14 @@
           "requires": ["taxes-and-fixed-charges"]
         },
         {
-          "id": "methods-of-calculating-depreciation",
-          "name": "methods of calculating depreciation",
+          "id": "methods-of-calculating-depreciation-profitability",
+          "name": "methods of calculating depreciation, profitability",
           "requires": ["salvage-value"]
-        },
-        {
-          "id": "profitability",
-          "name": "profitability",
-          "requires": ["methods-of-calculating-depreciation"]
         },
         {
           "id": "alternative-investments-and-replacements",
           "name": "alternative investments and replacements",
-          "requires": ["profitability"]
+          "requires": ["methods-of-calculating-depreciation-profitability"]
         },
         {
           "id": "cost-and-asset-accounting",
@@ -198,19 +188,14 @@
           "requires": ["heat-transfer-equipment"]
         },
         {
-          "id": "plate-heat-exchangers",
-          "name": "plate heat exchangers",
+          "id": "plate-heat-exchangers-evaporators",
+          "name": "plate heat exchangers, evaporators",
           "requires": ["shell-and-tube-heat-exchangers-kern-and-bell-delaware-design"]
-        },
-        {
-          "id": "evaporators",
-          "name": "evaporators",
-          "requires": ["plate-heat-exchangers"]
         },
         {
           "id": "mass-transfer-equipment",
           "name": "mass transfer equipment",
-          "requires": ["evaporators"]
+          "requires": ["plate-heat-exchangers-evaporators"]
         },
         {
           "id": "absorption-stripping-columns-packed-tray",
@@ -219,18 +204,13 @@
         },
         {
           "id": "multicomponent-distillation-column-fenske-underwood-gillilan",
-          "name": "multicomponent distillation column (Fenske-Underwood-Gilliland correlations)",
+          "name": "multicomponent distillation column (Fenske-Underwood-Gilliland correlations), reactors",
           "requires": ["absorption-stripping-columns-packed-tray"]
-        },
-        {
-          "id": "reactors",
-          "name": "reactors",
-          "requires": ["multicomponent-distillation-column-fenske-underwood-gillilan"]
         },
         {
           "id": "choice-of-reactors",
           "name": "choice of reactors",
-          "requires": ["reactors"]
+          "requires": ["multicomponent-distillation-column-fenske-underwood-gillilan"]
         },
         {
           "id": "non-isothermal-reactors",
@@ -256,6 +236,41 @@
           "id": "catalyst-deactivation",
           "name": "catalyst deactivation",
           "requires": ["multi-tubular-reactors"]
+        },
+        {
+          "id": "estimation-of-capital-investment-and-total-product-costs",
+          "name": "estimation of capital investment and total product costs",
+          "status": "retired"
+        },
+        {
+          "id": "interest",
+          "name": "interest",
+          "status": "retired"
+        },
+        {
+          "id": "methods-of-calculating-depreciation",
+          "name": "methods of calculating depreciation",
+          "status": "retired"
+        },
+        {
+          "id": "profitability",
+          "name": "profitability",
+          "status": "retired"
+        },
+        {
+          "id": "plate-heat-exchangers",
+          "name": "plate heat exchangers",
+          "status": "retired"
+        },
+        {
+          "id": "evaporators",
+          "name": "evaporators",
+          "status": "retired"
+        },
+        {
+          "id": "reactors",
+          "name": "reactors",
+          "status": "retired"
         }
       ]
     },

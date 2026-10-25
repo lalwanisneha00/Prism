@@ -96,31 +96,17 @@
         },
         {
           "id": "single-phase-and-multiphase-fluid-flow-in-different-state",
-          "name": "Single phase and multiphase fluid flow in different state (steady and unsteady) and different systems (linear",
+          "name": "Single phase and multiphase fluid flow in different state (steady and unsteady) and different systems (linear, radial, turbulent",
           "requires": ["classification-of-flow-system-in-porous-media"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "radial",
-          "name": "radial",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["single-phase-and-multiphase-fluid-flow-in-different-state"]
-        },
-        {
-          "id": "turbulent",
-          "name": "turbulent",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["radial"]
         },
         {
           "id": "spherical-considering-compressible",
           "name": "spherical) considering compressible",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["turbulent"]
+          "requires": ["single-phase-and-multiphase-fluid-flow-in-different-state"]
         },
         {
           "id": "slightly-compressible-and-incompressible-fluid",
@@ -131,6 +117,16 @@
           "id": "diffusivity-equation-and-its-application-for-reservoir-flow",
           "name": "Diffusivity equation and its application for reservoir flow system",
           "requires": ["slightly-compressible-and-incompressible-fluid"]
+        },
+        {
+          "id": "radial",
+          "name": "radial",
+          "status": "retired"
+        },
+        {
+          "id": "turbulent",
+          "name": "turbulent",
+          "status": "retired"
         }
       ]
     },

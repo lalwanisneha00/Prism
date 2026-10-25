@@ -1,0 +1,235 @@
+{
+  "id": "pdeu-computer-aided-process-design-chem",
+  "name": "Computer Aided Process Design",
+  "field": "Computer Aided Process Design",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 7): Computer Aided Process Design",
+    "note": "Units and topics copied from the course handout PDF (pages 6 of CHEM/sem7/Chemical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH403T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s7-computer-aided-process-design",
+      "code": "24CH403T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "basics-of-computer-aided-process-design",
+      "name": "Basics of Computer Aided Process Design",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "integrated-process-plant-design-with-computer-aided-tools",
+          "name": "Integrated process plant design with computer-aided tools"
+        },
+        {
+          "id": "pfd-p-and-id",
+          "name": "PFD, P&ID",
+          "requires": ["integrated-process-plant-design-with-computer-aided-tools"]
+        },
+        {
+          "id": "pre-feed-and-feed-stages",
+          "name": "pre-FEED and FEED stages",
+          "requires": ["pfd-p-and-id"]
+        },
+        {
+          "id": "process-simulators",
+          "name": "process simulators",
+          "requires": ["pre-feed-and-feed-stages"]
+        },
+        {
+          "id": "components-and-architecture",
+          "name": "components and architecture",
+          "requires": ["process-simulators"]
+        },
+        {
+          "id": "blocks-and-streams-library",
+          "name": "blocks and streams library",
+          "requires": ["components-and-architecture"]
+        },
+        {
+          "id": "capd-problem-formulation-and-solvers",
+          "name": "CAPD problem formulation and solvers",
+          "requires": ["blocks-and-streams-library"]
+        },
+        {
+          "id": "model-equations-and-degrees-of-freedom-design-rating",
+          "name": "model equations and degrees of freedom, design, rating",
+          "requires": ["capd-problem-formulation-and-solvers"]
+        },
+        {
+          "id": "specification-and-optimization-formulation",
+          "name": "specification and optimization formulation",
+          "requires": ["model-equations-and-degrees-of-freedom-design-rating"]
+        },
+        {
+          "id": "sequential-modular-and-equation-oriented-approaches",
+          "name": "sequential modular and equation oriented approaches",
+          "requires": ["specification-and-optimization-formulation"]
+        },
+        {
+          "id": "tearing-of-streams",
+          "name": "tearing of streams",
+          "requires": ["sequential-modular-and-equation-oriented-approaches"]
+        },
+        {
+          "id": "scope-of-aspen-plus-hysys-simulators",
+          "name": "scope of Aspen Plus/HYSYS simulators",
+          "requires": ["tearing-of-streams"]
+        },
+        {
+          "id": "flowsheeting-problem-solving-using-design-specifications-and",
+          "name": "flowsheeting problem solving using design specifications and sensitivity analysis",
+          "requires": ["scope-of-aspen-plus-hysys-simulators"]
+        },
+        {
+          "id": "incorporating-the-cost-of-safety-systems-in-the-evaluation-o",
+          "name": "incorporating the cost of safety systems in the evaluation of process systems",
+          "requires": ["flowsheeting-problem-solving-using-design-specifications-and"]
+        },
+        {
+          "id": "plant-layout-with-safety-aspects-in-mind",
+          "name": "plant layout with safety aspects in mind",
+          "requires": ["incorporating-the-cost-of-safety-systems-in-the-evaluation-o"]
+        }
+      ]
+    },
+    {
+      "id": "computerised-physical-and-thermodynamic-property-methods-and",
+      "name": "Computerised Physical and Thermodynamic Property Methods and Models",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "computerized-physical-and-thermodynamic-properties",
+          "name": "Computerized physical and thermodynamic properties"
+        },
+        {
+          "id": "methods-and-models",
+          "name": "methods and models",
+          "requires": ["computerized-physical-and-thermodynamic-properties"]
+        },
+        {
+          "id": "ideal-and-non-ideal-model-selection-criteria",
+          "name": "ideal and non-ideal model selection criteria",
+          "requires": ["methods-and-models"]
+        },
+        {
+          "id": "thermodynamic-databanks",
+          "name": "thermodynamic databanks",
+          "requires": ["ideal-and-non-ideal-model-selection-criteria"]
+        },
+        {
+          "id": "nist-data-bank",
+          "name": "NIST data bank",
+          "requires": ["thermodynamic-databanks"]
+        },
+        {
+          "id": "estimation-of-activity-coefficient-and-eos-model-parameters",
+          "name": "estimation of activity coefficient and EOS model parameters using data regression systems",
+          "requires": ["nist-data-bank"]
+        },
+        {
+          "id": "case-studies-and-flowsheeting-problem-solving-of-mass-and-en",
+          "name": "case studies and flowsheeting problem solving of mass and energy balance",
+          "requires": ["estimation-of-activity-coefficient-and-eos-model-parameters"]
+        },
+        {
+          "id": "phase-equilibrium",
+          "name": "phase equilibrium",
+          "requires": ["case-studies-and-flowsheeting-problem-solving-of-mass-and-en"]
+        },
+        {
+          "id": "chemical-equilibrium-and-reactor-design-using-commercial-sof",
+          "name": "chemical equilibrium and reactor design using commercial software",
+          "requires": ["phase-equilibrium"]
+        },
+        {
+          "id": "hazardous-area-classification-using-process-simulation-and-t",
+          "name": "hazardous area classification using process simulation and thermodynamic insight",
+          "requires": ["chemical-equilibrium-and-reactor-design-using-commercial-sof"]
+        }
+      ]
+    },
+    {
+      "id": "computer-simulation-of-mass-and-heat-transfer-equipment",
+      "name": "Computer Simulation of Mass and Heat Transfer Equipment",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "design-and-simulation-of-distillation-and-absorption-columns",
+          "name": "Design and simulation of distillation and absorption columns"
+        },
+        {
+          "id": "equilibrium-and-rate-based-approaches-design",
+          "name": "equilibrium and rate-based approaches, design",
+          "requires": ["design-and-simulation-of-distillation-and-absorption-columns"]
+        },
+        {
+          "id": "rating-and-simulation-of-heat-exchangers",
+          "name": "rating and simulation of heat exchangers",
+          "requires": ["equilibrium-and-rate-based-approaches-design"]
+        },
+        {
+          "id": "petroleum-fractionation-columns",
+          "name": "petroleum fractionation columns",
+          "requires": ["rating-and-simulation-of-heat-exchangers"]
+        },
+        {
+          "id": "various-unit-models-available-in-the-simulator-library-and-t",
+          "name": "various unit models available in the simulator library and their usage",
+          "requires": ["petroleum-fractionation-columns"]
+        }
+      ]
+    },
+    {
+      "id": "process-integration-and-heat-exchanger-networks",
+      "name": "Process Integration and Heat Exchanger Networks",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "introduction-to-process-intensification-and-process-integrat",
+          "name": "Introduction to process intensification and process integration"
+        },
+        {
+          "id": "heat-exchanger-networks-hen-cold",
+          "name": "heat exchanger networks (HEN), cold",
+          "requires": ["introduction-to-process-intensification-and-process-integrat"]
+        },
+        {
+          "id": "hot-composite-and-utility-curves",
+          "name": "hot composite and utility curves",
+          "requires": ["heat-exchanger-networks-hen-cold"]
+        },
+        {
+          "id": "pinch-point-analysis",
+          "name": "pinch point analysis",
+          "requires": ["hot-composite-and-utility-curves"]
+        },
+        {
+          "id": "solving-hen-problems-using-an-energy-analyser",
+          "name": "solving HEN problems using an energy analyser",
+          "requires": ["pinch-point-analysis"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-computer-aided-process-design-laboratory-chem"]
+}

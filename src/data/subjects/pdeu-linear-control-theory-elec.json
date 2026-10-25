@@ -1,0 +1,294 @@
+{
+  "id": "pdeu-linear-control-theory-elec",
+  "name": "Linear Control Theory",
+  "field": "Linear Control Theory",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 4): Linear Control Theory",
+    "note": "Units and topics copied from the course handout PDF (pages 4 of ELEC/sem4/Electrical_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE206T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s4-linear-control-theory",
+      "code": "20EE206T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-control-system",
+      "name": "Introduction to Control System",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "definition-open-loop-and-closed-loop-systems-examples",
+          "name": "Definition, Open loop and closed loop systems, Examples"
+        },
+        {
+          "id": "components-of-control-systems",
+          "name": "Components of control systems",
+          "requires": ["definition-open-loop-and-closed-loop-systems-examples"]
+        },
+        {
+          "id": "types-of-control-systems",
+          "name": "Types of control systems",
+          "requires": ["components-of-control-systems"]
+        },
+        {
+          "id": "concept-of-feedback",
+          "name": "Concept of feedback",
+          "requires": ["types-of-control-systems"]
+        },
+        {
+          "id": "positive-and-negative-feedback",
+          "name": "positive and negative feedback",
+          "requires": ["concept-of-feedback"]
+        },
+        {
+          "id": "types-of-processes-and-its-characteristics-linear",
+          "name": "Types of processes and its characteristics, linear",
+          "requires": ["positive-and-negative-feedback"]
+        },
+        {
+          "id": "non-linear",
+          "name": "non-linear",
+          "requires": ["types-of-processes-and-its-characteristics-linear"]
+        },
+        {
+          "id": "time-varying-timeinvariant-continuous",
+          "name": "time-varying, timeinvariant, continuous",
+          "requires": ["non-linear"]
+        },
+        {
+          "id": "discrete-process",
+          "name": "discrete process",
+          "requires": ["time-varying-timeinvariant-continuous"]
+        },
+        {
+          "id": "lumped-parameter",
+          "name": "lumped parameter",
+          "requires": ["discrete-process"]
+        },
+        {
+          "id": "distributed-parameter-processes",
+          "name": "distributed parameter processes",
+          "requires": ["lumped-parameter"]
+        }
+      ]
+    },
+    {
+      "id": "mathematical-modelling-of-physical-systems",
+      "name": "Mathematical Modelling of Physical Systems",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "first-principle-modelling",
+          "name": "First principle modelling"
+        },
+        {
+          "id": "modelling-of-physical-systems-such-as-electrical-mechanical",
+          "name": "Modelling of physical systems such as electrical, mechanical",
+          "requires": ["first-principle-modelling"]
+        },
+        {
+          "id": "electro-mechanical-systems",
+          "name": "electro-mechanical systems",
+          "requires": ["modelling-of-physical-systems-such-as-electrical-mechanical"]
+        },
+        {
+          "id": "analogous-systems",
+          "name": "analogous systems",
+          "requires": ["electro-mechanical-systems"]
+        },
+        {
+          "id": "concept-of-transfer-function-poles-zeroes",
+          "name": "concept of transfer function, poles, zeroes",
+          "requires": ["analogous-systems"]
+        },
+        {
+          "id": "order-and-type-of-the-system",
+          "name": "‘order’ and ‘type’ of the system",
+          "requires": ["concept-of-transfer-function-poles-zeroes"]
+        },
+        {
+          "id": "computation-of-overall-transfer-function",
+          "name": "computation of overall transfer function",
+          "requires": ["order-and-type-of-the-system"]
+        },
+        {
+          "id": "block-diagram-reduction-techniques",
+          "name": "block diagram reduction techniques",
+          "requires": ["computation-of-overall-transfer-function"]
+        },
+        {
+          "id": "signal-flow-graphs",
+          "name": "signal flow graphs",
+          "requires": ["block-diagram-reduction-techniques"]
+        },
+        {
+          "id": "introduction-to-state",
+          "name": "Introduction to state",
+          "requires": ["signal-flow-graphs"]
+        },
+        {
+          "id": "state-space-and-state-variables",
+          "name": "state space and state variables",
+          "requires": ["introduction-to-state"]
+        },
+        {
+          "id": "state-space-models",
+          "name": "state space models",
+          "requires": ["state-space-and-state-variables"]
+        },
+        {
+          "id": "conversion-of-state-space-models-to-transfer-function-models",
+          "name": "conversion of state space models to transfer function models",
+          "requires": ["state-space-models"]
+        },
+        {
+          "id": "solution-of-state-equation",
+          "name": "solution of state equation",
+          "requires": ["conversion-of-state-space-models-to-transfer-function-models"]
+        },
+        {
+          "id": "homogeneous-and-nonhomogeneous-state-equations",
+          "name": "Homogeneous and Nonhomogeneous state equations",
+          "requires": ["solution-of-state-equation"]
+        },
+        {
+          "id": "state-transition-matrix",
+          "name": "State transition matrix",
+          "requires": ["homogeneous-and-nonhomogeneous-state-equations"]
+        },
+        {
+          "id": "concept-of-controllability-and-observability",
+          "name": "concept of controllability and observability",
+          "requires": ["state-transition-matrix"]
+        }
+      ]
+    },
+    {
+      "id": "time-response-analysis",
+      "name": "Time Response Analysis",
+      "hours": 5,
+      "topics": [
+        {
+          "id": "system-dynamics",
+          "name": "System dynamics"
+        },
+        {
+          "id": "standard-test-signals-step-impulse-ramp-parabolic",
+          "name": "Standard test signals, Step, Impulse, Ramp, Parabolic",
+          "requires": ["system-dynamics"]
+        },
+        {
+          "id": "sinusoidal-signals",
+          "name": "Sinusoidal signals",
+          "requires": ["standard-test-signals-step-impulse-ramp-parabolic"]
+        },
+        {
+          "id": "transient-and-steady-state-response-of-first-and-second-orde",
+          "name": "Transient and steady state response of first and second order systems",
+          "requires": ["sinusoidal-signals"]
+        },
+        {
+          "id": "time-response-specifications",
+          "name": "Time response specifications",
+          "requires": ["transient-and-steady-state-response-of-first-and-second-orde"]
+        },
+        {
+          "id": "steady-state-error",
+          "name": "Steady state error",
+          "requires": ["time-response-specifications"]
+        },
+        {
+          "id": "concept-of-dominant-poles-for-higher-order-systems",
+          "name": "Concept of dominant poles for higher order systems",
+          "requires": ["steady-state-error"]
+        }
+      ]
+    },
+    {
+      "id": "stability-analysis-of-control-systems",
+      "name": "Stability Analysis of Control Systems",
+      "hours": 15,
+      "topics": [
+        {
+          "id": "notations-of-stability",
+          "name": "Notations of stability"
+        },
+        {
+          "id": "asymptotic-and-bibo-stability",
+          "name": "Asymptotic and BIBO stability",
+          "requires": ["notations-of-stability"]
+        },
+        {
+          "id": "necessary-conditions-for-stability",
+          "name": "Necessary conditions for stability",
+          "requires": ["asymptotic-and-bibo-stability"]
+        },
+        {
+          "id": "routh-hurwitz-stability-criterion",
+          "name": "Routh-Hurwitz stability criterion",
+          "requires": ["necessary-conditions-for-stability"]
+        },
+        {
+          "id": "relative-stability",
+          "name": "Relative stability",
+          "requires": ["routh-hurwitz-stability-criterion"]
+        },
+        {
+          "id": "introduction-to-root-locus-definition",
+          "name": "Introduction to root locus, definition",
+          "requires": ["relative-stability"]
+        },
+        {
+          "id": "rules-to-construct-root-locus",
+          "name": "rules to construct root locus",
+          "requires": ["introduction-to-root-locus-definition"]
+        },
+        {
+          "id": "stability-analysis-and-control-system-design-using-root-locu",
+          "name": "Stability analysis and control system design using root locus",
+          "requires": ["rules-to-construct-root-locus"]
+        },
+        {
+          "id": "introduction-to-frequency-response",
+          "name": "Introduction to frequency response",
+          "requires": ["stability-analysis-and-control-system-design-using-root-locu"]
+        },
+        {
+          "id": "frequency-response-specifications",
+          "name": "Frequency response specifications",
+          "requires": ["introduction-to-frequency-response"]
+        },
+        {
+          "id": "stability-analysis-using-bode-plots",
+          "name": "Stability analysis using Bode plots",
+          "requires": ["frequency-response-specifications"]
+        },
+        {
+          "id": "polar-and-nyquist-plots",
+          "name": "Polar and Nyquist plots",
+          "requires": ["stability-analysis-using-bode-plots"]
+        }
+      ]
+    }
+  ]
+}

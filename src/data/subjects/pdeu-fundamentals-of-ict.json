@@ -52,18 +52,11 @@
           "requires": ["overview-of-ict-evolution-and-trends-in-ict-ict"]
         },
         {
-          "id": "role-of-ict-in-modern-society",
-          "name": "Role of ICT in Modern Society",
+          "id": "role-of-ict-in-modern-society-industry",
+          "name": "Role of ICT in Modern Society, Industry",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["ict-infrastructure-and-components"]
-        },
-        {
-          "id": "industry",
-          "name": "Industry",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["role-of-ict-in-modern-society"]
         },
         {
           "id": "type-of-ict-services-software-development-computer",
@@ -73,32 +66,18 @@
           "confidence": "verified"
         },
         {
-          "id": "computer-networking",
-          "name": "Computer Networking",
+          "id": "computer-networking-telecommunication-cybersecurity",
+          "name": "Computer Networking, Telecommunication, Cybersecurity",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["type-of-ict-services-software-development-computer"]
-        },
-        {
-          "id": "telecommunication",
-          "name": "Telecommunication",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["computer-networking"]
-        },
-        {
-          "id": "cybersecurity",
-          "name": "Cybersecurity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["telecommunication"]
         },
         {
           "id": "data-analytics",
           "name": "Data Analytics",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["cybersecurity"]
+          "requires": ["computer-networking-telecommunication-cybersecurity"]
         },
         {
           "id": "cloud-computing",
@@ -106,6 +85,31 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["data-analytics"]
+        },
+        {
+          "id": "role-of-ict-in-modern-society",
+          "name": "Role of ICT in Modern Society",
+          "status": "retired"
+        },
+        {
+          "id": "industry",
+          "name": "Industry",
+          "status": "retired"
+        },
+        {
+          "id": "computer-networking",
+          "name": "Computer Networking",
+          "status": "retired"
+        },
+        {
+          "id": "telecommunication",
+          "name": "Telecommunication",
+          "status": "retired"
+        },
+        {
+          "id": "cybersecurity",
+          "name": "Cybersecurity",
+          "status": "retired"
         }
       ]
     },

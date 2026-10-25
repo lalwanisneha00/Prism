@@ -96,16 +96,7 @@
         {
           "id": "differential-amplifier-using-single-and-two-op-amp",
           "name": "Differential amplifier using single and two op-amp",
-          "requires": ["voltage-follower"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "instrumentation-amplifier-using-op-amp-2",
-          "name": "Instrumentation amplifier using Op-Amp",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["differential-amplifier-using-single-and-two-op-amp"]
+          "requires": ["voltage-follower"]
         },
         {
           "id": "instrumentation-amplifier-using-op-amp",
@@ -187,6 +178,11 @@
           "id": "notch-filter",
           "name": "Notch Filter",
           "requires": ["active-filters"]
+        },
+        {
+          "id": "instrumentation-amplifier-using-op-amp-2",
+          "name": "Instrumentation amplifier using Op-Amp",
+          "status": "retired"
         }
       ]
     },
@@ -212,32 +208,18 @@
           "confidence": "verified"
         },
         {
-          "id": "wein-bridge",
-          "name": "Wein bridge",
+          "id": "wein-bridge-hartley-colpitts",
+          "name": "Wein bridge, Hartley, Colpitts",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["sine-wave-generator-phase-shift-wein-bridge-hartley-colpitts"]
-        },
-        {
-          "id": "hartley",
-          "name": "Hartley",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["wein-bridge"]
-        },
-        {
-          "id": "colpitts",
-          "name": "Colpitts",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["hartley"]
         },
         {
           "id": "crystal-oscillator",
           "name": "Crystal oscillator)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["colpitts"]
+          "requires": ["wein-bridge-hartley-colpitts"]
         },
         {
           "id": "square-and-triangular-waveform-generators-period-and",
@@ -258,6 +240,21 @@
           "id": "monostable-and-bistable-multivibrators",
           "name": "Monostable and Bistable Multivibrators",
           "requires": ["astable"]
+        },
+        {
+          "id": "wein-bridge",
+          "name": "Wein bridge",
+          "status": "retired"
+        },
+        {
+          "id": "hartley",
+          "name": "Hartley",
+          "status": "retired"
+        },
+        {
+          "id": "colpitts",
+          "name": "Colpitts",
+          "status": "retired"
         }
       ]
     },

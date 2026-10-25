@@ -36,7 +36,15 @@ const light = files.map((f) => {
     ...(s.confidence && s.confidence !== "unverified" ? { confidence: s.confidence } : {}),
     ...(s.status === "retired" ? { status: s.status } : {}),
     ...(s.courseType && s.courseType !== "theory" ? { courseType: s.courseType } : {}),
-    chapters: s.chapters.map((c) => ({ id: c.id, name: c.name, topics: c.topics.length })),
+    // Retired chapters and topics (syllabus fix) are not counted or listed.
+    chapters: s.chapters
+      .filter((c) => c.status !== "retired")
+      .map((c) => ({
+        id: c.id,
+        name: c.name,
+        topics: c.topics.filter((t) => t.status !== "retired").length,
+      }))
+      .filter((c) => c.topics > 0),
   };
 });
 

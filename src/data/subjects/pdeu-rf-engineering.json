@@ -50,53 +50,25 @@
           "confidence": "verified"
         },
         {
-          "id": "radiation-power-density",
-          "name": "Radiation Power Density",
+          "id": "radiation-power-density-directivity-gain",
+          "name": "Radiation Power Density, Directivity, Gain",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["antenna-parameters"]
         },
         {
-          "id": "directivity",
-          "name": "Directivity",
+          "id": "beam-width-bandwidth-polarization",
+          "name": "Beam width, Bandwidth, Polarization",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["radiation-power-density"]
-        },
-        {
-          "id": "gain",
-          "name": "Gain",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["directivity"]
-        },
-        {
-          "id": "beam-width",
-          "name": "Beam width",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["gain"]
-        },
-        {
-          "id": "bandwidth",
-          "name": "Bandwidth",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["beam-width"]
-        },
-        {
-          "id": "polarization",
-          "name": "Polarization",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bandwidth"]
+          "requires": ["radiation-power-density-directivity-gain"]
         },
         {
           "id": "radiation-efficiency",
           "name": "Radiation Efficiency",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["polarization"]
+          "requires": ["beam-width-bandwidth-polarization"]
         },
         {
           "id": "antenna-efficiency",
@@ -174,6 +146,36 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["rmsa-and-cmsa-design"]
+        },
+        {
+          "id": "radiation-power-density",
+          "name": "Radiation Power Density",
+          "status": "retired"
+        },
+        {
+          "id": "directivity",
+          "name": "Directivity",
+          "status": "retired"
+        },
+        {
+          "id": "gain",
+          "name": "Gain",
+          "status": "retired"
+        },
+        {
+          "id": "beam-width",
+          "name": "Beam width",
+          "status": "retired"
+        },
+        {
+          "id": "bandwidth",
+          "name": "Bandwidth",
+          "status": "retired"
+        },
+        {
+          "id": "polarization",
+          "name": "Polarization",
+          "status": "retired"
         }
       ]
     },

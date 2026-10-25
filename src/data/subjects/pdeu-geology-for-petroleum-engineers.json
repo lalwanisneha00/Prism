@@ -53,24 +53,17 @@
         },
         {
           "id": "the-earths-structure-crust-mantle-and-core",
-          "name": "The Earth's structure",
+          "name": "The Earth's structure, crust",
           "requires": ["origin-of-the-solar-system-with-earth-formation-stellar"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "crust",
-          "name": "crust",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["the-earths-structure-crust-mantle-and-core"]
         },
         {
           "id": "mantle-and-core",
           "name": "mantle and core",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["crust"]
+          "requires": ["the-earths-structure-crust-mantle-and-core"]
         },
         {
           "id": "plate-tectonics-petro",
@@ -99,6 +92,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["radioactive-dating-sea-level-change"]
+        },
+        {
+          "id": "crust",
+          "name": "crust",
+          "status": "retired"
         }
       ]
     },
@@ -118,17 +116,8 @@
         },
         {
           "id": "chemical-weathering",
-          "name": "Weathering",
-          "requires": ["physical-or-mechanical-weathering"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "chemical-weathering-2",
           "name": "Chemical weathering",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["chemical-weathering"]
+          "requires": ["physical-or-mechanical-weathering"]
         },
         {
           "id": "biological-weathering-stress-and-strain-in-rocks",
@@ -163,6 +152,11 @@
           "id": "types-of-joints-in-geology",
           "name": "Types of joints in geology",
           "requires": ["fault-nomenclature"]
+        },
+        {
+          "id": "chemical-weathering-2",
+          "name": "Chemical weathering",
+          "status": "retired"
         }
       ]
     },
@@ -198,24 +192,8 @@
         },
         {
           "id": "silicate-mineralogy-igneous-petrology-rock-cycle",
-          "name": "silicate mineralogy",
-          "requires": ["chemical-mineralogy-bio-mineralogy-optical-mineralogy"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "classification-of-rocks",
-          "name": "Classification of rocks",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["silicate-mineralogy-igneous-petrology-rock-cycle"]
-        },
-        {
-          "id": "classification-of-igneous-rocks",
-          "name": "Classification of igneous rocks",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["classification-of-rocks"]
+          "name": "silicate mineralogy, Igneous Petrology- rock cycle, Classification of rocks",
+          "requires": ["chemical-mineralogy-bio-mineralogy-optical-mineralogy"]
         },
         {
           "id": "bowens-reaction-series-formation-of-igneous-rocks",
@@ -296,6 +274,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["non-foliated-rocks"]
+        },
+        {
+          "id": "classification-of-rocks",
+          "name": "Classification of rocks",
+          "status": "retired"
+        },
+        {
+          "id": "classification-of-igneous-rocks",
+          "name": "Classification of igneous rocks",
+          "status": "retired"
         }
       ]
     },
@@ -330,17 +318,8 @@
         },
         {
           "id": "index-fossils-importance-of-fossils-in-petroleum-geology",
-          "name": "Index fossils",
-          "requires": ["uses-of-fossils"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "importance-of-fossils-in-petroleum-geology",
-          "name": "importance of fossils in petroleum geology",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["index-fossils-importance-of-fossils-in-petroleum-geology"]
+          "name": "Index fossils, importance of fossils in petroleum geology, Stratigraphy-Types of Stratigraphy",
+          "requires": ["uses-of-fossils"]
         },
         {
           "id": "laws-of-stratigraphy",
@@ -350,8 +329,8 @@
           "confidence": "verified"
         },
         {
-          "id": "laws-of-stratigraphy-2",
-          "name": "Laws of Stratigraphy",
+          "id": "laws-of-stratigraphy-unconformities",
+          "name": "Laws of Stratigraphy, Unconformities",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["laws-of-stratigraphy"]
@@ -365,6 +344,16 @@
           "id": "importance-of-stratigraphy-in-oil-and-gas-traps",
           "name": "importance of stratigraphy in oil and gas traps",
           "requires": ["unconformities"]
+        },
+        {
+          "id": "importance-of-fossils-in-petroleum-geology",
+          "name": "importance of fossils in petroleum geology",
+          "status": "retired"
+        },
+        {
+          "id": "laws-of-stratigraphy-2",
+          "name": "Laws of Stratigraphy",
+          "status": "retired"
         }
       ]
     }

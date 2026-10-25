@@ -41,19 +41,14 @@
           "name": "Historical development of membranes"
         },
         {
-          "id": "membrane-materials",
-          "name": "membrane materials",
+          "id": "membrane-materials-polymeric",
+          "name": "membrane materials, polymeric",
           "requires": ["historical-development-of-membranes"]
-        },
-        {
-          "id": "polymeric",
-          "name": "polymeric",
-          "requires": ["membrane-materials"]
         },
         {
           "id": "inorganic-and-liquid",
           "name": "inorganic and liquid",
-          "requires": ["polymeric"]
+          "requires": ["membrane-materials-polymeric"]
         },
         {
           "id": "isotropic-membranes",
@@ -89,6 +84,16 @@
           "id": "structure-permeability-relationships",
           "name": "structure-permeability relationships",
           "requires": ["solution-diffusion-model"]
+        },
+        {
+          "id": "membrane-materials",
+          "name": "membrane materials",
+          "status": "retired"
+        },
+        {
+          "id": "polymeric",
+          "name": "polymeric",
+          "status": "retired"
         }
       ]
     },
@@ -173,29 +178,19 @@
           "requires": ["top-surface-and-cross-section-structure"]
         },
         {
-          "id": "hydrophilicity-and-hydrophobicity",
-          "name": "hydrophilicity and hydrophobicity",
+          "id": "hydrophilicity-and-hydrophobicity-porosity",
+          "name": "hydrophilicity and hydrophobicity, porosity",
           "requires": ["surface-properties"]
         },
         {
-          "id": "porosity",
-          "name": "porosity",
-          "requires": ["hydrophilicity-and-hydrophobicity"]
-        },
-        {
-          "id": "water-flux",
-          "name": "water flux",
-          "requires": ["porosity"]
-        },
-        {
-          "id": "permeability",
-          "name": "permeability",
-          "requires": ["water-flux"]
+          "id": "water-flux-permeability",
+          "name": "water flux, permeability",
+          "requires": ["hydrophilicity-and-hydrophobicity-porosity"]
         },
         {
           "id": "pore-size",
           "name": "pore size",
-          "requires": ["permeability"]
+          "requires": ["water-flux-permeability"]
         },
         {
           "id": "ftir-analysis",
@@ -206,6 +201,26 @@
           "id": "solute-rejection-properties-and-protein-adsorption-property",
           "name": "solute rejection properties and protein adsorption property",
           "requires": ["ftir-analysis"]
+        },
+        {
+          "id": "hydrophilicity-and-hydrophobicity",
+          "name": "hydrophilicity and hydrophobicity",
+          "status": "retired"
+        },
+        {
+          "id": "porosity",
+          "name": "porosity",
+          "status": "retired"
+        },
+        {
+          "id": "water-flux",
+          "name": "water flux",
+          "status": "retired"
+        },
+        {
+          "id": "permeability",
+          "name": "permeability",
+          "status": "retired"
         }
       ]
     },
@@ -215,28 +230,13 @@
       "hours": 12,
       "topics": [
         {
-          "id": "reverse-osmosis",
-          "name": "Reverse osmosis"
-        },
-        {
-          "id": "nanofiltration",
-          "name": "nanofiltration",
-          "requires": ["reverse-osmosis"]
-        },
-        {
-          "id": "ultrafiltration",
-          "name": "ultrafiltration",
-          "requires": ["nanofiltration"]
-        },
-        {
-          "id": "microfiltration",
-          "name": "microfiltration",
-          "requires": ["ultrafiltration"]
+          "id": "reverse-osmosis-nanofiltration-ultrafiltration-microfiltrati",
+          "name": "Reverse osmosis, nanofiltration, ultrafiltration, microfiltration"
         },
         {
           "id": "gas-separation",
           "name": "gas separation",
-          "requires": ["microfiltration"]
+          "requires": ["reverse-osmosis-nanofiltration-ultrafiltration-microfiltrati"]
         },
         {
           "id": "membrane-distillation",
@@ -277,6 +277,26 @@
           "id": "fouling-control",
           "name": "fouling control",
           "requires": ["membrane-fouling"]
+        },
+        {
+          "id": "reverse-osmosis",
+          "name": "Reverse osmosis",
+          "status": "retired"
+        },
+        {
+          "id": "nanofiltration",
+          "name": "nanofiltration",
+          "status": "retired"
+        },
+        {
+          "id": "ultrafiltration",
+          "name": "ultrafiltration",
+          "status": "retired"
+        },
+        {
+          "id": "microfiltration",
+          "name": "microfiltration",
+          "status": "retired"
         }
       ]
     }

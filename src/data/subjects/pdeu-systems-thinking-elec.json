@@ -1,0 +1,239 @@
+{
+  "id": "pdeu-systems-thinking-elec",
+  "name": "Systems Thinking",
+  "field": "Systems Thinking",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): Systems Thinking",
+    "note": "Units and topics copied from the course handout PDF (pages 18 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE309T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-systems-thinking",
+      "code": "20EE309T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "system-dynamics",
+      "name": "System Dynamics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "definition-introduction-to-industrial-dynamics-id",
+          "name": "Definition, Introduction to Industrial Dynamics (ID)"
+        },
+        {
+          "id": "historical-background",
+          "name": "Historical background",
+          "requires": ["definition-introduction-to-industrial-dynamics-id"]
+        },
+        {
+          "id": "evolution-of-system-dynamics",
+          "name": "Evolution of system dynamics",
+          "requires": ["historical-background"]
+        },
+        {
+          "id": "nature-of-systems",
+          "name": "Nature of systems",
+          "requires": ["evolution-of-system-dynamics"]
+        },
+        {
+          "id": "simple-to-complex-systems",
+          "name": "simple to complex systems",
+          "requires": ["nature-of-systems"]
+        },
+        {
+          "id": "concept-of-state-and-state-space",
+          "name": "Concept of state and state space",
+          "requires": ["simple-to-complex-systems"]
+        },
+        {
+          "id": "types-of-processes-linear",
+          "name": "types of processes, linear",
+          "requires": ["concept-of-state-and-state-space"]
+        },
+        {
+          "id": "non-linear-continuous",
+          "name": "non-linear, continuous",
+          "requires": ["types-of-processes-linear"]
+        },
+        {
+          "id": "discrete-process",
+          "name": "discrete process",
+          "requires": ["non-linear-continuous"]
+        },
+        {
+          "id": "distributed-parameter",
+          "name": "distributed parameter",
+          "requires": ["discrete-process"]
+        },
+        {
+          "id": "lumped-parameter-process",
+          "name": "lumped parameter process",
+          "requires": ["distributed-parameter"]
+        }
+      ]
+    },
+    {
+      "id": "system-dynamics-models",
+      "name": "System Dynamics Models",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "differential-equations-verses-integration",
+          "name": "Differential equations verses Integration"
+        },
+        {
+          "id": "first-principle-modelling",
+          "name": "First principle modelling",
+          "requires": ["differential-equations-verses-integration"]
+        },
+        {
+          "id": "data-based-modelling",
+          "name": "Data based modelling",
+          "requires": ["first-principle-modelling"]
+        },
+        {
+          "id": "role-of-data-in-system-dynamics-models",
+          "name": "Role of data in system dynamics models",
+          "requires": ["data-based-modelling"]
+        },
+        {
+          "id": "principles-of-influence",
+          "name": "Principles of influence",
+          "requires": ["role-of-data-in-system-dynamics-models"]
+        },
+        {
+          "id": "causal-loop-diagrams",
+          "name": "Causal loop diagrams",
+          "requires": ["principles-of-influence"]
+        },
+        {
+          "id": "principles-of-stock-flow-diagram",
+          "name": "Principles of stock flow diagram",
+          "requires": ["causal-loop-diagrams"]
+        },
+        {
+          "id": "introduction-to-discrete-event-systems",
+          "name": "Introduction to discrete event systems",
+          "requires": ["principles-of-stock-flow-diagram"]
+        },
+        {
+          "id": "modelling-of-discrete-event-system-and-simulations",
+          "name": "Modelling of discrete event system and simulations",
+          "requires": ["introduction-to-discrete-event-systems"]
+        },
+        {
+          "id": "state-space-models",
+          "name": "state space models",
+          "requires": ["modelling-of-discrete-event-system-and-simulations"]
+        },
+        {
+          "id": "transfer-function-models",
+          "name": "Transfer function models",
+          "requires": ["state-space-models"]
+        },
+        {
+          "id": "effect-of-system-poles-and-zeroes-on-system-dynamics",
+          "name": "Effect of system poles and zeroes on system dynamics",
+          "requires": ["transfer-function-models"]
+        },
+        {
+          "id": "optimization-in-system-dynamic-models",
+          "name": "Optimization in system dynamic models",
+          "requires": ["effect-of-system-poles-and-zeroes-on-system-dynamics"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-systems-thinking",
+      "name": "Introduction to Systems Thinking",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "system-thinking-and-design",
+          "name": "System thinking and design"
+        },
+        {
+          "id": "theories-of-system-thinking",
+          "name": "Theories of system thinking",
+          "requires": ["system-thinking-and-design"]
+        },
+        {
+          "id": "system-thinking-tools",
+          "name": "System thinking tools",
+          "requires": ["theories-of-system-thinking"]
+        },
+        {
+          "id": "quantitative-tools-of-system-thinking",
+          "name": "Quantitative tools of system thinking",
+          "requires": ["system-thinking-tools"]
+        },
+        {
+          "id": "introduction-to-control-engineering",
+          "name": "Introduction to Control Engineering",
+          "requires": ["quantitative-tools-of-system-thinking"]
+        },
+        {
+          "id": "open-loop-and-closed-loop-systems",
+          "name": "Open loop and closed loop systems",
+          "requires": ["introduction-to-control-engineering"]
+        },
+        {
+          "id": "control-system-examples",
+          "name": "Control system examples",
+          "requires": ["open-loop-and-closed-loop-systems"]
+        },
+        {
+          "id": "types-of-feedback-and-feedback-system-theory",
+          "name": "Types of feedback and feedback system theory",
+          "requires": ["control-system-examples"]
+        }
+      ]
+    },
+    {
+      "id": "case-studies",
+      "name": "Case Studies",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "case-studies-related-with-system-thinking-approach-in-engine",
+          "name": "Case studies related with system thinking approach in Engineering and Management systems"
+        },
+        {
+          "id": "first-principle-and-data-based-modelling-of-electrical-mecha",
+          "name": "First principle and data based modelling of Electrical, Mechanical, Chemical, Thermal",
+          "requires": ["case-studies-related-with-system-thinking-approach-in-engine"]
+        },
+        {
+          "id": "environmental-systems",
+          "name": "Environmental systems",
+          "requires": ["first-principle-and-data-based-modelling-of-electrical-mecha"]
+        },
+        {
+          "id": "simulation-studies-using-matlab-scilab",
+          "name": "Simulation studies using MATLAB/Scilab",
+          "requires": ["environmental-systems"]
+        }
+      ]
+    }
+  ]
+}

@@ -46,94 +46,13 @@
         },
         {
           "id": "process-of-data-communication-transmitter-receiver-medium",
-          "name": "Process of Data Communication",
-          "requires": ["introduction"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "transmitter",
-          "name": "Transmitter",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["process-of-data-communication-transmitter-receiver-medium"]
-        },
-        {
-          "id": "receiver",
-          "name": "Receiver",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["transmitter"]
-        },
-        {
-          "id": "medium-and-message-protocol",
-          "name": "Medium and Message Protocol",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["receiver"]
-        },
-        {
-          "id": "protocols",
-          "name": "Protocols",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["medium-and-message-protocol"]
-        },
-        {
-          "id": "standards-and-standard-organizations",
-          "name": "Standards and Standard organizations",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["protocols"]
-        },
-        {
-          "id": "bandwidth",
-          "name": "Bandwidth",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["standards-and-standard-organizations"]
-        },
-        {
-          "id": "data-transmission-rate",
-          "name": "Data Transmission Rate",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bandwidth"]
-        },
-        {
-          "id": "baud-rate-and-bits-per-second",
-          "name": "Baud rate and Bits per second",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["data-transmission-rate"]
+          "name": "Process of Data Communication, Transmitter, Receiver, Medium and Message Protocol, Protocols, Standards and Standard organizations, Bandwidth, Data Transmission Rate, Baud rate and Bits per second, mo",
+          "requires": ["introduction"]
         },
         {
           "id": "signals-analog-digital-analog-vs",
-          "name": "Signals",
-          "requires": ["process-of-data-communication-transmitter-receiver-medium"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "analog",
-          "name": "Analog",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["signals-analog-digital-analog-vs"]
-        },
-        {
-          "id": "digital",
-          "name": "Digital",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["analog"]
-        },
-        {
-          "id": "analog-vs",
-          "name": "Analog vs",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["digital"]
+          "name": "Signals, Analog, Digital, Analog vs",
+          "requires": ["process-of-data-communication-transmitter-receiver-medium"]
         },
         {
           "id": "digital-transmission-impairment-data-rate-limits-noiseless",
@@ -150,72 +69,124 @@
           "requires": ["digital-transmission-impairment-data-rate-limits-noiseless"]
         },
         {
-          "id": "noiseless-and-noisy-channel",
-          "name": "Noiseless and Noisy channel",
+          "id": "noiseless-and-noisy-channel-performance",
+          "name": "Noiseless and Noisy channel, Performance",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["data-rate-limits"]
-        },
-        {
-          "id": "performance",
-          "name": "Performance",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["noiseless-and-noisy-channel"]
-        },
-        {
-          "id": "switching",
-          "name": "FHSS",
-          "requires": ["tdm-comm"],
-          "source": "admin_handout",
-          "confidence": "verified",
-          "movedFrom": {
-            "subject": "pdeu-data-communication",
-            "chapter": "multiplexing",
-            "at": "2026-10-24T23:22:41.746Z"
-          }
         },
         {
           "id": "modes-of-communication",
           "name": "modes of communication",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["switching"]
+          "requires": ["noiseless-and-noisy-channel-performance"]
         },
         {
-          "id": "osi-tcip-model",
-          "name": "OSI/TCIP Model",
+          "id": "osi-tcip-model-networks-internet-intranet",
+          "name": "OSI/TCIP Model, Networks, Internet, Intranet",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["modes-of-communication"]
-        },
-        {
-          "id": "internet",
-          "name": "Internet",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["osi-tcip-model"]
-        },
-        {
-          "id": "intranet",
-          "name": "Intranet",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["internet"]
         },
         {
           "id": "telephone-and-cable-network",
           "name": "Telephone and Cable network",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["intranet"]
+          "requires": ["osi-tcip-model-networks-internet-intranet"]
+        },
+        {
+          "id": "physical-layer-signals-analog-digital",
+          "name": "Physical Layer, Signals, Analog, Digital",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["telephone-and-cable-network"]
+        },
+        {
+          "id": "transmitter",
+          "name": "Transmitter",
+          "status": "retired"
+        },
+        {
+          "id": "receiver",
+          "name": "Receiver",
+          "status": "retired"
+        },
+        {
+          "id": "medium-and-message-protocol",
+          "name": "Medium and Message Protocol",
+          "status": "retired"
+        },
+        {
+          "id": "protocols",
+          "name": "Protocols",
+          "status": "retired"
+        },
+        {
+          "id": "standards-and-standard-organizations",
+          "name": "Standards and Standard organizations",
+          "status": "retired"
+        },
+        {
+          "id": "bandwidth",
+          "name": "Bandwidth",
+          "status": "retired"
+        },
+        {
+          "id": "data-transmission-rate",
+          "name": "Data Transmission Rate",
+          "status": "retired"
+        },
+        {
+          "id": "baud-rate-and-bits-per-second",
+          "name": "Baud rate and Bits per second",
+          "status": "retired"
+        },
+        {
+          "id": "analog",
+          "name": "Analog",
+          "status": "retired"
+        },
+        {
+          "id": "digital",
+          "name": "Digital",
+          "status": "retired"
+        },
+        {
+          "id": "analog-vs",
+          "name": "Analog vs",
+          "status": "retired"
+        },
+        {
+          "id": "noiseless-and-noisy-channel",
+          "name": "Noiseless and Noisy channel",
+          "status": "retired"
+        },
+        {
+          "id": "performance",
+          "name": "Performance",
+          "status": "retired"
+        },
+        {
+          "id": "osi-tcip-model",
+          "name": "OSI/TCIP Model",
+          "status": "retired"
+        },
+        {
+          "id": "internet",
+          "name": "Internet",
+          "status": "retired"
+        },
+        {
+          "id": "intranet",
+          "name": "Intranet",
+          "status": "retired"
         },
         {
           "id": "physical-layer",
           "name": "Physical Layer",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["telephone-and-cable-network"]
+          "status": "retired"
         }
       ]
     },
@@ -285,15 +256,8 @@
           "requires": ["qam"]
         },
         {
-          "id": "analog-to-digital-conversion",
-          "name": "Analog to digital conversion",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["digital-transmission"]
-        },
-        {
           "id": "analog-to-digital-conversion-digitization-pcm-transmission",
-          "name": "Digitization",
+          "name": "Analog to digital conversion, Digitization",
           "requires": ["psk-fsk-qam"],
           "source": "admin_handout",
           "confidence": "verified"
@@ -313,53 +277,32 @@
           "requires": ["pcm"]
         },
         {
-          "id": "line-coding-unipolar",
-          "name": "Line Coding (Unipolar",
+          "id": "line-coding-unipolar-polar-biphase",
+          "name": "Line Coding (Unipolar, Polar, Biphase)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["transmission-modes"]
-        },
-        {
-          "id": "polar",
-          "name": "Polar",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["line-coding-unipolar"]
-        },
-        {
-          "id": "biphase",
-          "name": "Biphase)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["polar"]
         },
         {
           "id": "block-coding-4b-5b-encoding",
           "name": "Block Coding (4B/5B Encoding)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["biphase"]
+          "requires": ["line-coding-unipolar-polar-biphase"]
         },
         {
-          "id": "dte-dce-interface",
-          "name": "DTE-DCE Interface",
+          "id": "dte-dce-interface-modems",
+          "name": "DTE-DCE Interface, Modems",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["block-coding-4b-5b-encoding"]
-        },
-        {
-          "id": "modems",
-          "name": "Modems",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["dte-dce-interface"]
         },
         {
           "id": "56k-modems",
           "name": "56K Modems",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["modems"]
+          "requires": ["dte-dce-interface-modems"]
         },
         {
           "id": "cable-modems",
@@ -367,6 +310,36 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["56k-modems"]
+        },
+        {
+          "id": "analog-to-digital-conversion",
+          "name": "Analog to digital conversion",
+          "status": "retired"
+        },
+        {
+          "id": "line-coding-unipolar",
+          "name": "Line Coding (Unipolar",
+          "status": "retired"
+        },
+        {
+          "id": "polar",
+          "name": "Polar",
+          "status": "retired"
+        },
+        {
+          "id": "biphase",
+          "name": "Biphase)",
+          "status": "retired"
+        },
+        {
+          "id": "dte-dce-interface",
+          "name": "DTE-DCE Interface",
+          "status": "retired"
+        },
+        {
+          "id": "modems",
+          "name": "Modems",
+          "status": "retired"
         }
       ]
     },
@@ -404,29 +377,27 @@
         },
         {
           "id": "unguided-media-radio-waves-microwaves-and-infrared-satellite",
-          "name": "Unguided Media: Radio Waves",
+          "name": "Unguided Media: Radio Waves, Microwaves",
           "requires": ["coaxial-cable-and-fiber-optic-cable"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "microwaves",
-          "name": "Microwaves",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["unguided-media-radio-waves-microwaves-and-infrared-satellite"]
         },
         {
           "id": "infrared-satellite",
           "name": "Infrared satellite",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["microwaves"]
+          "requires": ["unguided-media-radio-waves-microwaves-and-infrared-satellite"]
         },
         {
           "id": "line-of-site-transmission-point-to-point-and-broadcast",
           "name": "Line-of-site transmission: point-to-point and broadcast",
           "requires": ["unguided-media-radio-waves-microwaves-and-infrared-satellite"]
+        },
+        {
+          "id": "microwaves",
+          "name": "Microwaves",
+          "status": "retired"
         }
       ]
     },
@@ -437,16 +408,7 @@
       "topics": [
         {
           "id": "multiplexing",
-          "name": "Multiplexing",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "statistical-time-division-multiplexing",
-          "name": "Statistical Time Division Multiplexing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["multiplexing"]
+          "name": "Multiplexing"
         },
         {
           "id": "tdm-comm",
@@ -463,25 +425,18 @@
           "requires": ["tdm-comm"]
         },
         {
-          "id": "synchronous-tdm-time-slots-and-frames",
-          "name": "Synchronous TDM (time slots & frames",
+          "id": "synchronous-tdm-time-slots-and-frames-interleaving",
+          "name": "Synchronous TDM (time slots & frames, interleaving",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["wdm"]
-        },
-        {
-          "id": "interleaving",
-          "name": "interleaving",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["synchronous-tdm-time-slots-and-frames"]
         },
         {
           "id": "data-rate-management",
           "name": "data rate management)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["interleaving"]
+          "requires": ["synchronous-tdm-time-slots-and-frames-interleaving"]
         },
         {
           "id": "spread-spectrum",
@@ -491,11 +446,19 @@
           "requires": ["data-rate-management"]
         },
         {
+          "id": "switching",
+          "name": "FHSS",
+          "requires": ["tdm-comm"],
+          "source": "admin_handout",
+          "confidence": "verified",
+          "formerChapters": ["data-communication-overview-and-physical-layer"]
+        },
+        {
           "id": "dsss",
           "name": "DSSS",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["spread-spectrum"]
+          "requires": ["switching"]
         },
         {
           "id": "switching-circuit-switched-networks",
@@ -529,6 +492,21 @@
           "id": "concepts-of-dsl-and-adsl",
           "name": "Concepts of DSL and ADSL",
           "requires": ["switching"]
+        },
+        {
+          "id": "statistical-time-division-multiplexing",
+          "name": "Statistical Time Division Multiplexing",
+          "status": "retired"
+        },
+        {
+          "id": "synchronous-tdm-time-slots-and-frames",
+          "name": "Synchronous TDM (time slots & frames",
+          "status": "retired"
+        },
+        {
+          "id": "interleaving",
+          "name": "interleaving",
+          "status": "retired"
         }
       ]
     }

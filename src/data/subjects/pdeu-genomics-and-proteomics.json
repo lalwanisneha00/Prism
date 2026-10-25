@@ -40,37 +40,21 @@
       "topics": [
         {
           "id": "introduction",
-          "name": "Introduction",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "introduction-to-proteomics-2",
-          "name": "Introduction to Proteomics",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction"]
+          "name": "Introduction"
         },
         {
           "id": "organization-and-structure-of-genomes-genome-size-introns",
-          "name": "Organization and structure of genomes",
+          "name": "Genome size",
           "requires": ["introduction"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "genome-size",
-          "name": "Genome size",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["organization-and-structure-of-genomes-genome-size-introns"]
         },
         {
           "id": "introns-and-exons",
           "name": "Introns and Exons",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["genome-size"]
+          "requires": ["organization-and-structure-of-genomes-genome-size-introns"]
         },
         {
           "id": "sequence-complexity",
@@ -80,18 +64,11 @@
           "requires": ["introns-and-exons"]
         },
         {
-          "id": "genome-structure-in-prokaryotes-viruses",
-          "name": "Genome structure in prokaryotes / viruses",
+          "id": "genome-structure-in-prokaryotes-viruses-retrofitting",
+          "name": "Genome structure in prokaryotes / viruses, Retrofitting",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["sequence-complexity"]
-        },
-        {
-          "id": "retrofitting",
-          "name": "Retrofitting",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["genome-structure-in-prokaryotes-viruses"]
         },
         {
           "id": "introduction-to-proteomics",
@@ -100,29 +77,47 @@
         },
         {
           "id": "the-proteome-mining-proteomes-bridging-genomics-and",
-          "name": "The Proteome",
+          "name": "Mining proteomes",
           "requires": ["introduction-to-proteomics"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "mining-proteomes",
-          "name": "Mining proteomes",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["the-proteome-mining-proteomes-bridging-genomics-and"]
         },
         {
           "id": "bridging-genomics-and-proteomics",
           "name": "Bridging Genomics and Proteomics",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["mining-proteomes"]
+          "requires": ["the-proteome-mining-proteomes-bridging-genomics-and"]
         },
         {
           "id": "proteomics-and-the-new-biology",
           "name": "Proteomics and the new biology",
           "requires": ["the-proteome-mining-proteomes-bridging-genomics-and"]
+        },
+        {
+          "id": "introduction-to-proteomics-2",
+          "name": "Introduction to Proteomics",
+          "status": "retired"
+        },
+        {
+          "id": "genome-size",
+          "name": "Genome size",
+          "status": "retired"
+        },
+        {
+          "id": "genome-structure-in-prokaryotes-viruses",
+          "name": "Genome structure in prokaryotes / viruses",
+          "status": "retired"
+        },
+        {
+          "id": "retrofitting",
+          "name": "Retrofitting",
+          "status": "retired"
+        },
+        {
+          "id": "mining-proteomes",
+          "name": "Mining proteomes",
+          "status": "retired"
         }
       ]
     },
@@ -233,16 +228,7 @@
       "topics": [
         {
           "id": "analysis-of-genomes-of-different-organisms-human",
-          "name": "Analysis of Genomes of different organisms",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "human",
-          "name": "Human",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["analysis-of-genomes-of-different-organisms-human"]
+          "name": "Analysis of Genomes of different organisms – Human"
         },
         {
           "id": "mouse",
@@ -288,6 +274,11 @@
           "id": "glycobiology-and-proteomics-in-plant-genetics-and-breeding",
           "name": "Glycobiology and Proteomics in plant genetics and breeding",
           "requires": ["phage-antibodies-as-tools"]
+        },
+        {
+          "id": "human",
+          "name": "Human",
+          "status": "retired"
         }
       ]
     }

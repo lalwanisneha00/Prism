@@ -38,17 +38,12 @@
       "topics": [
         {
           "id": "introduction-and-philosophy-of-a-protective-relaying-system",
-          "name": "Introduction and Philosophy of A Protective Relaying System: Types of Faults"
-        },
-        {
-          "id": "abnormalities",
-          "name": "Abnormalities",
-          "requires": ["introduction-and-philosophy-of-a-protective-relaying-system"]
+          "name": "Introduction and Philosophy of A Protective Relaying System: Types of Faults, Abnormalities"
         },
         {
           "id": "functions-of-protective-relay-schemes",
           "name": "Functions of Protective Relay Schemes",
-          "requires": ["abnormalities"]
+          "requires": ["introduction-and-philosophy-of-a-protective-relaying-system"]
         },
         {
           "id": "major-components-of-power-system",
@@ -96,44 +91,19 @@
           "requires": ["historical-review-of-protective-relay-technology"]
         },
         {
-          "id": "vector-diagram",
-          "name": "Vector diagram",
+          "id": "vector-diagram-construction",
+          "name": "Vector diagram, Construction",
           "requires": ["protective-current-and-potential-transformer-ct-equivalent-c"]
         },
         {
-          "id": "construction",
-          "name": "Construction",
-          "requires": ["vector-diagram"]
-        },
-        {
-          "id": "magnetization-curve",
-          "name": "magnetization Curve",
-          "requires": ["construction"]
-        },
-        {
-          "id": "core",
-          "name": "Core",
-          "requires": ["magnetization-curve"]
-        },
-        {
-          "id": "errors",
-          "name": "Errors",
-          "requires": ["core"]
-        },
-        {
-          "id": "accuracy",
-          "name": "accuracy",
-          "requires": ["errors"]
-        },
-        {
-          "id": "specifications",
-          "name": "Specifications",
-          "requires": ["accuracy"]
+          "id": "magnetization-curve-core-errors-accuracy-specifications",
+          "name": "magnetization Curve, Core, Errors, accuracy, Specifications",
+          "requires": ["vector-diagram-construction"]
         },
         {
           "id": "factors-affecting-selection-pt-equivalent-circuit",
           "name": "Factors affecting selection PT: Equivalent circuit",
-          "requires": ["specifications"]
+          "requires": ["magnetization-curve-core-errors-accuracy-specifications"]
         },
         {
           "id": "cvt",
@@ -224,6 +194,46 @@
           "id": "dft-fft",
           "name": "DFT- FFT",
           "requires": ["practical-consideration-for-selection-of-algorithm"]
+        },
+        {
+          "id": "abnormalities",
+          "name": "Abnormalities",
+          "status": "retired"
+        },
+        {
+          "id": "vector-diagram",
+          "name": "Vector diagram",
+          "status": "retired"
+        },
+        {
+          "id": "construction",
+          "name": "Construction",
+          "status": "retired"
+        },
+        {
+          "id": "magnetization-curve",
+          "name": "magnetization Curve",
+          "status": "retired"
+        },
+        {
+          "id": "core",
+          "name": "Core",
+          "status": "retired"
+        },
+        {
+          "id": "errors",
+          "name": "Errors",
+          "status": "retired"
+        },
+        {
+          "id": "accuracy",
+          "name": "accuracy",
+          "status": "retired"
+        },
+        {
+          "id": "specifications",
+          "name": "Specifications",
+          "status": "retired"
         }
       ]
     },
@@ -237,24 +247,14 @@
           "name": "Generator Protection: Differential Protection"
         },
         {
-          "id": "inter-turn-fault-protection",
-          "name": "Inter-turn fault Protection",
+          "id": "inter-turn-fault-protection-stator-e-f-rotor-e-f",
+          "name": "Inter-turn fault Protection, stator E/F, Rotor E/F",
           "requires": ["generator-protection-differential-protection"]
-        },
-        {
-          "id": "stator-e-f",
-          "name": "stator E/F",
-          "requires": ["inter-turn-fault-protection"]
-        },
-        {
-          "id": "rotor-e-f",
-          "name": "Rotor E/F",
-          "requires": ["stator-e-f"]
         },
         {
           "id": "nps",
           "name": "NPS",
-          "requires": ["rotor-e-f"]
+          "requires": ["inter-turn-fault-protection-stator-e-f-rotor-e-f"]
         },
         {
           "id": "field-failure",
@@ -380,6 +380,21 @@
           "id": "induction-motor-protection",
           "name": "Induction Motor Protection",
           "requires": ["transformer-protection"]
+        },
+        {
+          "id": "inter-turn-fault-protection",
+          "name": "Inter-turn fault Protection",
+          "status": "retired"
+        },
+        {
+          "id": "stator-e-f",
+          "name": "stator E/F",
+          "status": "retired"
+        },
+        {
+          "id": "rotor-e-f",
+          "name": "Rotor E/F",
+          "status": "retired"
         }
       ]
     },

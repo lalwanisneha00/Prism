@@ -37,23 +37,13 @@
       "hours": 18,
       "topics": [
         {
-          "id": "construction",
-          "name": "Construction"
-        },
-        {
-          "id": "types",
-          "name": "Types",
-          "requires": ["construction"]
-        },
-        {
-          "id": "operating-principle",
-          "name": "Operating Principle",
-          "requires": ["types"]
+          "id": "construction-types-operating-principle",
+          "name": "Construction, Types, Operating Principle"
         },
         {
           "id": "terms-related-to-ac-armature-winding",
           "name": "Terms Related to AC Armature Winding",
-          "requires": ["operating-principle"]
+          "requires": ["construction-types-operating-principle"]
         },
         {
           "id": "pitch-and-distribution-factors",
@@ -151,24 +141,14 @@
           "requires": ["operation-of-two-or-more-machines"]
         },
         {
-          "id": "operation-on-infinite-bus",
-          "name": "Operation on Infinite Bus",
+          "id": "operation-on-infinite-bus-f-p-q-v-characteristics",
+          "name": "Operation on Infinite Bus, F-P, Q-V Characteristics",
           "requires": ["load-sharing"]
-        },
-        {
-          "id": "f-p",
-          "name": "F-P",
-          "requires": ["operation-on-infinite-bus"]
-        },
-        {
-          "id": "q-v-characteristics",
-          "name": "Q-V Characteristics",
-          "requires": ["f-p"]
         },
         {
           "id": "effect-of-change-in-excitation",
           "name": "Effect of change in excitation",
-          "requires": ["q-v-characteristics"]
+          "requires": ["operation-on-infinite-bus-f-p-q-v-characteristics"]
         },
         {
           "id": "effect-of-change-in-prime-mover-speed",
@@ -206,19 +186,14 @@
           "requires": ["short-circuit-on-generator"]
         },
         {
-          "id": "mathematical-solution-of-series-rl-circuit",
-          "name": "Mathematical Solution of series RL circuit",
+          "id": "mathematical-solution-of-series-rl-circuit-transient",
+          "name": "Mathematical Solution of series RL circuit, Transient",
           "requires": ["constant-flux-linkage-theorem"]
-        },
-        {
-          "id": "transient",
-          "name": "Transient",
-          "requires": ["mathematical-solution-of-series-rl-circuit"]
         },
         {
           "id": "sub-transient",
           "name": "Sub-transient",
-          "requires": ["transient"]
+          "requires": ["mathematical-solution-of-series-rl-circuit-transient"]
         },
         {
           "id": "steady-state-single-phase-generator-short-circuit",
@@ -229,6 +204,46 @@
           "id": "testing-and-trouble-shooting-of-three-phase-alternator",
           "name": "Testing and Trouble Shooting of Three Phase Alternator",
           "requires": ["steady-state-single-phase-generator-short-circuit"]
+        },
+        {
+          "id": "construction",
+          "name": "Construction",
+          "status": "retired"
+        },
+        {
+          "id": "types",
+          "name": "Types",
+          "status": "retired"
+        },
+        {
+          "id": "operating-principle",
+          "name": "Operating Principle",
+          "status": "retired"
+        },
+        {
+          "id": "operation-on-infinite-bus",
+          "name": "Operation on Infinite Bus",
+          "status": "retired"
+        },
+        {
+          "id": "f-p",
+          "name": "F-P",
+          "status": "retired"
+        },
+        {
+          "id": "q-v-characteristics",
+          "name": "Q-V Characteristics",
+          "status": "retired"
+        },
+        {
+          "id": "mathematical-solution-of-series-rl-circuit",
+          "name": "Mathematical Solution of series RL circuit",
+          "status": "retired"
+        },
+        {
+          "id": "transient",
+          "name": "Transient",
+          "status": "retired"
         }
       ]
     },
@@ -238,18 +253,13 @@
       "hours": 6,
       "topics": [
         {
-          "id": "construction-2",
-          "name": "Construction"
-        },
-        {
-          "id": "operating-principle-2",
-          "name": "Operating Principle",
-          "requires": ["construction-2"]
+          "id": "construction-operating-principle",
+          "name": "Construction, Operating Principle"
         },
         {
           "id": "phasor-diagrams-2",
           "name": "Phasor Diagrams",
-          "requires": ["operating-principle-2"]
+          "requires": ["construction-operating-principle"]
         },
         {
           "id": "starting-methods",
@@ -257,19 +267,14 @@
           "requires": ["phasor-diagrams-2"]
         },
         {
-          "id": "effect-of-varying-field-current-at-different-loads",
-          "name": "Effect of Varying Field Current at Different Loads",
+          "id": "effect-of-varying-field-current-at-different-loads-v-curves",
+          "name": "Effect of Varying Field Current at Different Loads, V- Curves",
           "requires": ["starting-methods"]
-        },
-        {
-          "id": "v-curves",
-          "name": "V- Curves",
-          "requires": ["effect-of-varying-field-current-at-different-loads"]
         },
         {
           "id": "hunting-and-damping",
           "name": "Hunting & Damping",
-          "requires": ["v-curves"]
+          "requires": ["effect-of-varying-field-current-at-different-loads-v-curves"]
         },
         {
           "id": "synchronous-condenser",
@@ -280,6 +285,26 @@
           "id": "power-developed-by-synchronous-motor",
           "name": "Power Developed by Synchronous Motor",
           "requires": ["synchronous-condenser"]
+        },
+        {
+          "id": "construction-2",
+          "name": "Construction",
+          "status": "retired"
+        },
+        {
+          "id": "operating-principle-2",
+          "name": "Operating Principle",
+          "status": "retired"
+        },
+        {
+          "id": "effect-of-varying-field-current-at-different-loads",
+          "name": "Effect of Varying Field Current at Different Loads",
+          "status": "retired"
+        },
+        {
+          "id": "v-curves",
+          "name": "V- Curves",
+          "status": "retired"
         }
       ]
     },
@@ -343,14 +368,19 @@
           "requires": ["armature-reaction-and-its-effects"]
         },
         {
+          "id": "commutation-and-methods-to-improve-commutation-applications",
+          "name": "Commutation & Methods to Improve Commutation, Applications",
+          "requires": ["inter-poles-and-compensating-winding"]
+        },
+        {
           "id": "commutation-and-methods-to-improve-commutation",
           "name": "Commutation & Methods to Improve Commutation",
-          "requires": ["inter-poles-and-compensating-winding"]
+          "status": "retired"
         },
         {
           "id": "applications",
           "name": "Applications",
-          "requires": ["commutation-and-methods-to-improve-commutation"]
+          "status": "retired"
         }
       ]
     },
@@ -369,34 +399,24 @@
           "requires": ["working-principle"]
         },
         {
-          "id": "voltage-and-power-equations",
-          "name": "Voltage & Power Equations",
+          "id": "voltage-and-power-equations-types",
+          "name": "Voltage & Power Equations, Types",
           "requires": ["back-emf"]
-        },
-        {
-          "id": "types-2",
-          "name": "Types",
-          "requires": ["voltage-and-power-equations"]
         },
         {
           "id": "torque-of-a-dc-motor",
           "name": "Torque of a DC Motor",
-          "requires": ["types-2"]
+          "requires": ["voltage-and-power-equations-types"]
         },
         {
-          "id": "power-stages",
-          "name": "Power Stages",
+          "id": "power-stages-efficiency",
+          "name": "Power Stages, Efficiency",
           "requires": ["torque-of-a-dc-motor"]
-        },
-        {
-          "id": "efficiency",
-          "name": "Efficiency",
-          "requires": ["power-stages"]
         },
         {
           "id": "performance-characteristics",
           "name": "Performance Characteristics",
-          "requires": ["efficiency"]
+          "requires": ["power-stages-efficiency"]
         },
         {
           "id": "necessity-of-starter",
@@ -409,19 +429,14 @@
           "requires": ["necessity-of-starter"]
         },
         {
-          "id": "speed-control-of-dc-motors",
-          "name": "Speed Control of DC Motors",
+          "id": "speed-control-of-dc-motors-applications",
+          "name": "Speed Control of DC Motors, Applications",
           "requires": ["three-and-four-point-starters"]
-        },
-        {
-          "id": "applications-2",
-          "name": "Applications",
-          "requires": ["speed-control-of-dc-motors"]
         },
         {
           "id": "efficiency-and-testing-of-dc-machines-methods-of-testing",
           "name": "Efficiency and Testing of DC Machines: Methods of Testing",
-          "requires": ["applications-2"]
+          "requires": ["speed-control-of-dc-motors-applications"]
         },
         {
           "id": "brake-test",
@@ -452,6 +467,36 @@
           "id": "trouble-shooting-of-dc-machines",
           "name": "Trouble Shooting of DC Machines",
           "requires": ["retardation-test"]
+        },
+        {
+          "id": "voltage-and-power-equations",
+          "name": "Voltage & Power Equations",
+          "status": "retired"
+        },
+        {
+          "id": "types-2",
+          "name": "Types",
+          "status": "retired"
+        },
+        {
+          "id": "power-stages",
+          "name": "Power Stages",
+          "status": "retired"
+        },
+        {
+          "id": "efficiency",
+          "name": "Efficiency",
+          "status": "retired"
+        },
+        {
+          "id": "speed-control-of-dc-motors",
+          "name": "Speed Control of DC Motors",
+          "status": "retired"
+        },
+        {
+          "id": "applications-2",
+          "name": "Applications",
+          "status": "retired"
         }
       ]
     }

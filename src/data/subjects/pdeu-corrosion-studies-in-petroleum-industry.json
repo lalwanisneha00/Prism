@@ -82,7 +82,8 @@
         {
           "id": "sulphur-and-h-2s-in-hydrocarbon-fluids",
           "name": "Sulphur, and H 2S in hydrocarbon fluids",
-          "requires": ["corrosion-fundamentals-corrosion-in-oil-industry-cost-of"]
+          "requires": ["corrosion-fundamentals-corrosion-in-oil-industry-cost-of"],
+          "status": "retired"
         },
         {
           "id": "influence-of-oil-chemistry-on-the-corrosivity-of-the-aqueous",
@@ -143,8 +144,8 @@
           "requires": ["transport-through-the-porous-surface-scales-corrosion"]
         },
         {
-          "id": "corrosivity-of-aqueous-phase-in-hydrocarbon-fluids",
-          "name": "Corrosivity of aqueous phase in hydrocarbon fluids",
+          "id": "corrosivity-of-aqueous-phase-in-hydrocarbon-fluids-sulphur",
+          "name": "Corrosivity of aqueous phase in hydrocarbon fluids, Sulphur",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["kinetics-of-corrosion-products-precipitation-and-corrosion"]
@@ -154,7 +155,12 @@
           "name": "H2S in hydrocarbon fluids",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["corrosivity-of-aqueous-phase-in-hydrocarbon-fluids"]
+          "requires": ["corrosivity-of-aqueous-phase-in-hydrocarbon-fluids-sulphur"]
+        },
+        {
+          "id": "corrosivity-of-aqueous-phase-in-hydrocarbon-fluids",
+          "name": "Corrosivity of aqueous phase in hydrocarbon fluids",
+          "status": "retired"
         }
       ]
     },
@@ -302,23 +308,16 @@
       "topics": [
         {
           "id": "experimental-setups-methods-and-standards-multiphase-flow",
-          "name": "Experimental setups",
+          "name": "Experimental setups, methods",
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
-          "id": "methods",
-          "name": "methods",
+          "id": "standards-multiphase-flow-loop-autoclave",
+          "name": "standards:- Multiphase flow loop, Autoclave",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["experimental-setups-methods-and-standards-multiphase-flow"]
-        },
-        {
-          "id": "standards-multiphase-flow-loop",
-          "name": "standards:- Multiphase flow loop",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["methods"]
         },
         {
           "id": "autoclave",
@@ -374,6 +373,16 @@
           "id": "potentiostatic-polarization",
           "name": "Potentiostatic polarization",
           "requires": ["electrochemical-impedance-spectroscopy"]
+        },
+        {
+          "id": "methods",
+          "name": "methods",
+          "status": "retired"
+        },
+        {
+          "id": "standards-multiphase-flow-loop",
+          "name": "standards:- Multiphase flow loop",
+          "status": "retired"
         }
       ]
     },
@@ -437,31 +446,26 @@
         },
         {
           "id": "solubility-partitioning-and-compatibility-biocides",
-          "name": "Solubility",
+          "name": "Solubility, partitioning, and compatibility. Biocides",
           "requires": ["influence-of-operating-conditions"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "partitioning",
-          "name": "partitioning",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["solubility-partitioning-and-compatibility-biocides"]
-        },
-        {
-          "id": "compatibility",
-          "name": "compatibility",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["partitioning"]
+          "status": "retired"
         },
         {
           "id": "biocides-max",
           "name": "Biocides Max <>",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["compatibility"]
+          "requires": ["solubility-partitioning-and-compatibility-biocides"]
+        },
+        {
+          "id": "partitioning",
+          "name": "partitioning",
+          "status": "retired"
+        },
+        {
+          "id": "compatibility",
+          "name": "compatibility",
+          "status": "retired"
         }
       ]
     }

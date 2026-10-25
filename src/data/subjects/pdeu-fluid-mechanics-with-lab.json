@@ -39,93 +39,38 @@
       "topics": [
         {
           "id": "properties-of-fluid-introduction-of-fluid-mechanics",
-          "name": "Properties Of Fluid: Introduction of Fluid Mechanics",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "properties-of-fluid",
-          "name": "Properties of Fluid",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["properties-of-fluid-introduction-of-fluid-mechanics"]
+          "name": "Properties Of Fluid: Introduction of Fluid Mechanics, Properties of Fluid"
         },
         {
           "id": "density-specific-gravity-viscosity-compressibility-bulk",
-          "name": "Density",
+          "name": "Specific Gravity, Viscosity, Compressibility",
           "requires": ["properties-of-fluid-introduction-of-fluid-mechanics"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "specific-gravity",
-          "name": "Specific Gravity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["density-specific-gravity-viscosity-compressibility-bulk"]
-        },
-        {
-          "id": "viscosity",
-          "name": "Viscosity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["specific-gravity"]
-        },
-        {
-          "id": "compressibility",
-          "name": "Compressibility",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["viscosity"]
         },
         {
           "id": "bulk-modulus",
           "name": "Bulk Modulus",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["compressibility"]
+          "requires": ["density-specific-gravity-viscosity-compressibility-bulk"]
         },
         {
-          "id": "surface-tension",
-          "name": "Surface Tension",
+          "id": "surface-tension-capillarity",
+          "name": "Surface Tension, Capillarity",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["bulk-modulus"]
         },
         {
-          "id": "capillarity",
-          "name": "Capillarity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["surface-tension"]
-        },
-        {
           "id": "pressure-measurement-pascals-law-pressure-measurement",
-          "name": "Pressure Measurement: Pascal’s Law",
-          "requires": ["density-specific-gravity-viscosity-compressibility-bulk"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "pressure-measurement",
-          "name": "Pressure Measurement",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pressure-measurement-pascals-law-pressure-measurement"]
+          "name": "Pressure Measurement: Pascal’s Law, Pressure Measurement",
+          "requires": ["density-specific-gravity-viscosity-compressibility-bulk"]
         },
         {
           "id": "fluid-pressure-manometers",
-          "name": "Manometers",
-          "requires": ["pressure-measurement-pascals-law-pressure-measurement"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "hydrostatic-forces-total-pressure-and-centre-of-pressure",
-          "name": "Hydrostatic Forces: Total Pressure and Centre of Pressure",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["fluid-pressure-manometers"]
+          "name": "Manometers. Hydrostatic Forces: Total Pressure and Centre of Pressure",
+          "requires": ["pressure-measurement-pascals-law-pressure-measurement"]
         },
         {
           "id": "vertical-plane-surface-horizontal-plane-surface-inclined",
@@ -157,31 +102,84 @@
         },
         {
           "id": "buoyancy-buoyancy-metacentre-and-metacentric-height",
-          "name": "Buoyancy: Buoyancy",
-          "requires": ["vertical-plane-surface-horizontal-plane-surface-inclined"],
+          "name": "Buoyancy: Buoyancy, Metacentre and Metacentric Height",
+          "requires": ["vertical-plane-surface-horizontal-plane-surface-inclined"]
+        },
+        {
+          "id": "determination-equilibrium-conditions",
+          "name": "Determination, Equilibrium Conditions",
+          "requires": ["buoyancy-buoyancy-metacentre-and-metacentric-height"]
+        },
+        {
+          "id": "properties-of-fluid-density",
+          "name": "Properties of Fluid, Density",
           "source": "admin_handout",
-          "confidence": "verified"
+          "confidence": "verified",
+          "requires": ["determination-equilibrium-conditions"]
+        },
+        {
+          "id": "pressure-measurement-manometers",
+          "name": "Pressure Measurement, Manometers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["properties-of-fluid-density"]
+        },
+        {
+          "id": "metacentre-and-metacentric-height-determination",
+          "name": "Metacentre and Metacentric Height, Determination",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pressure-measurement-manometers"]
+        },
+        {
+          "id": "properties-of-fluid",
+          "name": "Properties of Fluid",
+          "status": "retired"
+        },
+        {
+          "id": "specific-gravity",
+          "name": "Specific Gravity",
+          "status": "retired"
+        },
+        {
+          "id": "viscosity",
+          "name": "Viscosity",
+          "status": "retired"
+        },
+        {
+          "id": "compressibility",
+          "name": "Compressibility",
+          "status": "retired"
+        },
+        {
+          "id": "surface-tension",
+          "name": "Surface Tension",
+          "status": "retired"
+        },
+        {
+          "id": "capillarity",
+          "name": "Capillarity",
+          "status": "retired"
+        },
+        {
+          "id": "pressure-measurement",
+          "name": "Pressure Measurement",
+          "status": "retired"
+        },
+        {
+          "id": "hydrostatic-forces-total-pressure-and-centre-of-pressure",
+          "name": "Hydrostatic Forces: Total Pressure and Centre of Pressure",
+          "status": "retired"
         },
         {
           "id": "metacentre-and-metacentric-height",
           "name": "Metacentre and Metacentric Height",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["buoyancy-buoyancy-metacentre-and-metacentric-height"]
-        },
-        {
-          "id": "determination-equilibrium-conditions",
-          "name": "Determination",
-          "requires": ["buoyancy-buoyancy-metacentre-and-metacentric-height"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "status": "retired"
         },
         {
           "id": "equilibrium-conditions",
           "name": "Equilibrium Conditions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["determination-equilibrium-conditions"]
+          "status": "retired"
         }
       ]
     },
@@ -253,32 +251,18 @@
           "requires": ["euler-bernoulli-fm"]
         },
         {
-          "id": "practical-application-of-bernoulli-s-equation",
-          "name": "Practical Application of Bernoulli’s Equation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["euler-s-and-bernoulli-s-equation"]
-        },
-        {
           "id": "venturimeter-orifice-meter-and-pitot-tube-momentum-equation",
-          "name": "Venturimeter",
+          "name": "Orifice Meter and Pitot Tube",
           "requires": ["euler-bernoulli-fm"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "orifice-meter-and-pitot-tube",
-          "name": "Orifice Meter and Pitot Tube",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["venturimeter-orifice-meter-and-pitot-tube-momentum-equation"]
         },
         {
           "id": "momentum-equation",
           "name": "Momentum Equation",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["orifice-meter-and-pitot-tube"]
+          "requires": ["venturimeter-orifice-meter-and-pitot-tube-momentum-equation"]
         },
         {
           "id": "free-liquid-jets",
@@ -286,6 +270,23 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["momentum-equation"]
+        },
+        {
+          "id": "practical-application-of-bernoulli-s-equation-venturimeter",
+          "name": "Practical Application of Bernoulli’s Equation, Venturimeter",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["free-liquid-jets"]
+        },
+        {
+          "id": "practical-application-of-bernoulli-s-equation",
+          "name": "Practical Application of Bernoulli’s Equation",
+          "status": "retired"
+        },
+        {
+          "id": "orifice-meter-and-pitot-tube",
+          "name": "Orifice Meter and Pitot Tube",
+          "status": "retired"
         }
       ]
     },
@@ -296,16 +297,7 @@
       "topics": [
         {
           "id": "viscous-flow-introduction",
-          "name": "Viscous Flow: Introduction",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "flow-of-viscous-fluid",
-          "name": "Flow of Viscous Fluid",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["viscous-flow-introduction"]
+          "name": "Viscous Flow: Introduction"
         },
         {
           "id": "flow-of-viscous-fluid-circular-pipe-and-parallel-plates",
@@ -355,6 +347,11 @@
           "id": "shear-stress-in-turbulent-flow",
           "name": "Shear Stress in Turbulent Flow",
           "requires": ["friction-loss-in-pipe-flow"]
+        },
+        {
+          "id": "flow-of-viscous-fluid",
+          "name": "Flow of Viscous Fluid",
+          "status": "retired"
         }
       ]
     },
@@ -365,7 +362,7 @@
       "topics": [
         {
           "id": "introduction-energy-loss-due-to-friction-minor-energy-losses",
-          "name": "Energy Loss due to Friction",
+          "name": "Introduction, Energy Loss due to Friction",
           "source": "admin_handout",
           "confidence": "verified"
         },
@@ -391,46 +388,9 @@
           "requires": ["hgl-and-tel"]
         },
         {
-          "id": "flow-through-pipes",
-          "name": "Flow Through Pipes",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["flow-through-syphon"]
-        },
-        {
           "id": "series-compound-equivalent-parallel-pipe-network",
-          "name": "Series",
-          "requires": ["introduction-energy-loss-due-to-friction-minor-energy-losses"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "compound",
-          "name": "Compound",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["series-compound-equivalent-parallel-pipe-network"]
-        },
-        {
-          "id": "equivalent",
-          "name": "Equivalent",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["compound"]
-        },
-        {
-          "id": "parallel",
-          "name": "Parallel",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["equivalent"]
-        },
-        {
-          "id": "pipe-network",
-          "name": "Pipe Network",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["parallel"]
+          "name": "Series, Compound, Equivalent, Parallel, Pipe Network",
+          "requires": ["introduction-energy-loss-due-to-friction-minor-energy-losses"]
         },
         {
           "id": "hardy-cross-method-laboratory",
@@ -438,11 +398,41 @@
           "requires": ["series-compound-equivalent-parallel-pipe-network"]
         },
         {
-          "id": "introduction",
-          "name": "Introduction",
+          "id": "flow-through-pipes-series-compound-equivalent-parallel",
+          "name": "Flow Through Pipes, Series, Compound, Equivalent, Parallel",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["hardy-cross-method-laboratory"]
+        },
+        {
+          "id": "flow-through-pipes",
+          "name": "Flow Through Pipes",
+          "status": "retired"
+        },
+        {
+          "id": "compound",
+          "name": "Compound",
+          "status": "retired"
+        },
+        {
+          "id": "equivalent",
+          "name": "Equivalent",
+          "status": "retired"
+        },
+        {
+          "id": "parallel",
+          "name": "Parallel",
+          "status": "retired"
+        },
+        {
+          "id": "pipe-network",
+          "name": "Pipe Network",
+          "status": "retired"
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "status": "retired"
         }
       ]
     }

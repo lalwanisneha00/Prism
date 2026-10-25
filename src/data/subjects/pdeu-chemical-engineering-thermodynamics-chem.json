@@ -66,19 +66,14 @@
           "requires": ["zeroth-law-and-its-implications"]
         },
         {
-          "id": "first-law-and-its-implications",
-          "name": "first law and its implications",
+          "id": "first-law-and-its-implications-heat",
+          "name": "first law and its implications, heat",
           "requires": ["thermodynamic-work"]
-        },
-        {
-          "id": "heat",
-          "name": "heat",
-          "requires": ["first-law-and-its-implications"]
         },
         {
           "id": "heat-capacities",
           "name": "heat capacities",
-          "requires": ["heat"]
+          "requires": ["first-law-and-its-implications-heat"]
         },
         {
           "id": "state-of-a-pure-component",
@@ -96,19 +91,34 @@
           "requires": ["closed-thermodynamic-system"]
         },
         {
-          "id": "entropy-of-system-and-surroundings",
-          "name": "entropy of system and surroundings",
+          "id": "entropy-of-system-and-surroundings-spontaneity",
+          "name": "entropy of system and surroundings, spontaneity",
           "requires": ["statements-of-the-second-law"]
-        },
-        {
-          "id": "spontaneity",
-          "name": "spontaneity",
-          "requires": ["entropy-of-system-and-surroundings"]
         },
         {
           "id": "first-and-second-laws-for-open-systems",
           "name": "first and second laws for open systems",
-          "requires": ["spontaneity"]
+          "requires": ["entropy-of-system-and-surroundings-spontaneity"]
+        },
+        {
+          "id": "first-law-and-its-implications",
+          "name": "first law and its implications",
+          "status": "retired"
+        },
+        {
+          "id": "heat",
+          "name": "heat",
+          "status": "retired"
+        },
+        {
+          "id": "entropy-of-system-and-surroundings",
+          "name": "entropy of system and surroundings",
+          "status": "retired"
+        },
+        {
+          "id": "spontaneity",
+          "name": "spontaneity",
+          "status": "retired"
         }
       ]
     },

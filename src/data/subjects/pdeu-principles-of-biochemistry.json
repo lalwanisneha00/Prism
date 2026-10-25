@@ -45,32 +45,18 @@
           "confidence": "verified"
         },
         {
-          "id": "review-on-cellular",
-          "name": "Review on cellular",
+          "id": "review-on-cellular-chemical-physical",
+          "name": "Review on cellular, chemical, physical",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["introduction-to-biological-system-review-on-cellular"]
-        },
-        {
-          "id": "chemical",
-          "name": "chemical",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["review-on-cellular"]
-        },
-        {
-          "id": "physical",
-          "name": "physical",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["chemical"]
         },
         {
           "id": "genetic-and-evolutionary-backgrounds-to-biochemistry",
           "name": "genetic and evolutionary backgrounds to biochemistry",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["physical"]
+          "requires": ["review-on-cellular-chemical-physical"]
         },
         {
           "id": "properties-of-water-solubility-ionization-property-and-water",
@@ -92,6 +78,21 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["ionization-property-and-water-as-a-reactant"]
+        },
+        {
+          "id": "review-on-cellular",
+          "name": "Review on cellular",
+          "status": "retired"
+        },
+        {
+          "id": "chemical",
+          "name": "chemical",
+          "status": "retired"
+        },
+        {
+          "id": "physical",
+          "name": "physical",
+          "status": "retired"
         }
       ]
     },
@@ -111,17 +112,8 @@
         },
         {
           "id": "acid-base-chemistry-and-stereochemistry-of-amino-acids",
-          "name": "acid–base chemistry and stereochemistry of amino acids",
-          "requires": ["structure-and-biological-importance-of-amino-acids"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "proteins-primary",
-          "name": "Proteins: Primary",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["acid-base-chemistry-and-stereochemistry-of-amino-acids"]
+          "name": "acid–base chemistry and stereochemistry of amino acids. Proteins: Primary",
+          "requires": ["structure-and-biological-importance-of-amino-acids"]
         },
         {
           "id": "secondary",
@@ -147,6 +139,11 @@
           "id": "enzyme-and-its-classification",
           "name": "Enzyme and its classification",
           "requires": ["protein-denaturation-and-renaturation"]
+        },
+        {
+          "id": "proteins-primary",
+          "name": "Proteins: Primary",
+          "status": "retired"
         }
       ]
     },
@@ -208,16 +205,7 @@
         {
           "id": "properties-and-function",
           "name": "properties and function",
-          "requires": ["nucleic-acids-composition"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "properties-2",
-          "name": "properties",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["properties-and-function"]
+          "requires": ["nucleic-acids-composition"]
         },
         {
           "id": "metabolism-synthesis-of-purines-and-pyrimidine",
@@ -227,30 +215,12 @@
         {
           "id": "lipids-classification",
           "name": "Lipids: Classification",
-          "requires": ["metabolism-synthesis-of-purines-and-pyrimidine"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "classification",
-          "name": "Classification",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["lipids-classification"]
+          "requires": ["metabolism-synthesis-of-purines-and-pyrimidine"]
         },
         {
           "id": "structure",
           "name": "structure",
-          "requires": ["lipids-classification"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "cholesterol-structure-2",
-          "name": "Cholesterol- structure",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["structure"]
+          "requires": ["lipids-classification"]
         },
         {
           "id": "properties",
@@ -286,6 +256,21 @@
           "id": "properties-and-importance",
           "name": "properties and importance",
           "requires": ["cholesterol-structure"]
+        },
+        {
+          "id": "properties-2",
+          "name": "properties",
+          "status": "retired"
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "status": "retired"
+        },
+        {
+          "id": "cholesterol-structure-2",
+          "name": "Cholesterol- structure",
+          "status": "retired"
         }
       ]
     }

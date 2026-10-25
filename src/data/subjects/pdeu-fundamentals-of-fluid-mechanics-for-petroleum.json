@@ -55,17 +55,8 @@
         },
         {
           "id": "compressibility-fluid-properties-density",
-          "name": "compressibility",
-          "requires": ["viscosity"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "fluid-properties-density",
-          "name": "Fluid Properties: Density",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["compressibility-fluid-properties-density"]
+          "name": "compressibility. Fluid Properties: Density",
+          "requires": ["viscosity"]
         },
         {
           "id": "specific-gravity",
@@ -99,18 +90,11 @@
           "confidence": "verified"
         },
         {
-          "id": "bourdon-gauge",
-          "name": "Bourdon gauge",
+          "id": "bourdon-gauge-piezometer",
+          "name": "Bourdon gauge, piezometer)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["fluid-statics-pressure-and-its-measurement-manometers"]
-        },
-        {
-          "id": "piezometer",
-          "name": "piezometer)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bourdon-gauge"]
         },
         {
           "id": "variation-of-pressure-with-depth",
@@ -131,6 +115,21 @@
           "id": "buoyancy-stability",
           "name": "stability of floating bodies",
           "requires": ["buoyancy"]
+        },
+        {
+          "id": "fluid-properties-density",
+          "name": "Fluid Properties: Density",
+          "status": "retired"
+        },
+        {
+          "id": "bourdon-gauge",
+          "name": "Bourdon gauge",
+          "status": "retired"
+        },
+        {
+          "id": "piezometer",
+          "name": "piezometer)",
+          "status": "retired"
         }
       ]
     },
@@ -164,87 +163,80 @@
         },
         {
           "id": "euler-bernoulli-fm",
-          "name": "rotational/irrotational",
+          "name": "rotational/irrotational, Streamlines, Pathlines, Streaklines",
           "requires": ["laminar-turbulent"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "streamlines",
-          "name": "Streamlines",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["euler-bernoulli-fm"]
-        },
-        {
-          "id": "pathlines",
-          "name": "Pathlines",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["streamlines"]
-        },
-        {
-          "id": "streaklines",
-          "name": "Streaklines",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pathlines"]
         },
         {
           "id": "continuity-equation",
           "name": "Continuity Equation",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["streaklines"]
+          "requires": ["euler-bernoulli-fm"]
         },
         {
-          "id": "euler-s-and-bernoulli-s-equations-derivation",
-          "name": "Euler’s and Bernoulli’s Equations: Derivation",
+          "id": "euler-s-and-bernoulli-s-equations-derivation-assumptions",
+          "name": "Euler’s and Bernoulli’s Equations: Derivation, assumptions",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["continuity-equation"]
-        },
-        {
-          "id": "assumptions",
-          "name": "assumptions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["euler-s-and-bernoulli-s-equations-derivation"]
         },
         {
           "id": "practical-applications",
           "name": "practical applications",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["assumptions"]
+          "requires": ["euler-s-and-bernoulli-s-equations-derivation-assumptions"]
         },
         {
           "id": "energy-and-momentum-principles-momentum-equation-and",
-          "name": "Energy and Momentum Principles: Momentum equation and applications (nozzle",
+          "name": "Energy and Momentum Principles: Momentum equation and applications (nozzle, diffuser, bend",
           "requires": ["euler-bernoulli-fm"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "diffuser",
-          "name": "diffuser",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["energy-and-momentum-principles-momentum-equation-and"]
-        },
-        {
-          "id": "bend",
-          "name": "bend",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["diffuser"]
         },
         {
           "id": "jet-impingement",
           "name": "jet impingement)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["bend"]
+          "requires": ["energy-and-momentum-principles-momentum-equation-and"]
+        },
+        {
+          "id": "streamlines",
+          "name": "Streamlines",
+          "status": "retired"
+        },
+        {
+          "id": "pathlines",
+          "name": "Pathlines",
+          "status": "retired"
+        },
+        {
+          "id": "streaklines",
+          "name": "Streaklines",
+          "status": "retired"
+        },
+        {
+          "id": "euler-s-and-bernoulli-s-equations-derivation",
+          "name": "Euler’s and Bernoulli’s Equations: Derivation",
+          "status": "retired"
+        },
+        {
+          "id": "assumptions",
+          "name": "assumptions",
+          "status": "retired"
+        },
+        {
+          "id": "diffuser",
+          "name": "diffuser",
+          "status": "retired"
+        },
+        {
+          "id": "bend",
+          "name": "bend",
+          "status": "retired"
         }
       ]
     },
@@ -289,31 +281,17 @@
         },
         {
           "id": "permeability-darcy-res",
-          "name": "contractions",
+          "name": "Flow Through Porous Media: Darcy’s Law, permeability",
           "requires": ["expansions"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "flow-through-porous-media-darcy-s-law",
-          "name": "Flow Through Porous Media: Darcy’s Law",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["permeability-darcy-res"]
-        },
-        {
-          "id": "permeability",
-          "name": "permeability",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["flow-through-porous-media-darcy-s-law"]
         },
         {
           "id": "porosity-concepts",
           "name": "porosity concepts",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["permeability"]
+          "requires": ["permeability-darcy-res"]
         },
         {
           "id": "non-darcy-forchheimer-flow",
@@ -329,6 +307,16 @@
           "id": "measurement-of-permeability-in-core-samples",
           "name": "Measurement of permeability in core samples",
           "requires": ["relative-permeability"]
+        },
+        {
+          "id": "flow-through-porous-media-darcy-s-law",
+          "name": "Flow Through Porous Media: Darcy’s Law",
+          "status": "retired"
+        },
+        {
+          "id": "permeability",
+          "name": "permeability",
+          "status": "retired"
         }
       ]
     },
@@ -348,52 +336,22 @@
         },
         {
           "id": "venturimeter-orifice-meter-rotameter-turbine-and-positive",
-          "name": "Venturimeter",
+          "name": "Orifice meter, Rotameter",
           "requires": ["types-of-flow-meters-and-measuring-devices"],
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
-          "id": "orifice-meter",
-          "name": "Orifice meter",
+          "id": "turbine-and-positive-displacement-meters-construction",
+          "name": "Turbine and Positive Displacement meters, construction",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["venturimeter-orifice-meter-rotameter-turbine-and-positive"]
         },
         {
-          "id": "rotameter",
-          "name": "Rotameter",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["orifice-meter"]
-        },
-        {
-          "id": "turbine-and-positive-displacement-meters",
-          "name": "Turbine and Positive Displacement meters",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["rotameter"]
-        },
-        {
           "id": "construction-working-principles-calibration-and-applications",
-          "name": "construction",
-          "requires": ["venturimeter-orifice-meter-rotameter-turbine-and-positive"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "working-principles",
-          "name": "working principles",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["construction-working-principles-calibration-and-applications"]
-        },
-        {
-          "id": "calibration",
-          "name": "calibration",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["working-principles"]
+          "name": "construction, working principles, calibration, and applications",
+          "requires": ["venturimeter-orifice-meter-rotameter-turbine-and-positive"]
         },
         {
           "id": "valves",
@@ -402,52 +360,17 @@
         },
         {
           "id": "types-gate-globe-ball-check-butterfly-functions-and-flow",
-          "name": "types (gate",
+          "name": "types (gate, globe, ball, check, butterfly), functions",
           "requires": ["valves"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "globe",
-          "name": "globe",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["types-gate-globe-ball-check-butterfly-functions-and-flow"]
-        },
-        {
-          "id": "ball",
-          "name": "ball",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["globe"]
-        },
-        {
-          "id": "check",
-          "name": "check",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ball"]
-        },
-        {
-          "id": "butterfly",
-          "name": "butterfly)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["check"]
-        },
-        {
-          "id": "functions",
-          "name": "functions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["butterfly"]
         },
         {
           "id": "flow-control-characteristics",
           "name": "flow control characteristics",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["functions"]
+          "requires": ["types-gate-globe-ball-check-butterfly-functions-and-flow"]
         },
         {
           "id": "pumps-and-compressors",
@@ -456,31 +379,73 @@
         },
         {
           "id": "classification-working-principles-performance",
-          "name": "classification",
-          "requires": ["pumps-and-compressors"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "classification, working principles, performance characteristics, and selection criteria for petroleum",
+          "requires": ["pumps-and-compressors"]
+        },
+        {
+          "id": "orifice-meter",
+          "name": "Orifice meter",
+          "status": "retired"
+        },
+        {
+          "id": "rotameter",
+          "name": "Rotameter",
+          "status": "retired"
+        },
+        {
+          "id": "turbine-and-positive-displacement-meters",
+          "name": "Turbine and Positive Displacement meters",
+          "status": "retired"
+        },
+        {
+          "id": "working-principles",
+          "name": "working principles",
+          "status": "retired"
+        },
+        {
+          "id": "calibration",
+          "name": "calibration",
+          "status": "retired"
+        },
+        {
+          "id": "globe",
+          "name": "globe",
+          "status": "retired"
+        },
+        {
+          "id": "ball",
+          "name": "ball",
+          "status": "retired"
+        },
+        {
+          "id": "check",
+          "name": "check",
+          "status": "retired"
+        },
+        {
+          "id": "butterfly",
+          "name": "butterfly)",
+          "status": "retired"
+        },
+        {
+          "id": "functions",
+          "name": "functions",
+          "status": "retired"
         },
         {
           "id": "performance-characteristics",
           "name": "performance characteristics",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["classification-working-principles-performance"]
+          "status": "retired"
         },
         {
           "id": "selection-criteria-for-petroleum",
           "name": "selection criteria for petroleum",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["performance-characteristics"]
+          "status": "retired"
         },
         {
           "id": "applications",
           "name": "applications",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["selection-criteria-for-petroleum"]
+          "status": "retired"
         }
       ]
     }

@@ -80,17 +80,8 @@
         },
         {
           "id": "types-of-functions",
-          "name": "Functions",
-          "requires": ["partial-ordered-relations-functions"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "types-of-functions-2",
           "name": "types of functions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["types-of-functions"]
+          "requires": ["partial-ordered-relations-functions"]
         },
         {
           "id": "logic-and-propositional-calculus-simple-and-compound",
@@ -108,24 +99,8 @@
         },
         {
           "id": "basic-logical-operators-truth-tables-tautologies",
-          "name": "Basic logical operators",
-          "requires": ["logic-and-propositional-calculus-simple-and-compound"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "truth-tables",
-          "name": "Truth tables",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["basic-logical-operators-truth-tables-tautologies"]
-        },
-        {
-          "id": "tautologies",
-          "name": "Tautologies",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["truth-tables"]
+          "name": "Basic logical operators. Truth tables. Tautologies",
+          "requires": ["logic-and-propositional-calculus-simple-and-compound"]
         },
         {
           "id": "contradictions",
@@ -151,6 +126,21 @@
           "id": "hasse-diagram-and-lattice",
           "name": "Hasse diagram and Lattice",
           "requires": ["valid-arguments-and-fallacy"]
+        },
+        {
+          "id": "types-of-functions-2",
+          "name": "types of functions",
+          "status": "retired"
+        },
+        {
+          "id": "truth-tables",
+          "name": "Truth tables",
+          "status": "retired"
+        },
+        {
+          "id": "tautologies",
+          "name": "Tautologies",
+          "status": "retired"
         }
       ]
     },
@@ -170,7 +160,7 @@
         },
         {
           "id": "pigeonhole",
-          "name": "Pigeonhole principle",
+          "name": "Permutation, Combination, Pigeonhole principle",
           "requires": ["combination"],
           "source": "admin_handout",
           "confidence": "verified"
@@ -256,17 +246,8 @@
         },
         {
           "id": "labeled-and-weighted-graphs-complete",
-          "name": "Labeled and weighted graphs",
-          "requires": ["hamiltonian-graphs"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "complete",
-          "name": "Complete",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["labeled-and-weighted-graphs-complete"]
+          "name": "Labeled and weighted graphs. Complete",
+          "requires": ["hamiltonian-graphs"]
         },
         {
           "id": "regular-and-bipartite-graphs",
@@ -300,16 +281,7 @@
         {
           "id": "trees",
           "name": "Trees",
-          "requires": ["strongly-and-weakly-connected-graphs"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "rooted-trees-2",
-          "name": "rooted trees",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["trees"]
+          "requires": ["strongly-and-weakly-connected-graphs"]
         },
         {
           "id": "rooted-trees",
@@ -348,6 +320,16 @@
           "id": "powers-of-the-adjacency-matrix",
           "name": "Powers of the adjacency matrix",
           "requires": ["adjacency-matrix"]
+        },
+        {
+          "id": "complete",
+          "name": "Complete",
+          "status": "retired"
+        },
+        {
+          "id": "rooted-trees-2",
+          "name": "rooted trees",
+          "status": "retired"
         }
       ]
     },
@@ -358,23 +340,16 @@
       "topics": [
         {
           "id": "group",
-          "name": "Group",
+          "name": "Group, Semi group, Monoids",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "semi-group-2",
-          "name": "Semi group",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["group"]
         },
         {
           "id": "properties-of-a-group-2",
           "name": "Properties of a Group",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["semi-group-2"]
+          "requires": ["group"]
         },
         {
           "id": "order-of-a-group-2",
@@ -382,13 +357,6 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["properties-of-a-group-2"]
-        },
-        {
-          "id": "cyclic-group",
-          "name": "Cyclic Group",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["order-of-a-group-2"]
         },
         {
           "id": "semi-group",
@@ -432,17 +400,8 @@
         },
         {
           "id": "lagranges-theorem-ring",
-          "name": "Lagrange’s Theorem",
-          "requires": ["generator"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "ring",
-          "name": "Ring",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["lagranges-theorem-ring"]
+          "name": "Lagrange’s Theorem. Ring",
+          "requires": ["generator"]
         },
         {
           "id": "properties-of-rings",
@@ -458,6 +417,21 @@
           "id": "field",
           "name": "Field",
           "requires": ["rings-fields"]
+        },
+        {
+          "id": "semi-group-2",
+          "name": "Semi group",
+          "status": "retired"
+        },
+        {
+          "id": "cyclic-group",
+          "name": "Cyclic Group",
+          "status": "retired"
+        },
+        {
+          "id": "ring",
+          "name": "Ring",
+          "status": "retired"
         }
       ]
     }

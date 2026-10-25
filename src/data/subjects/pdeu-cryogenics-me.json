@@ -41,64 +41,24 @@
           "name": "Introduction to Cryogenic engineering"
         },
         {
-          "id": "properties-of-cryogenic-fluids-like-oxygen",
-          "name": "properties of cryogenic fluids like Oxygen",
+          "id": "properties-of-cryogenic-fluids-like-oxygen-nitrogen-argon-ne",
+          "name": "properties of cryogenic fluids like Oxygen, Nitrogen, Argon, Neon, Florin, Helium, Hydrogen",
           "requires": ["introduction-to-cryogenic-engineering"]
-        },
-        {
-          "id": "nitrogen",
-          "name": "Nitrogen",
-          "requires": ["properties-of-cryogenic-fluids-like-oxygen"]
-        },
-        {
-          "id": "argon",
-          "name": "Argon",
-          "requires": ["nitrogen"]
-        },
-        {
-          "id": "neon",
-          "name": "Neon",
-          "requires": ["argon"]
-        },
-        {
-          "id": "florin",
-          "name": "Florin",
-          "requires": ["neon"]
-        },
-        {
-          "id": "helium",
-          "name": "Helium",
-          "requires": ["florin"]
-        },
-        {
-          "id": "hydrogen",
-          "name": "Hydrogen",
-          "requires": ["helium"]
         },
         {
           "id": "safety-in-handling-of-cryogens",
           "name": "Safety in handling of cryogens",
-          "requires": ["hydrogen"]
+          "requires": ["properties-of-cryogenic-fluids-like-oxygen-nitrogen-argon-ne"]
         },
         {
-          "id": "properties-of-material-at-cryogenic-temperature-mechanical",
-          "name": "Properties of material at cryogenic temperature- mechanical",
+          "id": "properties-of-material-at-cryogenic-temperature-mechanical-t",
+          "name": "Properties of material at cryogenic temperature- mechanical, thermal, electrical",
           "requires": ["safety-in-handling-of-cryogens"]
-        },
-        {
-          "id": "thermal",
-          "name": "thermal",
-          "requires": ["properties-of-material-at-cryogenic-temperature-mechanical"]
-        },
-        {
-          "id": "electrical",
-          "name": "electrical",
-          "requires": ["thermal"]
         },
         {
           "id": "super-conductivity",
           "name": "Super conductivity",
-          "requires": ["electrical"]
+          "requires": ["properties-of-material-at-cryogenic-temperature-mechanical-t"]
         },
         {
           "id": "formation-of-superconductivity",
@@ -111,54 +71,114 @@
           "requires": ["formation-of-superconductivity"]
         },
         {
-          "id": "application-of-cryogenic-systems-in-space",
-          "name": "application of cryogenic systems in space",
+          "id": "application-of-cryogenic-systems-in-space-medical-industries",
+          "name": "application of cryogenic systems in space, medical, industries, biological",
           "requires": ["super-conducting-material-behaviour"]
         },
         {
-          "id": "medical",
-          "name": "medical",
-          "requires": ["application-of-cryogenic-systems-in-space"]
-        },
-        {
-          "id": "industries",
-          "name": "industries",
-          "requires": ["medical"]
-        },
-        {
-          "id": "biological",
-          "name": "biological",
-          "requires": ["industries"]
-        },
-        {
-          "id": "super-conductive-devices-such-as-bearings",
-          "name": "Super conductive devices such as bearings",
-          "requires": ["biological"]
-        },
-        {
-          "id": "motors",
-          "name": "motors",
-          "requires": ["super-conductive-devices-such-as-bearings"]
-        },
-        {
-          "id": "cryotrons",
-          "name": "cryotrons",
-          "requires": ["motors"]
-        },
-        {
-          "id": "magnets",
-          "name": "magnets",
-          "requires": ["cryotrons"]
+          "id": "super-conductive-devices-such-as-bearings-motors-cryotrons-m",
+          "name": "Super conductive devices such as bearings, motors, cryotrons, magnets",
+          "requires": ["application-of-cryogenic-systems-in-space-medical-industries"]
         },
         {
           "id": "d-c-transformers",
           "name": "D.C. transformers",
-          "requires": ["magnets"]
+          "requires": ["super-conductive-devices-such-as-bearings-motors-cryotrons-m"]
         },
         {
           "id": "space-simulation",
           "name": "space simulation",
           "requires": ["d-c-transformers"]
+        },
+        {
+          "id": "properties-of-cryogenic-fluids-like-oxygen",
+          "name": "properties of cryogenic fluids like Oxygen",
+          "status": "retired"
+        },
+        {
+          "id": "nitrogen",
+          "name": "Nitrogen",
+          "status": "retired"
+        },
+        {
+          "id": "argon",
+          "name": "Argon",
+          "status": "retired"
+        },
+        {
+          "id": "neon",
+          "name": "Neon",
+          "status": "retired"
+        },
+        {
+          "id": "florin",
+          "name": "Florin",
+          "status": "retired"
+        },
+        {
+          "id": "helium",
+          "name": "Helium",
+          "status": "retired"
+        },
+        {
+          "id": "hydrogen",
+          "name": "Hydrogen",
+          "status": "retired"
+        },
+        {
+          "id": "properties-of-material-at-cryogenic-temperature-mechanical",
+          "name": "Properties of material at cryogenic temperature- mechanical",
+          "status": "retired"
+        },
+        {
+          "id": "thermal",
+          "name": "thermal",
+          "status": "retired"
+        },
+        {
+          "id": "electrical",
+          "name": "electrical",
+          "status": "retired"
+        },
+        {
+          "id": "application-of-cryogenic-systems-in-space",
+          "name": "application of cryogenic systems in space",
+          "status": "retired"
+        },
+        {
+          "id": "medical",
+          "name": "medical",
+          "status": "retired"
+        },
+        {
+          "id": "industries",
+          "name": "industries",
+          "status": "retired"
+        },
+        {
+          "id": "biological",
+          "name": "biological",
+          "status": "retired"
+        },
+        {
+          "id": "super-conductive-devices-such-as-bearings",
+          "name": "Super conductive devices such as bearings",
+          "status": "retired"
+        },
+        {
+          "id": "motors",
+          "name": "motors",
+          "status": "retired"
+        },
+        {
+          "id": "cryotrons",
+          "name": "cryotrons",
+          "status": "retired"
+        },
+        {
+          "id": "magnets",
+          "name": "magnets",
+          "status": "retired"
         }
       ]
     },
@@ -168,18 +188,13 @@
       "hours": 12,
       "topics": [
         {
-          "id": "introduction",
-          "name": "Introduction"
-        },
-        {
-          "id": "thermodynamically-ideal-systems-and-its-performance-assessme",
-          "name": "thermodynamically ideal systems and its performance assessment",
-          "requires": ["introduction"]
+          "id": "introduction-thermodynamically-ideal-systems-and-its-perform",
+          "name": "Introduction, thermodynamically ideal systems and its performance assessment"
         },
         {
           "id": "j-t-effect-and-analysis",
           "name": "J-T effect and analysis",
-          "requires": ["thermodynamically-ideal-systems-and-its-performance-assessme"]
+          "requires": ["introduction-thermodynamically-ideal-systems-and-its-perform"]
         },
         {
           "id": "inversion-curve-and-its-importance",
@@ -187,34 +202,14 @@
           "requires": ["j-t-effect-and-analysis"]
         },
         {
-          "id": "liquefaction-systems-for-oxygen",
-          "name": "liquefaction systems for oxygen",
+          "id": "liquefaction-systems-for-oxygen-nitrogen-air-hydrogen-helium",
+          "name": "liquefaction systems for oxygen, nitrogen, air, hydrogen, helium etc",
           "requires": ["inversion-curve-and-its-importance"]
-        },
-        {
-          "id": "nitrogen-2",
-          "name": "nitrogen",
-          "requires": ["liquefaction-systems-for-oxygen"]
-        },
-        {
-          "id": "air",
-          "name": "air",
-          "requires": ["nitrogen-2"]
-        },
-        {
-          "id": "hydrogen-2",
-          "name": "hydrogen",
-          "requires": ["air"]
-        },
-        {
-          "id": "helium-etc",
-          "name": "helium etc",
-          "requires": ["hydrogen-2"]
         },
         {
           "id": "assessment-of-its-performance-parameters",
           "name": "assessment of its performance parameters",
-          "requires": ["helium-etc"]
+          "requires": ["liquefaction-systems-for-oxygen-nitrogen-air-hydrogen-helium"]
         },
         {
           "id": "parametric-analysis-of-the-system-and-its-effect-of-performa",
@@ -225,6 +220,41 @@
           "id": "comparison-of-all-such-systems-based-on-the-performance-para",
           "name": "comparison of all such systems based on the performance parameters",
           "requires": ["parametric-analysis-of-the-system-and-its-effect-of-performa"]
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "status": "retired"
+        },
+        {
+          "id": "thermodynamically-ideal-systems-and-its-performance-assessme",
+          "name": "thermodynamically ideal systems and its performance assessment",
+          "status": "retired"
+        },
+        {
+          "id": "liquefaction-systems-for-oxygen",
+          "name": "liquefaction systems for oxygen",
+          "status": "retired"
+        },
+        {
+          "id": "nitrogen-2",
+          "name": "nitrogen",
+          "status": "retired"
+        },
+        {
+          "id": "air",
+          "name": "air",
+          "status": "retired"
+        },
+        {
+          "id": "hydrogen-2",
+          "name": "hydrogen",
+          "status": "retired"
+        },
+        {
+          "id": "helium-etc",
+          "name": "helium etc",
+          "status": "retired"
         }
       ]
     },
@@ -349,19 +379,24 @@
           "requires": ["comparison-of-performance-of-various-insulations"]
         },
         {
-          "id": "cryogenic-temperature",
-          "name": "Cryogenic temperature",
+          "id": "cryogenic-temperature-pressure",
+          "name": "Cryogenic temperature, pressure",
           "requires": ["dewar-vessel-for-storage-of-cryogenic-liquid"]
-        },
-        {
-          "id": "pressure",
-          "name": "pressure",
-          "requires": ["cryogenic-temperature"]
         },
         {
           "id": "flow-measurement-lecture",
           "name": "Flow measurement LECTURE",
-          "requires": ["pressure"]
+          "requires": ["cryogenic-temperature-pressure"]
+        },
+        {
+          "id": "cryogenic-temperature",
+          "name": "Cryogenic temperature",
+          "status": "retired"
+        },
+        {
+          "id": "pressure",
+          "name": "pressure",
+          "status": "retired"
         }
       ]
     }

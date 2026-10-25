@@ -99,13 +99,8 @@
         },
         {
           "id": "correlation-and-covariance-function-principles-of",
-          "name": "Correlation and Covariance function: Principles of autocorrelation function",
-          "requires": ["mean"]
-        },
-        {
-          "id": "cross-correlation-functions-central-limit-theorem",
-          "name": "cross",
-          "requires": ["correlation-and-covariance-function-principles-of"],
+          "name": "Correlation and Covariance function: Principles of autocorrelation function, cross",
+          "requires": ["mean"],
           "source": "admin_handout",
           "confidence": "verified"
         },
@@ -114,14 +109,12 @@
           "name": "correlation functions",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["cross-correlation-functions-central-limit-theorem"]
+          "requires": ["correlation-and-covariance-function-principles-of"]
         },
         {
-          "id": "central-limit-theorem",
-          "name": "Central limit theorem",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["correlation-functions"]
+          "id": "cross-correlation-functions-central-limit-theorem",
+          "name": "cross – correlation functions. Central limit theorem",
+          "requires": ["correlation-and-covariance-function-principles-of"]
         },
         {
           "id": "properties-of-gaussian-process-measure-of-central-tendency",
@@ -136,6 +129,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["properties-of-gaussian-process-measure-of-central-tendency"]
+        },
+        {
+          "id": "central-limit-theorem",
+          "name": "Central limit theorem",
+          "status": "retired"
         }
       ]
     },
@@ -150,7 +148,7 @@
         },
         {
           "id": "am-time-domain-description",
-          "name": "AM: Time-Domain description",
+          "name": "AM: Time-Domain description, Frequency",
           "requires": ["introduction-general-architecture-of-a-communication-system"],
           "source": "admin_handout",
           "confidence": "verified"
@@ -164,17 +162,8 @@
         },
         {
           "id": "frequency-domain-description-generation-of-am-wave-square",
-          "name": "Frequency",
-          "requires": ["am-time-domain-description"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "generation-of-am-wave-square-law-modulator",
-          "name": "Generation of AM wave: square law modulator",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["frequency-domain-description-generation-of-am-wave-square"]
+          "name": "Frequency – Domain description. Generation of AM wave: square law modulator",
+          "requires": ["am-time-domain-description"]
         },
         {
           "id": "switching-modulator-detection-of-am-waves-square-law",
@@ -203,7 +192,8 @@
         {
           "id": "frequency-domain-representation",
           "name": "Frequency- Domain representation",
-          "requires": ["double-side-band-suppressed-carrier-modulation-dsbsc-time"]
+          "requires": ["double-side-band-suppressed-carrier-modulation-dsbsc-time"],
+          "status": "retired"
         },
         {
           "id": "generation-of-dsbsc-waves-balanced-modulator",
@@ -277,11 +267,14 @@
           "requires": ["comparison-of-amplitude-modulation-techniques"]
         },
         {
+          "id": "generation-of-am-wave-square-law-modulator",
+          "name": "Generation of AM wave: square law modulator",
+          "status": "retired"
+        },
+        {
           "id": "preenvelope",
           "name": "Preenvelope",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["frequencydomain-representation"]
+          "status": "retired"
         }
       ]
     },

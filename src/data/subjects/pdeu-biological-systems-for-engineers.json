@@ -45,25 +45,18 @@
           "confidence": "verified"
         },
         {
-          "id": "prokaryotic-and-eukaryotic-cells",
-          "name": "prokaryotic and eukaryotic cells",
+          "id": "prokaryotic-and-eukaryotic-cells-microbes",
+          "name": "prokaryotic and eukaryotic cells, microbes",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["cell-as-a-basic-unit-of-life-prokaryotic-and-eukaryotic"]
-        },
-        {
-          "id": "microbes",
-          "name": "microbes",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["prokaryotic-and-eukaryotic-cells"]
         },
         {
           "id": "plant-and-animal-cells",
           "name": "plant and animal cells",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["microbes"]
+          "requires": ["prokaryotic-and-eukaryotic-cells-microbes"]
         },
         {
           "id": "cell-organelles-structure-and-function",
@@ -86,31 +79,17 @@
         },
         {
           "id": "vitamins-and-minerals-carbohydrates-lipids-amino-acids-and",
-          "name": "Vitamins and Minerals",
+          "name": "Vitamins and Minerals, Carbohydrates, Lipids",
           "requires": ["cell-membrane"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "carbohydrates",
-          "name": "Carbohydrates",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["vitamins-and-minerals-carbohydrates-lipids-amino-acids-and"]
-        },
-        {
-          "id": "lipids",
-          "name": "Lipids",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["carbohydrates"]
         },
         {
           "id": "amino-acids-and-proteins",
           "name": "Amino Acids and proteins",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["lipids"]
+          "requires": ["vitamins-and-minerals-carbohydrates-lipids-amino-acids-and"]
         },
         {
           "id": "nucleic-acids-dna-and-rna",
@@ -118,6 +97,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["amino-acids-and-proteins"]
+        },
+        {
+          "id": "prokaryotic-and-eukaryotic-cells",
+          "name": "prokaryotic and eukaryotic cells",
+          "status": "retired"
+        },
+        {
+          "id": "microbes",
+          "name": "microbes",
+          "status": "retired"
+        },
+        {
+          "id": "carbohydrates",
+          "name": "Carbohydrates",
+          "status": "retired"
+        },
+        {
+          "id": "lipids",
+          "name": "Lipids",
+          "status": "retired"
         }
       ]
     },
@@ -192,18 +191,11 @@
           "confidence": "verified"
         },
         {
-          "id": "echolocation-ultrasonography",
-          "name": "Echolocation (ultrasonography",
+          "id": "echolocation-ultrasonography-sonars",
+          "name": "Echolocation (ultrasonography, sonars)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["kidneys-function-as-a-filtration-system-echolocation"]
-        },
-        {
-          "id": "sonars",
-          "name": "sonars)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["echolocation-ultrasonography"]
         },
         {
           "id": "photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying",
@@ -235,6 +227,16 @@
           "id": "plant-burrs-velcro",
           "name": "Plant burrs (Velcro)",
           "requires": ["lotus-leaf-effect-super-hydrophobic-and-self-cleaning"]
+        },
+        {
+          "id": "echolocation-ultrasonography",
+          "name": "Echolocation (ultrasonography",
+          "status": "retired"
+        },
+        {
+          "id": "sonars",
+          "name": "sonars)",
+          "status": "retired"
         }
       ]
     },
@@ -321,25 +323,18 @@
           "confidence": "verified"
         },
         {
-          "id": "introduction-to-biomimetics-and-biomimicry",
-          "name": "Introduction to Biomimetics and Biomimicry",
+          "id": "introduction-to-biomimetics-and-biomimicry-nanobiotechnology",
+          "name": "Introduction to Biomimetics and Biomimicry, Nanobiotechnology",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["tissue-engineering-introduction-to-biomimetics-and"]
-        },
-        {
-          "id": "nanobiotechnology",
-          "name": "Nanobiotechnology",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-biomimetics-and-biomimicry"]
         },
         {
           "id": "introduction-to-radiology",
           "name": "Introduction to Radiology",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["nanobiotechnology"]
+          "requires": ["introduction-to-biomimetics-and-biomimicry-nanobiotechnology"]
         },
         {
           "id": "high-throughput-diagnostics-in-clinics-molecular-diagnostics",
@@ -361,6 +356,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["dna-chips"]
+        },
+        {
+          "id": "introduction-to-biomimetics-and-biomimicry",
+          "name": "Introduction to Biomimetics and Biomimicry",
+          "status": "retired"
+        },
+        {
+          "id": "nanobiotechnology",
+          "name": "Nanobiotechnology",
+          "status": "retired"
         }
       ]
     }

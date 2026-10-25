@@ -37,18 +37,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "introduction",
-          "name": "Introduction"
-        },
-        {
-          "id": "sales-and-operations-planning",
-          "name": "Sales and Operations Planning",
-          "requires": ["introduction"]
+          "id": "introduction-sales-and-operations-planning",
+          "name": "Introduction, Sales and Operations Planning"
         },
         {
           "id": "manufacturing-resource-planning",
           "name": "Manufacturing Resource Planning",
-          "requires": ["sales-and-operations-planning"]
+          "requires": ["introduction-sales-and-operations-planning"]
         },
         {
           "id": "enterprise-resource-planning",
@@ -94,6 +89,16 @@
           "id": "using-the-material-requirements-plan",
           "name": "Using the Material Requirements Plan",
           "requires": ["material-requirements-planning-process"]
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "status": "retired"
+        },
+        {
+          "id": "sales-and-operations-planning",
+          "name": "Sales and Operations Planning",
+          "status": "retired"
         }
       ]
     },
@@ -157,24 +162,14 @@
           "requires": ["load-levelling"]
         },
         {
-          "id": "theory-of-constraints-and-drum-bufferrope",
-          "name": "Theory of Constraints and Drum-BufferRope",
+          "id": "theory-of-constraints-and-drum-bufferrope-implementation-con",
+          "name": "Theory of Constraints and Drum-BufferRope, Implementation, Control",
           "requires": ["scheduling-bottlenecks"]
-        },
-        {
-          "id": "implementation",
-          "name": "Implementation",
-          "requires": ["theory-of-constraints-and-drum-bufferrope"]
-        },
-        {
-          "id": "control",
-          "name": "Control",
-          "requires": ["implementation"]
         },
         {
           "id": "production-reporting",
           "name": "Production Reporting",
-          "requires": ["control"]
+          "requires": ["theory-of-constraints-and-drum-bufferrope-implementation-con"]
         },
         {
           "id": "purchasing-establishing-specifications",
@@ -202,19 +197,39 @@
           "requires": ["price-determination"]
         },
         {
-          "id": "expansion-of-purchasing-in-to-supply-chain",
-          "name": "Expansion of Purchasing in to Supply Chain",
+          "id": "expansion-of-purchasing-in-to-supply-chain-management",
+          "name": "Expansion of Purchasing in to Supply Chain, Management",
           "requires": ["impact-of-material-requirements-planning-on-purchasing"]
-        },
-        {
-          "id": "management",
-          "name": "Management",
-          "requires": ["expansion-of-purchasing-in-to-supply-chain"]
         },
         {
           "id": "some-organizational-implications-of-supply-chain",
           "name": "Some Organizational Implications of Supply Chain",
-          "requires": ["management"]
+          "requires": ["expansion-of-purchasing-in-to-supply-chain-management"]
+        },
+        {
+          "id": "theory-of-constraints-and-drum-bufferrope",
+          "name": "Theory of Constraints and Drum-BufferRope",
+          "status": "retired"
+        },
+        {
+          "id": "implementation",
+          "name": "Implementation",
+          "status": "retired"
+        },
+        {
+          "id": "control",
+          "name": "Control",
+          "status": "retired"
+        },
+        {
+          "id": "expansion-of-purchasing-in-to-supply-chain",
+          "name": "Expansion of Purchasing in to Supply Chain",
+          "status": "retired"
+        },
+        {
+          "id": "management",
+          "name": "Management",
+          "status": "retired"
         }
       ]
     },
@@ -253,19 +268,14 @@
           "requires": ["collection-and-preparation-of-data"]
         },
         {
-          "id": "some-important-intrinsic-techniques",
-          "name": "Some Important Intrinsic Techniques",
+          "id": "some-important-intrinsic-techniques-seasonality",
+          "name": "Some Important Intrinsic Techniques, Seasonality",
           "requires": ["forecasting-techniques"]
-        },
-        {
-          "id": "seasonality",
-          "name": "Seasonality",
-          "requires": ["some-important-intrinsic-techniques"]
         },
         {
           "id": "tracking-the-forecast",
           "name": "Tracking the Forecast",
-          "requires": ["seasonality"]
+          "requires": ["some-important-intrinsic-techniques-seasonality"]
         },
         {
           "id": "inventory-fundamentals",
@@ -316,6 +326,16 @@
           "id": "abc-inventory-control",
           "name": "ABC Inventory Control",
           "requires": ["financial-statements-and-inventory"]
+        },
+        {
+          "id": "some-important-intrinsic-techniques",
+          "name": "Some Important Intrinsic Techniques",
+          "status": "retired"
+        },
+        {
+          "id": "seasonality",
+          "name": "Seasonality",
+          "status": "retired"
         }
       ]
     },

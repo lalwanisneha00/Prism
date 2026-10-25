@@ -48,10 +48,24 @@ const FILLER = new Set([
   "theory",
 ]);
 
+/**
+ * One form for singular and plural ("machines" → "machine", "antennas" → "antenna",
+ * "batteries" → "battery"), so "Dynamics of Machines" matches "Dynamics of Machine". Words that
+ * only look plural ("analysis", "process", "dynamics" vs "dynamic") end up the same on both sides.
+ */
+export function singular(word: string): string {
+  if (word.length <= 3 || /(?:ss|us|is)$/.test(word)) return word;
+  if (/ies$/.test(word)) return `${word.slice(0, -3)}y`;
+  if (/(?:ches|shes|xes|sses)$/.test(word)) return word.slice(0, -2);
+  if (word.endsWith("s")) return word.slice(0, -1);
+  return word;
+}
+
 function contentWords(name: string): string[] {
   return normalize(name)
     .split(" ")
-    .filter((w) => w.length > 0 && !FILLER.has(w));
+    .filter((w) => w.length > 0 && !FILLER.has(w))
+    .map(singular);
 }
 
 /** 0–1: the share of meaningful words the two names have in common. */

@@ -96,22 +96,18 @@
         },
         {
           "id": "sharpening-performance-comparison-between-band-pass",
-          "name": "sharpening",
-          "requires": ["filtering-in-frequency-domain-smoothing"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "performance-comparison-between-band-pass",
-          "name": "Performance comparison between band pass",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sharpening-performance-comparison-between-band-pass"]
+          "name": "sharpening. Performance comparison between band pass",
+          "requires": ["filtering-in-frequency-domain-smoothing"]
         },
         {
           "id": "gaussian-and-notch-filters-in-both-high-and-low-pass",
           "name": "gaussian and notch filters in both high and low pass filtering applications",
           "requires": ["sharpening-performance-comparison-between-band-pass"]
+        },
+        {
+          "id": "performance-comparison-between-band-pass",
+          "name": "Performance comparison between band pass",
+          "status": "retired"
         }
       ]
     },
@@ -182,7 +178,7 @@
         },
         {
           "id": "basic-segmentation-algorithms-region-based",
-          "name": "Basic segmentation algorithms: region based",
+          "name": "Basic segmentation algorithms: region based, watershed",
           "requires": ["thresholding"],
           "source": "admin_handout",
           "confidence": "verified"

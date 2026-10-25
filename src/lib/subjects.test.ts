@@ -45,8 +45,11 @@ describe("subject catalogue", () => {
     for (const s of subjects)
       for (const c of s.chapters)
         for (const t of c.topics)
-          if (t.movedFrom?.chapter && t.movedFrom.subject === s.id)
-            now.add(`${s.id}/${t.movedFrom.chapter}/${t.id}`);
+          for (const ch of [
+            ...(t.movedFrom?.subject === s.id && t.movedFrom.chapter ? [t.movedFrom.chapter] : []),
+            ...(t.formerChapters ?? []),
+          ])
+            now.add(`${s.id}/${ch}/${t.id}`);
     const missing = lock.ids.filter((id) => !now.has(id));
     expect(missing).toEqual([]);
   });

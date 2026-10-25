@@ -54,24 +54,17 @@
         },
         {
           "id": "metallic-materials-polymeric-ceramic-materials-advanced",
-          "name": "metallic materials",
+          "name": "metallic materials, polymeric",
           "requires": ["traditional-materials-introduction-and-classification-of"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "polymeric",
-          "name": "polymeric",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["metallic-materials-polymeric-ceramic-materials-advanced"]
         },
         {
           "id": "ceramic-materials-advanced-materials-introduction-to-nanomat",
           "name": "ceramic materials Advanced Materials: Introduction to nanomaterials: Properties and application",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["polymeric"]
+          "requires": ["metallic-materials-polymeric-ceramic-materials-advanced"]
         },
         {
           "id": "carbonaceous-materials-fullerene-carbon-nanotube-graphene",
@@ -81,18 +74,11 @@
           "confidence": "verified"
         },
         {
-          "id": "carbon-nanotube",
-          "name": "carbon nanotube",
+          "id": "carbon-nanotube-graphene-etc",
+          "name": "carbon nanotube, graphene, etc.)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["carbonaceous-materials-fullerene-carbon-nanotube-graphene"]
-        },
-        {
-          "id": "graphene",
-          "name": "graphene",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["carbon-nanotube"]
         },
         {
           "id": "composite-materials",
@@ -105,11 +91,24 @@
           "requires": ["composite-materials"]
         },
         {
+          "id": "polymeric",
+          "name": "polymeric",
+          "status": "retired"
+        },
+        {
+          "id": "carbon-nanotube",
+          "name": "carbon nanotube",
+          "status": "retired"
+        },
+        {
+          "id": "graphene",
+          "name": "graphene",
+          "status": "retired"
+        },
+        {
           "id": "etc",
           "name": "etc.)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["liquid-crystals-classification-and-application"]
+          "status": "retired"
         }
       ]
     },
@@ -120,23 +119,16 @@
       "topics": [
         {
           "id": "instrumentation-principle-and-characterization-of-materials",
-          "name": "Instrumentation",
+          "name": "Instrumentation, principle and characterization of materials: X-ray diffraction (XRD)",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "principle-and-characterization-of-materials-x-ray-diffractio",
-          "name": "principle and characterization of materials: X-ray diffraction (XRD)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["instrumentation-principle-and-characterization-of-materials"]
         },
         {
           "id": "electro-analytical-techniques",
           "name": "Electro analytical techniques",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["principle-and-characterization-of-materials-x-ray-diffractio"]
+          "requires": ["instrumentation-principle-and-characterization-of-materials"]
         },
         {
           "id": "ftir-uv-visible-spectroscopy",
@@ -159,17 +151,18 @@
         },
         {
           "id": "chromatographic-techniques-gc-hplc",
-          "name": "Chromatographic techniques (GC",
-          "requires": ["thermal-analysis-tga-dta-dsc"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "Chromatographic techniques (GC, HPLC)",
+          "requires": ["thermal-analysis-tga-dta-dsc"]
+        },
+        {
+          "id": "principle-and-characterization-of-materials-x-ray-diffractio",
+          "name": "principle and characterization of materials: X-ray diffraction (XRD)",
+          "status": "retired"
         },
         {
           "id": "hplc",
           "name": "HPLC)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["chromatographic-techniques-gc-hplc"]
+          "status": "retired"
         }
       ]
     },
@@ -180,30 +173,16 @@
       "topics": [
         {
           "id": "adsorption-characteristics-classification-application",
-          "name": "Adsorption",
+          "name": "Adsorption, Characteristics, Classification, Application",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "characteristics",
-          "name": "Characteristics",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["adsorption-characteristics-classification-application"]
-        },
-        {
-          "id": "classification",
-          "name": "Classification",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["characteristics"]
         },
         {
           "id": "adsorption-isotherms-freundlich",
           "name": "Adsorption isotherms- Freundlich",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["classification"]
+          "requires": ["adsorption-characteristics-classification-application"]
         },
         {
           "id": "langmuir-and-bet-chemical-kinetics",
@@ -265,11 +244,19 @@
           "requires": ["mechanism-of-catalysis"]
         },
         {
+          "id": "characteristics",
+          "name": "Characteristics",
+          "status": "retired"
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "status": "retired"
+        },
+        {
           "id": "application",
           "name": "Application",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["industrial-applications-of-catalysts"]
+          "status": "retired"
         }
       ]
     },

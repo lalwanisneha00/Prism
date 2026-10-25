@@ -99,31 +99,10 @@
         },
         {
           "id": "introduction-to-environmental-parameters-and-their-standards",
-          "name": "Introduction to Environmental Parameters and their standards (air",
+          "name": "Introduction to Environmental Parameters and their standards (air, water, soil, noise, etc.)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["its-importance-and-multidisciplinary-nature-introduction-to"]
-        },
-        {
-          "id": "water",
-          "name": "water",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-environmental-parameters-and-their-standards"]
-        },
-        {
-          "id": "soil",
-          "name": "soil",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["water"]
-        },
-        {
-          "id": "noise",
-          "name": "noise",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["soil"]
         },
         {
           "id": "ecosystem-and-its-types-ideal-ecosystem-biodiversity-its",
@@ -147,11 +126,24 @@
           "requires": ["ideal-ecosystem"]
         },
         {
+          "id": "water",
+          "name": "water",
+          "status": "retired"
+        },
+        {
+          "id": "soil",
+          "name": "soil",
+          "status": "retired"
+        },
+        {
+          "id": "noise",
+          "name": "noise",
+          "status": "retired"
+        },
+        {
           "id": "etc",
           "name": "etc.)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["biodiversity-its-importance-and-conservation"]
+          "status": "retired"
         }
       ]
     },
@@ -162,23 +154,16 @@
       "topics": [
         {
           "id": "pollution-causes-and-effects-of-different-types-of-pollution",
-          "name": "Pollution",
+          "name": "Pollution, Causes and Effects of different types of pollution : Air Pollution",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "causes-and-effects-of-different-types-of-pollution-air-pollu",
-          "name": "Causes and Effects of different types of pollution : Air Pollution",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pollution-causes-and-effects-of-different-types-of-pollution"]
         },
         {
           "id": "water-pollution",
           "name": "Water Pollution",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["causes-and-effects-of-different-types-of-pollution-air-pollu"]
+          "requires": ["pollution-causes-and-effects-of-different-types-of-pollution"]
         },
         {
           "id": "soil-pollution",
@@ -209,13 +194,6 @@
           "requires": ["hazardous-waste-pollution"]
         },
         {
-          "id": "water-pollution-2",
-          "name": "water pollution",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["marine-pollution"]
-        },
-        {
           "id": "introduction-to-man-made-disasters-like-floods-heat-waves",
           "name": "Noise Pollution",
           "requires": ["pollution-causes-and-effects-of-different-types-of-pollution"],
@@ -230,29 +208,22 @@
           "requires": ["introduction-to-man-made-disasters-like-floods-heat-waves"]
         },
         {
-          "id": "heat-waves",
-          "name": "heat waves",
+          "id": "heat-waves-landslides-etc",
+          "name": "heat waves, landslides, etc",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["introduction-to-man-made-disasters-like-floods"]
-        },
-        {
-          "id": "landslides",
-          "name": "landslides",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["heat-waves"]
         },
         {
           "id": "introduction-to-the-various-instruments-for-measuring-air-po",
           "name": "Introduction to the various instruments for measuring air pollution",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["landslides"]
+          "requires": ["heat-waves-landslides-etc"]
         },
         {
-          "id": "noise-2",
-          "name": "noise",
+          "id": "water-pollution-noise",
+          "name": "water pollution, noise",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["introduction-to-the-various-instruments-for-measuring-air-po"]
@@ -262,7 +233,7 @@
           "name": "Thermal Pollution",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["noise-2"]
+          "requires": ["water-pollution-noise"]
         },
         {
           "id": "radioactive-pollution",
@@ -272,11 +243,34 @@
           "requires": ["thermal-pollution"]
         },
         {
+          "id": "causes-and-effects-of-different-types-of-pollution-air-pollu",
+          "name": "Causes and Effects of different types of pollution : Air Pollution",
+          "status": "retired"
+        },
+        {
+          "id": "water-pollution-2",
+          "name": "water pollution",
+          "status": "retired"
+        },
+        {
+          "id": "heat-waves",
+          "name": "heat waves",
+          "status": "retired"
+        },
+        {
+          "id": "landslides",
+          "name": "landslides",
+          "status": "retired"
+        },
+        {
+          "id": "noise-2",
+          "name": "noise",
+          "status": "retired"
+        },
+        {
           "id": "etc-2",
           "name": "etc",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["radioactive-pollution"]
+          "status": "retired"
         }
       ]
     },
@@ -312,9 +306,7 @@
         {
           "id": "etc-3",
           "name": "etc",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["etc-indian-culture-and-traditional-wisdom-for-managing"]
+          "status": "retired"
         }
       ]
     },

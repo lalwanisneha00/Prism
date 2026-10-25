@@ -104,24 +104,20 @@
         },
         {
           "id": "hill-climbing-and-adversarial-search-minimax-and-alpha-beta",
-          "name": "Hill Climbing",
-          "requires": ["a-search"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "adversarial-search-minimax-and-alphabeta-pruning",
-          "name": "Adversarial Search: minimax and alphabeta pruning",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["hill-climbing-and-adversarial-search-minimax-and-alpha-beta"]
+          "name": "Hill Climbing, and Adversarial Search: minimax and alpha- beta pruning",
+          "requires": ["a-search"]
         },
         {
           "id": "basic-problemsolving-methods",
           "name": "Basic ProblemSolving Methods",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["adversarial-search-minimax-and-alphabeta-pruning"]
+          "requires": ["hill-climbing-and-adversarial-search-minimax-and-alpha-beta"]
+        },
+        {
+          "id": "adversarial-search-minimax-and-alphabeta-pruning",
+          "name": "Adversarial Search: minimax and alphabeta pruning",
+          "status": "retired"
         }
       ]
     },
@@ -202,17 +198,8 @@
         },
         {
           "id": "basic-learning-laws",
-          "name": "Learning",
-          "requires": ["topology"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "basic-learning-laws-2",
           "name": "Basic Learning Laws",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["basic-learning-laws"]
+          "requires": ["topology"]
         },
         {
           "id": "back-propagation-and-gradient-decent",
@@ -230,11 +217,14 @@
           "requires": ["regularization"]
         },
         {
+          "id": "basic-learning-laws-2",
+          "name": "Basic Learning Laws",
+          "status": "retired"
+        },
+        {
           "id": "structure",
           "name": "Structure",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["applications-of-deep-learning"]
+          "status": "retired"
         }
       ]
     },

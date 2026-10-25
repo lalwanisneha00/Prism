@@ -45,39 +45,25 @@
           "confidence": "verified"
         },
         {
-          "id": "kinds-of-intellectual-property-rights-patent",
-          "name": "Kinds of Intellectual Property Rights: Patent",
+          "id": "kinds-of-intellectual-property-rights-patent-copyright",
+          "name": "Kinds of Intellectual Property Rights: Patent, Copyright",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["introduction-and-the-need-for-intellectual-property-right"]
         },
         {
-          "id": "copyright",
-          "name": "Copyright",
+          "id": "trade-mark-design",
+          "name": "Trade Mark, Design",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["kinds-of-intellectual-property-rights-patent"]
-        },
-        {
-          "id": "trade-mark",
-          "name": "Trade Mark",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["copyright"]
-        },
-        {
-          "id": "design",
-          "name": "Design",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["trade-mark"]
+          "requires": ["kinds-of-intellectual-property-rights-patent-copyright"]
         },
         {
           "id": "geographical-indication",
           "name": "Geographical Indication",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["design"]
+          "requires": ["trade-mark-design"]
         },
         {
           "id": "plant-varieties-and-layout-design",
@@ -114,7 +100,7 @@
         },
         {
           "id": "major-international-instruments-concerning-intellectual-prop",
-          "name": "Major International Instruments concerning Intellectual Property Rights",
+          "name": "Major International Instruments concerning Intellectual Property Rights, Plagiarism",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["ipr-in-abroad-major-international-instruments-concerning"]
@@ -128,6 +114,26 @@
           "id": "citation-and-acknowledgement",
           "name": "Citation and acknowledgement",
           "requires": ["plagiarism"]
+        },
+        {
+          "id": "kinds-of-intellectual-property-rights-patent",
+          "name": "Kinds of Intellectual Property Rights: Patent",
+          "status": "retired"
+        },
+        {
+          "id": "copyright",
+          "name": "Copyright",
+          "status": "retired"
+        },
+        {
+          "id": "trade-mark",
+          "name": "Trade Mark",
+          "status": "retired"
+        },
+        {
+          "id": "design",
+          "name": "Design",
+          "status": "retired"
         }
       ]
     },
@@ -167,17 +173,8 @@
         },
         {
           "id": "assignment-and-license-design-meaning",
-          "name": "Assignment and license",
-          "requires": ["rights-and-duties-of-patentee"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "design-meaning",
-          "name": "DESIGN- Meaning",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["assignment-and-license-design-meaning"]
+          "name": "Assignment and license. DESIGN- Meaning",
+          "requires": ["rights-and-duties-of-patentee"]
         },
         {
           "id": "definition",
@@ -219,6 +216,11 @@
           "id": "registration-of-trade-marks",
           "name": "Registration of Trade Marks",
           "requires": ["meaning-and-nature-of-trade-marks"]
+        },
+        {
+          "id": "design-meaning",
+          "name": "DESIGN- Meaning",
+          "status": "retired"
         }
       ]
     },

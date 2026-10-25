@@ -101,25 +101,28 @@
           "requires": ["petrophysical-properties-from-core"]
         },
         {
-          "id": "transient-well-test",
-          "name": "Transient well test",
+          "id": "transient-well-test-production",
+          "name": "Transient well test, Production",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["well-logs"]
-        },
-        {
-          "id": "production",
-          "name": "Production",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["transient-well-test"]
         },
         {
           "id": "data-validation-and-workflow-development-for-reservoir-chara",
           "name": "Data validation and workflow development for reservoir characterization",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["production"]
+          "requires": ["transient-well-test-production"]
+        },
+        {
+          "id": "transient-well-test",
+          "name": "Transient well test",
+          "status": "retired"
+        },
+        {
+          "id": "production",
+          "name": "Production",
+          "status": "retired"
         }
       ]
     },
@@ -225,46 +228,18 @@
           "requires": ["description-and-potential-of-different-eor-processes"]
         },
         {
-          "id": "displacement-efficiency-in-different-system",
-          "name": "Displacement efficiency in different system",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["microscopic-and-macroscopic-displacement-of-fluids-in-a-rese"]
-        },
-        {
           "id": "linear-areal-volumetric-definition-and-discussion-of",
-          "name": "linear",
+          "name": "Definition and discussion of mobility ratio and mobility control processes for different types of fluids",
           "requires": ["description-and-potential-of-different-eor-processes"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "areal",
-          "name": "areal",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["linear-areal-volumetric-definition-and-discussion-of"]
-        },
-        {
-          "id": "volumetric",
-          "name": "volumetric",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["areal"]
-        },
-        {
-          "id": "definition-and-discussion-of-mobility-ratio-and-mobility-con",
-          "name": "Definition and discussion of mobility ratio and mobility control processes for different types of fluids",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["volumetric"]
         },
         {
           "id": "miscible-immiscible-displacement-processes",
           "name": "Miscible/Immiscible displacement processes",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["definition-and-discussion-of-mobility-ratio-and-mobility-con"]
+          "requires": ["linear-areal-volumetric-definition-and-discussion-of"]
         },
         {
           "id": "water-flooding-gas-injection-micro-emulsion-flooding",
@@ -335,6 +310,33 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["sagd-microbial-eor"]
+        },
+        {
+          "id": "displacement-efficiency-in-different-system-linear-areal-vol",
+          "name": "Displacement efficiency in different system, linear, areal, volumetric",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["eor-screening-criteria"]
+        },
+        {
+          "id": "displacement-efficiency-in-different-system",
+          "name": "Displacement efficiency in different system",
+          "status": "retired"
+        },
+        {
+          "id": "areal",
+          "name": "areal",
+          "status": "retired"
+        },
+        {
+          "id": "volumetric",
+          "name": "volumetric",
+          "status": "retired"
+        },
+        {
+          "id": "definition-and-discussion-of-mobility-ratio-and-mobility-con",
+          "name": "Definition and discussion of mobility ratio and mobility control processes for different types of fluids",
+          "status": "retired"
         }
       ]
     },

@@ -1,0 +1,519 @@
+{
+  "id": "pdeu-electrical-machine-design-elec",
+  "name": "Electrical Machine Design",
+  "field": "Electrical Machine Design",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 7): Electrical Machine Design",
+    "note": "Units and topics copied from the course handout PDF (pages 3-4 of ELEC/sem7/Electrical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE401T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s7-electrical-machine-design",
+      "code": "20EE401T",
+      "category": "Program Core",
+      "ltp": "4-0-0",
+      "credits": 4,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "basic-considerations-in-electrical-machines-design",
+      "name": "Basic Considerations in Electrical Machines Design",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "introduction-design-factors",
+          "name": "Introduction, Design factors"
+        },
+        {
+          "id": "limitations-in-design",
+          "name": "Limitations in design",
+          "requires": ["introduction-design-factors"]
+        },
+        {
+          "id": "modern-trends-in-design-of-electric-machines",
+          "name": "Modern trends in design of electric machines",
+          "requires": ["limitations-in-design"]
+        },
+        {
+          "id": "conducting-materials",
+          "name": "Conducting materials",
+          "requires": ["modern-trends-in-design-of-electric-machines"]
+        },
+        {
+          "id": "magnetic-materials",
+          "name": "Magnetic materials",
+          "requires": ["conducting-materials"]
+        },
+        {
+          "id": "insulating-materials-and-its-classification",
+          "name": "Insulating materials and its classification",
+          "requires": ["magnetic-materials"]
+        },
+        {
+          "id": "temperature-rise",
+          "name": "Temperature rise",
+          "requires": ["insulating-materials-and-its-classification"]
+        },
+        {
+          "id": "expression-for-temperature-rise",
+          "name": "Expression for temperature rise",
+          "requires": ["temperature-rise"]
+        },
+        {
+          "id": "heating-and-cooling-time-constants",
+          "name": "heating and cooling time constants",
+          "requires": ["expression-for-temperature-rise"]
+        },
+        {
+          "id": "types-of-duties-and-ratings",
+          "name": "Types of duties and ratings",
+          "requires": ["heating-and-cooling-time-constants"]
+        },
+        {
+          "id": "selection-of-motor-capacity",
+          "name": "Selection of motor capacity",
+          "requires": ["types-of-duties-and-ratings"]
+        }
+      ]
+    },
+    {
+      "id": "induction-machines-design",
+      "name": "Induction Machines Design",
+      "hours": 18,
+      "topics": [
+        {
+          "id": "introduction-choice-of-specific-electric-and-magnetic-loadin",
+          "name": "Introduction, Choice of specific electric and magnetic loadings"
+        },
+        {
+          "id": "output-equation-separation-of-d-and-l",
+          "name": "Output equation, Separation of D & L",
+          "requires": ["introduction-choice-of-specific-electric-and-magnetic-loadin"]
+        },
+        {
+          "id": "design-of-stator-turns-per-phase",
+          "name": "Design of Stator: Turns per phase",
+          "requires": ["output-equation-separation-of-d-and-l"]
+        },
+        {
+          "id": "stator-conductors",
+          "name": "Stator conductors",
+          "requires": ["design-of-stator-turns-per-phase"]
+        },
+        {
+          "id": "shape-of-stator-slots",
+          "name": "Shape of stator slots",
+          "requires": ["stator-conductors"]
+        },
+        {
+          "id": "number-of-stator-slots",
+          "name": "Number of stator slots",
+          "requires": ["shape-of-stator-slots"]
+        },
+        {
+          "id": "area-of-stator-slots",
+          "name": "Area of stator slots",
+          "requires": ["number-of-stator-slots"]
+        },
+        {
+          "id": "length-of-mean-turn",
+          "name": "Length of mean turn",
+          "requires": ["area-of-stator-slots"]
+        },
+        {
+          "id": "stator-teeth",
+          "name": "Stator teeth",
+          "requires": ["length-of-mean-turn"]
+        },
+        {
+          "id": "stator-core",
+          "name": "Stator core",
+          "requires": ["stator-teeth"]
+        },
+        {
+          "id": "length-of-air-gap",
+          "name": "Length of air gap",
+          "requires": ["stator-core"]
+        },
+        {
+          "id": "squirrel-cage-rotor-design-number-of-rotor-slots",
+          "name": "Squirrel Cage Rotor Design: Number of rotor slots",
+          "requires": ["length-of-air-gap"]
+        },
+        {
+          "id": "harmonic-torques-and-its-reduction",
+          "name": "Harmonic torques and its Reduction",
+          "requires": ["squirrel-cage-rotor-design-number-of-rotor-slots"]
+        },
+        {
+          "id": "design-of-rotor-bars-and-slots",
+          "name": "Design of rotor bars & slots",
+          "requires": ["harmonic-torques-and-its-reduction"]
+        },
+        {
+          "id": "design-of-end-rings",
+          "name": "Design of end rings",
+          "requires": ["design-of-rotor-bars-and-slots"]
+        },
+        {
+          "id": "wound-rotor-design-number-of-rotor-slots",
+          "name": "Wound Rotor Design: Number of rotor slots",
+          "requires": ["design-of-end-rings"]
+        },
+        {
+          "id": "number-of-rotor-turns",
+          "name": "number of rotor turns",
+          "requires": ["wound-rotor-design-number-of-rotor-slots"]
+        },
+        {
+          "id": "area-of-rotor-conductors",
+          "name": "area of rotor conductors",
+          "requires": ["number-of-rotor-turns"]
+        },
+        {
+          "id": "design-of-rotor-core",
+          "name": "design of rotor core",
+          "requires": ["area-of-rotor-conductors"]
+        },
+        {
+          "id": "estimation-of-operating-characteristics-no-load-and-s-c-curr",
+          "name": "Estimation of operating characteristics- No load and S.C. current",
+          "requires": ["design-of-rotor-core"]
+        },
+        {
+          "id": "leakage-reactance-calculation",
+          "name": "leakage reactance calculation",
+          "requires": ["estimation-of-operating-characteristics-no-load-and-s-c-curr"]
+        },
+        {
+          "id": "circle-diagram",
+          "name": "Circle diagram",
+          "requires": ["leakage-reactance-calculation"]
+        },
+        {
+          "id": "dispersion-coefficient-and-its-effects",
+          "name": "Dispersion coefficient and its effects",
+          "requires": ["circle-diagram"]
+        },
+        {
+          "id": "performance-calculation",
+          "name": "Performance calculation",
+          "requires": ["dispersion-coefficient-and-its-effects"]
+        },
+        {
+          "id": "design-of-single-phase-induction-motor-output-equation",
+          "name": "Design of single phase induction motor:Output equation",
+          "requires": ["performance-calculation"]
+        },
+        {
+          "id": "choice-of-specific-loadings",
+          "name": "Choice of specific loadings",
+          "requires": ["design-of-single-phase-induction-motor-output-equation"]
+        },
+        {
+          "id": "main-dimensions",
+          "name": "Main dimensions",
+          "requires": ["choice-of-specific-loadings"]
+        },
+        {
+          "id": "design-of-stator-and-rotor",
+          "name": "Design of stator and rotor",
+          "requires": ["main-dimensions"]
+        },
+        {
+          "id": "air-gap-length",
+          "name": "Air gap length",
+          "requires": ["design-of-stator-and-rotor"]
+        },
+        {
+          "id": "operating-characteristic-and-parameters",
+          "name": "Operating characteristic and parameters",
+          "requires": ["air-gap-length"]
+        },
+        {
+          "id": "design-of-starting-winding-a-c",
+          "name": "Design of starting winding.A.C",
+          "requires": ["operating-characteristic-and-parameters"]
+        },
+        {
+          "id": "armature-winding-number-of-phases-and-phase-spread",
+          "name": "Armature Winding: Number of phases and phase spread",
+          "requires": ["design-of-starting-winding-a-c"]
+        },
+        {
+          "id": "classification-and-design-of-ac-windings",
+          "name": "classification and design of ac windings",
+          "requires": ["armature-winding-number-of-phases-and-phase-spread"]
+        }
+      ]
+    },
+    {
+      "id": "synchronous-machines-design",
+      "name": "Synchronous Machines Design",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-choice-of-specific-electric-and-magnetic-loadin-2",
+          "name": "Introduction, Choice of specific electric and magnetic loadings"
+        },
+        {
+          "id": "design-of-salient-pole-machines-output-equation",
+          "name": "Design of Salient pole machines: Output equation",
+          "requires": ["introduction-choice-of-specific-electric-and-magnetic-loadin-2"]
+        },
+        {
+          "id": "main-dimensions-2",
+          "name": "Main dimensions",
+          "requires": ["design-of-salient-pole-machines-output-equation"]
+        },
+        {
+          "id": "short-circuit-ratio",
+          "name": "Short Circuit Ratio",
+          "requires": ["main-dimensions-2"]
+        },
+        {
+          "id": "effect-of-scr-on-machine-performance",
+          "name": "Effect of SCR on machine performance",
+          "requires": ["short-circuit-ratio"]
+        },
+        {
+          "id": "length-of-air-gap-and-shape-of-pole-face",
+          "name": "Length of air gap and shape of pole face",
+          "requires": ["effect-of-scr-on-machine-performance"]
+        },
+        {
+          "id": "armature-design-number-of-armature-slots",
+          "name": "Armature Design: Number of armature slots",
+          "requires": ["length-of-air-gap-and-shape-of-pole-face"]
+        },
+        {
+          "id": "coil-span",
+          "name": "Coil span",
+          "requires": ["armature-design-number-of-armature-slots"]
+        },
+        {
+          "id": "turns-per-phase",
+          "name": "Turns per phase",
+          "requires": ["coil-span"]
+        },
+        {
+          "id": "conductor-section",
+          "name": "Conductor section",
+          "requires": ["turns-per-phase"]
+        },
+        {
+          "id": "slots-dimension",
+          "name": "Slots dimension",
+          "requires": ["conductor-section"]
+        },
+        {
+          "id": "stator-core-2",
+          "name": "Stator Core",
+          "requires": ["slots-dimension"]
+        },
+        {
+          "id": "elimination-of-harmonics",
+          "name": "Elimination of harmonics",
+          "requires": ["stator-core-2"]
+        },
+        {
+          "id": "armature-resistance-and-leakage-reactance",
+          "name": "Armature resistance and Leakage reactance",
+          "requires": ["elimination-of-harmonics"]
+        },
+        {
+          "id": "estimation-of-air-gap-length",
+          "name": "Estimation of air gap length",
+          "requires": ["armature-resistance-and-leakage-reactance"]
+        },
+        {
+          "id": "design-of-rotor",
+          "name": "Design of rotor",
+          "requires": ["estimation-of-air-gap-length"]
+        },
+        {
+          "id": "height-of-pole",
+          "name": "Height of pole",
+          "requires": ["design-of-rotor"]
+        },
+        {
+          "id": "design-of-damper-winding",
+          "name": "Design of damper winding",
+          "requires": ["height-of-pole"]
+        },
+        {
+          "id": "height-of-pole-shoe",
+          "name": "Height of pole shoe",
+          "requires": ["design-of-damper-winding"]
+        },
+        {
+          "id": "pole-profile-drawing",
+          "name": "Pole profile drawing",
+          "requires": ["height-of-pole-shoe"]
+        },
+        {
+          "id": "design-of-magnetic-circuit",
+          "name": "Design of magnetic circuit",
+          "requires": ["pole-profile-drawing"]
+        },
+        {
+          "id": "design-of-field-winding",
+          "name": "Design of field winding",
+          "requires": ["design-of-magnetic-circuit"]
+        },
+        {
+          "id": "design-of-turbo-alternators-main-dimensions",
+          "name": "Design Of Turbo Alternators: Main dimensions",
+          "requires": ["design-of-field-winding"]
+        },
+        {
+          "id": "length-of-air-gap-2",
+          "name": "Length of air gap",
+          "requires": ["design-of-turbo-alternators-main-dimensions"]
+        },
+        {
+          "id": "stator-and-rotor-design",
+          "name": "Stator and Rotor design",
+          "requires": ["length-of-air-gap-2"]
+        }
+      ]
+    },
+    {
+      "id": "design-of-transformers",
+      "name": "Design of Transformers",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "specification-output-equation-of-transformer",
+          "name": "Specification, Output equation of transformer"
+        },
+        {
+          "id": "relation-between-emf-per-turn-and-transformer-rating",
+          "name": "Relation between EMF per turn and transformer rating",
+          "requires": ["specification-output-equation-of-transformer"]
+        },
+        {
+          "id": "stacking-factor",
+          "name": "Stacking factor",
+          "requires": ["relation-between-emf-per-turn-and-transformer-rating"]
+        },
+        {
+          "id": "choice-of-design-parameters-flux-density",
+          "name": "Choice of design parameters: flux density",
+          "requires": ["stacking-factor"]
+        },
+        {
+          "id": "current-density-and-window-space-factor",
+          "name": "current density and window space factor",
+          "requires": ["choice-of-design-parameters-flux-density"]
+        },
+        {
+          "id": "design-of-core",
+          "name": "Design of core",
+          "requires": ["current-density-and-window-space-factor"]
+        },
+        {
+          "id": "window-dimensions",
+          "name": "window dimensions",
+          "requires": ["design-of-core"]
+        },
+        {
+          "id": "design-of-yoke",
+          "name": "Design of yoke",
+          "requires": ["window-dimensions"]
+        },
+        {
+          "id": "overall-dimensions",
+          "name": "Overall dimensions",
+          "requires": ["design-of-yoke"]
+        },
+        {
+          "id": "types-of-transformer-windings",
+          "name": "Types of transformer windings",
+          "requires": ["overall-dimensions"]
+        },
+        {
+          "id": "design-of-high-voltage-and-low-voltage-winding",
+          "name": "Design of high voltage and low voltage winding",
+          "requires": ["types-of-transformer-windings"]
+        },
+        {
+          "id": "estimation-of-operating-characteristics-resistance",
+          "name": "Estimation of operating characteristics: resistance",
+          "requires": ["design-of-high-voltage-and-low-voltage-winding"]
+        },
+        {
+          "id": "leakage-reactance-of-windings-regulation",
+          "name": "Leakage reactance of windings, Regulation",
+          "requires": ["estimation-of-operating-characteristics-resistance"]
+        },
+        {
+          "id": "mechanical-forces",
+          "name": "Mechanical forces",
+          "requires": ["leakage-reactance-of-windings-regulation"]
+        },
+        {
+          "id": "no-load-current-calculation",
+          "name": "No load current calculation",
+          "requires": ["mechanical-forces"]
+        },
+        {
+          "id": "temperature-rise-of-transformer",
+          "name": "Temperature rise of transformer",
+          "requires": ["no-load-current-calculation"]
+        },
+        {
+          "id": "design-of-tank",
+          "name": "Design of tank",
+          "requires": ["temperature-rise-of-transformer"]
+        },
+        {
+          "id": "concept-of-cad-of-electrical-machines-advantages-and-limitat",
+          "name": "Concept of CAD of Electrical Machines: Advantages and Limitations of CAD",
+          "requires": ["design-of-tank"]
+        },
+        {
+          "id": "different-approaches-for-cad",
+          "name": "Different approaches for CAD",
+          "requires": ["concept-of-cad-of-electrical-machines-advantages-and-limitat"]
+        },
+        {
+          "id": "selection-of-optimal-design",
+          "name": "Selection of Optimal Design",
+          "requires": ["different-approaches-for-cad"]
+        },
+        {
+          "id": "lowest-cost-and-significance-of-kg-kva",
+          "name": "lowest cost and significance of Kg/kVA",
+          "requires": ["selection-of-optimal-design"]
+        },
+        {
+          "id": "flowchart-for-the-cad-of-transformer",
+          "name": "Flowchart for the CAD of transformer",
+          "requires": ["lowest-cost-and-significance-of-kg-kva"]
+        },
+        {
+          "id": "induction-machines",
+          "name": "induction machines",
+          "requires": ["flowchart-for-the-cad-of-transformer"]
+        }
+      ]
+    }
+  ]
+}

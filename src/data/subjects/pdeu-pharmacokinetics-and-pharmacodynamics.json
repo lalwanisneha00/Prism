@@ -40,23 +40,7 @@
       "topics": [
         {
           "id": "absorption",
-          "name": "Absorption",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "mechanisms-of-drug-absorption",
-          "name": "Mechanisms of Drug Absorption",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["absorption"]
-        },
-        {
-          "id": "factors-influencing-drug-absorption",
-          "name": "Factors Influencing Drug Absorption",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["mechanisms-of-drug-absorption"]
+          "name": "Absorption"
         },
         {
           "id": "introduction-mechanisms-of-drug-absorption-factors",
@@ -78,11 +62,19 @@
           "requires": ["factors-influencing-distribution-of-drug-volume-of"]
         },
         {
+          "id": "mechanisms-of-drug-absorption",
+          "name": "Mechanisms of Drug Absorption",
+          "status": "retired"
+        },
+        {
+          "id": "factors-influencing-drug-absorption",
+          "name": "Factors Influencing Drug Absorption",
+          "status": "retired"
+        },
+        {
           "id": "introduction",
           "name": "Introduction",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["volume-of-distribution-and-its-significance"]
+          "status": "retired"
         }
       ]
     },
@@ -93,16 +85,7 @@
       "topics": [
         {
           "id": "drug-metabolism",
-          "name": "Drug Metabolism",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "factors-affecting-drug-metabolism",
-          "name": "Factors Affecting drug metabolism",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["drug-metabolism"]
+          "name": "Drug Metabolism"
         },
         {
           "id": "introduction-drug-metabolism-metabolic-pathways-factors",
@@ -112,51 +95,42 @@
         {
           "id": "excretion",
           "name": "Excretion",
-          "requires": ["introduction-drug-metabolism-metabolic-pathways-factors"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "requires": ["introduction-drug-metabolism-metabolic-pathways-factors"]
+        },
+        {
+          "id": "introduction-renal-excretion-of-drugs-factors-affecting-the",
+          "name": "Introduction, Renal Excretion of Drugs, Factors Affecting the Renal Excretion of Drugs, Clearance, Renal Clearance, Non-renal Routes of the Drug Excretion",
+          "requires": ["excretion"]
+        },
+        {
+          "id": "factors-affecting-drug-metabolism",
+          "name": "Factors Affecting drug metabolism",
+          "status": "retired"
         },
         {
           "id": "renal-excretion-of-drugs",
           "name": "Renal Excretion of Drugs",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["excretion"]
+          "status": "retired"
         },
         {
           "id": "factors-affecting-the-renal-excretion-of-drugs",
           "name": "Factors Affecting the Renal Excretion of Drugs",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["renal-excretion-of-drugs"]
+          "status": "retired"
         },
         {
           "id": "non-renal-routes-of-the-drug-excretion",
           "name": "Non-renal Routes of the Drug Excretion",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["factors-affecting-the-renal-excretion-of-drugs"]
-        },
-        {
-          "id": "introduction-renal-excretion-of-drugs-factors-affecting-the",
-          "name": "Clearance",
-          "requires": ["excretion"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "status": "retired"
         },
         {
           "id": "renal-clearance",
           "name": "Renal Clearance",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-renal-excretion-of-drugs-factors-affecting-the"]
+          "status": "retired"
         },
         {
           "id": "introduction-2",
           "name": "Introduction",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["renal-clearance"]
+          "status": "retired"
         }
       ]
     },

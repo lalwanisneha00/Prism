@@ -28,9 +28,9 @@
     "title": "PDEU B.Tech curriculum handbook (ECE): Advanced Processors and SoCs (VLSI/Embedded)",
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
-  "status": "retired",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
   "verifiedByCount": 0,
   "chapters": [
     {
@@ -44,18 +44,73 @@
         },
         {
           "id": "introduction-to-arm-series-processors-and-its-versions",
-          "name": "introduction to ARM series processors and its versions: architectures, features, advantages & suitability in SoC design",
-          "requires": ["32-64-bit-processors"]
+          "name": "introduction to ARM series processors and its versions: architectures, features",
+          "requires": ["32-64-bit-processors"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "advantages-and-suitability-in-soc-design",
+          "name": "advantages & suitability in SoC design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-arm-series-processors-and-its-versions"]
         },
         {
           "id": "arm-instruction-set",
           "name": "ARM instruction set",
-          "requires": ["introduction-to-arm-series-processors-and-its-versions"]
+          "requires": ["introduction-to-arm-series-processors-and-its-versions"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "instruction-set",
+          "name": "Instruction set",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["arm-instruction-set"]
         },
         {
           "id": "assembly-programming",
-          "name": "ARM 7 based Microcontroller: features, architecture (block diagram and its description),Memory Map, GPIO, Pin Connect Block, Instruction set, programming in assembly language",
-          "requires": ["arm-instruction-set"]
+          "name": "ARM 7 based Microcontroller: features",
+          "requires": ["arm-instruction-set"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "architecture-block-diagram-and-its-description",
+          "name": "architecture (block diagram and its description)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["assembly-programming"]
+        },
+        {
+          "id": "memory-map",
+          "name": "Memory Map",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["architecture-block-diagram-and-its-description"]
+        },
+        {
+          "id": "gpio",
+          "name": "GPIO",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["memory-map"]
+        },
+        {
+          "id": "pin-connect-block",
+          "name": "Pin Connect Block",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["gpio"]
+        },
+        {
+          "id": "programming-in-assembly-language",
+          "name": "programming in assembly language",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["pin-connect-block"]
         },
         {
           "id": "real-world-interfacing-with-arm7-basedmicrocontroller",
@@ -76,7 +131,30 @@
       "topics": [
         {
           "id": "hardware-architecture-of-dsp-processor-desirable-features-of",
-          "name": "Hardware architecture of DSP Processor: desirable features of DSP processors, types of architectures, internal architecture, features, system interface and instruction set of ADSP21xx, ADSP-21xx Devel"
+          "name": "Hardware architecture of DSP Processor: desirable features of DSP processors",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "types-of-architectures",
+          "name": "types of architectures",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["hardware-architecture-of-dsp-processor-desirable-features-of"]
+        },
+        {
+          "id": "internal-architecture-features",
+          "name": "internal architecture, features",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["types-of-architectures"]
+        },
+        {
+          "id": "system-interface-and-instruction-set-of-adsp21xx",
+          "name": "system interface and instruction set of ADSP21xx",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["internal-architecture-features"]
         },
         {
           "id": "tms-dsp-processors",
@@ -87,6 +165,13 @@
           "id": "overview-of-omap-and-am57x-series-processors",
           "name": "Overview of OMAP and AM57x series processors",
           "requires": ["tms-dsp-processors"]
+        },
+        {
+          "id": "adsp-21xx-development-tools",
+          "name": "ADSP-21xx Development tools",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["overview-of-omap-and-am57x-series-processors"]
         }
       ]
     },
@@ -106,18 +191,80 @@
         },
         {
           "id": "cache-replacement-write",
-          "name": "Internal Memory: size, Scratchpads and Cache memory, Cache Organization, Cache data, Write Policies, Strategies for line replacement at miss time, Types of Cache, Split",
-          "requires": ["soc-external-memory"]
+          "name": "Internal Memory: size",
+          "requires": ["soc-external-memory"],
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
-          "id": "i-and-d-caches-multilevel-caches-soc-memory-system",
-          "name": "I, and D –Caches, Multilevel Caches, SoC Memory System",
+          "id": "scratchpads-and-cache-memory",
+          "name": "Scratchpads and Cache memory",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["cache-replacement-write"]
         },
         {
-          "id": "models-of-simple-processor-memory-interaction",
-          "name": "Models of Simple Processor – memory interaction",
+          "id": "cache-organization",
+          "name": "Cache Organization",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["scratchpads-and-cache-memory"]
+        },
+        {
+          "id": "cache-data",
+          "name": "Cache data",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cache-organization"]
+        },
+        {
+          "id": "write-policies",
+          "name": "Write Policies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["cache-data"]
+        },
+        {
+          "id": "strategies-for-line-replacement-at-miss-time",
+          "name": "Strategies for line replacement at miss time",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["write-policies"]
+        },
+        {
+          "id": "i-and-d-caches-multilevel-caches-soc-memory-system",
+          "name": "Multilevel Caches",
+          "requires": ["cache-replacement-write"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "soc-memory-system",
+          "name": "SoC Memory System",
+          "source": "admin_handout",
+          "confidence": "verified",
           "requires": ["i-and-d-caches-multilevel-caches-soc-memory-system"]
+        },
+        {
+          "id": "models-of-simple-processor-memory-interaction",
+          "name": "Models of Simple Processor",
+          "requires": ["i-and-d-caches-multilevel-caches-soc-memory-system"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "memory-interaction",
+          "name": "memory interaction",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["models-of-simple-processor-memory-interaction"]
+        },
+        {
+          "id": "types-of-cache-split-d-caches",
+          "name": "Types of Cache, Split, D –Caches",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["memory-interaction"]
         }
       ]
     },
@@ -128,7 +275,23 @@
       "topics": [
         {
           "id": "an-overview-customizing-instruction-processor",
-          "name": "An overview, Customizing Instruction Processor, Reconfiguration Technologies, Mapping design onto Reconfigurable devices, Reconfiguration"
+          "name": "An overview, Customizing Instruction Processor",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "reconfiguration-technologies",
+          "name": "Reconfiguration Technologies",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["an-overview-customizing-instruction-processor"]
+        },
+        {
+          "id": "mapping-design-onto-reconfigurable-devices-reconfiguration",
+          "name": "Mapping design onto Reconfigurable devices, Reconfiguration",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reconfiguration-technologies"]
         },
         {
           "id": "overhead-analysis-and-trade-off-analysis-on-reconfigurable",
@@ -137,15 +300,41 @@
         },
         {
           "id": "inter-connect-architectures-basic-bus-architectures",
-          "name": "Inter Connect Architectures: Basic Bus Architectures, Analytical Bus Models, Bus transactions and contention time",
-          "requires": ["overhead-analysis-and-trade-off-analysis-on-reconfigurable"]
+          "name": "Inter Connect Architectures: Basic Bus Architectures",
+          "requires": ["overhead-analysis-and-trade-off-analysis-on-reconfigurable"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "analytical-bus-models",
+          "name": "Analytical Bus Models",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["inter-connect-architectures-basic-bus-architectures"]
+        },
+        {
+          "id": "bus-transactions-and-contention-time",
+          "name": "Bus transactions and contention time",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["analytical-bus-models"]
         },
         {
           "id": "soc-standard-buses-amba-core-connect",
-          "name": "SoC Standard Buses (AMBA, Core connect)",
-          "requires": ["inter-connect-architectures-basic-bus-architectures"]
+          "name": "SoC Standard Buses (AMBA",
+          "requires": ["inter-connect-architectures-basic-bus-architectures"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "core-connect",
+          "name": "Core connect)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["soc-standard-buses-amba-core-connect"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory"
 }

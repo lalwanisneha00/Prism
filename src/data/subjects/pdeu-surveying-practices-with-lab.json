@@ -94,16 +94,7 @@
         {
           "id": "contouring",
           "name": "contouring",
-          "requires": ["curvature-and-refraction-corrections"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "methods-of-contouring-2",
-          "name": "methods of contouring",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["contouring"]
+          "requires": ["curvature-and-refraction-corrections"]
         },
         {
           "id": "methods-of-contouring",
@@ -114,6 +105,11 @@
           "id": "uses-of-contour-maps",
           "name": "uses of contour maps",
           "requires": ["methods-of-contouring"]
+        },
+        {
+          "id": "methods-of-contouring-2",
+          "name": "methods of contouring",
+          "status": "retired"
         }
       ]
     },
@@ -147,38 +143,30 @@
         },
         {
           "id": "simple-curves",
-          "name": "Elements of simple",
-          "requires": ["theodolite-angles"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "compound",
-          "name": "compound",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["simple-curves"]
-        },
-        {
-          "id": "reverse-curves",
-          "name": "Reverse curves",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["compound"]
-        },
-        {
-          "id": "method-of-setting-out-simple-circular-curve",
-          "name": "Method of setting out simple circular curve",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["reverse-curves"]
+          "name": "Elements of simple, compound, and Reverse curves, Method of setting out simple circular curve, Computation of area of regular and irregular boundary computation of volume for earthwork in cutting & fi",
+          "requires": ["theodolite-angles"]
         },
         {
           "id": "computation-of-area-of-regular-and-irregular-boundary-comput",
           "name": "Computation of area of regular and irregular boundary computation of volume for earthwork in cutting & filling",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["method-of-setting-out-simple-circular-curve"]
+          "requires": ["simple-curves"]
+        },
+        {
+          "id": "compound",
+          "name": "compound",
+          "status": "retired"
+        },
+        {
+          "id": "reverse-curves",
+          "name": "Reverse curves",
+          "status": "retired"
+        },
+        {
+          "id": "method-of-setting-out-simple-circular-curve",
+          "name": "Method of setting out simple circular curve",
+          "status": "retired"
         }
       ]
     },
@@ -202,32 +190,25 @@
           "requires": ["edm-total-station"]
         },
         {
-          "id": "types-of-edm-instrument-modern-surveying-equipment",
-          "name": "Types of EDM instrument modern surveying equipment",
+          "id": "types-of-edm-instrument-modern-surveying-equipment-parts-acc",
+          "name": "Types of EDM instrument modern surveying equipment, Parts, Accessories",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["modulation"]
-        },
-        {
-          "id": "parts",
-          "name": "Parts",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["types-of-edm-instrument-modern-surveying-equipment"]
-        },
-        {
-          "id": "accessories",
-          "name": "Accessories",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["parts"]
         },
         {
           "id": "advantages-and-applications",
           "name": "Advantages and Applications",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["accessories"]
+          "requires": ["types-of-edm-instrument-modern-surveying-equipment-parts-acc"]
+        },
+        {
+          "id": "land-surveying-with-total-stations",
+          "name": "land surveying with total stations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["advantages-and-applications"]
         },
         {
           "id": "global-positioning-systems-segments-gps-measurements-errors",
@@ -272,18 +253,11 @@
           "requires": ["co-ordinate-transformation"]
         },
         {
-          "id": "land-surveying-with-total-stations",
-          "name": "land surveying with total stations",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["accuracy-considerations"]
-        },
-        {
           "id": "field-procedure-for-total-station-survey",
           "name": "Field Procedure for total station survey",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["land-surveying-with-total-stations"]
+          "requires": ["accuracy-considerations"]
         },
         {
           "id": "errors-in-total-station-survey",
@@ -291,6 +265,21 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["field-procedure-for-total-station-survey"]
+        },
+        {
+          "id": "types-of-edm-instrument-modern-surveying-equipment",
+          "name": "Types of EDM instrument modern surveying equipment",
+          "status": "retired"
+        },
+        {
+          "id": "parts",
+          "name": "Parts",
+          "status": "retired"
+        },
+        {
+          "id": "accessories",
+          "name": "Accessories",
+          "status": "retired"
         }
       ]
     },

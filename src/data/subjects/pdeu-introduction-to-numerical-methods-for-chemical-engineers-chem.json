@@ -1,0 +1,254 @@
+{
+  "id": "pdeu-introduction-to-numerical-methods-for-chemical-engineers-chem",
+  "name": "Introduction to Numerical Methods for Chemical Engineers",
+  "field": "Introduction to Numerical Methods for Chemical Engineers",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 4): Introduction to Numerical Methods for Chemical Engineers",
+    "note": "Units and topics copied from the course handout PDF (pages 9 of CHEM/sem4/Chemical_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH209T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s4-introduction-to-numerical-methods-for-chemical-engineers",
+      "code": "24CH209T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "numerical-solutions-to-algebraic-equations",
+      "name": "Numerical Solutions to Algebraic Equations",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "mathematical-modelling-and-chemical-engineering-problem-solv",
+          "name": "Mathematical modelling and chemical engineering problem solving"
+        },
+        {
+          "id": "conservation-laws",
+          "name": "conservation laws",
+          "requires": ["mathematical-modelling-and-chemical-engineering-problem-solv"]
+        },
+        {
+          "id": "taylor-series-and-error-propagation",
+          "name": "Taylor series and error propagation",
+          "requires": ["conservation-laws"]
+        },
+        {
+          "id": "bracketing-methods",
+          "name": "bracketing methods",
+          "requires": ["taylor-series-and-error-propagation"]
+        },
+        {
+          "id": "graphical-methods",
+          "name": "graphical methods",
+          "requires": ["bracketing-methods"]
+        },
+        {
+          "id": "bisection-method-and-false-position-method",
+          "name": "bisection method and false position method",
+          "requires": ["graphical-methods"]
+        },
+        {
+          "id": "open-methods",
+          "name": "open methods",
+          "requires": ["bisection-method-and-false-position-method"]
+        },
+        {
+          "id": "fixed-point-iteration",
+          "name": "fixed point iteration",
+          "requires": ["open-methods"]
+        },
+        {
+          "id": "newton-raphson",
+          "name": "Newton-Raphson",
+          "requires": ["fixed-point-iteration"]
+        },
+        {
+          "id": "secant-method",
+          "name": "secant method",
+          "requires": ["newton-raphson"]
+        },
+        {
+          "id": "linear-algebraic-equations",
+          "name": "linear algebraic equations",
+          "requires": ["secant-method"]
+        },
+        {
+          "id": "gauss-elimination",
+          "name": "Gauss elimination",
+          "requires": ["linear-algebraic-equations"]
+        },
+        {
+          "id": "lu-decomposition",
+          "name": "LU decomposition",
+          "requires": ["gauss-elimination"]
+        },
+        {
+          "id": "gauss-seidel",
+          "name": "Gauss-Seidel",
+          "requires": ["lu-decomposition"]
+        }
+      ]
+    },
+    {
+      "id": "numerical-approximations-and-data-manoeuvring",
+      "name": "Numerical Approximations and Data Manoeuvring",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "curve-fitting",
+          "name": "Curve fitting"
+        },
+        {
+          "id": "linear-regression",
+          "name": "linear regression",
+          "requires": ["curve-fitting"]
+        },
+        {
+          "id": "multiple-linear-regression",
+          "name": "multiple linear regression",
+          "requires": ["linear-regression"]
+        },
+        {
+          "id": "polynomial-regression",
+          "name": "polynomial regression",
+          "requires": ["multiple-linear-regression"]
+        },
+        {
+          "id": "non-linear-regression",
+          "name": "non-linear regression",
+          "requires": ["polynomial-regression"]
+        },
+        {
+          "id": "interpolation",
+          "name": "interpolation",
+          "requires": ["non-linear-regression"]
+        },
+        {
+          "id": "spline-interpolation",
+          "name": "spline interpolation",
+          "requires": ["interpolation"]
+        },
+        {
+          "id": "fourier-series",
+          "name": "Fourier series",
+          "requires": ["spline-interpolation"]
+        },
+        {
+          "id": "numerical-integration-and-differentiation",
+          "name": "numerical integration and differentiation",
+          "requires": ["fourier-series"]
+        },
+        {
+          "id": "trapezoidal-rule",
+          "name": "trapezoidal rule",
+          "requires": ["numerical-integration-and-differentiation"]
+        },
+        {
+          "id": "simpson-s-rules",
+          "name": "Simpson's rules",
+          "requires": ["trapezoidal-rule"]
+        }
+      ]
+    },
+    {
+      "id": "numerical-solutions-to-ordinary-differential-equations",
+      "name": "Numerical Solutions to Ordinary Differential Equations",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "ordinary-differential-equations",
+          "name": "Ordinary differential equations"
+        },
+        {
+          "id": "euler-method",
+          "name": "Euler method",
+          "requires": ["ordinary-differential-equations"]
+        },
+        {
+          "id": "runge-kutta-1-4-methods",
+          "name": "Runge-Kutta 1, 4 methods",
+          "requires": ["euler-method"]
+        },
+        {
+          "id": "adaptive-rk-methods-stiffness",
+          "name": "adaptive RK methods, stiffness",
+          "requires": ["runge-kutta-1-4-methods"]
+        },
+        {
+          "id": "boundary-value-and-eigenvalue-problems",
+          "name": "boundary value and eigenvalue problems",
+          "requires": ["adaptive-rk-methods-stiffness"]
+        },
+        {
+          "id": "chemical-engineering-problems-case-studies",
+          "name": "chemical engineering problems: case studies",
+          "requires": ["boundary-value-and-eigenvalue-problems"]
+        }
+      ]
+    },
+    {
+      "id": "numerical-solutions-to-partial-differential-equations",
+      "name": "Numerical Solutions to Partial Differential Equations",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "partial-differential-equations",
+          "name": "Partial differential equations"
+        },
+        {
+          "id": "finite-difference-elliptic-equations",
+          "name": "finite difference: elliptic equations",
+          "requires": ["partial-differential-equations"]
+        },
+        {
+          "id": "parabolic-equations",
+          "name": "parabolic equations",
+          "requires": ["finite-difference-elliptic-equations"]
+        },
+        {
+          "id": "finite-element-method",
+          "name": "finite element method",
+          "requires": ["parabolic-equations"]
+        },
+        {
+          "id": "general-approach",
+          "name": "general approach",
+          "requires": ["finite-element-method"]
+        },
+        {
+          "id": "finite-element-in-one-dimension",
+          "name": "finite element in one dimension",
+          "requires": ["general-approach"]
+        },
+        {
+          "id": "two-dimensional-problems",
+          "name": "two-dimensional problems",
+          "requires": ["finite-element-in-one-dimension"]
+        },
+        {
+          "id": "chemical-engineering-problems-case-studies-2",
+          "name": "chemical engineering problems: case studies",
+          "requires": ["two-dimensional-problems"]
+        }
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import { z } from "zod";
 import branchData from "@/data/branches.json";
 import { subjectFiles } from "@/data/subjects/index.generated";
 import { FLAGS } from "@/lib/flags";
+import { activeChapters } from "@/lib/syllabusFix/active";
 import { isRetired, MovedFromSchema, nodeMetaFields } from "@/lib/syllabusFix/tree";
 
 /*
@@ -24,6 +25,8 @@ const TopicSchema = z.object({
   /** Syllabus fix: source, confidence, status, votes (src/lib/syllabusFix/tree.ts). */
   ...nodeMetaFields,
   movedFrom: MovedFromSchema.optional(),
+  /** Other chapters of this subject the topic was published under (so those links resolve too). */
+  formerChapters: z.array(slug).optional(),
   /** Practical courses: a topic is one experiment, with its number and aim from the handout. */
   number: z.int().positive().optional(),
   aim: z.string().min(1).optional(),
@@ -179,7 +182,8 @@ export function catalogueProblems(list: readonly Subject[]): string[] {
         problems.push(`${s.id}: ${field} points at unknown subject "${target}"`);
       }
     }
-    if (s.chapters.length === 0 && !s.links?.length) {
+    // A lab whose handout lists no experiments yet is allowed to be empty (they come by upload).
+    if (s.chapters.length === 0 && !s.links?.length && s.courseType !== "practical") {
       problems.push(`${s.id}: has no chapters and no linked chapters`);
     }
   }
@@ -306,13 +310,14 @@ export function branchesOf(subject: Subject): Branch[] {
  * that owns it (lessons, progress and library keys always use the owner).
  */
 export function chaptersOf(subject: Subject): { chapter: Chapter; owner: Subject }[] {
-  const own = subject.chapters.map((chapter) => ({ chapter, owner: subject }));
+  // Retired chapters and topics are left out (syllabus fix); lookups by id still find them.
+  const own = activeChapters(subject).map((chapter) => ({ chapter, owner: subject }));
   const linked = (subject.links ?? []).flatMap((link) => {
     const owner = findSubject(link.subject);
     if (!owner) return [];
     const chosen = link.chapters
-      ? owner.chapters.filter((c) => link.chapters?.includes(c.id))
-      : owner.chapters;
+      ? activeChapters(owner).filter((c) => link.chapters?.includes(c.id))
+      : activeChapters(owner);
     return chosen.map((chapter) => ({ chapter, owner }));
   });
   return [...own, ...linked];

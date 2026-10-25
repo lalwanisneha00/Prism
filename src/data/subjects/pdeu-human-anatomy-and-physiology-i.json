@@ -129,23 +129,16 @@
       "topics": [
         {
           "id": "anatomy-of-respiratory-organs-and-their-functions-regulation",
-          "name": "Hrs Anatomy of respiratory organs and their functions",
+          "name": "Hrs Anatomy of respiratory organs and their functions, Regulation",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "regulation",
-          "name": "Regulation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["anatomy-of-respiratory-organs-and-their-functions-regulation"]
         },
         {
           "id": "mechanism-of-respiration",
           "name": "Mechanism of respiration",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["regulation"]
+          "requires": ["anatomy-of-respiratory-organs-and-their-functions-regulation"]
         },
         {
           "id": "hrs-respiratory-volumes-and-capacities",
@@ -171,6 +164,11 @@
           "id": "blood-pressure-and-its-regulation",
           "name": "Blood pressure and its regulation",
           "requires": ["cardiac-cycle"]
+        },
+        {
+          "id": "regulation",
+          "name": "Regulation",
+          "status": "retired"
         }
       ]
     },
@@ -195,7 +193,8 @@
         {
           "id": "anatomy-and-physiology-of-hrs-cerebrum",
           "name": "Anatomy and physiology of Hrs cerebrum",
-          "requires": ["classification-of-nervous-system"]
+          "requires": ["classification-of-nervous-system"],
+          "status": "retired"
         },
         {
           "id": "cerebellum",

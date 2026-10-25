@@ -76,45 +76,22 @@
         },
         {
           "id": "ethical-and-social-implications-bias-privacy-job",
-          "name": "Ethical and Social Implications: Bias",
+          "name": "Ethical and Social Implications: Bias, privacy",
           "requires": ["applications-in-engineering-predictive-maintenance-quality"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "privacy",
-          "name": "privacy",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ethical-and-social-implications-bias-privacy-job"]
         },
         {
           "id": "job-displacement",
           "name": "job displacement",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["privacy"]
+          "requires": ["ethical-and-social-implications-bias-privacy-job"]
         },
         {
           "id": "future-trends-explainable-ai-ethics-regulation",
-          "name": "Future Trends: Explainable AI",
-          "requires": ["ethical-and-social-implications-bias-privacy-job"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "ethics",
-          "name": "Ethics",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["future-trends-explainable-ai-ethics-regulation"]
-        },
-        {
-          "id": "regulation",
-          "name": "Regulation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ethics"]
+          "name": "Future Trends: Explainable AI, Ethics, Regulation",
+          "requires": ["ethical-and-social-implications-bias-privacy-job"]
         },
         {
           "id": "future-of-work",
@@ -130,6 +107,21 @@
           "id": "ai-career-advice",
           "name": "AI Career Advice",
           "requires": ["real-world-ai-applications"]
+        },
+        {
+          "id": "privacy",
+          "name": "privacy",
+          "status": "retired"
+        },
+        {
+          "id": "ethics",
+          "name": "Ethics",
+          "status": "retired"
+        },
+        {
+          "id": "regulation",
+          "name": "Regulation",
+          "status": "retired"
         }
       ]
     },
@@ -144,24 +136,17 @@
         },
         {
           "id": "descriptive-statistics-mean-median-variance-etc-with-numpy",
-          "name": "Descriptive Statistics (Mean",
+          "name": "Descriptive Statistics (Mean, Median",
           "requires": ["introduction-to-statistics-and-data-visualization"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "median",
-          "name": "Median",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["descriptive-statistics-mean-median-variance-etc-with-numpy"]
         },
         {
           "id": "variance-etc-with-numpy-and-pandas",
           "name": "variance etc) with NumPy and Pandas",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["median"]
+          "requires": ["descriptive-statistics-mean-median-variance-etc-with-numpy"]
         },
         {
           "id": "visualization-line-plot-scatter-plot-bar-chart-histogram-pie",
@@ -178,46 +163,32 @@
           "requires": ["visualization-line-plot-scatter-plot-bar-chart-histogram-pie"]
         },
         {
-          "id": "bar-chart",
-          "name": "Bar Chart",
+          "id": "bar-chart-histogram",
+          "name": "Bar Chart, Histogram",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["scatter-plot"]
-        },
-        {
-          "id": "histogram",
-          "name": "Histogram",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bar-chart"]
         },
         {
           "id": "pie-chart",
           "name": "Pie Chart",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["histogram"]
+          "requires": ["bar-chart-histogram"]
         },
         {
-          "id": "box-plot",
-          "name": "Box Plot",
+          "id": "box-plot-heatmap",
+          "name": "Box Plot, Heatmap",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["pie-chart"]
-        },
-        {
-          "id": "heatmap",
-          "name": "Heatmap",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["box-plot"]
         },
         {
           "id": "area-plot",
           "name": "Area Plot",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["heatmap"]
+          "requires": ["box-plot-heatmap"]
         },
         {
           "id": "contour-plot",
@@ -249,6 +220,31 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["real-world-case-studies-and-examples-hands-on-exercises"]
+        },
+        {
+          "id": "median",
+          "name": "Median",
+          "status": "retired"
+        },
+        {
+          "id": "bar-chart",
+          "name": "Bar Chart",
+          "status": "retired"
+        },
+        {
+          "id": "histogram",
+          "name": "Histogram",
+          "status": "retired"
+        },
+        {
+          "id": "box-plot",
+          "name": "Box Plot",
+          "status": "retired"
+        },
+        {
+          "id": "heatmap",
+          "name": "Heatmap",
+          "status": "retired"
         }
       ]
     },
@@ -388,18 +384,11 @@
           "confidence": "verified"
         },
         {
-          "id": "agglomerative-clustering",
-          "name": "Agglomerative Clustering",
+          "id": "agglomerative-clustering-partitional-etc",
+          "name": "Agglomerative Clustering, Partitional etc",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["clustering-algorithms-hierarchical-agglomerative-clustering"]
-        },
-        {
-          "id": "partitional-etc",
-          "name": "Partitional etc",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["agglomerative-clustering"]
         },
         {
           "id": "confusion-matrix-accuracy-assessment-hyperparameters",
@@ -409,23 +398,36 @@
           "confidence": "verified"
         },
         {
-          "id": "accuracy-assessment-2",
-          "name": "Accuracy Assessment",
+          "id": "accuracy-assessment-hyperparameters",
+          "name": "Accuracy Assessment, Hyperparameters",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["confusion-matrix-accuracy-assessment-hyperparameters"]
-        },
-        {
-          "id": "hyperparameters",
-          "name": "Hyperparameters",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["accuracy-assessment-2"]
         },
         {
           "id": "practice-on-real-world-datasets-max-42-hours",
           "name": "Practice on real world datasets. Max. 42 Hours",
           "requires": ["confusion-matrix-accuracy-assessment-hyperparameters"]
+        },
+        {
+          "id": "agglomerative-clustering",
+          "name": "Agglomerative Clustering",
+          "status": "retired"
+        },
+        {
+          "id": "partitional-etc",
+          "name": "Partitional etc",
+          "status": "retired"
+        },
+        {
+          "id": "accuracy-assessment-2",
+          "name": "Accuracy Assessment",
+          "status": "retired"
+        },
+        {
+          "id": "hyperparameters",
+          "name": "Hyperparameters",
+          "status": "retired"
         }
       ]
     }

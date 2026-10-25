@@ -141,19 +141,14 @@
           "requires": ["selection-and-location-of-capacitors"]
         },
         {
-          "id": "energy-audit",
-          "name": "energy audit",
+          "id": "energy-audit-need",
+          "name": "energy audit, need",
           "requires": ["energy-management-and-audit-definition"]
-        },
-        {
-          "id": "need",
-          "name": "need",
-          "requires": ["energy-audit"]
         },
         {
           "id": "types-of-energy-audit",
           "name": "types of energy audit",
-          "requires": ["need"]
+          "requires": ["energy-audit-need"]
         },
         {
           "id": "energy-management-audit-approach-understanding-energy-costs",
@@ -194,6 +189,16 @@
           "id": "case-studies-on-energy-audit",
           "name": "Case Studies on Energy Audit",
           "requires": ["energy-audit-instruments"]
+        },
+        {
+          "id": "energy-audit",
+          "name": "energy audit",
+          "status": "retired"
+        },
+        {
+          "id": "need",
+          "name": "need",
+          "status": "retired"
         }
       ]
     },
@@ -217,19 +222,14 @@
           "requires": ["elements-of-monitoring-and-targeting"]
         },
         {
-          "id": "techniques-energy-consumption",
-          "name": "techniques -energy consumption",
+          "id": "techniques-energy-consumption-production",
+          "name": "techniques -energy consumption, production",
           "requires": ["data-and-informationanalysis"]
-        },
-        {
-          "id": "production",
-          "name": "production",
-          "requires": ["techniques-energy-consumption"]
         },
         {
           "id": "cumulative-sum-of-differences-cusum-electrical-system-electr",
           "name": "cumulative sum of differences (CUSUM).Electrical system: Electricity billing",
-          "requires": ["production"]
+          "requires": ["techniques-energy-consumption-production"]
         },
         {
           "id": "electrical-load-management-and-maximum-demand-control",
@@ -255,6 +255,16 @@
           "id": "distribution-and-transformer-losses",
           "name": "distribution and transformer losses",
           "requires": ["performance-assessment-of-pf-capacitors"]
+        },
+        {
+          "id": "techniques-energy-consumption",
+          "name": "techniques -energy consumption",
+          "status": "retired"
+        },
+        {
+          "id": "production",
+          "name": "production",
+          "status": "retired"
         }
       ]
     },
@@ -319,28 +329,18 @@
         },
         {
           "id": "energy-conservation-avenues-energy-efficiency-in-thermal-uti",
-          "name": "energy conservation avenues.Energy Efficiency in Thermal Utilities: Energy efficiency in thermal utilities like boil",
+          "name": "energy conservation avenues.Energy Efficiency in Thermal Utilities: Energy efficiency in thermal utilities like boil, furnaces",
           "requires": ["luminance-requirements"]
         },
         {
-          "id": "furnaces",
-          "name": "furnaces",
+          "id": "pumps-and-fans-compressors",
+          "name": "pumps and fans, compressors",
           "requires": ["energy-conservation-avenues-energy-efficiency-in-thermal-uti"]
-        },
-        {
-          "id": "pumps-and-fans",
-          "name": "pumps and fans",
-          "requires": ["furnaces"]
-        },
-        {
-          "id": "compressors",
-          "name": "compressors",
-          "requires": ["pumps-and-fans"]
         },
         {
           "id": "cogeneration-steam-and-gas-turbines",
           "name": "cogeneration (steam and gas turbines)",
-          "requires": ["compressors"]
+          "requires": ["pumps-and-fans-compressors"]
         },
         {
           "id": "heat-exchangers",
@@ -356,6 +356,21 @@
           "id": "refrigeration-system",
           "name": "refrigeration system",
           "requires": ["motors-belts-and-drives"]
+        },
+        {
+          "id": "furnaces",
+          "name": "furnaces",
+          "status": "retired"
+        },
+        {
+          "id": "pumps-and-fans",
+          "name": "pumps and fans",
+          "status": "retired"
+        },
+        {
+          "id": "compressors",
+          "name": "compressors",
+          "status": "retired"
         }
       ]
     },

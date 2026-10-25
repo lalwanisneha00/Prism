@@ -41,30 +41,7 @@
       "topics": [
         {
           "id": "gradient-divergence-curl",
-          "name": "Introduction to vector algebra",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "vector-fields-and-scalar-fields",
-          "name": "Vector fields and scalar fields",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["gradient-divergence-curl"]
-        },
-        {
-          "id": "concepts-of-gradient",
-          "name": "Concepts of gradient",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["vector-fields-and-scalar-fields"]
-        },
-        {
-          "id": "divergence-and-curl",
-          "name": "Divergence and Curl",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["concepts-of-gradient"]
+          "name": "Introduction to vector algebra, Physical concepts in vector fields and Scalar fields with examples, Physical and mathematical concepts of gradient, divergence and curl, Green’s theorem, Gauss theorem,"
         },
         {
           "id": "stokes-theorem",
@@ -150,6 +127,21 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["moment-of-inertia-definition"]
+        },
+        {
+          "id": "vector-fields-and-scalar-fields",
+          "name": "Vector fields and scalar fields",
+          "status": "retired"
+        },
+        {
+          "id": "concepts-of-gradient",
+          "name": "Concepts of gradient",
+          "status": "retired"
+        },
+        {
+          "id": "divergence-and-curl",
+          "name": "Divergence and Curl",
+          "status": "retired"
         }
       ]
     },
@@ -161,24 +153,17 @@
       "confidence": "verified",
       "topics": [
         {
-          "id": "elasticity",
-          "name": "Elasticity",
+          "id": "elasticity-stress-and-strain",
+          "name": "Elasticity, Stress & Strain",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "stress-and-strain",
-          "name": "Stress & Strain",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["elasticity"]
         },
         {
           "id": "hook-s-law",
           "name": "Hook’s law",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["stress-and-strain"]
+          "requires": ["elasticity-stress-and-strain"]
         },
         {
           "id": "young-s-modulus",
@@ -293,18 +278,31 @@
           "requires": ["magnetism-and-its-origin"]
         },
         {
-          "id": "physics-of-superconductors",
-          "name": "Physics of superconductors",
+          "id": "physics-of-superconductors-applications",
+          "name": "Physics of superconductors, Applications",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["magnetic-properties-of-solids"]
         },
         {
+          "id": "elasticity",
+          "name": "Elasticity",
+          "status": "retired"
+        },
+        {
+          "id": "stress-and-strain",
+          "name": "Stress & Strain",
+          "status": "retired"
+        },
+        {
+          "id": "physics-of-superconductors",
+          "name": "Physics of superconductors",
+          "status": "retired"
+        },
+        {
           "id": "applications",
           "name": "Applications",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["physics-of-superconductors"]
+          "status": "retired"
         }
       ]
     },

@@ -64,38 +64,8 @@
         },
         {
           "id": "the-following-are-the-tenets-of-security-testing-non",
-          "name": "The following are the tenets of security testing: non-repudiation",
-          "requires": ["different-system-recognise-project-security-threats"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "availability",
-          "name": "availability",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["the-following-are-the-tenets-of-security-testing-non"]
-        },
-        {
-          "id": "authenticity",
-          "name": "authenticity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["availability"]
-        },
-        {
-          "id": "authorization",
-          "name": "authorization",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["authenticity"]
-        },
-        {
-          "id": "confidentiality",
-          "name": "confidentiality",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["authorization"]
+          "name": "The following are the tenets of security testing: non-repudiation, availability, authenticity, authorization, and confidentiality",
+          "requires": ["different-system-recognise-project-security-threats"]
         },
         {
           "id": "network-security-system-software-security-client-side",
@@ -124,6 +94,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["client-side-application-security"]
+        },
+        {
+          "id": "availability",
+          "name": "availability",
+          "status": "retired"
+        },
+        {
+          "id": "authenticity",
+          "name": "authenticity",
+          "status": "retired"
+        },
+        {
+          "id": "authorization",
+          "name": "authorization",
+          "status": "retired"
+        },
+        {
+          "id": "confidentiality",
+          "name": "confidentiality",
+          "status": "retired"
         }
       ]
     },
@@ -153,57 +143,56 @@
         },
         {
           "id": "risk-classification-low-medium-and-high-and-risk-reduction",
-          "name": "risk classification (low",
+          "name": "risk classification (low, medium, high)",
           "requires": ["risk-assessment-includes-security-risk-testing"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "medium",
-          "name": "medium",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["risk-classification-low-medium-and-high-and-risk-reduction"]
-        },
-        {
-          "id": "high",
-          "name": "high)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["medium"]
         },
         {
           "id": "risk-reduction-strategies",
           "name": "risk-reduction strategies",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["high"]
+          "requires": ["risk-classification-low-medium-and-high-and-risk-reduction"]
         },
         {
-          "id": "to-evaluate-and-enhance-a-product-s",
-          "name": "To evaluate and enhance a product's",
+          "id": "to-evaluate-and-enhance-a-product-s-process",
+          "name": "To evaluate and enhance a product's, process'",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["risk-reduction-strategies"]
-        },
-        {
-          "id": "process",
-          "name": "process'",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["to-evaluate-and-enhance-a-product-s"]
         },
         {
           "id": "project-s-security",
           "name": "project's security",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["process"]
+          "requires": ["to-evaluate-and-enhance-a-product-s-process"]
         },
         {
           "id": "gather-and-evaluate-metrics-using-statistical-techniques",
           "name": "gather and evaluate metrics using statistical techniques",
           "requires": ["risk-classification-low-medium-and-high-and-risk-reduction"]
+        },
+        {
+          "id": "medium",
+          "name": "medium",
+          "status": "retired"
+        },
+        {
+          "id": "high",
+          "name": "high)",
+          "status": "retired"
+        },
+        {
+          "id": "to-evaluate-and-enhance-a-product-s",
+          "name": "To evaluate and enhance a product's",
+          "status": "retired"
+        },
+        {
+          "id": "process",
+          "name": "process'",
+          "status": "retired"
         }
       ]
     },
@@ -283,29 +272,23 @@
         },
         {
           "id": "introduction-to-mobile-app-components-ui-backend-apis",
-          "name": "Introduction to mobile app components (UI",
-          "requires": ["overview-of-mobile-platforms-ios-android-and-their-security"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "backend",
-          "name": "backend",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-mobile-app-components-ui-backend-apis"]
-        },
-        {
-          "id": "apis",
-          "name": "APIs)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["backend"]
+          "name": "Introduction to mobile app components (UI, backend, APIs)",
+          "requires": ["overview-of-mobile-platforms-ios-android-and-their-security"]
         },
         {
           "id": "understanding-static-and-dynamic-analysis-of-mobile-testing",
           "name": "Understanding static and dynamic analysis of mobile testing",
           "requires": ["introduction-to-mobile-app-components-ui-backend-apis"]
+        },
+        {
+          "id": "backend",
+          "name": "backend",
+          "status": "retired"
+        },
+        {
+          "id": "apis",
+          "name": "APIs)",
+          "status": "retired"
         }
       ]
     }

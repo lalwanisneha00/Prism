@@ -52,17 +52,8 @@
         },
         {
           "id": "impact-of-water-quality-on-human-health",
-          "name": "Impact of water quality on",
-          "requires": ["water-quality-standards"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "human-health",
-          "name": "human health",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["impact-of-water-quality-on-human-health"]
+          "name": "Impact of water quality on - human health",
+          "requires": ["water-quality-standards"]
         },
         {
           "id": "agriculture",
@@ -90,11 +81,14 @@
           "requires": ["water-budget"]
         },
         {
+          "id": "human-health",
+          "name": "human health",
+          "status": "retired"
+        },
+        {
           "id": "etc",
           "name": "etc",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["population-forecasting-methods"]
+          "status": "retired"
         }
       ]
     },
@@ -225,17 +219,8 @@
         },
         {
           "id": "design-of-a-sewage-treatment-plant-screening",
-          "name": "design of a sewage treatment plant",
-          "requires": ["classification-of-treatment-processes"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "screening",
-          "name": "Screening",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["design-of-a-sewage-treatment-plant-screening"]
+          "name": "design of a sewage treatment plant - Screening",
+          "requires": ["classification-of-treatment-processes"]
         },
         {
           "id": "grit-removal-basin",
@@ -271,6 +256,11 @@
           "id": "action-plan-for-efficient-plant-operation-laboratory",
           "name": "Action plan for efficient plant operation. Laboratory",
           "requires": ["methods-of-disposal-of-treated-sewage-along-with-their"]
+        },
+        {
+          "id": "screening",
+          "name": "Screening",
+          "status": "retired"
         }
       ]
     }

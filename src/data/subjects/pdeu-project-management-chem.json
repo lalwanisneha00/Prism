@@ -158,19 +158,14 @@
           "name": "PERT and CPM networks"
         },
         {
-          "id": "project-uncertainty-and-risk-management",
-          "name": "project uncertainty and risk management",
+          "id": "project-uncertainty-and-risk-management-simulation",
+          "name": "project uncertainty and risk management, simulation",
           "requires": ["pert-and-cpm-networks"]
-        },
-        {
-          "id": "simulation",
-          "name": "simulation",
-          "requires": ["project-uncertainty-and-risk-management"]
         },
         {
           "id": "machine-learning-based-risk-assessment-and-project-managemen",
           "name": "machine learning based risk assessment and project management",
-          "requires": ["simulation"]
+          "requires": ["project-uncertainty-and-risk-management-simulation"]
         },
         {
           "id": "the-gantt-chart",
@@ -201,6 +196,16 @@
           "id": "allocating-scarce-resources-to-projects",
           "name": "allocating scarce resources to projects",
           "requires": ["resource-levelling"]
+        },
+        {
+          "id": "project-uncertainty-and-risk-management",
+          "name": "project uncertainty and risk management",
+          "status": "retired"
+        },
+        {
+          "id": "simulation",
+          "name": "simulation",
+          "status": "retired"
         }
       ]
     },
@@ -234,19 +239,14 @@
           "requires": ["estimate-revision"]
         },
         {
-          "id": "project-closure-and-review-performance-evaluation",
-          "name": "Project closure and review: performance evaluation",
+          "id": "project-closure-and-review-performance-evaluation-scope",
+          "name": "Project closure and review: performance evaluation, scope",
           "requires": ["control-of-overrun-of-a-project-in-time-and-cost"]
-        },
-        {
-          "id": "scope",
-          "name": "scope",
-          "requires": ["project-closure-and-review-performance-evaluation"]
         },
         {
           "id": "time-and-cost",
           "name": "time and cost",
-          "requires": ["scope"]
+          "requires": ["project-closure-and-review-performance-evaluation-scope"]
         },
         {
           "id": "performance-of-teams",
@@ -272,6 +272,16 @@
           "id": "performance-monitoring-and-preparation-of-the-closure-report",
           "name": "performance monitoring and preparation of the closure report",
           "requires": ["ai-based-cost-analysis"]
+        },
+        {
+          "id": "project-closure-and-review-performance-evaluation",
+          "name": "Project closure and review: performance evaluation",
+          "status": "retired"
+        },
+        {
+          "id": "scope",
+          "name": "scope",
+          "status": "retired"
         }
       ]
     }

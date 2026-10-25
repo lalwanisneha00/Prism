@@ -88,24 +88,9 @@
         },
         {
           "id": "compressive-shear-and-torsional-deformation",
-          "name": "compressive",
+          "name": "compressive, shear, and torsional deformation",
           "requires": ["elastic-recovery-during-plastic-deformation"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "shear",
-          "name": "shear",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["compressive-shear-and-torsional-deformation"]
-        },
-        {
-          "id": "torsional-deformation",
-          "name": "torsional deformation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["shear"]
+          "status": "retired"
         },
         {
           "id": "hardness",
@@ -134,45 +119,13 @@
         },
         {
           "id": "bars-subjected-to-tension-asymmetric-loading-and-stress",
-          "name": "bars subjected to tension",
-          "requires": ["thermal-stress"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "asymmetric-loading",
-          "name": "asymmetric loading",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bars-subjected-to-tension-asymmetric-loading-and-stress"]
-        },
-        {
-          "id": "stress-calculation-of-cylindrical-bodies",
-          "name": "stress calculation of cylindrical bodies",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["asymmetric-loading"]
+          "name": "bars subjected to tension, asymmetric loading, and stress calculation of cylindrical bodies",
+          "requires": ["thermal-stress"]
         },
         {
           "id": "scalar-vector-tensor",
-          "name": "Scalar",
-          "requires": ["bars-subjected-to-tension-asymmetric-loading-and-stress"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "vector",
-          "name": "vector",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["scalar-vector-tensor"]
-        },
-        {
-          "id": "tensor",
-          "name": "tensor",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["vector"]
+          "name": "Scalar, vector, tensor",
+          "requires": ["bars-subjected-to-tension-asymmetric-loading-and-stress"]
         },
         {
           "id": "composition-and-resolution-of-stresses",
@@ -224,6 +177,36 @@
           "id": "mohr-coulomb-failure-envelope",
           "name": "Mohr-Coulomb failure envelope",
           "requires": ["special-states-of-stresses-by-mohrs-circle"]
+        },
+        {
+          "id": "shear",
+          "name": "shear",
+          "status": "retired"
+        },
+        {
+          "id": "torsional-deformation",
+          "name": "torsional deformation",
+          "status": "retired"
+        },
+        {
+          "id": "asymmetric-loading",
+          "name": "asymmetric loading",
+          "status": "retired"
+        },
+        {
+          "id": "stress-calculation-of-cylindrical-bodies",
+          "name": "stress calculation of cylindrical bodies",
+          "status": "retired"
+        },
+        {
+          "id": "vector",
+          "name": "vector",
+          "status": "retired"
+        },
+        {
+          "id": "tensor",
+          "name": "tensor",
+          "status": "retired"
         }
       ]
     },
@@ -293,24 +276,8 @@
         },
         {
           "id": "cohesion-friction-and-failure",
-          "name": "cohesion",
-          "requires": ["stress-and-strain-in-geological-materials-and-their"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "friction",
-          "name": "friction",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cohesion-friction-and-failure"]
-        },
-        {
-          "id": "failure",
-          "name": "failure",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["friction"]
+          "name": "cohesion, friction, and failure",
+          "requires": ["stress-and-strain-in-geological-materials-and-their"]
         },
         {
           "id": "influence-of-fabric",
@@ -326,6 +293,16 @@
           "id": "atterberg-limits",
           "name": "Atterberg limits",
           "requires": ["drained-and-undrained-strength"]
+        },
+        {
+          "id": "friction",
+          "name": "friction",
+          "status": "retired"
+        },
+        {
+          "id": "failure",
+          "name": "failure",
+          "status": "retired"
         }
       ]
     },
@@ -336,7 +313,16 @@
       "topics": [
         {
           "id": "tectonic-stress-field",
-          "name": "Tectonic stress field"
+          "name": "Tectonic stress field",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "stress-fields",
+          "name": "stress fields",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["tectonic-stress-field"]
         },
         {
           "id": "pore-pressure-at-depth-in-sedimentary-basins",
@@ -380,17 +366,8 @@
         },
         {
           "id": "plate-tectonics-petro",
-          "name": "stress fields",
-          "requires": ["wellbore-failure-and-stress-determination-in-deviated-wells"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "from-tectonic-plates-to-reservoirs-around-the-world",
-          "name": "from tectonic plates to reservoirs around the world",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["plate-tectonics-petro"]
+          "name": "stress fields – from tectonic plates to reservoirs around the world",
+          "requires": ["wellbore-failure-and-stress-determination-in-deviated-wells"]
         },
         {
           "id": "wellbore-stability",
@@ -406,6 +383,11 @@
           "id": "effects-of-reservoir-depletion",
           "name": "effects of reservoir depletion",
           "requires": ["critically-stressed-faults-and-fluid-flow"]
+        },
+        {
+          "id": "from-tectonic-plates-to-reservoirs-around-the-world",
+          "name": "from tectonic plates to reservoirs around the world",
+          "status": "retired"
         }
       ]
     },

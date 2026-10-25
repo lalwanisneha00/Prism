@@ -1,0 +1,189 @@
+{
+  "id": "pdeu-introduction-to-artificial-intelligence-in-mechanical-engineering-me",
+  "name": "Introduction to Artificial Intelligence in Mechanical Engineering",
+  "field": "Introduction to Artificial Intelligence in Mechanical Engineering",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 3): Introduction to Artificial Intelligence in Mechanical Engineering",
+    "note": "Units and topics copied from the course handout PDF (pages 3 of MECH/sem3/Mechanical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME201T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s3-introduction-to-artificial-intelligence-in-mechanical-engine",
+      "code": "24ME201T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 0,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "fundamentals-of-artificial-intelligence-in-mechanical-engine",
+      "name": "Fundamentals of Artificial Intelligence in Mechanical Engineering",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "introduction-to-artificial-intelligence",
+          "name": "Introduction to Artificial Intelligence"
+        },
+        {
+          "id": "machine-learning",
+          "name": "Machine Learning",
+          "requires": ["introduction-to-artificial-intelligence"]
+        },
+        {
+          "id": "deep-learning",
+          "name": "Deep Learning",
+          "requires": ["machine-learning"]
+        },
+        {
+          "id": "artificial-intelligence-vs-automation",
+          "name": "Artificial Intelligence Vs Automation",
+          "requires": ["deep-learning"]
+        },
+        {
+          "id": "architecture-of-ai-implementations-in-mechanical-engineering",
+          "name": "Architecture of AI implementations in Mechanical Engineering",
+          "requires": ["artificial-intelligence-vs-automation"]
+        },
+        {
+          "id": "basics-of-data-preprocessing-and-feature-engineering-for-mec",
+          "name": "Basics of data preprocessing and feature engineering for mechanical engineering dataset",
+          "requires": ["architecture-of-ai-implementations-in-mechanical-engineering"]
+        }
+      ]
+    },
+    {
+      "id": "machine-learning-techniques-in-mechanical-engineering",
+      "name": "Machine Learning Techniques in Mechanical Engineering",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "supervised-unsupervised-learning-and-semi-supervised-learnin",
+          "name": "Supervised, Unsupervised learning and semi supervised learning"
+        },
+        {
+          "id": "regression-and-classification-algorithms",
+          "name": "Regression and Classification algorithms",
+          "requires": ["supervised-unsupervised-learning-and-semi-supervised-learnin"]
+        },
+        {
+          "id": "evaluation-metrics-in-ml",
+          "name": "Evaluation metrics in ML",
+          "requires": ["regression-and-classification-algorithms"]
+        },
+        {
+          "id": "feature-selection-and-extraction-techniques",
+          "name": "Feature selection and extraction techniques",
+          "requires": ["evaluation-metrics-in-ml"]
+        },
+        {
+          "id": "principal-component-analysis",
+          "name": "Principal Component Analysis",
+          "requires": ["feature-selection-and-extraction-techniques"]
+        },
+        {
+          "id": "singular-value-decomposition",
+          "name": "Singular Value Decomposition",
+          "requires": ["principal-component-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "implementation-of-machine-learning-models",
+      "name": "Implementation of Machine Learning Models",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "implementation-of-linear-regression",
+          "name": "Implementation of Linear Regression"
+        },
+        {
+          "id": "logistic-regression",
+          "name": "Logistic Regression",
+          "requires": ["implementation-of-linear-regression"]
+        },
+        {
+          "id": "naive-bayes",
+          "name": "Naive Bayes",
+          "requires": ["logistic-regression"]
+        },
+        {
+          "id": "linear-discriminant-analysis",
+          "name": "Linear Discriminant Analysis",
+          "requires": ["naive-bayes"]
+        },
+        {
+          "id": "k-nearest-neighbour",
+          "name": "K-Nearest Neighbour",
+          "requires": ["linear-discriminant-analysis"]
+        },
+        {
+          "id": "artificial-neural-network",
+          "name": "Artificial Neural Network",
+          "requires": ["k-nearest-neighbour"]
+        },
+        {
+          "id": "support-vector-machine",
+          "name": "Support Vector Machine",
+          "requires": ["artificial-neural-network"]
+        },
+        {
+          "id": "applications-of-deep-learning-in-mechanical-engineering-for",
+          "name": "Applications of deep learning in mechanical engineering for classification",
+          "requires": ["support-vector-machine"]
+        },
+        {
+          "id": "regression",
+          "name": "regression",
+          "requires": ["applications-of-deep-learning-in-mechanical-engineering-for"]
+        },
+        {
+          "id": "image-processing-and-time-series-data",
+          "name": "image processing and time series data",
+          "requires": ["regression"]
+        }
+      ]
+    },
+    {
+      "id": "advanced-topics-in-artificial-intelligence-for-mechanical-en",
+      "name": "Advanced Topics in Artificial Intelligence for Mechanical Engineering",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "principles-of-predictive-maintenance-using-ai-techniques",
+          "name": "Principles of predictive maintenance using AI techniques"
+        },
+        {
+          "id": "fault-diagnosis-methods-and-algorithms-for-mechanical-system",
+          "name": "Fault diagnosis methods and algorithms for mechanical systems",
+          "requires": ["principles-of-predictive-maintenance-using-ai-techniques"]
+        },
+        {
+          "id": "ai-driven-control-and-decision-making-in-robotic-systems",
+          "name": "AI-driven control and decision-making in robotic systems",
+          "requires": ["fault-diagnosis-methods-and-algorithms-for-mechanical-system"]
+        },
+        {
+          "id": "applications-of-vision-system-and-object-detection-in-real-w",
+          "name": "Applications of vision system and object detection in real-world applications",
+          "requires": ["ai-driven-control-and-decision-making-in-robotic-systems"]
+        }
+      ]
+    }
+  ]
+}

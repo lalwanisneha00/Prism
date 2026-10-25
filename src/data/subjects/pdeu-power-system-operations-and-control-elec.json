@@ -218,49 +218,54 @@
           "requires": ["frequency-control-basic-voltage-and-frequency-control-loops"]
         },
         {
-          "id": "prime-mover",
-          "name": "prime mover",
+          "id": "prime-mover-generator",
+          "name": "prime mover, generator",
           "requires": ["mathematical-model-of-speed-governing-system"]
         },
         {
-          "id": "generator",
-          "name": "generator",
-          "requires": ["prime-mover"]
-        },
-        {
           "id": "load-and-speed-droop-characteristic-for-load-frequency-contr",
-          "name": "load and speed droop characteristic for load frequency control",
-          "requires": ["generator"]
-        },
-        {
-          "id": "its-importance",
-          "name": "its importance",
-          "requires": ["load-and-speed-droop-characteristic-for-load-frequency-contr"]
+          "name": "load and speed droop characteristic for load frequency control, its importance",
+          "requires": ["prime-mover-generator"]
         },
         {
           "id": "automatic-generation-control-in-single-area-and-multi-area-w",
           "name": "Automatic generation control in single area and multi area without and with secondary frequency controller",
-          "requires": ["its-importance"]
+          "requires": ["load-and-speed-droop-characteristic-for-load-frequency-contr"]
         },
         {
           "id": "tie-line-bias-control-reactive-power-and-voltage-control-mat",
-          "name": "tie-line bias control.Reactive Power and Voltage Control: Mathematical model of amplifier",
+          "name": "tie-line bias control.Reactive Power and Voltage Control: Mathematical model of amplifier, exciter, sensor",
           "requires": ["automatic-generation-control-in-single-area-and-multi-area-w"]
-        },
-        {
-          "id": "exciter",
-          "name": "exciter",
-          "requires": ["tie-line-bias-control-reactive-power-and-voltage-control-mat"]
-        },
-        {
-          "id": "sensor",
-          "name": "sensor",
-          "requires": ["exciter"]
         },
         {
           "id": "excitation-system-stabilizer-with-rate-feedback-and-pid-cont",
           "name": "Excitation system stabilizer with rate feedback and PID controller",
-          "requires": ["sensor"]
+          "requires": ["tie-line-bias-control-reactive-power-and-voltage-control-mat"]
+        },
+        {
+          "id": "prime-mover",
+          "name": "prime mover",
+          "status": "retired"
+        },
+        {
+          "id": "generator",
+          "name": "generator",
+          "status": "retired"
+        },
+        {
+          "id": "its-importance",
+          "name": "its importance",
+          "status": "retired"
+        },
+        {
+          "id": "exciter",
+          "name": "exciter",
+          "status": "retired"
+        },
+        {
+          "id": "sensor",
+          "name": "sensor",
+          "status": "retired"
         }
       ]
     }

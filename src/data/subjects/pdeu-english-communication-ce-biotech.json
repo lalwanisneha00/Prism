@@ -95,30 +95,7 @@
       "topics": [
         {
           "id": "tenses-articles-prepositions-active-voice-passive-voice-and",
-          "name": "Tenses",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "articles",
-          "name": "Articles",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["tenses-articles-prepositions-active-voice-passive-voice-and"]
-        },
-        {
-          "id": "prepositions",
-          "name": "prepositions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["articles"]
-        },
-        {
-          "id": "active-voice-passive-voice-and-concord",
-          "name": "active voice passive voice and concord",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["prepositions"]
+          "name": "Tenses, Articles, prepositions, active voice passive voice and concord"
         },
         {
           "id": "tools-for-vocabulary-building",
@@ -127,73 +104,75 @@
         },
         {
           "id": "homophones-homonyms-one-word-substitution-antonyms-synonyms",
-          "name": "Homophones",
-          "requires": ["tools-for-vocabulary-building"],
+          "name": "Homophones, homonyms, one word substitution, antonyms, synonyms, Root Words, Prefixes and Suffixes, Connotations",
+          "requires": ["tools-for-vocabulary-building"]
+        },
+        {
+          "id": "collocations-idioms-phrases",
+          "name": "Collocations, Idioms. phrases",
+          "requires": ["homophones-homonyms-one-word-substitution-antonyms-synonyms"]
+        },
+        {
+          "id": "prefixes-and-suffixes-connotations-collocations",
+          "name": "Prefixes and Suffixes, Connotations, Collocations",
           "source": "admin_handout",
-          "confidence": "verified"
+          "confidence": "verified",
+          "requires": ["collocations-idioms-phrases"]
+        },
+        {
+          "id": "articles",
+          "name": "Articles",
+          "status": "retired"
+        },
+        {
+          "id": "prepositions",
+          "name": "prepositions",
+          "status": "retired"
+        },
+        {
+          "id": "active-voice-passive-voice-and-concord",
+          "name": "active voice passive voice and concord",
+          "status": "retired"
         },
         {
           "id": "homonyms",
           "name": "homonyms",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["homophones-homonyms-one-word-substitution-antonyms-synonyms"]
+          "status": "retired"
         },
         {
           "id": "one-word-substitution",
           "name": "one word substitution",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["homonyms"]
+          "status": "retired"
         },
         {
           "id": "antonyms",
           "name": "antonyms",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["one-word-substitution"]
+          "status": "retired"
         },
         {
           "id": "synonyms",
           "name": "synonyms",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["antonyms"]
+          "status": "retired"
         },
         {
           "id": "root-words",
           "name": "Root Words",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["synonyms"]
+          "status": "retired"
         },
         {
           "id": "prefixes-and-suffixes",
           "name": "Prefixes and Suffixes",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["root-words"]
+          "status": "retired"
         },
         {
           "id": "connotations",
           "name": "Connotations",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["prefixes-and-suffixes"]
-        },
-        {
-          "id": "collocations-idioms-phrases",
-          "name": "Collocations",
-          "requires": ["homophones-homonyms-one-word-substitution-antonyms-synonyms"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "status": "retired"
         },
         {
           "id": "idioms-phrases",
           "name": "Idioms. phrases",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["collocations-idioms-phrases"]
+          "status": "retired"
         }
       ]
     },
@@ -266,23 +245,7 @@
       "topics": [
         {
           "id": "note-taking-and-note-making-physical-digital-collective",
-          "name": "Note Taking and Note Making: physical",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "digital",
-          "name": "digital",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["note-taking-and-note-making-physical-digital-collective"]
-        },
-        {
-          "id": "collective",
-          "name": "collective",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["digital"]
+          "name": "Note Taking and Note Making: physical, digital, collective"
         },
         {
           "id": "summarizing",
@@ -293,6 +256,16 @@
           "id": "creating-e-content",
           "name": "Creating e-content",
           "requires": ["summarizing"]
+        },
+        {
+          "id": "digital",
+          "name": "digital",
+          "status": "retired"
+        },
+        {
+          "id": "collective",
+          "name": "collective",
+          "status": "retired"
         }
       ]
     }

@@ -56,37 +56,10 @@
           "status": "retired"
         },
         {
-          "id": "stress-strain-diagram",
-          "name": "stress-strain diagram",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["hookes-law"]
-        },
-        {
-          "id": "practical-example-of-failures-associated-with-stress-strain",
-          "name": "practical example of failures associated with stress/strain",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["stress-strain-diagram"]
-        },
-        {
-          "id": "role-of-stress-strain-failures-in-mechanical-design",
-          "name": "role of stress/strain/failures in mechanical design",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["practical-example-of-failures-associated-with-stress-strain"]
-        },
-        {
-          "id": "stress-transformation",
-          "name": "Stress transformation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["role-of-stress-strain-failures-in-mechanical-design"]
-        },
-        {
           "id": "strain-diagram-for-mild-steel",
           "name": "strain diagram for mild steel",
-          "requires": ["stress"]
+          "requires": ["stress"],
+          "status": "retired"
         },
         {
           "id": "working-stress",
@@ -101,12 +74,14 @@
         {
           "id": "lateral-strain",
           "name": "Lateral strain",
-          "requires": ["factor-of-safety"]
+          "requires": ["factor-of-safety"],
+          "status": "retired"
         },
         {
           "id": "poissons-ratio-and-volumetric-strain",
           "name": "Poisson’s ratio and volumetric strain",
-          "requires": ["lateral-strain"]
+          "requires": ["lateral-strain"],
+          "status": "retired"
         },
         {
           "id": "elastic-moduli-and-the-relationship-between-them",
@@ -117,7 +92,8 @@
         {
           "id": "bars-of-varying-section",
           "name": "Bars of varying section",
-          "requires": ["elastic-moduli-and-the-relationship-between-them"]
+          "requires": ["elastic-moduli-and-the-relationship-between-them"],
+          "status": "retired"
         },
         {
           "id": "composite-bars",
@@ -128,7 +104,8 @@
         {
           "id": "temperature-stresses-strain-energy-resilience",
           "name": "Temperature stresses. STRAIN ENERGY: Resilience",
-          "requires": ["composite-bars"]
+          "requires": ["composite-bars"],
+          "status": "retired"
         },
         {
           "id": "gradual",
@@ -157,7 +134,8 @@
         {
           "id": "types-of-beams",
           "name": "Types of beams",
-          "requires": ["simple-applications-shear-force-and-bending-moment"]
+          "requires": ["simple-applications-shear-force-and-bending-moment"],
+          "status": "retired"
         },
         {
           "id": "concept-of-shear-force-and-bending-moment",
@@ -197,69 +175,40 @@
         {
           "id": "b-m-and-rate-of-loading-at-a-section-of-a-beam",
           "name": "B.M and rate of loading at a section of a beam",
-          "requires": ["relation-between-s-f"]
-        },
-        {
-          "id": "principal-stresses-and-strains-stresses-on-an-inclined",
-          "name": "PRINCIPAL STRESSES AND STRAINS: Stresses on an inclined section of a Bar under axial loading",
-          "requires": ["application-to-simple-cases-including-overhanging-beams"],
-          "movedFrom": {
-            "subject": "pdeu-strength-of-material",
-            "chapter": "deflection-of-beams",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "compound-stresses-normal-and-tangential-stresses-on-an",
-          "name": "compound stresses: normal and tangential stresses on an inclined plane for biaxial stresses",
-          "requires": ["principal-stresses-and-strains-stresses-on-an-inclined"],
-          "movedFrom": {
-            "subject": "pdeu-strength-of-material",
-            "chapter": "deflection-of-beams",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "two-perpendicular-normal-stresses-accompanied-by-a-state-of",
-          "name": "Two perpendicular normal stresses accompanied by a state of simple shear",
-          "requires": ["compound-stresses-normal-and-tangential-stresses-on-an"],
-          "movedFrom": {
-            "subject": "pdeu-strength-of-material",
-            "chapter": "deflection-of-beams",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "mohrs-circle-stresses-principle-stresses-and-strains",
-          "name": "Mohr’s circle stresses- Principle stresses and strains- analytical and graphical solutions- various theories of failures like maximum principle stress theory",
-          "requires": ["two-perpendicular-normal-stresses-accompanied-by-a-state-of"],
-          "movedFrom": {
-            "subject": "pdeu-strength-of-material",
-            "chapter": "deflection-of-beams",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
+          "requires": ["relation-between-s-f"],
+          "status": "retired"
         },
         {
           "id": "statically-indeterminate-bars",
           "name": "statically indeterminate bars",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["mohrs-circle-stresses-principle-stresses-and-strains"]
+          "requires": ["b-m-and-rate-of-loading-at-a-section-of-a-beam"]
+        },
+        {
+          "id": "stress-strain-diagram",
+          "name": "stress-strain diagram",
+          "status": "retired"
+        },
+        {
+          "id": "practical-example-of-failures-associated-with-stress-strain",
+          "name": "practical example of failures associated with stress/strain",
+          "status": "retired"
+        },
+        {
+          "id": "role-of-stress-strain-failures-in-mechanical-design",
+          "name": "role of stress/strain/failures in mechanical design",
+          "status": "retired"
+        },
+        {
+          "id": "stress-transformation",
+          "name": "Stress transformation",
+          "status": "retired"
         },
         {
           "id": "maximum-shear-stresses-and-strains-analytical-and-graphical",
           "name": "maximum shear stresses and strains- analytical and graphical solutions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["statically-indeterminate-bars"]
+          "status": "retired"
         }
       ]
     },
@@ -315,7 +264,8 @@
         {
           "id": "shear-stress-beams",
           "name": "Shear stress distribution across various beam sections like rectangular",
-          "requires": ["design-of-simple-beam-sections-shear-stresses-derivation-of"]
+          "requires": ["design-of-simple-beam-sections-shear-stresses-derivation-of"],
+          "status": "retired"
         },
         {
           "id": "circular",
@@ -340,7 +290,7 @@
           "movedFrom": {
             "subject": "pdeu-strength-of-material",
             "chapter": "simple-stresses-and-strains",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -355,80 +305,130 @@
       ]
     },
     {
-      "id": "shear-stress-in-beams-and-torsion-of-shaft",
-      "name": "Shear Stress in Beams and Torsion of Shaft",
-      "hours": 10,
-      "source": "admin_handout",
-      "confidence": "verified",
+      "id": "torsion",
+      "name": "TORSION",
+      "hours": 13,
       "topics": [
         {
-          "id": "shear-stress-shear-stress-variation",
-          "name": "Shear Stress: Shear stress variation",
+          "id": "torque",
+          "name": "Torque",
+          "status": "retired"
+        },
+        {
+          "id": "derivation-and-use-of-torque-equation",
+          "name": "Derivation and use of torque equation",
+          "requires": ["torque"],
+          "status": "retired"
+        },
+        {
+          "id": "shear-stress-diagram-for-solid-and-hollow-circular-shafts",
+          "name": "Shear stress diagram for solid and hollow circular shafts",
+          "requires": ["derivation-and-use-of-torque-equation"]
+        },
+        {
+          "id": "comparison-between-solid-and-hollow-shaft-with-regard-to",
+          "name": "Comparison between solid and hollow shaft with regard to their strength and weight",
+          "requires": ["shear-stress-diagram-for-solid-and-hollow-circular-shafts"]
+        },
+        {
+          "id": "power-transmitted-by-shaft",
+          "name": "Power transmitted by shaft",
+          "requires": ["comparison-between-solid-and-hollow-shaft-with-regard-to"],
+          "status": "retired"
+        },
+        {
+          "id": "concept-of-mean-and-maximum-torque-columns-and-struts",
+          "name": "Concept of mean and maximum torque. COLUMNS & STRUTS: Buckling and Stability",
+          "requires": ["power-transmitted-by-shaft"],
+          "status": "retired"
+        },
+        {
+          "id": "columns-with-pinned-ends",
+          "name": "Columns with Pinned ends",
+          "requires": ["concept-of-mean-and-maximum-torque-columns-and-struts"],
+          "status": "retired"
+        },
+        {
+          "id": "columns-with-other-support-conditions",
+          "name": "Columns with other support conditions",
+          "requires": ["columns-with-pinned-ends"],
+          "status": "retired"
+        },
+        {
+          "id": "limitations-of-eulers-formula",
+          "name": "Limitations of Euler’s Formula",
+          "requires": ["columns-with-other-support-conditions"],
+          "status": "retired"
+        },
+        {
+          "id": "columns-struts-sa",
+          "name": "Rankine’s Formula",
+          "requires": ["limitations-of-eulers-formula"],
+          "status": "retired"
+        },
+        {
+          "id": "columns-with-eccentric-axial-loads",
+          "name": "Columns with eccentric Axial Loads",
+          "requires": ["columns-struts-sa"],
+          "status": "retired"
+        },
+        {
+          "id": "secant-formula",
+          "name": "Secant formula",
+          "requires": ["columns-with-eccentric-axial-loads"],
+          "status": "retired"
+        },
+        {
+          "id": "stress",
+          "name": "stress",
+          "requires": ["hookes-law"],
+          "movedFrom": {
+            "subject": "pdeu-strength-of-material",
+            "chapter": "simple-stresses-and-strains",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
           "source": "admin_handout",
-          "confidence": "verified"
+          "confidence": "verified",
+          "formerChapters": ["deflection-of-beams"]
         },
         {
           "id": "applicability-to-beam",
           "name": "applicability to beam",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["shear-stress-shear-stress-variation"]
-        },
-        {
-          "id": "shear-stress-distribution-for-various-sections-such-as-recta",
-          "name": "shear stress distribution for various sections such as rectangle",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["applicability-to-beam"]
+          "formerChapters": ["shear-stress-in-beams-and-torsion-of-shaft"],
+          "requires": ["stress"]
         },
         {
           "id": "solid-circle",
           "name": "solid circle",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["shear-stress-distribution-for-various-sections-such-as-recta"]
+          "formerChapters": ["shear-stress-in-beams-and-torsion-of-shaft"],
+          "requires": ["applicability-to-beam"]
         },
         {
-          "id": "hollow-circle",
-          "name": "hollow circle",
+          "id": "hollow-circle-t-section-i-section",
+          "name": "hollow circle, T section, I section",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["solid-circle"]
-        },
-        {
-          "id": "t-section",
-          "name": "T section",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["hollow-circle"]
-        },
-        {
-          "id": "i-section",
-          "name": "I section",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["t-section"]
         },
         {
           "id": "torsion-introduction-torsion",
           "name": "Torsion: Introduction torsion",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["i-section"]
-        },
-        {
-          "id": "comparison-between-solid-and-hollow-shaft-with-regard-to-the",
-          "name": "comparison between solid and hollow shaft with regard to their strength and weight",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["torsion-introduction-torsion"]
+          "formerChapters": ["shear-stress-in-beams-and-torsion-of-shaft"],
+          "requires": ["hollow-circle-t-section-i-section"]
         },
         {
           "id": "shaft-in-parallel-and-series",
           "name": "Shaft in parallel and series",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["comparison-between-solid-and-hollow-shaft-with-regard-to-the"]
+          "formerChapters": ["shear-stress-in-beams-and-torsion-of-shaft"],
+          "requires": ["torsion-introduction-torsion"]
         }
       ]
     },
@@ -444,16 +444,7 @@
         {
           "id": "slope",
           "name": "slope",
-          "requires": ["bending-into-a-circular-arc"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "determination-of-slope-and-deflection-using-macaulay-s-metho",
-          "name": "Determination of slope and deflection using Macaulay’s methods",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["slope"]
+          "requires": ["bending-into-a-circular-arc"]
         },
         {
           "id": "deflection-and-radius-of-curvature",
@@ -474,7 +465,8 @@
         {
           "id": "determination-of-slope-and-deflection-for-cantilever-and",
           "name": "Determination of slope and deflection for cantilever and simply supported beams subjected to point loads",
-          "requires": ["double-integration-and-macaulays-methods"]
+          "requires": ["double-integration-and-macaulays-methods"],
+          "status": "retired"
         },
         {
           "id": "u-d-l-uniformly-varying-load-mohrs-theorems",
@@ -495,9 +487,34 @@
           "status": "retired"
         },
         {
+          "id": "principal-stresses-and-strains-stresses-on-an-inclined",
+          "name": "PRINCIPAL STRESSES AND STRAINS: Stresses on an inclined section of a Bar under axial loading",
+          "requires": ["application-to-simple-cases-including-overhanging-beams"],
+          "formerChapters": ["simple-stresses-and-strains"]
+        },
+        {
+          "id": "compound-stresses-normal-and-tangential-stresses-on-an",
+          "name": "compound stresses: normal and tangential stresses on an inclined plane for biaxial stresses",
+          "requires": ["principal-stresses-and-strains-stresses-on-an-inclined"],
+          "formerChapters": ["simple-stresses-and-strains"]
+        },
+        {
+          "id": "two-perpendicular-normal-stresses-accompanied-by-a-state-of",
+          "name": "Two perpendicular normal stresses accompanied by a state of simple shear",
+          "requires": ["compound-stresses-normal-and-tangential-stresses-on-an"],
+          "formerChapters": ["simple-stresses-and-strains"]
+        },
+        {
+          "id": "mohrs-circle-stresses-principle-stresses-and-strains",
+          "name": "Mohr’s circle stresses- Principle stresses and strains- analytical and graphical solutions- various theories of failures like maximum principle stress theory",
+          "requires": ["two-perpendicular-normal-stresses-accompanied-by-a-state-of"],
+          "formerChapters": ["simple-stresses-and-strains"]
+        },
+        {
           "id": "maximum-principle-strain-theory",
           "name": "maximum principle strain theory",
-          "requires": ["mohrs-circle-stresses-principle-stresses-and-strains"]
+          "requires": ["mohrs-circle-stresses-principle-stresses-and-strains"],
+          "status": "retired"
         },
         {
           "id": "max-shear-stress-theory",
@@ -507,26 +524,15 @@
         {
           "id": "max-strain-energy-theory-max-shear-strain-energy-theory",
           "name": "max. strain energy theory- max . shear strain energy theory",
-          "requires": ["max-shear-stress-theory"]
-        },
-        {
-          "id": "stress",
-          "name": "Stress",
-          "requires": ["hookes-law"],
-          "source": "admin_handout",
-          "confidence": "verified",
-          "movedFrom": {
-            "subject": "pdeu-strength-of-material",
-            "chapter": "simple-stresses-and-strains",
-            "at": "2026-10-24T23:22:41.746Z"
-          }
+          "requires": ["max-shear-stress-theory"],
+          "status": "retired"
         },
         {
           "id": "energy-methods-strain-energy",
           "name": "Energy Methods: Strain energy",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["stress"]
+          "requires": ["max-strain-energy-theory-max-shear-strain-energy-theory"]
         },
         {
           "id": "strain-energy-for-normal",
@@ -536,80 +542,62 @@
           "requires": ["energy-methods-strain-energy"]
         },
         {
+          "id": "shear-and-bending-stress",
+          "name": "shear and bending stress",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["strain-energy-for-normal"]
+        },
+        {
           "id": "castigliano-s-theorm",
           "name": "Castigliano’s theorm",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["strain-energy-for-normal"]
+          "requires": ["shear-and-bending-stress"]
+        },
+        {
+          "id": "determination-of-slope-and-deflection-using-macaulay-s-metho",
+          "name": "Determination of slope and deflection using Macaulay’s methods",
+          "status": "retired"
         }
       ]
     },
     {
-      "id": "torsion",
-      "name": "TORSION",
-      "hours": 13,
+      "id": "shear-stress-in-beams-and-torsion-of-shaft",
+      "name": "Shear Stress in Beams and Torsion of Shaft",
+      "status": "retired",
       "topics": [
         {
-          "id": "torque",
-          "name": "Torque"
+          "id": "shear-stress-shear-stress-variation",
+          "name": "Shear Stress: Shear stress variation",
+          "status": "retired"
         },
         {
-          "id": "derivation-and-use-of-torque-equation",
-          "name": "Derivation and use of torque equation",
-          "requires": ["torque"]
+          "id": "shear-stress-distribution-for-various-sections-such-as-recta",
+          "name": "shear stress distribution for various sections such as rectangle",
+          "status": "retired"
         },
         {
-          "id": "shear-stress-diagram-for-solid-and-hollow-circular-shafts",
-          "name": "Shear stress diagram for solid and hollow circular shafts",
-          "requires": ["derivation-and-use-of-torque-equation"]
+          "id": "hollow-circle",
+          "name": "hollow circle",
+          "status": "retired"
         },
         {
-          "id": "comparison-between-solid-and-hollow-shaft-with-regard-to",
-          "name": "Comparison between solid and hollow shaft with regard to their strength and weight",
-          "requires": ["shear-stress-diagram-for-solid-and-hollow-circular-shafts"]
+          "id": "t-section",
+          "name": "T section",
+          "status": "retired"
         },
         {
-          "id": "power-transmitted-by-shaft",
-          "name": "Power transmitted by shaft",
-          "requires": ["comparison-between-solid-and-hollow-shaft-with-regard-to"]
+          "id": "i-section",
+          "name": "I section",
+          "status": "retired"
         },
         {
-          "id": "concept-of-mean-and-maximum-torque-columns-and-struts",
-          "name": "Concept of mean and maximum torque. COLUMNS & STRUTS: Buckling and Stability",
-          "requires": ["power-transmitted-by-shaft"]
-        },
-        {
-          "id": "columns-with-pinned-ends",
-          "name": "Columns with Pinned ends",
-          "requires": ["concept-of-mean-and-maximum-torque-columns-and-struts"]
-        },
-        {
-          "id": "columns-with-other-support-conditions",
-          "name": "Columns with other support conditions",
-          "requires": ["columns-with-pinned-ends"]
-        },
-        {
-          "id": "limitations-of-eulers-formula",
-          "name": "Limitations of Euler’s Formula",
-          "requires": ["columns-with-other-support-conditions"]
-        },
-        {
-          "id": "columns-struts-sa",
-          "name": "Rankine’s Formula",
-          "requires": ["limitations-of-eulers-formula"]
-        },
-        {
-          "id": "columns-with-eccentric-axial-loads",
-          "name": "Columns with eccentric Axial Loads",
-          "requires": ["columns-struts-sa"]
-        },
-        {
-          "id": "secant-formula",
-          "name": "Secant formula",
-          "requires": ["columns-with-eccentric-axial-loads"]
+          "id": "comparison-between-solid-and-hollow-shaft-with-regard-to-the",
+          "name": "comparison between solid and hollow shaft with regard to their strength and weight",
+          "status": "retired"
         }
-      ],
-      "status": "retired"
+      ]
     }
   ],
   "courseType": "theory"

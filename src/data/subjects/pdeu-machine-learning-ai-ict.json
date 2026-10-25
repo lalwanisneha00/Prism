@@ -47,24 +47,17 @@
         },
         {
           "id": "concept-of-array-matrix-and-tensor-representation-of-data",
-          "name": "concept of Array",
+          "name": "concept of Array, Matrix",
           "requires": ["concept-of-feature-and-dimension-of-data"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "matrix",
-          "name": "Matrix",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["concept-of-array-matrix-and-tensor-representation-of-data"]
         },
         {
           "id": "tensor-representation-of-data",
           "name": "Tensor representation of data",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["matrix"]
+          "requires": ["concept-of-array-matrix-and-tensor-representation-of-data"]
         },
         {
           "id": "concept-of-data-preprocessing-data-imbalance-outliers-data",
@@ -74,25 +67,18 @@
           "confidence": "verified"
         },
         {
-          "id": "data-imbalance",
-          "name": "data imbalance",
+          "id": "data-imbalance-outliers",
+          "name": "data imbalance, Outliers",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["concept-of-data-preprocessing-data-imbalance-outliers-data"]
-        },
-        {
-          "id": "outliers",
-          "name": "Outliers",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["data-imbalance"]
         },
         {
           "id": "data-sampling",
           "name": "data sampling",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["outliers"]
+          "requires": ["data-imbalance-outliers"]
         },
         {
           "id": "feature-engineering",
@@ -152,39 +138,18 @@
           "requires": ["sum-of-square-error"]
         },
         {
-          "id": "log-loss",
-          "name": "log loss",
+          "id": "log-loss-accuracy-precision-recall",
+          "name": "log loss, accuracy, precision, recall",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["mean-square-error"]
-        },
-        {
-          "id": "accuracy",
-          "name": "accuracy",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["log-loss"]
-        },
-        {
-          "id": "precision",
-          "name": "precision",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["accuracy"]
-        },
-        {
-          "id": "recall",
-          "name": "recall",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["precision"]
         },
         {
           "id": "roc",
           "name": "ROC",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["recall"]
+          "requires": ["log-loss-accuracy-precision-recall"]
         },
         {
           "id": "auc",
@@ -211,6 +176,41 @@
           "id": "concept-of-bias-and-variance",
           "name": "concept of Bias and variance",
           "requires": ["various-evaluation-matrix-absolute-error-square-error-sum-of"]
+        },
+        {
+          "id": "matrix",
+          "name": "Matrix",
+          "status": "retired"
+        },
+        {
+          "id": "data-imbalance",
+          "name": "data imbalance",
+          "status": "retired"
+        },
+        {
+          "id": "outliers",
+          "name": "Outliers",
+          "status": "retired"
+        },
+        {
+          "id": "log-loss",
+          "name": "log loss",
+          "status": "retired"
+        },
+        {
+          "id": "accuracy",
+          "name": "accuracy",
+          "status": "retired"
+        },
+        {
+          "id": "precision",
+          "name": "precision",
+          "status": "retired"
+        },
+        {
+          "id": "recall",
+          "name": "recall",
+          "status": "retired"
         }
       ]
     },
@@ -415,24 +415,22 @@
         },
         {
           "id": "concept-of-overfitting-underfitting-bias-variance-tradeoff",
-          "name": "Concept of overfitting",
+          "name": "Concept of overfitting, underfitting",
           "requires": ["concept-of-boosting-and-bagging"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "underfitting",
-          "name": "underfitting",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["concept-of-overfitting-underfitting-bias-variance-tradeoff"]
         },
         {
           "id": "bias-variance-tradeoff",
           "name": "Bias-Variance Tradeoff",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["underfitting"]
+          "requires": ["concept-of-overfitting-underfitting-bias-variance-tradeoff"]
+        },
+        {
+          "id": "underfitting",
+          "name": "underfitting",
+          "status": "retired"
         }
       ]
     },
@@ -443,44 +441,12 @@
       "topics": [
         {
           "id": "applications-of-ml-in-healthcare-finance-transportation",
-          "name": "Applications of ML in: Healthcare",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "finance",
-          "name": "Finance",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["applications-of-ml-in-healthcare-finance-transportation"]
-        },
-        {
-          "id": "transportation",
-          "name": "Transportation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["finance"]
-        },
-        {
-          "id": "manufacturing",
-          "name": "Manufacturing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["transportation"]
+          "name": "Applications of ML in: Healthcare, Finance, Transportation, Manufacturing"
         },
         {
           "id": "energy-and-environment-agriculture",
-          "name": "energy and environment",
-          "requires": ["applications-of-ml-in-healthcare-finance-transportation"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "agriculture",
-          "name": "Agriculture",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["energy-and-environment-agriculture"]
+          "name": "energy and environment, Agriculture",
+          "requires": ["applications-of-ml-in-healthcare-finance-transportation"]
         },
         {
           "id": "case-study-current-trends-and-future-of-machine-learning",
@@ -499,6 +465,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["the-credits-shown-here-follow-the-official-course-structure"]
+        },
+        {
+          "id": "finance",
+          "name": "Finance",
+          "status": "retired"
+        },
+        {
+          "id": "transportation",
+          "name": "Transportation",
+          "status": "retired"
+        },
+        {
+          "id": "manufacturing",
+          "name": "Manufacturing",
+          "status": "retired"
+        },
+        {
+          "id": "agriculture",
+          "name": "Agriculture",
+          "status": "retired"
         }
       ]
     }

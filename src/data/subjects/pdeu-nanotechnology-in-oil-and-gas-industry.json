@@ -88,25 +88,11 @@
           "requires": ["types-of-nanoparticles-metal-non-metal-oxide-carbon-based"]
         },
         {
-          "id": "carbon-based",
-          "name": "carbon-based",
+          "id": "carbon-based-polymeric-nanocomposites",
+          "name": "carbon-based, polymeric, nanocomposites",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["non-metal-oxide"]
-        },
-        {
-          "id": "polymeric",
-          "name": "polymeric",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["carbon-based"]
-        },
-        {
-          "id": "nanocomposites",
-          "name": "nanocomposites",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["polymeric"]
         },
         {
           "id": "synthesis-methods-top-down-and-bottom-up-approaches",
@@ -181,24 +167,33 @@
         },
         {
           "id": "health-safety-and-environmental-considerations",
-          "name": "Health",
-          "requires": ["stability-and-dispersion-of-nanoparticles"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "Health, safety, and environmental considerations",
+          "requires": ["stability-and-dispersion-of-nanoparticles"]
+        },
+        {
+          "id": "carbon-based",
+          "name": "carbon-based",
+          "status": "retired"
+        },
+        {
+          "id": "polymeric",
+          "name": "polymeric",
+          "status": "retired"
+        },
+        {
+          "id": "nanocomposites",
+          "name": "nanocomposites",
+          "status": "retired"
         },
         {
           "id": "safety",
           "name": "safety",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["health-safety-and-environmental-considerations"]
+          "status": "retired"
         },
         {
           "id": "environmental-considerations",
           "name": "environmental considerations",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["safety"]
+          "status": "retired"
         }
       ]
     },
@@ -322,24 +317,8 @@
         },
         {
           "id": "wax-asphaltene-and-scale-control",
-          "name": "Wax",
-          "requires": ["hybrid-chemical-eor-processes"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "asphaltene",
-          "name": "asphaltene",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["wax-asphaltene-and-scale-control"]
-        },
-        {
-          "id": "scale-control",
-          "name": "scale control",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["asphaltene"]
+          "name": "Wax, asphaltene, and scale control",
+          "requires": ["hybrid-chemical-eor-processes"]
         },
         {
           "id": "corrosion-inhibition-using-nanoparticles",
@@ -350,6 +329,16 @@
           "id": "gas-hydrate-mitigation",
           "name": "Gas hydrate mitigation",
           "requires": ["corrosion-inhibition-using-nanoparticles"]
+        },
+        {
+          "id": "asphaltene",
+          "name": "asphaltene",
+          "status": "retired"
+        },
+        {
+          "id": "scale-control",
+          "name": "scale control",
+          "status": "retired"
         }
       ]
     },
@@ -374,24 +363,17 @@
         },
         {
           "id": "nanotechnology-in-carbon-capture-utilization-and-storage",
-          "name": "Nanotechnology in carbon capture",
+          "name": "Nanotechnology in carbon capture, utilization",
           "requires": ["oil-spill-remediation-and-wastewater-treatment"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "utilization",
-          "name": "utilization",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["nanotechnology-in-carbon-capture-utilization-and-storage"]
         },
         {
           "id": "storage-ccus",
           "name": "storage (CCUS)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["utilization"]
+          "requires": ["nanotechnology-in-carbon-capture-utilization-and-storage"]
         },
         {
           "id": "nanotechnology-for-hydrogen-and-geothermal-energy",
@@ -407,6 +389,11 @@
           "id": "industrial-case-studies-and-future-trends-in-nanotechnology",
           "name": "Industrial case studies and future trends in nanotechnology",
           "requires": ["ai-enabled-smart-nanomaterials-and-digital-oilfields"]
+        },
+        {
+          "id": "utilization",
+          "name": "utilization",
+          "status": "retired"
         }
       ]
     }

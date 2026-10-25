@@ -107,19 +107,14 @@
           "requires": ["multilevel-inverters-significance"]
         },
         {
-          "id": "power-quality-and-dv-dt-rating",
-          "name": "Power Quality and dv/dt rating",
+          "id": "power-quality-and-dv-dt-rating-classification",
+          "name": "Power Quality and dv/dt rating, Classification",
           "requires": ["merits-and-demerits"]
-        },
-        {
-          "id": "classification",
-          "name": "Classification",
-          "requires": ["power-quality-and-dv-dt-rating"]
         },
         {
           "id": "operational-analysis-of-neutral-point-clamped",
           "name": "Operational Analysis of Neutral Point Clamped",
-          "requires": ["classification"]
+          "requires": ["power-quality-and-dv-dt-rating-classification"]
         },
         {
           "id": "flying-capacitor-and-cascaded-multilevel-inverters",
@@ -127,19 +122,14 @@
           "requires": ["operational-analysis-of-neutral-point-clamped"]
         },
         {
-          "id": "pulse-width-modulation-for-multilevel-inverters",
-          "name": "Pulse Width Modulation for Multilevel Inverters",
+          "id": "pulse-width-modulation-for-multilevel-inverters-applications",
+          "name": "Pulse Width Modulation for Multilevel Inverters, Applications",
           "requires": ["flying-capacitor-and-cascaded-multilevel-inverters"]
-        },
-        {
-          "id": "applications",
-          "name": "Applications",
-          "requires": ["pulse-width-modulation-for-multilevel-inverters"]
         },
         {
           "id": "multi-pulse-rectifiers-power-quality-issues-with-6-pulse-rec",
           "name": "Multi-pulse Rectifiers: Power Quality Issues with 6-pulse Rectifiers",
-          "requires": ["applications"]
+          "requires": ["pulse-width-modulation-for-multilevel-inverters-applications"]
         },
         {
           "id": "significance-of-multi-pulse-rectifiers",
@@ -160,6 +150,26 @@
           "id": "pwm-rectifiers",
           "name": "PWM rectifiers",
           "requires": ["pulse-and-24-pulse-rectifiers"]
+        },
+        {
+          "id": "power-quality-and-dv-dt-rating",
+          "name": "Power Quality and dv/dt rating",
+          "status": "retired"
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "status": "retired"
+        },
+        {
+          "id": "pulse-width-modulation-for-multilevel-inverters",
+          "name": "Pulse Width Modulation for Multilevel Inverters",
+          "status": "retired"
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "status": "retired"
         }
       ]
     },
@@ -169,18 +179,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "matrix-converters-features",
-          "name": "Matrix Converters: Features"
-        },
-        {
-          "id": "classification-2",
-          "name": "Classification",
-          "requires": ["matrix-converters-features"]
+          "id": "matrix-converters-features-classification",
+          "name": "Matrix Converters: Features, Classification"
         },
         {
           "id": "working-of-direct",
           "name": "Working of Direct",
-          "requires": ["classification-2"]
+          "requires": ["matrix-converters-features-classification"]
         },
         {
           "id": "indirect-and-sparse-matrix-converters",
@@ -216,6 +221,16 @@
           "id": "resonant-inverters",
           "name": "Resonant Inverters",
           "requires": ["soft-switching"]
+        },
+        {
+          "id": "matrix-converters-features",
+          "name": "Matrix Converters: Features",
+          "status": "retired"
+        },
+        {
+          "id": "classification-2",
+          "name": "Classification",
+          "status": "retired"
         }
       ]
     },
@@ -274,19 +289,24 @@
           "requires": ["zero-voltage-switching"]
         },
         {
-          "id": "uninterruptible-power-supplies-significance",
-          "name": "Uninterruptible Power Supplies: Significance",
+          "id": "uninterruptible-power-supplies-significance-classification",
+          "name": "Uninterruptible Power Supplies: Significance, Classification",
           "requires": ["zero-current-switching"]
-        },
-        {
-          "id": "classification-3",
-          "name": "Classification",
-          "requires": ["uninterruptible-power-supplies-significance"]
         },
         {
           "id": "power-and-control-architecture",
           "name": "Power and Control Architecture",
-          "requires": ["classification-3"]
+          "requires": ["uninterruptible-power-supplies-significance-classification"]
+        },
+        {
+          "id": "uninterruptible-power-supplies-significance",
+          "name": "Uninterruptible Power Supplies: Significance",
+          "status": "retired"
+        },
+        {
+          "id": "classification-3",
+          "name": "Classification",
+          "status": "retired"
         }
       ]
     }

@@ -160,18 +160,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "introduction-to-vector-space",
-          "name": "Introduction to vector space"
-        },
-        {
-          "id": "subspace",
-          "name": "subspace",
-          "requires": ["introduction-to-vector-space"]
+          "id": "introduction-to-vector-space-subspace",
+          "name": "Introduction to vector space, subspace"
         },
         {
           "id": "basis-and-dimensions",
           "name": "basis and dimensions",
-          "requires": ["subspace"]
+          "requires": ["introduction-to-vector-space-subspace"]
         },
         {
           "id": "column-space",
@@ -179,29 +174,19 @@
           "requires": ["basis-and-dimensions"]
         },
         {
-          "id": "null-space",
-          "name": "null space",
+          "id": "null-space-field",
+          "name": "null space, Field",
           "requires": ["column-space"]
         },
         {
-          "id": "field",
-          "name": "Field",
-          "requires": ["null-space"]
-        },
-        {
-          "id": "least-squares-solutions",
-          "name": "least squares solutions",
-          "requires": ["field"]
-        },
-        {
-          "id": "orthogonalization",
-          "name": "orthogonalization",
-          "requires": ["least-squares-solutions"]
+          "id": "least-squares-solutions-orthogonalization",
+          "name": "least squares solutions, orthogonalization",
+          "requires": ["null-space-field"]
         },
         {
           "id": "linear-transformation",
           "name": "Linear transformation",
-          "requires": ["orthogonalization"]
+          "requires": ["least-squares-solutions-orthogonalization"]
         },
         {
           "id": "symmetric-matrices-and-positive-definite-matrices",
@@ -217,6 +202,36 @@
           "id": "linearization-of-non-linear-systems-using-taylor-series-expa",
           "name": "Linearization of non-linear systems using Taylor series expansion",
           "requires": ["computing-exponential-of-a-matrix"]
+        },
+        {
+          "id": "introduction-to-vector-space",
+          "name": "Introduction to vector space",
+          "status": "retired"
+        },
+        {
+          "id": "subspace",
+          "name": "subspace",
+          "status": "retired"
+        },
+        {
+          "id": "null-space",
+          "name": "null space",
+          "status": "retired"
+        },
+        {
+          "id": "field",
+          "name": "Field",
+          "status": "retired"
+        },
+        {
+          "id": "least-squares-solutions",
+          "name": "least squares solutions",
+          "status": "retired"
+        },
+        {
+          "id": "orthogonalization",
+          "name": "orthogonalization",
+          "status": "retired"
         }
       ]
     }

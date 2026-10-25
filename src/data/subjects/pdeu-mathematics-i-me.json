@@ -66,44 +66,18 @@
           "status": "retired"
         },
         {
-          "id": "gradient-divergent-curl",
-          "name": "Gradient divergent curl",
-          "requires": ["line-integrals"],
-          "movedFrom": {
-            "subject": "pdeu-mathematics-i-me",
-            "chapter": "vector-calculus",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "definition",
-          "name": "Definition",
+          "id": "definition-convergent-divergent-bounded-and-monotone-sequenc",
+          "name": "Definition, Convergent, divergent, bounded & monotone sequences",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["gradient-divergent-curl"]
-        },
-        {
-          "id": "convergent",
-          "name": "Convergent",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["definition"]
-        },
-        {
-          "id": "bounded-and-monotone-sequences",
-          "name": "bounded & monotone sequences",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["convergent"]
+          "requires": ["beta-gamma-functions"]
         },
         {
           "id": "infinite-sums-basics",
           "name": "Infinite sums: Basics",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["bounded-and-monotone-sequences"]
+          "requires": ["definition-convergent-divergent-bounded-and-monotone-sequenc"]
         },
         {
           "id": "tests-for-convergence-for-positive-term-series",
@@ -132,49 +106,21 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["conditional-convergence"]
-        }
-      ]
-    },
-    {
-      "id": "partial-derivatives-and-its-applications",
-      "name": "Partial Derivatives and its Applications",
-      "hours": 8,
-      "source": "admin_handout",
-      "confidence": "verified",
-      "topics": [
-        {
-          "id": "partial-derivative-and-its-application",
-          "name": "Partial derivative and its application",
-          "source": "admin_handout",
-          "confidence": "verified"
         },
         {
-          "id": "euler-s-theorem",
-          "name": "Euler’s theorem",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["partial-derivative-and-its-application"]
+          "id": "definition",
+          "name": "Definition",
+          "status": "retired"
         },
         {
-          "id": "jacobians-2",
-          "name": "Jacobians",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["euler-s-theorem"]
+          "id": "convergent",
+          "name": "Convergent",
+          "status": "retired"
         },
         {
-          "id": "maxima-and-minima-of-two-variables-using-lagrange-s-multipli",
-          "name": "Maxima and Minima of two variables using Lagrange’s multipliers",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["jacobians-2"]
-        },
-        {
-          "id": "taylor-s-series",
-          "name": "Taylor’s series",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["maxima-and-minima-of-two-variables-using-lagrange-s-multipli"]
+          "id": "bounded-and-monotone-sequences",
+          "name": "bounded & monotone sequences",
+          "status": "retired"
         }
       ]
     },
@@ -195,17 +141,20 @@
         {
           "id": "taylors-and-maclaurins-expansion-of-functions-of-several",
           "name": "Taylor's and Maclaurin's expansion of functions of several variables",
-          "requires": ["directional-derivative"]
+          "requires": ["directional-derivative"],
+          "status": "retired"
         },
         {
           "id": "mamixa-and-minima-of-functions-of-several-variables",
           "name": "Mamixa and minima of functions of several variables",
-          "requires": ["taylors-and-maclaurins-expansion-of-functions-of-several"]
+          "requires": ["taylors-and-maclaurins-expansion-of-functions-of-several"],
+          "status": "retired"
         },
         {
           "id": "lagrange-multipliers",
           "name": "Lagrange's method of undetermined multipliers",
-          "requires": ["mamixa-and-minima-of-functions-of-several-variables"]
+          "requires": ["mamixa-and-minima-of-functions-of-several-variables"],
+          "status": "retired"
         },
         {
           "id": "double-integrals",
@@ -218,32 +167,46 @@
           "requires": ["double-integrals"]
         },
         {
-          "id": "change-of-order",
-          "name": "Change of order of integration",
-          "requires": ["double-integrals"]
-        },
-        {
           "id": "change-of-coordinates",
           "name": "change of coordinates",
-          "requires": ["change-of-order"]
+          "requires": ["change-of-order"],
+          "status": "retired"
         },
         {
           "id": "evaluation-of-area",
           "name": "evaluation of area",
-          "requires": ["change-of-coordinates"]
+          "requires": ["change-of-coordinates"],
+          "status": "retired"
         },
         {
           "id": "volumes-of-solids",
           "name": "volumes of solids",
-          "requires": ["evaluation-of-area"]
+          "requires": ["evaluation-of-area"],
+          "status": "retired"
         },
         {
           "id": "center-of-gravity-and-moment-of-inertia",
           "name": "center of gravity and moment of inertia",
-          "requires": ["mass"]
+          "requires": ["mass"],
+          "status": "retired"
+        },
+        {
+          "id": "maxima-and-minima-of-two-variables-using-lagrange-s-multipli",
+          "name": "Maxima and Minima of two variables using Lagrange’s multipliers",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "formerChapters": ["partial-derivatives-and-its-applications"],
+          "requires": ["center-of-gravity-and-moment-of-inertia"]
+        },
+        {
+          "id": "taylor-s-series",
+          "name": "Taylor’s series",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "formerChapters": ["partial-derivatives-and-its-applications"],
+          "requires": ["maxima-and-minima-of-two-variables-using-lagrange-s-multipli"]
         }
-      ],
-      "status": "retired"
+      ]
     },
     {
       "id": "calculus-for-single-variable",
@@ -287,27 +250,30 @@
         {
           "id": "volume-and-surface-area-of-revolution-curve-tracing",
           "name": "volume and surface area of revolution. Curve Tracing: Asymptotes",
-          "requires": ["area"]
+          "requires": ["area"],
+          "status": "retired"
         },
         {
           "id": "cartesian",
-          "name": "Definition and evaluation of double integral (Cartesian",
-          "requires": ["volume-and-surface-area-of-revolution-curve-tracing"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "change-of-variables-cartesian-to-spherical",
-          "name": "change of variables (Cartesian to spherical",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cartesian"]
+          "name": "Cartesian",
+          "requires": ["volume-and-surface-area-of-revolution-curve-tracing"]
         },
         {
           "id": "polar-and-parametric-forms",
           "name": "polar and parametric forms",
-          "requires": ["cartesian"],
-          "status": "retired"
+          "requires": ["cartesian"]
+        },
+        {
+          "id": "change-of-order",
+          "name": "Change of order of integration",
+          "requires": ["double-integrals"],
+          "movedFrom": {
+            "subject": "pdeu-mathematics-i-me",
+            "chapter": "calculus-for-of-several-variable",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
           "id": "mass",
@@ -316,31 +282,17 @@
           "movedFrom": {
             "subject": "pdeu-mathematics-i-me",
             "chapter": "calculus-for-of-several-variable",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "polar-form",
-          "name": "Polar form)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["mass"]
-        },
-        {
-          "id": "change-of-orders",
-          "name": "Change of orders",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["polar-form"]
         },
         {
           "id": "change-of-variables",
           "name": "Change of variables",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["change-of-orders"]
+          "requires": ["mass"]
         },
         {
           "id": "evaluation-of-triple-integral",
@@ -350,25 +302,36 @@
           "requires": ["change-of-variables"]
         },
         {
-          "id": "cylindrical",
-          "name": "cylindrical)",
+          "id": "center-of-gravity-by-double-and-triple-integral",
+          "name": "center of gravity by double and triple integral",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["evaluation-of-triple-integral"]
         },
         {
-          "id": "applications",
-          "name": "Applications",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cylindrical"]
+          "id": "change-of-variables-cartesian-to-spherical",
+          "name": "change of variables (Cartesian to spherical",
+          "status": "retired"
         },
         {
-          "id": "center-of-gravity-by-double-and-triple-integral",
-          "name": "center of gravity by double and triple integral",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["applications"]
+          "id": "polar-form",
+          "name": "Polar form)",
+          "status": "retired"
+        },
+        {
+          "id": "change-of-orders",
+          "name": "Change of orders",
+          "status": "retired"
+        },
+        {
+          "id": "cylindrical",
+          "name": "cylindrical)",
+          "status": "retired"
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "status": "retired"
         }
       ]
     },
@@ -389,6 +352,13 @@
           "status": "retired"
         },
         {
+          "id": "gradient-divergent-curl",
+          "name": "Gradient divergent curl",
+          "requires": ["line-integrals"],
+          "status": "retired",
+          "formerChapters": ["infinite-series-and-improper-integrals"]
+        },
+        {
           "id": "greens-theorem",
           "name": "Green’s Theorem and stoke’s theorem (without proof) with application and physical significance",
           "requires": ["line-integrals", "double-integrals"],
@@ -401,14 +371,14 @@
           "movedFrom": {
             "subject": "pdeu-mathematics-i-me",
             "chapter": "calculus-for-of-several-variable",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
-          "id": "divergence-and-curl",
-          "name": "divergence and curl",
+          "id": "gradient-divergence-and-curl",
+          "name": "Gradient, divergence and curl",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["directional-derivative"]
@@ -418,7 +388,7 @@
           "name": "Irrotational and Solenoidal vector fields",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["divergence-and-curl"]
+          "requires": ["gradient-divergence-and-curl"]
         },
         {
           "id": "vector-integration",
@@ -461,6 +431,33 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["gauss-divergence-theorem-and-stokes-theorem-without-proofs"]
+        },
+        {
+          "id": "divergence-and-curl",
+          "name": "divergence and curl",
+          "status": "retired"
+        }
+      ]
+    },
+    {
+      "id": "partial-derivatives-and-its-applications",
+      "name": "Partial Derivatives and its Applications",
+      "status": "retired",
+      "topics": [
+        {
+          "id": "partial-derivative-and-its-application",
+          "name": "Partial derivative and its application",
+          "status": "retired"
+        },
+        {
+          "id": "euler-s-theorem",
+          "name": "Euler’s theorem",
+          "status": "retired"
+        },
+        {
+          "id": "jacobians-2",
+          "name": "Jacobians",
+          "status": "retired"
         }
       ]
     }

@@ -153,24 +153,20 @@
         },
         {
           "id": "assignment-on-sp-gr-and-resistivity-logs-shale-volume",
-          "name": "Assignment on SP",
-          "requires": ["electrical-image-logs"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "shale-volume-calculation-and-identification-of-gross-sand-an",
-          "name": "Shale volume calculation and identification of gross sand and net sand",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["assignment-on-sp-gr-and-resistivity-logs-shale-volume"]
+          "name": "Assignment on SP, GR, and Resistivity logs, Shale volume calculation and identification of gross sand and net sand, Rw calculation and its use in determining S W",
+          "requires": ["electrical-image-logs"]
         },
         {
           "id": "rw-calculation-and-its-use-in-determining-sw",
           "name": "Rw calculation and its use in determining SW",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["shale-volume-calculation-and-identification-of-gross-sand-an"]
+          "requires": ["assignment-on-sp-gr-and-resistivity-logs-shale-volume"]
+        },
+        {
+          "id": "shale-volume-calculation-and-identification-of-gross-sand-an",
+          "name": "Shale volume calculation and identification of gross sand and net sand",
+          "status": "retired"
         }
       ]
     },
@@ -201,17 +197,8 @@
         },
         {
           "id": "porosity",
-          "name": "Porosity and lithology estimations (Neutron-Density",
-          "requires": ["porosity-logs"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "mn-and-mid-cross-plots",
-          "name": "MN and MID cross plots)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["porosity"]
+          "name": "Porosity and lithology estimations (Neutron-Density, Sonic- Density, Sonic Neutron, MN and MID cross plots)",
+          "requires": ["porosity-logs"]
         },
         {
           "id": "acoustic-image-logs-and-their-applications",
@@ -254,11 +241,21 @@
           "requires": ["assignments-to-determine-porosity-lithology-and-mineralogy"]
         },
         {
-          "id": "sonicdensity",
-          "name": "SonicDensity",
+          "id": "porosity-and-lithology-estimations-neutron-density-sonicdens",
+          "name": "Porosity and lithology estimations (Neutron-Density, SonicDensity",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["lithology-and-mineralogy-from-logs-and-their-cross-plots"]
+        },
+        {
+          "id": "mn-and-mid-cross-plots",
+          "name": "MN and MID cross plots)",
+          "status": "retired"
+        },
+        {
+          "id": "sonicdensity",
+          "name": "SonicDensity",
+          "status": "retired"
         }
       ]
     },
@@ -274,32 +271,18 @@
           "confidence": "verified"
         },
         {
-          "id": "shale-volume",
-          "name": "shale volume",
+          "id": "shale-volume-minerology-porosity",
+          "name": "shale volume, minerology, porosity",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["integration-of-different-log-data-to-determine-lithology"]
-        },
-        {
-          "id": "minerology",
-          "name": "minerology",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["shale-volume"]
-        },
-        {
-          "id": "porosity-2",
-          "name": "porosity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["minerology"]
         },
         {
           "id": "net-pay-thickness",
           "name": "net pay thickness",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["porosity-2"]
+          "requires": ["shale-volume-minerology-porosity"]
         },
         {
           "id": "evaluate-reservoir-potential-and-its-production-capability",
@@ -310,6 +293,21 @@
           "id": "assignment-or-case-studies-on-different-formation-types-for",
           "name": "Assignment or case studies on different formation types for evaluating the reservoir potential",
           "requires": ["evaluate-reservoir-potential-and-its-production-capability"]
+        },
+        {
+          "id": "shale-volume",
+          "name": "shale volume",
+          "status": "retired"
+        },
+        {
+          "id": "minerology",
+          "name": "minerology",
+          "status": "retired"
+        },
+        {
+          "id": "porosity-2",
+          "name": "porosity",
+          "status": "retired"
         }
       ]
     }

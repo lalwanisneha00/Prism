@@ -125,17 +125,8 @@
         },
         {
           "id": "specification-software-engineering-essence",
-          "name": "Specification",
-          "requires": ["negotiation"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "software-engineering-essence",
-          "name": "Software engineering essence",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["specification-software-engineering-essence"]
+          "name": "Specification. Software engineering essence",
+          "requires": ["negotiation"]
         },
         {
           "id": "essence-language",
@@ -166,6 +157,11 @@
           "id": "large-scale-complex-development-using-kernel",
           "name": "Large scale complex development Using kernel",
           "requires": ["agile-process-models-through-essence-kernel"]
+        },
+        {
+          "id": "software-engineering-essence",
+          "name": "Software engineering essence",
+          "status": "retired"
         }
       ]
     },
@@ -221,16 +217,7 @@
       "topics": [
         {
           "id": "software-testing-strategies-verification-vs-validation",
-          "name": "Software Testing Strategies: verification vs validation",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "validation",
-          "name": "validation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["software-testing-strategies-verification-vs-validation"]
+          "name": "Software Testing Strategies: verification vs validation"
         },
         {
           "id": "types-of-testing-and-sub-testing-adopted-for-various",
@@ -244,17 +231,8 @@
         },
         {
           "id": "validation-system-and-acceptance-testing",
-          "name": "system",
-          "requires": ["integration"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "acceptance-testing",
-          "name": "acceptance testing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["validation-system-and-acceptance-testing"]
+          "name": "validation, system, and acceptance testing",
+          "requires": ["integration"]
         },
         {
           "id": "software-quality-assurance-vs-control",
@@ -280,6 +258,16 @@
           "id": "cyclometric-complexity",
           "name": "Cyclometric complexity",
           "requires": ["test-case-generations"]
+        },
+        {
+          "id": "validation",
+          "name": "validation",
+          "status": "retired"
+        },
+        {
+          "id": "acceptance-testing",
+          "name": "acceptance testing",
+          "status": "retired"
         }
       ]
     },

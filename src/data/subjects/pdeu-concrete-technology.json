@@ -48,17 +48,8 @@
         },
         {
           "id": "hydration-setting-of-cement",
-          "name": "Hydration",
-          "requires": ["chemical-composition"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "setting-of-cement",
-          "name": "Setting of cement",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["hydration-setting-of-cement"]
+          "name": "Hydration, Setting of cement",
+          "requires": ["chemical-composition"]
         },
         {
           "id": "structure-of-hydrate-cement",
@@ -97,25 +88,18 @@
           "confidence": "verified"
         },
         {
-          "id": "bulk-density",
-          "name": "Bulk density",
+          "id": "bulk-density-porosity",
+          "name": "Bulk density, porosity",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["porosity"]
-        },
-        {
-          "id": "porosity-2",
-          "name": "porosity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bulk-density"]
         },
         {
           "id": "adsorption-and-moisture-content-of-aggregate",
           "name": "adsorption & moisture content of aggregate",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["porosity-2"]
+          "requires": ["bulk-density-porosity"]
         },
         {
           "id": "bulking-of-sand",
@@ -140,16 +124,7 @@
         {
           "id": "thermal-properties",
           "name": "Thermal properties",
-          "requires": ["alkali-aggregate-reaction"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "properties",
-          "name": "properties",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["thermal-properties"]
+          "requires": ["alkali-aggregate-reaction"]
         },
         {
           "id": "sieve-analysis",
@@ -197,66 +172,75 @@
         },
         {
           "id": "fly-ash-blast-furnace-slag-silica-fume-and-metakaolin",
-          "name": "Fly ash",
-          "requires": ["mineral-admixtures-introduction-to-supplementary-cementing"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "blast-furnace-slag",
-          "name": "blast furnace slag",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["fly-ash-blast-furnace-slag-silica-fume-and-metakaolin"]
-        },
-        {
-          "id": "silica-fume",
-          "name": "silica fume",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["blast-furnace-slag"]
-        },
-        {
-          "id": "metakaolin",
-          "name": "metakaolin",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["silica-fume"]
+          "name": "Fly ash, blast furnace slag, silica fume, and metakaolin",
+          "requires": ["mineral-admixtures-introduction-to-supplementary-cementing"]
         },
         {
           "id": "their-production-properties-and-effects-on-concrete",
-          "name": "their production",
-          "requires": ["fly-ash-blast-furnace-slag-silica-fume-and-metakaolin"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "effects-on-concrete-properties",
-          "name": "effects on concrete properties",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["their-production-properties-and-effects-on-concrete"]
+          "name": "their production, properties, and effects on concrete properties",
+          "requires": ["fly-ash-blast-furnace-slag-silica-fume-and-metakaolin"]
         },
         {
           "id": "applications-chemical-admixtures-water-reducers-air",
-          "name": "applications CHEMICAL ADMIXTURES: Water reducers",
-          "requires": ["their-production-properties-and-effects-on-concrete"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "applications CHEMICAL ADMIXTURES: Water reducers, air entrainers, set controllers, and effects on concrete properties",
+          "requires": ["their-production-properties-and-effects-on-concrete"]
         },
         {
-          "id": "air-entrainers",
-          "name": "air entrainers",
+          "id": "silica-fume-metakaolin-their-production-properties",
+          "name": "silica fume, metakaolin, their production, properties",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["applications-chemical-admixtures-water-reducers-air"]
         },
         {
+          "id": "setting-of-cement",
+          "name": "Setting of cement",
+          "status": "retired"
+        },
+        {
+          "id": "bulk-density",
+          "name": "Bulk density",
+          "status": "retired"
+        },
+        {
+          "id": "porosity-2",
+          "name": "porosity",
+          "status": "retired"
+        },
+        {
+          "id": "properties",
+          "name": "properties",
+          "status": "retired"
+        },
+        {
+          "id": "blast-furnace-slag",
+          "name": "blast furnace slag",
+          "status": "retired"
+        },
+        {
+          "id": "silica-fume",
+          "name": "silica fume",
+          "status": "retired"
+        },
+        {
+          "id": "metakaolin",
+          "name": "metakaolin",
+          "status": "retired"
+        },
+        {
+          "id": "effects-on-concrete-properties",
+          "name": "effects on concrete properties",
+          "status": "retired"
+        },
+        {
+          "id": "air-entrainers",
+          "name": "air entrainers",
+          "status": "retired"
+        },
+        {
           "id": "set-controllers",
           "name": "set controllers",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["air-entrainers"]
+          "status": "retired"
         }
       ]
     },
@@ -299,45 +283,13 @@
         },
         {
           "id": "ready-mixed-concrete-design-mixing-transport-and-placement",
-          "name": "Ready Mixed Concrete Design: Mixing",
-          "requires": ["particle-packing-density-cement-mortars-mortar"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "transport",
-          "name": "transport",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ready-mixed-concrete-design-mixing-transport-and-placement"]
-        },
-        {
-          "id": "placement",
-          "name": "placement",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["transport"]
+          "name": "Ready Mixed Concrete Design: Mixing, transport, and placement",
+          "requires": ["particle-packing-density-cement-mortars-mortar"]
         },
         {
           "id": "consolidation-finishing-and-curing-of-concrete",
-          "name": "consolidation",
-          "requires": ["ready-mixed-concrete-design-mixing-transport-and-placement"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "finishing",
-          "name": "finishing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["consolidation-finishing-and-curing-of-concrete"]
-        },
-        {
-          "id": "curing-of-concrete",
-          "name": "curing of concrete",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["finishing"]
+          "name": "consolidation, finishing, and curing of concrete",
+          "requires": ["ready-mixed-concrete-design-mixing-transport-and-placement"]
         },
         {
           "id": "extreme-weather-concreting-special-concreting-methods",
@@ -352,6 +304,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["extreme-weather-concreting-special-concreting-methods"]
+        },
+        {
+          "id": "transport",
+          "name": "transport",
+          "status": "retired"
+        },
+        {
+          "id": "placement",
+          "name": "placement",
+          "status": "retired"
+        },
+        {
+          "id": "finishing",
+          "name": "finishing",
+          "status": "retired"
+        },
+        {
+          "id": "curing-of-concrete",
+          "name": "curing of concrete",
+          "status": "retired"
         }
       ]
     },
@@ -469,7 +441,7 @@
         },
         {
           "id": "codal-provisions-for-ndt-elasticity-creep-and-shrinkage",
-          "name": "codal provisions for NDT",
+          "name": "codal provisions for NDT, Elasticity",
           "requires": ["ndt-methods"],
           "source": "admin_handout",
           "confidence": "verified"
@@ -483,24 +455,17 @@
         },
         {
           "id": "modulus-of-elasticity",
-          "name": "Elasticity",
+          "name": "Modulus of elasticity",
           "requires": ["codal-provisions-for-ndt-elasticity-creep-and-shrinkage"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "modulus-of-elasticity-2",
-          "name": "Modulus of elasticity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["modulus-of-elasticity"]
         },
         {
           "id": "dynamic-modulus-of-elasticity-2",
           "name": "Dynamic modulus of elasticity",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["modulus-of-elasticity-2"]
+          "requires": ["modulus-of-elasticity"]
         },
         {
           "id": "dynamic-modulus-of-elasticity",
@@ -535,6 +500,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["relation-between-creep-and-shrinkage-qa-qc-of-concrete"]
+        },
+        {
+          "id": "modulus-of-elasticity-2",
+          "name": "Modulus of elasticity",
+          "status": "retired"
         }
       ]
     }

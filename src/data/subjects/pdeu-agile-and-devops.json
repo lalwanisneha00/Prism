@@ -59,29 +59,24 @@
         },
         {
           "id": "scrum-xp-lean-and-kanban",
-          "name": "Scrum",
+          "name": "Scrum, XP, Lean, and Kanban",
           "requires": ["overview-agile-model-and-various-agile-methodologies"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "lean",
-          "name": "Lean",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["scrum-xp-lean-and-kanban"]
-        },
-        {
-          "id": "kanban",
-          "name": "Kanban",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["lean"]
+          "status": "retired"
         },
         {
           "id": "scope-of-each-model-and-their-comparison-in-real-world-case",
           "name": "Scope of each model and their comparison in real-world case studies",
           "requires": ["scrum-xp-lean-and-kanban"]
+        },
+        {
+          "id": "lean",
+          "name": "Lean",
+          "status": "retired"
+        },
+        {
+          "id": "kanban",
+          "name": "Kanban",
+          "status": "retired"
         }
       ]
     },
@@ -140,17 +135,8 @@
         },
         {
           "id": "introduction-to-version-control-systems-e-g-git",
-          "name": "Introduction to version control systems (e.g",
-          "requires": ["configuration-management"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "git",
-          "name": "Git)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-version-control-systems-e-g-git"]
+          "name": "Introduction to version control systems (e.g., Git)",
+          "requires": ["configuration-management"]
         },
         {
           "id": "branching-and-merging-strategies",
@@ -159,24 +145,23 @@
         },
         {
           "id": "configuration-management-tools-e-g-ansible-puppet",
-          "name": "Configuration management tools (e.g",
-          "requires": ["branching-and-merging-strategies"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "Configuration management tools (e.g., Ansible, Puppet)",
+          "requires": ["branching-and-merging-strategies"]
+        },
+        {
+          "id": "git",
+          "name": "Git)",
+          "status": "retired"
         },
         {
           "id": "ansible",
           "name": "Ansible",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["configuration-management-tools-e-g-ansible-puppet"]
+          "status": "retired"
         },
         {
           "id": "puppet",
           "name": "Puppet)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ansible"]
+          "status": "retired"
         }
       ]
     },
@@ -191,24 +176,17 @@
         },
         {
           "id": "infrastructure-provisioning-tools-e-g-terraform-cloud",
-          "name": "Infrastructure provisioning tools (e.g",
+          "name": "Infrastructure provisioning tools (e.g, Terraform",
           "requires": ["introduction-to-infrastructure-as-code-iac-concepts-and"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "terraform",
-          "name": "Terraform",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["infrastructure-provisioning-tools-e-g-terraform-cloud"]
         },
         {
           "id": "cloud-formation",
           "name": "Cloud Formation)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["terraform"]
+          "requires": ["infrastructure-provisioning-tools-e-g-terraform-cloud"]
         },
         {
           "id": "managing-infrastructure-configurations",
@@ -249,6 +227,11 @@
           "id": "release-orchestration-and-rollback-strategies",
           "name": "Release orchestration and rollback strategies",
           "requires": ["managing-deployment-environments"]
+        },
+        {
+          "id": "terraform",
+          "name": "Terraform",
+          "status": "retired"
         }
       ]
     },
@@ -273,24 +256,8 @@
         },
         {
           "id": "understanding-repositories-commits-and-revisions",
-          "name": "Understanding repositories",
-          "requires": ["introduction-to-centralized-and-distributed-scm"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "commits",
-          "name": "commits",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["understanding-repositories-commits-and-revisions"]
-        },
-        {
-          "id": "revisions",
-          "name": "revisions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["commits"]
+          "name": "Understanding repositories, commits, and revisions",
+          "requires": ["introduction-to-centralized-and-distributed-scm"]
         },
         {
           "id": "exploring-the-concepts-of-working-directory",
@@ -338,24 +305,8 @@
         },
         {
           "id": "cloning-pushing-and-pulling-changes",
-          "name": "Cloning",
-          "requires": ["working-with-remote-repositories"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "pushing",
-          "name": "pushing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cloning-pushing-and-pulling-changes"]
-        },
-        {
-          "id": "pulling-changes",
-          "name": "pulling changes",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pushing"]
+          "name": "Cloning, pushing, and pulling changes",
+          "requires": ["working-with-remote-repositories"]
         },
         {
           "id": "collaboration-workflows-and-managing-multiple-contributors",
@@ -396,6 +347,26 @@
           "id": "compliance-considerations-in-devops",
           "name": "Compliance considerations in DevOps",
           "requires": ["implementing-security-controls-in-ci-cd-pipelines"]
+        },
+        {
+          "id": "commits",
+          "name": "commits",
+          "status": "retired"
+        },
+        {
+          "id": "revisions",
+          "name": "revisions",
+          "status": "retired"
+        },
+        {
+          "id": "pushing",
+          "name": "pushing",
+          "status": "retired"
+        },
+        {
+          "id": "pulling-changes",
+          "name": "pulling changes",
+          "status": "retired"
         }
       ]
     }

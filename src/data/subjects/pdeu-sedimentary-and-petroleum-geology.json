@@ -60,25 +60,18 @@
           "requires": ["grain-transportation-and-its-deposition"]
         },
         {
-          "id": "sediment-texture-size",
-          "name": "Sediment texture (Size",
+          "id": "sediment-texture-size-shape",
+          "name": "Sediment texture (Size, Shape",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["hjoulstorm-curve"]
-        },
-        {
-          "id": "shape",
-          "name": "Shape",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sediment-texture-size"]
         },
         {
           "id": "sorting",
           "name": "sorting)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["shape"]
+          "requires": ["sediment-texture-size-shape"]
         },
         {
           "id": "porosity",
@@ -92,24 +85,17 @@
         },
         {
           "id": "paleocurrent-analysis-diagenesis-fundamentals-of-fluid-flow",
-          "name": "Paleocurrent analysis",
+          "name": "Paleocurrent analysis, diagenesis",
           "requires": ["carbonate-rock-and-its-porosity"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "diagenesis",
-          "name": "diagenesis",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["paleocurrent-analysis-diagenesis-fundamentals-of-fluid-flow"]
         },
         {
           "id": "fundamentals-of-fluid-flow-reynolds-no",
           "name": "fundamentals of fluid flow (Reynolds no",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["diagenesis"]
+          "requires": ["paleocurrent-analysis-diagenesis-fundamentals-of-fluid-flow"]
         },
         {
           "id": "froude-no",
@@ -136,6 +122,21 @@
           "id": "introduction-to-unidirectional-flows-and-oscillatory-flows",
           "name": "Introduction to Unidirectional flows and oscillatory flows",
           "requires": ["flow-regimes-upper-flow-regime-lower-flow-regime"]
+        },
+        {
+          "id": "sediment-texture-size",
+          "name": "Sediment texture (Size",
+          "status": "retired"
+        },
+        {
+          "id": "shape",
+          "name": "Shape",
+          "status": "retired"
+        },
+        {
+          "id": "diagenesis",
+          "name": "diagenesis",
+          "status": "retired"
         }
       ],
       "source": "admin_handout",
@@ -176,38 +177,8 @@
         },
         {
           "id": "interpretation-of-sedimentary-environment-especially",
-          "name": "Interpretation of Sedimentary environment especially",
-          "requires": ["interpreting-depositional-environment-from-outcrops-and"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "sedimentology-grain-size",
-          "name": "Sedimentology (Grain size",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["interpretation-of-sedimentary-environment-especially"]
-        },
-        {
-          "id": "sorting-2",
-          "name": "sorting)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sedimentology-grain-size"]
-        },
-        {
-          "id": "sand-distribution",
-          "name": "Sand distribution",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sorting-2"]
-        },
-        {
-          "id": "sand-geometry",
-          "name": "Sand geometry",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sand-distribution"]
+          "name": "Interpretation of Sedimentary environment especially, Sedimentology (Grain size, sorting), Sand distribution, Sand geometry, Porosity-permeability trends in reservoirs formed in Continental (Alluvial ",
+          "requires": ["interpreting-depositional-environment-from-outcrops-and"]
         },
         {
           "id": "delta-and-estuary-system",
@@ -242,6 +213,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["porosity-permeability-trends-in-reservoirs-formed-in-contine"]
+        },
+        {
+          "id": "sedimentology-grain-size",
+          "name": "Sedimentology (Grain size",
+          "status": "retired"
+        },
+        {
+          "id": "sorting-2",
+          "name": "sorting)",
+          "status": "retired"
+        },
+        {
+          "id": "sand-distribution",
+          "name": "Sand distribution",
+          "status": "retired"
+        },
+        {
+          "id": "sand-geometry",
+          "name": "Sand geometry",
+          "status": "retired"
         }
       ],
       "source": "admin_handout",

@@ -202,24 +202,17 @@
         },
         {
           "id": "crude-oil-markets-spot-barter-future-and-forward",
-          "name": "Crude oil Markets- Spot",
+          "name": "Crude oil Markets- Spot, Barter",
           "requires": ["hydrocarbon-trading-oil-trading-physical-and-paper"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "barter",
-          "name": "Barter",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["crude-oil-markets-spot-barter-future-and-forward"]
         },
         {
           "id": "future-and-forward",
           "name": "Future and forward",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["barter"]
+          "requires": ["crude-oil-markets-spot-barter-future-and-forward"]
         },
         {
           "id": "oil-pricing-mechanism-short-term-and-long-term-oil-pricing",
@@ -234,6 +227,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["oil-pricing-mechanism-short-term-and-long-term-oil-pricing"]
+        },
+        {
+          "id": "barter",
+          "name": "Barter",
+          "status": "retired"
         }
       ],
       "source": "admin_handout",

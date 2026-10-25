@@ -37,33 +37,18 @@
       "hours": 10,
       "topics": [
         {
-          "id": "justifying-project-management",
-          "name": "Justifying Project Management"
+          "id": "justifying-project-management-projects-definitions",
+          "name": "Justifying Project Management, Projects, Definitions"
         },
         {
-          "id": "projects",
-          "name": "Projects",
-          "requires": ["justifying-project-management"]
-        },
-        {
-          "id": "definitions",
-          "name": "Definitions",
-          "requires": ["projects"]
-        },
-        {
-          "id": "the-project-management-triangle",
-          "name": "The Project Management Triangle",
-          "requires": ["definitions"]
-        },
-        {
-          "id": "scope",
-          "name": "Scope",
-          "requires": ["the-project-management-triangle"]
+          "id": "the-project-management-triangle-scope",
+          "name": "The Project Management Triangle, Scope",
+          "requires": ["justifying-project-management-projects-definitions"]
         },
         {
           "id": "time-and-cost",
           "name": "Time and Cost",
-          "requires": ["scope"]
+          "requires": ["the-project-management-triangle-scope"]
         },
         {
           "id": "what-is-project-management",
@@ -86,19 +71,14 @@
           "requires": ["the-project-life-cycle"]
         },
         {
-          "id": "project-management-process",
-          "name": "Project Management Process",
+          "id": "project-management-process-groups",
+          "name": "Project Management Process, Groups",
           "requires": ["project-stakeholders"]
-        },
-        {
-          "id": "groups",
-          "name": "Groups",
-          "requires": ["project-management-process"]
         },
         {
           "id": "project-management-knowledge-areas",
           "name": "Project Management Knowledge Areas",
-          "requires": ["groups"]
+          "requires": ["project-management-process-groups"]
         },
         {
           "id": "project-initiation-the-project-charter",
@@ -116,19 +96,59 @@
           "requires": ["the-project-scope-document"]
         },
         {
-          "id": "project-contracts",
-          "name": "Project Contracts",
+          "id": "project-contracts-delivery",
+          "name": "Project Contracts, Delivery",
           "requires": ["work-breakdown-structures"]
-        },
-        {
-          "id": "delivery",
-          "name": "Delivery",
-          "requires": ["project-contracts"]
         },
         {
           "id": "costs-and-risks",
           "name": "Costs and Risks",
-          "requires": ["delivery"]
+          "requires": ["project-contracts-delivery"]
+        },
+        {
+          "id": "justifying-project-management",
+          "name": "Justifying Project Management",
+          "status": "retired"
+        },
+        {
+          "id": "projects",
+          "name": "Projects",
+          "status": "retired"
+        },
+        {
+          "id": "definitions",
+          "name": "Definitions",
+          "status": "retired"
+        },
+        {
+          "id": "the-project-management-triangle",
+          "name": "The Project Management Triangle",
+          "status": "retired"
+        },
+        {
+          "id": "scope",
+          "name": "Scope",
+          "status": "retired"
+        },
+        {
+          "id": "project-management-process",
+          "name": "Project Management Process",
+          "status": "retired"
+        },
+        {
+          "id": "groups",
+          "name": "Groups",
+          "status": "retired"
+        },
+        {
+          "id": "project-contracts",
+          "name": "Project Contracts",
+          "status": "retired"
+        },
+        {
+          "id": "delivery",
+          "name": "Delivery",
+          "status": "retired"
         }
       ]
     },
@@ -142,24 +162,14 @@
           "name": "Project Network Representations"
         },
         {
-          "id": "activity-parameter",
-          "name": "Activity Parameter",
+          "id": "activity-parameter-estimation-time",
+          "name": "Activity Parameter, Estimation, Time",
           "requires": ["project-network-representations"]
-        },
-        {
-          "id": "estimation",
-          "name": "Estimation",
-          "requires": ["activity-parameter"]
-        },
-        {
-          "id": "time",
-          "name": "Time",
-          "requires": ["estimation"]
         },
         {
           "id": "cost-and-resources",
           "name": "Cost and Resources",
-          "requires": ["time"]
+          "requires": ["activity-parameter-estimation-time"]
         },
         {
           "id": "project-time-schedule",
@@ -185,6 +195,21 @@
           "id": "resources-scheduling",
           "name": "Resources Scheduling",
           "requires": ["activity-and-project-crashing"]
+        },
+        {
+          "id": "activity-parameter",
+          "name": "Activity Parameter",
+          "status": "retired"
+        },
+        {
+          "id": "estimation",
+          "name": "Estimation",
+          "status": "retired"
+        },
+        {
+          "id": "time",
+          "name": "Time",
+          "status": "retired"
         }
       ]
     },
@@ -274,19 +299,14 @@
           "requires": ["review-meetings"]
         },
         {
-          "id": "project-closure-and-review-performance-evaluation",
-          "name": "Project Closure and Review: Performance Evaluation",
+          "id": "project-closure-and-review-performance-evaluation-scope",
+          "name": "Project Closure and Review: Performance Evaluation, Scope",
           "requires": ["project-crashing-and-time-cost-trade-off"]
-        },
-        {
-          "id": "scope-2",
-          "name": "Scope",
-          "requires": ["project-closure-and-review-performance-evaluation"]
         },
         {
           "id": "time-and-cost-2",
           "name": "Time and Cost",
-          "requires": ["scope-2"]
+          "requires": ["project-closure-and-review-performance-evaluation-scope"]
         },
         {
           "id": "performance-of-teams",
@@ -307,6 +327,16 @@
           "id": "integrated-examples-cases",
           "name": "Integrated Examples/Cases",
           "requires": ["project-closure-report"]
+        },
+        {
+          "id": "project-closure-and-review-performance-evaluation",
+          "name": "Project Closure and Review: Performance Evaluation",
+          "status": "retired"
+        },
+        {
+          "id": "scope-2",
+          "name": "Scope",
+          "status": "retired"
         }
       ]
     }

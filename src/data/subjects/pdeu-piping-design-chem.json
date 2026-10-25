@@ -1,0 +1,209 @@
+{
+  "id": "pdeu-piping-design-chem",
+  "name": "Piping Design",
+  "field": "Piping Design",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 6): Piping Design",
+    "note": "Units and topics copied from the course handout PDF (pages 8 of CHEM/sem6/Chemical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH334T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s6-program-elective--piping-design",
+      "code": "24CH334T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "pipe-flow-hydraulic-analysis-and-design",
+      "name": "Pipe Flow Hydraulic Analysis and Design",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-to-piping-engineering",
+          "name": "Introduction to piping engineering"
+        },
+        {
+          "id": "basics-of-fluid-flow-through-pipes-newtonian-and-non-newtoni",
+          "name": "basics of fluid flow through pipes (Newtonian and non-Newtonian fluids)",
+          "requires": ["introduction-to-piping-engineering"]
+        },
+        {
+          "id": "codes-and-standards-for-piping-engineering-and-design",
+          "name": "codes and standards for piping engineering and design",
+          "requires": ["basics-of-fluid-flow-through-pipes-newtonian-and-non-newtoni"]
+        },
+        {
+          "id": "piping-elements-viz-pipes-fittings-flanges-gaskets",
+          "name": "piping elements viz. pipes, fittings, flanges, gaskets",
+          "requires": ["codes-and-standards-for-piping-engineering-and-design"]
+        },
+        {
+          "id": "bolting-and-valves",
+          "name": "bolting and valves",
+          "requires": ["piping-elements-viz-pipes-fittings-flanges-gaskets"]
+        },
+        {
+          "id": "types-of-valves",
+          "name": "types of valves",
+          "requires": ["bolting-and-valves"]
+        },
+        {
+          "id": "piping-drawing-layout-and-instrument-diagrams",
+          "name": "piping drawing layout and instrument diagrams",
+          "requires": ["types-of-valves"]
+        }
+      ]
+    },
+    {
+      "id": "pressure-changers",
+      "name": "Pressure Changers",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "handling-fluid-streams-to-change-their-pressure-for-differen",
+          "name": "Handling fluid streams to change their pressure for different reasons"
+        },
+        {
+          "id": "pressure-changers-pumps",
+          "name": "pressure changers, pumps",
+          "requires": ["handling-fluid-streams-to-change-their-pressure-for-differen"]
+        },
+        {
+          "id": "compressors-and-valves",
+          "name": "compressors and valves",
+          "requires": ["pressure-changers-pumps"]
+        },
+        {
+          "id": "design-and-analysis-using-computational-software",
+          "name": "design and analysis using computational software",
+          "requires": ["compressors-and-valves"]
+        },
+        {
+          "id": "selection-and-efficiency",
+          "name": "selection and efficiency",
+          "requires": ["design-and-analysis-using-computational-software"]
+        }
+      ]
+    },
+    {
+      "id": "piping-network-analysis",
+      "name": "Piping Network Analysis",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "head-losses-due-to-contraction-and-expansion",
+          "name": "Head losses due to contraction and expansion"
+        },
+        {
+          "id": "other-types-of-losses",
+          "name": "other types of losses",
+          "requires": ["head-losses-due-to-contraction-and-expansion"]
+        },
+        {
+          "id": "network-analysis",
+          "name": "network analysis",
+          "requires": ["other-types-of-losses"]
+        },
+        {
+          "id": "overall-loss-estimation-through-network-analysis",
+          "name": "overall loss estimation through network analysis",
+          "requires": ["network-analysis"]
+        },
+        {
+          "id": "optimizing-piping-networks-with-respect-to-losses",
+          "name": "optimizing piping networks with respect to losses",
+          "requires": ["overall-loss-estimation-through-network-analysis"]
+        },
+        {
+          "id": "hardy-cross-method",
+          "name": "Hardy-Cross method",
+          "requires": ["optimizing-piping-networks-with-respect-to-losses"]
+        },
+        {
+          "id": "dynamic-multi-phase-pipeline-modelling",
+          "name": "dynamic multi-phase pipeline modelling",
+          "requires": ["hardy-cross-method"]
+        },
+        {
+          "id": "integration-of-pipeline-models-with-processing-facilities-to",
+          "name": "integration of pipeline models with processing facilities to conduct what-if analyses and optimizations",
+          "requires": ["dynamic-multi-phase-pipeline-modelling"]
+        }
+      ]
+    },
+    {
+      "id": "industrial-piping-system",
+      "name": "Industrial Piping System",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "piping-for-oil-and-gas-industries",
+          "name": "Piping for oil and gas industries"
+        },
+        {
+          "id": "underground-piping",
+          "name": "underground piping",
+          "requires": ["piping-for-oil-and-gas-industries"]
+        },
+        {
+          "id": "design-of-water-handling-piping-systems",
+          "name": "design of water handling piping systems",
+          "requires": ["underground-piping"]
+        },
+        {
+          "id": "sizing-for-equal-velocity",
+          "name": "sizing for equal velocity",
+          "requires": ["design-of-water-handling-piping-systems"]
+        },
+        {
+          "id": "sizing-for-equal-areas",
+          "name": "sizing for equal areas",
+          "requires": ["sizing-for-equal-velocity"]
+        },
+        {
+          "id": "optimal-sizing",
+          "name": "optimal sizing",
+          "requires": ["sizing-for-equal-areas"]
+        },
+        {
+          "id": "water-hammer",
+          "name": "water hammer",
+          "requires": ["optimal-sizing"]
+        },
+        {
+          "id": "steam-piping-design",
+          "name": "steam piping design",
+          "requires": ["water-hammer"]
+        },
+        {
+          "id": "steam-traps",
+          "name": "steam traps",
+          "requires": ["steam-piping-design"]
+        },
+        {
+          "id": "slurry-and-sludge-piping",
+          "name": "slurry and sludge piping",
+          "requires": ["steam-traps"]
+        }
+      ]
+    }
+  ]
+}

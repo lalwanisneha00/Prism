@@ -56,19 +56,14 @@
           "requires": ["unsustainable-and-sustainable-development"]
         },
         {
-          "id": "need-for-integrating-energy-and-water",
-          "name": "Need for integrating energy and water",
+          "id": "need-for-integrating-energy-and-water-population",
+          "name": "Need for integrating energy and water, Population",
           "requires": ["energy-and-water-challenges"]
-        },
-        {
-          "id": "population",
-          "name": "Population",
-          "requires": ["need-for-integrating-energy-and-water"]
         },
         {
           "id": "hunger-and-millennium-development-goals-mdgs",
           "name": "Hunger and Millennium Development Goals (MDGs)",
-          "requires": ["population"]
+          "requires": ["need-for-integrating-energy-and-water-population"]
         },
         {
           "id": "un-sustainable-development-goals-sdgs",
@@ -94,6 +89,16 @@
           "id": "urban-scenario",
           "name": "urban scenario",
           "requires": ["societal-aspects-rural-livelihood-scenario"]
+        },
+        {
+          "id": "need-for-integrating-energy-and-water",
+          "name": "Need for integrating energy and water",
+          "status": "retired"
+        },
+        {
+          "id": "population",
+          "name": "Population",
+          "status": "retired"
         }
       ]
     },
@@ -173,24 +178,14 @@
           "name": "WATER USE FOR ELECTRICITY GENERATION Drivers of energy demand"
         },
         {
-          "id": "sectoral-energy-demand-domestic",
-          "name": "Sectoral energy demand: domestic",
+          "id": "sectoral-energy-demand-domestic-commercial-industrial",
+          "name": "Sectoral energy demand: domestic, commercial, industrial",
           "requires": ["water-use-for-electricity-generation-drivers-of-energy-deman"]
-        },
-        {
-          "id": "commercial",
-          "name": "commercial",
-          "requires": ["sectoral-energy-demand-domestic"]
-        },
-        {
-          "id": "industrial",
-          "name": "industrial",
-          "requires": ["commercial"]
         },
         {
           "id": "agricultural-fossil-fuel-based-power-generation-processes-co",
           "name": "agricultural fossil-fuel based power generation processes: Coal fuel cycle",
-          "requires": ["industrial"]
+          "requires": ["sectoral-energy-demand-domestic-commercial-industrial"]
         },
         {
           "id": "thermoelectric-cooling",
@@ -208,19 +203,14 @@
           "requires": ["oil-and-natural-gas"]
         },
         {
-          "id": "renewable-power-sources-geothermal",
-          "name": "renewable power sources: Geothermal",
+          "id": "renewable-power-sources-geothermal-hydroelectricity",
+          "name": "renewable power sources: Geothermal, Hydroelectricity",
           "requires": ["nuclear-power"]
-        },
-        {
-          "id": "hydroelectricity",
-          "name": "Hydroelectricity",
-          "requires": ["renewable-power-sources-geothermal"]
         },
         {
           "id": "solar-thermal-power-generation",
           "name": "Solar thermal power generation",
-          "requires": ["hydroelectricity"]
+          "requires": ["renewable-power-sources-geothermal-hydroelectricity"]
         },
         {
           "id": "solar-photovoltaic",
@@ -241,6 +231,31 @@
           "id": "water-pricing-and-costs",
           "name": "Water Pricing and Costs",
           "requires": ["water-consumption-intensity-for-fuels-production"]
+        },
+        {
+          "id": "sectoral-energy-demand-domestic",
+          "name": "Sectoral energy demand: domestic",
+          "status": "retired"
+        },
+        {
+          "id": "commercial",
+          "name": "commercial",
+          "status": "retired"
+        },
+        {
+          "id": "industrial",
+          "name": "industrial",
+          "status": "retired"
+        },
+        {
+          "id": "renewable-power-sources-geothermal",
+          "name": "renewable power sources: Geothermal",
+          "status": "retired"
+        },
+        {
+          "id": "hydroelectricity",
+          "name": "Hydroelectricity",
+          "status": "retired"
         }
       ]
     },
@@ -259,34 +274,39 @@
           "requires": ["case-studies"]
         },
         {
-          "id": "challenges-and-opportunities",
-          "name": "Challenges and opportunities",
+          "id": "challenges-and-opportunities-data-modelling-analysis",
+          "name": "Challenges and opportunities, Data, Modelling, Analysis",
           "requires": ["circular-economy"]
-        },
-        {
-          "id": "data",
-          "name": "Data",
-          "requires": ["challenges-and-opportunities"]
-        },
-        {
-          "id": "modelling",
-          "name": "Modelling",
-          "requires": ["data"]
-        },
-        {
-          "id": "analysis",
-          "name": "Analysis",
-          "requires": ["modelling"]
         },
         {
           "id": "thinking-to-enhance-energywater-nexus-thinking",
           "name": "thinking to enhance energywater nexus thinking",
-          "requires": ["analysis"]
+          "requires": ["challenges-and-opportunities-data-modelling-analysis"]
         },
         {
           "id": "sector-specific-water-energy-landscape-for-decision-making",
           "name": "Sector-Specific Water-Energy Landscape for Decision Making",
           "requires": ["thinking-to-enhance-energywater-nexus-thinking"]
+        },
+        {
+          "id": "challenges-and-opportunities",
+          "name": "Challenges and opportunities",
+          "status": "retired"
+        },
+        {
+          "id": "data",
+          "name": "Data",
+          "status": "retired"
+        },
+        {
+          "id": "modelling",
+          "name": "Modelling",
+          "status": "retired"
+        },
+        {
+          "id": "analysis",
+          "name": "Analysis",
+          "status": "retired"
         }
       ]
     }

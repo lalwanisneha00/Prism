@@ -62,7 +62,8 @@
         {
           "id": "types-of-foundries",
           "name": "types of foundries",
-          "requires": ["selection-of-manufacturing-process-casting-introduction-to"]
+          "requires": ["selection-of-manufacturing-process-casting-introduction-to"],
+          "status": "retired"
         },
         {
           "id": "steps-in-making-of-casting",
@@ -195,11 +196,18 @@
           "status": "retired"
         },
         {
+          "id": "introduction-to-casting-foundries",
+          "name": "Introduction to casting, foundries",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["remedies-of-defects"]
+        },
+        {
           "id": "prediction-and-remedies",
           "name": "prediction and remedies",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["remedies-of-defects"]
+          "requires": ["introduction-to-casting-foundries"]
         }
       ],
       "source": "admin_handout",
@@ -248,22 +256,12 @@
         {
           "id": "principle",
           "name": "principle",
-          "requires": ["formability-forging-fundamentals"],
-          "status": "retired"
+          "requires": ["formability-forging-fundamentals"]
         },
         {
           "id": "tools",
-          "name": "Forging-Principles-Classifications-Tools-Dies-Defects",
-          "requires": ["principle"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "rolling-fundamentalstheory-tools-types-defects-extrusion-cla",
-          "name": "Rolling- FundamentalsTheory-Tools-Types-Defects.Extrusion-Classifications-Tools-Dies-Operations-Defects",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["tools"]
+          "name": "tools",
+          "requires": ["principle"]
         },
         {
           "id": "dies",
@@ -342,17 +340,8 @@
         },
         {
           "id": "drawing",
-          "name": "Drawing-Wires-Bars-Tubes-Forces",
-          "requires": ["bars-and-tubes-drawing-forces-and-power-sheet-metal-forming"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "sheet-metal-forming-bending-deep-drawing-roll-forming-stampi",
-          "name": "Sheet metal forming-Bending- Deep drawing-Roll forming- Stamping-Spinning-Peen forming",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["drawing"]
+          "name": "drawing",
+          "requires": ["bars-and-tubes-drawing-forces-and-power-sheet-metal-forming"]
         },
         {
           "id": "deep-drawing",
@@ -404,17 +393,25 @@
           "movedFrom": {
             "subject": "pdeu-manufacturing-process-i",
             "chapter": "welding-and-cutting",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
+          "id": "rolling-fundamentalstheory-tools-types-defects-extrusion-cla",
+          "name": "Rolling- FundamentalsTheory-Tools-Types-Defects.Extrusion-Classifications-Tools-Dies-Operations-Defects",
+          "status": "retired"
+        },
+        {
+          "id": "sheet-metal-forming-bending-deep-drawing-roll-forming-stampi",
+          "name": "Sheet metal forming-Bending- Deep drawing-Roll forming- Stamping-Spinning-Peen forming",
+          "status": "retired"
+        },
+        {
           "id": "classification-and-concepts-of-metal-working-processes",
           "name": "Classification and concepts of metal working processes",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["causes-and-remedies-of-defects"]
+          "status": "retired"
         }
       ],
       "source": "admin_handout",
@@ -427,23 +424,7 @@
       "topics": [
         {
           "id": "introduction-to-welding",
-          "name": "Introduction-Welding-Soldering-Brazing",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "classification-of-welding-fluxes",
-          "name": "Classification of welding-fluxes",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-welding"]
-        },
-        {
-          "id": "gas-welding-arc-mig-tig-resistance-defects-causesremedies",
-          "name": "Gas welding-ARC- MIG-TIG-Resistance- Defects-CausesRemedies",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["classification-of-welding-fluxes"]
+          "name": "Introduction to welding"
         },
         {
           "id": "soldering-and-brazing-classification-of-welding",
@@ -584,6 +565,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["gas-cutting-and-plasma-cutting"]
+        },
+        {
+          "id": "classification-of-welding-fluxes",
+          "name": "Classification of welding-fluxes",
+          "status": "retired"
+        },
+        {
+          "id": "gas-welding-arc-mig-tig-resistance-defects-causesremedies",
+          "name": "Gas welding-ARC- MIG-TIG-Resistance- Defects-CausesRemedies",
+          "status": "retired"
         }
       ]
     },
@@ -629,25 +620,18 @@
           "requires": ["processing-of-plastics-thermoplastics-and-thermosets"]
         },
         {
-          "id": "injection-moulding",
-          "name": "Injection moulding",
+          "id": "injection-moulding-thermoforming",
+          "name": "Injection moulding, Thermoforming",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["processing-of-plastics-extrusion"]
-        },
-        {
-          "id": "thermoforming",
-          "name": "Thermoforming",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["injection-moulding"]
         },
         {
           "id": "compression-moulding-2",
           "name": "Compression moulding",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["thermoforming"]
+          "requires": ["injection-moulding-thermoforming"]
         },
         {
           "id": "transfer-moulding",
@@ -669,6 +653,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["general-behavior-of-polymer-melts"]
+        },
+        {
+          "id": "injection-moulding",
+          "name": "Injection moulding",
+          "status": "retired"
+        },
+        {
+          "id": "thermoforming",
+          "name": "Thermoforming",
+          "status": "retired"
         }
       ]
     },

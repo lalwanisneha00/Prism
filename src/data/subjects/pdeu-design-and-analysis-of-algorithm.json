@@ -61,104 +61,6 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["elementary-operation-analysis-techniques-analyzing-control"]
-        },
-        {
-          "id": "amortized-analysis-recurrence-solving-intelligent-guesswork",
-          "name": "Amortized analysis. Recurrence solving: Intelligent guesswork and proof by induction",
-          "requires": ["elementary-operation-analysis-techniques-analyzing-control"]
-        },
-        {
-          "id": "change-of-variable",
-          "name": "change of variable",
-          "requires": ["amortized-analysis-recurrence-solving-intelligent-guesswork"]
-        },
-        {
-          "id": "recurrence-tree",
-          "name": "recurrence tree",
-          "requires": ["change-of-variable"]
-        },
-        {
-          "id": "recurrences-master-theorem",
-          "name": "master theorem",
-          "requires": ["recurrence-tree"]
-        }
-      ]
-    },
-    {
-      "id": "recurrence-solving-and-divide-and-conquer",
-      "name": "Recurrence Solving And Divide & Conquer",
-      "hours": 12,
-      "source": "admin_handout",
-      "confidence": "verified",
-      "topics": [
-        {
-          "id": "recurrence-solving-intelligent-guesswork-and-proof-by-induct",
-          "name": "Recurrence solving: Intelligent guesswork and proof by induction",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "change-of-variable-2",
-          "name": "change of variable",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["recurrence-solving-intelligent-guesswork-and-proof-by-induct"]
-        },
-        {
-          "id": "recurrence-tree-2",
-          "name": "recurrence tree",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["change-of-variable-2"]
-        },
-        {
-          "id": "master-theorem",
-          "name": "master theorem",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["recurrence-tree-2"]
-        },
-        {
-          "id": "dnc-binary-search-2",
-          "name": "DnC: Binary Search",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["master-theorem"]
-        },
-        {
-          "id": "merge-sort",
-          "name": "Merge sort",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["dnc-binary-search-2"]
-        },
-        {
-          "id": "multiplying-large-integers-2",
-          "name": "multiplying large integers",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["merge-sort"]
-        },
-        {
-          "id": "finding-the-median-2",
-          "name": "finding the median",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["multiplying-large-integers-2"]
-        },
-        {
-          "id": "matrix-multiplication",
-          "name": "Matrix multiplication",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["finding-the-median-2"]
-        },
-        {
-          "id": "exponentiation",
-          "name": "Exponentiation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["matrix-multiplication"]
         }
       ]
     },
@@ -187,109 +89,69 @@
           "requires": ["multiplying-large-integers"]
         },
         {
-          "id": "matrix-multiplication-greedy-interval-scheduling",
-          "name": "Matrix multiplication. Greedy: Interval scheduling",
-          "requires": ["finding-the-median"]
-        },
-        {
-          "id": "job-sequencing-with-deadline",
-          "name": "job sequencing with deadline",
-          "requires": ["matrix-multiplication-greedy-interval-scheduling"]
-        },
-        {
-          "id": "fractional-knapsack",
-          "name": "fractional knapsack",
-          "requires": ["job-sequencing-with-deadline"],
+          "id": "amortized-analysis-recurrence-solving-intelligent-guesswork",
+          "name": "Amortized analysis. Recurrence solving: Intelligent guesswork and proof by induction",
+          "requires": ["elementary-operation-analysis-techniques-analyzing-control"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "introduction",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
           "source": "admin_handout",
           "confidence": "verified"
+        },
+        {
+          "id": "change-of-variable",
+          "name": "change of variable",
+          "requires": ["amortized-analysis-recurrence-solving-intelligent-guesswork"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "introduction",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "recurrence-tree",
+          "name": "recurrence tree",
+          "requires": ["change-of-variable"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "introduction",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "recurrences-master-theorem",
+          "name": "master theorem",
+          "requires": ["recurrence-tree"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "introduction",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "matrix-multiplication-exponentiation",
+          "name": "Matrix multiplication, Exponentiation",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["recurrences-master-theorem"]
         },
         {
           "id": "0-1-knapsack",
           "name": "0/1 Knapsack",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["fractional-knapsack"]
-        },
-        {
-          "id": "mst-using-kruskal-algorithm",
-          "name": "MST using Kruskal algorithm",
-          "requires": ["fractional-knapsack"]
-        },
-        {
-          "id": "dijkstras-algorithm",
-          "name": "Dijkstra’s algorithm",
-          "requires": ["mst-using-kruskal-algorithm"]
-        },
-        {
-          "id": "floyd-warshall-algorithm",
-          "name": "Floyd-Warshall algorithm",
-          "requires": ["dynamic-programming"],
-          "movedFrom": {
-            "subject": "pdeu-design-and-analysis-of-algorithm",
-            "chapter": "dynamic-programming-backtracking-branch-and-bound",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "matrix-chain-multiplication",
-          "name": "Matrix chain multiplication",
-          "requires": ["floyd-warshall-algorithm"],
-          "movedFrom": {
-            "subject": "pdeu-design-and-analysis-of-algorithm",
-            "chapter": "dynamic-programming-backtracking-branch-and-bound",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "travelling-salesman-problem-backtracking-0-1-knapsack",
-          "name": "Travelling Salesman Problem. Backtracking: 0/1 Knapsack",
-          "requires": ["matrix-chain-multiplication"],
-          "movedFrom": {
-            "subject": "pdeu-design-and-analysis-of-algorithm",
-            "chapter": "dynamic-programming-backtracking-branch-and-bound",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "greedy-coin-change",
-          "name": "Greedy: Coin change",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["travelling-salesman-problem-backtracking-0-1-knapsack"]
-        },
-        {
-          "id": "interval-partitioning",
-          "name": "interval partitioning",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["greedy-coin-change"]
-        },
-        {
-          "id": "huffman-coding",
-          "name": "Huffman coding",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["interval-partitioning"]
+          "status": "retired"
         },
         {
           "id": "dynamic-coin-change",
           "name": "Dynamic: Coin change",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["huffman-coding"]
-        },
-        {
-          "id": "assembly-line-scheduling",
-          "name": "Assembly line scheduling",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["dynamic-coin-change"]
+          "status": "retired"
         }
       ]
     },
@@ -301,9 +163,112 @@
         {
           "id": "dynamic-programming",
           "name": "Dynamic: 0/1 Knapsack"
+        },
+        {
+          "id": "floyd-warshall-algorithm",
+          "name": "Floyd-Warshall algorithm",
+          "requires": ["dynamic-programming"],
+          "formerChapters": ["divide-and-conquer-and-greedy-algorithms"]
+        },
+        {
+          "id": "matrix-chain-multiplication",
+          "name": "Matrix chain multiplication",
+          "requires": ["floyd-warshall-algorithm"],
+          "formerChapters": ["divide-and-conquer-and-greedy-algorithms"]
+        },
+        {
+          "id": "matrix-multiplication-greedy-interval-scheduling",
+          "name": "Matrix multiplication. Greedy: Interval scheduling",
+          "requires": ["finding-the-median"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "divide-and-conquer-and-greedy-algorithms",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "job-sequencing-with-deadline",
+          "name": "job sequencing with deadline",
+          "requires": ["matrix-multiplication-greedy-interval-scheduling"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "divide-and-conquer-and-greedy-algorithms",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "fractional-knapsack",
+          "name": "fractional knapsack",
+          "requires": ["job-sequencing-with-deadline"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "divide-and-conquer-and-greedy-algorithms",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "mst-using-kruskal-algorithm",
+          "name": "MST using Kruskal algorithm",
+          "requires": ["fractional-knapsack"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "divide-and-conquer-and-greedy-algorithms",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "dijkstras-algorithm",
+          "name": "Dijkstra’s algorithm",
+          "requires": ["mst-using-kruskal-algorithm"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "divide-and-conquer-and-greedy-algorithms",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "greedy-coin-change",
+          "name": "Greedy: Coin change",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "formerChapters": ["divide-and-conquer-and-greedy-algorithms"],
+          "requires": ["dijkstras-algorithm"]
+        },
+        {
+          "id": "interval-partitioning",
+          "name": "interval partitioning",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "formerChapters": ["divide-and-conquer-and-greedy-algorithms"],
+          "requires": ["greedy-coin-change"]
+        },
+        {
+          "id": "huffman-coding",
+          "name": "Huffman coding",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "formerChapters": ["divide-and-conquer-and-greedy-algorithms"],
+          "requires": ["interval-partitioning"]
+        },
+        {
+          "id": "assembly-line-scheduling",
+          "name": "Assembly line scheduling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "formerChapters": ["divide-and-conquer-and-greedy-algorithms"],
+          "requires": ["huffman-coding"]
         }
-      ],
-      "status": "retired"
+      ]
     },
     {
       "id": "intractability-randomized-and-approximation",
@@ -324,30 +289,36 @@
           "requires": ["intractability-brief-overview-of-np-theory-some-npc-problems"]
         },
         {
-          "id": "vertex-cover",
-          "name": "vertex cover",
+          "id": "vertex-cover-clique",
+          "name": "vertex cover, clique",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["some-npc-problems-independent-set"]
-        },
-        {
-          "id": "clique",
-          "name": "clique",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["vertex-cover"]
         },
         {
           "id": "hamiltonian-cycle",
           "name": "Hamiltonian cycle",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["clique"]
+          "requires": ["vertex-cover-clique"]
         },
         {
           "id": "approximation-randomized",
           "name": "Polynomial time reduction: Reduction of 3 SAT to clique Randomized Algorithm: Subset Sum Problem Approximation Algorithm: Vertex Cover Problem",
           "requires": ["intractability-brief-overview-of-np-theory-some-npc-problems"]
+        },
+        {
+          "id": "travelling-salesman-problem-backtracking-0-1-knapsack",
+          "name": "Travelling Salesman Problem. Backtracking: 0/1 Knapsack",
+          "requires": ["matrix-chain-multiplication"],
+          "movedFrom": {
+            "subject": "pdeu-design-and-analysis-of-algorithm",
+            "chapter": "dynamic-programming-backtracking-branch-and-bound",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified",
+          "formerChapters": ["divide-and-conquer-and-greedy-algorithms"]
         },
         {
           "id": "n-queens-problem-branch-and-bound-0-1-knapsack",
@@ -356,7 +327,7 @@
           "movedFrom": {
             "subject": "pdeu-design-and-analysis-of-algorithm",
             "chapter": "dynamic-programming-backtracking-branch-and-bound",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -368,24 +339,89 @@
           "movedFrom": {
             "subject": "pdeu-design-and-analysis-of-algorithm",
             "chapter": "dynamic-programming-backtracking-branch-and-bound",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "backtracking-0-1-knapsack",
-          "name": "Backtracking: 0/1 Knapsack",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["travelling-salesman-problem"]
         },
         {
           "id": "branch-and-bound-0-1-knapsack",
           "name": "Branch and Bound: 0/1 Knapsack",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["backtracking-0-1-knapsack"]
+          "requires": ["travelling-salesman-problem"]
+        },
+        {
+          "id": "vertex-cover",
+          "name": "vertex cover",
+          "status": "retired"
+        },
+        {
+          "id": "clique",
+          "name": "clique",
+          "status": "retired"
+        },
+        {
+          "id": "backtracking-0-1-knapsack",
+          "name": "Backtracking: 0/1 Knapsack",
+          "status": "retired"
+        }
+      ]
+    },
+    {
+      "id": "recurrence-solving-and-divide-and-conquer",
+      "name": "Recurrence Solving And Divide & Conquer",
+      "status": "retired",
+      "topics": [
+        {
+          "id": "recurrence-solving-intelligent-guesswork-and-proof-by-induct",
+          "name": "Recurrence solving: Intelligent guesswork and proof by induction",
+          "status": "retired"
+        },
+        {
+          "id": "change-of-variable-2",
+          "name": "change of variable",
+          "status": "retired"
+        },
+        {
+          "id": "recurrence-tree-2",
+          "name": "recurrence tree",
+          "status": "retired"
+        },
+        {
+          "id": "master-theorem",
+          "name": "master theorem",
+          "status": "retired"
+        },
+        {
+          "id": "dnc-binary-search-2",
+          "name": "DnC: Binary Search",
+          "status": "retired"
+        },
+        {
+          "id": "merge-sort",
+          "name": "Merge sort",
+          "status": "retired"
+        },
+        {
+          "id": "multiplying-large-integers-2",
+          "name": "multiplying large integers",
+          "status": "retired"
+        },
+        {
+          "id": "finding-the-median-2",
+          "name": "finding the median",
+          "status": "retired"
+        },
+        {
+          "id": "matrix-multiplication",
+          "name": "Matrix multiplication",
+          "status": "retired"
+        },
+        {
+          "id": "exponentiation",
+          "name": "Exponentiation",
+          "status": "retired"
         }
       ]
     }

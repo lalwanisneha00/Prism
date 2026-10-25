@@ -51,19 +51,14 @@
           "requires": ["archimedes-principle"]
         },
         {
-          "id": "meta-centric-height",
-          "name": "Meta-centric height",
+          "id": "meta-centric-height-manometers",
+          "name": "Meta-centric height, Manometers",
           "requires": ["buoyancy-and-stability-of-floating-and-submerged-bodies"]
-        },
-        {
-          "id": "manometers",
-          "name": "Manometers",
-          "requires": ["meta-centric-height"]
         },
         {
           "id": "kinematics-types-of-flow",
           "name": "Kinematics: Types of flow",
-          "requires": ["manometers"]
+          "requires": ["meta-centric-height-manometers"]
         },
         {
           "id": "concept-of-continuum",
@@ -76,19 +71,14 @@
           "requires": ["concept-of-continuum"]
         },
         {
-          "id": "fluid-kinematics-lagrangian-and-eulerian-description",
-          "name": "Fluid Kinematics: Lagrangian and Eulerian description",
+          "id": "fluid-kinematics-lagrangian-and-eulerian-description-streaml",
+          "name": "Fluid Kinematics: Lagrangian and Eulerian description, Streamline",
           "requires": ["pressure-and-stress-tensor"]
-        },
-        {
-          "id": "streamline",
-          "name": "Streamline",
-          "requires": ["fluid-kinematics-lagrangian-and-eulerian-description"]
         },
         {
           "id": "streakline-and-pathline",
           "name": "Streakline and Pathline",
-          "requires": ["streamline"]
+          "requires": ["fluid-kinematics-lagrangian-and-eulerian-description-streaml"]
         },
         {
           "id": "acceleration-of-a-fluid-element",
@@ -119,6 +109,26 @@
           "id": "velocity-potential",
           "name": "Velocity potential",
           "requires": ["irrotational-flow"]
+        },
+        {
+          "id": "meta-centric-height",
+          "name": "Meta-centric height",
+          "status": "retired"
+        },
+        {
+          "id": "manometers",
+          "name": "Manometers",
+          "status": "retired"
+        },
+        {
+          "id": "fluid-kinematics-lagrangian-and-eulerian-description",
+          "name": "Fluid Kinematics: Lagrangian and Eulerian description",
+          "status": "retired"
+        },
+        {
+          "id": "streamline",
+          "name": "Streamline",
+          "status": "retired"
         }
       ]
     },

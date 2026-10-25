@@ -135,8 +135,7 @@
         {
           "id": "types-of-standard",
           "name": "types of standard",
-          "requires": ["material-standards"],
-          "status": "retired"
+          "requires": ["material-standards"]
         },
         {
           "id": "subdivision-of-standards",
@@ -145,17 +144,8 @@
         },
         {
           "id": "calibrations-transducers-for-measurement-introduction",
-          "name": "calibrations",
-          "requires": ["subdivision-of-standards"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "transducers-for-measurement-introduction-to-transducers",
-          "name": "Transducers for Measurement: Introduction to Transducers",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["calibrations-transducers-for-measurement-introduction"]
+          "name": "calibrations. Transducers for Measurement: Introduction",
+          "requires": ["subdivision-of-standards"]
         },
         {
           "id": "transfer-efficiency",
@@ -198,11 +188,14 @@
           "status": "retired"
         },
         {
+          "id": "transducers-for-measurement-introduction-to-transducers",
+          "name": "Transducers for Measurement: Introduction to Transducers",
+          "status": "retired"
+        },
+        {
           "id": "types-of-standards",
           "name": "types of standards",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["terminating-devices"]
+          "status": "retired"
         }
       ]
     },
@@ -218,46 +211,25 @@
           "confidence": "verified"
         },
         {
-          "id": "selective-assembly",
-          "name": "Selective Assembly",
+          "id": "selective-assembly-tolerances-allowance",
+          "name": "Selective Assembly, Tolerances, allowance",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["principle-of-interchangeability-selective-assembly"]
         },
         {
-          "id": "tolerances",
-          "name": "Tolerances",
+          "id": "maximum-and-minimum-metal-conditions-fits",
+          "name": "Maximum and Minimum Metal Conditions, Fits",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["selective-assembly"]
-        },
-        {
-          "id": "allowance",
-          "name": "allowance",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["tolerances"]
-        },
-        {
-          "id": "maximum-and-minimum-metal-conditions",
-          "name": "Maximum and Minimum Metal Conditions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["allowance"]
-        },
-        {
-          "id": "fits",
-          "name": "Fits",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["maximum-and-minimum-metal-conditions"]
+          "requires": ["selective-assembly-tolerances-allowance"]
         },
         {
           "id": "system-of-limits-and-fits",
           "name": "System of Limits and Fits",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["fits"]
+          "requires": ["maximum-and-minimum-metal-conditions-fits"]
         },
         {
           "id": "hole-basis-and-shaft-basis-systems",
@@ -268,24 +240,8 @@
         },
         {
           "id": "measurements-of-force-torque-and-pressure-measurement-of",
-          "name": "Measurement of Force: load cell",
-          "requires": ["principle-of-interchangeability-selective-assembly"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "proving-ring",
-          "name": "proving ring",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["measurements-of-force-torque-and-pressure-measurement-of"]
-        },
-        {
-          "id": "ring-balance",
-          "name": "Ring Balance",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["proving-ring"]
+          "name": "Measurements of Force, Torque, and Pressure: Measurement of Force: platform balance, load cell, proving ring",
+          "requires": ["principle-of-interchangeability-selective-assembly"]
         },
         {
           "id": "measurement-of-torque-dynamometer",
@@ -294,24 +250,8 @@
         },
         {
           "id": "pressure-measurement-scales-method-of-pressure-measurement",
-          "name": "Pressure Measurement Scales",
-          "requires": ["measurement-of-torque-dynamometer"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "inverted-bell-manometer",
-          "name": "Inverted Bell Manometer",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pressure-measurement-scales-method-of-pressure-measurement"]
-        },
-        {
-          "id": "dead-weight-pressure-gauge",
-          "name": "Dead-weight Pressure Gauge",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["inverted-bell-manometer"]
+          "name": "Pressure Measurement Scales, Method of Pressure Measurement, Ring Balance, Inverted Bell Manometer, Elastic Transducers, Electrical Pressure Transducer, Dead-weight Pressure Gauge, Measurement of Vacu",
+          "requires": ["measurement-of-torque-dynamometer"]
         },
         {
           "id": "measurements-of-strain-speed-and-temperature-measurement-of",
@@ -321,25 +261,18 @@
           "confidence": "verified"
         },
         {
-          "id": "backing-or-carrier-materials",
-          "name": "Backing or Carrier Materials",
+          "id": "backing-or-carrier-materials-adhesives",
+          "name": "Backing or Carrier Materials, Adhesives",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["measurements-of-strain-speed-and-temperature-measurement-of"]
-        },
-        {
-          "id": "adhesives",
-          "name": "Adhesives",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["backing-or-carrier-materials"]
         },
         {
           "id": "protective-coatings",
           "name": "Protective Coatings",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["adhesives"]
+          "requires": ["backing-or-carrier-materials-adhesives"]
         },
         {
           "id": "bonding-of-gauges",
@@ -368,6 +301,61 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["measurement-of-vacuum"]
+        },
+        {
+          "id": "selective-assembly",
+          "name": "Selective Assembly",
+          "status": "retired"
+        },
+        {
+          "id": "tolerances",
+          "name": "Tolerances",
+          "status": "retired"
+        },
+        {
+          "id": "allowance",
+          "name": "allowance",
+          "status": "retired"
+        },
+        {
+          "id": "maximum-and-minimum-metal-conditions",
+          "name": "Maximum and Minimum Metal Conditions",
+          "status": "retired"
+        },
+        {
+          "id": "fits",
+          "name": "Fits",
+          "status": "retired"
+        },
+        {
+          "id": "proving-ring",
+          "name": "proving ring",
+          "status": "retired"
+        },
+        {
+          "id": "ring-balance",
+          "name": "Ring Balance",
+          "status": "retired"
+        },
+        {
+          "id": "inverted-bell-manometer",
+          "name": "Inverted Bell Manometer",
+          "status": "retired"
+        },
+        {
+          "id": "dead-weight-pressure-gauge",
+          "name": "Dead-weight Pressure Gauge",
+          "status": "retired"
+        },
+        {
+          "id": "backing-or-carrier-materials",
+          "name": "Backing or Carrier Materials",
+          "status": "retired"
+        },
+        {
+          "id": "adhesives",
+          "name": "Adhesives",
+          "status": "retired"
         }
       ]
     },
@@ -382,50 +370,27 @@
         },
         {
           "id": "angle-measurement-instruments-bevel-protector-sine-bar-and",
-          "name": "Angle measurement instruments: bevel protector",
-          "requires": ["linear-measurements-instruments-verniers-and-micrometers"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "clinometers",
-          "name": "clinometers",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["angle-measurement-instruments-bevel-protector-sine-bar-and"]
-        },
-        {
-          "id": "collimator",
-          "name": "collimator",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["clinometers"]
+          "name": "Angle measurement instruments: bevel protector, sine bar and centre, clinometers, collimator",
+          "requires": ["linear-measurements-instruments-verniers-and-micrometers"]
         },
         {
           "id": "calibrations-of-the-instruments-slip-gauges",
-          "name": "Calibrations of the instruments, slip gauges",
-          "requires": ["angle-measurement-instruments-bevel-protector-sine-bar-and"]
-        },
-        {
-          "id": "comparators-need-for-comparators-characteristics-of",
-          "name": "Comparators: Need for comparators",
-          "requires": ["calibrations-of-the-instruments-slip-gauges"],
+          "name": "Calibration of the instruments",
+          "requires": ["angle-measurement-instruments-bevel-protector-sine-bar-and"],
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
-          "id": "characteristics-of-comparators",
-          "name": "characteristics of comparators",
+          "id": "slip-gauges",
+          "name": "slip gauges",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["comparators-need-for-comparators-characteristics-of"]
+          "requires": ["calibrations-of-the-instruments-slip-gauges"]
         },
         {
-          "id": "their-classifications",
-          "name": "their classifications",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["characteristics-of-comparators"]
+          "id": "comparators-need-for-comparators-characteristics-of",
+          "name": "Comparators: Need for comparators, characteristics of comparators, classifications: mechanical, optical, mechanical-optical, electrical, and pneumatic",
+          "requires": ["calibrations-of-the-instruments-slip-gauges"]
         },
         {
           "id": "measurement-of-surface-roughness-and-texture-significance-of",
@@ -433,25 +398,18 @@
           "requires": ["comparators-need-for-comparators-characteristics-of"]
         },
         {
-          "id": "sine-bar-and-center",
-          "name": "sine bar and center",
+          "id": "sine-bar-and-center-clinometers-collimator",
+          "name": "sine bar and center, clinometers, collimator",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["measurement-of-surface-roughness-and-texture-significance-of"]
-        },
-        {
-          "id": "calibration-of-the-instruments",
-          "name": "Calibration of the instruments",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sine-bar-and-center"]
         },
         {
           "id": "symbolic-representation",
           "name": "symbolic representation",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["calibration-of-the-instruments"]
+          "requires": ["sine-bar-and-center-clinometers-collimator"]
         },
         {
           "id": "measurement-techniques",
@@ -459,6 +417,36 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["symbolic-representation"]
+        },
+        {
+          "id": "clinometers",
+          "name": "clinometers",
+          "status": "retired"
+        },
+        {
+          "id": "collimator",
+          "name": "collimator",
+          "status": "retired"
+        },
+        {
+          "id": "characteristics-of-comparators",
+          "name": "characteristics of comparators",
+          "status": "retired"
+        },
+        {
+          "id": "their-classifications",
+          "name": "their classifications",
+          "status": "retired"
+        },
+        {
+          "id": "sine-bar-and-center",
+          "name": "sine bar and center",
+          "status": "retired"
+        },
+        {
+          "id": "calibration-of-the-instruments",
+          "name": "Calibration of the instruments",
+          "status": "retired"
         }
       ]
     },
@@ -480,7 +468,8 @@
         {
           "id": "dimensions-and-tolerances",
           "name": "Dimensions and Tolerances",
-          "requires": ["specifying-limits-of-variability"]
+          "requires": ["specifying-limits-of-variability"],
+          "status": "retired"
         },
         {
           "id": "selection-of-gauging-equipment",

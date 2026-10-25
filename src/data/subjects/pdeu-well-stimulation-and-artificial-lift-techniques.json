@@ -240,18 +240,11 @@
           "confidence": "verified"
         },
         {
-          "id": "candidate-selection",
-          "name": "candidate selection",
+          "id": "candidate-selection-procedures",
+          "name": "candidate selection, procedures",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["refracturing-benefits-and-limitations-candidate-selection"]
-        },
-        {
-          "id": "procedures",
-          "name": "procedures",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["candidate-selection"]
         },
         {
           "id": "diagnostic-methods-microseismic-fiber-sensing-das-and-dts",
@@ -268,39 +261,25 @@
           "requires": ["diagnostic-methods-microseismic-fiber-sensing-das-and-dts"]
         },
         {
-          "id": "radioactive-tracers",
-          "name": "radioactive tracers",
+          "id": "radioactive-tracers-tiltmeter",
+          "name": "radioactive tracers, tiltmeter",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["fiber-sensing-das-and-dts"]
         },
         {
-          "id": "tiltmeter",
-          "name": "tiltmeter",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["radioactive-tracers"]
-        },
-        {
           "id": "modelling-2d-pseudo3d-and-3d-models",
-          "name": "Modelling 2D",
+          "name": "Modelling 2D, Pseudo3D",
           "requires": ["diagnostic-methods-microseismic-fiber-sensing-das-and-dts"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "pseudo3d",
-          "name": "Pseudo3D",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["modelling-2d-pseudo3d-and-3d-models"]
         },
         {
           "id": "3d-models",
           "name": "3D models",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["pseudo3d"]
+          "requires": ["modelling-2d-pseudo3d-and-3d-models"]
         },
         {
           "id": "flow-chart-of-fracture-simulator",
@@ -316,6 +295,31 @@
           "id": "advanced-fracturing-techniques",
           "name": "advanced fracturing techniques",
           "requires": ["case-studies-on-multi-stage-fracturing-and-refracturing"]
+        },
+        {
+          "id": "candidate-selection",
+          "name": "candidate selection",
+          "status": "retired"
+        },
+        {
+          "id": "procedures",
+          "name": "procedures",
+          "status": "retired"
+        },
+        {
+          "id": "radioactive-tracers",
+          "name": "radioactive tracers",
+          "status": "retired"
+        },
+        {
+          "id": "tiltmeter",
+          "name": "tiltmeter",
+          "status": "retired"
+        },
+        {
+          "id": "pseudo3d",
+          "name": "Pseudo3D",
+          "status": "retired"
         }
       ]
     },

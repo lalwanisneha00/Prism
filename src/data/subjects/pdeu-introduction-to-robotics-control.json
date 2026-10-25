@@ -120,23 +120,16 @@
       "topics": [
         {
           "id": "basics-configuration-space-dofs-fully-actuated-underactuated",
-          "name": "Basics: Configuration space",
+          "name": "Basics: Configuration space, DOFs",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "dofs",
-          "name": "DOFs",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["basics-configuration-space-dofs-fully-actuated-underactuated"]
         },
         {
           "id": "fully-actuated",
           "name": "Fully actuated",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["dofs"]
+          "requires": ["basics-configuration-space-dofs-fully-actuated-underactuated"]
         },
         {
           "id": "underactuated-and-overactuated-robots",
@@ -240,6 +233,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["linear-and-nonlinear-system-equations"]
+        },
+        {
+          "id": "dofs",
+          "name": "DOFs",
+          "status": "retired"
         }
       ]
     },
@@ -365,23 +363,16 @@
       "topics": [
         {
           "id": "simulations-2dof-underactuated-robot-quadrotor-drone",
-          "name": "SIMULATIONS",
+          "name": "SIMULATIONS, EXPERIMENTS & Simulations: 2DOF underactuated robot",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "experiments-and-simulations-2dof-underactuated-robot",
-          "name": "EXPERIMENTS & Simulations: 2DOF underactuated robot",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["simulations-2dof-underactuated-robot-quadrotor-drone"]
         },
         {
           "id": "quadrotor-drone",
           "name": "Quadrotor drone",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["experiments-and-simulations-2dof-underactuated-robot"]
+          "requires": ["simulations-2dof-underactuated-robot-quadrotor-drone"]
         },
         {
           "id": "experimental-robotics-how-to-build-a-robot-using-arduino",
@@ -425,50 +416,54 @@
         },
         {
           "id": "multiple-robots-based-applications-multi-agent-systems",
-          "name": "Multiple robots based applications: Multi-agent systems",
+          "name": "Multiple robots based applications: Multi-agent systems, Surveillance, Monitoring",
           "requires": ["programming-and-simulators-introduction-to-ros-concepts-and"],
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
-          "id": "surveillance",
-          "name": "Surveillance",
+          "id": "package-delivery-agriculture",
+          "name": "Package delivery, Agriculture",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["multiple-robots-based-applications-multi-agent-systems"]
-        },
-        {
-          "id": "monitoring",
-          "name": "Monitoring",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["surveillance"]
-        },
-        {
-          "id": "package-delivery",
-          "name": "Package delivery",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["monitoring"]
-        },
-        {
-          "id": "agriculture",
-          "name": "Agriculture",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["package-delivery"]
         },
         {
           "id": "smart-solutions",
           "name": "Smart solutions",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["agriculture"]
+          "requires": ["package-delivery-agriculture"]
         },
         {
           "id": "problem-statements-and-challenges",
           "name": "Problem statements & challenges",
           "requires": ["multiple-robots-based-applications-multi-agent-systems"]
+        },
+        {
+          "id": "experiments-and-simulations-2dof-underactuated-robot",
+          "name": "EXPERIMENTS & Simulations: 2DOF underactuated robot",
+          "status": "retired"
+        },
+        {
+          "id": "surveillance",
+          "name": "Surveillance",
+          "status": "retired"
+        },
+        {
+          "id": "monitoring",
+          "name": "Monitoring",
+          "status": "retired"
+        },
+        {
+          "id": "package-delivery",
+          "name": "Package delivery",
+          "status": "retired"
+        },
+        {
+          "id": "agriculture",
+          "name": "Agriculture",
+          "status": "retired"
         }
       ]
     }

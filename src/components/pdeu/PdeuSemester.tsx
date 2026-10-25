@@ -5,7 +5,7 @@ import subjectMap from "@/data/pdeu/subject-map.json";
 import { useEffect, useId, useState } from "react";
 import { UploadForCourse } from "@/components/pdeu/UploadForCourse";
 import { useElectiveChoices } from "@/components/pdeu/useElectiveChoices";
-import { choiceId, type ElectiveChoices } from "@/lib/pdeu/electives";
+import { choicesFor, type ElectiveChoices } from "@/lib/pdeu/electives";
 import { coursesOf, topicCount } from "@/lib/pdeu/helpers";
 import { loadPdeuBranch, type PdeuBranchId } from "@/lib/pdeu/load";
 import { NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
@@ -53,7 +53,7 @@ function CourseCard({
   branch: PdeuBranch;
   course: PdeuCourse;
   choices: ElectiveChoices;
-  onChoose: (slotKey: string, optionKey: string) => void;
+  onChoose: (slotKey: string, optionKey: string, pick?: number) => void;
 }) {
   const id = useId();
   const topics = topicCount(course);
@@ -61,9 +61,8 @@ function CourseCard({
   const subjectId = subjectIds[`${branch.id}/${course.key}`];
   const href = subjectId ? `/subjects/${subjectId}` : `/pdeu/${branch.id}/${course.key}`;
   const options = optionsOf(branch, course);
-  const chosenKey = choices[choiceId(branch.id, course.key)] ?? "";
-  const chosen = options.find((o) => o.key === chosenKey);
-  const chosenSubject = chosen ? subjectIds[`${branch.id}/${chosen.key}`] : undefined;
+  const picks = course.picks ?? 1;
+  const chosenKeys = choicesFor(choices, branch.id, course.key, picks);
   return (
     <li className={card} data-testid="pdeu-course">
       <div className="flex items-start justify-between gap-3">
@@ -76,35 +75,53 @@ function CourseCard({
         )}
       </div>
       {options.length > 0 ? (
-        <div className="flex flex-col gap-1" data-testid="elective-slot">
-          <label htmlFor={id} className="text-sm text-muted">
-            {chosen ? "Your choice" : "Choose yours"}
-          </label>
-          <select
-            id={id}
-            value={chosenKey}
-            onChange={(e) => onChoose(course.key, e.target.value)}
-            className="rounded-xl border border-border bg-bg px-3 py-2 text-sm"
-          >
-            <option value="">Choose yours…</option>
-            {options.map((o) => (
-              <option key={o.key} value={o.key}>
-                {o.name}
-              </option>
-            ))}
-          </select>
-          {chosen && chosenSubject && (
-            <Link
-              href={`/subjects/${chosenSubject}`}
-              className="w-fit text-sm font-semibold text-primary underline"
-              data-testid="elective-chosen"
-            >
-              Open {chosen.name}
-            </Link>
-          )}
-          {chosen && !chosenSubject && (
-            <p className="text-xs text-muted">The handbook prints no syllabus for this option.</p>
-          )}
+        <div className="flex flex-col gap-3" data-testid="elective-slot">
+          {picks > 1 && <p className="text-sm text-muted">You take {picks} of these.</p>}
+          {chosenKeys.map((chosenKey, i) => {
+            const chosen = options.find((o) => o.key === chosenKey);
+            const chosenSubject = chosen ? subjectIds[`${branch.id}/${chosen.key}`] : undefined;
+            // An option picked in another choice of this slot is not offered again.
+            const taken = new Set(chosenKeys.filter((k, j) => k && j !== i));
+            const label =
+              picks > 1 ? `Choice ${i + 1} of ${picks}` : chosen ? "Your choice" : "Choose yours";
+            return (
+              <div key={i} className="flex flex-col gap-1">
+                <label htmlFor={`${id}-${i}`} className="text-sm text-muted">
+                  {label}
+                </label>
+                <select
+                  id={`${id}-${i}`}
+                  value={chosenKey}
+                  onChange={(e) => onChoose(course.key, e.target.value, i + 1)}
+                  className="rounded-xl border border-border bg-bg px-3 py-2 text-sm"
+                >
+                  <option value="">Choose yours…</option>
+                  {options
+                    .filter((o) => !taken.has(o.key))
+                    .map((o) => (
+                      <option key={o.key} value={o.key}>
+                        {o.name}
+                      </option>
+                    ))}
+                </select>
+                {chosen && chosenSubject && (
+                  <Link
+                    href={`/subjects/${chosenSubject}`}
+                    className="w-fit text-sm font-semibold text-primary underline"
+                    data-testid="elective-chosen"
+                  >
+                    Open {chosen.name}
+                  </Link>
+                )}
+                {chosen && !chosenSubject && (
+                  <p className="text-xs text-muted">
+                    The handbook prints no syllabus for this option.
+                  </p>
+                )}
+                {chosenSubject && !course.core && <UploadNote subjectId={chosenSubject} />}
+              </div>
+            );
+          })}
         </div>
       ) : (
         <p className="text-sm text-muted">
@@ -125,7 +142,6 @@ function CourseCard({
           Lessons, quizzes and concept map on Prism
         </p>
       )}
-      {chosenSubject && !course.core && <UploadNote subjectId={chosenSubject} />}
     </li>
   );
 }
@@ -144,7 +160,7 @@ function Section({
   branch: PdeuBranch;
   courses: PdeuCourse[];
   choices: ElectiveChoices;
-  onChoose: (slotKey: string, optionKey: string) => void;
+  onChoose: (slotKey: string, optionKey: string, pick?: number) => void;
   testId: string;
 }) {
   return (
@@ -202,7 +218,8 @@ export function PdeuSemester({ branchId, semester }: { branchId: PdeuBranchId; s
       </p>
     );
   }
-  const onChoose = (slotKey: string, optionKey: string) => choose(branch.id, slotKey, optionKey);
+  const onChoose = (slotKey: string, optionKey: string, pick?: number) =>
+    choose(branch.id, slotKey, optionKey, pick);
   return (
     <div className="flex flex-col gap-6" data-testid="pdeu-semester">
       <div className="flex flex-col gap-1">

@@ -91,24 +91,17 @@
         },
         {
           "id": "drilling-fluids-basics-functions-properties-and-nature",
-          "name": "Drilling Fluids: Basics",
+          "name": "Drilling Fluids: Basics, Functions",
           "requires": ["drilling-rig-components-systems-power-derrick-and-sub"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "functions",
-          "name": "Functions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["drilling-fluids-basics-functions-properties-and-nature"]
         },
         {
           "id": "properties-and-nature",
           "name": "Properties and Nature",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["functions"]
+          "requires": ["drilling-fluids-basics-functions-properties-and-nature"]
         },
         {
           "id": "classification-of-drilling-fluids-viz",
@@ -138,24 +131,17 @@
         },
         {
           "id": "latest-advances-and-emerging-trends-in-drilling-fluids-viz",
-          "name": "Latest advances and emerging trends in drilling fluids viz. use of NDDF",
+          "name": "Latest advances and emerging trends in drilling fluids viz. use of NDDF, Inhibitive",
           "requires": ["pneumatic-drilling-fluid-water-based-drilling-fluids-oil"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "inhibitive",
-          "name": "Inhibitive",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["latest-advances-and-emerging-trends-in-drilling-fluids-viz"]
         },
         {
           "id": "non-inhibitive",
           "name": "Non-inhibitive",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["inhibitive"]
+          "requires": ["latest-advances-and-emerging-trends-in-drilling-fluids-viz"]
         },
         {
           "id": "balanced-underbalanced-drilling",
@@ -222,6 +208,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["overburden-pressure"]
+        },
+        {
+          "id": "functions",
+          "name": "Functions",
+          "status": "retired"
+        },
+        {
+          "id": "inhibitive",
+          "name": "Inhibitive",
+          "status": "retired"
         }
       ]
     },
@@ -273,44 +269,23 @@
           "requires": ["bit-nozzle-size-selection"]
         },
         {
-          "id": "types",
-          "name": "Types",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["rig-hydraulics"]
-        },
-        {
           "id": "bit-failure",
           "name": "Bit failure",
           "requires": ["drill-bits-types-performance-and-criteria-for-design-bit"]
         },
         {
           "id": "casing-functions-configuration-types-properties-casing",
-          "name": "Casing: Functions",
+          "name": "Casing: Functions, Configuration, Types, Properties",
           "requires": ["bit-failure"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "configuration",
-          "name": "Configuration",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["casing-functions-configuration-types-properties-casing"]
-        },
-        {
-          "id": "properties",
-          "name": "Properties",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["configuration"]
         },
         {
           "id": "casing-setting-depth-and-hole-sizes",
           "name": "Casing setting depth and hole sizes",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["properties"]
+          "requires": ["casing-functions-configuration-types-properties-casing"]
         },
         {
           "id": "casing-handling-practices",
@@ -328,6 +303,21 @@
           "id": "casing-and-liner-design",
           "name": "Casing and Liner design",
           "requires": ["casing-design-criteria"]
+        },
+        {
+          "id": "types",
+          "name": "Types",
+          "status": "retired"
+        },
+        {
+          "id": "configuration",
+          "name": "Configuration",
+          "status": "retired"
+        },
+        {
+          "id": "properties",
+          "name": "Properties",
+          "status": "retired"
         }
       ]
     },

@@ -137,34 +137,39 @@
           "requires": ["particulate-composites"]
         },
         {
-          "id": "advantages-and-limitations-of-composites",
-          "name": "Advantages & limitations of Composites",
+          "id": "advantages-and-limitations-of-composites-isotropic-anisotrop",
+          "name": "Advantages & limitations of Composites, Isotropic, Anisotropic, symmetric",
           "requires": ["comparison-with-metals"]
-        },
-        {
-          "id": "isotropic",
-          "name": "Isotropic",
-          "requires": ["advantages-and-limitations-of-composites"]
-        },
-        {
-          "id": "anisotropic",
-          "name": "Anisotropic",
-          "requires": ["isotropic"]
-        },
-        {
-          "id": "symmetric",
-          "name": "symmetric",
-          "requires": ["anisotropic"]
         },
         {
           "id": "unsymmetric-laminates",
           "name": "Unsymmetric laminates",
-          "requires": ["symmetric"]
+          "requires": ["advantages-and-limitations-of-composites-isotropic-anisotrop"]
         },
         {
           "id": "introduction-to-micromechanics-of-composites-and-failure-cri",
           "name": "Introduction to micromechanics of composites and failure criterion",
           "requires": ["unsymmetric-laminates"]
+        },
+        {
+          "id": "advantages-and-limitations-of-composites",
+          "name": "Advantages & limitations of Composites",
+          "status": "retired"
+        },
+        {
+          "id": "isotropic",
+          "name": "Isotropic",
+          "status": "retired"
+        },
+        {
+          "id": "anisotropic",
+          "name": "Anisotropic",
+          "status": "retired"
+        },
+        {
+          "id": "symmetric",
+          "name": "symmetric",
+          "status": "retired"
         }
       ]
     },
@@ -208,29 +213,39 @@
           "requires": ["compression-molding"]
         },
         {
-          "id": "vacuum-assisted-resin-transfer-molding",
-          "name": "Vacuum Assisted Resin Transfer Molding",
+          "id": "vacuum-assisted-resin-transfer-molding-pultrusion",
+          "name": "Vacuum Assisted Resin Transfer Molding, Pultrusion",
           "requires": ["resin-transfer-molding"]
-        },
-        {
-          "id": "pultrusion",
-          "name": "Pultrusion",
-          "requires": ["vacuum-assisted-resin-transfer-molding"]
         },
         {
           "id": "filament-winding",
           "name": "Filament Winding",
-          "requires": ["pultrusion"]
+          "requires": ["vacuum-assisted-resin-transfer-molding-pultrusion"]
+        },
+        {
+          "id": "carbon-matrix-composites-or-carbon-carbon-composites-nanocom",
+          "name": "Carbon matrix Composites or Carbon-Carbon Composites, Nanocomposites",
+          "requires": ["filament-winding"]
+        },
+        {
+          "id": "vacuum-assisted-resin-transfer-molding",
+          "name": "Vacuum Assisted Resin Transfer Molding",
+          "status": "retired"
+        },
+        {
+          "id": "pultrusion",
+          "name": "Pultrusion",
+          "status": "retired"
         },
         {
           "id": "carbon-matrix-composites-or-carbon-carbon-composites",
           "name": "Carbon matrix Composites or Carbon-Carbon Composites",
-          "requires": ["filament-winding"]
+          "status": "retired"
         },
         {
           "id": "nanocomposites",
           "name": "Nanocomposites",
-          "requires": ["carbon-matrix-composites-or-carbon-carbon-composites"]
+          "status": "retired"
         }
       ]
     },
@@ -269,19 +284,14 @@
           "requires": ["light-aircraft"]
         },
         {
-          "id": "turbine-blades-in-composites",
-          "name": "Turbine Blades in Composites",
+          "id": "turbine-blades-in-composites-helicopters",
+          "name": "Turbine Blades in Composites, Helicopters",
           "requires": ["fighter-aircraft"]
-        },
-        {
-          "id": "helicopters",
-          "name": "Helicopters",
-          "requires": ["turbine-blades-in-composites"]
         },
         {
           "id": "composite-materials-and-the-manufacturing-of-automobiles",
           "name": "Composite Materials and the Manufacturing of Automobiles",
-          "requires": ["helicopters"]
+          "requires": ["turbine-blades-in-composites-helicopters"]
         },
         {
           "id": "composites-in-naval-construction",
@@ -292,6 +302,16 @@
           "id": "sports-and-recreation",
           "name": "Sports and Recreation",
           "requires": ["composites-in-naval-construction"]
+        },
+        {
+          "id": "turbine-blades-in-composites",
+          "name": "Turbine Blades in Composites",
+          "status": "retired"
+        },
+        {
+          "id": "helicopters",
+          "name": "Helicopters",
+          "status": "retired"
         }
       ]
     }

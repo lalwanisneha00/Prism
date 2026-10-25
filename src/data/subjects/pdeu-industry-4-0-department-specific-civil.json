@@ -122,24 +122,22 @@
         },
         {
           "id": "transformation-of-industrial-processes-through-the",
-          "name": "Transformation of industrial processes through the integration of modern technologies such as sensing and actuation",
+          "name": "Transformation of industrial processes through the integration of modern technologies such as sensing and actuation, communication",
           "requires": ["overview-of-machine-learning-for-industry-4-0"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "communication",
-          "name": "communication",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["transformation-of-industrial-processes-through-the"]
         },
         {
           "id": "computational-processing",
           "name": "computational processing",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["communication"]
+          "requires": ["transformation-of-industrial-processes-through-the"]
+        },
+        {
+          "id": "communication",
+          "name": "communication",
+          "status": "retired"
         }
       ]
     },
@@ -159,24 +157,8 @@
         },
         {
           "id": "bim-software-and-tools-for-project-planning-execution-and",
-          "name": "BIM Software and Tools for Project Planning",
-          "requires": ["principles-and-concepts-of-bim-in-project-management"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "execution",
-          "name": "Execution",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bim-software-and-tools-for-project-planning-execution-and"]
-        },
-        {
-          "id": "monitoring",
-          "name": "Monitoring",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["execution"]
+          "name": "BIM Software and Tools for Project Planning, Execution, and Monitoring",
+          "requires": ["principles-and-concepts-of-bim-in-project-management"]
         },
         {
           "id": "bim-applications-in-civil-engineering-projects",
@@ -212,6 +194,16 @@
           "id": "bim-for-project-tracking-and-monitoring",
           "name": "BIM for Project Tracking and Monitoring",
           "requires": ["bim-for-project-planning-and-scheduling"]
+        },
+        {
+          "id": "execution",
+          "name": "Execution",
+          "status": "retired"
+        },
+        {
+          "id": "monitoring",
+          "name": "Monitoring",
+          "status": "retired"
         }
       ]
     },
@@ -264,18 +256,11 @@
           "requires": ["green-building-certifications-and-standards-e-g-leed-breeam"]
         },
         {
-          "id": "breeam",
-          "name": "BREEAM",
+          "id": "breeam-griha",
+          "name": "BREEAM, GRIHA)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["leed"]
-        },
-        {
-          "id": "griha",
-          "name": "GRIHA)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["breeam"]
         },
         {
           "id": "indian-building-codes-and-regulations-for-sustainable",
@@ -284,36 +269,42 @@
         },
         {
           "id": "simulation-tools-for-sustainable-building-design-e-g",
-          "name": "Simulation tools for sustainable building design (e.g",
+          "name": "Simulation tools for sustainable building design (e.g, EnergyPlus, Designbuilder",
           "requires": ["indian-building-codes-and-regulations-for-sustainable"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "energyplus",
-          "name": "EnergyPlus",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["simulation-tools-for-sustainable-building-design-e-g"]
-        },
-        {
-          "id": "designbuilder",
-          "name": "Designbuilder",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["energyplus"]
         },
         {
           "id": "ies-ve",
           "name": "IES VE)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["designbuilder"]
+          "requires": ["simulation-tools-for-sustainable-building-design-e-g"]
         },
         {
           "id": "3d-printing-in-construction-for-sustainable-practices",
           "name": "3D Printing in Construction for Sustainable Practices",
           "requires": ["simulation-tools-for-sustainable-building-design-e-g"]
+        },
+        {
+          "id": "breeam",
+          "name": "BREEAM",
+          "status": "retired"
+        },
+        {
+          "id": "griha",
+          "name": "GRIHA)",
+          "status": "retired"
+        },
+        {
+          "id": "energyplus",
+          "name": "EnergyPlus",
+          "status": "retired"
+        },
+        {
+          "id": "designbuilder",
+          "name": "Designbuilder",
+          "status": "retired"
         }
       ]
     },

@@ -113,6 +113,19 @@ describe("the catalogue follows PDEU's syllabus", () => {
 });
 
 describe("syllabus fix, Phase 2 (2024-25 handouts)", () => {
+  it("Mechanical semester 7: one elective slot where the student takes three", async () => {
+    const me = await loadPdeuBranch("me");
+    const slot = me.subjects.find((s) => s.semester === 7 && s.options?.length)!;
+    expect(slot.picks).toBe(3);
+    expect(slot.options!.length).toBeGreaterThanOrEqual(9);
+  });
+
+  it("Mechanical semester 3 lists Engineering Mechanics and its own AI course", () => {
+    const names = subjectsFor("me", 3).map((s) => s.name);
+    expect(names).toContain("Engineering Mechanics");
+    expect(names).toContain("Introduction to Artificial Intelligence in Mechanical Engineering");
+  });
+
   it("ICT semester 3 lists all six courses, Introduction to Artificial Intelligence included", () => {
     const names = subjectsFor("ict", 3).map((s) => s.name);
     expect(names).toHaveLength(6);
@@ -149,6 +162,11 @@ describe("syllabus fix, Phase 2 (2024-25 handouts)", () => {
     const labs = allSubjects.filter((s) => s.courseType === "practical");
     expect(labs.length).toBeGreaterThan(100);
     for (const lab of labs) expect(subjects).not.toContain(lab);
-    expect(labs.every((l) => l.chapters[0].topics.every((t) => t.number))).toBe(true);
+    // Experiments are numbered; a lab whose handout lists none is empty, unverified (upload banner).
+    for (const lab of labs) {
+      if (lab.chapters.length === 0) expect(lab.confidence).toBe("unverified");
+      else expect(lab.chapters[0].topics.every((t) => t.number)).toBe(true);
+    }
+    expect(labs.filter((l) => l.chapters.length === 0)).toHaveLength(4);
   });
 });

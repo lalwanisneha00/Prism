@@ -1,0 +1,395 @@
+{
+  "id": "pdeu-analog-and-digital-electronics-elec",
+  "name": "Analog & Digital Electronics",
+  "field": "Analog & Digital Electronics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 3): Analog & Digital Electronics",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of ELEC/sem3/Electrical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE202T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s3-analog-and-digital-electronics",
+      "code": "20EE202T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-analog-devices",
+      "name": "Introduction to Analog Devices",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "characteristics-of-diodes",
+          "name": "Characteristics of diodes"
+        },
+        {
+          "id": "simple-diode-circuits-clipping-clamping",
+          "name": "Simple diode circuits: clipping, clamping",
+          "requires": ["characteristics-of-diodes"]
+        },
+        {
+          "id": "rectifiers",
+          "name": "rectifiers",
+          "requires": ["simple-diode-circuits-clipping-clamping"]
+        },
+        {
+          "id": "amplifiers-bjt-biasing",
+          "name": "Amplifiers: BJT Biasing",
+          "requires": ["rectifiers"]
+        },
+        {
+          "id": "equivalent-circuit-and-frequency-response",
+          "name": "Equivalent circuit and Frequency response",
+          "requires": ["amplifiers-bjt-biasing"]
+        },
+        {
+          "id": "oscillators-and-feedback-amplifiers",
+          "name": "Oscillators and Feedback amplifiers",
+          "requires": ["equivalent-circuit-and-frequency-response"]
+        },
+        {
+          "id": "introduction-to-operational-amplifiers-op-amp",
+          "name": "Introduction to Operational Amplifiers (Op-Amp)",
+          "requires": ["oscillators-and-feedback-amplifiers"]
+        },
+        {
+          "id": "ideal-op-amp",
+          "name": "Ideal Op-Amp",
+          "requires": ["introduction-to-operational-amplifiers-op-amp"]
+        },
+        {
+          "id": "op-amp-characteristics-differential",
+          "name": "Op-Amp Characteristics, Differential",
+          "requires": ["ideal-op-amp"]
+        },
+        {
+          "id": "inverting-and-non-inverting-amplifiers",
+          "name": "Inverting & Non-Inverting Amplifiers",
+          "requires": ["op-amp-characteristics-differential"]
+        },
+        {
+          "id": "practical-op-amp-input-offset-voltage",
+          "name": "Practical Op-Amp (Input Offset Voltage",
+          "requires": ["inverting-and-non-inverting-amplifiers"]
+        },
+        {
+          "id": "input-bias-current",
+          "name": "Input Bias Current",
+          "requires": ["practical-op-amp-input-offset-voltage"]
+        },
+        {
+          "id": "input-offset-current",
+          "name": "Input Offset Current",
+          "requires": ["input-bias-current"]
+        },
+        {
+          "id": "thermal-drift",
+          "name": "Thermal Drift",
+          "requires": ["input-offset-current"]
+        },
+        {
+          "id": "common-mode-configuration-and-cmrr",
+          "name": "Common Mode Configuration And CMRR)",
+          "requires": ["thermal-drift"]
+        },
+        {
+          "id": "op-amp-with-negative-feedback-voltage-series-and-voltage-shu",
+          "name": "Op-Amp with Negative Feedback (Voltage-Series & Voltage-Shunt Feedback Amplifier)",
+          "requires": ["common-mode-configuration-and-cmrr"]
+        },
+        {
+          "id": "frequency-response-of-amplifiers",
+          "name": "Frequency Response of Amplifiers",
+          "requires": ["op-amp-with-negative-feedback-voltage-series-and-voltage-shu"]
+        }
+      ]
+    },
+    {
+      "id": "op-amp-applications",
+      "name": "Op-Amp Applications",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "dc-and-ac-amplifiers",
+          "name": "DC & AC Amplifiers"
+        },
+        {
+          "id": "peaking-amplifier-summing",
+          "name": "Peaking Amplifier, Summing",
+          "requires": ["dc-and-ac-amplifiers"]
+        },
+        {
+          "id": "scaling-and-averaging-amplifier",
+          "name": "Scaling & Averaging Amplifier",
+          "requires": ["peaking-amplifier-summing"]
+        },
+        {
+          "id": "differential-input-and-differential-output-amplifier",
+          "name": "Differential Input & Differential Output Amplifier",
+          "requires": ["scaling-and-averaging-amplifier"]
+        },
+        {
+          "id": "integrator-and-differentiator",
+          "name": "Integrator & Differentiator",
+          "requires": ["differential-input-and-differential-output-amplifier"]
+        },
+        {
+          "id": "low-pass-filter",
+          "name": "Low Pass Filter",
+          "requires": ["integrator-and-differentiator"]
+        },
+        {
+          "id": "high-pass-filter",
+          "name": "High Pass Filter",
+          "requires": ["low-pass-filter"]
+        },
+        {
+          "id": "band-reject-filter",
+          "name": "Band Reject Filter",
+          "requires": ["high-pass-filter"]
+        },
+        {
+          "id": "band-pass-filter-and-all-pass-filter",
+          "name": "Band Pass Filter & All Pass Filter",
+          "requires": ["band-reject-filter"]
+        },
+        {
+          "id": "basic-comparator",
+          "name": "Basic Comparator",
+          "requires": ["band-pass-filter-and-all-pass-filter"]
+        },
+        {
+          "id": "zero-crossing-detector",
+          "name": "Zero-Crossing Detector",
+          "requires": ["basic-comparator"]
+        },
+        {
+          "id": "schmitt-trigger",
+          "name": "Schmitt Trigger",
+          "requires": ["zero-crossing-detector"]
+        },
+        {
+          "id": "window-detector",
+          "name": "Window Detector",
+          "requires": ["schmitt-trigger"]
+        },
+        {
+          "id": "voltage-limiters",
+          "name": "Voltage Limiters",
+          "requires": ["window-detector"]
+        },
+        {
+          "id": "voltage-to-frequency-and-frequency-to-voltage-converter",
+          "name": "Voltage to Frequency & Frequency to Voltage Converter",
+          "requires": ["voltage-limiters"]
+        },
+        {
+          "id": "analog-to-digital-and-digital-to-analog-converters",
+          "name": "Analog to Digital & Digital to Analog Converters",
+          "requires": ["voltage-to-frequency-and-frequency-to-voltage-converter"]
+        },
+        {
+          "id": "voltage-controlled-oscillator",
+          "name": "Voltage Controlled Oscillator",
+          "requires": ["analog-to-digital-and-digital-to-analog-converters"]
+        },
+        {
+          "id": "phase-locked-loop",
+          "name": "Phase Locked Loop",
+          "requires": ["voltage-controlled-oscillator"]
+        },
+        {
+          "id": "fixed-and-adjustable-voltage-regulators",
+          "name": "Fixed & Adjustable Voltage Regulators",
+          "requires": ["phase-locked-loop"]
+        },
+        {
+          "id": "555-timer-as-astable",
+          "name": "555 Timer as Astable",
+          "requires": ["fixed-and-adjustable-voltage-regulators"]
+        },
+        {
+          "id": "bi-stable-and-mono-stable-multi-vibrators",
+          "name": "Bi-Stable & Mono-Stable Multi-Vibrators",
+          "requires": ["555-timer-as-astable"]
+        }
+      ]
+    },
+    {
+      "id": "boolean-algebra-logic-gates-and-combinational-circuits",
+      "name": "Boolean Algebra, Logic Gates & Combinational Circuits",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "binary-arithmetic",
+          "name": "Binary Arithmetic"
+        },
+        {
+          "id": "binary-codes",
+          "name": "Binary Codes",
+          "requires": ["binary-arithmetic"]
+        },
+        {
+          "id": "binary-logic",
+          "name": "Binary Logic",
+          "requires": ["binary-codes"]
+        },
+        {
+          "id": "basic-theorems-and-properties-of-boolean-algebra",
+          "name": "Basic Theorems & Properties of Boolean Algebra",
+          "requires": ["binary-logic"]
+        },
+        {
+          "id": "boolean-functions",
+          "name": "Boolean Functions",
+          "requires": ["basic-theorems-and-properties-of-boolean-algebra"]
+        },
+        {
+          "id": "canonical-and-standard-forms",
+          "name": "Canonical & Standard Forms",
+          "requires": ["boolean-functions"]
+        },
+        {
+          "id": "digital-logic-gates-and-their-properties",
+          "name": "Digital Logic Gates & Their Properties",
+          "requires": ["canonical-and-standard-forms"]
+        },
+        {
+          "id": "k-map-method",
+          "name": "K-Map Method",
+          "requires": ["digital-logic-gates-and-their-properties"]
+        },
+        {
+          "id": "four-five-variable-map",
+          "name": "Four/Five Variable Map",
+          "requires": ["k-map-method"]
+        },
+        {
+          "id": "pos-and-sop-simplification",
+          "name": "POS & SOP Simplification",
+          "requires": ["four-five-variable-map"]
+        },
+        {
+          "id": "don-t-care-conditions",
+          "name": "Don’t Care Conditions",
+          "requires": ["pos-and-sop-simplification"]
+        },
+        {
+          "id": "nand-and-nor-implementation",
+          "name": "NAND & NOR Implementation",
+          "requires": ["don-t-care-conditions"]
+        },
+        {
+          "id": "exclusive-or-functions",
+          "name": "Exclusive OR Functions",
+          "requires": ["nand-and-nor-implementation"]
+        },
+        {
+          "id": "combinational-logic-combinational-circuit",
+          "name": "COMBINATIONAL LOGIC: Combinational Circuit",
+          "requires": ["exclusive-or-functions"]
+        },
+        {
+          "id": "analysis-and-design",
+          "name": "Analysis & Design",
+          "requires": ["combinational-logic-combinational-circuit"]
+        },
+        {
+          "id": "binary-adder-and-subtractor",
+          "name": "Binary Adder & Subtractor",
+          "requires": ["analysis-and-design"]
+        },
+        {
+          "id": "decimal-adder",
+          "name": "Decimal Adder",
+          "requires": ["binary-adder-and-subtractor"]
+        },
+        {
+          "id": "binary-multiplier-decoder-encoder",
+          "name": "Binary Multiplier, Decoder, Encoder",
+          "requires": ["decimal-adder"]
+        },
+        {
+          "id": "multiplexer-and-de-multiplexers",
+          "name": "Multiplexer & De-Multiplexers",
+          "requires": ["binary-multiplier-decoder-encoder"]
+        }
+      ]
+    },
+    {
+      "id": "synchronous-sequential-logic",
+      "name": "Synchronous Sequential Logic",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "sequential-circuits",
+          "name": "Sequential Circuits"
+        },
+        {
+          "id": "latches",
+          "name": "Latches",
+          "requires": ["sequential-circuits"]
+        },
+        {
+          "id": "flip-flops-and-excitation-tables",
+          "name": "Flip-Flops & Excitation Tables",
+          "requires": ["latches"]
+        },
+        {
+          "id": "analysis-of-clocked-sequential-circuits",
+          "name": "Analysis of Clocked Sequential Circuits",
+          "requires": ["flip-flops-and-excitation-tables"]
+        },
+        {
+          "id": "design-of-sequential-circuits",
+          "name": "Design of Sequential Circuits",
+          "requires": ["analysis-of-clocked-sequential-circuits"]
+        },
+        {
+          "id": "registers",
+          "name": "Registers",
+          "requires": ["design-of-sequential-circuits"]
+        },
+        {
+          "id": "shift-registers",
+          "name": "Shift registers",
+          "requires": ["registers"]
+        },
+        {
+          "id": "ripple-counter",
+          "name": "Ripple Counter",
+          "requires": ["shift-registers"]
+        },
+        {
+          "id": "synchronous-counters",
+          "name": "Synchronous Counters",
+          "requires": ["ripple-counter"]
+        },
+        {
+          "id": "ring-johnson-counter",
+          "name": "Ring/Johnson Counter",
+          "requires": ["synchronous-counters"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-analog-and-digital-electronics-lab-elec"]
+}

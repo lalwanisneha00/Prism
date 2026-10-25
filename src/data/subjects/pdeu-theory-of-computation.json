@@ -66,6 +66,12 @@
           "requires": ["definitions-of-finite-state-automata"]
         },
         {
+          "id": "conversion-of-dfa-to-regular-expression",
+          "name": "Conversion of DFA to Regular Expression",
+          "requires": ["transition-graphs"],
+          "formerChapters": ["computability-and-complexity"]
+        },
+        {
           "id": "dfa",
           "name": "Deterministic & Non- deterministic Finite State Automata",
           "requires": ["conversion-of-dfa-to-regular-expression"]
@@ -264,18 +270,10 @@
           "requires": ["decidability"]
         },
         {
-          "id": "decidabilities",
-          "name": "Decidabilities",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["turing-enumerability"]
-        },
-        {
-          "id": "reducibility",
-          "name": "Reducibility",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["decidabilities"]
+          "id": "turing-machines-acceptability-decidabilities-and",
+          "name": "Turing machines Acceptability, Decidabilities, and Reducibility",
+          "requires": ["turing-enumerability"],
+          "formerChapters": ["computability-and-complexity"]
         },
         {
           "id": "unsolvable-problems-about-turing-machines",
@@ -298,6 +296,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["the-church-turing-thesis"]
+        },
+        {
+          "id": "decidabilities",
+          "name": "Decidabilities",
+          "status": "retired"
+        },
+        {
+          "id": "reducibility",
+          "name": "Reducibility",
+          "status": "retired"
         }
       ]
     },
@@ -420,7 +428,7 @@
           "movedFrom": {
             "subject": "pdeu-theory-of-computation",
             "chapter": "finite-automata-and-regular-language",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           }
         },
         {
@@ -430,7 +438,7 @@
           "movedFrom": {
             "subject": "pdeu-theory-of-computation",
             "chapter": "finite-automata-and-regular-language",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -442,19 +450,7 @@
           "movedFrom": {
             "subject": "pdeu-theory-of-computation",
             "chapter": "finite-automata-and-regular-language",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "conversion-of-dfa-to-regular-expression",
-          "name": "Conversion of DFA to Regular Expression",
-          "requires": ["transition-graphs"],
-          "movedFrom": {
-            "subject": "pdeu-theory-of-computation",
-            "chapter": "finite-automata-and-regular-language",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -466,36 +462,17 @@
           "movedFrom": {
             "subject": "pdeu-theory-of-computation",
             "chapter": "pushdown-automata-and-context-free-language",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "turing-machines-acceptability-decidabilities-and",
-          "name": "Turing machines Acceptability",
-          "requires": ["turing-enumerability"],
-          "source": "admin_handout",
-          "confidence": "verified",
-          "movedFrom": {
-            "subject": "pdeu-theory-of-computation",
-            "chapter": "turing-machine-and-recursive-language",
-            "at": "2026-10-24T23:22:41.746Z"
-          }
-        },
-        {
-          "id": "tutorials-1",
-          "name": "TUTORIALS 1",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["turing-machines-acceptability-decidabilities-and"]
         },
         {
           "id": "problems-dfa-construction",
           "name": "Problems DFA construction",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["tutorials-1"]
+          "requires": ["equivalence-of-pdas-accepting-by-final-state-and-by-empty"]
         },
         {
           "id": "problems-on-nfa-to-dfa-conversion-4",
@@ -505,8 +482,8 @@
           "requires": ["problems-dfa-construction"]
         },
         {
-          "id": "problems-on-mealy-and-moore-machine-construction",
-          "name": "Problems on Mealy and Moore machine construction",
+          "id": "problems-on-mealy-and-moore-machine-construction-conversion",
+          "name": "Problems on Mealy and Moore machine construction, conversion. 6",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["problems-on-nfa-to-dfa-conversion-4"]
@@ -516,7 +493,7 @@
           "name": "Pumping Lemma and Problems on Grammar construction. 7",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["problems-on-mealy-and-moore-machine-construction"]
+          "requires": ["problems-on-mealy-and-moore-machine-construction-conversion"]
         },
         {
           "id": "problems-on-parsing-and-ambiguity-removal-8",
@@ -561,8 +538,8 @@
           "requires": ["problems-on-deterministic-and-non-deterministic-tm-construct"]
         },
         {
-          "id": "problems-on-tm-acceptability",
-          "name": "Problems on TM acceptability",
+          "id": "problems-on-tm-acceptability-decidabilities",
+          "name": "Problems on TM acceptability, decidabilities",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["problems-on-multi-tape-tm-and-its-equivalence-conversion-13"]
@@ -572,7 +549,22 @@
           "name": "reducibility. 14",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["problems-on-tm-acceptability"]
+          "requires": ["problems-on-tm-acceptability-decidabilities"]
+        },
+        {
+          "id": "tutorials-1",
+          "name": "TUTORIALS 1",
+          "status": "retired"
+        },
+        {
+          "id": "problems-on-mealy-and-moore-machine-construction",
+          "name": "Problems on Mealy and Moore machine construction",
+          "status": "retired"
+        },
+        {
+          "id": "problems-on-tm-acceptability",
+          "name": "Problems on TM acceptability",
+          "status": "retired"
         }
       ]
     }

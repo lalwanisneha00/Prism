@@ -76,19 +76,14 @@
           "requires": ["power-bjt"]
         },
         {
-          "id": "igbt",
-          "name": "IGBT",
+          "id": "igbt-gto",
+          "name": "IGBT, GTO)",
           "requires": ["mosfet"]
-        },
-        {
-          "id": "gto",
-          "name": "GTO)",
-          "requires": ["igbt"]
         },
         {
           "id": "introduction-to-commutation-techniques",
           "name": "Introduction to Commutation Techniques",
-          "requires": ["gto"]
+          "requires": ["igbt-gto"]
         },
         {
           "id": "gating-characteristics",
@@ -111,19 +106,34 @@
           "requires": ["optical-isolation"]
         },
         {
-          "id": "heat-sink-design",
-          "name": "Heat Sink Design",
+          "id": "heat-sink-design-series",
+          "name": "Heat Sink Design, Series",
           "requires": ["snubber-circuit-design"]
-        },
-        {
-          "id": "series",
-          "name": "Series",
-          "requires": ["heat-sink-design"]
         },
         {
           "id": "parallel-operation-of-scr",
           "name": "Parallel Operation of SCR",
-          "requires": ["series"]
+          "requires": ["heat-sink-design-series"]
+        },
+        {
+          "id": "igbt",
+          "name": "IGBT",
+          "status": "retired"
+        },
+        {
+          "id": "gto",
+          "name": "GTO)",
+          "status": "retired"
+        },
+        {
+          "id": "heat-sink-design",
+          "name": "Heat Sink Design",
+          "status": "retired"
+        },
+        {
+          "id": "series",
+          "name": "Series",
+          "status": "retired"
         }
       ]
     },
@@ -233,19 +243,14 @@
           "requires": ["3-phase-voltage-source-inverter-180and-o-120mode-of-conducti"]
         },
         {
-          "id": "unipolar-and-bipolar-modulation",
-          "name": "Unipolar and Bipolar Modulation",
+          "id": "unipolar-and-bipolar-modulation-harmonics",
+          "name": "Unipolar and Bipolar Modulation, Harmonics",
           "requires": ["pulse-width-modulation-techniques"]
-        },
-        {
-          "id": "harmonics",
-          "name": "Harmonics",
-          "requires": ["unipolar-and-bipolar-modulation"]
         },
         {
           "id": "power-factor",
           "name": "Power Factor",
-          "requires": ["harmonics"]
+          "requires": ["unipolar-and-bipolar-modulation-harmonics"]
         },
         {
           "id": "distortion-factor",
@@ -296,6 +301,16 @@
           "id": "operating-principle-and-topological-overview-of-cycloconvert",
           "name": "Operating Principle & Topological Overview of Cycloconverter",
           "requires": ["ac-voltage-controller-as-a-soft-starter"]
+        },
+        {
+          "id": "unipolar-and-bipolar-modulation",
+          "name": "Unipolar and Bipolar Modulation",
+          "status": "retired"
+        },
+        {
+          "id": "harmonics",
+          "name": "Harmonics",
+          "status": "retired"
         }
       ]
     },

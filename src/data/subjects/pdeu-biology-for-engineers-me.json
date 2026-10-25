@@ -41,19 +41,14 @@
           "name": "Cell as a basic unit of life"
         },
         {
-          "id": "prokaryotic-and-eukaryotic-cells",
-          "name": "prokaryotic and eukaryotic cells",
+          "id": "prokaryotic-and-eukaryotic-cells-microbes",
+          "name": "prokaryotic and eukaryotic cells, microbes",
           "requires": ["cell-as-a-basic-unit-of-life"]
-        },
-        {
-          "id": "microbes",
-          "name": "microbes",
-          "requires": ["prokaryotic-and-eukaryotic-cells"]
         },
         {
           "id": "plant-and-animal-cells",
           "name": "plant and animal cells",
-          "requires": ["microbes"]
+          "requires": ["prokaryotic-and-eukaryotic-cells-microbes"]
         },
         {
           "id": "cell-organelles",
@@ -71,29 +66,44 @@
           "requires": ["structure-and-function"]
         },
         {
-          "id": "vitamins-and-minerals",
-          "name": "Vitamins and Minerals",
+          "id": "vitamins-and-minerals-carbohydrates-lipids",
+          "name": "Vitamins and Minerals, Carbohydrates, Lipids",
           "requires": ["cell-membrane"]
-        },
-        {
-          "id": "carbohydrates",
-          "name": "Carbohydrates",
-          "requires": ["vitamins-and-minerals"]
-        },
-        {
-          "id": "lipids",
-          "name": "Lipids",
-          "requires": ["carbohydrates"]
         },
         {
           "id": "amino-acids-and-proteins",
           "name": "Amino Acids and proteins",
-          "requires": ["lipids"]
+          "requires": ["vitamins-and-minerals-carbohydrates-lipids"]
         },
         {
           "id": "nucleic-acids-dna-and-rna",
           "name": "Nucleic Acids (DNA and RNA)",
           "requires": ["amino-acids-and-proteins"]
+        },
+        {
+          "id": "prokaryotic-and-eukaryotic-cells",
+          "name": "prokaryotic and eukaryotic cells",
+          "status": "retired"
+        },
+        {
+          "id": "microbes",
+          "name": "microbes",
+          "status": "retired"
+        },
+        {
+          "id": "vitamins-and-minerals",
+          "name": "Vitamins and Minerals",
+          "status": "retired"
+        },
+        {
+          "id": "carbohydrates",
+          "name": "Carbohydrates",
+          "status": "retired"
+        },
+        {
+          "id": "lipids",
+          "name": "Lipids",
+          "status": "retired"
         }
       ]
     },
@@ -152,19 +162,14 @@
           "requires": ["lungs-operate-as-an-exchange-model"]
         },
         {
-          "id": "echolocation-ultrasonography",
-          "name": "Echolocation (ultrasonography",
+          "id": "echolocation-ultrasonography-sonars",
+          "name": "Echolocation (ultrasonography, sonars)",
           "requires": ["kidneys-function-as-a-filtration-system"]
-        },
-        {
-          "id": "sonars",
-          "name": "sonars)",
-          "requires": ["echolocation-ultrasonography"]
         },
         {
           "id": "photosynthesis-photovoltaic-cells",
           "name": "Photosynthesis (photovoltaic cells",
-          "requires": ["sonars"]
+          "requires": ["echolocation-ultrasonography-sonars"]
         },
         {
           "id": "bionic-leaf",
@@ -185,6 +190,16 @@
           "id": "plant-burrs-velcro",
           "name": "Plant burrs (Velcro)",
           "requires": ["lotus-leaf-effect-super-hydrophobic-and-self-cleaning-surfac"]
+        },
+        {
+          "id": "echolocation-ultrasonography",
+          "name": "Echolocation (ultrasonography",
+          "status": "retired"
+        },
+        {
+          "id": "sonars",
+          "name": "sonars)",
+          "status": "retired"
         }
       ]
     },
@@ -259,19 +274,14 @@
           "requires": ["animal-tissue-culture"]
         },
         {
-          "id": "introduction-to-biomimetics-and-biomimicry",
-          "name": "Introduction to Biomimetics and Biomimicry",
+          "id": "introduction-to-biomimetics-and-biomimicry-nanobiotechnology",
+          "name": "Introduction to Biomimetics and Biomimicry, Nanobiotechnology",
           "requires": ["tissue-engineering"]
-        },
-        {
-          "id": "nanobiotechnology",
-          "name": "Nanobiotechnology",
-          "requires": ["introduction-to-biomimetics-and-biomimicry"]
         },
         {
           "id": "introduction-to-radiology",
           "name": "Introduction to Radiology",
-          "requires": ["nanobiotechnology"]
+          "requires": ["introduction-to-biomimetics-and-biomimicry-nanobiotechnology"]
         },
         {
           "id": "high-throughput-diagnostics-in-clinics-molecular-diagnostics",
@@ -282,6 +292,16 @@
           "id": "dna-chips",
           "name": "DNA chips",
           "requires": ["high-throughput-diagnostics-in-clinics-molecular-diagnostics"]
+        },
+        {
+          "id": "introduction-to-biomimetics-and-biomimicry",
+          "name": "Introduction to Biomimetics and Biomimicry",
+          "status": "retired"
+        },
+        {
+          "id": "nanobiotechnology",
+          "name": "Nanobiotechnology",
+          "status": "retired"
         }
       ]
     }

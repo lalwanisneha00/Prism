@@ -65,17 +65,8 @@
         },
         {
           "id": "introduction-to-uavs-types-applications-and-challenges",
-          "name": "Introduction to UAVs: Types",
-          "requires": ["introduction-to-communication-protocols-for-autonomous"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "challenges",
-          "name": "Challenges",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-uavs-types-applications-and-challenges"]
+          "name": "Introduction to UAVs: Types, Applications, and Challenges",
+          "requires": ["introduction-to-communication-protocols-for-autonomous"]
         },
         {
           "id": "expert-system-and-deep-learning-in-autonomous-systems",
@@ -83,11 +74,14 @@
           "requires": ["introduction-to-uavs-types-applications-and-challenges"]
         },
         {
+          "id": "challenges",
+          "name": "Challenges",
+          "status": "retired"
+        },
+        {
           "id": "applications",
           "name": "Applications",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["expert-system-and-deep-learning-in-autonomous-systems"]
+          "status": "retired"
         }
       ]
     },
@@ -122,29 +116,23 @@
         },
         {
           "id": "uav-perception-systems-cameras-lidar-and-radar",
-          "name": "UAV Perception Systems: Cameras",
-          "requires": ["deep-learning-for-perception-in-autonomous-systems"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "lidar",
-          "name": "Lidar",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["uav-perception-systems-cameras-lidar-and-radar"]
-        },
-        {
-          "id": "radar",
-          "name": "Radar",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["lidar"]
+          "name": "UAV Perception Systems: Cameras, Lidar, and Radar",
+          "requires": ["deep-learning-for-perception-in-autonomous-systems"]
         },
         {
           "id": "case-studies-and-applications-in-uav-perception",
           "name": "Case Studies and Applications in UAV Perception",
           "requires": ["uav-perception-systems-cameras-lidar-and-radar"]
+        },
+        {
+          "id": "lidar",
+          "name": "Lidar",
+          "status": "retired"
+        },
+        {
+          "id": "radar",
+          "name": "Radar",
+          "status": "retired"
         }
       ]
     },
@@ -169,24 +157,8 @@
         },
         {
           "id": "autonomous-systems-in-challenging-environments-e-g-space",
-          "name": "Autonomous Systems in Challenging Environments (e.g",
-          "requires": ["human-robot-interaction-and-collaboration"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "space",
-          "name": "Space",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["autonomous-systems-in-challenging-environments-e-g-space"]
-        },
-        {
-          "id": "underwater",
-          "name": "Underwater)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["space"]
+          "name": "Autonomous Systems in Challenging Environments (e.g., Space, Underwater)",
+          "requires": ["human-robot-interaction-and-collaboration"]
         },
         {
           "id": "advanced-deep-learning-techniques-for-autonomous-systems",
@@ -201,7 +173,18 @@
         {
           "id": "etc",
           "name": "etc",
-          "requires": ["generative-adversarial-networks-gans"]
+          "requires": ["generative-adversarial-networks-gans"],
+          "status": "retired"
+        },
+        {
+          "id": "space",
+          "name": "Space",
+          "status": "retired"
+        },
+        {
+          "id": "underwater",
+          "name": "Underwater)",
+          "status": "retired"
         }
       ]
     },

@@ -40,65 +40,23 @@
       "topics": [
         {
           "id": "introduction-to-food-processing-of-various-foods-including",
-          "name": "Introduction to food processing of various foods including dairy",
+          "name": "Introduction to food processing of various foods including dairy, bakery, brewing",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "bakery",
-          "name": "bakery",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-food-processing-of-various-foods-including"]
-        },
-        {
-          "id": "brewing",
-          "name": "brewing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bakery"]
         },
         {
           "id": "fruit-and-vegetable-products",
           "name": "fruit and vegetable products",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["brewing"]
+          "requires": ["introduction-to-food-processing-of-various-foods-including"]
         },
         {
-          "id": "plantation-products",
-          "name": "plantation products",
+          "id": "plantation-products-oilseeds-meat-fish-poultry",
+          "name": "plantation products, oilseeds, meat, fish, poultry",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["fruit-and-vegetable-products"]
-        },
-        {
-          "id": "oilseeds",
-          "name": "oilseeds",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["plantation-products"]
-        },
-        {
-          "id": "meat",
-          "name": "meat",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["oilseeds"]
-        },
-        {
-          "id": "fish",
-          "name": "fish",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["meat"]
-        },
-        {
-          "id": "poultry",
-          "name": "poultry",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["fish"]
         },
         {
           "id": "pro-and-prebiotics-and-nutraceuticals",
@@ -113,39 +71,18 @@
           "confidence": "verified"
         },
         {
-          "id": "thermal-treatments-like-pasteurization",
-          "name": "thermal treatments like pasteurization",
+          "id": "thermal-treatments-like-pasteurization-sterilization-canning",
+          "name": "thermal treatments like pasteurization, sterilization, canning, retorting etc",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["principles-of-food-preservation-by-dehydration-thermal"]
-        },
-        {
-          "id": "sterilization",
-          "name": "sterilization",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["thermal-treatments-like-pasteurization"]
-        },
-        {
-          "id": "canning",
-          "name": "canning",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sterilization"]
-        },
-        {
-          "id": "retorting-etc",
-          "name": "retorting etc",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["canning"]
         },
         {
           "id": "low-temperature-i-e",
           "name": "low temperature i.e",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["retorting-etc"]
+          "requires": ["thermal-treatments-like-pasteurization-sterilization-canning"]
         },
         {
           "id": "chilling-and-freezing",
@@ -168,45 +105,31 @@
           "movedFrom": {
             "subject": "pdeu-food-biotechnology",
             "chapter": "food-biotechnology",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
-          "id": "traditional-methods-like-salting-syruping",
-          "name": "traditional methods like salting/ syruping",
+          "id": "traditional-methods-like-salting-syruping-pickling",
+          "name": "traditional methods like salting/ syruping, pickling",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["solid-state-fermentation"]
         },
         {
-          "id": "pickling",
-          "name": "pickling",
+          "id": "non-thermal-processes-like-map-irradiation",
+          "name": "non- thermal processes like MAP, irradiation",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["traditional-methods-like-salting-syruping"]
-        },
-        {
-          "id": "non-thermal-processes-like-map",
-          "name": "non- thermal processes like MAP",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pickling"]
-        },
-        {
-          "id": "irradiation",
-          "name": "irradiation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["non-thermal-processes-like-map"]
+          "requires": ["traditional-methods-like-salting-syruping-pickling"]
         },
         {
           "id": "high-pressure-processing-etc",
           "name": "high pressure processing etc",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["irradiation"]
+          "requires": ["non-thermal-processes-like-map-irradiation"]
         },
         {
           "id": "hurdle-technology",
@@ -214,6 +137,81 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["high-pressure-processing-etc"]
+        },
+        {
+          "id": "bakery",
+          "name": "bakery",
+          "status": "retired"
+        },
+        {
+          "id": "brewing",
+          "name": "brewing",
+          "status": "retired"
+        },
+        {
+          "id": "plantation-products",
+          "name": "plantation products",
+          "status": "retired"
+        },
+        {
+          "id": "oilseeds",
+          "name": "oilseeds",
+          "status": "retired"
+        },
+        {
+          "id": "meat",
+          "name": "meat",
+          "status": "retired"
+        },
+        {
+          "id": "fish",
+          "name": "fish",
+          "status": "retired"
+        },
+        {
+          "id": "poultry",
+          "name": "poultry",
+          "status": "retired"
+        },
+        {
+          "id": "thermal-treatments-like-pasteurization",
+          "name": "thermal treatments like pasteurization",
+          "status": "retired"
+        },
+        {
+          "id": "sterilization",
+          "name": "sterilization",
+          "status": "retired"
+        },
+        {
+          "id": "canning",
+          "name": "canning",
+          "status": "retired"
+        },
+        {
+          "id": "retorting-etc",
+          "name": "retorting etc",
+          "status": "retired"
+        },
+        {
+          "id": "traditional-methods-like-salting-syruping",
+          "name": "traditional methods like salting/ syruping",
+          "status": "retired"
+        },
+        {
+          "id": "pickling",
+          "name": "pickling",
+          "status": "retired"
+        },
+        {
+          "id": "non-thermal-processes-like-map",
+          "name": "non- thermal processes like MAP",
+          "status": "retired"
+        },
+        {
+          "id": "irradiation",
+          "name": "irradiation",
+          "status": "retired"
         }
       ]
     },
@@ -341,24 +339,8 @@
         },
         {
           "id": "the-role-of-biotechnology-in-fermented-food-products-dairy",
-          "name": "the role of biotechnology in fermented food products (dairy",
-          "requires": ["fermented-foods-dairy-products-oriental-fermentations"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "meat-2",
-          "name": "meat",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["the-role-of-biotechnology-in-fermented-food-products-dairy"]
-        },
-        {
-          "id": "vegetable",
-          "name": "vegetable)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["meat-2"]
+          "name": "the role of biotechnology in fermented food products (dairy, meat, vegetable)",
+          "requires": ["fermented-foods-dairy-products-oriental-fermentations"]
         },
         {
           "id": "starter-culture-development-process-development",
@@ -395,17 +377,23 @@
         },
         {
           "id": "nutraceuticals-use-of-antibiotics-and-hormones-in-food",
-          "name": "Nutraceuticals",
-          "requires": ["functional-foods"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "Nutraceuticals, Use of Antibiotics & Hormones in Food Processing & Agricultural Practices etc",
+          "requires": ["functional-foods"]
+        },
+        {
+          "id": "meat-2",
+          "name": "meat",
+          "status": "retired"
+        },
+        {
+          "id": "vegetable",
+          "name": "vegetable)",
+          "status": "retired"
         },
         {
           "id": "use-of-antibiotics-and-hormones-in-food-processing-and-agric",
           "name": "Use of Antibiotics & Hormones in Food Processing & Agricultural Practices etc",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["nutraceuticals-use-of-antibiotics-and-hormones-in-food"]
+          "status": "retired"
         }
       ]
     },
@@ -470,18 +458,11 @@
           "requires": ["functional-foods-from-plant-sources"]
         },
         {
-          "id": "dietary-supplements",
-          "name": "dietary supplements",
+          "id": "dietary-supplements-regulation",
+          "name": "dietary supplements, Regulation",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["animal-sources"]
-        },
-        {
-          "id": "regulation",
-          "name": "Regulation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["dietary-supplements"]
         },
         {
           "id": "fao-in-india-technical-cooperation-programmes-biosecurity-in",
@@ -547,39 +528,48 @@
           "requires": ["role-of-codex-contact-point-national-codex-contact-point"]
         },
         {
-          "id": "national-codex-committee-of-india",
-          "name": "National Codex Committee of India",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["national-codex-contact-point-nccp"]
-        },
-        {
           "id": "tor-functions-shadow-committees-etc",
-          "name": "ToR",
-          "requires": ["role-of-codex-contact-point-national-codex-contact-point"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "functions",
-          "name": "Functions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["tor-functions-shadow-committees-etc"]
-        },
-        {
-          "id": "shadow-committees-etc",
-          "name": "Shadow Committees etc",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["functions"]
+          "name": "ToR, Functions, Shadow Committees etc",
+          "requires": ["role-of-codex-contact-point-national-codex-contact-point"]
         },
         {
           "id": "international-plant-protection-convention-ippc",
           "name": "International Plant Protection Convention (IPPC)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["shadow-committees-etc"]
+          "requires": ["tor-functions-shadow-committees-etc"]
+        },
+        {
+          "id": "national-codex-committee-of-india-tor-functions",
+          "name": "National Codex Committee of India, ToR, Functions",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["international-plant-protection-convention-ippc"]
+        },
+        {
+          "id": "dietary-supplements",
+          "name": "dietary supplements",
+          "status": "retired"
+        },
+        {
+          "id": "regulation",
+          "name": "Regulation",
+          "status": "retired"
+        },
+        {
+          "id": "national-codex-committee-of-india",
+          "name": "National Codex Committee of India",
+          "status": "retired"
+        },
+        {
+          "id": "functions",
+          "name": "Functions",
+          "status": "retired"
+        },
+        {
+          "id": "shadow-committees-etc",
+          "name": "Shadow Committees etc",
+          "status": "retired"
         }
       ]
     }

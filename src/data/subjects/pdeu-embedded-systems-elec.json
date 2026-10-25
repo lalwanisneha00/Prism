@@ -37,48 +37,23 @@
       "hours": 10,
       "topics": [
         {
-          "id": "embedded-systems",
-          "name": "Embedded Systems"
-        },
-        {
-          "id": "definition",
-          "name": "Definition",
-          "requires": ["embedded-systems"]
-        },
-        {
-          "id": "significance",
-          "name": "Significance",
-          "requires": ["definition"]
-        },
-        {
-          "id": "classification",
-          "name": "Classification",
-          "requires": ["significance"]
-        },
-        {
-          "id": "features",
-          "name": "Features",
-          "requires": ["classification"]
+          "id": "embedded-systems-definition-significance-classification-feat",
+          "name": "Embedded Systems, Definition, Significance, Classification, Features"
         },
         {
           "id": "examples-and-applications",
           "name": "Examples and Applications",
-          "requires": ["features"]
+          "requires": ["embedded-systems-definition-significance-classification-feat"]
         },
         {
           "id": "basic-architecture-of-microcontrollers-risc-and-cisc-archite",
-          "name": "Basic Architecture of Microcontrollers (RISC and CISC architecture",
+          "name": "Basic Architecture of Microcontrollers (RISC and CISC architecture, Flash",
           "requires": ["examples-and-applications"]
-        },
-        {
-          "id": "flash",
-          "name": "Flash",
-          "requires": ["basic-architecture-of-microcontrollers-risc-and-cisc-archite"]
         },
         {
           "id": "sram",
           "name": "SRAM",
-          "requires": ["flash"]
+          "requires": ["basic-architecture-of-microcontrollers-risc-and-cisc-archite"]
         },
         {
           "id": "eeprom-and-solid-state-memories",
@@ -89,6 +64,36 @@
           "id": "inside-the-embedded-systems",
           "name": "Inside the Embedded Systems",
           "requires": ["eeprom-and-solid-state-memories"]
+        },
+        {
+          "id": "embedded-systems",
+          "name": "Embedded Systems",
+          "status": "retired"
+        },
+        {
+          "id": "definition",
+          "name": "Definition",
+          "status": "retired"
+        },
+        {
+          "id": "significance",
+          "name": "Significance",
+          "status": "retired"
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "status": "retired"
+        },
+        {
+          "id": "features",
+          "name": "Features",
+          "status": "retired"
+        },
+        {
+          "id": "flash",
+          "name": "Flash",
+          "status": "retired"
         }
       ]
     },
@@ -102,34 +107,24 @@
           "name": "Popular Platforms"
         },
         {
-          "id": "device-overview",
-          "name": "Device Overview",
+          "id": "device-overview-features",
+          "name": "Device Overview, Features",
           "requires": ["popular-platforms"]
-        },
-        {
-          "id": "features-2",
-          "name": "Features",
-          "requires": ["device-overview"]
         },
         {
           "id": "functional-block-diagram",
           "name": "Functional Block Diagram",
-          "requires": ["features-2"]
+          "requires": ["device-overview-features"]
         },
         {
-          "id": "pin-diagram",
-          "name": "Pin Diagram",
+          "id": "pin-diagram-specifications",
+          "name": "Pin Diagram, Specifications",
           "requires": ["functional-block-diagram"]
-        },
-        {
-          "id": "specifications",
-          "name": "Specifications",
-          "requires": ["pin-diagram"]
         },
         {
           "id": "cpu",
           "name": "CPU",
-          "requires": ["specifications"]
+          "requires": ["pin-diagram-specifications"]
         },
         {
           "id": "memory-and-bus-architecture",
@@ -137,19 +132,14 @@
           "requires": ["cpu"]
         },
         {
-          "id": "flash-memory",
-          "name": "Flash Memory",
+          "id": "flash-memory-clock",
+          "name": "Flash Memory, Clock",
           "requires": ["memory-and-bus-architecture"]
-        },
-        {
-          "id": "clock",
-          "name": "Clock",
-          "requires": ["flash-memory"]
         },
         {
           "id": "oscillator-and-phase-locked-loop",
           "name": "Oscillator and Phase Locked Loop",
-          "requires": ["clock"]
+          "requires": ["flash-memory-clock"]
         },
         {
           "id": "general-purpose-input-output-registers",
@@ -167,24 +157,59 @@
           "requires": ["general-and-specific-register-sets"]
         },
         {
-          "id": "time-delays",
-          "name": "Time Delays",
+          "id": "time-delays-pipeline",
+          "name": "Time Delays, Pipeline",
           "requires": ["dma-controller"]
-        },
-        {
-          "id": "pipeline",
-          "name": "Pipeline",
-          "requires": ["time-delays"]
         },
         {
           "id": "board-power-management",
           "name": "Board Power Management",
-          "requires": ["pipeline"]
+          "requires": ["time-delays-pipeline"]
         },
         {
           "id": "programming-the-microcontroller",
           "name": "Programming the Microcontroller",
           "requires": ["board-power-management"]
+        },
+        {
+          "id": "device-overview",
+          "name": "Device Overview",
+          "status": "retired"
+        },
+        {
+          "id": "features-2",
+          "name": "Features",
+          "status": "retired"
+        },
+        {
+          "id": "pin-diagram",
+          "name": "Pin Diagram",
+          "status": "retired"
+        },
+        {
+          "id": "specifications",
+          "name": "Specifications",
+          "status": "retired"
+        },
+        {
+          "id": "flash-memory",
+          "name": "Flash Memory",
+          "status": "retired"
+        },
+        {
+          "id": "clock",
+          "name": "Clock",
+          "status": "retired"
+        },
+        {
+          "id": "time-delays",
+          "name": "Time Delays",
+          "status": "retired"
+        },
+        {
+          "id": "pipeline",
+          "name": "Pipeline",
+          "status": "retired"
         }
       ]
     },
@@ -198,19 +223,14 @@
           "name": "Analog to Digital Converter"
         },
         {
-          "id": "digital-to-analog-converter",
-          "name": "Digital to Analog Converter",
+          "id": "digital-to-analog-converter-timers",
+          "name": "Digital to Analog Converter, Timers",
           "requires": ["analog-to-digital-converter"]
-        },
-        {
-          "id": "timers",
-          "name": "Timers",
-          "requires": ["digital-to-analog-converter"]
         },
         {
           "id": "counters-up-counter",
           "name": "Counters (Up Counter",
-          "requires": ["timers"]
+          "requires": ["digital-to-analog-converter-timers"]
         },
         {
           "id": "down-counter",
@@ -223,24 +243,14 @@
           "requires": ["down-counter"]
         },
         {
-          "id": "watchdog-timer",
-          "name": "Watchdog Timer",
+          "id": "watchdog-timer-interrupts-capture",
+          "name": "Watchdog Timer, Interrupts, Capture",
           "requires": ["up-down-counter"]
-        },
-        {
-          "id": "interrupts",
-          "name": "Interrupts",
-          "requires": ["watchdog-timer"]
-        },
-        {
-          "id": "capture",
-          "name": "Capture",
-          "requires": ["interrupts"]
         },
         {
           "id": "pulse-width-modulation-control-synchronous-and-asynchronous",
           "name": "Pulse Width Modulation Control (Synchronous and Asynchronous Modulation)",
-          "requires": ["capture"]
+          "requires": ["watchdog-timer-interrupts-capture"]
         },
         {
           "id": "quadrature-encoder-pulse-circuitry",
@@ -281,6 +291,31 @@
           "id": "programming-microcontroller-peripherals",
           "name": "Programming Microcontroller Peripherals",
           "requires": ["enhanced-controller-area-network"]
+        },
+        {
+          "id": "digital-to-analog-converter",
+          "name": "Digital to Analog Converter",
+          "status": "retired"
+        },
+        {
+          "id": "timers",
+          "name": "Timers",
+          "status": "retired"
+        },
+        {
+          "id": "watchdog-timer",
+          "name": "Watchdog Timer",
+          "status": "retired"
+        },
+        {
+          "id": "interrupts",
+          "name": "Interrupts",
+          "status": "retired"
+        },
+        {
+          "id": "capture",
+          "name": "Capture",
+          "status": "retired"
         }
       ]
     },
@@ -290,23 +325,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "interfacing-leds",
-          "name": "Interfacing LEDs"
-        },
-        {
-          "id": "relays",
-          "name": "Relays",
-          "requires": ["interfacing-leds"]
-        },
-        {
-          "id": "buzzers",
-          "name": "Buzzers",
-          "requires": ["relays"]
+          "id": "interfacing-leds-relays-buzzers",
+          "name": "Interfacing LEDs, Relays, Buzzers"
         },
         {
           "id": "sensors-current-sensors",
           "name": "Sensors (Current Sensors",
-          "requires": ["buzzers"]
+          "requires": ["interfacing-leds-relays-buzzers"]
         },
         {
           "id": "voltage-sensors",
@@ -329,19 +354,14 @@
           "requires": ["light-sensors"]
         },
         {
-          "id": "proximity-sensors",
-          "name": "Proximity Sensors",
+          "id": "proximity-sensors-etc",
+          "name": "Proximity Sensors, etc.)",
           "requires": ["temperature-sensors"]
-        },
-        {
-          "id": "etc",
-          "name": "etc.)",
-          "requires": ["proximity-sensors"]
         },
         {
           "id": "programming-microcontroller-with-peripherals-and-interfaced",
           "name": "Programming Microcontroller with peripherals and interfaced devices",
-          "requires": ["etc"]
+          "requires": ["proximity-sensors-etc"]
         },
         {
           "id": "application-in-control-of-electric-drives",
@@ -349,14 +369,44 @@
           "requires": ["programming-microcontroller-with-peripherals-and-interfaced"]
         },
         {
+          "id": "electric-vehicles-etc",
+          "name": "Electric Vehicles, etc",
+          "requires": ["application-in-control-of-electric-drives"]
+        },
+        {
+          "id": "interfacing-leds",
+          "name": "Interfacing LEDs",
+          "status": "retired"
+        },
+        {
+          "id": "relays",
+          "name": "Relays",
+          "status": "retired"
+        },
+        {
+          "id": "buzzers",
+          "name": "Buzzers",
+          "status": "retired"
+        },
+        {
+          "id": "proximity-sensors",
+          "name": "Proximity Sensors",
+          "status": "retired"
+        },
+        {
+          "id": "etc",
+          "name": "etc.)",
+          "status": "retired"
+        },
+        {
           "id": "electric-vehicles",
           "name": "Electric Vehicles",
-          "requires": ["application-in-control-of-electric-drives"]
+          "status": "retired"
         },
         {
           "id": "etc-2",
           "name": "etc",
-          "requires": ["electric-vehicles"]
+          "status": "retired"
         }
       ]
     }

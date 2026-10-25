@@ -38,27 +38,17 @@
       "topics": [
         {
           "id": "basics-of-magnetics-circuits-and-electromechanical-energy-co",
-          "name": "Basics of Magnetics Circuits and Electromechanical Energy Conversion"
+          "name": "Basics of Magnetics Circuits and Electromechanical Energy Conversion, Types"
         },
         {
-          "id": "types",
-          "name": "Types",
+          "id": "working-principle-construction",
+          "name": "Working Principle, Construction",
           "requires": ["basics-of-magnetics-circuits-and-electromechanical-energy-co"]
-        },
-        {
-          "id": "working-principle",
-          "name": "Working Principle",
-          "requires": ["types"]
-        },
-        {
-          "id": "construction",
-          "name": "Construction",
-          "requires": ["working-principle"]
         },
         {
           "id": "emf-equation",
           "name": "EMF Equation",
-          "requires": ["construction"]
+          "requires": ["working-principle-construction"]
         },
         {
           "id": "transformer-on-no-load-and-on-load",
@@ -86,19 +76,14 @@
           "requires": ["vector-diagrams"]
         },
         {
-          "id": "equivalent-circuits",
-          "name": "Equivalent Circuits",
+          "id": "equivalent-circuits-losses",
+          "name": "Equivalent Circuits, Losses",
           "requires": ["equivalent-resistance-and-reactance"]
-        },
-        {
-          "id": "losses",
-          "name": "Losses",
-          "requires": ["equivalent-circuits"]
         },
         {
           "id": "efficiency-and-voltage-regulation",
           "name": "Efficiency & Voltage Regulation",
-          "requires": ["losses"]
+          "requires": ["equivalent-circuits-losses"]
         },
         {
           "id": "all-day-efficiency",
@@ -106,24 +91,14 @@
           "requires": ["efficiency-and-voltage-regulation"]
         },
         {
-          "id": "direct-load-test",
-          "name": "Direct Load Test",
+          "id": "direct-load-test-o-c-and-s-c-tests",
+          "name": "Direct Load Test, O.C. &S.C, Tests",
           "requires": ["all-day-efficiency"]
-        },
-        {
-          "id": "o-c-and-s-c",
-          "name": "O.C. &S.C",
-          "requires": ["direct-load-test"]
-        },
-        {
-          "id": "tests",
-          "name": "Tests",
-          "requires": ["o-c-and-s-c"]
         },
         {
           "id": "sumpner-s-test",
           "name": "Sumpner’s Test",
-          "requires": ["tests"]
+          "requires": ["direct-load-test-o-c-and-s-c-tests"]
         },
         {
           "id": "polarity-test",
@@ -141,19 +116,59 @@
           "requires": ["parallel-operation-and-load-sharing"]
         },
         {
-          "id": "auto-transformers",
-          "name": "Auto Transformers",
+          "id": "auto-transformers-applications",
+          "name": "Auto Transformers, Applications",
           "requires": ["per-unit-impedance"]
-        },
-        {
-          "id": "applications",
-          "name": "Applications",
-          "requires": ["auto-transformers"]
         },
         {
           "id": "testing-and-trouble-shooting-of-single-phase-transformer",
           "name": "Testing and Trouble Shooting of Single Phase Transformer",
-          "requires": ["applications"]
+          "requires": ["auto-transformers-applications"]
+        },
+        {
+          "id": "types",
+          "name": "Types",
+          "status": "retired"
+        },
+        {
+          "id": "construction",
+          "name": "Construction",
+          "status": "retired"
+        },
+        {
+          "id": "equivalent-circuits",
+          "name": "Equivalent Circuits",
+          "status": "retired"
+        },
+        {
+          "id": "losses",
+          "name": "Losses",
+          "status": "retired"
+        },
+        {
+          "id": "direct-load-test",
+          "name": "Direct Load Test",
+          "status": "retired"
+        },
+        {
+          "id": "o-c-and-s-c",
+          "name": "O.C. &S.C",
+          "status": "retired"
+        },
+        {
+          "id": "tests",
+          "name": "Tests",
+          "status": "retired"
+        },
+        {
+          "id": "auto-transformers",
+          "name": "Auto Transformers",
+          "status": "retired"
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "status": "retired"
         }
       ]
     },
@@ -163,23 +178,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "construction-2",
-          "name": "Construction"
-        },
-        {
-          "id": "types-2",
-          "name": "Types",
-          "requires": ["construction-2"]
-        },
-        {
-          "id": "vector-groups",
-          "name": "Vector Groups",
-          "requires": ["types-2"]
+          "id": "construction-types-vector-groups",
+          "name": "Construction, Types, Vector Groups"
         },
         {
           "id": "connections-including-open-delta",
           "name": "Connections (Including Open Delta)",
-          "requires": ["vector-groups"]
+          "requires": ["construction-types-vector-groups"]
         },
         {
           "id": "parallel-operation-of-3-phase-transformers",
@@ -235,6 +240,21 @@
           "id": "testing-and-trouble-shooting-of-three-phase-transformer",
           "name": "Testing and Trouble Shooting of Three Phase Transformer",
           "requires": ["power-and-distribution-transformer"]
+        },
+        {
+          "id": "construction-2",
+          "name": "Construction",
+          "status": "retired"
+        },
+        {
+          "id": "types-2",
+          "name": "Types",
+          "status": "retired"
+        },
+        {
+          "id": "vector-groups",
+          "name": "Vector Groups",
+          "status": "retired"
         }
       ]
     },
@@ -253,44 +273,35 @@
           "requires": ["classification-of-ac-motors"]
         },
         {
-          "id": "working-principle-2",
+          "id": "working-principle",
           "name": "Working Principle",
+          "formerChapters": ["single-phase-transformers"],
           "requires": ["construction-and-types"]
         },
         {
           "id": "production-of-rotating-magnetic-field",
           "name": "Production of Rotating Magnetic Field",
-          "requires": ["working-principle-2"]
+          "requires": ["working-principle"]
         },
         {
-          "id": "synchronous-speed",
-          "name": "Synchronous Speed",
+          "id": "synchronous-speed-slip",
+          "name": "Synchronous Speed, Slip",
           "requires": ["production-of-rotating-magnetic-field"]
-        },
-        {
-          "id": "slip",
-          "name": "Slip",
-          "requires": ["synchronous-speed"]
         },
         {
           "id": "frequency-of-rotor-current",
           "name": "Frequency of Rotor Current",
-          "requires": ["slip"]
+          "requires": ["synchronous-speed-slip"]
         },
         {
-          "id": "rotor-parameters-under-standstill-and-running-condition",
-          "name": "rotor parameters under standstill and running condition",
+          "id": "rotor-parameters-under-standstill-and-running-condition-torq",
+          "name": "rotor parameters under standstill and running condition, Torque",
           "requires": ["frequency-of-rotor-current"]
-        },
-        {
-          "id": "torque",
-          "name": "Torque",
-          "requires": ["rotor-parameters-under-standstill-and-running-condition"]
         },
         {
           "id": "torque-slip-characteristics",
           "name": "Torque/Slip Characteristics",
-          "requires": ["torque"]
+          "requires": ["rotor-parameters-under-standstill-and-running-condition-torq"]
         },
         {
           "id": "power-stages",
@@ -358,19 +369,49 @@
           "requires": ["induction-generators-working"]
         },
         {
-          "id": "voltage-build-up-in-self-excited-generators",
-          "name": "Voltage Build up in Self-Excited Generators",
+          "id": "voltage-build-up-in-self-excited-generators-application",
+          "name": "Voltage Build up in Self-Excited Generators, Application",
           "requires": ["effect-of-capacitor"]
-        },
-        {
-          "id": "application",
-          "name": "Application",
-          "requires": ["voltage-build-up-in-self-excited-generators"]
         },
         {
           "id": "testing-and-trouble-shooting-of-three-phase-induction-machin",
           "name": "Testing and Trouble Shooting of Three Phase Induction Machine",
-          "requires": ["application"]
+          "requires": ["voltage-build-up-in-self-excited-generators-application"]
+        },
+        {
+          "id": "working-principle-2",
+          "name": "Working Principle",
+          "status": "retired"
+        },
+        {
+          "id": "synchronous-speed",
+          "name": "Synchronous Speed",
+          "status": "retired"
+        },
+        {
+          "id": "slip",
+          "name": "Slip",
+          "status": "retired"
+        },
+        {
+          "id": "rotor-parameters-under-standstill-and-running-condition",
+          "name": "rotor parameters under standstill and running condition",
+          "status": "retired"
+        },
+        {
+          "id": "torque",
+          "name": "Torque",
+          "status": "retired"
+        },
+        {
+          "id": "voltage-build-up-in-self-excited-generators",
+          "name": "Voltage Build up in Self-Excited Generators",
+          "status": "retired"
+        },
+        {
+          "id": "application",
+          "name": "Application",
+          "status": "retired"
         }
       ]
     },

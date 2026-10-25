@@ -50,17 +50,8 @@
         },
         {
           "id": "binary-octal-and-hexadecimal-representation-of-integer-fixed",
-          "name": "binary",
-          "requires": ["positional-number-system"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "octal-and-hexadecimal-representation-of-integer-fixed-point",
-          "name": "octal and hexadecimal representation of integer/fixed-point numbers",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["binary-octal-and-hexadecimal-representation-of-integer-fixed"]
+          "name": "binary, octal and hexadecimal representation of integer/fixed-point numbers",
+          "requires": ["positional-number-system"]
         },
         {
           "id": "methods-of-base-conversions",
@@ -135,6 +126,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["error-detection-and-correction-codes-parity-check-codes-and"]
+        },
+        {
+          "id": "octal-and-hexadecimal-representation-of-integer-fixed-point",
+          "name": "octal and hexadecimal representation of integer/fixed-point numbers",
+          "status": "retired"
         }
       ]
     },
@@ -199,24 +195,17 @@
         },
         {
           "id": "arithmetic-modules-ripple-carry-adder-subtractor-carry-look",
-          "name": "Arithmetic modules- ripple carry adder",
+          "name": "Arithmetic modules- ripple carry adder, subtractor",
           "requires": ["comparators"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "subtractor",
-          "name": "subtractor",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["arithmetic-modules-ripple-carry-adder-subtractor-carry-look"]
         },
         {
           "id": "carry-look-ahead-adder",
           "name": "carry look ahead adder",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["subtractor"]
+          "requires": ["arithmetic-modules-ripple-carry-adder-subtractor-carry-look"]
         },
         {
           "id": "basic-multiplier-bcd-adder",
@@ -236,6 +225,11 @@
           "id": "shannon-expansion-theorem",
           "name": "Shannon expansion theorem",
           "requires": ["basic-multiplier-bcd-adder"]
+        },
+        {
+          "id": "subtractor",
+          "name": "subtractor",
+          "status": "retired"
         }
       ]
     },
@@ -250,7 +244,7 @@
         },
         {
           "id": "latches-and-flip-flops-sr-latch",
-          "name": "Latches and flip-flops: SR-latch",
+          "name": "Latches and flip-flops: SR-latch, D-latch",
           "requires": ["definition-of-sequential-circuits"],
           "source": "admin_handout",
           "confidence": "verified"
@@ -326,24 +320,17 @@
         },
         {
           "id": "implementation-of-fsm-using-decoders-or-gates-multiplexors",
-          "name": "Implementation of FSM using Decoders",
+          "name": "Implementation of FSM using Decoders, gates",
           "requires": ["analysis-and-implementation-of-fsm-using-d-flip-flops-jk"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "gates",
-          "name": "gates",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["implementation-of-fsm-using-decoders-or-gates-multiplexors"]
         },
         {
           "id": "multiplexors-and-rom",
           "name": "Multiplexors and ROM",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["gates"]
+          "requires": ["implementation-of-fsm-using-decoders-or-gates-multiplexors"]
         },
         {
           "id": "various-registers-and-counters-asynchronous-counters",
@@ -372,6 +359,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["ring-counter-johnson-counter"]
+        },
+        {
+          "id": "gates",
+          "name": "gates",
+          "status": "retired"
         }
       ]
     },

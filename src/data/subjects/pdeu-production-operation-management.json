@@ -14,7 +14,7 @@
   "offerings": [
     {
       "branch": "me",
-      "key": "s5-production-operation-management",
+      "key": "s6-program-elective--production-and-operations-management",
       "code": "18ME302T",
       "category": "Program Core",
       "ltp": "3-1-0",
@@ -40,29 +40,12 @@
       "topics": [
         {
           "id": "introduction",
-          "name": "Introduction",
-          "status": "retired"
+          "name": "Introduction"
         },
         {
           "id": "operations-management-and-strategy",
-          "name": "Operations Management: Introduction",
-          "requires": ["introduction"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "operations-management-and-strategy-2",
           "name": "Operations Management and Strategy",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["operations-management-and-strategy"]
-        },
-        {
-          "id": "operations-strategy",
-          "name": "operations strategy",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["operations-management-and-strategy-2"]
+          "requires": ["introduction"]
         },
         {
           "id": "tools-for-implementation-of-operations",
@@ -72,12 +55,14 @@
         {
           "id": "industry-best-practices-demand-management-and-forecasting",
           "name": "Industry Best Practices. Demand management and forecasting: Introduction",
-          "requires": ["tools-for-implementation-of-operations"]
+          "requires": ["tools-for-implementation-of-operations"],
+          "status": "retired"
         },
         {
           "id": "the-strategic-importance-of-forecasting",
           "name": "The Strategic Importance of Forecasting",
-          "requires": ["industry-best-practices-demand-management-and-forecasting"]
+          "requires": ["industry-best-practices-demand-management-and-forecasting"],
+          "status": "retired"
         },
         {
           "id": "benefits",
@@ -88,43 +73,40 @@
         {
           "id": "cost-implications-and-decision-making-using-forecasting",
           "name": "Cost implications and Decision making using forecasting",
-          "requires": ["benefits"]
+          "requires": ["benefits"],
+          "status": "retired"
         },
         {
           "id": "classification-of-forecasting-process",
           "name": "Classification of Forecasting Process",
-          "requires": ["cost-implications-and-decision-making-using-forecasting"]
+          "requires": ["cost-implications-and-decision-making-using-forecasting"],
+          "status": "retired"
         },
         {
           "id": "methods-of-forecasting",
-          "name": "Forecasting",
+          "name": "time series methods of forecasting",
           "requires": ["classification-of-forecasting-process"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "time-series-methods-of-forecasting",
-          "name": "time series methods of forecasting",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["methods-of-forecasting"]
         },
         {
           "id": "causal-methods-of-forecasting",
           "name": "causal methods of forecasting",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["time-series-methods-of-forecasting"]
+          "requires": ["methods-of-forecasting"]
         },
         {
           "id": "components-of-demand-forecasting-and-product-life-cycle",
           "name": "components of demand Forecasting and Product Life Cycle",
-          "requires": ["methods-of-forecasting"]
+          "requires": ["methods-of-forecasting"],
+          "status": "retired"
         },
         {
           "id": "selection-of-the-forecasting-method",
           "name": "Selection of the Forecasting Method",
-          "requires": ["components-of-demand-forecasting-and-product-life-cycle"]
+          "requires": ["components-of-demand-forecasting-and-product-life-cycle"],
+          "status": "retired"
         },
         {
           "id": "qualitative-methods-of-forecasting-market-research",
@@ -152,17 +134,20 @@
         {
           "id": "web-based-forecasting-collaborative-planning",
           "name": "web-based forecasting: collaborative planning",
-          "requires": ["quantitative-methods"]
+          "requires": ["quantitative-methods"],
+          "status": "retired"
         },
         {
           "id": "forecasting-and-replenishments-associative-models-of",
           "name": "forecasting and replenishments. Associative Models of Forecasting",
-          "requires": ["web-based-forecasting-collaborative-planning"]
+          "requires": ["web-based-forecasting-collaborative-planning"],
+          "status": "retired"
         },
         {
           "id": "accuracy-of-forecasting",
           "name": "Accuracy of Forecasting",
-          "requires": ["forecasting-and-replenishments-associative-models-of"]
+          "requires": ["forecasting-and-replenishments-associative-models-of"],
+          "status": "retired"
         },
         {
           "id": "case-studies-in-fore-casting-inventory-management-definition",
@@ -251,11 +236,39 @@
           "status": "retired"
         },
         {
+          "id": "introduction-to-erp",
+          "name": "introduction to ERP",
+          "requires": ["case-studies-on-mrp"],
+          "formerChapters": ["operations-scheduling"]
+        },
+        {
+          "id": "operations-strategy-forecasting",
+          "name": "operations strategy, Forecasting",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["introduction-to-erp"]
+        },
+        {
           "id": "measures-of-error",
           "name": "measures of error",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["case-studies-on-mrp"]
+          "requires": ["operations-strategy-forecasting"]
+        },
+        {
+          "id": "operations-management-and-strategy-2",
+          "name": "Operations Management and Strategy",
+          "status": "retired"
+        },
+        {
+          "id": "operations-strategy",
+          "name": "operations strategy",
+          "status": "retired"
+        },
+        {
+          "id": "time-series-methods-of-forecasting",
+          "name": "time series methods of forecasting",
+          "status": "retired"
         }
       ]
     },
@@ -266,48 +279,55 @@
       "topics": [
         {
           "id": "introduction-2",
-          "name": "Introduction",
-          "status": "retired"
+          "name": "Introduction"
         },
         {
           "id": "purpose-of-operations-scheduling",
           "name": "Purpose of Operations Scheduling",
-          "requires": ["introduction-2"]
+          "requires": ["introduction-2"],
+          "status": "retired"
         },
         {
           "id": "factors-considered-while-scheduling",
           "name": "Factors Considered while Scheduling",
-          "requires": ["purpose-of-operations-scheduling"]
+          "requires": ["purpose-of-operations-scheduling"],
+          "status": "retired"
         },
         {
           "id": "scheduling-activity-under-production-planning-and-control",
           "name": "Scheduling Activity under Production Planning and Control",
-          "requires": ["factors-considered-while-scheduling"]
+          "requires": ["factors-considered-while-scheduling"],
+          "status": "retired"
         },
         {
           "id": "scheduling-strategies",
           "name": "Scheduling Strategies",
-          "requires": ["scheduling-activity-under-production-planning-and-control"]
+          "requires": ["scheduling-activity-under-production-planning-and-control"],
+          "status": "retired"
         },
         {
           "id": "scheduling-guidelines",
           "name": "Scheduling Guidelines",
-          "requires": ["scheduling-strategies"]
+          "requires": ["scheduling-strategies"],
+          "status": "retired"
         },
         {
           "id": "approaches-to-scheduling",
           "name": "Approaches to Scheduling",
-          "requires": ["scheduling-guidelines"]
+          "requires": ["scheduling-guidelines"],
+          "status": "retired"
         },
         {
           "id": "scheduling-methodology-quantitative",
           "name": "Scheduling Methodology [Quantitative]",
-          "requires": ["approaches-to-scheduling"]
+          "requires": ["approaches-to-scheduling"],
+          "status": "retired"
         },
         {
           "id": "scheduling-in-services",
           "name": "Scheduling in Services",
-          "requires": ["scheduling-methodology-quantitative"]
+          "requires": ["scheduling-methodology-quantitative"],
+          "status": "retired"
         },
         {
           "id": "sequencing-methods-spt-edd-moores-method-johnsons-method-etc",
@@ -442,7 +462,7 @@
           "movedFrom": {
             "subject": "pdeu-production-operation-management",
             "chapter": "operations-management",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -454,7 +474,7 @@
           "movedFrom": {
             "subject": "pdeu-production-operation-management",
             "chapter": "operations-management",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -466,7 +486,7 @@
           "movedFrom": {
             "subject": "pdeu-production-operation-management",
             "chapter": "operations-management",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -478,19 +498,7 @@
           "movedFrom": {
             "subject": "pdeu-production-operation-management",
             "chapter": "operations-management",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "introduction-to-erp",
-          "name": "introduction to ERP",
-          "requires": ["case-studies-on-mrp"],
-          "movedFrom": {
-            "subject": "pdeu-production-operation-management",
-            "chapter": "operations-management",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -500,7 +508,7 @@
           "name": "components of MRP",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["introduction-to-erp"]
+          "requires": ["the-basic-eoq-model"]
         },
         {
           "id": "poq",
@@ -517,60 +525,67 @@
           "requires": ["poq"]
         },
         {
-          "id": "luc",
-          "name": "LUC",
+          "id": "luc-etc",
+          "name": "LUC, etc.)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["ltc"]
         },
         {
-          "id": "etc",
-          "name": "etc.)",
+          "id": "operations-scheduling-loading",
+          "name": "Operations scheduling, loading",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["luc"]
-        },
-        {
-          "id": "loading",
-          "name": "loading",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["etc"]
+          "requires": ["luc-etc"]
         },
         {
           "id": "cpm",
           "name": "CPM",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["loading"]
+          "requires": ["operations-scheduling-loading"]
         },
         {
-          "id": "introduction-to-manufacturing-planning-and-control",
-          "name": "Introduction to manufacturing planning and control",
+          "id": "brief-about-planning-routing-scheduling-dispatching",
+          "name": "brief about planning, routing, scheduling, dispatching",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["cpm"]
         },
         {
+          "id": "luc",
+          "name": "LUC",
+          "status": "retired"
+        },
+        {
+          "id": "etc",
+          "name": "etc.)",
+          "status": "retired"
+        },
+        {
+          "id": "loading",
+          "name": "loading",
+          "status": "retired"
+        },
+        {
+          "id": "introduction-to-manufacturing-planning-and-control",
+          "name": "Introduction to manufacturing planning and control",
+          "status": "retired"
+        },
+        {
           "id": "brief-about-planning",
           "name": "brief about planning",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-manufacturing-planning-and-control"]
+          "status": "retired"
         },
         {
           "id": "routing",
           "name": "routing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["brief-about-planning"]
+          "status": "retired"
         },
         {
           "id": "dispatching",
           "name": "dispatching",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["routing"]
+          "status": "retired"
         }
       ]
     },
@@ -694,8 +709,7 @@
       "topics": [
         {
           "id": "introduction-3",
-          "name": "Introduction",
-          "status": "retired"
+          "name": "Introduction"
         },
         {
           "id": "objectives-of-the-layout",
@@ -898,17 +912,8 @@
         },
         {
           "id": "the-toyota-production-system-elimination-of-waste-and",
-          "name": "the Toyota Production System",
-          "requires": ["implementation-of-jit"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "waste-elimination",
-          "name": "waste elimination",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["the-toyota-production-system-elimination-of-waste-and"]
+          "name": "the Toyota Production System: elimination of waste and respect for people",
+          "requires": ["implementation-of-jit"]
         },
         {
           "id": "push-vs-pull-systems",
@@ -924,6 +929,11 @@
           "id": "case-studies-on-pull-vs-push-systems",
           "name": "case studies on pull vs push systems",
           "requires": ["use-of-kanban"]
+        },
+        {
+          "id": "waste-elimination",
+          "name": "waste elimination",
+          "status": "retired"
         }
       ]
     },

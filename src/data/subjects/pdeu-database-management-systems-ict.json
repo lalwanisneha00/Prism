@@ -39,16 +39,7 @@
       "topics": [
         {
           "id": "introduction-general-introduction-to-database-systems",
-          "name": "General introduction to database systems",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "database",
-          "name": "Database",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-general-introduction-to-database-systems"]
+          "name": "Introduction - General introduction to database systems"
         },
         {
           "id": "er-model",
@@ -93,6 +84,13 @@
           "requires": ["three-schema-architecture-of-a-database"]
         },
         {
+          "id": "various-components-of-a-dbms-e-r-model",
+          "name": "various components of a DBMS.E/R Model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["challenges-in-building-a-dbms"]
+        },
+        {
           "id": "relational-data-model-concept-of-relations-schema-instance",
           "name": "Relational Data Model",
           "requires": ["er-model"],
@@ -107,25 +105,18 @@
           "requires": ["relational-data-model-concept-of-relations-schema-instance"]
         },
         {
-          "id": "schema-instance-distinction",
-          "name": "schema-instance distinction",
+          "id": "schema-instance-distinction-keys",
+          "name": "schema-instance distinction, keys",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["concept-of-relations"]
-        },
-        {
-          "id": "keys",
-          "name": "keys",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["schema-instance-distinction"]
         },
         {
           "id": "referential-integrity",
           "name": "referential integrity",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["keys"]
+          "requires": ["schema-instance-distinction-keys"]
         },
         {
           "id": "foreign-keys",
@@ -140,86 +131,89 @@
           "requires": ["relational-data-model-concept-of-relations-schema-instance"]
         },
         {
-          "id": "introduction-to-sql",
-          "name": "Introduction to SQL",
-          "requires": ["relational-calculus"],
+          "id": "conceptual-data-modeling-motivation-entities",
+          "name": "Conceptual data modeling, motivation, entities",
           "source": "admin_handout",
           "confidence": "verified",
-          "movedFrom": {
-            "subject": "pdeu-database-management-systems-ict",
-            "chapter": "relational-approach-and-sql-query-basics",
-            "at": "2026-10-24T23:22:41.746Z"
-          }
-        },
-        {
-          "id": "various-components-of-a-dbms-e-r-model",
-          "name": "various components of a DBMS.E/R Model",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-sql"]
-        },
-        {
-          "id": "conceptual-data-modeling",
-          "name": "Conceptual data modeling",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["various-components-of-a-dbms-e-r-model"]
-        },
-        {
-          "id": "motivation",
-          "name": "motivation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["conceptual-data-modeling"]
-        },
-        {
-          "id": "entities",
-          "name": "entities",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["motivation"]
+          "requires": ["converting-the-database-specification-in-e-r-notation-to-the"]
         },
         {
           "id": "entity-types",
           "name": "entity types",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["entities"]
+          "requires": ["conceptual-data-modeling-motivation-entities"]
         },
         {
-          "id": "various-types-of-attributes",
-          "name": "various types of attributes",
+          "id": "various-types-of-attributes-relationships",
+          "name": "various types of attributes, relationships",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["entity-types"]
-        },
-        {
-          "id": "relationships",
-          "name": "relationships",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["various-types-of-attributes"]
         },
         {
           "id": "relationship-types",
           "name": "relationship types",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["relationships"]
+          "requires": ["various-types-of-attributes-relationships"]
         },
         {
-          "id": "e-r-diagram-notation",
-          "name": "E/R diagram notation",
+          "id": "e-r-diagram-notation-examples",
+          "name": "E/R diagram notation, examples",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["relationship-types"]
         },
         {
+          "id": "database",
+          "name": "Database",
+          "status": "retired"
+        },
+        {
+          "id": "schema-instance-distinction",
+          "name": "schema-instance distinction",
+          "status": "retired"
+        },
+        {
+          "id": "keys",
+          "name": "keys",
+          "status": "retired"
+        },
+        {
+          "id": "conceptual-data-modeling",
+          "name": "Conceptual data modeling",
+          "status": "retired"
+        },
+        {
+          "id": "motivation",
+          "name": "motivation",
+          "status": "retired"
+        },
+        {
+          "id": "entities",
+          "name": "entities",
+          "status": "retired"
+        },
+        {
+          "id": "various-types-of-attributes",
+          "name": "various types of attributes",
+          "status": "retired"
+        },
+        {
+          "id": "relationships",
+          "name": "relationships",
+          "status": "retired"
+        },
+        {
+          "id": "e-r-diagram-notation",
+          "name": "E/R diagram notation",
+          "status": "retired"
+        },
+        {
           "id": "examples",
           "name": "examples",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["e-r-diagram-notation"]
+          "status": "retired"
         }
       ]
     },
@@ -269,11 +263,10 @@
           "requires": ["relational-algebra"]
         },
         {
-          "id": "basic-sql-operations-rename",
-          "name": "Basic SQL operations (rename",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["relational-calculus"]
+          "id": "introduction-to-sql",
+          "name": "Introduction to SQL",
+          "requires": ["relational-calculus"],
+          "formerChapters": ["conceptual-modeling-introduction"]
         },
         {
           "id": "data-definition-of-sql",
@@ -287,24 +280,8 @@
         },
         {
           "id": "basic-sql-operations-rename-string-operations-order-by-where",
-          "name": "string operations",
-          "requires": ["basic-structure-of-sql-queries"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "order-by",
-          "name": "order by",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["basic-sql-operations-rename-string-operations-order-by-where"]
-        },
-        {
-          "id": "where-clause",
-          "name": "where clause)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["order-by"]
+          "name": "Basic SQL operations (rename, string operations, order by, where clause)",
+          "requires": ["basic-structure-of-sql-queries"]
         },
         {
           "id": "set-operations",
@@ -354,6 +331,21 @@
           "id": "authorization",
           "name": "Authorization",
           "requires": ["data-types-and-schemas"]
+        },
+        {
+          "id": "basic-sql-operations-rename",
+          "name": "Basic SQL operations (rename",
+          "status": "retired"
+        },
+        {
+          "id": "order-by",
+          "name": "order by",
+          "status": "retired"
+        },
+        {
+          "id": "where-clause",
+          "name": "where clause)",
+          "status": "retired"
         }
       ]
     },
@@ -426,17 +418,13 @@
         },
         {
           "id": "algorithms-for-3nf-and-bcnf-normalization-4nf-and-5nf",
-          "name": "4NF",
-          "requires": ["decompositions-and-desirable-properties-of-them"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "algorithms for 3NF and BCNF normalization, 4NF, and 5NF",
+          "requires": ["decompositions-and-desirable-properties-of-them"]
         },
         {
           "id": "5nf",
           "name": "5NF",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["algorithms-for-3nf-and-bcnf-normalization-4nf-and-5nf"]
+          "status": "retired"
         }
       ]
     },
@@ -471,17 +459,8 @@
         },
         {
           "id": "recoverability-concurrency-control-lock-based-protocols",
-          "name": "recoverability",
-          "requires": ["serializability"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "concurrency-control-lock-based-protocols",
-          "name": "Concurrency Control: Lock-based protocols",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["recoverability-concurrency-control-lock-based-protocols"]
+          "name": "recoverability. Concurrency Control: Lock-based protocols",
+          "requires": ["serializability"]
         },
         {
           "id": "timestamp-based-protocols",
@@ -541,6 +520,11 @@
           "id": "recovery-with-concurrent-transactions-buffer-management",
           "name": "recovery with concurrent transactions buffer management",
           "requires": ["shadow-paging"]
+        },
+        {
+          "id": "concurrency-control-lock-based-protocols",
+          "name": "Concurrency Control: Lock-based protocols",
+          "status": "retired"
         }
       ]
     }

@@ -49,24 +49,17 @@
         },
         {
           "id": "laboratory-test-serology-hematology-urine-and-stool",
-          "name": "Laboratory test (Serology",
+          "name": "Laboratory test (Serology, Hematology",
           "requires": ["assessment-of-clinical-history"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "hematology",
-          "name": "Hematology",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["laboratory-test-serology-hematology-urine-and-stool"]
         },
         {
           "id": "urine-and-stool",
           "name": "Urine & stool)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["hematology"]
+          "requires": ["laboratory-test-serology-hematology-urine-and-stool"]
         },
         {
           "id": "molecular-diagnostics-pcr",
@@ -96,6 +89,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["fundamental-of-radiological-assessment-model-case"]
+        },
+        {
+          "id": "hematology",
+          "name": "Hematology",
+          "status": "retired"
         }
       ]
     },
@@ -203,7 +201,8 @@
         {
           "id": "ultrasound-mr-ct",
           "name": "Ultrasound, MR, CT",
-          "requires": ["radiology-and-advanced-imaging-techniques-introduction-to"]
+          "requires": ["radiology-and-advanced-imaging-techniques-introduction-to"],
+          "status": "retired"
         },
         {
           "id": "pet",

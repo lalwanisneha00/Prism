@@ -144,19 +144,14 @@
           "name": "Smart grid technologies and renewable integration"
         },
         {
-          "id": "energy-storage-solutions",
-          "name": "energy storage solutions",
+          "id": "energy-storage-solutions-batteries",
+          "name": "energy storage solutions, batteries",
           "requires": ["smart-grid-technologies-and-renewable-integration"]
-        },
-        {
-          "id": "batteries",
-          "name": "batteries",
-          "requires": ["energy-storage-solutions"]
         },
         {
           "id": "fuel-cells-and-mechanical-systems",
           "name": "fuel cells and mechanical systems",
-          "requires": ["batteries"]
+          "requires": ["energy-storage-solutions-batteries"]
         },
         {
           "id": "energy-policy",
@@ -177,6 +172,16 @@
           "id": "case-studies-in-renewable-energy-implementation-and-best-pra",
           "name": "case studies in renewable energy implementation and best practices",
           "requires": ["regulatory-framework-and-incentives-for-renewable-energy"]
+        },
+        {
+          "id": "energy-storage-solutions",
+          "name": "energy storage solutions",
+          "status": "retired"
+        },
+        {
+          "id": "batteries",
+          "name": "batteries",
+          "status": "retired"
         }
       ]
     }

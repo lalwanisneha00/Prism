@@ -107,34 +107,44 @@
           "requires": ["kinetics-and-statistics-of-linear-stepwise-polymerization"]
         },
         {
-          "id": "reaction-mechanisms-and-associated-kinetics",
-          "name": "reaction mechanisms and associated kinetics",
+          "id": "reaction-mechanisms-and-associated-kinetics-copolymerization",
+          "name": "reaction mechanisms and associated kinetics, copolymerization",
           "requires": ["radical-chain-addition-polymerization"]
-        },
-        {
-          "id": "copolymerization",
-          "name": "copolymerization",
-          "requires": ["reaction-mechanisms-and-associated-kinetics"]
         },
         {
           "id": "reaction-mechanisms-and-kinetics",
           "name": "reaction mechanisms and kinetics",
-          "requires": ["copolymerization"]
+          "requires": ["reaction-mechanisms-and-associated-kinetics-copolymerization"]
         },
         {
-          "id": "techniques-of-polymerization-bulk",
-          "name": "techniques of polymerization: bulk",
+          "id": "techniques-of-polymerization-bulk-solution",
+          "name": "techniques of polymerization: bulk, solution",
           "requires": ["reaction-mechanisms-and-kinetics"]
-        },
-        {
-          "id": "solution",
-          "name": "solution",
-          "requires": ["techniques-of-polymerization-bulk"]
         },
         {
           "id": "suspension-and-emulsion",
           "name": "suspension and emulsion",
-          "requires": ["solution"]
+          "requires": ["techniques-of-polymerization-bulk-solution"]
+        },
+        {
+          "id": "reaction-mechanisms-and-associated-kinetics",
+          "name": "reaction mechanisms and associated kinetics",
+          "status": "retired"
+        },
+        {
+          "id": "copolymerization",
+          "name": "copolymerization",
+          "status": "retired"
+        },
+        {
+          "id": "techniques-of-polymerization-bulk",
+          "name": "techniques of polymerization: bulk",
+          "status": "retired"
+        },
+        {
+          "id": "solution",
+          "name": "solution",
+          "status": "retired"
         }
       ]
     },
@@ -144,23 +154,13 @@
       "hours": 12,
       "topics": [
         {
-          "id": "production-of-bulk-polymers-polyethylene",
-          "name": "Production of bulk polymers: polyethylene"
-        },
-        {
-          "id": "polypropylene",
-          "name": "polypropylene",
-          "requires": ["production-of-bulk-polymers-polyethylene"]
-        },
-        {
-          "id": "polyvinylchloride",
-          "name": "polyvinylchloride",
-          "requires": ["polypropylene"]
+          "id": "production-of-bulk-polymers-polyethylene-polypropylene-polyv",
+          "name": "Production of bulk polymers: polyethylene, polypropylene, polyvinylchloride"
         },
         {
           "id": "styrene-butadiene-rubber",
           "name": "styrene butadiene rubber",
-          "requires": ["polyvinylchloride"]
+          "requires": ["production-of-bulk-polymers-polyethylene-polypropylene-polyv"]
         },
         {
           "id": "polyester-and-polyamide-nylon",
@@ -183,39 +183,64 @@
           "requires": ["block-copolymers"]
         },
         {
-          "id": "polymer-blends",
-          "name": "polymer blends",
+          "id": "polymer-blends-polyurethanes",
+          "name": "polymer blends, polyurethanes",
           "requires": ["polymer-composites"]
         },
         {
-          "id": "polyurethanes",
-          "name": "polyurethanes",
-          "requires": ["polymer-blends"]
-        },
-        {
-          "id": "silicones-and-other-inorganic-polymers",
-          "name": "silicones and other inorganic polymers",
-          "requires": ["polyurethanes"]
-        },
-        {
-          "id": "rubbers",
-          "name": "rubbers",
-          "requires": ["silicones-and-other-inorganic-polymers"]
-        },
-        {
-          "id": "epichlorohydrin",
-          "name": "epichlorohydrin",
-          "requires": ["rubbers"]
-        },
-        {
-          "id": "polysulphides",
-          "name": "polysulphides",
-          "requires": ["epichlorohydrin"]
+          "id": "silicones-and-other-inorganic-polymers-rubbers-epichlorohydr",
+          "name": "silicones and other inorganic polymers, rubbers, epichlorohydrin, polysulphides",
+          "requires": ["polymer-blends-polyurethanes"]
         },
         {
           "id": "acrylic-rubbers-and-silane-containing-polymers",
           "name": "acrylic rubbers and silane-containing polymers",
-          "requires": ["polysulphides"]
+          "requires": ["silicones-and-other-inorganic-polymers-rubbers-epichlorohydr"]
+        },
+        {
+          "id": "production-of-bulk-polymers-polyethylene",
+          "name": "Production of bulk polymers: polyethylene",
+          "status": "retired"
+        },
+        {
+          "id": "polypropylene",
+          "name": "polypropylene",
+          "status": "retired"
+        },
+        {
+          "id": "polyvinylchloride",
+          "name": "polyvinylchloride",
+          "status": "retired"
+        },
+        {
+          "id": "polymer-blends",
+          "name": "polymer blends",
+          "status": "retired"
+        },
+        {
+          "id": "polyurethanes",
+          "name": "polyurethanes",
+          "status": "retired"
+        },
+        {
+          "id": "silicones-and-other-inorganic-polymers",
+          "name": "silicones and other inorganic polymers",
+          "status": "retired"
+        },
+        {
+          "id": "rubbers",
+          "name": "rubbers",
+          "status": "retired"
+        },
+        {
+          "id": "epichlorohydrin",
+          "name": "epichlorohydrin",
+          "status": "retired"
+        },
+        {
+          "id": "polysulphides",
+          "name": "polysulphides",
+          "status": "retired"
         }
       ]
     },
@@ -225,28 +250,13 @@
       "hours": 9,
       "topics": [
         {
-          "id": "polymer-processing-injection-moulding",
-          "name": "Polymer processing: injection moulding"
-        },
-        {
-          "id": "extrusion",
-          "name": "extrusion",
-          "requires": ["polymer-processing-injection-moulding"]
-        },
-        {
-          "id": "thermoforming",
-          "name": "thermoforming",
-          "requires": ["extrusion"]
-        },
-        {
-          "id": "calendaring",
-          "name": "calendaring",
-          "requires": ["thermoforming"]
+          "id": "polymer-processing-injection-moulding-extrusion-thermoformin",
+          "name": "Polymer processing: injection moulding, extrusion, thermoforming, calendaring"
         },
         {
           "id": "compression-moulding",
           "name": "compression moulding",
-          "requires": ["calendaring"]
+          "requires": ["polymer-processing-injection-moulding-extrusion-thermoformin"]
         },
         {
           "id": "blow-moulding",
@@ -277,6 +287,26 @@
           "id": "entrepreneurship-opportunities-available-in-polymer-processi",
           "name": "entrepreneurship opportunities available in polymer processing",
           "requires": ["dependence-of-small-and-medium-scale-industries-on-polymer-p"]
+        },
+        {
+          "id": "polymer-processing-injection-moulding",
+          "name": "Polymer processing: injection moulding",
+          "status": "retired"
+        },
+        {
+          "id": "extrusion",
+          "name": "extrusion",
+          "status": "retired"
+        },
+        {
+          "id": "thermoforming",
+          "name": "thermoforming",
+          "status": "retired"
+        },
+        {
+          "id": "calendaring",
+          "name": "calendaring",
+          "status": "retired"
         }
       ]
     }

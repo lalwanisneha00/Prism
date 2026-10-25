@@ -139,23 +139,13 @@
       "hours": 7,
       "topics": [
         {
-          "id": "introduction-to-radiology",
-          "name": "Introduction to radiology"
-        },
-        {
-          "id": "x-ray",
-          "name": "X-ray",
-          "requires": ["introduction-to-radiology"]
-        },
-        {
-          "id": "ultrasound",
-          "name": "ultrasound",
-          "requires": ["x-ray"]
+          "id": "introduction-to-radiology-x-ray-ultrasound",
+          "name": "Introduction to radiology, X-ray, ultrasound"
         },
         {
           "id": "eeg",
           "name": "EEG",
-          "requires": ["ultrasound"]
+          "requires": ["introduction-to-radiology-x-ray-ultrasound"]
         },
         {
           "id": "pet",
@@ -186,6 +176,21 @@
           "id": "diagnosis-of-genetic-disorders",
           "name": "diagnosis of genetic disorders",
           "requires": ["dna-chip"]
+        },
+        {
+          "id": "introduction-to-radiology",
+          "name": "Introduction to radiology",
+          "status": "retired"
+        },
+        {
+          "id": "x-ray",
+          "name": "X-ray",
+          "status": "retired"
+        },
+        {
+          "id": "ultrasound",
+          "name": "ultrasound",
+          "status": "retired"
         }
       ]
     },

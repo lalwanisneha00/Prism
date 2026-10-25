@@ -1,5 +1,5 @@
 import { sameTopic } from "@/lib/custom/matchSyllabus";
-import { nameSimilarity } from "@/lib/university/match";
+import { nameSimilarity, singular } from "@/lib/university/match";
 import { normalize } from "@/lib/topicSearch";
 import type { CourseType, ParsedExperiment, ParsedUnit } from "@/lib/syllabusFix/handoutCourse";
 
@@ -98,6 +98,9 @@ export type MatchOptions = {
  */
 export const MATCH = { name: 0.85, nameWithTopics: 0.6, topics: 0.3, review: 0.4, unit: 0.35 };
 
+/** A weak (unsure) course match still needs this much evidence; less is no match. */
+export const WEAK = { name: 0.6, topics: 0.2 };
+
 /** Words that say nothing about what a course or topic is (owner's decision, Phase 2). */
 const GENERIC = /\b(?:introduction|intro|basics?|overview|applications?|fundamentals?)\b/gi;
 
@@ -131,9 +134,17 @@ function words(text: string): string[] {
   if (hit) return hit;
   const out = normalize(text)
     .split(" ")
-    .filter((w) => w.length > 1 && !STOP.has(w));
+    .filter((w) => w.length > 1 && !STOP.has(w))
+    .map(singular);
   wordCache.set(text, out);
   return out;
+}
+
+function plainWords(text: string): string[] {
+  return normalize(text)
+    .split(" ")
+    .filter((w) => w.length > 1 && !["a", "an", "and", "the", "of", "etc"].includes(w))
+    .map(singular);
 }
 
 /**
@@ -143,12 +154,36 @@ function words(text: string): string[] {
  */
 export function covers(a: string, b: string): boolean {
   if (sameTopic(a, b)) return true;
-  const wa = words(a);
-  const wb = words(b);
+  let wa = words(a);
+  let wb = words(b);
+  // A topic made only of generic words ("Introduction", "Applications") is compared by its
+  // plain words, so it still finds itself in the handout.
+  if (wa.length === 0 || wb.length === 0) {
+    wa = plainWords(a);
+    wb = plainWords(b);
+  }
   if (wa.length === 0 || wb.length === 0) return false;
   const inB = wa.every((w) => wb.includes(w));
   const inA = wb.every((w) => wa.includes(w));
   return inB || inA;
+}
+
+/** Every word of `piece` is in `whole`. */
+function containedIn(piece: string, whole: string): boolean {
+  const wp = words(piece).length ? words(piece) : plainWords(piece);
+  const ww = words(whole).length ? words(whole) : plainWords(whole);
+  return wp.length > 0 && wp.every((w) => ww.includes(w));
+}
+
+/** A split must keep this share of the old topic's words. */
+export const SPLIT_COVERAGE = 0.8;
+
+/** Share of the old topic's words that the pieces carry. */
+function splitCoverage(old: string, pieces: readonly string[]): number {
+  const ow = plainWords(old);
+  if (ow.length === 0) return 1;
+  const pw = new Set(pieces.flatMap(plainWords));
+  return ow.filter((w) => pw.has(w)).length / ow.length;
 }
 
 function handoutTopics(h: HandoutCourse): string[] {
@@ -175,7 +210,15 @@ function looseOverlap(texts: readonly string[], names: readonly string[]): numbe
 /** Below this, a same-named course of another branch is a different syllabus. */
 export const CROSS_BRANCH_OVERLAP = 0.5;
 
-type Scored = { course: PrismCourse; score: number; how: string; confident: boolean };
+type Scored = {
+  course: PrismCourse;
+  score: number;
+  how: string;
+  confident: boolean;
+  /** Name similarity and topic overlap (1 and 1 for a code match). */
+  name: number;
+  overlap: number;
+};
 
 const NUMERAL: Record<string, number> = {
   i: 1,
@@ -229,7 +272,7 @@ function courseName(name: string): string {
 
 function scoreCourse(h: HandoutCourse, p: PrismCourse): Scored | null {
   if (isRealCode(h.code) && prismCodes(p).includes(h.code.toUpperCase()))
-    return { course: p, score: 1, how: `code ${h.code}`, confident: true };
+    return { course: p, score: 1, how: `code ${h.code}`, confident: true, name: 1, overlap: 1 };
   const title = courseName(h.title);
   const theirs = courseName(plainName(p.name));
   if (differentCourse(title, theirs)) return null;
@@ -243,6 +286,8 @@ function scoreCourse(h: HandoutCourse, p: PrismCourse): Scored | null {
     course: p,
     score: confident ? Math.max(score, name) : score,
     how: `name ${name.toFixed(2)}, topics ${overlap.toFixed(2)}`,
+    name,
+    overlap,
     confident,
   };
 }
@@ -393,10 +438,13 @@ function compareUnits(
         claimedTopics.add(here.id);
         // The old topic holds this handout topic and more ("Excess-3 codes, Logic Gates, and
         // Truth Table" ⊃ "Logic Gates"): collect the pieces to split it later.
-        // Every handout topic it covers joins the group, in handout order; 2+ means a split.
-        const group = splits.get(here.id) ?? { chapter: pair.chapter, topic: here, pieces: [] };
-        group.pieces.push(topic);
-        splits.set(here.id, group);
+        // A handout topic inside it joins the group, in handout order; 2+ means a split. One
+        // that is wider than the old topic ("Pointer arithmetic" vs "Pointer") is not a piece.
+        if (sameTopic(topic, here.name) || containedIn(topic, here.name)) {
+          const group = splits.get(here.id) ?? { chapter: pair.chapter, topic: here, pieces: [] };
+          group.pieces.push(topic);
+          splits.set(here.id, group);
+        }
         continue;
       }
       const other = allTopics.find(
@@ -429,7 +477,8 @@ function compareUnits(
   });
 
   for (const [id, g] of splits) {
-    if (g.pieces.length < 2) continue;
+    // Only split when the pieces carry (nearly) all of the old topic, so nothing is lost.
+    if (g.pieces.length < 2 || splitCoverage(g.topic.name, g.pieces) < SPLIT_COVERAGE) continue;
     out.changes.push({
       ...base,
       type: "topic split",
@@ -536,11 +585,24 @@ export function matchHandouts(
     }
     const { best, others } = bestCourse(h, theoryCatalogue);
     if (!best) {
-      if (others.length && others[0].score >= MATCH.review) {
+      // A weak match needs some evidence: a close name or shared topics. One shared word and no
+      // shared topics ("Engineering Mechanics" vs "Fluid Mechanics") is no match at all. Another
+      // branch's course with a different syllabus is not this course either (owner's decision 2).
+      const plausible = others.filter((o) => {
+        if (o.name < WEAK.name && o.overlap < WEAK.topics) return false;
+        const elsewhere = !o.course.offerings.some((x) => x.branch === h.branch);
+        return !(
+          elsewhere &&
+          h.units.length > 0 &&
+          looseOverlap(handoutTopics(h), prismTopicNames(o.course)) < CROSS_BRANCH_OVERLAP
+        );
+      });
+      if (plausible.length) {
         out.needsReview.push({
           ...base,
           reason: "unsure course match",
-          detail: `"${h.title}" (${h.code ?? "no code"}) might be ${others.map((o) => `${o.course.id} (${o.how})`).join(" or ")}`,
+          course: { title: h.title, code: original.code },
+          detail: `"${h.title}" (${h.code ?? "no code"}) might be ${plausible.map((o) => `${o.course.id} (${o.how})`).join(" or ")}`,
         });
       } else {
         out.changes.push({
@@ -558,12 +620,16 @@ export function matchHandouts(
     // Another branch's course with the same name but a different syllabus (e.g. ICT's and CE's
     // Machine Learning): linking it would show ICT students CE's topics, and editing it would
     // change CE's course. A person decides: link anyway, or give this branch its own course.
-    if (here.length === 0 && h.units.length > 0 && loose < CROSS_BRANCH_OVERLAP) {
-      out.needsReview.push({
+    // Owner's decision 2 (2026-10-25): such a course gets its own copy for this branch.
+    // Linking another branch's course needs the same code, or real shared topics as well.
+    const differentSyllabus =
+      loose < CROSS_BRANCH_OVERLAP || (!best.how.startsWith("code") && best.overlap < MATCH.topics);
+    if (here.length === 0 && h.units.length > 0 && differentSyllabus) {
+      out.changes.push({
         ...base,
-        reason: "same name, different syllabus in another branch",
-        course: { title: h.title, code: original.code },
-        detail: `"${h.title}" (${h.code ?? "no code"}) matches ${p.id} by ${best.how}, but only ${Math.round(loose * 100)}% of its topics are in it: new course for ${h.branch}, or link?`,
+        type: "new course",
+        detail: `Add course "${h.title}" (${h.code ?? "no code"}, ${h.units.length} units): same name as ${p.id}, but only ${Math.round(loose * 100)}% of its topics are in it`,
+        handout: ref,
       });
       continue;
     }

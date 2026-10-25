@@ -37,48 +37,63 @@
       "hours": 8,
       "topics": [
         {
-          "id": "industry-4-0",
-          "name": "Industry 4.0"
-        },
-        {
-          "id": "smart-business-model",
-          "name": "Smart business model",
-          "requires": ["industry-4-0"]
+          "id": "industry-4-0-smart-business-model",
+          "name": "Industry 4.0, Smart business model"
         },
         {
           "id": "technology-road-map",
           "name": "Technology road-map",
-          "requires": ["smart-business-model"]
+          "requires": ["industry-4-0-smart-business-model"]
         },
         {
-          "id": "sensing-and-actuation",
-          "name": "Sensing & actuation",
+          "id": "sensing-and-actuation-communication",
+          "name": "Sensing & actuation, Communication",
           "requires": ["technology-road-map"]
-        },
-        {
-          "id": "communication",
-          "name": "Communication",
-          "requires": ["sensing-and-actuation"]
         },
         {
           "id": "internet-of-things-iot",
           "name": "Internet of things (IoT)",
-          "requires": ["communication"]
+          "requires": ["sensing-and-actuation-communication"]
         },
         {
-          "id": "cyber-physical-systems-and-next-generation-sensors",
-          "name": "Cyber Physical Systems and Next Generation Sensors",
+          "id": "cyber-physical-systems-and-next-generation-sensors-visualiza",
+          "name": "Cyber Physical Systems and Next Generation Sensors, Visualization",
           "requires": ["internet-of-things-iot"]
-        },
-        {
-          "id": "visualization",
-          "name": "Visualization",
-          "requires": ["cyber-physical-systems-and-next-generation-sensors"]
         },
         {
           "id": "cloud-computing",
           "name": "Cloud Computing",
-          "requires": ["visualization"]
+          "requires": ["cyber-physical-systems-and-next-generation-sensors-visualiza"]
+        },
+        {
+          "id": "industry-4-0",
+          "name": "Industry 4.0",
+          "status": "retired"
+        },
+        {
+          "id": "smart-business-model",
+          "name": "Smart business model",
+          "status": "retired"
+        },
+        {
+          "id": "sensing-and-actuation",
+          "name": "Sensing & actuation",
+          "status": "retired"
+        },
+        {
+          "id": "communication",
+          "name": "Communication",
+          "status": "retired"
+        },
+        {
+          "id": "cyber-physical-systems-and-next-generation-sensors",
+          "name": "Cyber Physical Systems and Next Generation Sensors",
+          "status": "retired"
+        },
+        {
+          "id": "visualization",
+          "name": "Visualization",
+          "status": "retired"
         }
       ]
     },
@@ -188,14 +203,19 @@
           "requires": ["self-propelled-vehicles"]
         },
         {
+          "id": "3d-printing-spacecrafts",
+          "name": "3d Printing, Spacecrafts",
+          "requires": ["drones-unmanned-aerial-vehicle-uav"]
+        },
+        {
           "id": "3d-printing",
           "name": "3d Printing",
-          "requires": ["drones-unmanned-aerial-vehicle-uav"]
+          "status": "retired"
         },
         {
           "id": "spacecrafts",
           "name": "Spacecrafts",
-          "requires": ["3d-printing"]
+          "status": "retired"
         }
       ]
     },
@@ -239,14 +259,19 @@
           "requires": ["cyber-physical-system-based-telemedicine"]
         },
         {
+          "id": "bio-nanotechnology-biofuel",
+          "name": "Bio nanotechnology, biofuel",
+          "requires": ["real-time-biosensors"]
+        },
+        {
           "id": "bio-nanotechnology",
           "name": "Bio nanotechnology",
-          "requires": ["real-time-biosensors"]
+          "status": "retired"
         },
         {
           "id": "biofuel",
           "name": "biofuel",
-          "requires": ["bio-nanotechnology"]
+          "status": "retired"
         }
       ]
     }

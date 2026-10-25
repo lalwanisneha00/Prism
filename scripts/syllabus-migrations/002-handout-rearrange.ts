@@ -256,8 +256,30 @@ function placeInHandbook(h: HandoutCourse, subjectId: string): { key: string; ca
     ...(h.courseType === "practical" ? { experiments: h.experiments.map((e) => e.title) } : {}),
     source: "handout" as const,
   };
+  const used = new Set(flat.map((x) => x.course.key));
   if (found) {
     const target = found.course;
+    // An elective printed as a compulsory course in the old handbook moves into the slot.
+    if (!found.parent && isElective(code) && h.courseType !== "practical") {
+      hb.subjects.splice(hb.subjects.indexOf(target), 1);
+      delete subjectMap[`${h.branch}/${target.key}`];
+      const slot = slotFor(hb, h, credits, used);
+      const oldKey = target.key;
+      target.key = uniqueId(`${slot.key}--${slug(h.title)}`, used);
+      delete target.semester;
+      delete target.core;
+      Object.assign(target, content, { category: "Program Elective" });
+      delete target.retired;
+      slot.options!.push(target);
+      subjectMap[`${h.branch}/${target.key}`] = subjectId;
+      log(
+        { kind: "branch", subject: subjectId },
+        `handbook ${h.branch}/${oldKey}`,
+        oldKey,
+        target.key,
+      );
+      return { key: target.key, category: "Program Elective" };
+    }
     const before = { semester: target.semester, code: target.code, units: target.units.length };
     Object.assign(target, content);
     if (!found.parent && target.semester !== h.sem) target.semester = h.sem;
@@ -270,7 +292,6 @@ function placeInHandbook(h: HandoutCourse, subjectId: string): { key: string; ca
     });
     return { key: target.key, category: target.category };
   }
-  const used = new Set(flat.map((x) => x.course.key));
   const category =
     h.courseType === "practical"
       ? "Laboratory"
@@ -280,22 +301,7 @@ function placeInHandbook(h: HandoutCourse, subjectId: string): { key: string; ca
   const base = { name: h.title, category, credits, ...content };
   let key: string;
   if (isElective(code) && h.courseType !== "practical") {
-    let slot = hb.subjects.find((c) => c.semester === h.sem && c.options?.length && !c.retired);
-    if (!slot) {
-      slot = {
-        key: uniqueId(`s${h.sem}-program-elective`, used),
-        name: "Program Elective",
-        category: "Program Elective",
-        credits,
-        semester: h.sem,
-        core: true,
-        units: [],
-        options: [],
-        source: "handout",
-        notes: ["Elective slot added from the 2024-25 course handouts; choose one option."],
-      };
-      hb.subjects.push(slot);
-    }
+    const slot = slotFor(hb, h, credits, used);
     key = uniqueId(`${slot.key}--${slug(h.title)}`, used);
     slot.options!.push({ key, ...base });
   } else {
@@ -308,6 +314,44 @@ function placeInHandbook(h: HandoutCourse, subjectId: string): { key: string; ca
     semester: h.sem,
   });
   return { key, category };
+}
+
+/** The elective slot of the semester (made from the course table when there is none yet). */
+function slotFor(hb: Handbook, h: HandoutCourse, credits: number, used: Set<string>): HbCourse {
+  let slot = hb.subjects.find((c) => c.semester === h.sem && c.options?.length && !c.retired);
+  if (!slot) {
+    // How many electives a student takes here: the course table's elective rows
+    // (ME sem 7: "Professional Elective - 3/4/5" = 3). Open electives are separate.
+    const picks = Math.max(1, electiveRows(h.branch, h.sem));
+    slot = {
+      key: uniqueId(`s${h.sem}-program-elective`, used),
+      name: picks > 1 ? `Program Electives (choose ${picks})` : "Program Elective",
+      category: "Program Elective",
+      credits,
+      semester: h.sem,
+      core: true,
+      units: [],
+      options: [],
+      ...(picks > 1 ? { picks } : {}),
+      source: "handout",
+      notes: [
+        `Elective slot added from the 2024-25 course handouts; choose ${picks === 1 ? "one option" : `${picks} options`}.`,
+      ],
+    };
+    hb.subjects.push(slot);
+  }
+  return slot;
+}
+
+/** Program/professional elective rows of a semester in the branch's course table. */
+function electiveRows(branch: string, sem: number): number {
+  const names = new Set<string>();
+  for (const s of sems)
+    if (s.branch === branch)
+      for (const r of s.outline)
+        if (r.sem === sem && /elective/i.test(r.name) && !/open/i.test(r.name))
+          names.add(r.name.replace(/\s+/g, " ").trim().toLowerCase());
+  return names.size;
 }
 
 function retireInHandbook(branch: string, subjectId: string): void {
@@ -411,7 +455,8 @@ function newSubjectId(title: string, branch: string): string {
 
 function createSubject(h: HandoutCourse, extra: Partial<SubjectJ> = {}): SubjectJ | null {
   const chapters = extra.chapters ?? chaptersFrom(h, {});
-  if (chapters.length === 0) {
+  // A lab without an experiment list is still a course of the semester (owner, 2026-10-25).
+  if (chapters.length === 0 && h.courseType !== "practical") {
     review.push({
       branch: h.branch,
       sem: h.sem,
@@ -481,7 +526,7 @@ function reaches(s: SubjectJ, from: string, to: string): boolean {
 function linkNewTopics(s: SubjectJ, isNew: (t: TopicJ) => boolean): void {
   for (const c of s.chapters) {
     c.topics.forEach((t, i) => {
-      if (i === 0 || t.requires?.length || !isNew(t)) return;
+      if (i === 0 || t.requires?.length || t.status === "retired" || !isNew(t)) return;
       const prev = c.topics[i - 1];
       if (reaches(s, prev.id, t.id)) return;
       t.requires = [prev.id];
@@ -489,8 +534,113 @@ function linkNewTopics(s: SubjectJ, isNew: (t: TopicJ) => boolean): void {
   }
 }
 
+/**
+ * Re-applying after a published run (`--keep-ids-from=<git ref>`): every id that was published
+ * at that ref must still resolve. An id the new run no longer has comes back hidden: a missing
+ * course file is restored as retired, a missing chapter or topic is added as retired, and a topic
+ * that now sits in another chapter remembers the published chapter in `formerChapters`.
+ */
+function keepPublished(ref: string): number {
+  const show = (file: string): string | null => {
+    try {
+      return execFileSync("git", ["show", `${ref}:${file}`], {
+        encoding: "utf8",
+        maxBuffer: 1 << 28,
+      });
+    } catch {
+      return null;
+    }
+  };
+  const published = (JSON.parse(show(LOCK) ?? '{"ids":[]}') as { ids: string[] }).ids;
+  const resolvedNow = (s: SubjectJ) => {
+    const out = new Set<string>();
+    for (const c of s.chapters)
+      for (const t of c.topics) {
+        out.add(`${c.id}/${t.id}`);
+        if (t.movedFrom?.subject === s.id && t.movedFrom.chapter)
+          out.add(`${t.movedFrom.chapter}/${t.id}`);
+        for (const ch of (t.formerChapters as string[] | undefined) ?? []) out.add(`${ch}/${t.id}`);
+      }
+    return out;
+  };
+  const refFiles = new Map<string, SubjectJ | null>();
+  const refSubject = (id: string) => {
+    if (!refFiles.has(id)) {
+      const text = show(`${SUBJECTS}/${id}.json`);
+      refFiles.set(id, text ? (JSON.parse(text) as SubjectJ) : null);
+    }
+    return refFiles.get(id)!;
+  };
+  let kept = 0;
+  const bySubject = new Map<string, string[]>();
+  for (const id of published) {
+    const [subjectId, ...rest] = id.split("/");
+    (bySubject.get(subjectId) ?? bySubject.set(subjectId, []).get(subjectId)!).push(rest.join("/"));
+  }
+  for (const [subjectId, keys] of bySubject) {
+    const current = subjects.get(subjectId);
+    if (!current) {
+      // Only PDEU courses can have disappeared; the topic bank (em.json, dsa.json …) is never
+      // touched by this migration, and an existing file is never written over.
+      const file = path.join(SUBJECTS, `${subjectId}.json`);
+      if (existsSync(file)) continue;
+      const old = refSubject(subjectId);
+      if (!old || old.university !== "pdeu") continue;
+      old.status = "retired";
+      subjects.set(subjectId, { file, data: old });
+      created.add(file);
+      log({ kind: "subject", subject: subjectId }, "kept as retired (published id)", null, { ref });
+      kept += keys.length;
+      continue;
+    }
+    const s = current.data;
+    const have = resolvedNow(s);
+    const missing = keys.filter((k) => !have.has(k));
+    if (!missing.length) continue;
+    const old = refSubject(subjectId);
+    modified.add(current.file);
+    for (const key of missing) {
+      const [chapterId, topicId] = key.split("/");
+      const placed = s.chapters
+        .flatMap((c) => c.topics.map((t) => ({ c, t })))
+        .find((x) => x.t.id === topicId);
+      if (placed) {
+        const list = ((placed.t.formerChapters as string[] | undefined) ??= []);
+        if (!list.includes(chapterId)) list.push(chapterId);
+      } else {
+        const oldChapter = old?.chapters.find((c) => c.id === chapterId);
+        const oldTopic = oldChapter?.topics.find((t) => t.id === topicId);
+        let chapter = s.chapters.find((c) => c.id === chapterId);
+        if (!chapter) {
+          chapter = {
+            id: chapterId,
+            name: oldChapter?.name ?? chapterId,
+            status: "retired",
+            topics: [],
+          };
+          s.chapters.push(chapter);
+        }
+        chapter.topics.push({ id: topicId, name: oldTopic?.name ?? topicId, status: "retired" });
+      }
+      log(
+        { kind: "topic", subject: subjectId, chapter: chapterId, topic: topicId },
+        "kept (published id)",
+        null,
+        { ref, retired: !placed },
+      );
+      kept++;
+    }
+  }
+  // The published lock stays the base of the new one.
+  const lock = readJson<{ note: string; ids: string[] }>(LOCK);
+  const known = new Set(lock.ids);
+  for (const id of published) if (!known.has(id)) lock.ids.push(id);
+  writeFileSync(LOCK, `${JSON.stringify(lock, null, 2)}\n`);
+  return kept;
+}
+
 // ---------- the plan ----------
-const { sems, handouts, result, review: planReview } = buildPlan();
+const { sems, handouts, result } = buildPlan();
 const parsedBy = new Map<string, ParsedSemester["courses"][number]>();
 for (const s of sems) for (const c of s.courses) parsedBy.set(`${s.branch}/${s.sem}/${c.title}`, c);
 function parsedCourse(h: HandoutCourse) {
@@ -513,12 +663,30 @@ for (const m of result.matched) subjectOf.set(`${m.branch}/${m.sem}/${m.title}`,
 function up(): void {
   if (existsSync(MANIFEST))
     throw new Error(`${NAME} is already applied (${MANIFEST}). Run "down" first.`);
-  const dirty = execFileSync("git", ["status", "--porcelain", "--", "src/data", LOCK, HISTORY], {
+  const tags = execFileSync("git", ["tag", "--list", TAG], { encoding: "utf8" });
+  const dirty = execFileSync("git", ["status", "--porcelain", "--", "src/data", LOCK], {
     encoding: "utf8",
   });
-  if (dirty.trim())
+  // After a "down", the data equals the pre-apply tag again: that is a clean start too.
+  let sameAsTag = false;
+  if (dirty.trim() && tags.trim()) {
+    try {
+      execFileSync("git", [
+        "diff",
+        "--quiet",
+        TAG,
+        "--",
+        "src/data",
+        LOCK,
+        ":!src/data/subjects/*.generated.ts",
+      ]);
+      sameAsTag = true;
+    } catch {
+      sameAsTag = false;
+    }
+  }
+  if (dirty.trim() && !sameAsTag)
     throw new Error(`Uncommitted syllabus data changes; commit or revert them first:\n${dirty}`);
-  const tags = execFileSync("git", ["tag", "--list", TAG], { encoding: "utf8" });
   if (!tags.trim()) execFileSync("git", ["tag", TAG]);
 
   const changes = result.changes;
@@ -718,10 +886,6 @@ function up(): void {
     if (s) subjectOf.set(`${h.branch}/${h.sem}/${h.title}`, s.id);
   };
   for (const c of byType("new course")) add(handoutOf(c));
-  for (const r of planReview.filter(
-    (x) => x.reason === "same name, different syllabus in another branch",
-  ))
-    add(handoutBy.get(`${r.branch}/${r.sem}/${r.course!.title}`)!);
   const aiSource = subjects.get(AI_DRAFT_FROM)?.data;
   if (!aiSource) throw new Error(`${AI_DRAFT_FROM} not found`);
   for (const [branch, sem] of [
@@ -764,12 +928,18 @@ function up(): void {
   for (const c of byType("new practical course")) {
     const h = handoutOf(c);
     if (h.experiments.length === 0) {
-      review.push({
-        branch: h.branch,
-        sem: h.sem,
-        reason: "not applied",
-        detail: `Lab "${h.title}" has no experiment list to add`,
+      // No experiment list in the handout: listed with no experiments yet, unverified, so the
+      // upload banner asks students for the lab's handout.
+      const s = createSubject(h, {
+        chapters: [],
+        confidence: "unverified",
+        syllabusSource: {
+          kind: "university",
+          title: `PDEU course handout 2024-25 (${FOLDER[h.branch]} semester ${h.sem}): ${h.title}`,
+          note: `The handout (pages ${h.pages} of ${h.source}) lists this lab but no experiments that could be read. Unverified: experiments come from a student's upload.`,
+        },
       });
+      if (s) subjectOf.set(`${h.branch}/${h.sem}/${h.title}`, s.id);
       continue;
     }
     add(h);
@@ -815,6 +985,10 @@ function up(): void {
       branchFile.branches.push(b);
       log({ kind: "branch" }, `branch ${b.id}`, null, b);
     }
+
+  const keepFrom = process.argv.find((a) => a.startsWith("--keep-ids-from="))?.split("=")[1];
+  const keptIds = keepFrom ? keepPublished(keepFrom) : 0;
+  if (keepFrom) console.log(`Kept ${keptIds} published ids from ${keepFrom}.`);
 
   for (const { file, data } of subjects.values()) {
     if (created.has(file)) linkNewTopics(data, () => true);

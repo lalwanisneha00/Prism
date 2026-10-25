@@ -68,23 +68,13 @@
       "hours": 14,
       "topics": [
         {
-          "id": "exergy",
-          "name": "Exergy"
-        },
-        {
-          "id": "environment",
-          "name": "Environment",
-          "requires": ["exergy"]
-        },
-        {
-          "id": "dead-state",
-          "name": "Dead State",
-          "requires": ["environment"]
+          "id": "exergy-environment-dead-state",
+          "name": "Exergy, Environment, Dead State"
         },
         {
           "id": "limited-dead-state",
           "name": "Limited Dead State",
-          "requires": ["dead-state"]
+          "requires": ["exergy-environment-dead-state"]
         },
         {
           "id": "definition-of-exergy-related-to-kinetic-and-potential-energy",
@@ -135,6 +125,21 @@
           "id": "the-decrease-of-exergy-principle-and-exergy-destruction",
           "name": "The Decrease Of Exergy Principle And Exergy Destruction",
           "requires": ["establishing-basic-exergy-equations"]
+        },
+        {
+          "id": "exergy",
+          "name": "Exergy",
+          "status": "retired"
+        },
+        {
+          "id": "environment",
+          "name": "Environment",
+          "status": "retired"
+        },
+        {
+          "id": "dead-state",
+          "name": "Dead State",
+          "status": "retired"
         }
       ]
     },
@@ -148,44 +153,54 @@
           "name": "Exergy Applications For Close And Open Systems"
         },
         {
-          "id": "for-continuous-flow-systems-such-as-turbine",
-          "name": "For Continuous Flow Systems Such As Turbine",
+          "id": "for-continuous-flow-systems-such-as-turbine-pump-compressor",
+          "name": "For Continuous Flow Systems Such As Turbine, Pump, Compressor, Nozzle",
           "requires": ["exergy-applications-for-close-and-open-systems"]
         },
         {
-          "id": "pump",
-          "name": "Pump",
-          "requires": ["for-continuous-flow-systems-such-as-turbine"]
-        },
-        {
-          "id": "compressor",
-          "name": "Compressor",
-          "requires": ["pump"]
-        },
-        {
-          "id": "nozzle",
-          "name": "Nozzle",
-          "requires": ["compressor"]
-        },
-        {
-          "id": "heat-exchanger",
-          "name": "Heat Exchanger",
-          "requires": ["nozzle"]
-        },
-        {
-          "id": "mixer",
-          "name": "Mixer",
-          "requires": ["heat-exchanger"]
+          "id": "heat-exchanger-mixer",
+          "name": "Heat Exchanger, Mixer",
+          "requires": ["for-continuous-flow-systems-such-as-turbine-pump-compressor"]
         },
         {
           "id": "energy-storage-systems-etc",
           "name": "Energy Storage Systems Etc",
-          "requires": ["mixer"]
+          "requires": ["heat-exchanger-mixer"]
         },
         {
           "id": "exergy-balance-and-second-law-efficiency",
           "name": "Exergy Balance And Second Law Efficiency",
           "requires": ["energy-storage-systems-etc"]
+        },
+        {
+          "id": "for-continuous-flow-systems-such-as-turbine",
+          "name": "For Continuous Flow Systems Such As Turbine",
+          "status": "retired"
+        },
+        {
+          "id": "pump",
+          "name": "Pump",
+          "status": "retired"
+        },
+        {
+          "id": "compressor",
+          "name": "Compressor",
+          "status": "retired"
+        },
+        {
+          "id": "nozzle",
+          "name": "Nozzle",
+          "status": "retired"
+        },
+        {
+          "id": "heat-exchanger",
+          "name": "Heat Exchanger",
+          "status": "retired"
+        },
+        {
+          "id": "mixer",
+          "name": "Mixer",
+          "status": "retired"
         }
       ]
     },
@@ -195,18 +210,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "linkages-between-exergy",
-          "name": "Linkages Between Exergy"
-        },
-        {
-          "id": "economics",
-          "name": "Economics",
-          "requires": ["linkages-between-exergy"]
+          "id": "linkages-between-exergy-economics",
+          "name": "Linkages Between Exergy, Economics"
         },
         {
           "id": "the-environment-and-sustainability",
           "name": "The Environment And Sustainability",
-          "requires": ["economics"]
+          "requires": ["linkages-between-exergy-economics"]
         },
         {
           "id": "life-cycle-assessment-stages-of-life-cycle-assessment",
@@ -232,6 +242,16 @@
           "id": "case-studies-of-exergy-costing-in-different-thermal-componen",
           "name": "Case Studies Of Exergy Costing In Different Thermal Components",
           "requires": ["capital-recovery-factor"]
+        },
+        {
+          "id": "linkages-between-exergy",
+          "name": "Linkages Between Exergy",
+          "status": "retired"
+        },
+        {
+          "id": "economics",
+          "name": "Economics",
+          "status": "retired"
         }
       ]
     }

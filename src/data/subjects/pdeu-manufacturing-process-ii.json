@@ -62,8 +62,7 @@
         {
           "id": "machine-tool-power-drives",
           "name": "machine tool power drives",
-          "requires": ["functional-principles"],
-          "status": "retired"
+          "requires": ["functional-principles"]
         },
         {
           "id": "role-and-forms-of-kinematic-structure-in-machine-tools",
@@ -159,22 +158,17 @@
         {
           "id": "failure-life-and-materials-of-cutting-tools",
           "name": "failure, life and materials of cutting tools",
-          "requires": ["machinability"],
-          "status": "retired"
+          "requires": ["machinability"]
         },
         {
           "id": "introduction-to-machine-tools-and-power-drives",
           "name": "Introduction to machine tools and power drives",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["failure-life-and-materials-of-cutting-tools"]
+          "status": "retired"
         },
         {
           "id": "tool-life-and-tool-failure",
           "name": "tool life and tool failure",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-machine-tools-and-power-drives"]
+          "status": "retired"
         }
       ]
     },
@@ -195,8 +189,8 @@
           "confidence": "verified"
         },
         {
-          "id": "principle-of-working-3",
-          "name": "principle of working",
+          "id": "principle-of-working-classifications",
+          "name": "principle of working, classifications",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["principle-of-working"]
@@ -236,24 +230,8 @@
         },
         {
           "id": "shaping-slotting-planning-and-broaching-machines-kinematic",
-          "name": "Shaping",
-          "requires": ["classification-and-specification-of-lathe-machines"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "slotting",
-          "name": "slotting",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["shaping-slotting-planning-and-broaching-machines-kinematic"]
-        },
-        {
-          "id": "planning-machines-kinematic-systems",
-          "name": "planning machines: Kinematic systems",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["slotting"]
+          "name": "Shaping, slotting, planning and broaching machines: Kinematic systems",
+          "requires": ["classification-and-specification-of-lathe-machines"]
         },
         {
           "id": "classifications-specification-and-operations-performed",
@@ -294,14 +272,30 @@
         {
           "id": "deep-hole-drilling-machines-boring-machines-and",
           "name": "deep hole drilling machines. Boring machines and classifications",
-          "requires": ["twist-drill"]
+          "requires": ["twist-drill"],
+          "status": "retired"
         },
         {
           "id": "numerical-and-experimental-study-effect-of-process-parameter",
-          "name": "numerical and experimental study-effect of process parameters",
+          "name": "numerical and experimental study-effect of process parameters, Shaping, slotting",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["deep-hole-drilling-machines-boring-machines-and"]
+        },
+        {
+          "id": "principle-of-working-3",
+          "name": "principle of working",
+          "status": "retired"
+        },
+        {
+          "id": "slotting",
+          "name": "slotting",
+          "status": "retired"
+        },
+        {
+          "id": "planning-machines-kinematic-systems",
+          "name": "planning machines: Kinematic systems",
+          "status": "retired"
         }
       ]
     },
@@ -322,16 +316,7 @@
         {
           "id": "classifications-2",
           "name": "classifications",
-          "requires": ["principle-of-working-2"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "classifications-of-cutters",
-          "name": "classifications of cutters",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["classifications-2"]
+          "requires": ["principle-of-working-2"]
         },
         {
           "id": "specifications-2",
@@ -361,16 +346,7 @@
         {
           "id": "methods-of-indexing",
           "name": "methods of indexing",
-          "requires": ["classifications-of-cutters-introduction-to-indexing"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "calculations-of-gear-indexing-methods-manufacturing-methods",
-          "name": "calculations of gear indexing methods– manufacturing methods of gears",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["methods-of-indexing"]
+          "requires": ["classifications-of-cutters-introduction-to-indexing"]
         },
         {
           "id": "gear-cutting-methods-grinding-introduction",
@@ -506,11 +482,30 @@
           "status": "retired"
         },
         {
+          "id": "introduction",
+          "name": "Introduction",
+          "movedFrom": {
+            "subject": "pdeu-manufacturing-process-ii",
+            "chapter": "jigs-and-fixtures",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "classifications-of-cutters",
+          "name": "classifications of cutters",
+          "status": "retired"
+        },
+        {
+          "id": "calculations-of-gear-indexing-methods-manufacturing-methods",
+          "name": "calculations of gear indexing methods– manufacturing methods of gears",
+          "status": "retired"
+        },
+        {
           "id": "introduction-to-gear-indexing",
           "name": "Introduction to gear indexing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["electro-polishing"]
+          "status": "retired"
         }
       ]
     },
@@ -528,32 +523,18 @@
           "confidence": "verified"
         },
         {
-          "id": "principle-of-working-4",
-          "name": "principle of working",
+          "id": "principle-of-working-classifications-specifications",
+          "name": "principle of working, classifications, specifications",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["drilling-and-boring-machines-kinematic-system"]
-        },
-        {
-          "id": "classifications-3",
-          "name": "classifications",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["principle-of-working-4"]
-        },
-        {
-          "id": "specifications-3",
-          "name": "specifications",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["classifications-3"]
         },
         {
           "id": "operations-performed-3",
           "name": "operations performed",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["specifications-3"]
+          "requires": ["principle-of-working-classifications-specifications"]
         },
         {
           "id": "machining-time-calculations",
@@ -589,6 +570,21 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["mechanism-of-grinding-2"]
+        },
+        {
+          "id": "principle-of-working-4",
+          "name": "principle of working",
+          "status": "retired"
+        },
+        {
+          "id": "classifications-3",
+          "name": "classifications",
+          "status": "retired"
+        },
+        {
+          "id": "specifications-3",
+          "name": "specifications",
+          "status": "retired"
         }
       ]
     },
@@ -597,10 +593,6 @@
       "name": "Jigs and Fixtures",
       "hours": 12,
       "topics": [
-        {
-          "id": "introduction",
-          "name": "Introduction"
-        },
         {
           "id": "purpose-of-using-fixtures-and-jigs-in-machine-shops",
           "name": "purpose of using fixtures and jigs in machine shops-considerations while designing fixtures and jigs",

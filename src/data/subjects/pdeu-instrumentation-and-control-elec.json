@@ -1,0 +1,320 @@
+{
+  "id": "pdeu-instrumentation-and-control-elec",
+  "name": "Instrumentation and Control",
+  "field": "Instrumentation and Control",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): Instrumentation and Control",
+    "note": "Units and topics copied from the course handout PDF (pages 7 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE303T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-instrumentation-and-control",
+      "code": "20EE303T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "measurement-system",
+      "name": "Measurement System",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "introduction-to-measurement-system",
+          "name": "Introduction to measurement system"
+        },
+        {
+          "id": "types-of-measurements",
+          "name": "types of measurements",
+          "requires": ["introduction-to-measurement-system"]
+        },
+        {
+          "id": "components-of-measurement-system",
+          "name": "components of measurement system",
+          "requires": ["types-of-measurements"]
+        },
+        {
+          "id": "sensors-and-transducers",
+          "name": "sensors and transducers",
+          "requires": ["components-of-measurement-system"]
+        },
+        {
+          "id": "static-and-dynamic-characteristics-of-measuring-device",
+          "name": "static and dynamic characteristics of measuring device",
+          "requires": ["sensors-and-transducers"]
+        },
+        {
+          "id": "transducer-classifications",
+          "name": "transducer classifications",
+          "requires": ["static-and-dynamic-characteristics-of-measuring-device"]
+        },
+        {
+          "id": "electrical-transducers",
+          "name": "electrical transducers",
+          "requires": ["transducer-classifications"]
+        },
+        {
+          "id": "digital-measuring-instruments-like-digital-voltmeter",
+          "name": "Digital measuring instruments like Digital voltmeter",
+          "requires": ["electrical-transducers"]
+        },
+        {
+          "id": "digital-wattmeter",
+          "name": "Digital wattmeter",
+          "requires": ["digital-measuring-instruments-like-digital-voltmeter"]
+        },
+        {
+          "id": "digital-energy-meter",
+          "name": "Digital energy meter",
+          "requires": ["digital-wattmeter"]
+        },
+        {
+          "id": "digital-power-factor-method",
+          "name": "digital power factor method",
+          "requires": ["digital-energy-meter"]
+        },
+        {
+          "id": "transducer-calibrations",
+          "name": "transducer calibrations",
+          "requires": ["digital-power-factor-method"]
+        }
+      ]
+    },
+    {
+      "id": "sensors-and-transducers",
+      "name": "Sensors & Transducers",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "position-sensors",
+          "name": "Position sensors"
+        },
+        {
+          "id": "speed-and-vibration-measurements",
+          "name": "speed and vibration measurements",
+          "requires": ["position-sensors"]
+        },
+        {
+          "id": "force-and-pressure-measurement",
+          "name": "force and pressure measurement",
+          "requires": ["speed-and-vibration-measurements"]
+        },
+        {
+          "id": "capacitive-and-piezo-electric-transducers",
+          "name": "capacitive and Piezo-electric transducers",
+          "requires": ["force-and-pressure-measurement"]
+        },
+        {
+          "id": "stain-gauge",
+          "name": "stain gauge",
+          "requires": ["capacitive-and-piezo-electric-transducers"]
+        },
+        {
+          "id": "lvdt",
+          "name": "LVDT",
+          "requires": ["stain-gauge"]
+        },
+        {
+          "id": "temperature-measurement-using-resistance-thermometer-thermis",
+          "name": "temperature measurement using resistance thermometer, thermistors",
+          "requires": ["lvdt"]
+        },
+        {
+          "id": "rtd-thermocouples-pyrometer",
+          "name": "RTD, thermocouples, pyrometer",
+          "requires": ["temperature-measurement-using-resistance-thermometer-thermis"]
+        },
+        {
+          "id": "measurement-of-liquid-level",
+          "name": "measurement of liquid level",
+          "requires": ["rtd-thermocouples-pyrometer"]
+        },
+        {
+          "id": "flow-measurements",
+          "name": "flow measurements",
+          "requires": ["measurement-of-liquid-level"]
+        },
+        {
+          "id": "smart-sensors",
+          "name": "smart sensors",
+          "requires": ["flow-measurements"]
+        },
+        {
+          "id": "proximity-sensors",
+          "name": "proximity sensors",
+          "requires": ["smart-sensors"]
+        }
+      ]
+    },
+    {
+      "id": "data-acquisition-and-signal-transmission",
+      "name": "Data Acquisition & Signal Transmission",
+      "hours": 6,
+      "topics": [
+        {
+          "id": "signal-conditioning-of-the-inputs",
+          "name": "Signal conditioning of the inputs"
+        },
+        {
+          "id": "data-conversion",
+          "name": "data conversion",
+          "requires": ["signal-conditioning-of-the-inputs"]
+        },
+        {
+          "id": "analog-to-digital-and-digital-to-analog-converters",
+          "name": "analog to digital and digital to analog converters",
+          "requires": ["data-conversion"]
+        },
+        {
+          "id": "telemetry-system",
+          "name": "telemetry system",
+          "requires": ["analog-to-digital-and-digital-to-analog-converters"]
+        },
+        {
+          "id": "current-to-voltage",
+          "name": "current to voltage",
+          "requires": ["telemetry-system"]
+        },
+        {
+          "id": "voltage-to-current",
+          "name": "voltage to current",
+          "requires": ["current-to-voltage"]
+        },
+        {
+          "id": "current-to-pressure-convertors",
+          "name": "current to pressure convertors",
+          "requires": ["voltage-to-current"]
+        },
+        {
+          "id": "industrial-data-communication-signals-and-communication-prot",
+          "name": "industrial data communication signals and communication protocols",
+          "requires": ["current-to-pressure-convertors"]
+        },
+        {
+          "id": "differential-pressure-transmitters",
+          "name": "Differential pressure transmitters",
+          "requires": ["industrial-data-communication-signals-and-communication-prot"]
+        },
+        {
+          "id": "smart-transmitters",
+          "name": "smart transmitters",
+          "requires": ["differential-pressure-transmitters"]
+        }
+      ]
+    },
+    {
+      "id": "control-stretegies",
+      "name": "Control Stretegies",
+      "hours": 16,
+      "topics": [
+        {
+          "id": "principle-and-elements-of-process-control",
+          "name": "Principle and elements of process control"
+        },
+        {
+          "id": "process-characteristics",
+          "name": "process characteristics",
+          "requires": ["principle-and-elements-of-process-control"]
+        },
+        {
+          "id": "continuous-and-discontinuous-control-proportional-integral",
+          "name": "continuous and discontinuous control, proportional, integral",
+          "requires": ["process-characteristics"]
+        },
+        {
+          "id": "derivative-and-composite-control-modes-pi",
+          "name": "derivative and composite control modes (PI",
+          "requires": ["continuous-and-discontinuous-control-proportional-integral"]
+        },
+        {
+          "id": "pid",
+          "name": "PID)",
+          "requires": ["derivative-and-composite-control-modes-pi"]
+        },
+        {
+          "id": "tuning-of-pid-controller",
+          "name": "tuning of PID controller",
+          "requires": ["pid"]
+        },
+        {
+          "id": "cascade-control",
+          "name": "cascade control",
+          "requires": ["tuning-of-pid-controller"]
+        },
+        {
+          "id": "feed-forward-control",
+          "name": "feed-forward control",
+          "requires": ["cascade-control"]
+        },
+        {
+          "id": "pole-placement-control",
+          "name": "Pole placement control",
+          "requires": ["feed-forward-control"]
+        },
+        {
+          "id": "introduction-to-optimal-control",
+          "name": "Introduction to optimal control",
+          "requires": ["pole-placement-control"]
+        },
+        {
+          "id": "application-of-the-process-control-in-a-power-plant",
+          "name": "Application of the process control in a power plant",
+          "requires": ["introduction-to-optimal-control"]
+        },
+        {
+          "id": "introduction-to-scada",
+          "name": "Introduction to SCADA",
+          "requires": ["application-of-the-process-control-in-a-power-plant"]
+        },
+        {
+          "id": "programmable-logic-control",
+          "name": "Programmable Logic Control",
+          "requires": ["introduction-to-scada"]
+        },
+        {
+          "id": "plc-architecture",
+          "name": "PLC architecture",
+          "requires": ["programmable-logic-control"]
+        },
+        {
+          "id": "working-of-plc",
+          "name": "Working of PLC",
+          "requires": ["plc-architecture"]
+        },
+        {
+          "id": "input-output-modules",
+          "name": "input-output modules",
+          "requires": ["working-of-plc"]
+        },
+        {
+          "id": "introduction-to-plc-programming-using-ladder-logic",
+          "name": "Introduction to PLC programming using ladder logic",
+          "requires": ["input-output-modules"]
+        },
+        {
+          "id": "introduction-to-distributed-control-system-dcs-and-its-archi",
+          "name": "Introduction to distributed control system (DCS) and its architecture",
+          "requires": ["introduction-to-plc-programming-using-ladder-logic"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-instrumentation-and-control-laboratory-elec"]
+}

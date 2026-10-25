@@ -26,8 +26,8 @@
     "title": "PDEU B.Tech curriculum handbook (ICT): Software Engineering Methodology",
     "note": "Units and topics are PDEU's, copied from the handbook. 5 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -78,7 +78,16 @@
         {
           "id": "spiral-iterative",
           "name": "evolutionary model",
-          "requires": ["prototyping-mode"]
+          "requires": ["prototyping-mode"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "rad-model-v-model",
+          "name": "RAD model, V Model",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["spiral-iterative"]
         },
         {
           "id": "spiral-model",
@@ -97,8 +106,17 @@
         },
         {
           "id": "agile-models-extreme-programming-and-scrum-requirement",
-          "name": "Agile models: Extreme Programming, and Scrum. Requirement Gathering and Analysis",
-          "requires": ["v-model"]
+          "name": "Agile models: Extreme Programming, Scrum",
+          "requires": ["v-model"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "requirement-gathering-and-analysis",
+          "name": "Requirement Gathering and Analysis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["agile-models-extreme-programming-and-scrum-requirement"]
         },
         {
           "id": "functional-and-non-functional-requirements",
@@ -138,8 +156,17 @@
         },
         {
           "id": "basic-concepts-of-object-oriented-analysis-and-design-user",
-          "name": "Basic concepts of Object-Oriented Analysis & Design. User interface design",
-          "requires": ["function-oriented-software-design-structured-analysis-using"]
+          "name": "Basic concepts of Object-Oriented Analysis & Design",
+          "requires": ["function-oriented-software-design-structured-analysis-using"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "user-interface-design",
+          "name": "User interface design",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-concepts-of-object-oriented-analysis-and-design-user"]
         },
         {
           "id": "command-language",
@@ -230,19 +257,74 @@
       "topics": [
         {
           "id": "basic-concepts-in-software-reliability-reliability-measures",
-          "name": "Basic concepts in software reliability, reliability measures, reliability growth modeling, Quality SEI CMM, Characteristics of software maintenance, software reverse engineering, software reengineerin"
+          "name": "Basic concepts in software reliability",
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "reliability-measures",
+          "name": "reliability measures",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["basic-concepts-in-software-reliability-reliability-measures"]
+        },
+        {
+          "id": "reliability-growth-modeling",
+          "name": "reliability growth modeling",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reliability-measures"]
+        },
+        {
+          "id": "quality-sei-cmm",
+          "name": "Quality SEI CMM",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["reliability-growth-modeling"]
+        },
+        {
+          "id": "characteristics-of-software-maintenance",
+          "name": "Characteristics of software maintenance",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["quality-sei-cmm"]
+        },
+        {
+          "id": "software-reverse-engineering",
+          "name": "software reverse engineering",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["characteristics-of-software-maintenance"]
         },
         {
           "id": "note-the-detailed-syllabus-page-for-this-course-prints-l-t-p",
           "name": "Note: The detailed syllabus page for this course prints L-T-P-C as 3-1-0-4",
-          "requires": ["basic-concepts-in-software-reliability-reliability-measures"]
+          "requires": ["basic-concepts-in-software-reliability-reliability-measures"],
+          "status": "retired"
         },
         {
           "id": "the-credits-shown-here-follow-the-official-course-structure",
           "name": "the credits shown here follow the official course structure table",
-          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"]
+          "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"],
+          "status": "retired"
+        },
+        {
+          "id": "software-reengineering",
+          "name": "software reengineering",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["the-credits-shown-here-follow-the-official-course-structure"]
+        },
+        {
+          "id": "software-reuse",
+          "name": "software reuse",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["software-reengineering"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-software-engineering-methodologies-laboratory-ict"]
 }

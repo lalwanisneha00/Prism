@@ -1,0 +1,225 @@
+{
+  "id": "pdeu-digital-control-elec",
+  "name": "Digital Control",
+  "field": "Digital Control",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 7): Digital Control",
+    "note": "Units and topics copied from the course handout PDF (pages 8 of ELEC/sem7/Electrical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE405T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s7-digital-control",
+      "code": "20EE405T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-discrete-time-systems",
+      "name": "Introduction to Discrete Time Systems",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-the-representation-of-discrete-time-systems",
+          "name": "Introduction to the representation of discrete time systems"
+        },
+        {
+          "id": "properties-and-uses-of-the-z-transform-for-discrete-time-sig",
+          "name": "Properties and uses of the z- transform for discrete time signals and systems",
+          "requires": ["introduction-to-the-representation-of-discrete-time-systems"]
+        },
+        {
+          "id": "sampling-and-reconstruction-of-continuous-time-signals",
+          "name": "Sampling and reconstruction of continuous time signals",
+          "requires": ["properties-and-uses-of-the-z-transform-for-discrete-time-sig"]
+        },
+        {
+          "id": "zoh-equivalent",
+          "name": "ZOH equivalent",
+          "requires": ["sampling-and-reconstruction-of-continuous-time-signals"]
+        },
+        {
+          "id": "relationship-between-s-plane-continuous-time-and-z-plane-dis",
+          "name": "Relationship between s-plane (continuous-time) and z-plane (discrete time)",
+          "requires": ["zoh-equivalent"]
+        },
+        {
+          "id": "bilinear-transformation",
+          "name": "Bilinear transformation",
+          "requires": ["relationship-between-s-plane-continuous-time-and-z-plane-dis"]
+        },
+        {
+          "id": "pulse-transfer-function",
+          "name": "Pulse transfer function",
+          "requires": ["bilinear-transformation"]
+        },
+        {
+          "id": "stability-analysis-and-stability-tests-for-discrete-time-sys",
+          "name": "Stability analysis and stability tests for discrete-time systems",
+          "requires": ["pulse-transfer-function"]
+        },
+        {
+          "id": "jury-s-stability-criterion",
+          "name": "Jury’s stability criterion",
+          "requires": ["stability-analysis-and-stability-tests-for-discrete-time-sys"]
+        }
+      ]
+    },
+    {
+      "id": "discrete-state-space-models",
+      "name": "Discrete State Space Models",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-discrete-state-space-models",
+          "name": "Introduction to discrete state space models"
+        },
+        {
+          "id": "canonical-models",
+          "name": "canonical models",
+          "requires": ["introduction-to-discrete-state-space-models"]
+        },
+        {
+          "id": "conversion-of-continuous-to-discrete-state-space-model",
+          "name": "Conversion of continuous to discrete state space model",
+          "requires": ["canonical-models"]
+        },
+        {
+          "id": "state-transition-matrix",
+          "name": "state transition matrix",
+          "requires": ["conversion-of-continuous-to-discrete-state-space-model"]
+        },
+        {
+          "id": "solution-of-state-difference-equation-controllability-observ",
+          "name": "solution of state difference equation, Controllability, observability, reachability",
+          "requires": ["state-transition-matrix"]
+        },
+        {
+          "id": "constructability-of-discrete-state-space-models",
+          "name": "constructability of discrete state space models",
+          "requires": ["solution-of-state-difference-equation-controllability-observ"]
+        },
+        {
+          "id": "effect-of-sampling-on-stability",
+          "name": "effect of sampling on stability",
+          "requires": ["constructability-of-discrete-state-space-models"]
+        },
+        {
+          "id": "controllability-and-observability",
+          "name": "controllability and observability",
+          "requires": ["effect-of-sampling-on-stability"]
+        }
+      ]
+    },
+    {
+      "id": "digital-controller-design",
+      "name": "Digital Controller Design",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "digital-controller-design-via-classical-techniques",
+          "name": "Digital controller design via classical techniques"
+        },
+        {
+          "id": "discrete-pid-control",
+          "name": "Discrete PID control",
+          "requires": ["digital-controller-design-via-classical-techniques"]
+        },
+        {
+          "id": "position-and-velocity-algorithms-for-pid-controller-implemen",
+          "name": "Position and velocity algorithms for PID controller implementations",
+          "requires": ["discrete-pid-control"]
+        },
+        {
+          "id": "deadbeat-control",
+          "name": "Deadbeat control",
+          "requires": ["position-and-velocity-algorithms-for-pid-controller-implemen"]
+        },
+        {
+          "id": "state-feedback-control",
+          "name": "State feedback control",
+          "requires": ["deadbeat-control"]
+        },
+        {
+          "id": "discrete-pole-placement-control",
+          "name": "discrete pole placement control",
+          "requires": ["state-feedback-control"]
+        },
+        {
+          "id": "design-of-full-order-state-observers-and-estimators",
+          "name": "Design of full order State observers and estimators",
+          "requires": ["discrete-pole-placement-control"]
+        }
+      ]
+    },
+    {
+      "id": "modern-control-techniques",
+      "name": "Modern Control Techniques",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-optimal-control",
+          "name": "Introduction to optimal control"
+        },
+        {
+          "id": "discrete-linear-regulator-problem",
+          "name": "discrete linear regulator problem",
+          "requires": ["introduction-to-optimal-control"]
+        },
+        {
+          "id": "performance-indices",
+          "name": "Performance indices",
+          "requires": ["discrete-linear-regulator-problem"]
+        },
+        {
+          "id": "linear-quadratic-regulator-lqr-design",
+          "name": "Linear Quadratic Regulator (LQR) design",
+          "requires": ["performance-indices"]
+        },
+        {
+          "id": "riccati-equation",
+          "name": "Riccati equation",
+          "requires": ["linear-quadratic-regulator-lqr-design"]
+        },
+        {
+          "id": "model-predictive-controller",
+          "name": "Model Predictive Controller",
+          "requires": ["riccati-equation"]
+        },
+        {
+          "id": "problem-formulation",
+          "name": "Problem formulation",
+          "requires": ["model-predictive-controller"]
+        },
+        {
+          "id": "objective-functions",
+          "name": "Objective functions",
+          "requires": ["problem-formulation"]
+        },
+        {
+          "id": "receding-horizon-control",
+          "name": "Receding horizon control",
+          "requires": ["objective-functions"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-digital-control-laboratory-elec"]
+}

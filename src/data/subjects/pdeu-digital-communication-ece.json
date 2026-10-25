@@ -71,32 +71,18 @@
           "confidence": "verified"
         },
         {
-          "id": "time-division-multiplexing",
-          "name": "Time-Division Multiplexing",
+          "id": "time-division-multiplexing-uncertainty-information",
+          "name": "Time-Division Multiplexing, Uncertainty, Information",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["tdm-comm"]
-        },
-        {
-          "id": "uncertainty",
-          "name": "Uncertainty",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["time-division-multiplexing"]
-        },
-        {
-          "id": "information",
-          "name": "Information",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["uncertainty"]
         },
         {
           "id": "entropy",
           "name": "Entropy",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["information"]
+          "requires": ["time-division-multiplexing-uncertainty-information"]
         },
         {
           "id": "source-coding-theorem",
@@ -127,18 +113,33 @@
           "requires": ["discrete-memoryless-channels"]
         },
         {
-          "id": "channel-capacity",
-          "name": "Channel Capacity",
+          "id": "channel-coding-theorem",
+          "name": "Channel Coding Theorem",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["mutual-information"]
         },
         {
-          "id": "channel-coding-theorem",
-          "name": "Channel Coding Theorem",
+          "id": "channel-capacity",
+          "name": "Channel Capacity",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["channel-capacity"]
+          "requires": ["channel-coding-theorem"]
+        },
+        {
+          "id": "time-division-multiplexing",
+          "name": "Time-Division Multiplexing",
+          "status": "retired"
+        },
+        {
+          "id": "uncertainty",
+          "name": "Uncertainty",
+          "status": "retired"
+        },
+        {
+          "id": "information",
+          "name": "Information",
+          "status": "retired"
         }
       ]
     },

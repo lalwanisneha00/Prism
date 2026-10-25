@@ -66,34 +66,39 @@
           "requires": ["laplace-transform"]
         },
         {
-          "id": "different-types-of-input-functions",
-          "name": "different types of input functions",
+          "id": "different-types-of-input-functions-delta-step-ramp-sinusoida",
+          "name": "different types of input functions, delta, step, ramp, sinusoidal",
           "requires": ["inverse-laplace-transform-and-transfer-functions"]
-        },
-        {
-          "id": "delta",
-          "name": "delta",
-          "requires": ["different-types-of-input-functions"]
-        },
-        {
-          "id": "step",
-          "name": "step",
-          "requires": ["delta"]
-        },
-        {
-          "id": "ramp",
-          "name": "ramp",
-          "requires": ["step"]
-        },
-        {
-          "id": "sinusoidal",
-          "name": "sinusoidal",
-          "requires": ["ramp"]
         },
         {
           "id": "defining-piecewise-continuous-functions-in-terms-of-step-inp",
           "name": "defining piecewise continuous functions in terms of step inputs",
-          "requires": ["sinusoidal"]
+          "requires": ["different-types-of-input-functions-delta-step-ramp-sinusoida"]
+        },
+        {
+          "id": "different-types-of-input-functions",
+          "name": "different types of input functions",
+          "status": "retired"
+        },
+        {
+          "id": "delta",
+          "name": "delta",
+          "status": "retired"
+        },
+        {
+          "id": "step",
+          "name": "step",
+          "status": "retired"
+        },
+        {
+          "id": "ramp",
+          "name": "ramp",
+          "status": "retired"
+        },
+        {
+          "id": "sinusoidal",
+          "name": "sinusoidal",
+          "status": "retired"
         }
       ]
     },
@@ -103,18 +108,13 @@
       "hours": 9,
       "topics": [
         {
-          "id": "first-order-systems",
-          "name": "First-order systems"
-        },
-        {
-          "id": "linearization",
-          "name": "linearization",
-          "requires": ["first-order-systems"]
+          "id": "first-order-systems-linearization",
+          "name": "First-order systems, linearization"
         },
         {
           "id": "second-order-systems",
           "name": "second-order systems",
-          "requires": ["linearization"]
+          "requires": ["first-order-systems-linearization"]
         },
         {
           "id": "stability-analysis-using-system-poles",
@@ -127,19 +127,14 @@
           "requires": ["stability-analysis-using-system-poles"]
         },
         {
-          "id": "feedback-control",
-          "name": "feedback control",
+          "id": "feedback-control-introduction-to-p",
+          "name": "feedback control, introduction to P",
           "requires": ["routh-s-stability-test"]
-        },
-        {
-          "id": "introduction-to-p",
-          "name": "introduction to P",
-          "requires": ["feedback-control"]
         },
         {
           "id": "pi-and-pid-controllers",
           "name": "PI and PID controllers",
-          "requires": ["introduction-to-p"]
+          "requires": ["feedback-control-introduction-to-p"]
         },
         {
           "id": "servo-and-regulatory-control",
@@ -155,6 +150,26 @@
           "id": "cascade-control",
           "name": "cascade control",
           "requires": ["simplification-of-complex-block-diagrams"]
+        },
+        {
+          "id": "first-order-systems",
+          "name": "First-order systems",
+          "status": "retired"
+        },
+        {
+          "id": "linearization",
+          "name": "linearization",
+          "status": "retired"
+        },
+        {
+          "id": "feedback-control",
+          "name": "feedback control",
+          "status": "retired"
+        },
+        {
+          "id": "introduction-to-p",
+          "name": "introduction to P",
+          "status": "retired"
         }
       ]
     },
@@ -173,24 +188,14 @@
           "requires": ["frequency-domain-analysis-amplitude-ratio-and-phase"]
         },
         {
-          "id": "bode-plots-of-simple-gain",
-          "name": "Bode plots of simple gain",
+          "id": "bode-plots-of-simple-gain-integrator-differentiator",
+          "name": "Bode plots of simple gain, integrator, differentiator",
           "requires": ["bode-stability-criterion"]
-        },
-        {
-          "id": "integrator",
-          "name": "integrator",
-          "requires": ["bode-plots-of-simple-gain"]
-        },
-        {
-          "id": "differentiator",
-          "name": "differentiator",
-          "requires": ["integrator"]
         },
         {
           "id": "first-order-lag-and-first-order-lead-systems",
           "name": "first-order lag and first-order lead systems",
-          "requires": ["differentiator"]
+          "requires": ["bode-plots-of-simple-gain-integrator-differentiator"]
         },
         {
           "id": "controller-tuning",
@@ -206,6 +211,21 @@
           "id": "problem-of-inverse-response-and-dead-time-in-processes",
           "name": "problem of inverse response and dead time in processes",
           "requires": ["stability-based-tuning-and-direct-synthesis-methods-of-tunin"]
+        },
+        {
+          "id": "bode-plots-of-simple-gain",
+          "name": "Bode plots of simple gain",
+          "status": "retired"
+        },
+        {
+          "id": "integrator",
+          "name": "integrator",
+          "status": "retired"
+        },
+        {
+          "id": "differentiator",
+          "name": "differentiator",
+          "status": "retired"
         }
       ]
     },
@@ -224,39 +244,19 @@
           "requires": ["transducers-and-their-dynamics"]
         },
         {
-          "id": "resistance-temperature-device",
-          "name": "resistance temperature device",
+          "id": "resistance-temperature-device-thermocouples-thermistors",
+          "name": "resistance temperature device, thermocouples, thermistors",
           "requires": ["temperature-measurement"]
         },
         {
-          "id": "thermocouples",
-          "name": "thermocouples",
-          "requires": ["resistance-temperature-device"]
-        },
-        {
-          "id": "thermistors",
-          "name": "thermistors",
-          "requires": ["thermocouples"]
-        },
-        {
-          "id": "pressure-measurement",
-          "name": "pressure measurement",
-          "requires": ["thermistors"]
-        },
-        {
-          "id": "manometers",
-          "name": "manometers",
-          "requires": ["pressure-measurement"]
-        },
-        {
-          "id": "diaphragms",
-          "name": "diaphragms",
-          "requires": ["manometers"]
+          "id": "pressure-measurement-manometers-diaphragms",
+          "name": "pressure measurement, manometers, diaphragms",
+          "requires": ["resistance-temperature-device-thermocouples-thermistors"]
         },
         {
           "id": "capsules-and-bellows",
           "name": "capsules and bellows",
-          "requires": ["diaphragms"]
+          "requires": ["pressure-measurement-manometers-diaphragms"]
         },
         {
           "id": "bourdon-tubes",
@@ -272,6 +272,36 @@
           "id": "level-measurement",
           "name": "level measurement",
           "requires": ["flow-measurement"]
+        },
+        {
+          "id": "resistance-temperature-device",
+          "name": "resistance temperature device",
+          "status": "retired"
+        },
+        {
+          "id": "thermocouples",
+          "name": "thermocouples",
+          "status": "retired"
+        },
+        {
+          "id": "thermistors",
+          "name": "thermistors",
+          "status": "retired"
+        },
+        {
+          "id": "pressure-measurement",
+          "name": "pressure measurement",
+          "status": "retired"
+        },
+        {
+          "id": "manometers",
+          "name": "manometers",
+          "status": "retired"
+        },
+        {
+          "id": "diaphragms",
+          "name": "diaphragms",
+          "status": "retired"
         }
       ]
     }

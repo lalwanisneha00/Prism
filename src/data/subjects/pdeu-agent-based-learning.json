@@ -41,37 +41,21 @@
       "topics": [
         {
           "id": "reinforcement-learning",
-          "name": "Overview of reinforcement learning (RL) concepts",
+          "name": "Overview of reinforcement learning (RL) concepts, terminology, applications",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "terminology",
-          "name": "terminology",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["reinforcement-learning"]
         },
         {
           "id": "history-and-evolution-of-rl",
           "name": "History and evolution of RL",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["terminology"]
+          "requires": ["reinforcement-learning"]
         },
         {
           "id": "from-early-research-to-modern-deep-reinforcement-learning",
-          "name": "from early research to modern deep reinforcement learning",
-          "requires": ["reinforcement-learning"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "basic-components-of-rl-agent",
-          "name": "Basic components of RL: agent",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["from-early-research-to-modern-deep-reinforcement-learning"]
+          "name": "from early research to modern deep reinforcement learning. Basic components of RL: agent",
+          "requires": ["reinforcement-learning"]
         },
         {
           "id": "environment",
@@ -85,31 +69,8 @@
         },
         {
           "id": "action-reward-and-policy-types-of-rl-problems-episodic-vs",
-          "name": "action",
-          "requires": ["state"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "reward",
-          "name": "reward",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["action-reward-and-policy-types-of-rl-problems-episodic-vs"]
-        },
-        {
-          "id": "policy",
-          "name": "policy",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["reward"]
-        },
-        {
-          "id": "types-of-rl-problems-episodic-vs-continuing-tasks",
-          "name": "Types of RL problems: episodic vs. continuing tasks",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["policy"]
+          "name": "action, reward, and policy. Types of RL problems: episodic vs. continuing tasks",
+          "requires": ["state"]
         },
         {
           "id": "finite-vs-infinite-horizon",
@@ -150,11 +111,34 @@
           "requires": ["markov-decision-processes-mdps-and-dynamic-programming"]
         },
         {
+          "id": "terminology",
+          "name": "terminology",
+          "status": "retired"
+        },
+        {
+          "id": "basic-components-of-rl-agent",
+          "name": "Basic components of RL: agent",
+          "status": "retired"
+        },
+        {
+          "id": "reward",
+          "name": "reward",
+          "status": "retired"
+        },
+        {
+          "id": "policy",
+          "name": "policy",
+          "status": "retired"
+        },
+        {
+          "id": "types-of-rl-problems-episodic-vs-continuing-tasks",
+          "name": "Types of RL problems: episodic vs. continuing tasks",
+          "status": "retired"
+        },
+        {
           "id": "applications",
           "name": "applications",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["dynamic-programming"]
+          "status": "retired"
         }
       ]
     },

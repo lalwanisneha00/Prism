@@ -45,39 +45,18 @@
           "confidence": "verified"
         },
         {
-          "id": "impact-of-anthropogenic-activities-of-environment-land",
-          "name": "Impact of anthropogenic activities of environment: Land",
+          "id": "impact-of-anthropogenic-activities-of-environment-land-water",
+          "name": "Impact of anthropogenic activities of environment: Land, Water, Air, Forest",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["environmental-degradation-impact-of-anthropogenic-activities"]
-        },
-        {
-          "id": "water",
-          "name": "Water",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["impact-of-anthropogenic-activities-of-environment-land"]
-        },
-        {
-          "id": "air",
-          "name": "Air",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["water"]
-        },
-        {
-          "id": "forest",
-          "name": "Forest",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["air"]
         },
         {
           "id": "oceans-and-the-coasts",
           "name": "Oceans and the coasts",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["forest"]
+          "requires": ["impact-of-anthropogenic-activities-of-environment-land-water"]
         },
         {
           "id": "biodiversity-destruction-flora-and-fauna",
@@ -116,6 +95,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["sustainability-of-exponential-growth"]
+        },
+        {
+          "id": "impact-of-anthropogenic-activities-of-environment-land",
+          "name": "Impact of anthropogenic activities of environment: Land",
+          "status": "retired"
+        },
+        {
+          "id": "water",
+          "name": "Water",
+          "status": "retired"
+        },
+        {
+          "id": "air",
+          "name": "Air",
+          "status": "retired"
+        },
+        {
+          "id": "forest",
+          "name": "Forest",
+          "status": "retired"
         }
       ]
     },
@@ -135,38 +134,17 @@
         },
         {
           "id": "biochemical-aspects-of-arsenic-cadmium-lead-mercury-carbon",
-          "name": "Biochemical aspects of arsenic",
+          "name": "Biochemical aspects of arsenic, cadmium, lead, mercury",
           "requires": ["their-effects-and-biochemical-interactions"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "cadmium",
-          "name": "cadmium",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["biochemical-aspects-of-arsenic-cadmium-lead-mercury-carbon"]
-        },
-        {
-          "id": "lead",
-          "name": "lead",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cadmium"]
-        },
-        {
-          "id": "mercury",
-          "name": "mercury",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["lead"]
         },
         {
           "id": "carbon-monoxide",
           "name": "carbon monoxide",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["mercury"]
+          "requires": ["biochemical-aspects-of-arsenic-cadmium-lead-mercury-carbon"]
         },
         {
           "id": "ozone-and-pan-pesticide",
@@ -240,6 +218,21 @@
           "id": "epidemiological-issues-of-toxic-compounds-and-metal",
           "name": "Epidemiological issues of toxic compounds and metal poisoning",
           "requires": ["carcinogens-in-environment-chemical-carcinogenicity"]
+        },
+        {
+          "id": "cadmium",
+          "name": "cadmium",
+          "status": "retired"
+        },
+        {
+          "id": "lead",
+          "name": "lead",
+          "status": "retired"
+        },
+        {
+          "id": "mercury",
+          "name": "mercury",
+          "status": "retired"
         }
       ]
     },
@@ -260,25 +253,11 @@
           "confidence": "verified"
         },
         {
-          "id": "land-site-sampling",
-          "name": "land (site) sampling",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sampling"]
-        },
-        {
           "id": "water-sampling",
           "name": "water sampling",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["land-site-sampling"]
-        },
-        {
-          "id": "air-sampling",
-          "name": "air sampling",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["water-sampling"]
+          "requires": ["sampling"]
         },
         {
           "id": "land-site-sampling-water-sampling-air-sampling-analysis",
@@ -287,17 +266,8 @@
         },
         {
           "id": "physical-chemical-and-biological-analysis-methods-and",
-          "name": "physical",
-          "requires": ["land-site-sampling-water-sampling-air-sampling-analysis"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "chemical-and-biological-analysis-methods-and-process-use-of",
-          "name": "chemical and biological analysis methods and process Use of microbial population for environmental monitoring",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["physical-chemical-and-biological-analysis-methods-and"]
+          "name": "physical, chemical and biological analysis methods and process Use of microbial population for environmental monitoring",
+          "requires": ["land-site-sampling-water-sampling-air-sampling-analysis"]
         },
         {
           "id": "recombinant-dna-technology-and-proteomics",
@@ -327,6 +297,21 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["environment-impact-assessment-eia-complete-process"]
+        },
+        {
+          "id": "land-site-sampling",
+          "name": "land (site) sampling",
+          "status": "retired"
+        },
+        {
+          "id": "air-sampling",
+          "name": "air sampling",
+          "status": "retired"
+        },
+        {
+          "id": "chemical-and-biological-analysis-methods-and-process-use-of",
+          "name": "chemical and biological analysis methods and process Use of microbial population for environmental monitoring",
+          "status": "retired"
         }
       ]
     },
@@ -337,30 +322,12 @@
       "topics": [
         {
           "id": "biofilters-bioremediation-biotransformation-and",
-          "name": "Biofilters",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "biotransformation-and-biodegradation-in-situ-and-ex-situ-bio",
-          "name": "Biotransformation and Biodegradation: In situ and Ex situ bioremediation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["biofilters-bioremediation-biotransformation-and"]
+          "name": "Biofilters, Bioremediation, Biotransformation and Biodegradation: In situ and Ex situ bioremediation"
         },
         {
           "id": "evaluating-bioremediation",
-          "name": "Bioremediation",
-          "requires": ["biofilters-bioremediation-biotransformation-and"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "evaluating-bioremediation-2",
           "name": "Evaluating Bioremediation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["evaluating-bioremediation"]
+          "requires": ["biofilters-bioremediation-biotransformation-and"]
         },
         {
           "id": "bioremediation-of-vocs-factors-affecting-process-of",
@@ -400,6 +367,16 @@
           "id": "root-zone-treatment",
           "name": "Root zone treatment",
           "requires": ["phytoremediation-waste-water-treatment-using-aquatic-plants"]
+        },
+        {
+          "id": "biotransformation-and-biodegradation-in-situ-and-ex-situ-bio",
+          "name": "Biotransformation and Biodegradation: In situ and Ex situ bioremediation",
+          "status": "retired"
+        },
+        {
+          "id": "evaluating-bioremediation-2",
+          "name": "Evaluating Bioremediation",
+          "status": "retired"
         }
       ]
     }

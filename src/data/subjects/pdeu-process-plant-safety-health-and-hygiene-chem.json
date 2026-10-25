@@ -1,0 +1,229 @@
+{
+  "id": "pdeu-process-plant-safety-health-and-hygiene-chem",
+  "name": "Process Plant Safety, Health and Hygiene",
+  "field": "Process Plant Safety, Health and Hygiene",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [7],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 7): Process Plant Safety, Health and Hygiene",
+    "note": "Units and topics copied from the course handout PDF (pages 11 of CHEM/sem7/Chemical_Semester_7_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH434T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s7-program-elective--process-plant-safety-health-and-hygiene",
+      "code": "24CH434T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 7,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "engineering-ethics",
+          "name": "Engineering ethics"
+        },
+        {
+          "id": "accident-and-loss-statistics",
+          "name": "accident and loss statistics",
+          "requires": ["engineering-ethics"]
+        },
+        {
+          "id": "nature-of-the-accident-process",
+          "name": "nature of the accident process",
+          "requires": ["accident-and-loss-statistics"]
+        },
+        {
+          "id": "inherent-safety-in-process",
+          "name": "inherent safety in process",
+          "requires": ["nature-of-the-accident-process"]
+        },
+        {
+          "id": "indoor-air-quality-management",
+          "name": "indoor air quality management",
+          "requires": ["inherent-safety-in-process"]
+        },
+        {
+          "id": "personal-safety-aspects",
+          "name": "personal safety aspects",
+          "requires": ["indoor-air-quality-management"]
+        },
+        {
+          "id": "ppe-toxicology",
+          "name": "PPE, toxicology",
+          "requires": ["personal-safety-aspects"]
+        },
+        {
+          "id": "national-and-international-standards-for-health-and-safety",
+          "name": "national and international standards for health and safety",
+          "requires": ["ppe-toxicology"]
+        },
+        {
+          "id": "acts-and-legislation-osha",
+          "name": "acts and legislation (OSHA",
+          "requires": ["national-and-international-standards-for-health-and-safety"]
+        },
+        {
+          "id": "iso-standards",
+          "name": "ISO standards)",
+          "requires": ["acts-and-legislation-osha"]
+        },
+        {
+          "id": "reach-regulations",
+          "name": "REACH regulations",
+          "requires": ["iso-standards"]
+        },
+        {
+          "id": "hazard-identification-hazard-surveys",
+          "name": "Hazard identification: hazard surveys",
+          "requires": ["reach-regulations"]
+        },
+        {
+          "id": "hazard-and-operability-study",
+          "name": "hazard and operability study",
+          "requires": ["hazard-identification-hazard-surveys"]
+        },
+        {
+          "id": "hazard-analysis",
+          "name": "hazard analysis",
+          "requires": ["hazard-and-operability-study"]
+        }
+      ]
+    },
+    {
+      "id": "fire-and-explosion-hazards",
+      "name": "Fire and Explosion Hazards",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "fire-triangle",
+          "name": "Fire triangle"
+        },
+        {
+          "id": "flammability-characteristics-of-fluids",
+          "name": "flammability characteristics of fluids",
+          "requires": ["fire-triangle"]
+        },
+        {
+          "id": "limiting-oxygen-concentration",
+          "name": "limiting oxygen concentration",
+          "requires": ["flammability-characteristics-of-fluids"]
+        },
+        {
+          "id": "flammability-diagram-explosions",
+          "name": "flammability diagram, explosions",
+          "requires": ["limiting-oxygen-concentration"]
+        },
+        {
+          "id": "dow-fire-and-explosion-index-prevention-inerting-ventilation",
+          "name": "DOW fire and explosion index, prevention, inerting, ventilation",
+          "requires": ["flammability-diagram-explosions"]
+        },
+        {
+          "id": "sprinkler-systems",
+          "name": "sprinkler systems",
+          "requires": ["dow-fire-and-explosion-index-prevention-inerting-ventilation"]
+        },
+        {
+          "id": "explosion-proof-instruments",
+          "name": "explosion proof instruments",
+          "requires": ["sprinkler-systems"]
+        },
+        {
+          "id": "equipment-and-control-rooms",
+          "name": "equipment and control rooms",
+          "requires": ["explosion-proof-instruments"]
+        },
+        {
+          "id": "miscellaneous-concepts-for-preventing-fires-and-explosions",
+          "name": "miscellaneous concepts for preventing fires and explosions",
+          "requires": ["equipment-and-control-rooms"]
+        }
+      ]
+    },
+    {
+      "id": "industrial-hygiene",
+      "name": "Industrial Hygiene",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "government-regulations-identification",
+          "name": "Government regulations, identification"
+        },
+        {
+          "id": "material-safety-data-sheet",
+          "name": "material safety data sheet",
+          "requires": ["government-regulations-identification"]
+        },
+        {
+          "id": "evaluation-and-control",
+          "name": "evaluation and control",
+          "requires": ["material-safety-data-sheet"]
+        },
+        {
+          "id": "risk-assessment-fault-tree-analysis-fta",
+          "name": "Risk assessment: fault tree analysis (FTA)",
+          "requires": ["evaluation-and-control"]
+        },
+        {
+          "id": "event-tree-analysis-eta",
+          "name": "event tree analysis (ETA)",
+          "requires": ["risk-assessment-fault-tree-analysis-fta"]
+        },
+        {
+          "id": "review-of-probability-theory",
+          "name": "review of probability theory",
+          "requires": ["event-tree-analysis-eta"]
+        },
+        {
+          "id": "quantitative-risk-analysis",
+          "name": "quantitative risk analysis",
+          "requires": ["review-of-probability-theory"]
+        },
+        {
+          "id": "lopa-concept",
+          "name": "LOPA concept",
+          "requires": ["quantitative-risk-analysis"]
+        }
+      ]
+    },
+    {
+      "id": "major-disasters-and-miscellaneous-concepts",
+      "name": "Major Disasters and Miscellaneous Concepts",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "case-studies-on-major-disasters-in-the-chemical-process-indu",
+          "name": "Case studies on major disasters in the chemical process industry"
+        },
+        {
+          "id": "introduction-to-relief-and-sizing-of-relief-systems",
+          "name": "introduction to relief and sizing of relief systems",
+          "requires": ["case-studies-on-major-disasters-in-the-chemical-process-indu"]
+        },
+        {
+          "id": "location-of-flare-systems-and-knockout-pots",
+          "name": "location of flare systems and knockout pots",
+          "requires": ["introduction-to-relief-and-sizing-of-relief-systems"]
+        }
+      ]
+    }
+  ]
+}

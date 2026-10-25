@@ -7,6 +7,7 @@ import type { TopicLesson } from "@/lib/chapter/extras";
 import { lessonsByChapter } from "@/lib/mock/deviceLessons";
 import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
 import { findSubject, type Subject } from "@/lib/subjects";
+import { activeChapters } from "@/lib/syllabusFix/active";
 
 /**
  * A mock test across several chapters of one subject (V3 · Step 3). Only chapters with
@@ -36,9 +37,11 @@ export function MultiChapterMock({
   if (!byChapter)
     return <div className="h-40 animate-pulse rounded-2xl bg-surface-2" aria-busy="true" />;
 
-  const available = subject.chapters.filter((c) => (byChapter.get(c.id)?.length ?? 0) > 0);
+  const available = activeChapters(subject).filter((c) => (byChapter.get(c.id)?.length ?? 0) > 0);
   const topics = chosen.flatMap((id) => byChapter.get(id) ?? []);
-  const names = subject.chapters.filter((c) => chosen.includes(c.id)).map((c) => c.name);
+  const names = activeChapters(subject)
+    .filter((c) => chosen.includes(c.id))
+    .map((c) => c.name);
 
   if (available.length === 0) {
     return (
@@ -63,7 +66,7 @@ export function MultiChapterMock({
       {!started && (
         <fieldset className="flex flex-col gap-2" data-testid="mock-chapters">
           <legend className="mb-2 font-semibold">Chapters in the test</legend>
-          {subject.chapters.map((c) => {
+          {activeChapters(subject).map((c) => {
             const lessons = byChapter.get(c.id) ?? [];
             return (
               <label

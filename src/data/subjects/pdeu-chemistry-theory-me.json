@@ -34,82 +34,51 @@
   "verifiedByCount": 0,
   "chapters": [
     {
-      "id": "chemistry-of-engineering-materials",
-      "name": "Chemistry of Engineering Materials",
-      "hours": 12,
-      "source": "admin_handout",
-      "confidence": "verified",
+      "id": "water-and-its-treatment",
+      "name": "Water and its Treatment",
+      "hours": 10,
       "topics": [
         {
-          "id": "traditional-materials-introduction-and-classification-of-mat",
-          "name": "Traditional Materials: Introduction and classification of materials",
-          "source": "admin_handout",
-          "confidence": "verified"
+          "id": "introduction",
+          "name": "Introduction"
         },
         {
-          "id": "metallic-materials",
-          "name": "metallic materials",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["traditional-materials-introduction-and-classification-of-mat"]
+          "id": "sources-of-water-impurities-in-water",
+          "name": "sources of water Impurities in water",
+          "requires": ["introduction"]
         },
         {
-          "id": "polymeric",
-          "name": "polymeric",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["metallic-materials"]
+          "id": "hard-and-soft-water",
+          "name": "hard and soft water",
+          "requires": ["sources-of-water-impurities-in-water"]
         },
         {
-          "id": "ceramic-materials-advanced-materials-introduction-to-nanomat",
-          "name": "ceramic materials Advanced Materials: Introduction to nanomaterials: Properties and application",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["polymeric"]
+          "id": "degree-of-hardness",
+          "name": "Degree of hardness",
+          "requires": ["hard-and-soft-water"]
         },
         {
-          "id": "carbonaceous-materials-fullerene",
-          "name": "Carbonaceous materials (fullerene",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ceramic-materials-advanced-materials-introduction-to-nanomat"]
+          "id": "types-of-hardness",
+          "name": "Types of hardness",
+          "requires": ["degree-of-hardness"]
         },
         {
-          "id": "carbon-nanotube",
-          "name": "carbon nanotube",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["carbonaceous-materials-fullerene"]
+          "id": "scale-and-sludge-formation-in-boiler",
+          "name": "Scale and sludge formation in boiler",
+          "requires": ["types-of-hardness"]
         },
         {
-          "id": "graphene",
-          "name": "graphene",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["carbon-nanotube"]
+          "id": "priming-and-foaming",
+          "name": "Priming and Foaming",
+          "requires": ["scale-and-sludge-formation-in-boiler"]
         },
         {
-          "id": "etc",
-          "name": "etc.)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["graphene"]
-        },
-        {
-          "id": "composite-materials",
-          "name": "Composite materials",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["etc"]
-        },
-        {
-          "id": "liquid-crystals-classification-and-application",
-          "name": "Liquid crystals: Classification and Application",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["composite-materials"]
+          "id": "softening-of-water",
+          "name": "Softening of water",
+          "requires": ["priming-and-foaming"]
         }
-      ]
+      ],
+      "status": "retired"
     },
     {
       "id": "modern-analytical-techniques",
@@ -119,24 +88,17 @@
       "confidence": "verified",
       "topics": [
         {
-          "id": "instrumentation",
-          "name": "Instrumentation",
+          "id": "instrumentation-principle-and-characterization-of-materials",
+          "name": "Instrumentation, principle and characterization of materials: X-ray diffraction (XRD)",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "principle-and-characterization-of-materials-x-ray-diffractio",
-          "name": "principle and characterization of materials: X-ray diffraction (XRD)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["instrumentation"]
         },
         {
           "id": "electro-analytical-techniques",
           "name": "Electro analytical techniques",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["principle-and-characterization-of-materials-x-ray-diffractio"]
+          "requires": ["instrumentation-principle-and-characterization-of-materials"]
         },
         {
           "id": "ftir",
@@ -160,18 +122,31 @@
           "requires": ["uv-visible-spectroscopy"]
         },
         {
-          "id": "chromatographic-techniques-gc",
-          "name": "Chromatographic techniques (GC",
+          "id": "chromatographic-techniques-gc-hplc",
+          "name": "Chromatographic techniques (GC, HPLC)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["thermal-analysis-tga-dta-dsc"]
         },
         {
+          "id": "instrumentation",
+          "name": "Instrumentation",
+          "status": "retired"
+        },
+        {
+          "id": "principle-and-characterization-of-materials-x-ray-diffractio",
+          "name": "principle and characterization of materials: X-ray diffraction (XRD)",
+          "status": "retired"
+        },
+        {
+          "id": "chromatographic-techniques-gc",
+          "name": "Chromatographic techniques (GC",
+          "status": "retired"
+        },
+        {
           "id": "hplc",
           "name": "HPLC)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["chromatographic-techniques-gc"]
+          "status": "retired"
         }
       ]
     },
@@ -183,38 +158,17 @@
       "confidence": "verified",
       "topics": [
         {
-          "id": "adsorption",
-          "name": "Adsorption",
+          "id": "adsorption-characteristics-classification-application",
+          "name": "Adsorption, Characteristics, Classification, Application",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "characteristics",
-          "name": "Characteristics",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["adsorption"]
-        },
-        {
-          "id": "classification-2",
-          "name": "Classification",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["characteristics"]
-        },
-        {
-          "id": "application",
-          "name": "Application",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["classification-2"]
         },
         {
           "id": "adsorption-isotherms-freundlich",
           "name": "Adsorption isotherms- Freundlich",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["application"]
+          "requires": ["adsorption-characteristics-classification-application"]
         },
         {
           "id": "langmuir-and-bet-chemical-kinetics",
@@ -278,6 +232,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["mechanism-of-catalysis"]
+        },
+        {
+          "id": "adsorption",
+          "name": "Adsorption",
+          "status": "retired"
+        },
+        {
+          "id": "characteristics",
+          "name": "Characteristics",
+          "status": "retired"
+        },
+        {
+          "id": "classification-2",
+          "name": "Classification",
+          "status": "retired"
+        },
+        {
+          "id": "application",
+          "name": "Application",
+          "status": "retired"
         }
       ]
     },
@@ -325,53 +299,6 @@
       ]
     },
     {
-      "id": "water-and-its-treatment",
-      "name": "Water and its Treatment",
-      "hours": 10,
-      "topics": [
-        {
-          "id": "introduction",
-          "name": "Introduction"
-        },
-        {
-          "id": "sources-of-water-impurities-in-water",
-          "name": "sources of water Impurities in water",
-          "requires": ["introduction"]
-        },
-        {
-          "id": "hard-and-soft-water",
-          "name": "hard and soft water",
-          "requires": ["sources-of-water-impurities-in-water"]
-        },
-        {
-          "id": "degree-of-hardness",
-          "name": "Degree of hardness",
-          "requires": ["hard-and-soft-water"]
-        },
-        {
-          "id": "types-of-hardness",
-          "name": "Types of hardness",
-          "requires": ["degree-of-hardness"]
-        },
-        {
-          "id": "scale-and-sludge-formation-in-boiler",
-          "name": "Scale and sludge formation in boiler",
-          "requires": ["types-of-hardness"]
-        },
-        {
-          "id": "priming-and-foaming",
-          "name": "Priming and Foaming",
-          "requires": ["scale-and-sludge-formation-in-boiler"]
-        },
-        {
-          "id": "softening-of-water",
-          "name": "Softening of water",
-          "requires": ["priming-and-foaming"]
-        }
-      ],
-      "status": "retired"
-    },
-    {
       "id": "corrosion-and-its-control",
       "name": "Corrosion and its Control",
       "hours": 12,
@@ -383,32 +310,38 @@
         {
           "id": "theories-of-corrosion",
           "name": "Theories of corrosion",
-          "requires": ["introduction-2"]
+          "requires": ["introduction-2"],
+          "status": "retired"
         },
         {
           "id": "types-of-corrosion",
           "name": "Types of corrosion",
-          "requires": ["theories-of-corrosion"]
+          "requires": ["theories-of-corrosion"],
+          "status": "retired"
         },
         {
           "id": "protection-of-metals-from-corrosion-organic-and-inorganic",
           "name": "Protection of metals from corrosion — organic and inorganic materials",
-          "requires": ["types-of-corrosion"]
+          "requires": ["types-of-corrosion"],
+          "status": "retired"
         },
         {
           "id": "inhibitors",
           "name": "Inhibitors",
-          "requires": ["protection-of-metals-from-corrosion-organic-and-inorganic"]
+          "requires": ["protection-of-metals-from-corrosion-organic-and-inorganic"],
+          "status": "retired"
         },
         {
           "id": "cathodic-protection-chemistry-of-fuels-origin",
           "name": "Cathodic protection. Chemistry of Fuels: Origin",
-          "requires": ["inhibitors"]
+          "requires": ["inhibitors"],
+          "status": "retired"
         },
         {
           "id": "classification-and-properties-of-solid",
           "name": "Classification and properties of Solid",
-          "requires": ["cathodic-protection-chemistry-of-fuels-origin"]
+          "requires": ["cathodic-protection-chemistry-of-fuels-origin"],
+          "status": "retired"
         },
         {
           "id": "liquid",
@@ -418,35 +351,70 @@
         {
           "id": "gaseous-fules",
           "name": "Gaseous Fules",
-          "requires": ["liquid"]
+          "requires": ["liquid"],
+          "status": "retired"
         },
         {
           "id": "coal-analysis",
           "name": "Proximate and Ultimate analysis",
-          "requires": ["gaseous-fules"]
+          "requires": ["gaseous-fules"],
+          "status": "retired"
         },
         {
           "id": "petroleum-distillation-and-uses",
           "name": "Petroleum- Distillation and Uses",
-          "requires": ["coal-analysis"]
+          "requires": ["coal-analysis"],
+          "status": "retired"
         },
         {
           "id": "calorific-value",
           "name": "Calorific Value",
-          "requires": ["petroleum-distillation-and-uses"]
+          "requires": ["petroleum-distillation-and-uses"],
+          "status": "retired"
         },
         {
           "id": "determination-of-calorific-value-of-solid-and-liquid-fuels",
           "name": "Determination of Calorific Value of solid and liquid fuels",
-          "requires": ["calorific-value"]
+          "requires": ["calorific-value"],
+          "status": "retired"
         },
         {
           "id": "fuel-cell-and-fuel-cell-technology",
           "name": "Fuel Cell and Fuel Cell technology",
-          "requires": ["determination-of-calorific-value-of-solid-and-liquid-fuels"]
+          "requires": ["determination-of-calorific-value-of-solid-and-liquid-fuels"],
+          "status": "retired"
+        },
+        {
+          "id": "metallic-materials-polymeric",
+          "name": "metallic materials, polymeric",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["fuel-cell-and-fuel-cell-technology"]
+        },
+        {
+          "id": "carbonaceous-materials-fullerene",
+          "name": "Carbonaceous materials (fullerene",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "formerChapters": ["chemistry-of-engineering-materials"],
+          "requires": ["metallic-materials-polymeric"]
+        },
+        {
+          "id": "carbon-nanotube-graphene-etc",
+          "name": "carbon nanotube, graphene, etc.)",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["carbonaceous-materials-fullerene"]
+        },
+        {
+          "id": "composite-materials",
+          "name": "Composite materials",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "formerChapters": ["chemistry-of-engineering-materials"],
+          "requires": ["carbon-nanotube-graphene-etc"]
         }
-      ],
-      "status": "retired"
+      ]
     },
     {
       "id": "cements",
@@ -551,6 +519,53 @@
         }
       ],
       "status": "retired"
+    },
+    {
+      "id": "chemistry-of-engineering-materials",
+      "name": "Chemistry of Engineering Materials",
+      "status": "retired",
+      "topics": [
+        {
+          "id": "traditional-materials-introduction-and-classification-of-mat",
+          "name": "Traditional Materials: Introduction and classification of materials",
+          "status": "retired"
+        },
+        {
+          "id": "metallic-materials",
+          "name": "metallic materials",
+          "status": "retired"
+        },
+        {
+          "id": "polymeric",
+          "name": "polymeric",
+          "status": "retired"
+        },
+        {
+          "id": "ceramic-materials-advanced-materials-introduction-to-nanomat",
+          "name": "ceramic materials Advanced Materials: Introduction to nanomaterials: Properties and application",
+          "status": "retired"
+        },
+        {
+          "id": "carbon-nanotube",
+          "name": "carbon nanotube",
+          "status": "retired"
+        },
+        {
+          "id": "graphene",
+          "name": "graphene",
+          "status": "retired"
+        },
+        {
+          "id": "etc",
+          "name": "etc.)",
+          "status": "retired"
+        },
+        {
+          "id": "liquid-crystals-classification-and-application",
+          "name": "Liquid crystals: Classification and Application",
+          "status": "retired"
+        }
+      ]
     }
   ],
   "courseType": "theory",

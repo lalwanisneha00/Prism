@@ -44,24 +44,17 @@
         },
         {
           "id": "legal-frameworks-international-national-and-regional-laws",
-          "name": "Legal Frameworks: International",
+          "name": "Legal Frameworks: International, national",
           "requires": ["overview-of-cyber-law-historical-development-and-key"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "national",
-          "name": "national",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["legal-frameworks-international-national-and-regional-laws"]
         },
         {
           "id": "regional-laws-governing-cyberspace",
           "name": "regional laws governing cyberspace",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["national"]
+          "requires": ["legal-frameworks-international-national-and-regional-laws"]
         },
         {
           "id": "ethical-dimensions-understanding-ethical-theories-and-their",
@@ -81,6 +74,11 @@
           "id": "case-studies-analysis-of-landmark-cyber-law-cases-and",
           "name": "Case Studies: Analysis of landmark cyber law cases and ethical dilemmas",
           "requires": ["ethical-dimensions-understanding-ethical-theories-and-their"]
+        },
+        {
+          "id": "national",
+          "name": "national",
+          "status": "retired"
         }
       ]
     },
@@ -95,45 +93,31 @@
         },
         {
           "id": "intellectual-property-rights-copyright-trademark-and-patent",
-          "name": "Intellectual Property Rights: Copyright",
+          "name": "Intellectual Property Rights: Copyright, trademark",
           "requires": ["jurisdiction-in-cyberspace-challenges-and-solutions"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "trademark",
-          "name": "trademark",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["intellectual-property-rights-copyright-trademark-and-patent"]
         },
         {
           "id": "patent-laws-in-the-digital-age",
           "name": "patent laws in the digital age",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["trademark"]
+          "requires": ["intellectual-property-rights-copyright-trademark-and-patent"]
         },
         {
           "id": "cybercrimes-and-prosecution-legal-responses-to-hacking",
-          "name": "Cybercrimes and Prosecution: Legal. responses to hacking",
+          "name": "Cybercrimes and Prosecution: Legal. responses to hacking, cyberterrorism",
           "requires": ["intellectual-property-rights-copyright-trademark-and-patent"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "cyberterrorism",
-          "name": "cyberterrorism",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cybercrimes-and-prosecution-legal-responses-to-hacking"]
         },
         {
           "id": "online-fraud",
           "name": "online fraud",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["cyberterrorism"]
+          "requires": ["cybercrimes-and-prosecution-legal-responses-to-hacking"]
         },
         {
           "id": "privacy-and-data-protection-legal-frameworks-for",
@@ -144,6 +128,16 @@
           "id": "it-act-2000-and-its-amendments",
           "name": "IT ACT 2000 and its amendments",
           "requires": ["privacy-and-data-protection-legal-frameworks-for"]
+        },
+        {
+          "id": "trademark",
+          "name": "trademark",
+          "status": "retired"
+        },
+        {
+          "id": "cyberterrorism",
+          "name": "cyberterrorism",
+          "status": "retired"
         }
       ]
     },
@@ -203,30 +197,7 @@
       "topics": [
         {
           "id": "principles-and-methodologies-digital-evidence-collection",
-          "name": "Principles and methodologies",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "digital-evidence-collection-techniques-for-preserving",
-          "name": "Digital Evidence Collection: Techniques for preserving",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["principles-and-methodologies-digital-evidence-collection"]
-        },
-        {
-          "id": "collecting",
-          "name": "collecting",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["digital-evidence-collection-techniques-for-preserving"]
-        },
-        {
-          "id": "analyzing-digital-evidence",
-          "name": "analyzing digital evidence",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["collecting"]
+          "name": "Principles and methodologies, Digital Evidence Collection: Techniques for preserving, collecting, and analyzing digital evidence, Forensic Tools and Techniques: Overview of software and hardware used "
         },
         {
           "id": "note-the-detailed-syllabus-page-for-this-course-prints-l-t-p",
@@ -253,6 +224,21 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["forensic-tools-and-techniques-overview-of-software-and-hardw"]
+        },
+        {
+          "id": "digital-evidence-collection-techniques-for-preserving",
+          "name": "Digital Evidence Collection: Techniques for preserving",
+          "status": "retired"
+        },
+        {
+          "id": "collecting",
+          "name": "collecting",
+          "status": "retired"
+        },
+        {
+          "id": "analyzing-digital-evidence",
+          "name": "analyzing digital evidence",
+          "status": "retired"
         }
       ]
     }

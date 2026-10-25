@@ -39,23 +39,16 @@
       "topics": [
         {
           "id": "fundamentals-of-formal-languages-grammars-and-computation",
-          "name": "Fundamentals of formal languages",
+          "name": "Fundamentals of formal languages, grammars",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "grammars",
-          "name": "grammars",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["fundamentals-of-formal-languages-grammars-and-computation"]
         },
         {
           "id": "computation-models",
           "name": "computation models",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["grammars"]
+          "requires": ["fundamentals-of-formal-languages-grammars-and-computation"]
         },
         {
           "id": "compiler-phases",
@@ -96,6 +89,11 @@
           "id": "design-lexical-analyser-using-finite-automata",
           "name": "Design Lexical Analyser using Finite Automata",
           "requires": ["pumping-lemma-regular"]
+        },
+        {
+          "id": "grammars",
+          "name": "grammars",
+          "status": "retired"
         }
       ]
     },
@@ -252,7 +250,8 @@
         {
           "id": "etc",
           "name": "etc",
-          "requires": ["case-statements"]
+          "requires": ["case-statements"],
+          "status": "retired"
         }
       ]
     },
@@ -298,5 +297,6 @@
       ]
     }
   ],
-  "courseType": "theory"
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-theory-of-computation-and-compiler-design-laboratory-ict"]
 }

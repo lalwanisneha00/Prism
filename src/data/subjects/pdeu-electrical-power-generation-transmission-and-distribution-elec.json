@@ -41,19 +41,14 @@
           "name": "Introduction to structure of power system"
         },
         {
-          "id": "schematic-diagram-for-thermal",
-          "name": "Schematic diagram for thermal",
+          "id": "schematic-diagram-for-thermal-gas",
+          "name": "Schematic diagram for thermal, gas",
           "requires": ["introduction-to-structure-of-power-system"]
-        },
-        {
-          "id": "gas",
-          "name": "gas",
-          "requires": ["schematic-diagram-for-thermal"]
         },
         {
           "id": "hydro-and-nuclear-power-plant-and-associated-equipment-and-a",
           "name": "hydro and nuclear power plant and associated equipment and auxiliaries",
-          "requires": ["gas"]
+          "requires": ["schematic-diagram-for-thermal-gas"]
         },
         {
           "id": "load-curves-and-load-duration-curves",
@@ -71,24 +66,39 @@
           "requires": ["associate-terms-and-factors"]
         },
         {
-          "id": "different-types-of-loads",
-          "name": "different types of loads",
+          "id": "different-types-of-loads-tariffs",
+          "name": "different types of loads, tariffs",
           "requires": ["importance-of-high-load-factor"]
-        },
-        {
-          "id": "tariffs",
-          "name": "tariffs",
-          "requires": ["different-types-of-loads"]
         },
         {
           "id": "power-factor-improvement-methods",
           "name": "power factor improvement methods",
-          "requires": ["tariffs"]
+          "requires": ["different-types-of-loads-tariffs"]
         },
         {
           "id": "derivation-of-most-economical-power-factor",
           "name": "derivation of most economical power factor",
           "requires": ["power-factor-improvement-methods"]
+        },
+        {
+          "id": "schematic-diagram-for-thermal",
+          "name": "Schematic diagram for thermal",
+          "status": "retired"
+        },
+        {
+          "id": "gas",
+          "name": "gas",
+          "status": "retired"
+        },
+        {
+          "id": "different-types-of-loads",
+          "name": "different types of loads",
+          "status": "retired"
+        },
+        {
+          "id": "tariffs",
+          "name": "tariffs",
+          "status": "retired"
         }
       ]
     },
@@ -255,18 +265,13 @@
       "hours": 14,
       "topics": [
         {
-          "id": "radial",
-          "name": "Radial"
-        },
-        {
-          "id": "loop-and-grid-type-sub-transmission",
-          "name": "loop and grid type sub-transmission",
-          "requires": ["radial"]
+          "id": "radial-loop-and-grid-type-sub-transmission",
+          "name": "Radial, loop and grid type sub-transmission"
         },
         {
           "id": "distribution-substation-bus-schemes",
           "name": "distribution substation bus schemes",
-          "requires": ["loop-and-grid-type-sub-transmission"]
+          "requires": ["radial-loop-and-grid-type-sub-transmission"]
         },
         {
           "id": "location-and-rating-of-substation",
@@ -305,18 +310,13 @@
         },
         {
           "id": "power-station-and-substation-grounding-objectives-of-groundi",
-          "name": "Power station and substation grounding: Objectives of grounding",
+          "name": "Power station and substation grounding: Objectives of grounding, definitions",
           "requires": ["economics-of-power-supply-considering-economic-choice-of-con"]
-        },
-        {
-          "id": "definitions",
-          "name": "definitions",
-          "requires": ["power-station-and-substation-grounding-objectives-of-groundi"]
         },
         {
           "id": "tolerable-limits-of-body-currents",
           "name": "tolerable limits of body currents",
-          "requires": ["definitions"]
+          "requires": ["power-station-and-substation-grounding-objectives-of-groundi"]
         },
         {
           "id": "soil-resistivity",
@@ -352,6 +352,21 @@
           "id": "design-of-earthing-grid",
           "name": "design of earthing grid",
           "requires": ["actual-step-and-touch-potential"]
+        },
+        {
+          "id": "radial",
+          "name": "Radial",
+          "status": "retired"
+        },
+        {
+          "id": "loop-and-grid-type-sub-transmission",
+          "name": "loop and grid type sub-transmission",
+          "status": "retired"
+        },
+        {
+          "id": "definitions",
+          "name": "definitions",
+          "status": "retired"
         }
       ]
     }

@@ -46,19 +46,14 @@
           "requires": ["introduction-role-and-applications-of-thermodynamics-in-engi"]
         },
         {
-          "id": "properties-of-a-system",
-          "name": "Properties of a system",
+          "id": "properties-of-a-system-equilibrium",
+          "name": "Properties of a system, equilibrium",
           "requires": ["concepts-of-a-system-and-surrounding"]
-        },
-        {
-          "id": "equilibrium",
-          "name": "equilibrium",
-          "requires": ["properties-of-a-system"]
         },
         {
           "id": "the-zeroth-law-of-thermodynamics",
           "name": "the zeroth law of thermodynamics",
-          "requires": ["equilibrium"]
+          "requires": ["properties-of-a-system-equilibrium"]
         },
         {
           "id": "heat-and-work",
@@ -76,19 +71,14 @@
           "requires": ["various-thermodynamic-processes"]
         },
         {
-          "id": "internal-energy",
-          "name": "internal energy",
+          "id": "internal-energy-enthalpy",
+          "name": "internal energy, enthalpy",
           "requires": ["1st-law-of-thermodynamics-concept-of-energy-and-various-form"]
-        },
-        {
-          "id": "enthalpy",
-          "name": "enthalpy",
-          "requires": ["internal-energy"]
         },
         {
           "id": "specific-heats",
           "name": "specific heats",
-          "requires": ["enthalpy"]
+          "requires": ["internal-energy-enthalpy"]
         },
         {
           "id": "application-of-first-law-to-closed-and-open-systems",
@@ -144,6 +134,26 @@
           "id": "adiabatic-and-isothermal-compressibility",
           "name": "adiabatic and isothermal compressibility",
           "requires": ["joule-thomson-coefficient-of-volume-expansion"]
+        },
+        {
+          "id": "properties-of-a-system",
+          "name": "Properties of a system",
+          "status": "retired"
+        },
+        {
+          "id": "equilibrium",
+          "name": "equilibrium",
+          "status": "retired"
+        },
+        {
+          "id": "internal-energy",
+          "name": "internal energy",
+          "status": "retired"
+        },
+        {
+          "id": "enthalpy",
+          "name": "enthalpy",
+          "status": "retired"
         }
       ]
     },
@@ -197,19 +207,14 @@
           "requires": ["entropy-calusius-inequality-and-concept-of-entropy"]
         },
         {
-          "id": "the-principle-of-increase-of-entropy",
-          "name": "the principle of increase of entropy",
+          "id": "the-principle-of-increase-of-entropy-t-s-diagrams",
+          "name": "the principle of increase of entropy, T-s diagrams",
           "requires": ["microscopic-interpretation-of-entropy"]
-        },
-        {
-          "id": "t-s-diagrams",
-          "name": "T-s diagrams",
-          "requires": ["the-principle-of-increase-of-entropy"]
         },
         {
           "id": "exergy-entropy",
           "name": "Exergy: entropy",
-          "requires": ["t-s-diagrams"]
+          "requires": ["the-principle-of-increase-of-entropy-t-s-diagrams"]
         },
         {
           "id": "second-law-analysis-for-a-control-volume",
@@ -230,6 +235,16 @@
           "id": "exergy-analysis-of-open-and-closed-system",
           "name": "exergy analysis of open and closed system",
           "requires": ["exergy-balance-and-exergy-analysis"]
+        },
+        {
+          "id": "the-principle-of-increase-of-entropy",
+          "name": "the principle of increase of entropy",
+          "status": "retired"
+        },
+        {
+          "id": "t-s-diagrams",
+          "name": "T-s diagrams",
+          "status": "retired"
         }
       ]
     },
@@ -243,54 +258,29 @@
           "name": "Compressor: classification of compressors"
         },
         {
-          "id": "comparison-of-adiabatic",
-          "name": "Comparison of adiabatic",
+          "id": "comparison-of-adiabatic-polytropic",
+          "name": "Comparison of adiabatic, polytropic",
           "requires": ["compressor-classification-of-compressors"]
         },
         {
-          "id": "polytropic",
-          "name": "polytropic",
-          "requires": ["comparison-of-adiabatic"]
-        },
-        {
-          "id": "isothermal-compression-process",
-          "name": "isothermal compression process",
-          "requires": ["polytropic"]
-        },
-        {
-          "id": "isothermal",
-          "name": "isothermal",
-          "requires": ["isothermal-compression-process"]
-        },
-        {
-          "id": "isentropic",
-          "name": "isentropic",
-          "requires": ["isothermal"]
-        },
-        {
-          "id": "mechanical",
-          "name": "mechanical",
-          "requires": ["isentropic"]
+          "id": "isothermal-compression-process-isothermal-isentropic-mechani",
+          "name": "isothermal compression process, isothermal, isentropic, mechanical",
+          "requires": ["comparison-of-adiabatic-polytropic"]
         },
         {
           "id": "volumetric-efficiency-of-a-compressor",
           "name": "volumetric efficiency of a compressor",
-          "requires": ["mechanical"]
+          "requires": ["isothermal-compression-process-isothermal-isentropic-mechani"]
         },
         {
-          "id": "multistage-compression",
-          "name": "multistage compression",
+          "id": "multistage-compression-applications",
+          "name": "multistage compression, applications",
           "requires": ["volumetric-efficiency-of-a-compressor"]
-        },
-        {
-          "id": "applications",
-          "name": "applications",
-          "requires": ["multistage-compression"]
         },
         {
           "id": "vapour-power-cycle-carnot-vapor-cycle",
           "name": "Vapour power cycle: Carnot vapor cycle",
-          "requires": ["applications"]
+          "requires": ["multistage-compression-applications"]
         },
         {
           "id": "rankine-cycle",
@@ -381,6 +371,46 @@
           "id": "ideal-brayton-cycle",
           "name": "ideal Brayton cycle",
           "requires": ["relative-efficiency"]
+        },
+        {
+          "id": "comparison-of-adiabatic",
+          "name": "Comparison of adiabatic",
+          "status": "retired"
+        },
+        {
+          "id": "polytropic",
+          "name": "polytropic",
+          "status": "retired"
+        },
+        {
+          "id": "isothermal-compression-process",
+          "name": "isothermal compression process",
+          "status": "retired"
+        },
+        {
+          "id": "isothermal",
+          "name": "isothermal",
+          "status": "retired"
+        },
+        {
+          "id": "isentropic",
+          "name": "isentropic",
+          "status": "retired"
+        },
+        {
+          "id": "mechanical",
+          "name": "mechanical",
+          "status": "retired"
+        },
+        {
+          "id": "multistage-compression",
+          "name": "multistage compression",
+          "status": "retired"
+        },
+        {
+          "id": "applications",
+          "name": "applications",
+          "status": "retired"
         }
       ]
     },

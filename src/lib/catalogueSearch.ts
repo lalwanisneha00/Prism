@@ -1,5 +1,6 @@
 import { subjects as allSubjects, type Chapter, type Subject, type Topic } from "@/lib/subjects";
 import { matchScore, normalize } from "@/lib/topicSearch";
+import { activeChapters } from "@/lib/syllabusFix/active";
 
 /*
  * One search box for everything (V3 · Step 3): subjects, chapters and topics across every
@@ -36,7 +37,7 @@ export function searchCatalogue(
         length: subject.name.length,
         order: order++,
       });
-    for (const chapter of subject.chapters) {
+    for (const chapter of activeChapters(subject)) {
       const c = score(query, words, normalize(chapter.name), sName);
       if (c)
         found.push({

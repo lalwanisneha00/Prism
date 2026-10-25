@@ -11,7 +11,11 @@
 import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 
-type Topic = { id: string; movedFrom?: { subject: string; chapter?: string } };
+type Topic = {
+  id: string;
+  movedFrom?: { subject: string; chapter?: string };
+  formerChapters?: string[];
+};
 type Subject = {
   id: string;
   offerings?: { branch: string; key: string }[];
@@ -39,6 +43,7 @@ for (const s of subjects.values())
       resolved.add(`${s.id}/${c.id}/${t.id}`);
       if (t.movedFrom?.chapter && t.movedFrom.subject === s.id)
         resolved.add(`${s.id}/${t.movedFrom.chapter}/${t.id}`);
+      for (const ch of t.formerChapters ?? []) resolved.add(`${s.id}/${ch}/${t.id}`);
     }
 
 const problems: string[] = [];

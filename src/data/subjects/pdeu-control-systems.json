@@ -100,18 +100,21 @@
           "requires": ["differential-equations"]
         },
         {
-          "id": "systems-with-transport-lag",
-          "name": "Systems with transport lag",
+          "id": "systems-with-transport-lag-linearization",
+          "name": "Systems with transport lag, Linearization",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["transfer-function-and-impulse-response-function"]
         },
         {
+          "id": "systems-with-transport-lag",
+          "name": "Systems with transport lag",
+          "status": "retired"
+        },
+        {
           "id": "linearization",
           "name": "Linearization",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["systems-with-transport-lag"]
+          "status": "retired"
         }
       ]
     },
@@ -195,45 +198,35 @@
         },
         {
           "id": "steady-state-transient-and-robustness-specifications",
-          "name": "Steady-state",
-          "requires": ["bode-plots-control"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "transient-and-robustness-specifications",
-          "name": "transient and robustness specifications",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["steady-state-transient-and-robustness-specifications"]
-        },
-        {
-          "id": "pi-and-pid-controllers-and-their-design",
-          "name": "PI and PID controllers and their design",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["transient-and-robustness-specifications"]
-        },
-        {
-          "id": "introduction-to-lag-and-lead-compensator-design",
-          "name": "Introduction to Lag and Lead compensator design",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pi-and-pid-controllers-and-their-design"]
-        },
-        {
-          "id": "introduction-to-p",
-          "name": "Introduction to P",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-lag-and-lead-compensator-design"]
+          "name": "Steady-state, transient and robustness specifications, Introduction to P, PD, PI and PID controllers and their design, Introduction to Lag and Lead compensator design, Analogy with electronic systems ",
+          "requires": ["bode-plots-control"]
         },
         {
           "id": "analogy-with-electronic-systems-analysis-and-design",
           "name": "Analogy with electronic systems analysis and design",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["introduction-to-p"]
+          "requires": ["steady-state-transient-and-robustness-specifications"]
+        },
+        {
+          "id": "transient-and-robustness-specifications",
+          "name": "transient and robustness specifications",
+          "status": "retired"
+        },
+        {
+          "id": "pi-and-pid-controllers-and-their-design",
+          "name": "PI and PID controllers and their design",
+          "status": "retired"
+        },
+        {
+          "id": "introduction-to-lag-and-lead-compensator-design",
+          "name": "Introduction to Lag and Lead compensator design",
+          "status": "retired"
+        },
+        {
+          "id": "introduction-to-p",
+          "name": "Introduction to P",
+          "status": "retired"
         }
       ]
     },

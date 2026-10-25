@@ -56,24 +56,14 @@
           "requires": ["raw-materials-and-energy-requirements-fossil-fuels"]
         },
         {
-          "id": "sulphuric-acid",
-          "name": "sulphuric acid",
+          "id": "sulphuric-acid-nitrogen-minerals",
+          "name": "sulphuric acid, nitrogen, minerals)",
           "requires": ["oleochemicals-and-biomass"]
-        },
-        {
-          "id": "nitrogen",
-          "name": "nitrogen",
-          "requires": ["sulphuric-acid"]
-        },
-        {
-          "id": "minerals",
-          "name": "minerals)",
-          "requires": ["nitrogen"]
         },
         {
           "id": "the-role-of-sustainability",
           "name": "the role of sustainability",
-          "requires": ["minerals"]
+          "requires": ["sulphuric-acid-nitrogen-minerals"]
         },
         {
           "id": "national-and-global-trends-in-the-chemical-industry",
@@ -104,6 +94,21 @@
           "id": "effect-of-temperature-and-pressure-on-flash-point",
           "name": "effect of temperature and pressure on flash point",
           "requires": ["fire-point-and-auto-ignition"]
+        },
+        {
+          "id": "sulphuric-acid",
+          "name": "sulphuric acid",
+          "status": "retired"
+        },
+        {
+          "id": "nitrogen",
+          "name": "nitrogen",
+          "status": "retired"
+        },
+        {
+          "id": "minerals",
+          "name": "minerals)",
+          "status": "retired"
         }
       ]
     },
@@ -139,18 +144,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "biotech-industry-especially-ethanol",
-          "name": "Biotech industry (especially ethanol"
-        },
-        {
-          "id": "biobutanol",
-          "name": "biobutanol)",
-          "requires": ["biotech-industry-especially-ethanol"]
+          "id": "biotech-industry-especially-ethanol-biobutanol",
+          "name": "Biotech industry (especially ethanol, biobutanol)"
         },
         {
           "id": "biorefinery-and-processes-for-biomass-conversion",
           "name": "biorefinery and processes for biomass conversion",
-          "requires": ["biobutanol"]
+          "requires": ["biotech-industry-especially-ethanol-biobutanol"]
         },
         {
           "id": "production-of-useful-chemicals-from-oleochemical-feedstocks",
@@ -191,6 +191,16 @@
           "id": "safety-aspects-associated-with-exothermic-or-reactive-chemic",
           "name": "safety aspects associated with exothermic or reactive chemical conversions in bio-refineries and acid production",
           "requires": ["hydrochloric-acid-and-phosphoric-acid"]
+        },
+        {
+          "id": "biotech-industry-especially-ethanol",
+          "name": "Biotech industry (especially ethanol",
+          "status": "retired"
+        },
+        {
+          "id": "biobutanol",
+          "name": "biobutanol)",
+          "status": "retired"
         }
       ]
     },
@@ -204,19 +214,14 @@
           "name": "Nitrogen industries: manufacture of ammonia"
         },
         {
-          "id": "nitrogenous-and-mixed-fertilizers",
-          "name": "nitrogenous and mixed fertilizers",
+          "id": "nitrogenous-and-mixed-fertilizers-urea",
+          "name": "nitrogenous and mixed fertilizers, urea",
           "requires": ["nitrogen-industries-manufacture-of-ammonia"]
-        },
-        {
-          "id": "urea",
-          "name": "urea",
-          "requires": ["nitrogenous-and-mixed-fertilizers"]
         },
         {
           "id": "ammonium-sulphate",
           "name": "ammonium sulphate",
-          "requires": ["urea"]
+          "requires": ["nitrogenous-and-mixed-fertilizers-urea"]
         },
         {
           "id": "ammonium-nitrate",
@@ -225,18 +230,13 @@
         },
         {
           "id": "chlor-alkali-industries-caustic-soda-and-technological-devel",
-          "name": "Chlor-alkali industries: caustic soda and technological developments",
+          "name": "Chlor-alkali industries: caustic soda and technological developments, chlorine",
           "requires": ["ammonium-nitrate"]
-        },
-        {
-          "id": "chlorine",
-          "name": "chlorine",
-          "requires": ["chlor-alkali-industries-caustic-soda-and-technological-devel"]
         },
         {
           "id": "hydrochloric-acid",
           "name": "hydrochloric acid",
-          "requires": ["chlorine"]
+          "requires": ["chlor-alkali-industries-caustic-soda-and-technological-devel"]
         },
         {
           "id": "soda-ash-and-sodium-bicarbonate",
@@ -247,6 +247,21 @@
           "id": "fire-hazards-and-handling-guidelines-for-chlorinated-and-nit",
           "name": "fire hazards and handling guidelines for chlorinated and nitrogen-based industrial products",
           "requires": ["soda-ash-and-sodium-bicarbonate"]
+        },
+        {
+          "id": "nitrogenous-and-mixed-fertilizers",
+          "name": "nitrogenous and mixed fertilizers",
+          "status": "retired"
+        },
+        {
+          "id": "urea",
+          "name": "urea",
+          "status": "retired"
+        },
+        {
+          "id": "chlorine",
+          "name": "chlorine",
+          "status": "retired"
         }
       ]
     }

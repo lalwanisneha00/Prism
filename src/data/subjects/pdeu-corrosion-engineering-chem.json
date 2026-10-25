@@ -147,19 +147,24 @@
           "requires": ["selective-leaching"]
         },
         {
-          "id": "stress-corrosion",
-          "name": "stress corrosion",
+          "id": "stress-corrosion-mechanisms",
+          "name": "stress corrosion, mechanisms",
           "requires": ["erosion-corrosion"]
-        },
-        {
-          "id": "mechanisms",
-          "name": "mechanisms",
-          "requires": ["stress-corrosion"]
         },
         {
           "id": "testing-procedures",
           "name": "testing procedures",
-          "requires": ["mechanisms"]
+          "requires": ["stress-corrosion-mechanisms"]
+        },
+        {
+          "id": "stress-corrosion",
+          "name": "stress corrosion",
+          "status": "retired"
+        },
+        {
+          "id": "mechanisms",
+          "name": "mechanisms",
+          "status": "retired"
         }
       ]
     },
@@ -208,24 +213,29 @@
           "requires": ["accidents-in-real-life-due-to-corrosion-phenomena"]
         },
         {
-          "id": "study-of-corrosion-resistant-alloys-of-iron",
-          "name": "study of corrosion-resistant alloys of iron",
+          "id": "study-of-corrosion-resistant-alloys-of-iron-copper-nickel",
+          "name": "study of corrosion-resistant alloys of iron, copper, nickel",
           "requires": ["engineering-properties-desired-from-materials"]
-        },
-        {
-          "id": "copper",
-          "name": "copper",
-          "requires": ["study-of-corrosion-resistant-alloys-of-iron"]
-        },
-        {
-          "id": "nickel",
-          "name": "nickel",
-          "requires": ["copper"]
         },
         {
           "id": "zinc-and-aluminium",
           "name": "zinc and aluminium",
-          "requires": ["nickel"]
+          "requires": ["study-of-corrosion-resistant-alloys-of-iron-copper-nickel"]
+        },
+        {
+          "id": "study-of-corrosion-resistant-alloys-of-iron",
+          "name": "study of corrosion-resistant alloys of iron",
+          "status": "retired"
+        },
+        {
+          "id": "copper",
+          "name": "copper",
+          "status": "retired"
+        },
+        {
+          "id": "nickel",
+          "name": "nickel",
+          "status": "retired"
         }
       ]
     },
@@ -235,23 +245,28 @@
       "hours": 9,
       "topics": [
         {
-          "id": "design",
-          "name": "Design"
-        },
-        {
-          "id": "mechanical-and-non-electrochemical-coatings",
-          "name": "mechanical and non-electrochemical coatings",
-          "requires": ["design"]
+          "id": "design-mechanical-and-non-electrochemical-coatings",
+          "name": "Design, mechanical and non-electrochemical coatings"
         },
         {
           "id": "corrosion-inhibition",
           "name": "corrosion inhibition",
-          "requires": ["mechanical-and-non-electrochemical-coatings"]
+          "requires": ["design-mechanical-and-non-electrochemical-coatings"]
         },
         {
           "id": "passivity-phenomena-and-development-of-corrosion-resistant-a",
           "name": "passivity phenomena and development of corrosion-resistant alloys",
           "requires": ["corrosion-inhibition"]
+        },
+        {
+          "id": "design",
+          "name": "Design",
+          "status": "retired"
+        },
+        {
+          "id": "mechanical-and-non-electrochemical-coatings",
+          "name": "mechanical and non-electrochemical coatings",
+          "status": "retired"
         }
       ]
     }

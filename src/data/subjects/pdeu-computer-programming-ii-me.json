@@ -51,19 +51,24 @@
           "requires": ["silent-features"]
         },
         {
-          "id": "tools-and-its-framework",
-          "name": "Tools and its Framework",
+          "id": "tools-and-its-framework-variables",
+          "name": "Tools and its Framework, Variables",
           "requires": ["advantage-and-applications"]
-        },
-        {
-          "id": "variables",
-          "name": "Variables",
-          "requires": ["tools-and-its-framework"]
         },
         {
           "id": "input-and-output",
           "name": "Input and Output",
-          "requires": ["variables"]
+          "requires": ["tools-and-its-framework-variables"]
+        },
+        {
+          "id": "tools-and-its-framework",
+          "name": "Tools and its Framework",
+          "status": "retired"
+        },
+        {
+          "id": "variables",
+          "name": "Variables",
+          "status": "retired"
         }
       ]
     },
@@ -92,34 +97,39 @@
           "requires": ["if-else-statements"]
         },
         {
-          "id": "control-statements",
-          "name": "Control Statements",
+          "id": "control-statements-for-while-for-else",
+          "name": "Control Statements, For, While, For-Else",
           "requires": ["nested-if-else-statements"]
-        },
-        {
-          "id": "for",
-          "name": "For",
-          "requires": ["control-statements"]
-        },
-        {
-          "id": "while",
-          "name": "While",
-          "requires": ["for"]
-        },
-        {
-          "id": "for-else",
-          "name": "For-Else",
-          "requires": ["while"]
         },
         {
           "id": "while-else",
           "name": "While-Else",
-          "requires": ["for-else"]
+          "requires": ["control-statements-for-while-for-else"]
         },
         {
           "id": "continue-and-break-statements",
           "name": "Continue and Break statements",
           "requires": ["while-else"]
+        },
+        {
+          "id": "control-statements",
+          "name": "Control Statements",
+          "status": "retired"
+        },
+        {
+          "id": "for",
+          "name": "For",
+          "status": "retired"
+        },
+        {
+          "id": "while",
+          "name": "While",
+          "status": "retired"
+        },
+        {
+          "id": "for-else",
+          "name": "For-Else",
+          "status": "retired"
         }
       ]
     },
@@ -133,24 +143,29 @@
           "name": "String manipulation"
         },
         {
-          "id": "list-and-slicing",
-          "name": "List and slicing",
+          "id": "list-and-slicing-tuple",
+          "name": "List and slicing, Tuple",
           "requires": ["string-manipulation"]
-        },
-        {
-          "id": "tuple",
-          "name": "Tuple",
-          "requires": ["list-and-slicing"]
         },
         {
           "id": "set-and-dictionary",
           "name": "Set and Dictionary",
-          "requires": ["tuple"]
+          "requires": ["list-and-slicing-tuple"]
         },
         {
           "id": "numpy-and-dataframes",
           "name": "Numpy and Dataframes",
           "requires": ["set-and-dictionary"]
+        },
+        {
+          "id": "list-and-slicing",
+          "name": "List and slicing",
+          "status": "retired"
+        },
+        {
+          "id": "tuple",
+          "name": "Tuple",
+          "status": "retired"
         }
       ]
     },
@@ -164,24 +179,29 @@
           "name": "Built-in and user defined functions"
         },
         {
-          "id": "actual-and-formal-parameters",
-          "name": "Actual and Formal Parameters",
+          "id": "actual-and-formal-parameters-scope-create",
+          "name": "Actual and Formal Parameters, Scope, Create",
           "requires": ["built-in-and-user-defined-functions"]
-        },
-        {
-          "id": "scope",
-          "name": "Scope",
-          "requires": ["actual-and-formal-parameters"]
-        },
-        {
-          "id": "create",
-          "name": "Create",
-          "requires": ["scope"]
         },
         {
           "id": "read-and-write-text-files",
           "name": "Read and Write text files",
-          "requires": ["create"]
+          "requires": ["actual-and-formal-parameters-scope-create"]
+        },
+        {
+          "id": "actual-and-formal-parameters",
+          "name": "Actual and Formal Parameters",
+          "status": "retired"
+        },
+        {
+          "id": "scope",
+          "name": "Scope",
+          "status": "retired"
+        },
+        {
+          "id": "create",
+          "name": "Create",
+          "status": "retired"
         }
       ]
     }

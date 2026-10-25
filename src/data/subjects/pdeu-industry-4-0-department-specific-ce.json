@@ -119,24 +119,22 @@
         },
         {
           "id": "transformation-of-industrial-processes-through-the",
-          "name": "Transformation of industrial processes through the integration of modern technologies such as sensing and actuation",
+          "name": "Transformation of industrial processes through the integration of modern technologies such as sensing and actuation, communication",
           "requires": ["additive-manufacturing-and-augmented-reality"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "communication",
-          "name": "communication",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["transformation-of-industrial-processes-through-the"]
         },
         {
           "id": "computational-processing",
           "name": "computational processing",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["communication"]
+          "requires": ["transformation-of-industrial-processes-through-the"]
+        },
+        {
+          "id": "communication",
+          "name": "communication",
+          "status": "retired"
         }
       ]
     },

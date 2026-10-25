@@ -37,18 +37,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "electrical-circuit-elements-r",
-          "name": "Electrical circuit elements (R"
-        },
-        {
-          "id": "l-and-c",
-          "name": "L and C)",
-          "requires": ["electrical-circuit-elements-r"]
+          "id": "electrical-circuit-elements-r-l-and-c",
+          "name": "Electrical circuit elements (R, L and C)"
         },
         {
           "id": "voltage-and-current-sources",
           "name": "voltage and current sources",
-          "requires": ["l-and-c"]
+          "requires": ["electrical-circuit-elements-r-l-and-c"]
         },
         {
           "id": "dependent-and-independent-sources",
@@ -99,6 +94,16 @@
           "id": "time-domain-analysis-natural-response-of-first-order-rl-and",
           "name": "Time domain analysis/natural response of first order RL and RC Circuit",
           "requires": ["star-delta-transformation"]
+        },
+        {
+          "id": "electrical-circuit-elements-r",
+          "name": "Electrical circuit elements (R",
+          "status": "retired"
+        },
+        {
+          "id": "l-and-c",
+          "name": "L and C)",
+          "status": "retired"
         }
       ]
     },
@@ -235,18 +240,13 @@
       "hours": 10,
       "topics": [
         {
-          "id": "fuse",
-          "name": "Fuse"
-        },
-        {
-          "id": "mcb",
-          "name": "MCB",
-          "requires": ["fuse"]
+          "id": "fuse-mcb",
+          "name": "Fuse, MCB"
         },
         {
           "id": "elcb",
           "name": "ELCB",
-          "requires": ["mcb"]
+          "requires": ["fuse-mcb"]
         },
         {
           "id": "mccb",
@@ -294,14 +294,29 @@
           "requires": ["electric-shock-and-first-aid"]
         },
         {
+          "id": "elementary-calculation-of-energy-consumptions-tariffs",
+          "name": "elementary calculation of energy consumptions, tariffs",
+          "requires": ["energy-conservation-methods"]
+        },
+        {
+          "id": "fuse",
+          "name": "Fuse",
+          "status": "retired"
+        },
+        {
+          "id": "mcb",
+          "name": "MCB",
+          "status": "retired"
+        },
+        {
           "id": "elementary-calculation-of-energy-consumptions",
           "name": "elementary calculation of energy consumptions",
-          "requires": ["energy-conservation-methods"]
+          "status": "retired"
         },
         {
           "id": "tariffs",
           "name": "tariffs",
-          "requires": ["elementary-calculation-of-energy-consumptions"]
+          "status": "retired"
         }
       ]
     }

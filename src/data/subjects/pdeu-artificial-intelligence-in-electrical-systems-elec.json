@@ -1,0 +1,240 @@
+{
+  "id": "pdeu-artificial-intelligence-in-electrical-systems-elec",
+  "name": "Artificial Intelligence in Electrical Systems",
+  "field": "Artificial Intelligence in Electrical Systems",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): Artificial Intelligence in Electrical Systems",
+    "note": "Units and topics copied from the course handout PDF (pages 15 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE307T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-artificial-intelligence-in-electrical-systems",
+      "code": "20EE307T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-artificial-intelligence-and-fuzzy-systems",
+      "name": "Introduction to Artificial Intelligence and Fuzzy Systems",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "artificial-intelligence-definition-significance",
+          "name": "Artificial Intelligence: Definition, Significance"
+        },
+        {
+          "id": "scope-and-applications",
+          "name": "Scope and Applications",
+          "requires": ["artificial-intelligence-definition-significance"]
+        },
+        {
+          "id": "fuzzy-systems-fuzzy-sets-and-operations",
+          "name": "Fuzzy Systems: Fuzzy Sets and Operations",
+          "requires": ["scope-and-applications"]
+        },
+        {
+          "id": "membership-functions",
+          "name": "Membership Functions",
+          "requires": ["fuzzy-systems-fuzzy-sets-and-operations"]
+        },
+        {
+          "id": "fuzzification-and-defuzzification",
+          "name": "Fuzzification and Defuzzification",
+          "requires": ["membership-functions"]
+        },
+        {
+          "id": "rule-base",
+          "name": "Rule Base",
+          "requires": ["fuzzification-and-defuzzification"]
+        },
+        {
+          "id": "introduction-to-fuzzy-logic-control",
+          "name": "Introduction to Fuzzy Logic Control",
+          "requires": ["rule-base"]
+        },
+        {
+          "id": "architecture-of-mamdani-and-takagi-sugeno-fuzzy-models",
+          "name": "Architecture of Mamdani and Takagi-Sugeno Fuzzy Models",
+          "requires": ["introduction-to-fuzzy-logic-control"]
+        },
+        {
+          "id": "application-example",
+          "name": "Application Example",
+          "requires": ["architecture-of-mamdani-and-takagi-sugeno-fuzzy-models"]
+        }
+      ]
+    },
+    {
+      "id": "artificial-neural-networks",
+      "name": "Artificial Neural Networks",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-artificial-neural-networks",
+          "name": "Introduction to Artificial Neural Networks"
+        },
+        {
+          "id": "biological-neuron",
+          "name": "Biological Neuron",
+          "requires": ["introduction-to-artificial-neural-networks"]
+        },
+        {
+          "id": "artificial-neuron",
+          "name": "Artificial Neuron",
+          "requires": ["biological-neuron"]
+        },
+        {
+          "id": "activation-functions-of-artificial-neuron",
+          "name": "Activation Functions of Artificial Neuron",
+          "requires": ["artificial-neuron"]
+        },
+        {
+          "id": "structure-of-artificial-neural-network",
+          "name": "Structure of Artificial Neural Network",
+          "requires": ["activation-functions-of-artificial-neuron"]
+        },
+        {
+          "id": "feedforward-and-recurrent-artificial-neural-networks",
+          "name": "Feedforward and Recurrent Artificial Neural Networks",
+          "requires": ["structure-of-artificial-neural-network"]
+        },
+        {
+          "id": "training-of-artificial-neural-networks",
+          "name": "Training of Artificial Neural Networks",
+          "requires": ["feedforward-and-recurrent-artificial-neural-networks"]
+        },
+        {
+          "id": "learning-methods",
+          "name": "Learning Methods",
+          "requires": ["training-of-artificial-neural-networks"]
+        },
+        {
+          "id": "back-propagation-algorithm",
+          "name": "Back Propagation Algorithm",
+          "requires": ["learning-methods"]
+        },
+        {
+          "id": "application-example-2",
+          "name": "Application Example",
+          "requires": ["back-propagation-algorithm"]
+        }
+      ]
+    },
+    {
+      "id": "genetic-algorithm",
+      "name": "Genetic Algorithm",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "optimization-categories-of-optimization",
+          "name": "Optimization, categories of optimization"
+        },
+        {
+          "id": "biological-optimization",
+          "name": "biological optimization",
+          "requires": ["optimization-categories-of-optimization"]
+        },
+        {
+          "id": "binary-genetic-algorithm-bga-components-of-bga",
+          "name": "Binary Genetic Algorithm (BGA):Components of BGA",
+          "requires": ["biological-optimization"]
+        },
+        {
+          "id": "variable-selection-and-cost-function",
+          "name": "variable selection and cost function",
+          "requires": ["binary-genetic-algorithm-bga-components-of-bga"]
+        },
+        {
+          "id": "variable-encoding-and-decoding-population-selection-mating",
+          "name": "variable encoding and decoding, population, selection, mating",
+          "requires": ["variable-selection-and-cost-function"]
+        },
+        {
+          "id": "mutation",
+          "name": "mutation",
+          "requires": ["variable-encoding-and-decoding-population-selection-mating"]
+        },
+        {
+          "id": "next-generation-convergence",
+          "name": "next generation, convergence",
+          "requires": ["mutation"]
+        },
+        {
+          "id": "continuous-ga-variable-encoding",
+          "name": "Continuous GA: Variable encoding",
+          "requires": ["next-generation-convergence"]
+        },
+        {
+          "id": "precision-and-bounds-pairing",
+          "name": "precision and bounds, pairing",
+          "requires": ["continuous-ga-variable-encoding"]
+        },
+        {
+          "id": "application-example-3",
+          "name": "Application Example",
+          "requires": ["precision-and-bounds-pairing"]
+        }
+      ]
+    },
+    {
+      "id": "machine-learning",
+      "name": "Machine Learning",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "introduction-to-machine-learning-ml",
+          "name": "Introduction to Machine Learning (ML)"
+        },
+        {
+          "id": "types-of-ml-supervised-learning",
+          "name": "Types of ML (Supervised Learning",
+          "requires": ["introduction-to-machine-learning-ml"]
+        },
+        {
+          "id": "unsupervised-learning",
+          "name": "Unsupervised Learning",
+          "requires": ["types-of-ml-supervised-learning"]
+        },
+        {
+          "id": "reinforcement-learning-and-evolutionary-learning",
+          "name": "Reinforcement Learning & Evolutionary Learning)",
+          "requires": ["unsupervised-learning"]
+        },
+        {
+          "id": "support-vector-regression",
+          "name": "Support Vector Regression",
+          "requires": ["reinforcement-learning-and-evolutionary-learning"]
+        },
+        {
+          "id": "support-vector-machine-svm",
+          "name": "Support Vector Machine (SVM)",
+          "requires": ["support-vector-regression"]
+        },
+        {
+          "id": "logistic-regression",
+          "name": "Logistic Regression",
+          "requires": ["support-vector-machine-svm"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-artificial-intelligence-in-electrical-systems-laboratory-elec"]
+}

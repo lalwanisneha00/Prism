@@ -40,16 +40,7 @@
       "topics": [
         {
           "id": "introduction-to-neural-networks",
-          "name": "Introduction to Neural networks",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "optimization-of-neural-networks-gs",
-          "name": "Optimization of neural networks (GS",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-neural-networks"]
+          "name": "Introduction to Neural networks"
         },
         {
           "id": "perceptron",
@@ -93,45 +84,8 @@
         },
         {
           "id": "optimization-of-neural-networks-gs-sgd-adagrad-adadelta",
-          "name": "SGD",
-          "requires": ["single-layer-and-multi-layer-perceptron-mlp-network"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "adagrad",
-          "name": "Adagrad",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["optimization-of-neural-networks-gs-sgd-adagrad-adadelta"]
-        },
-        {
-          "id": "adadelta",
-          "name": "Adadelta",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["adagrad"]
-        },
-        {
-          "id": "rmsprop",
-          "name": "RMSprop",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["adadelta"]
-        },
-        {
-          "id": "adam",
-          "name": "Adam",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["rmsprop"]
-        },
-        {
-          "id": "nag",
-          "name": "NAG)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["adam"]
+          "name": "Optimization of neural networks (GS, SGD, Adagrad, Adadelta, RMSprop, Adam, NAG)",
+          "requires": ["single-layer-and-multi-layer-perceptron-mlp-network"]
         },
         {
           "id": "bias-vs-variance-trade-off",
@@ -142,6 +96,36 @@
           "id": "regularization",
           "name": "Regularization",
           "requires": ["bias-vs-variance-trade-off"]
+        },
+        {
+          "id": "optimization-of-neural-networks-gs",
+          "name": "Optimization of neural networks (GS",
+          "status": "retired"
+        },
+        {
+          "id": "adagrad",
+          "name": "Adagrad",
+          "status": "retired"
+        },
+        {
+          "id": "adadelta",
+          "name": "Adadelta",
+          "status": "retired"
+        },
+        {
+          "id": "rmsprop",
+          "name": "RMSprop",
+          "status": "retired"
+        },
+        {
+          "id": "adam",
+          "name": "Adam",
+          "status": "retired"
+        },
+        {
+          "id": "nag",
+          "name": "NAG)",
+          "status": "retired"
         }
       ]
     },
@@ -192,60 +176,18 @@
           "requires": ["pooling-layers"]
         },
         {
-          "id": "handling-vanishing-gradient-problem",
-          "name": "Handling vanishing gradient problem",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["activation-functions"]
-        },
-        {
           "id": "different-cnn-models-lenet-alexnet-vggnet-googlenet-resnet",
-          "name": "Different CNN Models: LeNet",
+          "name": "Different CNN Models: LeNet, AlexNet, VGGNet, GoogleNet, ResNet, DenseNet",
           "requires": ["cnn"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "alexnet",
-          "name": "AlexNet",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["different-cnn-models-lenet-alexnet-vggnet-googlenet-resnet"]
-        },
-        {
-          "id": "vggnet",
-          "name": "VGGNet",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["alexnet"]
-        },
-        {
-          "id": "googlenet",
-          "name": "GoogleNet",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["vggnet"]
-        },
-        {
-          "id": "resnet",
-          "name": "ResNet",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["googlenet"]
-        },
-        {
-          "id": "densenet",
-          "name": "DenseNet",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["resnet"]
         },
         {
           "id": "training-of-deep-neural-networks",
           "name": "Training of Deep neural Networks",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["densenet"]
+          "requires": ["different-cnn-models-lenet-alexnet-vggnet-googlenet-resnet"]
         },
         {
           "id": "hyper-parameter-tuning",
@@ -269,8 +211,8 @@
           "requires": ["transfer-learning"]
         },
         {
-          "id": "dropout",
-          "name": "Dropout",
+          "id": "handling-vanishing-gradient-problem-dropout",
+          "name": "Handling vanishing gradient problem, Dropout",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["dataset-augmentation"]
@@ -280,7 +222,42 @@
           "name": "Batch Normalization",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["dropout"]
+          "requires": ["handling-vanishing-gradient-problem-dropout"]
+        },
+        {
+          "id": "handling-vanishing-gradient-problem",
+          "name": "Handling vanishing gradient problem",
+          "status": "retired"
+        },
+        {
+          "id": "alexnet",
+          "name": "AlexNet",
+          "status": "retired"
+        },
+        {
+          "id": "vggnet",
+          "name": "VGGNet",
+          "status": "retired"
+        },
+        {
+          "id": "googlenet",
+          "name": "GoogleNet",
+          "status": "retired"
+        },
+        {
+          "id": "resnet",
+          "name": "ResNet",
+          "status": "retired"
+        },
+        {
+          "id": "densenet",
+          "name": "DenseNet",
+          "status": "retired"
+        },
+        {
+          "id": "dropout",
+          "name": "Dropout",
+          "status": "retired"
         }
       ]
     },

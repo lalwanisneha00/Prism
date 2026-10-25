@@ -37,52 +37,10 @@
       "hours": 10,
       "topics": [
         {
-          "id": "the-origins-of-radar",
-          "name": "The Origins of Radar",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "radar-system-block-diagrams",
-          "name": "radar system (block diagrams)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["the-origins-of-radar"]
-        },
-        {
-          "id": "radar-range-equation",
-          "name": "Radar range Equation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["radar-system-block-diagrams"]
-        },
-        {
           "id": "applications-of-radar",
           "name": "Applications of Radar",
           "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["radar-range-equation"]
-        },
-        {
-          "id": "radar-types-mti",
-          "name": "Radar types: MTI",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["applications-of-radar"]
-        },
-        {
-          "id": "pulse-doppler-radar",
-          "name": "Pulse Doppler Radar",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["radar-types-mti"]
-        },
-        {
-          "id": "tracking-with-radar-monopulse-tracking",
-          "name": "Tracking with Radar-Monopulse Tracking",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pulse-doppler-radar"]
+          "confidence": "verified"
         },
         {
           "id": "the-origins-of-radar-radar-system-block-diagrams-radar-range",
@@ -97,25 +55,18 @@
           "confidence": "verified"
         },
         {
-          "id": "prf",
-          "name": "PRF",
+          "id": "prf-delay",
+          "name": "PRF, Delay",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["radar-types-mti-doppler-and-pulse-prf-delay-line-cancellers"]
-        },
-        {
-          "id": "delay",
-          "name": "Delay",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["prf"]
         },
         {
           "id": "line-cancellers",
           "name": "Line Cancellers",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["delay"]
+          "requires": ["prf-delay"]
         },
         {
           "id": "staggered-pulse-repetition-frequencies",
@@ -193,6 +144,46 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["automatic-tracking-with-surveillance-radars"]
+        },
+        {
+          "id": "the-origins-of-radar",
+          "name": "The Origins of Radar",
+          "status": "retired"
+        },
+        {
+          "id": "radar-system-block-diagrams",
+          "name": "radar system (block diagrams)",
+          "status": "retired"
+        },
+        {
+          "id": "radar-range-equation",
+          "name": "Radar range Equation",
+          "status": "retired"
+        },
+        {
+          "id": "radar-types-mti",
+          "name": "Radar types: MTI",
+          "status": "retired"
+        },
+        {
+          "id": "pulse-doppler-radar",
+          "name": "Pulse Doppler Radar",
+          "status": "retired"
+        },
+        {
+          "id": "tracking-with-radar-monopulse-tracking",
+          "name": "Tracking with Radar-Monopulse Tracking",
+          "status": "retired"
+        },
+        {
+          "id": "prf",
+          "name": "PRF",
+          "status": "retired"
+        },
+        {
+          "id": "delay",
+          "name": "Delay",
+          "status": "retired"
         }
       ]
     },
@@ -389,7 +380,7 @@
           "movedFrom": {
             "subject": "pdeu-radar-and-navigation-systems-communication-systems",
             "chapter": "1radar-fundamentals",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           }
         },
         {

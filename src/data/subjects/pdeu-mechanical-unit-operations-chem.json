@@ -91,24 +91,14 @@
           "requires": ["work-index"]
         },
         {
-          "id": "classification-of-equipment",
-          "name": "classification of equipment",
+          "id": "classification-of-equipment-crushers-grinders",
+          "name": "classification of equipment, crushers, grinders",
           "requires": ["methods-of-size-reduction"]
-        },
-        {
-          "id": "crushers",
-          "name": "crushers",
-          "requires": ["classification-of-equipment"]
-        },
-        {
-          "id": "grinders",
-          "name": "grinders",
-          "requires": ["crushers"]
         },
         {
           "id": "disintegrators-for-coarse",
           "name": "disintegrators for coarse",
-          "requires": ["grinders"]
+          "requires": ["classification-of-equipment-crushers-grinders"]
         },
         {
           "id": "intermediate-and-fine-grinding",
@@ -119,6 +109,21 @@
           "id": "ultrafine-grinders",
           "name": "ultrafine grinders",
           "requires": ["intermediate-and-fine-grinding"]
+        },
+        {
+          "id": "classification-of-equipment",
+          "name": "classification of equipment",
+          "status": "retired"
+        },
+        {
+          "id": "crushers",
+          "name": "crushers",
+          "status": "retired"
+        },
+        {
+          "id": "grinders",
+          "name": "grinders",
+          "status": "retired"
         }
       ]
     },
@@ -128,28 +133,13 @@
       "hours": 9,
       "topics": [
         {
-          "id": "gravity-settling-free-and-hindered-settling",
-          "name": "Gravity settling: free and hindered settling"
-        },
-        {
-          "id": "sedimentation",
-          "name": "sedimentation",
-          "requires": ["gravity-settling-free-and-hindered-settling"]
-        },
-        {
-          "id": "thickening",
-          "name": "thickening",
-          "requires": ["sedimentation"]
-        },
-        {
-          "id": "elutriation",
-          "name": "elutriation",
-          "requires": ["thickening"]
+          "id": "gravity-settling-free-and-hindered-settling-sedimentation-th",
+          "name": "Gravity settling: free and hindered settling, sedimentation, thickening, elutriation"
         },
         {
           "id": "double-cone-classifier",
           "name": "double cone classifier",
-          "requires": ["elutriation"]
+          "requires": ["gravity-settling-free-and-hindered-settling-sedimentation-th"]
         },
         {
           "id": "rake-classifier",
@@ -197,14 +187,39 @@
           "requires": ["cyclones-and-hydrocyclones"]
         },
         {
+          "id": "heavy-media-separation-flotation",
+          "name": "heavy media separation, flotation",
+          "requires": ["electrostatic-and-magnetic-separators"]
+        },
+        {
+          "id": "gravity-settling-free-and-hindered-settling",
+          "name": "Gravity settling: free and hindered settling",
+          "status": "retired"
+        },
+        {
+          "id": "sedimentation",
+          "name": "sedimentation",
+          "status": "retired"
+        },
+        {
+          "id": "thickening",
+          "name": "thickening",
+          "status": "retired"
+        },
+        {
+          "id": "elutriation",
+          "name": "elutriation",
+          "status": "retired"
+        },
+        {
           "id": "heavy-media-separation",
           "name": "heavy media separation",
-          "requires": ["electrostatic-and-magnetic-separators"]
+          "status": "retired"
         },
         {
           "id": "flotation",
           "name": "flotation",
-          "requires": ["heavy-media-separation"]
+          "status": "retired"
         }
       ]
     },
@@ -233,19 +248,14 @@
           "requires": ["flow-through-filter-cake-and-filter-media"]
         },
         {
-          "id": "filtration-equipment",
-          "name": "filtration equipment",
+          "id": "filtration-equipment-selection",
+          "name": "filtration equipment, selection",
           "requires": ["compressible-and-incompressible-filter-cakes"]
-        },
-        {
-          "id": "selection",
-          "name": "selection",
-          "requires": ["filtration-equipment"]
         },
         {
           "id": "operation-and-design-of-filters",
           "name": "operation and design of filters",
-          "requires": ["selection"]
+          "requires": ["filtration-equipment-selection"]
         },
         {
           "id": "optimum-cycle-of-operation",
@@ -261,6 +271,16 @@
           "id": "safety-issues-related-to-high-speed-rotating-equipment",
           "name": "safety issues related to high-speed rotating equipment",
           "requires": ["filter-aids"]
+        },
+        {
+          "id": "filtration-equipment",
+          "name": "filtration equipment",
+          "status": "retired"
+        },
+        {
+          "id": "selection",
+          "name": "selection",
+          "status": "retired"
         }
       ]
     },
@@ -274,29 +294,34 @@
           "name": "Agitation and mixing of liquids"
         },
         {
-          "id": "storage-and-conveying-of-solids",
-          "name": "storage and conveying of solids",
+          "id": "storage-and-conveying-of-solids-bunkers-silos",
+          "name": "storage and conveying of solids, bunkers, silos",
           "requires": ["agitation-and-mixing-of-liquids"]
-        },
-        {
-          "id": "bunkers",
-          "name": "bunkers",
-          "requires": ["storage-and-conveying-of-solids"]
-        },
-        {
-          "id": "silos",
-          "name": "silos",
-          "requires": ["bunkers"]
         },
         {
           "id": "bins-and-hoppers",
           "name": "bins and hoppers",
-          "requires": ["silos"]
+          "requires": ["storage-and-conveying-of-solids-bunkers-silos"]
         },
         {
           "id": "transportation-of-solids-in-bulk-different-types-of-conveyor",
           "name": "transportation of solids in bulk: different types of conveyors and their performance characteristics",
           "requires": ["bins-and-hoppers"]
+        },
+        {
+          "id": "storage-and-conveying-of-solids",
+          "name": "storage and conveying of solids",
+          "status": "retired"
+        },
+        {
+          "id": "bunkers",
+          "name": "bunkers",
+          "status": "retired"
+        },
+        {
+          "id": "silos",
+          "name": "silos",
+          "status": "retired"
         }
       ]
     }

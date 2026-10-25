@@ -120,36 +120,28 @@
         },
         {
           "id": "top-down-parsers-rdp-ll",
-          "name": "Top-Down Parsers (RDP",
-          "requires": ["context-free-grammars"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "ll",
-          "name": "LL)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["top-down-parsers-rdp-ll"]
+          "name": "Top-Down Parsers (RDP, LL)",
+          "requires": ["context-free-grammars"]
         },
         {
           "id": "bottom-up-parsers-operator-precedence-lr",
-          "name": "Bottom-Up Parsers (Operator-Precedence",
-          "requires": ["top-down-parsers-rdp-ll"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "lr",
-          "name": "LR)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bottom-up-parsers-operator-precedence-lr"]
+          "name": "Bottom-Up Parsers (Operator-Precedence, LR)",
+          "requires": ["top-down-parsers-rdp-ll"]
         },
         {
           "id": "error-recovery-strategies",
           "name": "Error recovery strategies",
           "requires": ["bottom-up-parsers-operator-precedence-lr"]
+        },
+        {
+          "id": "ll",
+          "name": "LL)",
+          "status": "retired"
+        },
+        {
+          "id": "lr",
+          "name": "LR)",
+          "status": "retired"
         }
       ]
     },
@@ -193,22 +185,18 @@
         },
         {
           "id": "implementation-of-three-address-code",
-          "name": "Implementation of",
-          "requires": ["different-intermediate-forms"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "three-address-code",
-          "name": "Three Address Code",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["implementation-of-three-address-code"]
+          "name": "Implementation of Three Address Code",
+          "requires": ["different-intermediate-forms"]
         },
         {
           "id": "intermediate-code-for-basic-constructs-of-languages",
           "name": "Intermediate code for basic constructs of languages",
           "requires": ["implementation-of-three-address-code"]
+        },
+        {
+          "id": "three-address-code",
+          "name": "Three Address Code",
+          "status": "retired"
         }
       ]
     },

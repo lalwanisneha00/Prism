@@ -185,17 +185,8 @@
         },
         {
           "id": "filtering-image-enhancement",
-          "name": "filtering",
-          "requires": ["haar-transform"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "image-enhancement",
-          "name": "Image enhancement",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["filtering-image-enhancement"]
+          "name": "filtering. Image enhancement",
+          "requires": ["haar-transform"]
         },
         {
           "id": "restoration",
@@ -211,6 +202,11 @@
           "id": "registration",
           "name": "registration",
           "requires": ["compression"]
+        },
+        {
+          "id": "image-enhancement",
+          "name": "Image enhancement",
+          "status": "retired"
         }
       ]
     },

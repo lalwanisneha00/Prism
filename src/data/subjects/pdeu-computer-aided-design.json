@@ -14,7 +14,7 @@
   "offerings": [
     {
       "branch": "me",
-      "key": "s6-computer-aided-design",
+      "key": "s7-program-elective--computer-aided-design",
       "code": "18ME315T",
       "category": "Program Core",
       "ltp": "3-1-0",
@@ -40,16 +40,7 @@
       "topics": [
         {
           "id": "introduction-reasons-for-implementing-a-cad-system-computer",
-          "name": "Introduction to CAD its benefits",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "cad-programming",
-          "name": "CAD programming",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-reasons-for-implementing-a-cad-system-computer"]
+          "name": "Introduction, Reasons for implementing a CAD system, Computer aided process application, benefits, CAD software’s, Elements of programming, CAD programming, Need and scope of computer aided design"
         },
         {
           "id": "computer-graphics-scan-conversion",
@@ -73,6 +64,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["standards-for-graphics-programming-features-of-gks-other"]
+        },
+        {
+          "id": "cad-programming",
+          "name": "CAD programming",
+          "status": "retired"
         }
       ]
     },
@@ -98,7 +94,8 @@
         {
           "id": "shear-and-reflection",
           "name": "shear and reflection",
-          "requires": ["rotation"]
+          "requires": ["rotation"],
+          "status": "retired"
         },
         {
           "id": "homogeneous-transformations",
@@ -106,18 +103,16 @@
           "requires": ["shear-and-reflection"]
         },
         {
-          "id": "projections",
-          "name": "Projections",
+          "id": "orthographic-and-affine-transformations",
+          "name": "Orthographic and Affine transformations",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["homogeneous-transformations"]
         },
         {
-          "id": "orthographic-and-affine-transformations",
-          "name": "Orthographic and Affine transformations",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["projections"]
+          "id": "projections",
+          "name": "Projections",
+          "status": "retired"
         }
       ]
     },
@@ -191,7 +186,7 @@
           "movedFrom": {
             "subject": "pdeu-computer-aided-design",
             "chapter": "finite-element-method",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -288,7 +283,8 @@
         {
           "id": "beams-computer-programming-use-of-computer-programming-in",
           "name": "Beams. Computer Programming: Use of computer programming in design of machine elements",
-          "requires": ["analysis-of-trusses"]
+          "requires": ["analysis-of-trusses"],
+          "status": "retired"
         },
         {
           "id": "development-of-computer-program-using-matlab-for-machine",

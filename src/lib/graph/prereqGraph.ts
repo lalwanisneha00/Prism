@@ -1,5 +1,6 @@
 import type { MapEdge } from "@/lib/conceptMap";
 import type { Subject } from "@/lib/subjects";
+import { activeChapters } from "@/lib/syllabusFix/active";
 
 /*
  * The subject concept map's logic (fix before V3 · Step 5). Like a family tree for topics:
@@ -18,16 +19,20 @@ export type PrereqGraph = {
 };
 
 export function graphOf(subject: Subject): PrereqGraph {
-  const topics = subject.chapters.flatMap((c) =>
+  const topics = activeChapters(subject).flatMap((c) =>
     c.topics.map((t) => ({ id: t.id, name: t.name, chapterId: c.id, chapterName: c.name })),
   );
   const known = new Set(topics.map((t) => t.id));
-  const edges = subject.chapters.flatMap((c) =>
+  const edges = activeChapters(subject).flatMap((c) =>
     c.topics.flatMap((t) =>
       (t.requires ?? []).filter((r) => known.has(r)).map((r) => ({ from: r, to: t.id })),
     ),
   );
-  return { topics, edges, chapters: subject.chapters.map((c) => ({ id: c.id, name: c.name })) };
+  return {
+    topics,
+    edges,
+    chapters: activeChapters(subject).map((c) => ({ id: c.id, name: c.name })),
+  };
 }
 
 /**
@@ -36,11 +41,15 @@ export function graphOf(subject: Subject): PrereqGraph {
  */
 export function graphProblems(subject: Subject): string[] {
   const problems: string[] = [];
-  const names = new Map(subject.chapters.flatMap((c) => c.topics.map((t) => [t.id, t.name])));
-  for (const c of subject.chapters) {
+  const names = new Map(
+    activeChapters(subject).flatMap((c) => c.topics.map((t) => [t.id, t.name])),
+  );
+  // A link to a retired topic (syllabus fix) is simply not drawn; only a truly unknown id is wrong.
+  const everyId = new Set(subject.chapters.flatMap((c) => c.topics.map((t) => t.id)));
+  for (const c of activeChapters(subject)) {
     for (const t of c.topics) {
       for (const r of t.requires ?? []) {
-        if (!names.has(r)) problems.push(`“${t.name}” needs a topic that doesn't exist (${r}).`);
+        if (!everyId.has(r)) problems.push(`“${t.name}” needs a topic that doesn't exist (${r}).`);
       }
     }
   }

@@ -2,14 +2,15 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
-import { choiceId, type ElectiveChoices } from "@/lib/pdeu/electives";
+import { pickId, type ElectiveChoices } from "@/lib/pdeu/electives";
 import { getSettings, updateSettings } from "@/lib/storage/progress";
 
 /** The student's elective picks (saved in their synced settings). */
 export function useElectiveChoices(): {
   choices: ElectiveChoices;
   loaded: boolean;
-  choose: (branch: string, slotKey: string, optionKey: string | "") => void;
+  /** `pick` is 1-based (a slot where the student takes several options has picks 1, 2, 3…). */
+  choose: (branch: string, slotKey: string, optionKey: string | "", pick?: number) => void;
 } {
   const dataVersion = useDataVersion();
   const [choices, setChoices] = useState<ElectiveChoices>({});
@@ -21,10 +22,11 @@ export function useElectiveChoices(): {
       .finally(() => setLoaded(true));
   }, [dataVersion]);
   const choose = useCallback(
-    (branch: string, slotKey: string, optionKey: string) => {
+    (branch: string, slotKey: string, optionKey: string, pick = 1) => {
       const next = { ...choices };
-      if (optionKey) next[choiceId(branch, slotKey)] = optionKey;
-      else delete next[choiceId(branch, slotKey)];
+      const key = pickId(branch, slotKey, pick);
+      if (optionKey) next[key] = optionKey;
+      else delete next[key];
       setChoices(next);
       void updateSettings({ electiveChoices: next }).catch(() => undefined);
     },

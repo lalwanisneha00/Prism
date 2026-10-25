@@ -37,18 +37,13 @@
       "hours": 11,
       "topics": [
         {
-          "id": "introduction",
-          "name": "Introduction"
-        },
-        {
-          "id": "environmental-concerns-and-sustainable-development",
-          "name": "Environmental Concerns and Sustainable Development",
-          "requires": ["introduction"]
+          "id": "introduction-environmental-concerns-and-sustainable-developm",
+          "name": "Introduction, Environmental Concerns and Sustainable Development"
         },
         {
           "id": "environmental-impacts-of-it",
           "name": "Environmental Impacts of IT",
-          "requires": ["environmental-concerns-and-sustainable-development"]
+          "requires": ["introduction-environmental-concerns-and-sustainable-developm"]
         },
         {
           "id": "holistic-approach-to-greening-it",
@@ -59,6 +54,16 @@
           "id": "green-devices-and-hardware-with-green-software",
           "name": "Green Devices and Hardware with Green Software",
           "requires": ["holistic-approach-to-greening-it"]
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "status": "retired"
+        },
+        {
+          "id": "environmental-concerns-and-sustainable-development",
+          "name": "Environmental Concerns and Sustainable Development",
+          "status": "retired"
         }
       ]
     },
@@ -68,23 +73,28 @@
       "hours": 11,
       "topics": [
         {
-          "id": "green-enterprises-and-the-role-of-it",
-          "name": "Green Enterprises and the Role of IT"
-        },
-        {
-          "id": "introduction-2",
-          "name": "Introduction",
-          "requires": ["green-enterprises-and-the-role-of-it"]
+          "id": "green-enterprises-and-the-role-of-it-introduction",
+          "name": "Green Enterprises and the Role of IT, Introduction"
         },
         {
           "id": "organization-and-enterprise-greening",
           "name": "Organization and Enterprise Greening",
-          "requires": ["introduction-2"]
+          "requires": ["green-enterprises-and-the-role-of-it-introduction"]
         },
         {
           "id": "information-systems-in-greening",
           "name": "Information systems in Greening",
           "requires": ["organization-and-enterprise-greening"]
+        },
+        {
+          "id": "green-enterprises-and-the-role-of-it",
+          "name": "Green Enterprises and the Role of IT",
+          "status": "retired"
+        },
+        {
+          "id": "introduction-2",
+          "name": "Introduction",
+          "status": "retired"
         }
       ]
     },

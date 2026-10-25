@@ -37,23 +37,13 @@
       "hours": 8,
       "topics": [
         {
-          "id": "introduction",
-          "name": "Introduction"
-        },
-        {
-          "id": "energy",
-          "name": "Energy",
-          "requires": ["introduction"]
-        },
-        {
-          "id": "economy-and-social-development",
-          "name": "Economy and Social Development",
-          "requires": ["energy"]
+          "id": "introduction-energy-economy-and-social-development",
+          "name": "Introduction, Energy, Economy and Social Development"
         },
         {
           "id": "fundamentals-and-classification-of-energy-sources",
           "name": "Fundamentals and Classification of Energy Sources",
-          "requires": ["economy-and-social-development"]
+          "requires": ["introduction-energy-economy-and-social-development"]
         },
         {
           "id": "significance-of-renewable-energy",
@@ -94,6 +84,21 @@
           "id": "energy-conservation-opportunities",
           "name": "Energy Conservation Opportunities",
           "requires": ["energy-audit"]
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "status": "retired"
+        },
+        {
+          "id": "energy",
+          "name": "Energy",
+          "status": "retired"
+        },
+        {
+          "id": "economy-and-social-development",
+          "name": "Economy and Social Development",
+          "status": "retired"
         }
       ]
     },
@@ -103,28 +108,13 @@
       "hours": 8,
       "topics": [
         {
-          "id": "introduction-2",
-          "name": "Introduction"
-        },
-        {
-          "id": "the-sun-as-source-of-energy",
-          "name": "The Sun as Source of Energy",
-          "requires": ["introduction-2"]
-        },
-        {
-          "id": "the-earth",
-          "name": "The Earth",
-          "requires": ["the-sun-as-source-of-energy"]
-        },
-        {
-          "id": "sun",
-          "name": "Sun",
-          "requires": ["the-earth"]
+          "id": "introduction-the-sun-as-source-of-energy-the-earth-sun",
+          "name": "Introduction, The Sun as Source of Energy, The Earth, Sun"
         },
         {
           "id": "earth-radiation-spectrum",
           "name": "Earth Radiation Spectrum",
-          "requires": ["sun"]
+          "requires": ["introduction-the-sun-as-source-of-energy-the-earth-sun"]
         },
         {
           "id": "extra-terrestrial-and-terrestrial-radiations",
@@ -180,6 +170,26 @@
           "id": "solar-radiation-on-inclined-plane-surface",
           "name": "Solar Radiation on Inclined Plane Surface",
           "requires": ["empirical-equations-for-estimating-terrestrial-solar-radiati"]
+        },
+        {
+          "id": "introduction-2",
+          "name": "Introduction",
+          "status": "retired"
+        },
+        {
+          "id": "the-sun-as-source-of-energy",
+          "name": "The Sun as Source of Energy",
+          "status": "retired"
+        },
+        {
+          "id": "the-earth",
+          "name": "The Earth",
+          "status": "retired"
+        },
+        {
+          "id": "sun",
+          "name": "Sun",
+          "status": "retired"
         }
       ]
     },
@@ -243,24 +253,14 @@
           "requires": ["solar-cell-classification"]
         },
         {
-          "id": "solar-cell",
-          "name": "Solar Cell",
+          "id": "solar-cell-module-array",
+          "name": "Solar Cell, Module, Array",
           "requires": ["solar-cell-technologies"]
-        },
-        {
-          "id": "module",
-          "name": "Module",
-          "requires": ["solar-cell"]
-        },
-        {
-          "id": "array",
-          "name": "Array",
-          "requires": ["module"]
         },
         {
           "id": "maximizing-solar-pv-output-and-load-matching",
           "name": "Maximizing Solar PV Output & Load Matching",
-          "requires": ["array"]
+          "requires": ["solar-cell-module-array"]
         },
         {
           "id": "maximum-power-point-tracker",
@@ -268,14 +268,34 @@
           "requires": ["maximizing-solar-pv-output-and-load-matching"]
         },
         {
+          "id": "balance-of-system-components-applications",
+          "name": "Balance of System Components, Applications",
+          "requires": ["maximum-power-point-tracker"]
+        },
+        {
+          "id": "solar-cell",
+          "name": "Solar Cell",
+          "status": "retired"
+        },
+        {
+          "id": "module",
+          "name": "Module",
+          "status": "retired"
+        },
+        {
+          "id": "array",
+          "name": "Array",
+          "status": "retired"
+        },
+        {
           "id": "balance-of-system-components",
           "name": "Balance of System Components",
-          "requires": ["maximum-power-point-tracker"]
+          "status": "retired"
         },
         {
           "id": "applications",
           "name": "Applications",
-          "requires": ["balance-of-system-components"]
+          "status": "retired"
         }
       ]
     },
@@ -424,24 +444,29 @@
           "requires": ["classification-of-wind-energy-conversion-system"]
         },
         {
-          "id": "advantages-and-disadvantages",
-          "name": "Advantages and Disadvantages",
+          "id": "advantages-and-disadvantages-application",
+          "name": "Advantages and Disadvantages, Application",
           "requires": ["types-of-wind-energy-systems-in-context-with-type-of-generat"]
-        },
-        {
-          "id": "application",
-          "name": "Application",
-          "requires": ["advantages-and-disadvantages"]
         },
         {
           "id": "working-of-fixed-speed-induction-generator",
           "name": "Working of Fixed speed Induction Generator",
-          "requires": ["application"]
+          "requires": ["advantages-and-disadvantages-application"]
         },
         {
           "id": "working-of-variable-speed-generators",
           "name": "Working of Variable Speed Generators",
           "requires": ["working-of-fixed-speed-induction-generator"]
+        },
+        {
+          "id": "advantages-and-disadvantages",
+          "name": "Advantages and Disadvantages",
+          "status": "retired"
+        },
+        {
+          "id": "application",
+          "name": "Application",
+          "status": "retired"
         }
       ]
     }

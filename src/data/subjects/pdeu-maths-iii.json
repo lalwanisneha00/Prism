@@ -42,24 +42,17 @@
       "confidence": "verified",
       "topics": [
         {
-          "id": "piecewise-continuous-functions-and-exponential-functions",
-          "name": "Piecewise continuous functions and exponential functions",
+          "id": "piecewise-continuous-functions-and-exponential-functions-def",
+          "name": "Piecewise continuous functions and exponential functions, Definition",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "definition",
-          "name": "Definition",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["piecewise-continuous-functions-and-exponential-functions"]
         },
         {
           "id": "existence-and-properties-of-laplace-transforms",
           "name": "Existence and Properties of Laplace transforms",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["definition"]
+          "requires": ["piecewise-continuous-functions-and-exponential-functions-def"]
         },
         {
           "id": "heaviside-function",
@@ -102,6 +95,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["convolution-theorem"]
+        },
+        {
+          "id": "piecewise-continuous-functions-and-exponential-functions",
+          "name": "Piecewise continuous functions and exponential functions",
+          "status": "retired"
+        },
+        {
+          "id": "definition",
+          "name": "Definition",
+          "status": "retired"
         }
       ]
     },
@@ -120,24 +123,17 @@
         },
         {
           "id": "solution-of-difference-equation-complementary-function-parti",
-          "name": "Solution of difference equation-complementary function-Particular integral",
+          "name": "Solution of difference equation-complementary function-Particular integral, transform",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["first-and-second-order-difference-equation-with-constant-coe"]
-        },
-        {
-          "id": "transform",
-          "name": "transform",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["solution-of-difference-equation-complementary-function-parti"]
         },
         {
           "id": "properties-of-z-transforms",
           "name": "Properties of Z-transforms",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["transform"]
+          "requires": ["solution-of-difference-equation-complementary-function-parti"]
         },
         {
           "id": "convolution-of-two-sequences",
@@ -159,6 +155,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["inverse-z-transform"]
+        },
+        {
+          "id": "transform",
+          "name": "transform",
+          "status": "retired"
         }
       ]
     },
@@ -190,25 +191,18 @@
           "requires": ["fourier-cosine-and-sine-transform"]
         },
         {
-          "id": "continuous-fourier-transform",
-          "name": "Continuous Fourier Transform",
+          "id": "continuous-fourier-transform-linearity",
+          "name": "Continuous Fourier Transform, Linearity",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["discrete-fourier-transform"]
-        },
-        {
-          "id": "linearity",
-          "name": "Linearity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["continuous-fourier-transform"]
         },
         {
           "id": "time-shifting",
           "name": "time shifting",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["linearity"]
+          "requires": ["continuous-fourier-transform-linearity"]
         },
         {
           "id": "frequency-shifting",
@@ -244,6 +238,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["communication-systems"]
+        },
+        {
+          "id": "continuous-fourier-transform",
+          "name": "Continuous Fourier Transform",
+          "status": "retired"
+        },
+        {
+          "id": "linearity",
+          "name": "Linearity",
+          "status": "retired"
         }
       ]
     },
@@ -438,24 +442,15 @@
         },
         {
           "id": "laplace-transform",
-          "name": "one-dimensional heat equation",
-          "requires": ["solutions-of-one-dimensional-wave-equation"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "laplace-equation",
-          "name": "Laplace equation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["laplace-transform"]
+          "name": "one dimensional unsteady heat flow equation in Cartesian and polar coordinates by variable separable method with reference to Fourier trigonometric series and by Laplace transform technique",
+          "requires": ["solutions-of-one-dimensional-wave-equation"]
         },
         {
           "id": "formation-of-partial-differential-equations-pdes",
           "name": "Formation of Partial Differential Equations (PDEs)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["laplace-equation"]
+          "requires": ["laplace-transform"]
         },
         {
           "id": "solutions-of-pdes-of-the-first-order",
@@ -498,6 +493,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["classification-of-second-order-pdes"]
+        },
+        {
+          "id": "laplace-equation",
+          "name": "Laplace equation",
+          "status": "retired"
         }
       ]
     }

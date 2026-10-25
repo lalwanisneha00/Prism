@@ -1,0 +1,230 @@
+{
+  "id": "pdeu-heat-transfer-chem",
+  "name": "Heat Transfer",
+  "field": "Heat Transfer",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [4],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 4): Heat Transfer",
+    "note": "Units and topics copied from the course handout PDF (pages 5 of CHEM/sem4/Chemical_Semester_4_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH207T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s4-heat-transfer",
+      "code": "24CH207T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 4,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "conduction-based-heat-transfer",
+      "name": "Conduction Based Heat Transfer",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "introduction-and-fundamentals-of-heat-transfer",
+          "name": "Introduction and fundamentals of heat transfer"
+        },
+        {
+          "id": "heat-transfer-rate",
+          "name": "heat transfer rate",
+          "requires": ["introduction-and-fundamentals-of-heat-transfer"]
+        },
+        {
+          "id": "flux-and-resistances",
+          "name": "flux and resistances",
+          "requires": ["heat-transfer-rate"]
+        },
+        {
+          "id": "thermal-conductivity-of-materials",
+          "name": "thermal conductivity of materials",
+          "requires": ["flux-and-resistances"]
+        },
+        {
+          "id": "conduction-through-objects-in-series-insulation",
+          "name": "conduction through objects in series, insulation",
+          "requires": ["thermal-conductivity-of-materials"]
+        },
+        {
+          "id": "unsteady-state-heat-conduction",
+          "name": "unsteady state heat conduction",
+          "requires": ["conduction-through-objects-in-series-insulation"]
+        },
+        {
+          "id": "lumped-heat-capacity-system",
+          "name": "lumped heat capacity system",
+          "requires": ["unsteady-state-heat-conduction"]
+        },
+        {
+          "id": "transient-heat-flow-in-a-semi-infinite-solid",
+          "name": "transient heat flow in a semi-infinite solid",
+          "requires": ["lumped-heat-capacity-system"]
+        },
+        {
+          "id": "thermal-insulation",
+          "name": "thermal insulation",
+          "requires": ["transient-heat-flow-in-a-semi-infinite-solid"]
+        },
+        {
+          "id": "thermal-safety-considerations-in-high-conductivity-materials",
+          "name": "thermal safety considerations in high-conductivity materials",
+          "requires": ["thermal-insulation"]
+        }
+      ]
+    },
+    {
+      "id": "convection-based-heat-transfer",
+      "name": "Convection Based Heat Transfer",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "film-and-overall-heat-transfer-coefficients",
+          "name": "Film and overall heat transfer coefficients"
+        },
+        {
+          "id": "solid-fluid-heat-transfer",
+          "name": "solid-fluid heat transfer",
+          "requires": ["film-and-overall-heat-transfer-coefficients"]
+        },
+        {
+          "id": "natural-and-forced-convection",
+          "name": "natural and forced convection",
+          "requires": ["solid-fluid-heat-transfer"]
+        },
+        {
+          "id": "laminar-and-turbulent-flow-heat-transfer",
+          "name": "laminar and turbulent flow heat transfer",
+          "requires": ["natural-and-forced-convection"]
+        },
+        {
+          "id": "nucleation-and-boiling",
+          "name": "nucleation and boiling",
+          "requires": ["laminar-and-turbulent-flow-heat-transfer"]
+        },
+        {
+          "id": "film-wise-and-drop-wise-condensation",
+          "name": "film-wise and drop-wise condensation",
+          "requires": ["nucleation-and-boiling"]
+        },
+        {
+          "id": "condenser-design",
+          "name": "condenser design",
+          "requires": ["film-wise-and-drop-wise-condensation"]
+        },
+        {
+          "id": "fundamentals-of-pervaporation",
+          "name": "fundamentals of pervaporation",
+          "requires": ["condenser-design"]
+        },
+        {
+          "id": "calculation-of-the-required-cooling-capacity-for-a-given-hea",
+          "name": "calculation of the required cooling capacity for a given heat release rate",
+          "requires": ["fundamentals-of-pervaporation"]
+        },
+        {
+          "id": "thermal-safety-considerations-in-convective-heat-removal-pro",
+          "name": "thermal safety considerations in convective heat removal processes",
+          "requires": ["calculation-of-the-required-cooling-capacity-for-a-given-hea"]
+        }
+      ]
+    },
+    {
+      "id": "radiation-based-heat-transfer",
+      "name": "Radiation Based Heat Transfer",
+      "hours": 7,
+      "topics": [
+        {
+          "id": "black-and-gray-body-radiation",
+          "name": "Black and gray body radiation"
+        },
+        {
+          "id": "planck-s-law",
+          "name": "Planck's law",
+          "requires": ["black-and-gray-body-radiation"]
+        },
+        {
+          "id": "stefan-boltzmann-law",
+          "name": "Stefan-Boltzmann law",
+          "requires": ["planck-s-law"]
+        },
+        {
+          "id": "view-factor",
+          "name": "view factor",
+          "requires": ["stefan-boltzmann-law"]
+        },
+        {
+          "id": "luminous-and-non-luminous-gases",
+          "name": "luminous and non-luminous gases",
+          "requires": ["view-factor"]
+        },
+        {
+          "id": "radiation-hazards-in-industrial-operations-involving-high-te",
+          "name": "radiation hazards in industrial operations involving high-temperature equipment",
+          "requires": ["luminous-and-non-luminous-gases"]
+        }
+      ]
+    },
+    {
+      "id": "heat-transfer-equipment",
+      "name": "Heat Transfer Equipment",
+      "hours": 11,
+      "topics": [
+        {
+          "id": "combined-heat-transfer",
+          "name": "Combined heat transfer"
+        },
+        {
+          "id": "heat-exchangers",
+          "name": "heat exchangers",
+          "requires": ["combined-heat-transfer"]
+        },
+        {
+          "id": "coefficients-for-scale-deposits",
+          "name": "coefficients for scale deposits",
+          "requires": ["heat-exchangers"]
+        },
+        {
+          "id": "lmtd-in-heat-exchangers-effectiveness",
+          "name": "LMTD in heat exchangers, effectiveness",
+          "requires": ["coefficients-for-scale-deposits"]
+        },
+        {
+          "id": "ntu-method",
+          "name": "NTU method",
+          "requires": ["lmtd-in-heat-exchangers-effectiveness"]
+        },
+        {
+          "id": "finned-tube-heat-exchangers",
+          "name": "finned tube heat exchangers",
+          "requires": ["ntu-method"]
+        },
+        {
+          "id": "tema-specifications-based-analyses",
+          "name": "TEMA specifications-based analyses",
+          "requires": ["finned-tube-heat-exchangers"]
+        },
+        {
+          "id": "thermal-safety-issues-in-heat-exchanger-and-evaporator-desig",
+          "name": "thermal safety issues in heat exchanger and evaporator design",
+          "requires": ["tema-specifications-based-analyses"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-heat-transfer-laboratory-chem"]
+}

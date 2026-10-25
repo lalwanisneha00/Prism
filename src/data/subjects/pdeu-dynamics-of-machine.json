@@ -29,8 +29,8 @@
     "note": "Units and topics are PDEU's, copied from the handbook. 2 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
   },
   "visualSet": "mechanics",
-  "source": "official_site",
-  "confidence": "unverified",
+  "source": "admin_handout",
+  "confidence": "verified",
   "status": "active",
   "verifiedByCount": 0,
   "chapters": [
@@ -95,8 +95,17 @@
         },
         {
           "id": "flywheel-turning-moment",
-          "name": "Turning moment",
-          "requires": ["velocity-and-acceleration-of-automobile-components"]
+          "name": "turning moment",
+          "requires": ["velocity-and-acceleration-of-automobile-components"],
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "turning-moment-diagrams",
+          "name": "turning moment diagrams",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["flywheel-turning-moment"]
         },
         {
           "id": "dynamically-equivalent-system",
@@ -106,7 +115,8 @@
         {
           "id": "determination-of-inertia-forces-in-connecting-rods",
           "name": "determination of Inertia forces in connecting rods",
-          "requires": ["dynamically-equivalent-system"]
+          "requires": ["dynamically-equivalent-system"],
+          "status": "retired"
         },
         {
           "id": "engines-turning-moment-diagrams",
@@ -157,7 +167,8 @@
         {
           "id": "interference-and-under-cutting",
           "name": "interference and under cutting",
-          "requires": ["minimum-number-of-teeth-on-pinion-in-contact-with-a-gear"]
+          "requires": ["minimum-number-of-teeth-on-pinion-in-contact-with-a-gear"],
+          "status": "retired"
         },
         {
           "id": "bevel",
@@ -192,42 +203,50 @@
         {
           "id": "differential-gear-box",
           "name": "differential gear box",
-          "requires": ["torques-in-epicyclic-train"]
+          "requires": ["torques-in-epicyclic-train"],
+          "status": "retired"
         },
         {
           "id": "gear-boxes-sliding-and-constant-mesh-gear-box-for",
           "name": "gear boxes-sliding and constant mesh gear box for automobiles. Gyroscope: Angular velocity",
-          "requires": ["differential-gear-box"]
+          "requires": ["differential-gear-box"],
+          "status": "retired"
         },
         {
           "id": "angular-acceleration",
           "name": "angular acceleration",
-          "requires": ["gear-boxes-sliding-and-constant-mesh-gear-box-for"]
+          "requires": ["gear-boxes-sliding-and-constant-mesh-gear-box-for"],
+          "status": "retired"
         },
         {
           "id": "gyroscopic-torque",
           "name": "gyroscopic torque",
-          "requires": ["angular-acceleration"]
+          "requires": ["angular-acceleration"],
+          "status": "retired"
         },
         {
           "id": "gyroscopic-effect-on-naval-ships-and-aeroplanes",
           "name": "gyroscopic effect on naval ships and aeroplanes",
-          "requires": ["gyroscopic-torque"]
+          "requires": ["gyroscopic-torque"],
+          "status": "retired"
         },
         {
           "id": "stability-of-an-automobile",
           "name": "stability of an automobile",
-          "requires": ["gyroscopic-effect-on-naval-ships-and-aeroplanes"]
+          "requires": ["gyroscopic-effect-on-naval-ships-and-aeroplanes"],
+          "status": "retired"
         },
         {
           "id": "two-wheel-vehicle",
           "name": "two-wheel vehicle",
-          "requires": ["stability-of-an-automobile"]
+          "requires": ["stability-of-an-automobile"],
+          "status": "retired"
         },
         {
           "id": "rigid-disc-at-an-angle-fixed-to-a-rotating-shaft",
           "name": "rigid disc at an angle fixed to a rotating shaft",
-          "requires": ["two-wheel-vehicle"]
+          "requires": ["two-wheel-vehicle"],
+          "status": "retired"
         }
       ]
     },
@@ -236,15 +255,6 @@
       "name": "Brakes and Dynamometers",
       "hours": 11,
       "topics": [
-        {
-          "id": "introduction",
-          "name": "Introduction"
-        },
-        {
-          "id": "general-description-and-study-of-operation-principle",
-          "name": "General description and study of operation principle",
-          "requires": ["introduction"]
-        },
         {
           "id": "balancing-balancing-of-rotating-masses-single-and-multiple",
           "name": "Balancing: Balancing of rotating masses Single and multiple single and different planes",
@@ -258,7 +268,8 @@
         {
           "id": "analytical-and-graphical-methods",
           "name": "Analytical and graphical methods",
-          "requires": ["balancing-of-reciprocating-masses-primary-and-secondary"]
+          "requires": ["balancing-of-reciprocating-masses-primary-and-secondary"],
+          "status": "retired"
         },
         {
           "id": "unbalanced-forces-and-couples-examination-of-v",
@@ -299,12 +310,14 @@
         {
           "id": "displacement",
           "name": "displacement",
-          "requires": ["effects-of-vibrations"]
+          "requires": ["effects-of-vibrations"],
+          "status": "retired"
         },
         {
           "id": "velocity-and-acceleration-calculation",
           "name": "velocity and acceleration calculation",
-          "requires": ["displacement"]
+          "requires": ["displacement"],
+          "status": "retired"
         },
         {
           "id": "free-vibration-without-damping-and-with-damping",
@@ -319,7 +332,8 @@
         {
           "id": "types-of-damping",
           "name": "types of damping",
-          "requires": ["logarithmic-decrement"]
+          "requires": ["logarithmic-decrement"],
+          "status": "retired"
         },
         {
           "id": "forced-vibration",
@@ -334,7 +348,8 @@
         {
           "id": "resonance",
           "name": "resonance",
-          "requires": ["forced-damped-vibration"]
+          "requires": ["forced-damped-vibration"],
+          "status": "retired"
         },
         {
           "id": "vibration-isolation-and-transmissibility",
@@ -344,19 +359,75 @@
         {
           "id": "whirling-of-shaft",
           "name": "Whirling of shaft",
-          "requires": ["vibration-isolation-and-transmissibility"]
+          "requires": ["vibration-isolation-and-transmissibility"],
+          "status": "retired"
         },
         {
           "id": "torsional-system",
           "name": "Torsional system",
-          "requires": ["whirling-of-shaft"]
+          "requires": ["whirling-of-shaft"],
+          "status": "retired"
         },
         {
           "id": "time-domain-and-frequency-domain-signal-interpretation-and",
           "name": "Time domain and Frequency domain signal interpretation and applications",
-          "requires": ["torsional-system"]
+          "requires": ["torsional-system"],
+          "status": "retired"
+        },
+        {
+          "id": "introduction",
+          "name": "Introduction",
+          "movedFrom": {
+            "subject": "pdeu-dynamics-of-machine",
+            "chapter": "brakes-and-dynamometers",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "general-description-and-study-of-operation-principle",
+          "name": "General description and study of operation principle",
+          "requires": ["introduction"],
+          "movedFrom": {
+            "subject": "pdeu-dynamics-of-machine",
+            "chapter": "brakes-and-dynamometers",
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
+        },
+        {
+          "id": "free-longitudinal-and-transverse-vibrations",
+          "name": "free longitudinal and transverse vibrations",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["general-description-and-study-of-operation-principle"]
+        },
+        {
+          "id": "whirling-speeds",
+          "name": "whirling speeds",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["free-longitudinal-and-transverse-vibrations"]
+        },
+        {
+          "id": "free-torsional-vibrations-of-single",
+          "name": "free torsional vibrations of single",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["whirling-speeds"]
+        },
+        {
+          "id": "two-and-three-rotor-system",
+          "name": "two and three rotor system",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["free-torsional-vibrations-of-single"]
         }
       ]
     }
-  ]
+  ],
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-dynamics-of-machines-laboratory-me"]
 }

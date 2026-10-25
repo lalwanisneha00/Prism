@@ -37,18 +37,13 @@
       "hours": 12,
       "topics": [
         {
-          "id": "breakdown-in-gases-gases-as-insulating-medium",
-          "name": "Breakdown in Gases: Gases as insulating medium"
-        },
-        {
-          "id": "properties",
-          "name": "Properties",
-          "requires": ["breakdown-in-gases-gases-as-insulating-medium"]
+          "id": "breakdown-in-gases-gases-as-insulating-medium-properties",
+          "name": "Breakdown in Gases: Gases as insulating medium, Properties"
         },
         {
           "id": "ionization-processes",
           "name": "Ionization processes",
-          "requires": ["properties"]
+          "requires": ["breakdown-in-gases-gases-as-insulating-medium-properties"]
         },
         {
           "id": "townsend-s-theory",
@@ -121,19 +116,14 @@
           "requires": ["stressed-oil-volume-mechanism"]
         },
         {
-          "id": "various-breakdown-mechanisms-intrinsic",
-          "name": "Various breakdown mechanisms: Intrinsic",
+          "id": "various-breakdown-mechanisms-intrinsic-electromechanical",
+          "name": "Various breakdown mechanisms: Intrinsic, electromechanical",
           "requires": ["breakdown-in-solid-dielectrics-applications-and-properties"]
-        },
-        {
-          "id": "electromechanical",
-          "name": "electromechanical",
-          "requires": ["various-breakdown-mechanisms-intrinsic"]
         },
         {
           "id": "thermal-breakdown",
           "name": "thermal breakdown",
-          "requires": ["electromechanical"]
+          "requires": ["various-breakdown-mechanisms-intrinsic-electromechanical"]
         },
         {
           "id": "breakdown-due-to-treeing-and-tracking",
@@ -149,6 +139,26 @@
           "id": "breakdown-in-composite-dielectrics",
           "name": "breakdown in composite dielectrics",
           "requires": ["breakdown-due-to-internal-discharges"]
+        },
+        {
+          "id": "breakdown-in-gases-gases-as-insulating-medium",
+          "name": "Breakdown in Gases: Gases as insulating medium",
+          "status": "retired"
+        },
+        {
+          "id": "properties",
+          "name": "Properties",
+          "status": "retired"
+        },
+        {
+          "id": "various-breakdown-mechanisms-intrinsic",
+          "name": "Various breakdown mechanisms: Intrinsic",
+          "status": "retired"
+        },
+        {
+          "id": "electromechanical",
+          "name": "electromechanical",
+          "status": "retired"
         }
       ]
     },
@@ -246,22 +256,12 @@
       "topics": [
         {
           "id": "high-voltage-testing-high-voltage-testing-of-line-insulators",
-          "name": "High Voltage Testing: High voltage testing of line Insulators"
-        },
-        {
-          "id": "bushings",
-          "name": "Bushings",
-          "requires": ["high-voltage-testing-high-voltage-testing-of-line-insulators"]
-        },
-        {
-          "id": "isolators",
-          "name": "isolators",
-          "requires": ["bushings"]
+          "name": "High Voltage Testing: High voltage testing of line Insulators, Bushings, isolators"
         },
         {
           "id": "circuit-breakers-and-surge-arresters",
           "name": "circuit Breakers and surge arresters",
-          "requires": ["isolators"]
+          "requires": ["high-voltage-testing-high-voltage-testing-of-line-insulators"]
         },
         {
           "id": "high-voltage-testing-of-cables",
@@ -302,6 +302,16 @@
           "id": "high-voltage-schering-bridge",
           "name": "High Voltage Schering bridge",
           "requires": ["partial-discharge-measurements"]
+        },
+        {
+          "id": "bushings",
+          "name": "Bushings",
+          "status": "retired"
+        },
+        {
+          "id": "isolators",
+          "name": "isolators",
+          "status": "retired"
         }
       ]
     }

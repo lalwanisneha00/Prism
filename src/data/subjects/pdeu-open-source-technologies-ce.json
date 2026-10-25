@@ -56,19 +56,14 @@
           "requires": ["essential-commands-for-navigating-the-file-system"]
         },
         {
-          "id": "understanding-file-permissions-read",
-          "name": "Understanding file permissions (read",
+          "id": "understanding-file-permissions-read-write",
+          "name": "Understanding file permissions (read, write",
           "requires": ["file-and-directory-manipulation-commands"]
-        },
-        {
-          "id": "write",
-          "name": "write",
-          "requires": ["understanding-file-permissions-read"]
         },
         {
           "id": "execute-and-ownership",
           "name": "execute) and ownership",
-          "requires": ["write"]
+          "requires": ["understanding-file-permissions-read-write"]
         },
         {
           "id": "using-chmod-and-chown-commands-to-modify-permissions-and-own",
@@ -89,6 +84,16 @@
           "id": "writing-and-executing-simple-shell-scripts",
           "name": "Writing and executing simple shell scripts",
           "requires": ["overview-of-shell-scripting-and-its-importance"]
+        },
+        {
+          "id": "understanding-file-permissions-read",
+          "name": "Understanding file permissions (read",
+          "status": "retired"
+        },
+        {
+          "id": "write",
+          "name": "write",
+          "status": "retired"
         }
       ]
     },
@@ -148,24 +153,14 @@
           "name": "Introduction to MySQL Database"
         },
         {
-          "id": "mysql-database-management",
-          "name": "MySQL database management",
+          "id": "mysql-database-management-installation-configuration",
+          "name": "MySQL database management, installation, configuration",
           "requires": ["introduction-to-mysql-database"]
-        },
-        {
-          "id": "installation",
-          "name": "installation",
-          "requires": ["mysql-database-management"]
-        },
-        {
-          "id": "configuration",
-          "name": "configuration",
-          "requires": ["installation"]
         },
         {
           "id": "database-design",
           "name": "database design",
-          "requires": ["configuration"]
+          "requires": ["mysql-database-management-installation-configuration"]
         },
         {
           "id": "mysql-datatypes",
@@ -196,6 +191,21 @@
           "id": "administration-tasks-and-integration-with-programming-langua",
           "name": "Administration tasks and integration with programming languages",
           "requires": ["transaction-and-stored-procedures-in-mysql"]
+        },
+        {
+          "id": "mysql-database-management",
+          "name": "MySQL database management",
+          "status": "retired"
+        },
+        {
+          "id": "installation",
+          "name": "installation",
+          "status": "retired"
+        },
+        {
+          "id": "configuration",
+          "name": "configuration",
+          "status": "retired"
         }
       ]
     },

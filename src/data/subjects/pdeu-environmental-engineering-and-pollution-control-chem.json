@@ -91,14 +91,19 @@
           "requires": ["wet-scrubbers"]
         },
         {
+          "id": "absorption-and-catalytic-reduction-e-g-scr",
+          "name": "absorption and catalytic reduction (e.g, SCR)",
+          "requires": ["adsorption"]
+        },
+        {
           "id": "absorption-and-catalytic-reduction-e-g",
           "name": "absorption and catalytic reduction (e.g",
-          "requires": ["adsorption"]
+          "status": "retired"
         },
         {
           "id": "scr",
           "name": "SCR)",
-          "requires": ["absorption-and-catalytic-reduction-e-g"]
+          "status": "retired"
         }
       ]
     },
@@ -127,19 +132,14 @@
           "requires": ["indian-and-who-standards-for-drinking-water"]
         },
         {
-          "id": "sources-of-wastewater",
-          "name": "sources of wastewater",
+          "id": "sources-of-wastewater-physical",
+          "name": "sources of wastewater, physical",
           "requires": ["water-borne-diseases-and-their-control"]
-        },
-        {
-          "id": "physical",
-          "name": "physical",
-          "requires": ["sources-of-wastewater"]
         },
         {
           "id": "chemical-and-biological-characteristics-of-water-and-wastewa",
           "name": "chemical and biological characteristics of water and wastewater",
-          "requires": ["physical"]
+          "requires": ["sources-of-wastewater-physical"]
         },
         {
           "id": "water-quality-index-calculation",
@@ -157,24 +157,39 @@
           "requires": ["preliminary-treatment-processes"]
         },
         {
-          "id": "primary-treatment-processes",
-          "name": "primary treatment processes",
+          "id": "primary-treatment-processes-sedimentation",
+          "name": "primary treatment processes, sedimentation",
           "requires": ["screens-and-skimming"]
-        },
-        {
-          "id": "sedimentation",
-          "name": "sedimentation",
-          "requires": ["primary-treatment-processes"]
         },
         {
           "id": "coagulation-and-flocculation",
           "name": "coagulation and flocculation",
-          "requires": ["sedimentation"]
+          "requires": ["primary-treatment-processes-sedimentation"]
         },
         {
           "id": "sand-filtration",
           "name": "sand filtration",
           "requires": ["coagulation-and-flocculation"]
+        },
+        {
+          "id": "sources-of-wastewater",
+          "name": "sources of wastewater",
+          "status": "retired"
+        },
+        {
+          "id": "physical",
+          "name": "physical",
+          "status": "retired"
+        },
+        {
+          "id": "primary-treatment-processes",
+          "name": "primary treatment processes",
+          "status": "retired"
+        },
+        {
+          "id": "sedimentation",
+          "name": "sedimentation",
+          "status": "retired"
         }
       ]
     },
@@ -188,19 +203,14 @@
           "name": "Secondary treatment processes: activated sludge process"
         },
         {
-          "id": "design-procedures-for-hrt",
-          "name": "design procedures for HRT",
+          "id": "design-procedures-for-hrt-f-m-ratio",
+          "name": "design procedures for HRT, F/M ratio",
           "requires": ["secondary-treatment-processes-activated-sludge-process"]
-        },
-        {
-          "id": "f-m-ratio",
-          "name": "F/M ratio",
-          "requires": ["design-procedures-for-hrt"]
         },
         {
           "id": "svi",
           "name": "SVI",
-          "requires": ["f-m-ratio"]
+          "requires": ["design-procedures-for-hrt-f-m-ratio"]
         },
         {
           "id": "mlss-and-sludge-age",
@@ -208,19 +218,14 @@
           "requires": ["svi"]
         },
         {
-          "id": "trickling-filters-and-their-efficiency",
-          "name": "trickling filters and their efficiency",
+          "id": "trickling-filters-and-their-efficiency-standard",
+          "name": "trickling filters and their efficiency, standard",
           "requires": ["mlss-and-sludge-age"]
-        },
-        {
-          "id": "standard",
-          "name": "standard",
-          "requires": ["trickling-filters-and-their-efficiency"]
         },
         {
           "id": "high-rate-and-two-stage",
           "name": "high rate and two-stage",
-          "requires": ["standard"]
+          "requires": ["trickling-filters-and-their-efficiency-standard"]
         },
         {
           "id": "sludge-treatment",
@@ -243,39 +248,64 @@
           "requires": ["tertiary-treatment-processes-disinfection"]
         },
         {
-          "id": "adsorption-and-ion-exchange",
-          "name": "adsorption and ion exchange",
+          "id": "adsorption-and-ion-exchange-ozonation-aeration-softening-flu",
+          "name": "adsorption and ion exchange, ozonation, aeration, softening, fluoridation, decarbonation",
           "requires": ["membrane-processes"]
-        },
-        {
-          "id": "ozonation",
-          "name": "ozonation",
-          "requires": ["adsorption-and-ion-exchange"]
-        },
-        {
-          "id": "aeration",
-          "name": "aeration",
-          "requires": ["ozonation"]
-        },
-        {
-          "id": "softening",
-          "name": "softening",
-          "requires": ["aeration"]
-        },
-        {
-          "id": "fluoridation",
-          "name": "fluoridation",
-          "requires": ["softening"]
-        },
-        {
-          "id": "decarbonation",
-          "name": "decarbonation",
-          "requires": ["fluoridation"]
         },
         {
           "id": "lime-soda-softening-and-demineralization",
           "name": "lime-soda softening and demineralization",
-          "requires": ["decarbonation"]
+          "requires": ["adsorption-and-ion-exchange-ozonation-aeration-softening-flu"]
+        },
+        {
+          "id": "design-procedures-for-hrt",
+          "name": "design procedures for HRT",
+          "status": "retired"
+        },
+        {
+          "id": "f-m-ratio",
+          "name": "F/M ratio",
+          "status": "retired"
+        },
+        {
+          "id": "trickling-filters-and-their-efficiency",
+          "name": "trickling filters and their efficiency",
+          "status": "retired"
+        },
+        {
+          "id": "standard",
+          "name": "standard",
+          "status": "retired"
+        },
+        {
+          "id": "adsorption-and-ion-exchange",
+          "name": "adsorption and ion exchange",
+          "status": "retired"
+        },
+        {
+          "id": "ozonation",
+          "name": "ozonation",
+          "status": "retired"
+        },
+        {
+          "id": "aeration",
+          "name": "aeration",
+          "status": "retired"
+        },
+        {
+          "id": "softening",
+          "name": "softening",
+          "status": "retired"
+        },
+        {
+          "id": "fluoridation",
+          "name": "fluoridation",
+          "status": "retired"
+        },
+        {
+          "id": "decarbonation",
+          "name": "decarbonation",
+          "status": "retired"
         }
       ]
     },

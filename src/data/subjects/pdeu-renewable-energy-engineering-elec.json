@@ -79,17 +79,12 @@
       "topics": [
         {
           "id": "solar-energy-basic-definitions-and-angles-related-with-solar",
-          "name": "Solar Energy: Basic Definitions and Angles Related with Solar Energy"
-        },
-        {
-          "id": "history",
-          "name": "History",
-          "requires": ["solar-energy-basic-definitions-and-angles-related-with-solar"]
+          "name": "Solar Energy: Basic Definitions and Angles Related with Solar Energy, History"
         },
         {
           "id": "harnessing-solar-energy",
           "name": "Harnessing Solar Energy",
-          "requires": ["history"]
+          "requires": ["solar-energy-basic-definitions-and-angles-related-with-solar"]
         },
         {
           "id": "solar-water-heating",
@@ -122,24 +117,14 @@
           "requires": ["solar-collectors"]
         },
         {
-          "id": "technologies-amorphous",
-          "name": "Technologies-Amorphous",
+          "id": "technologies-amorphous-monocrystalline-polycrystalline",
+          "name": "Technologies-Amorphous, Monocrystalline, Polycrystalline",
           "requires": ["solar-photovoltaic-spv-system-operating-principle-and-constr"]
-        },
-        {
-          "id": "monocrystalline",
-          "name": "Monocrystalline",
-          "requires": ["technologies-amorphous"]
-        },
-        {
-          "id": "polycrystalline",
-          "name": "Polycrystalline",
-          "requires": ["monocrystalline"]
         },
         {
           "id": "equivalent-circuit-of-cell",
           "name": "Equivalent Circuit of Cell",
-          "requires": ["polycrystalline"]
+          "requires": ["technologies-amorphous-monocrystalline-polycrystalline"]
         },
         {
           "id": "cells-to-modules-to-arrays",
@@ -147,19 +132,14 @@
           "requires": ["equivalent-circuit-of-cell"]
         },
         {
-          "id": "standard-test-conditions-stc-of-photovoltaics",
-          "name": "Standard Test Conditions (STC) of Photovoltaics",
+          "id": "standard-test-conditions-stc-of-photovoltaics-i-v-and-p-v-ch",
+          "name": "Standard Test Conditions (STC) of Photovoltaics, I-V &P-V Characteristics",
           "requires": ["cells-to-modules-to-arrays"]
-        },
-        {
-          "id": "i-v-and-p-v-characteristics",
-          "name": "I-V &P-V Characteristics",
-          "requires": ["standard-test-conditions-stc-of-photovoltaics"]
         },
         {
           "id": "impacts-of-temperature-and-insolation",
           "name": "Impacts of Temperature and Insolation",
-          "requires": ["i-v-and-p-v-characteristics"]
+          "requires": ["standard-test-conditions-stc-of-photovoltaics-i-v-and-p-v-ch"]
         },
         {
           "id": "shading-effect",
@@ -215,6 +195,36 @@
           "id": "socio-technoeconomic-analysis",
           "name": "Socio-TechnoEconomic Analysis",
           "requires": ["grid-connected-and-off-grid-topologies"]
+        },
+        {
+          "id": "history",
+          "name": "History",
+          "status": "retired"
+        },
+        {
+          "id": "technologies-amorphous",
+          "name": "Technologies-Amorphous",
+          "status": "retired"
+        },
+        {
+          "id": "monocrystalline",
+          "name": "Monocrystalline",
+          "status": "retired"
+        },
+        {
+          "id": "polycrystalline",
+          "name": "Polycrystalline",
+          "status": "retired"
+        },
+        {
+          "id": "standard-test-conditions-stc-of-photovoltaics",
+          "name": "Standard Test Conditions (STC) of Photovoltaics",
+          "status": "retired"
+        },
+        {
+          "id": "i-v-and-p-v-characteristics",
+          "name": "I-V &P-V Characteristics",
+          "status": "retired"
         }
       ]
     },
@@ -374,19 +384,14 @@
           "requires": ["tidal-power-concept"]
         },
         {
-          "id": "types-of-tidal-power-plant",
-          "name": "Types of Tidal Power Plant",
+          "id": "types-of-tidal-power-plant-biomass",
+          "name": "Types of Tidal Power Plant, Biomass",
           "requires": ["tidal-turbine"]
-        },
-        {
-          "id": "biomass",
-          "name": "Biomass",
-          "requires": ["types-of-tidal-power-plant"]
         },
         {
           "id": "geothermal-and-fuel-cell-definition-and-overview",
           "name": "Geothermal & Fuel Cell: Definition & Overview",
-          "requires": ["biomass"]
+          "requires": ["types-of-tidal-power-plant-biomass"]
         },
         {
           "id": "gridlevel-storage-pumped-hydro",
@@ -404,14 +409,29 @@
           "requires": ["compressed-air"]
         },
         {
+          "id": "decentralized-energy-systems-concept-microgrids",
+          "name": "Decentralized Energy Systems: Concept, Microgrids",
+          "requires": ["ultra-capacitor-and-super-magnetic-energy-storage-smes"]
+        },
+        {
+          "id": "types-of-tidal-power-plant",
+          "name": "Types of Tidal Power Plant",
+          "status": "retired"
+        },
+        {
+          "id": "biomass",
+          "name": "Biomass",
+          "status": "retired"
+        },
+        {
           "id": "decentralized-energy-systems-concept",
           "name": "Decentralized Energy Systems: Concept",
-          "requires": ["ultra-capacitor-and-super-magnetic-energy-storage-smes"]
+          "status": "retired"
         },
         {
           "id": "microgrids",
           "name": "Microgrids",
-          "requires": ["decentralized-energy-systems-concept"]
+          "status": "retired"
         }
       ]
     }

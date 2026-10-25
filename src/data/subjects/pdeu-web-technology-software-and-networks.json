@@ -151,16 +151,7 @@
         {
           "id": "using-css",
           "name": "using CSS",
-          "requires": ["basic-syntax-and-structure"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "positioning-using-css-2",
-          "name": "positioning using CSS",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["using-css"]
+          "requires": ["basic-syntax-and-structure"]
         },
         {
           "id": "background-images",
@@ -241,6 +232,11 @@
           "id": "loops-and-repetition",
           "name": "loops and repetition",
           "requires": ["conditions"]
+        },
+        {
+          "id": "positioning-using-css-2",
+          "name": "positioning using CSS",
+          "status": "retired"
         }
       ]
     },
@@ -306,17 +302,8 @@
         },
         {
           "id": "introduction-to-ecmascript-6-javascript-variables-var",
-          "name": "Introduction to ECMAScript 6 JavaScript Variables",
-          "requires": ["controlling-your-browser"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "var",
-          "name": "var",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-ecmascript-6-javascript-variables-var"]
+          "name": "Introduction to ECMAScript 6 JavaScript Variables - var",
+          "requires": ["controlling-your-browser"]
         },
         {
           "id": "let",
@@ -347,6 +334,11 @@
           "id": "javascript-regular-expressions-dom-manipulation-javascript",
           "name": "JavaScript Regular Expressions DOM Manipulation JavaScript Best Practices",
           "requires": ["javascript-array-methods"]
+        },
+        {
+          "id": "var",
+          "name": "var",
+          "status": "retired"
         }
       ]
     },
@@ -383,27 +375,6 @@
           "requires": ["fundamentals-of-react-js"]
         },
         {
-          "id": "react-hooks",
-          "name": "React Hooks",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["components-class-components-and-functional-components"]
-        },
-        {
-          "id": "useeffect",
-          "name": "useEffect",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["react-hooks"]
-        },
-        {
-          "id": "usereducer",
-          "name": "useReducer",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["useeffect"]
-        },
-        {
           "id": "note-the-detailed-syllabus-page-for-this-course-prints-l-t-p",
           "name": "Note: The detailed syllabus page for this course prints L-T-P-C as 2-1-0-3",
           "requires": ["introduction-to-frontend-web-development-single-page-web"],
@@ -416,46 +387,32 @@
           "status": "retired"
         },
         {
-          "id": "usecontext",
-          "name": "useContext",
+          "id": "react-hooks-useeffect-usereducer-usecontext-usecallback",
+          "name": "React Hooks, useEffect, useReducer, useContext, useCallback",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["the-credits-shown-here-follow-the-official-course-structure"]
-        },
-        {
-          "id": "usecallback",
-          "name": "useCallback",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["usecontext"]
         },
         {
           "id": "fetching-data-with-react-hooks",
           "name": "fetching data with React Hooks",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["usecallback"]
+          "requires": ["react-hooks-useeffect-usereducer-usecontext-usecallback"]
         },
         {
-          "id": "jsx",
-          "name": "JSX",
+          "id": "jsx-props",
+          "name": "JSX, Props",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["fetching-data-with-react-hooks"]
-        },
-        {
-          "id": "props",
-          "name": "Props",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["jsx"]
         },
         {
           "id": "methods-as-props",
           "name": "Methods as props",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["props"]
+          "requires": ["jsx-props"]
         },
         {
           "id": "state-and-setstate",
@@ -470,6 +427,41 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["state-and-setstate"]
+        },
+        {
+          "id": "react-hooks",
+          "name": "React Hooks",
+          "status": "retired"
+        },
+        {
+          "id": "useeffect",
+          "name": "useEffect",
+          "status": "retired"
+        },
+        {
+          "id": "usereducer",
+          "name": "useReducer",
+          "status": "retired"
+        },
+        {
+          "id": "usecontext",
+          "name": "useContext",
+          "status": "retired"
+        },
+        {
+          "id": "usecallback",
+          "name": "useCallback",
+          "status": "retired"
+        },
+        {
+          "id": "jsx",
+          "name": "JSX",
+          "status": "retired"
+        },
+        {
+          "id": "props",
+          "name": "Props",
+          "status": "retired"
         }
       ]
     }

@@ -1,0 +1,230 @@
+{
+  "id": "pdeu-mass-transfer-1-chem",
+  "name": "Mass Transfer - 1",
+  "field": "Mass Transfer - 1",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["chem"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (CHEM semester 5): Mass Transfer - 1",
+    "note": "Units and topics copied from the course handout PDF (pages 3 of CHEM/sem5/Chemical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24CH301T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "chem",
+      "key": "s5-mass-transfer-1",
+      "code": "24CH301T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-mass-transfer-operations",
+      "name": "Introduction to Mass Transfer Operations",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "fick-s-law-of-diffusion",
+          "name": "Fick's law of diffusion"
+        },
+        {
+          "id": "equimolecular-counter-diffusion-in-fluids",
+          "name": "equimolecular counter diffusion in fluids",
+          "requires": ["fick-s-law-of-diffusion"]
+        },
+        {
+          "id": "diffusion-in-a-stationary-gas",
+          "name": "diffusion in a stationary gas",
+          "requires": ["equimolecular-counter-diffusion-in-fluids"]
+        },
+        {
+          "id": "diffusion-through-variable-cross-sectional-area",
+          "name": "diffusion through variable cross-sectional area",
+          "requires": ["diffusion-in-a-stationary-gas"]
+        },
+        {
+          "id": "diffusion-coefficient",
+          "name": "diffusion coefficient",
+          "requires": ["diffusion-through-variable-cross-sectional-area"]
+        },
+        {
+          "id": "multicomponent-diffusion",
+          "name": "multicomponent diffusion",
+          "requires": ["diffusion-coefficient"]
+        },
+        {
+          "id": "diffusivity-in-solids",
+          "name": "diffusivity in solids",
+          "requires": ["multicomponent-diffusion"]
+        },
+        {
+          "id": "diffusion-of-sensitive-materials-safety-considerations-in-de",
+          "name": "diffusion of sensitive materials: safety considerations in design and operation",
+          "requires": ["diffusivity-in-solids"]
+        }
+      ]
+    },
+    {
+      "id": "mass-transfer-coefficients",
+      "name": "Mass Transfer Coefficients",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "introduction-to-mass-transfer-coefficients",
+          "name": "Introduction to mass transfer coefficients"
+        },
+        {
+          "id": "correlations-for-convective-mass-transfer-coefficients",
+          "name": "correlations for convective mass transfer coefficients",
+          "requires": ["introduction-to-mass-transfer-coefficients"]
+        },
+        {
+          "id": "mass-transfer-equilibrium",
+          "name": "mass transfer equilibrium",
+          "requires": ["correlations-for-convective-mass-transfer-coefficients"]
+        },
+        {
+          "id": "theories-of-mass-transfer",
+          "name": "theories of mass transfer",
+          "requires": ["mass-transfer-equilibrium"]
+        },
+        {
+          "id": "local-and-overall-mass-transfer-coefficients",
+          "name": "local and overall mass transfer coefficients",
+          "requires": ["theories-of-mass-transfer"]
+        },
+        {
+          "id": "steady-state-co-current-and-counter-current-processes",
+          "name": "steady state co-current and counter-current processes",
+          "requires": ["local-and-overall-mass-transfer-coefficients"]
+        },
+        {
+          "id": "material-balance",
+          "name": "material balance",
+          "requires": ["steady-state-co-current-and-counter-current-processes"]
+        },
+        {
+          "id": "stage-efficiency",
+          "name": "stage efficiency",
+          "requires": ["material-balance"]
+        }
+      ]
+    },
+    {
+      "id": "absorption",
+      "name": "Absorption",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "equilibrium-solubility-of-gases",
+          "name": "Equilibrium solubility of gases"
+        },
+        {
+          "id": "material-balance-for-transfer-of-one-component",
+          "name": "material balance for transfer of one component",
+          "requires": ["equilibrium-solubility-of-gases"]
+        },
+        {
+          "id": "counter-current-multistage-operations-for-binary-and-multico",
+          "name": "counter-current multistage operations for binary and multicomponent systems",
+          "requires": ["material-balance-for-transfer-of-one-component"]
+        },
+        {
+          "id": "continuous-contactors",
+          "name": "continuous contactors",
+          "requires": ["counter-current-multistage-operations-for-binary-and-multico"]
+        },
+        {
+          "id": "absorption-with-chemical-reaction",
+          "name": "absorption with chemical reaction",
+          "requires": ["continuous-contactors"]
+        },
+        {
+          "id": "concept-of-htu-and-ntu",
+          "name": "concept of HTU and NTU",
+          "requires": ["absorption-with-chemical-reaction"]
+        },
+        {
+          "id": "equipment-for-gas-liquid-operations",
+          "name": "equipment for gas-liquid operations",
+          "requires": ["concept-of-htu-and-ntu"]
+        },
+        {
+          "id": "calculation-of-the-required-flow-rate-and-mass-transfer-area",
+          "name": "calculation of the required flow rate and mass transfer area for safe scrubbing of released toxic gas",
+          "requires": ["equipment-for-gas-liquid-operations"]
+        }
+      ]
+    },
+    {
+      "id": "adsorption",
+      "name": "Adsorption",
+      "hours": 9,
+      "topics": [
+        {
+          "id": "introduction-adsorption-isotherms",
+          "name": "Introduction, adsorption isotherms"
+        },
+        {
+          "id": "heat-of-adsorption",
+          "name": "heat of adsorption",
+          "requires": ["introduction-adsorption-isotherms"]
+        },
+        {
+          "id": "selection-of-adsorbent",
+          "name": "selection of adsorbent",
+          "requires": ["heat-of-adsorption"]
+        },
+        {
+          "id": "batch-adsorption",
+          "name": "batch adsorption",
+          "requires": ["selection-of-adsorbent"]
+        },
+        {
+          "id": "rate-of-adsorption-in-fixed-beds",
+          "name": "rate of adsorption in fixed beds",
+          "requires": ["batch-adsorption"]
+        },
+        {
+          "id": "adsorption-equipment",
+          "name": "adsorption equipment",
+          "requires": ["rate-of-adsorption-in-fixed-beds"]
+        },
+        {
+          "id": "adsorption-dynamics",
+          "name": "adsorption dynamics",
+          "requires": ["adsorption-equipment"]
+        },
+        {
+          "id": "regeneration-of-adsorbent",
+          "name": "regeneration of adsorbent",
+          "requires": ["adsorption-dynamics"]
+        },
+        {
+          "id": "thermal-and-pressure-swing-adsorption",
+          "name": "thermal and pressure swing adsorption",
+          "requires": ["regeneration-of-adsorbent"]
+        },
+        {
+          "id": "safety-issues-associated-with-drying-of-volatile-hydrocarbon",
+          "name": "safety issues associated with drying of volatile hydrocarbons in adsorbent beds",
+          "requires": ["thermal-and-pressure-swing-adsorption"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-mass-transfer-1-laboratory-chem"]
+}

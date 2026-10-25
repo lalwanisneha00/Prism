@@ -196,32 +196,18 @@
           "confidence": "verified"
         },
         {
-          "id": "microbial-genetics-conjugation",
-          "name": "Microbial genetics: conjugation",
+          "id": "microbial-genetics-conjugation-transformation-transduction",
+          "name": "Microbial genetics: conjugation, transformation, transduction",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["molecular-basis-of-mutation-and-their-different-types"]
-        },
-        {
-          "id": "transformation",
-          "name": "transformation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["microbial-genetics-conjugation"]
-        },
-        {
-          "id": "transduction",
-          "name": "transduction",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["transformation"]
         },
         {
           "id": "plasmids-and-transposable-elements",
           "name": "Plasmids and transposable elements",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["transduction"]
+          "requires": ["microbial-genetics-conjugation-transformation-transduction"]
         },
         {
           "id": "chromosomal-variation",
@@ -264,6 +250,21 @@
           "id": "species-and-speciation",
           "name": "Species and speciation",
           "requires": ["genetic-drift"]
+        },
+        {
+          "id": "microbial-genetics-conjugation",
+          "name": "Microbial genetics: conjugation",
+          "status": "retired"
+        },
+        {
+          "id": "transformation",
+          "name": "transformation",
+          "status": "retired"
+        },
+        {
+          "id": "transduction",
+          "name": "transduction",
+          "status": "retired"
         }
       ]
     }

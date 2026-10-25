@@ -68,13 +68,6 @@
           "requires": ["effect-of-temperature-on-thermal-conductivity-of-various"]
         },
         {
-          "id": "temperature-profile-and-heat-transfer-equations",
-          "name": "temperature profile and heat transfer equations",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["thermal-diffusivity"]
-        },
-        {
           "id": "heat-conduction-introduction-and-industrial-applications-of",
           "name": "Heat Conduction: Introduction and industrial applications of heat conductions",
           "requires": ["applications-of-the-heat-transfer"]
@@ -97,8 +90,7 @@
         {
           "id": "composite-walls-hollow-and-composite-cylinders-spheres",
           "name": "Composite walls, hollow and composite cylinders, spheres",
-          "requires": ["boundary-conditions"],
-          "status": "retired"
+          "requires": ["boundary-conditions"]
         },
         {
           "id": "overall-heat-transfer-coefficient-and-critical-radius-of",
@@ -146,32 +138,11 @@
           "requires": ["lumped-heat-system-analysis"]
         },
         {
-          "id": "wall",
-          "name": "wall",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cylindrical-and-spherical-coordinates"]
-        },
-        {
-          "id": "cylinder",
-          "name": "cylinder",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["wall"]
-        },
-        {
-          "id": "sphere-and-composites",
-          "name": "sphere and composites",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cylinder"]
-        },
-        {
           "id": "extended-surfaces-fin-performance-parameters",
           "name": "Extended surfaces: Fin performance parameters",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["sphere-and-composites"]
+          "requires": ["cylindrical-and-spherical-coordinates"]
         },
         {
           "id": "approximate-analytical-and-graphical-solutions-for-plane-wal",
@@ -179,6 +150,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["extended-surfaces-fin-performance-parameters"]
+        },
+        {
+          "id": "temperature-profile-and-heat-transfer-equations",
+          "name": "temperature profile and heat transfer equations",
+          "status": "retired"
+        },
+        {
+          "id": "wall",
+          "name": "wall",
+          "status": "retired"
+        },
+        {
+          "id": "cylinder",
+          "name": "cylinder",
+          "status": "retired"
+        },
+        {
+          "id": "sphere-and-composites",
+          "name": "sphere and composites",
+          "status": "retired"
         }
       ]
     },
@@ -189,16 +180,7 @@
       "topics": [
         {
           "id": "introduction-and-industrial-applications-of-heat",
-          "name": "Heat Convection: Classification",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "physical-mechanism-and-dimensional-analysis-applied-to-force",
-          "name": "physical mechanism and dimensional analysis applied to forced and free convection",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-and-industrial-applications-of-heat"]
+          "name": "Introduction and industrial applications of heat 59odelling59. Classification, physical mechanism and dimensional analysis applied to forced and free convection"
         },
         {
           "id": "thermal-and-hydrodynamic-boundary-layers",
@@ -283,6 +265,11 @@
           "id": "correlations",
           "name": "correlations",
           "requires": ["film-and-drop-wise-condensation"]
+        },
+        {
+          "id": "physical-mechanism-and-dimensional-analysis-applied-to-force",
+          "name": "physical mechanism and dimensional analysis applied to forced and free convection",
+          "status": "retired"
         }
       ]
     },
@@ -293,72 +280,22 @@
       "topics": [
         {
           "id": "introduction-and-industrial-applications-of-thermal",
-          "name": "absorptivity",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "reflectivity-and-transmissivity",
-          "name": "reflectivity & transmissivity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-and-industrial-applications-of-thermal"]
-        },
-        {
-          "id": "grey-surfaces",
-          "name": "grey surfaces",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["reflectivity-and-transmissivity"]
+          "name": "Introduction and industrial applications of thermal radiation heat transfer, Concept of radiation, absorptivity, reflectivity & transmissivity, black, white and grey surfaces, emissive power & emissiv"
         },
         {
           "id": "laws-of-radiation",
-          "name": "Thermal Radiation: Concept of radiation",
-          "requires": ["introduction-and-industrial-applications-of-thermal"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "laws-of-radiation-2",
           "name": "Laws of radiation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["laws-of-radiation"]
+          "requires": ["introduction-and-industrial-applications-of-thermal"]
         },
         {
           "id": "planck-stefan",
-          "name": "Planck",
-          "requires": ["laws-of-radiation"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "stefan",
-          "name": "Stefan",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["planck-stefan"]
+          "name": "Planck, Stefan",
+          "requires": ["laws-of-radiation"]
         },
         {
           "id": "boltzman-weins-displacement-kirchoff",
-          "name": "Boltzman",
-          "requires": ["planck-stefan"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "wein-s-displacement",
-          "name": "Wein’s displacement",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["boltzman-weins-displacement-kirchoff"]
-        },
-        {
-          "id": "kirchoff",
-          "name": "Kirchoff",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["wein-s-displacement"]
+          "name": "Boltzman, Wein’s displacement, Kirchoff",
+          "requires": ["planck-stefan"]
         },
         {
           "id": "intensity-of-radiation-and-solid-angle-lamberts-cosine-law",
@@ -393,14 +330,14 @@
           "movedFrom": {
             "subject": "pdeu-heat-and-mass-transfer-me",
             "chapter": "introduction",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
-          "id": "blackbody",
-          "name": "blackbody",
+          "id": "reflectivity-and-transmissivity-blackbody",
+          "name": "reflectivity & transmissivity, blackbody",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["electrical-analogy"]
@@ -410,7 +347,7 @@
           "name": "emissive power & emissivity",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["blackbody"]
+          "requires": ["reflectivity-and-transmissivity-blackbody"]
         },
         {
           "id": "heat-exchange-between-diffuse-grey-bodies-radiation-shield",
@@ -425,6 +362,41 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["heat-exchange-between-diffuse-grey-bodies-radiation-shield"]
+        },
+        {
+          "id": "reflectivity-and-transmissivity",
+          "name": "reflectivity & transmissivity",
+          "status": "retired"
+        },
+        {
+          "id": "grey-surfaces",
+          "name": "grey surfaces",
+          "status": "retired"
+        },
+        {
+          "id": "laws-of-radiation-2",
+          "name": "Laws of radiation",
+          "status": "retired"
+        },
+        {
+          "id": "stefan",
+          "name": "Stefan",
+          "status": "retired"
+        },
+        {
+          "id": "wein-s-displacement",
+          "name": "Wein’s displacement",
+          "status": "retired"
+        },
+        {
+          "id": "kirchoff",
+          "name": "Kirchoff",
+          "status": "retired"
+        },
+        {
+          "id": "blackbody",
+          "name": "blackbody",
+          "status": "retired"
         }
       ]
     },
@@ -439,31 +411,8 @@
         },
         {
           "id": "different-types-of-heat-exchangers-heat-exchange-performance",
-          "name": "heat exchange performance analysis",
-          "requires": ["introduction-and-industrial-applications-of-heat-exchangers"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "lmtd-for-parallel-and-counter-flow-heat-exchanger",
-          "name": "LMTD for parallel & counter flow heat exchanger",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["different-types-of-heat-exchangers-heat-exchange-performance"]
-        },
-        {
-          "id": "overall-heat-transfer-coefficient",
-          "name": "overall heat transfer coefficient",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["lmtd-for-parallel-and-counter-flow-heat-exchanger"]
-        },
-        {
-          "id": "fouling",
-          "name": "fouling",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["overall-heat-transfer-coefficient"]
+          "name": "Different types of heat exchangers, heat exchange performance analysis, LMTD for parallel & counter flow heat exchanger, overall heat transfer coefficient, fouling, correction factor for multi-pass ar",
+          "requires": ["introduction-and-industrial-applications-of-heat-exchangers"]
         },
         {
           "id": "tema-standards",
@@ -501,15 +450,15 @@
         },
         {
           "id": "applications-of-the-heat-transfer",
-          "name": "mechanisms and basic concepts of heat transfer",
+          "name": "Applications of the heat transfer",
           "requires": ["thermal-diffusivity"],
-          "source": "admin_handout",
-          "confidence": "verified",
           "movedFrom": {
             "subject": "pdeu-heat-and-mass-transfer-me",
             "chapter": "introduction",
-            "at": "2026-10-24T23:22:41.746Z"
-          }
+            "at": "2026-10-25T11:41:25.072Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified"
         },
         {
           "id": "heat-exchangers-classification",
@@ -531,6 +480,21 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["correction-factor-for-multi-pass-arrangement"]
+        },
+        {
+          "id": "lmtd-for-parallel-and-counter-flow-heat-exchanger",
+          "name": "LMTD for parallel & counter flow heat exchanger",
+          "status": "retired"
+        },
+        {
+          "id": "overall-heat-transfer-coefficient",
+          "name": "overall heat transfer coefficient",
+          "status": "retired"
+        },
+        {
+          "id": "fouling",
+          "name": "fouling",
+          "status": "retired"
         }
       ]
     }

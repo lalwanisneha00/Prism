@@ -40,23 +40,16 @@
       "topics": [
         {
           "id": "introduction-to-fsm-moore-and-mealy-machines-the-basic",
-          "name": "Introduction to FSM",
+          "name": "Introduction to FSM, Moore",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "moore",
-          "name": "Moore",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-fsm-moore-and-mealy-machines-the-basic"]
         },
         {
           "id": "mealy-machines",
           "name": "Mealy machines",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["moore"]
+          "requires": ["introduction-to-fsm-moore-and-mealy-machines-the-basic"]
         },
         {
           "id": "the-basic-architecture-of-micro-computer-and-central-process",
@@ -73,16 +66,7 @@
         {
           "id": "address-and-control-bus",
           "name": "address and control bus",
-          "requires": ["the-concept-of-data"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "control",
-          "name": "control",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["address-and-control-bus"]
+          "requires": ["the-concept-of-data"]
         },
         {
           "id": "register-transfer-language",
@@ -106,17 +90,8 @@
         },
         {
           "id": "instruction-set-completeness-timing-and-control",
-          "name": "instruction set completeness",
-          "requires": ["common-bus-system"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "timing",
-          "name": "timing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["instruction-set-completeness-timing-and-control"]
+          "name": "instruction set completeness, timing, and control",
+          "requires": ["common-bus-system"]
         },
         {
           "id": "instruction-cycle",
@@ -145,6 +120,21 @@
           "id": "interrupts-in-basic-computer",
           "name": "Interrupts in basic computer",
           "requires": ["hardwired-control"]
+        },
+        {
+          "id": "moore",
+          "name": "Moore",
+          "status": "retired"
+        },
+        {
+          "id": "control",
+          "name": "control",
+          "status": "retired"
+        },
+        {
+          "id": "timing",
+          "name": "timing",
+          "status": "retired"
         }
       ]
     },
@@ -204,24 +194,17 @@
         },
         {
           "id": "pin-diagram-signals-and-register-set-of-8086-addressing",
-          "name": "Pin diagram",
+          "name": "Pin diagram, signals",
           "requires": ["evolution-of-microprocessor"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "signals",
-          "name": "signals",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pin-diagram-signals-and-register-set-of-8086-addressing"]
         },
         {
           "id": "register-set-of-8086",
           "name": "register set of 8086",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["signals"]
+          "requires": ["pin-diagram-signals-and-register-set-of-8086-addressing"]
         },
         {
           "id": "addressing-modes-2",
@@ -269,6 +252,11 @@
           "id": "interrupts-of-8086",
           "name": "interrupts of 8086",
           "requires": ["conditional-call-and-return-instructions"]
+        },
+        {
+          "id": "signals",
+          "name": "signals",
+          "status": "retired"
         }
       ]
     },

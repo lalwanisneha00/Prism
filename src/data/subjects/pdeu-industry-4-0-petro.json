@@ -39,16 +39,7 @@
       "topics": [
         {
           "id": "introduction-to-industry-4-0",
-          "name": "Introduction to Industry 4.0",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "overview-of-machine-learning-for-industry-4-0",
-          "name": "Overview of machine learning for Industry 4.0",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["introduction-to-industry-4-0"]
+          "name": "Introduction to Industry 4.0"
         },
         {
           "id": "definition",
@@ -127,24 +118,25 @@
         },
         {
           "id": "overview-of-machine-learning-for-industry-4-0-transformation",
-          "name": "Transformation of industrial processes through the integration of modern technologies such as sensing and actuation",
-          "requires": ["additive-manufacturing-and-augmented-reality"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "communication",
-          "name": "communication",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["overview-of-machine-learning-for-industry-4-0-transformation"]
+          "name": "Overview of machine learning for Industry 4.0. Transformation of industrial processes through the integration of modern technologies such as sensing and actuation, communication, and computational pro",
+          "requires": ["additive-manufacturing-and-augmented-reality"]
         },
         {
           "id": "computational-processing",
           "name": "computational processing",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["communication"]
+          "requires": ["overview-of-machine-learning-for-industry-4-0-transformation"]
+        },
+        {
+          "id": "overview-of-machine-learning-for-industry-4-0",
+          "name": "Overview of machine learning for Industry 4.0",
+          "status": "retired"
+        },
+        {
+          "id": "communication",
+          "name": "communication",
+          "status": "retired"
         }
       ]
     },
@@ -164,31 +156,8 @@
         },
         {
           "id": "sensors-and-the-internet-of-things-iot-types-of-sensors-used",
-          "name": "Sensors and the Internet of Things (IoT): Types of sensors used in oilfields (temperature",
-          "requires": ["digital-oilfield-concept-dof"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "pressure",
-          "name": "pressure",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sensors-and-the-internet-of-things-iot-types-of-sensors-used"]
-        },
-        {
-          "id": "flow",
-          "name": "flow",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pressure"]
-        },
-        {
-          "id": "seismic",
-          "name": "seismic)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["flow"]
+          "name": "Sensors and the Internet of Things (IoT): Types of sensors used in oilfields (temperature, pressure, flow, seismic)",
+          "requires": ["digital-oilfield-concept-dof"]
         },
         {
           "id": "iot-network-architectures",
@@ -197,24 +166,37 @@
         },
         {
           "id": "connected-oilfield-integration-of-sensors-actuators-and",
-          "name": "Connected Oilfield: Integration of sensors",
+          "name": "Connected Oilfield: Integration of sensors, actuators",
           "requires": ["iot-network-architectures"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "actuators",
-          "name": "actuators",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["connected-oilfield-integration-of-sensors-actuators-and"]
         },
         {
           "id": "communication-networks-across-oilfield-operations",
           "name": "communication networks across oilfield operations",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["actuators"]
+          "requires": ["connected-oilfield-integration-of-sensors-actuators-and"]
+        },
+        {
+          "id": "pressure",
+          "name": "pressure",
+          "status": "retired"
+        },
+        {
+          "id": "flow",
+          "name": "flow",
+          "status": "retired"
+        },
+        {
+          "id": "seismic",
+          "name": "seismic)",
+          "status": "retired"
+        },
+        {
+          "id": "actuators",
+          "name": "actuators",
+          "status": "retired"
         }
       ]
     },

@@ -40,37 +40,21 @@
       "topics": [
         {
           "id": "history-and-scope-of-immunology-innate-and-acquired-immunity",
-          "name": "History and Scope of Immunology",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "innate-and-acquired-immunity",
-          "name": "Innate and Acquired Immunity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["history-and-scope-of-immunology-innate-and-acquired-immunity"]
+          "name": "History and Scope of Immunology, Innate and Acquired Immunity"
         },
         {
           "id": "haematopoiesis-cells-of-the-immune-system-primary-and",
-          "name": "Haematopoiesis",
+          "name": "Cells of the immune system",
           "requires": ["history-and-scope-of-immunology-innate-and-acquired-immunity"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "cells-of-the-immune-system",
-          "name": "Cells of the immune system",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["haematopoiesis-cells-of-the-immune-system-primary-and"]
         },
         {
           "id": "primary-and-secondary-lymphoid-organs",
           "name": "Primary and Secondary lymphoid organs",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["cells-of-the-immune-system"]
+          "requires": ["haematopoiesis-cells-of-the-immune-system-primary-and"]
         },
         {
           "id": "characteristics-of-t-and-b-cell-receptors",
@@ -92,6 +76,23 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["t-and-b-cell-maturation"]
+        },
+        {
+          "id": "innate-and-acquired-immunity-haematopoiesis",
+          "name": "Innate and Acquired Immunity, Haematopoiesis",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["activation-and-differentiation"]
+        },
+        {
+          "id": "innate-and-acquired-immunity",
+          "name": "Innate and Acquired Immunity",
+          "status": "retired"
+        },
+        {
+          "id": "cells-of-the-immune-system",
+          "name": "Cells of the immune system",
+          "status": "retired"
         }
       ]
     },
@@ -107,46 +108,25 @@
           "confidence": "verified"
         },
         {
-          "id": "factors-affecting-the-immunogenicity",
-          "name": "Factors affecting the immunogenicity",
+          "id": "factors-affecting-the-immunogenicity-haptens",
+          "name": "Factors affecting the immunogenicity, Haptens",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["antigens-characteristics-and-types-of-antigens-factors"]
         },
         {
-          "id": "haptens",
-          "name": "Haptens",
+          "id": "antigenic-determinants-adjuvants-vaccines",
+          "name": "Antigenic Determinants, Adjuvants, Vaccines",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["factors-affecting-the-immunogenicity"]
-        },
-        {
-          "id": "antigenic-determinants",
-          "name": "Antigenic Determinants",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["haptens"]
-        },
-        {
-          "id": "adjuvants",
-          "name": "Adjuvants",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["antigenic-determinants"]
-        },
-        {
-          "id": "vaccines",
-          "name": "Vaccines",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["adjuvants"]
+          "requires": ["factors-affecting-the-immunogenicity-haptens"]
         },
         {
           "id": "routes-of-immunization",
           "name": "Routes of Immunization",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["vaccines"]
+          "requires": ["antigenic-determinants-adjuvants-vaccines"]
         },
         {
           "id": "theory-ofclonal-selection-immunoglobulins-basic-structures",
@@ -171,66 +151,80 @@
         },
         {
           "id": "molecular-biology-of-immunoglobulin-synthesis-effector",
-          "name": "Molecular Biology of Immunoglobulin synthesis",
-          "requires": ["theory-ofclonal-selection-immunoglobulins-basic-structures"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "effector-functions",
-          "name": "Effector functions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["molecular-biology-of-immunoglobulin-synthesis-effector"]
+          "name": "Molecular Biology of Immunoglobulin synthesis, Effector functions",
+          "requires": ["theory-ofclonal-selection-immunoglobulins-basic-structures"]
         },
         {
           "id": "isotope-allotype-idiotype-monoclonal-antibodies-complement",
-          "name": "Isotope",
-          "requires": ["molecular-biology-of-immunoglobulin-synthesis-effector"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "Isotope, Allotype, Idiotype, Monoclonal antibodies, Complement system - Alternate, Classical and Lectin pathways",
+          "requires": ["molecular-biology-of-immunoglobulin-synthesis-effector"]
         },
         {
-          "id": "allotype",
-          "name": "Allotype",
+          "id": "effector-functions-isotope-allotype-idiotype",
+          "name": "Effector functions, Isotope, Allotype, Idiotype",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["isotope-allotype-idiotype-monoclonal-antibodies-complement"]
         },
         {
+          "id": "factors-affecting-the-immunogenicity",
+          "name": "Factors affecting the immunogenicity",
+          "status": "retired"
+        },
+        {
+          "id": "haptens",
+          "name": "Haptens",
+          "status": "retired"
+        },
+        {
+          "id": "antigenic-determinants",
+          "name": "Antigenic Determinants",
+          "status": "retired"
+        },
+        {
+          "id": "adjuvants",
+          "name": "Adjuvants",
+          "status": "retired"
+        },
+        {
+          "id": "vaccines",
+          "name": "Vaccines",
+          "status": "retired"
+        },
+        {
+          "id": "effector-functions",
+          "name": "Effector functions",
+          "status": "retired"
+        },
+        {
+          "id": "allotype",
+          "name": "Allotype",
+          "status": "retired"
+        },
+        {
           "id": "idiotype",
           "name": "Idiotype",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["allotype"]
+          "status": "retired"
         },
         {
           "id": "monoclonal-antibodies",
           "name": "Monoclonal antibodies",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["idiotype"]
+          "status": "retired"
         },
         {
           "id": "complement-system",
           "name": "Complement system",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["monoclonal-antibodies"]
+          "status": "retired"
         },
         {
           "id": "alternate",
           "name": "Alternate",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["complement-system"]
+          "status": "retired"
         },
         {
           "id": "classical-and-lectin-pathways",
           "name": "Classical and Lectin pathways",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["alternate"]
+          "status": "retired"
         }
       ]
     },
@@ -241,51 +235,21 @@
       "topics": [
         {
           "id": "structure-types-and-function-of-mhc-phagocytosis-exogenous",
-          "name": "Structure",
+          "name": "Structure, types and function of MHC, Phagocytosis",
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
-          "id": "types-and-function-of-mhc",
-          "name": "types and function of MHC",
+          "id": "exogenous-and-endogenous-pathways-of-antigen-processing-and",
+          "name": "Exogenous and Endogenous pathways of antigen processing and presentation, Cytokines, function",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["structure-types-and-function-of-mhc-phagocytosis-exogenous"]
         },
         {
-          "id": "phagocytosis",
-          "name": "Phagocytosis",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["types-and-function-of-mhc"]
-        },
-        {
-          "id": "exogenous-and-endogenous-pathways-of-antigen-processing-and",
-          "name": "Exogenous and Endogenous pathways of antigen processing and presentation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["phagocytosis"]
-        },
-        {
-          "id": "function",
-          "name": "function",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["exogenous-and-endogenous-pathways-of-antigen-processing-and"]
-        },
-        {
           "id": "cytokines-structure-function-application-and-regulation-of",
-          "name": "Cytokines",
-          "requires": ["structure-types-and-function-of-mhc-phagocytosis-exogenous"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "application-and-regulation-of-the-immune-response",
-          "name": "application and regulation of the immune response",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cytokines-structure-function-application-and-regulation-of"]
+          "name": "Cytokines - Structure, function, application and regulation of the immune response",
+          "requires": ["structure-types-and-function-of-mhc-phagocytosis-exogenous"]
         },
         {
           "id": "self-tolerance-and-possible-mechanisms-of-induction-of",
@@ -328,6 +292,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["immune-complex-mediated-type-iii-hypersensitivity-and-delaye"]
+        },
+        {
+          "id": "types-and-function-of-mhc",
+          "name": "types and function of MHC",
+          "status": "retired"
+        },
+        {
+          "id": "phagocytosis",
+          "name": "Phagocytosis",
+          "status": "retired"
+        },
+        {
+          "id": "function",
+          "name": "function",
+          "status": "retired"
+        },
+        {
+          "id": "application-and-regulation-of-the-immune-response",
+          "name": "application and regulation of the immune response",
+          "status": "retired"
         }
       ]
     },
@@ -352,17 +336,8 @@
         },
         {
           "id": "agglutination-reactions-immunodiffusion-and",
-          "name": "Agglutination reactions",
-          "requires": ["precipitation-reactions"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "immunodiffusion-and-immunoelectrophoretic-techniques",
-          "name": "Immunodiffusion and Immunoelectrophoretic techniques",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["agglutination-reactions-immunodiffusion-and"]
+          "name": "Agglutination reactions - Immunodiffusion and Immunoelectrophoretic techniques",
+          "requires": ["precipitation-reactions"]
         },
         {
           "id": "immunofluorescences",
@@ -392,6 +367,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["elisa-detection-of-bacterial-endotoxins-using-immunological"]
+        },
+        {
+          "id": "immunodiffusion-and-immunoelectrophoretic-techniques",
+          "name": "Immunodiffusion and Immunoelectrophoretic techniques",
+          "status": "retired"
         }
       ]
     }

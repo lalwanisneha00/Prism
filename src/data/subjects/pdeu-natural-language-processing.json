@@ -65,17 +65,8 @@
         },
         {
           "id": "syntax-constituency-parsing",
-          "name": "Syntax",
-          "requires": ["wordnet-and-lexical-resources"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "constituency-parsing",
-          "name": "Constituency Parsing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["syntax-constituency-parsing"]
+          "name": "Syntax – Constituency Parsing",
+          "requires": ["wordnet-and-lexical-resources"]
         },
         {
           "id": "dependency-parsing",
@@ -91,6 +82,11 @@
           "id": "lexical-semantics",
           "name": "Lexical Semantics",
           "requires": ["distributional-semantics"]
+        },
+        {
+          "id": "constituency-parsing",
+          "name": "Constituency Parsing",
+          "status": "retired"
         }
       ]
     },
@@ -134,17 +130,8 @@
         },
         {
           "id": "models-for-sequential-tagging-maxent",
-          "name": "Models for Sequential Tagging",
-          "requires": ["spelling-correction"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "maxent",
-          "name": "MaxEnt",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["models-for-sequential-tagging-maxent"]
+          "name": "Models for Sequential Tagging – MaxEnt",
+          "requires": ["spelling-correction"]
         },
         {
           "id": "crf",
@@ -155,6 +142,11 @@
           "id": "naivebayes",
           "name": "NaiveBayes",
           "requires": ["crf"]
+        },
+        {
+          "id": "maxent",
+          "name": "MaxEnt",
+          "status": "retired"
         }
       ]
     },

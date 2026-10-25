@@ -111,7 +111,7 @@
       "topics": [
         {
           "id": "em-spectrum",
-          "name": "theories of radiation",
+          "name": "Introduction, theories of radiation",
           "source": "admin_handout",
           "confidence": "verified"
         },
@@ -130,53 +130,25 @@
           "requires": ["electromagnetic-spectrum"]
         },
         {
-          "id": "surface-emission",
-          "name": "surface emission",
+          "id": "surface-emission-emissivity",
+          "name": "surface emission, emissivity",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["spectral-emissive-power"]
         },
         {
-          "id": "emissivity",
-          "name": "emissivity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["surface-emission"]
-        },
-        {
-          "id": "emission",
-          "name": "emission",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["emissivity"]
-        },
-        {
           "id": "radiative-properties-emission-irradiation-absorptivity",
-          "name": "Radiative properties",
+          "name": "Radiative properties, emission, irradiation, absorptivity",
           "requires": ["em-spectrum"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "irradiation",
-          "name": "irradiation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["radiative-properties-emission-irradiation-absorptivity"]
-        },
-        {
-          "id": "absorptivity",
-          "name": "absorptivity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["irradiation"]
         },
         {
           "id": "reflectivity-and-transmissivity",
           "name": "reflectivity and transmissivity",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["absorptivity"]
+          "requires": ["radiative-properties-emission-irradiation-absorptivity"]
         },
         {
           "id": "concept-of-black-and-grey-body-radiation-intensity-laws-of",
@@ -214,11 +186,34 @@
           "requires": ["non-black-surfaces"]
         },
         {
+          "id": "surface-emission",
+          "name": "surface emission",
+          "status": "retired"
+        },
+        {
+          "id": "emissivity",
+          "name": "emissivity",
+          "status": "retired"
+        },
+        {
+          "id": "emission",
+          "name": "emission",
+          "status": "retired"
+        },
+        {
+          "id": "irradiation",
+          "name": "irradiation",
+          "status": "retired"
+        },
+        {
+          "id": "absorptivity",
+          "name": "absorptivity",
+          "status": "retired"
+        },
+        {
           "id": "introduction",
           "name": "Introduction",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["radiation-between-black-and-grey-surfaces"]
+          "status": "retired"
         }
       ]
     },
@@ -277,31 +272,8 @@
         },
         {
           "id": "extraction-and-distillation-flash-and-differential-basic",
-          "name": "Extraction and Distillation (flash and differential): Basic principles",
-          "requires": ["adsorption"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "laws",
-          "name": "laws",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["extraction-and-distillation-flash-and-differential-basic"]
-        },
-        {
-          "id": "calculations",
-          "name": "calculations",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["laws"]
-        },
-        {
-          "id": "equilibrium",
-          "name": "Equilibrium",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["calculations"]
+          "name": "Extraction and Distillation (flash and differential): Basic principles, laws, and calculations. Equilibrium",
+          "requires": ["adsorption"]
         },
         {
           "id": "co-current-and-counter-current-operations",
@@ -317,6 +289,21 @@
           "id": "efficiency-of-packed-bed-and-tray-columns",
           "name": "Efficiency of Packed bed and tray columns",
           "requires": ["ideal-stage-concept-and-calculation-of-number-of-ideal"]
+        },
+        {
+          "id": "laws",
+          "name": "laws",
+          "status": "retired"
+        },
+        {
+          "id": "calculations",
+          "name": "calculations",
+          "status": "retired"
+        },
+        {
+          "id": "equilibrium",
+          "name": "Equilibrium",
+          "status": "retired"
         }
       ]
     }

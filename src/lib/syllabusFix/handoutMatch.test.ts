@@ -95,6 +95,39 @@ describe("bestCourse", () => {
   });
 });
 
+describe("weak matches", () => {
+  it("one shared word and no shared topics is no match: a new course", () => {
+    const fluid = prism({
+      id: "fluid",
+      name: "Fluid Mechanics",
+      offerings: [{ branch: "me", semester: 4 }],
+      chapters: [{ id: "c", name: "Flow", topics: [{ id: "b", name: "Bernoulli equation" }] }],
+    });
+    const h = handout({
+      branch: "me",
+      title: "Engineering Mechanics",
+      units: [
+        { order: 1, name: "Statics", topics: ["Free body diagrams", "Equilibrium of forces"] },
+      ],
+    });
+    const result = matchHandouts([h], [fluid], [], { ...options, branches: ["me"] });
+    expect(result.needsReview).toEqual([]);
+    expect(result.changes[0].type).toBe("new course");
+  });
+
+  it("matches singular and plural names", () => {
+    const dom = prism({
+      id: "dom",
+      name: "Dynamics of Machine",
+      offerings: [{ branch: "me", semester: 5 }],
+    });
+    expect(
+      bestCourse(handout({ branch: "me", sem: 5, title: "Dynamics of Machines" }), [dom]).best
+        ?.course.id,
+    ).toBe("dom");
+  });
+});
+
 describe("matchHandouts", () => {
   it("finds moved and missing topics, wrong order, and retires what no handout lists", () => {
     const h = handout({
@@ -123,7 +156,7 @@ describe("matchHandouts", () => {
     expect(changes[0]).toMatchObject({ type: "course in wrong semester", to: { semester: 4 } });
   });
 
-  it("sends a same-named course of another branch with a different syllabus to review", () => {
+  it("gives a branch its own course when another branch's same-named course has a different syllabus", () => {
     const ml = prism({
       id: "ml-ce",
       name: "Machine Learning",
@@ -143,8 +176,8 @@ describe("matchHandouts", () => {
     });
     // Only ICT handouts here, so CE's own course is left alone.
     const result = matchHandouts([h], [ml], [], { ...options, branches: ["ict"] });
-    expect(result.changes).toEqual([]);
-    expect(result.needsReview[0].reason).toBe("same name, different syllabus in another branch");
+    expect(result.changes.map((c) => c.type)).toEqual(["new course"]);
+    expect(result.needsReview).toEqual([]);
   });
 
   it("adds labs as practical courses and new courses when nothing matches", () => {

@@ -39,6 +39,11 @@
       "hours": 12,
       "topics": [
         {
+          "id": "introduction",
+          "name": "Introduction",
+          "formerChapters": ["polymers"]
+        },
+        {
           "id": "need-for-separation-process",
           "name": "Need for separation process",
           "requires": ["introduction"]
@@ -69,17 +74,8 @@
         },
         {
           "id": "micro-nano-and-ultrafiltration",
-          "name": "micro",
-          "requires": ["choice-of-membranes-membrane-filtration"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "nano-and-ultrafiltration",
-          "name": "nano and ultrafiltration",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["micro-nano-and-ultrafiltration"]
+          "name": "micro, nano and ultrafiltration",
+          "requires": ["choice-of-membranes-membrane-filtration"]
         },
         {
           "id": "dialysis-and-reverse-osmosis",
@@ -95,6 +91,11 @@
           "id": "liquid-and-gaseous-separations",
           "name": "Liquid and gaseous separations",
           "requires": ["chromatographic-separations-ion-exchange-separation"]
+        },
+        {
+          "id": "nano-and-ultrafiltration",
+          "name": "nano and ultrafiltration",
+          "status": "retired"
         }
       ]
     },
@@ -109,59 +110,13 @@
         },
         {
           "id": "origin-structure-intermolecular-interactions-types-of",
-          "name": "origin",
-          "requires": ["introduction-classification-of-polymers"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "structure",
-          "name": "structure",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["origin-structure-intermolecular-interactions-types-of"]
-        },
-        {
-          "id": "intermolecular-interactions",
-          "name": "intermolecular interactions",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["structure"]
-        },
-        {
-          "id": "types-of-polymerization",
-          "name": "Types of polymerization",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["intermolecular-interactions"]
+          "name": "origin, structure, intermolecular interactions, Types of polymerization",
+          "requires": ["introduction-classification-of-polymers"]
         },
         {
           "id": "addition-condensation-radical-ionic-and-copolymerization",
-          "name": "addition",
-          "requires": ["origin-structure-intermolecular-interactions-types-of"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "condensation",
-          "name": "condensation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["addition-condensation-radical-ionic-and-copolymerization"]
-        },
-        {
-          "id": "radical",
-          "name": "radical",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["condensation"]
-        },
-        {
-          "id": "ionic-and-copolymerization",
-          "name": "ionic and copolymerization",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["radical"]
+          "name": "addition, condensation, radical, ionic and copolymerization",
+          "requires": ["origin-structure-intermolecular-interactions-types-of"]
         },
         {
           "id": "inorganic-polymers-organic-polymers-biodegradable-polymers",
@@ -211,15 +166,34 @@
           "requires": ["inorganic-polymers-organic-polymers-biodegradable-polymers"]
         },
         {
-          "id": "introduction",
-          "name": "Introduction",
-          "movedFrom": {
-            "subject": "pdeu-novel-separation-processes-dyes-and-pigments",
-            "chapter": "novel-separation-process",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
+          "id": "structure",
+          "name": "structure",
+          "status": "retired"
+        },
+        {
+          "id": "intermolecular-interactions",
+          "name": "intermolecular interactions",
+          "status": "retired"
+        },
+        {
+          "id": "types-of-polymerization",
+          "name": "Types of polymerization",
+          "status": "retired"
+        },
+        {
+          "id": "condensation",
+          "name": "condensation",
+          "status": "retired"
+        },
+        {
+          "id": "radical",
+          "name": "radical",
+          "status": "retired"
+        },
+        {
+          "id": "ionic-and-copolymerization",
+          "name": "ionic and copolymerization",
+          "status": "retired"
         }
       ]
     },
@@ -230,7 +204,7 @@
       "topics": [
         {
           "id": "introduction-nomenclature-and-classification-of-natural-and",
-          "name": "Nomenclature and Classification of Natural and Synthetic dyes",
+          "name": "Introduction, Nomenclature and Classification of Natural and Synthetic dyes",
           "source": "admin_handout",
           "confidence": "verified"
         },
@@ -346,9 +320,7 @@
         {
           "id": "introduction-2",
           "name": "Introduction",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["preparation-of-phthalocyanines"]
+          "status": "retired"
         }
       ]
     },

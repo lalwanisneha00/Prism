@@ -63,17 +63,8 @@
         },
         {
           "id": "v-i-characteristics-diode-applications-rectification",
-          "name": "V-I Characteristics",
-          "requires": ["cut-in-voltage"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "diode-applications-rectification",
-          "name": "Diode Applications: rectification",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["v-i-characteristics-diode-applications-rectification"]
+          "name": "V-I Characteristics. Diode Applications: rectification",
+          "requires": ["cut-in-voltage"]
         },
         {
           "id": "rectifiers",
@@ -97,17 +88,8 @@
         },
         {
           "id": "clampers-zener-diodes-voltage-regulator",
-          "name": "clampers",
-          "requires": ["clippers"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "zener-diodes-voltage-regulator",
-          "name": "Zener Diodes: voltage regulator",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["clampers-zener-diodes-voltage-regulator"]
+          "name": "clampers. Zener Diodes: voltage regulator",
+          "requires": ["clippers"]
         },
         {
           "id": "regulator-design",
@@ -133,6 +115,16 @@
           "id": "tunnel-diodes-and-leds",
           "name": "tunnel diodes and LEDs",
           "requires": ["schottky-diodes"]
+        },
+        {
+          "id": "diode-applications-rectification",
+          "name": "Diode Applications: rectification",
+          "status": "retired"
+        },
+        {
+          "id": "zener-diodes-voltage-regulator",
+          "name": "Zener Diodes: voltage regulator",
+          "status": "retired"
         }
       ]
     },
@@ -167,17 +159,8 @@
         },
         {
           "id": "characteristics-and-region-of-operation",
-          "name": "characteristics",
-          "requires": ["working-principal"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "region-of-operation",
-          "name": "region of operation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["characteristics-and-region-of-operation"]
+          "name": "characteristics, and region of operation",
+          "requires": ["working-principal"]
         },
         {
           "id": "load-line-analysis",
@@ -221,6 +204,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["bandwidth-and-frequency-response-frequency-response-of"]
+        },
+        {
+          "id": "region-of-operation",
+          "name": "region of operation",
+          "status": "retired"
         }
       ]
     },

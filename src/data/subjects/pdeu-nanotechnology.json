@@ -85,24 +85,8 @@
         },
         {
           "id": "colloidal-sol-gel-or-simple-pyrolysis",
-          "name": "colloidal",
-          "requires": ["plasma-assisted-deposition-processes"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "sol-gel",
-          "name": "sol-gel",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["colloidal-sol-gel-or-simple-pyrolysis"]
-        },
-        {
-          "id": "simple-pyrolysis",
-          "name": "simple pyrolysis",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sol-gel"]
+          "name": "colloidal, sol-gel, or simple pyrolysis",
+          "requires": ["plasma-assisted-deposition-processes"]
         },
         {
           "id": "top-down-approach-miniaturization-of-smaller-structures-from",
@@ -118,6 +102,16 @@
           "id": "machining-will-be-presented-with-suitable-examples",
           "name": "machining will be presented with suitable examples",
           "requires": ["lithography"]
+        },
+        {
+          "id": "sol-gel",
+          "name": "sol-gel",
+          "status": "retired"
+        },
+        {
+          "id": "simple-pyrolysis",
+          "name": "simple pyrolysis",
+          "status": "retired"
         }
       ]
     },
@@ -169,27 +163,20 @@
       "topics": [
         {
           "id": "applications-of-nanoscale-materials-catalysis-sensing-energy",
-          "name": "Applications of Nanoscale materials: Catalysis",
+          "name": "Applications of Nanoscale materials: Catalysis, Sensing",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "sensing",
-          "name": "Sensing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["applications-of-nanoscale-materials-catalysis-sensing-energy"]
         },
         {
           "id": "energy-storage",
           "name": "Energy storage",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["sensing"]
+          "requires": ["applications-of-nanoscale-materials-catalysis-sensing-energy"]
         },
         {
-          "id": "environmental-remediation",
-          "name": "Environmental remediation",
+          "id": "environmental-remediation-etc",
+          "name": "Environmental remediation, etc",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["energy-storage"]
@@ -235,11 +222,19 @@
           "requires": ["nanoscale-materials-for-waste-reduction-and-improved-energy"]
         },
         {
+          "id": "sensing",
+          "name": "Sensing",
+          "status": "retired"
+        },
+        {
+          "id": "environmental-remediation",
+          "name": "Environmental remediation",
+          "status": "retired"
+        },
+        {
           "id": "etc",
           "name": "etc",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["nano-sensors-and-devices"]
+          "status": "retired"
         }
       ]
     }

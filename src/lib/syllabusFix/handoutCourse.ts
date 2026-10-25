@@ -59,6 +59,67 @@ function joinLines(lines: readonly string[]): string {
   }, "");
 }
 
+/**
+ * Single words that are topics on their own in engineering syllabi (data, not logic: extend as
+ * needed). Everything else needs two meaningful words to stand alone.
+ */
+export const TECH_TERMS = new Set(
+  (
+    "encoders decoders multiplexers demultiplexers comparators counters registers latches adders subtractors " +
+    "thermodynamics kinematics dynamics statics hydrostatics hydraulics pneumatics tribology rheology " +
+    "photosynthesis glycolysis transcription translation replication mutation fermentation chromatography " +
+    "electrophoresis centrifugation spectroscopy titration distillation crystallization filtration " +
+    "extraction absorption adsorption evaporation drying humidification polymerization corrosion " +
+    "pipelining paging segmentation virtualization normalization recursion hashing sorting searching " +
+    "inheritance polymorphism encapsulation abstraction compilers interpreters assemblers loaders " +
+    "transformers rectifiers inverters choppers converters amplifiers oscillators filters modulation " +
+    "demodulation multiplexing sampling quantization convolution correlation entropy " +
+    "matrices determinants eigenvalues vectors integration differentiation interpolation regression " +
+    "probability statistics laplace fourier calculus trigonometry " +
+    "surveying levelling triangulation photogrammetry concrete masonry formwork prestressing " +
+    "lubrication welding casting forging machining brazing soldering"
+  ).split(" "),
+);
+
+const PIECE_STOP = new Set(
+  "a an and the of in on to for with by using its their is are as at from into via etc or its".split(
+    " ",
+  ),
+);
+
+/** A piece of a split topic that means something on its own (2+ words, or a known term). */
+export function standsAlone(piece: string): boolean {
+  const words = piece
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, " ")
+    .split(/[\s-]+/)
+    .filter((w) => w.length > 1 && !PIECE_STOP.has(w));
+  if (words.length >= 2) return true;
+  if (words.length === 0) return false;
+  const [w] = words;
+  if (TECH_TERMS.has(w) || ACRONYMS.has(w)) return true;
+  // An acronym as printed ("FPGA", "SCADA").
+  return /^[A-Z0-9]{2,6}$/.test(piece.trim());
+}
+
+/**
+ * Join fragments back to their phrase: "physical, digital, collective" stays one topic. A piece
+ * that cannot stand alone joins the piece before it (or the next one, at the start).
+ */
+export function mergeFragments(pieces: readonly string[]): string[] {
+  const out: string[] = [];
+  let pendingStart: string[] = [];
+  for (const piece of pieces) {
+    if (standsAlone(piece)) {
+      out.push([...pendingStart, piece].join(", "));
+      pendingStart = [];
+    } else if (out.length) out[out.length - 1] = `${out[out.length - 1]}, ${piece}`;
+    else pendingStart.push(piece);
+  }
+  if (pendingStart.length) out.push(pendingStart.join(", "));
+  return out;
+}
+
 /** Topic list from a unit's body text, split the same way as student syllabus uploads. */
 function topicsOf(body: string): string[] {
   const text = body
@@ -67,7 +128,7 @@ function topicsOf(body: string): string[] {
     .trim();
   if (!text) return [];
   const draft = parseSyllabusText(text);
-  return draft
+  const pieces = draft
     .flatMap((c) => c.topics)
     .map((t) =>
       t
@@ -75,7 +136,11 @@ function topicsOf(body: string): string[] {
         .replace(/^(?:and|or)\s+/i, "") // "…types, and issues"
         .trim(),
     )
-    .filter((t) => t.length >= 3 && !/^max\b|^total\b|^<.*>$/i.test(t));
+    // Two-letter acronyms ("MR", "CT") are real items; other very short bits are noise.
+    .filter(
+      (t) => (t.length >= 3 || /^[A-Z0-9]{2}$/.test(t)) && !/^max\b|^total\b|^<.*>$/i.test(t),
+    );
+  return mergeFragments(pieces);
 }
 
 const SMALL_WORDS = new Set("a an and as at by for in of on or the to via with".split(" "));

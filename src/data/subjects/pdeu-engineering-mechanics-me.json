@@ -1,0 +1,199 @@
+{
+  "id": "pdeu-engineering-mechanics-me",
+  "name": "Engineering Mechanics",
+  "field": "Engineering Mechanics",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [3],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 3): Engineering Mechanics",
+    "note": "Units and topics copied from the course handout PDF (pages 4 of MECH/sem3/Mechanical_Semester_3_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME202T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s3-engineering-mechanics",
+      "code": "24ME202T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 3,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "free-body-diagrams-equilibrium-and-truss",
+      "name": "Free Body Diagrams, Equilibrium and Truss",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "principles-of-statics-coplanar",
+          "name": "Principles of statics, coplanar"
+        },
+        {
+          "id": "concurrent-and-non-concurrent",
+          "name": "concurrent and non-concurrent",
+          "requires": ["principles-of-statics-coplanar"]
+        },
+        {
+          "id": "parallel-and-non-parallel-forces",
+          "name": "parallel and non-parallel forces",
+          "requires": ["concurrent-and-non-concurrent"]
+        },
+        {
+          "id": "conditions-of-rigid-body-equilibrium",
+          "name": "Conditions of Rigid body Equilibrium",
+          "requires": ["parallel-and-non-parallel-forces"]
+        },
+        {
+          "id": "equations-of-equilibrium",
+          "name": "Equations of Equilibrium",
+          "requires": ["conditions-of-rigid-body-equilibrium"]
+        },
+        {
+          "id": "two-and-three-force-members",
+          "name": "Two and Three force members",
+          "requires": ["equations-of-equilibrium"]
+        },
+        {
+          "id": "equilibrium-in-three-dimensionstruss-simple-determinate-plan",
+          "name": "Equilibrium in three dimensionsTruss Simple determinate plane trusses and analysis for member forces using methods of jo",
+          "requires": ["two-and-three-force-members"]
+        },
+        {
+          "id": "types-of-beams-and-loads",
+          "name": "Types of beams and loads",
+          "requires": ["equilibrium-in-three-dimensionstruss-simple-determinate-plan"]
+        },
+        {
+          "id": "basics-of-shear-force-diagram-sfd-and-bending-moment-diagram",
+          "name": "Basics of Shear Force Diagram (SFD) and Bending Moment Diagram (BMD)",
+          "requires": ["types-of-beams-and-loads"]
+        }
+      ]
+    },
+    {
+      "id": "distributed-forces-center-of-gravity-and-moment-of-inertia",
+      "name": "Distributed Forces, Center of Gravity and Moment of Inertia",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "center-of-gravity-of-lines",
+          "name": "Center of gravity of lines"
+        },
+        {
+          "id": "plane-areas",
+          "name": "plane areas",
+          "requires": ["center-of-gravity-of-lines"]
+        },
+        {
+          "id": "volumes-and-bodies-pappus",
+          "name": "volumes and bodies, Pappus",
+          "requires": ["plane-areas"]
+        },
+        {
+          "id": "guldinus-theorems",
+          "name": "Guldinus theorems",
+          "requires": ["volumes-and-bodies-pappus"]
+        },
+        {
+          "id": "moment-of-inertia",
+          "name": "moment of inertia",
+          "requires": ["guldinus-theorems"]
+        },
+        {
+          "id": "polar-moment-of-inertia-and-radius-of-gyration-of-areas",
+          "name": "polar moment of inertia & radius of gyration of areas",
+          "requires": ["moment-of-inertia"]
+        },
+        {
+          "id": "parallel-and-perpendicular-axes-theorems",
+          "name": "parallel & perpendicular axes theorems",
+          "requires": ["polar-moment-of-inertia-and-radius-of-gyration-of-areas"]
+        }
+      ]
+    },
+    {
+      "id": "friction-and-virtual-work",
+      "name": "Friction and Virtual Work",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "theory-of-friction",
+          "name": "Theory of friction"
+        },
+        {
+          "id": "static-and-sliding-friction",
+          "name": "static and sliding friction",
+          "requires": ["theory-of-friction"]
+        },
+        {
+          "id": "friction-and-its-applications-including-rolling-friction",
+          "name": "friction and its applications including rolling friction",
+          "requires": ["static-and-sliding-friction"]
+        },
+        {
+          "id": "belt-pulley-brakes-clutches",
+          "name": "belt-pulley, brakes, clutches",
+          "requires": ["friction-and-its-applications-including-rolling-friction"]
+        },
+        {
+          "id": "screw-jack-wedge-vehicles",
+          "name": "screw jack, wedge, vehicles",
+          "requires": ["belt-pulley-brakes-clutches"]
+        },
+        {
+          "id": "principle-of-virtual-work-for-a-particle-and-rigid-body-and",
+          "name": "Principle of Virtual work for a particle and rigid body & System of a connected rigid bodies",
+          "requires": ["screw-jack-wedge-vehicles"]
+        },
+        {
+          "id": "conservative-forces",
+          "name": "Conservative Forces",
+          "requires": ["principle-of-virtual-work-for-a-particle-and-rigid-body-and"]
+        },
+        {
+          "id": "potential-energy",
+          "name": "Potential Energy",
+          "requires": ["conservative-forces"]
+        },
+        {
+          "id": "potential-energy-criterion-for-equilibrium",
+          "name": "potential Energy criterion for equilibrium",
+          "requires": ["potential-energy"]
+        },
+        {
+          "id": "stability-of-equilibrium",
+          "name": "Stability of Equilibrium",
+          "requires": ["potential-energy-criterion-for-equilibrium"]
+        }
+      ]
+    },
+    {
+      "id": "kinetics-of-a-rigid-body",
+      "name": "Kinetics of a Rigid Body",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "kinematics-and-dynamics-of-rigid-bodies-in-plane-motion",
+          "name": "Kinematics and dynamics of rigid bodies in plane motion"
+        },
+        {
+          "id": "impulse-and-momentum-linear-and-angular-and-energy-formulati",
+          "name": "impulse and momentum (linear and angular) and energy formulations",
+          "requires": ["kinematics-and-dynamics-of-rigid-bodies-in-plane-motion"]
+        }
+      ]
+    }
+  ]
+}

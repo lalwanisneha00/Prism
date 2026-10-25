@@ -51,19 +51,14 @@
           "requires": ["selection-of-heat-exchanger"]
         },
         {
-          "id": "multi-pass-and-cross-flow-heat-exchanger",
-          "name": "multi-pass and cross flow heat exchanger",
+          "id": "multi-pass-and-cross-flow-heat-exchanger-fouling",
+          "name": "multi-pass and cross flow heat exchanger, fouling",
           "requires": ["review-of-lmtd-and-e-ntu-method"]
-        },
-        {
-          "id": "fouling",
-          "name": "fouling",
-          "requires": ["multi-pass-and-cross-flow-heat-exchanger"]
         },
         {
           "id": "cleanliness-factor",
           "name": "cleanliness factor",
-          "requires": ["fouling"]
+          "requires": ["multi-pass-and-cross-flow-heat-exchanger-fouling"]
         },
         {
           "id": "over-surface-design",
@@ -71,19 +66,14 @@
           "requires": ["cleanliness-factor"]
         },
         {
-          "id": "techniques-to-control-fouling",
-          "name": "techniques to control fouling",
+          "id": "techniques-to-control-fouling-additives",
+          "name": "techniques to control fouling, additives",
           "requires": ["over-surface-design"]
-        },
-        {
-          "id": "additives",
-          "name": "additives",
-          "requires": ["techniques-to-control-fouling"]
         },
         {
           "id": "rating-and-sizing-problems",
           "name": "rating and sizing problems",
-          "requires": ["additives"]
+          "requires": ["techniques-to-control-fouling-additives"]
         },
         {
           "id": "enhancement-of-heat-transfer",
@@ -99,6 +89,26 @@
           "id": "real-world-case-studies",
           "name": "Real-world case studies",
           "requires": ["performance-evaluation-of-heat-transfer-enhancement-techniqu"]
+        },
+        {
+          "id": "multi-pass-and-cross-flow-heat-exchanger",
+          "name": "multi-pass and cross flow heat exchanger",
+          "status": "retired"
+        },
+        {
+          "id": "fouling",
+          "name": "fouling",
+          "status": "retired"
+        },
+        {
+          "id": "techniques-to-control-fouling",
+          "name": "techniques to control fouling",
+          "status": "retired"
+        },
+        {
+          "id": "additives",
+          "name": "additives",
+          "status": "retired"
         }
       ]
     },
@@ -189,23 +199,23 @@
         },
         {
           "id": "selection-of-materials-and-innovative-designs-suitable-for-h",
-          "name": "Selection of materials and innovative designs suitable for highefficiency applications in aerospace",
+          "name": "Selection of materials and innovative designs suitable for highefficiency applications in aerospace, automotive",
           "requires": ["design-of-double-pipe-heat-exchangers"]
-        },
-        {
-          "id": "automotive",
-          "name": "automotive",
-          "requires": ["selection-of-materials-and-innovative-designs-suitable-for-h"]
         },
         {
           "id": "renewable-energy-sectors",
           "name": "renewable energy sectors",
-          "requires": ["automotive"]
+          "requires": ["selection-of-materials-and-innovative-designs-suitable-for-h"]
         },
         {
           "id": "incorporating-computational-tools-for-design-and-analysis",
           "name": "incorporating computational tools for design and analysis",
           "requires": ["renewable-energy-sectors"]
+        },
+        {
+          "id": "automotive",
+          "name": "automotive",
+          "status": "retired"
         }
       ]
     },
@@ -234,24 +244,14 @@
           "requires": ["balance-and-symmetric-regenerator-design"]
         },
         {
-          "id": "influence-of-matrix-material",
-          "name": "Influence of Matrix Material",
+          "id": "influence-of-matrix-material-size-arrangement",
+          "name": "Influence of Matrix Material, Size, Arrangement",
           "requires": ["unbalanced-and-unsymmetrical-regenerator-design"]
-        },
-        {
-          "id": "size",
-          "name": "Size",
-          "requires": ["influence-of-matrix-material"]
-        },
-        {
-          "id": "arrangement",
-          "name": "Arrangement",
-          "requires": ["size"]
         },
         {
           "id": "influence-of-longitudinal-and-transverse-heat-conduction",
           "name": "Influence of longitudinal and transverse heat conduction",
-          "requires": ["arrangement"]
+          "requires": ["influence-of-matrix-material-size-arrangement"]
         },
         {
           "id": "applicability-of-phase-change-materials-pcms-and-additive-ma",
@@ -262,6 +262,21 @@
           "id": "focusing-on-energy-efficiency-and-innovation",
           "name": "focusing on energy efficiency and innovation",
           "requires": ["applicability-of-phase-change-materials-pcms-and-additive-ma"]
+        },
+        {
+          "id": "influence-of-matrix-material",
+          "name": "Influence of Matrix Material",
+          "status": "retired"
+        },
+        {
+          "id": "size",
+          "name": "Size",
+          "status": "retired"
+        },
+        {
+          "id": "arrangement",
+          "name": "Arrangement",
+          "status": "retired"
         }
       ]
     }

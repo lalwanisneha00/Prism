@@ -60,7 +60,8 @@
         {
           "id": "communication-message-passing-systems-versus-shared-memory",
           "name": "Communication- Message-passing systems versus shared memory systems –Primitives for distributed communication –Synchronous versus asynchronous executions –Design issues and challenges",
-          "requires": ["architectures"]
+          "requires": ["architectures"],
+          "status": "retired"
         },
         {
           "id": "distributed-computation-logical-clocks-scalar-time",
@@ -129,31 +130,25 @@
         },
         {
           "id": "election-algorithm-leader-election-in-rings-asynchronous",
-          "name": "Election Algorithm- Leader election in rings",
-          "requires": ["global-state-and-snapshot-recording-algorithms-detecting"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "asynchronous-leader-election-with-identities",
-          "name": "Asynchronous leader election with identities",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["election-algorithm-leader-election-in-rings-asynchronous"]
-        },
-        {
-          "id": "synchronous-leader-election-by-abusing-the-synchronous-model",
-          "name": "Synchronous leader election by abusing the synchronous model",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["asynchronous-leader-election-with-identities"]
+          "name": "Election Algorithm- Leader election in rings, Asynchronous leader election with identities, Synchronous leader election by abusing the synchronous model, Message Ordering and Group Communication- Term",
+          "requires": ["global-state-and-snapshot-recording-algorithms-detecting"]
         },
         {
           "id": "message-ordering-and-group-communication-termination-detecti",
           "name": "Message Ordering and Group Communication- Termination Detection Algorithms and Reasoning with Knowledge",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["synchronous-leader-election-by-abusing-the-synchronous-model"]
+          "requires": ["election-algorithm-leader-election-in-rings-asynchronous"]
+        },
+        {
+          "id": "asynchronous-leader-election-with-identities",
+          "name": "Asynchronous leader election with identities",
+          "status": "retired"
+        },
+        {
+          "id": "synchronous-leader-election-by-abusing-the-synchronous-model",
+          "name": "Synchronous leader election by abusing the synchronous model",
+          "status": "retired"
         }
       ]
     },
@@ -183,25 +178,16 @@
           "requires": ["ricart-agrawala-algorithm"]
         },
         {
-          "id": "distributed-deadlock-detection-algorithm",
-          "name": "Distributed Deadlock Detection Algorithm",
+          "id": "distributed-deadlock-detection-algorithm-distributeds",
+          "name": "Distributed Deadlock Detection Algorithm, Distributeds",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["hr-and-deadlock-detection-algorithms"]
         },
         {
           "id": "shared-memory-memory-consistency-models-shared-memory-mutual",
-          "name": "Shared Memory- Memory Consistency Models",
-          "requires": ["distributed-mutual-exclusion-algorithms-lamports-algorithm"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "shared-memory-mutual-exclusion",
-          "name": "Shared Memory Mutual Exclusion",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["shared-memory-memory-consistency-models-shared-memory-mutual"]
+          "name": "Shared Memory- Memory Consistency Models, Shared Memory Mutual Exclusion, Wait- Freedom Algorithm",
+          "requires": ["distributed-mutual-exclusion-algorithms-lamports-algorithm"]
         },
         {
           "id": "byzantine-fault-tolerance-checkpointing-and-rollback",
@@ -232,18 +218,11 @@
           "requires": ["consensus-and-agreement-agreement-in-a-failure-free-system"]
         },
         {
-          "id": "distributeds",
-          "name": "Distributeds",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["agreement-in-asynchronous-message-passing-systems-with-failu"]
-        },
-        {
           "id": "waitfreedom-algorithm",
           "name": "WaitFreedom Algorithm",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["distributeds"]
+          "requires": ["agreement-in-asynchronous-message-passing-systems-with-failu"]
         },
         {
           "id": "agreement-in-messagepassing-synchronous-systems-with-failure",
@@ -258,6 +237,21 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["agreement-in-messagepassing-synchronous-systems-with-failure"]
+        },
+        {
+          "id": "distributed-deadlock-detection-algorithm",
+          "name": "Distributed Deadlock Detection Algorithm",
+          "status": "retired"
+        },
+        {
+          "id": "shared-memory-mutual-exclusion",
+          "name": "Shared Memory Mutual Exclusion",
+          "status": "retired"
+        },
+        {
+          "id": "distributeds",
+          "name": "Distributeds",
+          "status": "retired"
         }
       ]
     },
@@ -268,16 +262,7 @@
       "topics": [
         {
           "id": "distributed-file-servers-gfs-mapreduce",
-          "name": "Distributed file servers- GFS",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "mapreduce",
-          "name": "MapReduce",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["distributed-file-servers-gfs-mapreduce"]
+          "name": "Distributed file servers- GFS, MapReduce"
         },
         {
           "id": "selected-case-studies-pnuts-paxos-spark-cryptocurrencies",
@@ -294,18 +279,11 @@
           "requires": ["selected-case-studies-pnuts-paxos-spark-cryptocurrencies"]
         },
         {
-          "id": "spark",
-          "name": "SPARK",
+          "id": "spark-cryptocurrencies",
+          "name": "SPARK, Cryptocurrencies",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["paxos"]
-        },
-        {
-          "id": "cryptocurrencies",
-          "name": "Cryptocurrencies",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["spark"]
         },
         {
           "id": "advanced-topics-ml-in-distributed-systems-tensorflow",
@@ -320,9 +298,25 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["advanced-topics-ml-in-distributed-systems-tensorflow"]
+        },
+        {
+          "id": "mapreduce",
+          "name": "MapReduce",
+          "status": "retired"
+        },
+        {
+          "id": "spark",
+          "name": "SPARK",
+          "status": "retired"
+        },
+        {
+          "id": "cryptocurrencies",
+          "name": "Cryptocurrencies",
+          "status": "retired"
         }
       ]
     }
   ],
-  "courseType": "theory"
+  "courseType": "theory",
+  "relatedCourses": ["pdeu-distributed-computing-laboratory-ce"]
 }

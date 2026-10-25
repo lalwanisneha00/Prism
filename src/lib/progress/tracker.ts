@@ -1,5 +1,6 @@
 import type { TopicStatus } from "@/lib/conceptMap";
 import type { Subject } from "@/lib/subjects";
+import { activeChapters } from "@/lib/syllabusFix/active";
 
 /*
  * The progress tracker (SPEC §8, V2 · Step 13): a study streak and how far each chapter has
@@ -50,7 +51,7 @@ export function chapterProgress(
   subject: Subject,
   statuses: Map<string, TopicStatus>,
 ): ChapterProgress[] {
-  return subject.chapters.map((c) => {
+  return activeChapters(subject).map((c) => {
     const s = c.topics.map((t) => statuses.get(t.id) ?? "new");
     return {
       id: c.id,

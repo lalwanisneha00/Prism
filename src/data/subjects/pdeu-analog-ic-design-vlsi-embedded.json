@@ -57,25 +57,18 @@
           "requires": ["mosfet-circuits-configurations-common-source"]
         },
         {
-          "id": "common-gate",
-          "name": "Common- Gate",
+          "id": "common-gate-cascode",
+          "name": "Common- Gate, Cascode",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["source-follower"]
-        },
-        {
-          "id": "cascode",
-          "name": "Cascode",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["common-gate"]
         },
         {
           "id": "basic-differential-pair",
           "name": "Basic Differential Pair",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["cascode"]
+          "requires": ["common-gate-cascode"]
         },
         {
           "id": "current-mirror",
@@ -125,6 +118,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["source-follower-biasing"]
+        },
+        {
+          "id": "common-gate",
+          "name": "Common- Gate",
+          "status": "retired"
+        },
+        {
+          "id": "cascode",
+          "name": "Cascode",
+          "status": "retired"
         }
       ]
     },

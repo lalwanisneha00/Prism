@@ -197,8 +197,8 @@
           "requires": ["cpl-transmission-gates-dpl-etc"]
         },
         {
-          "id": "dpl",
-          "name": "DPL",
+          "id": "dpl-etc",
+          "name": "DPL, etc)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["transmission-gates"]
@@ -221,18 +221,11 @@
           "confidence": "verified"
         },
         {
-          "id": "np-domino",
-          "name": "NP domino",
+          "id": "np-domino-zipper",
+          "name": "NP domino, Zipper)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["dynamic-logic-domino-np-domino-zipper"]
-        },
-        {
-          "id": "zipper",
-          "name": "Zipper)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["np-domino"]
         },
         {
           "id": "hybrid-logic-style-and-examples-full-adder-mux-xor-pitfalls",
@@ -242,25 +235,18 @@
           "confidence": "verified"
         },
         {
-          "id": "mux",
-          "name": "MUX",
+          "id": "mux-xor",
+          "name": "MUX, XOR)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["hybrid-logic-style-and-examples-full-adder-mux-xor-pitfalls"]
-        },
-        {
-          "id": "xor",
-          "name": "XOR)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["mux"]
         },
         {
           "id": "pitfalls-of-various-families",
           "name": "Pitfalls of various families",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["xor"]
+          "requires": ["mux-xor"]
         },
         {
           "id": "stick-diagram",
@@ -305,11 +291,34 @@
           "requires": ["clock-skew"]
         },
         {
+          "id": "dpl",
+          "name": "DPL",
+          "status": "retired"
+        },
+        {
+          "id": "np-domino",
+          "name": "NP domino",
+          "status": "retired"
+        },
+        {
+          "id": "zipper",
+          "name": "Zipper)",
+          "status": "retired"
+        },
+        {
+          "id": "mux",
+          "name": "MUX",
+          "status": "retired"
+        },
+        {
+          "id": "xor",
+          "name": "XOR)",
+          "status": "retired"
+        },
+        {
           "id": "etc",
           "name": "etc)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["circuit-design-of-latches-and-flip-flops"]
+          "status": "retired"
         }
       ]
     },
@@ -346,32 +355,18 @@
           "requires": ["manchester-carry-chain-adder"]
         },
         {
-          "id": "carry-select-adder",
-          "name": "carry select adder",
+          "id": "carry-select-adder-shifters-multipliers",
+          "name": "carry select adder, shifters, multipliers",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["carry-skip-adder"]
-        },
-        {
-          "id": "shifters",
-          "name": "shifters",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["carry-select-adder"]
-        },
-        {
-          "id": "multipliers",
-          "name": "multipliers",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["shifters"]
         },
         {
           "id": "sram",
           "name": "SRAM",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["multipliers"]
+          "requires": ["carry-select-adder-shifters-multipliers"]
         },
         {
           "id": "dram",
@@ -397,6 +392,21 @@
           "id": "the-credits-shown-here-follow-the-official-course-structure",
           "name": "the credits shown here follow the official course structure table",
           "requires": ["note-the-detailed-syllabus-page-for-this-course-prints-l-t-p"],
+          "status": "retired"
+        },
+        {
+          "id": "carry-select-adder",
+          "name": "carry select adder",
+          "status": "retired"
+        },
+        {
+          "id": "shifters",
+          "name": "shifters",
+          "status": "retired"
+        },
+        {
+          "id": "multipliers",
+          "name": "multipliers",
           "status": "retired"
         }
       ]

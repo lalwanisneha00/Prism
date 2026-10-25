@@ -83,24 +83,8 @@
         },
         {
           "id": "quality-ethical-and-legal-implication-of-diagnostics",
-          "name": "Quality",
-          "requires": ["host-parasite-relationships"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "ethical",
-          "name": "Ethical",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["quality-ethical-and-legal-implication-of-diagnostics"]
-        },
-        {
-          "id": "legal-implication-of-diagnostics",
-          "name": "legal implication of diagnostics",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ethical"]
+          "name": "Quality, Ethical, and legal implication of diagnostics",
+          "requires": ["host-parasite-relationships"]
         },
         {
           "id": "international-standards",
@@ -116,6 +100,16 @@
           "id": "fda-regulation-of-molecular-diagnostics",
           "name": "FDA regulation of molecular diagnostics",
           "requires": ["nabh-standards"]
+        },
+        {
+          "id": "ethical",
+          "name": "Ethical",
+          "status": "retired"
+        },
+        {
+          "id": "legal-implication-of-diagnostics",
+          "name": "legal implication of diagnostics",
+          "status": "retired"
         }
       ]
     },
@@ -172,16 +166,7 @@
       "topics": [
         {
           "id": "diagnosis-of-dna-and-rna-viruses-pox-viruses",
-          "name": "Diagnosis of DNA and RNA viruses",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "pox-viruses",
-          "name": "Pox viruses",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["diagnosis-of-dna-and-rna-viruses-pox-viruses"]
+          "name": "Diagnosis of DNA and RNA viruses. Pox viruses"
         },
         {
           "id": "adenoviruses",
@@ -195,17 +180,8 @@
         },
         {
           "id": "hepatitis-viruses-and-retroviruses-diagnosis-of-protozoan",
-          "name": "Hepatitis Viruses and Retroviruses",
-          "requires": ["rhabdo-viruses"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "diagnosis-of-protozoan-diseases-amoebiosis",
-          "name": "Diagnosis of Protozoan diseases: Amoebiosis",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["hepatitis-viruses-and-retroviruses-diagnosis-of-protozoan"]
+          "name": "Hepatitis Viruses and Retroviruses. Diagnosis of Protozoan diseases: Amoebiosis",
+          "requires": ["rhabdo-viruses"]
         },
         {
           "id": "malaria",
@@ -231,6 +207,16 @@
           "id": "filariasis-and-schistosomiasis",
           "name": "Filariasis and Schistosomiasis",
           "requires": ["diagnosis-of-helminthic-diseases-fasciola-hepatica-and"]
+        },
+        {
+          "id": "pox-viruses",
+          "name": "Pox viruses",
+          "status": "retired"
+        },
+        {
+          "id": "diagnosis-of-protozoan-diseases-amoebiosis",
+          "name": "Diagnosis of Protozoan diseases: Amoebiosis",
+          "status": "retired"
         }
       ]
     },
@@ -276,24 +262,17 @@
         },
         {
           "id": "g-banding-in-situ-hybridization-fish-and-on-fish-and",
-          "name": "G-banding",
+          "name": "in situ hybridization (FISH and on-FISH)",
           "requires": ["karyotype-analysis"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "in-situ-hybridization-fish-and-on-fish",
-          "name": "in situ hybridization (FISH and on-FISH)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["g-banding-in-situ-hybridization-fish-and-on-fish-and"]
         },
         {
           "id": "comparative-genomic-hybridization-cgh",
           "name": "comparative genomic hybridization (CGH)",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["in-situ-hybridization-fish-and-on-fish"]
+          "requires": ["g-banding-in-situ-hybridization-fish-and-on-fish-and"]
         },
         {
           "id": "cancer-cytogenetics-spectral-karyotyping-genes-in-pedigree",
@@ -304,6 +283,11 @@
           "id": "genetic-counselling",
           "name": "Genetic Counselling",
           "requires": ["cancer-cytogenetics-spectral-karyotyping-genes-in-pedigree"]
+        },
+        {
+          "id": "in-situ-hybridization-fish-and-on-fish",
+          "name": "in situ hybridization (FISH and on-FISH)",
+          "status": "retired"
         }
       ]
     }

@@ -67,18 +67,11 @@
           "requires": ["supervised-and-unsupervised-learning"]
         },
         {
-          "id": "fault-tolerance",
-          "name": "fault tolerance",
+          "id": "fault-tolerance-generalization",
+          "name": "fault tolerance, generalization",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["characteristics-adaptability"]
-        },
-        {
-          "id": "generalization",
-          "name": "generalization",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["fault-tolerance"]
         },
         {
           "id": "simple-perceptron",
@@ -87,17 +80,8 @@
         },
         {
           "id": "perceptron-learning-algorithms",
-          "name": "Perceptron learning",
-          "requires": ["simple-perceptron"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "algorithms",
-          "name": "algorithms",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["perceptron-learning-algorithms"]
+          "name": "Perceptron learning, algorithms",
+          "requires": ["simple-perceptron"]
         },
         {
           "id": "adaline",
@@ -127,6 +111,21 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["limitations-of-neuro-computing"]
+        },
+        {
+          "id": "fault-tolerance",
+          "name": "fault tolerance",
+          "status": "retired"
+        },
+        {
+          "id": "generalization",
+          "name": "generalization",
+          "status": "retired"
+        },
+        {
+          "id": "algorithms",
+          "name": "algorithms",
+          "status": "retired"
         }
       ]
     },
@@ -142,25 +141,18 @@
           "confidence": "verified"
         },
         {
-          "id": "gradient-decent-scheme-for-error",
-          "name": "Gradient decent scheme for error",
+          "id": "gradient-decent-scheme-for-error-minimization",
+          "name": "Gradient decent scheme for error, minimization",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["multi-layer-perceptron-gradient-decent-scheme-for-error"]
-        },
-        {
-          "id": "minimization",
-          "name": "minimization",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["gradient-decent-scheme-for-error"]
         },
         {
           "id": "generalized-delta-learning-rule",
           "name": "Generalized delta learning rule",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["minimization"]
+          "requires": ["gradient-decent-scheme-for-error-minimization"]
         },
         {
           "id": "back-propagation-learning-for-multi-layer-networks",
@@ -226,25 +218,18 @@
           "requires": ["hopfield-networks-binary-hopfield-network"]
         },
         {
-          "id": "asynchronous-updating",
-          "name": "asynchronous updating",
+          "id": "asynchronous-updating-convergence",
+          "name": "asynchronous updating, convergence",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["basic-structure"]
-        },
-        {
-          "id": "convergence",
-          "name": "convergence",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["asynchronous-updating"]
         },
         {
           "id": "associative-memory",
           "name": "associative memory",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["convergence"]
+          "requires": ["asynchronous-updating-convergence"]
         },
         {
           "id": "continuous-valued-hopfield-network",
@@ -320,6 +305,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["multi-layer-perceptron-s-for-multi-dimensional-functional-ma"]
+        },
+        {
+          "id": "gradient-decent-scheme-for-error",
+          "name": "Gradient decent scheme for error",
+          "status": "retired"
+        },
+        {
+          "id": "minimization",
+          "name": "minimization",
+          "status": "retired"
+        },
+        {
+          "id": "asynchronous-updating",
+          "name": "asynchronous updating",
+          "status": "retired"
+        },
+        {
+          "id": "convergence",
+          "name": "convergence",
+          "status": "retired"
         }
       ]
     },
@@ -334,24 +339,17 @@
         },
         {
           "id": "svm",
-          "name": "ART-1 architecture and algorithm",
+          "name": "ART-1 architecture and algorithm, search",
           "requires": ["art-and-stability-plasticity-dilemma"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "search",
-          "name": "search",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["svm"]
         },
         {
           "id": "comparison-and-recognition-phases",
           "name": "comparison and recognition phases",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["search"]
+          "requires": ["svm"]
         },
         {
           "id": "effect-of-vigilance",
@@ -429,6 +427,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["different-kernels-for-hidden-layer"]
+        },
+        {
+          "id": "search",
+          "name": "search",
+          "status": "retired"
         }
       ]
     },
@@ -439,16 +442,7 @@
       "topics": [
         {
           "id": "different-faces-of-imprecision-inexactness",
-          "name": "Different faces of imprecision",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "inexactness",
-          "name": "inexactness",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["different-faces-of-imprecision-inexactness"]
+          "name": "Different faces of imprecision - inexactness"
         },
         {
           "id": "ambiguity",
@@ -529,6 +523,11 @@
           "id": "hybrid-algorithms",
           "name": "hybrid algorithms",
           "requires": ["operations"]
+        },
+        {
+          "id": "inexactness",
+          "name": "inexactness",
+          "status": "retired"
         }
       ]
     }

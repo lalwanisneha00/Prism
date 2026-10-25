@@ -63,38 +63,13 @@
         },
         {
           "id": "microcontroller-for-embedded-systems-microcontroller",
-          "name": "Microcontroller for Embedded Systems: microcontroller architecture",
-          "requires": ["classification-of-embedded-systems"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "pin-diagram-and-basic-connections",
-          "name": "pin diagram and basic connections",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["microcontroller-for-embedded-systems-microcontroller"]
+          "name": "Microcontroller for Embedded Systems: microcontroller architecture, pin diagram and basic connections",
+          "requires": ["classification-of-embedded-systems"]
         },
         {
           "id": "clock-reset-brown-out-etc",
-          "name": "clock",
-          "requires": ["microcontroller-for-embedded-systems-microcontroller"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "reset",
-          "name": "reset",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["clock-reset-brown-out-etc"]
-        },
-        {
-          "id": "brown-out",
-          "name": "brown-out",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["reset"]
+          "name": "clock, reset, brown-out, etc",
+          "requires": ["microcontroller-for-embedded-systems-microcontroller"]
         },
         {
           "id": "general-register-set",
@@ -117,11 +92,31 @@
           "requires": ["on-chip-memories"]
         },
         {
-          "id": "etc",
-          "name": "etc",
+          "id": "pin-diagram-and-basic-connections-clock-reset",
+          "name": "pin diagram and basic connections, clock, reset",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["general-purpose-inputs-and-outputs-gpios"]
+        },
+        {
+          "id": "pin-diagram-and-basic-connections",
+          "name": "pin diagram and basic connections",
+          "status": "retired"
+        },
+        {
+          "id": "reset",
+          "name": "reset",
+          "status": "retired"
+        },
+        {
+          "id": "brown-out",
+          "name": "brown-out",
+          "status": "retired"
+        },
+        {
+          "id": "etc",
+          "name": "etc",
+          "status": "retired"
         }
       ]
     },
@@ -132,23 +127,16 @@
       "topics": [
         {
           "id": "assembly-programming",
-          "name": "Instruction Set and Assembly language programming: Data transfer",
+          "name": "Instruction Set and Assembly language programming: Data transfer, arithmetic",
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "arithmetic",
-          "name": "arithmetic",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["assembly-programming"]
         },
         {
           "id": "logic-and-branch-instructions",
           "name": "logic and branch instructions",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["arithmetic"]
+          "requires": ["assembly-programming"]
         },
         {
           "id": "addressing-modes",
@@ -166,31 +154,8 @@
         },
         {
           "id": "basic-programming-concepts-looping-branching-memory-access",
-          "name": "Basic programming concepts: Looping",
-          "requires": ["assembly-programming"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "branching",
-          "name": "branching",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["basic-programming-concepts-looping-branching-memory-access"]
-        },
-        {
-          "id": "memory-access",
-          "name": "memory-access",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["branching"]
-        },
-        {
-          "id": "time-delays",
-          "name": "time-delays",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["memory-access"]
+          "name": "Basic programming concepts: Looping, branching, memory-access, time-delays, using assembly instructions",
+          "requires": ["assembly-programming"]
         },
         {
           "id": "stack-and-related-operations",
@@ -201,6 +166,26 @@
           "id": "subroutines-and-interrupts",
           "name": "Subroutines and interrupts",
           "requires": ["stack-and-related-operations"]
+        },
+        {
+          "id": "arithmetic",
+          "name": "arithmetic",
+          "status": "retired"
+        },
+        {
+          "id": "branching",
+          "name": "branching",
+          "status": "retired"
+        },
+        {
+          "id": "memory-access",
+          "name": "memory-access",
+          "status": "retired"
+        },
+        {
+          "id": "time-delays",
+          "name": "time-delays",
+          "status": "retired"
         }
       ]
     },
@@ -382,9 +367,7 @@
         {
           "id": "16xcd",
           "name": "16xCD",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["zigbee"]
+          "status": "retired"
         }
       ]
     }

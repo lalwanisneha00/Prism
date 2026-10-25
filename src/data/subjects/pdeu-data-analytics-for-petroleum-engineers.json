@@ -59,29 +59,27 @@
         },
         {
           "id": "exploratory-data-analysis-univariate-bivariate-and",
-          "name": "Exploratory Data Analysis: Univariate",
+          "name": "Exploratory Data Analysis: Univariate, Bivariate",
           "requires": ["probability-and-statistics"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "bivariate",
-          "name": "Bivariate",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["exploratory-data-analysis-univariate-bivariate-and"]
         },
         {
           "id": "multivariate-analysis",
           "name": "Multivariate analysis",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["bivariate"]
+          "requires": ["exploratory-data-analysis-univariate-bivariate-and"]
         },
         {
           "id": "parametric-distribution-models",
           "name": "Parametric Distribution Models",
           "requires": ["exploratory-data-analysis-univariate-bivariate-and"]
+        },
+        {
+          "id": "bivariate",
+          "name": "Bivariate",
+          "status": "retired"
         }
       ]
     },

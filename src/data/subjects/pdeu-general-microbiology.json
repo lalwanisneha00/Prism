@@ -49,38 +49,13 @@
         },
         {
           "id": "classification-of-bacteria-fungi-and-viruses",
-          "name": "Classification of Bacteria",
-          "requires": ["bergey-s-system-of-classification"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "fungi",
-          "name": "Fungi",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["classification-of-bacteria-fungi-and-viruses"]
-        },
-        {
-          "id": "viruses",
-          "name": "Viruses",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["fungi"]
+          "name": "Classification of Bacteria, Fungi, and Viruses",
+          "requires": ["bergey-s-system-of-classification"]
         },
         {
           "id": "modern-methods-to-study-microbial-diversity-ngs-miseq",
-          "name": "Modern methods to study microbial diversity: NGS",
-          "requires": ["classification-of-bacteria-fungi-and-viruses"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "miseq",
-          "name": "MiSeq",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["modern-methods-to-study-microbial-diversity-ngs-miseq"]
+          "name": "Modern methods to study microbial diversity: NGS. MiSeq",
+          "requires": ["classification-of-bacteria-fungi-and-viruses"]
         },
         {
           "id": "molecular-taxonomy-16s-rrna-gene-sequencing-phylogenetic",
@@ -109,25 +84,41 @@
           "confidence": "verified"
         },
         {
-          "id": "sscp",
-          "name": "SSCP",
+          "id": "sscp-t-rflp",
+          "name": "SSCP, T-RFLP",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["methods-to-study-microbial-community-dgge-sscp-t-rflp"]
         },
         {
+          "id": "fungi",
+          "name": "Fungi",
+          "status": "retired"
+        },
+        {
+          "id": "viruses",
+          "name": "Viruses",
+          "status": "retired"
+        },
+        {
+          "id": "miseq",
+          "name": "MiSeq",
+          "status": "retired"
+        },
+        {
+          "id": "sscp",
+          "name": "SSCP",
+          "status": "retired"
+        },
+        {
           "id": "t-rflp",
           "name": "T-RFLP",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["sscp"]
+          "status": "retired"
         },
         {
           "id": "its",
           "name": "ITS",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["t-rflp"]
+          "status": "retired"
         }
       ]
     },
@@ -147,17 +138,8 @@
         },
         {
           "id": "acid-base-chemistry-and-stereochemistry-of-amino-acids",
-          "name": "acid–base chemistry and stereochemistry of amino acids",
-          "requires": ["structure-and-biological-importance-of-amino-acids"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "proteins-primary",
-          "name": "Proteins: Primary",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["acid-base-chemistry-and-stereochemistry-of-amino-acids"]
+          "name": "acid–base chemistry and stereochemistry of amino acids. Proteins: Primary",
+          "requires": ["structure-and-biological-importance-of-amino-acids"]
         },
         {
           "id": "secondary",
@@ -183,6 +165,11 @@
           "id": "enzyme-and-its-classification",
           "name": "Enzyme and its classification",
           "requires": ["protein-denaturation-and-renaturation"]
+        },
+        {
+          "id": "proteins-primary",
+          "name": "Proteins: Primary",
+          "status": "retired"
         }
       ]
     },
@@ -193,58 +180,21 @@
       "topics": [
         {
           "id": "microbial-cell-ultrastructure-of-bacteria-subcellular",
-          "name": "Microbial cell: Ultrastructure of bacteria",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "subcellular-structures-and-cell-envelope",
-          "name": "subcellular structures and cell envelope",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["microbial-cell-ultrastructure-of-bacteria-subcellular"]
+          "name": "Microbial cell: Ultrastructure of bacteria, subcellular structures and cell envelope"
         },
         {
           "id": "slime-capsule-cell-wall-pili-flagella-cell-inclusions",
-          "name": "slime",
+          "name": "cell wall, pili, flagella",
           "requires": ["microbial-cell-ultrastructure-of-bacteria-subcellular"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "capsule",
-          "name": "capsule",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["slime-capsule-cell-wall-pili-flagella-cell-inclusions"]
-        },
-        {
-          "id": "cell-wall",
-          "name": "cell wall",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["capsule"]
-        },
-        {
-          "id": "pili",
-          "name": "pili",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cell-wall"]
-        },
-        {
-          "id": "flagella",
-          "name": "flagella",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pili"]
         },
         {
           "id": "cell-inclusions",
           "name": "cell inclusions",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["flagella"]
+          "requires": ["slime-capsule-cell-wall-pili-flagella-cell-inclusions"]
         },
         {
           "id": "biosynthesis-of-bacterial-cell-wall",
@@ -262,17 +212,8 @@
         },
         {
           "id": "bio-membrane-liposomes",
-          "name": "Bio-membrane",
-          "requires": ["slime-capsule-cell-wall-pili-flagella-cell-inclusions"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "liposomes",
-          "name": "liposomes",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bio-membrane-liposomes"]
+          "name": "Bio-membrane, liposomes",
+          "requires": ["slime-capsule-cell-wall-pili-flagella-cell-inclusions"]
         },
         {
           "id": "membrane-transport",
@@ -281,17 +222,50 @@
         },
         {
           "id": "diffusion-active-and-passive-transport-and-osmoregulation",
-          "name": "diffusion",
-          "requires": ["membrane-transport"],
+          "name": "diffusion, active and passive transport and osmoregulation",
+          "requires": ["membrane-transport"]
+        },
+        {
+          "id": "subcellular-structures-and-cell-envelope-slime-capsule",
+          "name": "subcellular structures and cell envelope, slime, capsule",
           "source": "admin_handout",
-          "confidence": "verified"
+          "confidence": "verified",
+          "requires": ["diffusion-active-and-passive-transport-and-osmoregulation"]
+        },
+        {
+          "id": "subcellular-structures-and-cell-envelope",
+          "name": "subcellular structures and cell envelope",
+          "status": "retired"
+        },
+        {
+          "id": "capsule",
+          "name": "capsule",
+          "status": "retired"
+        },
+        {
+          "id": "cell-wall",
+          "name": "cell wall",
+          "status": "retired"
+        },
+        {
+          "id": "pili",
+          "name": "pili",
+          "status": "retired"
+        },
+        {
+          "id": "flagella",
+          "name": "flagella",
+          "status": "retired"
+        },
+        {
+          "id": "liposomes",
+          "name": "liposomes",
+          "status": "retired"
         },
         {
           "id": "active-and-passive-transport-and-osmoregulation",
           "name": "active and passive transport and osmoregulation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["diffusion-active-and-passive-transport-and-osmoregulation"]
+          "status": "retired"
         }
       ]
     },
@@ -331,38 +305,17 @@
         },
         {
           "id": "types-of-media-semi-synthetic-synthetic-enriched-enrichment",
-          "name": "Types of media- Semi synthetic",
+          "name": "Types of media- Semi synthetic, Synthetic, Enriched, Enrichment",
           "requires": ["solid-and-liquid"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "synthetic",
-          "name": "Synthetic",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["types-of-media-semi-synthetic-synthetic-enriched-enrichment"]
-        },
-        {
-          "id": "enriched",
-          "name": "Enriched",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["synthetic"]
-        },
-        {
-          "id": "enrichment",
-          "name": "Enrichment",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["enriched"]
         },
         {
           "id": "selective-and-differential-media",
           "name": "Selective and Differential media",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["enrichment"]
+          "requires": ["types-of-media-semi-synthetic-synthetic-enriched-enrichment"]
         },
         {
           "id": "pure-culture-techniques",
@@ -371,31 +324,17 @@
         },
         {
           "id": "tube-dilution-pour-spread-streak-plate",
-          "name": "Tube dilution",
+          "name": "Tube dilution, Pour, Spread",
           "requires": ["pure-culture-techniques"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "pour",
-          "name": "Pour",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["tube-dilution-pour-spread-streak-plate"]
-        },
-        {
-          "id": "spread",
-          "name": "Spread",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["pour"]
         },
         {
           "id": "streak-plate",
           "name": "Streak plate",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["spread"]
+          "requires": ["tube-dilution-pour-spread-streak-plate"]
         },
         {
           "id": "anaerobic-culture-technique-wrights-tube-roll-tube-method",
@@ -417,6 +356,31 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["roll-tube-method"]
+        },
+        {
+          "id": "synthetic",
+          "name": "Synthetic",
+          "status": "retired"
+        },
+        {
+          "id": "enriched",
+          "name": "Enriched",
+          "status": "retired"
+        },
+        {
+          "id": "enrichment",
+          "name": "Enrichment",
+          "status": "retired"
+        },
+        {
+          "id": "pour",
+          "name": "Pour",
+          "status": "retired"
+        },
+        {
+          "id": "spread",
+          "name": "Spread",
+          "status": "retired"
         }
       ]
     }

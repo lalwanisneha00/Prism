@@ -138,29 +138,34 @@
           "requires": ["thermal-reforming"]
         },
         {
-          "id": "hydrogen-processes",
-          "name": "hydrogen processes",
+          "id": "hydrogen-processes-hydrocracking-hydrotreatment-hydrodesulph",
+          "name": "hydrogen processes, hydrocracking, hydrotreatment, hydrodesulphurization",
           "requires": ["coking-technology"]
-        },
-        {
-          "id": "hydrocracking",
-          "name": "hydrocracking",
-          "requires": ["hydrogen-processes"]
-        },
-        {
-          "id": "hydrotreatment",
-          "name": "hydrotreatment",
-          "requires": ["hydrocracking"]
-        },
-        {
-          "id": "hydrodesulphurization",
-          "name": "hydrodesulphurization",
-          "requires": ["hydrotreatment"]
         },
         {
           "id": "alkylation-and-isomerisation-processes",
           "name": "alkylation and isomerisation processes",
-          "requires": ["hydrodesulphurization"]
+          "requires": ["hydrogen-processes-hydrocracking-hydrotreatment-hydrodesulph"]
+        },
+        {
+          "id": "hydrogen-processes",
+          "name": "hydrogen processes",
+          "status": "retired"
+        },
+        {
+          "id": "hydrocracking",
+          "name": "hydrocracking",
+          "status": "retired"
+        },
+        {
+          "id": "hydrotreatment",
+          "name": "hydrotreatment",
+          "status": "retired"
+        },
+        {
+          "id": "hydrodesulphurization",
+          "name": "hydrodesulphurization",
+          "status": "retired"
         }
       ]
     },

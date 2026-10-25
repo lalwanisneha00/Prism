@@ -97,24 +97,29 @@
           "requires": ["sine-and-cosine-integrals"]
         },
         {
-          "id": "fourier-sine-and-cosine-transforms",
-          "name": "Fourier sine and cosine transforms",
+          "id": "fourier-sine-and-cosine-transforms-properties",
+          "name": "Fourier sine and cosine transforms, properties",
           "requires": ["fourier-transform"]
-        },
-        {
-          "id": "properties",
-          "name": "properties",
-          "requires": ["fourier-sine-and-cosine-transforms"]
         },
         {
           "id": "inverse-fourier-transform",
           "name": "inverse Fourier transform",
-          "requires": ["properties"]
+          "requires": ["fourier-sine-and-cosine-transforms-properties"]
         },
         {
           "id": "applications-of-the-fourier-transform-to-problems-on-one-dim",
           "name": "applications of the Fourier transform to problems on one-dimensional and two-dimensional heat flow",
           "requires": ["inverse-fourier-transform"]
+        },
+        {
+          "id": "fourier-sine-and-cosine-transforms",
+          "name": "Fourier sine and cosine transforms",
+          "status": "retired"
+        },
+        {
+          "id": "properties",
+          "name": "properties",
+          "status": "retired"
         }
       ]
     },

@@ -46,19 +46,14 @@
           "requires": ["introduction-to-microprocessors-8-bit-microprocessor-and-mic"]
         },
         {
-          "id": "16-bit-and-32-bit-microcontrollers",
-          "name": "16-bit and 32-bit microcontrollers",
+          "id": "16-bit-and-32-bit-microcontrollers-definition",
+          "name": "16-bit and 32-bit microcontrollers, Definition",
           "requires": ["comparison-of-8-bit"]
-        },
-        {
-          "id": "definition",
-          "name": "Definition",
-          "requires": ["16-bit-and-32-bit-microcontrollers"]
         },
         {
           "id": "classification-and-examples-of-embedded-systems-internal-arc",
           "name": "classification and examples of Embedded systems Internal architecture of Intel 8085 microprocessor: Block diagram",
-          "requires": ["definition"]
+          "requires": ["16-bit-and-32-bit-microcontrollers-definition"]
         },
         {
           "id": "registers",
@@ -79,6 +74,16 @@
           "id": "alu",
           "name": "ALU",
           "requires": ["functional-details-of-pins"]
+        },
+        {
+          "id": "16-bit-and-32-bit-microcontrollers",
+          "name": "16-bit and 32-bit microcontrollers",
+          "status": "retired"
+        },
+        {
+          "id": "definition",
+          "name": "Definition",
+          "status": "retired"
         }
       ]
     },
@@ -108,43 +113,53 @@
         },
         {
           "id": "assembly-language-programming-8085-instruction-set-instructi",
-          "name": "Assembly language programming: 8085 instruction set: Instructions",
+          "name": "Assembly language programming: 8085 instruction set: Instructions, Classifications",
           "requires": ["address-data-bus-multiplexing-and-demultiplexing"]
-        },
-        {
-          "id": "classifications",
-          "name": "Classifications",
-          "requires": ["assembly-language-programming-8085-instruction-set-instructi"]
         },
         {
           "id": "addressing-modes",
           "name": "Addressing modes",
-          "requires": ["classifications"]
+          "requires": ["assembly-language-programming-8085-instruction-set-instructi"]
         },
         {
-          "id": "decision-making",
-          "name": "Decision Making",
+          "id": "decision-making-looping",
+          "name": "Decision Making, Looping",
           "requires": ["addressing-modes"]
-        },
-        {
-          "id": "looping",
-          "name": "Looping",
-          "requires": ["decision-making"]
         },
         {
           "id": "stack-and-subroutines-etc-and-programming-examples",
           "name": "Stack and Subroutines etc. and Programming examples",
-          "requires": ["looping"]
+          "requires": ["decision-making-looping"]
+        },
+        {
+          "id": "timing-diagrams-of-various-instructions-interrupts",
+          "name": "Timing Diagrams of various instructions, Interrupts",
+          "requires": ["stack-and-subroutines-etc-and-programming-examples"]
+        },
+        {
+          "id": "classifications",
+          "name": "Classifications",
+          "status": "retired"
+        },
+        {
+          "id": "decision-making",
+          "name": "Decision Making",
+          "status": "retired"
+        },
+        {
+          "id": "looping",
+          "name": "Looping",
+          "status": "retired"
         },
         {
           "id": "timing-diagrams-of-various-instructions",
           "name": "Timing Diagrams of various instructions",
-          "requires": ["stack-and-subroutines-etc-and-programming-examples"]
+          "status": "retired"
         },
         {
           "id": "interrupts",
           "name": "Interrupts",
-          "requires": ["timing-diagrams-of-various-instructions"]
+          "status": "retired"
         }
       ]
     },
@@ -193,19 +208,24 @@
           "requires": ["internal-ram-and-rom"]
         },
         {
-          "id": "timers-and-counters",
-          "name": "Timers and Counters",
+          "id": "timers-and-counters-interrupt",
+          "name": "Timers and Counters, Interrupt",
           "requires": ["sfr-s-on-board-peripherals-gpio"]
-        },
-        {
-          "id": "interrupt",
-          "name": "Interrupt",
-          "requires": ["timers-and-counters"]
         },
         {
           "id": "serial-data-communication-uart",
           "name": "Serial data communication (UART)",
-          "requires": ["interrupt"]
+          "requires": ["timers-and-counters-interrupt"]
+        },
+        {
+          "id": "timers-and-counters",
+          "name": "Timers and Counters",
+          "status": "retired"
+        },
+        {
+          "id": "interrupt",
+          "name": "Interrupt",
+          "status": "retired"
         }
       ]
     },
@@ -219,19 +239,14 @@
           "name": "Basics of C programming"
         },
         {
-          "id": "programming-examples-for-gpio",
-          "name": "programming examples for GPIO",
+          "id": "programming-examples-for-gpio-timers",
+          "name": "programming examples for GPIO, Timers",
           "requires": ["basics-of-c-programming"]
-        },
-        {
-          "id": "timers",
-          "name": "Timers",
-          "requires": ["programming-examples-for-gpio"]
         },
         {
           "id": "round-robin-with-interrupts",
           "name": "Round-robin with interrupts",
-          "requires": ["timers"]
+          "requires": ["programming-examples-for-gpio-timers"]
         },
         {
           "id": "pwm",
@@ -247,6 +262,16 @@
           "id": "uart",
           "name": "UART",
           "requires": ["lcd"]
+        },
+        {
+          "id": "programming-examples-for-gpio",
+          "name": "programming examples for GPIO",
+          "status": "retired"
+        },
+        {
+          "id": "timers",
+          "name": "Timers",
+          "status": "retired"
         }
       ]
     }

@@ -115,16 +115,7 @@
         {
           "id": "comparison-with-microprocessor",
           "name": "Comparison with microprocessor",
-          "requires": ["microcontroller"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "comparison-of-ai-processor-with-regular-microprocessor",
-          "name": "comparison of AI Processor with regular Microprocessor",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["comparison-with-microprocessor"]
+          "requires": ["microcontroller"]
         },
         {
           "id": "intel-8085",
@@ -163,6 +154,11 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["instruction-interpretation-and-execution"]
+        },
+        {
+          "id": "comparison-of-ai-processor-with-regular-microprocessor",
+          "name": "comparison of AI Processor with regular Microprocessor",
+          "status": "retired"
         }
       ]
     },
@@ -314,18 +310,18 @@
           "confidence": "verified"
         },
         {
-          "id": "i-o-device-interface",
-          "name": "I/O device interface",
+          "id": "i-o-device-interface-i-o-transfers",
+          "name": "I/O device interface, I/O transfers",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["peripheral-devices-and-their-characteristics-input-output"]
         },
         {
-          "id": "i-o-transfers",
-          "name": "I/O transfers",
+          "id": "i-o-device-interfaces",
+          "name": "I/O device interfaces",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["i-o-device-interface"]
+          "requires": ["i-o-device-interface-i-o-transfers"]
         },
         {
           "id": "interrupts-dma-mp",
@@ -348,7 +344,7 @@
           "movedFrom": {
             "subject": "pdeu-computer-organization-and-architecture",
             "chapter": "pipelining-and-multiprocessing-unit",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -375,18 +371,11 @@
           "requires": ["software-interrupts-and-exceptions"]
         },
         {
-          "id": "i-o-device-interfaces",
-          "name": "I/O device interfaces",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["programs-and-processes"]
-        },
-        {
           "id": "scii",
           "name": "SCII",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["i-o-device-interfaces"]
+          "requires": ["programs-and-processes"]
         },
         {
           "id": "usb",
@@ -415,6 +404,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["solid-state-drive-ssd"]
+        },
+        {
+          "id": "i-o-device-interface",
+          "name": "I/O device interface",
+          "status": "retired"
+        },
+        {
+          "id": "i-o-transfers",
+          "name": "I/O transfers",
+          "status": "retired"
         }
       ]
     },
@@ -484,7 +483,8 @@
         {
           "id": "tutorial-2-real-world-examples-and-applications-of-different",
           "name": "Tutorial 2: Real-world examples and applications of different addressing modes in assembly (3 hrs)",
-          "requires": ["case-studies-and-examples-showcasing-real-world-applications"]
+          "requires": ["case-studies-and-examples-showcasing-real-world-applications"],
+          "status": "retired"
         },
         {
           "id": "assembly-programming",
@@ -495,7 +495,8 @@
         {
           "id": "numerical-problem-solving-on-different-addressing-modes",
           "name": "Numerical problem solving on different addressing modes",
-          "requires": ["assembly-programming"]
+          "requires": ["assembly-programming"],
+          "status": "retired"
         },
         {
           "id": "exercises-to-implement-subroutine-calls-using-various",
@@ -604,18 +605,21 @@
           "requires": ["interconnection-network"]
         },
         {
-          "id": "cache-coherence-protocols",
-          "name": "Cache coherence protocols",
+          "id": "cache-coherence-protocols-tutorials",
+          "name": "Cache coherence protocols, TUTORIALS",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["cache-in-multiprocessor-systems-and-related-problems"]
         },
         {
+          "id": "cache-coherence-protocols",
+          "name": "Cache coherence protocols",
+          "status": "retired"
+        },
+        {
           "id": "tutorials",
           "name": "TUTORIALS",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cache-coherence-protocols"]
+          "status": "retired"
         }
       ]
     }

@@ -259,24 +259,8 @@
         },
         {
           "id": "flicker-1-f-burst-and-avalanche-noise",
-          "name": "Flicker (1/f)",
-          "requires": ["thermal"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "burst",
-          "name": "Burst",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["flicker-1-f-burst-and-avalanche-noise"]
-        },
-        {
-          "id": "avalanche-noise",
-          "name": "avalanche noise",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["burst"]
+          "name": "Flicker (1/f), Burst, and avalanche noise",
+          "requires": ["thermal"]
         },
         {
           "id": "noise-models-of-ic-components-diode",
@@ -295,24 +279,8 @@
         },
         {
           "id": "resistor-capacitors-and-inductors",
-          "name": "Resistor",
-          "requires": ["mos-transistor"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "capacitors",
-          "name": "capacitors",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["resistor-capacitors-and-inductors"]
-        },
-        {
-          "id": "inductors",
-          "name": "inductors",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["capacitors"]
+          "name": "Resistor, capacitors, and inductors",
+          "requires": ["mos-transistor"]
         },
         {
           "id": "noise-power-trade-off",
@@ -341,7 +309,7 @@
           "movedFrom": {
             "subject": "pdeu-mixed-signal-vlsi-design-vlsi-embedded",
             "chapter": "introduction-to-mixed-signal",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -361,18 +329,41 @@
           "requires": ["testing-general-consideration"]
         },
         {
-          "id": "a-d-convertors-static-and-dynamic-testing",
-          "name": "A/D convertors: static and dynamic testing",
+          "id": "a-d-convertors-static-and-dynamic-testing-project",
+          "name": "A/D convertors: static and dynamic testing, Project",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["d-a-converters"]
         },
         {
+          "id": "burst",
+          "name": "Burst",
+          "status": "retired"
+        },
+        {
+          "id": "avalanche-noise",
+          "name": "avalanche noise",
+          "status": "retired"
+        },
+        {
+          "id": "capacitors",
+          "name": "capacitors",
+          "status": "retired"
+        },
+        {
+          "id": "inductors",
+          "name": "inductors",
+          "status": "retired"
+        },
+        {
+          "id": "a-d-convertors-static-and-dynamic-testing",
+          "name": "A/D convertors: static and dynamic testing",
+          "status": "retired"
+        },
+        {
           "id": "project",
           "name": "Project",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["a-d-convertors-static-and-dynamic-testing"]
+          "status": "retired"
         }
       ]
     }

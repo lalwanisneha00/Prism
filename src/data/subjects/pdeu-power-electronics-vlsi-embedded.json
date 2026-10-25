@@ -56,38 +56,8 @@
         },
         {
           "id": "overview-of-power-electronic-circuits-and-systems-power",
-          "name": "overview of power electronic circuits and Systems Power semiconductor devices: Diodes",
-          "requires": ["introduction-to-power-electronics-and-its-applications"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "scr",
-          "name": "SCR",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["overview-of-power-electronic-circuits-and-systems-power"]
-        },
-        {
-          "id": "gto-and-transistors-bjt",
-          "name": "GTO and transistors (BJT",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["scr"]
-        },
-        {
-          "id": "mosfet-and-igbt-ratings",
-          "name": "MOSFET and IGBT): Ratings",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["gto-and-transistors-bjt"]
-        },
-        {
-          "id": "static-and-dynamic-characteristics",
-          "name": "static and dynamic characteristics",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["mosfet-and-igbt-ratings"]
+          "name": "overview of power electronic circuits and Systems Power semiconductor devices: Diodes, SCR, GTO and transistors (BJT, MOSFET and IGBT): Ratings, static and dynamic characteristics, drive and switching",
+          "requires": ["introduction-to-power-electronics-and-its-applications"]
         },
         {
           "id": "protection-and-cooling-of-power-semiconductor-devices",
@@ -100,6 +70,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["protection-and-cooling-of-power-semiconductor-devices"]
+        },
+        {
+          "id": "scr",
+          "name": "SCR",
+          "status": "retired"
+        },
+        {
+          "id": "gto-and-transistors-bjt",
+          "name": "GTO and transistors (BJT",
+          "status": "retired"
+        },
+        {
+          "id": "mosfet-and-igbt-ratings",
+          "name": "MOSFET and IGBT): Ratings",
+          "status": "retired"
+        },
+        {
+          "id": "static-and-dynamic-characteristics",
+          "name": "static and dynamic characteristics",
+          "status": "retired"
         }
       ]
     },
@@ -132,25 +122,18 @@
           "requires": ["performance-parameters-analysis-power-factor-ripple-factor"]
         },
         {
-          "id": "form-factor",
-          "name": "form factor",
+          "id": "form-factor-harmonics",
+          "name": "form factor, harmonics",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["ripple-factor"]
-        },
-        {
-          "id": "harmonics",
-          "name": "harmonics",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["form-factor"]
         },
         {
           "id": "distortion-and-effect-of-source-inductance-on-performance",
           "name": "distortion and effect of source Inductance on performance",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["harmonics"]
+          "requires": ["form-factor-harmonics"]
         },
         {
           "id": "dual-converters-and-their-operation",
@@ -166,6 +149,16 @@
           "id": "applications-of-ac-dc-converter-circuits",
           "name": "applications of AC DC converter circuits",
           "requires": ["power-factor-improvement-techniques"]
+        },
+        {
+          "id": "form-factor",
+          "name": "form factor",
+          "status": "retired"
+        },
+        {
+          "id": "harmonics",
+          "name": "harmonics",
+          "status": "retired"
         }
       ]
     },

@@ -99,31 +99,17 @@
         },
         {
           "id": "button",
-          "name": "Button",
+          "name": "Image Button",
           "requires": ["edit-text"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "radio-button-2",
-          "name": "Radio Button",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["button"]
-        },
-        {
-          "id": "image-button-2",
-          "name": "Image Button",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["radio-button-2"]
         },
         {
           "id": "toggle-button-2",
           "name": "Toggle Button",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["image-button-2"]
+          "requires": ["button"]
         },
         {
           "id": "radio-button",
@@ -204,6 +190,16 @@
           "id": "creating-menus-and-dialogs",
           "name": "Creating Menus & Dialogs",
           "requires": ["gallery-view"]
+        },
+        {
+          "id": "radio-button-2",
+          "name": "Radio Button",
+          "status": "retired"
+        },
+        {
+          "id": "image-button-2",
+          "name": "Image Button",
+          "status": "retired"
         }
       ]
     },
@@ -248,24 +244,18 @@
         },
         {
           "id": "adding-removing-and-replacing-fragments",
-          "name": "Adding",
-          "requires": ["finding-fragments"],
-          "source": "admin_handout",
-          "confidence": "verified"
+          "name": "Adding, Removing, and Replacing Fragments",
+          "requires": ["finding-fragments"]
         },
         {
           "id": "removing",
           "name": "Removing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["adding-removing-and-replacing-fragments"]
+          "status": "retired"
         },
         {
           "id": "replacing-fragments",
           "name": "Replacing Fragments",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["removing"]
+          "status": "retired"
         }
       ]
     },
@@ -290,24 +280,8 @@
         },
         {
           "id": "adding-updating-and-deleting-content-in-sqlite",
-          "name": "Adding",
-          "requires": ["using-sqliteopenhelper-for-database-management"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "updating",
-          "name": "Updating",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["adding-updating-and-deleting-content-in-sqlite"]
-        },
-        {
-          "id": "deleting-content-in-sqlite",
-          "name": "Deleting Content in SQLite",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["updating"]
+          "name": "Adding, Updating, and Deleting Content in SQLite",
+          "requires": ["using-sqliteopenhelper-for-database-management"]
         },
         {
           "id": "integrating-xml-and-json-based-web-services",
@@ -318,6 +292,16 @@
           "id": "introduction-to-firebase-for-android-and-firebase",
           "name": "Introduction to Firebase for Android and Firebase Connectivity",
           "requires": ["integrating-xml-and-json-based-web-services"]
+        },
+        {
+          "id": "updating",
+          "name": "Updating",
+          "status": "retired"
+        },
+        {
+          "id": "deleting-content-in-sqlite",
+          "name": "Deleting Content in SQLite",
+          "status": "retired"
         }
       ]
     }

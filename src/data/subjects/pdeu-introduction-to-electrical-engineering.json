@@ -119,9 +119,7 @@
         {
           "id": "l-and-c",
           "name": "L and C)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["rl-rc-transients"]
+          "status": "retired"
         }
       ]
     },
@@ -239,59 +237,8 @@
         },
         {
           "id": "ideal-practical-transformer",
-          "name": "Single Phase Transformers: Construction",
-          "requires": ["faradays-law"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "working-principle",
-          "name": "working principle",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ideal-practical-transformer"]
-        },
-        {
-          "id": "types",
-          "name": "types",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["working-principle"]
-        },
-        {
-          "id": "emf-equation",
-          "name": "EMF equation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["types"]
-        },
-        {
-          "id": "ideal-transformer",
-          "name": "ideal transformer",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["emf-equation"]
-        },
-        {
-          "id": "practical-transformer",
-          "name": "practical transformer",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ideal-transformer"]
-        },
-        {
-          "id": "induction-machine-construction",
-          "name": "Induction Machine: construction",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["practical-transformer"]
-        },
-        {
-          "id": "operation",
-          "name": "operation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["induction-machine-construction"]
+          "name": "Single Phase Transformers: Construction, working principle, types, EMF equation, ideal transformer, practical transformer, Operation of transformer on no- load and load, Induction Machine: constructio",
+          "requires": ["faradays-law"]
         },
         {
           "id": "lt-switchgear",
@@ -322,25 +269,18 @@
           "requires": ["elcb"]
         },
         {
-          "id": "types-of-wires-and-cables",
-          "name": "Types of Wires and Cables",
+          "id": "types-of-wires-and-cables-earthing",
+          "name": "Types of Wires and Cables, Earthing",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["mccb"]
-        },
-        {
-          "id": "earthing",
-          "name": "Earthing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["types-of-wires-and-cables"]
         },
         {
           "id": "types-of-batteries",
           "name": "Types of Batteries",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["earthing"]
+          "requires": ["types-of-wires-and-cables-earthing"]
         },
         {
           "id": "important-characteristics-for-batteries",
@@ -378,8 +318,8 @@
           "requires": ["operation-of-transformer-on-noload-and-load"]
         },
         {
-          "id": "production-of-rotating-magnetic-field",
-          "name": "production of rotating magnetic field",
+          "id": "production-of-rotating-magnetic-field-operation",
+          "name": "production of rotating magnetic field, operation",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["types-of-3-phase-induction-motors"]
@@ -389,7 +329,7 @@
           "name": "starting and running torques",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["production-of-rotating-magnetic-field"]
+          "requires": ["production-of-rotating-magnetic-field-operation"]
         },
         {
           "id": "torque-slip-characteristics",
@@ -404,6 +344,56 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["torque-slip-characteristics"]
+        },
+        {
+          "id": "working-principle",
+          "name": "working principle",
+          "status": "retired"
+        },
+        {
+          "id": "types",
+          "name": "types",
+          "status": "retired"
+        },
+        {
+          "id": "emf-equation",
+          "name": "EMF equation",
+          "status": "retired"
+        },
+        {
+          "id": "ideal-transformer",
+          "name": "ideal transformer",
+          "status": "retired"
+        },
+        {
+          "id": "practical-transformer",
+          "name": "practical transformer",
+          "status": "retired"
+        },
+        {
+          "id": "induction-machine-construction",
+          "name": "Induction Machine: construction",
+          "status": "retired"
+        },
+        {
+          "id": "operation",
+          "name": "operation",
+          "status": "retired"
+        },
+        {
+          "id": "types-of-wires-and-cables",
+          "name": "Types of Wires and Cables",
+          "status": "retired"
+        },
+        {
+          "id": "earthing",
+          "name": "Earthing",
+          "status": "retired"
+        },
+        {
+          "id": "production-of-rotating-magnetic-field",
+          "name": "production of rotating magnetic field",
+          "status": "retired"
         }
       ]
     },
@@ -461,13 +451,6 @@
           "requires": ["zener-diode"]
         },
         {
-          "id": "operation-2",
-          "name": "Operation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["operation-and-applications"]
-        },
-        {
           "id": "opto-electronic-devices-leds-photo-diode-and-applications",
           "name": "Opto-Electronic Devices–LEDs",
           "requires": ["breakdown-mechanisms-zener-diode-operation-and-applications"],
@@ -488,24 +471,8 @@
         },
         {
           "id": "operation-construction-characteristics-ratings-applications",
-          "name": "Construction",
-          "requires": ["silicon-controlled-rectifier-scr"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "characteristics",
-          "name": "Characteristics",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["operation-construction-characteristics-ratings-applications"]
-        },
-        {
-          "id": "ratings",
-          "name": "Ratings",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["characteristics"]
+          "name": "Operation, Construction, Characteristics, Ratings, Applications",
+          "requires": ["silicon-controlled-rectifier-scr"]
         },
         {
           "id": "pn-junction-physics",
@@ -555,11 +522,24 @@
           "requires": ["construction-operation-amplifying-action-common-base-common"]
         },
         {
+          "id": "operation-2",
+          "name": "Operation",
+          "status": "retired"
+        },
+        {
+          "id": "characteristics",
+          "name": "Characteristics",
+          "status": "retired"
+        },
+        {
+          "id": "ratings",
+          "name": "Ratings",
+          "status": "retired"
+        },
+        {
           "id": "applications",
           "name": "Applications",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["construction-characteristics-of-junction-fet"]
+          "status": "retired"
         }
       ]
     }

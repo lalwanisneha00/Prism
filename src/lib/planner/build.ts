@@ -14,6 +14,7 @@ import {
 } from "@/lib/planner/schedule";
 import type { StudyPlan } from "@/lib/storage/db";
 import type { Subject } from "@/lib/subjects";
+import { activeChapters } from "@/lib/syllabusFix/active";
 
 export type BuildPlanParams = {
   subjects: readonly Subject[];
@@ -48,7 +49,7 @@ export function buildV2Plan(p: BuildPlanParams): StudyPlan {
   }[] = [];
   for (const s of p.subjects) {
     const imp = importanceFromData(s, p.model.overrides);
-    for (const c of s.chapters) {
+    for (const c of activeChapters(s)) {
       for (const t of c.topics) {
         const key = topicKey(s.id, t.id);
         if (!p.picked.has(key)) continue;

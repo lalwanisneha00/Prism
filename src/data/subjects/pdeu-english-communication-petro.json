@@ -125,22 +125,18 @@
         },
         {
           "id": "connotations-collocations",
-          "name": "Connotations",
-          "requires": ["prefixes-and-suffixes"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "collocations",
-          "name": "Collocations",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["connotations-collocations"]
+          "name": "Connotations. Collocations",
+          "requires": ["prefixes-and-suffixes"]
         },
         {
           "id": "idioms-phrases",
           "name": "Idioms Phrases",
           "requires": ["connotations-collocations"]
+        },
+        {
+          "id": "collocations",
+          "name": "Collocations",
+          "status": "retired"
         }
       ]
     },

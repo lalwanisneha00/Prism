@@ -125,44 +125,17 @@
         {
           "id": "change-of-variables",
           "name": "Change of variables",
-          "requires": ["change-of-order"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "change-of-variables-cartesian-to-spherical",
-          "name": "change of variables (Cartesian to spherical",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["change-of-variables"]
+          "requires": ["change-of-order"]
         },
         {
           "id": "triple-integrals",
-          "name": "Evaluation of triple integral",
-          "requires": ["double-integrals"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "cylindrical",
-          "name": "cylindrical)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["triple-integrals"]
+          "name": "Evaluation of triple integral, change of variables (Cartesian to spherical - and cylindrical)",
+          "requires": ["double-integrals"]
         },
         {
           "id": "applications-area",
-          "name": "Applications",
-          "requires": ["triple-integrals"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "area",
-          "name": "area",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["applications-area"]
+          "name": "Applications, area",
+          "requires": ["triple-integrals"]
         },
         {
           "id": "volume",
@@ -178,6 +151,21 @@
           "id": "center-of-gravity-by-double-and-triple-integral",
           "name": "center of gravity by double and triple integral",
           "requires": ["center-of-mass"]
+        },
+        {
+          "id": "change-of-variables-cartesian-to-spherical",
+          "name": "change of variables (Cartesian to spherical",
+          "status": "retired"
+        },
+        {
+          "id": "cylindrical",
+          "name": "cylindrical)",
+          "status": "retired"
+        },
+        {
+          "id": "area",
+          "name": "area",
+          "status": "retired"
         }
       ]
     },
@@ -188,17 +176,8 @@
       "topics": [
         {
           "id": "gradient-divergence-curl",
-          "name": "Gradient",
-          "requires": ["partial-derivatives"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "divergence-and-curl",
-          "name": "divergence and curl",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["gradient-divergence-curl"]
+          "name": "Gradient, divergence and curl",
+          "requires": ["partial-derivatives"]
         },
         {
           "id": "directional-derivative",
@@ -247,6 +226,11 @@
           "id": "simple-application-involving-cubes-and-rectangular",
           "name": "Simple application involving cubes and rectangular parallelepipeds",
           "requires": ["divergence-theorem"]
+        },
+        {
+          "id": "divergence-and-curl",
+          "name": "divergence and curl",
+          "status": "retired"
         }
       ]
     },
@@ -257,16 +241,7 @@
       "topics": [
         {
           "id": "definition-convergent",
-          "name": "Definition",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "convergent",
-          "name": "Convergent",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["definition-convergent"]
+          "name": "Definition. Convergent"
         },
         {
           "id": "divergent",
@@ -275,17 +250,8 @@
         },
         {
           "id": "bounded-and-monotone-sequences-infinite-sums-basics-taylor",
-          "name": "bounded & monotone sequences",
-          "requires": ["divergent"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "infinite-sums-basics-taylor-series",
-          "name": "Infinite sums: Basics Taylor series",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["bounded-and-monotone-sequences-infinite-sums-basics-taylor"]
+          "name": "bounded & monotone sequences. Infinite sums: Basics Taylor series",
+          "requires": ["divergent"]
         },
         {
           "id": "convergence-and-divergence",
@@ -320,6 +286,16 @@
           "id": "conditional-convergence",
           "name": "conditional convergence",
           "requires": ["absolute-convergence"]
+        },
+        {
+          "id": "convergent",
+          "name": "Convergent",
+          "status": "retired"
+        },
+        {
+          "id": "infinite-sums-basics-taylor-series",
+          "name": "Infinite sums: Basics Taylor series",
+          "status": "retired"
         }
       ]
     }

@@ -230,17 +230,8 @@
         },
         {
           "id": "file-transfer-protocol",
-          "name": "File",
-          "requires": ["application-layer-protocols-domain-name-system"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "transfer-protocol",
-          "name": "Transfer Protocol",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["file-transfer-protocol"]
+          "name": "File Transfer Protocol",
+          "requires": ["application-layer-protocols-domain-name-system"]
         },
         {
           "id": "hyper-text-transfer-protocol",
@@ -256,6 +247,11 @@
           "id": "multipurpose-internet-mail-extension",
           "name": "Multipurpose Internet Mail Extension",
           "requires": ["simple-mail-transfer-protocol"]
+        },
+        {
+          "id": "transfer-protocol",
+          "name": "Transfer Protocol",
+          "status": "retired"
         }
       ]
     }

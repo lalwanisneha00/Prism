@@ -39,93 +39,17 @@
       "topics": [
         {
           "id": "signal",
-          "name": "Signal",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "signal-operations",
-          "name": "Signal operations",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["signal"]
+          "name": "Signal"
         },
         {
           "id": "definition-examples-classifications-continuous-time-signals",
-          "name": "Definition",
-          "requires": ["signal"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "examples",
-          "name": "Examples",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["definition-examples-classifications-continuous-time-signals"]
-        },
-        {
-          "id": "classifications",
-          "name": "Classifications",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["examples"]
-        },
-        {
-          "id": "continuous-time-signals-energy",
-          "name": "Continuous time signals: Energy",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["classifications"]
-        },
-        {
-          "id": "power",
-          "name": "power",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["continuous-time-signals-energy"]
-        },
-        {
-          "id": "periodicity",
-          "name": "Periodicity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["power"]
-        },
-        {
-          "id": "elementary-signals",
-          "name": "Elementary Signals",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["periodicity"]
-        },
-        {
-          "id": "system",
-          "name": "System",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["elementary-signals"]
+          "name": "Definition, Examples, Classifications, Continuous time signals: Energy, power, Periodicity, Signal operations, Elementary Signals, System",
+          "requires": ["signal"]
         },
         {
           "id": "linear-systems",
-          "name": "Classification",
-          "requires": ["definition-examples-classifications-continuous-time-signals"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "convolution-integral-and-unit-impulse-response",
-          "name": "Convolution integral and unit impulse response",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["linear-systems"]
-        },
-        {
-          "id": "simple-circuits-using-r",
-          "name": "Simple circuits using R",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["convolution-integral-and-unit-impulse-response"]
+          "name": "Definition, Classification, Continuous time LTI systems models in time domain: Linear Constant Co- efficient Differential Equations, Convolution integral and unit impulse response, Simple circuits usi",
+          "requires": ["definition-examples-classifications-continuous-time-signals"]
         },
         {
           "id": "c-and-controlled-sources",
@@ -134,7 +58,7 @@
           "movedFrom": {
             "subject": "pdeu-networks-and-systems",
             "chapter": "multi-port-circuits-analysis",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -146,7 +70,7 @@
           "movedFrom": {
             "subject": "pdeu-networks-and-systems",
             "chapter": "laplace-transform-applications-to-system-and",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
@@ -164,6 +88,56 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["continuous-time-lti-systems-models-in-time-domain-linear-con"]
+        },
+        {
+          "id": "signal-operations",
+          "name": "Signal operations",
+          "status": "retired"
+        },
+        {
+          "id": "examples",
+          "name": "Examples",
+          "status": "retired"
+        },
+        {
+          "id": "classifications",
+          "name": "Classifications",
+          "status": "retired"
+        },
+        {
+          "id": "continuous-time-signals-energy",
+          "name": "Continuous time signals: Energy",
+          "status": "retired"
+        },
+        {
+          "id": "power",
+          "name": "power",
+          "status": "retired"
+        },
+        {
+          "id": "periodicity",
+          "name": "Periodicity",
+          "status": "retired"
+        },
+        {
+          "id": "elementary-signals",
+          "name": "Elementary Signals",
+          "status": "retired"
+        },
+        {
+          "id": "system",
+          "name": "System",
+          "status": "retired"
+        },
+        {
+          "id": "convolution-integral-and-unit-impulse-response",
+          "name": "Convolution integral and unit impulse response",
+          "status": "retired"
+        },
+        {
+          "id": "simple-circuits-using-r",
+          "name": "Simple circuits using R",
+          "status": "retired"
         }
       ]
     },

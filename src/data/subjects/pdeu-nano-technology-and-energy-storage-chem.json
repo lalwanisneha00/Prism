@@ -102,19 +102,14 @@
           "requires": ["synthesis-of-nanomaterials"]
         },
         {
-          "id": "vapour-phase-deposition",
-          "name": "vapour phase deposition",
+          "id": "vapour-phase-deposition-colloidal",
+          "name": "vapour phase deposition, colloidal",
           "requires": ["bottom-up-approach-self-assembly-and-self-organization"]
-        },
-        {
-          "id": "colloidal",
-          "name": "colloidal",
-          "requires": ["vapour-phase-deposition"]
         },
         {
           "id": "sol-gel-and-simple-pyrolysis",
           "name": "sol-gel and simple pyrolysis",
-          "requires": ["colloidal"]
+          "requires": ["vapour-phase-deposition-colloidal"]
         },
         {
           "id": "top-down-approach-miniaturization-of-smaller-structures-from",
@@ -145,6 +140,16 @@
           "id": "microwave-assisted-synthesis",
           "name": "microwave-assisted synthesis",
           "requires": ["hydrothermal-and-solvothermal-processes"]
+        },
+        {
+          "id": "vapour-phase-deposition",
+          "name": "vapour phase deposition",
+          "status": "retired"
+        },
+        {
+          "id": "colloidal",
+          "name": "colloidal",
+          "status": "retired"
         }
       ]
     },
@@ -183,19 +188,14 @@
           "requires": ["x-ray-diffraction"]
         },
         {
-          "id": "dynamic-light-scattering",
-          "name": "dynamic light scattering",
+          "id": "dynamic-light-scattering-spectroscopies",
+          "name": "dynamic light scattering, spectroscopies",
           "requires": ["small-angle-x-ray-scattering"]
-        },
-        {
-          "id": "spectroscopies",
-          "name": "spectroscopies",
-          "requires": ["dynamic-light-scattering"]
         },
         {
           "id": "infra-red-spectroscopy-and-ftir",
           "name": "infra-red spectroscopy and FTIR",
-          "requires": ["spectroscopies"]
+          "requires": ["dynamic-light-scattering-spectroscopies"]
         },
         {
           "id": "uv-vis-spectroscopy",
@@ -216,6 +216,16 @@
           "id": "safety-during-handling-of-characterization-equipment",
           "name": "safety during handling of characterization equipment",
           "requires": ["surface-area-analysis"]
+        },
+        {
+          "id": "dynamic-light-scattering",
+          "name": "dynamic light scattering",
+          "status": "retired"
+        },
+        {
+          "id": "spectroscopies",
+          "name": "spectroscopies",
+          "status": "retired"
         }
       ]
     },
@@ -254,19 +264,14 @@
           "requires": ["water-treatment-and-environment"]
         },
         {
-          "id": "drug-delivery",
-          "name": "drug delivery",
+          "id": "drug-delivery-paints",
+          "name": "drug delivery, paints",
           "requires": ["medical-devices"]
-        },
-        {
-          "id": "paints",
-          "name": "paints",
-          "requires": ["drug-delivery"]
         },
         {
           "id": "textiles-and-defence-equipment",
           "name": "textiles and defence equipment",
-          "requires": ["paints"]
+          "requires": ["drug-delivery-paints"]
         },
         {
           "id": "nanotechnology-for-sustainable-energy",
@@ -274,19 +279,14 @@
           "requires": ["textiles-and-defence-equipment"]
         },
         {
-          "id": "materials-for-light-emitting-diodes",
-          "name": "materials for light emitting diodes",
+          "id": "materials-for-light-emitting-diodes-batteries",
+          "name": "materials for light emitting diodes, batteries",
           "requires": ["nanotechnology-for-sustainable-energy"]
-        },
-        {
-          "id": "batteries",
-          "name": "batteries",
-          "requires": ["materials-for-light-emitting-diodes"]
         },
         {
           "id": "advanced-turbines",
           "name": "advanced turbines",
-          "requires": ["batteries"]
+          "requires": ["materials-for-light-emitting-diodes-batteries"]
         },
         {
           "id": "capacitors-and-fuel-cells",
@@ -304,19 +304,44 @@
           "requires": ["nanotechnology-enabled-renewable-energy-technologies"]
         },
         {
-          "id": "conversion-and-storage",
-          "name": "conversion and storage",
+          "id": "conversion-and-storage-nano",
+          "name": "conversion and storage, nano",
           "requires": ["energy-transport"]
-        },
-        {
-          "id": "nano",
-          "name": "nano",
-          "requires": ["conversion-and-storage"]
         },
         {
           "id": "micro-and-meso-scale-devices",
           "name": "micro and meso scale devices",
-          "requires": ["nano"]
+          "requires": ["conversion-and-storage-nano"]
+        },
+        {
+          "id": "drug-delivery",
+          "name": "drug delivery",
+          "status": "retired"
+        },
+        {
+          "id": "paints",
+          "name": "paints",
+          "status": "retired"
+        },
+        {
+          "id": "materials-for-light-emitting-diodes",
+          "name": "materials for light emitting diodes",
+          "status": "retired"
+        },
+        {
+          "id": "batteries",
+          "name": "batteries",
+          "status": "retired"
+        },
+        {
+          "id": "conversion-and-storage",
+          "name": "conversion and storage",
+          "status": "retired"
+        },
+        {
+          "id": "nano",
+          "name": "nano",
+          "status": "retired"
         }
       ]
     }

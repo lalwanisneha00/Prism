@@ -60,39 +60,18 @@
           "confidence": "verified"
         },
         {
-          "id": "classification-of-discrete-time-signals",
-          "name": "Classification of Discrete Time Signals",
+          "id": "classification-of-discrete-time-signals-energy-power-periodi",
+          "name": "Classification of Discrete Time Signals, Energy, Power, Periodicity",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["definition-and-examples-classification-of-discrete-time"]
-        },
-        {
-          "id": "energy",
-          "name": "Energy",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["classification-of-discrete-time-signals"]
-        },
-        {
-          "id": "power",
-          "name": "Power",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["energy"]
-        },
-        {
-          "id": "periodicity",
-          "name": "Periodicity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["power"]
         },
         {
           "id": "signal-operations",
           "name": "Signal operations",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["periodicity"]
+          "requires": ["classification-of-discrete-time-signals-energy-power-periodi"]
         },
         {
           "id": "discrete-time-elementary-signals",
@@ -102,25 +81,11 @@
           "requires": ["signal-operations"]
         },
         {
-          "id": "discrete-time-systems",
-          "name": "Discrete Time Systems",
+          "id": "discrete-time-systems-definition-classification",
+          "name": "Discrete Time Systems, Definition, Classification",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["discrete-time-elementary-signals"]
-        },
-        {
-          "id": "definition",
-          "name": "Definition",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["discrete-time-systems"]
-        },
-        {
-          "id": "classification",
-          "name": "Classification",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["definition"]
         },
         {
           "id": "linear-systems",
@@ -144,77 +109,109 @@
           "requires": ["convolution-sum"]
         },
         {
-          "id": "block-diagram-representation",
-          "name": "Block Diagram Representation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["linear-constant-co-efficient-difference-equation-representat"]
-        },
-        {
           "id": "practical-filters-stability-and-causality",
           "name": "Practical Filters: Stability and Causality",
           "requires": ["ideal-digital-filters"],
           "movedFrom": {
             "subject": "pdeu-digital-signal-processing-ece",
             "chapter": "digital-filters-design-and-structures",
-            "at": "2026-10-24T23:22:41.746Z"
+            "at": "2026-10-25T11:41:25.072Z"
           },
           "source": "admin_handout",
           "confidence": "verified"
         },
         {
-          "id": "sampling-of-dtft",
-          "name": "Sampling of DTFT",
-          "requires": ["effect-of-periodicity-and-discretization-on-spectra-of-a"],
-          "movedFrom": {
-            "subject": "pdeu-digital-signal-processing-ece",
-            "chapter": "dft-and-fft-algorithms",
-            "at": "2026-10-24T23:22:41.746Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "interconnections",
-          "name": "Interconnections",
+          "id": "block-diagram-representation-interconnections",
+          "name": "Block Diagram Representation, Interconnections",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["sampling-of-dtft"]
+          "requires": ["practical-filters-stability-and-causality"]
         },
         {
-          "id": "reconstruction",
-          "name": "Reconstruction",
+          "id": "sampling-and-sampling-theorem-reconstruction-aliasing",
+          "name": "Sampling and Sampling theorem, Reconstruction, Aliasing",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["interconnections"]
+          "requires": ["block-diagram-representation-interconnections"]
         },
         {
-          "id": "aliasing",
-          "name": "Aliasing",
+          "id": "concept-of-quantization-a-to-d-and-d-to-a-conversion",
+          "name": "Concept of quantization, A to D and D to A conversion",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["reconstruction"]
-        },
-        {
-          "id": "concept-of-quantization",
-          "name": "Concept of quantization",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["aliasing"]
-        },
-        {
-          "id": "a-to-d-and-d-to-a-conversion",
-          "name": "A to D and D to A conversion",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["concept-of-quantization"]
+          "requires": ["sampling-and-sampling-theorem-reconstruction-aliasing"]
         },
         {
           "id": "discrete-time-vs-digital-signal-processing",
           "name": "Discrete time vs. digital signal processing",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["a-to-d-and-d-to-a-conversion"]
+          "requires": ["concept-of-quantization-a-to-d-and-d-to-a-conversion"]
+        },
+        {
+          "id": "classification-of-discrete-time-signals",
+          "name": "Classification of Discrete Time Signals",
+          "status": "retired"
+        },
+        {
+          "id": "energy",
+          "name": "Energy",
+          "status": "retired"
+        },
+        {
+          "id": "power",
+          "name": "Power",
+          "status": "retired"
+        },
+        {
+          "id": "periodicity",
+          "name": "Periodicity",
+          "status": "retired"
+        },
+        {
+          "id": "discrete-time-systems",
+          "name": "Discrete Time Systems",
+          "status": "retired"
+        },
+        {
+          "id": "definition",
+          "name": "Definition",
+          "status": "retired"
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "status": "retired"
+        },
+        {
+          "id": "block-diagram-representation",
+          "name": "Block Diagram Representation",
+          "status": "retired"
+        },
+        {
+          "id": "interconnections",
+          "name": "Interconnections",
+          "status": "retired"
+        },
+        {
+          "id": "reconstruction",
+          "name": "Reconstruction",
+          "status": "retired"
+        },
+        {
+          "id": "aliasing",
+          "name": "Aliasing",
+          "status": "retired"
+        },
+        {
+          "id": "concept-of-quantization",
+          "name": "Concept of quantization",
+          "status": "retired"
+        },
+        {
+          "id": "a-to-d-and-d-to-a-conversion",
+          "name": "A to D and D to A conversion",
+          "status": "retired"
         }
       ]
     },
@@ -225,16 +222,7 @@
       "topics": [
         {
           "id": "z-transform",
-          "name": "Z-transform",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "inverse-z-transform",
-          "name": "Inverse z-transform",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["z-transform"]
+          "name": "Z-transform"
         },
         {
           "id": "roc-and-properties",
@@ -280,6 +268,11 @@
           "id": "energy-and-power-spectral-density",
           "name": "Energy and Power Spectral Density",
           "requires": ["parseval-s-relation"]
+        },
+        {
+          "id": "inverse-z-transform",
+          "name": "Inverse z-transform",
+          "status": "retired"
         }
       ]
     },
@@ -291,6 +284,12 @@
         {
           "id": "effect-of-periodicity-and-discretization-on-spectra-of-a",
           "name": "Effect of periodicity and discretization on spectra of a signal"
+        },
+        {
+          "id": "sampling-of-dtft",
+          "name": "Sampling of DTFT",
+          "requires": ["effect-of-periodicity-and-discretization-on-spectra-of-a"],
+          "formerChapters": ["discrete-time-signals-and-systems"]
         },
         {
           "id": "dft-and-idft",

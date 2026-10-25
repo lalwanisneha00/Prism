@@ -76,19 +76,14 @@
           "requires": ["liga-and-sliga"]
         },
         {
-          "id": "photolithography-and-bulk-micromachining",
-          "name": "Photolithography and Bulk micromachining",
+          "id": "photolithography-and-bulk-micromachining-flowchart",
+          "name": "Photolithography and Bulk micromachining, Flowchart",
           "requires": ["introduction-to-micro-and-nano-fabrication-basics"]
-        },
-        {
-          "id": "flowchart",
-          "name": "Flowchart",
-          "requires": ["photolithography-and-bulk-micromachining"]
         },
         {
           "id": "basic-chip-making-processes",
           "name": "basic chip making processes",
-          "requires": ["flowchart"]
+          "requires": ["photolithography-and-bulk-micromachining-flowchart"]
         },
         {
           "id": "principles-and-applications",
@@ -104,6 +99,16 @@
           "id": "nanofabrication-using-soft-lithography-and-various-approache",
           "name": "Nanofabrication using soft lithography and various approaches of soft lithography",
           "requires": ["examples-field-effect-transistor"]
+        },
+        {
+          "id": "photolithography-and-bulk-micromachining",
+          "name": "Photolithography and Bulk micromachining",
+          "status": "retired"
+        },
+        {
+          "id": "flowchart",
+          "name": "Flowchart",
+          "status": "retired"
         }
       ]
     },
@@ -127,34 +132,24 @@
           "requires": ["micro-drilling"]
         },
         {
-          "id": "micro-milling-and-micro-grinding",
-          "name": "Micro milling and Micro grinding",
+          "id": "micro-milling-and-micro-grinding-process",
+          "name": "Micro milling and Micro grinding, process",
           "requires": ["micro-turning"]
-        },
-        {
-          "id": "process",
-          "name": "process",
-          "requires": ["micro-milling-and-micro-grinding"]
         },
         {
           "id": "tools-and-applications",
           "name": "tools and applications",
-          "requires": ["process"]
+          "requires": ["micro-milling-and-micro-grinding-process"]
         },
         {
-          "id": "introduction-to-non-conventional-micro-nano-manufacturing",
-          "name": "Introduction to Non‐conventional micro‐nano manufacturing",
+          "id": "introduction-to-non-conventional-micro-nano-manufacturing-pr",
+          "name": "Introduction to Non‐conventional micro‐nano manufacturing, Process",
           "requires": ["tools-and-applications"]
-        },
-        {
-          "id": "process-2",
-          "name": "Process",
-          "requires": ["introduction-to-non-conventional-micro-nano-manufacturing"]
         },
         {
           "id": "principle-and-applications",
           "name": "principle and applications",
-          "requires": ["process-2"]
+          "requires": ["introduction-to-non-conventional-micro-nano-manufacturing-pr"]
         },
         {
           "id": "micro-ebm",
@@ -210,6 +205,26 @@
           "id": "micro-lbm",
           "name": "Micro LBM",
           "requires": ["micro-ecm"]
+        },
+        {
+          "id": "micro-milling-and-micro-grinding",
+          "name": "Micro milling and Micro grinding",
+          "status": "retired"
+        },
+        {
+          "id": "process",
+          "name": "process",
+          "status": "retired"
+        },
+        {
+          "id": "introduction-to-non-conventional-micro-nano-manufacturing",
+          "name": "Introduction to Non‐conventional micro‐nano manufacturing",
+          "status": "retired"
+        },
+        {
+          "id": "process-2",
+          "name": "Process",
+          "status": "retired"
         }
       ]
     },
@@ -268,29 +283,39 @@
           "requires": ["working-principle-and-polishing-performance-of-mr-jet-machin"]
         },
         {
-          "id": "machine-description",
-          "name": "machine description",
+          "id": "machine-description-applications",
+          "name": "machine description, applications",
           "requires": ["elastic-emission-machining-eem"]
         },
         {
-          "id": "applications",
-          "name": "applications",
-          "requires": ["machine-description"]
-        },
-        {
-          "id": "ion-beam-machining-ibm",
-          "name": "Ion Beam Machining (IBM)",
-          "requires": ["applications"]
-        },
-        {
-          "id": "principle",
-          "name": "principle",
-          "requires": ["ion-beam-machining-ibm"]
+          "id": "ion-beam-machining-ibm-principle",
+          "name": "Ion Beam Machining (IBM), principle",
+          "requires": ["machine-description-applications"]
         },
         {
           "id": "mechanism-of-material-removal",
           "name": "mechanism of material removal",
-          "requires": ["principle"]
+          "requires": ["ion-beam-machining-ibm-principle"]
+        },
+        {
+          "id": "machine-description",
+          "name": "machine description",
+          "status": "retired"
+        },
+        {
+          "id": "applications",
+          "name": "applications",
+          "status": "retired"
+        },
+        {
+          "id": "ion-beam-machining-ibm",
+          "name": "Ion Beam Machining (IBM)",
+          "status": "retired"
+        },
+        {
+          "id": "principle",
+          "name": "principle",
+          "status": "retired"
         }
       ]
     },
@@ -319,44 +344,29 @@
           "requires": ["carbon-nano-tubes"]
         },
         {
-          "id": "molecular-logic-gates-and-nano-level-biosensors",
-          "name": "Molecular Logic Gates and Nano level Biosensors",
+          "id": "molecular-logic-gates-and-nano-level-biosensors-applications",
+          "name": "Molecular Logic Gates and Nano level Biosensors, applications",
           "requires": ["properties-and-structures"]
-        },
-        {
-          "id": "applications-2",
-          "name": "applications",
-          "requires": ["molecular-logic-gates-and-nano-level-biosensors"]
         },
         {
           "id": "introduction-to-micro-and-nano-measurements-metrology",
           "name": "Introduction to micro and nano measurements (metrology)",
-          "requires": ["applications-2"]
+          "requires": ["molecular-logic-gates-and-nano-level-biosensors-applications"]
         },
         {
-          "id": "defining-the-scale",
-          "name": "defining the scale",
+          "id": "defining-the-scale-uncertainty",
+          "name": "defining the scale, uncertainty",
           "requires": ["introduction-to-micro-and-nano-measurements-metrology"]
         },
         {
-          "id": "uncertainty",
-          "name": "uncertainty",
-          "requires": ["defining-the-scale"]
-        },
-        {
-          "id": "optical-microscopy",
-          "name": "Optical Microscopy",
-          "requires": ["uncertainty"]
-        },
-        {
-          "id": "description",
-          "name": "description",
-          "requires": ["optical-microscopy"]
+          "id": "optical-microscopy-description",
+          "name": "Optical Microscopy, description",
+          "requires": ["defining-the-scale-uncertainty"]
         },
         {
           "id": "applications-and-limitations",
           "name": "applications and limitations",
-          "requires": ["description"]
+          "requires": ["optical-microscopy-description"]
         },
         {
           "id": "scanning-electron-microscopy-and-fib",
@@ -372,6 +382,36 @@
           "id": "scanning-probe-microscopy",
           "name": "Scanning Probe Microscopy",
           "requires": ["principle-and-applications-3"]
+        },
+        {
+          "id": "molecular-logic-gates-and-nano-level-biosensors",
+          "name": "Molecular Logic Gates and Nano level Biosensors",
+          "status": "retired"
+        },
+        {
+          "id": "applications-2",
+          "name": "applications",
+          "status": "retired"
+        },
+        {
+          "id": "defining-the-scale",
+          "name": "defining the scale",
+          "status": "retired"
+        },
+        {
+          "id": "uncertainty",
+          "name": "uncertainty",
+          "status": "retired"
+        },
+        {
+          "id": "optical-microscopy",
+          "name": "Optical Microscopy",
+          "status": "retired"
+        },
+        {
+          "id": "description",
+          "name": "description",
+          "status": "retired"
         }
       ]
     }

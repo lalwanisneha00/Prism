@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { countsOf, indexedSubject, loadSubject, subjectIndex } from "@/lib/catalogue";
 import { chaptersOf, subjects } from "@/lib/subjects";
+import { activeChapters } from "@/lib/syllabusFix/active";
 
 describe("the light catalogue", () => {
   it("lists exactly the subjects of the full catalogue, in the same order", () => {
@@ -12,7 +13,8 @@ describe("the light catalogue", () => {
       const light = indexedSubject(full.id)!;
       expect(light.name).toBe(full.name);
       expect([...light.semesters]).toEqual(full.semesters);
-      const own = full.chapters.reduce((n, c) => n + c.topics.length, 0);
+      // Retired chapters and topics are not counted (syllabus fix).
+      const own = activeChapters(full).reduce((n, c) => n + c.topics.length, 0);
       expect(light.chapters.reduce((n, c) => n + c.topics, 0)).toBe(own);
       // Including chapters linked in from other subjects.
       const withLinks = chaptersOf(full).reduce((n, o) => n + o.chapter.topics.length, 0);

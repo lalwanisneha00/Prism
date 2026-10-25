@@ -62,50 +62,42 @@
         },
         {
           "id": "engineering-properties",
-          "name": "properties",
-          "requires": ["occurrence"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "engineering-properties-2",
           "name": "Engineering properties",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["engineering-properties"]
+          "requires": ["occurrence"]
         },
         {
           "id": "folds-faults",
-          "name": "Structural geology: Dip",
+          "name": "Structural geology: Dip, strike, folds",
           "requires": ["engineering-properties"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "strike",
-          "name": "strike",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["folds-faults"]
-        },
-        {
-          "id": "folds",
-          "name": "folds",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["strike"]
         },
         {
           "id": "faults-and-joints-their-engineering-aspects",
           "name": "faults and joints-their engineering aspects",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["folds"]
+          "requires": ["folds-faults"]
         },
         {
           "id": "case-studies",
           "name": "Case Studies",
           "requires": ["folds-faults"]
+        },
+        {
+          "id": "engineering-properties-2",
+          "name": "Engineering properties",
+          "status": "retired"
+        },
+        {
+          "id": "strike",
+          "name": "strike",
+          "status": "retired"
+        },
+        {
+          "id": "folds",
+          "name": "folds",
+          "status": "retired"
         }
       ]
     },

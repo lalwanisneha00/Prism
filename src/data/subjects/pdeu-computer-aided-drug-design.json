@@ -91,30 +91,12 @@
         {
           "id": "visualization",
           "name": "Visualization",
-          "requires": ["classification"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "visualization-tools-2",
-          "name": "Visualization tools",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["visualization"]
+          "requires": ["classification"]
         },
         {
           "id": "protein-structure-database",
           "name": "Protein structure database",
-          "requires": ["visualization"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "protein",
-          "name": "Protein",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["protein-structure-database"]
+          "requires": ["visualization"]
         },
         {
           "id": "visualization-tools",
@@ -144,6 +126,16 @@
           "id": "protein-protein-interaction",
           "name": "Protein – protein interaction",
           "requires": ["motif-and-domains"]
+        },
+        {
+          "id": "visualization-tools-2",
+          "name": "Visualization tools",
+          "status": "retired"
+        },
+        {
+          "id": "protein",
+          "name": "Protein",
+          "status": "retired"
         }
       ]
     },

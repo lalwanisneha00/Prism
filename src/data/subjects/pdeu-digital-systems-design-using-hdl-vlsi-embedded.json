@@ -259,8 +259,7 @@
       "topics": [
         {
           "id": "introduction",
-          "name": "Introduction",
-          "status": "retired"
+          "name": "Introduction"
         },
         {
           "id": "operations-and-assignments",
@@ -330,23 +329,7 @@
         {
           "id": "for-loop",
           "name": "for loop",
-          "requires": ["repeat-construct"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "while-loop-2",
-          "name": "while loop",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["for-loop"]
-        },
-        {
-          "id": "forever-loop-2",
-          "name": "forever loop",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["while-loop-2"]
+          "requires": ["repeat-construct"]
         },
         {
           "id": "the-disable-construct",
@@ -389,11 +372,19 @@
           "requires": ["memory-modelling-ram"]
         },
         {
+          "id": "while-loop-2",
+          "name": "while loop",
+          "status": "retired"
+        },
+        {
+          "id": "forever-loop-2",
+          "name": "forever loop",
+          "status": "retired"
+        },
+        {
           "id": "behavioural-modelling-introduction",
           "name": "BEHAVIOURAL MODELLING Introduction",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["rom"]
+          "status": "retired"
         }
       ]
     },
@@ -419,16 +410,7 @@
         {
           "id": "timing-models",
           "name": "timing models",
-          "requires": ["logic-block-architecture-fpga-logic-cells"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "timing-2",
-          "name": "Timing",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["timing-models"]
+          "requires": ["logic-block-architecture-fpga-logic-cells"]
         },
         {
           "id": "power-dissipation",
@@ -502,6 +484,11 @@
           "id": "design-sign-off-max-hrs",
           "name": "Design Sign-off. Max. Hrs.:",
           "requires": ["timing-closure-challenges"]
+        },
+        {
+          "id": "timing-2",
+          "name": "Timing",
+          "status": "retired"
         }
       ]
     }

@@ -64,7 +64,8 @@
         {
           "id": "etc",
           "name": "etc",
-          "requires": ["delay"]
+          "requires": ["delay"],
+          "status": "retired"
         },
         {
           "id": "layered-architecture-osi-and-tcp-ip",
@@ -174,18 +175,11 @@
           "confidence": "verified"
         },
         {
-          "id": "rip",
-          "name": "RIP",
+          "id": "rip-bgp",
+          "name": "RIP, BGP)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["intra-and-inter-autonomous-system-routing-ospf-rip-bgp"]
-        },
-        {
-          "id": "bgp",
-          "name": "BGP)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["rip"]
         },
         {
           "id": "broadcast-and-multicast-routing-issues",
@@ -226,6 +220,16 @@
           "id": "nat",
           "name": "NAT",
           "requires": ["concept-of-subnet"]
+        },
+        {
+          "id": "rip",
+          "name": "RIP",
+          "status": "retired"
+        },
+        {
+          "id": "bgp",
+          "name": "BGP)",
+          "status": "retired"
         }
       ]
     },

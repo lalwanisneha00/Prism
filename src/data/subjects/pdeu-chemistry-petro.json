@@ -95,23 +95,7 @@
       "topics": [
         {
           "id": "alkanes-alkenes-alkynes",
-          "name": "Alkanes",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "alkenes",
-          "name": "Alkenes",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["alkanes-alkenes-alkynes"]
-        },
-        {
-          "id": "alkynes",
-          "name": "Alkynes",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["alkenes"]
+          "name": "Alkanes, Alkenes, Alkynes"
         },
         {
           "id": "markovnikovs-rule",
@@ -242,6 +226,16 @@
           "id": "carbylamines-reaction",
           "name": "Carbylamines reaction",
           "requires": ["aromatic-amino-compounds"]
+        },
+        {
+          "id": "alkenes",
+          "name": "Alkenes",
+          "status": "retired"
+        },
+        {
+          "id": "alkynes",
+          "name": "Alkynes",
+          "status": "retired"
         }
       ]
     },
@@ -266,24 +260,17 @@
         },
         {
           "id": "coal",
-          "name": "Coal",
+          "name": "Analysis of coal",
           "requires": ["peat"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "analysis-of-coal-2",
-          "name": "Analysis of coal",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["coal"]
         },
         {
           "id": "coal-and-its-environment-2",
           "name": "Coal and its environment",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["analysis-of-coal-2"]
+          "requires": ["coal"]
         },
         {
           "id": "analysis-of-coal",
@@ -380,18 +367,11 @@
           "confidence": "verified"
         },
         {
-          "id": "explosion-limits",
-          "name": "explosion limits",
+          "id": "explosion-limits-hydrogen",
+          "name": "explosion limits, Hydrogen",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["other-carbon-based-fuel-gases-and-explosion-limits-hydrogen"]
-        },
-        {
-          "id": "hydrogen",
-          "name": "Hydrogen",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["explosion-limits"]
         },
         {
           "id": "methods-for-the-preparation-of-h2",
@@ -402,6 +382,21 @@
           "id": "transportation-and-storage-of-h2",
           "name": "Transportation and storage of H2",
           "requires": ["methods-for-the-preparation-of-h2"]
+        },
+        {
+          "id": "analysis-of-coal-2",
+          "name": "Analysis of coal",
+          "status": "retired"
+        },
+        {
+          "id": "explosion-limits",
+          "name": "explosion limits",
+          "status": "retired"
+        },
+        {
+          "id": "hydrogen",
+          "name": "Hydrogen",
+          "status": "retired"
         }
       ]
     },
@@ -429,39 +424,9 @@
           "requires": ["a-brief-biological-background-organic-compound-and-their"]
         },
         {
-          "id": "biologically-important-organic-compounds",
-          "name": "Biologically important organic compounds",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["organic-compound-and-their-nomenclature"]
-        },
-        {
           "id": "carbohydrate-lipids-proteins-introduction-to-isotope-geology",
-          "name": "Carbohydrate",
-          "requires": ["a-brief-biological-background-organic-compound-and-their"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "lipids",
-          "name": "Lipids",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["carbohydrate-lipids-proteins-introduction-to-isotope-geology"]
-        },
-        {
-          "id": "proteins",
-          "name": "Proteins",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["lipids"]
-        },
-        {
-          "id": "introduction-to-isotope-geology",
-          "name": "Introduction to isotope geology",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["proteins"]
+          "name": "Carbohydrate, Lipids, Proteins, Introduction to isotope geology",
+          "requires": ["a-brief-biological-background-organic-compound-and-their"]
         },
         {
           "id": "discovery-or-radioactivity-and-isotopes",
@@ -502,6 +467,33 @@
           "id": "mass-spectrometry",
           "name": "mass spectrometry",
           "requires": ["stable-isotopes-and-petroleum"]
+        },
+        {
+          "id": "biologically-important-organic-compounds-carbohydrate-lipids",
+          "name": "Biologically important organic compounds, Carbohydrate, Lipids, Proteins",
+          "source": "admin_handout",
+          "confidence": "verified",
+          "requires": ["mass-spectrometry"]
+        },
+        {
+          "id": "biologically-important-organic-compounds",
+          "name": "Biologically important organic compounds",
+          "status": "retired"
+        },
+        {
+          "id": "lipids",
+          "name": "Lipids",
+          "status": "retired"
+        },
+        {
+          "id": "proteins",
+          "name": "Proteins",
+          "status": "retired"
+        },
+        {
+          "id": "introduction-to-isotope-geology",
+          "name": "Introduction to isotope geology",
+          "status": "retired"
         }
       ]
     }

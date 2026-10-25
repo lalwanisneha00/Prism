@@ -135,16 +135,7 @@
         {
           "id": "types-circular-and-priority-queue",
           "name": "Types: circular & priority queue",
-          "requires": ["queue-definition-and-concept-enqueue-and-dequeue-operations"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "circular",
-          "name": "Circular",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["types-circular-and-priority-queue"]
+          "requires": ["queue-definition-and-concept-enqueue-and-dequeue-operations"]
         },
         {
           "id": "doubly-circular-lists",
@@ -168,18 +159,26 @@
           "requires": ["insert-and-delete-operations"]
         },
         {
-          "id": "types-singly",
-          "name": "Types: Singly",
+          "id": "types-singly-doubly-circular",
+          "name": "Types: Singly, Doubly, Circular",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["implementing-stack-and-queue-using-ll"]
         },
         {
+          "id": "circular",
+          "name": "Circular",
+          "status": "retired"
+        },
+        {
+          "id": "types-singly",
+          "name": "Types: Singly",
+          "status": "retired"
+        },
+        {
           "id": "doubly",
           "name": "Doubly",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["types-singly"]
+          "status": "retired"
         }
       ]
     },
@@ -205,46 +204,25 @@
           "confidence": "verified"
         },
         {
-          "id": "complete-binary",
-          "name": "complete binary",
+          "id": "complete-binary-full-perfect",
+          "name": "complete binary, full, perfect",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["types-of-trees-binary-complete-binary-full-perfect"]
         },
         {
-          "id": "full",
-          "name": "full",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["complete-binary"]
-        },
-        {
-          "id": "perfect",
-          "name": "perfect",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["full"]
-        },
-        {
           "id": "binary-tree-traversal",
-          "name": "Traversal: pre-order",
+          "name": "Traversal: pre-order, in-order",
           "requires": ["types-of-trees-binary-complete-binary-full-perfect"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "in-order",
-          "name": "in-order",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["binary-tree-traversal"]
         },
         {
           "id": "post-order",
           "name": "post-order",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["in-order"]
+          "requires": ["binary-tree-traversal"]
         },
         {
           "id": "binary-search-tree",
@@ -268,24 +246,17 @@
         },
         {
           "id": "types-of-graphs-complete-connected-directed-undirected",
-          "name": "Types of graphs: complete",
+          "name": "Types of graphs: complete, connected",
           "requires": ["graphs-definition-and-concept"],
           "source": "admin_handout",
           "confidence": "verified"
-        },
-        {
-          "id": "connected",
-          "name": "connected",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["types-of-graphs-complete-connected-directed-undirected"]
         },
         {
           "id": "directed-undirected",
           "name": "directed/ undirected",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["connected"]
+          "requires": ["types-of-graphs-complete-connected-directed-undirected"]
         },
         {
           "id": "weighted-unweighted",
@@ -305,6 +276,31 @@
           "id": "bfs-dfs",
           "name": "Traversal: breadth and depth first search",
           "requires": ["types-of-graphs-complete-connected-directed-undirected"]
+        },
+        {
+          "id": "complete-binary",
+          "name": "complete binary",
+          "status": "retired"
+        },
+        {
+          "id": "full",
+          "name": "full",
+          "status": "retired"
+        },
+        {
+          "id": "perfect",
+          "name": "perfect",
+          "status": "retired"
+        },
+        {
+          "id": "in-order",
+          "name": "in-order",
+          "status": "retired"
+        },
+        {
+          "id": "connected",
+          "name": "connected",
+          "status": "retired"
         }
       ]
     },
@@ -320,25 +316,18 @@
           "confidence": "verified"
         },
         {
-          "id": "hashing-functions-division",
-          "name": "Hashing Functions: Division",
+          "id": "hashing-functions-division-multiplication",
+          "name": "Hashing Functions: Division, Multiplication",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["symbol-table"]
-        },
-        {
-          "id": "multiplication",
-          "name": "Multiplication",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["hashing-functions-division"]
         },
         {
           "id": "mid-square-and-folding",
           "name": "Mid Square and Folding",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["multiplication"]
+          "requires": ["hashing-functions-division-multiplication"]
         },
         {
           "id": "collision-resolution-techniques-separate-chaining-linear",
@@ -360,6 +349,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["linear-probing"]
+        },
+        {
+          "id": "hashing-functions-division",
+          "name": "Hashing Functions: Division",
+          "status": "retired"
+        },
+        {
+          "id": "multiplication",
+          "name": "Multiplication",
+          "status": "retired"
         }
       ]
     }

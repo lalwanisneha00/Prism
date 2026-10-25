@@ -46,19 +46,14 @@
           "requires": ["process-design-of-piping"]
         },
         {
-          "id": "process-design-of-centrifugal-pumps",
-          "name": "process design of centrifugal pumps",
+          "id": "process-design-of-centrifugal-pumps-fans",
+          "name": "process design of centrifugal pumps, fans",
           "requires": ["designs-based-on-internal-and-external-design-pressures"]
-        },
-        {
-          "id": "fans",
-          "name": "fans",
-          "requires": ["process-design-of-centrifugal-pumps"]
         },
         {
           "id": "blowers-and-compressors",
           "name": "blowers and compressors",
-          "requires": ["fans"]
+          "requires": ["process-design-of-centrifugal-pumps-fans"]
         },
         {
           "id": "piping-networks",
@@ -74,6 +69,16 @@
           "id": "safety-issues-of-high-pressure-and-high-vacuum-vessels",
           "name": "safety issues of high-pressure and high-vacuum vessels",
           "requires": ["fundamentals-of-piping-and-instrumentation-p-and-i"]
+        },
+        {
+          "id": "process-design-of-centrifugal-pumps",
+          "name": "process design of centrifugal pumps",
+          "status": "retired"
+        },
+        {
+          "id": "fans",
+          "name": "fans",
+          "status": "retired"
         }
       ]
     },
@@ -97,24 +102,24 @@
           "requires": ["shell-and-tube-heat-exchangers"]
         },
         {
-          "id": "general-mechanical-design-considerations",
-          "name": "general mechanical design considerations",
+          "id": "general-mechanical-design-considerations-reboilers",
+          "name": "general mechanical design considerations, reboilers",
           "requires": ["the-design-method-of-shell-and-tube-heat-exchangers"]
-        },
-        {
-          "id": "reboilers",
-          "name": "reboilers",
-          "requires": ["general-mechanical-design-considerations"]
         },
         {
           "id": "heat-exchanger-networks",
           "name": "heat-exchanger networks",
-          "requires": ["reboilers"]
+          "requires": ["general-mechanical-design-considerations-reboilers"]
         },
         {
           "id": "safety-in-storage-systems-for-thermal-fluids-and-hot-oils",
           "name": "safety in storage systems for thermal fluids and hot oils",
           "requires": ["heat-exchanger-networks"]
+        },
+        {
+          "id": "reboilers",
+          "name": "reboilers",
+          "status": "retired"
         }
       ]
     },
@@ -143,14 +148,15 @@
           "requires": ["considerations-in-packed-columns"]
         },
         {
-          "id": "general-mechanical-design-considerations-2",
+          "id": "general-mechanical-design-considerations",
           "name": "general mechanical design considerations",
+          "formerChapters": ["design-of-heat-transport-equipment"],
           "requires": ["process-design-of-a-column-network"]
         },
         {
           "id": "safety-aspects-for-tall-vertical-towers-e-g-wind-loading",
           "name": "safety aspects for tall vertical towers (e.g. wind loading",
-          "requires": ["general-mechanical-design-considerations-2"]
+          "requires": ["general-mechanical-design-considerations"]
         },
         {
           "id": "structural-stability",
@@ -184,14 +190,20 @@
           "requires": ["process-design-of-reactors-in-batch"]
         },
         {
-          "id": "general-mechanical-design-considerations-3",
+          "id": "general-mechanical-design-considerations-2",
           "name": "general mechanical design considerations",
+          "formerChapters": ["design-of-mass-transport-equipment"],
           "requires": ["semi-batch-and-continuous-operations"]
         },
         {
           "id": "safety-considerations-in-handling-reactive-and-pressurized-c",
           "name": "safety considerations in handling reactive and pressurized chemicals",
-          "requires": ["general-mechanical-design-considerations-3"]
+          "requires": ["general-mechanical-design-considerations-2"]
+        },
+        {
+          "id": "general-mechanical-design-considerations-3",
+          "name": "general mechanical design considerations",
+          "status": "retired"
         }
       ]
     }

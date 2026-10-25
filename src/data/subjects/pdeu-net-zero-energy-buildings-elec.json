@@ -56,19 +56,14 @@
           "requires": ["what-is-nzeb"]
         },
         {
-          "id": "energy-units-and-conversions",
-          "name": "Energy Units &Conversions",
+          "id": "energy-units-and-conversions-definitions",
+          "name": "Energy Units &Conversions, Definitions",
           "requires": ["why-zero"]
-        },
-        {
-          "id": "definitions",
-          "name": "Definitions",
-          "requires": ["energy-units-and-conversions"]
         },
         {
           "id": "site-and-source-energy",
           "name": "Site and source energy",
-          "requires": ["definitions"]
+          "requires": ["energy-units-and-conversions-definitions"]
         },
         {
           "id": "energy-basis-vsghg-basis",
@@ -89,6 +84,16 @@
           "id": "concept-of-green-buildings-and-ratings",
           "name": "Concept of Green Buildings and Ratings",
           "requires": ["energy-performance-indices"]
+        },
+        {
+          "id": "energy-units-and-conversions",
+          "name": "Energy Units &Conversions",
+          "status": "retired"
+        },
+        {
+          "id": "definitions",
+          "name": "Definitions",
+          "status": "retired"
         }
       ]
     },
@@ -173,19 +178,24 @@
           "requires": ["visual-comfort-and-daylighting"]
         },
         {
-          "id": "acoustic-comfort",
-          "name": "acoustic comfort",
+          "id": "acoustic-comfort-occupants",
+          "name": "acoustic comfort, Occupants",
           "requires": ["indoor-airquality"]
-        },
-        {
-          "id": "occupants",
-          "name": "Occupants",
-          "requires": ["acoustic-comfort"]
         },
         {
           "id": "comfort-calculation",
           "name": "comfort calculation",
-          "requires": ["occupants"]
+          "requires": ["acoustic-comfort-occupants"]
+        },
+        {
+          "id": "acoustic-comfort",
+          "name": "acoustic comfort",
+          "status": "retired"
+        },
+        {
+          "id": "occupants",
+          "name": "Occupants",
+          "status": "retired"
         }
       ]
     },
@@ -195,28 +205,13 @@
       "hours": 11,
       "topics": [
         {
-          "id": "review-of-renewable-energy-technologies",
-          "name": "Review of renewable energy technologies"
-        },
-        {
-          "id": "bipv",
-          "name": "BiPV",
-          "requires": ["review-of-renewable-energy-technologies"]
-        },
-        {
-          "id": "bipv-t",
-          "name": "BiPV/T",
-          "requires": ["bipv"]
-        },
-        {
-          "id": "bapv",
-          "name": "BaPV",
-          "requires": ["bipv-t"]
+          "id": "review-of-renewable-energy-technologies-bipv-bipv-t-bapv",
+          "name": "Review of renewable energy technologies, BiPV, BiPV/T, BaPV"
         },
         {
           "id": "solar-thermal-systems-with-storage",
           "name": "Solar thermal systems with storage",
-          "requires": ["bapv"]
+          "requires": ["review-of-renewable-energy-technologies-bipv-bipv-t-bapv"]
         },
         {
           "id": "solar-air-conditioning",
@@ -239,19 +234,14 @@
           "requires": ["energy-storage-batteries-lithium"]
         },
         {
-          "id": "thermal-energy-storage-phase-change-materials",
-          "name": "Thermal energy storage-Phase change materials",
+          "id": "thermal-energy-storage-phase-change-materials-hydrogen",
+          "name": "Thermal energy storage-Phase change materials, hydrogen",
           "requires": ["lead-acid"]
-        },
-        {
-          "id": "hydrogen",
-          "name": "hydrogen",
-          "requires": ["thermal-energy-storage-phase-change-materials"]
         },
         {
           "id": "geothermal-smart-buildings-grid-interactive-buildings",
           "name": "Geothermal.Smart buildings: Grid interactive buildings",
-          "requires": ["hydrogen"]
+          "requires": ["thermal-energy-storage-phase-change-materials-hydrogen"]
         },
         {
           "id": "energy-management-electric-vehicles",
@@ -272,6 +262,36 @@
           "id": "positive-energy-buildings",
           "name": "positive energy buildings",
           "requires": ["smart-homes"]
+        },
+        {
+          "id": "review-of-renewable-energy-technologies",
+          "name": "Review of renewable energy technologies",
+          "status": "retired"
+        },
+        {
+          "id": "bipv",
+          "name": "BiPV",
+          "status": "retired"
+        },
+        {
+          "id": "bipv-t",
+          "name": "BiPV/T",
+          "status": "retired"
+        },
+        {
+          "id": "bapv",
+          "name": "BaPV",
+          "status": "retired"
+        },
+        {
+          "id": "thermal-energy-storage-phase-change-materials",
+          "name": "Thermal energy storage-Phase change materials",
+          "status": "retired"
+        },
+        {
+          "id": "hydrogen",
+          "name": "hydrogen",
+          "status": "retired"
         }
       ]
     },
@@ -290,19 +310,14 @@
           "requires": ["review-of-energy-optimization-techniques"]
         },
         {
-          "id": "occupants-behaviour-based-calculation",
-          "name": "Occupants’ behaviour based calculation",
+          "id": "occupants-behaviour-based-calculation-costoptimality",
+          "name": "Occupants’ behaviour based calculation, Costoptimality",
           "requires": ["building-energy-usage-calculation"]
-        },
-        {
-          "id": "costoptimality",
-          "name": "Costoptimality",
-          "requires": ["occupants-behaviour-based-calculation"]
         },
         {
           "id": "nearly-nzeb",
           "name": "nearly-nZeB",
-          "requires": ["costoptimality"]
+          "requires": ["occupants-behaviour-based-calculation-costoptimality"]
         },
         {
           "id": "case-studies",
@@ -323,6 +338,16 @@
           "id": "future-scope",
           "name": "future scope",
           "requires": ["smart-homes-for-rural-areas"]
+        },
+        {
+          "id": "occupants-behaviour-based-calculation",
+          "name": "Occupants’ behaviour based calculation",
+          "status": "retired"
+        },
+        {
+          "id": "costoptimality",
+          "name": "Costoptimality",
+          "status": "retired"
         }
       ]
     }

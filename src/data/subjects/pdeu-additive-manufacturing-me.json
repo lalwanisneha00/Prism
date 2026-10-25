@@ -1,0 +1,174 @@
+{
+  "id": "pdeu-additive-manufacturing-me",
+  "name": "Additive Manufacturing",
+  "field": "Additive Manufacturing",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["me"],
+  "semesters": [6],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (MECH semester 6): Additive Manufacturing",
+    "note": "Units and topics copied from the course handout PDF (pages 3 of MECH/sem6/Mechanical_Semester_6_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "24ME336T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "me",
+      "key": "s6-program-elective--additive-manufacturing",
+      "code": "24ME336T",
+      "category": "Program Elective",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 6,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-additive-manufacturing",
+      "name": "Introduction to Additive Manufacturing",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "overview-history-need-classification-of-am-processes-fundame",
+          "name": "Overview, History, Need- Classification of AM processes- fundamental engineering aspects"
+        },
+        {
+          "id": "applications-of-am-am-applications-in-various-industries",
+          "name": "Applications of AM: AM applications in various Industries",
+          "requires": ["overview-history-need-classification-of-am-processes-fundame"]
+        },
+        {
+          "id": "industry-4-0-and-digital-and-smart-manufacturing",
+          "name": "Industry 4.0 and Digital and Smart manufacturing",
+          "requires": ["applications-of-am-am-applications-in-various-industries"]
+        }
+      ]
+    },
+    {
+      "id": "cad-for-am",
+      "name": "CAD for Am",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "cad-model-preparation",
+          "name": "CAD model preparation"
+        },
+        {
+          "id": "part-orientation-and-support-generation",
+          "name": "Part orientation and support generation",
+          "requires": ["cad-model-preparation"]
+        },
+        {
+          "id": "model-slicing-tool-path-generation-preparatory-g-and-miscell",
+          "name": "Model slicing –Tool path generation (preparatory (G) and miscellaneous (M) code generation)",
+          "requires": ["part-orientation-and-support-generation"]
+        },
+        {
+          "id": "softwares-for-am-technology-magics-mimics",
+          "name": "Softwares for AM Technology. magics, mimics",
+          "requires": ["model-slicing-tool-path-generation-preparatory-g-and-miscell"]
+        },
+        {
+          "id": "stl-file-generation",
+          "name": "STL file generation",
+          "requires": ["softwares-for-am-technology-magics-mimics"]
+        },
+        {
+          "id": "part-building-errors",
+          "name": "part building errors",
+          "requires": ["stl-file-generation"]
+        }
+      ]
+    },
+    {
+      "id": "am-processess",
+      "name": "Am Processess",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "astm-classifications-of-am-processes",
+          "name": "ASTM Classifications of AM processes"
+        },
+        {
+          "id": "fused-deposition-modelling-fdm-principle-process",
+          "name": "Fused deposition modelling (FDM)- Principle, process",
+          "requires": ["astm-classifications-of-am-processes"]
+        },
+        {
+          "id": "advantages-and-applications-stereolithography-sla-binder-jet",
+          "name": "advantages and applications Stereolithography (SLA)-Binder Jetting-Material jetting-Powder bed fusion AM processes invol",
+          "requires": ["fused-deposition-modelling-fdm-principle-process"]
+        },
+        {
+          "id": "advantages-and-applications-directed-energy-deposition-sheet",
+          "name": "advantages and applications-Directed energy deposition-Sheet lamination: Principle",
+          "requires": ["advantages-and-applications-stereolithography-sla-binder-jet"]
+        },
+        {
+          "id": "advantages-and-applications",
+          "name": "advantages and applications",
+          "requires": ["advantages-and-applications-directed-energy-deposition-sheet"]
+        }
+      ]
+    },
+    {
+      "id": "materials-and-post-processing",
+      "name": "Materials and Post Processing",
+      "hours": 8,
+      "topics": [
+        {
+          "id": "different-materials-used-in-am-polymers-metals",
+          "name": "Different materials used in AM- polymers, metals"
+        },
+        {
+          "id": "multiple-materials",
+          "name": "multiple materials",
+          "requires": ["different-materials-used-in-am-polymers-metals"]
+        },
+        {
+          "id": "multifunctional-and-graded-materials",
+          "name": "multifunctional and graded materials",
+          "requires": ["multiple-materials"]
+        },
+        {
+          "id": "tooling-and-manufacturing-classification-of-rt-routes",
+          "name": "Tooling and Manufacturing: Classification of RT Routes",
+          "requires": ["multifunctional-and-graded-materials"]
+        },
+        {
+          "id": "rp-of-patterns",
+          "name": "RP of Patterns",
+          "requires": ["tooling-and-manufacturing-classification-of-rt-routes"]
+        },
+        {
+          "id": "indirect-rt-indirect-method-for-soft-and-bridge-tooling",
+          "name": "Indirect RT: Indirect method for Soft and Bridge Tooling",
+          "requires": ["rp-of-patterns"]
+        },
+        {
+          "id": "indirect-method",
+          "name": "Indirect method",
+          "requires": ["indirect-rt-indirect-method-for-soft-and-bridge-tooling"]
+        },
+        {
+          "id": "direct-rt-direct-rt-method-for-soft-and-bridge-tooling",
+          "name": "Direct RT: Direct RT method for Soft and Bridge Tooling",
+          "requires": ["indirect-method"]
+        },
+        {
+          "id": "direct-method-for-production-tooling",
+          "name": "Direct method for Production Tooling",
+          "requires": ["direct-rt-direct-rt-method-for-soft-and-bridge-tooling"]
+        }
+      ]
+    }
+  ]
+}

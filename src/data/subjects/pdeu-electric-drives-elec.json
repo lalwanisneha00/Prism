@@ -200,23 +200,13 @@
       "hours": 14,
       "topics": [
         {
-          "id": "pmbldc-motor-drives-permanent-magnet-materials",
-          "name": "PMBLDC Motor Drives: Permanent Magnet Materials"
-        },
-        {
-          "id": "applications",
-          "name": "Applications",
-          "requires": ["pmbldc-motor-drives-permanent-magnet-materials"]
-        },
-        {
-          "id": "construction",
-          "name": "Construction",
-          "requires": ["applications"]
+          "id": "pmbldc-motor-drives-permanent-magnet-materials-applications",
+          "name": "PMBLDC Motor Drives: Permanent Magnet Materials, Applications, Construction"
         },
         {
           "id": "operating-principle-and-characteristics",
           "name": "Operating Principle & Characteristics",
-          "requires": ["construction"]
+          "requires": ["pmbldc-motor-drives-permanent-magnet-materials-applications"]
         },
         {
           "id": "electronic-commutation",
@@ -239,19 +229,14 @@
           "requires": ["mathematical-modelling"]
         },
         {
-          "id": "stepper-motor-drives-application",
-          "name": "Stepper Motor Drives: Application",
+          "id": "stepper-motor-drives-application-classification",
+          "name": "Stepper Motor Drives: Application, Classification",
           "requires": ["speed-control-of-pmbldc-motors"]
-        },
-        {
-          "id": "classification",
-          "name": "Classification",
-          "requires": ["stepper-motor-drives-application"]
         },
         {
           "id": "operating-principle-and-characteristics-2",
           "name": "Operating Principle and Characteristics",
-          "requires": ["classification"]
+          "requires": ["stepper-motor-drives-application-classification"]
         },
         {
           "id": "power-converters-for-stepper-motors",
@@ -272,6 +257,31 @@
           "id": "synchronous-reluctance-motor-drives-and-switched-reluctance",
           "name": "Synchronous Reluctance Motor Drives and Switched Reluctance Motor Drives",
           "requires": ["introduction-to-linear-induction-motor-drives"]
+        },
+        {
+          "id": "pmbldc-motor-drives-permanent-magnet-materials",
+          "name": "PMBLDC Motor Drives: Permanent Magnet Materials",
+          "status": "retired"
+        },
+        {
+          "id": "applications",
+          "name": "Applications",
+          "status": "retired"
+        },
+        {
+          "id": "construction",
+          "name": "Construction",
+          "status": "retired"
+        },
+        {
+          "id": "stepper-motor-drives-application",
+          "name": "Stepper Motor Drives: Application",
+          "status": "retired"
+        },
+        {
+          "id": "classification",
+          "name": "Classification",
+          "status": "retired"
         }
       ]
     }

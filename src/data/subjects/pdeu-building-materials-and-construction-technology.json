@@ -186,24 +186,8 @@
         },
         {
           "id": "roof-truss-terrace-prefab-roof",
-          "name": "roof (truss",
-          "requires": ["flooring"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "terrace",
-          "name": "terrace",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["roof-truss-terrace-prefab-roof"]
-        },
-        {
-          "id": "prefab-roof",
-          "name": "prefab roof)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["terrace"]
+          "name": "roof (truss, terrace, prefab roof)",
+          "requires": ["flooring"]
         },
         {
           "id": "bridges",
@@ -214,6 +198,16 @@
           "id": "girders-and-offshore-platforms",
           "name": "girders and offshore platforms",
           "requires": ["bridges"]
+        },
+        {
+          "id": "terrace",
+          "name": "terrace",
+          "status": "retired"
+        },
+        {
+          "id": "prefab-roof",
+          "name": "prefab roof)",
+          "status": "retired"
         }
       ]
     },
@@ -248,17 +242,8 @@
         },
         {
           "id": "scaffoldings-erection-and-dismantling",
-          "name": "scaffoldings",
-          "requires": ["brick-masonry"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "erection-and-dismantling",
-          "name": "erection and dismantling",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["scaffoldings-erection-and-dismantling"]
+          "name": "scaffoldings – erection and dismantling",
+          "requires": ["brick-masonry"]
         },
         {
           "id": "damp-and-water-proofing",
@@ -298,6 +283,11 @@
           "id": "thermal-and-sound-insulation",
           "name": "thermal and sound insulation",
           "requires": ["termite-proofing-and-fire-proof"]
+        },
+        {
+          "id": "erection-and-dismantling",
+          "name": "erection and dismantling",
+          "status": "retired"
         }
       ]
     },

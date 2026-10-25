@@ -1,0 +1,220 @@
+{
+  "id": "pdeu-analog-and-digital-communication-elec",
+  "name": "Analog and Digital Communication",
+  "field": "Analog and Digital Communication",
+  "tier": "sourced",
+  "university": "pdeu",
+  "courseCategory": "core",
+  "branches": ["elec"],
+  "semesters": [5],
+  "syllabusSource": {
+    "kind": "university",
+    "title": "PDEU course handout 2024-25 (ELEC semester 5): Analog and Digital Communication",
+    "note": "Units and topics copied from the course handout PDF (pages 13 of ELEC/sem5/Electrical_Semester_5_Course_Handout.pdf). New in Prism: no curated sources or checked lessons yet."
+  },
+  "code": "20EE306T",
+  "source": "admin_handout",
+  "confidence": "verified",
+  "status": "active",
+  "verifiedByCount": 0,
+  "courseType": "theory",
+  "offerings": [
+    {
+      "branch": "elec",
+      "key": "s5-analog-and-digital-communication",
+      "code": "20EE306T",
+      "category": "Program Core",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 5,
+      "kind": "core"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "introduction-to-electronic-communication",
+      "name": "Introduction To Electronic Communication",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "review-of-signals-and-systems",
+          "name": "Review of signals and systems"
+        },
+        {
+          "id": "frequency-domain-representation-of-signals",
+          "name": "Frequency domain representation of signals",
+          "requires": ["review-of-signals-and-systems"]
+        },
+        {
+          "id": "principles-of-amplitude-modulation-systemsdsb",
+          "name": "Principles of Amplitude Modulation SystemsDSB",
+          "requires": ["frequency-domain-representation-of-signals"]
+        },
+        {
+          "id": "ssb-and-vsb-modulations",
+          "name": "SSB and VSB modulations",
+          "requires": ["principles-of-amplitude-modulation-systemsdsb"]
+        },
+        {
+          "id": "angle-modulation",
+          "name": "Angle Modulation",
+          "requires": ["ssb-and-vsb-modulations"]
+        },
+        {
+          "id": "representation-of-fm-and-pm-signals",
+          "name": "Representation of FM and PM signals",
+          "requires": ["angle-modulation"]
+        },
+        {
+          "id": "spectral-characteristics-of-angle-modulated-signals",
+          "name": "Spectral characteristics of angle modulated signals",
+          "requires": ["representation-of-fm-and-pm-signals"]
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-random-processes-and-pulse-modulation",
+      "name": "Introduction to Random Processes and Pulse Modulation",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "review-of-probability-and-random-process",
+          "name": "Review of probability and random process"
+        },
+        {
+          "id": "gaussian-and-white-noise-characteristics",
+          "name": "Gaussian and white noise characteristics",
+          "requires": ["review-of-probability-and-random-process"]
+        },
+        {
+          "id": "noise-in-amplitude-modulation-systems",
+          "name": "Noise in amplitude modulation systems",
+          "requires": ["gaussian-and-white-noise-characteristics"]
+        },
+        {
+          "id": "noise-in-frequency-modulation-systems",
+          "name": "Noise in Frequency modulation systems",
+          "requires": ["noise-in-amplitude-modulation-systems"]
+        },
+        {
+          "id": "pre-emphasis-and-de-emphasis",
+          "name": "Pre-emphasis and De-emphasis",
+          "requires": ["noise-in-frequency-modulation-systems"]
+        },
+        {
+          "id": "threshold-effect-in-angle-modulation",
+          "name": "Threshold effect in angle modulation",
+          "requires": ["pre-emphasis-and-de-emphasis"]
+        },
+        {
+          "id": "pulse-modulation",
+          "name": "Pulse modulation",
+          "requires": ["threshold-effect-in-angle-modulation"]
+        },
+        {
+          "id": "sampling-process",
+          "name": "Sampling process",
+          "requires": ["pulse-modulation"]
+        },
+        {
+          "id": "pulse-amplitude-and-pulse-code-modulation-pcm",
+          "name": "Pulse Amplitude and Pulse code modulation (PCM)",
+          "requires": ["sampling-process"]
+        },
+        {
+          "id": "differential-pulse-code-modulation",
+          "name": "Differential pulse code modulation",
+          "requires": ["pulse-amplitude-and-pulse-code-modulation-pcm"]
+        },
+        {
+          "id": "delta-modulation",
+          "name": "Delta modulation",
+          "requires": ["differential-pulse-code-modulation"]
+        },
+        {
+          "id": "noise-considerations-in-pcm",
+          "name": "Noise considerations in PCM",
+          "requires": ["delta-modulation"]
+        },
+        {
+          "id": "time-division-multiplexing",
+          "name": "Time Division multiplexing",
+          "requires": ["noise-considerations-in-pcm"]
+        },
+        {
+          "id": "digital-multiplexers",
+          "name": "Digital Multiplexers",
+          "requires": ["time-division-multiplexing"]
+        }
+      ]
+    },
+    {
+      "id": "digital-communication-basics",
+      "name": "Digital Communication Basics",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "elements-of-detection-theory",
+          "name": "Elements of Detection Theory"
+        },
+        {
+          "id": "optimum-detection-of-signals-in-noise",
+          "name": "Optimum detection of signals in noise",
+          "requires": ["elements-of-detection-theory"]
+        },
+        {
+          "id": "coherent-communication-with-waveformsprobability-of-error-ev",
+          "name": "Coherent communication with waveformsProbability of Error evaluations",
+          "requires": ["optimum-detection-of-signals-in-noise"]
+        },
+        {
+          "id": "baseband-pulse-transmission-inter-symbol-interference-and-ny",
+          "name": "Baseband Pulse Transmission- Inter symbol Interference and Nyquist criterion",
+          "requires": ["coherent-communication-with-waveformsprobability-of-error-ev"]
+        },
+        {
+          "id": "pass-band-digital-modulation-schemes-phase-shift-keying",
+          "name": "Pass band Digital Modulation schemes- Phase Shift Keying",
+          "requires": ["baseband-pulse-transmission-inter-symbol-interference-and-ny"]
+        },
+        {
+          "id": "frequency-shift-keying",
+          "name": "Frequency Shift Keying",
+          "requires": ["pass-band-digital-modulation-schemes-phase-shift-keying"]
+        },
+        {
+          "id": "quadrature-amplitude-modulation",
+          "name": "Quadrature Amplitude Modulation",
+          "requires": ["frequency-shift-keying"]
+        },
+        {
+          "id": "continuous-phase-modulation-and-minimum-shift-keying",
+          "name": "Continuous Phase Modulation and Minimum Shift Keying",
+          "requires": ["quadrature-amplitude-modulation"]
+        }
+      ]
+    },
+    {
+      "id": "digital-modulation-trade-offs",
+      "name": "Digital Modulation Trade-offs",
+      "hours": 10,
+      "topics": [
+        {
+          "id": "optimum-demodulation-of-digital-signals-over-band-limited-ch",
+          "name": "Optimum demodulation of digital signals over band-limited channels- Maximum likelihood sequence detection (Viterbi recei"
+        },
+        {
+          "id": "equalization-techniques",
+          "name": "Equalization Techniques",
+          "requires": ["optimum-demodulation-of-digital-signals-over-band-limited-ch"]
+        },
+        {
+          "id": "synchronization-and-carrier-recovery-for-digital-modulation",
+          "name": "Synchronization and Carrier Recovery for Digital modulation",
+          "requires": ["equalization-techniques"]
+        }
+      ]
+    }
+  ],
+  "relatedCourses": ["pdeu-analog-and-digital-communication-laboratory-elec"]
+}

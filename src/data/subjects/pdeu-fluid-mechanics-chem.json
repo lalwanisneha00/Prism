@@ -86,19 +86,24 @@
           "requires": ["hagen-poiseuille-equation"]
         },
         {
-          "id": "pipe-joints",
-          "name": "pipe joints",
+          "id": "pipe-joints-fittings",
+          "name": "pipe joints, fittings",
           "requires": ["losses-in-pipes-and-fittings"]
-        },
-        {
-          "id": "fittings",
-          "name": "fittings",
-          "requires": ["pipe-joints"]
         },
         {
           "id": "bends-and-erosion-issues",
           "name": "bends and erosion issues",
-          "requires": ["fittings"]
+          "requires": ["pipe-joints-fittings"]
+        },
+        {
+          "id": "pipe-joints",
+          "name": "pipe joints",
+          "status": "retired"
+        },
+        {
+          "id": "fittings",
+          "name": "fittings",
+          "status": "retired"
         }
       ]
     },
@@ -183,19 +188,14 @@
           "requires": ["compressors-and-blowers-for-handling-different-fluids"]
         },
         {
-          "id": "compressors-and-blowers",
-          "name": "compressors and blowers",
+          "id": "compressors-and-blowers-valves",
+          "name": "compressors and blowers, valves",
           "requires": ["standards-for-pumps"]
-        },
-        {
-          "id": "valves",
-          "name": "valves",
-          "requires": ["compressors-and-blowers"]
         },
         {
           "id": "pipe-fittings-and-their-standards",
           "name": "pipe fittings and their standards",
-          "requires": ["valves"]
+          "requires": ["compressors-and-blowers-valves"]
         },
         {
           "id": "power-requirement-for-flow",
@@ -216,6 +216,16 @@
           "id": "safety-issues-in-pumping-volatile-substances",
           "name": "safety issues in pumping volatile substances",
           "requires": ["priming-of-pumps"]
+        },
+        {
+          "id": "compressors-and-blowers",
+          "name": "compressors and blowers",
+          "status": "retired"
+        },
+        {
+          "id": "valves",
+          "name": "valves",
+          "status": "retired"
         }
       ]
     },
@@ -229,29 +239,19 @@
           "name": "Flow metering devices: orifice meter"
         },
         {
-          "id": "venturi-meter",
-          "name": "venturi meter",
+          "id": "venturi-meter-rotameter",
+          "name": "venturi meter, rotameter",
           "requires": ["flow-metering-devices-orifice-meter"]
         },
         {
-          "id": "rotameter",
-          "name": "rotameter",
-          "requires": ["venturi-meter"]
-        },
-        {
-          "id": "pitot-tube",
-          "name": "pitot tube",
-          "requires": ["rotameter"]
-        },
-        {
-          "id": "anemometer",
-          "name": "anemometer",
-          "requires": ["pitot-tube"]
+          "id": "pitot-tube-anemometer",
+          "name": "pitot tube, anemometer",
+          "requires": ["venturi-meter-rotameter"]
         },
         {
           "id": "flow-through-open-channels-such-as-notches",
           "name": "flow through open channels such as notches",
-          "requires": ["anemometer"]
+          "requires": ["pitot-tube-anemometer"]
         },
         {
           "id": "weirs-and-nozzles",
@@ -272,6 +272,26 @@
           "id": "basic-principles-and-applications",
           "name": "basic principles and applications",
           "requires": ["two-phase-flow"]
+        },
+        {
+          "id": "venturi-meter",
+          "name": "venturi meter",
+          "status": "retired"
+        },
+        {
+          "id": "rotameter",
+          "name": "rotameter",
+          "status": "retired"
+        },
+        {
+          "id": "pitot-tube",
+          "name": "pitot tube",
+          "status": "retired"
+        },
+        {
+          "id": "anemometer",
+          "name": "anemometer",
+          "status": "retired"
         }
       ]
     }

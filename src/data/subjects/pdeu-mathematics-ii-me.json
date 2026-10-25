@@ -57,8 +57,7 @@
         {
           "id": "cauchy-riemann-equations",
           "name": "Cauchy-Riemann equations",
-          "requires": ["analytic-functions-cauchy-riemann"],
-          "status": "retired"
+          "requires": ["analytic-functions-cauchy-riemann"]
         },
         {
           "id": "conformal-mapping-and-its-type",
@@ -104,46 +103,18 @@
           "status": "retired"
         },
         {
-          "id": "limit",
-          "name": "Limit",
+          "id": "harmonic-function-and-its-significance-singularities",
+          "name": "Harmonic function and its significance, Singularities",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["evaluation-of-real-definite-integrals"]
-        },
-        {
-          "id": "continuity",
-          "name": "Continuity",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["limit"]
-        },
-        {
-          "id": "cauchy-riemann-equation-in-cartesian-coordinates",
-          "name": "Cauchy-Riemann equation (in Cartesian coordinates)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["continuity"]
-        },
-        {
-          "id": "harmonic-function-and-its-significance",
-          "name": "Harmonic function and its significance",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["cauchy-riemann-equation-in-cartesian-coordinates"]
-        },
-        {
-          "id": "singularities",
-          "name": "Singularities",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["harmonic-function-and-its-significance"]
         },
         {
           "id": "contour-integrals",
           "name": "Contour integrals",
           "source": "admin_handout",
           "confidence": "verified",
-          "requires": ["singularities"]
+          "requires": ["harmonic-function-and-its-significance-singularities"]
         },
         {
           "id": "cif-for-derivatives",
@@ -165,6 +136,31 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["taylor-s-series-and-laurent-series"]
+        },
+        {
+          "id": "limit",
+          "name": "Limit",
+          "status": "retired"
+        },
+        {
+          "id": "continuity",
+          "name": "Continuity",
+          "status": "retired"
+        },
+        {
+          "id": "cauchy-riemann-equation-in-cartesian-coordinates",
+          "name": "Cauchy-Riemann equation (in Cartesian coordinates)",
+          "status": "retired"
+        },
+        {
+          "id": "harmonic-function-and-its-significance",
+          "name": "Harmonic function and its significance",
+          "status": "retired"
+        },
+        {
+          "id": "singularities",
+          "name": "Singularities",
+          "status": "retired"
         }
       ]
     },
@@ -249,17 +245,8 @@
         },
         {
           "id": "higher-order-linear-ode",
-          "name": "Rules for finding C.F. and P.I",
-          "requires": ["linear-first-order-ode"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "cauchy-and-legendre-s-linear-equations",
-          "name": "Cauchy and Legendre's linear equations",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["higher-order-linear-ode"]
+          "name": "Higher order differential equations with constant, coefficient, Rules for finding C.F. and P.I., Method of variation of parameter, and method of undermined coefficients, Cauchy and Legendre’s linear e",
+          "requires": ["linear-first-order-ode"]
         },
         {
           "id": "simultaneous-linear-equations-with-constant-coefficients",
@@ -272,11 +259,14 @@
           "requires": ["simultaneous-linear-equations-with-constant-coefficients"]
         },
         {
+          "id": "cauchy-and-legendre-s-linear-equations",
+          "name": "Cauchy and Legendre's linear equations",
+          "status": "retired"
+        },
+        {
           "id": "method-of-variation-of-parameters",
           "name": "Method of variation of parameters",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["various-applications-of-higher-order-differential-equations"]
+          "status": "retired"
         }
       ]
     },

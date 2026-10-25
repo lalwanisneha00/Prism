@@ -70,24 +70,8 @@
         },
         {
           "id": "circle-ellipse-and-polygon-drawing-algorithms",
-          "name": "circle",
-          "requires": ["line"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "ellipse",
-          "name": "ellipse",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["circle-ellipse-and-polygon-drawing-algorithms"]
-        },
-        {
-          "id": "polygon-drawing-algorithms",
-          "name": "polygon drawing algorithms",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["ellipse"]
+          "name": "circle, ellipse, and polygon drawing algorithms",
+          "requires": ["line"]
         },
         {
           "id": "polygon-filling-algorithms",
@@ -99,6 +83,16 @@
           "name": "Introduction to AR-VR",
           "requires": ["polygon-filling-algorithms"],
           "status": "retired"
+        },
+        {
+          "id": "ellipse",
+          "name": "ellipse",
+          "status": "retired"
+        },
+        {
+          "id": "polygon-drawing-algorithms",
+          "name": "polygon drawing algorithms",
+          "status": "retired"
         }
       ]
     },
@@ -109,37 +103,7 @@
       "topics": [
         {
           "id": "two-dimensional-transformations-translation-rotation-scaling",
-          "name": "Two-dimensional transformations (translation",
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "rotation",
-          "name": "rotation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["two-dimensional-transformations-translation-rotation-scaling"]
-        },
-        {
-          "id": "scaling",
-          "name": "scaling",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["rotation"]
-        },
-        {
-          "id": "reflection",
-          "name": "reflection",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["scaling"]
-        },
-        {
-          "id": "shearing",
-          "name": "shearing)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["reflection"]
+          "name": "Two-dimensional transformations (translation, rotation, scaling, reflection, shearing)"
         },
         {
           "id": "matrix-representation",
@@ -178,6 +142,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["unity-essentials"]
+        },
+        {
+          "id": "rotation",
+          "name": "rotation",
+          "status": "retired"
+        },
+        {
+          "id": "scaling",
+          "name": "scaling",
+          "status": "retired"
+        },
+        {
+          "id": "reflection",
+          "name": "reflection",
+          "status": "retired"
+        },
+        {
+          "id": "shearing",
+          "name": "shearing)",
+          "status": "retired"
         }
       ]
     },
@@ -192,38 +176,8 @@
         },
         {
           "id": "three-dimensional-transformations-translation-rotation",
-          "name": "Three-dimensional transformations (translation",
-          "requires": ["three-dimensional-object-representations"],
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "rotation-2",
-          "name": "rotation",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["three-dimensional-transformations-translation-rotation"]
-        },
-        {
-          "id": "scaling-2",
-          "name": "scaling",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["rotation-2"]
-        },
-        {
-          "id": "reflection-2",
-          "name": "reflection",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["scaling-2"]
-        },
-        {
-          "id": "shearing-2",
-          "name": "shearing)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["reflection-2"]
+          "name": "Three-dimensional transformations (translation, rotation, scaling, reflection, shearing)",
+          "requires": ["three-dimensional-object-representations"]
         },
         {
           "id": "projection-and-types-of-projection",
@@ -257,6 +211,26 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["concepts-related-to-augmented-reality"]
+        },
+        {
+          "id": "rotation-2",
+          "name": "rotation",
+          "status": "retired"
+        },
+        {
+          "id": "scaling-2",
+          "name": "scaling",
+          "status": "retired"
+        },
+        {
+          "id": "reflection-2",
+          "name": "reflection",
+          "status": "retired"
+        },
+        {
+          "id": "shearing-2",
+          "name": "shearing)",
+          "status": "retired"
         }
       ]
     },
@@ -277,18 +251,11 @@
           "confidence": "verified"
         },
         {
-          "id": "yiq",
-          "name": "YIQ",
+          "id": "yiq-cmy",
+          "name": "YIQ, CMY)",
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["colour-models-rgb-yiq-cmy"]
-        },
-        {
-          "id": "cmy",
-          "name": "CMY)",
-          "source": "admin_handout",
-          "confidence": "verified",
-          "requires": ["yiq"]
         },
         {
           "id": "animation-computer-assisted-animation-and-real-time",
@@ -314,6 +281,16 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["texture-mapping"]
+        },
+        {
+          "id": "yiq",
+          "name": "YIQ",
+          "status": "retired"
+        },
+        {
+          "id": "cmy",
+          "name": "CMY)",
+          "status": "retired"
         }
       ]
     }

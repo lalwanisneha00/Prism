@@ -86,28 +86,28 @@
         },
         {
           "id": "application-of-l-and-e-beam-to-various-manufacturing-process",
-          "name": "Application of L & E beam to various manufacturing processes welding",
+          "name": "Application of L & E beam to various manufacturing processes welding, cutting, drilling, etc",
           "requires": ["electron-beam-material-processing-application"]
-        },
-        {
-          "id": "cutting",
-          "name": "cutting",
-          "requires": ["application-of-l-and-e-beam-to-various-manufacturing-process"]
-        },
-        {
-          "id": "drilling",
-          "name": "drilling",
-          "requires": ["cutting"]
-        },
-        {
-          "id": "etc",
-          "name": "etc",
-          "requires": ["drilling"]
         },
         {
           "id": "process-characteristics",
           "name": "Process characteristics",
-          "requires": ["etc"]
+          "requires": ["application-of-l-and-e-beam-to-various-manufacturing-process"]
+        },
+        {
+          "id": "cutting",
+          "name": "cutting",
+          "status": "retired"
+        },
+        {
+          "id": "drilling",
+          "name": "drilling",
+          "status": "retired"
+        },
+        {
+          "id": "etc",
+          "name": "etc",
+          "status": "retired"
         }
       ]
     },
@@ -152,18 +152,13 @@
         },
         {
           "id": "microstructure-selection-during-the-solidification-processes",
-          "name": "microstructure selection during the solidification processes",
+          "name": "microstructure selection during the solidification processes, Residual",
           "requires": ["heat-transfer-and-fluid-flow"]
-        },
-        {
-          "id": "residual",
-          "name": "Residual",
-          "requires": ["microstructure-selection-during-the-solidification-processes"]
         },
         {
           "id": "solidification-governing-equations-and-microstructure-select",
           "name": "Solidification governing equations and microstructure selection",
-          "requires": ["residual"]
+          "requires": ["microstructure-selection-during-the-solidification-processes"]
         },
         {
           "id": "phase-change",
@@ -179,6 +174,11 @@
           "id": "rapid-solidification",
           "name": "Rapid solidification",
           "requires": ["nucleation-and-growth-kinetics"]
+        },
+        {
+          "id": "residual",
+          "name": "Residual",
+          "status": "retired"
         }
       ]
     },
@@ -189,32 +189,17 @@
       "topics": [
         {
           "id": "theoretical-and-modelling-of-l-and-e-beam-material-processin",
-          "name": "Theoretical and modelling of L & E beam material processing: Welding"
+          "name": "Theoretical and modelling of L & E beam material processing: Welding, Cutting, Drilling"
         },
         {
-          "id": "cutting-2",
-          "name": "Cutting",
+          "id": "surface-modification-etc",
+          "name": "surface modification, etc",
           "requires": ["theoretical-and-modelling-of-l-and-e-beam-material-processin"]
-        },
-        {
-          "id": "drilling-2",
-          "name": "Drilling",
-          "requires": ["cutting-2"]
-        },
-        {
-          "id": "surface-modification",
-          "name": "surface modification",
-          "requires": ["drilling-2"]
-        },
-        {
-          "id": "etc-2",
-          "name": "etc",
-          "requires": ["surface-modification"]
         },
         {
           "id": "on-line-process-monitoring-and-control-sensors-for-process-m",
           "name": "On-line Process monitoring & control: sensors for process modelling and processing of sensor outputs for various laser a",
-          "requires": ["etc-2"]
+          "requires": ["surface-modification-etc"]
         },
         {
           "id": "workpiece-characteristics",
@@ -237,24 +222,49 @@
           "requires": ["mathematical-modelling-of-different-manufacturing-processes"]
         },
         {
-          "id": "n-procedures-to-solve-coupled-mass",
-          "name": "N procedures to solve coupled mass",
+          "id": "n-procedures-to-solve-coupled-mass-momentum-energy",
+          "name": "N procedures to solve coupled mass, momentum, energy",
           "requires": ["considerations-in-transport"]
-        },
-        {
-          "id": "momentum",
-          "name": "momentum",
-          "requires": ["n-procedures-to-solve-coupled-mass"]
-        },
-        {
-          "id": "energy",
-          "name": "energy",
-          "requires": ["momentum"]
         },
         {
           "id": "solute-equation",
           "name": "solute equation",
-          "requires": ["energy"]
+          "requires": ["n-procedures-to-solve-coupled-mass-momentum-energy"]
+        },
+        {
+          "id": "cutting-2",
+          "name": "Cutting",
+          "status": "retired"
+        },
+        {
+          "id": "drilling-2",
+          "name": "Drilling",
+          "status": "retired"
+        },
+        {
+          "id": "surface-modification",
+          "name": "surface modification",
+          "status": "retired"
+        },
+        {
+          "id": "etc-2",
+          "name": "etc",
+          "status": "retired"
+        },
+        {
+          "id": "n-procedures-to-solve-coupled-mass",
+          "name": "N procedures to solve coupled mass",
+          "status": "retired"
+        },
+        {
+          "id": "momentum",
+          "name": "momentum",
+          "status": "retired"
+        },
+        {
+          "id": "energy",
+          "name": "energy",
+          "status": "retired"
         }
       ]
     },
@@ -288,44 +298,24 @@
           "requires": ["wire-arc-additive-manufacturing"]
         },
         {
-          "id": "high-energy-density-beams-for-3d-printing-for-metals",
-          "name": "High energy density beams for 3D printing for metals",
+          "id": "high-energy-density-beams-for-3d-printing-for-metals-semicon",
+          "name": "High energy density beams for 3D printing for metals, semiconductors, polymers, etc",
           "requires": ["direct-material-deposition-using-both-beams-comparison-of-bo"]
-        },
-        {
-          "id": "semiconductors",
-          "name": "semiconductors",
-          "requires": ["high-energy-density-beams-for-3d-printing-for-metals"]
-        },
-        {
-          "id": "polymers",
-          "name": "polymers",
-          "requires": ["semiconductors"]
-        },
-        {
-          "id": "etc-3",
-          "name": "etc",
-          "requires": ["polymers"]
         },
         {
           "id": "medical-and-nano-technology-applications-for-l-and-e-beam-ma",
           "name": "Medical and nano technology applications for L & E beam material processing",
-          "requires": ["etc-3"]
+          "requires": ["high-energy-density-beams-for-3d-printing-for-metals-semicon"]
         },
         {
           "id": "case-studies-thermal-simulations-and-analysis-for-manufactur",
-          "name": "Case-studies: Thermal simulations and analysis for manufacturing processes l & E beam material processing",
+          "name": "Case-studies: Thermal simulations and analysis for manufacturing processes l & E beam material processing, Verification",
           "requires": ["medical-and-nano-technology-applications-for-l-and-e-beam-ma"]
-        },
-        {
-          "id": "verification",
-          "name": "Verification",
-          "requires": ["case-studies-thermal-simulations-and-analysis-for-manufactur"]
         },
         {
           "id": "validation-and-benchmarking",
           "name": "validation and benchmarking",
-          "requires": ["verification"]
+          "requires": ["case-studies-thermal-simulations-and-analysis-for-manufactur"]
         },
         {
           "id": "inverse-heat-transfer-problems",
@@ -336,6 +326,31 @@
           "id": "microstructure-modelling-max",
           "name": "Microstructure modelling Max",
           "requires": ["inverse-heat-transfer-problems"]
+        },
+        {
+          "id": "high-energy-density-beams-for-3d-printing-for-metals",
+          "name": "High energy density beams for 3D printing for metals",
+          "status": "retired"
+        },
+        {
+          "id": "semiconductors",
+          "name": "semiconductors",
+          "status": "retired"
+        },
+        {
+          "id": "polymers",
+          "name": "polymers",
+          "status": "retired"
+        },
+        {
+          "id": "etc-3",
+          "name": "etc",
+          "status": "retired"
+        },
+        {
+          "id": "verification",
+          "name": "Verification",
+          "status": "retired"
         }
       ]
     }
