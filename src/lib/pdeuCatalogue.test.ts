@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import subjectMap from "@/data/pdeu/subject-map.json";
 import { sourcesForTopic } from "@/lib/sources";
-import { loadPdeuBranch, PDEU_BRANCH_IDS } from "@/lib/pdeu/load";
+import { loadPdeuBranch, loadRawPdeuBranch, PDEU_BRANCH_IDS } from "@/lib/pdeu/load";
 import { allSubjects, branches, findSubject, subjects, subjectsFor } from "@/lib/subjects";
 
 /*
@@ -131,6 +131,23 @@ describe("syllabus fix, Phase 2 (2024-25 handouts)", () => {
       (x) => x.offerings?.every((o) => o.branch === "elec") && x.status !== "retired",
     ))
       expect(s.confidence, s.id).toBe("unverified");
+  });
+
+  it("never lists a course whose handbook entry is retired, nor two copies of one course", async () => {
+    for (const id of PDEU_BRANCH_IDS) {
+      const raw = await loadRawPdeuBranch(id);
+      const retired = new Set(
+        raw.subjects
+          .flatMap((c) => [c, ...(c.options ?? [])])
+          .filter((c) => c.retired)
+          .map((c) => c.key),
+      );
+      for (const s of subjects)
+        for (const o of s.offerings ?? [])
+          if (o.branch === id) expect(retired.has(o.key), `${s.id} ${id}/${o.key}`).toBe(false);
+    }
+    const evs = subjectsFor("ece", 1).filter((s) => /environment/i.test(s.name));
+    expect(evs.map((s) => s.id)).toEqual(["pdeu-environmental-science-biotech"]);
   });
 
   it("Mechanical semester 3 lists Engineering Mechanics and its own AI course", () => {
