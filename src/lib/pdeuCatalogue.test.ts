@@ -10,7 +10,7 @@ import { allSubjects, branches, findSubject, subjects, subjectsFor } from "@/lib
  * subject, named, credited and divided into units and topics as in the handbook.
  */
 const HANDOUT_ONLY_BRANCHES = ["elec", "chem"];
-const KNOWN_GAPS = ["elec/2"];
+const KNOWN_GAPS: string[] = [];
 describe("the catalogue follows PDEU's syllabus", () => {
   it("has only PDEU's branches", () => {
     // Electrical and Chemical come from the 2024-25 handouts only (no handbook file yet).
@@ -60,8 +60,7 @@ describe("the catalogue follows PDEU's syllabus", () => {
     for (const b of branches) {
       // Semester 8 is the major project and seminar: no unit-wise syllabus.
       for (let sem = 1; sem <= 7; sem++) {
-        // Electrical's semester 2 handout lists no course of its own (known gap, see
-        // docs/SYLLABUS_AUDIT.md): students add theirs with "My subject isn't here" (Phase 4).
+        // Semesters known to have no course yet (see docs/SYLLABUS_AUDIT.md) would be listed here.
         if (KNOWN_GAPS.includes(`${b.id}/${sem}`)) continue;
         expect(subjectsFor(b.id, sem).length, `${b.id} sem ${sem}`).toBeGreaterThan(0);
       }
@@ -118,6 +117,20 @@ describe("syllabus fix, Phase 2 (2024-25 handouts)", () => {
     const slot = me.subjects.find((s) => s.semester === 7 && s.options?.length)!;
     expect(slot.picks).toBe(3);
     expect(slot.options!.length).toBeGreaterThanOrEqual(9);
+  });
+
+  it("Electrical: the 2024 common first year, and unverified 2020-scheme courses from semester 3", () => {
+    const sem2 = subjectsFor("elec", 2).map((s) => s.id);
+    expect(sem2).toEqual(
+      subjectsFor("ece", 2)
+        .map((s) => s.id)
+        .filter((id) => id !== "pdeu-introduction-to-electrical-engineering"),
+    );
+    expect(subjectsFor("elec", 1).map((s) => s.id)).toContain("pdeu-mathematics-i-ce-ece-civil");
+    for (const s of allSubjects.filter(
+      (x) => x.offerings?.every((o) => o.branch === "elec") && x.status !== "retired",
+    ))
+      expect(s.confidence, s.id).toBe("unverified");
   });
 
   it("Mechanical semester 3 lists Engineering Mechanics and its own AI course", () => {
