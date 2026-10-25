@@ -362,7 +362,7 @@ function pairUnits(units: readonly ParsedUnit[], chapters: readonly PrismChapter
   return pairs.sort((a, b) => a.unitIndex - b.unitIndex);
 }
 
-function compareUnits(
+export function compareUnits(
   h: HandoutCourse,
   p: PrismCourse,
   branchCourses: readonly PrismCourse[],

@@ -1,0 +1,458 @@
+{
+  "appliedAt": "2026-10-25T16:35:54.838Z",
+  "modified": [
+    "src/data/pdeu/ce.json",
+    "src/data/subjects/pdeu-biological-systems-for-engineers.json"
+  ],
+  "semester": 2,
+  "before": {
+    "subject": {
+      "id": "pdeu-biological-systems-for-engineers",
+      "name": "Biological Systems for Engineers",
+      "field": "Biological Systems for Engineers",
+      "tier": "limited",
+      "university": "pdeu",
+      "courseCategory": "core",
+      "branches": ["ce"],
+      "semesters": [],
+      "code": "24BT101T",
+      "credits": 2,
+      "ltp": "2-0-0",
+      "category": "Engineering Science",
+      "offerings": [],
+      "syllabusSource": {
+        "kind": "university",
+        "title": "PDEU B.Tech curriculum handbook (CE): Biological Systems for Engineers",
+        "note": "Units and topics are PDEU's, copied from the handbook. 0 topic(s) reuse existing Prism topics, so their checked sources, widgets and prerequisite links still apply; the rest have no curated sources yet."
+      },
+      "source": "admin_handout",
+      "confidence": "unverified",
+      "status": "active",
+      "verifiedByCount": 0,
+      "chapters": [
+        {
+          "id": "introduction-to-biomolecules",
+          "name": "Introduction to Biomolecules",
+          "hours": 7,
+          "topics": [
+            {
+              "id": "cell-as-a-basic-unit-of-life-prokaryotic-and-eukaryotic",
+              "name": "Cell as a basic unit of life",
+              "source": "admin_handout",
+              "confidence": "unverified"
+            },
+            {
+              "id": "prokaryotic-and-eukaryotic-cells-microbes",
+              "name": "prokaryotic and eukaryotic cells, microbes",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["cell-as-a-basic-unit-of-life-prokaryotic-and-eukaryotic"]
+            },
+            {
+              "id": "plant-and-animal-cells",
+              "name": "plant and animal cells",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["prokaryotic-and-eukaryotic-cells-microbes"]
+            },
+            {
+              "id": "cell-organelles-structure-and-function",
+              "name": "Cell organelles",
+              "requires": ["cell-as-a-basic-unit-of-life-prokaryotic-and-eukaryotic"],
+              "source": "admin_handout",
+              "confidence": "unverified"
+            },
+            {
+              "id": "structure-and-function",
+              "name": "structure and function",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["cell-organelles-structure-and-function"]
+            },
+            {
+              "id": "cell-membrane",
+              "name": "Cell membrane",
+              "requires": ["cell-organelles-structure-and-function"]
+            },
+            {
+              "id": "vitamins-and-minerals-carbohydrates-lipids-amino-acids-and",
+              "name": "Vitamins and Minerals, Carbohydrates, Lipids",
+              "requires": ["cell-membrane"],
+              "source": "admin_handout",
+              "confidence": "unverified"
+            },
+            {
+              "id": "amino-acids-and-proteins",
+              "name": "Amino Acids and proteins",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["vitamins-and-minerals-carbohydrates-lipids-amino-acids-and"]
+            },
+            {
+              "id": "nucleic-acids-dna-and-rna",
+              "name": "Nucleic Acids (DNA and RNA)",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["amino-acids-and-proteins"]
+            },
+            {
+              "id": "prokaryotic-and-eukaryotic-cells",
+              "name": "prokaryotic and eukaryotic cells",
+              "status": "retired"
+            },
+            {
+              "id": "microbes",
+              "name": "microbes",
+              "status": "retired"
+            },
+            {
+              "id": "carbohydrates",
+              "name": "Carbohydrates",
+              "status": "retired"
+            },
+            {
+              "id": "lipids",
+              "name": "Lipids",
+              "status": "retired"
+            }
+          ]
+        },
+        {
+          "id": "nature-bioinspired-mechanisms",
+          "name": "Nature-bioinspired Mechanisms",
+          "hours": 7,
+          "topics": [
+            {
+              "id": "brain-as-a-cpu-system-architecture-cns-and-peripheral",
+              "name": "Brain as a CPU system (architecture",
+              "source": "admin_handout",
+              "confidence": "unverified"
+            },
+            {
+              "id": "cns-and-peripheral-nervous-system",
+              "name": "CNS and Peripheral Nervous System",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["brain-as-a-cpu-system-architecture-cns-and-peripheral"]
+            },
+            {
+              "id": "signal-transmission",
+              "name": "signal transmission",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["cns-and-peripheral-nervous-system"]
+            },
+            {
+              "id": "eeg",
+              "name": "EEG",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["signal-transmission"]
+            },
+            {
+              "id": "robotic-arms-for-prosthetics",
+              "name": "Robotic arms for prosthetics)",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["eeg"]
+            },
+            {
+              "id": "the-eye-functions-as-a-camera",
+              "name": "The eye functions as a camera",
+              "requires": ["brain-as-a-cpu-system-architecture-cns-and-peripheral"]
+            },
+            {
+              "id": "heart-as-a-pump-system",
+              "name": "Heart as a pump system",
+              "requires": ["the-eye-functions-as-a-camera"]
+            },
+            {
+              "id": "the-ear-and-nose-as-signal-transmission-models-lungs-operate",
+              "name": "The ear and nose as signal transmission models",
+              "requires": ["heart-as-a-pump-system"],
+              "source": "admin_handout",
+              "confidence": "unverified"
+            },
+            {
+              "id": "lungs-operate-as-an-exchange-model",
+              "name": "Lungs operate as an exchange model",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["the-ear-and-nose-as-signal-transmission-models-lungs-operate"]
+            },
+            {
+              "id": "kidneys-function-as-a-filtration-system-echolocation",
+              "name": "kidneys function as a filtration system",
+              "requires": ["the-ear-and-nose-as-signal-transmission-models-lungs-operate"],
+              "source": "admin_handout",
+              "confidence": "unverified"
+            },
+            {
+              "id": "echolocation-ultrasonography-sonars",
+              "name": "Echolocation (ultrasonography, sonars)",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["kidneys-function-as-a-filtration-system-echolocation"]
+            },
+            {
+              "id": "photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying",
+              "name": "Photosynthesis (photovoltaic cells",
+              "requires": ["kidneys-function-as-a-filtration-system-echolocation"],
+              "source": "admin_handout",
+              "confidence": "unverified"
+            },
+            {
+              "id": "bionic-leaf",
+              "name": "bionic leaf)",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying"]
+            },
+            {
+              "id": "bird-flying-gps-and-aircrafts",
+              "name": "Bird flying (GPS and aircrafts)",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["bionic-leaf"]
+            },
+            {
+              "id": "lotus-leaf-effect-super-hydrophobic-and-self-cleaning",
+              "name": "Lotus leaf effect (Super hydrophobic and self-cleaning surfaces)",
+              "requires": ["photosynthesis-photovoltaic-cells-bionic-leaf-bird-flying"]
+            },
+            {
+              "id": "plant-burrs-velcro",
+              "name": "Plant burrs (Velcro)",
+              "requires": ["lotus-leaf-effect-super-hydrophobic-and-self-cleaning"]
+            },
+            {
+              "id": "echolocation-ultrasonography",
+              "name": "Echolocation (ultrasonography",
+              "status": "retired"
+            },
+            {
+              "id": "sonars",
+              "name": "sonars)",
+              "status": "retired"
+            }
+          ]
+        },
+        {
+          "id": "trends-in-bioengineering",
+          "name": "Trends in Bioengineering",
+          "hours": 7,
+          "topics": [
+            {
+              "id": "stem-cell-and-its-applications",
+              "name": "Stem cell and its applications"
+            },
+            {
+              "id": "bio-printing-techniques-and-materials-applications-of",
+              "name": "Bio printing techniques and materials",
+              "requires": ["stem-cell-and-its-applications"],
+              "source": "admin_handout",
+              "confidence": "unverified"
+            },
+            {
+              "id": "applications-of-bioinformatics",
+              "name": "Applications of Bioinformatics",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["bio-printing-techniques-and-materials-applications-of"]
+            },
+            {
+              "id": "artificial-intelligence-for-diagnosis-and-detection-of",
+              "name": "Artificial Intelligence for diagnosis and detection of communicable and non-communicable diseases",
+              "requires": ["bio-printing-techniques-and-materials-applications-of"]
+            },
+            {
+              "id": "biosensors-in-healthcare",
+              "name": "Biosensors in healthcare",
+              "requires": ["artificial-intelligence-for-diagnosis-and-detection-of"]
+            },
+            {
+              "id": "environmental-monitoring",
+              "name": "Environmental monitoring",
+              "requires": ["biosensors-in-healthcare"]
+            },
+            {
+              "id": "food-safety-and-biosecurity",
+              "name": "Food Safety and Biosecurity",
+              "requires": ["environmental-monitoring"]
+            }
+          ]
+        },
+        {
+          "id": "engineering-perspectives-of-biological-sciences",
+          "name": "Engineering Perspectives of Biological Sciences",
+          "hours": 7,
+          "topics": [
+            {
+              "id": "biology-and-engineering-crosstalk",
+              "name": "Biology and engineering crosstalk"
+            },
+            {
+              "id": "at-cell-level-hybridoma-technology-at-tissue-level-plant",
+              "name": "At cell level: Hybridoma technology",
+              "requires": ["biology-and-engineering-crosstalk"],
+              "source": "admin_handout",
+              "confidence": "unverified"
+            },
+            {
+              "id": "at-tissue-level-plant-tissue-culture",
+              "name": "At tissue level: Plant Tissue Culture",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["at-cell-level-hybridoma-technology-at-tissue-level-plant"]
+            },
+            {
+              "id": "animal-tissue-culture",
+              "name": "Animal Tissue Culture",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["at-tissue-level-plant-tissue-culture"]
+            },
+            {
+              "id": "tissue-engineering-introduction-to-biomimetics-and",
+              "name": "Tissue Engineering",
+              "requires": ["at-cell-level-hybridoma-technology-at-tissue-level-plant"],
+              "source": "admin_handout",
+              "confidence": "unverified"
+            },
+            {
+              "id": "introduction-to-biomimetics-and-biomimicry-nanobiotechnology",
+              "name": "Introduction to Biomimetics and Biomimicry, Nanobiotechnology",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["tissue-engineering-introduction-to-biomimetics-and"]
+            },
+            {
+              "id": "introduction-to-radiology",
+              "name": "Introduction to Radiology",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["introduction-to-biomimetics-and-biomimicry-nanobiotechnology"]
+            },
+            {
+              "id": "high-throughput-diagnostics-in-clinics-molecular-diagnostics",
+              "name": "High-throughput diagnostics in clinics: Molecular Diagnostics (PCR)",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["introduction-to-radiology"]
+            },
+            {
+              "id": "dna-chips",
+              "name": "DNA chips",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["high-throughput-diagnostics-in-clinics-molecular-diagnostics"]
+            },
+            {
+              "id": "hours",
+              "name": "HOURS",
+              "source": "admin_handout",
+              "confidence": "unverified",
+              "requires": ["dna-chips"]
+            },
+            {
+              "id": "introduction-to-biomimetics-and-biomimicry",
+              "name": "Introduction to Biomimetics and Biomimicry",
+              "status": "retired"
+            },
+            {
+              "id": "nanobiotechnology",
+              "name": "Nanobiotechnology",
+              "status": "retired"
+            }
+          ]
+        }
+      ],
+      "courseType": "theory"
+    },
+    "row": {
+      "key": "s2-biological-systems-for-engineers",
+      "page": 7,
+      "code": "24BT101T",
+      "name": "Biological Systems for Engineers",
+      "category": "Engineering Science",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 1,
+      "core": true,
+      "units": [
+        {
+          "number": 1,
+          "title": "Introduction to Biomolecules",
+          "hours": 7,
+          "topics": [
+            "Cell as a basic unit of life",
+            "prokaryotic and eukaryotic cells, microbes",
+            "plant and animal cells",
+            "Cell organelles",
+            "structure and function",
+            "Cell membrane",
+            "Vitamins and Minerals, Carbohydrates, Lipids",
+            "Amino Acids and proteins",
+            "Nucleic Acids (DNA and RNA)"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Nature-Bioinspired Mechanisms",
+          "hours": 7,
+          "topics": [
+            "Brain as a CPU system (architecture",
+            "CNS and Peripheral Nervous System",
+            "signal transmission",
+            "EEG",
+            "Robotic arms for prosthetics)",
+            "The eye functions as a camera",
+            "Heart as a pump system",
+            "The ear and nose as signal transmission models",
+            "Lungs operate as an exchange model",
+            "kidneys function as a filtration system",
+            "Echolocation (ultrasonography, sonars)",
+            "Photosynthesis (photovoltaic cells",
+            "bionic leaf)",
+            "Bird flying (GPS and aircrafts)",
+            "Lotus leaf effect (Super hydrophobic and self-cleaning surfaces)",
+            "Plant burrs (Velcro)"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Trends in Bioengineering",
+          "hours": 7,
+          "topics": [
+            "Stem cell and its applications",
+            "Bio printing techniques and materials",
+            "Applications of Bioinformatics",
+            "Artificial Intelligence for diagnosis and detection of communicable and non-communicable diseases",
+            "Biosensors in healthcare",
+            "Environmental monitoring",
+            "Food Safety and Biosecurity"
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Engineering Perspectives of Biological Sciences",
+          "hours": 7,
+          "topics": [
+            "Biology and engineering crosstalk",
+            "At cell level: Hybridoma technology",
+            "At tissue level: Plant Tissue Culture",
+            "Animal Tissue Culture",
+            "Tissue Engineering",
+            "Introduction to Biomimetics and Biomimicry, Nanobiotechnology",
+            "Introduction to Radiology",
+            "High-throughput diagnostics in clinics: Molecular Diagnostics (PCR)",
+            "DNA chips",
+            "HOURS"
+          ]
+        }
+      ],
+      "source": "handout",
+      "retired": true
+    }
+  }
+}

@@ -93,6 +93,7 @@ async function writeSettings(
       | "audioRate"
       | "branch"
       | "semester"
+      | "batchYear"
       | "importanceOverrides"
       | "mySubjects"
       | "electiveChoices"

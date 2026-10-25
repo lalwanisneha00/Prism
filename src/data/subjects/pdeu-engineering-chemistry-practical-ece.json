@@ -1,12 +1,12 @@
 {
   "id": "pdeu-engineering-chemistry-practical-ece",
-  "name": "Engineering Chemistry Practical",
+  "name": "Engineering Chemistry Laboratory",
   "field": "Engineering Chemistry Practical",
   "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["ece", "elec"],
-  "semesters": [2],
+  "branches": ["ece", "elec", "biotech", "chem", "civil", "me", "ce"],
+  "semesters": [1, 2],
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU course handout 2024-25 (ECE semester 2): Engineering Chemistry Practical",
@@ -34,6 +34,55 @@
       "key": "s2-chemistry-laboratory",
       "code": "20CH101P",
       "category": "Basic Science",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "biotech",
+      "key": "s2-engineering-chemistry-laboratory",
+      "code": "24CH101P",
+      "category": "Basic Science",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "chem",
+      "key": "s1-engineering-chemistry-laboratory",
+      "code": "24CH101P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "civil",
+      "key": "s2-engineering-chemistry-laboratory",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "me",
+      "key": "s2-engineering-chemistry-laboratory",
+      "code": "24CH101P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "ce",
+      "key": "s2-engineering-chemistry-practical",
+      "code": "20CH101P",
+      "category": "Laboratory",
       "ltp": "0-0-2",
       "credits": 1,
       "semester": 2,
@@ -118,6 +167,19 @@
           "number": 11,
           "aim": "To prepare a polymer (Nylon 6,10), identify the functional groups by FT-IR",
           "requires": ["experiment-10-preparation-of-drug-molecule-preparation-of-as"]
+        },
+        {
+          "id": "experiment-9-detection-of-biomolecules",
+          "name": "Detection of biomolecules.",
+          "number": 9,
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-engineering-chemistry-laboratory-chem",
+            "chapter": "experiments",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["experiment-11-polymerization"]
         }
       ]
     }

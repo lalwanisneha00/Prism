@@ -21,6 +21,7 @@ import {
   type Weakness,
 } from "@/lib/priority/weakness";
 import { getSettings, listQuizAttempts } from "@/lib/storage/progress";
+import { canonicalChapter, canonicalTopic } from "@/lib/syllabusFix/alias";
 import type { Subject, Topic } from "@/lib/subjects";
 
 /*
@@ -28,8 +29,15 @@ import type { Subject, Topic } from "@/lib/subjects";
  * Everything is read on this device; missing data simply means that factor isn't used.
  */
 
-export const topicKey = (subject: string, topic: string) => `${subject}/${topic}`;
-export const chapterKey = (subject: string, chapter: string) => `${subject}/chapter:${chapter}`;
+/** "subject/topic"; a merged course's retired copy counts for its main copy (syllabus fix). */
+export const topicKey = (subject: string, topic: string) => {
+  const at = canonicalTopic(subject, topic);
+  return `${at.subject}/${at.topic}`;
+};
+export const chapterKey = (subject: string, chapter: string) => {
+  const at = canonicalChapter(subject, chapter);
+  return `${at.subject}/chapter:${at.chapter}`;
+};
 
 export type StudyModel = {
   weakness: Map<string, Weakness>;

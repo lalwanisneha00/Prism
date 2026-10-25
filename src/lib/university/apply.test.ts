@@ -25,15 +25,15 @@ function defaultReview(): ReviewEntry[] {
 describe("planApply", () => {
   it("puts each subject in the semester the university teaches it", () => {
     const plan = planApply(defaultReview(), subjects);
-    expect(plan.picks["1"]).toEqual(expect.arrayContaining(["pdeu-applied-physics"]));
+    expect(plan.picks["1"]).toEqual(expect.arrayContaining(["pdeu-physics-ict"]));
     expect(Object.keys(plan.picks)).toContain("1");
     expect(Array.isArray(plan.own)).toBe(true);
   });
 
   it("scopes a built-in subject to what the university teaches", () => {
     const plan = planApply(defaultReview(), subjects);
-    const physics = subjects.find((s) => s.id === "pdeu-applied-physics")!;
-    const scope = plan.scopes["pdeu-applied-physics"];
+    const physics = subjects.find((s) => s.id === "pdeu-physics-ict")!;
+    const scope = plan.scopes["pdeu-physics-ict"];
     expect(scope).toBeDefined();
     expect(Object.keys(scope).length).toBeLessThan(physics.chapters.length);
   });
@@ -41,13 +41,13 @@ describe("planApply", () => {
   it("honours chapters the student unticks, and skipped subjects", () => {
     const review = defaultReview();
     const phys = review.find((r) => r.uni.name === "Applied Physics")!;
-    const physics = subjects.find((s) => s.id === "pdeu-applied-physics")!;
+    const physics = subjects.find((s) => s.id === "pdeu-physics-ict")!;
     phys.hiddenChapters = [physics.chapters[0].id];
     const plan = planApply(review, subjects);
-    expect(plan.scopes["pdeu-applied-physics"][physics.chapters[0].id]).toBeUndefined();
+    expect(plan.scopes["pdeu-physics-ict"][physics.chapters[0].id]).toBeUndefined();
     const skipped = defaultReview();
     skipped.find((r) => r.uni.name === "Applied Physics")!.choice = { kind: "skip" };
-    expect(planApply(skipped, subjects).picks["1"] ?? []).not.toContain("pdeu-applied-physics");
+    expect(planApply(skipped, subjects).picks["1"] ?? []).not.toContain("pdeu-physics-ict");
   });
 
   it("is empty for an empty review", () => {

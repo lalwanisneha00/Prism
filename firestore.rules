@@ -4,6 +4,8 @@ rules_version = '2';
 // - Each signed-in student can read and write only their own data under users/{theirUid}.
 // - Signed-in students can read the shared lesson library; nobody can write it from a
 //   browser (only the server, via the Admin SDK, which bypasses these rules).
+// - Syllabus fix proposals (syllabusHandouts, syllabusProposals and their votes) are written
+//   and read only by the server; the catch-all below denies browsers.
 // - Everything else is denied.
 service cloud.firestore {
   match /databases/{database}/documents {

@@ -5,8 +5,8 @@
   "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["biotech"],
-  "semesters": [1],
+  "branches": ["biotech", "chem", "petro"],
+  "semesters": [1, 2],
   "syllabusSource": {
     "kind": "university",
     "title": "PDEU course handout 2024-25 (BIOTECH semester 1): Modern Physics Laboratory",
@@ -21,6 +21,26 @@
   "offerings": [
     {
       "branch": "biotech",
+      "key": "s1-modern-physics-laboratory",
+      "code": "24PH103P",
+      "category": "Basic Science",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "chem",
+      "key": "s2-modern-physics-laboratory",
+      "code": "24PH103P",
+      "category": "Laboratory",
+      "ltp": "0-0-2",
+      "credits": 1,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "petro",
       "key": "s1-modern-physics-laboratory",
       "code": "24PH103P",
       "category": "Basic Science",
@@ -123,6 +143,58 @@
           "name": "Study of Polarization of light using LASER",
           "number": 15,
           "requires": ["experiment-14-experiments-with-heat-pump"]
+        },
+        {
+          "id": "experiment-1-to-verify-the-inverse-square-law-of-radiation",
+          "name": "To verify the inverse square law of radiation.",
+          "number": 1,
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-modern-physics-laboratory-chem",
+            "chapter": "experiments",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["experiment-15-study-of-polarization-of-light-using-laser"]
+        },
+        {
+          "id": "experiment-3-study-of-the-biot-savart-law-and-the-magnetic-f",
+          "name": "Study of the Biot-Savart law and the magnetic field along the axis of a coil.",
+          "number": 3,
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-modern-physics-laboratory-chem",
+            "chapter": "experiments",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["experiment-1-to-verify-the-inverse-square-law-of-radiation"]
+        },
+        {
+          "id": "experiment-4-to-determine-the-electrical-conductivity-of-met",
+          "name": "To determine the electrical conductivity of metals.",
+          "number": 4,
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-modern-physics-laboratory-chem",
+            "chapter": "experiments",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["experiment-3-study-of-the-biot-savart-law-and-the-magnetic-f"]
+        },
+        {
+          "id": "experiment-10-study-of-ferromagnetic-hysteresis",
+          "name": "Study of ferromagnetic hysteresis.",
+          "number": 10,
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-modern-physics-laboratory-chem",
+            "chapter": "experiments",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["experiment-4-to-determine-the-electrical-conductivity-of-met"]
         }
       ]
     }

@@ -1,11 +1,11 @@
 {
   "id": "pdeu-computer-programming-i-ict",
-  "name": "Computer Programming - I (ICT)",
+  "name": "Computer Programming - I",
   "field": "Computer Programming",
   "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["ict"],
+  "branches": ["ict", "ce", "chem", "me", "ece", "biotech", "elec", "petro"],
   "semesters": [1],
   "code": "UG_1_T",
   "credits": 1,
@@ -16,6 +16,74 @@
       "branch": "ict",
       "key": "s1-computer-programming-i",
       "code": "UG_1_T",
+      "category": "Engineering Science",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "ce",
+      "key": "s1-computer-programming-i",
+      "code": "24CP101T",
+      "category": "Engineering Science",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "chem",
+      "key": "s1-computer-programming-i",
+      "code": "24CP101T",
+      "category": "Program Core",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "me",
+      "key": "s1-computer-programming-i",
+      "code": "24CP101T",
+      "category": "Program Core",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "ece",
+      "key": "s1-computer-programming-i",
+      "category": "Engineering Science",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "biotech",
+      "key": "s1-computer-programming-i",
+      "code": "24CP101T",
+      "category": "Engineering Science",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "elec",
+      "key": "s1-computer-programming-i",
+      "category": "Engineering Science",
+      "ltp": "1-0-0",
+      "credits": 1,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "petro",
+      "key": "s1-computer-programming-i",
+      "code": "24CP101T",
       "category": "Engineering Science",
       "ltp": "1-0-0",
       "credits": 1,
@@ -312,6 +380,103 @@
           "requires": ["types-of-data-structures"]
         }
       ]
+    },
+    {
+      "id": "files-handling",
+      "name": "Files Handling",
+      "hours": 3,
+      "topics": [
+        {
+          "id": "operations-on-files-such-as-file-creation",
+          "name": "Operations on Files such as File creation",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-computer-programming-i-ce",
+            "chapter": "files-handling",
+            "at": "2026-10-25T14:26:38.783Z"
+          }
+        },
+        {
+          "id": "file-deletion",
+          "name": "File deletion",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-computer-programming-i-ce",
+            "chapter": "files-handling",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["operations-on-files-such-as-file-creation"]
+        },
+        {
+          "id": "file-access-modes-such-as-read",
+          "name": "File access modes such as read",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-computer-programming-i-ce",
+            "chapter": "files-handling",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["file-deletion"]
+        },
+        {
+          "id": "write",
+          "name": "write",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-computer-programming-i-ce",
+            "chapter": "files-handling",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["file-access-modes-such-as-read"]
+        },
+        {
+          "id": "append",
+          "name": "append",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-computer-programming-i-ce",
+            "chapter": "files-handling",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["write"]
+        },
+        {
+          "id": "file-concatenation",
+          "name": "File concatenation",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-computer-programming-i-ce",
+            "chapter": "files-handling",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["append"]
+        },
+        {
+          "id": "file-handling-using-seek-function",
+          "name": "File handling using seek function",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-computer-programming-i-ce",
+            "chapter": "files-handling",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["file-concatenation"]
+        }
+      ],
+      "source": "admin_handout",
+      "confidence": "unverified",
+      "movedFrom": {
+        "subject": "pdeu-computer-programming-i-ce",
+        "chapter": "files-handling",
+        "at": "2026-10-25T14:26:38.783Z"
+      }
     }
   ],
   "courseType": "theory",

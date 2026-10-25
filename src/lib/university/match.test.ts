@@ -35,7 +35,7 @@ describe("nameSimilarity", () => {
 describe("matchSubject", () => {
   it("finds built-in subjects by name", () => {
     expect(matchSubject(find("Applied Physics"), subjects).best?.subject.id).toBe(
-      "pdeu-applied-physics",
+      "pdeu-physics-ict",
     );
   });
   it("leaves subjects Prism does not teach as the student's own", () => {
@@ -49,7 +49,7 @@ describe("matchSubject", () => {
 });
 
 describe("scope", () => {
-  const physics = subjects.find((s) => s.id === "pdeu-applied-physics")!;
+  const physics = subjects.find((s) => s.id === "pdeu-physics-ict")!;
 
   it("hides chapters the university does not teach and keeps the ones it does", () => {
     const scope = scopeFor(physics, [find("Applied Physics")])!;

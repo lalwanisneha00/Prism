@@ -5,7 +5,7 @@
   "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["me"],
+  "branches": ["me", "biotech", "ece", "civil", "elec"],
   "semesters": [1],
   "syllabusSource": {
     "kind": "university",
@@ -24,6 +24,43 @@
       "key": "s1-biology-for-engineers",
       "code": "24BT102T",
       "category": "Program Core",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "biotech",
+      "key": "s1-biology-for-engineers",
+      "code": "24BT102T",
+      "category": "Basic Science",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "ece",
+      "key": "s1-biology-for-engineers",
+      "category": "Basic Science",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "civil",
+      "key": "s1-biology-for-engineers",
+      "category": "Basic Science",
+      "ltp": "2-0-0",
+      "credits": 2,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "elec",
+      "key": "s1-biology-for-engineers",
+      "category": "Basic Science",
       "ltp": "2-0-0",
       "credits": 2,
       "semester": 1,
@@ -104,6 +141,66 @@
           "id": "lipids",
           "name": "Lipids",
           "status": "retired"
+        },
+        {
+          "id": "overview-of-cell-structure-and-functions",
+          "name": "Overview of cell structure and functions",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-biology-for-engineers-biotech",
+            "chapter": "introduction-to-biomolecules",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["lipids"]
+        },
+        {
+          "id": "carbohydrates-properties-and-biological-functions",
+          "name": "Carbohydrates: Properties and biological functions",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-biology-for-engineers-biotech",
+            "chapter": "introduction-to-biomolecules",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["overview-of-cell-structure-and-functions"]
+        },
+        {
+          "id": "proteins-structure-its-functions",
+          "name": "Proteins: Structure, its functions",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-biology-for-engineers-biotech",
+            "chapter": "introduction-to-biomolecules",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["carbohydrates-properties-and-biological-functions"]
+        },
+        {
+          "id": "significance-of-lipids-role-of-biomolecules-characteristics",
+          "name": "Significance of lipids",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-biology-for-engineers-biotech",
+            "chapter": "introduction-to-biomolecules",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["proteins-structure-its-functions"]
+        },
+        {
+          "id": "role-of-biomolecules-characteristics-and-roles-of-enzymes-vi",
+          "name": "Role of biomolecules: Characteristics and roles of enzymes, vitamins, hormones",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-biology-for-engineers-biotech",
+            "chapter": "introduction-to-biomolecules",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["significance-of-lipids-role-of-biomolecules-characteristics"]
         }
       ]
     },
@@ -200,6 +297,42 @@
           "id": "sonars",
           "name": "sonars)",
           "status": "retired"
+        },
+        {
+          "id": "shark-skin-friction-reducing-swim-suits",
+          "name": "Shark skin (Friction reducing swim suits)",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-biology-for-engineers-biotech",
+            "chapter": "nature-bioinspired-materials-and-mechanisms",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["sonars"]
+        },
+        {
+          "id": "kingfisher-beak-bullet-train",
+          "name": "Kingfisher beak (Bullet train)",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-biology-for-engineers-biotech",
+            "chapter": "nature-bioinspired-materials-and-mechanisms",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["shark-skin-friction-reducing-swim-suits"]
+        },
+        {
+          "id": "human-blood-substitutes-hemoglobin-based-oxygen-carriers",
+          "name": "Human Blood substitutes- hemoglobin-based oxygen carriers (HBOCs) and perflourocarbons (PFCs)",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-biology-for-engineers-biotech",
+            "chapter": "nature-bioinspired-materials-and-mechanisms",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["kingfisher-beak-bullet-train"]
         }
       ]
     },
@@ -302,6 +435,30 @@
           "id": "nanobiotechnology",
           "name": "Nanobiotechnology",
           "status": "retired"
+        },
+        {
+          "id": "bioprocessing-and-biomaterials",
+          "name": "Bioprocessing and Biomaterials",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-biology-for-engineers-biotech",
+            "chapter": "engineering-perspectives-of-biological-sciences",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["nanobiotechnology"]
+        },
+        {
+          "id": "tissue-engineering-introduction-to-biomimetics-and",
+          "name": "Tissue Engineering, Introduction to Biomimetics and Biomimicry, Nanobiotechnology, Introduction to Radiology, High- throughput diagnostics in clinics: Molecular Diagnostics (PCR), DNA chips",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-biology-for-engineers-ece-civil",
+            "chapter": "engineering-perspectives-of-biological-sciences",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["bioprocessing-and-biomaterials"]
         }
       ]
     }

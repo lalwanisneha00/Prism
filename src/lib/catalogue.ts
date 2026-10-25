@@ -78,10 +78,14 @@ export function loadSubject(id: string): Promise<Subject | undefined> {
   return promise;
 }
 
+/** Same rule as `subjectsFor`: a course's own offering for the branch decides its semester. */
 export function subjectsInSemester(semester: number, branch?: string): IndexedSubject[] {
-  return subjectIndex.filter(
-    (s) =>
+  return subjectIndex.filter((s) => {
+    const mine = branch ? (s.offerings?.filter((o) => o.branch === branch) ?? []) : [];
+    if (mine.length > 0) return mine.some((o) => o.semester === semester);
+    return (
       s.semesters.includes(semester) &&
-      (!branch || s.branches.includes("all") || s.branches.includes(branch)),
-  );
+      (!branch || s.branches.includes("all") || s.branches.includes(branch))
+    );
+  });
 }

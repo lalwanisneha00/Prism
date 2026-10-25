@@ -88,8 +88,32 @@ for (const key of Object.keys(stale.topics)) {
   if (!topicExists(subject, topic)) problems.push(`stale-topics: unknown ${key}`);
 }
 
+// Merged courses (migration 005): a retired copy forwards to an active main copy, and every
+// forwarded chapter or topic exists there.
+type Status = { status?: string };
+const aliases = read<{
+  subjects: Record<string, string>;
+  chapters: Record<string, string>;
+  topics: Record<string, string>;
+}>("src/data/syllabus/aliases.json");
+for (const [from, to] of Object.entries(aliases.subjects)) {
+  const main = subjects.get(to) as (Subject & Status) | undefined;
+  if (!main || main.status === "retired")
+    problems.push(`aliases: ${from} → missing or retired ${to}`);
+  if (!subjects.has(from)) problems.push(`aliases: unknown copy ${from}`);
+}
+for (const [from, to] of Object.entries(aliases.topics)) {
+  const [s, t] = to.split("/");
+  if (!topicExists(s, t)) problems.push(`aliases: topic ${from} → unknown ${to}`);
+}
+for (const [from, to] of Object.entries(aliases.chapters)) {
+  const [s, c] = to.split("/");
+  if (!subjects.get(s)?.chapters.some((ch) => ch.id === c))
+    problems.push(`aliases: chapter ${from} → unknown ${to}`);
+}
+
 console.log(
-  `Checked ${lock.length} locked ids, ${subjects.size} subjects, ${Object.keys(map).length} handbook links, ${Object.keys(stale.topics).length} stale marks.`,
+  `Checked ${lock.length} locked ids, ${subjects.size} subjects, ${Object.keys(map).length} handbook links, ${Object.keys(stale.topics).length} stale marks, ${Object.keys(aliases.subjects).length} merged copies (${Object.keys(aliases.topics).length} topic aliases).`,
 );
 if (problems.length) {
   console.error(`${problems.length} problem(s):\n  ${problems.join("\n  ")}`);

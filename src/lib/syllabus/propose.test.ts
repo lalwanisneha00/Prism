@@ -32,7 +32,7 @@ describe("isSequenced", () => {
 describe("propose, on PDEU's real Computer Engineering semester 1", () => {
   it("uses a clear name match straight away (high confidence)", () => {
     const ap = propose(uni("Applied Physics"), subjects);
-    expect(ap.best?.subject.id).toBe("pdeu-applied-physics");
+    expect(ap.best?.subject.id).toBe("pdeu-physics-ict");
     expect(ap.confidence).toBe("high");
     const es = propose(uni("Environmental Science"), subjects);
     expect(es.best?.subject.id).toMatch(/^pdeu-environment/);
@@ -61,7 +61,7 @@ describe("propose, on PDEU's real Computer Engineering semester 1", () => {
 
 describe("coverageOf", () => {
   it("finds the Prism topics the syllabus covers (PDEU's own subject covers all of it)", () => {
-    const physics = subjects.find((s) => s.id === "pdeu-applied-physics")!;
+    const physics = subjects.find((s) => s.id === "pdeu-physics-ict")!;
     const { covered, extra } = coverageOf(physics, uni("Applied Physics"));
     expect(covered.length).toBeGreaterThan(40);
     expect(extra.length).toBeLessThan(10);

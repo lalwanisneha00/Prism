@@ -5,7 +5,7 @@ describe("searching the whole catalogue", () => {
   it("finds topics in any subject", () => {
     const faraday = searchCatalogue("faraday");
     expect(faraday[0]).toMatchObject({ kind: "topic" });
-    expect(faraday.some((m) => m.kind === "topic" && m.subject.id === "pdeu-applied-physics")).toBe(
+    expect(faraday.some((m) => m.kind === "topic" && m.subject.id === "pdeu-physics-ict")).toBe(
       true,
     );
     const taylor = searchCatalogue("taylor");
@@ -14,7 +14,7 @@ describe("searching the whole catalogue", () => {
 
   it("finds subjects and chapters, subjects first", () => {
     const r = searchCatalogue("applied physics");
-    expect(r[0]).toMatchObject({ kind: "subject", subject: { id: "pdeu-applied-physics" } });
+    expect(r[0]).toMatchObject({ kind: "subject", subject: { id: "pdeu-physics-ict" } });
     const ch = searchCatalogue("electromagnetic waves");
     expect(ch.some((m) => m.kind === "chapter")).toBe(true);
   });
@@ -27,12 +27,12 @@ describe("searching the whole catalogue", () => {
 
   it("links results to the subject page or the lesson picker", () => {
     const topic = searchCatalogue("faraday").find(
-      (m) => m.kind === "topic" && m.subject.id === "pdeu-applied-physics",
+      (m) => m.kind === "topic" && m.subject.id === "pdeu-physics-ict",
     )!;
     expect(matchHref(topic)).toBe(
-      "/start?subject=pdeu-applied-physics&chapter=electricity-and-magnetism&topic=faradays-law",
+      "/start?subject=pdeu-physics-ict&chapter=electricity-and-magnetism&topic=faradays-law",
     );
     const [subject] = searchCatalogue("applied physics");
-    expect(matchHref(subject)).toBe("/subjects/pdeu-applied-physics");
+    expect(matchHref(subject)).toBe("/subjects/pdeu-physics-ict");
   });
 });

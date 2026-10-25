@@ -35,10 +35,12 @@ describe("the catalogue follows PDEU's syllabus", () => {
         expect(subject!.branches).toContain(id);
         // Units are chapters, in order.
         const unitTitles = c.units.filter((u) => u.topics.length > 0).map((u) => u.title);
-        // Retired chapters (not in the current handout) stay in the file but are not counted.
-        expect(subject!.chapters.filter((ch) => ch.status !== "retired").length).toBe(
-          unitTitles.length,
-        );
+        // Retired chapters (not in the current handout) stay in the file but are not counted. A
+        // merged course (migration 005) may hold a unit carried over from another branch's copy.
+        const listed = subject!.chapters.filter((ch) => ch.status !== "retired");
+        const own = listed.filter((ch) => !ch.movedFrom || ch.movedFrom.subject === subject!.id);
+        expect(unitTitles.length, `${id}/${c.key} units`).toBeGreaterThanOrEqual(own.length);
+        expect(unitTitles.length, `${id}/${c.key} units`).toBeLessThanOrEqual(listed.length);
       }
     }
   });
@@ -198,5 +200,80 @@ describe("syllabus fix, Phase 2 (2024-25 handouts)", () => {
       else expect(lab.chapters[0].topics.every((t) => t.number)).toBe(true);
     }
     expect(labs.filter((l) => l.chapters.length === 0)).toHaveLength(4);
+  });
+});
+
+describe("syllabus fix, admin corrections (migration 005)", () => {
+  const COMMON_NON_CORE = ["24HS101T", "24HS102T", "24HS103T", "24HS104T", "24HS105T", "24CV101T"];
+
+  it("puts every first-year course of a branch's course table at the top of its semester search", async () => {
+    const map = subjectMap as Record<string, string>;
+    for (const id of PDEU_BRANCH_IDS) {
+      const b = await loadPdeuBranch(id);
+      for (const row of b.subjects.filter((s) => s.semester <= 2)) {
+        const subjectId = map[`${id}/${row.key}`];
+        // Only course-table rows with no course anywhere (a placeholder like "Humanities - 1").
+        if (!subjectId) {
+          const code = row.code?.toUpperCase();
+          const same = subjects.filter((s) => code && s.offerings?.some((o) => o.code === code));
+          expect(
+            same.map((s) => s.id),
+            `${id}/${row.key} ${code}`,
+          ).toEqual([]);
+          continue;
+        }
+        expect(
+          subjectsFor(id, row.semester).map((s) => s.id),
+          `${id}/${row.key}`,
+        ).toContain(subjectId);
+      }
+    }
+  });
+
+  it("COMP semester 1 lists Indian Knowledge System once, with no branch label", () => {
+    const iks = subjects.filter((s) => /indian knowledge system/i.test(s.name));
+    expect(iks).toHaveLength(1);
+    expect(iks[0].name).toBe("Indian Knowledge System");
+    expect(subjectsFor("ce", 1)).toContain(iks[0]);
+    for (const b of ["ict", "ece", "civil", "elec"]) expect(subjectsFor(b, 1)).toContain(iks[0]);
+    for (const b of ["petro", "biotech", "me", "chem"]) expect(subjectsFor(b, 2)).toContain(iks[0]);
+  });
+
+  it("has one shared course for each common non-core first-year course", () => {
+    for (const code of COMMON_NON_CORE) {
+      const copies = subjects.filter((s) => s.offerings?.some((o) => o.code === code));
+      expect(
+        copies.map((s) => s.id),
+        code,
+      ).toHaveLength(1);
+      expect(copies[0].name).not.toMatch(/\((?:ce|ict|ece|civil|petro|biotech)\b/i);
+    }
+  });
+
+  it("retires merged copies softly: they still resolve and forward to the main copy", () => {
+    const old = findSubject("pdeu-indian-knowledge-system-ict-ece-civil")!;
+    expect(old.status).toBe("retired");
+    expect(old.movedTo).toBe("pdeu-indian-knowledge-system-petro");
+    expect(old.chapters.length).toBeGreaterThan(0);
+  });
+
+  it("Biological Systems for Engineers: COMP semester 2 only (migrations 005, 007), other branches untouched", () => {
+    const bio = findSubject("pdeu-biological-systems-for-engineers")!;
+    expect(bio.status ?? "active").toBe("active");
+    expect(bio.confidence).toBe("verified");
+    expect(bio.semesters).toEqual([2]);
+    for (let sem = 1; sem <= 8; sem++)
+      expect(subjectsFor("ce", sem).includes(bio), `ce sem ${sem}`).toBe(sem === 2);
+    const chem = findSubject("pdeu-biological-systems-for-engineers-chem")!;
+    expect(subjectsFor("chem", 1)).toContain(chem);
+  });
+
+  it("COMP takes Organisational Behaviour in semester 1 (migration 006), other branches untouched", () => {
+    const ob = findSubject("pdeu-organizational-behavior")!;
+    expect(subjectsFor("ce", 1)).toContain(ob);
+    expect(subjectsFor("ce", 2)).not.toContain(ob);
+    for (const b of ["ict", "ece", "civil", "petro", "biotech"])
+      expect(subjectsFor(b, 2)).toContain(ob);
+    expect(subjectsFor("chem", 1)).toContain(ob);
   });
 });

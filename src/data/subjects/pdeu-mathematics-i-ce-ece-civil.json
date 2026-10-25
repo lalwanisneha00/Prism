@@ -1,11 +1,11 @@
 {
   "id": "pdeu-mathematics-i-ce-ece-civil",
-  "name": "Mathematics - I (CE, ECE, Civil)",
+  "name": "Mathematics - I",
   "field": "Mathematics",
   "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["ce", "ece", "civil", "elec"],
+  "branches": ["ce", "ece", "civil", "elec", "ict", "chem", "petro"],
   "semesters": [1],
   "code": "24MA101T",
   "credits": 4,
@@ -43,6 +43,36 @@
     {
       "branch": "elec",
       "key": "s1-mathematics-1",
+      "category": "Basic Science",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "ict",
+      "key": "s1-mathematics-1",
+      "code": "24MA101T",
+      "category": "Basic Science",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "chem",
+      "key": "s1-mathematics-i",
+      "code": "24MA101T",
+      "category": "Program Core",
+      "ltp": "3-1-0",
+      "credits": 4,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "petro",
+      "key": "s1-mathematics-i",
+      "code": "24MA101T",
       "category": "Basic Science",
       "ltp": "3-1-0",
       "credits": 4,
@@ -104,6 +134,18 @@
           "source": "admin_handout",
           "confidence": "verified",
           "requires": ["power-series"]
+        },
+        {
+          "id": "total-derivative-chain-rule-2",
+          "name": "Total derivatives",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-mathematics-1-ict",
+            "chapter": "differential-calculus-and-its-applications",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["convergence-of-power-series"]
         }
       ]
     },
@@ -307,6 +349,103 @@
           "status": "retired"
         }
       ]
+    },
+    {
+      "id": "matrix-algebra-and-its-applications",
+      "name": "Matrix Algebra and its Applications",
+      "hours": 14,
+      "topics": [
+        {
+          "id": "solution-of-system-of-algebraic-equation",
+          "name": "Solution of system of algebraic equation",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-mathematics-i-petro",
+            "chapter": "matrix-algebra-and-its-applications",
+            "at": "2026-10-25T14:26:38.783Z"
+          }
+        },
+        {
+          "id": "rank-of-matrix",
+          "name": "Rank of a matrix",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-mathematics-i-petro",
+            "chapter": "matrix-algebra-and-its-applications",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["solution-of-system-of-algebraic-equation"]
+        },
+        {
+          "id": "consistency-of-system-of-equation",
+          "name": "consistency of system of equation",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-mathematics-i-petro",
+            "chapter": "matrix-algebra-and-its-applications",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["rank-of-matrix"]
+        },
+        {
+          "id": "characteristic-equation-of-a-square-matrix-eigen-values-and",
+          "name": "Characteristic equation of a square matrix- Eigen values and Eigenvectors of a real matrix",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-mathematics-i-petro",
+            "chapter": "matrix-algebra-and-its-applications",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["consistency-of-system-of-equation"]
+        },
+        {
+          "id": "properties-of-eigen-values-and-eigen-vectors",
+          "name": "Properties of eigen values and eigen vectors",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-mathematics-i-petro",
+            "chapter": "matrix-algebra-and-its-applications",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["characteristic-equation-of-a-square-matrix-eigen-values-and"]
+        },
+        {
+          "id": "cayley-hamilton",
+          "name": "Cayley-Hamilton theorem (without proof)",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-mathematics-i-petro",
+            "chapter": "matrix-algebra-and-its-applications",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["properties-of-eigen-values-and-eigen-vectors"]
+        },
+        {
+          "id": "finding-inverse-of-a-matrix-diagonalization-of-a-matrix",
+          "name": "finding inverse of a matrix- Diagonalization of a matrix using orthogonal transformation",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-mathematics-i-petro",
+            "chapter": "matrix-algebra-and-its-applications",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["cayley-hamilton"]
+        }
+      ],
+      "source": "admin_handout",
+      "confidence": "unverified",
+      "movedFrom": {
+        "subject": "pdeu-mathematics-i-petro",
+        "chapter": "matrix-algebra-and-its-applications",
+        "at": "2026-10-25T14:26:38.783Z"
+      }
     }
   ],
   "courseType": "theory"

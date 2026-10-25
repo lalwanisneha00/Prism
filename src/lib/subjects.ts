@@ -91,8 +91,11 @@ export const SubjectSchema = z.object({
   tier: z.enum(TIERS),
   /** Branch ids that study it, or "all" for the first-year common core. */
   branches: z.array(z.string().min(1)).min(1),
-  /** The semesters it is usually taught in (1–8). */
-  semesters: z.array(z.int().min(1).max(8)).min(1),
+  /**
+   * The semesters it is usually taught in (1–8). Empty = not confirmed yet (syllabus fix: a course
+   * unlinked from its semester until a handout or students say where it belongs).
+   */
+  semesters: z.array(z.int().min(1).max(8)),
   syllabusSource: SyllabusSourceSchema,
   /** "pdeu" for the university's own courses (the layer over the older topic bank). */
   university: z.literal("pdeu").optional(),

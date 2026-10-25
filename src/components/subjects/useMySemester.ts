@@ -11,6 +11,7 @@ import {
 import { visibleSubjects, type ElectiveChoices } from "@/lib/pdeu/electives";
 import { getSettings, updateSettings } from "@/lib/storage/progress";
 import { subjectsFor } from "@/lib/subjects";
+import { canonicalSubject } from "@/lib/syllabusFix/alias";
 
 /**
  * "My subjects this semester": the semester the student is in, and which subjects their college
@@ -76,7 +77,8 @@ export function useMySemester(): {
   );
 
   const picks = useMemo(() => {
-    const manual = picksFor(all, semester);
+    // A pick of a merged course's retired copy means its main copy (syllabus fix aliases).
+    const manual = picksFor(all, semester).map((id) => canonicalSubject(id));
     const pdeu =
       branch && semester
         ? visibleSubjects(subjectsFor(branch, semester), branch, choices).map((s) => s.id)

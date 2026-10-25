@@ -85,10 +85,14 @@ describe("subject catalogue", () => {
 
 describe("branches and semesters", () => {
   it("gives each PDEU branch its own subjects per semester", () => {
-    expect(subjectsFor("ce", 1).map((s) => s.id)).toContain("pdeu-applied-physics");
+    // Applied Physics is one course shared by the 2024 common first year (merged, migration 005).
+    expect(subjectsFor("ce", 1).map((s) => s.id)).toContain("pdeu-physics-ict");
     expect(subjectsFor("ce", 8)).toEqual([]);
     expect(semestersFor("me")).toContain(3);
-    expect(branchesOf(findSubject("pdeu-applied-physics")!).map((b) => b.id)).toEqual(["ce"]);
+    expect(branchesOf(findSubject("pdeu-physics-ict")!).map((b) => b.id)).toEqual(
+      expect.arrayContaining(["ce", "ict", "ece", "elec"]),
+    );
+    expect(subjectsFor("me", 1).map((s) => s.id)).not.toContain("pdeu-physics-ict");
     // The older topic-bank subjects are not listed.
     expect(listedSubjects.every((s) => s.university === "pdeu")).toBe(true);
   });

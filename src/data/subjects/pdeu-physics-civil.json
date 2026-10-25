@@ -1,11 +1,11 @@
 {
   "id": "pdeu-physics-civil",
-  "name": "Physics (Civil)",
+  "name": "Physics",
   "field": "Applied Physics",
   "tier": "sourced",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["civil"],
+  "branches": ["civil", "me"],
   "semesters": [1],
   "credits": 3,
   "ltp": "3-0-0",
@@ -14,6 +14,16 @@
     {
       "branch": "civil",
       "key": "s1-physics",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 1,
+      "kind": "core"
+    },
+    {
+      "branch": "me",
+      "key": "s1-physics-theory",
+      "code": "16SC102T",
       "category": "Basic Science",
       "ltp": "3-0-0",
       "credits": 3,
@@ -423,10 +433,48 @@
           "id": "wiens-law-max-42-hrs",
           "name": "Wien’s law. Max. <42> Hrs",
           "requires": ["stefans-laws"]
+        },
+        {
+          "id": "wien-s-law",
+          "name": "Wien’s law",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-physics-theory-me",
+            "chapter": "thermal-physics",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["wiens-law-max-42-hrs"]
         }
       ]
+    },
+    {
+      "id": "vector-concepts-and-applications-in-physics",
+      "name": "Vector concepts & applications in Physics",
+      "hours": 13,
+      "topics": [
+        {
+          "id": "gaussdivergence-theorem",
+          "name": "GaussDivergence Theorem",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-physics-theory-me",
+            "chapter": "vector-concepts-and-applications-in-physics",
+            "at": "2026-10-25T14:26:38.783Z"
+          }
+        }
+      ],
+      "source": "admin_handout",
+      "confidence": "unverified",
+      "movedFrom": {
+        "subject": "pdeu-physics-theory-me",
+        "chapter": "vector-concepts-and-applications-in-physics",
+        "at": "2026-10-25T14:26:38.783Z"
+      }
     }
   ],
   "courseType": "theory",
-  "relatedCourses": ["pdeu-physics-laboratory-civil"]
+  "relatedCourses": ["pdeu-engineering-physics-laboratory-me"],
+  "code": "16SC102T"
 }

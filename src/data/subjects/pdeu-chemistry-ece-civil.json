@@ -1,11 +1,11 @@
 {
   "id": "pdeu-chemistry-ece-civil",
-  "name": "Chemistry (ECE, Civil)",
+  "name": "Engineering Chemistry",
   "field": "Chemistry",
   "tier": "limited",
   "university": "pdeu",
   "courseCategory": "core",
-  "branches": ["ece", "civil", "chem", "elec"],
+  "branches": ["ece", "civil", "chem", "elec", "ict", "me", "ce", "biotech"],
   "semesters": [1, 2],
   "credits": 3,
   "ltp": "3-0-0",
@@ -42,6 +42,46 @@
     {
       "branch": "elec",
       "key": "s2-chemistry",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "ict",
+      "key": "s2-chemistry",
+      "code": "24CH101T",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "me",
+      "key": "s2-chemistry-theory",
+      "code": "16SC101T",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "ce",
+      "key": "s2-engineering-chemistry",
+      "code": "24CH101T",
+      "category": "Basic Science",
+      "ltp": "3-0-0",
+      "credits": 3,
+      "semester": 2,
+      "kind": "core"
+    },
+    {
+      "branch": "biotech",
+      "key": "s2-engineering-chemistry",
+      "code": "24CH101T",
       "category": "Basic Science",
       "ltp": "3-0-0",
       "credits": 3,
@@ -312,12 +352,46 @@
           "requires": ["photocatalytic-hydrogen-production-principles-and-challenges"]
         }
       ]
+    },
+    {
+      "id": "corrosion-and-its-control",
+      "name": "Corrosion and its Control",
+      "hours": 12,
+      "topics": [
+        {
+          "id": "introduction-2",
+          "name": "Introduction",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-chemistry-theory-me",
+            "chapter": "corrosion-and-its-control",
+            "at": "2026-10-25T14:26:38.783Z"
+          }
+        },
+        {
+          "id": "liquid",
+          "name": "Liquid",
+          "source": "admin_handout",
+          "confidence": "unverified",
+          "movedFrom": {
+            "subject": "pdeu-chemistry-theory-me",
+            "chapter": "corrosion-and-its-control",
+            "at": "2026-10-25T14:26:38.783Z"
+          },
+          "requires": ["introduction-2"]
+        }
+      ],
+      "source": "admin_handout",
+      "confidence": "unverified",
+      "movedFrom": {
+        "subject": "pdeu-chemistry-theory-me",
+        "chapter": "corrosion-and-its-control",
+        "at": "2026-10-25T14:26:38.783Z"
+      }
     }
   ],
   "courseType": "theory",
-  "relatedCourses": [
-    "pdeu-engineering-chemistry-laboratory-chem",
-    "pdeu-engineering-chemistry-laboratory-civil",
-    "pdeu-engineering-chemistry-practical-ece"
-  ]
+  "relatedCourses": ["pdeu-engineering-chemistry-practical-ece"],
+  "code": "24CH101T"
 }

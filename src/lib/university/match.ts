@@ -125,22 +125,30 @@ export type SubjectMatch = {
 const NAME_MATCH = 0.6;
 const MIN_TOPICS_FOR_COVERAGE = 4;
 
-function scoreFor(subject: Subject, uni: UniSubject): number {
+/** Tie-break for equal scores: the same printed name first, then the better topic coverage. */
+type TieBreak = { exact: number; cov: number };
+
+function scoreFor(subject: Subject, uni: UniSubject): { score: number } & TieBreak {
   const name = nameSimilarity(subject.name, uni.name);
   // Topic overlap can rescue a differently named subject, but needs real evidence.
   const texts = listed(uni);
   const hits = subject.chapters
     .flatMap((c) => c.topics)
     .filter((t) => covers(texts, t.name)).length;
-  const cov = hits >= MIN_TOPICS_FOR_COVERAGE ? topicCoverage(subject, uni) : 0;
-  return Math.max(name, cov >= 0.35 ? 0.5 + cov / 2 : 0);
+  const raw = topicCoverage(subject, uni);
+  const cov = hits >= MIN_TOPICS_FOR_COVERAGE ? raw : 0;
+  const exact = normalize(subject.name) === normalize(uni.name) ? 1 : 0;
+  return { score: Math.max(name, cov >= 0.35 ? 0.5 + cov / 2 : 0), exact, cov: raw };
 }
 
 export function matchSubject(uni: UniSubject, catalogue: readonly Subject[]): SubjectMatch {
   const ranked = catalogue
-    .map((subject) => ({ subject, score: scoreFor(subject, uni) }))
+    .map((subject) => ({ subject, ...scoreFor(subject, uni) }))
     .filter((c) => c.score >= 0.4)
-    .sort((a, b) => b.score - a.score);
+    // Equal scores ("Physics", "Applied Physics": filler words are ignored) → the same printed
+    // name, then the best topic coverage, not whichever comes first in the catalogue.
+    .sort((a, b) => b.score - a.score || b.exact - a.exact || b.cov - a.cov)
+    .map(({ subject, score }) => ({ subject, score }));
   const best = ranked[0] && ranked[0].score >= NAME_MATCH ? ranked[0] : null;
   return { uni, best, others: ranked.filter((c) => c !== best).slice(0, 3) };
 }

@@ -47,18 +47,18 @@ describe("stored syllabus", () => {
   it("is valid against its schema, and old settings without it still load", () => {
     expect(SyllabusByTermSchema.safeParse(syllabus).success).toBe(true);
     expect(SyllabusByTermSchema.safeParse(undefined).success).toBe(false);
-    expect(coverageFor("pdeu-applied-physics", undefined)).toBeNull();
+    expect(coverageFor("pdeu-physics-ict", undefined)).toBeNull();
   });
 
   it("puts matched subjects on the list and keeps the rest as own subjects", () => {
-    expect(idsOf(term)).toEqual(expect.arrayContaining(["pdeu-applied-physics", MATHS]));
+    expect(idsOf(term)).toEqual(expect.arrayContaining(["pdeu-physics-ict", MATHS]));
     const own = term.subjects.filter((s) => s.match.kind === "own").map((s) => s.name);
   });
 });
 
 describe("coverage notes", () => {
   it("Applied Physics (whole subject): topics outside the syllabus stay, with the note", () => {
-    const cov = coverageFor("pdeu-applied-physics", syllabus)!;
+    const cov = coverageFor("pdeu-physics-ict", syllabus)!;
     expect(cov.mode).toBe("whole");
     expect(cov.coveredCount).toBeGreaterThan(8);
     expect(cov.coveredCount).toBeLessThanOrEqual(cov.totalTopics);
@@ -108,13 +108,13 @@ describe("coverage notes", () => {
   });
 
   it("lists syllabus topics Prism lacks, and gives outcomes only for covered topics", () => {
-    const missing = missingFromPrism(syllabus, "pdeu-applied-physics");
+    const missing = missingFromPrism(syllabus, "pdeu-physics-ict");
     // PDEU's own subject lists every topic of its syllabus, so nothing is missing from Prism.
     expect(missing.flatMap((m) => m.topics).length).toBeLessThan(6);
-    const cov = coverageFor("pdeu-applied-physics", syllabus)!;
+    const cov = coverageFor("pdeu-physics-ict", syllabus)!;
     const key = [...cov.entries[0].covered][0];
-    const e = emphasisFor(syllabus, "pdeu-applied-physics", key)!;
+    const e = emphasisFor(syllabus, "pdeu-physics-ict", key)!;
     expect(e.outcomes).toHaveLength(6);
-    expect(emphasisFor(syllabus, "pdeu-applied-physics", "applied-physics/zzz")).toBeNull();
+    expect(emphasisFor(syllabus, "pdeu-physics-ict", "applied-physics/zzz")).toBeNull();
   });
 });

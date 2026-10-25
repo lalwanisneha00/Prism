@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Container } from "@/components/Container";
 import { TierBadge } from "@/components/lesson/TierBadge";
 import { TopicImportance } from "@/components/subjects/TopicImportance";
+import { HandoutBanner } from "@/components/subjects/HandoutBanner";
 import { SubjectProgress } from "@/components/subjects/SubjectProgress";
 import { needsFacultyMaterial, NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
 import { evalStatusCopy, evalStatusOf } from "@/lib/evalStatus";
 import { branchesOf, findSubject, subjects } from "@/lib/subjects";
+import { aliases } from "@/lib/syllabusFix/alias";
+import { resolveMeta } from "@/lib/syllabusFix/tree";
 
 // Only the known subjects exist: anything else is a real 404 (not a streamed 200 page).
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return subjects.map((s) => ({ id: s.id }));
+  // A merged course's retired copies keep their page as a forwarding address.
+  return [...subjects.map((s) => s.id), ...Object.keys(aliases.subjects)].map((id) => ({ id }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/subjects/[id]">): Promise<Metadata> {
@@ -23,7 +27,11 @@ export async function generateMetadata({ params }: PageProps<"/subjects/[id]">):
 
 /** A subject page: its chapters and progress, weak topics, trust badge and shortcuts (V3 · Step 3). */
 export default async function SubjectPage({ params }: PageProps<"/subjects/[id]">) {
-  const subject = findSubject((await params).id);
+  const id = (await params).id;
+  const main = aliases.subjects[id];
+  // Temporary (307), not permanent: the merge can be undone (migration down).
+  if (main) redirect(`/subjects/${main}`);
+  const subject = findSubject(id);
   if (!subject) notFound();
   const branchNames = subject.branches.includes("all")
     ? "All branches (first-year common subject)"
@@ -48,7 +56,10 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
         </p>
         <h1 className="text-3xl font-bold tracking-tight">{subject.name}</h1>
         <p className="text-muted">
-          {branchNames} · usually semester {subject.semesters.join(" or ")}
+          {branchNames} ·{" "}
+          {subject.semesters.length > 0
+            ? `usually semester ${subject.semesters.join(" or ")}`
+            : "semester not confirmed yet"}
         </p>
         <TierBadge tier={subject.tier} />
         {evalStatusOf(subject.id) !== "measured" && (
@@ -100,6 +111,21 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
               Upload material
             </Link>
           </div>
+        )}
+        {subject.university === "pdeu" && (
+          <HandoutBanner
+            subjectId={subject.id}
+            subjectName={subject.name}
+            codes={[
+              ...new Set(
+                [subject.code, ...(subject.offerings ?? []).map((o) => o.code)].filter(
+                  (c): c is string => Boolean(c),
+                ),
+              ),
+            ]}
+            confidence={resolveMeta(subject).confidence}
+            {...(subject.batchYears ? { batchYears: subject.batchYears } : {})}
+          />
         )}
         <nav aria-label="Shortcuts" className="flex flex-wrap gap-2">
           {actions.map((a, i) => (
