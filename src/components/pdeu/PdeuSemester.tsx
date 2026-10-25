@@ -3,6 +3,8 @@
 import Link from "next/link";
 import subjectMap from "@/data/pdeu/subject-map.json";
 import { useEffect, useId, useState } from "react";
+import dynamic from "next/dynamic";
+import { FlagDialog } from "@/components/flags/FlagDialog";
 import { UploadForCourse } from "@/components/pdeu/UploadForCourse";
 import { useElectiveChoices } from "@/components/pdeu/useElectiveChoices";
 import { choicesFor, type ElectiveChoices } from "@/lib/pdeu/electives";
@@ -10,6 +12,12 @@ import { coursesOf, topicCount } from "@/lib/pdeu/helpers";
 import { loadPdeuBranch, type PdeuBranchId } from "@/lib/pdeu/load";
 import { NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
 import type { PdeuBranch, PdeuCourse } from "@/lib/pdeu/types";
+
+// The form (and its handout reader) loads only when the student opens it.
+const MissingSubjectForm = dynamic(
+  () => import("@/components/flags/MissingSubjectForm").then((m) => m.MissingSubjectForm),
+  { ssr: false, loading: () => <div className="h-24 animate-pulse rounded-xl bg-surface-2" /> },
+);
 
 const card = "flex flex-col gap-2 rounded-2xl border border-border bg-surface p-4";
 const subjectIds = subjectMap as Record<string, string>;
@@ -258,6 +266,19 @@ export function PdeuSemester({ branchId, semester }: { branchId: PdeuBranchId; s
         onChoose={onChoose}
         testId="pdeu-noncore"
       />
+      <div className="flex flex-col gap-1" data-testid="missing-subject">
+        <FlagDialog
+          label="My subject isn't here"
+          text="My subject isn't here"
+          title="My subject isn't here"
+        >
+          {(close) => <MissingSubjectForm semester={semester} onClose={close} />}
+        </FlagDialog>
+        <p className="text-xs text-muted">
+          A course of your semester missing from this list? Tell us, and once another student agrees
+          it is added for everyone in your branch.
+        </p>
+      </div>
     </div>
   );
 }

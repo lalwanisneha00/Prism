@@ -19,6 +19,8 @@ export const VoteSchema = z.object({
   /** "cloud" = read from the student's synced settings on the server; "device" = sent by the app. */
   profileFrom: z.enum(["cloud", "device"]),
   handoutId: z.string().optional(),
+  /** The flag record this vote came from (Phase 4). */
+  flagId: z.string().optional(),
   at: z.string().min(1),
 });
 export type Vote = z.infer<typeof VoteSchema>;
@@ -80,6 +82,10 @@ export function proposalId(change: Change): string {
     norm(change.handout?.topic),
     ...(change.pieces ?? []).map(norm),
   ];
+  // A new course has no Prism id yet: its name tells two suggestions apart. Only added for new
+  // courses, so the ids of every other proposal stay as they were.
+  if (change.type === "new course" || change.type === "new practical course")
+    parts.push(norm(change.handout?.course));
   const subject = change.prism?.subject ?? change.to?.subject ?? "new";
   return `${subject}__${fnv(parts.map((p) => p ?? "").join("|"))}`;
 }

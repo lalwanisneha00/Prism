@@ -49,7 +49,9 @@ export type ChangeType =
   | "topic split"
   | "extra item not in any handout"
   | "new course"
-  | "new practical course";
+  | "new practical course"
+  /** Student flag (Phase 4): the course is listed twice; `to.subject` = the copy it repeats. */
+  | "course duplicate";
 
 export type Change = {
   type: ChangeType;

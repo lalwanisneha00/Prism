@@ -5,11 +5,13 @@ import { Container } from "@/components/Container";
 import { TierBadge } from "@/components/lesson/TierBadge";
 import { TopicImportance } from "@/components/subjects/TopicImportance";
 import { HandoutBanner } from "@/components/subjects/HandoutBanner";
+import { CourseFlag } from "@/components/flags/CourseFlag";
 import { SubjectProgress } from "@/components/subjects/SubjectProgress";
 import { needsFacultyMaterial, NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
 import { evalStatusCopy, evalStatusOf } from "@/lib/evalStatus";
 import { branchesOf, findSubject, subjects } from "@/lib/subjects";
 import { aliases } from "@/lib/syllabusFix/alias";
+import { courseCodes } from "@/lib/syllabusFix/flags";
 import { resolveMeta } from "@/lib/syllabusFix/tree";
 
 // Only the known subjects exist: anything else is a real 404 (not a streamed 200 page).
@@ -54,7 +56,14 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
           </Link>{" "}
           › {subject.field}
         </p>
-        <h1 className="text-3xl font-bold tracking-tight">{subject.name}</h1>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <h1 className="text-3xl font-bold tracking-tight">{subject.name}</h1>
+          {subject.university === "pdeu" && (
+            <CourseFlag
+              subject={{ id: subject.id, name: subject.name, codes: courseCodes(subject) }}
+            />
+          )}
+        </div>
         <p className="text-muted">
           {branchNames} ·{" "}
           {subject.semesters.length > 0
@@ -116,13 +125,7 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
           <HandoutBanner
             subjectId={subject.id}
             subjectName={subject.name}
-            codes={[
-              ...new Set(
-                [subject.code, ...(subject.offerings ?? []).map((o) => o.code)].filter(
-                  (c): c is string => Boolean(c),
-                ),
-              ),
-            ]}
+            codes={courseCodes(subject)}
             confidence={resolveMeta(subject).confidence}
             {...(subject.batchYears ? { batchYears: subject.batchYears } : {})}
           />

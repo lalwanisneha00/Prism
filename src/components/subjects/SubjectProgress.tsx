@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { ChapterFlag } from "@/components/flags/ChapterFlag";
 import { ScopeNotice } from "@/components/university/ScopeNotice";
 import { useScopedSubjects } from "@/components/university/useUniversityScope";
 import { useTopicStatuses } from "@/components/map/useTopicStatuses";
@@ -109,12 +110,17 @@ export function SubjectProgress({
               className="scroll-mt-24 rounded-2xl border border-border bg-surface p-4"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h2 className="text-lg font-semibold">
-                  {i + 1}. {chapter.name}
-                  {owner.id !== subject.id && (
-                    <span className="text-sm font-normal text-muted"> (from {owner.name})</span>
+                <div className="flex min-w-0 items-start gap-1">
+                  <h2 className="text-lg font-semibold">
+                    {i + 1}. {chapter.name}
+                    {owner.id !== subject.id && (
+                      <span className="text-sm font-normal text-muted"> (from {owner.name})</span>
+                    )}
+                  </h2>
+                  {owner.university === "pdeu" && (
+                    <ChapterFlag owner={owner} chapterId={chapter.id} />
                   )}
-                </h2>
+                </div>
                 <p className="text-sm text-muted">
                   {mastered} of {chapter.topics.length} mastered
                   {chapter.hours ? ` · ${chapter.hours} syllabus hours` : ""}

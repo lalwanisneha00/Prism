@@ -332,6 +332,7 @@ export function ChapterLesson(props: ChapterLessonProps) {
                 minutes={t.minutes}
                 recap={t.recap}
                 href={topicHref(t)}
+                flag={{ subject, chapterId: chapter.id }}
               />
               <TopicEnd topicId={t.id} done={done.has(t.id)} />
             </>

@@ -3,6 +3,7 @@ import { getAdmin } from "@/lib/firebase/admin";
 import { findSubject, subjects } from "@/lib/subjects";
 import { SYLLABUS_FIX_CONFIG } from "@/lib/syllabusFix/config";
 import { adminProposalStore } from "@/lib/syllabusFix/proposalStore";
+import { ProfileSchema, signedInStudent } from "@/lib/syllabusFix/studentAuth";
 import { isRetired } from "@/lib/syllabusFix/tree";
 import { isEmptyHandout, StudentHandoutSchema } from "@/lib/syllabusFix/studentHandout";
 import {
@@ -20,12 +21,6 @@ import {
  *   the syllabus changes here: proposals go live only after enough students agree (Phase 5).
  */
 
-const ProfileSchema = z.object({
-  branch: z.string().trim().min(1).max(40).optional(),
-  semester: z.int().min(1).max(8).optional(),
-  batchYear: z.int().min(2000).max(2100).optional(),
-});
-
 const RequestSchema = z.object({
   subject: z.string().trim().min(1).max(120),
   dryRun: z.boolean().optional(),
@@ -40,20 +35,6 @@ const reply = (body: Reply, status = 200) =>
   Response.json(body, { status, headers: { "cache-control": "no-store" } });
 const fail = (kind: string, message: string, status: number) =>
   reply({ ok: false, kind, message }, status);
-
-/** The student's branch, semester and batch from their synced settings (trusted over the app's). */
-async function cloudProfile(
-  db: NonNullable<Awaited<ReturnType<typeof getAdmin>>>["db"],
-  uid: string,
-): Promise<z.infer<typeof ProfileSchema> | null> {
-  try {
-    const snap = await db.collection("users").doc(uid).collection("settings").doc("app").get();
-    const parsed = ProfileSchema.safeParse(snap.data() ?? {});
-    return snap.exists && parsed.success && parsed.data.branch ? parsed.data : null;
-  } catch {
-    return null;
-  }
-}
 
 export async function POST(req: Request) {
   const body = RequestSchema.safeParse(await req.json().catch(() => null));
@@ -72,18 +53,9 @@ export async function POST(req: Request) {
   const admin = dryRun ? null : await getAdmin();
   if (!dryRun) {
     if (!admin) return fail("unavailable", "Saving fixes is not set up on this server.", 503);
-    const token = req.headers.get("authorization")?.replace(/^Bearer /, "");
-    if (!token) return fail("signed-out", "Sign in to send your handout.", 401);
-    try {
-      uid = (await admin.auth.verifyIdToken(token)).uid;
-    } catch {
-      return fail("signed-out", "Your sign-in has expired. Sign in again.", 401);
-    }
-    const cloud = await cloudProfile(admin.db, uid);
-    if (cloud) {
-      profile = { ...profile, ...cloud };
-      profileFrom = "cloud";
-    }
+    const student = await signedInStudent(req, admin, profile, "send your handout");
+    if (!student.ok) return fail(student.kind, student.message, 401);
+    ({ uid, profile, profileFrom } = student);
   }
 
   const course = toPrismCourse(subject);

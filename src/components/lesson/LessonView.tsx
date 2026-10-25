@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import type { ReactNode } from "react";
 import { levelColor } from "@/lib/levelColor";
 import { InteractiveLesson } from "@/components/explain/InteractiveLesson";
+import { LessonFlag } from "@/components/flags/LessonFlag";
 import { MakeFlashcardsButton } from "@/components/flashcards/MakeFlashcardsButton";
 import { MyNotesList, MyNotesPanel } from "@/components/annotations/MyNotesPanel";
 import { LessonBlockShell } from "@/components/lesson/BlockHeading";
@@ -126,6 +127,13 @@ export function LessonView({
             <MakeFlashcardsButton lesson={lesson} />
             <ExportPdfButton />
             <SaveLessonButton lesson={lesson} libraryKey={libraryKey} />
+            <LessonFlag
+              subject={request.subject}
+              chapterId={request.chapter.id}
+              topicId={request.topic.id}
+              level={lesson.meta.level}
+              durationMin={lesson.meta.durationMin}
+            />
           </div>
         </div>
         <TierBadge tier={tier} />

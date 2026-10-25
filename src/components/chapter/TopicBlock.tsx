@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { InteractiveLesson } from "@/components/explain/InteractiveLesson";
+import { LessonFlag } from "@/components/flags/LessonFlag";
 import { MakeFlashcardsButton } from "@/components/flashcards/MakeFlashcardsButton";
 import { Markdown } from "@/components/lesson/Markdown";
 import { SectionView } from "@/components/lesson/SectionView";
 import { Misconceptions } from "@/components/lesson/StaticBlocks";
 import { WorkedExample } from "@/components/lesson/WorkedExample";
 import type { Lesson } from "@/lib/schema";
+import type { Subject } from "@/lib/subjects";
 
 /**
  * One topic inside a chapter lesson: its explanation, worked examples and common mistakes.
@@ -20,12 +22,15 @@ export function TopicBlock({
   minutes,
   recap,
   href,
+  flag,
 }: {
   lesson: Lesson;
   index: number;
   minutes: number;
   recap: boolean;
   href: string;
+  /** Where the topic sits, for the "Report a problem" flag. */
+  flag?: { subject: Subject; chapterId: string };
 }) {
   return (
     <InteractiveLesson lesson={lesson}>
@@ -36,7 +41,18 @@ export function TopicBlock({
           </p>
           <div className="flex flex-wrap items-start justify-between gap-3">
             <h2 className="text-2xl font-bold tracking-tight">{lesson.meta.title}</h2>
-            <MakeFlashcardsButton lesson={lesson} />
+            <div className="flex flex-wrap items-center gap-2">
+              <MakeFlashcardsButton lesson={lesson} />
+              {flag && (
+                <LessonFlag
+                  subject={flag.subject}
+                  chapterId={flag.chapterId}
+                  topicId={lesson.meta.topic}
+                  level={lesson.meta.level}
+                  durationMin={lesson.meta.durationMin}
+                />
+              )}
+            </div>
           </div>
           <Markdown className="text-muted">{lesson.hook}</Markdown>
         </header>
