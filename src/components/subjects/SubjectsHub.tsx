@@ -6,11 +6,21 @@ import Link from "next/link";
 import { useId, useMemo, useState } from "react";
 import { useCustomSubjects } from "@/components/custom/useCustomSubjects";
 import { deleteCustomSubject } from "@/lib/custom/store";
+import { MissingSubjectEntry } from "@/components/flags/MissingSubjectEntry";
 import { PdeuSemester } from "@/components/pdeu/PdeuSemester";
+import { CatalogueSemester } from "@/components/subjects/CatalogueSemester";
 import { useMyBranch } from "@/components/subjects/useMyBranch";
 import { useMySemester } from "@/components/subjects/useMySemester";
 import { useSyllabus } from "@/components/subjects/useSyllabus";
-import { countsOf, indexedSubject, subjectIndex, subjectsInSemester } from "@/lib/catalogue";
+import {
+  countsOf,
+  indexedSubject,
+  labIndex,
+  subjectIndex,
+  subjectsInSemester,
+} from "@/lib/catalogue";
+import type { SearchKind } from "@/lib/catalogueSearch";
+import { SearchKindFilter } from "@/components/subjects/SearchKindFilter";
 import { FLAGS } from "@/lib/flags";
 import { NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
 import { isPdeuBranch } from "@/lib/pdeu/load";
@@ -157,10 +167,20 @@ export function SubjectsHub() {
   const [uploadOpen, setUploadOpen] = useState(false);
   const [done, setDone] = useState<string | null>(null);
   const [query, setQuery] = useState("");
+  const [kind, setKind] = useState<SearchKind>("all");
 
   const semester = mine.semester;
   // PDEU students see their university's own core and non-core subjects for the semester.
   const pdeuBranch = FLAGS.pdeuSyllabus && isPdeuBranch(mine.branch) ? mine.branch : undefined;
+  // PDEU branches with no handbook list (Electrical, Chemical) get the same view from course data.
+  const catalogueBranch =
+    FLAGS.pdeuSyllabus &&
+    !pdeuBranch &&
+    mine.branch &&
+    subjectIndex.some((s) => s.offerings?.some((o) => o.branch === mine.branch))
+      ? mine.branch
+      : undefined;
+  const universityList = Boolean(pdeuBranch || catalogueBranch);
   const term = semester ? syllabus[String(semester)] : undefined;
   const loaded = mineLoaded && picksLoaded && custom.loaded;
 
@@ -197,7 +217,7 @@ export function SubjectsHub() {
             },
       );
     }
-    if (out.length === 0 && !pdeuBranch) {
+    if (out.length === 0 && !universityList) {
       for (const s of subjectsInSemester(semester, mine.branch).slice(0, 12)) {
         out.push({
           id: s.id,
@@ -210,12 +230,19 @@ export function SubjectsHub() {
     }
     // PDEU students get their subjects from PDEU's list above (no manual adding); only their own
     // subjects (made under "Other subjects") are listed here.
-    return pdeuBranch ? out.filter((c) => c.own) : out;
-  }, [semester, picks, term, custom.records, mine.branch, pdeuBranch]);
+    return universityList ? out.filter((c) => c.own) : out;
+  }, [semester, picks, term, custom.records, mine.branch, universityList]);
 
   const shown = new Set(cards.map((c) => c.id));
   const q = query.trim().toLowerCase();
-  const others = subjectIndex.filter(
+  // All / Theory / Labs: labs are searched from the light index (hidden from lists until 7B).
+  const pool =
+    kind === "labs"
+      ? labIndex
+      : kind === "theory"
+        ? subjectIndex.filter((s) => s.courseType !== "practical")
+        : [...subjectIndex, ...labIndex.filter((l) => !subjectIndex.includes(l))];
+  const others = pool.filter(
     (s) =>
       !shown.has(s.id) &&
       (!q || s.name.toLowerCase().includes(q) || s.field.toLowerCase().includes(q)),
@@ -276,6 +303,15 @@ export function SubjectsHub() {
           Choose your semester to see PDEU&apos;s core and non-core subjects with their credits.
         </p>
       )}
+      {/* PDEU branches without a handbook list (Electrical, Chemical): the same view from course data. */}
+      {catalogueBranch && semester && (
+        <CatalogueSemester
+          branchId={catalogueBranch}
+          branchName={branches.find((b) => b.id === catalogueBranch)?.name ?? catalogueBranch}
+          semester={semester}
+        />
+      )}
+      {!universityList && mine.branch && semester && <MissingSubjectEntry semester={semester} />}
 
       {/* B + C + D: upload and analyse */}
       <section
@@ -348,7 +384,7 @@ export function SubjectsHub() {
         data-testid="my-subjects"
       >
         <h2 id={`${id}-mine`} className="text-xl font-semibold">
-          {pdeuBranch && semester
+          {universityList && semester
             ? "Subjects you added yourself"
             : semester
               ? `My subjects, semester ${semester}`
@@ -364,7 +400,7 @@ export function SubjectsHub() {
         )}
         {loaded && semester && cards.length === 0 && (
           <p className="rounded-2xl border border-dashed border-border p-4 text-sm text-muted">
-            {pdeuBranch
+            {universityList
               ? "Nothing here yet. Your PDEU subjects are listed above; use the button below for a subject that isn't on Prism."
               : "No subjects for this semester yet. Upload your syllabus or add some from the list below."}
           </p>
@@ -438,9 +474,14 @@ export function SubjectsHub() {
               className="rounded-xl border border-border bg-bg px-3 py-2"
             />
           </label>
+          <SearchKindFilter value={kind} onChange={setKind} />
           {others.length === 0 && (
             <p className="text-sm text-muted">No subject matches “{query}”.</p>
           )}
+          <MissingSubjectEntry
+            {...(semester ? { semester } : {})}
+            hint="Can't find your subject? Tell us, and once another student from your branch agrees it is added for everyone."
+          />
           <ul className="grid gap-2 sm:grid-cols-2">
             {others.map((s) => (
               <li
@@ -449,9 +490,13 @@ export function SubjectsHub() {
               >
                 <Link href={`/subjects/${s.id}`} className="font-medium hover:underline">
                   {s.name}
-                  <span className="block text-xs font-normal text-muted">{s.field}</span>
+                  <span className="block text-xs font-normal text-muted">
+                    {s.courseType === "practical"
+                      ? `Lab${s.field !== s.name ? ` · ${s.field}` : ""}`
+                      : s.field}
+                  </span>
                 </Link>
-                {semester && !pdeuBranch && (
+                {semester && !universityList && (
                   <button
                     type="button"
                     onClick={() => toggle(s.id, true)}

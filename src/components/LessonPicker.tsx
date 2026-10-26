@@ -37,7 +37,7 @@ import {
   type LessonRequestErrors,
   type LessonRequestField,
 } from "@/lib/lessonRequest";
-import { chaptersOf, subjectsFor, type Subject } from "@/lib/subjects";
+import { chaptersOf, labSubjects, subjectsFor, type Subject } from "@/lib/subjects";
 
 const fieldOrder: LessonRequestField[] = ["chapter", "topic", "level", "duration"];
 
@@ -155,6 +155,15 @@ function PickerForm({
   const shown = [subject];
   // The student's own subjects (made or uploaded in "Subjects you added yourself") come first.
   const mineIds = [...new Set([...own, ...mineList].map((x) => x.id))];
+  // Labs are listed apart (they open their own page until Phase 7B); my semester's labs first.
+  const mineLabIds =
+    mine.branch && mine.semester
+      ? labSubjects
+          .filter((l) =>
+            l.offerings?.some((o) => o.branch === mine.branch && o.semester === mine.semester),
+          )
+          .map((l) => l.id)
+      : [];
   const startChapter = chaptersOf(start).find((o) => o.chapter.id === initial.chapter);
   // A chapter linked from another subject is taught and saved under its owner.
   const [chapterId, setChapterId] = useState(startChapter?.chapter.id ?? "");
@@ -348,6 +357,11 @@ function PickerForm({
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // A non-core subject without the faculty's material: go straight to its upload page.
+    if (needsMaterial && !hasMaterial) {
+      router.push(`/notes?subject=${subject.id}`);
+      return;
+    }
     if (scope !== "topic") return submitChapter();
     const result = validateLessonRequest(
       {
@@ -479,6 +493,8 @@ function PickerForm({
           subjects={subjects}
           currentId={subject.id}
           firstIds={mineIds}
+          labs={labSubjects}
+          firstLabIds={mineLabIds}
           onSelect={(sid) => {
             setSubjectId(sid);
             // A new subject has its own chapters: start the choice again.
@@ -735,11 +751,29 @@ function PickerForm({
 
       <button
         type="submit"
-        disabled={submitting || (needsMaterial && !hasMaterial)}
+        // A non-core subject waits only for the "has material?" check, then always works.
+        disabled={submitting || (needsMaterial && materialFor?.id !== subject.id)}
         className="rounded-full bg-primary px-6 py-3 font-semibold text-primary-fg transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-60 sm:w-fit"
       >
-        {submitting ? "Opening your lesson…" : "Build my lesson →"}
+        {submitting
+          ? "Opening your lesson…"
+          : needsMaterial && !hasMaterial
+            ? "Upload material first →"
+            : "Build my lesson →"}
       </button>
+      {/* Why the button leads to the upload page: shown as soon as such a subject is picked. */}
+      {needsMaterial && materialFor?.id === subject.id && !materialFor.has && (
+        <p className="-mt-2 text-sm text-muted" data-testid="needs-material-line">
+          <Link
+            href={`/notes?subject=${subject.id}`}
+            className="font-semibold text-primary underline"
+          >
+            Upload
+          </Link>{" "}
+          your faculty&apos;s material first, so this lesson matches your university&apos;s
+          syllabus.
+        </p>
+      )}
       {FLAGS.slidesPdf && !isCustomId(owner.id) && chapter && (
         <SlidesPanel
           subject={owner}

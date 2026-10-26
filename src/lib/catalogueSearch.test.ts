@@ -1,5 +1,26 @@
 import { describe, expect, it } from "vitest";
-import { matchHref, searchCatalogue } from "@/lib/catalogueSearch";
+import { matchHref, searchCatalogue, searchScope } from "@/lib/catalogueSearch";
+
+describe("All / Theory / Labs (Phase 4B)", () => {
+  const isLab = (m: { subject: { courseType?: string } }) => m.subject.courseType === "practical";
+
+  it("searches labs on their own, and leaves them out of Theory", () => {
+    const labs = searchCatalogue("laboratory", 50, searchScope("labs"));
+    expect(labs.length).toBeGreaterThan(0);
+    expect(labs.every(isLab)).toBe(true);
+    expect(searchCatalogue("laboratory", 50, searchScope("theory")).some(isLab)).toBe(false);
+    expect(searchCatalogue("applied physics", 20, searchScope("all")).some(isLab)).toBe(true);
+  });
+
+  it("opens a lab's experiment on the lab's page (no lab lessons before Phase 7B)", () => {
+    const exp = searchCatalogue("sketch entities", 20, searchScope("labs")).find(
+      (m) => m.kind === "topic" && m.subject.id === "pdeu-engineering-graphics-ce-petro",
+    )!;
+    expect(matchHref(exp)).toBe(
+      "/subjects/pdeu-engineering-graphics-ce-petro#chapter-cad-laboratory",
+    );
+  });
+});
 
 describe("searching the whole catalogue", () => {
   it("finds topics in any subject", () => {

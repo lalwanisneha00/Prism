@@ -222,6 +222,16 @@ describe("syllabus fix, admin corrections (migration 005)", () => {
           ).toEqual([]);
           continue;
         }
+        // A row that is a lab on Prism (Engineering Graphics, migration 009) is hidden from
+        // search until Phase 7B, like every lab; it must still be offered in that semester.
+        const course = findSubject(subjectId)!;
+        if (course.courseType === "practical") {
+          expect(
+            course.offerings?.some((o) => o.branch === id && o.semester === row.semester),
+            `${id}/${row.key} (lab)`,
+          ).toBe(true);
+          continue;
+        }
         expect(
           subjectsFor(id, row.semester).map((s) => s.id),
           `${id}/${row.key}`,
@@ -275,5 +285,27 @@ describe("syllabus fix, admin corrections (migration 005)", () => {
     for (const b of ["ict", "ece", "civil", "petro", "biotech"])
       expect(subjectsFor(b, 2)).toContain(ob);
     expect(subjectsFor("chem", 1)).toContain(ob);
+  });
+
+  it("COMP takes Workshop Practice in semester 2 (migration 008), other branches untouched", () => {
+    // A lab: hidden from subjectsFor until Phase 7B, so check its offerings.
+    const semOf = (branch: string) =>
+      findSubject("pdeu-workshop-practice-ece")!
+        .offerings!.filter((o) => o.branch === branch)
+        .map((o) => o.semester);
+    expect(semOf("ce")).toEqual([2]);
+    for (const b of ["ece", "elec", "civil", "biotech", "petro"]) expect(semOf(b)).toEqual([1]);
+    expect(semOf("chem")).toEqual([2]);
+  });
+
+  it("Engineering Graphics is a lab, in COMP sem 1 only (migration 009)", () => {
+    const graphics = findSubject("pdeu-engineering-graphics-ce-petro")!;
+    expect(graphics.courseType).toBe("practical");
+    expect(graphics.offerings!.filter((o) => o.branch === "ce").map((o) => o.semester)).toEqual([
+      1,
+    ]);
+    const lab = findSubject("pdeu-engineering-graphics-laboratory-ece")!;
+    expect(lab.offerings!.some((o) => o.branch === "ce")).toBe(false);
+    expect(lab.offerings!.map((o) => o.branch).sort()).toEqual(["civil", "ece", "elec"]);
   });
 });

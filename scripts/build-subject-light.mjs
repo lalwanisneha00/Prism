@@ -16,6 +16,27 @@ const files = readdirSync(dir)
   .filter((f) => f.endsWith(".json") && !f.endsWith("-sources.json"))
   .sort();
 
+// Theory course <-> its lab, both ways, through merged copies (a link to a retired copy of a merged
+// course points at its main copy: src/data/syllabus/aliases.json).
+const aliasSubjects =
+  JSON.parse(readFileSync("src/data/syllabus/aliases.json", "utf8")).subjects ?? {};
+const mainOf = (id) => aliasSubjects[id] ?? id;
+const related = new Map();
+for (const f of files) {
+  const s = JSON.parse(readFileSync(`${dir}/${f}`, "utf8"));
+  for (const other of s.relatedCourses ?? []) {
+    const [a, b] = [mainOf(s.id), mainOf(other)];
+    if (a === b) continue;
+    for (const [x, y] of [
+      [a, b],
+      [b, a],
+    ]) {
+      if (!related.has(x)) related.set(x, new Set());
+      related.get(x).add(y);
+    }
+  }
+}
+
 const light = files.map((f) => {
   const s = JSON.parse(readFileSync(`${dir}/${f}`, "utf8"));
   return {
@@ -36,6 +57,8 @@ const light = files.map((f) => {
     ...(s.confidence && s.confidence !== "unverified" ? { confidence: s.confidence } : {}),
     ...(s.status === "retired" ? { status: s.status } : {}),
     ...(s.courseType && s.courseType !== "theory" ? { courseType: s.courseType } : {}),
+    ...(s.code ? { code: s.code } : {}),
+    ...(related.has(s.id) ? { relatedCourses: [...related.get(s.id)].sort() } : {}),
     // Retired chapters and topics (syllabus fix) are not counted or listed.
     chapters: s.chapters
       .filter((c) => c.status !== "retired")

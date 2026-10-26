@@ -112,54 +112,96 @@
   "chapters": [
     {
       "id": "engineering-graphics",
-      "name": "Engineering Graphics",
+      "name": "Drawing Laboratory",
       "topics": [
         {
           "id": "principles-of-engineering-graphics-and-their-significance",
-          "name": "Principles of engineering graphics and their significance, drawing instruments & accessories, lettering and numbering, types of lines, dimensioning methods, basic geometric drawing, reading a drawing"
+          "name": "Principles of engineering graphics and their significance, drawing instruments & accessories, lettering and numbering, types of lines, dimensioning methods, basic geometric drawing, reading a drawing",
+          "number": 1
         },
         {
           "id": "introduction-to-projection-types-of-projection-1-st-angle",
           "name": "Introduction to projection, types of projection, 1 st angle and 3rd angle projection",
-          "requires": ["principles-of-engineering-graphics-and-their-significance"]
+          "requires": ["principles-of-engineering-graphics-and-their-significance"],
+          "number": 2
         },
         {
           "id": "isometric-scale",
           "name": "Principles of isometric projection – isometric scale, isometric views, conventions, conversion of isometric views to orthographic views and vice-versa",
-          "requires": ["introduction-to-projection-types-of-projection-1-st-angle"]
+          "requires": ["introduction-to-projection-types-of-projection-1-st-angle"],
+          "number": 3
         },
         {
           "id": "projection-of-solids",
           "name": "Classification of solids, projections of solids like cylinder, cone, pyramid, and prism with its inclination to reference plane, development of surfaces of right regular solids - prism, pyramid, cylin",
-          "requires": ["isometric-scale"]
-        },
+          "requires": ["isometric-scale"],
+          "number": 4
+        }
+      ]
+    },
+    {
+      "id": "cad-laboratory",
+      "name": "CAD Laboratory",
+      "topics": [
         {
           "id": "cad-interface",
           "name": "Demonstrating knowledge of the theory of CAD software, use of software in drawing, CAD software user interface, commands, Coordinate System, menus and toolbars, planes, dimensioning, saving of files, ",
-          "requires": ["projection-of-solids"]
+          "requires": ["projection-of-solids"],
+          "number": 5,
+          "movedFrom": {
+            "subject": "pdeu-engineering-graphics-ce-petro",
+            "chapter": "engineering-graphics",
+            "at": "2026-10-26T18:49:59.225Z"
+          }
         },
         {
           "id": "sketch-entities-using-tools-origin-points-lines-circle-arcs",
           "name": "Sketch entities using tools – origin, points, lines, circle, arcs, polygons, fillets and chamfer, trim, extend and offset, copy, cut, delete and others",
-          "requires": ["cad-interface"]
+          "requires": ["cad-interface"],
+          "number": 6,
+          "movedFrom": {
+            "subject": "pdeu-engineering-graphics-ce-petro",
+            "chapter": "engineering-graphics",
+            "at": "2026-10-26T18:49:59.225Z"
+          }
         },
         {
           "id": "sketching-entities-using-relation-constrains-mirror",
           "name": "Sketching entities using relation constrains, Mirror, Patterning, full definition of drawing and others",
-          "requires": ["sketch-entities-using-tools-origin-points-lines-circle-arcs"]
+          "requires": ["sketch-entities-using-tools-origin-points-lines-circle-arcs"],
+          "number": 7,
+          "movedFrom": {
+            "subject": "pdeu-engineering-graphics-ce-petro",
+            "chapter": "engineering-graphics",
+            "at": "2026-10-26T18:49:59.225Z"
+          }
         },
         {
           "id": "extrude-cut-drawing-on-different-planes-editing-symmetric",
           "name": "Extrude, cut, drawing on different planes, editing, symmetric, revolving, and others",
-          "requires": ["sketching-entities-using-relation-constrains-mirror"]
+          "requires": ["sketching-entities-using-relation-constrains-mirror"],
+          "number": 8,
+          "movedFrom": {
+            "subject": "pdeu-engineering-graphics-ce-petro",
+            "chapter": "engineering-graphics",
+            "at": "2026-10-26T18:49:59.225Z"
+          }
         },
         {
           "id": "preparing-drawing-sheets-creating-different-views-section",
           "name": "Preparing drawing sheets, creating different views, section view, drawing templates, and others",
-          "requires": ["extrude-cut-drawing-on-different-planes-editing-symmetric"]
+          "requires": ["extrude-cut-drawing-on-different-planes-editing-symmetric"],
+          "number": 9,
+          "movedFrom": {
+            "subject": "pdeu-engineering-graphics-ce-petro",
+            "chapter": "engineering-graphics",
+            "at": "2026-10-26T18:49:59.225Z"
+          }
         }
-      ]
+      ],
+      "source": "admin_handout",
+      "confidence": "verified"
     }
   ],
-  "courseType": "theory"
+  "courseType": "practical"
 }

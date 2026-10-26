@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { ChapterFlag } from "@/components/flags/ChapterFlag";
+import { TopicFlag } from "@/components/flags/TopicFlag";
 import { ScopeNotice } from "@/components/university/ScopeNotice";
 import { useScopedSubjects } from "@/components/university/useUniversityScope";
 import { useTopicStatuses } from "@/components/map/useTopicStatuses";
@@ -21,15 +22,47 @@ const dot: Record<TopicStatus, string> = {
   new: "bg-border",
 };
 
+/** The course as Prism has it (not narrowed to the student's uploaded syllabus), for flags. */
+const flagOwner = (owner: Subject) => findSubject(owner.id) ?? owner;
+
+/** A chapter's topic chips; on the course page they fold away (the first chapter starts open). */
+function TopicList({
+  collapsible,
+  open,
+  count,
+  children,
+}: {
+  collapsible: boolean;
+  open: boolean;
+  count: number;
+  children: ReactNode;
+}) {
+  const list = <ul className="mt-3 flex flex-wrap gap-2 text-sm">{children}</ul>;
+  if (!collapsible) return list;
+  return (
+    <details open={open} className="group mt-2">
+      <summary className="w-fit cursor-pointer text-sm font-semibold text-primary">
+        {count} topic{count === 1 ? "" : "s"}
+      </summary>
+      {list}
+    </details>
+  );
+}
+
 /** A subject's chapters with the student's progress, and its weak topics. */
 export function SubjectProgress({
   subjectId,
   subject: given,
+  collapsible = false,
 }: {
   subjectId: string;
   subject?: Subject;
+  /** The course page: units fold away, and every topic gets a flag. */
+  collapsible?: boolean;
 }) {
   const base = given ?? findSubject(subjectId)!;
+  const practical = base.courseType === "practical";
+  const flags = collapsible && base.university === "pdeu";
   const baseList = useMemo(() => [base], [base]);
   const scoped = useScopedSubjects(baseList);
   const subject = scoped.subjects[0];
@@ -122,43 +155,72 @@ export function SubjectProgress({
                   )}
                 </div>
                 <p className="text-sm text-muted">
-                  {mastered} of {chapter.topics.length} mastered
+                  {practical
+                    ? `${chapter.topics.length} experiment${chapter.topics.length === 1 ? "" : "s"}`
+                    : `${mastered} of ${chapter.topics.length} mastered`}
                   {chapter.hours ? ` · ${chapter.hours} syllabus hours` : ""}
                 </p>
               </div>
-              <progress
-                className="mt-2 h-2 w-full accent-primary"
-                max={chapter.topics.length}
-                value={mastered}
-                aria-label={`${chapter.name} progress`}
-              />
-              <ul className="mt-3 flex flex-wrap gap-2 text-sm">
-                {chapter.topics.map((t, k) => (
-                  <li key={t.id}>
-                    <Link
-                      href={pickHref(owner.id, chapter.id, t.id)}
-                      className="flex items-center gap-2 rounded-full border border-border px-3 py-1 hover:bg-surface-2"
-                    >
-                      <span aria-hidden="true" className={`size-2 rounded-full ${dot[s[k]]}`} />
-                      {t.name}
-                      {asked.hits[t.id] ? (
-                        <span
-                          className="rounded-full bg-warning/15 px-1.5 text-xs font-semibold text-warning"
-                          title="Questions on this topic in your previous-year papers"
-                        >
-                          asked {asked.hits[t.id]}×
-                        </span>
-                      ) : null}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href={pickHref(owner.id, chapter.id)}
-                className="mt-3 inline-block text-sm font-semibold text-primary underline"
-              >
-                Study this chapter →
-              </Link>
+              {!practical && (
+                <progress
+                  className="mt-2 h-2 w-full accent-primary"
+                  max={chapter.topics.length}
+                  value={mastered}
+                  aria-label={`${chapter.name} progress`}
+                />
+              )}
+              {practical ? (
+                // A lab: its experiments in order (lab lessons arrive in Phase 7B).
+                <ol className="mt-3 flex flex-col gap-2 text-sm" data-testid="experiments">
+                  {chapter.topics.map((t, k) => (
+                    <li key={t.id} className="flex items-start gap-2">
+                      <span className="w-6 shrink-0 text-right font-semibold text-muted">
+                        {t.number ?? k + 1}.
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        {t.name}
+                        {t.aim && <span className="block text-xs text-muted">Aim: {t.aim}</span>}
+                      </span>
+                      {flags && (
+                        <TopicFlag owner={flagOwner(owner)} chapterId={chapter.id} topic={t} />
+                      )}
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <TopicList collapsible={collapsible} open={i === 0} count={chapter.topics.length}>
+                  {chapter.topics.map((t, k) => (
+                    <li key={t.id} className="flex items-center gap-0.5">
+                      <Link
+                        href={pickHref(owner.id, chapter.id, t.id)}
+                        className="flex items-center gap-2 rounded-full border border-border px-3 py-1 hover:bg-surface-2"
+                      >
+                        <span aria-hidden="true" className={`size-2 rounded-full ${dot[s[k]]}`} />
+                        {t.name}
+                        {asked.hits[t.id] ? (
+                          <span
+                            className="rounded-full bg-warning/15 px-1.5 text-xs font-semibold text-warning"
+                            title="Questions on this topic in your previous-year papers"
+                          >
+                            asked {asked.hits[t.id]}×
+                          </span>
+                        ) : null}
+                      </Link>
+                      {flags && (
+                        <TopicFlag owner={flagOwner(owner)} chapterId={chapter.id} topic={t} />
+                      )}
+                    </li>
+                  ))}
+                </TopicList>
+              )}
+              {!practical && (
+                <Link
+                  href={pickHref(owner.id, chapter.id)}
+                  className="mt-3 inline-block text-sm font-semibold text-primary underline"
+                >
+                  Study this chapter →
+                </Link>
+              )}
             </li>
           );
         })}

@@ -1,4 +1,10 @@
-import { subjects as allSubjects, type Chapter, type Subject, type Topic } from "@/lib/subjects";
+import {
+  labSubjects,
+  subjects as allSubjects,
+  type Chapter,
+  type Subject,
+  type Topic,
+} from "@/lib/subjects";
 import { matchScore, normalize } from "@/lib/topicSearch";
 import { activeChapters } from "@/lib/syllabusFix/active";
 
@@ -13,6 +19,19 @@ export type CatalogueMatch =
   | { kind: "topic"; subject: Subject; chapter: Chapter; topic: Topic };
 
 const score = matchScore;
+
+/** Which courses a search covers: everything, theory courses only, or labs only. */
+export type SearchKind = "all" | "theory" | "labs";
+
+/** The courses one kind of search looks through. Labs are listed only here until Phase 7B. */
+export function searchScope(kind: SearchKind): readonly Subject[] {
+  if (kind === "labs") return labSubjects;
+  if (kind === "theory") return allSubjects.filter((s) => s.courseType !== "practical");
+  // "All": every listed course, plus the labs (no lab twice once Phase 7B lists them).
+  return [...allSubjects, ...labSubjects.filter((l) => !allSubjects.includes(l))];
+}
+
+export const isLabCourse = (s: Pick<Subject, "courseType">) => s.courseType === "practical";
 
 export function searchCatalogue(
   rawQuery: string,
@@ -64,9 +83,13 @@ export function searchCatalogue(
     .map((f) => f.match);
 }
 
-/** Where a search result leads: a subject page, or the lesson picker with it chosen. */
+/**
+ * Where a search result leads: a subject page, or the lesson picker with it chosen. A lab's
+ * experiment opens its part of the lab's page (lab lessons arrive in Phase 7B).
+ */
 export function matchHref(m: CatalogueMatch): string {
   if (m.kind === "subject") return `/subjects/${m.subject.id}`;
-  if (m.kind === "chapter") return `/subjects/${m.subject.id}#chapter-${m.chapter.id}`;
+  if (m.kind === "chapter" || isLabCourse(m.subject))
+    return `/subjects/${m.subject.id}#chapter-${m.chapter.id}`;
   return `/start?${new URLSearchParams({ subject: m.subject.id, chapter: m.chapter.id, topic: m.topic.id })}`;
 }

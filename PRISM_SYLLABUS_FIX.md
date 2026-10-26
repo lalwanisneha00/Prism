@@ -218,6 +218,16 @@ Stop and summarise.
 
 ---
 
+## Phase 4B: UI improvements (done)
+
+Asked by the owner after Phase 4, before Phase 5. UI only: no syllabus data or IDs changed.
+
+1. **Non-core lesson button:** in the lesson picker, a non-core subject without uploaded faculty material keeps "Build my lesson" disabled and shows, right under it, "Upload your faculty's material first, so this lesson matches your university's syllabus." ("Upload" opens the existing upload flow, `/notes?subject=<id>`). Shown as soon as the subject is picked; gone once material is uploaded.
+2. **Subject list:** "Core subjects" and "Non-core subjects" sections; theory and practical (lab) courses as separate cards, each lab right after its theory course; tags under each name (Core / Non-core, Theory / Practical, each with its own colour and icon; "Elective" on elective slots); "Also has a lab: ..." / "Theory course: ..." links. Electrical and Chemical (no handbook list) get the same view from the course data.
+3. **Subject detail page** (`/subjects/<id>`): code, tags, where it is taught, teaching scheme and credits, verification badge (plus the Phase 3 upload banner when not verified), link to the linked theory course or lab, units folded with their topics (first unit open), labs as a numbered experiment list (with aims), the concept map (folded; pointing at a topic lights up its prerequisites), non-core faculty material status with the upload link, "Start a lesson" (theory courses; lab lessons come in Phase 7B), and Phase 4 flags on the course, every unit and every topic or experiment. Labs now have their own pages (they stay hidden from search and the lesson picker until Phase 7B).
+
+---
+
 ## Phase 5: Voting and auto-fix engine
 
 Every flag or handout difference becomes (or adds to) a **proposal**: one specific change, e.g. "Move topic X from Unit 2 to Unit 3".

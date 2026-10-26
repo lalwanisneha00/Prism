@@ -253,6 +253,14 @@ export const subjects: readonly Subject[] = everySubject.filter(
 /** Everything, bank included (tests and migration code). */
 export const allSubjects: readonly Subject[] = everySubject;
 
+/**
+ * PDEU labs (practical courses) still taught. Hidden from `subjects` until Phase 7B, but search can
+ * offer them on their own ("Labs"), leading to the lab's page.
+ */
+export const labSubjects: readonly Subject[] = everySubject.filter(
+  (s) => s.university === "pdeu" && !isRetired(s) && s.courseType === "practical",
+);
+
 export const bankSubjects: readonly Subject[] = everySubject.filter((s) => s.university !== "pdeu");
 
 export function findSubject(id: string): Subject | undefined {

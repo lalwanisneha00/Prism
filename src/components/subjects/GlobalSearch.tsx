@@ -3,10 +3,21 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useId, useMemo, useState, type KeyboardEvent } from "react";
-import { matchHref, searchCatalogue, type CatalogueMatch } from "@/lib/catalogueSearch";
+import { MissingSubjectEntry } from "@/components/flags/MissingSubjectEntry";
+import { SearchKindFilter } from "@/components/subjects/SearchKindFilter";
+import {
+  isLabCourse,
+  matchHref,
+  searchCatalogue,
+  searchScope,
+  type CatalogueMatch,
+  type SearchKind,
+} from "@/lib/catalogueSearch";
 import { JUMP_TO_LEVEL } from "@/lib/pickerJump";
 
 const kindLabel = { subject: "Subject", chapter: "Chapter", topic: "Topic" } as const;
+/** A lab's results say what they are: the lab, one of its parts, one experiment. */
+const labLabel = { subject: "Lab", chapter: "Lab part", topic: "Experiment" } as const;
 
 function title(m: CatalogueMatch): string {
   if (m.kind === "subject") return m.subject.name;
@@ -22,7 +33,7 @@ function context(m: CatalogueMatch): string {
 
 /** Choosing a topic: the lesson maker should land on "How well do you know it?". */
 function markJump(m: CatalogueMatch) {
-  if (m.kind !== "topic") return;
+  if (m.kind !== "topic" || isLabCourse(m.subject)) return;
   try {
     sessionStorage.setItem(JUMP_TO_LEVEL, "1");
   } catch {
@@ -35,8 +46,10 @@ export function GlobalSearch() {
   const id = useId();
   const router = useRouter();
   const [query, setQuery] = useState("");
+  const [kind, setKind] = useState<SearchKind>("all");
   const [active, setActive] = useState(0);
-  const results = useMemo(() => searchCatalogue(query, 8), [query]);
+  const scope = useMemo(() => searchScope(kind), [kind]);
+  const results = useMemo(() => searchCatalogue(query, 8, scope), [query, scope]);
   // The list shows while typing; once a result is chosen it folds away until the box is clicked again.
   const [shown, setShown] = useState(true);
   const open = shown && query.trim().length > 0;
@@ -88,6 +101,14 @@ export function GlobalSearch() {
         autoComplete="off"
         className="w-full rounded-xl border border-border bg-surface px-3 py-3 text-fg focus-visible:outline-2 focus-visible:outline-primary"
       />
+      <SearchKindFilter
+        value={kind}
+        onChange={(k) => {
+          setKind(k);
+          setActive(0);
+          setShown(true);
+        }}
+      />
       {open && (
         <ul
           id={`${id}-list`}
@@ -116,7 +137,7 @@ export function GlobalSearch() {
                 >
                   <span className="font-semibold">{title(m)}</span>
                   <span className="text-xs text-muted">
-                    {kindLabel[m.kind]} · {context(m)}
+                    {(isLabCourse(m.subject) ? labLabel : kindLabel)[m.kind]} · {context(m)}
                   </span>
                 </Link>
               </li>
@@ -124,6 +145,7 @@ export function GlobalSearch() {
           )}
         </ul>
       )}
+      <MissingSubjectEntry hint="Can't find your subject? Tell us, and once another student from your branch agrees it is added for everyone." />
     </div>
   );
 }

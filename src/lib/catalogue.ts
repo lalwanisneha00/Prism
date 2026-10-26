@@ -29,6 +29,9 @@ export type IndexedSubject = {
   confidence?: Subject["confidence"];
   status?: Subject["status"];
   courseType?: Subject["courseType"];
+  code?: string;
+  /** Theory course <-> lab, both ways, already pointing at main copies of merged courses. */
+  relatedCourses?: readonly string[];
   chapters: readonly IndexedChapter[];
 };
 
@@ -43,6 +46,11 @@ export const subjectIndex: readonly IndexedSubject[] = everyIndexed.filter(
     s.university === "pdeu" &&
     s.status !== "retired" &&
     (s.courseType !== "practical" || FLAGS.practicalCourses),
+);
+
+/** PDEU labs still taught, listed or not (search offers them on their own: "Labs"). */
+export const labIndex: readonly IndexedSubject[] = everyIndexed.filter(
+  (s) => s.university === "pdeu" && s.status !== "retired" && s.courseType === "practical",
 );
 
 /** Any subject by id, including the older topic-bank subjects (saved progress still finds them). */
@@ -88,4 +96,26 @@ export function subjectsInSemester(semester: number, branch?: string): IndexedSu
       (!branch || s.branches.includes("all") || s.branches.includes(branch))
     );
   });
+}
+
+/** A PDEU course that is still taught, labs included (they are hidden from lists until Phase 7B). */
+export function activeCourse(id: string): IndexedSubject | undefined {
+  const s = indexedSubject(id);
+  return s && s.university === "pdeu" && s.status !== "retired" ? s : undefined;
+}
+
+/** The labs (practical courses) a branch has in a semester, by their own offering. */
+export function labsInSemester(semester: number, branch: string): IndexedSubject[] {
+  return everyIndexed.filter(
+    (s) =>
+      s.university === "pdeu" &&
+      s.status !== "retired" &&
+      s.courseType === "practical" &&
+      (s.offerings ?? []).some((o) => o.branch === branch && o.semester === semester),
+  );
+}
+
+/** The still-taught courses linked to this one (a theory course's lab, a lab's theory course). */
+export function relatedOf(s: IndexedSubject): IndexedSubject[] {
+  return (s.relatedCourses ?? []).flatMap((id) => activeCourse(id) ?? []);
 }

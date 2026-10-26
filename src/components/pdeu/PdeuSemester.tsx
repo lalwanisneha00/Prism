@@ -3,21 +3,16 @@
 import Link from "next/link";
 import subjectMap from "@/data/pdeu/subject-map.json";
 import { useEffect, useId, useState } from "react";
-import dynamic from "next/dynamic";
-import { FlagDialog } from "@/components/flags/FlagDialog";
+import { MissingSubjectEntry } from "@/components/flags/MissingSubjectEntry";
 import { UploadForCourse } from "@/components/pdeu/UploadForCourse";
+import { CourseTags, RelatedCourseLine } from "@/components/subjects/CourseTags";
+import { activeCourse, labsInSemester, relatedOf, type IndexedSubject } from "@/lib/catalogue";
 import { useElectiveChoices } from "@/components/pdeu/useElectiveChoices";
 import { choicesFor, type ElectiveChoices } from "@/lib/pdeu/electives";
 import { coursesOf, topicCount } from "@/lib/pdeu/helpers";
 import { loadPdeuBranch, type PdeuBranchId } from "@/lib/pdeu/load";
 import { NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
 import type { PdeuBranch, PdeuCourse } from "@/lib/pdeu/types";
-
-// The form (and its handout reader) loads only when the student opens it.
-const MissingSubjectForm = dynamic(
-  () => import("@/components/flags/MissingSubjectForm").then((m) => m.MissingSubjectForm),
-  { ssr: false, loading: () => <div className="h-24 animate-pulse rounded-xl bg-surface-2" /> },
-);
 
 const card = "flex flex-col gap-2 rounded-2xl border border-border bg-surface p-4";
 const subjectIds = subjectMap as Record<string, string>;
@@ -57,11 +52,14 @@ function CourseCard({
   course,
   choices,
   onChoose,
+  labs,
 }: {
   branch: PdeuBranch;
   course: PdeuCourse;
   choices: ElectiveChoices;
   onChoose: (slotKey: string, optionKey: string, pick?: number) => void;
+  /** Its lab(s), for the "Also has a lab" line. */
+  labs: readonly IndexedSubject[];
 }) {
   const id = useId();
   const topics = topicCount(course);
@@ -82,6 +80,11 @@ function CourseCard({
           </Link>
         )}
       </div>
+      <CourseTags
+        category={course.core ? "core" : "non-core"}
+        type="theory"
+        {...(options.length > 0 ? { extra: ["Elective"] } : {})}
+      />
       {options.length > 0 ? (
         <div className="flex flex-col gap-3" data-testid="elective-slot">
           {picks > 1 && <p className="text-sm text-muted">You take {picks} of these.</p>}
@@ -150,8 +153,38 @@ function CourseCard({
           Lessons, quizzes and concept map on Prism
         </p>
       )}
+      {labs.length > 0 && <RelatedCourseLine isLab={false} related={labs} />}
     </li>
   );
+}
+
+/** A lab (practical course) of the semester, shown right after its theory course. */
+export function LabCard({ lab }: { lab: IndexedSubject }) {
+  const experiments = lab.chapters.reduce((n, c) => n + c.topics, 0);
+  const theory = relatedOf(lab).filter((r) => r.courseType !== "practical");
+  return (
+    <li className={card} data-testid="pdeu-lab">
+      <Link href={`/subjects/${lab.id}`} className="font-semibold hover:underline">
+        {lab.name}
+      </Link>
+      <CourseTags category={lab.courseCategory ?? "core"} type="practical" />
+      <p className="text-sm text-muted">
+        {experiments > 0
+          ? `${experiments} experiment${experiments === 1 ? "" : "s"}`
+          : "Experiment list not on Prism yet"}
+      </p>
+      <RelatedCourseLine isLab related={theory} />
+    </li>
+  );
+}
+
+/** The labs linked to a theory course: the ones of this branch and semester first. */
+function labsOf(subjectId: string | undefined, semesterLabs: readonly IndexedSubject[]) {
+  const course = subjectId ? activeCourse(subjectId) : undefined;
+  if (!course) return [];
+  const all = relatedOf(course).filter((r) => r.courseType === "practical");
+  const here = all.filter((l) => semesterLabs.some((x) => x.id === l.id));
+  return here.length > 0 ? here : all;
 }
 
 function Section({
@@ -159,6 +192,7 @@ function Section({
   note,
   branch,
   courses,
+  labs,
   choices,
   onChoose,
   testId,
@@ -167,34 +201,58 @@ function Section({
   note: string;
   branch: PdeuBranch;
   courses: PdeuCourse[];
+  /** The semester's labs that belong in this section. */
+  labs: readonly IndexedSubject[];
   choices: ElectiveChoices;
   onChoose: (slotKey: string, optionKey: string, pick?: number) => void;
   testId: string;
 }) {
+  // Each lab goes right after its theory course; labs with no theory course here come last.
+  const placed = new Set<string>();
+  const items: ({ course: PdeuCourse; labs: IndexedSubject[] } | { lab: IndexedSubject })[] =
+    courses.flatMap((c) => {
+      // A handbook row that is a lab on Prism (Engineering Graphics) shows as its lab card.
+      const self = labs.find((l) => l.id === subjectIds[`${branch.id}/${c.key}`]);
+      if (self) {
+        if (placed.has(self.id)) return [];
+        placed.add(self.id);
+        return [{ lab: self }];
+      }
+      const own = labsOf(subjectIds[`${branch.id}/${c.key}`], labs);
+      const after = own.filter((l) => labs.some((x) => x.id === l.id) && !placed.has(l.id));
+      after.forEach((l) => placed.add(l.id));
+      return [{ course: c, labs: own }, ...after.map((lab) => ({ lab }))];
+    });
+  items.push(...labs.filter((l) => !placed.has(l.id)).map((lab) => ({ lab })));
   return (
     <section className="flex flex-col gap-3" data-testid={testId}>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h2 className="text-xl font-semibold">{title}</h2>
         <p className="text-sm text-muted">
-          {courses.length} course{courses.length === 1 ? "" : "s"}
+          {items.length} course{items.length === 1 ? "" : "s"}
         </p>
       </div>
       <p className="text-sm text-muted">{note}</p>
-      {courses.length === 0 ? (
+      {items.length === 0 ? (
         <p className="rounded-2xl border border-dashed border-border p-4 text-sm text-muted">
           Nothing in this part of the semester.
         </p>
       ) : (
         <ul className="grid gap-3 sm:grid-cols-2">
-          {courses.map((c) => (
-            <CourseCard
-              key={c.key}
-              branch={branch}
-              course={c}
-              choices={choices}
-              onChoose={onChoose}
-            />
-          ))}
+          {items.map((item) =>
+            "lab" in item ? (
+              <LabCard key={item.lab.id} lab={item.lab} />
+            ) : (
+              <CourseCard
+                key={item.course.key}
+                branch={branch}
+                course={item.course}
+                labs={item.labs}
+                choices={choices}
+                onChoose={onChoose}
+              />
+            ),
+          )}
         </ul>
       )}
     </section>
@@ -228,6 +286,7 @@ export function PdeuSemester({ branchId, semester }: { branchId: PdeuBranchId; s
   }
   const onChoose = (slotKey: string, optionKey: string, pick?: number) =>
     choose(branch.id, slotKey, optionKey, pick);
+  const labs = labsInSemester(semester, branch.id);
   return (
     <div className="flex flex-col gap-6" data-testid="pdeu-semester">
       <div className="flex flex-col gap-1">
@@ -253,6 +312,7 @@ export function PdeuSemester({ branchId, semester }: { branchId: PdeuBranchId; s
         note="Science, engineering science and program core courses, program electives, and the project."
         branch={branch}
         courses={coursesOf(branch, semester, true)}
+        labs={labs.filter((l) => l.courseCategory !== "non-core")}
         choices={choices}
         onChoose={onChoose}
         testId="pdeu-core"
@@ -262,23 +322,12 @@ export function PdeuSemester({ branchId, semester }: { branchId: PdeuBranchId; s
         note="Humanities, values, communication, open electives and internships. These depend on the material your faculty gives, so you can upload it for each one."
         branch={branch}
         courses={coursesOf(branch, semester, false)}
+        labs={labs.filter((l) => l.courseCategory === "non-core")}
         choices={choices}
         onChoose={onChoose}
         testId="pdeu-noncore"
       />
-      <div className="flex flex-col gap-1" data-testid="missing-subject">
-        <FlagDialog
-          label="My subject isn't here"
-          text="My subject isn't here"
-          title="My subject isn't here"
-        >
-          {(close) => <MissingSubjectForm semester={semester} onClose={close} />}
-        </FlagDialog>
-        <p className="text-xs text-muted">
-          A course of your semester missing from this list? Tell us, and once another student agrees
-          it is added for everyone in your branch.
-        </p>
-      </div>
+      <MissingSubjectEntry semester={semester} />
     </div>
   );
 }
