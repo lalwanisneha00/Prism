@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { useId, useMemo, useState, type KeyboardEvent } from "react";
 import { MissingSubjectEntry } from "@/components/flags/MissingSubjectEntry";
 import { SearchKindFilter } from "@/components/subjects/SearchKindFilter";
+import { useMySemester } from "@/components/subjects/useMySemester";
+import { useSyllabusOverlay } from "@/components/subjects/useSyllabusOverlay";
 import {
   isLabCourse,
   matchHref,
@@ -14,6 +16,7 @@ import {
   type SearchKind,
 } from "@/lib/catalogueSearch";
 import { JUMP_TO_LEVEL } from "@/lib/pickerJump";
+import { applyOverlay } from "@/lib/syllabusFix/overlay";
 
 const kindLabel = { subject: "Subject", chapter: "Chapter", topic: "Topic" } as const;
 /** A lab's results say what they are: the lab, one of its parts, one experiment. */
@@ -48,8 +51,18 @@ export function GlobalSearch() {
   const [query, setQuery] = useState("");
   const [kind, setKind] = useState<SearchKind>("all");
   const [active, setActive] = useState(0);
-  const scope = useMemo(() => searchScope(kind), [kind]);
-  const results = useMemo(() => searchCatalogue(query, 8, scope), [query, scope]);
+  // Phase 7: the courses as students fixed them, and the student's own semester first.
+  const overlay = useSyllabusOverlay();
+  const { picks } = useMySemester();
+  const scope = useMemo(
+    () => searchScope(kind).map((s) => applyOverlay(s, overlay)),
+    [kind, overlay],
+  );
+  const mine = useMemo(() => new Set(picks), [picks]);
+  const results = useMemo(
+    () => (query.trim() ? searchCatalogue(query, 8, scope, mine) : []),
+    [query, scope, mine],
+  );
   // The list shows while typing; once a result is chosen it folds away until the box is clicked again.
   const [shown, setShown] = useState(true);
   const open = shown && query.trim().length > 0;

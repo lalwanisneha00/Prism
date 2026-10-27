@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { SYLLABUS_FIX_CONFIG } from "./config";
 import type { Vote } from "./proposals";
-import { decide, plainChange, tally, voteCounts } from "./voting";
+import { decide, plainChange, sharedBatch, tally, voteCounts } from "./voting";
 
 const proposal = { branch: "ict", semester: 3 };
 const vote = (uid: string, over: Partial<Vote> = {}): Vote => ({
@@ -119,5 +119,17 @@ describe("plainChange", () => {
     );
     expect(moved).toBe('"A* search" belongs in the chapter "Searching" of AI');
     expect(`${text}${moved}`).not.toMatch(/—/);
+  });
+});
+
+describe("sharedBatch", () => {
+  it("names the batch only when every counted supporter gave the same one", () => {
+    const same = [vote("a", { batchYear: 2025 }), vote("b", { batchYear: 2025 })];
+    expect(sharedBatch(proposal, same)).toBe(2025);
+    expect(sharedBatch(proposal, [...same, vote("c", { batchYear: 2024 })])).toBeUndefined();
+    expect(sharedBatch(proposal, [...same, vote("c")])).toBeUndefined();
+    // Votes that do not count (another branch, Disagree) do not change it.
+    const others = [vote("d", { branch: "ce" }), vote("e", { kind: "disagree", points: -1 })];
+    expect(sharedBatch(proposal, [...same, ...others])).toBe(2025);
   });
 });

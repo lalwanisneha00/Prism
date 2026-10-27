@@ -1,7 +1,7 @@
 import { apiFetch } from "@/lib/byok/apiFetch";
 import { ChapterPartsSchema, type ChapterParts } from "@/lib/chapter/parts";
 import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
-import type { LessonErrorKind, LessonEvent } from "@/lib/lessonEvents";
+import { UPDATING_MESSAGE, type LessonErrorKind, type LessonEvent } from "@/lib/lessonEvents";
 import type { NotePassage } from "@/lib/notes/notesSources";
 import { readLessonStream } from "@/lib/readLessonStream";
 import type { Lesson } from "@/lib/schema";
@@ -32,6 +32,7 @@ export async function fetchTopicLesson(
   let result: TopicResult | null = null;
   const handle = (event: LessonEvent) => {
     if (event.type === "stage") onStage(event.message);
+    else if (event.type === "updating") onStage(UPDATING_MESSAGE);
     else if (event.type === "lesson") {
       result = { ok: true, lesson: event.lesson, libraryKey: event.libraryKey };
     } else if (event.type === "error") result = { ok: false, kind: event.kind };

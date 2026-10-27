@@ -1,6 +1,7 @@
-import type { Firestore } from "firebase-admin/firestore";
+import type { Firestore, Transaction } from "firebase-admin/firestore";
 import { findSubject } from "@/lib/subjects";
 import { pausedSet, TrustSchema, type Trust } from "@/lib/syllabusFix/abuse";
+import { CreditsSchema, creditedUids, withCredit, type Credits } from "@/lib/syllabusFix/credits";
 import type { Change } from "@/lib/syllabusFix/handoutMatch";
 import { EMPTY_OVERLAY, OverlaySchema, type Overlay } from "@/lib/syllabusFix/overlay";
 import {
@@ -23,6 +24,7 @@ import type { StudentHandout } from "@/lib/syllabusFix/studentHandout";
  * `syllabusProposals/{id}/votes/{uid}` who added them. Phase 5: `syllabusOverlay/current` holds the
  * changes that went live and `syllabusHistory/{id}` logs every decision (the undo log). Phase 6:
  * `syllabusTrust/{uid}` pauses the votes of students whose fixes were reverted too often.
+ * Phase 7: `syllabusCredits/{uid}` lists the live fixes each student helped with.
  */
 
 export type HandoutSubmission = {
@@ -89,6 +91,8 @@ export interface ProposalStore {
   votedOn(uid: string, ids: readonly string[]): Promise<Set<string>>;
   /** The live fixes (`syllabusOverlay/current`). */
   overlay(): Promise<Overlay>;
+  /** The live fixes this student helped with (Phase 7). */
+  credits(uid: string): Promise<Credits | undefined>;
 }
 
 /** Proposals whose new points might reach the auto-apply rule: worth settling now. */
@@ -176,6 +180,20 @@ export function adminProposalStore(db: Firestore): ProposalStore {
   const proposalsCol = db.collection("syllabusProposals");
   const handoutsCol = db.collection("syllabusHandouts");
   const overlayRef = db.collection("syllabusOverlay").doc("current");
+  const creditsCol = db.collection("syllabusCredits");
+  /** Each student's credits with this fix added (read inside the transaction). */
+  const creditsAfter = async (
+    tx: Transaction,
+    uids: readonly string[],
+    pid: string,
+    at: string,
+  ): Promise<Credits[]> => {
+    if (uids.length === 0) return [];
+    const snaps = await tx.getAll(...uids.map((uid) => creditsCol.doc(uid)));
+    return uids.map((uid, i) =>
+      withCredit(CreditsSchema.safeParse(snaps[i]?.data()).data, uid, pid, at),
+    );
+  };
   return {
     async submitHandout(submission, changes, points) {
       const handoutRef = handoutsCol.doc();
@@ -269,18 +287,25 @@ export function adminProposalStore(db: Firestore): ProposalStore {
         const trustSnaps = uids.length
           ? await tx.getAll(...uids.map((uid) => db.collection("syllabusTrust").doc(uid)))
           : [];
+        const paused = pausedSet(trustSnaps.map((t) => TrustSchema.safeParse(t.data()).data));
+        const course = findSubject(proposal.subject);
         const plan = planSettle({
           proposal,
           votes: voteList,
           rivals: parsedAll(rivals?.docs ?? [], (d) => ProposalSchema.safeParse(d).data),
           overlay: OverlaySchema.safeParse(overlaySnap.data()).data ?? EMPTY_OVERLAY,
-          course: findSubject(proposal.subject),
+          course,
           at,
-          paused: pausedSet(trustSnaps.map((t) => TrustSchema.safeParse(t.data()).data)),
+          paused,
         });
+        // Phase 7: thank the students whose votes made it pass (reads before any write).
+        const credits = plan.applied
+          ? await creditsAfter(tx, creditedUids(proposal, voteList, course, paused), pid, at)
+          : [];
         for (const p of plan.proposals) tx.set(proposalsCol.doc(p.id), p);
         if (plan.overlay) tx.set(overlayRef, plan.overlay);
         for (const h of plan.history) tx.set(db.collection("syllabusHistory").doc(h.id), h);
+        for (const c of credits) tx.set(creditsCol.doc(c.uid), c);
         return { verdict: plan.verdict, status: plan.proposals[0].status };
       });
     },
@@ -304,6 +329,10 @@ export function adminProposalStore(db: Firestore): ProposalStore {
       const snap = await overlayRef.get();
       return OverlaySchema.safeParse(snap.data()).data ?? EMPTY_OVERLAY;
     },
+    async credits(uid) {
+      const snap = await creditsCol.doc(uid).get();
+      return CreditsSchema.safeParse(snap.data()).data;
+    },
   };
 }
 
@@ -315,6 +344,7 @@ export function memoryProposalStore(): ProposalStore & {
   flags: Map<string, FlagSubmission & { proposalId: string }>;
   live: { overlay: Overlay; history: SettlePlan["history"] };
   trusts: Map<string, Trust>;
+  creditsOf: Map<string, Credits>;
 } {
   const proposals = new Map<string, Proposal>();
   const votes = new Map<string, Vote>();
@@ -325,6 +355,7 @@ export function memoryProposalStore(): ProposalStore & {
     history: [],
   };
   const trusts = new Map<string, Trust>();
+  const creditsOf = new Map<string, Credits>();
   return {
     proposals,
     votes,
@@ -332,6 +363,7 @@ export function memoryProposalStore(): ProposalStore & {
     flags,
     live,
     trusts,
+    creditsOf,
     async submitFlag(submission, change, points) {
       const pid = proposalId(change);
       const flagId = flagRecordId(pid, submission.uid);
@@ -378,19 +410,25 @@ export function memoryProposalStore(): ProposalStore & {
       if (proposal.status !== "pending")
         return { verdict: { action: "wait" as const }, status: proposal.status };
       const key = keyOf(proposal);
+      const voteList = [...votes].filter(([k]) => k.startsWith(`${pid}/`)).map(([, v]) => v);
+      const course = findSubject(proposal.subject);
+      const paused = pausedSet([...trusts.values()]);
       const plan = planSettle({
         proposal,
-        votes: [...votes].filter(([k]) => k.startsWith(`${pid}/`)).map(([, v]) => v),
+        votes: voteList,
         rivals: key
           ? [...proposals.values()].filter((p) => keyOf(p) === key && p.status === "pending")
           : [],
         overlay: live.overlay,
-        course: findSubject(proposal.subject),
+        course,
         at,
-        paused: pausedSet([...trusts.values()]),
+        paused,
       });
       for (const p of plan.proposals) proposals.set(p.id, p);
       if (plan.overlay) live.overlay = plan.overlay;
+      if (plan.applied)
+        for (const uid of creditedUids(proposal, voteList, course, paused))
+          creditsOf.set(uid, withCredit(creditsOf.get(uid), uid, pid, at));
       live.history.push(...plan.history);
       return { verdict: plan.verdict, status: plan.proposals[0].status };
     },
@@ -404,6 +442,9 @@ export function memoryProposalStore(): ProposalStore & {
     },
     async overlay() {
       return live.overlay;
+    },
+    async credits(uid) {
+      return creditsOf.get(uid);
     },
   };
 }

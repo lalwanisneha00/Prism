@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef, useState, type ChangeEvent } from "react";
 import { useAuth } from "@/components/account/AuthProvider";
 import { SyncBadge, syncLabels } from "@/components/account/SyncBadge";
+import { MyFixesCount } from "@/components/flags/FixWentLive";
 import { exportBackup, importBackup } from "@/lib/storage/backup";
 
 const card = "flex flex-col gap-3 rounded-2xl border border-border bg-surface p-5 sm:p-6";
@@ -39,6 +40,7 @@ export function AccountPanel() {
             <SyncBadge status={sync} />
             <span className="text-sm text-muted">{syncLabels[sync ?? "syncing"].help}</span>
           </div>
+          <MyFixesCount />
           <div className="flex flex-wrap gap-2">
             <button type="button" className={button} onClick={syncNow}>
               Sync now

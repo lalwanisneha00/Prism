@@ -55,6 +55,8 @@ export const AppliedChangeSchema = z.object({
   appliedAt: z.iso.datetime(),
   /** Students whose votes made it pass (shown as "verified by N students"). */
   supporters: z.int().min(0),
+  /** The batch every supporter shares, when they all gave the same one (Phase 7 badge). */
+  batchYear: z.int().min(2000).max(2100).optional(),
   /** Ids given to new topics (a missing topic, the extra pieces of a split), in order. */
   newIds: z.array(z.string().min(1)).optional(),
   /** Undone by the admin (Phase 6): skipped, but kept so the history stays readable. */

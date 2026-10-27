@@ -1,6 +1,7 @@
 import type { Firestore } from "firebase-admin/firestore";
 import { findSubject } from "@/lib/subjects";
 import { resumeTrust, TrustSchema, type Trust } from "@/lib/syllabusFix/abuse";
+import { CreditsSchema, creditedUids, withCredit } from "@/lib/syllabusFix/credits";
 import { lessonAfterAdmin, planDecision, planRevert } from "@/lib/syllabusFix/adminActions";
 import { HistoryEntrySchema, type HistoryEntry } from "@/lib/syllabusFix/history";
 import {
@@ -91,6 +92,7 @@ export function adminSyllabusStore(db: Firestore): AdminSyllabusStore {
   const overlayRef = db.collection("syllabusOverlay").doc("current");
   const historyCol = db.collection("syllabusHistory");
   const trustCol = db.collection("syllabusTrust");
+  const creditsCol = db.collection("syllabusCredits");
   const statusCol = db.collection("lessonStatus");
   const checkedRef = db.collection("syllabusAdmin").doc("needsReview");
   const byStatus = (status: Proposal["status"]) =>
@@ -165,9 +167,13 @@ export function adminSyllabusStore(db: Firestore): AdminSyllabusStore {
         const [snap, overlaySnap] = await tx.getAll(ref, overlayRef);
         const proposal = ProposalSchema.safeParse(snap.data()).data;
         if (!proposal) return fail("That suggestion was not found.");
-        const rivals = proposal.targetKey
-          ? proposals(await tx.get(proposalsCol.where("targetKey", "==", proposal.targetKey)))
-          : [];
+        const [rivalSnap, votes] = await Promise.all([
+          proposal.targetKey
+            ? tx.get(proposalsCol.where("targetKey", "==", proposal.targetKey))
+            : null,
+          tx.get(ref.collection("votes")),
+        ]);
+        const rivals = rivalSnap ? proposals(rivalSnap) : [];
         const plan = planDecision({
           proposal,
           action,
@@ -178,9 +184,27 @@ export function adminSyllabusStore(db: Firestore): AdminSyllabusStore {
           at,
         });
         if ("error" in plan) return fail(plan.error);
+        // Phase 7: an approved fix thanks its supporters too (reads before any write).
+        const uids =
+          plan.outcome === "live"
+            ? creditedUids(
+                proposal,
+                parsedAll(votes.docs, (d) => VoteSchema.safeParse(d).data),
+                findSubject(proposal.subject),
+              )
+            : [];
+        const creditSnaps = uids.length
+          ? await tx.getAll(...uids.map((u) => creditsCol.doc(u)))
+          : [];
         for (const p of plan.proposals) tx.set(proposalsCol.doc(p.id), p);
         if (plan.overlay) tx.set(overlayRef, plan.overlay);
         for (const h of plan.history) tx.set(historyCol.doc(h.id), h);
+        uids.forEach((u, i) =>
+          tx.set(
+            creditsCol.doc(u),
+            withCredit(CreditsSchema.safeParse(creditSnaps[i]?.data()).data, u, pid, at),
+          ),
+        );
         return { ok: true as const, outcome: plan.outcome };
       });
     },
@@ -295,6 +319,9 @@ export function memoryAdminStore(
       for (const p of plan.proposals) ps.proposals.set(p.id, p);
       if (plan.overlay) ps.live.overlay = plan.overlay;
       writeHistory(plan.history);
+      if (plan.outcome === "live")
+        for (const u of creditedUids(proposal, votesOf(pid), findSubject(proposal.subject)))
+          ps.creditsOf.set(u, withCredit(ps.creditsOf.get(u), u, pid, at));
       return { ok: true, outcome: plan.outcome };
     },
     async lessonAction(lessonKey, action, at) {

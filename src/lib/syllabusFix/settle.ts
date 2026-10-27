@@ -8,7 +8,7 @@ import {
 } from "@/lib/syllabusFix/overlay";
 import { targetKey, type Proposal, type Vote } from "@/lib/syllabusFix/proposals";
 import { SYLLABUS_FIX_CONFIG } from "@/lib/syllabusFix/config";
-import { decide, tally, type Tally, type Verdict } from "@/lib/syllabusFix/voting";
+import { decide, sharedBatch, tally, type Tally, type Verdict } from "@/lib/syllabusFix/voting";
 
 /*
  * Settling a proposal (syllabus fix, Phase 5): after each flag, upload or vote, the engine counts
@@ -114,9 +114,16 @@ export function planSettle(input: {
       };
     }
     case "apply": {
-      const live = goLive(base, count.supporters, input.overlay, input.course, at, {
-        kind: "system",
-      });
+      const batch = sharedBatch(proposal, input.votes, input.course ?? {}, config, input.paused);
+      const live = goLive(
+        base,
+        count.supporters,
+        input.overlay,
+        input.course,
+        at,
+        { kind: "system" },
+        batch,
+      );
       return { verdict, tally: count, ...live };
     }
   }
@@ -133,6 +140,8 @@ export function goLive(
   course: Subject | undefined,
   at: string,
   actor: HistoryEntry["actor"],
+  /** The batch all supporters share (shown on the badge). */
+  batchYear?: number,
 ): Pick<SettlePlan, "proposals" | "overlay" | "applied" | "history"> {
   const change = LiveChangeSchema.parse(proposal.change);
   const newIds = course ? assignIds(change, course) : undefined;
@@ -141,6 +150,7 @@ export function goLive(
     change,
     appliedAt: at,
     supporters,
+    ...(batchYear ? { batchYear } : {}),
     ...(newIds ? { newIds } : {}),
   };
   return {

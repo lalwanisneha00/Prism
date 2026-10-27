@@ -174,7 +174,9 @@ export async function POST(req: Request) {
         }
         if (shared && library && !fresh && !claim) {
           const stale = await liveStaleTopics(shared.proposals);
-          const stored = await readFromLibrary(library, key, stale).catch((err: unknown) => {
+          const stored = await readFromLibrary(library, key, stale, () =>
+            send({ type: "updating" }),
+          ).catch((err: unknown) => {
             console.warn("[api/lesson] library read failed:", String(err));
             return null;
           });

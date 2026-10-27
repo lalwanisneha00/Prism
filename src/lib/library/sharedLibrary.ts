@@ -48,12 +48,14 @@ export const libraryUsage = { reads: 0, writes: 0, since: new Date().toISOString
 /**
  * A lesson from the library, or null if there is none, it no longer passes the schema, it was
  * written by an older prompt, or its topic changed in the syllabus after it was written (stale).
- * In each case a fresh one is written and replaces it.
+ * In each case a fresh one is written and replaces it. `onStale` hears about the last case, so
+ * the page can say the lesson is being updated to match the syllabus (Phase 7).
  */
 export async function readFromLibrary(
   store: LibraryStore,
   key: string,
   stale: StaleTopics = staleTopics,
+  onStale?: () => void,
 ): Promise<Lesson | null> {
   libraryUsage.reads++;
   const doc = await store.get(key);
@@ -61,7 +63,9 @@ export async function readFromLibrary(
   const parsed = parseLesson(await gunzipJson(doc.lessonGz));
   if (!parsed.ok) return null;
   const { subject, topic } = parsed.lesson.meta;
-  return isLessonStale(stale, subject, topic, doc.createdAt) ? null : parsed.lesson;
+  if (!isLessonStale(stale, subject, topic, doc.createdAt)) return parsed.lesson;
+  onStale?.();
+  return null;
 }
 
 /** Stores a lesson in the library. Returns false if it is too big to store. */

@@ -2,10 +2,15 @@
 
 import Link from "next/link";
 import { ConfirmPrompt } from "@/components/flags/ConfirmPrompt";
+import { FixWentLive } from "@/components/flags/FixWentLive";
 import { MissingSubjectEntry } from "@/components/flags/MissingSubjectEntry";
 import { LabCard } from "@/components/pdeu/PdeuSemester";
 import { CourseTags, RelatedCourseLine } from "@/components/subjects/CourseTags";
+import { useSyllabusOverlay } from "@/components/subjects/useSyllabusOverlay";
+import { subjects } from "@/lib/subjects";
+import { liveSemesterIds } from "@/lib/syllabusFix/overlay";
 import {
+  activeCourse,
   countsOf,
   labsInSemester,
   relatedOf,
@@ -112,9 +117,20 @@ export function CatalogueSemester({
   branchName: string;
   semester: number;
 }) {
-  const courses = subjectsInSemester(semester, branchId).filter(
-    (s) => s.courseType !== "practical",
-  );
+  // Phase 7: courses students moved into or out of this semester count too.
+  const overlay = useSyllabusOverlay();
+  const courses = liveSemesterIds(
+    subjectsInSemester(semester, branchId)
+      .filter((s) => s.courseType !== "practical")
+      .map((s) => s.id),
+    overlay,
+    branchId,
+    semester,
+    (id) => subjects.find((s) => s.id === id),
+  ).flatMap((id) => {
+    const s = activeCourse(id);
+    return s && s.courseType !== "practical" ? [s] : [];
+  });
   const labs = labsInSemester(semester, branchId);
   const isCore = (s: IndexedSubject) => s.courseCategory !== "non-core";
   return (
@@ -136,6 +152,7 @@ export function CatalogueSemester({
         labs={labs.filter((s) => !isCore(s))}
         testId="pdeu-noncore"
       />
+      <FixWentLive />
       <ConfirmPrompt branch={branchId} semester={semester} />
       <MissingSubjectEntry semester={semester} />
     </div>

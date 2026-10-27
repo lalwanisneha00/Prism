@@ -65,6 +65,14 @@ describe("shared library", () => {
     });
     expect(await readFromLibrary(store, key, changed("2099-01-01T00:00:00.000Z"))).toBeNull();
     expect(await readFromLibrary(store, key, changed("2000-01-01T00:00:00.000Z"))).toEqual(lesson);
+    // Phase 7: the caller hears that the copy was out of date (the page says "Updating…").
+    const heard: string[] = [];
+    await readFromLibrary(store, key, changed("2099-01-01T00:00:00.000Z"), () => heard.push("new"));
+    await readFromLibrary(store, key, changed("2000-01-01T00:00:00.000Z"), () => heard.push("old"));
+    await readFromLibrary(store, "missing", changed("2099-01-01T00:00:00.000Z"), () =>
+      heard.push("missing"),
+    );
+    expect(heard).toEqual(["new"]);
   });
 
   it("returns null for a missing or broken entry", async () => {

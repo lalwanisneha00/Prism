@@ -1,8 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
+import { HELP_VERIFY_EVENT } from "@/components/subjects/TrustBadge";
 import { getSettings } from "@/lib/storage/progress";
 import { handoutWanted } from "@/lib/syllabusFix/studentHandout";
 import type { Confidence } from "@/lib/syllabusFix/tree";
@@ -34,6 +35,18 @@ export function HandoutBanner({
   const [batchYear, setBatchYear] = useState<number | undefined>(undefined);
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const box = useRef<HTMLElement>(null);
+
+  // "Help verify?" on the trust badge (Phase 7): open the upload, even after "Not now".
+  useEffect(() => {
+    const on = () => {
+      setHidden(false);
+      setOpen(true);
+      requestAnimationFrame(() => box.current?.scrollIntoView({ block: "center" }));
+    };
+    window.addEventListener(HELP_VERIFY_EVENT, on);
+    return () => window.removeEventListener(HELP_VERIFY_EVENT, on);
+  }, []);
 
   useEffect(() => {
     getSettings()
@@ -44,6 +57,7 @@ export function HandoutBanner({
   if (hidden || !handoutWanted(confidence, batchYears, batchYear)) return null;
   return (
     <section
+      ref={box}
       aria-label="Upload your course handout"
       data-testid="handout-banner"
       className="flex max-w-2xl flex-col gap-3 rounded-xl border border-border bg-surface px-4 py-3 text-sm"

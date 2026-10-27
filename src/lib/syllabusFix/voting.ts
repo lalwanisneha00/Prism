@@ -89,6 +89,29 @@ export function tally(
   return { points, supporters, ignored };
 }
 
+/**
+ * The batch year every counted supporter shares, for the "Verified by 3 students from Computer
+ * Engineering, 2025 batch" badge (Phase 7). None when a supporter gave no batch or batches differ.
+ */
+export function sharedBatch(
+  proposal: Pick<Proposal, "branch" | "semester">,
+  votes: readonly Vote[],
+  course: { batchYears?: readonly number[] } = {},
+  config: Config = SYLLABUS_FIX_CONFIG,
+  paused: ReadonlySet<string> = NO_ONE,
+): number | undefined {
+  const seen = new Set<string>();
+  const years = new Set<number | undefined>();
+  for (const vote of votes) {
+    if (seen.has(vote.uid)) continue;
+    seen.add(vote.uid);
+    if (vote.points <= 0 || !voteCounts(vote, proposal, course, config, paused).counts) continue;
+    years.add(vote.batchYear);
+  }
+  const [only] = [...years];
+  return years.size === 1 ? only : undefined;
+}
+
 export type Verdict =
   | { action: "wait" }
   | { action: "apply" }

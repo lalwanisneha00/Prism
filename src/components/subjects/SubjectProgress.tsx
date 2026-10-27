@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { ChapterFlag } from "@/components/flags/ChapterFlag";
 import { TopicFlag } from "@/components/flags/TopicFlag";
+import { BadgeView, named } from "@/components/subjects/TrustBadge";
+import { useSyllabusOverlay } from "@/components/subjects/useSyllabusOverlay";
 import { ScopeNotice } from "@/components/university/ScopeNotice";
 import { useScopedSubjects } from "@/components/university/useUniversityScope";
 import { useTopicStatuses } from "@/components/map/useTopicStatuses";
@@ -13,7 +15,10 @@ import type { QuizAttempt } from "@/lib/storage/db";
 import { paperStats } from "@/lib/chapter/estimate";
 import { sectionText } from "@/lib/extract/types";
 import { listLocalNotes } from "@/lib/notes/store";
-import { chaptersOf, findSubject, type Subject } from "@/lib/subjects";
+import { chaptersOf, findSubject, type Chapter, type Subject } from "@/lib/subjects";
+import { badgeFor, chapterBadgeWanted, liveSupport, type Badge } from "@/lib/syllabusFix/badges";
+import type { Overlay } from "@/lib/syllabusFix/overlay";
+import { resolveMeta } from "@/lib/syllabusFix/tree";
 
 const dot: Record<TopicStatus, string> = {
   mastered: "bg-success",
@@ -24,6 +29,16 @@ const dot: Record<TopicStatus, string> = {
 
 /** The course as Prism has it (not narrowed to the student's uploaded syllabus), for flags. */
 const flagOwner = (owner: Subject) => findSubject(owner.id) ?? owner;
+
+/** A chapter's own trust badge (Phase 7), or null when the course's badge already says it. */
+function chapterBadge(overlay: Overlay, owner: Subject, chapter: Chapter): Badge | null {
+  const course = badgeFor(resolveMeta(owner), named(liveSupport(overlay, owner.id)));
+  const own = badgeFor(
+    resolveMeta(owner, chapter),
+    named(liveSupport(overlay, owner.id, chapter.id)),
+  );
+  return chapterBadgeWanted(course, own) ? own : null;
+}
 
 /** A chapter's topic chips; on the course page they fold away (the first chapter starts open). */
 function TopicList({
@@ -67,6 +82,7 @@ export function SubjectProgress({
   const scoped = useScopedSubjects(baseList);
   const subject = scoped.subjects[0];
   const statuses = useTopicStatuses();
+  const overlay = useSyllabusOverlay();
   const [weak, setWeak] = useState<QuizAttempt[]>([]);
   // How often each topic comes up in the student's previous-year papers (exam emphasis).
   const [asked, setAsked] = useState<{ papers: number; hits: Record<string, number> }>({
@@ -136,6 +152,8 @@ export function SubjectProgress({
         {chaptersOf(subject).map(({ chapter, owner }, i) => {
           const s = chapter.topics.map((t) => statuses.get(t.id) ?? "new");
           const mastered = s.filter((x) => x === "mastered").length;
+          const badge =
+            flags && owner.university === "pdeu" ? chapterBadge(overlay, owner, chapter) : null;
           return (
             <li
               key={`${owner.id}:${chapter.id}`}
@@ -161,6 +179,11 @@ export function SubjectProgress({
                   {chapter.hours ? ` · ${chapter.hours} syllabus hours` : ""}
                 </p>
               </div>
+              {badge && (
+                <div className="mt-1">
+                  <BadgeView badge={badge} size="sm" testId="chapter-badge" />
+                </div>
+              )}
               {!practical && (
                 <progress
                   className="mt-2 h-2 w-full accent-primary"

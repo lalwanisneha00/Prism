@@ -15,6 +15,7 @@ import { findLevel } from "@/data/levels";
 import { formatClock } from "@/lib/audio/timeline";
 import type { AudioPosition, QuizAttempt, RecentTopic } from "@/lib/storage/db";
 import { listRecent } from "@/lib/storage/library";
+import { FixWentLive } from "@/components/flags/FixWentLive";
 import { listAudioPositions, listQuizAttempts, weakTopics } from "@/lib/storage/progress";
 
 type Data = {
@@ -130,6 +131,8 @@ export function Dashboard() {
           </>
         )}
       </p>
+
+      <FixWentLive />
 
       <TodayAndStreak />
 

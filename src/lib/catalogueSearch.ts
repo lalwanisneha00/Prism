@@ -18,8 +18,6 @@ export type CatalogueMatch =
   | { kind: "chapter"; subject: Subject; chapter: Chapter }
   | { kind: "topic"; subject: Subject; chapter: Chapter; topic: Topic };
 
-const score = matchScore;
-
 /** Which courses a search covers: everything, theory courses only, or labs only. */
 export type SearchKind = "all" | "theory" | "labs";
 
@@ -33,10 +31,19 @@ export function searchScope(kind: SearchKind): readonly Subject[] {
 
 export const isLabCourse = (s: Pick<Subject, "courseType">) => s.courseType === "practical";
 
+/** How far a real match in one of the student's own courses moves up (syllabus fix, Phase 7). */
+const MINE_BOOST = 1.5;
+
+/**
+ * Searches the catalogue. `mine` = the student's courses this semester (with the live fixes):
+ * a real match in one of them ranks above the same or a slightly better match elsewhere, so
+ * "search" finds their own Data Structures before another branch's.
+ */
 export function searchCatalogue(
   rawQuery: string,
   limit = 10,
   subjects: readonly Subject[] = allSubjects,
+  mine: ReadonlySet<string> = new Set(),
 ): CatalogueMatch[] {
   const query = normalize(rawQuery);
   if (!query) return [];
@@ -47,6 +54,12 @@ export function searchCatalogue(
   let order = 0;
   for (const subject of subjects) {
     const sName = normalize(`${subject.name} ${subject.field}`);
+    const own = mine.has(subject.id);
+    // Loose (misspelt) matches are not lifted: a typo in another course can't beat a real hit.
+    const score = (q: string, w: string[], name: string, context?: string) => {
+      const base = matchScore(q, w, name, context);
+      return own && base >= 1 ? base + MINE_BOOST : base;
+    };
     const s = score(query, words, normalize(subject.name), sName);
     // Subjects rank a little above chapters and topics with the same score.
     if (s)

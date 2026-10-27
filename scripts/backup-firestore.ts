@@ -24,6 +24,7 @@ const COLLECTIONS = [
   "syllabusTrust",
   "syllabusUsage",
   "syllabusAdmin",
+  "syllabusCredits",
 ];
 
 if (existsSync(".env.local")) process.loadEnvFile(".env.local");

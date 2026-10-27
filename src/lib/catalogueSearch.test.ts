@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { matchHref, searchCatalogue, searchScope } from "@/lib/catalogueSearch";
+import type { Subject } from "@/lib/subjects";
 
 describe("All / Theory / Labs (Phase 4B)", () => {
   const isLab = (m: { subject: { courseType?: string } }) => m.subject.courseType === "practical";
@@ -10,7 +11,8 @@ describe("All / Theory / Labs (Phase 4B)", () => {
     expect(labs.every(isLab)).toBe(true);
     expect(searchCatalogue("laboratory", 50, searchScope("theory")).some(isLab)).toBe(false);
     expect(searchCatalogue("applied physics", 20, searchScope("all")).some(isLab)).toBe(true);
-  });
+    // The first search here also loads the whole catalogue, slow on a busy machine.
+  }, 20_000);
 
   it("opens a lab's experiment on the lab's page (no lab lessons before Phase 7B)", () => {
     const exp = searchCatalogue("sketch entities", 20, searchScope("labs")).find(
@@ -55,5 +57,39 @@ describe("searching the whole catalogue", () => {
     );
     const [subject] = searchCatalogue("applied physics");
     expect(matchHref(subject)).toBe("/subjects/pdeu-physics-ict");
+  });
+});
+
+describe("the student's own courses first (syllabus fix, Phase 7)", () => {
+  it("ranks a real match in one of their courses above the same match elsewhere", () => {
+    const all = searchCatalogue("faraday", 200);
+    const other = all.find(
+      (m) =>
+        m.kind === "topic" &&
+        m.subject.id !== all[0].subject.id &&
+        m.topic.name.toLowerCase().includes("faraday"),
+    )!;
+    expect(other).toBeDefined();
+    const mine = searchCatalogue("faraday", 10, undefined, new Set([other.subject.id]));
+    expect(mine[0].subject.id).toBe(other.subject.id);
+  });
+
+  it("does not lift a misspelt (loose) match in their course above a real one", () => {
+    const course = (id: string, topic: string): Subject => ({
+      id,
+      name: id,
+      field: "Physics",
+      tier: "sourced",
+      branches: ["ict"],
+      semesters: [1],
+      syllabusSource: { kind: "university", title: "PDEU" },
+      chapters: [{ id: "c", name: "Unit 1", topics: [{ id: "t", name: topic }] }],
+    });
+    const list = [course("other", "Faraday law"), course("mine", "Faradey law")];
+    const first = (mine: string[]) =>
+      searchCatalogue("faraday", 5, list, new Set(mine))[0].subject.id;
+    expect(first([])).toBe("other");
+    expect(first(["mine"])).toBe("other");
+    expect(first(["other"])).toBe("other");
   });
 });

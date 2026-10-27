@@ -50,6 +50,7 @@ const lessonRoute = await import("@/app/api/lesson/flag/route");
 const voteRoute = await import("@/app/api/syllabus/vote/route");
 const promptRoute = await import("@/app/api/syllabus/prompt/route");
 const overlayRoute = await import("@/app/api/syllabus/overlay/route");
+const contributionsRoute = await import("@/app/api/syllabus/contributions/route");
 
 const AI = "pdeu-introduction-to-artificial-intelligence-ict";
 
@@ -221,6 +222,26 @@ describe("Phase 5: Agree prompts, votes and going live", () => {
       proposalId: pid(),
       change: { prism: { topic: "intelligent-agents" }, retire: true },
     });
+  });
+
+  it("thanks every student whose vote counted (Phase 7)", async () => {
+    const mine = async (uid?: string) => {
+      const res = await contributionsRoute.GET(
+        new Request("http://localhost/api", {
+          headers: uid ? { authorization: `Bearer good-${uid}` } : {},
+        }),
+      );
+      return { status: res.status, body: (await res.json()) as Record<string, unknown> };
+    };
+    expect((await mine()).status).toBe(401);
+    for (const uid of ["u1", "u2", "u3"]) {
+      const fixes = (await mine(uid)).body.fixes as { proposalId: string; students: number }[];
+      expect(fixes).toEqual([
+        expect.objectContaining({ proposalId: pid(), students: 3, text: expect.any(String) }),
+      ]);
+    }
+    // Another branch's Agree did not count, so no credit.
+    expect((await mine("ce1")).body.fixes).toEqual([]);
   });
 
   it("refuses an unknown proposal", async () => {

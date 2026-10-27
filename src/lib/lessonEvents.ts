@@ -8,6 +8,8 @@ import type { Lesson, Section } from "@/lib/schema";
 export type LessonEvent =
   | { type: "stage"; stage: "sources" | "writing" | "fixing" | "checking"; message: string }
   | { type: "section"; section: Section }
+  /** The stored copy predates a syllabus change to its topic: a new one is being written (Phase 7). */
+  | { type: "updating" }
   | {
       type: "lesson";
       lesson: Lesson;
@@ -26,6 +28,9 @@ export type LessonEvent =
       /** Set when the student's own key was used: the provider's name, so the page can offer the shared key. */
       usedUserKey?: string;
     };
+
+/** What the student sees while an out-of-date lesson is rewritten (syllabus fix, Phase 7). */
+export const UPDATING_MESSAGE = "Updating this lesson to match your syllabus…";
 
 export type LessonErrorKind = Extract<LessonEvent, { type: "error" }>["kind"] | "offline";
 

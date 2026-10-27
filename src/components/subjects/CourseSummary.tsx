@@ -1,5 +1,5 @@
 import { CourseTags, RelatedCourseLine } from "@/components/subjects/CourseTags";
-import { Icon } from "@/components/Icon";
+import { CourseBadge } from "@/components/subjects/TrustBadge";
 import { activeCourse, relatedOf } from "@/lib/catalogue";
 import { ltpText } from "@/lib/pdeu/helpers";
 import { findBranch, type Subject } from "@/lib/subjects";
@@ -8,26 +8,9 @@ import { resolveMeta } from "@/lib/syllabusFix/tree";
 /*
  * The facts at the top of a PDEU course page (Phase 4B): code, Core/Non-core and Theory/Practical
  * tags, where it is taught, teaching scheme and credits, how sure Prism is of the syllabus, and the
- * linked theory course or lab. Everything comes from the course data; nothing is fetched.
+ * linked theory course or lab. Everything comes from the course data; only the trust badge also
+ * reads the live fixes (Phase 7).
  */
-
-const VERIFIED = {
-  verified: {
-    text: "Verified: matches the current course handout",
-    className: "bg-success/15 text-fg",
-    icon: "verified",
-  },
-  pending: {
-    text: "Being checked by students",
-    className: "bg-warning/15 text-fg",
-    icon: "again",
-  },
-  unverified: {
-    text: "Not verified yet: from an older syllabus, may be outdated",
-    className: "bg-warning/15 text-fg",
-    icon: "warn",
-  },
-} as const;
 
 export function CourseSummary({ subject }: { subject: Subject }) {
   const meta = resolveMeta(subject);
@@ -57,7 +40,6 @@ export function CourseSummary({ subject }: { subject: Subject }) {
   const indexed = activeCourse(subject.id);
   const related = indexed ? relatedOf(indexed) : [];
   const isLab = subject.courseType === "practical";
-  const badge = VERIFIED[meta.confidence];
   return (
     <div className="flex flex-col gap-3" data-testid="course-summary">
       <CourseTags
@@ -82,13 +64,7 @@ export function CourseSummary({ subject }: { subject: Subject }) {
           </>
         )}
       </dl>
-      <p
-        className={`inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1 text-sm font-semibold ${badge.className}`}
-        data-testid="verification-badge"
-      >
-        <Icon name={badge.icon} />
-        {badge.text}
-      </p>
+      <CourseBadge subjectId={subject.id} meta={meta} />
       <RelatedCourseLine
         isLab={isLab}
         related={related.filter((r) => (r.courseType === "practical") !== isLab)}
