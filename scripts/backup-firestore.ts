@@ -21,6 +21,9 @@ const COLLECTIONS = [
   "lessonStatus",
   "lessonVersions",
   "lessonQuality",
+  "syllabusTrust",
+  "syllabusUsage",
+  "syllabusAdmin",
 ];
 
 if (existsSync(".env.local")) process.loadEnvFile(".env.local");

@@ -9,6 +9,7 @@ import { settleTouched } from "@/lib/syllabusFix/liveFixes";
 import { adminProposalStore } from "@/lib/syllabusFix/proposalStore";
 import { ProfileSchema, signedInStudent } from "@/lib/syllabusFix/studentAuth";
 import { isRetired } from "@/lib/syllabusFix/tree";
+import { adminUsageStore, overDailyLimit } from "@/lib/syllabusFix/usageStore";
 
 /*
  * POST /api/syllabus/missing (syllabus fix, Phase 4): "My subject isn't here".
@@ -70,6 +71,9 @@ export async function POST(req: Request) {
       return fail("already-listed", `${s.name} is already in your semester's list.`, 409);
     existing = { id: s.id, name: s.name };
   }
+
+  const limited = await overDailyLimit(adminUsageStore(admin.db), student.uid, "missing");
+  if (limited) return limited;
 
   try {
     const store = adminProposalStore(admin.db);

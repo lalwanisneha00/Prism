@@ -29,7 +29,7 @@ export type SettlePlan = {
 };
 
 /** The history target of a change: the deepest node it is about. */
-function targetOf(change: AppliedChange["change"]): HistoryEntry["target"] {
+export function targetOf(change: AppliedChange["change"]): HistoryEntry["target"] {
   const p = change.prism ?? (change.to?.subject ? { subject: change.to.subject } : undefined);
   const chapter = change.prism?.chapter ?? change.to?.chapter;
   if (p && change.prism?.topic)
@@ -49,10 +49,12 @@ export function planSettle(input: {
   course?: Subject;
   at: string;
   config?: typeof SYLLABUS_FIX_CONFIG;
+  /** Students whose votes are paused (Phase 6). */
+  paused?: ReadonlySet<string>;
 }): SettlePlan {
   const config = input.config ?? SYLLABUS_FIX_CONFIG;
   const { proposal, at } = input;
-  const count = tally(proposal, input.votes, input.course ?? {}, config);
+  const count = tally(proposal, input.votes, input.course ?? {}, config, input.paused);
   const key = proposal.targetKey ?? targetKey(LiveChangeSchema.parse(proposal.change)) ?? undefined;
   const rivals = input.rivals.filter((r) => r.id !== proposal.id && r.status === "pending");
   const verdict = decide(
@@ -112,27 +114,61 @@ export function planSettle(input: {
       };
     }
     case "apply": {
-      const change = LiveChangeSchema.parse(proposal.change);
-      const newIds = input.course ? assignIds(change, input.course) : undefined;
-      const applied: AppliedChange = {
-        proposalId: proposal.id,
-        change,
-        appliedAt: at,
-        supporters: count.supporters,
-        ...(newIds ? { newIds } : {}),
-      };
-      return {
-        verdict,
-        tally: count,
-        proposals: [{ ...base, status: "applied", appliedAt: at, updatedAt: at }],
-        overlay: {
-          version: 1,
-          updatedAt: at,
-          changes: [...input.overlay.changes.filter((c) => c.proposalId !== proposal.id), applied],
-        },
-        applied,
-        history: [history(change.type, null, { proposalId: proposal.id, change, newIds })],
-      };
+      const live = goLive(base, count.supporters, input.overlay, input.course, at, {
+        kind: "system",
+      });
+      return { verdict, tally: count, ...live };
     }
   }
+}
+
+/**
+ * Puts a proposal's change into the overlay: status applied, ids for new topics, one history
+ * entry. Used by the engine (actor system) and by the admin's Approve (Phase 6, actor admin).
+ */
+export function goLive(
+  proposal: Proposal,
+  supporters: number,
+  overlay: Overlay,
+  course: Subject | undefined,
+  at: string,
+  actor: HistoryEntry["actor"],
+): Pick<SettlePlan, "proposals" | "overlay" | "applied" | "history"> {
+  const change = LiveChangeSchema.parse(proposal.change);
+  const newIds = course ? assignIds(change, course) : undefined;
+  const applied: AppliedChange = {
+    proposalId: proposal.id,
+    change,
+    appliedAt: at,
+    supporters,
+    ...(newIds ? { newIds } : {}),
+  };
+  return {
+    proposals: [
+      {
+        ...proposal,
+        status: "applied",
+        appliedAt: at,
+        updatedAt: at,
+        ...(actor.kind === "admin" && actor.id ? { decidedBy: actor.id } : {}),
+      },
+    ],
+    overlay: {
+      version: 1,
+      updatedAt: at,
+      changes: [...overlay.changes.filter((c) => c.proposalId !== proposal.id), applied],
+    },
+    applied,
+    history: [
+      historyEntry({
+        at,
+        actor,
+        cause: `proposal ${proposal.id}`,
+        target: targetOf(change),
+        field: change.type,
+        oldValue: null,
+        newValue: { proposalId: proposal.id, change, newIds },
+      }),
+    ],
+  };
 }

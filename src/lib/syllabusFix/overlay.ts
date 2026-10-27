@@ -59,6 +59,7 @@ export const AppliedChangeSchema = z.object({
   newIds: z.array(z.string().min(1)).optional(),
   /** Undone by the admin (Phase 6): skipped, but kept so the history stays readable. */
   reverted: z.boolean().optional(),
+  revertedAt: z.iso.datetime().optional(),
 });
 export type AppliedChange = z.infer<typeof AppliedChangeSchema>;
 
@@ -292,15 +293,20 @@ export function liveSemesterIds(
   return [...kept, ...joined];
 }
 
-/** Topics whose cached lessons a live fix makes stale (moved, renamed by a split). */
+/**
+ * Topics whose cached lessons a live fix makes stale (moved, renamed by a split). A reverted fix
+ * makes them stale again from the time it was undone (lessons written in between used the fix).
+ */
 export function staleFromOverlay(overlay: Overlay, base: StaleTopics): StaleTopics {
   const topics = { ...base.topics };
-  for (const a of activeChanges(overlay)) {
+  for (const a of overlay.changes) {
     const p = a.change.prism;
     if (!p?.topic) continue;
     if (a.change.type !== "topic under wrong unit" && a.change.type !== "topic split") continue;
+    const when = a.reverted ? a.revertedAt : a.appliedAt;
+    if (!when) continue;
     const key = `${p.subject}/${p.topic}`;
-    if (!topics[key] || topics[key] < a.appliedAt) topics[key] = a.appliedAt;
+    if (!topics[key] || topics[key] < when) topics[key] = when;
   }
   return { version: 1, topics };
 }

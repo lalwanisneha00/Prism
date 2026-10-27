@@ -9,6 +9,7 @@ import { adminProposalStore } from "@/lib/syllabusFix/proposalStore";
 import { ProfileSchema, signedInStudent } from "@/lib/syllabusFix/studentAuth";
 import { placeFor, toPrismCourse } from "@/lib/syllabusFix/studentHandoutCompare";
 import { isRetired } from "@/lib/syllabusFix/tree";
+import { adminUsageStore, overDailyLimit } from "@/lib/syllabusFix/usageStore";
 
 /*
  * POST /api/syllabus/flag (syllabus fix, Phase 4). A student's flag on a course, chapter or topic.
@@ -56,6 +57,9 @@ export async function POST(req: Request) {
     .map((s) => ({ id: s.id, name: s.name }));
   const result = flagToChange({ ...flag, subject: subject.id }, course, place, branchCourses);
   if (!result.ok) return fail("invalid-flag", result.message, 400);
+
+  const limited = await overDailyLimit(adminUsageStore(admin.db), student.uid, "flag");
+  if (limited) return limited;
 
   try {
     const store = adminProposalStore(admin.db);

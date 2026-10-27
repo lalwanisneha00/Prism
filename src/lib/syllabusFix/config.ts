@@ -34,4 +34,17 @@ export const SYLLABUS_FIX_CONFIG = {
   },
   /** How long the server and browsers keep the live syllabus fixes before asking again. */
   overlayCacheSeconds: 300,
+  /**
+   * Abuse guards (Phase 6). Most of each kind one signed-in student may send per day (UTC day).
+   * Past the limit the app says "Too many reports today"; nothing else about the account changes.
+   */
+  dailyLimits: { flag: 20, missing: 5, handout: 5, vote: 40, lessonFlag: 20 },
+  /**
+   * When the admin reverts a fix, every student who backed it gets one "reverted" mark. At this
+   * many marks their flags and votes stop counting (they are still saved, and the account keeps
+   * working). The admin page shows paused students and can resume them.
+   */
+  trust: { pauseAfterReverts: 3 },
+  /** Admin page (Phase 6): pending proposals this many points (or fewer) short of going live. */
+  admin: { nearThresholdGap: 1, recentFixes: 50 },
 } as const;

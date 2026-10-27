@@ -4,6 +4,7 @@ import { findSubject } from "@/lib/subjects";
 import { LessonFlagSchema } from "@/lib/syllabusFix/flags";
 import { adminLessonFlagStore, lessonFlagRecord } from "@/lib/syllabusFix/lessonFlagStore";
 import { ProfileSchema, signedInStudent } from "@/lib/syllabusFix/studentAuth";
+import { adminUsageStore, overDailyLimit } from "@/lib/syllabusFix/usageStore";
 
 /*
  * POST /api/lesson/flag (syllabus fix, Phase 4): "something is wrong in this lesson". Needs
@@ -36,6 +37,9 @@ export async function POST(req: Request) {
   if (!admin) return fail("unavailable", "Reporting is not set up on this server.", 503);
   const student = await signedInStudent(req, admin, body.data.profile, "report a problem");
   if (!student.ok) return fail(student.kind, student.message, 401);
+
+  const limited = await overDailyLimit(adminUsageStore(admin.db), student.uid, "lessonFlag");
+  if (limited) return limited;
 
   try {
     const saved = await adminLessonFlagStore(admin.db).submit(

@@ -29,14 +29,21 @@ export const AUTO_APPLY_TYPES: readonly ChangeType[] = [
   "extra item not in any handout",
 ];
 
-/** Why a vote does or does not count for a proposal. */
+const NO_ONE: ReadonlySet<string> = new Set();
+
+/**
+ * Why a vote does or does not count for a proposal. `paused` = students whose fixes were reverted
+ * too often (Phase 6): their votes are kept but no longer count.
+ */
 export function voteCounts(
   vote: Vote,
   proposal: Pick<Proposal, "branch" | "semester">,
   course: { batchYears?: readonly number[] } = {},
   config: Config = SYLLABUS_FIX_CONFIG,
+  paused: ReadonlySet<string> = NO_ONE,
 ): { counts: true } | { counts: false; reason: string } {
   if (vote.kind === "unsure") return { counts: false, reason: "not sure" };
+  if (paused.has(vote.uid)) return { counts: false, reason: "votes paused" };
   if (!config.countDeviceProfiles && vote.profileFrom !== "cloud")
     return { counts: false, reason: "profile not synced" };
   if (vote.branch !== proposal.branch) return { counts: false, reason: "other branch" };
@@ -62,6 +69,7 @@ export function tally(
   votes: readonly Vote[],
   course: { batchYears?: readonly number[] } = {},
   config: Config = SYLLABUS_FIX_CONFIG,
+  paused: ReadonlySet<string> = NO_ONE,
 ): Tally {
   const seen = new Set<string>();
   let points = 0;
@@ -70,7 +78,7 @@ export function tally(
   for (const vote of votes) {
     if (seen.has(vote.uid)) continue;
     seen.add(vote.uid);
-    const check = voteCounts(vote, proposal, course, config);
+    const check = voteCounts(vote, proposal, course, config, paused);
     if (!check.counts) {
       ignored.push({ uid: vote.uid, reason: check.reason });
       continue;

@@ -4,6 +4,7 @@ import { SYLLABUS_FIX_CONFIG } from "@/lib/syllabusFix/config";
 import { forgetOverlay } from "@/lib/syllabusFix/liveFixes";
 import { adminProposalStore } from "@/lib/syllabusFix/proposalStore";
 import { ProfileSchema, signedInStudent } from "@/lib/syllabusFix/studentAuth";
+import { adminUsageStore, overDailyLimit } from "@/lib/syllabusFix/usageStore";
 
 /*
  * POST /api/syllabus/vote (syllabus fix, Phase 5): a student's answer to "N students say ...
@@ -43,6 +44,9 @@ export async function POST(req: Request) {
   const { branch, semester, batchYear } = student.profile;
   if (!branch || !semester)
     return fail("no-profile", "Choose your branch and semester on My subjects first.", 400);
+
+  const limited = await overDailyLimit(adminUsageStore(admin.db), student.uid, "vote");
+  if (limited) return limited;
 
   try {
     const store = adminProposalStore(admin.db);

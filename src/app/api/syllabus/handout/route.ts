@@ -6,6 +6,7 @@ import { settleTouched } from "@/lib/syllabusFix/liveFixes";
 import { adminProposalStore } from "@/lib/syllabusFix/proposalStore";
 import { ProfileSchema, signedInStudent } from "@/lib/syllabusFix/studentAuth";
 import { isRetired } from "@/lib/syllabusFix/tree";
+import { adminUsageStore, overDailyLimit } from "@/lib/syllabusFix/usageStore";
 import { isEmptyHandout, StudentHandoutSchema } from "@/lib/syllabusFix/studentHandout";
 import {
   compareStudentHandout,
@@ -77,6 +78,9 @@ export async function POST(req: Request) {
   const summary = summarizeChanges(changes);
   if (dryRun || changes.length === 0 || !admin || !uid)
     return reply({ ok: true, summary, changes: changes.length });
+
+  const limited = await overDailyLimit(adminUsageStore(admin.db), uid, "handout");
+  if (limited) return limited;
 
   try {
     const store = adminProposalStore(admin.db);

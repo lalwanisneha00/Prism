@@ -1,5 +1,6 @@
 import type { Firestore } from "firebase-admin/firestore";
 import { findSubject } from "@/lib/subjects";
+import { pausedSet, TrustSchema, type Trust } from "@/lib/syllabusFix/abuse";
 import type { Change } from "@/lib/syllabusFix/handoutMatch";
 import { EMPTY_OVERLAY, OverlaySchema, type Overlay } from "@/lib/syllabusFix/overlay";
 import {
@@ -20,7 +21,8 @@ import type { StudentHandout } from "@/lib/syllabusFix/studentHandout";
  * rules deny every browser): `syllabusHandouts/{id}` keeps each confirmed upload, `syllabusFlags/{id}`
  * each flag, `syllabusProposals/{id}` one proposed change with its points, and
  * `syllabusProposals/{id}/votes/{uid}` who added them. Phase 5: `syllabusOverlay/current` holds the
- * changes that went live and `syllabusHistory/{id}` logs every decision (the undo log).
+ * changes that went live and `syllabusHistory/{id}` logs every decision (the undo log). Phase 6:
+ * `syllabusTrust/{uid}` pauses the votes of students whose fixes were reverted too often.
  */
 
 export type HandoutSubmission = {
@@ -261,13 +263,20 @@ export function adminProposalStore(db: Firestore): ProposalStore {
             : null,
           tx.get(overlayRef),
         ]);
+        const voteList = parsedAll(votes.docs, (d) => VoteSchema.safeParse(d).data);
+        // Phase 6: students whose fixes were reverted too often no longer count.
+        const uids = [...new Set(voteList.map((v) => v.uid))];
+        const trustSnaps = uids.length
+          ? await tx.getAll(...uids.map((uid) => db.collection("syllabusTrust").doc(uid)))
+          : [];
         const plan = planSettle({
           proposal,
-          votes: parsedAll(votes.docs, (d) => VoteSchema.safeParse(d).data),
+          votes: voteList,
           rivals: parsedAll(rivals?.docs ?? [], (d) => ProposalSchema.safeParse(d).data),
           overlay: OverlaySchema.safeParse(overlaySnap.data()).data ?? EMPTY_OVERLAY,
           course: findSubject(proposal.subject),
           at,
+          paused: pausedSet(trustSnaps.map((t) => TrustSchema.safeParse(t.data()).data)),
         });
         for (const p of plan.proposals) tx.set(proposalsCol.doc(p.id), p);
         if (plan.overlay) tx.set(overlayRef, plan.overlay);
@@ -305,6 +314,7 @@ export function memoryProposalStore(): ProposalStore & {
   handouts: Map<string, HandoutSubmission>;
   flags: Map<string, FlagSubmission & { proposalId: string }>;
   live: { overlay: Overlay; history: SettlePlan["history"] };
+  trusts: Map<string, Trust>;
 } {
   const proposals = new Map<string, Proposal>();
   const votes = new Map<string, Vote>();
@@ -314,12 +324,14 @@ export function memoryProposalStore(): ProposalStore & {
     overlay: EMPTY_OVERLAY,
     history: [],
   };
+  const trusts = new Map<string, Trust>();
   return {
     proposals,
     votes,
     handouts,
     flags,
     live,
+    trusts,
     async submitFlag(submission, change, points) {
       const pid = proposalId(change);
       const flagId = flagRecordId(pid, submission.uid);
@@ -375,6 +387,7 @@ export function memoryProposalStore(): ProposalStore & {
         overlay: live.overlay,
         course: findSubject(proposal.subject),
         at,
+        paused: pausedSet([...trusts.values()]),
       });
       for (const p of plan.proposals) proposals.set(p.id, p);
       if (plan.overlay) live.overlay = plan.overlay;

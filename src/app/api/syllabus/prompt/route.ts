@@ -1,10 +1,9 @@
 import { getAdmin } from "@/lib/firebase/admin";
 import { z } from "zod";
-import { findSubject } from "@/lib/subjects";
 import { LiveChangeSchema } from "@/lib/syllabusFix/overlay";
 import { adminProposalStore } from "@/lib/syllabusFix/proposalStore";
 import { ProfileSchema, signedInStudent } from "@/lib/syllabusFix/studentAuth";
-import { plainChange, type ChangeNames } from "@/lib/syllabusFix/voting";
+import { describeChange } from "@/lib/syllabusFix/changeNames";
 
 /*
  * POST /api/syllabus/prompt (syllabus fix, Phase 5): one pending suggestion for the student's own
@@ -22,20 +21,6 @@ const reply = (body: Reply, status = 200) =>
   Response.json(body, { status, headers: { "cache-control": "no-store" } });
 const fail = (kind: string, message: string, status: number) =>
   reply({ ok: false, kind, message }, status);
-
-/** Names of what a change is about, from the syllabus. */
-function namesOf(change: z.infer<typeof LiveChangeSchema>): ChangeNames {
-  const subject = findSubject(change.prism?.subject ?? change.to?.subject ?? "");
-  const chapter = subject?.chapters.find((c) => c.id === change.prism?.chapter);
-  const topic = chapter?.topics.find((t) => t.id === change.prism?.topic);
-  const to = subject?.chapters.find((c) => c.id === (change.to?.chapter ?? change.prism?.chapter));
-  return {
-    ...(subject ? { course: subject.name } : {}),
-    ...(chapter ? { chapter: chapter.name } : to ? { chapter: to.name } : {}),
-    ...(topic ? { topic: topic.name } : {}),
-    ...(to ? { toChapter: to.name } : {}),
-  };
-}
 
 export async function POST(req: Request) {
   const body = RequestSchema.safeParse(await req.json().catch(() => null));
@@ -65,7 +50,7 @@ export async function POST(req: Request) {
         ok: true,
         prompt: {
           proposalId: p.id,
-          text: plainChange(change.data, namesOf(change.data)),
+          text: describeChange(change.data),
           supporters: p.voters,
         },
       });

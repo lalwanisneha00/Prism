@@ -26,12 +26,20 @@ export const VoteSchema = z.object({
 export type Vote = z.infer<typeof VoteSchema>;
 
 /**
- * pending = collecting points; applied = live; rejected = turned down; conflict = a rival change
- * to the same thing is also strong (admin decides); review = has the points, but the change is one
- * students cannot make on their own (a new course, a chapter moving to another course), so the
- * admin applies it (Phase 6).
+ * pending = collecting points; applied = live; rejected = turned down (or reverted after going
+ * live); conflict = a rival change to the same thing is also strong (admin decides); review = has
+ * the points, but the change is one students cannot make on their own (a new course, a chapter
+ * moving to another course), so the admin decides (Phase 6); accepted = the admin agreed, but the
+ * live overlay cannot make this kind of change, so it waits for the next syllabus data update.
  */
-export const PROPOSAL_STATUSES = ["pending", "applied", "rejected", "conflict", "review"] as const;
+export const PROPOSAL_STATUSES = [
+  "pending",
+  "applied",
+  "rejected",
+  "conflict",
+  "review",
+  "accepted",
+] as const;
 
 export const ProposalSchema = z.object({
   id: z.string().min(1),
@@ -48,6 +56,9 @@ export const ProposalSchema = z.object({
   targetKey: z.string().optional(),
   /** When it went live, and the ids it gave new topics (so every device names them the same). */
   appliedAt: z.string().optional(),
+  /** Phase 6: the admin who decided (approve, reject, revert), and when a live fix was undone. */
+  decidedBy: z.string().optional(),
+  revertedAt: z.string().optional(),
   createdAt: z.string().min(1),
   updatedAt: z.string().min(1),
 });
