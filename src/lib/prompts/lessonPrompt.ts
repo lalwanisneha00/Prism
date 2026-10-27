@@ -57,6 +57,8 @@ export function buildLessonPrompt(
   sources: GroundingSource[],
   visualRules: string = defaultVisualRules,
   emphasis?: Emphasis | null,
+  /** Students' reports on the previous version (syllabus fix, Phase 5), from `knownProblems`. */
+  knownProblems = "",
 ) {
   const guide = levelGuides[request.level.slug];
 
@@ -153,7 +155,13 @@ SIZE:
 
 SOURCES (cite only these ids):
 ${sourceList}
-${notesRule}${emphasisRule(emphasis)}${limitedRule}${styleRule}${subjectRule}`;
+${notesRule}${emphasisRule(emphasis)}${limitedRule}${styleRule}${subjectRule}${
+    knownProblems
+      ? `
+
+${knownProblems}`
+      : ""
+  }`;
 
   return { system, prompt };
 }

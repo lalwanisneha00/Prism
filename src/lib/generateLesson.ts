@@ -27,6 +27,8 @@ export type GenerateLessonOptions = {
   visualRules?: string;
   /** The student's course outcomes, when their syllabus covers this topic. */
   emphasis?: Emphasis | null;
+  /** "Known problems to fix" from students' flags on the previous version (Phase 5). */
+  knownProblems?: string;
   signal?: AbortSignal;
   maxAttempts?: number;
   now?: () => Date;
@@ -183,12 +185,19 @@ export async function generateLesson(
     sources,
     visualRules = defaultVisualRules,
     emphasis,
+    knownProblems,
     signal,
     maxAttempts = 3,
     now = () => new Date(),
   }: GenerateLessonOptions,
 ): Promise<Lesson> {
-  const { system, prompt } = buildLessonPrompt(request, sources, visualRules, emphasis);
+  const { system, prompt } = buildLessonPrompt(
+    request,
+    sources,
+    visualRules,
+    emphasis,
+    knownProblems,
+  );
   const meta = lessonMeta(request, sources, now());
   let currentPrompt = prompt;
   let lastProblems: string[] = [];

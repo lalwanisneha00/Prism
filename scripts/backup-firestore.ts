@@ -17,6 +17,10 @@ const COLLECTIONS = [
   "lessonFlags",
   "syllabusProposals",
   "syllabusOverlay",
+  "syllabusHandouts",
+  "lessonStatus",
+  "lessonVersions",
+  "lessonQuality",
 ];
 
 if (existsSync(".env.local")) process.loadEnvFile(".env.local");

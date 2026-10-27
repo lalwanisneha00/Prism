@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ConfirmPrompt } from "@/components/flags/ConfirmPrompt";
 import { MissingSubjectEntry } from "@/components/flags/MissingSubjectEntry";
 import { LabCard } from "@/components/pdeu/PdeuSemester";
 import { CourseTags, RelatedCourseLine } from "@/components/subjects/CourseTags";
@@ -135,6 +136,7 @@ export function CatalogueSemester({
         labs={labs.filter((s) => !isCore(s))}
         testId="pdeu-noncore"
       />
+      <ConfirmPrompt branch={branchId} semester={semester} />
       <MissingSubjectEntry semester={semester} />
     </div>
   );

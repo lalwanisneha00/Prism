@@ -1,20 +1,26 @@
 import type { Firestore } from "firebase-admin/firestore";
+import { findSubject } from "@/lib/subjects";
 import type { Change } from "@/lib/syllabusFix/handoutMatch";
+import { EMPTY_OVERLAY, OverlaySchema, type Overlay } from "@/lib/syllabusFix/overlay";
 import {
   addVote,
   newProposal,
   proposalId,
   ProposalSchema,
+  targetKey,
+  VoteSchema,
   type Proposal,
   type Vote,
 } from "@/lib/syllabusFix/proposals";
+import { planSettle, type SettlePlan } from "@/lib/syllabusFix/settle";
 import type { StudentHandout } from "@/lib/syllabusFix/studentHandout";
 
 /*
- * Where proposals live (syllabus fix, Phases 3 and 4). Firestore, written only by the server (the
+ * Where proposals live (syllabus fix, Phases 3 to 5). Firestore, written only by the server (the
  * rules deny every browser): `syllabusHandouts/{id}` keeps each confirmed upload, `syllabusFlags/{id}`
  * each flag, `syllabusProposals/{id}` one proposed change with its points, and
- * `syllabusProposals/{id}/votes/{uid}` who added them.
+ * `syllabusProposals/{id}/votes/{uid}` who added them. Phase 5: `syllabusOverlay/current` holds the
+ * changes that went live and `syllabusHistory/{id}` logs every decision (the undo log).
  */
 
 export type HandoutSubmission = {
@@ -28,7 +34,13 @@ export type HandoutSubmission = {
   at: string;
 };
 
-export type SubmitResult = { handoutId: string; proposals: number; counted: number };
+export type SubmitResult = {
+  handoutId: string;
+  proposals: number;
+  counted: number;
+  /** Proposals this upload touched, with their points after it (to settle the ones near the rule). */
+  touched: Pick<Proposal, "id" | "points" | "status">[];
+};
 
 /** One flag (or "My subject isn't here"), as stored. `flag` is the request the student sent. */
 export type FlagSubmission = {
@@ -50,6 +62,14 @@ export type FlagSubmitResult = {
   status: Proposal["status"];
 };
 
+/** One student's answer to an "Agree?" prompt (Phase 5). */
+export type VoteSubmission = Omit<Vote, "kind" | "handoutId" | "flagId"> & {
+  kind: "agree" | "disagree" | "unsure";
+  proposalId: string;
+};
+
+export type SettleResult = Pick<SettlePlan, "verdict"> & { status: Proposal["status"] };
+
 export interface ProposalStore {
   submitHandout(
     submission: HandoutSubmission,
@@ -57,6 +77,24 @@ export interface ProposalStore {
     points: number,
   ): Promise<SubmitResult>;
   submitFlag(submission: FlagSubmission, change: Change, points: number): Promise<FlagSubmitResult>;
+  /** Records an Agree / Disagree / Not sure. Not counted when already voted or settled. */
+  castVote(vote: VoteSubmission): Promise<{ counted: boolean; status: Proposal["status"] | null }>;
+  /** Counts the votes and applies, queues or leaves the proposal (Phase 5 rules). */
+  settle(proposalId: string, at: string): Promise<SettleResult | null>;
+  /** Pending proposals of one branch and semester (for "Agree?" prompts). */
+  pendingFor(branch: string, semester: number, limit: number): Promise<Proposal[]>;
+  /** Which of these proposals the student already voted on. */
+  votedOn(uid: string, ids: readonly string[]): Promise<Set<string>>;
+  /** The live fixes (`syllabusOverlay/current`). */
+  overlay(): Promise<Overlay>;
+}
+
+/** Proposals whose new points might reach the auto-apply rule: worth settling now. */
+export function worthSettling<T extends Pick<Proposal, "points" | "status">>(
+  proposals: readonly T[],
+  minPoints: number,
+): T[] {
+  return proposals.filter((p) => p.status === "pending" && p.points >= minPoints);
 }
 
 /** A flag's record id: one per student per proposal, so flagging the same thing twice is one flag. */
@@ -123,10 +161,19 @@ export function planFlag(
   };
 }
 
+const keyOf = (p: Proposal) => p.targetKey ?? targetKey(p.change as Change);
+
+const parsedAll = <T>(docs: { data(): unknown }[], parse: (d: unknown) => T | undefined): T[] =>
+  docs.flatMap((d) => {
+    const v = parse(d.data());
+    return v === undefined ? [] : [v];
+  });
+
 /** Firestore through the Admin SDK. One transaction: a retry never counts a vote twice. */
 export function adminProposalStore(db: Firestore): ProposalStore {
   const proposalsCol = db.collection("syllabusProposals");
   const handoutsCol = db.collection("syllabusHandouts");
+  const overlayRef = db.collection("syllabusOverlay").doc("current");
   return {
     async submitHandout(submission, changes, points) {
       const handoutRef = handoutsCol.doc();
@@ -152,6 +199,11 @@ export function adminProposalStore(db: Firestore): ProposalStore {
           handoutId: handoutRef.id,
           proposals: plan.proposals.length,
           counted: plan.votes.length,
+          touched: plan.proposals.map(({ id, points: pts, status }) => ({
+            id,
+            points: pts,
+            status,
+          })),
         };
       });
     },
@@ -176,6 +228,73 @@ export function adminProposalStore(db: Firestore): ProposalStore {
         return { flagId, proposalId: pid, counted: plan.counted, status: plan.status };
       });
     },
+    async castVote(input) {
+      const { proposalId: pid, ...vote } = input;
+      const ref = proposalsCol.doc(pid);
+      const voteRef = ref.collection("votes").doc(vote.uid);
+      return db.runTransaction(async (tx) => {
+        const [snap, voteSnap] = await tx.getAll(ref, voteRef);
+        const parsed = ProposalSchema.safeParse(snap.data());
+        if (!snap.exists || !parsed.success) return { counted: false, status: null };
+        if (parsed.data.status !== "pending" || voteSnap.exists)
+          return { counted: false, status: parsed.data.status };
+        tx.set(ref, addVote(parsed.data, vote, false));
+        tx.set(voteRef, vote);
+        return { counted: true, status: parsed.data.status };
+      });
+    },
+    async settle(pid, at) {
+      const ref = proposalsCol.doc(pid);
+      return db.runTransaction(async (tx) => {
+        const snap = await tx.get(ref);
+        const parsed = ProposalSchema.safeParse(snap.data());
+        if (!snap.exists || !parsed.success) return null;
+        const proposal = parsed.data;
+        if (proposal.status !== "pending")
+          return { verdict: { action: "wait" as const }, status: proposal.status };
+        const key = keyOf(proposal);
+        // Equality filters only: no composite index to create in the console.
+        const [votes, rivals, overlaySnap] = await Promise.all([
+          tx.get(ref.collection("votes")),
+          key
+            ? tx.get(proposalsCol.where("targetKey", "==", key).where("status", "==", "pending"))
+            : null,
+          tx.get(overlayRef),
+        ]);
+        const plan = planSettle({
+          proposal,
+          votes: parsedAll(votes.docs, (d) => VoteSchema.safeParse(d).data),
+          rivals: parsedAll(rivals?.docs ?? [], (d) => ProposalSchema.safeParse(d).data),
+          overlay: OverlaySchema.safeParse(overlaySnap.data()).data ?? EMPTY_OVERLAY,
+          course: findSubject(proposal.subject),
+          at,
+        });
+        for (const p of plan.proposals) tx.set(proposalsCol.doc(p.id), p);
+        if (plan.overlay) tx.set(overlayRef, plan.overlay);
+        for (const h of plan.history) tx.set(db.collection("syllabusHistory").doc(h.id), h);
+        return { verdict: plan.verdict, status: plan.proposals[0].status };
+      });
+    },
+    async pendingFor(branch, semester, limit) {
+      const snap = await proposalsCol
+        .where("branch", "==", branch)
+        .where("semester", "==", semester)
+        .where("status", "==", "pending")
+        .limit(limit)
+        .get();
+      return parsedAll(snap.docs, (d) => ProposalSchema.safeParse(d).data);
+    },
+    async votedOn(uid, ids) {
+      if (ids.length === 0) return new Set<string>();
+      const snaps = await db.getAll(
+        ...ids.map((id) => proposalsCol.doc(id).collection("votes").doc(uid)),
+      );
+      return new Set(ids.filter((_, i) => snaps[i]?.exists));
+    },
+    async overlay() {
+      const snap = await overlayRef.get();
+      return OverlaySchema.safeParse(snap.data()).data ?? EMPTY_OVERLAY;
+    },
   };
 }
 
@@ -185,16 +304,22 @@ export function memoryProposalStore(): ProposalStore & {
   votes: Map<string, Vote>;
   handouts: Map<string, HandoutSubmission>;
   flags: Map<string, FlagSubmission & { proposalId: string }>;
+  live: { overlay: Overlay; history: SettlePlan["history"] };
 } {
   const proposals = new Map<string, Proposal>();
   const votes = new Map<string, Vote>();
   const handouts = new Map<string, HandoutSubmission>();
   const flags = new Map<string, FlagSubmission & { proposalId: string }>();
+  const live: { overlay: Overlay; history: SettlePlan["history"] } = {
+    overlay: EMPTY_OVERLAY,
+    history: [],
+  };
   return {
     proposals,
     votes,
     handouts,
     flags,
+    live,
     async submitFlag(submission, change, points) {
       const pid = proposalId(change);
       const flagId = flagRecordId(pid, submission.uid);
@@ -218,7 +343,54 @@ export function memoryProposalStore(): ProposalStore & {
       for (const p of plan.proposals) proposals.set(p.id, p);
       for (const id of plan.votes) votes.set(`${id}/${submission.uid}`, vote);
       handouts.set(handoutId, submission);
-      return { handoutId, proposals: plan.proposals.length, counted: plan.votes.length };
+      return {
+        handoutId,
+        proposals: plan.proposals.length,
+        counted: plan.votes.length,
+        touched: plan.proposals.map(({ id, points: pts, status }) => ({ id, points: pts, status })),
+      };
+    },
+    async castVote(input) {
+      const { proposalId: pid, ...vote } = input;
+      const p = proposals.get(pid);
+      if (!p) return { counted: false, status: null };
+      const key = `${pid}/${vote.uid}`;
+      if (p.status !== "pending" || votes.has(key)) return { counted: false, status: p.status };
+      proposals.set(pid, addVote(p, vote, false));
+      votes.set(key, vote);
+      return { counted: true, status: p.status };
+    },
+    async settle(pid, at) {
+      const proposal = proposals.get(pid);
+      if (!proposal) return null;
+      if (proposal.status !== "pending")
+        return { verdict: { action: "wait" as const }, status: proposal.status };
+      const key = keyOf(proposal);
+      const plan = planSettle({
+        proposal,
+        votes: [...votes].filter(([k]) => k.startsWith(`${pid}/`)).map(([, v]) => v),
+        rivals: key
+          ? [...proposals.values()].filter((p) => keyOf(p) === key && p.status === "pending")
+          : [],
+        overlay: live.overlay,
+        course: findSubject(proposal.subject),
+        at,
+      });
+      for (const p of plan.proposals) proposals.set(p.id, p);
+      if (plan.overlay) live.overlay = plan.overlay;
+      live.history.push(...plan.history);
+      return { verdict: plan.verdict, status: plan.proposals[0].status };
+    },
+    async pendingFor(branch, semester, limit) {
+      return [...proposals.values()]
+        .filter((p) => p.branch === branch && p.semester === semester && p.status === "pending")
+        .slice(0, limit);
+    },
+    async votedOn(uid, ids) {
+      return new Set(ids.filter((id) => votes.has(`${id}/${uid}`)));
+    },
+    async overlay() {
+      return live.overlay;
     },
   };
 }

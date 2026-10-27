@@ -20,7 +20,16 @@ import { getSavedLesson, lessonId, recordRecent } from "@/lib/storage/library";
 
 type State =
   | { status: "loading"; stage: string; sections: Section[] }
-  | { status: "ready"; lesson: Lesson; fromLibrary: boolean; libraryKey?: string }
+  | {
+      status: "ready";
+      lesson: Lesson;
+      fromLibrary: boolean;
+      libraryKey?: string;
+      /** Phase 5: students reported this lesson again after a rebuild; an admin checks it. */
+      underReview?: boolean;
+      /** Phase 5: rewritten just now from students' reports. */
+      rebuilt?: boolean;
+    }
   | { status: "error"; kind: LessonErrorKind; ownKey?: string };
 
 const initial: State = { status: "loading", stage: "Getting started…", sections: [] };
@@ -55,6 +64,8 @@ export function LessonLoader({
             lesson: event.lesson,
             fromLibrary: false,
             libraryKey: event.libraryKey,
+            underReview: event.underReview,
+            rebuilt: event.rebuiltFromFlags,
           };
         if (event.type === "error")
           return { status: "error", kind: event.kind, ownKey: event.usedUserKey };
@@ -168,6 +179,25 @@ export function LessonLoader({
           <p className="rounded-xl border border-warning/30 bg-warning/10 px-4 py-2 text-sm">
             <Icon name="book" /> None of your uploaded notes mention this topic, so this lesson uses
             the standard sources only.
+          </p>
+        )}
+        {state.underReview && (
+          <p
+            role="note"
+            data-testid="lesson-under-review"
+            className="rounded-xl border border-warning/30 bg-warning/10 px-4 py-2 text-sm"
+          >
+            <Icon name="flag" /> Students reported issues here. It&apos;s being reviewed.
+          </p>
+        )}
+        {state.rebuilt && (
+          <p
+            role="note"
+            data-testid="lesson-rebuilt"
+            className="rounded-xl border border-border bg-surface px-4 py-2 text-sm"
+          >
+            <Icon name="flag" /> Updated just now: students reported problems in the earlier
+            version, and this one was written to fix them.
           </p>
         )}
         {state.fromLibrary && (

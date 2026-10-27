@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import { useAuth } from "@/components/account/AuthProvider";
-import { deviceProfile, postFlag } from "@/components/flags/flagApi";
+import { deviceProfile, lessonThanksFor, postFlag } from "@/components/flags/flagApi";
 import { SyllabusFlagForm } from "@/components/flags/SyllabusFlagForm";
 import { LESSON_FLAG_TYPES, type LessonFlagType } from "@/lib/syllabusFix/flags";
 
@@ -60,11 +60,7 @@ export function LessonFlagForm({ lesson, onClose }: { lesson: LessonRef; onClose
       };
       const r = await postFlag("/api/lesson/flag", { flag, profile: await deviceProfile() }, token);
       if (!r.ok) return setError(r.message);
-      setDone(
-        r.replaced
-          ? "Thanks! Your earlier report on this lesson is updated."
-          : "Thanks! When several students report the same lesson, Prism rewrites it with your notes.",
-      );
+      setDone(lessonThanksFor(r));
     } finally {
       setSending(false);
     }

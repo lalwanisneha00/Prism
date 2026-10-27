@@ -9,6 +9,8 @@ const lessonStore = memoryLessonFlagStore();
 const settings = new Map<string, Record<string, unknown>>([
   ["u1", { branch: "ict", semester: 3 }],
   ["u2", { branch: "ict", semester: 3 }],
+  ["u3", { branch: "ict", semester: 3 }],
+  ["ce1", { branch: "ce", semester: 3 }],
 ]);
 
 // A stand-in for Firebase: tokens "good-<uid>" are valid; settings come from the map above.
@@ -45,6 +47,9 @@ vi.mock("@/lib/syllabusFix/lessonFlagStore", async (original) => ({
 const flagRoute = await import("@/app/api/syllabus/flag/route");
 const missingRoute = await import("@/app/api/syllabus/missing/route");
 const lessonRoute = await import("@/app/api/lesson/flag/route");
+const voteRoute = await import("@/app/api/syllabus/vote/route");
+const promptRoute = await import("@/app/api/syllabus/prompt/route");
+const overlayRoute = await import("@/app/api/syllabus/overlay/route");
 
 const AI = "pdeu-introduction-to-artificial-intelligence-ict";
 
@@ -171,5 +176,73 @@ describe("POST /api/lesson/flag", () => {
       lessonKey: `${AI}_intelligent-agents_college_15`,
       branch: "ict",
     });
+  });
+});
+
+describe("Phase 5: Agree prompts, votes and going live", () => {
+  // Runs after the flag tests above: u1 and u2 flagged "intelligent agents" as not in the syllabus.
+  const pid = () =>
+    [...store.proposals.values()].find((p) => p.change.type === "extra item not in any handout")!
+      .id;
+
+  it("asks a matching student who has not answered, in plain words", async () => {
+    const r = await call(promptRoute, { profile: {} }, "u3");
+    expect(r.status).toBe(200);
+    const prompt = r.body.prompt as { proposalId: string; text: string; supporters: number };
+    expect(prompt.proposalId).toBe(pid());
+    expect(prompt.supporters).toBe(2);
+    expect(prompt.text).toMatch(
+      /is not in the syllabus of Introduction to Artificial Intelligence/,
+    );
+    // Students who already backed it are not asked.
+    const own = await call(promptRoute, { profile: {} }, "u1");
+    expect((own.body.prompt as { proposalId?: string } | null)?.proposalId).not.toBe(pid());
+  });
+
+  it("does not count a vote from another branch", async () => {
+    const r = await call(voteRoute, { proposalId: pid(), kind: "agree", profile: {} }, "ce1");
+    expect(r.body).toMatchObject({ ok: true, counted: true, live: false, status: "pending" });
+    expect(store.proposals.get(pid())?.points).toBe(2);
+  });
+
+  it("makes the change live when a third student agrees", async () => {
+    expect((await call(voteRoute, { proposalId: pid(), kind: "agree", profile: {} })).status).toBe(
+      401,
+    );
+    const r = await call(voteRoute, { proposalId: pid(), kind: "agree", profile: {} }, "u3");
+    expect(r.body).toMatchObject({ ok: true, counted: true, live: true, status: "applied" });
+    const again = await call(voteRoute, { proposalId: pid(), kind: "agree", profile: {} }, "u3");
+    expect(again.body).toMatchObject({ counted: false, live: false });
+    expect(store.live.history.at(-1)).toMatchObject({ actor: { kind: "system" }, reverted: false });
+
+    const overlay = (await (await overlayRoute.GET()).json()) as { changes: unknown[] };
+    expect(overlay.changes).toHaveLength(1);
+    expect(overlay.changes[0]).toMatchObject({
+      proposalId: pid(),
+      change: { prism: { topic: "intelligent-agents" }, retire: true },
+    });
+  });
+
+  it("refuses an unknown proposal", async () => {
+    const r = await call(voteRoute, { proposalId: "nope", kind: "agree", profile: {} }, "u3");
+    expect(r.status).toBe(404);
+  });
+});
+
+describe("Phase 5: lesson flag threshold through the route", () => {
+  it("tells the 4th student the lesson will be rewritten", async () => {
+    const flag = {
+      subject: AI,
+      topic: "intelligent-agents",
+      level: "beginner",
+      durationMin: 10,
+      type: "confusing",
+    };
+    for (const [i, uid] of ["u1", "u2", "u3"].entries()) {
+      const r = await call(lessonRoute, { flag, profile: {} }, uid);
+      expect(r.body, `flag ${i + 1}`).toMatchObject({ ok: true, state: "ok" });
+    }
+    const fourth = await call(lessonRoute, { flag, profile: {} }, "ce1");
+    expect(fourth.body).toMatchObject({ ok: true, state: "needs_regeneration" });
   });
 });

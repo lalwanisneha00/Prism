@@ -14,6 +14,10 @@ export type LessonEvent =
       cached: boolean;
       /** Set when the lesson is in the shared library, so saved copies can sync as a reference. */
       libraryKey?: string;
+      /** Students reported problems again after a rebuild: an admin is checking it (Phase 5). */
+      underReview?: boolean;
+      /** Rebuilt just now from students' reports on the previous version (Phase 5). */
+      rebuiltFromFlags?: boolean;
     }
   | {
       type: "error";

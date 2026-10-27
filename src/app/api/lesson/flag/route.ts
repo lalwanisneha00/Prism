@@ -8,12 +8,15 @@ import { ProfileSchema, signedInStudent } from "@/lib/syllabusFix/studentAuth";
 /*
  * POST /api/lesson/flag (syllabus fix, Phase 4): "something is wrong in this lesson". Needs
  * sign-in; any student who read the lesson may flag it (no branch check). One flag per student per
- * lesson version. Phase 5 regenerates a lesson once enough students flag it.
+ * lesson version (the server uses the version students see now). Phase 5: enough flags from
+ * different students mark it for one rebuild with their reports; a rebuilt lesson flagged as much
+ * again goes to the admin instead (`state`: ok, needs_regeneration or review).
  */
 
 const RequestSchema = z.object({ flag: LessonFlagSchema, profile: ProfileSchema });
 
-type Reply = { ok: true; replaced: boolean } | { ok: false; kind: string; message: string };
+type Reply =
+  { ok: true; replaced: boolean; state: string } | { ok: false; kind: string; message: string };
 const reply = (body: Reply, status = 200) =>
   Response.json(body, { status, headers: { "cache-control": "no-store" } });
 const fail = (kind: string, message: string, status: number) =>
@@ -38,7 +41,7 @@ export async function POST(req: Request) {
     const saved = await adminLessonFlagStore(admin.db).submit(
       lessonFlagRecord(flag, student.uid, student.profile, new Date().toISOString()),
     );
-    return reply({ ok: true, replaced: saved.replaced });
+    return reply({ ok: true, replaced: saved.replaced, state: saved.state });
   } catch (err) {
     console.error("[api/lesson/flag] save failed:", String(err).slice(0, 200));
     return fail("unavailable", "Could not save your report. Try again in a minute.", 503);

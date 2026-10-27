@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
+import { useSyllabusOverlay } from "@/components/subjects/useSyllabusOverlay";
 import { getSettings } from "@/lib/storage/progress";
+import { applyOverlay } from "@/lib/syllabusFix/overlay";
 import { setUniversityOff } from "@/lib/university/apply";
 import { applyScope, hiddenCount, type SubjectScopes } from "@/lib/university/match";
 import type { Subject } from "@/lib/subjects";
@@ -66,14 +68,17 @@ export function useScopedSubjects(list: readonly Subject[]): {
   setOff: (off: boolean) => void;
 } {
   const { scopes, active, name, setOff } = useUniversityScope();
+  // Fixes students voted through (syllabus fix, Phase 5) come first, then the student's own scope.
+  const overlay = useSyllabusOverlay();
   return useMemo(() => {
-    if (!active) return { subjects: [...list], hidden: 0, active, name, setOff };
+    const live = overlay.changes.length ? list.map((s) => applyOverlay(s, overlay)) : [...list];
+    if (!active) return { subjects: live, hidden: 0, active, name, setOff };
     let hidden = 0;
-    const subjects = list.map((s) => {
+    const subjects = live.map((s) => {
       const scope = scopes[s.id];
       hidden += hiddenCount(s, scope);
       return applyScope(s, scope);
     });
     return { subjects, hidden, active, name, setOff };
-  }, [list, scopes, active, name, setOff]);
+  }, [list, scopes, active, name, setOff, overlay]);
 }

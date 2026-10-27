@@ -4,6 +4,7 @@ import { findSubject, subjects } from "@/lib/subjects";
 import { canonicalSubject } from "@/lib/syllabusFix/alias";
 import { SYLLABUS_FIX_CONFIG } from "@/lib/syllabusFix/config";
 import { flagToChange, SyllabusFlagSchema } from "@/lib/syllabusFix/flags";
+import { settleTouched } from "@/lib/syllabusFix/liveFixes";
 import { adminProposalStore } from "@/lib/syllabusFix/proposalStore";
 import { ProfileSchema, signedInStudent } from "@/lib/syllabusFix/studentAuth";
 import { placeFor, toPrismCourse } from "@/lib/syllabusFix/studentHandoutCompare";
@@ -19,7 +20,8 @@ import { isRetired } from "@/lib/syllabusFix/tree";
 const RequestSchema = z.object({ flag: SyllabusFlagSchema, profile: ProfileSchema });
 
 type Reply =
-  { ok: true; counted: boolean; status: string } | { ok: false; kind: string; message: string };
+  | { ok: true; counted: boolean; status: string; live: boolean }
+  | { ok: false; kind: string; message: string };
 const reply = (body: Reply, status = 200) =>
   Response.json(body, { status, headers: { "cache-control": "no-store" } });
 const fail = (kind: string, message: string, status: number) =>
@@ -56,7 +58,9 @@ export async function POST(req: Request) {
   if (!result.ok) return fail("invalid-flag", result.message, 400);
 
   try {
-    const saved = await adminProposalStore(admin.db).submitFlag(
+    const store = adminProposalStore(admin.db);
+    const at = new Date().toISOString();
+    const saved = await store.submitFlag(
       {
         uid: student.uid,
         branch: place.branch,
@@ -69,12 +73,25 @@ export async function POST(req: Request) {
             ? "chapter"
             : "topic",
         flag: { ...flag },
-        at: new Date().toISOString(),
+        at,
       },
       result.change,
       SYLLABUS_FIX_CONFIG.points.flag,
     );
-    return reply({ ok: true, counted: saved.counted, status: saved.status });
+    // Phase 5: this flag may be the one that makes the change go live.
+    const live = saved.counted
+      ? (await settleTouched(
+          store,
+          [{ id: saved.proposalId, points: Infinity, status: "pending" }],
+          at,
+        )) > 0
+      : false;
+    return reply({
+      ok: true,
+      counted: saved.counted,
+      status: live ? "applied" : saved.status,
+      live,
+    });
   } catch (err) {
     console.error("[api/syllabus/flag] save failed:", String(err).slice(0, 200));
     return fail("unavailable", "Could not save your report. Try again in a minute.", 503);

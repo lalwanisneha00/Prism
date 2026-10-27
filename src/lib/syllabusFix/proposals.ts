@@ -11,7 +11,7 @@ import type { Change } from "@/lib/syllabusFix/handoutMatch";
 /** Who contributed and how: one vote per student per proposal. */
 export const VoteSchema = z.object({
   uid: z.string().min(1),
-  kind: z.enum(["handout", "flag", "agree", "disagree"]),
+  kind: z.enum(["handout", "flag", "agree", "disagree", "unsure"]),
   points: z.number(),
   branch: z.string().optional(),
   semester: z.int().min(1).max(8).optional(),
@@ -25,7 +25,13 @@ export const VoteSchema = z.object({
 });
 export type Vote = z.infer<typeof VoteSchema>;
 
-export const PROPOSAL_STATUSES = ["pending", "applied", "rejected", "conflict"] as const;
+/**
+ * pending = collecting points; applied = live; rejected = turned down; conflict = a rival change
+ * to the same thing is also strong (admin decides); review = has the points, but the change is one
+ * students cannot make on their own (a new course, a chapter moving to another course), so the
+ * admin applies it (Phase 6).
+ */
+export const PROPOSAL_STATUSES = ["pending", "applied", "rejected", "conflict", "review"] as const;
 
 export const ProposalSchema = z.object({
   id: z.string().min(1),
@@ -38,6 +44,10 @@ export const ProposalSchema = z.object({
   status: z.enum(PROPOSAL_STATUSES),
   points: z.number(),
   voters: z.int().min(0),
+  /** What it changes (one course's place, one chapter, one topic): rivals share it (Phase 5). */
+  targetKey: z.string().optional(),
+  /** When it went live, and the ids it gave new topics (so every device names them the same). */
+  appliedAt: z.string().optional(),
   createdAt: z.string().min(1),
   updatedAt: z.string().min(1),
 });
@@ -90,6 +100,43 @@ export function proposalId(change: Change): string {
   return `${subject}__${fnv(parts.map((p) => p ?? "").join("|"))}`;
 }
 
+/**
+ * What a change is about, so two changes that cannot both be right are found ("move topic T to
+ * chapter A" and "move topic T to chapter B", or "retire it"). Null for additions, which never
+ * contradict each other.
+ */
+export function targetKey(change: {
+  type: string;
+  branch: string;
+  prism?: { subject: string; chapter?: string; topic?: string };
+}): string | null {
+  const p = change.prism;
+  if (!p) return null;
+  switch (change.type) {
+    case "course in wrong semester":
+    case "course in wrong branch":
+    case "course missing from branch/semester":
+      return `course:${p.subject}:${change.branch}`;
+    case "course duplicate":
+      return `duplicate:${p.subject}:${change.branch}`;
+    case "unit wrong order":
+      return `order:${p.subject}:${p.chapter}`;
+    case "unit rename":
+      return `name:${p.subject}:${p.chapter}`;
+    case "unit under wrong course":
+      return `chapter:${p.subject}:${p.chapter}`;
+    case "topic under wrong unit":
+    case "topic split":
+      return `topic:${p.subject}:${p.topic}`;
+    case "extra item not in any handout":
+      if (p.topic) return `topic:${p.subject}:${p.topic}`;
+      if (p.chapter) return `chapter:${p.subject}:${p.chapter}`;
+      return `course:${p.subject}:${change.branch}`;
+    default:
+      return null;
+  }
+}
+
 /** A new proposal for a change, before anyone's points are added. */
 export function newProposal(change: Change, at: string): Proposal {
   return {
@@ -102,6 +149,7 @@ export function newProposal(change: Change, at: string): Proposal {
     status: "pending",
     points: 0,
     voters: 0,
+    ...(targetKey(change) ? { targetKey: targetKey(change)! } : {}),
     createdAt: at,
     updatedAt: at,
   };

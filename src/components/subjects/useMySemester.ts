@@ -10,8 +10,10 @@ import {
 } from "@/lib/semester/mySemester";
 import { visibleSubjects, type ElectiveChoices } from "@/lib/pdeu/electives";
 import { getSettings, updateSettings } from "@/lib/storage/progress";
-import { subjectsFor } from "@/lib/subjects";
+import { useSyllabusOverlay } from "@/components/subjects/useSyllabusOverlay";
+import { subjects, subjectsFor } from "@/lib/subjects";
 import { canonicalSubject } from "@/lib/syllabusFix/alias";
+import { liveSemesterIds } from "@/lib/syllabusFix/overlay";
 
 /**
  * "My subjects this semester": the semester the student is in, and which subjects their college
@@ -44,6 +46,8 @@ export function useMySemester(): {
   }, []);
   // A choice made on this page wins over a load that was still on its way.
   const chosenAt = useRef(0);
+  // Courses students moved into or out of this semester (syllabus fix, Phase 5).
+  const overlay = useSyllabusOverlay();
 
   useEffect(() => {
     const started = Date.now();
@@ -81,11 +85,18 @@ export function useMySemester(): {
     const manual = picksFor(all, semester).map((id) => canonicalSubject(id));
     const pdeu =
       branch && semester
-        ? visibleSubjects(subjectsFor(branch, semester), branch, choices).map((s) => s.id)
+        ? liveSemesterIds(
+            visibleSubjects(subjectsFor(branch, semester), branch, choices).map((s) => s.id),
+            overlay,
+            branch,
+            semester,
+            // Listed courses only: labs stay hidden until Phase 7B.
+            (id) => subjects.find((s) => s.id === id),
+          )
         : [];
     const own = manual.filter((id) => id.startsWith("custom-"));
     return [...new Set([...own, ...pdeu, ...manual])];
-  }, [all, semester, branch, choices]);
+  }, [all, semester, branch, choices, overlay]);
 
   return { semester, picks, all, loaded, setSemester, toggle };
 }

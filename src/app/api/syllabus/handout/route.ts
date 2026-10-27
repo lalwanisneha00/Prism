@@ -2,6 +2,7 @@ import { z } from "zod";
 import { getAdmin } from "@/lib/firebase/admin";
 import { findSubject, subjects } from "@/lib/subjects";
 import { SYLLABUS_FIX_CONFIG } from "@/lib/syllabusFix/config";
+import { settleTouched } from "@/lib/syllabusFix/liveFixes";
 import { adminProposalStore } from "@/lib/syllabusFix/proposalStore";
 import { ProfileSchema, signedInStudent } from "@/lib/syllabusFix/studentAuth";
 import { isRetired } from "@/lib/syllabusFix/tree";
@@ -29,7 +30,12 @@ const RequestSchema = z.object({
 });
 
 type Reply =
-  | { ok: true; summary: string[]; changes: number; saved?: { proposals: number; counted: number } }
+  | {
+      ok: true;
+      summary: string[];
+      changes: number;
+      saved?: { proposals: number; counted: number; live: number };
+    }
   | { ok: false; kind: string; message: string };
 const reply = (body: Reply, status = 200) =>
   Response.json(body, { status, headers: { "cache-control": "no-store" } });
@@ -73,7 +79,9 @@ export async function POST(req: Request) {
     return reply({ ok: true, summary, changes: changes.length });
 
   try {
-    const saved = await adminProposalStore(admin.db).submitHandout(
+    const store = adminProposalStore(admin.db);
+    const at = new Date().toISOString();
+    const saved = await store.submitHandout(
       {
         uid,
         subject: subject.id,
@@ -82,16 +90,18 @@ export async function POST(req: Request) {
         ...(profile.batchYear ? { batchYear: profile.batchYear } : {}),
         profileFrom,
         handout,
-        at: new Date().toISOString(),
+        at,
       },
       changes,
       SYLLABUS_FIX_CONFIG.points.handout,
     );
+    // Phase 5: changes this handout brought to the auto-apply rule go live now.
+    const live = await settleTouched(store, saved.touched, at);
     return reply({
       ok: true,
       summary,
       changes: changes.length,
-      saved: { proposals: saved.proposals, counted: saved.counted },
+      saved: { proposals: saved.proposals, counted: saved.counted, live },
     });
   } catch (err) {
     console.error("[api/syllabus/handout] save failed:", String(err).slice(0, 200));

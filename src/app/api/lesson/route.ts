@@ -22,6 +22,14 @@ import { searchWikipedia } from "@/lib/grounding/wikipedia";
 import { parsePassages, passagesToSources } from "@/lib/notes/notesSources";
 import { needsFacultyMaterial, NON_CORE_UPLOAD_MESSAGE } from "@/lib/pdeu/messages";
 import { searchedSources, sourcesForTopic } from "@/lib/sources";
+import { knownProblems } from "@/lib/syllabusFix/lessonReview";
+import {
+  adminLessonFlagStore,
+  type LessonFlagStore,
+  type RegenerationClaim,
+} from "@/lib/syllabusFix/lessonFlagStore";
+import { liveStaleTopics } from "@/lib/syllabusFix/liveFixes";
+import { adminProposalStore } from "@/lib/syllabusFix/proposalStore";
 import { verifyLesson } from "@/lib/verify";
 import { visualPromptRules } from "@/visuals/visualChecks";
 
@@ -58,11 +66,24 @@ function generatedBy(
   };
 }
 
-/** The shared lesson library, or null when Firebase Admin isn't configured (or in fake mode). */
-async function sharedLibrary(): Promise<LibraryStore | null> {
+/**
+ * The shared lesson library, with the lesson flag store and the live syllabus fixes (Phase 5),
+ * or null when Firebase Admin isn't configured (or in fake mode).
+ */
+async function sharedLibrary(): Promise<{
+  library: LibraryStore;
+  flags: LessonFlagStore;
+  proposals: ReturnType<typeof adminProposalStore>;
+} | null> {
   if (process.env.LLM_PROVIDER === "fake") return null;
   const admin = await getAdmin();
-  return admin ? adminLibraryStore(admin.db) : null;
+  return admin
+    ? {
+        library: adminLibraryStore(admin.db),
+        flags: adminLessonFlagStore(admin.db),
+        proposals: adminProposalStore(admin.db),
+      }
+    : null;
 }
 
 /**
@@ -140,14 +161,31 @@ export async function POST(req: Request) {
         }
 
         // The shared library first: an instant, consistent answer that uses no AI quota.
-        const library = personal ? null : await sharedLibrary();
-        if (library && !fresh) {
-          const stored = await readFromLibrary(library, key).catch((err: unknown) => {
+        const shared = personal ? null : await sharedLibrary();
+        const library = shared?.library ?? null;
+        // Phase 5: a lesson enough students flagged is rebuilt once, with their reports.
+        let claim: RegenerationClaim | null = null;
+        let underReview = false;
+        if (shared && !fresh) {
+          const status = await shared.flags.status(key).catch(() => undefined);
+          underReview = status?.state === "review";
+          if (status?.state === "needs_regeneration")
+            claim = await shared.flags.claim(key, new Date().toISOString()).catch(() => null);
+        }
+        if (shared && library && !fresh && !claim) {
+          const stale = await liveStaleTopics(shared.proposals);
+          const stored = await readFromLibrary(library, key, stale).catch((err: unknown) => {
             console.warn("[api/lesson] library read failed:", String(err));
             return null;
           });
           if (stored) {
-            send({ type: "lesson", lesson: stored, cached: true, libraryKey: key });
+            send({
+              type: "lesson",
+              lesson: stored,
+              cached: true,
+              libraryKey: key,
+              ...(underReview ? { underReview } : {}),
+            });
             return;
           }
         }
@@ -183,6 +221,7 @@ export async function POST(req: Request) {
           emit: send,
           sources,
           emphasis,
+          ...(claim ? { knownProblems: knownProblems(claim.flags) } : {}),
           visualRules: visualPromptRules(request.topic.id, {
             field: request.subject.field,
             level: request.level.slug,
@@ -201,12 +240,29 @@ export async function POST(req: Request) {
         // Only lessons that went through the fact-check are shared with other students.
         let stored = false;
         if (library && checked) {
+          // The flagged version is kept (lessonVersions) before the new one takes its place.
+          if (claim && shared)
+            await shared.flags.archive(key, claim.version).catch(() => undefined);
           stored = await writeToLibrary(library, lesson).catch((err: unknown) => {
             console.warn("[api/lesson] library write failed:", String(err));
             return false;
           });
+          if (claim && shared && stored)
+            await shared.flags
+              .finish(
+                key,
+                claim.flags.map((f) => f.type),
+                new Date().toISOString(),
+              )
+              .catch((err: unknown) => console.warn("[api/lesson] finish failed:", String(err)));
         }
-        send({ type: "lesson", lesson, cached: false, libraryKey: stored ? key : undefined });
+        send({
+          type: "lesson",
+          lesson,
+          cached: false,
+          libraryKey: stored ? key : undefined,
+          ...(claim && stored ? { rebuiltFromFlags: true } : {}),
+        });
       } catch (err) {
         if (req.signal.aborted) return;
         const error = err instanceof LlmError ? err : new LlmError("unavailable", String(err));

@@ -5,6 +5,7 @@ import { canonicalSubject } from "@/lib/syllabusFix/alias";
 import { SYLLABUS_FIX_CONFIG } from "@/lib/syllabusFix/config";
 import { MissingSubjectSchema, missingSubjectChange } from "@/lib/syllabusFix/flags";
 import { findCandidates, type Candidate } from "@/lib/syllabusFix/missingSubject";
+import { settleTouched } from "@/lib/syllabusFix/liveFixes";
 import { adminProposalStore } from "@/lib/syllabusFix/proposalStore";
 import { ProfileSchema, signedInStudent } from "@/lib/syllabusFix/studentAuth";
 import { isRetired } from "@/lib/syllabusFix/tree";
@@ -71,7 +72,9 @@ export async function POST(req: Request) {
   }
 
   try {
-    const saved = await adminProposalStore(admin.db).submitFlag(
+    const store = adminProposalStore(admin.db);
+    const at = new Date().toISOString();
+    const saved = await store.submitFlag(
       {
         uid: student.uid,
         branch,
@@ -80,15 +83,23 @@ export async function POST(req: Request) {
         profileFrom: student.profileFrom,
         level: "missing-subject",
         flag: { ...missing, ...(existing ? { linkTo: existing.id } : {}) },
-        at: new Date().toISOString(),
+        at,
       },
       missingSubjectChange(missing, branch, existing),
       SYLLABUS_FIX_CONFIG.points.flag,
     );
+    // Phase 5: linking an existing course can go live; a new course always waits for the admin.
+    const live = saved.counted
+      ? (await settleTouched(
+          store,
+          [{ id: saved.proposalId, points: Infinity, status: "pending" }],
+          at,
+        )) > 0
+      : false;
     return reply({
       ok: true,
       counted: saved.counted,
-      status: saved.status,
+      status: live ? "applied" : saved.status,
       linked: Boolean(existing),
     });
   } catch (err) {
