@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import { VisualSlot } from "@/components/lesson/VisualSlot";
 import type { VisualSpec } from "@/lib/schema";
 import { genericSamples } from "./genericSamples";
+import { labSamples } from "./labSamples";
 import { wave1Samples } from "./wave1Samples";
 import { wave2Samples } from "./wave2Samples";
 
@@ -196,6 +197,15 @@ export default function VisualGalleryPage() {
       {wave2Samples.map(({ subject, visual }, i) => (
         <section key={`w2-${i}`} aria-label={visual.caption} className="flex flex-col gap-2">
           <h3 className="text-sm font-semibold tracking-wide text-muted uppercase">{subject}</h3>
+          <VisualSlot visual={visual} />
+        </section>
+      ))}
+      <h2 id="labs" className="scroll-mt-20 text-2xl font-bold tracking-tight">
+        Lab simulation templates
+      </h2>
+      {labSamples.map(({ lab, visual }, i) => (
+        <section key={`lab-${i}`} aria-label={visual.caption} className="flex flex-col gap-2">
+          <h3 className="text-sm font-semibold tracking-wide text-muted uppercase">{lab}</h3>
           <VisualSlot visual={visual} />
         </section>
       ))}

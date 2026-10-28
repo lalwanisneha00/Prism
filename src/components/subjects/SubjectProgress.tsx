@@ -193,17 +193,20 @@ export function SubjectProgress({
                 />
               )}
               {practical ? (
-                // A lab: its experiments in order (lab lessons arrive in Phase 7B).
+                // A lab: its experiments in order, each opening its practical lesson (Phase 7B).
                 <ol className="mt-3 flex flex-col gap-2 text-sm" data-testid="experiments">
                   {chapter.topics.map((t, k) => (
                     <li key={t.id} className="flex items-start gap-2">
                       <span className="w-6 shrink-0 text-right font-semibold text-muted">
                         {t.number ?? k + 1}.
                       </span>
-                      <span className="min-w-0 flex-1">
+                      <Link
+                        href={`/lab/${owner.id}/${t.id}`}
+                        className="min-w-0 flex-1 rounded-lg hover:underline"
+                      >
                         {t.name}
                         {t.aim && <span className="block text-xs text-muted">Aim: {t.aim}</span>}
-                      </span>
+                      </Link>
                       {flags && (
                         <TopicFlag owner={flagOwner(owner)} chapterId={chapter.id} topic={t} />
                       )}

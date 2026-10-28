@@ -315,6 +315,8 @@ export const LESSON_FLAG_TYPES = [
   { type: "off-syllabus", label: "Doesn't match my syllabus / goes off-topic" },
   { type: "visual-broken", label: "Visual or chart is wrong or broken" },
   { type: "confusing", label: "Confusing, hard to follow" },
+  // Lab lessons only (Phase 7B): their interactive simulation.
+  { type: "simulation-wrong", label: "Simulation is wrong or doesn't work", practicalOnly: true },
 ] as const;
 export type LessonFlagType = (typeof LESSON_FLAG_TYPES)[number]["type"];
 

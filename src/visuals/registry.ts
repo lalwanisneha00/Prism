@@ -3,6 +3,7 @@ import { isValidExpression } from "@/visuals/expression";
 import { visualTopicIds } from "@/visuals/topicAliases";
 import { wave1Widgets } from "@/visuals/wave1/registry";
 import { wave2Widgets } from "@/visuals/wave2/registry";
+import { labWidgets } from "@/visuals/labs/registry";
 
 /*
  * Every interactive widget the AI may choose (SPEC §4). The AI returns
@@ -322,6 +323,7 @@ export const widgetRegistry = {
   },
   ...wave1Widgets,
   ...wave2Widgets,
+  ...labWidgets,
 } as const;
 
 export type WidgetId = keyof typeof widgetRegistry;

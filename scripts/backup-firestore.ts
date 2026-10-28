@@ -25,6 +25,9 @@ const COLLECTIONS = [
   "syllabusUsage",
   "syllabusAdmin",
   "syllabusCredits",
+  "labVideos",
+  "labSimulations",
+  "labSimulationGaps",
 ];
 
 if (existsSync(".env.local")) process.loadEnvFile(".env.local");

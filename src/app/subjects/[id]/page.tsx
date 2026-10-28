@@ -11,6 +11,7 @@ import { ConceptMapSection } from "@/components/subjects/ConceptMapSection";
 import { CourseSummary } from "@/components/subjects/CourseSummary";
 import { MaterialStatus } from "@/components/subjects/MaterialStatus";
 import { StartLessonLink } from "@/components/subjects/StartLessonLink";
+import { experimentsOf } from "@/lib/labs/experiment";
 import { needsFacultyMaterial } from "@/lib/pdeu/messages";
 import { evalStatusCopy, evalStatusOf } from "@/lib/evalStatus";
 import { allSubjects, branchesOf, findSubject, subjects } from "@/lib/subjects";
@@ -52,9 +53,19 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
         .map((b) => b.name)
         .join(", ");
   const isLab = subject.courseType === "practical";
+  const firstExperiment = isLab ? experimentsOf(subject)[0] : undefined;
   const actions = [
-    // Lab lessons (aim, procedure, viva, simulation) come in Phase 7B.
-    ...(isLab ? [] : [{ href: `/start?subject=${subject.id}`, label: "Start a lesson" }]),
+    // A lab starts at its first experiment's practical lesson (Phase 7B).
+    ...(isLab
+      ? firstExperiment
+        ? [
+            {
+              href: `/lab/${subject.id}/${firstExperiment.topic.id}`,
+              label: "Start the first experiment",
+            },
+          ]
+        : []
+      : [{ href: `/start?subject=${subject.id}`, label: "Start a lesson" }]),
     ...(isLab
       ? []
       : [
@@ -162,9 +173,8 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
         </nav>
         {isLab && (
           <p className="max-w-2xl rounded-xl bg-surface-2 px-4 py-3 text-sm" data-testid="lab-note">
-            Lab lessons (aim, theory, procedure, observations, viva and a simulation for each
-            experiment) are coming in a later update. For now you can check the experiment list and
-            report anything wrong.
+            Tap an experiment to open its lab lesson: aim, theory, procedure with a setup diagram,
+            observation table, calculations, viva questions, a simulation to try and videos.
           </p>
         )}
       </div>

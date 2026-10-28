@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import { useAuth } from "@/components/account/AuthProvider";
 import { deviceProfile, lessonThanksFor, postFlag } from "@/components/flags/flagApi";
 import { SyllabusFlagForm } from "@/components/flags/SyllabusFlagForm";
+import { PRACTICAL_LEVEL } from "@/lib/labs/practicalSchema";
 import { LESSON_FLAG_TYPES, type LessonFlagType } from "@/lib/syllabusFix/flags";
 
 const btn = "rounded-full border border-border px-4 py-2 font-semibold hover:bg-surface-2";
@@ -98,7 +99,9 @@ export function LessonFlagForm({ lesson, onClose }: { lesson: LessonRef; onClose
     >
       <fieldset className="flex flex-col gap-1.5">
         <legend className="mb-1 font-semibold">What is wrong in this lesson?</legend>
-        {LESSON_FLAG_TYPES.map((item) => (
+        {LESSON_FLAG_TYPES.filter(
+          (item) => !("practicalOnly" in item) || lesson.level === PRACTICAL_LEVEL,
+        ).map((item) => (
           <label key={item.type} className="flex items-center gap-2">
             <input
               type="radio"

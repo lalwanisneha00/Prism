@@ -235,6 +235,14 @@ const components: { [K in WidgetId]: ComponentType<Props<K>> } = {
     import("@/visuals/wave2/EceCircuitWidgets").then((m) => m.CmosInverter),
   ),
   "cmos-power": lazy(() => import("@/visuals/wave2/EceCircuitWidgets").then((m) => m.CmosPower)),
+  // Lab simulation templates (syllabus fix, Phase 7B).
+  "coil-field": lazy(() => import("@/visuals/labs/CoilField").then((m) => m.CoilField)),
+  "thin-lens": lazy(() => import("@/visuals/labs/LabWidgets").then((m) => m.ThinLens)),
+  oscillation: lazy(() => import("@/visuals/labs/LabWidgets").then((m) => m.Oscillation)),
+  titration: lazy(() => import("@/visuals/labs/LabWidgets").then((m) => m.Titration)),
+  "heat-exchanger": lazy(() => import("@/visuals/labs/LabWidgets").then((m) => m.HeatExchanger)),
+  "flow-meter": lazy(() => import("@/visuals/labs/LabWidgets").then((m) => m.FlowMeter)),
+  oscilloscope: lazy(() => import("@/visuals/labs/LabWidgets").then((m) => m.Oscilloscope)),
 };
 
 /** Draws a registry widget after checking its parameters; anything invalid becomes a key-idea card. */
