@@ -40,13 +40,14 @@ export const needsKey = (kind: LessonErrorKind) => kind === "not-configured" || 
 /** What the student sees for each kind of failure. Technical details stay in server logs. */
 export const errorCopy: Record<LessonErrorKind, { title: string; message: string }> = {
   "not-configured": {
-    title: "Prism's shared AI isn't available",
+    title: "Add your AI key to make lessons",
     message:
-      "Lessons can't be written with Prism's shared key right now. Add your own free AI key under Your API keys, then try again.",
+      "Prism writes lessons with your own AI key. Add one under Your API keys (Gemini's is free), then try again.",
   },
   auth: {
-    title: "Prism's shared AI key stopped working",
-    message: "Add your own free AI key under Your API keys, or try again later once it's fixed.",
+    title: "The AI key was rejected",
+    message:
+      "It may be mistyped, switched off or out of credit. Check it under Your API keys, then try again.",
   },
   "rate-limit": {
     title: "The free AI quota is busy",
