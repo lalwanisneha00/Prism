@@ -34,16 +34,19 @@ export const UPDATING_MESSAGE = "Updating this lesson to match your syllabus…"
 
 export type LessonErrorKind = Extract<LessonEvent, { type: "error" }>["kind"] | "offline";
 
+/** Failures a student can get past with a key of their own (Settings → Your API keys). */
+export const needsKey = (kind: LessonErrorKind) => kind === "not-configured" || kind === "auth";
+
 /** What the student sees for each kind of failure. Technical details stay in server logs. */
 export const errorCopy: Record<LessonErrorKind, { title: string; message: string }> = {
   "not-configured": {
-    title: "The AI isn't switched on yet",
+    title: "Prism's shared AI isn't available",
     message:
-      "This copy of Prism has no AI key set up. Add GEMINI_API_KEY to .env.local and restart.",
+      "Lessons can't be written with Prism's shared key right now. Add your own free AI key under Your API keys, then try again.",
   },
   auth: {
-    title: "The AI key was rejected",
-    message: "The server's AI key isn't valid any more. Check GEMINI_API_KEY.",
+    title: "Prism's shared AI key stopped working",
+    message: "Add your own free AI key under Your API keys, or try again later once it's fixed.",
   },
   "rate-limit": {
     title: "The free AI quota is busy",

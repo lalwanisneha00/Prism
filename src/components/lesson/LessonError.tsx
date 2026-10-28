@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { errorCopy, type LessonErrorKind } from "@/lib/lessonEvents";
+import { FLAGS } from "@/lib/flags";
+import { errorCopy, needsKey, type LessonErrorKind } from "@/lib/lessonEvents";
 
 /** A friendly explanation of what went wrong, with a way forward. */
 export function LessonError({
@@ -42,12 +43,12 @@ export function LessonError({
             Retry with Prism&apos;s shared free key
           </button>
         )}
-        {ownKey && (
+        {(ownKey || (FLAGS.byoKey && needsKey(kind))) && (
           <Link
             href="/settings/keys"
             className="rounded-full border border-border px-5 py-2.5 font-semibold hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
-            Check my key
+            {ownKey ? "Check my key" : "Add my own AI key"}
           </Link>
         )}
         <Link

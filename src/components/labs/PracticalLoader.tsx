@@ -1,9 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LessonFlag } from "@/components/flags/LessonFlag";
+import { apiFetch } from "@/lib/byok/apiFetch";
+import { FLAGS } from "@/lib/flags";
 import { PracticalView } from "@/components/labs/PracticalView";
-import { errorCopy, UPDATING_MESSAGE, type LessonErrorKind } from "@/lib/lessonEvents";
+import { errorCopy, needsKey, UPDATING_MESSAGE, type LessonErrorKind } from "@/lib/lessonEvents";
 import type { PracticalEvent } from "@/lib/labs/practicalEvents";
 import {
   PRACTICAL_DURATION,
@@ -33,7 +36,8 @@ export function PracticalLoader({ subject, topicId }: { subject: Subject; topicI
       // Offline: the fetch fails at once and the catch below says so.
       let finished = false;
       try {
-        const res = await fetch("/api/practical", {
+        // The student's own AI key (Your API keys) goes along, like theory lessons.
+        const res = await apiFetch("/api/practical", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ subject: subject.id, topic: topicId }),
@@ -106,6 +110,14 @@ export function PracticalLoader({ subject, topicId }: { subject: Subject; topicI
           >
             Try again
           </button>
+        )}
+        {FLAGS.byoKey && needsKey(state.error) && (
+          <Link
+            href="/settings/keys"
+            className="self-start rounded-full border border-border px-5 py-2.5 font-semibold hover:bg-surface-2"
+          >
+            Add my own AI key
+          </Link>
         )}
       </div>
     );
