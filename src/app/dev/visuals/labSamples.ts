@@ -80,4 +80,42 @@ export const labSamples: { lab: string; visual: VisualSpec }[] = [
       caption: "A 1 : 2 Lissajous figure: count the loops to find the frequency ratio.",
     },
   },
+  {
+    lab: "Physics lab: Newton's rings",
+    visual: {
+      type: "widget",
+      widget: "newton-rings",
+      params: { wavelengthNm: 589.3, radiusCm: 100, mu: 1 },
+      caption:
+        "Pick a dark ring, read both sides of it, and watch D² grow in a straight line with n.",
+    },
+  },
+  {
+    lab: "Physics lab: Hall effect",
+    visual: {
+      type: "widget",
+      widget: "hall-effect",
+      params: { carrier: "n", currentMa: 5, fieldT: 0.3, thicknessMm: 0.5, densityE21: 1 },
+      caption: "The field pushes carriers to one face; the charge there is the Hall voltage.",
+    },
+  },
+  {
+    lab: "Physics lab: hysteresis",
+    visual: {
+      type: "widget",
+      widget: "hysteresis",
+      params: { material: "soft-iron" },
+      caption:
+        "Soft iron: a thin loop, so little energy is lost each cycle (good for transformer cores).",
+    },
+  },
+  {
+    lab: "Physics lab: e/m by Thomson's method",
+    visual: {
+      type: "widget",
+      widget: "em-thomson",
+      params: { anodeV: 2000, plateV: 100, plateGapMm: 10, fieldMt: 0 },
+      caption: "Raise B until the beam goes straight: then v = E/B and e/m = E²/(2VB²).",
+    },
+  },
 ];

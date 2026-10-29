@@ -99,4 +99,43 @@ export const labWidgets = {
     help: 'mode "yt" | "xy"; freqA, freqB Hz 50..1000 (multiples of 50); amplitudeA, amplitudeB V 0.5..3.5; phaseDeg 0..360 (CH2 relative to CH1).',
     topics: [],
   },
+  "newton-rings": {
+    name: "Newton's rings seen in a travelling microscope, with the D² against n graph",
+    params: z.object({
+      wavelengthNm: num(400, 700),
+      radiusCm: num(50, 400),
+      mu: num(1, 1.6),
+    }),
+    help: "wavelengthNm 400..700 (sodium 589.3); radiusCm R of the plano-convex lens 50..400; mu refractive index of the film 1..1.6 (1 = air). The student picks a ring, reads both cross-wire positions and sees D² rise in a straight line with n.",
+    topics: [],
+  },
+  "hall-effect": {
+    name: "Hall effect in a semiconductor slab (carriers, Hall voltage, V_H against I)",
+    params: z.object({
+      carrier: z.enum(["n", "p"]),
+      currentMa: num(0.5, 10),
+      fieldT: num(0.05, 1),
+      thicknessMm: num(0.2, 2),
+      densityE21: num(0.1, 100),
+    }),
+    help: 'carrier "n" | "p"; currentMa 0.5..10; fieldT 0.05..1; thicknessMm 0.2..2; densityE21 carrier density in units of 10^21 per m³ (germanium about 1). Give all five.',
+    topics: [],
+  },
+  hysteresis: {
+    name: "B-H hysteresis loop of a ferromagnetic sample (domains, retentivity, coercivity, loss)",
+    params: z.object({ material: z.enum(["soft-iron", "steel", "ferrite"]) }),
+    help: 'material "soft-iron" | "steel" | "ferrite" (the student can switch). An AC field traces the loop; Br, Hc and the energy lost per cycle are shown.',
+    topics: [],
+  },
+  "em-thomson": {
+    name: "Thomson's e/m tube: electron beam bent by crossed electric and magnetic fields",
+    params: z.object({
+      anodeV: num(500, 3000),
+      plateV: num(0, 1000),
+      plateGapMm: num(5, 30),
+      fieldMt: num(0, 3),
+    }),
+    help: "anodeV accelerating voltage 500..3000; plateV deflecting plate voltage 0..1000; plateGapMm 5..30; fieldMt magnetic field of the coils in mT 0..3. The student balances the beam (E = vB) and reads e/m.",
+    topics: [],
+  },
 } as const;

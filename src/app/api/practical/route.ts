@@ -10,11 +10,15 @@ import { FakeProvider } from "@/lib/llm/fake";
 import type { GenerateOptions, LlmProvider } from "@/lib/llm/types";
 import { LAB_CONFIG } from "@/lib/labs/config";
 import { findExperiment, theoryLinksFor } from "@/lib/labs/experiment";
-import { fakePracticalBody } from "@/lib/labs/fakePractical";
-import { generatePractical } from "@/lib/labs/generatePractical";
+import { archetypeById, classifyExperiment, type Archetype } from "@/lib/labs/archetypes";
+import { fakeLabReply } from "@/lib/labs/fakeLab";
+import { generateLab } from "@/lib/labs/generateLab";
+import type { LabLesson } from "@/lib/labs/labLesson";
+import type { LabSimulation } from "@/lib/labs/practicalSchema";
 import type { PracticalEvent } from "@/lib/labs/practicalEvents";
 import {
   adminSimulationStore,
+  keptSimulation,
   practicalKey,
   readPractical,
   writePractical,
@@ -29,13 +33,15 @@ import { liveStaleTopics } from "@/lib/syllabusFix/liveFixes";
 import { adminProposalStore } from "@/lib/syllabusFix/proposalStore";
 
 /*
- * POST /api/practical { subject, topic, fresh? } (syllabus fix, Phase 7B): the practical lesson of
- * one lab experiment, as a stream of PracticalEvent lines. One lesson per experiment, kept in the
+ * POST /api/practical { subject, topic, fresh? } (syllabus fix, Phase 7B, formats from 7C): the
+ * lesson of one lab experiment, in its archetype's format, as a stream of PracticalEvent lines. One lesson per experiment, kept in the
  * shared library; enough student flags rebuild it once with their reports (the same rules as
  * theory lessons). The AI key is only used here, on the server.
  */
 
-export const maxDuration = 60;
+// A lab lesson is a big JSON reply (about a minute per AI call, up to two calls with a repair).
+// Vercel's free plan allows up to 300 s when Fluid Compute is on (Settings, Functions).
+export const maxDuration = 300;
 
 const RequestSchema = z.object({
   subject: z.string().min(1).max(160),
@@ -60,9 +66,7 @@ async function stores(): Promise<PracticalStores | null> {
 function providers(): LlmProvider[] {
   // LLM_PROVIDER=fake writes a canned lab lesson: for testing without an API key.
   if (process.env.LLM_PROVIDER === "fake")
-    return [
-      new FakeProvider((o) => JSON.stringify(fakePracticalBody(`${o.system}\n${o.prompt}`)), 150),
-    ];
+    return [new FakeProvider((o) => fakeLabReply(o.system), 150)];
   return providersFromEnv();
 }
 
@@ -75,6 +79,15 @@ function generatedBy(writer: LlmProvider | undefined, ownKey: boolean) {
     model: open > 0 ? name.slice(open + 1).replace(/\)$/, "") : "",
     ownKey,
   };
+}
+
+const hasSimulationSection = (a: Archetype) => a.sections.some((s) => s.kind === "simulation");
+
+/** The simulation a lesson ended up with (its archetype's simulation section, if any). */
+function simulationOf(lesson: LabLesson): LabSimulation | null {
+  const archetype = archetypeById(lesson.archetype);
+  const id = archetype?.sections.find((s) => s.kind === "simulation")?.id;
+  return id ? ((lesson.sections[id] as LabSimulation | null | undefined) ?? null) : null;
 }
 
 export async function POST(req: Request) {
@@ -138,10 +151,12 @@ export async function POST(req: Request) {
         const virtualLab = virtualLabFor(topic);
         // A simulation chosen before is kept, unless students reported that it is wrong.
         const simFlagged = claim?.flags.some((f) => f.type === "simulation-wrong") ?? false;
-        const saved =
+        const saved = keptSimulation(
           shared && !simFlagged
             ? await shared.simulations.chosen(subject.id, topic.id).catch(() => undefined)
-            : undefined;
+            : undefined,
+          shortlist.length,
+        );
 
         const chain = chainFor(req, providers);
         let writer: LlmProvider | undefined;
@@ -149,7 +164,8 @@ export async function POST(req: Request) {
           generateJsonWithFallback(chain, options, undefined, undefined, (p) => {
             writer = p;
           });
-        const lesson = await generatePractical(
+        const archetype = classifyExperiment(subject, topic).archetype;
+        const { lesson, circuitFallback } = await generateLab(
           {
             subject: {
               id: subject.id,
@@ -162,6 +178,7 @@ export async function POST(req: Request) {
           },
           {
             generate,
+            archetype,
             sources,
             shortlist,
             fixedSimulation: saved,
@@ -184,6 +201,10 @@ export async function POST(req: Request) {
                     ? "Writing your lab lesson…"
                     : `Fixing a few problems (attempt ${attempt})…`,
               }),
+            onProblems: (problems, attempt) =>
+              console.warn(
+                `[api/practical] ${subject.id}/${topic.id} try ${attempt} (${archetype.id}): ${problems.slice(0, 6).join(" | ")}`,
+              ),
             signal: req.signal,
           },
         );
@@ -198,11 +219,23 @@ export async function POST(req: Request) {
         const at = new Date().toISOString();
         let stored = false;
         if (shared) {
-          if (saved === undefined)
+          if (saved === undefined && hasSimulationSection(archetype))
             await shared.simulations
-              .save(subject.id, topic.id, final.simulation, at)
+              .save(subject.id, topic.id, simulationOf(final), at)
               .catch(() => undefined);
-          if (!final.simulation)
+          const simulation = simulationOf(final);
+          if (circuitFallback)
+            await shared.simulations
+              .gap({
+                subject: subject.id,
+                topic: topic.id,
+                experiment: topic.name,
+                course: subject.name,
+                at,
+                kind: "circuit",
+              })
+              .catch(() => undefined);
+          if (hasSimulationSection(archetype) && !simulation)
             await shared.simulations
               .gap({
                 subject: subject.id,

@@ -1,0 +1,813 @@
+{
+  "_readme": "Lab lesson formats (syllabus fix, Phase 7C). Each archetype is an ordered list of sections. 'kind' says how a section is written and drawn (see src/lib/labs/sections.ts for the kinds); 'title' is what students see; 'optional' lets the AI leave it out (null) when the experiment has none; 'diagram' links procedure steps to the setup diagram or circuit they highlight. Classification: a lab's NAME is matched against 'courseKeywords' in the order the archetypes are listed (first match wins); with no match, its experiment names are scored; then 'branchDefaults'. 'switch' moves single experiments of a mixed lab to another archetype by keywords. 'overrides' wins over everything: 'courses' by subject id, 'experiments' by 'subject/topic'. 'genericKeywords' sends a lab to the general format on purpose (it is then listed in docs/LAB_ARCHETYPE_GAPS.md).",
+  "version": 1,
+  "archetypes": [
+    {
+      "id": "communication",
+      "letter": "J",
+      "name": "Communication, language and soft-skills lab",
+      "sections": [
+        {
+          "id": "goal",
+          "kind": "text",
+          "title": "Activity goal"
+        },
+        {
+          "id": "concepts",
+          "kind": "list",
+          "title": "Key concepts"
+        },
+        {
+          "id": "examples",
+          "kind": "list",
+          "title": "Examples"
+        },
+        {
+          "id": "activity",
+          "kind": "steps",
+          "title": "Practice activity"
+        },
+        {
+          "id": "selfcheck",
+          "kind": "qa",
+          "title": "Self-check questions"
+        }
+      ],
+      "courseKeywords": [
+        "communication skill",
+        "soft skill",
+        "english",
+        "language lab",
+        "design thinking",
+        "project management"
+      ]
+    },
+    {
+      "id": "graphics",
+      "letter": "G",
+      "name": "Engineering Graphics, drawing and CAD lab",
+      "sections": [
+        {
+          "id": "problem",
+          "kind": "text",
+          "title": "Problem statement"
+        },
+        {
+          "id": "construction",
+          "kind": "drawing",
+          "title": "Construction, step by step"
+        },
+        {
+          "id": "rules",
+          "kind": "list",
+          "title": "Key rules and conventions"
+        },
+        {
+          "id": "mistakes",
+          "kind": "list",
+          "title": "Common mistakes"
+        },
+        {
+          "id": "cad",
+          "kind": "list",
+          "title": "CAD commands",
+          "optional": true
+        },
+        {
+          "id": "practice",
+          "kind": "practice",
+          "title": "Practice problems"
+        },
+        {
+          "id": "videos",
+          "kind": "videos",
+          "title": "Video demonstrations"
+        }
+      ],
+      "courseKeywords": ["engineering graphics", "drawing", "computer aided design drawing", "cad"]
+    },
+    {
+      "id": "workshop",
+      "letter": "F",
+      "name": "Workshop and manufacturing lab",
+      "sections": [
+        {
+          "id": "tools",
+          "kind": "setup",
+          "title": "Tools and machines"
+        },
+        {
+          "id": "safety",
+          "kind": "list",
+          "title": "Safety",
+          "tone": "warning"
+        },
+        {
+          "id": "job",
+          "kind": "drawing",
+          "title": "Job drawing",
+          "still": true
+        },
+        {
+          "id": "operations",
+          "kind": "steps",
+          "title": "Sequence of operations",
+          "diagram": "tools",
+          "animated": true
+        },
+        {
+          "id": "inspection",
+          "kind": "list",
+          "title": "Measurement and inspection"
+        },
+        {
+          "id": "viva",
+          "kind": "qa",
+          "title": "Viva questions"
+        },
+        {
+          "id": "videos",
+          "kind": "videos",
+          "title": "Video demonstrations"
+        }
+      ],
+      "courseKeywords": [
+        "workshop",
+        "manufacturing process",
+        "fitting",
+        "carpentry",
+        "welding",
+        "machining",
+        "foundry"
+      ]
+    },
+    {
+      "id": "hardware",
+      "letter": "I",
+      "name": "Hardware, microcontroller and IoT lab",
+      "sections": [
+        {
+          "id": "components",
+          "kind": "list",
+          "title": "Components"
+        },
+        {
+          "id": "circuit",
+          "kind": "circuit",
+          "title": "Wiring and pin diagram"
+        },
+        {
+          "id": "wiring",
+          "kind": "wiring",
+          "title": "Step-by-step wiring",
+          "diagram": "circuit"
+        },
+        {
+          "id": "code",
+          "kind": "code",
+          "title": "Code with explanation"
+        },
+        {
+          "id": "behaviour",
+          "kind": "text",
+          "title": "Expected behaviour"
+        },
+        {
+          "id": "troubleshooting",
+          "kind": "fixes",
+          "title": "Troubleshooting"
+        },
+        {
+          "id": "viva",
+          "kind": "qa",
+          "title": "Viva questions"
+        },
+        {
+          "id": "videos",
+          "kind": "videos",
+          "title": "Video demonstrations"
+        }
+      ],
+      "courseKeywords": [
+        "microprocessor",
+        "microcontroller",
+        "embedded",
+        "iot",
+        "industry 4.0",
+        "industrial 4.0",
+        "robotics",
+        "computer organization"
+      ]
+    },
+    {
+      "id": "programming",
+      "letter": "C",
+      "name": "Programming lab",
+      "sections": [
+        {
+          "id": "topic",
+          "kind": "text",
+          "title": "Language and topic"
+        },
+        {
+          "id": "recap",
+          "kind": "text",
+          "title": "Concept recap"
+        },
+        {
+          "id": "examples",
+          "kind": "code",
+          "title": "Code examples"
+        },
+        {
+          "id": "trace",
+          "kind": "trace",
+          "title": "Dry run, step by step"
+        },
+        {
+          "id": "mistakes",
+          "kind": "fixes",
+          "title": "Common errors and how to fix them"
+        },
+        {
+          "id": "practice",
+          "kind": "practice",
+          "title": "Practice problems"
+        },
+        {
+          "id": "viva",
+          "kind": "qa",
+          "title": "Viva questions"
+        },
+        {
+          "id": "videos",
+          "kind": "videos",
+          "title": "Video demonstrations"
+        }
+      ],
+      "courseKeywords": [
+        "programming",
+        "data structure",
+        "algorithm",
+        "object oriented",
+        "database",
+        "dbms",
+        "web",
+        "mobile development",
+        "operating system",
+        "compiler",
+        "theory of computation",
+        "software engineering",
+        "machine learning",
+        "artificial intelligence",
+        "computer network",
+        "cryptography",
+        "distributed computing",
+        "software laboratory",
+        "petroleum software",
+        "computational",
+        "simulation laboratory",
+        "process modelling",
+        "computer aided process",
+        "bioinformatics",
+        "signal processing",
+        "networking"
+      ]
+    },
+    {
+      "id": "civil-testing",
+      "letter": "H",
+      "name": "Civil, material testing and surveying lab",
+      "sections": [
+        {
+          "id": "aim",
+          "kind": "text",
+          "title": "Aim"
+        },
+        {
+          "id": "codes",
+          "kind": "codes",
+          "title": "Relevant IS code"
+        },
+        {
+          "id": "apparatus",
+          "kind": "setup",
+          "title": "Apparatus"
+        },
+        {
+          "id": "procedure",
+          "kind": "steps",
+          "title": "Procedure",
+          "diagram": "apparatus"
+        },
+        {
+          "id": "observations",
+          "kind": "observations",
+          "title": "Observation table"
+        },
+        {
+          "id": "calculations",
+          "kind": "calculations",
+          "title": "Calculations"
+        },
+        {
+          "id": "result",
+          "kind": "result",
+          "title": "Result compared with standard limits",
+          "rangeLabel": "Standard limits"
+        },
+        {
+          "id": "precautions",
+          "kind": "list",
+          "title": "Precautions"
+        },
+        {
+          "id": "viva",
+          "kind": "qa",
+          "title": "Viva questions"
+        },
+        {
+          "id": "videos",
+          "kind": "videos",
+          "title": "Video demonstrations"
+        }
+      ],
+      "courseKeywords": [
+        "material testing",
+        "strength of materials",
+        "soil mechanics",
+        "geotechnical",
+        "highway",
+        "surveying",
+        "concrete",
+        "geomechanics",
+        "foundation",
+        "metallurgy"
+      ]
+    },
+    {
+      "id": "biology",
+      "letter": "E",
+      "name": "Biotech and biology lab",
+      "sections": [
+        {
+          "id": "aim",
+          "kind": "text",
+          "title": "Aim"
+        },
+        {
+          "id": "principle",
+          "kind": "theory",
+          "title": "Principle"
+        },
+        {
+          "id": "materials",
+          "kind": "list",
+          "title": "Reagents and equipment"
+        },
+        {
+          "id": "biosafety",
+          "kind": "list",
+          "title": "Biosafety notes",
+          "tone": "warning"
+        },
+        {
+          "id": "protocol",
+          "kind": "steps",
+          "title": "Protocol"
+        },
+        {
+          "id": "expected",
+          "kind": "setup",
+          "title": "Expected observations"
+        },
+        {
+          "id": "interpretation",
+          "kind": "text",
+          "title": "Result interpretation"
+        },
+        {
+          "id": "viva",
+          "kind": "qa",
+          "title": "Viva questions"
+        },
+        {
+          "id": "videos",
+          "kind": "videos",
+          "title": "Video demonstrations"
+        }
+      ],
+      "courseKeywords": [
+        "microbiology",
+        "biochemistry",
+        "molecular biology",
+        "genetic",
+        "genomics",
+        "proteomics",
+        "immunology",
+        "anatomy",
+        "physiology",
+        "tissue",
+        "biotechnology",
+        "pharmacology",
+        "downstream",
+        "bioprocess",
+        "nanotechnology"
+      ]
+    },
+    {
+      "id": "chemistry",
+      "letter": "D",
+      "name": "Chemistry and chemical engineering wet lab",
+      "sections": [
+        {
+          "id": "aim",
+          "kind": "text",
+          "title": "Aim"
+        },
+        {
+          "id": "principle",
+          "kind": "theory",
+          "title": "Principle and reactions"
+        },
+        {
+          "id": "materials",
+          "kind": "setup",
+          "title": "Chemicals and apparatus"
+        },
+        {
+          "id": "safety",
+          "kind": "list",
+          "title": "Safety precautions",
+          "tone": "warning"
+        },
+        {
+          "id": "procedure",
+          "kind": "steps",
+          "title": "Procedure",
+          "diagram": "materials"
+        },
+        {
+          "id": "observations",
+          "kind": "observations",
+          "title": "Observation table"
+        },
+        {
+          "id": "calculations",
+          "kind": "calculations",
+          "title": "Calculations"
+        },
+        {
+          "id": "result",
+          "kind": "result",
+          "title": "Result"
+        },
+        {
+          "id": "errors",
+          "kind": "list",
+          "title": "Sources of error"
+        },
+        {
+          "id": "viva",
+          "kind": "qa",
+          "title": "Viva questions"
+        },
+        {
+          "id": "simulation",
+          "kind": "simulation",
+          "title": "Interactive simulation",
+          "optional": true
+        },
+        {
+          "id": "videos",
+          "kind": "videos",
+          "title": "Video demonstrations"
+        }
+      ],
+      "courseKeywords": [
+        "chemistry",
+        "chemical reaction",
+        "chemical process",
+        "mass transfer",
+        "petroleum product",
+        "petroleum engineering",
+        "drilling",
+        "process equipment",
+        "unit operation",
+        "chemical engineering thermodynamics"
+      ]
+    },
+    {
+      "id": "circuit",
+      "letter": "A",
+      "name": "Circuit, electrical and electronics lab",
+      "sections": [
+        {
+          "id": "aim",
+          "kind": "text",
+          "title": "Aim"
+        },
+        {
+          "id": "theory",
+          "kind": "theory",
+          "title": "Theory"
+        },
+        {
+          "id": "apparatus",
+          "kind": "list",
+          "title": "Apparatus and components"
+        },
+        {
+          "id": "circuit",
+          "kind": "circuit",
+          "title": "Circuit diagram"
+        },
+        {
+          "id": "wiring",
+          "kind": "wiring",
+          "title": "Step-by-step wiring",
+          "diagram": "circuit"
+        },
+        {
+          "id": "procedure",
+          "kind": "steps",
+          "title": "Procedure",
+          "diagram": "circuit"
+        },
+        {
+          "id": "observations",
+          "kind": "observations",
+          "title": "Observation table"
+        },
+        {
+          "id": "calculations",
+          "kind": "calculations",
+          "title": "Calculations"
+        },
+        {
+          "id": "graph",
+          "kind": "graph",
+          "title": "Graph",
+          "optional": true
+        },
+        {
+          "id": "result",
+          "kind": "result",
+          "title": "Result"
+        },
+        {
+          "id": "precautions",
+          "kind": "precautions",
+          "title": "Precautions and sources of error"
+        },
+        {
+          "id": "viva",
+          "kind": "qa",
+          "title": "Viva questions"
+        },
+        {
+          "id": "simulation",
+          "kind": "simulation",
+          "title": "Interactive simulation",
+          "optional": true
+        },
+        {
+          "id": "videos",
+          "kind": "videos",
+          "title": "Video demonstrations"
+        }
+      ],
+      "courseKeywords": [
+        "electronic",
+        "electrical",
+        "circuit",
+        "power electronic",
+        "power system",
+        "power quality",
+        "transformer",
+        "induction",
+        "drives",
+        "electric vehicle",
+        "high voltage",
+        "facts",
+        "communication lab",
+        "communication laboratory",
+        "control system",
+        "digital control",
+        "instrumentation",
+        "vlsi",
+        "microwave",
+        "rf engineering",
+        "wireless",
+        "renewable energy",
+        "integrated circuits",
+        "protection",
+        "electrical machines",
+        "dc machines",
+        "induction machines"
+      ],
+      "switch": {
+        "to": "physics",
+        "keywords": [
+          "wavelength",
+          "slit",
+          "grating",
+          "newton's ring",
+          "prism",
+          "lens",
+          "optical fibre",
+          "optical fiber",
+          "laser",
+          "diffraction",
+          "interference",
+          "young's modulus",
+          "e/m",
+          "thomson"
+        ]
+      }
+    },
+    {
+      "id": "physics",
+      "letter": "B",
+      "name": "Physics and mechanics experiment without circuits",
+      "sections": [
+        {
+          "id": "aim",
+          "kind": "text",
+          "title": "Aim"
+        },
+        {
+          "id": "theory",
+          "kind": "theory",
+          "title": "Theory"
+        },
+        {
+          "id": "apparatus",
+          "kind": "setup",
+          "title": "Apparatus and setup diagram"
+        },
+        {
+          "id": "procedure",
+          "kind": "steps",
+          "title": "Procedure",
+          "diagram": "apparatus"
+        },
+        {
+          "id": "observations",
+          "kind": "observations",
+          "title": "Observation table"
+        },
+        {
+          "id": "calculations",
+          "kind": "calculations",
+          "title": "Calculations"
+        },
+        {
+          "id": "graph",
+          "kind": "graph",
+          "title": "Graph",
+          "optional": true
+        },
+        {
+          "id": "result",
+          "kind": "result",
+          "title": "Result"
+        },
+        {
+          "id": "precautions",
+          "kind": "precautions",
+          "title": "Precautions and sources of error"
+        },
+        {
+          "id": "viva",
+          "kind": "qa",
+          "title": "Viva questions"
+        },
+        {
+          "id": "simulation",
+          "kind": "simulation",
+          "title": "Interactive simulation",
+          "optional": true
+        },
+        {
+          "id": "videos",
+          "kind": "videos",
+          "title": "Video demonstrations"
+        }
+      ],
+      "courseKeywords": [
+        "physics",
+        "fluid mechanics",
+        "heat transfer",
+        "thermodynamics",
+        "refrigeration",
+        "dynamics of machines",
+        "kinematics",
+        "machine design",
+        "measurements and metrology"
+      ],
+      "switch": {
+        "to": "circuit",
+        "keywords": [
+          "circuit",
+          "resistance",
+          "solar cell",
+          "hall effect",
+          "band gap",
+          "photoconductivity",
+          "diode",
+          "transistor",
+          "ohm",
+          "potentiometer",
+          "meter bridge",
+          "wheatstone",
+          "galvanometer",
+          "ammeter",
+          "voltmeter",
+          "b-h",
+          "hysteresis",
+          "bio-savart",
+          "biot",
+          "magnetic field along",
+          "faraday",
+          "lenz",
+          "capacitor",
+          "rc circuit",
+          "lcr",
+          "zener",
+          "electrical conductivity",
+          "v-i characteristic",
+          "i-v characteristic",
+          "photodiode",
+          "led",
+          "semiconductor"
+        ]
+      }
+    }
+  ],
+  "generic": {
+    "id": "generic",
+    "letter": "-",
+    "name": "General lab (no archetype fits)",
+    "sections": [
+      {
+        "id": "aim",
+        "kind": "text",
+        "title": "Aim"
+      },
+      {
+        "id": "theory",
+        "kind": "theory",
+        "title": "Theory"
+      },
+      {
+        "id": "apparatus",
+        "kind": "setup",
+        "title": "Apparatus"
+      },
+      {
+        "id": "procedure",
+        "kind": "steps",
+        "title": "Procedure",
+        "diagram": "apparatus"
+      },
+      {
+        "id": "observations",
+        "kind": "observations",
+        "title": "Observation table",
+        "optional": true
+      },
+      {
+        "id": "result",
+        "kind": "result",
+        "title": "Result"
+      },
+      {
+        "id": "viva",
+        "kind": "qa",
+        "title": "Viva questions"
+      },
+      {
+        "id": "videos",
+        "kind": "videos",
+        "title": "Video demonstrations"
+      }
+    ]
+  },
+  "branchDefaults": {
+    "ece": "circuit",
+    "elec": "circuit",
+    "ce": "programming",
+    "ict": "programming",
+    "chem": "chemistry",
+    "biotech": "biology",
+    "civil": "civil-testing",
+    "me": "physics",
+    "petro": "chemistry"
+  },
+  "overrides": {
+    "courses": {},
+    "experiments": {}
+  },
+  "genericKeywords": ["geology", "earth science", "exploration"]
+}

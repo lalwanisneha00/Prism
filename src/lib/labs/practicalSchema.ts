@@ -45,14 +45,17 @@ export const ObservationTableSchema = z
   });
 
 /** The simulation the AI picked from the shortlist (null: none fits; the procedure is animated). */
+/** A missing caption gets a plain one instead of failing the lesson. */
+const simCaption = text.default("Change the values and watch the readings respond.");
+
 export const LabSimulationSchema = z.union([
   z.object({
     type: z.literal("widget"),
     widget: id,
     params: z.record(z.string(), z.unknown()),
-    caption: text,
+    caption: simCaption,
   }),
-  z.object({ type: z.literal("phet"), sim: id, caption: text }),
+  z.object({ type: z.literal("phet"), sim: id, caption: simCaption }),
 ]);
 
 /** What the AI writes. */

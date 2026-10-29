@@ -2,13 +2,15 @@ import type { Firestore } from "firebase-admin/firestore";
 import { z } from "zod";
 import { gunzipJson, gzipJson } from "@/lib/compress";
 import { MAX_LESSON_BYTES, type LibraryStore } from "@/lib/library/sharedLibrary";
+import { LAB_CONFIG } from "@/lib/labs/config";
+import { parseLab, type LabLesson, type LabLessonAny } from "@/lib/labs/labLesson";
+import { LAB_PROMPT_VERSION } from "@/lib/labs/labPrompt";
 import {
   LabSimulationSchema,
   parsePractical,
   PRACTICAL_DURATION,
   PRACTICAL_LEVEL,
   type LabSimulation,
-  type PracticalLesson,
 } from "@/lib/labs/practicalSchema";
 import { PRACTICAL_PROMPT_VERSION } from "@/lib/labs/practicalPrompt";
 import { isLessonStale, type StaleTopics } from "@/lib/syllabusFix/stale";
@@ -16,7 +18,9 @@ import { isLessonStale, type StaleTopics } from "@/lib/syllabusFix/stale";
 /*
  * Practical lessons in the shared lesson library (syllabus fix, Phase 7B): the same `lessons`
  * collection and document shape as theory lessons, keyed `{subject}_{experiment}_practical_1`, so
- * lesson flags, rebuilds and kept versions (Phase 5) work for them unchanged.
+ * lesson flags, rebuilds and kept versions (Phase 5) work for them unchanged. Phase 7C lessons
+ * (archetype formats) are stored the same way with their own prompt version; Phase 7B ones are
+ * read only while `LAB_CONFIG.keepPhase7BLessons` is on.
  */
 
 /** The same shape as `libraryKey` (subject_topic_level_duration), which lesson flags use too. */
@@ -28,10 +32,14 @@ export async function readPractical(
   key: string,
   stale: StaleTopics,
   onStale?: () => void,
-): Promise<PracticalLesson | null> {
+  keepPhase7B: boolean = LAB_CONFIG.keepPhase7BLessons,
+): Promise<LabLessonAny | null> {
   const doc = await store.get(key);
-  if (!doc?.lessonGz || doc.promptVersion !== PRACTICAL_PROMPT_VERSION) return null;
-  const parsed = parsePractical(await gunzipJson(doc.lessonGz));
+  if (!doc?.lessonGz) return null;
+  const v2 = doc.promptVersion === LAB_PROMPT_VERSION;
+  if (!v2 && !(keepPhase7B && doc.promptVersion === PRACTICAL_PROMPT_VERSION)) return null;
+  const data = await gunzipJson(doc.lessonGz);
+  const parsed = v2 ? parseLab(data) : parsePractical(data);
   if (!parsed.ok) return null;
   const { subject, topic } = parsed.lesson.meta;
   if (!isLessonStale(stale, subject, topic, doc.createdAt)) return parsed.lesson;
@@ -39,10 +47,7 @@ export async function readPractical(
   return null;
 }
 
-export async function writePractical(
-  store: LibraryStore,
-  lesson: PracticalLesson,
-): Promise<boolean> {
+export async function writePractical(store: LibraryStore, lesson: LabLesson): Promise<boolean> {
   const lessonGz = await gzipJson(lesson);
   if (lessonGz.byteLength > MAX_LESSON_BYTES) return false;
   const { subject, topic, title } = lesson.meta;
@@ -55,7 +60,7 @@ export async function writePractical(
     title,
     createdAt: new Date().toISOString(),
     schemaVersion: 1,
-    promptVersion: PRACTICAL_PROMPT_VERSION,
+    promptVersion: LAB_PROMPT_VERSION,
     tier: "sourced",
     sourceIds: lesson.meta.sources.map((s) => s.id),
   });
@@ -78,12 +83,26 @@ export type SimulationGap = {
   experiment: string;
   course: string;
   at: string;
+  /** What is missing: a simulation template (default), or a circuit that failed its checks twice. */
+  kind?: "simulation" | "circuit";
 };
 
 export interface SimulationStore {
   chosen(subject: string, topic: string): Promise<LabSimulation | null | undefined>;
   save(subject: string, topic: string, simulation: LabSimulation | null, at: string): Promise<void>;
   gap(entry: SimulationGap): Promise<void>;
+}
+
+/**
+ * The saved choice a rebuilt lesson must keep. "None fits" (null) is kept only while no template
+ * matches the experiment; once a new template matches, the AI may choose again (it is part of the
+ * same lesson call, so it costs nothing extra).
+ */
+export function keptSimulation(
+  saved: LabSimulation | null | undefined,
+  shortlistSize: number,
+): LabSimulation | null | undefined {
+  return saved === null && shortlistSize > 0 ? undefined : saved;
 }
 
 const docId = (subject: string, topic: string) => `${subject}__${topic}`;
@@ -99,7 +118,8 @@ export function adminSimulationStore(db: Firestore): SimulationStore {
       await db.collection("labSimulations").doc(docId(subject, topic)).set({ simulation, at });
     },
     async gap(entry) {
-      await db.collection("labSimulationGaps").doc(docId(entry.subject, entry.topic)).set(entry);
+      const id = docId(entry.subject, entry.topic) + (entry.kind === "circuit" ? "__circuit" : "");
+      await db.collection("labSimulationGaps").doc(id).set(entry);
     },
   };
 }

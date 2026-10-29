@@ -5,21 +5,19 @@ import { useEffect, useState } from "react";
 import { LessonFlag } from "@/components/flags/LessonFlag";
 import { apiFetch } from "@/lib/byok/apiFetch";
 import { FLAGS } from "@/lib/flags";
+import { LabLessonView } from "@/components/labs/LabLessonView";
 import { PracticalView } from "@/components/labs/PracticalView";
 import { errorCopy, needsKey, UPDATING_MESSAGE, type LessonErrorKind } from "@/lib/lessonEvents";
 import type { PracticalEvent } from "@/lib/labs/practicalEvents";
-import {
-  PRACTICAL_DURATION,
-  PRACTICAL_LEVEL,
-  type PracticalLesson,
-} from "@/lib/labs/practicalSchema";
+import { PRACTICAL_DURATION, PRACTICAL_LEVEL } from "@/lib/labs/practicalSchema";
+import { isLabV2, type LabLessonAny } from "@/lib/labs/labLesson";
 import { readNdjson } from "@/lib/readLessonStream";
 import type { Subject } from "@/lib/subjects";
 
 type State =
   | { kind: "loading"; message: string }
   | { kind: "error"; error: LessonErrorKind }
-  | { kind: "ready"; lesson: PracticalLesson; note?: string };
+  | { kind: "ready"; lesson: LabLessonAny; note?: string };
 
 /** Loads one experiment's lab lesson from /api/practical and shows it, with every state handled. */
 export function PracticalLoader({ subject, topicId }: { subject: Subject; topicId: string }) {
@@ -143,7 +141,11 @@ export function PracticalLoader({ subject, topicId }: { subject: Subject; topicI
           durationMin={PRACTICAL_DURATION}
         />
       </div>
-      <PracticalView lesson={state.lesson} />
+      {isLabV2(state.lesson) ? (
+        <LabLessonView lesson={state.lesson} />
+      ) : (
+        <PracticalView lesson={state.lesson} />
+      )}
     </div>
   );
 }

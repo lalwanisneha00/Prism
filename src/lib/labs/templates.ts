@@ -18,6 +18,16 @@ const p = (id: string, ...keywords: string[]): LabTemplate => ({ kind: "phet", i
 /** Every template a lab lesson may use, with the words that point to it. */
 export const LAB_TEMPLATES: readonly LabTemplate[] = [
   w(
+    "newton-rings",
+    "newton's ring",
+    "newtons ring",
+    "newton ring",
+    "radius of curvature of a lens",
+  ),
+  w("hall-effect", "hall effect", "hall voltage", "hall coefficient", "hall probe"),
+  w("hysteresis", "hysteresis", "b-h curve", "bh curve", "b-h loop", "retentivity", "coercivity"),
+  w("em-thomson", "e/m", "thomson", "specific charge", "charge to mass"),
+  w(
     "coil-field",
     "coil",
     "helmholtz",
@@ -160,8 +170,6 @@ export const LAB_TEMPLATES: readonly LabTemplate[] = [
     "single slit",
     "double slit",
     "interference",
-    "newton's ring",
-    "newtons ring",
     "young",
   ),
   w("standing-wave", "sonometer", "melde", "stationary wave", "standing wave", "resonance tube"),

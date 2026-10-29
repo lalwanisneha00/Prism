@@ -243,6 +243,10 @@ const components: { [K in WidgetId]: ComponentType<Props<K>> } = {
   "heat-exchanger": lazy(() => import("@/visuals/labs/LabWidgets").then((m) => m.HeatExchanger)),
   "flow-meter": lazy(() => import("@/visuals/labs/LabWidgets").then((m) => m.FlowMeter)),
   oscilloscope: lazy(() => import("@/visuals/labs/LabWidgets").then((m) => m.Oscilloscope)),
+  "newton-rings": lazy(() => import("@/visuals/labs/PhysicsLabWidgets").then((m) => m.NewtonRings)),
+  "hall-effect": lazy(() => import("@/visuals/labs/PhysicsLabWidgets").then((m) => m.HallEffect)),
+  hysteresis: lazy(() => import("@/visuals/labs/PhysicsLabWidgets").then((m) => m.Hysteresis)),
+  "em-thomson": lazy(() => import("@/visuals/labs/PhysicsLabWidgets").then((m) => m.EmThomson)),
 };
 
 /** Draws a registry widget after checking its parameters; anything invalid becomes a key-idea card. */

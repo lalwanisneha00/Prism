@@ -4,6 +4,7 @@ import type { PracticalEvent } from "@/lib/labs/practicalEvents";
 import { memorySimulationStore, practicalKey } from "@/lib/labs/practicalLibrary";
 import { setPracticalStoresForTests } from "@/lib/labs/practicalStores";
 import { PRACTICAL_DURATION, PRACTICAL_LEVEL } from "@/lib/labs/practicalSchema";
+import { isLabV2, type LabLessonAny } from "@/lib/labs/labLesson";
 import { labSubjects } from "@/lib/subjects";
 import { lessonFlagRecord, memoryLessonFlagStore } from "@/lib/syllabusFix/lessonFlagStore";
 import { staleTopics } from "@/lib/syllabusFix/stale";
@@ -30,6 +31,8 @@ const events = async (res: Response) =>
     .split("\n")
     .filter(Boolean)
     .map((line) => JSON.parse(line) as PracticalEvent);
+/** The coil lesson's simulation: its archetype keeps it in the "simulation" section. */
+const simOf = (l: LabLessonAny) => (isLabV2(l) ? l.sections.simulation : l.simulation);
 const lessonOf = (list: PracticalEvent[]) =>
   list.find((e): e is Extract<PracticalEvent, { type: "lesson" }> => e.type === "lesson");
 
@@ -87,7 +90,9 @@ describe("/api/practical", () => {
       await events(await post({ subject: coilLab.s.id, topic: coilLab.t.id })),
     )!;
     expect(first.cached).toBe(false);
-    expect(first.lesson.simulation).toMatchObject({ type: "widget", widget: "coil-field" });
+    // A coil experiment in a physics lab has a circuit, so it gets the circuit lab format.
+    expect(isLabV2(first.lesson) && first.lesson.archetype).toBe("circuit");
+    expect(simOf(first.lesson)).toMatchObject({ type: "widget", widget: "coil-field" });
     expect(first.lesson.meta.virtualLab?.url).toContain("vlabs.ac.in");
     expect(library.docs.has(practicalKey(coilLab.s.id, coilLab.t.id))).toBe(true);
     expect(simulations.saved.size).toBe(1);
@@ -96,7 +101,7 @@ describe("/api/practical", () => {
       await events(await post({ subject: coilLab.s.id, topic: coilLab.t.id })),
     )!;
     expect(second.cached).toBe(true);
-    expect(second.lesson.simulation).toEqual(first.lesson.simulation);
+    expect(simOf(second.lesson)).toEqual(simOf(first.lesson));
   });
 
   it("rebuilds once after 4 students flag it, then sends a re-flagged lesson to review", async () => {

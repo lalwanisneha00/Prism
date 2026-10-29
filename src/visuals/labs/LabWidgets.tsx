@@ -15,6 +15,7 @@ import {
   titrationPH,
 } from "@/visuals/labs/labModels";
 import { Choice } from "@/visuals/wave2/ui2";
+import { LabPlot } from "@/visuals/labs/LabPlot";
 import { ArrowMarker, Readout, Slider, WidgetButton, WidgetShell } from "@/visuals/ui";
 
 /*
@@ -52,6 +53,19 @@ function useFrames(playing: boolean, tick: (dt: number) => void) {
 
 /* ---------- Thin lens / mirror ray diagram ---------- */
 
+/** v against u for focal length f, split at u = f where v jumps from +∞ to −∞. */
+function uvCurve(f: number): [number, number][][] {
+  const near: [number, number][] = [];
+  const far: [number, number][] = [];
+  for (let u = 1; u <= 75; u += 0.5) {
+    if (Math.abs(u - f) < 0.6) continue;
+    const v = thinLensImage(u, f).v;
+    if (Math.abs(v) > 400) continue;
+    (f > 0 && u < f ? near : far).push([u, v]);
+  }
+  return [near, far].filter((c) => c.length > 1);
+}
+
 export function ThinLens({
   kind,
   focalCm,
@@ -69,9 +83,9 @@ export function ThinLens({
   const converging = kind === "convex-lens" || kind === "concave-mirror";
   const f = converging ? f0 : -f0;
   const img = thinLensImage(u, f);
-  const H = 300;
+  const H = 330;
   const cx = W / 2;
-  const cy = H / 2;
+  const cy = 150;
   const px = 4; // pixels per cm (view ±80 cm)
   const objH = 40;
   // Lens: object on the left, real image on the right. Mirror: both in front (left).
@@ -154,33 +168,129 @@ export function ThinLens({
       >
         <defs>
           <ArrowMarker id="tl-arrow" color="currentColor" size={10} />
+          <marker
+            id="tl-ray"
+            viewBox="0 0 10 10"
+            refX="5"
+            refY="5"
+            markerWidth="9"
+            markerHeight="9"
+            orient="auto"
+            markerUnits="userSpaceOnUse"
+          >
+            <path d="M0 0L10 5L0 10z" fill="#f59e0b" />
+          </marker>
+          <linearGradient id="tl-glass" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#7dd3fc" stopOpacity={0.35} />
+            <stop offset="0.5" stopColor="#e0f2fe" stopOpacity={0.7} />
+            <stop offset="1" stopColor="#7dd3fc" stopOpacity={0.35} />
+          </linearGradient>
         </defs>
-        <line x1={0} y1={cy} x2={W} y2={cy} stroke="var(--border)" />
-        {/* The lens or mirror */}
-        <line x1={cx} y1={30} x2={cx} y2={H - 30} stroke="#0ea5e9" strokeWidth={mirror ? 5 : 3} />
+        {/* Optical bench: the principal axis with a centimetre scale */}
+        <rect x={0} y={H - 34} width={W} height={34} fill="var(--surface-2)" />
+        {Array.from({ length: 17 }, (_, i) => (i - 8) * 10).map((cm) => (
+          <g key={cm}>
+            <line
+              x1={cx + cm * px}
+              x2={cx + cm * px}
+              y1={H - 34}
+              y2={H - 26}
+              stroke="var(--muted)"
+            />
+            <text x={cx + cm * px} y={H - 10} textAnchor="middle" fontSize={14} fill="var(--muted)">
+              {cm}
+            </text>
+          </g>
+        ))}
+        <line x1={0} y1={cy} x2={W} y2={cy} stroke="var(--muted)" strokeDasharray="8 6" />
+        {/* The lens or mirror, drawn by its shape */}
+        {mirror ? (
+          <g>
+            <path
+              d={`M${cx} 40 Q${cx + (kind === "concave-mirror" ? 26 : -26)} ${cy} ${cx} ${H - 70}`}
+              fill="none"
+              stroke="#0284c7"
+              strokeWidth={5}
+            />
+            {Array.from({ length: 12 }, (_, i) => 48 + i * 17).map((y) => (
+              <line key={y} x1={cx + 8} y1={y} x2={cx + 18} y2={y - 8} stroke="var(--muted)" />
+            ))}
+          </g>
+        ) : (
+          <path
+            d={
+              converging
+                ? `M${cx} 36 Q${cx + 24} ${cy - 20} ${cx + 24} ${cy} Q${cx + 24} ${cy + 20} ${cx} ${H - 66} Q${cx - 24} ${cy + 20} ${cx - 24} ${cy} Q${cx - 24} ${cy - 20} ${cx} 36 Z`
+                : `M${cx - 14} 36 L${cx + 14} 36 Q${cx + 2} ${cy} ${cx + 14} ${H - 66} L${cx - 14} ${H - 66} Q${cx - 2} ${cy} ${cx - 14} 36 Z`
+            }
+            fill="url(#tl-glass)"
+            stroke="#0284c7"
+            strokeWidth={2}
+          />
+        )}
         {focusX.map((x, i) => (
           <g key={i}>
-            <circle cx={x} cy={cy} r={3.5} fill="var(--muted)" />
-            <text x={x} y={cy + 18} textAnchor="middle" fontSize={12} fill="var(--muted)">
+            <circle cx={x} cy={cy} r={5} fill="var(--fg)" />
+            <text
+              x={x}
+              y={cy + 24}
+              textAnchor="middle"
+              fontSize={16}
+              fontWeight={700}
+              fill="var(--fg)"
+            >
               F
             </text>
           </g>
         ))}
+        {!mirror &&
+          [cx - 2 * f0 * px, cx + 2 * f0 * px].map((x, i) => (
+            <g key={i}>
+              <circle cx={x} cy={cy} r={4} fill="var(--muted)" />
+              <text x={x} y={cy + 24} textAnchor="middle" fontSize={15} fill="var(--muted)">
+                2F
+              </text>
+            </g>
+          ))}
+        {rays.map((d, i) => (
+          <path
+            key={i}
+            d={d}
+            fill="none"
+            stroke="#f59e0b"
+            strokeWidth={2.2}
+            markerMid="url(#tl-ray)"
+          />
+        ))}
+        {/* Virtual images: the rays traced back, dashed */}
+        {!img.atInfinity && !img.real && (
+          <g stroke="#f59e0b" strokeDasharray="5 5" opacity={0.6}>
+            <line x1={cx} y1={tip.y} x2={clampX(imgX)} y2={cy - imgH} />
+            <line x1={cx} y1={cy} x2={clampX(imgX)} y2={cy - imgH} />
+          </g>
+        )}
         {/* Object */}
-        <g className="text-[var(--fg)]" color="var(--fg)">
+        <g color="var(--fg)">
           <line
             x1={objX}
             y1={cy}
             x2={objX}
             y2={cy - objH}
             stroke="currentColor"
-            strokeWidth={3}
+            strokeWidth={4}
             markerEnd="url(#tl-arrow)"
           />
+          <text
+            x={objX}
+            y={cy + 24}
+            textAnchor="middle"
+            fontSize={15}
+            fontWeight={600}
+            fill="var(--fg)"
+          >
+            object
+          </text>
         </g>
-        {rays.map((d, i) => (
-          <path key={i} d={d} fill="none" stroke="#f59e0b" strokeWidth={1.6} />
-        ))}
         {!img.atInfinity && Math.abs(imgX - cx) < W && (
           <g color="#e1306c">
             <line
@@ -189,13 +299,42 @@ export function ThinLens({
               x2={imgX}
               y2={cy - Math.max(-130, Math.min(130, imgH))}
               stroke="#e1306c"
-              strokeWidth={3}
-              strokeDasharray={img.real ? undefined : "5 4"}
+              strokeWidth={4}
+              strokeDasharray={img.real ? undefined : "6 5"}
               markerEnd="url(#tl-arrow)"
             />
+            <text
+              x={imgX}
+              y={imgH > 0 ? cy + 24 : cy - 12}
+              textAnchor="middle"
+              fontSize={15}
+              fontWeight={600}
+              fill="#e1306c"
+            >
+              {img.real ? "real image" : "virtual image"}
+            </text>
           </g>
         )}
       </svg>
+      <div className="border-t border-border p-2">
+        <LabPlot
+          title={
+            mirror
+              ? "Image distance against object distance"
+              : "u-v graph: image distance v against object distance u"
+          }
+          xLabel="Object distance u (cm)"
+          yLabel="Image distance v (cm)"
+          xRange={[0, 75]}
+          yRange={[-150, 150]}
+          series={uvCurve(f).map((pts, i) => ({
+            points: pts,
+            colour: "var(--primary)",
+            label: i === 0 ? `f = ${f > 0 ? "+" : "−"}${f0} cm` : undefined,
+          }))}
+          at={img.atInfinity ? undefined : { x: u, y: img.v, colour: "#e1306c" }}
+        />
+      </div>
     </WidgetShell>
   );
 }
@@ -229,8 +368,8 @@ export function Oscillation({
     system === "pendulum" ? pendulumPeriod(length / 100, g, amp) : springPeriod(mass, k);
   useFrames(playing, (dt) => setT((x) => x + dt));
   const phase = Math.cos((2 * Math.PI * t) / period);
-  const H = 300;
-  const top = { x: W / 2, y: 24 };
+  const H = 320;
+  const top = { x: W / 2, y: 30 };
   // The student "times 10 swings" like in the lab: the stopwatch counts whole periods.
   const laps = timer ? Math.floor((t - timer.start) / period) : 0;
   return (
@@ -328,29 +467,102 @@ export function Oscillation({
         role="img"
         aria-label={`${system}: period ${fmt(period)} seconds`}
       >
-        <line
-          x1={W / 2 - 80}
-          y1={top.y}
-          x2={W / 2 + 80}
-          y2={top.y}
-          stroke="var(--muted)"
-          strokeWidth={4}
-        />
+        <defs>
+          <radialGradient id="osc-bob" cx="0.35" cy="0.35" r="0.7">
+            <stop offset="0" stopColor="#bae6fd" />
+            <stop offset="0.5" stopColor="#0ea5e9" />
+            <stop offset="1" stopColor="#0369a1" />
+          </radialGradient>
+        </defs>
+        {/* Clamp stand */}
+        <rect x={W / 2 - 200} y={H - 18} width={120} height={12} rx={3} fill="#94a3b8" />
+        <rect x={W / 2 - 150} y={top.y - 10} width={8} height={H - top.y - 8} fill="#94a3b8" />
+        <rect x={W / 2 - 150} y={top.y - 6} width={150} height={10} rx={3} fill="#64748b" />
+        <rect x={top.x - 12} y={top.y - 12} width={24} height={18} rx={3} fill="#475569" />
         {system === "pendulum"
           ? (() => {
               const theta = ((amp * Math.PI) / 180) * phase;
               const r = 40 + (length / 200) * 210;
               const bob = { x: top.x + r * Math.sin(theta), y: top.y + r * Math.cos(theta) };
+              const ampR = (amp * Math.PI) / 180;
+              const edge = (s: number) => ({
+                x: top.x + r * Math.sin(s * ampR),
+                y: top.y + r * Math.cos(s * ampR),
+              });
               return (
                 <>
+                  {/* Where the swing turns round, faint */}
+                  {[-1, 1].map((s) => (
+                    <g key={s} opacity={0.25}>
+                      <line
+                        x1={top.x}
+                        y1={top.y}
+                        x2={edge(s).x}
+                        y2={edge(s).y}
+                        stroke="var(--fg)"
+                      />
+                      <circle cx={edge(s).x} cy={edge(s).y} r={14} fill="var(--fg)" />
+                    </g>
+                  ))}
                   <line
                     x1={top.x}
                     y1={top.y}
                     x2={top.x}
-                    y2={top.y + r + 14}
+                    y2={top.y + r + 22}
                     stroke="var(--border)"
                     strokeDasharray="4 4"
                   />
+                  {/* Swing angle */}
+                  <path
+                    d={`M${top.x} ${top.y + 60} A60 60 0 0 ${theta > 0 ? 0 : 1} ${top.x + 60 * Math.sin(theta)} ${top.y + 60 * Math.cos(theta)}`}
+                    fill="none"
+                    stroke="#e08a00"
+                    strokeWidth={2.5}
+                  />
+                  <text
+                    x={top.x + (theta >= 0 ? 14 : -14)}
+                    y={top.y + 84}
+                    textAnchor={theta >= 0 ? "start" : "end"}
+                    fontSize={16}
+                    fontWeight={700}
+                    fill="#e08a00"
+                  >
+                    θ = {Math.abs((theta * 180) / Math.PI).toFixed(0)}°
+                  </text>
+                  {/* Length, measured to the centre of the bob */}
+                  <line
+                    x1={top.x + 150}
+                    y1={top.y}
+                    x2={top.x + 150}
+                    y2={top.y + r}
+                    stroke="var(--muted)"
+                    strokeWidth={1.5}
+                  />
+                  <line
+                    x1={top.x + 140}
+                    y1={top.y}
+                    x2={top.x + 160}
+                    y2={top.y}
+                    stroke="var(--muted)"
+                    strokeWidth={1.5}
+                  />
+                  <line
+                    x1={top.x + 140}
+                    y1={top.y + r}
+                    x2={top.x + 160}
+                    y2={top.y + r}
+                    stroke="var(--muted)"
+                    strokeWidth={1.5}
+                  />
+                  <text
+                    x={top.x + 166}
+                    y={top.y + r / 2 + 5}
+                    fontSize={16}
+                    fontWeight={600}
+                    fill="var(--muted)"
+                  >
+                    L = {length} cm
+                  </text>
                   <line
                     x1={top.x}
                     y1={top.y}
@@ -359,7 +571,7 @@ export function Oscillation({
                     stroke="var(--fg)"
                     strokeWidth={2}
                   />
-                  <circle cx={bob.x} cy={bob.y} r={14} fill="#0ea5e9" />
+                  <circle cx={bob.x} cy={bob.y} r={15} fill="url(#osc-bob)" />
                 </>
               );
             })()
@@ -377,7 +589,24 @@ export function Oscillation({
               return (
                 <>
                   <path d={pathOf(pts)} fill="none" stroke="var(--fg)" strokeWidth={2} />
-                  <rect x={top.x - 26} y={y - 22} width={52} height={44} rx={6} fill="#0ea5e9" />
+                  <rect
+                    x={top.x - 26}
+                    y={y - 22}
+                    width={52}
+                    height={44}
+                    rx={6}
+                    fill="url(#osc-bob)"
+                  />
+                  <text
+                    x={top.x}
+                    y={y + 6}
+                    textAnchor="middle"
+                    fontSize={15}
+                    fontWeight={700}
+                    fill="#fff"
+                  >
+                    {mass} kg
+                  </text>
                   <line
                     x1={top.x + 60}
                     y1={top.y + rest}
@@ -386,13 +615,50 @@ export function Oscillation({
                     stroke="var(--border)"
                     strokeDasharray="4 4"
                   />
-                  <text x={top.x + 116} y={top.y + rest + 4} fontSize={12} fill="var(--muted)">
+                  <text x={top.x + 116} y={top.y + rest + 5} fontSize={16} fill="var(--muted)">
                     rest
                   </text>
                 </>
               );
             })()}
       </svg>
+      <div className="border-t border-border p-2">
+        {system === "pendulum" ? (
+          <LabPlot
+            title="T² against L (a straight line; slope = 4π²/g)"
+            xLabel="Length L (m)"
+            yLabel="T² (s²)"
+            xRange={[0, 2]}
+            series={[
+              {
+                points: [0.2, 0.6, 1, 1.4, 1.8, 2].map(
+                  (l) => [l, pendulumPeriod(l, g, amp) ** 2] as [number, number],
+                ),
+                colour: "var(--primary)",
+                label: `g = ${g.toFixed(2)} m/s²`,
+              },
+            ]}
+            at={{ x: length / 100, y: period ** 2, colour: "#e1306c" }}
+          />
+        ) : (
+          <LabPlot
+            title="T² against m (a straight line; slope = 4π²/k)"
+            xLabel="Mass m (kg)"
+            yLabel="T² (s²)"
+            xRange={[0, 2]}
+            series={[
+              {
+                points: [0.05, 0.5, 1, 1.5, 2].map(
+                  (m) => [m, springPeriod(m, k) ** 2] as [number, number],
+                ),
+                colour: "var(--primary)",
+                label: `k = ${k} N/m`,
+              },
+            ]}
+            at={{ x: mass, y: period ** 2, colour: "#e1306c" }}
+          />
+        )}
+      </div>
     </WidgetShell>
   );
 }

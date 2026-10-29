@@ -339,6 +339,96 @@ Practical lessons use the same lesson flag system from Phase 5 (wrong fact, wron
 
 ---
 
+## Phase 7C: Lab lessons v2
+
+Before Phase 8, rework the practical lab lessons as described below.
+
+### The problem
+
+Phase 7B gave every lab the same format (aim, apparatus, procedure...). That's wrong for many labs. A Computer Programming lab doesn't need aim and apparatus; it needs the language, the topic and code examples. Also, the interactive diagrams in labs are much weaker than the ones in theory lessons, and circuit-based experiments don't show a proper circuit with every connection.
+
+### Rule: reuse, don't rebuild
+
+Keep everything from Phase 7B that works (course type detection, experiment lists, YouTube caching, Virtual Labs links, lesson flags, simulation templates). Reuse Prism's theory lesson visual system and interactives. Don't regenerate all lab lessons in bulk (see "Rollout" below).
+
+### 1. Lab archetypes
+
+Create a small set of lab lesson formats ("archetypes"), each with its own section list. Put them in one config file so I can edit them later. Starting set:
+
+**A. Circuit / electrical / electronics lab** (Applied Physics circuit experiments, Electrical, ECE, digital electronics)
+Aim, theory with formulas, apparatus/components, circuit diagram (see section 2), step-by-step wiring, procedure, observation table (blank + filled sample), calculations, graph if the experiment has one, result, precautions and sources of error, viva questions, simulation, videos.
+
+**B. Physics / mechanics experiment without circuits** (pendulum, optics, Young's modulus etc.)
+Same as A, but with a labelled apparatus/setup diagram instead of a circuit, and a matching simulation template.
+
+**C. Programming lab** (C, Python, Java, Data Structures, OOP, DBMS/SQL, web, OS shell, etc.)
+No aim/apparatus/observation table. Instead: language and topic, short concept recap, 2 to 4 code examples (simple to harder) each with line-by-line explanation and expected output, a dry-run/trace visual for at least one example (variables changing step by step, memory/pointer diagram where relevant), common errors and how to fix them, 2 to 3 practice problems with hidden solutions, viva questions, videos.
+Where it's free and runs in the browser, add a "Run this code" box: Python via Pyodide, JavaScript natively, SQL via sql.js. For C/C++/Java, show the code and expected output only (no paid code-execution APIs).
+
+**D. Chemistry / chemical engineering wet lab**
+Aim, principle with reaction equations, chemicals and apparatus, safety precautions (highlighted), procedure, observation table, calculations, result, sources of error, viva questions, simulation (e.g. titration, colour change), videos.
+
+**E. Biotech / biology lab**
+Aim, principle, reagents and equipment, protocol steps, biosafety notes, expected observations (with labelled diagrams), result interpretation, viva questions, videos.
+
+**F. Workshop / manufacturing lab** (fitting, carpentry, welding, machining)
+Tools and machines (labelled diagrams), safety, job drawing with dimensions, sequence of operations as an animated step-through, measurement and inspection, viva questions, videos.
+
+**G. Engineering Graphics / drawing / CAD lab**
+Problem statement, construction steps animated one line at a time on the drawing (like watching someone draw it), key rules and conventions, common mistakes, CAD commands if it's a CAD lab, practice problems, videos.
+
+**H. Civil / material testing / surveying lab**
+Aim, relevant IS code (name and number only, don't quote text from it), apparatus, procedure, observation table, calculations, result compared with standard limits, precautions, viva questions, videos.
+
+**I. Hardware / microcontroller / IoT lab**
+Components, wiring/pin diagram (using the circuit renderer from section 2), code with explanation, expected behaviour, troubleshooting, viva questions, videos.
+
+**J. Communication / language / soft-skills lab**
+Activity goal, key concepts, examples, practice activity, self-check questions.
+
+**Fallback:** if no archetype fits, use a generic format and log the lab in `docs/LAB_ARCHETYPE_GAPS.md`.
+
+**Classification:** assign an archetype to every lab course, using the course name, branch and experiment list. Allow a per-experiment override (e.g. a physics lab where one experiment has a circuit and another doesn't). Write `handouts/_parsed/LAB_ARCHETYPES.md` listing every lab course with its archetype and anything uncertain, so I can check it.
+
+### 2. Proper circuit diagrams
+
+For every experiment that uses a circuit:
+
+- **Don't let the AI draw circuit SVGs from scratch.** Have it output the circuit as structured data: a list of components (type, label, value) and a list of connections (from component terminal to component terminal). Then render it with one reusable, well-tested circuit renderer using standard symbols.
+- **Validate before showing:** every component connected, no floating wires, ammeters in series, voltmeters in parallel, polarity marked for DC sources, meters and diodes. If validation fails, retry once, then fall back to a labelled static diagram and log it.
+- **Two views:** a clean circuit diagram, and a "connection view" showing each wire going from where to where, like on a real lab bench.
+- **Step-by-step wiring:** each procedure step highlights the exact connection it makes ("Connect the positive terminal of the battery to terminal A of the rheostat"), building the circuit up wire by wire, with next/back buttons.
+- **Interactive:** students can change values (voltage, resistance, current, frequency) and see meter readings and graphs update live, at least as good as the interactives in theory lessons.
+- Evaluate free, open-source options first (for example embedding Falstad's CircuitJS for live simulation, or a small SVG schematic renderer of our own) and tell me which you picked and why. No paid libraries or APIs. Must work on phones.
+
+### 3. Better simulations for all labs
+
+The interactive diagrams in labs should match the quality of the ones in theory lessons. Upgrade the Phase 7B simulation templates where they're weak, using the same visual style and components as theory lessons: smooth animation, clear labels, sliders for parameters, live readouts and graphs.
+
+### 4. Rollout (save tokens and API calls)
+
+1. Build the archetypes, the circuit renderer and the upgraded templates.
+2. Generate ONE sample lesson for each archetype, including Applied Physics Lab (circuit experiment) and Computer Programming Lab from COMP sem 1, since I can check those myself. Tell me exactly where to see them.
+3. Stop and wait for my feedback.
+4. After I approve, mark all existing lab lessons as `stale` so each one regenerates in its new format only when a student next opens it. Don't regenerate them in bulk.
+
+When done: run the build and full check, update the audit log, then ask me to commit and push.
+
+### Phase 7C fixes (owner feedback, 2026-10-29): do these next
+
+The 10 samples were built, but the owner found two gaps in the Applied Physics lab. Phase 7C is not finished until these are done. Reuse what exists (`src/lib/labs/circuit/*`, `src/components/labs/circuit/*`, `ApparatusDiagram.tsx`, `ProcedureSteps.tsx`, `src/visuals/labs/*`, theory widgets in `src/visuals/wave1`, `wave2`, `widgets`).
+
+1. **Procedure diagrams.** The Procedure section itself must show a diagram for every step, not only a separate wiring section.
+   - Circuit experiments (archetype A, and I where a circuit exists): each procedure step shows the circuit and highlights what that step does (wires added, knob turned, meter read), building up with next/back. Link the `steps` section to the `circuit` section in `archetypes.json` and let a step point at circuit connections or components.
+   - Physics without circuits (archetype B): replace the old tile-and-arrow setup diagram with a proper drawn setup (parts in their real positions, e.g. lamp, lens, screen on an optical bench), highlighting the parts each step uses. Same for other archetypes that use `setup` diagrams.
+2. **Upgrade the lab simulation templates** (section 3 above, missed the first time). The widgets in `src/visuals/labs/` (ThinLens, Oscillation, Titration, HeatExchanger, FlowMeter, Oscilloscope, CoilField) are unchanged since Phase 7B. Bring each up to theory-lesson quality: smooth animation, clear labels, sliders, live readouts and a live graph.
+3. **Check:** regenerate ONLY Applied Physics experiments 6 (solar cell) and 11 (wavelength) (2 AI calls) and tell the owner where to see them on `http://localhost:3000` (the owner runs `npm run dev`). Then stop for feedback again.
+   Status 2026-10-30: steps 1 to 3 done and committed with Phase 7C; step 4 (rollout switch) is next.
+
+4. After the owner approves: rollout switch (`LAB_CONFIG.keepPhase7BLessons` = false), build and full check, audit log, ask to commit `Syllabus fix: Phase 7C, lab lessons v2` and push. Then Phase 8.
+
+---
+
 ## Phase 8: Test everything
 
 1. Recreate the two real bugs and prove they're fixed:

@@ -41,12 +41,25 @@ async function main() {
         });
     }
   }
+  // Circuits that failed their checks twice and are shown as labelled diagrams (Phase 7C).
+  const circuits: string[] = [];
   if (live) {
     const admin = adminFromEnv(process.env);
     if (!admin) throw new Error("--live needs the FIREBASE_ADMIN_* settings in .env.local");
     const snap = await admin.db.collection("labSimulationGaps").get();
     for (const doc of snap.docs) {
-      const d = doc.data() as { course?: string; subject?: string; experiment?: string };
+      const d = doc.data() as {
+        course?: string;
+        subject?: string;
+        experiment?: string;
+        kind?: string;
+      };
+      if (d.kind === "circuit") {
+        circuits.push(
+          `- ${String(d.course ?? d.subject)}: ${String(d.experiment).replace(/\s+/g, " ").slice(0, 160)}`,
+        );
+        continue;
+      }
       if (!rows.some((r) => r.subject === d.subject && r.experiment === d.experiment))
         rows.push({
           course: String(d.course ?? d.subject),
@@ -87,6 +100,14 @@ async function main() {
       topWords.map(([w, n]) => `${w} ${n}`).join(", ") +
       ".",
     "",
+    ...(circuits.length
+      ? [
+          "## Circuits shown as labelled diagrams (failed the circuit checks twice)",
+          "",
+          ...circuits,
+          "",
+        ]
+      : []),
     ...[...byCourse.entries()]
       .sort((a, b) => b[1].length - a[1].length)
       .flatMap(([course, list]) => [

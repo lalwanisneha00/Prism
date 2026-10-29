@@ -19,4 +19,11 @@ export const LAB_CONFIG = {
   },
   /** Templates offered to the AI for one experiment. */
   shortlist: 5,
+  /**
+   * Phase 7B lessons (one format for every lab) still open from the library while true. Phase 7C
+   * rollout: set to false once the owner approves the new formats; every older lesson is then
+   * treated as stale and rewritten in its new format when a student next opens it (no bulk
+   * rewrite).
+   */
+  keepPhase7BLessons: true,
 } as const;
