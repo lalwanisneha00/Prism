@@ -236,12 +236,6 @@
           "status": "retired"
         },
         {
-          "id": "introduction-to-erp",
-          "name": "introduction to ERP",
-          "requires": ["case-studies-on-mrp"],
-          "formerChapters": ["operations-scheduling"]
-        },
-        {
           "id": "operations-strategy-forecasting",
           "name": "operations strategy, Forecasting",
           "source": "admin_handout",
@@ -269,6 +263,19 @@
           "id": "time-series-methods-of-forecasting",
           "name": "time series methods of forecasting",
           "status": "retired"
+        },
+        {
+          "id": "the-basic-eoq-model",
+          "name": "the basic EOQ model",
+          "requires": ["inventory-accuracy-and-cycle"],
+          "movedFrom": {
+            "subject": "pdeu-production-operation-management",
+            "chapter": "operations-scheduling",
+            "at": "2026-10-29T19:51:43.281Z"
+          },
+          "source": "admin_handout",
+          "confidence": "verified",
+          "formerChapters": ["operations-management"]
         }
       ]
     },
@@ -403,12 +410,14 @@
         {
           "id": "waiting-line-models",
           "name": "Waiting line models",
-          "requires": ["distribution-of-arrivals"]
+          "requires": ["distribution-of-arrivals"],
+          "status": "retired"
         },
         {
           "id": "various-types-of-queues-m-m-1-m-d-1",
           "name": "various types of queues M/M/1. M/D/1",
-          "requires": ["waiting-line-models"]
+          "requires": ["waiting-line-models"],
+          "status": "retired"
         },
         {
           "id": "m-g-1",
@@ -443,12 +452,14 @@
         {
           "id": "measures-of-queue-performance",
           "name": "measures of queue performance",
-          "requires": ["probability-of-waiting-in-line"]
+          "requires": ["probability-of-waiting-in-line"],
+          "status": "retired"
         },
         {
           "id": "management-of-waiting-lines",
           "name": "management of waiting lines",
-          "requires": ["measures-of-queue-performance"]
+          "requires": ["measures-of-queue-performance"],
+          "status": "retired"
         },
         {
           "id": "computer-simulation-of-waiting-lines-case-studies-in-waiting",
@@ -483,18 +494,6 @@
           "id": "lot-sizing-in-mrp-systems-lfl-eoq-poq-ltc-luc-etc",
           "name": "lot sizing in MRP systems (LFL, EOQ, POQ, LTC, LUC, etc.)",
           "requires": ["mrp-logic"],
-          "movedFrom": {
-            "subject": "pdeu-production-operation-management",
-            "chapter": "operations-management",
-            "at": "2026-10-25T11:41:25.072Z"
-          },
-          "source": "admin_handout",
-          "confidence": "verified"
-        },
-        {
-          "id": "the-basic-eoq-model",
-          "name": "the basic EOQ model",
-          "requires": ["inventory-accuracy-and-cycle"],
           "movedFrom": {
             "subject": "pdeu-production-operation-management",
             "chapter": "operations-management",
@@ -563,14 +562,24 @@
           "status": "retired"
         },
         {
+          "id": "introduction-to-erp",
+          "name": "introduction to ERP",
+          "requires": ["case-studies-on-mrp"],
+          "formerChapters": ["operations-scheduling"],
+          "movedFrom": {
+            "subject": "pdeu-production-operation-management",
+            "chapter": "operations-management",
+            "at": "2026-10-29T19:51:43.281Z"
+          }
+        },
+        {
           "id": "loading",
           "name": "loading",
           "status": "retired"
         },
         {
           "id": "introduction-to-manufacturing-planning-and-control",
-          "name": "Introduction to manufacturing planning and control",
-          "status": "retired"
+          "name": "Introduction to manufacturing planning and control"
         },
         {
           "id": "brief-about-planning",
@@ -726,52 +735,62 @@
         {
           "id": "the-facility-location-problem",
           "name": "the facility location problem",
-          "requires": ["types-of-layouts"]
+          "requires": ["types-of-layouts"],
+          "status": "retired"
         },
         {
           "id": "factors-influencing-facility-location",
           "name": "factors influencing facility location",
-          "requires": ["the-facility-location-problem"]
+          "requires": ["the-facility-location-problem"],
+          "status": "retired"
         },
         {
           "id": "facility-location-models",
           "name": "facility location models",
-          "requires": ["factors-influencing-facility-location"]
+          "requires": ["factors-influencing-facility-location"],
+          "status": "retired"
         },
         {
           "id": "process-layouts",
           "name": "process layouts",
-          "requires": ["facility-location-models"]
+          "requires": ["facility-location-models"],
+          "status": "retired"
         },
         {
           "id": "layout-methods",
           "name": "layout methods",
-          "requires": ["process-layouts"]
+          "requires": ["process-layouts"],
+          "status": "retired"
         },
         {
           "id": "computerized-algorithms-for-facility-layout",
           "name": "computerized algorithms for facility layout",
-          "requires": ["layout-methods"]
+          "requires": ["layout-methods"],
+          "status": "retired"
         },
         {
           "id": "product-layouts",
           "name": "product layouts",
-          "requires": ["computerized-algorithms-for-facility-layout"]
+          "requires": ["computerized-algorithms-for-facility-layout"],
+          "status": "retired"
         },
         {
           "id": "fixed-position-layouts",
           "name": "fixed position layouts",
-          "requires": ["product-layouts"]
+          "requires": ["product-layouts"],
+          "status": "retired"
         },
         {
           "id": "cellular-layouts",
           "name": "cellular layouts",
-          "requires": ["fixed-position-layouts"]
+          "requires": ["fixed-position-layouts"],
+          "status": "retired"
         },
         {
           "id": "layout-of-service-facilities",
           "name": "layout of service facilities",
-          "requires": ["cellular-layouts"]
+          "requires": ["cellular-layouts"],
+          "status": "retired"
         },
         {
           "id": "case-studies-in-facility-planning-quality-management",

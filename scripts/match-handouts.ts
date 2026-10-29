@@ -40,16 +40,30 @@ function loadParsed(): ParsedSemester[] {
     .sort((a, b) => a.folder.localeCompare(b.folder) || a.sem - b.sem);
 }
 
-function loadPrism(): PrismCourse[] {
+type Retirable = { status?: string };
+
+/**
+ * `activeOnly` (Phase 8 re-check) also leaves out retired chapters and topics, which did not
+ * exist when Phase 2 ran; without it a re-run would move topics into hidden chapters.
+ */
+function loadPrism(activeOnly = false): PrismCourse[] {
   return readdirSync(SUBJECTS)
     .filter((f) => /^pdeu-.*\.json$/.test(f) && !f.endsWith("-sources.json"))
-    .map(
-      (f) =>
-        JSON.parse(readFileSync(path.join(SUBJECTS, f), "utf8")) as PrismCourse & {
-          status?: string;
-        },
-    )
-    .filter((s) => s.status !== "retired");
+    .map((f) => JSON.parse(readFileSync(path.join(SUBJECTS, f), "utf8")) as PrismCourse & Retirable)
+    .filter((s) => s.status !== "retired")
+    .map((s) =>
+      activeOnly
+        ? {
+            ...s,
+            chapters: s.chapters
+              .filter((c) => (c as Retirable).status !== "retired")
+              .map((c) => ({
+                ...c,
+                topics: c.topics.filter((t) => (t as Retirable).status !== "retired"),
+              })),
+          }
+        : s,
+    );
 }
 
 const TYPE_ORDER: ChangeType[] = [
@@ -151,9 +165,9 @@ function report(sems: ParsedSemester[], changes: Change[], review: ReviewItem[])
 }
 
 /** The whole dry run, from the parsed handouts and today's subject files. */
-export function buildPlan() {
+export function buildPlan({ activeOnly = false }: { activeOnly?: boolean } = {}) {
   const sems = loadParsed();
-  const prism = loadPrism();
+  const prism = loadPrism(activeOnly);
   const handouts: HandoutCourse[] = sems.flatMap((s) =>
     s.courses
       .filter((c) => !c.nonTeaching && c.courseType !== null)

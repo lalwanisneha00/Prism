@@ -449,6 +449,8 @@ Also test the lesson flag flow: 4 test accounts flag one lesson, it regenerates 
 
 Final summary: what's done, what's left, and any config numbers I should tune once real students start using it.
 
+Status 2026-10-30: Phase 8 done, waiting for the owner's review (details in the audit Progress Log). The Mechanical bug needed one more fix (migration 011, handout re-check).
+
 ---
 
 ## Out of scope for this task: accuracy evals
