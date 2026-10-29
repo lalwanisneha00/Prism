@@ -21,9 +21,8 @@ export const LAB_CONFIG = {
   shortlist: 5,
   /**
    * Phase 7B lessons (one format for every lab) still open from the library while true. Phase 7C
-   * rollout: set to false once the owner approves the new formats; every older lesson is then
-   * treated as stale and rewritten in its new format when a student next opens it (no bulk
-   * rewrite).
+   * rollout (owner approved 2026-10-30): false, so every older lesson is treated as stale and
+   * rewritten in its new format when a student next opens it (no bulk rewrite).
    */
-  keepPhase7BLessons: true,
+  keepPhase7BLessons: false,
 } as const;

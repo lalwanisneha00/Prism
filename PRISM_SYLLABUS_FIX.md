@@ -423,7 +423,7 @@ The 10 samples were built, but the owner found two gaps in the Applied Physics l
    - Physics without circuits (archetype B): replace the old tile-and-arrow setup diagram with a proper drawn setup (parts in their real positions, e.g. lamp, lens, screen on an optical bench), highlighting the parts each step uses. Same for other archetypes that use `setup` diagrams.
 2. **Upgrade the lab simulation templates** (section 3 above, missed the first time). The widgets in `src/visuals/labs/` (ThinLens, Oscillation, Titration, HeatExchanger, FlowMeter, Oscilloscope, CoilField) are unchanged since Phase 7B. Bring each up to theory-lesson quality: smooth animation, clear labels, sliders, live readouts and a live graph.
 3. **Check:** regenerate ONLY Applied Physics experiments 6 (solar cell) and 11 (wavelength) (2 AI calls) and tell the owner where to see them on `http://localhost:3000` (the owner runs `npm run dev`). Then stop for feedback again.
-   Status 2026-10-30: steps 1 to 3 done and committed with Phase 7C; step 4 (rollout switch) is next.
+   Status 2026-10-30: steps 1 to 4 done (rollout switch off after the owner's OK). Phase 8 is next.
 
 4. After the owner approves: rollout switch (`LAB_CONFIG.keepPhase7BLessons` = false), build and full check, audit log, ask to commit `Syllabus fix: Phase 7C, lab lessons v2` and push. Then Phase 8.
 
