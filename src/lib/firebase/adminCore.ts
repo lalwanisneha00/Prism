@@ -26,6 +26,20 @@ export function adminFromEnv(env: NodeJS.ProcessEnv): AdminServices | null {
       { credential: cert({ projectId, clientEmail, privateKey }), projectId },
       "prism-admin",
     );
-  cached = { app, db: getFirestore(app), auth: getAuth(app) };
+  cached = { app, db: firestoreOf(app), auth: getAuth(app) };
   return cached;
+}
+
+/**
+ * Firestore that leaves out empty (undefined) fields instead of refusing the whole write, as the
+ * browser's does: an optional field left empty once stopped every syllabus fix from going live.
+ */
+function firestoreOf(app: App): Firestore {
+  const db = getFirestore(app);
+  try {
+    db.settings({ ignoreUndefinedProperties: true });
+  } catch {
+    // Already set up in this process (dev reloads): it has the setting from the first time.
+  }
+  return db;
 }

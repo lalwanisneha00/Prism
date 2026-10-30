@@ -177,7 +177,7 @@ export function goLive(
         target: targetOf(change),
         field: change.type,
         oldValue: null,
-        newValue: { proposalId: proposal.id, change, newIds },
+        newValue: { proposalId: proposal.id, change, ...(newIds ? { newIds } : {}) },
       }),
     ],
   };

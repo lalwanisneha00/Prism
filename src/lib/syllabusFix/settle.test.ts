@@ -134,3 +134,34 @@ describe("auto-apply", () => {
     expect(store.live.overlay.changes).toHaveLength(0);
   });
 });
+
+/** Paths of fields left undefined (Firestore refuses to save those). */
+function undefinedPaths(v: unknown, path = "", out: string[] = []): string[] {
+  if (v === undefined) out.push(path);
+  else if (Array.isArray(v)) v.forEach((x, i) => undefinedPaths(x, `${path}[${i}]`, out));
+  else if (v && typeof v === "object")
+    for (const [k, x] of Object.entries(v)) undefinedPaths(x, `${path}.${k}`, out);
+  return out;
+}
+
+describe("what going live writes", () => {
+  // A "not in my syllabus" topic fix once never went live: its history entry had an empty field.
+  it("has no empty (undefined) fields, so Firestore can save it", async () => {
+    const store = memoryProposalStore();
+    const retire: Change = {
+      type: "extra item not in any handout",
+      branch: "ce",
+      sem: 1,
+      detail: 'Retire topic "Waveguides"',
+      prism: { subject: "pdeu-physics-ict", chapter: "electromagnetic-waves", topic: "waveguides" },
+      retire: true,
+    };
+    const ce = (uid: string) => flagger(uid, { branch: "ce", semester: 1 });
+    await store.submitFlag(ce("a"), retire, 1);
+    await store.submitFlag(ce("b"), retire, 1);
+    const { proposalId } = await store.submitFlag(ce("c"), retire, 1);
+    expect((await store.settle(proposalId, at))?.verdict.action).toBe("apply");
+    expect(undefinedPaths(store.live.history)).toEqual([]);
+    expect(undefinedPaths(store.live.overlay)).toEqual([]);
+  });
+});
