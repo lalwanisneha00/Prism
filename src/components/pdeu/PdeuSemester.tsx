@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { SubjectFlag } from "@/components/flags/SubjectFlag";
 import subjectMap from "@/data/pdeu/subject-map.json";
 import { useEffect, useId, useState } from "react";
 import { FixWentLive } from "@/components/flags/FixWentLive";
@@ -80,6 +81,7 @@ function CourseCard({
             {course.name}
           </Link>
         )}
+        {subjectId && options.length === 0 && <SubjectFlag subjectId={subjectId} />}
       </div>
       <CourseTags
         category={course.core ? "core" : "non-core"}
@@ -165,9 +167,12 @@ export function LabCard({ lab }: { lab: IndexedSubject }) {
   const theory = relatedOf(lab).filter((r) => r.courseType !== "practical");
   return (
     <li className={card} data-testid="pdeu-lab">
-      <Link href={`/subjects/${lab.id}`} className="font-semibold hover:underline">
-        {lab.name}
-      </Link>
+      <div className="flex items-start justify-between gap-3">
+        <Link href={`/subjects/${lab.id}`} className="font-semibold hover:underline">
+          {lab.name}
+        </Link>
+        <SubjectFlag subjectId={lab.id} />
+      </div>
       <CourseTags category={lab.courseCategory ?? "core"} type="practical" />
       <p className="text-sm text-muted">
         {experiments > 0

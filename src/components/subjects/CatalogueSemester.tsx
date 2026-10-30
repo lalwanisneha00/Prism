@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { FixWentLive } from "@/components/flags/FixWentLive";
+import { SubjectFlag } from "@/components/flags/SubjectFlag";
 import { MissingSubjectEntry } from "@/components/flags/MissingSubjectEntry";
 import { LabCard } from "@/components/pdeu/PdeuSemester";
 import { CourseTags, RelatedCourseLine } from "@/components/subjects/CourseTags";
@@ -24,9 +25,12 @@ function CourseCard({ course, labs }: { course: IndexedSubject; labs: IndexedSub
   const { chapters, topics } = countsOf(course);
   return (
     <li className={card} data-testid="pdeu-course">
-      <Link href={`/subjects/${course.id}`} className="font-semibold hover:underline">
-        {course.name}
-      </Link>
+      <div className="flex items-start justify-between gap-3">
+        <Link href={`/subjects/${course.id}`} className="font-semibold hover:underline">
+          {course.name}
+        </Link>
+        <SubjectFlag subjectId={course.id} />
+      </div>
       <CourseTags category={course.courseCategory ?? "core"} type={course.courseType} />
       <p className="text-sm text-muted">
         {chapters > 0

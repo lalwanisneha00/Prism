@@ -120,3 +120,35 @@ test("a topic can be flagged right from the lesson picker", async ({ page }) => 
   await expect(dialog.getByText("Which semester is it in?")).toBeVisible();
   await expectNoSidewaysScroll(page);
 });
+
+test("a subject can be flagged from Start a lesson and from the semester's subjects", async ({
+  page,
+}) => {
+  const options = async () => {
+    const dialog = page.getByRole("dialog");
+    await expect(
+      dialog.getByLabel("This subject is in a different semester of my branch"),
+    ).toBeVisible();
+    await expect(dialog.getByLabel("This subject is not in my branch")).toBeVisible();
+    await dialog.getByRole("button", { name: "Close" }).click();
+  };
+  await pickChapter(page);
+  await page.getByTestId("subject-chips").getByTestId("flag-button").click();
+  await options();
+  await page.getByTestId("all-subjects-list").locator("summary").click();
+  await page.getByTestId("all-subjects-list").getByTestId("flag-button").first().click();
+  await options();
+
+  await page.goto("/subjects");
+  const bar = page.getByTestId("branch-bar");
+  await expect(async () => {
+    await bar.getByLabel("My branch").selectOption("ce");
+    await bar.getByLabel("Semester").selectOption("1");
+    await expect(bar.getByLabel("Semester")).toHaveValue("1", { timeout: 1500 });
+    await page.waitForTimeout(300);
+    await expect(bar.getByLabel("My branch")).toHaveValue("ce", { timeout: 1500 });
+  }).toPass({ timeout: 20_000 });
+  await page.getByTestId("pdeu-core").getByTestId("flag-button").first().click();
+  await options();
+  await expectNoSidewaysScroll(page);
+});

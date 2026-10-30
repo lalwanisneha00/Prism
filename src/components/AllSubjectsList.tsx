@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { SubjectFlag } from "@/components/flags/SubjectFlag";
 import { useId, useMemo, useRef, useState } from "react";
 import { Icon } from "@/components/Icon";
 import { SearchKindFilter } from "@/components/subjects/SearchKindFilter";
@@ -101,13 +102,13 @@ export function AllSubjectsList({
         {labs.length > 0 && <SearchKindFilter value={kind} onChange={setKind} />}
         <ul className="grid max-h-72 gap-1 overflow-y-auto sm:grid-cols-2">
           {shown.map((s) => (
-            <li key={s.id}>
+            <li key={s.id} className="flex items-start gap-1">
               {s.lab ? (
                 <Link
                   href={`/subjects/${s.id}`}
                   onClick={close}
                   data-testid="all-subjects-lab"
-                  className="block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-surface-2"
+                  className="block min-w-0 flex-1 rounded-lg px-3 py-2 text-left text-sm hover:bg-surface-2"
                 >
                   {s.name}
                   <span className="flex items-center gap-1 text-xs font-normal text-muted">
@@ -124,12 +125,13 @@ export function AllSubjectsList({
                     // Back to the collapsed list once a subject is chosen.
                     close();
                   }}
-                  className={`block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-surface-2 ${s.id === currentId ? "font-semibold text-primary" : ""}`}
+                  className={`block min-w-0 flex-1 rounded-lg px-3 py-2 text-left text-sm hover:bg-surface-2 ${s.id === currentId ? "font-semibold text-primary" : ""}`}
                 >
                   {s.name}
                   <span className="block text-xs font-normal text-muted">{s.field}</span>
                 </button>
               )}
+              <SubjectFlag subjectId={s.id} />
             </li>
           ))}
         </ul>

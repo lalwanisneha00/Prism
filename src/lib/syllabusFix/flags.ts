@@ -59,8 +59,11 @@ export type FlagLevel = "course" | "chapter" | "topic";
 /** The menu for each level, in the order it is shown. Labels are the student's words. */
 export const FLAG_MENU: Record<FlagLevel, { type: SyllabusFlagType; label: string }[]> = {
   course: [
-    { type: "course-wrong-semester", label: "Not in my semester" },
-    { type: "course-not-in-branch", label: "Not in my branch at all" },
+    {
+      type: "course-wrong-semester",
+      label: "This subject is in a different semester of my branch",
+    },
+    { type: "course-not-in-branch", label: "This subject is not in my branch" },
     { type: "course-duplicate", label: "Shown twice / duplicate" },
   ],
   chapter: [

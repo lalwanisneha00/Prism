@@ -9,6 +9,7 @@ import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
 import { DurationChooser } from "@/components/DurationChooser";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
 import { FieldError, FieldGroup } from "@/components/form/FieldGroup";
+import { SubjectFlag } from "@/components/flags/SubjectFlag";
 import { TopicFlag } from "@/components/flags/TopicFlag";
 import { SlidesPanel } from "@/components/slides/SlidesPanel";
 import { ScopeNotice } from "@/components/university/ScopeNotice";
@@ -485,6 +486,7 @@ function PickerForm({
               <span className="font-normal text-muted"> · {s.field}</span>
             </label>
           ))}
+          <SubjectFlag subjectId={subject.id} />
           <Link
             href="/my-subjects"
             className="rounded-full border border-dashed border-border px-4 py-2 text-sm font-semibold hover:bg-surface-2"
