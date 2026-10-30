@@ -111,13 +111,10 @@ test("a topic can be flagged right from the lesson picker", async ({ page }) => 
   await expect(
     page.getByRole("dialog", { name: "Report: Faraday’s law of electromagnetic induction" }),
   ).toBeVisible();
+  // Topic reports are about topics only; subject reports sit on the subject's own flag.
   const dialog = page.getByRole("dialog");
-  await expect(
-    dialog.getByLabel("This subject is in a different semester of my branch"),
-  ).toBeVisible();
-  await expect(dialog.getByLabel("This subject is not in my branch")).toBeVisible();
-  await dialog.getByLabel("This subject is in a different semester of my branch").check();
-  await expect(dialog.getByText("Which semester is it in?")).toBeVisible();
+  await expect(dialog.getByLabel("Not in my syllabus")).toBeVisible();
+  await expect(dialog.getByLabel("This subject is not in my branch")).toHaveCount(0);
   await expectNoSidewaysScroll(page);
 });
 

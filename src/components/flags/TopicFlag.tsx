@@ -21,7 +21,7 @@ export function TopicFlag({
       {(close) => (
         <SyllabusFlagForm
           subject={{ id: owner.id, name: owner.name, codes: courseCodes(owner) }}
-          levels={["topic", "course"]}
+          levels={["topic"]}
           chapters={activeChapters(owner)}
           chapter={chapterId}
           topic={topic.id}

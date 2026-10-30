@@ -64,7 +64,9 @@ export async function POST(req: Request) {
       at,
     });
     if (vote.status === null) return fail("not-found", "That suggestion is no longer open.", 404);
-    const settled = vote.counted && kind === "agree" ? await store.settle(proposalId, at) : null;
+    // A repeat Agree re-checks the rule too, so a proposal that should be live never stays stuck.
+    const settled =
+      kind === "agree" && vote.status === "pending" ? await store.settle(proposalId, at) : null;
     const live = settled?.verdict.action === "apply";
     if (live) forgetOverlay();
     return reply({ ok: true, counted: vote.counted, status: settled?.status ?? vote.status, live });

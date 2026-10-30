@@ -83,13 +83,16 @@ export async function POST(req: Request) {
       SYLLABUS_FIX_CONFIG.points.flag,
     );
     // Phase 5: this flag may be the one that makes the change go live.
-    const live = saved.counted
-      ? (await settleTouched(
-          store,
-          [{ id: saved.proposalId, points: Infinity, status: "pending" }],
-          at,
-        )) > 0
-      : false;
+    // Even a repeat report re-checks the rule: a proposal with enough support whose earlier
+    // go-live failed (or was missed) goes live now instead of staying stuck.
+    const live =
+      saved.status === "pending"
+        ? (await settleTouched(
+            store,
+            [{ id: saved.proposalId, points: Infinity, status: "pending" }],
+            at,
+          )) > 0
+        : false;
     return reply({
       ok: true,
       counted: saved.counted,

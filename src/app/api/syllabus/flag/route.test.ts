@@ -267,3 +267,32 @@ describe("Phase 5: lesson flag threshold through the route", () => {
     expect(fourth.body).toMatchObject({ ok: true, state: "needs_regeneration" });
   });
 });
+
+describe("a proposal whose go-live was missed", () => {
+  // Once, going live failed after the votes were saved: the proposal kept enough support but
+  // stayed pending, and nobody was left to vote. A repeat report must put it live.
+  it("goes live when a student who already backed it reports it again", async () => {
+    const flag = { ...notInSyllabus, topic: "ai-problems" };
+    expect((await call(flagRoute, { flag, profile: {} }, "u1")).body).toMatchObject({ ok: true });
+    expect((await call(flagRoute, { flag, profile: {} }, "u2")).body).toMatchObject({ ok: true });
+    const id = [...store.proposals.values()].find(
+      (p) => (p.change as { prism?: { topic?: string } }).prism?.topic === "ai-problems",
+    )!.id;
+    // The third supporter's vote saved without the go-live step (as when it failed).
+    await store.castVote({
+      proposalId: id,
+      uid: "u3",
+      kind: "agree",
+      points: 1,
+      branch: "ict",
+      semester: 3,
+      profileFrom: "cloud",
+      at: new Date().toISOString(),
+    });
+    expect(store.proposals.get(id)?.status).toBe("pending");
+
+    const again = await call(flagRoute, { flag, profile: {} }, "u1");
+    expect(again.body).toMatchObject({ ok: true, counted: false, live: true, status: "applied" });
+    expect(store.proposals.get(id)?.status).toBe("applied");
+  });
+});
