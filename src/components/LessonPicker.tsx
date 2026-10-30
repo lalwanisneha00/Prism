@@ -9,6 +9,7 @@ import { ChapterTimeOptions } from "@/components/chapter/ChapterTimeOptions";
 import { DurationChooser } from "@/components/DurationChooser";
 import { ChoiceCard } from "@/components/form/ChoiceCard";
 import { FieldError, FieldGroup } from "@/components/form/FieldGroup";
+import { TopicFlag } from "@/components/flags/TopicFlag";
 import { SlidesPanel } from "@/components/slides/SlidesPanel";
 import { ScopeNotice } from "@/components/university/ScopeNotice";
 import { useScopedSubjects } from "@/components/university/useUniversityScope";
@@ -37,7 +38,7 @@ import {
   type LessonRequestErrors,
   type LessonRequestField,
 } from "@/lib/lessonRequest";
-import { chaptersOf, labSubjects, subjectsFor, type Subject } from "@/lib/subjects";
+import { chaptersOf, findSubject, labSubjects, subjectsFor, type Subject } from "@/lib/subjects";
 
 const fieldOrder: LessonRequestField[] = ["chapter", "topic", "level", "duration"];
 
@@ -332,6 +333,8 @@ function PickerForm({
   // What the student's uploaded syllabus says about a topic (a note, or nothing).
   const coverage = coverageFor(subject.id, syllabus);
   const syllabusNote = (topic: string) => coverage?.noteOf(`${owner.id}/${topic}`) ?? null;
+  // PDEU topics can be flagged right here, as on the course page (the course as Prism has it).
+  const flagOwner = owner.university === "pdeu" ? (findSubject(owner.id) ?? owner) : null;
   const chosenTopics =
     chapter && scope !== "topic"
       ? scope === "chapter"
@@ -598,18 +601,22 @@ function PickerForm({
             {scope === "topic" && (
               <div className="grid gap-2 sm:grid-cols-2">
                 {chapter.topics.map((t) => (
-                  <ChoiceCard
-                    key={t.id}
-                    name="topic"
-                    value={t.id}
-                    checked={topicId === t.id}
-                    onSelect={(v) => {
-                      setTopicId(v);
-                      clearErrors("topic");
-                    }}
-                    title={t.name}
-                    description={syllabusNote(t.id) ?? undefined}
-                  />
+                  <div key={t.id} className="flex items-start gap-1">
+                    <div className="min-w-0 flex-1">
+                      <ChoiceCard
+                        name="topic"
+                        value={t.id}
+                        checked={topicId === t.id}
+                        onSelect={(v) => {
+                          setTopicId(v);
+                          clearErrors("topic");
+                        }}
+                        title={t.name}
+                        description={syllabusNote(t.id) ?? undefined}
+                      />
+                    </div>
+                    {flagOwner && <TopicFlag owner={flagOwner} chapterId={chapter.id} topic={t} />}
+                  </div>
                 ))}
               </div>
             )}
@@ -634,29 +641,31 @@ function PickerForm({
                 </label>
                 <div className="grid gap-2 sm:grid-cols-2">
                   {chapter.topics.map((t) => (
-                    <label
-                      key={t.id}
-                      className="flex cursor-pointer items-start gap-3 rounded-xl border border-border p-3 has-checked:border-primary has-checked:bg-primary-soft"
-                    >
-                      <input
-                        type="checkbox"
-                        name="topic"
-                        className="mt-1"
-                        checked={picked.includes(t.id)}
-                        onChange={(e) => {
-                          setPicked((list) =>
-                            e.target.checked ? [...list, t.id] : list.filter((x) => x !== t.id),
-                          );
-                          clearErrors("topic");
-                        }}
-                      />
-                      <span className="flex flex-col">
-                        <span className="font-semibold">{t.name}</span>
-                        {syllabusNote(t.id) && (
-                          <span className="text-sm text-muted">{syllabusNote(t.id)}</span>
-                        )}
-                      </span>
-                    </label>
+                    <div key={t.id} className="flex items-start gap-1">
+                      <label className="flex min-w-0 flex-1 cursor-pointer items-start gap-3 rounded-xl border border-border p-3 has-checked:border-primary has-checked:bg-primary-soft">
+                        <input
+                          type="checkbox"
+                          name="topic"
+                          className="mt-1"
+                          checked={picked.includes(t.id)}
+                          onChange={(e) => {
+                            setPicked((list) =>
+                              e.target.checked ? [...list, t.id] : list.filter((x) => x !== t.id),
+                            );
+                            clearErrors("topic");
+                          }}
+                        />
+                        <span className="flex flex-col">
+                          <span className="font-semibold">{t.name}</span>
+                          {syllabusNote(t.id) && (
+                            <span className="text-sm text-muted">{syllabusNote(t.id)}</span>
+                          )}
+                        </span>
+                      </label>
+                      {flagOwner && (
+                        <TopicFlag owner={flagOwner} chapterId={chapter.id} topic={t} />
+                      )}
+                    </div>
                   ))}
                 </div>
               </div>

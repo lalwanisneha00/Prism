@@ -100,3 +100,16 @@ test("a broken chapter link explains itself", async ({ page }) => {
   );
   await expect(page.getByRole("heading", { name: /can't be planned/ })).toBeVisible();
 });
+
+test("a topic can be flagged right from the lesson picker", async ({ page }) => {
+  await pickChapter(page);
+  await page
+    .getByRole("button", {
+      name: "Report a problem with Faraday’s law of electromagnetic induction",
+    })
+    .click();
+  await expect(
+    page.getByRole("dialog", { name: "Report: Faraday’s law of electromagnetic induction" }),
+  ).toBeVisible();
+  await expectNoSidewaysScroll(page);
+});
