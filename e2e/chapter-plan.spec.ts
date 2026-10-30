@@ -111,5 +111,12 @@ test("a topic can be flagged right from the lesson picker", async ({ page }) => 
   await expect(
     page.getByRole("dialog", { name: "Report: Faraday’s law of electromagnetic induction" }),
   ).toBeVisible();
+  const dialog = page.getByRole("dialog");
+  await expect(
+    dialog.getByLabel("This subject is in a different semester of my branch"),
+  ).toBeVisible();
+  await expect(dialog.getByLabel("This subject is not in my branch")).toBeVisible();
+  await dialog.getByLabel("This subject is in a different semester of my branch").check();
+  await expect(dialog.getByText("Which semester is it in?")).toBeVisible();
   await expectNoSidewaysScroll(page);
 });

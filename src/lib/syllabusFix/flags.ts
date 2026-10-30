@@ -110,12 +110,14 @@ export function flagToChange(
   const chapterOf = (chapterId: string) => course.chapters.find((c) => c.id === chapterId);
   switch (flag.type) {
     case "course-wrong-semester":
-      // The same change a handout makes when it puts the course in another semester.
+      if (flag.semester === place.sem) return bad("Pick a different semester from your own.");
+      // Filed under the student's own semester: its students see the course in the wrong place,
+      // so their flags and Agrees count; going live moves it to `to.semester` for this branch.
       return {
         ok: true,
         change: {
           branch: place.branch,
-          sem: flag.semester,
+          sem: place.sem,
           type: "course in wrong semester",
           detail: `Move ${course.id} for ${place.branch} to sem ${flag.semester} (student flag)`,
           handout: ref,

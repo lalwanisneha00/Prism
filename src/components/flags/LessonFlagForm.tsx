@@ -71,7 +71,7 @@ export function LessonFlagForm({ lesson, onClose }: { lesson: LessonRef; onClose
     return (
       <SyllabusFlagForm
         subject={lesson.subject}
-        levels={["topic"]}
+        levels={["topic", "course"]}
         chapters={lesson.chapters}
         chapter={lesson.chapter.id}
         topic={lesson.topic}

@@ -59,9 +59,16 @@ describe("flagToChange", () => {
   it("turns each flag into the matching change", () => {
     expect(change({ type: "course-wrong-semester", subject: "c1", semester: 4 })).toMatchObject({
       type: "course in wrong semester",
-      sem: 4,
+      sem: 3, // the reporter's own semester, where its students vote
       to: { branch: "ece", semester: 4 },
     });
+    expect(
+      flagToChange(
+        SyllabusFlagSchema.parse({ type: "course-wrong-semester", subject: "c1", semester: 3 }),
+        course,
+        place,
+      ),
+    ).toMatchObject({ ok: false });
     expect(change({ type: "course-not-in-branch", subject: "c1" })).toMatchObject({
       type: "course in wrong branch",
       retire: true,

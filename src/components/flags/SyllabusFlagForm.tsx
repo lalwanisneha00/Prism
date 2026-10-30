@@ -25,6 +25,12 @@ const LEVEL_TITLE: Record<FlagLevel, string> = {
   topic: "About a topic",
 };
 
+/** In a chapter or topic report: the two subject-wide choices, in the student's words. */
+const SUBJECT_MENU: { type: SyllabusFlagType; label: string }[] = [
+  { type: "course-wrong-semester", label: "This subject is in a different semester of my branch" },
+  { type: "course-not-in-branch", label: "This subject is not in my branch" },
+];
+
 /**
  * The flag menu for a course, chapter or topic (syllabus fix, Phase 4): pick what is wrong, answer
  * the one extra question some choices ask, add a note if you like, send. Needs sign-in (one vote
@@ -82,6 +88,8 @@ export function SyllabusFlagForm({
       case "course-wrong-semester":
         if (semester === "none") return { ...base, type: "course-not-in-branch" };
         if (!semester) return "Pick the semester it is in.";
+        if (Number(semester) === profile?.semester)
+          return "Pick a different semester from your own.";
         return { ...base, type, semester: Number(semester) };
       case "course-not-in-branch":
         return { ...base, type };
@@ -159,22 +167,26 @@ export function SyllabusFlagForm({
     >
       {levels.map((level) => (
         <fieldset key={level} className="flex flex-col gap-1.5">
-          <legend className="mb-1 font-semibold">{LEVEL_TITLE[level]}</legend>
-          {FLAG_MENU[level].map((item) => (
-            <label key={item.type} className="flex items-center gap-2">
-              <input
-                type="radio"
-                name={`${id}-type`}
-                value={item.type}
-                checked={type === item.type}
-                onChange={() => {
-                  setType(item.type);
-                  setError(null);
-                }}
-              />
-              {item.label}
-            </label>
-          ))}
+          <legend className="mb-1 font-semibold">
+            {level === "course" && levels.length > 1 ? "About this subject" : LEVEL_TITLE[level]}
+          </legend>
+          {(level === "course" && levels.length > 1 ? SUBJECT_MENU : FLAG_MENU[level]).map(
+            (item) => (
+              <label key={item.type} className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name={`${id}-type`}
+                  value={item.type}
+                  checked={type === item.type}
+                  onChange={() => {
+                    setType(item.type);
+                    setError(null);
+                  }}
+                />
+                {item.label}
+              </label>
+            ),
+          )}
         </fieldset>
       ))}
 
@@ -193,11 +205,13 @@ export function SyllabusFlagForm({
             onChange={(e) => setSemester(e.target.value)}
           >
             <option value="">Choose…</option>
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-              <option key={n} value={n}>
-                Semester {n}
-              </option>
-            ))}
+            {[1, 2, 3, 4, 5, 6, 7, 8]
+              .filter((n) => n !== profile?.semester)
+              .map((n) => (
+                <option key={n} value={n}>
+                  Semester {n}
+                </option>
+              ))}
             <option value="none">Not in my branch at all</option>
           </select>
         </label>
