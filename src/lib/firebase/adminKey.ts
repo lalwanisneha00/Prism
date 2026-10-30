@@ -13,6 +13,12 @@ export function normalizePrivateKey(raw: string | undefined): string | undefined
   )
     key = key.slice(1, -1).trim();
   key = key.replace(/\\r/g, "").replace(/\\n/g, "\n").replace(/\r/g, "").trim();
+  // Line breaks turned into spaces (a one-line box): rebuild the key's 64-character lines.
+  const pem = /^-----BEGIN PRIVATE KEY-----([\s\S]*?)-----END PRIVATE KEY-----$/.exec(key);
+  if (pem) {
+    const body = pem[1].replace(/\s+/g, "");
+    key = `-----BEGIN PRIVATE KEY-----\n${body.match(/.{1,64}/g)?.join("\n") ?? ""}\n-----END PRIVATE KEY-----`;
+  }
   return key || undefined;
 }
 
