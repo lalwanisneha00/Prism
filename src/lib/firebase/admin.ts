@@ -9,9 +9,16 @@ import type { AdminServices } from "@/lib/firebase/adminCore";
 export async function getAdmin(): Promise<AdminServices | null> {
   try {
     const { adminFromEnv } = await import("@/lib/firebase/adminCore");
+    lastError = null;
     return adminFromEnv(process.env);
   } catch (err) {
-    console.error("[firebase-admin] could not be loaded:", String(err));
+    lastError = String(err);
+    console.error("[firebase-admin] could not be loaded:", lastError);
     return null;
   }
 }
+
+let lastError: string | null = null;
+
+/** Why the last getAdmin() failed (for the status page), or null. */
+export const adminLoadError = () => lastError;

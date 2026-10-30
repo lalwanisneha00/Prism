@@ -1,6 +1,7 @@
 import { cert, getApps, initializeApp, type App } from "firebase-admin/app";
 import { getAuth, type Auth } from "firebase-admin/auth";
 import { getFirestore, type Firestore } from "firebase-admin/firestore";
+import { normalizePrivateKey } from "@/lib/firebase/adminKey";
 
 /*
  * Firebase Admin SDK: full access to the project, so it only ever runs on the server
@@ -13,10 +14,10 @@ let cached: AdminServices | null = null;
 
 export function adminFromEnv(env: NodeJS.ProcessEnv): AdminServices | null {
   if (cached) return cached;
-  const projectId = env.FIREBASE_ADMIN_PROJECT_ID;
-  const clientEmail = env.FIREBASE_ADMIN_CLIENT_EMAIL;
-  // Env files store the key's line breaks as "\n"; turn them back into real newlines.
-  const privateKey = env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, "\n");
+  const projectId = env.FIREBASE_ADMIN_PROJECT_ID?.trim();
+  const clientEmail = env.FIREBASE_ADMIN_CLIENT_EMAIL?.trim();
+  // Env files store the key's line breaks as "\n" (and dashboards may keep its quotes).
+  const privateKey = normalizePrivateKey(env.FIREBASE_ADMIN_PRIVATE_KEY);
   if (!projectId || !clientEmail || !privateKey) return null;
 
   const app =
