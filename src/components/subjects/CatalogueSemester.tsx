@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { ConfirmPrompt } from "@/components/flags/ConfirmPrompt";
 import { FixWentLive } from "@/components/flags/FixWentLive";
 import { MissingSubjectEntry } from "@/components/flags/MissingSubjectEntry";
 import { LabCard } from "@/components/pdeu/PdeuSemester";
@@ -153,7 +152,6 @@ export function CatalogueSemester({
         testId="pdeu-noncore"
       />
       <FixWentLive />
-      <ConfirmPrompt branch={branchId} semester={semester} />
       <MissingSubjectEntry semester={semester} />
     </div>
   );

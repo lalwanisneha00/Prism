@@ -3,7 +3,6 @@
 import Link from "next/link";
 import subjectMap from "@/data/pdeu/subject-map.json";
 import { useEffect, useId, useState } from "react";
-import { ConfirmPrompt } from "@/components/flags/ConfirmPrompt";
 import { FixWentLive } from "@/components/flags/FixWentLive";
 import { MissingSubjectEntry } from "@/components/flags/MissingSubjectEntry";
 import { UploadForCourse } from "@/components/pdeu/UploadForCourse";
@@ -330,7 +329,6 @@ export function PdeuSemester({ branchId, semester }: { branchId: PdeuBranchId; s
         testId="pdeu-noncore"
       />
       <FixWentLive />
-      <ConfirmPrompt branch={branchId} semester={semester} />
       <MissingSubjectEntry semester={semester} />
     </div>
   );

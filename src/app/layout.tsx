@@ -3,6 +3,7 @@ import { Fraunces, Geist, Geist_Mono, Source_Sans_3 } from "next/font/google";
 import { AuthProvider } from "@/components/account/AuthProvider";
 import { DbBlockedNotice } from "@/components/DbBlockedNotice";
 import { BackButton } from "@/components/BackButton";
+import { ConfirmPrompt } from "@/components/flags/ConfirmPrompt";
 import { NavProgress } from "@/components/NavProgress";
 import { AddKeyBar } from "@/components/settings/AddKeyBar";
 import { KeyboardShortcuts } from "@/components/KeyboardShortcuts";
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </main>
           <SiteFooter />
           <KeyboardShortcuts />
+          <ConfirmPrompt />
         </AuthProvider>
       </body>
     </html>

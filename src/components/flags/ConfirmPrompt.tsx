@@ -8,8 +8,9 @@ import { SYLLABUS_FIX_CONFIG } from "@/lib/syllabusFix/config";
 
 /*
  * "2 students say Introduction to AI is taught in semester 3. Agree?" (syllabus fix, Phase 5).
- * Shown on the student's own semester list only, signed in, at most once per visit. One tap
- * answers; nothing is shown when there is nothing to ask, or while it loads.
+ * A bar at the bottom of the screen on every page, for a signed-in student whose profile has a
+ * branch and semester (the suggestion is for that branch and semester), at most once per visit.
+ * One tap answers; × closes it without answering. Nothing shows when there is nothing to ask.
  */
 
 const SHOWN_KEY = "prism.syllabusPromptsShown";
@@ -35,22 +36,23 @@ type Answer = "agree" | "disagree" | "unsure";
 
 /** "The chapter ..." reads as "2 students say the chapter ...". */
 const sentence = (n: number, text: string) =>
-  `${n} student${n === 1 ? "" : "s"} say ${/^(The|A) /.test(text) ? text[0].toLowerCase() + text.slice(1) : text}. Agree?`;
+  `${n} student${n === 1 ? "" : "s"} from your branch and semester say ${/^(The|A) /.test(text) ? text[0].toLowerCase() + text.slice(1) : text}. Agree?`;
 
-export function ConfirmPrompt({ branch, semester }: { branch: string; semester: number }) {
+export function ConfirmPrompt() {
   const { user } = useAuth();
   const [prompt, setPrompt] = useState<Prompt | null>(null);
   const [done, setDone] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
+  const [closed, setClosed] = useState(false);
 
   useEffect(() => {
     if (!user || shownThisVisit() >= SYLLABUS_FIX_CONFIG.promptsPerSession) return;
     let alive = true;
     void (async () => {
       const profile = await deviceProfile();
-      // Only on the student's own semester: votes from other semesters would not count.
-      if (profile.branch !== branch || profile.semester !== semester) return;
+      // Suggestions belong to a branch and semester: without the student's own, nothing to ask.
+      if (!profile.branch || !profile.semester) return;
       const token = await user.getIdToken().catch(() => undefined);
       if (!token) return;
       const r = await postFlag("/api/syllabus/prompt", { profile }, token);
@@ -62,9 +64,16 @@ export function ConfirmPrompt({ branch, semester }: { branch: string; semester: 
     return () => {
       alive = false;
     };
-  }, [user, branch, semester]);
+  }, [user]);
 
-  if (!prompt) return null;
+  // The thank-you note goes away by itself.
+  useEffect(() => {
+    if (!done) return;
+    const t = setTimeout(() => setClosed(true), 6000);
+    return () => clearTimeout(t);
+  }, [done]);
+
+  if (!prompt || closed) return null;
 
   async function answer(kind: Answer) {
     if (!user || !prompt) return;
@@ -96,17 +105,29 @@ export function ConfirmPrompt({ branch, semester }: { branch: string; semester: 
     <section
       aria-label="Help check the syllabus"
       data-testid="syllabus-prompt"
-      className="flex flex-col gap-3 rounded-2xl border border-primary/30 bg-primary/5 p-4"
+      className="fixed inset-x-3 bottom-3 z-40 mx-auto flex max-w-2xl flex-col gap-3 rounded-2xl border border-primary/30 bg-surface p-4 shadow-xl sm:bottom-6"
     >
-      {done ? (
-        <p role="status" className="text-sm">
-          {done}
-        </p>
-      ) : (
-        <>
+      <div className="flex items-start justify-between gap-3">
+        {done ? (
+          <p role="status" className="text-sm">
+            {done}
+          </p>
+        ) : (
           <p className="text-sm">
             <Icon name="flag" /> {sentence(prompt.supporters, prompt.text)}
           </p>
+        )}
+        <button
+          type="button"
+          onClick={() => setClosed(true)}
+          aria-label="Close"
+          className="rounded-full px-2 text-lg leading-none text-muted hover:bg-surface-2"
+        >
+          ×
+        </button>
+      </div>
+      {!done && (
+        <>
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
