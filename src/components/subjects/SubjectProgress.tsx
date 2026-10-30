@@ -9,6 +9,8 @@ import { useSyllabusOverlay } from "@/components/subjects/useSyllabusOverlay";
 import { ScopeNotice } from "@/components/university/ScopeNotice";
 import { useScopedSubjects } from "@/components/university/useUniversityScope";
 import { useTopicStatuses } from "@/components/map/useTopicStatuses";
+import { useMyBranch } from "@/components/labs/useMyBranch";
+import { numberedFor } from "@/lib/labs/experiment";
 import type { TopicStatus } from "@/lib/conceptMap";
 import { listQuizAttempts, weakTopics } from "@/lib/storage/progress";
 import type { QuizAttempt } from "@/lib/storage/db";
@@ -82,6 +84,8 @@ export function SubjectProgress({
   const scoped = useScopedSubjects(baseList);
   const subject = scoped.subjects[0];
   const statuses = useTopicStatuses();
+  // A lab shared by branches is numbered as the student's own branch handout numbers it.
+  const branch = useMyBranch();
   const overlay = useSyllabusOverlay();
   const [weak, setWeak] = useState<QuizAttempt[]>([]);
   // How often each topic comes up in the student's previous-year papers (exam emphasis).
@@ -195,10 +199,10 @@ export function SubjectProgress({
               {practical ? (
                 // A lab: its experiments in order, each opening its practical lesson (Phase 7B).
                 <ol className="mt-3 flex flex-col gap-2 text-sm" data-testid="experiments">
-                  {chapter.topics.map((t, k) => (
+                  {numberedFor(chapter.topics, branch).map(({ topic: t, number }) => (
                     <li key={t.id} className="flex items-start gap-2">
                       <span className="w-6 shrink-0 text-right font-semibold text-muted">
-                        {t.number ?? k + 1}.
+                        {number === null ? "•" : `${number}.`}
                       </span>
                       <Link
                         href={`/lab/${owner.id}/${t.id}`}
@@ -206,6 +210,11 @@ export function SubjectProgress({
                       >
                         {t.name}
                         {t.aim && <span className="block text-xs text-muted">Aim: {t.aim}</span>}
+                        {number === null && branch && (
+                          <span className="block text-xs text-muted">
+                            Not in your branch&apos;s handout (other branches do it)
+                          </span>
+                        )}
                       </Link>
                       {flags && (
                         <TopicFlag owner={flagOwner(owner)} chapterId={chapter.id} topic={t} />

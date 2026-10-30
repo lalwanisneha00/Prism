@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { experimentsOf, findExperiment, theoryLinksFor } from "@/lib/labs/experiment";
+import { experimentsOf, findExperiment, numberedFor, theoryLinksFor } from "@/lib/labs/experiment";
 import { findSubject, labSubjects, subjects } from "@/lib/subjects";
 
 describe("lab experiments", () => {
@@ -36,5 +36,30 @@ describe("lab experiments", () => {
         if (links.length) linked++;
       }
     expect(linked).toBeGreaterThan(50);
+  });
+});
+
+describe("experiment numbers per branch (merged labs)", () => {
+  const ohm = { name: "Ohm", number: 2, numbers: { me: 2, ece: 2 } };
+  const kvl = { name: "Kirchhoff", number: 2, numbers: { chem: 2 } };
+  const series = { name: "R-L series", number: 5, numbers: { me: 5, ece: 5, chem: 5 } };
+  const parallel = { name: "R-L parallel", number: 6, numbers: { me: 6, ece: 6, chem: 6 } };
+  const lab = [ohm, series, parallel, kvl];
+  const view = (branch?: string) =>
+    numberedFor(lab, branch).map((e) => `${e.number ?? "-"} ${e.topic.name}`);
+
+  it("numbers and orders the list as the student's own handout does", () => {
+    expect(view("ece")).toEqual(["2 Ohm", "5 R-L series", "6 R-L parallel", "- Kirchhoff"]);
+    expect(view("chem")).toEqual(["2 Kirchhoff", "5 R-L series", "6 R-L parallel", "- Ohm"]);
+  });
+
+  it("without a branch, never shows one number twice", () => {
+    expect(view()).toEqual(["2 Ohm", "5 R-L series", "6 R-L parallel", "- Kirchhoff"]);
+    expect(view("civil")).toEqual(view());
+  });
+
+  it("keeps a lab with one numbering as it is", () => {
+    const one = [{ number: 1 }, { number: 2 }, {}];
+    expect(numberedFor(one, "ce").map((e) => e.number)).toEqual([1, 2, 3]);
   });
 });

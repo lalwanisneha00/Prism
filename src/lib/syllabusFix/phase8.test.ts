@@ -7,6 +7,9 @@ import { parseLab } from "@/lib/labs/labLesson";
 import { allSubjects, findSubject, subjects, subjectsFor } from "@/lib/subjects";
 import type { ParsedUnit } from "@/lib/syllabusFix/handoutCourse";
 import { planRecheck } from "@/lib/syllabusFix/handoutRecheck";
+import { numberedFor } from "@/lib/labs/experiment";
+import { activeChapters } from "@/lib/syllabusFix/active";
+import { canonicalTopic } from "@/lib/syllabusFix/alias";
 
 /*
  * Syllabus fix, Phase 8: the two bugs real students reported, recreated and checked against the
@@ -103,18 +106,48 @@ describe("practical courses across branches (Phase 7B/7C)", () => {
     );
   });
 
-  it("lists each lab's experiments in order, numbered 1, 2, 3 …", () => {
+  it("numbers each lab as every branch's own handout does: 1, 2, 3 … with no number twice", () => {
     for (const lab of labs.filter((l) => l.chapters.length > 0)) {
       const shown = lab.chapters[0].topics.filter((t) => t.status !== "retired");
-      // Experiments that only another branch's copy had came in with the merge (migration 005)
-      // and keep that handout's number; they follow the course's own list.
-      const merged = (t: (typeof shown)[number]) => !!t.movedFrom && t.movedFrom.subject !== lab.id;
-      const own = shown.filter((t) => !merged(t)).map((t) => t.number ?? 0);
-      expect(own, lab.id).toEqual([...own].sort((a, b) => a - b));
-      expect(own[0], lab.id).toBe(1);
-      const firstMerged = shown.findIndex(merged);
-      if (firstMerged >= 0) expect(shown.slice(firstMerged).every(merged), lab.id).toBe(true);
+      for (const branch of [undefined, ...lab.branches]) {
+        const numbers = numberedFor(shown, branch)
+          .map((e) => e.number)
+          .filter((n): n is number => n !== null);
+        expect(numbers[0], `${lab.id} ${branch}`).toBe(1);
+        expect(new Set(numbers).size, `${lab.id} ${branch}`).toBe(numbers.length);
+        expect(numbers, `${lab.id} ${branch}`).toEqual([...numbers].sort((a, b) => a - b));
+      }
     }
+  });
+
+  it("merged labs: one shared list, each branch's numbering (owner's decision 2026-10-30)", () => {
+    const view = (id: string, branch: string) =>
+      numberedFor(activeChapters(findSubject(id)!)[0].topics, branch).map(
+        (e) => `${e.number ?? "-"} ${e.topic.name.slice(0, 22)}`,
+      );
+    const EEE = "pdeu-elements-of-electrical-and-electronics-engineering-lab-me";
+    expect(view(EEE, "chem").slice(0, 2)).toEqual([
+      "1 Introduction to elemen",
+      "2 To verify Kirchhoff's ",
+    ]);
+    expect(view(EEE, "ece")[1]).toBe("2 To Verify Ohm’s law wi");
+    expect(view(EEE, "ece").at(-1)).toMatch(/^- To verify Kirchhoff/);
+    // CHEM's R-L parallel circuit is its experiment 6 (005 had linked it to the series one).
+    expect(view(EEE, "chem")[5]).toBe("6 To evaluate performanc");
+    // Same experiment, two wordings: one copy is kept and the other's old links forward to it.
+    expect(
+      canonicalTopic(
+        "pdeu-modern-physics-laboratory-chem",
+        "experiment-3-study-of-the-biot-savart-law-and-the-magnetic-f",
+      ),
+    ).toEqual({
+      subject: "pdeu-modern-physics-laboratory-biotech",
+      topic: "experiment-3-study-of-bio-savart-s-law",
+    });
+    expect(view("pdeu-modern-physics-laboratory-biotech", "chem")[2]).toBe(
+      "3 Study of Bio-Savart’s ",
+    );
+    expect(view("pdeu-engineering-chemistry-practical-ece", "chem")).toHaveLength(11);
   });
 
   it("gives one lab per branch a format whose lesson has every required section", () => {

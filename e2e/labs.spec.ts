@@ -55,3 +55,32 @@ test("coil simulation: move one coil, then two coils, on the lab page", async ({
 
   await expectNoSidewaysScroll(page);
 });
+
+// Owner's decision (2026-10-30): a lab shared by branches keeps one list, numbered as the
+// student's own branch handout numbers it.
+const EEE = "pdeu-elements-of-electrical-and-electronics-engineering-lab-me";
+const KVL = "experiment-2-to-verify-kirchhoff-s-current-and-voltage-laws";
+
+async function chooseBranch(page: import("@playwright/test").Page, branch: string) {
+  await page.goto("/subjects");
+  await page.getByTestId("branch-bar").getByLabel("My branch").selectOption(branch);
+  await expect(page.getByTestId("branch-bar").getByLabel("My branch")).toHaveValue(branch);
+}
+
+test("a shared lab is numbered by the student's own branch handout", async ({ page }) => {
+  await chooseBranch(page, "chem");
+  await page.goto(`/subjects/${EEE}`);
+  const list = page.getByTestId("experiments");
+  await expect(list.locator("li").nth(1)).toContainText("2.");
+  await expect(list.locator("li").nth(1)).toContainText("Kirchhoff");
+  await page.goto(`/lab/${EEE}/${KVL}`);
+  await expect(page.getByText("Experiment 2 of 14")).toBeVisible();
+
+  await chooseBranch(page, "ece");
+  await page.goto(`/subjects/${EEE}`);
+  await expect(list.locator("li").nth(1)).toContainText("Ohm");
+  await expect(list.locator("li").last()).toContainText("Not in your branch's handout");
+  await page.goto(`/lab/${EEE}/${KVL}`);
+  await expect(page.getByText("Extra experiment (not in your branch's handout)")).toBeVisible();
+  await expectNoSidewaysScroll(page);
+});

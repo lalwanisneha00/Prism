@@ -28,6 +28,36 @@ export function experimentsOf(subject: Subject): { chapter: Chapter; topic: Topi
   );
 }
 
+export type NumberedExperiment<T> = { topic: T; number: number | null };
+
+/**
+ * A lab's experiments as one student's handout numbers them. A lab shared by several branches
+ * keeps one list (topic `numbers`, per branch): the student's branch comes first in its own
+ * order, then experiments only other branches' handouts list (no number). Without a branch, or
+ * for a lab with one numbering, the stored order and `number` are used; a number already shown
+ * is not repeated.
+ */
+export function numberedFor<T extends { number?: number; numbers?: Record<string, number> }>(
+  topics: readonly T[],
+  branch: string | undefined,
+): NumberedExperiment<T>[] {
+  const mine = branch ? topics.filter((t) => t.numbers?.[branch] !== undefined) : [];
+  if (branch && mine.length > 0) {
+    const n = (t: T) => t.numbers![branch];
+    return [
+      ...[...mine].sort((a, b) => n(a) - n(b)).map((topic) => ({ topic, number: n(topic) })),
+      ...topics.filter((t) => !mine.includes(t)).map((topic) => ({ topic, number: null })),
+    ];
+  }
+  const seen = new Set<number>();
+  return topics.map((topic, i) => {
+    const number = topic.number ?? i + 1;
+    if (seen.has(number)) return { topic, number: null };
+    seen.add(number);
+    return { topic, number };
+  });
+}
+
 const STOP = new Set(
   "the and for with from using study determine determination measure measurement verify verification experiment given find their that this into each between".split(
     " ",

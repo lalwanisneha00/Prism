@@ -29,6 +29,11 @@ const TopicSchema = z.object({
   formerChapters: z.array(slug).optional(),
   /** Practical courses: a topic is one experiment, with its number and aim from the handout. */
   number: z.int().positive().optional(),
+  /**
+   * A lab shared by several branches: each branch's own handout number for this experiment
+   * (branch id → number). Missing for a branch whose handout does not list it.
+   */
+  numbers: z.record(z.string().min(1), z.int().positive()).optional(),
   aim: z.string().min(1).optional(),
 });
 const ChapterSchema = z.object({
