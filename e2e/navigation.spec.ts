@@ -6,8 +6,14 @@ test.describe("Navigation for many subjects (V3 · Step 3)", () => {
     await page.goto("/");
     const search = page.getByTestId("global-search");
     await search.getByLabel("Search any subject, chapter or topic").fill("faraday");
-    await search.getByRole("option").first().click();
-    await expect(page).toHaveURL(/subject=pdeu-applied-physics/);
+    // Several courses teach Faraday's law; pick Applied Physics by name, not by rank.
+    // Its main copy is pdeu-physics-ict since the first-year merge (migration 005).
+    await search
+      .getByRole("option")
+      .filter({ hasText: /Applied Physics ›/ })
+      .first()
+      .click();
+    await expect(page).toHaveURL(/subject=pdeu-physics-ict/);
     await expect(page.getByRole("radio", { name: /^Applied Physics/ })).toBeChecked();
     await expect(page.getByLabel("Or browse by chapter")).not.toHaveValue("");
     await expect(page.getByRole("radio", { name: /Faraday/ })).toBeChecked();
