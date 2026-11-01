@@ -342,8 +342,9 @@ export async function generatePaper(
 }
 
 /**
- * Saves a finished paper-mode mock (synced): what it covered, the time taken and the student's
- * own total. Shown in Past mocks and on the Dashboard. Returns the saved record's id.
+ * Saves a finished paper-mode mock (synced) as soon as Finish is pressed: what it covered and the
+ * time taken. `score: null` saves it unmarked; the student's total is added later with
+ * markMockResult. Shown in Past mocks and on the Dashboard. Returns the saved record's id.
  */
 export async function saveMockResult(input: {
   subjectId: string;
@@ -351,7 +352,7 @@ export async function saveMockResult(input: {
   scope: { level: "subject" | "units" | "topics"; ids: string[]; label: string };
   settings: MockSettings;
   paper: Paper;
-  score: number;
+  score: number | null;
   timeTakenSec: number;
 }): Promise<string> {
   const units = [...new Set(input.scope.level === "units" ? input.scope.ids : [])];
@@ -361,7 +362,8 @@ export async function saveMockResult(input: {
     level: "exam-prep",
     minutes: input.settings.minutes,
     title: input.title,
-    score: input.score,
+    score: input.score ?? 0,
+    ...(input.score === null ? { unmarked: true as const } : {}),
     total: input.paper.totalMarks,
     // Paper mode has no per-question marks, so no topic split (and no weak-topic signal).
     byTopic: [],

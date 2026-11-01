@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { findLevel } from "@/data/levels";
 import { chapterHref } from "@/lib/chapter/request";
 import { listChapterLessons } from "@/lib/chapter/store";
-import { listMockResults } from "@/lib/mock/results";
+import { listMockResults, scoreText } from "@/lib/mock/results";
 import type { ChapterLessonRecord, MockResult } from "@/lib/storage/db";
 import { findChapter, findSubject } from "@/lib/subjects";
 
@@ -75,9 +75,7 @@ export function DashboardChapterCards({
                 <span>
                   {m.title} <span className="text-muted">· {m.minutes} min</span>
                 </span>
-                <span className="font-semibold">
-                  {m.score}/{m.total}
-                </span>
+                <span className="font-semibold">{scoreText(m)}</span>
               </li>
             ))}
           </ul>

@@ -16,6 +16,7 @@ import {
   type PaperStage,
 } from "@/lib/mock/clock";
 import type { Paper } from "@/lib/mock/paper";
+import { markMockResult } from "@/lib/mock/results";
 import { parseSelfScore } from "@/lib/mock/verify";
 
 const btn = "rounded-full border border-border px-4 py-2 text-sm font-semibold hover:bg-surface-2";
@@ -27,21 +28,22 @@ type Printing = { sheet: "paper" | "answers" } | null;
 /**
  * Paper mode: the mock as a printed question paper. The student starts the timer, writes on paper,
  * and presses "Finish mock test"; only then does the answer sheet appear, with one box for the
- * total they give themselves. Nothing is answered or marked in the app.
+ * total they give themselves. Nothing is answered or marked in the app. The paper is saved to
+ * Past mocks at Finish (unmarked), so skipping the marks or closing the tab never loses it.
  */
 export function PaperFlow({
   paper,
   subjectName,
   scopeLabel,
-  onSave,
+  onFinish,
   onRetake,
   onDone,
 }: {
   paper: Paper;
   subjectName: string;
   scopeLabel: string;
-  /** Saves the student's total and the time taken. */
-  onSave: (score: number, timeTakenSec: number) => Promise<void>;
+  /** Saves the finished paper (unmarked) with the time taken; resolves to the saved id. */
+  onFinish: (timeTakenSec: number) => Promise<string>;
   onRetake: () => void;
   onDone: () => void;
 }) {
@@ -50,11 +52,35 @@ export function PaperFlow({
   const [taken, setTaken] = useState(0);
   const [printing, setPrinting] = useState<Printing>(null);
   const top = useRef<HTMLDivElement>(null);
+  const [saveState, setSaveState] = useState<"saving" | "saved" | "failed">("saving");
+  const savedId = useRef<Promise<string> | null>(null);
   const stopPrinting = useCallback(() => setPrinting(null), []);
+
+  /** Saves the paper once; a failed save is tried again the next time it's needed. */
+  function savePaper(seconds: number): Promise<string> {
+    savedId.current ??= onFinish(seconds);
+    const attempt = savedId.current;
+    setSaveState("saving");
+    attempt.then(
+      () => setSaveState("saved"),
+      () => {
+        if (savedId.current === attempt) savedId.current = null;
+        setSaveState("failed");
+      },
+    );
+    return attempt;
+  }
+
+  async function saveScore(score: number) {
+    const id = await savePaper(taken);
+    if (!(await markMockResult(id, score))) throw new Error("saved paper not found");
+  }
 
   function finish() {
     const now = Date.now();
-    setTaken(Math.round(elapsedMs(clock, now) / 1000));
+    const seconds = Math.round(elapsedMs(clock, now) / 1000);
+    setTaken(seconds);
+    void savePaper(seconds).catch(() => {});
     setClock((c) => pauseClock(c, now));
     setStage("finished");
     top.current?.scrollIntoView({ block: "start" });
@@ -119,6 +145,22 @@ export function PaperFlow({
             Done{taken ? ` in ${formatClock(taken)}` : ""}. Mark your paper with the answer sheet
             below, then enter your total.
           </p>
+          <p className="text-sm text-muted" role="status" data-testid="paper-save-state">
+            {saveState === "saving" && "Saving this paper to Past mocks…"}
+            {saveState === "saved" && "✓ Saved to Past mocks."}
+            {saveState === "failed" && (
+              <span className="text-danger">
+                Couldn&apos;t save this paper.{" "}
+                <button
+                  type="button"
+                  className="font-semibold underline"
+                  onClick={() => void savePaper(taken).catch(() => {})}
+                >
+                  Try again
+                </button>
+              </span>
+            )}
+          </p>
           <div className="flex flex-wrap gap-2">
             <button type="button" className={btn} onClick={() => setPrinting({ sheet: "answers" })}>
               Download answer sheet (PDF)
@@ -135,7 +177,7 @@ export function PaperFlow({
           </div>
           <SelfScore
             total={paper.totalMarks}
-            onSave={(score) => onSave(score, taken)}
+            onSave={saveScore}
             onRetake={onRetake}
             onDone={onDone}
           />

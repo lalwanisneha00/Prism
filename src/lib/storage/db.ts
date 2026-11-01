@@ -73,6 +73,8 @@ export type MockResult = SyncFields & {
   mode?: "paper";
   /** Paper mode: how long the student took (seconds the timer ran). */
   timeTakenSec?: number;
+  /** Paper mode: saved at Finish but the student hasn't entered marks (yet); `score` is 0. */
+  unmarked?: true;
   /** The paper, the answers and the marks, so the result can be reviewed or the paper retaken. */
   paper?: Paper;
   answers?: Record<string, MockAnswer>;

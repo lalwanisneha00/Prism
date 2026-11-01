@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
 import { formatClock } from "@/lib/mock/clock";
-import { listMockResults } from "@/lib/mock/results";
+import { listMockResults, scoreText } from "@/lib/mock/results";
 import type { MockResult } from "@/lib/storage/db";
 
 const dateText = (at: number) =>
@@ -69,9 +69,7 @@ export function PastMocks({
                   </span>
                 </span>
                 <span className="flex flex-wrap items-center gap-2">
-                  <span className="font-semibold tabular-nums">
-                    {r.score}/{r.total}
-                  </span>
+                  <span className="font-semibold tabular-nums">{scoreText(r)}</span>
                   {open && r.paper && (
                     <>
                       <button

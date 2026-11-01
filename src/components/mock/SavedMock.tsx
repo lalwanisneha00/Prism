@@ -47,7 +47,9 @@ export function SavedMock({
         })}{" "}
         · Your score:{" "}
         <strong>
-          {result.score} / {result.total}
+          {result.unmarked
+            ? `not marked (out of ${result.total})`
+            : `${result.score} / ${result.total}`}
         </strong>
         {result.timeTakenSec ? ` · took ${formatClock(result.timeTakenSec)}` : ""}
         {result.mode !== "paper" ? " · answered in the app (older mock)" : ""}

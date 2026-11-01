@@ -54,8 +54,6 @@ const paper: Paper = {
   ],
 };
 
-const noop = async () => {};
-
 describe("paper mode", () => {
   it("shows only the paper before Finish: no answers, reasons or marking scheme", async () => {
     const html = await render(
@@ -63,7 +61,7 @@ describe("paper mode", () => {
         paper={paper}
         subjectName="Maths"
         scopeLabel="Unit 1"
-        onSave={noop}
+        onFinish={async () => "id"}
         onRetake={() => {}}
         onDone={() => {}}
       />,

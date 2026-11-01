@@ -119,5 +119,14 @@ test.describe("Navigation for many subjects (V3 · Step 3)", () => {
     await expect(past).toContainText("12.5/20");
     await past.getByRole("button", { name: "View answer sheet" }).first().click();
     await expect(page.getByTestId("answer-sheet")).toBeVisible();
+    // A paper finished without marks (Skip) is still saved in Past mocks, as "not marked".
+    await page.getByRole("button", { name: "Retake as a new paper" }).click();
+    await expect(page.getByTestId("mock-paper")).toBeVisible({ timeout: 60_000 });
+    await page.getByRole("button", { name: "Finish mock test" }).first().click();
+    await expect(page.getByTestId("paper-save-state")).toContainText("Saved to Past mocks");
+    await page.getByTestId("self-score").getByRole("button", { name: "Skip" }).click();
+    await expect(past.locator("li")).toHaveCount(2);
+    await expect(past.locator("li").first()).toContainText("not marked");
+    await expect(past).toContainText("12.5/20");
   });
 });

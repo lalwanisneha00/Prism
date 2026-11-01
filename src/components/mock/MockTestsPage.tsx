@@ -79,17 +79,18 @@ export default function MockTestsPage({ linked }: { linked?: string }) {
         paper={paper}
         subjectName={setup.entry.subject.name}
         scopeLabel={setup.scope.label}
-        onSave={async (score, timeTakenSec) => {
-          await saveMockResult({
+        onFinish={async (timeTakenSec) => {
+          const id = await saveMockResult({
             subjectId: setup.entry.subject.id,
             title: paper.title,
             scope: setup.scope,
             settings: setup.settings,
             paper,
-            score,
+            score: null,
             timeTakenSec,
           });
           setPastVersion((v) => v + 1);
+          return id;
         }}
         onRetake={() => retake(setup.entry.subject.id, setup.scope, "multiple", setup.settings)}
         onDone={() => setPhase({ name: "setup" })}

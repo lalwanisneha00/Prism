@@ -147,16 +147,17 @@ export function ChapterMock({
           paper={phase.paper}
           subjectName={subject.name}
           scopeLabel={chapterName}
-          onSave={async (score, timeTakenSec) => {
-            await saveMockResult({
+          onFinish={async (timeTakenSec) => {
+            const id = await saveMockResult({
               subjectId,
               title: chapterName,
               scope: phase.setup.scope,
               settings: phase.setup.settings,
               paper: phase.paper,
-              score,
+              score: null,
               timeTakenSec,
             });
+            return id;
           }}
           onRetake={startWriting}
           onDone={() => setPhase({ name: "setup" })}
