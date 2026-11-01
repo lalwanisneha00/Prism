@@ -227,6 +227,10 @@ body {
 #print-root {
   display: none;
 }
+/* Mock tests (paper mode): the paper or the answer sheet printed on its own (see PrintPaper.tsx). */
+#mock-print-root {
+  display: none;
+}
 @media print {
   :root,
   :root[data-theme] {
@@ -291,6 +295,29 @@ body {
   }
   @page {
     margin: 16mm;
+  }
+  body.printing-mock > #print-root {
+    display: none !important;
+  }
+  body.printing-mock > #mock-print-root {
+    display: block !important;
+    color: #000;
+    background: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11.5pt;
+    line-height: 1.5;
+  }
+  #mock-print-root .mock-question {
+    break-inside: avoid;
+  }
+  #mock-print-root .mock-paper-header {
+    border-color: #000;
+  }
+  #mock-print-root * {
+    color: #000 !important;
+    border-color: #999 !important;
+    background: transparent !important;
+    opacity: 1 !important;
   }
 }
 

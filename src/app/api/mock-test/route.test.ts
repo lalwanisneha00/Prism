@@ -6,7 +6,6 @@ import { activeChapters } from "@/lib/syllabusFix/active";
 vi.mock("server-only", () => ({}));
 const { POST } = await import("@/app/api/mock-test/route");
 const pattern = await import("@/app/api/mock-test/pattern/route");
-const grade = await import("@/app/api/mock-test/grade/route");
 
 const subject = findSubject("pdeu-discrete-mathematics")!;
 const [unit] = activeChapters(subject);
@@ -65,7 +64,7 @@ describe("POST /api/mock-test (one batch of questions)", () => {
   });
 });
 
-describe("POST /api/mock-test/pattern and /grade", () => {
+describe("POST /api/mock-test/pattern", () => {
   it("reads a paper's pattern", async () => {
     const text =
       "Section A\n1. Define a set. (2)\n2. Define a relation. (2)\nSection B Answer any 1\n1. Prove that A is countable. (10)\n2. Explain lattices. (10)";
@@ -75,23 +74,6 @@ describe("POST /api/mock-test/pattern and /grade", () => {
     };
     expect(body.ok).toBe(true);
     expect(body.pattern.totalMarks).toBe(14);
-  });
-
-  it("marks written answers within each question's marks", async () => {
-    const res = await post(grade.POST, {
-      items: [
-        {
-          id: "s2q1",
-          question: "Define a set",
-          marks: 2,
-          answer: "A collection",
-          scheme: [{ point: "collection of distinct objects", marks: 2 }],
-          studentAnswer: "A collection of distinct objects",
-        },
-      ],
-    });
-    const body = (await res.json()) as { ok: boolean; grades: { id: string; marks: number }[] };
-    expect(body.grades).toEqual([expect.objectContaining({ id: "s2q1", marks: 2 })]);
   });
 
   it("rejects an empty paper", async () => {

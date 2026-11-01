@@ -5,14 +5,17 @@ import { getAllRecords, putRecord } from "@/lib/storage/records";
 
 export type MockResultInput = Omit<MockResult, "id" | "updatedAt" | "deleted" | "at">;
 
-export async function recordMockResult(input: MockResultInput, now = Date.now()): Promise<void> {
+/** Saves a result and returns its id. */
+export async function recordMockResult(input: MockResultInput, now = Date.now()): Promise<string> {
+  const id = `${input.subject}_${input.chapter}@${now}`;
   await putRecord("mockResults", {
     ...input,
-    id: `${input.subject}_${input.chapter}@${now}`,
+    id,
     at: now,
     updatedAt: now,
     deleted: false,
   });
+  return id;
 }
 
 /** Mock test results, newest first. */

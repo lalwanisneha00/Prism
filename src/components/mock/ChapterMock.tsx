@@ -8,37 +8,30 @@ import { GenerateStep, type MockSetup } from "@/components/mock/GenerateStep";
 import { usePapers } from "@/components/mock/usePapers";
 import type { TopicLesson } from "@/lib/chapter/extras";
 import { toSubject, type CustomSubjectPayload } from "@/lib/custom/customSubject";
-import type { MockAnswer } from "@/lib/mock/grade";
 import type { Paper } from "@/lib/mock/paper";
 import { minutesFor, papersFor, stylesFor } from "@/lib/mock/plan";
 import { scopeTree } from "@/lib/mock/scope";
-import { clearSession, restoreSession, saveSession, type MockSession } from "@/lib/mock/session";
 import type { MockSettings } from "@/lib/storage/db";
 import { findSubject } from "@/lib/subjects";
 
 const loading = () => (
   <div className="h-40 animate-pulse rounded-2xl bg-surface-2" aria-busy="true" />
 );
-const MockRunner = dynamic(() => import("@/components/mock/MockRunner").then((m) => m.MockRunner), {
+const PaperFlow = dynamic(() => import("@/components/mock/PaperFlow").then((m) => m.PaperFlow), {
   ssr: false,
   loading,
 });
-const MockResults = dynamic(
-  () => import("@/components/mock/MockResults").then((m) => m.MockResults),
-  { ssr: false, loading },
-);
 
 const CHAPTER_MARKS = [10, 20, 30] as const;
 
 type Phase =
   | { name: "setup" }
   | { name: "writing"; setup: MockSetup }
-  | { name: "taking"; session: MockSession }
-  | { name: "results"; session: MockSession; answers: Record<string, MockAnswer> };
+  | { name: "paper"; setup: MockSetup; paper: Paper };
 
 /**
- * The mock test at the end of a whole-chapter lesson: the same engine as Mock Tests (your paper
- * pattern, checked questions, AI marking), on this chapter's topics, with fewer choices.
+ * The mock test at the end of a whole-chapter lesson: the same paper mode as Mock Tests (your paper
+ * pattern, a checked answer sheet, self-marking), on this chapter's topics, with fewer choices.
  */
 export function ChapterMock({
   custom,
@@ -65,17 +58,7 @@ export function ChapterMock({
     : (styles[0] ?? "default");
   const [marks, setMarks] = useState<number>(20);
   const ids = useMemo(() => topics.map((t) => t.topicId), [topics]);
-  // A chapter test that was being taken when the page closed (same subject and topics).
-  const [phase, setPhase] = useState<Phase>(() => {
-    const r = restoreSession(
-      "chapter",
-      (s) => s.subject === subjectId && s.scope.ids.join() === topics.map((t) => t.topicId).join(),
-    );
-    if (r?.state === "running") return { name: "taking", session: r.session };
-    if (r?.state === "expired")
-      return { name: "results", session: r.session, answers: r.session.answers };
-    return { name: "setup" };
-  });
+  const [phase, setPhase] = useState<Phase>({ name: "setup" });
   const top = useRef<HTMLDivElement>(null);
 
   if (!subject) return null;
@@ -102,21 +85,7 @@ export function ChapterMock({
   }
 
   function begin(setup: MockSetup, paper: Paper) {
-    const now = Date.now();
-    const session: MockSession = {
-      version: 1,
-      subject: subjectId,
-      origin: "chapter",
-      scope: setup.scope,
-      settings: setup.settings,
-      paper,
-      answers: {},
-      review: [],
-      startedAt: now,
-      endsAt: now + setup.settings.minutes * 60_000,
-    };
-    saveSession(session);
-    setPhase({ name: "taking", session });
+    setPhase({ name: "paper", setup, paper });
     top.current?.scrollIntoView({ block: "start" });
   }
 
@@ -130,7 +99,7 @@ export function ChapterMock({
             {styles.length === 0
               ? "in a standard university pattern"
               : "in the pattern of your uploaded papers"}
-            , marked with feedback.
+            . Write your answers on paper, then mark them with the answer sheet.
           </p>
           <div role="radiogroup" aria-label="Test size" className="flex flex-wrap gap-2">
             {CHAPTER_MARKS.map((m) => (
@@ -173,33 +142,22 @@ export function ChapterMock({
           autoStart
         />
       )}
-      {phase.name === "taking" && (
-        <MockRunner
-          session={phase.session}
-          onSubmit={(answers) => {
-            clearSession();
-            setPhase({ name: "results", session: phase.session, answers });
-          }}
-        />
-      )}
-      {phase.name === "results" && (
-        <MockResults
-          paper={phase.session.paper}
-          answers={phase.answers}
-          tree={tree}
-          subjectId={subjectId}
-          onSave={(grades) =>
-            saveMockResult({
+      {phase.name === "paper" && (
+        <PaperFlow
+          paper={phase.paper}
+          subjectName={subject.name}
+          scopeLabel={chapterName}
+          onSave={async (score, timeTakenSec) => {
+            await saveMockResult({
               subjectId,
               title: chapterName,
-              scope: phase.session.scope,
-              settings: phase.session.settings,
-              paper: phase.session.paper,
-              answers: phase.answers,
-              grades,
-              tree,
-            })
-          }
+              scope: phase.setup.scope,
+              settings: phase.setup.settings,
+              paper: phase.paper,
+              score,
+              timeTakenSec,
+            });
+          }}
           onRetake={startWriting}
           onDone={() => setPhase({ name: "setup" })}
         />

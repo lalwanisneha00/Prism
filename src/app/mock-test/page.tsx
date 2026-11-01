@@ -1,3 +1,4 @@
+import "katex/dist/katex.min.css";
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { MockTestsLoader } from "@/components/mock/MockTestsLoader";
@@ -15,8 +16,8 @@ export default async function MockTestPage({ searchParams }: PageProps<"/mock-te
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Mock tests</h1>
         <p className="mt-2 text-muted">
-          A timed practice paper on one subject: the whole subject, some units or a few topics,
-          marked with feedback.
+          A timed exam-style paper on one subject: the whole subject, some units or a few topics.
+          Write your answers on paper, then mark them with the answer sheet.
         </p>
       </div>
       <MockTestsLoader linked={typeof subject === "string" ? subject.slice(0, 80) : undefined} />

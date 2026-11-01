@@ -14,22 +14,32 @@ import {
 } from "@/lib/mock/paper";
 import { QUESTION_TYPES } from "@/lib/mock/pattern";
 import { evaluateCheck } from "@/lib/safeMath";
+import {
+  fakeVerify,
+  isRecall,
+  verifyProblem,
+  verifyPrompt,
+  VerifyReplySchema,
+  type VerifyCheck,
+} from "@/lib/mock/verify";
 import { findSubject, type Subject } from "@/lib/subjects";
 import { CustomSubjectPayloadSchema, toSubject } from "@/lib/custom/customSubject";
 import { activeChapters } from "@/lib/syllabusFix/active";
 
 /*
- * POST one batch of a mock paper's questions (mock test overhaul) → { ok, questions, fixed }.
+ * POST one batch of a mock paper's questions with their answer key → { ok, questions, fixed }.
  * The browser plans the paper (sections, each question's type, marks and topic) and asks for it a
  * few questions at a time, so each request stays well inside the time limit and the student sees
  * the paper fill in. Every question is checked here before it is sent back (scope, marks,
- * numericals, marking scheme, no copied past questions); failed ones are rewritten.
+ * numericals, marking scheme, command word, maths that renders, no copied past questions), then
+ * a second examiner re-solves each one without the key (code compares the two). Failed ones are
+ * rewritten; a batch that can't be fixed in time is refused, never shown.
  */
 
 export const maxDuration = 60;
 
 /** Stop asking for rewrites after this long, so the reply beats the 60-second limit. */
-const REWRITE_DEADLINE_MS = 35_000;
+const REWRITE_DEADLINE_MS = 30_000;
 const id = z.string().trim().min(1).max(80);
 
 const RequestSchema = z.object({
@@ -50,7 +60,7 @@ const RequestSchema = z.object({
         }),
       )
       .min(1)
-      .max(8),
+      .max(6),
   }),
   /** Every topic the student chose (the strict scope). */
   scope: z.array(id).min(1).max(400),
@@ -62,6 +72,8 @@ const RequestSchema = z.object({
   difficulty: z.enum(["easy", "mixed", "hard"]).default("mixed"),
   styleNote: z.string().trim().max(300).default("Follow a standard Indian university exam style."),
   avoid: z.array(z.string().trim().max(200)).max(40).default([]),
+  /** Marks plain recall questions may still take in the paper (the warm-up share). */
+  recallMarks: z.number().min(0).max(300).optional(),
 });
 
 type Reply =
@@ -116,12 +128,39 @@ export async function POST(req: Request) {
     pyqRepeatMarks: data.pyqRepeat ? data.pyqRepeatMarks : 0,
     evaluate: evaluateCheck,
   };
+  const recallLeft = () =>
+    data.recallMarks === undefined
+      ? undefined
+      : data.recallMarks -
+        [...done.values()].filter((q) => isRecall(q.question)).reduce((n, q) => n + q.marks, 0);
   const fake = process.env.LLM_PROVIDER === "fake";
   const bare = slotTopics.filter((t) => !data.facts[t.id]?.length);
   const reference =
     !fake && bare.length > 0 && data.material.length === 0
       ? await referenceFor(subject, bare, req.signal).catch(() => [])
       : [];
+
+  /** One call checks the whole batch; a reply that can't be read is asked for once more. */
+  async function verify(questions: readonly PaperQuestion[]): Promise<Map<string, VerifyCheck>> {
+    const items = questions.map((q) => ({ ...q, slot: q.id }));
+    for (let i = 0; i < 2; i++) {
+      let raw: unknown;
+      if (fake) raw = fakeVerify(items);
+      else {
+        const { system, prompt } = verifyPrompt(items);
+        const text = await generateJsonWithFallback(chainFor(req, providersFromEnv), {
+          system,
+          prompt,
+          temperature: 0,
+          signal: req.signal,
+        });
+        raw = parseJsonReply(text);
+      }
+      const parsed = VerifyReplySchema.safeParse(raw);
+      if (parsed.success) return new Map(parsed.data.checks.map((c) => [c.slot, c]));
+    }
+    return new Map();
+  }
 
   const started = Date.now();
   const done = new Map<string, PaperQuestion>();
@@ -151,6 +190,7 @@ export async function POST(req: Request) {
           difficulty: data.difficulty,
           styleNote: data.styleNote,
           avoid: [...data.avoid, ...[...done.values()].map((q) => q.question.slice(0, 200))],
+          recallMarks: recallLeft(),
           problems: attempt > 0 ? problems : undefined,
         });
         const text = await generateJsonWithFallback(chainFor(req, providersFromEnv), {
@@ -162,10 +202,17 @@ export async function POST(req: Request) {
         const parsed = SectionReplySchema.safeParse(parseJsonReply(text));
         raw = parsed.success ? parsed.data.questions : [];
       }
-      const checked = checkSection(todo, raw, ctx);
-      for (const [slot, q] of checked.ok) done.set(slot, q);
+      const checked = checkSection(todo, raw, { ...ctx, recallMarks: recallLeft() });
       fixed += checked.fixed;
       problems = checked.problems;
+      // The second examiner: every question that passed the rules is solved again without the key.
+      const passed = [...checked.ok.values()];
+      const verdicts = passed.length ? await verify(passed) : new Map<string, VerifyCheck>();
+      for (const q of passed) {
+        const problem = verifyProblem({ ...q, slot: q.id }, verdicts.get(q.id), evaluateCheck);
+        if (problem) problems.push({ slot: q.id, reason: problem });
+        else done.set(q.id, q);
+      }
       if (done.size === section.slots.length) break;
     }
     if (done.size < section.slots.length) {

@@ -9,7 +9,6 @@ import {
   stylesFor,
   type PaperInfo,
 } from "@/lib/mock/plan";
-import { parseSession } from "@/lib/mock/session";
 
 const pattern = (minutes: number, total: number): PaperPattern => ({
   ...defaultPattern("mid-sem"),
@@ -82,10 +81,5 @@ describe("planning a mock", () => {
     const plan = planPaper(defaultPattern("end-sem"), 100, topics);
     const parts = batches(plan[0], 4);
     expect(parts.map((p) => p.slots.length)).toEqual([4, 4, 2]);
-  });
-
-  it("restores only a well-formed saved test", () => {
-    expect(parseSession({ version: 1 })).toBeNull();
-    expect(parseSession(null)).toBeNull();
   });
 });

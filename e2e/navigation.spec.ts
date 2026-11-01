@@ -66,6 +66,8 @@ test.describe("Navigation for many subjects (V3 · Step 3)", () => {
   }) => {
     test.setTimeout(180_000);
     await page.goto("/");
+    // Let the home page finish loading, so the click isn't caught by a half-loaded page.
+    await page.waitForLoadState("networkidle");
     await page.getByTestId("nav-mock-tests").first().click();
     await expect(page).toHaveURL(/\/mock-test/);
     await expect(page.getByTestId("pattern-banner")).toBeVisible({ timeout: 30_000 });
@@ -92,18 +94,30 @@ test.describe("Navigation for many subjects (V3 · Step 3)", () => {
       .getByRole("button", { name: "Next", exact: true })
       .click();
     await page.getByRole("button", { name: "Generate my paper" }).click();
-    await expect(page.getByTestId("mock-timer")).toBeVisible({ timeout: 60_000 });
-    await expect(page.getByTestId("mock-palette")).toBeVisible();
-    await page
-      .getByRole("radiogroup", { name: /Options for question 1/ })
-      .getByRole("radio")
-      .first()
-      .check();
-    await page.getByRole("button", { name: "Submit" }).click();
-    await page.getByRole("button", { name: "Hand in my answers" }).click();
-    await expect(page.getByTestId("mock-score")).toContainText("/ 20");
-    await expect(page.getByText("✓ Result saved")).toBeVisible({ timeout: 30_000 });
+    // Paper mode: a printed-style paper, no answer boxes; the answer sheet only after Finish.
+    await expect(page.getByTestId("mock-paper")).toBeVisible({ timeout: 60_000 });
+    await expect(page.getByTestId("mock-paper")).toContainText("Max. Marks: 20");
+    await expect(page.getByTestId("answer-sheet")).toHaveCount(0);
+    await expect(page.getByRole("textbox")).toHaveCount(0);
+    await page.getByRole("button", { name: "Start timer" }).click();
+    await expect(page.getByTestId("mock-timer")).toContainText(/\d\d:\d\d left/);
+    await page.getByRole("button", { name: "Pause timer" }).click();
+    await expect(page.getByTestId("mock-timer")).toContainText("paused");
+    await page.getByRole("button", { name: "Finish mock test" }).first().click();
+    await expect(page.getByTestId("answer-sheet")).toBeVisible();
+    await expect(page.getByTestId("answer-sheet")).toContainText("Marking scheme");
+    const score = page.getByTestId("self-score");
+    await score.getByRole("textbox").fill("25");
+    await score.getByRole("button", { name: "Save my score" }).click();
+    await expect(score.getByRole("alert")).toContainText("out of 20");
+    await score.getByRole("textbox").fill("12.5");
+    await score.getByRole("button", { name: "Save my score" }).click();
+    await expect(score).toContainText("✓ Saved: 12.5 / 20");
     await page.getByRole("button", { name: "Done" }).click();
-    await expect(page.getByTestId("past-mocks")).toContainText("Physics");
+    const past = page.getByTestId("past-mocks");
+    await expect(past).toContainText("Physics");
+    await expect(past).toContainText("12.5/20");
+    await past.getByRole("button", { name: "View answer sheet" }).first().click();
+    await expect(page.getByTestId("answer-sheet")).toBeVisible();
   });
 });

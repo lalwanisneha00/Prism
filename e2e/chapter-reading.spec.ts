@@ -49,22 +49,18 @@ test("reading a chapter lesson: progress, resume, mixed quiz, mock test, dashboa
   const quiz = page.getByTestId("chapter-quiz");
   await expect(quiz).toBeVisible();
 
-  // The mock test (the Mock Tests engine): start, answer, hand in, marked and saved.
+  // The mock test (paper mode): the paper, Finish, the answer sheet, the student's own total.
   const mock = page.getByTestId("mock-test");
   await mock.getByRole("radio", { name: /10 marks/ }).click();
   await mock.getByRole("button", { name: "Start the mock test" }).click();
-  await expect(mock.getByTestId("mock-timer")).toContainText(/\d\d:\d\d left/, {
-    timeout: 60_000,
-  });
-  await mock
-    .getByRole("radiogroup", { name: /Options for question 1/ })
-    .getByRole("radio")
-    .first()
-    .check();
-  await mock.getByRole("button", { name: "Submit" }).click();
-  await mock.getByRole("button", { name: "Hand in my answers" }).click();
-  await expect(mock.getByTestId("mock-score")).toContainText("/ 10");
-  await expect(mock.getByText("✓ Result saved")).toBeVisible({ timeout: 30_000 });
+  await expect(mock.getByTestId("mock-paper")).toBeVisible({ timeout: 60_000 });
+  await expect(mock.getByTestId("answer-sheet")).toHaveCount(0);
+  await mock.getByRole("button", { name: "Start timer" }).click();
+  await mock.getByRole("button", { name: "Finish mock test" }).first().click();
+  await expect(mock.getByTestId("answer-sheet")).toBeVisible();
+  await mock.getByTestId("self-score").getByRole("textbox").fill("7");
+  await mock.getByRole("button", { name: "Save my score" }).click();
+  await expect(mock.getByTestId("self-score")).toContainText("✓ Saved: 7 / 10");
   await expectNoSidewaysScroll(page);
 
   await page.goto("/dashboard");

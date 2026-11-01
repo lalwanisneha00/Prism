@@ -10,51 +10,41 @@ import { PastMocks } from "@/components/mock/PastMocks";
 import { PatternBanner } from "@/components/mock/PatternBanner";
 import { useMockSubjects, type MockSubject } from "@/components/mock/useMockSubjects";
 import { usePapers } from "@/components/mock/usePapers";
-import type { MockAnswer, QuestionGrade } from "@/lib/mock/grade";
 import type { Paper } from "@/lib/mock/paper";
-import { scopeTree } from "@/lib/mock/scope";
-import { clearSession, restoreSession, saveSession, type MockSession } from "@/lib/mock/session";
 import type { MockResult, MockSettings } from "@/lib/storage/db";
 import { findSubject } from "@/lib/subjects";
 
 const loading = () => (
   <div className="h-64 animate-pulse rounded-2xl bg-surface-2" aria-busy="true" />
 );
-// The runner and results load only when a test starts (smaller page to open).
-const MockRunner = dynamic(() => import("@/components/mock/MockRunner").then((m) => m.MockRunner), {
+// The paper and the saved-mock view load only when needed (smaller page to open).
+const PaperFlow = dynamic(() => import("@/components/mock/PaperFlow").then((m) => m.PaperFlow), {
   ssr: false,
   loading,
 });
-const MockResults = dynamic(
-  () => import("@/components/mock/MockResults").then((m) => m.MockResults),
-  { ssr: false, loading },
-);
+const SavedMock = dynamic(() => import("@/components/mock/SavedMock").then((m) => m.SavedMock), {
+  ssr: false,
+  loading,
+});
 
+type Scope = MockResult["scope"] & {};
 type Phase =
   | { name: "setup"; start?: WizardStart }
-  | { name: "taking"; session: MockSession }
+  | { name: "paper"; setup: MockSetup; paper: Paper }
   | {
-      name: "results";
-      session: Pick<MockSession, "subject" | "paper" | "scope" | "settings">;
-      answers: Record<string, MockAnswer>;
-      saved?: Record<string, QuestionGrade>;
+      name: "view";
+      result: MockResult & { paper: Paper };
+      show: "paper" | "answers";
     };
 
-/** The Mock Tests page: the paper-pattern banner, the step-by-step setup, the test, the results. */
+/**
+ * The Mock Tests page: the paper-pattern banner, the step-by-step setup, the mock as a printed
+ * paper (written on paper, then self-marked with the answer sheet), and past mocks.
+ */
 export default function MockTestsPage({ linked }: { linked?: string }) {
   const { list, loaded, hasProfile, hidden } = useMockSubjects(linked);
   const { papers, reload } = usePapers();
-  // A test that was being taken when the page closed: offered to resume, or handed in if its
-  // time ran out meanwhile (as an exam hall would).
-  const [restored] = useState(() => restoreSession("page"));
-  const [phase, setPhase] = useState<Phase>(() =>
-    restored?.state === "expired"
-      ? { name: "results", session: restored.session, answers: restored.session.answers }
-      : { name: "setup" },
-  );
-  const [resume, setResume] = useState<{ session: MockSession; minutesLeft: number } | null>(
-    restored?.state === "running" ? restored : null,
-  );
+  const [phase, setPhase] = useState<Phase>({ name: "setup" });
   const [pastVersion, setPastVersion] = useState(0);
 
   const entryFor = useCallback(
@@ -67,35 +57,9 @@ export default function MockTestsPage({ linked }: { linked?: string }) {
     [list],
   );
 
-  function begin(setup: MockSetup, paper: Paper) {
-    const now = Date.now();
-    const session: MockSession = {
-      version: 1,
-      subject: setup.entry.subject.id,
-      origin: "page",
-      scope: setup.scope,
-      settings: setup.settings,
-      paper,
-      answers: {},
-      review: [],
-      startedAt: now,
-      endsAt: now + setup.settings.minutes * 60_000,
-    };
-    saveSession(session);
-    setResume(null);
-    setPhase({ name: "taking", session });
-    window.scrollTo({ top: 0 });
-  }
-
-  const submit = useCallback((session: MockSession, answers: Record<string, MockAnswer>) => {
-    clearSession();
-    setPhase({ name: "results", session, answers });
-    window.scrollTo({ top: 0 });
-  }, []);
-
   function retake(
     subjectId: string,
-    scope: MockSession["scope"] | undefined,
+    scope: Scope | undefined,
     chapter: string,
     settings?: MockSettings,
   ) {
@@ -108,78 +72,47 @@ export default function MockTestsPage({ linked }: { linked?: string }) {
     window.scrollTo({ top: 0 });
   }
 
-  if (phase.name === "taking")
+  if (phase.name === "paper") {
+    const { setup, paper } = phase;
     return (
-      <MockRunner session={phase.session} onSubmit={(answers) => submit(phase.session, answers)} />
-    );
-
-  if (phase.name === "results") {
-    const entry = entryFor(phase.session.subject);
-    if (!entry) return <p className="text-sm text-muted">This subject is no longer available.</p>;
-    const { session, answers } = phase;
-    return (
-      <MockResults
-        paper={session.paper}
-        answers={answers}
-        tree={scopeTree(entry.subject)}
-        subjectId={entry.subject.id}
-        saved={phase.saved}
-        onSave={
-          phase.saved
-            ? undefined
-            : async (grades) => {
-                await saveMockResult({
-                  subjectId: entry.subject.id,
-                  title: session.paper.title,
-                  scope: session.scope,
-                  settings: session.settings,
-                  paper: session.paper,
-                  answers,
-                  grades,
-                  tree: scopeTree(entry.subject),
-                });
-                setPastVersion((v) => v + 1);
-              }
-        }
-        onRetake={() => retake(entry.subject.id, session.scope, "multiple", session.settings)}
+      <PaperFlow
+        paper={paper}
+        subjectName={setup.entry.subject.name}
+        scopeLabel={setup.scope.label}
+        onSave={async (score, timeTakenSec) => {
+          await saveMockResult({
+            subjectId: setup.entry.subject.id,
+            title: paper.title,
+            scope: setup.scope,
+            settings: setup.settings,
+            paper,
+            score,
+            timeTakenSec,
+          });
+          setPastVersion((v) => v + 1);
+        }}
+        onRetake={() => retake(setup.entry.subject.id, setup.scope, "multiple", setup.settings)}
         onDone={() => setPhase({ name: "setup" })}
+      />
+    );
+  }
+
+  if (phase.name === "view") {
+    const { result } = phase;
+    return (
+      <SavedMock
+        result={result}
+        subjectName={entryFor(result.subject)?.subject.name ?? result.title}
+        show={phase.show}
+        onShow={(show) => setPhase({ ...phase, show })}
+        onRetake={() => retake(result.subject, result.scope, result.chapter, result.settings)}
+        onBack={() => setPhase({ name: "setup" })}
       />
     );
   }
 
   return (
     <div className="flex flex-col gap-6">
-      {resume && (
-        <div
-          role="status"
-          className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-warning bg-warning/10 p-4 text-sm"
-        >
-          <span>
-            You have a mock in progress: <strong>{resume.session.paper.title}</strong> (about{" "}
-            {resume.minutesLeft} min left).
-          </span>
-          <span className="flex gap-2">
-            <button
-              type="button"
-              onClick={() => setPhase({ name: "taking", session: resume.session })}
-              className="rounded-full bg-primary px-4 py-2 font-semibold text-primary-fg"
-            >
-              Resume
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setResume(null);
-                submit(resume.session, resume.session.answers);
-              }}
-              className="rounded-full border border-border px-4 py-2 font-semibold"
-            >
-              Hand it in
-            </button>
-          </span>
-        </div>
-      )}
-
       <PatternBanner subjects={list} papers={papers} subject={linked} onAdded={reload} />
 
       {!loaded ? (
@@ -211,33 +144,21 @@ export default function MockTestsPage({ linked }: { linked?: string }) {
               : undefined)
           }
           onPapersChanged={reload}
-          onReady={begin}
+          onReady={(setup, paper) => {
+            setPhase({ name: "paper", setup, paper });
+            window.scrollTo({ top: 0 });
+          }}
         />
       )}
 
       <PastMocks
         version={pastVersion}
         canOpen={(r) => Boolean(entryFor(r.subject))}
-        onReview={(r) =>
-          r.paper &&
-          setPhase({
-            name: "results",
-            session: {
-              subject: r.subject,
-              paper: r.paper,
-              scope: r.scope ?? { level: "subject", ids: [], label: r.title },
-              settings: r.settings ?? {
-                marks: r.total,
-                minutes: r.minutes,
-                style: "default",
-                difficulty: "mixed",
-                pyqRepeat: false,
-              },
-            },
-            answers: r.answers ?? {},
-            saved: r.grades ?? {},
-          })
-        }
+        onView={(r, show) => {
+          if (!r.paper) return;
+          setPhase({ name: "view", result: { ...r, paper: r.paper }, show });
+          window.scrollTo({ top: 0 });
+        }}
         onRetake={(r: MockResult) => retake(r.subject, r.scope, r.chapter, r.settings)}
       />
     </div>

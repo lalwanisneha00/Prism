@@ -7,15 +7,9 @@ import { sectionText } from "@/lib/extract/types";
 import type { LessonErrorKind } from "@/lib/lessonEvents";
 import { lessonsByChapter } from "@/lib/mock/deviceLessons";
 import {
-  breakdown,
-  hasAnswer,
-  mcqGrade,
-  type MockAnswer,
-  type QuestionGrade,
-} from "@/lib/mock/grade";
-import {
   paperProblems,
   PYQ_REPEAT_SHARE,
+  RECALL_SHARE,
   similarity,
   type Paper,
   type PaperQuestion,
@@ -25,7 +19,8 @@ import {
 import type { PaperPattern } from "@/lib/mock/pattern";
 import { batches, type PaperInfo } from "@/lib/mock/plan";
 import { rulePattern } from "@/lib/mock/readPattern";
-import type { ScopeTopic, ScopeTree } from "@/lib/mock/scope";
+import type { ScopeTopic } from "@/lib/mock/scope";
+import { isRecall } from "@/lib/mock/verify";
 import { recordMockResult } from "@/lib/mock/results";
 import { listLocalNotes, listRemoteOnlyNotes, setPaperPattern } from "@/lib/notes/store";
 import { searchChunks, type NoteChunk } from "@/lib/notes/retrieval";
@@ -263,6 +258,8 @@ export async function generatePaper(
   let repeatLeft = input.settings.pyqRepeat
     ? Math.floor(input.settings.marks * PYQ_REPEAT_SHARE)
     : 0;
+  // Plain recall is a warm-up only: at most this many marks of the whole paper.
+  let recallLeft = Math.floor(input.settings.marks * RECALL_SHARE);
   const written: string[] = [];
   const sections: PaperSection[] = [];
 
@@ -293,6 +290,7 @@ export async function generatePaper(
           difficulty: input.settings.difficulty,
           styleNote: input.styleNote,
           avoid: written.slice(-40),
+          recallMarks: Math.max(0, recallLeft),
         },
         {
           signal,
@@ -307,6 +305,7 @@ export async function generatePaper(
       const got = (reply.questions as PaperQuestion[]) ?? [];
       for (const q of got) {
         if (q.source === "pyq-repeat") repeatLeft -= q.marks;
+        if (isRecall(q.question)) recallLeft -= q.marks;
         written.push(q.question.slice(0, 200));
       }
       questions.push(...got);
@@ -336,92 +335,35 @@ export async function generatePaper(
   return paper;
 }
 
-/** Most written answers marked in one request. */
-const GRADE_BATCH = 8;
-
 /**
- * Marks a finished paper: MCQs here, written answers by the AI. Written answers the AI couldn't
- * mark are listed in `selfMark`, for the student to mark by ticking the scheme's points.
+ * Saves a finished paper-mode mock (synced): what it covered, the time taken and the student's
+ * own total. Shown in Past mocks and on the Dashboard. Returns the saved record's id.
  */
-export async function gradePaper(
-  paper: Paper,
-  answers: Readonly<Record<string, MockAnswer>>,
-  onWait?: (seconds: number) => void,
-): Promise<{ grades: Record<string, QuestionGrade>; selfMark: string[] }> {
-  const grades: Record<string, QuestionGrade> = {};
-  const written: PaperQuestion[] = [];
-  for (const q of paper.sections.flatMap((s) => s.questions)) {
-    const a = answers[q.id];
-    if (q.type === "mcq") grades[q.id] = mcqGrade(q, a);
-    else if (!hasAnswer(a)) grades[q.id] = { marks: 0, by: "auto", feedback: "Not answered." };
-    else written.push(q);
-  }
-  const selfMark: string[] = [];
-  for (let i = 0; i < written.length; i += GRADE_BATCH) {
-    const batch = written.slice(i, i + GRADE_BATCH);
-    try {
-      const reply = await postJson(
-        "/api/mock-test/grade",
-        {
-          items: batch.map((q) => ({
-            id: q.id,
-            question: q.question,
-            marks: q.marks,
-            answer: q.answer,
-            scheme: q.scheme,
-            studentAnswer: (answers[q.id]?.written ?? "").slice(0, 5000),
-          })),
-        },
-        { onWait },
-      );
-      const list =
-        (reply.grades as { id: string; marks: number; met: number[]; feedback: string }[]) ?? [];
-      const byId = new Map(list.map((g) => [g.id, g]));
-      for (const q of batch) {
-        const g = byId.get(q.id);
-        if (g)
-          grades[q.id] = {
-            marks: g.marks,
-            by: "ai",
-            met: g.met,
-            ...(g.feedback ? { feedback: g.feedback } : {}),
-          };
-        else selfMark.push(q.id);
-      }
-    } catch {
-      selfMark.push(...batch.map((q) => q.id));
-    }
-  }
-  return { grades, selfMark };
-}
-
-/** Saves the result (synced) so the dashboard and weak topics see it. */
 export async function saveMockResult(input: {
   subjectId: string;
   title: string;
   scope: { level: "subject" | "units" | "topics"; ids: string[]; label: string };
   settings: MockSettings;
   paper: Paper;
-  answers: Record<string, MockAnswer>;
-  grades: Record<string, QuestionGrade>;
-  tree: ScopeTree;
-}): Promise<void> {
-  const b = breakdown(input.paper, input.answers, input.grades, input.tree);
-  const units = [...new Set(b.byTopic.map((t) => t.unitId))];
-  await recordMockResult({
+  score: number;
+  timeTakenSec: number;
+}): Promise<string> {
+  const units = [...new Set(input.scope.level === "units" ? input.scope.ids : [])];
+  return recordMockResult({
     subject: input.subjectId,
-    chapter: units.length === 1 && units[0] ? units[0] : "multiple",
+    chapter: units.length === 1 ? units[0] : "multiple",
     level: "exam-prep",
     minutes: input.settings.minutes,
     title: input.title,
-    score: b.score,
-    total: b.total,
-    byTopic: b.byTopic.slice(0, 40).map((t) => ({ topic: t.id, score: t.score, total: t.total })),
+    score: input.score,
+    total: input.paper.totalMarks,
+    // Paper mode has no per-question marks, so no topic split (and no weak-topic signal).
+    byTopic: [],
     scope: input.scope,
     settings: input.settings,
     paper: input.paper,
-    answers: input.answers,
-    grades: input.grades,
+    mode: "paper",
+    timeTakenSec: Math.max(0, Math.round(input.timeTakenSec)),
   });
 }
 

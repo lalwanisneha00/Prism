@@ -2,23 +2,27 @@
 
 import { useEffect, useState } from "react";
 import { useDataVersion } from "@/components/account/AuthProvider";
+import { formatClock } from "@/lib/mock/clock";
 import { listMockResults } from "@/lib/mock/results";
 import type { MockResult } from "@/lib/storage/db";
 
 const dateText = (at: number) =>
   new Date(at).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
 
-/** Past mocks with score, scope and date; Review opens the marked paper, Retake writes a new one. */
+/**
+ * Past mocks with score, scope, date and time taken: view the paper or its answer sheet, or retake
+ * the same scope as a new paper.
+ */
 export function PastMocks({
   version,
   canOpen,
-  onReview,
+  onView,
   onRetake,
 }: {
   /** Bumped after a new result is saved. */
   version: number;
   canOpen: (r: MockResult) => boolean;
-  onReview: (r: MockResult) => void;
+  onView: (r: MockResult, show: "paper" | "answers") => void;
   onRetake: (r: MockResult) => void;
 }) {
   const dataVersion = useDataVersion();
@@ -60,21 +64,31 @@ export function PastMocks({
                   <span className="block text-xs text-muted">
                     {r.scope?.label ??
                       (r.chapter === "multiple" ? "Several chapters" : "One chapter")}{" "}
-                    · {dateText(r.at)} · {r.minutes} min
+                    · {dateText(r.at)} ·{" "}
+                    {r.timeTakenSec ? `took ${formatClock(r.timeTakenSec)}` : `${r.minutes} min`}
                   </span>
                 </span>
-                <span className="flex items-center gap-2">
+                <span className="flex flex-wrap items-center gap-2">
                   <span className="font-semibold tabular-nums">
                     {r.score}/{r.total}
                   </span>
                   {open && r.paper && (
-                    <button
-                      type="button"
-                      onClick={() => onReview(r)}
-                      className="rounded-full border border-border px-3 py-1 font-semibold"
-                    >
-                      Review
-                    </button>
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => onView(r, "paper")}
+                        className="rounded-full border border-border px-3 py-1 font-semibold"
+                      >
+                        View paper
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => onView(r, "answers")}
+                        className="rounded-full border border-border px-3 py-1 font-semibold"
+                      >
+                        View answer sheet
+                      </button>
+                    </>
                   )}
                   {open && (
                     <button
@@ -82,7 +96,7 @@ export function PastMocks({
                       onClick={() => onRetake(r)}
                       className="rounded-full border border-border px-3 py-1 font-semibold"
                     >
-                      Retake
+                      Retake as a new paper
                     </button>
                   )}
                 </span>

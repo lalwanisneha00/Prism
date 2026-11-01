@@ -432,3 +432,17 @@ One phase. Replaces the V2.5 chapter mock and the V3 multi-chapter mock with one
 6. **Taking:** timer (own component), sections, palette (answered / not answered / marked for review), auto hand-in at 0, progress saved in `localStorage` (`prism.mock.session`), resume after refresh.
 7. **Results:** MCQs marked in code, written answers by AI against the scheme (`/api/mock-test/grade`, partial marks, feedback; self-marking by ticking points if the AI fails); choice sections count the best answers; breakdown by unit and topic, weakest topics with "Study this". Saved and synced in `mockResults` (new optional `scope`, `settings`, `paper`, `answers`, `grades`), shown on the Dashboard, `byTopic` still feeds weak topics.
 8. **Performance:** page, runner, results and uploader lazy-loaded; scope trees cached per subject; patterns cached per upload.
+
+## 11.12 Mock tests: paper mode (plan update 2026-11-01, replaces in-app answering)
+
+Replaces §11.11 items 6 and 7. Setup is unchanged (subject → scope → pick → settings → generate).
+
+1. **Paper:** shown like a printed university paper (`PaperView.tsx`): header (subject, scope, time, max. marks), instructions, sections, internal choice ("Attempt any 4 of the following 6"), marks on the right, MCQ options as (a)–(d). No answer boxes or option buttons. Buttons: Start timer, Download paper (PDF), Print.
+2. **Timer** (`src/lib/mock/clock.ts`): countdown of the chosen time, pausable; at 0 shows "Time's up" and locks nothing. "Finish mock test" is always available.
+3. **Answer sheet** (`AnswerSheetView.tsx`): rendered only after Finish. Model answer per question (steps for numericals/derivations, key points for theory) and a marking scheme with marks per point; MCQs show the right option and a one-line reason. Download/Print.
+4. **Self-marking:** one box "Your total marks: __ / total" (`parseSelfScore`: 0 to total, up to 2 decimals). Saved as a `mockResults` record with `mode: "paper"`, `timeTakenSec`, `score`, the paper and scope; `byTopic` is empty (no mistake analysis). Past mocks: View paper, View answer sheet, Retake as a new paper. Older in-app results show read-only.
+5. **Answer-key accuracy** (`src/lib/mock/verify.ts`, `/api/mock-test`): rule checks on the command word (state the value → a value; define → a definition; derive → steps; calculate → working + result; compare → differences; list N → N items), MCQ one correct option + agreeing reason, scheme marks adding up to each question and question marks to the total; then a second AI examiner solves every question without the key: its MCQ option and its numerical answer (its own calculation run by code) must match. Failures are rewritten before the paper is shown. Batches of 4 questions.
+6. **Quality:** plain recall ≤ 15% of the paper's marks (`RECALL_SHARE`, enforced per batch); prompt asks for explain/apply/derive/solve/compare in the papers' style.
+7. **Maths** (`src/lib/mock/mathClean.ts`): AI text cleaned (doubled backslashes, typed-out \n, LaTeX outside `$…$` wrapped), every shown text checked for raw LaTeX or stray backslashes and for maths KaTeX can't render; `MathText` renders with KaTeX and falls back to readable text (√(x), (a)/(b), π).
+8. **Print/PDF:** the sheet is drawn into `#mock-print-root` and printed through the browser ("Save as PDF"), black on white in every look; free, and KaTeX maths stays exact.
+9. Removed: in-app answers, MCQ picking, AI marking (`/api/mock-test/grade`), per-question feedback, answer resume (`session.ts`).

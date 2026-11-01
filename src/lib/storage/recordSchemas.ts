@@ -82,6 +82,8 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
       })
       .optional(),
     settings: MockSettingsSchema.optional(),
+    mode: z.literal("paper").optional(),
+    timeTakenSec: z.number().min(0).max(86_400).optional(),
     paper: PaperSchema.optional(),
     answers: z
       .record(

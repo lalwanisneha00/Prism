@@ -1,5 +1,7 @@
 import { z } from "zod";
 import { statesUnit } from "@/lib/units";
+import { cleanAiText, displayProblems } from "@/lib/mock/mathClean";
+import { commandProblem, isRecall, mcqProblem } from "@/lib/mock/verify";
 import {
   QUESTION_TYPES,
   sectionMarks,
@@ -43,6 +45,8 @@ export const PaperQuestionSchema = z.object({
   options: z.array(text.max(300)).min(2).max(6).optional(),
   /** The model answer (for MCQs: the right option, copied exactly). */
   answer: text.max(4000),
+  /** MCQs: one line on why the answer is right (older papers have none). */
+  reason: z.string().trim().max(400).optional(),
   /** The marking scheme: what an examiner gives marks for. Empty for MCQs. */
   scheme: z.array(SchemePointSchema).max(10).default([]),
   source: z.enum(QUESTION_SOURCES),
@@ -216,8 +220,37 @@ export type CheckContext = {
   pyqs: readonly string[];
   /** Whether labelled "PYQ repeat" questions may be used, and how many marks they may take. */
   pyqRepeatMarks: number;
+  /** Marks plain recall questions may still take (the warm-up share). Missing = no limit. */
+  recallMarks?: number;
   evaluate: (expression: string) => number;
 };
+
+type SlotAnswer = z.infer<typeof SlotAnswerSchema>;
+
+/** Every text of a question with its maths tidied (see mathClean.ts). */
+function cleanQuestion(q: SlotAnswer): SlotAnswer {
+  return {
+    ...q,
+    question: cleanAiText(q.question),
+    answer: cleanAiText(q.answer),
+    ...(q.options ? { options: q.options.map(cleanAiText) } : {}),
+    ...(q.reason ? { reason: cleanAiText(q.reason) } : {}),
+    scheme: q.scheme.map((p) => ({ ...p, point: cleanAiText(p.point) })),
+  };
+}
+
+/** Every text shown for a question (the paper and the answer sheet). */
+export function shownTexts(
+  q: Pick<PaperQuestion, "question" | "answer" | "options" | "reason" | "scheme">,
+): string[] {
+  return [
+    q.question,
+    q.answer,
+    ...(q.options ?? []),
+    ...(q.reason ? [q.reason] : []),
+    ...q.scheme.map((p) => p.point),
+  ];
+}
 
 /** Similar enough to call it the same past question. */
 const REPEAT_SIMILARITY = 0.6;
@@ -238,6 +271,7 @@ export function checkSection(
   const problems: SlotProblem[] = [];
   let fixed = 0;
   let repeatMarks = 0;
+  let recallMarks = 0;
   const slots = new Map(planned.slots.map((s) => [s.id, s]));
   raw.forEach((item, i) => {
     const parsed = SlotAnswerSchema.safeParse(item);
@@ -255,7 +289,7 @@ export function checkSection(
       });
       return;
     }
-    const q = parsed.data;
+    const q = cleanQuestion(parsed.data);
     const slot = slots.get(q.slot);
     if (!slot) return problems.push({ slot: q.slot, reason: "no such slot" });
     if (ok.has(slot.id)) return problems.push({ slot: slot.id, reason: "slot answered twice" });
@@ -276,17 +310,21 @@ export function checkSection(
     }
     if (q.marks !== slot.marks) fixed++;
 
-    if (type === "mcq") {
-      const options = q.options ?? [];
-      if (options.length !== 4 || new Set(options).size !== 4)
-        return problems.push({ slot: slot.id, reason: "needs exactly 4 different options" });
-      if (!options.includes(q.answer))
+    const shown = shownTexts(q).flatMap(displayProblems);
+    if (shown.length) return problems.push({ slot: slot.id, reason: shown[0] });
+    const key = { ...q, type };
+    const keyProblem = type === "mcq" ? mcqProblem(key) : commandProblem(key);
+    if (keyProblem) return problems.push({ slot: slot.id, reason: keyProblem });
+    if (type !== "mcq" && q.scheme.length === 0)
+      return problems.push({ slot: slot.id, reason: "needs a marking scheme" });
+    if (isRecall(q.question)) {
+      if (recallMarks + slot.marks > (ctx.recallMarks ?? Infinity))
         return problems.push({
           slot: slot.id,
-          reason: "the answer must be copied exactly from the options",
+          reason:
+            "too much plain recall in this paper: ask to explain, apply, derive, solve or compare instead",
         });
-    } else if (q.scheme.length === 0) {
-      return problems.push({ slot: slot.id, reason: "needs a marking scheme" });
+      recallMarks += slot.marks;
     }
     if (type === "numerical") {
       if (!q.check)
@@ -334,6 +372,7 @@ export function checkSection(
       question: q.question,
       ...(type === "mcq" ? { options: q.options } : {}),
       answer: q.answer,
+      ...(type === "mcq" && q.reason ? { reason: q.reason } : {}),
       scheme,
       source,
       ...(type === "numerical" && q.check ? { check: q.check } : {}),
@@ -361,8 +400,14 @@ export function paperMarks(paper: Pick<Paper, "sections">): number {
 export function paperProblems(paper: Paper, scope: ReadonlySet<string>, total: number): string[] {
   const problems: string[] = [];
   for (const s of paper.sections) {
-    for (const q of s.questions)
+    for (const q of s.questions) {
       if (!scope.has(q.topic)) problems.push(`${s.name} ${q.id}: topic "${q.topic}" not chosen`);
+      const schemeMarks = q.scheme.reduce((n, p) => n + p.marks, 0);
+      if (q.type !== "mcq" && Math.abs(schemeMarks - q.marks) > 1e-9)
+        problems.push(`${s.name} ${q.id}: scheme gives ${schemeMarks} of ${q.marks} marks`);
+      const shown = shownTexts(q).flatMap(displayProblems);
+      if (shown.length) problems.push(`${s.name} ${q.id}: ${shown[0]}`);
+    }
     if (s.attempt) {
       if (s.attempt >= s.questions.length)
         problems.push(`${s.name}: choice of ${s.attempt} from ${s.questions.length}`);
@@ -377,6 +422,8 @@ export function paperProblems(paper: Paper, scope: ReadonlySet<string>, total: n
 
 /** The marks a section of slots may give to "PYQ repeat" questions (a small share). */
 export const PYQ_REPEAT_SHARE = 0.2;
+/** Most of the paper's marks plain recall (define, state, list, the value of…) may take. */
+export const RECALL_SHARE = 0.15;
 
 export function sectionPrompt(input: {
   subjectName: string;
@@ -390,27 +437,31 @@ export function sectionPrompt(input: {
   difficulty: "easy" | "mixed" | "hard";
   styleNote: string;
   avoid: readonly string[];
+  /** Marks plain recall questions may still take in this paper. */
+  recallMarks?: number;
   problems?: readonly SlotProblem[];
 }): { system: string; prompt: string } {
   const diff = {
     easy: "Easy: direct recall and single-step problems.",
     mixed:
-      "Mixed, like a real paper: some recall, mostly application, one or two harder questions.",
+      "Mixed, like a real paper: mostly explain, apply, derive, solve and compare; one or two harder questions.",
     hard: "Hard: multi-step problems, applications and reasoning; no pure recall.",
   }[input.difficulty];
   const system = `You are a university examiner writing part of an engineering mock exam.
 Rules:
 - Write exactly one question for each SLOT below, with the slot's id, type and marks, testing the slot's topic (use its topic id). Never test anything outside the listed topics.
 - Ground every question in the SOURCE material below (the student's notes, lesson facts, reference text). Don't ask about things the sources don't support.
-- "mcq": exactly 4 different options, one correct; "answer" is the correct option copied exactly; "scheme": [].
-- Other types: "answer" is a model answer sized to the marks; "scheme" lists 2-6 points an examiner gives marks for, each with its "marks" (adding up to the question's marks).
+- "mcq": exactly 4 different options, exactly one correct; "answer" is the correct option copied exactly; "reason": one line on why it is right; "scheme": [].
+- Other types: "answer" is the model answer a top student would write, sized to the marks: steps for numericals and derivations, key points for theory, a described labelled diagram where one is needed. "scheme" lists 2-6 points showing where the marks go (e.g. "Formula", "Substitution", "Final answer with units"), each with its "marks", adding up to the question's marks.
+- The answer and scheme must give EXACTLY what the question's command word asks: "state the value" → the value; "define" → a definition; "derive" → the full derivation; "calculate" → working and the final answer with units; "compare" → points of difference; "list N" → N items.
+- Plain recall (define, state, list, "the value of") is a small warm-up only${input.recallMarks !== undefined ? `: at most ${input.recallMarks} more marks of it in this part` : ""}. Prefer questions that ask to explain, apply, derive, solve or compare, as in the university's papers.
 - "numerical": include "check": {"expression": a plain calculation with numbers only (mathjs, e.g. "8.99e9*2e-6/0.05^2"), "answer": the number it gives, "unit": its SI unit (omit for pure numbers)}. The model answer must state that number with that unit.
 - "derivation": ask to derive a result; the scheme lists the steps. "diagram": ask for a labelled diagram and its explanation; the scheme names the labels expected.
 - "source": "material" (from the student's notes), "lesson" (from the lesson facts or reference text), "pyq-style" (styled on a past question but new).${input.pyqRepeat ? `\n- You MAY reuse up to ${Math.round(PYQ_REPEAT_SHARE * 100)}% of the marks as real past questions from the PAST QUESTIONS list, copied as printed, with "source": "pyq-repeat". Every other question must be new: never copy a past question.` : "\n- Never copy a past question; write new ones in the same style."}
 - Difficulty: ${diff}
 - ${input.styleNote}
-- Markdown and KaTeX ($...$) allowed; no HTML.
-Reply with JSON only: {"questions":[{"slot":"s1q1","type":"mcq","topic":"<topic id>","marks":1,"question":"...","options":["...","...","...","..."],"answer":"...","scheme":[],"source":"lesson"}]}`;
+- Maths: ALWAYS LaTeX inside $...$ (inline) or $$...$$ (on its own line), e.g. $\\sqrt{-1}$, $\\frac{a}{b}$, $\\pi$. Never write a LaTeX command outside dollar signs. In the JSON, write each backslash as \\\\ (e.g. "$\\\\frac{1}{2}$"). Markdown allowed; no HTML.
+Reply with JSON only: {"questions":[{"slot":"s1q1","type":"mcq","topic":"<topic id>","marks":1,"question":"...","options":["...","...","...","..."],"answer":"...","reason":"...","scheme":[],"source":"lesson"}]}`;
   const slotLines = input.section.slots.map(
     (s) => `- ${s.id}: ${s.type}, ${s.marks} ${s.marks === 1 ? "mark" : "marks"}, topic ${s.topic}`,
   );
@@ -441,6 +492,7 @@ export function fakeSection(section: PlannedSection): unknown[] {
         question: `Which statement about ${s.topic} is true? (test question ${i + 1})`,
         options: ["Statement A", "Statement B", "Statement C", "Statement D"],
         answer: "Statement A",
+        reason: "Statement A is the one the lesson states (test reason).",
         scheme: [],
       };
     if (s.type === "numerical")
@@ -448,7 +500,7 @@ export function fakeSection(section: PlannedSection): unknown[] {
         ...base,
         type: "numerical",
         question: `Compute $2 \\times ${s.marks}$. (test question ${i + 1})`,
-        answer: `${2 * s.marks}`,
+        answer: `Multiply the two numbers.\n$2 \\times ${s.marks} = ${2 * s.marks}$`,
         scheme: [
           { point: "Correct method", marks: 1 },
           { point: "Correct answer", marks: 1 },

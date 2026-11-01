@@ -2,7 +2,6 @@ import { openDB, type DBSchema, type IDBPDatabase } from "idb";
 import type { Lesson } from "@/lib/schema";
 import type { ExtractedSection, FileFormat } from "@/lib/extract/types";
 import type { MaterialKind } from "@/lib/notes/kinds";
-import type { MockAnswer, QuestionGrade } from "@/lib/mock/grade";
 import type { Paper } from "@/lib/mock/paper";
 import type { ExamStyle, PaperKind, PaperPattern } from "@/lib/mock/pattern";
 import type { ScopeLevel } from "@/lib/mock/scope";
@@ -67,10 +66,26 @@ export type MockResult = SyncFields & {
   /** Mock test overhaul (all optional: older results have none). What the paper covered. */
   scope?: { level: ScopeLevel; ids: string[]; label: string };
   settings?: MockSettings;
+  /**
+   * "paper" (mock test redesign): written on paper, the student entered one total; no answers or
+   * per-question marks. Missing on older results, which were answered and marked in the app.
+   */
+  mode?: "paper";
+  /** Paper mode: how long the student took (seconds the timer ran). */
+  timeTakenSec?: number;
   /** The paper, the answers and the marks, so the result can be reviewed or the paper retaken. */
   paper?: Paper;
   answers?: Record<string, MockAnswer>;
   grades?: Record<string, QuestionGrade>;
+};
+
+/** Older mocks (before paper mode): an answer given in the app, and the marks it got. */
+export type MockAnswer = { picked?: string; written?: string };
+export type QuestionGrade = {
+  marks: number;
+  feedback?: string;
+  by: "auto" | "ai" | "self";
+  met?: number[];
 };
 
 /** A student's choices for a mock (remembered per subject). */
