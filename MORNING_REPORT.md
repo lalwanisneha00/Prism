@@ -1,5 +1,7 @@
 # Morning report: overnight FINAL run (2026-10-05)
 
+> **History.** This report is from October 2026, before the PDEU syllabus and the syllabus fix. The branch it mentions was merged long ago; work now happens on `main`. Current state: `PROGRESS.md` and `HANDOFF.md`.
+
 Branch `overnight-v3-final` (tag `before-overnight-final`), pushed to GitHub so Vercel can build a preview. Nothing was merged into `main`; production and live Firebase were not touched.
 
 ## Update 2026-10-06: three changes from your feedback (all pushed, tag `final-semester-syllabus`)

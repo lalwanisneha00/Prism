@@ -1,94 +1,79 @@
-# HANDOFF: how to continue Prism exactly according to plan
+# HANDOFF: how to continue Prism
 
-Written for a new AI (or person) picking this repo up cold. Read this first, then `CLAUDE.md`, `AGENTS.md`, `SPEC.md`, `PROGRESS.md`, `MORNING_REPORT.md`, `DEPLOY_CHECKLIST.md` and `docs/PRISM_OVERNIGHT_FINAL.md` (the owner's original overnight brief). Last updated 2026-10-06 (after the semester, university-syllabus and slide-quality work).
+Written for a new AI (or person) picking this repo up cold. Last updated 2026-11-01.
+
+**Read in this order:** `CLAUDE.md` (rules), then the "Current state" block at the top of `PROGRESS.md` (where we are and what is next). For syllabus work also read `docs/SYLLABUS_AUDIT.md` (Progress Log at the bottom) and only the needed phase of `PRISM_SYLLABUS_FIX.md`. `SPEC.md` is the product spec; `docs/SYLLABUS_SYSTEM.md` explains the syllabus system in plain English. Don't re-read the whole codebase: read what the current task needs.
 
 ## 1. What Prism is
 
-A free, visual, sourced study guide for engineering students (Next.js 16, React 19, Tailwind 4, TypeScript strict, Zod, Firebase Spark free plan, Vercel). Pick subject → chapter → topic, level (six) and length; get an AI lesson that is grounded in fetched sources, fact-checked, code-checked, with visuals the AI can only choose from a trusted registry. 84 subjects, golden-set accuracy evals, planner, flashcards, mock tests, uploads, audio, accounts and sync. The owner is **Sneha** (a first-year student; explain simply). Never use gendered pronouns for anyone unless stated.
+A free, visual, sourced study guide for B.Tech students at PDEU (Pandit Deendayal Energy University). Next.js 16, React 19, Tailwind 4, TypeScript strict, Zod, Firebase Spark (free plan), Vercel (free plan). A student picks branch → semester → subject → chapter → topic, a level (six) and a length, and gets an AI lesson grounded in fetched sources, fact-checked and code-checked, with visuals the AI can only choose from a trusted registry. Also: lab lessons (11 lab formats, circuit renderer, simulations), mock tests, weak-topic tracking, planner, flashcards, uploads in any format, audio, highlights and comments, slides/PDF export, accounts and sync, and student syllabus flagging with voting and an admin page.
 
-## 2. Where everything is
+The owner is **Sneha**, a first-year student: explain simply, with an everyday analogy for new ideas. Don't use gendered pronouns for anyone unless stated.
 
-- Repo: github.com (origin) branch **`overnight-v3-final`**. `main` is production: **never merge into `main` or touch production/live Firebase without the owner saying so.**
-- Tags (all pushed): `before-overnight-final`, `v3-step-11`, `final-feature-a`, `final-feature-b`, `final-feature-c`, `final-polish`. Earlier tags: `v2.5-step-N`, `v3-step-2…7`, `concept-map-fix`.
-- Rules for working here: `CLAUDE.md` (build one step at a time, `npm run check` + `npm run build` before handover, no `any`, Zod-validate all AI output, every screen has loading/empty/error/rate-limit states, 375px mobile, data not hard-coded logic, pure logic in `src/lib` with a Vitest test next to it, Prettier).
-- Feature flags: `src/lib/flags.ts` (env `NEXT_PUBLIC_FLAG_BYO_KEY`, `_SLIDES_PDF`, `_REDESIGN`, `_COMMUNITY`).
-- Owner's standing preferences: build autonomously step by step without asking; test yourself; commit and push often; keep `PROGRESS.md` "Current state" and `MORNING_REPORT.md` up to date; "✅ Check this" notes for the owner; nothing paid (no Cloud Functions, no Firebase Storage); no secrets in git; storage changes need migrations; automated tests use mocked/fake AI (`LLM_PROVIDER=fake`), live AI only in the eval.
+## 2. How we work now (owner's rules, 2026-11-01)
 
-## 3. State of the work (2026-10-06)
+- Work in phases. At the end of each phase: run `npm run check` and `npm run build`, explain what changed, then **ask before committing**. Commit and push only when the owner says so.
+- Before each commit, update `PROGRESS.md` (and `docs/SYLLABUS_AUDIT.md` for syllabus work, `CLAUDE.md` if needed) so a fresh session can resume.
+- Must stay completely free: no paid APIs or services; flag anything that would need payment first.
+- Don't remove or break existing features. No big refactors, dependency upgrades or file deletions without asking.
+- Accuracy target for engineering-wide content: 85 to 90%. Don't trade accuracy for speed.
+- Never commit `.env*` files or secrets. The owner is on Windows 11: give terminal commands for PowerShell.
+- Older notes in `PROGRESS.md` and `MORNING_REPORT.md` describe an "autonomous, never ask" mode and a branch `overnight-v3-final`. **Both are history.** Work happens on `main` now, and the owner confirms each phase.
 
-| Area                                        | State                                                                                                                                                                     |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| V2, V2.5, V3 Steps 2–7                      | Done, tagged.                                                                                                                                                             |
-| V3 Step 11 (time recommendations + planner) | Done (`v3-step-11`).                                                                                                                                                      |
-| V3 Step 12 (own-syllabus matching)          | `src/lib/custom/matchSyllabus.ts` done and tested; the **university-syllabus feature below is the real Step 12 and is NOT finished.**                                     |
-| V3 Steps 8–10 accuracy evals                | **PAUSED by the owner.** The app shows "Test not run yet" (`src/lib/evalStatus.ts`, `src/data/evalStatus.json`). Do not restart evals until the owner says so.            |
-| Feature A (own API key)                     | Done (`final-feature-a`).                                                                                                                                                 |
-| Feature B (slides + PDF)                    | Done and tagged, **now being improved** (see §4).                                                                                                                         |
-| Feature C (redesign)                        | Done (`final-feature-c`); Classic look kept behind the footer switch.                                                                                                     |
-| Feature D (community branches)              | **Not started** by decision; spec in `docs/PRISM_OVERNIGHT_FINAL.md` §7. Flag `community` stays off. Needs the owner's go-ahead and Firestore rules applied by the owner. |
-| DB-lock fix                                 | Done (`e2b8aca`): older tabs holding IndexedDB open used to freeze pages; now they step aside and a notice shows.                                                         |
-| Last full browser regression                | Not completed (stopped on request). 58 tests passed; `chapter-reading` desktop-dark failed once during a system sleep and has not been re-run alone.                      |
+## 3. Where everything is
 
-## 4. The owner's latest requests (2026-10-06): all three are BUILT, pushed and tested; waiting for the owner's review
+- Repo: `github.com/lalwanisneha00/Prism`, branch **`main`**. Every push to `main` deploys to Vercel production.
+- **Live site design: every student uses their own AI key** (Settings → Your API keys). Vercel has no `GEMINI_API_KEY`/`GROQ_API_KEY` on purpose; those in `.env.local` are only for local development. Every browser call to an AI route must go through `apiFetch` (`src/lib/byok/apiFetch.ts`) so the student's key goes along.
+- Syllabus data: `src/data/subjects/pdeu-*.json` (about 490 active courses incl. 147 labs, ~16,400 topics, 9 branches in `src/data/branches.json`: ce, ict, ece, me, civil, petro, biotech, elec, chem). Older non-PDEU subject files are a hidden topic bank. Never rebuild the syllabus; change it with reversible migrations in `scripts/syllabus-migrations/` (001 to 012).
+- Student fixes live in Firestore (`syllabusOverlay/current` and friends, server-only); admin page `/admin/syllabus` (account in `ADMIN_UID`). `/api/status` says (yes/no) whether database access is set up.
+- Feature flags: `src/lib/flags.ts` (see `DEPLOY_CHECKLIST.md`).
+- Tags: `v2.5-step-N`, `v3-step-2…7`, `v3-step-11`, `final-feature-a/b/c`, `final-polish`, `final-semester-syllabus`, `pre-syllabus-*` (before syllabus migrations).
+- Local-only branch `backup/syllabus-phase5-plus-6`: an old work-in-progress backup, not needed (delete only if the owner says so).
 
-### 4.1 Slides and PDF quality: done
+## 4. State of the work
 
-- No slide numbers in the PowerPoint (a PDF keeps page numbers). No line ends with an ellipsis: `clip()` in `src/lib/slides/text.ts` cuts at whole sentences, and long content is split over "(continued)" slides, never cut.
-- Depth: every sentence of each section, agenda slide, prerequisites, key terms (glossary), all analogies, worked examples (continued on a second slide), misconceptions, "Keep learning", richer speaker notes. Class activities are now "Think, pair, share" on the lesson's hardest question (5–8 min, with three "how to work on it" hints) and "True or false? Defend it" from a real misconception (4 min). Source lessons are made longer (`lessonMinutesFor`: about slides × 2.4 min per topic).
-- Tests: `src/lib/slides/*.test.ts`, `e2e/slides.spec.ts`. Decks were opened in PowerPoint and checked by eye.
-- Known: a deck's length is still capped by the asked slide count (optional slides are dropped first); interactive widgets still show their slider controls in pictures.
+| Area                               | State                                                                                                                                            |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| V1, V2, V2.5                       | Done.                                                                                                                                            |
+| V3 (All Engineering)               | Built. Steps 8 to 10 evals were paused by the owner, and are now outdated anyway (see below).                                                    |
+| Final features A, B, C             | Done: own API key, slides + PDF, redesign (Classic look behind the footer switch).                                                               |
+| Feature D (community branches)     | Not started by decision; flag `community` off. Spec: `docs/PRISM_OVERNIGHT_FINAL.md` §7.                                                         |
+| PDEU syllabus + syllabus fix (0-8) | Done and live, incl. 4B, 7B, 7C and migration 012 (merged lab numbering). Student flagging tested by the owner on the live site with 4 accounts. |
+| Accuracy evals                     | **Outdated** (run on the old syllabus). Don't run or change them until the owner asks for a separate eval task.                                  |
+| V-Final                            | Not started.                                                                                                                                     |
 
-### 4.2 Subjects by semester and non-core subjects: done
+Open items: `YOUTUBE_API_KEY` not set (lab videos off; free key, no billing); unclear handout re-check suggestions not applied (`handouts/_parsed/RECHECK_REPORT.md`); some UI text still mentions "Prism's shared key" (`KeyIndicator`, `ApiKeys`, `LessonError`), which doesn't match the own-key design.
 
-Student picks their semester and ticks the subjects their college teaches (any subject can sit in any semester), plus non-core subjects (Indian Knowledge System, Organisational Behaviour, Environmental Science …). Built-in non-core ones tick directly; others open the own-subject form with `?semester=N` and join that semester on save. Chosen subjects come first in the lesson maker. Code: `src/lib/semester/mySemester.ts`, `src/components/subjects/SemesterSubjects.tsx`, `useMySemester.ts`; settings field `mySubjects`. Tests: `mySemester.test.ts`, `e2e/semester-subjects.spec.ts`.
-Bug found and fixed on the way: two quick settings saves could overwrite each other; `updateSettings` now queues writes (`settings.test.ts`).
+## 5. How to run and verify (PowerShell)
 
-### 4.3 University / college syllabus: done
-
-`/subjects/university` ("Add my university syllabus", linked from the semester panel): upload (PDF, Word, slides, photo; read on the device) or paste; "Read my syllabus" (rule-based parser `src/lib/university/parse.ts`) or "Read it with AI" (`/api/syllabus`, Zod-checked, chunked; uses the student's key if set). Then a review screen: per semester, each university subject is matched to a built-in subject (`match.ts`: name similarity ignoring filler words like "Engineering"/"Applied"/"I", plus topic overlap), or kept as the student's own subject, or skipped; chapters the university does not teach are unticked and can be ticked back. Apply (`apply.ts`) saves `mySubjects` per semester, `universityScope` (subject → chapter → topic ids), creates own subjects for what Prism does not teach. The scope is enforced in the lesson picker, subject pages and the planner via `useScopedSubjects` (`src/components/university/`); a notice offers "Show everything" / "Edit my syllabus"; "Remove it" clears it. Fixture: `test-fixtures/university-syllabus-sample.txt`. Tests: `src/lib/university/*.test.ts`, `e2e/university.spec.ts`.
-Not yet scoped: the concept map page and chapter-lesson pages that load a subject directly by id (they still show every chapter). Matching is word-based, so a differently worded syllabus may leave chapters in; the review screen is where the student corrects that.
-
-### 4.4 What is next (only when the owner says)
-
-1. The owner reviews the preview and the three items above and gives feedback.
-2. Re-run the full four-mode browser regression once (it has not finished since the redesign: 58 passed, `chapter-reading` desktop-dark needs a solo re-run).
-3. Evals (paused by the owner), Feature D (community branches), Lighthouse/bundle checks, concept-map scoping.
-
-## 5. How to run and verify
-
-```bash
+```powershell
 npm install
-npm run dev                 # http://localhost:3000 (if the owner's other project "Register" served a service worker there, use `npx next dev -p 3100`)
-npm run check               # typecheck + lint + prettier --check + all Vitest tests (686 pass at last run)
-LLM_PROVIDER=fake npx next build
-E2E_SERVER=start npx playwright test --project=desktop-light      # production build + fake AI; add --project=mobile-dark etc.
+npm run dev              # http://localhost:3000
+npm run check            # typecheck + lint + format check + all Vitest tests (1090 at last run)
+npm run build            # production build
+$env:E2E_SERVER = "start"; npx playwright test e2e/navigation.spec.ts --project=desktop-light
 ```
 
-Playwright uses Edge (`channel: msedge`), one worker, port 3210. If a run is killed, a stray server can keep port 3210: `netstat -ano | grep :3210` then `taskkill //PID <pid> //F`. Run heavy commands one at a time (the computer has little free memory; `NODE_OPTIONS=--max-old-space-size=3072`). The computer sometimes sleeps: a test that "took hours" and failed usually passes when re-run alone.
+- Playwright uses the installed Edge (`channel: msedge`), one worker, port 3210, fake AI. With `E2E_SERVER=start` it serves the existing production build (run `npm run build` first), which needs far less memory than the dev server. Projects: `desktop-light`, `desktop-dark`, `mobile-light`, `mobile-dark` (375px).
+- Known flaky unit test: `src/app/api/lesson/route.test.ts` "explains when no AI key is configured" can time out (5 s) during the full run on this computer; it passes alone. Not a bug.
+- If a killed run leaves port 3210 busy: `netstat -ano | findstr :3210`, then `taskkill /PID <pid> /F`.
+- Run heavy commands one at a time (little free memory). A test that "took hours" usually failed because the computer slept; re-run it alone.
 
 ## 6. Environment quirks (learned the hard way)
 
-- Windows 11 with Git Bash. **Heredocs mangle backslashes and `\f \o \v \b` in strings**: write any file containing backslashes (LaTeX, regexes, `\n`) with the editor/Write tool, never `cat <<EOF`. After scripted edits grep for broken regexes.
-- `src/lib/subjects.ts` is a file; do not create a `src/lib/subjects/` folder (use `src/lib/semester/`).
-- PowerPoint is installed: `New-Object -ComObject PowerPoint.Application`, `Presentations.Open(path,$true,$false,$false)`, `.Export(outDir,"PNG",1280,720)` renders decks to images for visual QA. PDFs: render pages with pdfjs-dist in a Playwright page (see how it was done: small local http server serving `node_modules/pdfjs-dist` and the file; `getDocument({url})`).
-- PDF fonts are embedded whole (`subset:false`) because pdf-lib subsetting dropped glyphs for Noto fonts; fonts live in `public/fonts`.
-- `/dev/*` pages 404 on the live site (`src/app/dev/guard.ts`); the fake-AI test server serves them.
-- Do not run two `next dev` servers in one folder. Stop servers and browsers after tests.
-- E2E selectors: avoid `getByText("First Encounter")` clashes (the home hero legend is aria-hidden CSS text on purpose).
-- `.logs/` is git-ignored scratch for background runs.
+- The AI tooling's Bash heredocs mangle backslashes and `\f \o \v \b`: write files with LaTeX, regexes or `\n` using the editor/Write tool.
+- `src/lib/subjects.ts` is a file; don't create a `src/lib/subjects/` folder.
+- `scripts/build-pdeu-layer.mjs` deletes and rebuilds all `pdeu-*.json`: it refuses to run without `--rebuild-from-scratch`. Never use it.
+- After a script writes subject files: `npx prettier --write "src/data/subjects/pdeu-*.json"`, then `npm run syllabus:check`.
+- If the dev site looks stale or unstyled in Firefox, the owner's other project "Register" may have left a service worker on `localhost:3000`; use another port (`npx next dev -p 3100`).
+- `/dev/*` pages 404 on the live site; the fake-AI test server serves them.
+- Don't run two `next dev` servers in one folder. Stop servers and browsers after tests. `.logs/` is git-ignored scratch.
+- A Firebase admin key file (`*-firebase-adminsdk-*.json`) may sit in the project root for local use: git-ignored, never commit or print it.
+- PowerPoint is installed for checking decks by eye (`New-Object -ComObject PowerPoint.Application`).
 
-## 7. Open items and honest caveats
+## 7. Honest caveats
 
+- E&M (79.8%) and Engineering Maths (88.5%) last measured below the 95% `verified` gate; shown as "Sourced". All eval numbers predate the syllabus fix.
+- Performance targets were not met (`PERF_REPORT.md`): most pages 3-4 s on a throttled phone, lesson page 9 s.
 - Interactive widgets in slide pictures still show their slider controls.
-- Lighthouse and bundle size were never measured. Heavy libraries (pptxgenjs, pdf-lib, html-to-image, mermaid) are lazy-loaded.
-- Live providers (Gemini, OpenAI, Anthropic …) were never called by tests (mocks only); the first real use of the own-key feature should be checked by the owner.
-- E&M (79.8%) and Engineering Maths (88.5%) last measured scores are below the 95% release gate; shown as "Sourced".
-- Needs the owner (cannot be done by an AI): review the Vercel preview, add authorised domains in Firebase Auth, say when to run evals / start Feature D, apply any future Firestore rules.
-
-## 8. If you are resuming and unsure
-
-Read `PROGRESS.md` "Current state", run `git status` and `git log -5`, run `npm run check`, read §4 above, continue the first unfinished item, commit after each unit of work, push, and update `PROGRESS.md`. Never restart a finished step; never merge to `main`; never ask the owner a question you can answer from these files.
-
-## Latest round (My subjects / syllabus personalisation)
-
-New code: `src/lib/syllabus/*` (types, propose, coverage, store, emphasis), `src/lib/university/parse.ts` (page-aware), `src/components/subjects/SubjectsHub.tsx`, `SyllabusUpload.tsx`, `src/components/map/MapSubjectPicker.tsx`. Real fixture: PDEU CE Sem 1 (`test-fixtures/pdeu-*`). Read CHANGES.md and PERF_REPORT.md. Waiting for user feedback; do not start Feature D.
+- Needs the owner (an AI can't do it): Vercel and Firebase console settings, Firestore rule pastes, the YouTube key, decisions on evals and Feature D.

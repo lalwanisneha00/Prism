@@ -7,10 +7,13 @@ Read `HANDOFF.md` (full context and the ordered task list), `SPEC.md` (what we'r
 ## Working protocol
 
 - The project runs in versions (V1, V2, V2.5, V3 All Engineering, then V-Final), each split into numbered steps (see `SPEC.md`). On every new session or "continue", start from the "Current state" block at the top of `PROGRESS.md`.
-- Build **one step at a time**. Don't jump ahead or add unrequested features.
+- Build **one step (phase) at a time**. Don't jump ahead or add unrequested features.
 - Before handing a step over, run `npm run check` and `npm run build` and fix every failure.
-- End each step with a "✅ Check this" block: command, URL, what to see, how to test, and one edge case. Then stop and wait for the user to confirm.
-- After confirmation, commit (`V1 step N: <title>`) and update `PROGRESS.md`.
+- End each step by saying what changed (in simple words) and a "✅ Check this" block: command, URL, what to see, how to test, and one edge case. Then **ask before committing** and wait.
+- Commit and push only when the user says so. Before the commit, update `PROGRESS.md` "Current state" (and `docs/SYLLABUS_AUDIT.md` for syllabus work) so a fresh session can resume from "continue Prism" or "continue the syllabus fix".
+- Stay free (no paid APIs or services; flag anything that needs payment first). No big refactors, dependency upgrades or file deletions without asking. Don't break existing features.
+- The user is on Windows 11: give terminal commands for PowerShell.
+- Older "autonomous, never ask" notes in `PROGRESS.md` / `MORNING_REPORT.md` are history and no longer apply.
 - The user is a first-year student: explain decisions simply, with an everyday analogy when a concept is new.
 
 ## Coding rules

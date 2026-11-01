@@ -16,7 +16,7 @@ Think of a **printed bus timetable at a bus stop**.
 ## The layers, from bottom to top
 
 1. **Course data (the printed timetable).** Every course is a JSON file in `src/data/subjects/pdeu-*.json`: chapters, topics, which branches and semesters take it. It is built into the app, so it costs nothing to read.
-2. **Handout import (Phase 2).** Scripts read the 2024-25 handout PDFs in `handouts/`, compared them with the data and **moved** things into place (topic to the right chapter, course to the right semester), added what was missing and **hid** (never deleted) what no handout lists. Every change is a numbered, reversible **migration** in `scripts/syllabus-migrations/` (001 to 011) and is written to `data/university/pdeu/history.jsonl`.
+2. **Handout import (Phase 2).** Scripts read the 2024-25 handout PDFs in `handouts/`, compared them with the data and **moved** things into place (topic to the right chapter, course to the right semester), added what was missing and **hid** (never deleted) what no handout lists. Every change is a numbered, reversible **migration** in `scripts/syllabus-migrations/` (001 to 012) and is written to `data/university/pdeu/history.jsonl`.
 3. **Admin corrections.** The owner's own decisions (migrations 005 to 010), for example merging the per-branch copies of first-year courses into one shared course. Old copies stay reachable through **aliases**, so progress saved on them still counts.
 4. **Student fixes (the stickers).** Applied fixes live in one small Firestore document, `syllabusOverlay/current`, which the app lays over the course data when it loads (one cached read per visit).
 5. **What the student sees.** Course lists, the search box, chapter pages, lesson picker and planner all read "data + overlay".
@@ -107,4 +107,4 @@ Phase 8 tests (in `npm run check`):
 - `YOUTUBE_API_KEY` is not set, so lab pages say videos are not switched on yet.
 - The handout re-check (Phase 8) fixed only clear cases. The dry run still suggests a few changes it was not sure about (some chapter orders, renamed chapters, five first-year course placements in COMP and ELEC, some of which would undo the owner's corrections 006 to 009). See `handouts/_parsed/RECHECK_REPORT.md` and `npm run syllabus:needs-review`.
 - Inverse square law: CHEM's Modern Physics experiment 1 ("To verify the inverse square law of radiation") is kept apart from BIOTECH/PETRO's experiment 1 ("Determining Planck's constant and inverse square law"), since CHEM's covers only half of it.
-- Not tested against the real Firestore in Phase 8 (in-memory stand-ins were used): a real signed-in flag, prompt, vote and revert. Try it once on the deployed site with two accounts.
+- Phase 8 tests use in-memory stand-ins for Firestore. The real flag, prompt, vote and revert flow was tested by the owner on the live site with 4 accounts (2026-10-31).

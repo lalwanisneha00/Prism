@@ -1,5 +1,7 @@
 # Changes in this round: PDEU's own syllabus
 
+> **History (2026-10-07).** The syllabus was later rebuilt from each branch's course handouts and now covers 9 branches, Electrical and Chemical included. See `docs/SYLLABUS_SYSTEM.md`.
+
 Source: `PDEU_BTech_All_Branches_Syllabus.pdf` (the university's curriculum handbooks, 7 branches: Computer, ICT, Electronics and Communication, Civil, Petroleum, Biotechnology, Mechanical). Electrical and Chemical are not in that file, so they keep the usual Prism lists.
 
 ## Built
