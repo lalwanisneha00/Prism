@@ -2,7 +2,7 @@
 
 import { ChapterQuiz } from "@/components/chapter/ChapterQuiz";
 import { RevisionSheet } from "@/components/lesson/StaticBlocks";
-import { MockTestPanel } from "@/components/mock/MockTestPanel";
+import { ChapterMock } from "@/components/mock/ChapterMock";
 import type { LevelSlug } from "@/data/levels";
 import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
 import { mergeRevision, mixedQuiz, type TopicLesson } from "@/lib/chapter/extras";
@@ -16,7 +16,6 @@ export function ChapterExtras({
   subjectId,
   chapterId,
   chapterName,
-  level,
   topics,
 }: {
   custom?: CustomSubjectPayload;
@@ -62,12 +61,11 @@ export function ChapterExtras({
         <h2 id="chapter-mock-title" className="text-2xl font-bold tracking-tight">
           Chapter mock test
         </h2>
-        <MockTestPanel
+        <ChapterMock
           custom={custom}
           subjectId={subjectId}
-          chapterIds={[chapterId]}
+          chapterId={chapterId}
           chapterName={chapterName}
-          level={level}
           topics={topics}
         />
       </section>

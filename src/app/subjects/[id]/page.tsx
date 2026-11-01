@@ -69,7 +69,7 @@ export default async function SubjectPage({ params }: PageProps<"/subjects/[id]"
     ...(isLab
       ? []
       : [
-          { href: `/mock-test?subject=${subject.id}`, label: "Mock test (several chapters)" },
+          { href: `/mock-test?subject=${subject.id}`, label: "Mock test" },
           { href: `/map?subject=${subject.id}`, label: "Concept map" },
         ]),
     { href: `/notes?subject=${subject.id}`, label: "My materials" },

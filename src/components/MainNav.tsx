@@ -7,6 +7,7 @@ import { Icon, type IconName } from "@/components/Icon";
 const links: { href: string; label: string; icon: IconName; testId?: string }[] = [
   { href: "/start", label: "Start a lesson", icon: "idea", testId: "nav-start-lesson" },
   { href: "/subjects", label: "Subjects", icon: "study" },
+  { href: "/mock-test", label: "Mock Tests", icon: "exam", testId: "nav-mock-tests" },
   { href: "/library", label: "Library", icon: "library" },
   { href: "/flashcards", label: "Flashcards", icon: "cards" },
   { href: "/map", label: "Concept maps", icon: "map" },

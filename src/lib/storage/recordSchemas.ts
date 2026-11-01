@@ -2,6 +2,22 @@ import { z } from "zod";
 import { SyllabusByTermSchema } from "@/lib/syllabus/types";
 import { CustomChapterSchema, CustomDetailsSchema } from "@/lib/custom/customSubject";
 import type { SyncedCollection } from "@/lib/storage/db";
+import { PaperSchema } from "@/lib/mock/paper";
+import { EXAM_STYLES, PAPER_KINDS, PaperPatternSchema } from "@/lib/mock/pattern";
+
+const MockSettingsSchema = z.object({
+  marks: z.number().positive().max(300),
+  minutes: z.int().positive().max(360),
+  style: z.enum([...EXAM_STYLES, "default"]),
+  difficulty: z.enum(["easy", "mixed", "hard"]),
+  pyqRepeat: z.boolean(),
+});
+
+const PaperTagSchema = z.object({
+  kind: z.enum(PAPER_KINDS),
+  year: z.int().min(1990).max(2100).optional(),
+  pattern: PaperPatternSchema.optional(),
+});
 
 /*
  * Shapes of synced records, checked whenever data arrives from outside this device
@@ -58,6 +74,37 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
       .array(z.object({ topic: z.string().max(80), score: z.number(), total: z.number() }))
       .max(40),
     at: z.number(),
+    scope: z
+      .object({
+        level: z.enum(["subject", "units", "topics"]),
+        ids: z.array(z.string().max(80)).max(400),
+        label: z.string().max(200),
+      })
+      .optional(),
+    settings: MockSettingsSchema.optional(),
+    paper: PaperSchema.optional(),
+    answers: z
+      .record(
+        z.string().max(20),
+        z.object({
+          picked: z.string().max(300).optional(),
+          written: z.string().max(5000).optional(),
+        }),
+      )
+      .refine((r) => Object.keys(r).length <= 60)
+      .optional(),
+    grades: z
+      .record(
+        z.string().max(20),
+        z.object({
+          marks: z.number().min(0),
+          feedback: z.string().max(400).optional(),
+          by: z.enum(["auto", "ai", "self"]),
+          met: z.array(z.int().min(0)).max(10).optional(),
+        }),
+      )
+      .refine((r) => Object.keys(r).length <= 60)
+      .optional(),
   }),
   settings: z.object({
     ...syncFields,
@@ -87,6 +134,10 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     syllabus: SyllabusByTermSchema.optional(),
     universityName: z.string().max(160).optional(),
     universityOff: z.boolean().optional(),
+    mockPrefs: z
+      .record(z.string().max(80), MockSettingsSchema)
+      .refine((r) => Object.keys(r).length <= 300)
+      .optional(),
     apiKeys: z
       .array(
         z.object({
@@ -233,5 +284,6 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
     kind: z.enum(["notes", "slides", "pyq", "worksheet", "syllabus"]).optional(),
     subject: z.string().max(80).optional(),
     chapter: z.string().max(80).optional(),
+    paper: PaperTagSchema.optional(),
   }),
 };

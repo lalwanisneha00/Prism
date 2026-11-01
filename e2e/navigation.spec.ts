@@ -61,22 +61,49 @@ test.describe("Navigation for many subjects (V3 · Step 3)", () => {
     expect(res?.status()).toBe(404);
   });
 
-  test("a mock test across chapters uses the lessons studied", async ({ page }) => {
+  test("Mock Tests: in the menu, any topic can be picked, the paper is taken and marked", async ({
+    page,
+  }) => {
     test.setTimeout(180_000);
-    await page.goto("/mock-test?subject=pdeu-applied-physics");
-    await expect(page.getByTestId("mock-empty")).toBeVisible();
+    await page.goto("/");
+    await page.getByTestId("nav-mock-tests").first().click();
+    await expect(page).toHaveURL(/\/mock-test/);
+    await expect(page.getByTestId("pattern-banner")).toBeVisible({ timeout: 30_000 });
 
-    // Study (and save) one lesson, then its chapter becomes available.
-    await page.goto(
-      "/lesson?subject=pdeu-applied-physics&chapter=electricity-and-magnetism&topic=faradays-law&level=exam-prep&duration=10",
+    // Opened from a subject page: that subject is chosen. Nothing studied yet is fine.
+    await page.goto("/mock-test?subject=pdeu-physics-ict");
+    await page.getByRole("radio", { name: /Topics/ }).click();
+    const tree = page.getByTestId("scope-tree");
+    await tree.getByRole("checkbox").nth(1).check();
+    await expect(page.getByTestId("not-studied")).toBeVisible();
+    await page
+      .getByTestId("mock-wizard")
+      .getByRole("button", { name: "Next", exact: true })
+      .click();
+    await page
+      .getByRole("radiogroup", { name: "Total marks" })
+      .getByRole("radio", { name: "20" })
+      .click();
+    await expect(page.getByTestId("pattern-note")).toContainText(
+      "standard Indian university pattern",
     );
-    await page.getByRole("button", { name: /Save lesson/ }).click({ timeout: 90_000 });
-    await page.goto("/mock-test?subject=pdeu-applied-physics");
-    const chapters = page.getByTestId("mock-chapters");
-    await chapters.getByRole("checkbox", { name: /Electricity and Magnetism/ }).check();
-    await expect(chapters.getByRole("checkbox", { name: /Optics/ }).first()).toBeDisabled();
-    await chapters.getByRole("button", { name: /Continue with 1 chapter/ }).click();
-    await page.getByRole("button", { name: "Start the mock test" }).click();
-    await expect(page.getByTestId("mock-timer")).toBeVisible({ timeout: 30_000 });
+    await page
+      .getByTestId("mock-wizard")
+      .getByRole("button", { name: "Next", exact: true })
+      .click();
+    await page.getByRole("button", { name: "Generate my paper" }).click();
+    await expect(page.getByTestId("mock-timer")).toBeVisible({ timeout: 60_000 });
+    await expect(page.getByTestId("mock-palette")).toBeVisible();
+    await page
+      .getByRole("radiogroup", { name: /Options for question 1/ })
+      .getByRole("radio")
+      .first()
+      .check();
+    await page.getByRole("button", { name: "Submit" }).click();
+    await page.getByRole("button", { name: "Hand in my answers" }).click();
+    await expect(page.getByTestId("mock-score")).toContainText("/ 20");
+    await expect(page.getByText("✓ Result saved")).toBeVisible({ timeout: 30_000 });
+    await page.getByRole("button", { name: "Done" }).click();
+    await expect(page.getByTestId("past-mocks")).toContainText("Physics");
   });
 });

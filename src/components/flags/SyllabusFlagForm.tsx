@@ -6,6 +6,7 @@ import { useAuth } from "@/components/account/AuthProvider";
 import { deviceProfile, postFlag, thanksFor, type Profile } from "@/components/flags/flagApi";
 import { subjectsInSemester } from "@/lib/catalogue";
 import { FLAG_MENU, type FlagLevel, type SyllabusFlagType } from "@/lib/syllabusFix/flags";
+import { parseMyFlags, rememberMyFlag } from "@/lib/syllabusFix/myFlags";
 
 const HandoutUpload = dynamic(() => import("@/components/subjects/HandoutUpload"), {
   ssr: false,
@@ -124,6 +125,9 @@ export function SyllabusFlagForm({
       const token = await user.getIdToken().catch(() => undefined);
       const r = await postFlag("/api/syllabus/flag", { flag, profile: profile ?? {} }, token);
       if (!r.ok) return setError(r.message);
+      // Their own mock tests skip what they flagged straight away.
+      const mine = parseMyFlags([flag])[0];
+      if (mine) rememberMyFlag(mine);
       setDone(thanksFor(r));
     } finally {
       setSending(false);

@@ -2,6 +2,10 @@ import { openDB, type DBSchema, type IDBPDatabase } from "idb";
 import type { Lesson } from "@/lib/schema";
 import type { ExtractedSection, FileFormat } from "@/lib/extract/types";
 import type { MaterialKind } from "@/lib/notes/kinds";
+import type { MockAnswer, QuestionGrade } from "@/lib/mock/grade";
+import type { Paper } from "@/lib/mock/paper";
+import type { ExamStyle, PaperKind, PaperPattern } from "@/lib/mock/pattern";
+import type { ScopeLevel } from "@/lib/mock/scope";
 
 /*
  * The local database (IndexedDB): the main copy of a student's data (SPEC §9.3).
@@ -60,7 +64,28 @@ export type MockResult = SyncFields & {
   /** Marks per topic id, so weak topics can be spotted. */
   byTopic: { topic: string; score: number; total: number }[];
   at: number;
+  /** Mock test overhaul (all optional: older results have none). What the paper covered. */
+  scope?: { level: ScopeLevel; ids: string[]; label: string };
+  settings?: MockSettings;
+  /** The paper, the answers and the marks, so the result can be reviewed or the paper retaken. */
+  paper?: Paper;
+  answers?: Record<string, MockAnswer>;
+  grades?: Record<string, QuestionGrade>;
 };
+
+/** A student's choices for a mock (remembered per subject). */
+export type MockSettings = {
+  marks: number;
+  minutes: number;
+  /** An exam style the student has papers for, or "default" (the usual university pattern). */
+  style: ExamStyle | "default";
+  difficulty: "easy" | "mixed" | "hard";
+  /** Allow a small, labelled share of real past questions. */
+  pyqRepeat: boolean;
+};
+
+/** An uploaded paper's tag and, once read, its pattern (mock test overhaul). */
+export type PaperTag = { kind: PaperKind; year?: number; pattern?: PaperPattern };
 
 /** A subject the student set up themselves ("Other subjects", V3 · Step 4). Synced. */
 export type CustomSubjectRecord = SyncFields & {
@@ -147,6 +172,8 @@ export type AppSettings = SyncFields & {
   universityName?: string;
   /** True when the student chose "show everything again" (the scope is kept but not used). */
   universityOff?: boolean;
+  /** Last mock test settings per subject id (mock test overhaul). */
+  mockPrefs?: Record<string, MockSettings>;
 };
 
 /**
@@ -186,7 +213,8 @@ export type StoredNote = {
   subject?: string;
   chapter?: string;
   /** Section indexes the student removed in the preview: not used in lessons. */
-  excluded?: number[];
+  excluded?: number[]; /** A past paper's tag and pattern (mock test overhaul). */
+  paper?: PaperTag;
 };
 
 /** The original uploaded file, kept on this device so pictures can be read (OCR) later. */
@@ -223,6 +251,8 @@ export type NoteSummary = SyncFields & {
   kind?: MaterialKind;
   subject?: string;
   chapter?: string;
+  /** Synced, so the paper's pattern is read once and known on every device. */
+  paper?: PaperTag;
 };
 
 /** A flashcard with its spaced-repetition state (V2 · Step 11). */

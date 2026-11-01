@@ -83,7 +83,11 @@ export function DashboardChapterCards({
           </ul>
         ) : (
           <p className="text-sm text-muted">
-            No mock tests yet. Finish a whole-chapter lesson to take one.
+            No mock tests yet.{" "}
+            <Link href="/mock-test" className="font-semibold text-primary underline">
+              Take one in Mock Tests
+            </Link>
+            .
           </p>
         )}
       </Card>

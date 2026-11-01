@@ -1,6 +1,7 @@
 import {
   BarChart3,
   BookOpen,
+  ClipboardCheck,
   Coffee,
   FileText,
   Feather,
@@ -36,6 +37,7 @@ const icons = {
   chart: BarChart3,
   book: BookOpen,
   break: Coffee,
+  exam: ClipboardCheck,
   file: FileText,
   feather: Feather,
   flag: Flag,

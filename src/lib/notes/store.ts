@@ -1,7 +1,14 @@
 import { sectionText, type ExtractedDoc, type ExtractedSection } from "@/lib/extract/types";
 import type { MaterialKind } from "@/lib/notes/kinds";
 import { chunkPage, searchChunks, summarize, type NoteChunk } from "@/lib/notes/retrieval";
-import { getDb, type NoteFile, type NoteSummary, type StoredNote } from "@/lib/storage/db";
+import type { PaperPattern } from "@/lib/mock/pattern";
+import {
+  getDb,
+  type NoteFile,
+  type NoteSummary,
+  type PaperTag,
+  type StoredNote,
+} from "@/lib/storage/db";
 import { getAllRecords, putRecord } from "@/lib/storage/records";
 
 /*
@@ -10,7 +17,13 @@ import { getAllRecords, putRecord } from "@/lib/storage/records";
  * summary sync, so other devices know it exists.
  */
 
-export type NoteMeta = { kind?: MaterialKind; subject?: string; chapter?: string };
+export type NoteMeta = {
+  kind?: MaterialKind;
+  subject?: string;
+  chapter?: string;
+  /** A past paper's tag (null removes it). */
+  paper?: PaperTag | null;
+};
 
 /** Originals larger than this aren't kept (their text still is); OCR then needs a re-upload. */
 export const MAX_KEPT_FILE_BYTES = 15 * 1024 * 1024;
@@ -46,6 +59,7 @@ function summaryOf(note: StoredNote, now: number): NoteSummary {
     ...(note.kind ? { kind: note.kind } : {}),
     ...(note.subject ? { subject: note.subject } : {}),
     ...(note.chapter ? { chapter: note.chapter } : {}),
+    ...(note.paper ? { paper: note.paper } : {}),
   };
 }
 
@@ -68,7 +82,9 @@ export async function addNote(
     format: doc.format,
     warnings: doc.warnings,
     ...meta,
+    paper: meta.paper ?? undefined,
   };
+  if (!note.paper) delete note.paper;
   const db = await getDb();
   await db.put("notes", note);
   if (original && original.bytes.byteLength <= MAX_KEPT_FILE_BYTES) {
@@ -102,7 +118,17 @@ export async function updateNoteMeta(
 ): Promise<StoredNote | undefined> {
   const note = await getNote(id);
   if (!note) return undefined;
-  const next: StoredNote = { ...note, ...meta };
+  const { paper, ...rest } = meta;
+  const next: StoredNote = { ...note, ...rest };
+  if (paper === null) delete next.paper;
+  // A new tag keeps the pattern already read, unless it is a different kind of paper.
+  else if (paper)
+    next.paper = {
+      ...paper,
+      ...(note.paper?.pattern && note.paper.kind === paper.kind && !paper.pattern
+        ? { pattern: note.paper.pattern }
+        : {}),
+    };
   // A chapter only makes sense inside its subject.
   if (meta.subject !== undefined && meta.subject !== note.subject && meta.chapter === undefined) {
     delete next.chapter;
@@ -111,6 +137,18 @@ export async function updateNoteMeta(
     if (next[key] === "" || next[key] === undefined) delete next[key];
   }
   return saveNote(next, now);
+}
+
+/** Keeps a past paper's pattern with the upload, so it is read only once (and syncs). */
+export async function setPaperPattern(
+  id: string,
+  pattern: PaperPattern,
+  now = Date.now(),
+): Promise<StoredNote | undefined> {
+  const note = await getNote(id);
+  if (!note) return undefined;
+  const paper: PaperTag = { ...(note.paper ?? { kind: "end-sem" }), pattern };
+  return saveNote({ ...note, paper }, now);
 }
 
 /** Keeps or removes one section (slide, page…) from what lessons use. */
