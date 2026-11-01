@@ -78,8 +78,14 @@ export async function postJson(
     const obj = data && typeof data === "object" ? (data as Record<string, unknown>) : {};
     if (obj.ok === true) return obj;
     const kind = typeof obj.kind === "string" ? obj.kind : "unavailable";
+    // 502/504 (or a reply that isn't JSON) is the host cutting a slow request off: try again.
     const retryable =
-      res.status === 429 || res.status === 503 || (opts.retryBad && res.status === 422);
+      res.status === 429 ||
+      res.status === 502 ||
+      res.status === 503 ||
+      res.status === 504 ||
+      data === null ||
+      (opts.retryBad && res.status === 422);
     if (retryable && attempt < RETRY_WAITS_MS.length) {
       opts.onWait?.(RETRY_WAITS_MS[attempt] / 1000);
       await sleep(RETRY_WAITS_MS[attempt], opts.signal);

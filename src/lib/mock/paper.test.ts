@@ -215,3 +215,21 @@ describe("the final paper check", () => {
     );
   });
 });
+
+describe("AI answer keys with an empty unit", () => {
+  it('reads unit "" as no unit instead of rejecting the question', async () => {
+    const { PaperQuestionSchema } = await import("@/lib/mock/paper");
+    const q = PaperQuestionSchema.parse({
+      id: "s1q1",
+      type: "numerical",
+      topic: "t",
+      marks: 2,
+      question: "Find 2 + 3.",
+      answer: "2 + 3 = 5",
+      scheme: [{ point: "Answer", marks: 2 }],
+      source: "lesson",
+      check: { expression: "2+3", answer: 5, unit: "" },
+    });
+    expect(q.check?.unit).toBeUndefined();
+  });
+});

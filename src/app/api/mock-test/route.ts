@@ -38,8 +38,18 @@ import { activeChapters } from "@/lib/syllabusFix/active";
 
 export const maxDuration = 60;
 
-/** Stop asking for rewrites after this long, so the reply beats the 60-second limit. */
-const REWRITE_DEADLINE_MS = 30_000;
+/**
+ * How long one AI model gets before the next one is tried. The main free model sometimes doesn't
+ * reply at all to these prompts while the "lite" backups answer in seconds; the shared 3-minute
+ * wait (meant for streamed lessons) would use up the whole 60-second limit on the first model.
+ */
+const MODEL_WAIT_MS = 20_000;
+/** The whole request must answer inside this, well before Vercel's 60-second cut-off. */
+const BUDGET_MS = 50_000;
+/** A rewrite is only started with at least this much time left. */
+const REWRITE_NEEDS_MS = 22_000;
+/** The second examiner only runs with at least this much time left; otherwise the rule checks stand. */
+const VERIFY_NEEDS_MS = 12_000;
 const id = z.string().trim().min(1).max(80);
 
 const RequestSchema = z.object({
@@ -140,35 +150,48 @@ export async function POST(req: Request) {
       ? await referenceFor(subject, bare, req.signal).catch(() => [])
       : [];
 
-  /** One call checks the whole batch; a reply that can't be read is asked for once more. */
-  async function verify(questions: readonly PaperQuestion[]): Promise<Map<string, VerifyCheck>> {
+  const started = Date.now();
+  const left = () => BUDGET_MS - (Date.now() - started);
+  /** The request's own signal, cut off when the time budget runs out. */
+  const deadline = (ms = left()) =>
+    AbortSignal.any([req.signal, AbortSignal.timeout(Math.max(1_000, ms))]);
+
+  /**
+   * One call checks the whole batch. Null when it couldn't run in time or its reply couldn't be
+   * read: then the rule checks stand on their own rather than the student getting no paper.
+   */
+  async function verify(
+    questions: readonly PaperQuestion[],
+  ): Promise<Map<string, VerifyCheck> | null> {
     const items = questions.map((q) => ({ ...q, slot: q.id }));
-    for (let i = 0; i < 2; i++) {
-      let raw: unknown;
-      if (fake) raw = fakeVerify(items);
-      else {
-        const { system, prompt } = verifyPrompt(items);
-        const text = await generateJsonWithFallback(chainFor(req, providersFromEnv), {
-          system,
-          prompt,
-          temperature: 0,
-          signal: req.signal,
-        });
-        raw = parseJsonReply(text);
-      }
-      const parsed = VerifyReplySchema.safeParse(raw);
-      if (parsed.success) return new Map(parsed.data.checks.map((c) => [c.slot, c]));
+    if (fake) {
+      const parsed = VerifyReplySchema.safeParse(fakeVerify(items));
+      return parsed.success ? new Map(parsed.data.checks.map((c) => [c.slot, c])) : null;
     }
-    return new Map();
+    if (left() < VERIFY_NEEDS_MS) return null;
+    try {
+      const { system, prompt } = verifyPrompt(items);
+      const text = await generateJsonWithFallback(
+        chainFor(req, providersFromEnv),
+        { system, prompt, temperature: 0, signal: deadline(left() - 3_000) },
+        Date.now,
+        MODEL_WAIT_MS,
+      );
+      const parsed = VerifyReplySchema.safeParse(parseJsonReply(text));
+      return parsed.success ? new Map(parsed.data.checks.map((c) => [c.slot, c])) : null;
+    } catch (err) {
+      if (req.signal.aborted) throw err;
+      console.warn("[api/mock-test] second examiner skipped:", String(err));
+      return null;
+    }
   }
 
-  const started = Date.now();
   const done = new Map<string, PaperQuestion>();
   let fixed = 0;
   let problems: SlotProblem[] = [];
   try {
     for (let attempt = 0; attempt < 3; attempt++) {
-      if (attempt > 0 && Date.now() - started > REWRITE_DEADLINE_MS) break;
+      if (attempt > 0 && left() < REWRITE_NEEDS_MS) break;
       const todo: PlannedSection = {
         ...section,
         slots: section.slots.filter((s) => !done.has(s.id)),
@@ -193,13 +216,20 @@ export async function POST(req: Request) {
           recallMarks: recallLeft(),
           problems: attempt > 0 ? problems : undefined,
         });
-        const text = await generateJsonWithFallback(chainFor(req, providersFromEnv), {
-          system,
-          prompt,
-          temperature: attempt === 0 ? 0.5 : 0.3,
-          signal: req.signal,
-        });
-        const parsed = SectionReplySchema.safeParse(parseJsonReply(text));
+        const text = await generateJsonWithFallback(
+          chainFor(req, providersFromEnv),
+          { system, prompt, temperature: attempt === 0 ? 0.5 : 0.3, signal: deadline() },
+          Date.now,
+          MODEL_WAIT_MS,
+        );
+        // Broken JSON counts as no questions: the next attempt rewrites them instead of failing.
+        let reply: unknown = null;
+        try {
+          reply = parseJsonReply(text);
+        } catch {
+          console.warn("[api/mock-test] reply wasn't valid JSON; asking again");
+        }
+        const parsed = SectionReplySchema.safeParse(reply);
         raw = parsed.success ? parsed.data.questions : [];
       }
       const checked = checkSection(todo, raw, { ...ctx, recallMarks: recallLeft() });
@@ -209,7 +239,9 @@ export async function POST(req: Request) {
       const passed = [...checked.ok.values()];
       const verdicts = passed.length ? await verify(passed) : new Map<string, VerifyCheck>();
       for (const q of passed) {
-        const problem = verifyProblem({ ...q, slot: q.id }, verdicts.get(q.id), evaluateCheck);
+        const problem = verdicts
+          ? verifyProblem({ ...q, slot: q.id }, verdicts.get(q.id), evaluateCheck)
+          : null;
         if (problem) problems.push({ slot: q.id, reason: problem });
         else done.set(q.id, q);
       }
@@ -227,7 +259,10 @@ export async function POST(req: Request) {
     const error =
       err instanceof LlmError
         ? err
-        : new LlmError(err instanceof SyntaxError ? "bad-response" : "unavailable", String(err));
+        : new LlmError(
+            err instanceof SyntaxError ? "bad-response" : "unavailable",
+            left() <= 0 ? "out of time" : String(err),
+          );
     console.error("[api/mock-test]", error.message);
     const status = error.kind === "rate-limit" ? 429 : error.kind === "bad-response" ? 422 : 503;
     return reply({ ok: false, kind: error.kind, message: errorCopy[error.kind].message }, status);

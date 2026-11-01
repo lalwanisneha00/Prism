@@ -54,7 +54,13 @@ export const PaperQuestionSchema = z.object({
     .object({
       expression: z.string().trim().min(1).max(300),
       answer: z.number(),
-      unit: z.string().trim().min(1).max(40).optional(),
+      // The AI often sends "" for a pure number: that means no unit, not a broken question.
+      unit: z
+        .string()
+        .trim()
+        .max(40)
+        .optional()
+        .transform((u) => u || undefined),
     })
     .optional(),
 });

@@ -121,7 +121,7 @@ export function planPaper(
 export const describePlan = (plan: readonly PlannedSection[]) => describePattern(plan);
 
 /** Questions asked for in one request: small enough to come back well inside the time limit. */
-export const BATCH_SIZE = 4;
+export const BATCH_SIZE = 2;
 
 /** A section's slots in request-sized batches. */
 export function batches(section: PlannedSection, size = BATCH_SIZE): PlannedSection[] {
