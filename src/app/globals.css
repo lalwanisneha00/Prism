@@ -905,7 +905,7 @@ summary:active {
   .rounded-2xl.border {
     border-color: var(--fg);
   }
-  .bg-primary {
+  :is(a, button).bg-primary {
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
@@ -931,6 +931,46 @@ summary:active {
   .bg-primary:not(:disabled):active {
     transform: translateY(1px);
     box-shadow: none;
+  }
+}
+
+/*
+ * The top menu (MainNav): on a laptop or desktop with a mouse, icons only; the open item (cursor
+ * or keyboard focus) shows its name, sliding open in width and fading in (see lib/navHover.ts). Phones, narrow windows
+ * and touch screens keep icon + name. The reserved width stops the menu re-centring.
+ */
+.nav-label {
+  display: block;
+  opacity: 1;
+}
+.nav-label > span {
+  display: block;
+  padding-left: 0.375rem;
+}
+@media (min-width: 1024px) and (hover: hover) {
+  .nav-list {
+    width: var(--nav-reserve, auto);
+  }
+  .nav-label {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      width 180ms ease-out,
+      opacity 180ms ease-out;
+  }
+  [data-open] > .nav-label {
+    width: var(--nav-label-w, 7rem);
+    opacity: 1;
+  }
+  /* Opened from the right-hand neighbour's side: the name sits left of the icon. */
+  [data-side="left"] > .nav-label {
+    order: -1;
+    text-align: right;
+  }
+  [data-side="left"] > .nav-label > span {
+    padding-left: 0;
+    padding-right: 0.375rem;
   }
 }
 

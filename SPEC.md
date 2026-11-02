@@ -483,3 +483,7 @@ Eight themes, picked from the profile menu ("Choose theme") or the footer ("Them
 - **Fonts:** free Google Fonts, self-hosted by `next/font` (`src/app/themeFonts.ts`) with `preload: false`, so only the active theme's fonts download.
 - **Picker:** a live mini preview card for each theme, a large scoped preview (Dashboard, Lesson, Mock test samples), **Apply**, and **Try it on the whole app**, which applies the theme for this tab with a floating "Keep this theme / Go back" bar.
 - **Checks:** `designTokens.test.ts` checks WCAG AA contrast for every palette (all 8 themes; 10 palettes counting the light and dark versions of Prism and Classic). `node scripts/theme-screenshots.mjs` saves screenshots of 4 screens in every theme to `samples/themes`.
+
+## 11.16 Top menu: icons with names on hover (plan update 2026-11-03)
+
+On a laptop or desktop with a mouse (`min-width: 1024px` and `hover: hover`), the top menu shows icons only. Hovering or keyboard focus opens one item at a time to show its name inside the same pill (180 ms width + fade, none under reduced motion; 80 ms close delay after the cursor leaves the menu). Every open name has the same width, and it opens on the side the cursor came from, so no icon ever moves under the cursor (no jitter loops). The menu reserves room for one open name, so it never re-centres. The current section stays highlighted while closed. Each link has an aria-label. Phones, narrow windows and touch screens keep icon + name in a row that scrolls sideways inside itself.
