@@ -28,6 +28,34 @@ export const PURPOSE_INFO: Record<Purpose, { label: string; hint: string }> = {
   summary: { label: "One-page summary", hint: "Everything that matters on a single page." },
 };
 
+/**
+ * Activity formats for teaching decks (deck quality overhaul): each makes students reason, not
+ * recall. A deck uses each format at most once.
+ */
+export const ACTIVITY_FORMATS = [
+  "predict-reveal",
+  "spot-the-flaw",
+  "what-breaks-if",
+  "real-world-mystery",
+  "fermi-estimate",
+  "debate",
+  "design-challenge",
+  "misconception-trap",
+  "team-race",
+] as const;
+export type ActivityFormat = (typeof ACTIVITY_FORMATS)[number];
+export const ACTIVITY_LABEL: Record<ActivityFormat, string> = {
+  "predict-reveal": "Predict, then reveal",
+  "spot-the-flaw": "Spot the flaw",
+  "what-breaks-if": "What breaks if…",
+  "real-world-mystery": "Real-world mystery",
+  "fermi-estimate": "Fermi estimate",
+  debate: "Pick a side",
+  "design-challenge": "Design challenge",
+  "misconception-trap": "Misconception trap",
+  "team-race": "Team race",
+};
+
 export const FORMATS = ["pptx", "pdf"] as const;
 export type Format = (typeof FORMATS)[number];
 
@@ -68,7 +96,30 @@ export const SlideSchema = z.discriminatedUnion("layout", [
     ...base,
     layout: z.literal("bullets"),
     title: short(90),
-    points: z.array(line).min(1).max(5),
+    points: z.array(line).min(1).max(6),
+  }),
+  z.object({
+    ...base,
+    /**
+     * One idea explained properly: an everyday analogy for hard ideas, what it is and why it
+     * works (points), a concrete example (worked numbers, code, a real case) and a one-line
+     * takeaway, with an optional picture. A slide too full to read is split in two by code
+     * (the example moves to a "continued" slide), never shrunk.
+     */
+    layout: z.literal("concept"),
+    title: short(90),
+    analogy: z.string().trim().max(300),
+    points: z.array(line).max(6),
+    example: z
+      .object({
+        label: short(60),
+        text: z.string().trim().max(600),
+        /** Source code, shown in a fixed-width font with its line breaks kept. */
+        code: z.string().max(1200),
+      })
+      .optional(),
+    takeaway: short(220),
+    picture: picture.optional(),
   }),
   z.object({
     ...base,
@@ -108,12 +159,16 @@ export const SlideSchema = z.discriminatedUnion("layout", [
     title: short(90),
     /** Keys of `visuals` entries (one typeset formula each). */
     formulas: z.array(picture).min(1).max(4),
+    /** What each symbol means ("E: electric field, in N/C"); older plans have none. */
+    symbols: z.array(short(200)).max(8).optional(),
   }),
   z.object({
     ...base,
     layout: z.literal("example"),
     title: short(90),
     problem: short(620),
+    /** Source code that belongs to the problem (fixed-width, line breaks kept). */
+    code: z.string().max(1200).optional(),
     steps: z.array(short(340)).min(1).max(6),
     answer: short(340),
   }),
@@ -136,6 +191,12 @@ export const SlideSchema = z.discriminatedUnion("layout", [
     /** How to work on it, in order (think alone, compare, check against the lesson). */
     hints: z.array(line).max(4),
     minutes: z.int().min(1).max(30),
+    /** The kind of activity (older plans have none). */
+    format: z.enum(ACTIVITY_FORMATS).optional(),
+    /** Who works together: "Pairs", "Groups of 4", "Whole class". */
+    group: z.string().trim().max(40).optional(),
+    /** Code, a flawed solution or data the activity is about (fixed-width when code). */
+    material: z.string().max(1200).optional(),
   }),
   z.object({
     ...base,
@@ -174,9 +235,16 @@ export const SlideSchema = z.discriminatedUnion("layout", [
     ...base,
     layout: z.literal("summary"),
     title: short(100),
-    points: z.array(line).min(1).max(5),
+    points: z.array(line).max(5),
     formulas: z.array(picture).max(3),
     mnemonic: z.string().trim().max(420),
+    /** Grouped boxes (one per idea cluster); when present they replace the plain points. */
+    groups: z
+      .array(z.object({ heading: short(60), points: z.array(short(200)).min(1).max(5) }))
+      .max(6)
+      .optional(),
+    /** A small concept map picture linking the groups. */
+    map: picture.optional(),
   }),
 ]);
 export type Slide = z.infer<typeof SlideSchema>;
@@ -202,6 +270,8 @@ export const SlidePlanSchema = z.object({
   topics: z.array(short(120)).min(1),
   /** How long a teacher should plan for (teaching decks). */
   minutes: z.int().min(1).max(600).optional(),
+  /** Teaching PDFs: print the speaker notes as "teacher notes" (default on). */
+  teacherNotes: z.boolean().optional(),
   slides: z.array(SlideSchema).min(1).max(80),
   visuals: z.record(z.string(), VisualRequestSchema),
   /** Wording for a source / licence line, e.g. "Wikimedia Commons, CC BY-SA". */
@@ -214,9 +284,12 @@ export function pictureKeys(slide: Slide): string[] {
   switch (slide.layout) {
     case "image":
       return [slide.picture.key];
+    case "concept":
+      return slide.picture ? [slide.picture.key] : [];
     case "formula":
-    case "summary":
       return slide.formulas.map((f) => f.key);
+    case "summary":
+      return [...slide.formulas.map((f) => f.key), ...(slide.map ? [slide.map.key] : [])];
     default:
       return [];
   }
@@ -240,6 +313,10 @@ export function planProblems(plan: SlidePlan): string[] {
     if (plan.purpose === "teach" && s.notes.trim().length < 20 && s.layout !== "sources") {
       out.push(`${where}: a teaching slide needs speaker notes`);
     }
+    if (s.layout === "concept" && s.points.length === 0 && !s.example)
+      out.push(`${where}: a concept slide needs points or an example`);
+    if (s.layout === "summary" && s.points.length === 0 && !s.groups?.length)
+      out.push(`${where}: a summary needs points or groups`);
   });
   const ids = plan.slides.map((s) => s.id);
   if (new Set(ids).size !== ids.length) out.push("slide ids must be unique");

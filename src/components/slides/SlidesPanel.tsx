@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { LessonError } from "@/components/lesson/LessonError";
 import type { LevelSlug } from "@/data/levels";
+import { countAdvice } from "@/lib/slides/ai/count";
+import type { DeckReport } from "@/lib/slides/ai/deck";
 import { generateFile, GenerateError, type Progress } from "@/lib/slides/generate";
 import { lengthLabel } from "@/lib/slides/build";
 import { FORMATS, PURPOSES, PURPOSE_INFO, type Format, type Purpose } from "@/lib/slides/plan";
@@ -30,7 +32,7 @@ export function downloadBlob(file: Pick<StoredSlideFile, "blob" | "title" | "for
 type State =
   | { status: "idle" }
   | { status: "working"; progress: Progress }
-  | { status: "done"; file: StoredSlideFile }
+  | { status: "done"; file: StoredSlideFile; report: DeckReport | null }
   | { status: "error"; kind: LessonErrorKind | "empty" | "other"; message: string };
 
 const pill = (on: boolean) =>
@@ -60,13 +62,15 @@ export function SlidesPanel({
   const [slides, setSlides] = useState(15);
   const [customLength, setCustomLength] = useState(false);
   const [themeId, setThemeId] = useState(THEMES[0].id);
+  const [teacherNotes, setTeacherNotes] = useState(true);
   const [state, setState] = useState<State>({ status: "idle" });
   const controller = useRef<AbortController | null>(null);
 
   const oneSheet = purpose === "summary";
   const ready = topicIds.length > 0 && Boolean(chapterId);
+  const advice = countAdvice(purpose, topicIds.length, slides);
 
-  async function make() {
+  async function make(basic = false) {
     if (!ready) return;
     controller.current?.abort();
     const c = new AbortController();
@@ -84,12 +88,14 @@ export function SlidesPanel({
           slides: oneSheet ? 1 : slides,
           themeId,
           title,
+          teacherNotes,
+          basic,
         },
         (progress) => setState({ status: "working", progress }),
         c.signal,
       );
-      setState({ status: "done", file });
-      downloadBlob(file);
+      setState({ status: "done", file: file.file, report: file.report });
+      downloadBlob(file.file);
     } catch (err) {
       if (c.signal.aborted) return setState({ status: "idle" });
       if (err instanceof GenerateError) {
@@ -122,8 +128,9 @@ export function SlidesPanel({
       {open && (
         <div className="flex flex-col gap-5 border-t border-border p-5">
           <p className="text-sm text-muted">
-            You get only the file, built from the same checked lesson (same sources and fact-check).
-            Uses the subject, topics and level chosen above.
+            The AI plans the deck, then writes every slide from the same checked lesson (same
+            sources and fact-check), your notes and past papers; teaching, study and practice decks
+            get a review pass. Uses the subject, topics and level chosen above.
           </p>
 
           <fieldset className="flex flex-col gap-2">
@@ -208,10 +215,39 @@ export function SlidesPanel({
                 )}
               </div>
               <p className="text-xs text-muted">
-                A guide, not a rule: the result can be up to about 6 slides longer or shorter,
-                whatever teaches the topic best.
+                More slides means more depth (examples, steps, practice), never padding. A slide too
+                full to read is split in two, so the file can be a little longer.
               </p>
+              {!advice.ok && (
+                <p
+                  className="flex flex-wrap items-center gap-2 rounded-xl border border-warning/40 bg-warning/10 p-3 text-sm"
+                  data-testid="slides-count-advice"
+                >
+                  <span>{advice.message}</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCustomLength(!LENGTHS.includes(advice.suggested));
+                      setSlides(advice.suggested);
+                    }}
+                    className="font-semibold text-primary underline"
+                  >
+                    Use {advice.suggested} slides
+                  </button>
+                </p>
+              )}
             </fieldset>
+          )}
+
+          {purpose === "teach" && format === "pdf" && (
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={teacherNotes}
+                onChange={(e) => setTeacherNotes(e.target.checked)}
+              />
+              Include the teacher notes in the PDF
+            </label>
           )}
 
           <fieldset className="flex flex-col gap-2">
@@ -304,19 +340,37 @@ export function SlidesPanel({
               </div>
             )}
             {state.status === "done" && (
-              <p
-                className="flex flex-wrap items-center gap-3 rounded-xl border border-success/40 bg-success/10 p-3 text-sm"
+              <div
+                className="flex flex-col gap-1 rounded-xl border border-success/40 bg-success/10 p-3 text-sm"
                 data-testid="slides-done"
               >
-                <span>Done: {state.file.slides} slides, saved in My slides and PDFs.</span>
-                <button
-                  type="button"
-                  onClick={() => downloadBlob(state.file)}
-                  className="font-semibold text-primary underline"
-                >
-                  Download again
-                </button>
-              </p>
+                <p className="flex flex-wrap items-center gap-3">
+                  <span>Done: {state.file.slides} slides, saved in My slides and PDFs.</span>
+                  <button
+                    type="button"
+                    onClick={() => downloadBlob(state.file)}
+                    className="font-semibold text-primary underline"
+                  >
+                    Download again
+                  </button>
+                </p>
+                {state.report?.review && (
+                  <p className="text-muted">
+                    Reviewed for accuracy and depth
+                    {state.report.review.fixed > 0
+                      ? `: ${state.report.review.fixed} slide${state.report.review.fixed === 1 ? "" : "s"} fixed`
+                      : ": no changes needed"}
+                    {state.report.review.stillFlagged > 0
+                      ? `. ${state.report.review.stillFlagged} slide${state.report.review.stillFlagged === 1 ? " was" : "s were"} still flagged after two fixes: check ${state.report.review.stillFlagged === 1 ? "it" : "them"} before using the deck.`
+                      : "."}
+                  </p>
+                )}
+                {state.report && !state.report.review && (
+                  <p className="text-muted">
+                    Checked by code: slide count, no empty slides, no text overflow.
+                  </p>
+                )}
+              </div>
             )}
             {state.status === "error" &&
               (state.kind === "empty" || state.kind === "other" ? (
@@ -327,7 +381,20 @@ export function SlidesPanel({
                   {state.message}
                 </p>
               ) : (
-                <LessonError kind={state.kind} onRetry={() => void make()} />
+                <div className="flex flex-col gap-2">
+                  <LessonError kind={state.kind} onRetry={() => void make()} />
+                  <p className="text-sm text-muted">
+                    Or{" "}
+                    <button
+                      type="button"
+                      onClick={() => void make(true)}
+                      className="font-semibold text-primary underline"
+                    >
+                      make the basic version
+                    </button>{" "}
+                    now: cut straight from the lesson, without the AI writer (shorter slides).
+                  </p>
+                </div>
               ))}
           </div>
         </div>

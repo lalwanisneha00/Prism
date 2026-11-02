@@ -1,6 +1,6 @@
 import type { Color, PDFDocument, PDFFont, PDFImage, PDFPage } from "pdf-lib";
 import type { ImageMap } from "@/lib/slides/pptx";
-import type { Picture, Slide, SlidePlan } from "@/lib/slides/plan";
+import { ACTIVITY_LABEL, type Picture, type Slide, type SlidePlan } from "@/lib/slides/plan";
 import { SPECTRUM, type Theme } from "@/lib/slides/themes";
 
 /*
@@ -292,6 +292,53 @@ function picture(
   return used;
 }
 
+/**
+ * Source code on a light card: one line per code line, indentation kept (the PDF fonts aren't
+ * fixed-width, so leading spaces become an indent of the same width). Long lines wrap.
+ */
+function codeBlock(
+  c: Ctx,
+  page: Page,
+  code: string,
+  x: number,
+  y: number,
+  w: number,
+  size = 9.5,
+): number {
+  const lines = code.replace(/\t/g, "    ").replace(/\s+$/, "").split("\n");
+  const space = c.sans.widthOfTextAtSize(" ", size);
+  const inner = w - 20;
+  const heights = lines.map((l) => {
+    const indent = Math.min(inner / 2, (l.length - l.trimStart().length) * space);
+    return {
+      indent,
+      text: l.trim(),
+      h: l.trim()
+        ? para(c, null, l.trim(), 0, 0, inner - indent, {
+            font: c.sans,
+            size,
+            color: "000000",
+            lh: 1.3,
+          })
+        : size * 1.3,
+    };
+  });
+  const total = heights.reduce((n, l) => n + l.h, 0) + 16;
+  box(c, page, x, y, w, total, c.pal.card, c.pal.rule + "");
+  let used = 8;
+  for (const l of heights) {
+    if (l.text)
+      para(c, page, l.text, x + 10 + l.indent, y + used, inner - l.indent, {
+        font: c.sans,
+        size,
+        color: c.pal.ink,
+        lh: 1.3,
+      });
+    used += l.h;
+  }
+  return total;
+}
+
 /** Measures (page null) or draws one slide as a block; returns its height. */
 function block(c: Ctx, page: Page, s: Slide, x: number, y: number, w: number): number {
   const p = c.pal;
@@ -406,7 +453,55 @@ function block(c: Ctx, page: Page, s: Slide, x: number, y: number, w: number): n
       h += heading(c, page, s.title, x, y, w);
       for (const f of s.formulas)
         h += picture(c, page, { ...f, caption: "" }, x + 30, y + h, w - 60, 64) + 10;
+      if (s.symbols?.length) {
+        h += label(c, page, "What each symbol means", x, y + h, w) + 4;
+        h += bullets(c, page, s.symbols, x, y + h, w, 10.5);
+      }
       return h;
+    }
+    case "concept": {
+      h += heading(c, page, s.title, x, y, w);
+      if (s.analogy) {
+        const text = `Think of it like this: ${s.analogy}`;
+        const ah = para(c, null, text, x + 12, 0, w - 24, {
+          font: c.serif,
+          size: 11,
+          color: p.ink,
+        });
+        box(c, page, x, y + h, w, ah + 16, p.card, p.accent2);
+        para(c, page, text, x + 12, y + h + 8, w - 24, { font: c.serif, size: 11, color: p.ink });
+        h += ah + 24;
+      }
+      if (s.picture && s.points.length > 0) {
+        // Points on the left, the picture on the right.
+        const tw = w * 0.56;
+        const ph = bullets(c, page, s.points, x, y + h, tw - 10, 11);
+        const pich = picture(c, page, s.picture, x + tw + 6, y + h, w - tw - 6, 230);
+        h += Math.max(ph, pich) + 8;
+      } else {
+        if (s.points.length > 0) h += bullets(c, page, s.points, x, y + h, w, 11) + 6;
+        if (s.picture) h += picture(c, page, s.picture, x, y + h, w, 260) + 8;
+      }
+      if (s.example) {
+        h += label(c, page, s.example.label, x, y + h + 2, w) + 6;
+        if (s.example.text)
+          h +=
+            para(c, page, s.example.text, x, y + h, w, { font: c.sans, size: 10.5, color: p.ink }) +
+            4;
+        if (s.example.code) h += codeBlock(c, page, s.example.code, x, y + h, w) + 6;
+      }
+      const tk = para(c, null, `Takeaway: ${s.takeaway}`, x + 12, 0, w - 24, {
+        font: c.sansBold,
+        size: 10.5,
+        color: p.onAccent,
+      });
+      box(c, page, x, y + h + 2, w, tk + 14, p.accent);
+      para(c, page, `Takeaway: ${s.takeaway}`, x + 12, y + h + 9, w - 24, {
+        font: c.sansBold,
+        size: 10.5,
+        color: p.onAccent,
+      });
+      return h + tk + 18;
     }
     case "example": {
       h += heading(c, page, s.title, x, y, w);
@@ -420,6 +515,7 @@ function block(c: Ctx, page: Page, s: Slide, x: number, y: number, w: number): n
       label(c, page, "The problem", x + 12, y + h + 8, inner);
       para(c, page, s.problem, x + 12, y + h + 20, inner, { font: c.sans, size: 11, color: p.ink });
       h += problem + 40;
+      if (s.code) h += codeBlock(c, page, s.code, x, y + h, w) + 8;
       h += numbered(
         c,
         page,
@@ -466,7 +562,17 @@ function block(c: Ctx, page: Page, s: Slide, x: number, y: number, w: number): n
       return h;
     }
     case "activity": {
-      h += label(c, page, `Activity · ${s.minutes} min`, x, y, w) + 2;
+      h +=
+        label(
+          c,
+          page,
+          ["Activity", s.format ? ACTIVITY_LABEL[s.format] : "", `${s.minutes} min`, s.group ?? ""]
+            .filter(Boolean)
+            .join(" · "),
+          x,
+          y,
+          w,
+        ) + 2;
       h += heading(c, page, s.title, x, y + h, w);
       const ph = para(c, null, s.prompt, x + 14, 0, w - 28, {
         font: c.serifBold,
@@ -480,6 +586,7 @@ function block(c: Ctx, page: Page, s: Slide, x: number, y: number, w: number): n
         color: p.ink,
       });
       h += ph + 24;
+      if (s.material) h += 8 + codeBlock(c, page, s.material, x, y + h + 8, w);
       if (s.hints.length > 0) {
         h += 8 + label(c, page, "How to work on it", x, y + h + 8, w) + 2;
         h += numbered(
@@ -551,8 +658,34 @@ function block(c: Ctx, page: Page, s: Slide, x: number, y: number, w: number): n
       });
       box(c, page, x, y + h + 4, 44, 3, p.accent);
       h += 22;
-      h += label(c, page, "Key points", x, y + h, w) + 4;
-      h += bullets(c, page, s.points, x, y + h, w, 11.5) + 10;
+      if (s.groups?.length) {
+        // Grouped boxes in two columns: each cluster of ideas in its own card.
+        const colW = (w - 12) / 2;
+        const sizes = s.groups.map(
+          (g) =>
+            label(c, null, g.heading, 0, 0, colW - 20) +
+            6 +
+            bullets(c, null, g.points, 0, 0, colW - 20, 9.5) +
+            18,
+        );
+        for (let i = 0; i < s.groups.length; i += 2) {
+          const rowH = Math.max(sizes[i], sizes[i + 1] ?? 0);
+          for (const j of [i, i + 1]) {
+            const g = s.groups[j];
+            if (!g) continue;
+            const gx = x + (j % 2) * (colW + 12);
+            box(c, page, gx, y + h, colW, rowH, p.card, p.accent2);
+            const lh = label(c, page, g.heading, gx + 10, y + h + 9, colW - 20) + 6;
+            bullets(c, page, g.points, gx + 10, y + h + 9 + lh, colW - 20, 9.5);
+          }
+          h += rowH + 10;
+        }
+        if (s.map) h += picture(c, page, s.map, x, y + h, w, 170) + 8;
+      }
+      if (s.points.length > 0) {
+        h += label(c, page, "Key points", x, y + h, w) + 4;
+        h += bullets(c, page, s.points, x, y + h, w, 11.5) + 10;
+      }
       if (s.formulas.length > 0) {
         h += label(c, page, "Formulas", x, y + h, w) + 6;
         for (const f of s.formulas)
@@ -579,7 +712,13 @@ function block(c: Ctx, page: Page, s: Slide, x: number, y: number, w: number): n
 
 /** Teacher notes under a block, for teaching documents. */
 function notesBlock(c: Ctx, page: Page, s: Slide, x: number, y: number, w: number): number {
-  if (c.plan.purpose !== "teach" || !s.notes || s.layout === "sources" || s.layout === "title")
+  if (
+    c.plan.purpose !== "teach" ||
+    c.plan.teacherNotes === false ||
+    !s.notes ||
+    s.layout === "sources" ||
+    s.layout === "title"
+  )
     return 0;
   const h = para(c, page, `Teacher notes: ${s.notes}`, x + 10, y + 4, w - 10, {
     font: c.sans,
@@ -696,6 +835,7 @@ const tocTitle = (s: Slide): string | null => {
     case "answers":
     case "sources":
     case "summary":
+    case "concept":
       return s.title;
     case "image":
       return s.title || null;

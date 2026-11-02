@@ -33,7 +33,14 @@ export function finalizePlan(plan: SlidePlan, images: ImageMap): Finalized {
       const formulas = slide.formulas.filter((f) => images[f.key]);
       if (formulas.length > 0) slides.push({ ...slide, formulas });
     } else if (slide.layout === "summary") {
-      slides.push({ ...slide, formulas: slide.formulas.filter((f) => images[f.key]) });
+      slides.push({
+        ...slide,
+        formulas: slide.formulas.filter((f) => images[f.key]),
+        map: slide.map && images[slide.map.key] ? slide.map : undefined,
+      });
+    } else if (slide.layout === "concept") {
+      // The explanation stands without its picture.
+      slides.push({ ...slide, picture: undefined });
     }
   }
   const used = new Set(slides.flatMap(pictureKeys));

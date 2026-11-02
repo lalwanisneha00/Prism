@@ -1,6 +1,6 @@
 import type PptxGenJS from "pptxgenjs";
 import { containImage, fitFont, textHeight } from "@/lib/slides/fit";
-import type { Picture, Slide, SlidePlan } from "@/lib/slides/plan";
+import { ACTIVITY_LABEL, type Picture, type Slide, type SlidePlan } from "@/lib/slides/plan";
 import { SPECTRUM, type Theme } from "@/lib/slides/themes";
 
 /*
@@ -214,6 +214,79 @@ function bullets(
 
 const BODY_TOP = 2.05;
 const BODY_H = SLIDE_H - BODY_TOP - 0.85;
+
+/** Code is set in a fixed-width font; its characters are a little wider than prose. */
+const CODE_FONT = "Consolas";
+const CODE_CHAR = 0.6;
+
+/** Height in inches of code set at `pt` in a box `w` wide (long lines wrap). */
+function codeHeight(code: string, w: number, pt: number): number {
+  const cpl = Math.max(8, Math.floor((w * 72) / (pt * CODE_CHAR)));
+  const lines = code
+    .replace(/\s+$/, "")
+    .split("\n")
+    .reduce((n, l) => n + Math.max(1, Math.ceil(l.length / cpl)), 0);
+  return (lines * pt * 1.2) / 72;
+}
+
+function codeBox(
+  ctx: Ctx,
+  s: Sld,
+  code: string,
+  box: { x: number; y: number; w: number; h: number },
+  pt: number,
+) {
+  card(ctx, s, box.x, box.y, box.w, box.h, ctx.theme.card);
+  s.addText(code.replace(/\t/g, "    ").replace(/\s+$/, ""), {
+    x: box.x + 0.15,
+    y: box.y + 0.1,
+    w: box.w - 0.3,
+    h: box.h - 0.2,
+    margin: 0,
+    fontFace: CODE_FONT,
+    fontSize: pt,
+    color: hex(ctx.theme.ink),
+    valign: "top",
+    fit: "shrink",
+  });
+}
+
+type ConceptSlide = Extract<Slide, { layout: "concept" }>;
+
+/** The concept slide's text column: as wide as the slide, or beside the picture. */
+const conceptTextW = (slide: ConceptSlide) => (slide.picture ? CW * 0.56 : CW);
+/** Room for the analogy, points and example (between the title and the takeaway bar). */
+const CONCEPT_H = BODY_H - 0.85;
+
+/** Heights (inches) of a concept slide's parts at body size `pt`. */
+function conceptParts(slide: ConceptSlide, pt: number) {
+  const w = conceptTextW(slide);
+  const small = Math.max(11, pt - 2);
+  const analogy = slide.analogy
+    ? textHeight([`Think of it like this: ${slide.analogy}`], w - 0.5, small) + 0.3
+    : 0;
+  const points = slide.points.length ? textHeight(slide.points, w - 0.4, pt, pt * 0.45) + 0.1 : 0;
+  const ex = slide.example;
+  const example = ex
+    ? 0.45 +
+      (ex.text ? textHeight([ex.text], w - 0.5, small) + 0.1 : 0) +
+      (ex.code ? codeHeight(ex.code, w - 0.5, Math.max(10, small - 1)) + 0.25 : 0)
+    : 0;
+  return { analogy, points, example, gaps: 0.15 * 2 };
+}
+
+/**
+ * The largest body size (20pt down to 13pt) at which a concept slide's text fits. `fits` false
+ * means the slide must be split (the example goes to a "continued" slide); text is never shrunk
+ * below 13pt.
+ */
+export function conceptFit(slide: ConceptSlide): { pt: number; fits: boolean } {
+  for (let pt = 20; pt >= 13; pt--) {
+    const p = conceptParts(slide, pt);
+    if (p.analogy + p.points + p.example + p.gaps <= CONCEPT_H) return { pt, fits: true };
+  }
+  return { pt: 13, fits: false };
+}
 
 /** Draws one slide. */
 function drawSlide(ctx: Ctx, slide: Slide, index: number, total: number) {
@@ -486,8 +559,102 @@ function drawSlide(ctx: Ctx, slide: Slide, index: number, total: number) {
       const n = slide.formulas.length;
       const gap = 0.25;
       const h = Math.min(1.6, (BODY_H - gap * (n - 1)) / n);
+      const symbols = slide.symbols ?? [];
+      // With symbol meanings: formulas on the left, what each symbol means on the right.
+      const fw = symbols.length ? CW * 0.55 : CW - 1.6;
+      const fx = symbols.length ? M : M + 0.8;
       slide.formulas.forEach((f, i) =>
-        placeImage(ctx, s, f, { x: M + 0.8, y: BODY_TOP + i * (h + gap), w: CW - 1.6, h }),
+        placeImage(ctx, s, f, { x: fx, y: BODY_TOP + i * (h + gap), w: fw, h }),
+      );
+      if (symbols.length) {
+        const sx = M + fw + 0.45;
+        label("What each symbol means", sx, BODY_TOP, CW - fw - 0.45);
+        bullets(
+          ctx,
+          s,
+          symbols,
+          { x: sx, y: BODY_TOP + 0.45, w: CW - fw - 0.45, h: BODY_H - 0.45 },
+          18,
+          12,
+        );
+      }
+      break;
+    }
+    case "concept": {
+      decorate(ctx, s, index, total);
+      titleBar(ctx, s, slide.title);
+      const { pt } = conceptFit(slide);
+      const parts = conceptParts(slide, pt);
+      const w = conceptTextW(slide);
+      const small = Math.max(11, pt - 2);
+      let y = BODY_TOP;
+      if (slide.analogy) {
+        card(ctx, s, M, y, w, parts.analogy - 0.05, t.card);
+        textBox(
+          ctx,
+          s,
+          `Think of it like this: ${slide.analogy}`,
+          { x: M + 0.25, y: y + 0.12, w: w - 0.5, h: parts.analogy - 0.25 },
+          { max: small, min: 10, italic: true },
+        );
+        y += parts.analogy + 0.15;
+      }
+      if (slide.points.length) {
+        bullets(ctx, s, slide.points, { x: M, y, w, h: parts.points }, pt, 12);
+        y += parts.points + 0.15;
+      }
+      const ex = slide.example;
+      if (ex) {
+        label(ex.label, M, y, w);
+        y += 0.42;
+        if (ex.text) {
+          const th = textHeight([ex.text], w - 0.5, small) + 0.1;
+          textBox(ctx, s, ex.text, { x: M + 0.1, y, w: w - 0.2, h: th }, { max: small, min: 10 });
+          y += th;
+        }
+        if (ex.code) {
+          const cpt = Math.max(10, small - 1);
+          codeBox(
+            ctx,
+            s,
+            ex.code,
+            { x: M, y, w, h: codeHeight(ex.code, w - 0.5, cpt) + 0.22 },
+            cpt,
+          );
+        }
+      }
+      if (slide.picture) {
+        const px = M + w + 0.4;
+        placeImage(ctx, s, slide.picture, {
+          x: px,
+          y: BODY_TOP,
+          w: CW - w - 0.4,
+          h: CONCEPT_H - 0.45,
+        });
+        if (slide.picture.caption)
+          textBox(
+            ctx,
+            s,
+            slide.picture.caption,
+            { x: px, y: BODY_TOP + CONCEPT_H - 0.4, w: CW - w - 0.4, h: 0.4 },
+            { max: 12, min: 9, color: t.muted, italic: true },
+          );
+      }
+      const by = SLIDE_H - 0.85 - 0.7;
+      s.addShape(pres.ShapeType.rect, {
+        x: M,
+        y: by,
+        w: CW,
+        h: 0.7,
+        fill: { color: hex(t.accent) },
+        line: { color: hex(t.accent), transparency: 100, width: 0 },
+      });
+      textBox(
+        ctx,
+        s,
+        `Takeaway: ${slide.takeaway}`,
+        { x: M + 0.3, y: by, w: CW - 0.6, h: 0.7 },
+        { max: 18, min: 11, bold: true, color: t.onAccent, valign: "middle" },
       );
       break;
     }
@@ -497,16 +664,25 @@ function drawSlide(ctx: Ctx, slide: Slide, index: number, total: number) {
       const leftW = CW * 0.38;
       card(ctx, s, M, BODY_TOP, leftW, BODY_H - 0.9);
       label("The problem", M + 0.3, BODY_TOP + 0.25, leftW - 0.6);
+      const codeH = slide.code ? Math.min(2.2, codeHeight(slide.code, leftW - 0.8, 10) + 0.25) : 0;
       textBox(
         ctx,
         s,
         slide.problem,
-        { x: M + 0.3, y: BODY_TOP + 0.75, w: leftW - 0.6, h: BODY_H - 1.9 },
+        { x: M + 0.3, y: BODY_TOP + 0.75, w: leftW - 0.6, h: BODY_H - 1.9 - codeH },
         {
           max: 20,
           min: 12,
         },
       );
+      if (slide.code)
+        codeBox(
+          ctx,
+          s,
+          slide.code,
+          { x: M + 0.2, y: BODY_TOP + BODY_H - 1.05 - codeH, w: leftW - 0.4, h: codeH },
+          10,
+        );
       const sx = M + leftW + 0.4;
       const sw = CW - leftW - 0.4;
       const rowH = Math.min(0.9, (BODY_H - 0.9) / slide.steps.length);
@@ -615,7 +791,19 @@ function drawSlide(ctx: Ctx, slide: Slide, index: number, total: number) {
     }
     case "activity": {
       decorate(ctx, s, index, total);
-      label(`Activity · ${slide.minutes} min`, M, 1.2);
+      label(
+        [
+          "Activity",
+          slide.format ? ACTIVITY_LABEL[slide.format] : "",
+          `${slide.minutes} min`,
+          slide.group ?? "",
+        ]
+          .filter(Boolean)
+          .join(" · "),
+        M,
+        1.2,
+        CW,
+      );
       textBox(
         ctx,
         s,
@@ -626,13 +814,24 @@ function drawSlide(ctx: Ctx, slide: Slide, index: number, total: number) {
       const hasHints = slide.hints.length > 0;
       const leftW = hasHints ? CW * 0.58 : CW;
       card(ctx, s, M, 2.65, leftW, 3.85);
+      const matH = slide.material
+        ? Math.min(2.1, codeHeight(slide.material, leftW - 1.0, 10) + 0.25)
+        : 0;
       textBox(
         ctx,
         s,
         slide.prompt,
-        { x: M + 0.4, y: 2.85, w: leftW - 0.8, h: 3.45 },
-        { max: 26, min: 13, font: t.headingFont, valign: "middle" },
+        { x: M + 0.4, y: 2.85, w: leftW - 0.8, h: 3.45 - matH - (matH ? 0.1 : 0) },
+        { max: 26, min: 12, font: t.headingFont, valign: slide.material ? "top" : "middle" },
       );
+      if (slide.material)
+        codeBox(
+          ctx,
+          s,
+          slide.material,
+          { x: M + 0.3, y: 6.35 - matH, w: leftW - 0.6, h: matH },
+          10,
+        );
       if (hasHints) {
         const hx = M + leftW + 0.4;
         const hw = CW - leftW - 0.4;
@@ -757,9 +956,43 @@ function drawSlide(ctx: Ctx, slide: Slide, index: number, total: number) {
           valign: "middle",
         },
       );
-      const leftW = slide.formulas.length > 0 ? CW * 0.55 : CW;
-      label("Key points", M, 1.85, leftW);
-      bullets(ctx, s, slide.points, { x: M, y: 2.3, w: leftW, h: 3.6 }, 18, 11);
+      const leftW = slide.formulas.length > 0 || slide.map ? CW * 0.55 : CW;
+      if (slide.map && slide.formulas.length === 0) {
+        const x = M + leftW + 0.4;
+        label("How it connects", x, 1.85, CW - leftW - 0.4);
+        placeImage(ctx, s, slide.map, { x, y: 2.3, w: CW - leftW - 0.4, h: 3.5 });
+      }
+      if (slide.groups?.length) {
+        // Grouped boxes: up to 3 per row, each idea cluster in its own card.
+        const n = slide.groups.length;
+        const cols = n <= 4 ? 2 : 3;
+        const rows = Math.ceil(n / cols);
+        const gw = leftW;
+        const gap = 0.18;
+        const bw = (gw - gap * (cols - 1)) / cols;
+        const bh = (3.95 - gap * (rows - 1)) / rows;
+        slide.groups.forEach((g, i) => {
+          const gx = M + (i % cols) * (bw + gap);
+          const gy = 1.85 + Math.floor(i / cols) * (bh + gap);
+          card(ctx, s, gx, gy, bw, bh, t.card);
+          textBox(
+            ctx,
+            s,
+            g.heading,
+            { x: gx + 0.15, y: gy + 0.08, w: bw - 0.3, h: 0.38 },
+            {
+              max: 14,
+              min: 10,
+              bold: true,
+              color: t.accent,
+            },
+          );
+          bullets(ctx, s, g.points, { x: gx + 0.15, y: gy + 0.5, w: bw - 0.3, h: bh - 0.6 }, 13, 9);
+        });
+      } else {
+        label("Key points", M, 1.85, leftW);
+        bullets(ctx, s, slide.points, { x: M, y: 2.3, w: leftW, h: 3.6 }, 18, 11);
+      }
       if (slide.formulas.length > 0) {
         const x = M + leftW + 0.4;
         label("Formulas", x, 1.85, CW - leftW - 0.4);
@@ -837,6 +1070,9 @@ export function overflowRisks(plan: SlidePlan): string[] {
         break;
       case "activity":
         check("prompt", [s.prompt], CW * 0.58 - 0.8, 3.45, 13);
+        break;
+      case "concept":
+        if (!conceptFit(s).fits) out.push(`slide ${i + 1} (concept): too much to fit at 13pt`);
         break;
       default:
         break;
