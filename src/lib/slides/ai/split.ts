@@ -1,4 +1,4 @@
-import { contentSlides } from "@/lib/slides/ai/outline";
+import { contentSlides, SHORT_BY } from "@/lib/slides/ai/outline";
 import { planProblems, type Slide, type SlidePlan } from "@/lib/slides/plan";
 import { conceptFit, overflowRisks } from "@/lib/slides/pptx";
 
@@ -79,7 +79,8 @@ export function splitOverflow(plan: SlidePlan): SlidePlan {
 export function deckChecks(plan: SlidePlan, asked: number, written: number): string[] {
   const out: string[] = [];
   const want = contentSlides(plan.purpose, asked);
-  if (written !== want) out.push(`${written} content slides written, ${want} asked for`);
+  if (written > want || written < want - SHORT_BY)
+    out.push(`${written} content slides written, ${want} asked for`);
   out.push(...planProblems(plan));
   out.push(...overflowRisks(plan));
   return out;

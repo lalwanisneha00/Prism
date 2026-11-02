@@ -13,9 +13,65 @@ export function parseJsonReply(text: string): unknown {
     // Sometimes a complete object is followed by more text containing a brace (a second copy,
     // or chatter like "{see above}"). Then the first balanced object is the reply.
     const firstEnd = endOfFirstValue(text, start);
-    if (firstEnd === -1 || firstEnd >= end) throw err;
-    return JSON.parse(repairLatexEscapes(text.slice(start, firstEnd + 1)));
+    if (firstEnd !== -1 && firstEnd < end) {
+      try {
+        return JSON.parse(repairLatexEscapes(text.slice(start, firstEnd + 1)));
+      } catch {
+        // Fall through to the bracket repair.
+      }
+    }
+    // Long replies from the small models sometimes close their brackets in the wrong order at
+    // the very end ("}]}]" for "}}]}"): put the right closers back, then try once more.
+    const balanced = balanceBrackets(text.slice(start));
+    if (balanced === null) throw err;
+    try {
+      return JSON.parse(repairLatexEscapes(balanced));
+    } catch {
+      throw err;
+    }
   }
+}
+
+/**
+ * Fixes closing brackets that don't match what is open (outside strings): a "]" where an object
+ * must close becomes "}", and the other way round; the text ends where the outer value closes,
+ * and any brackets still open at the end are closed. Null when nothing needed fixing.
+ */
+export function balanceBrackets(json: string): string | null {
+  const stack: ("}" | "]")[] = [];
+  let out = "";
+  let inString = false;
+  let changed = false;
+  for (let i = 0; i < json.length; i++) {
+    const ch = json[i];
+    if (inString) {
+      out += ch;
+      if (ch === "\\") out += json[++i] ?? "";
+      else if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') inString = true;
+    if (ch === "{") stack.push("}");
+    else if (ch === "[") stack.push("]");
+    else if (ch === "}" || ch === "]") {
+      const want = stack.pop();
+      if (!want) {
+        changed = true;
+        break;
+      }
+      if (want !== ch) changed = true;
+      out += want;
+      if (stack.length === 0) {
+        if (json.slice(i + 1).trim()) changed = true;
+        return changed ? out : null;
+      }
+      continue;
+    }
+    out += ch;
+  }
+  if (inString || stack.length === 0) return changed ? out : null;
+  // Cut off before it closed: drop a dangling comma and close what is open.
+  return out.replace(/,\s*$/, "") + stack.reverse().join("");
 }
 
 /** Index of the bracket that closes the object or list opening at `start`, or -1. */

@@ -5,7 +5,9 @@ import { DeckBriefSchema, OutlineSchema } from "@/lib/slides/ai/outline";
 import { askJson, clock, errorReply, invalid, isFake } from "@/lib/slides/ai/server";
 import {
   AiSlideSchema,
+  coerceSlide,
   fakeSlides,
+  isSoft,
   slideProblems,
   slideText,
   WriteReplySchema,
@@ -96,7 +98,7 @@ export async function POST(req: Request) {
         ...[...done.values()].flatMap((s) => (s.layout === "activity" ? [s.format] : [])),
       ];
       todo.forEach((index, k) => {
-        const parsed = AiSlideSchema.safeParse(written[k]);
+        const parsed = AiSlideSchema.safeParse(coerceSlide(written[k]));
         if (!parsed.success) {
           const issue = parsed.error.issues[0];
           problems.push({
@@ -113,7 +115,10 @@ export async function POST(req: Request) {
           ...slideProblems(slide, data.brief.purpose, { formats, texts: data.earlier }),
           ...formulaProblems(slide),
         ];
-        if (found.length) problems.push(...found.map((reason) => ({ index, reason })));
+        // On the last try, a slide with only soft problems is kept (the review checks it again).
+        const lastTry = attempt === 2 || c.left() < REWRITE_NEEDS_MS;
+        if (found.length && !(lastTry && found.every(isSoft)))
+          problems.push(...found.map((reason) => ({ index, reason })));
         else {
           done.set(index, slide);
           if (slide.layout === "activity") formats.push(slide.format);

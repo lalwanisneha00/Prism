@@ -1,6 +1,12 @@
 import { z } from "zod";
 import { activitiesFor } from "@/lib/slides/ai/count";
-import { ACTIVITY_FORMATS, PURPOSES, type Purpose } from "@/lib/slides/plan";
+import {
+  ACTIVITY_FORMATS,
+  ACTIVITY_LABEL,
+  PURPOSES,
+  type ActivityFormat,
+  type Purpose,
+} from "@/lib/slides/plan";
 
 /*
  * Step 1 of a deck (deck quality overhaul): a detailed OUTLINE before any slide is written:
@@ -35,11 +41,38 @@ export type OutlineKind = (typeof OUTLINE_KINDS)[number];
 
 const str = (max: number) => z.string().trim().max(max);
 
+/**
+ * An activity format however the AI wrote it ("Spot the flaw", "spot_the_flaw", "Predict then
+ * reveal", "Pick a side") → the format id, or undefined when it isn't one.
+ */
+export function activityFormat(v: unknown): ActivityFormat | undefined {
+  if (typeof v !== "string") return undefined;
+  const key = v
+    .toLowerCase()
+    .replace(/[^a-z]+/g, "-")
+    .replace(/^-|-$/g, "");
+  const direct = ACTIVITY_FORMATS.find((f) => f === key);
+  if (direct) return direct;
+  const byLabel = ACTIVITY_FORMATS.find(
+    (f) =>
+      ACTIVITY_LABEL[f]
+        .toLowerCase()
+        .replace(/[^a-z]+/g, "-")
+        .replace(/^-|-$/g, "") === key,
+  );
+  if (byLabel) return byLabel;
+  // Close enough: "debate-pick-a-side", "fermi", "predict-then-reveal", "misconception".
+  return (
+    ACTIVITY_FORMATS.find((f) => key.includes(f)) ??
+    ACTIVITY_FORMATS.find((f) => key.split("-")[0] === f.split("-")[0])
+  );
+}
+
 export const OutlineItemSchema = z.object({
-  kind: z.preprocess(
-    (v) => (typeof v === "string" ? v.trim().toLowerCase() : v),
-    z.enum(OUTLINE_KINDS),
-  ),
+  // An unknown kind ("worked example", "intro") is planned as a concept slide, not a failed plan.
+  kind: z
+    .preprocess((v) => (typeof v === "string" ? v.trim().toLowerCase() : v), z.enum(OUTLINE_KINDS))
+    .catch("concept"),
   title: str(100).min(1),
   /** What this slide must teach or do, specifically (the writer's brief). */
   focus: str(500).min(1),
@@ -48,7 +81,7 @@ export const OutlineItemSchema = z.object({
   /** The visual it needs, described ("flowchart of the compile stages"), or "". */
   visual: str(200).default(""),
   /** Activities: the format. */
-  activity: z.enum(ACTIVITY_FORMATS).optional().catch(undefined),
+  activity: z.preprocess(activityFormat, z.enum(ACTIVITY_FORMATS).optional()).catch(undefined),
   /** Teaching decks: minutes for this slide. */
   minutes: z.number().min(0).max(60).optional().catch(undefined),
 });
@@ -155,7 +188,9 @@ ${b.topics.map((t) => t.digest).join("\n\n")}${b.visuals.length ? `\n\nLESSON VI
 export function outlineProblems(o: Outline, purpose: Purpose, total: number): string[] {
   const out: string[] = [];
   const n = contentSlides(purpose, total);
-  if (o.slides.length !== n) out.push(`plan exactly ${n} slides, not ${o.slides.length}`);
+  // Up to SHORT_BY slides fewer is accepted (a slide that's too full is split later anyway).
+  if (o.slides.length > n || o.slides.length < n - SHORT_BY)
+    out.push(`plan exactly ${n} slides, not ${o.slides.length}`);
   if (purpose === "teach") {
     const acts = o.slides.filter((s) => s.kind === "activity");
     const need = activitiesFor(total);
@@ -185,15 +220,43 @@ export function outlineProblems(o: Outline, purpose: Purpose, total: number): st
   return out;
 }
 
-/** The outline fitted to the count when the AI planned a little too many (extra slides dropped from the end, before any answers/recap). */
+/** How many content slides fewer than asked an outline may plan. */
+export const SHORT_BY = 2;
+
+/**
+ * Small repairs code can make instead of rejecting a good plan: extra slides dropped (from the
+ * end, keeping recap, answers and activities), and every activity given its own format (a missing
+ * or repeated one gets the next unused format).
+ */
 export function fitOutline(o: Outline, purpose: Purpose, total: number): Outline {
   const n = contentSlides(purpose, total);
-  if (o.slides.length <= n) return o;
-  const slides = [...o.slides];
-  const keep = new Set<OutlineKind>(["recap", "exit", "answers", "summary", "activity", "reveal"]);
-  for (let i = slides.length - 1; i >= 0 && slides.length > n; i--)
-    if (!keep.has(slides[i].kind)) slides.splice(i, 1);
-  return { ...o, slides: slides.slice(0, n) };
+  let slides = [...o.slides];
+  if (slides.length > n) {
+    const keep = new Set<OutlineKind>([
+      "recap",
+      "exit",
+      "answers",
+      "summary",
+      "activity",
+      "reveal",
+    ]);
+    for (let i = slides.length - 1; i >= 0 && slides.length > n; i--)
+      if (!keep.has(slides[i].kind)) slides.splice(i, 1);
+    slides = slides.slice(0, n);
+  }
+  const used = new Set<ActivityFormat>();
+  slides = slides.map((s) => {
+    if (s.kind !== "activity") return s;
+    if (s.activity && !used.has(s.activity)) {
+      used.add(s.activity);
+      return s;
+    }
+    const free = ACTIVITY_FORMATS.find((f) => !used.has(f));
+    if (!free) return s;
+    used.add(free);
+    return { ...s, activity: free };
+  });
+  return { ...o, slides };
 }
 
 /** The test AI's outline: a valid plan of the right shape for each purpose. */

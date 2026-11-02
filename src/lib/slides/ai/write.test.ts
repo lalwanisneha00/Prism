@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { activitiesFor, countAdvice } from "@/lib/slides/ai/count";
 import {
+  activityFormat,
   contentSlides,
   fakeOutline,
   fitOutline,
@@ -11,6 +12,8 @@ import {
 import {
   activityProblems,
   AiSlideSchema,
+  coerceSlide,
+  isSoft,
   notesText,
   slideProblems,
   toSlides,
@@ -161,6 +164,35 @@ describe("depth rules", () => {
   });
 });
 
+describe("alternative field names from the AI", () => {
+  it("maps them instead of throwing the slide away, but never invents content", () => {
+    const example = AiSlideSchema.safeParse(
+      coerceSlide({
+        layout: "Example",
+        title: "Trace it",
+        question: "What does the loop print?",
+        solution: ["i = 1, 2, 3", "Prints 123"],
+        result: "123",
+        notes: {},
+      }),
+    );
+    expect(example.success && example.data.layout === "example" && example.data.problem).toBe(
+      "What does the loop print?",
+    );
+    const reveal = AiSlideSchema.safeParse(
+      coerceSlide({ layout: "statement", title: "Reveal", points: ["It prints 0, not 1."] }),
+    );
+    expect(reveal.success && reveal.data.layout === "statement" && reveal.data.text).toBe(
+      "It prints 0, not 1.",
+    );
+    expect(
+      AiSlideSchema.safeParse(coerceSlide({ layout: "example", title: "Empty" })).success,
+    ).toBe(false);
+    expect(isSoft("teaching notes must say what to tell the class")).toBe(true);
+    expect(isSoft("a concept slide needs a concrete example")).toBe(false);
+  });
+});
+
 describe("converting written slides", () => {
   it("turns visuals into pictures the browser draws and keeps code and activity details", () => {
     const visuals: Record<string, VisualRequest> = {};
@@ -234,7 +266,29 @@ describe("the outline", () => {
     expect(outlineProblems(same, "teach", 15).join()).toMatch(/different format/);
     const ok = plan(kinds, Object.assign([], { 4: "debate", 9: "team-race" }));
     expect(outlineProblems(ok, "teach", 15)).toEqual([]);
-    expect(outlineProblems(plan(kinds.slice(1)), "teach", 15).join()).toMatch(/exactly 13/);
+    // Up to 2 slides fewer is accepted; 3 fewer is not.
+    const actsKept = Object.assign([], { 4: "debate", 9: "team-race" });
+    expect(outlineProblems(plan(kinds.slice(0, 11), actsKept), "teach", 15)).toEqual([]);
+    expect(outlineProblems(plan(kinds.slice(0, 10), actsKept), "teach", 15).join()).toMatch(
+      /exactly 13/,
+    );
+  });
+
+  it("reads activity formats however the AI writes them, and repairs missing or repeated ones", () => {
+    expect(activityFormat("Spot the flaw")).toBe("spot-the-flaw");
+    expect(activityFormat("spot_the_flaw")).toBe("spot-the-flaw");
+    expect(activityFormat("Pick a side")).toBe("debate");
+    expect(activityFormat("Predict, then reveal")).toBe("predict-reveal");
+    expect(activityFormat("Fermi")).toBe("fermi-estimate");
+    expect(activityFormat("quiz")).toBeUndefined();
+    const kinds = Array.from({ length: 13 }, () => "concept");
+    kinds[4] = "activity";
+    kinds[9] = "activity";
+    const repeated = plan(kinds, Object.assign([], { 4: "debate", 9: "debate" }));
+    const fixed = fitOutline(repeated, "teach", 15);
+    expect(outlineProblems(fixed, "teach", 15)).toEqual([]);
+    expect(fixed.slides[9].activity).not.toBe("debate");
+    expect(fitOutline(plan(kinds), "teach", 15).slides[4].activity).toBeDefined();
   });
 
   it("puts practice answers after the questions, and trims a slightly long outline", () => {

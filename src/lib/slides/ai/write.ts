@@ -6,6 +6,7 @@ import {
   type DeckBrief,
   type Outline,
   type OutlineItem,
+  activityFormat,
 } from "@/lib/slides/ai/outline";
 import {
   ACTIVITY_FORMATS,
@@ -152,7 +153,7 @@ export const AiSlideSchema = z.discriminatedUnion("layout", [
   z.object({
     layout: z.literal("activity"),
     title: req(90),
-    format: z.enum(ACTIVITY_FORMATS),
+    format: z.preprocess((v) => activityFormat(v) ?? v, z.enum(ACTIVITY_FORMATS)),
     minutes: z.number().min(1).max(30),
     group: req(40),
     /** The challenge, as shown to students. */
@@ -215,6 +216,94 @@ export const AiSlideSchema = z.discriminatedUnion("layout", [
 ]);
 export type AiSlide = z.infer<typeof AiSlideSchema>;
 export const WriteReplySchema = z.object({ slides: z.array(z.unknown()).max(12) });
+
+const asText = (v: unknown): string | undefined =>
+  typeof v === "string" && v.trim()
+    ? v
+    : Array.isArray(v) && v.every((x) => typeof x === "string") && v.length
+      ? v.join(" ")
+      : undefined;
+const asList = (v: unknown): string[] | undefined =>
+  Array.isArray(v) && v.length && v.every((x) => typeof x === "string")
+    ? (v as string[])
+    : typeof v === "string" && v.trim()
+      ? v
+          .split(/\n+/)
+          .map((x) => x.replace(/^\s*(?:[-*•]|\d+[.)])\s*/, "").trim())
+          .filter(Boolean)
+      : undefined;
+
+/**
+ * The AI's slide with common alternative field names mapped to the ones the format uses
+ * ("question" for an example's "problem", "body" for a statement's "text", "bullets" for
+ * "points"), so a naming slip doesn't throw away a good slide. Nothing is invented: a field
+ * with no content anywhere still fails the format check.
+ */
+export function coerceSlide(raw: unknown): unknown {
+  if (typeof raw !== "object" || raw === null || Array.isArray(raw)) return raw;
+  const r = { ...(raw as Record<string, unknown>) };
+  const first = (...keys: string[]) => keys.map((k) => r[k]).find((v) => v !== undefined);
+  if (typeof r.layout === "string") r.layout = r.layout.trim().toLowerCase();
+  r.points ??= asList(first("bullets", "keyPoints", "items_text"));
+  if (r.layout === "statement")
+    r.text ??= asText(first("body", "content", "statement", "points", "title"));
+  if (r.layout === "example") {
+    r.problem ??= asText(first("question", "scenario", "task", "prompt", "description"));
+    r.steps ??= asList(first("solution", "working", "points"));
+    r.answer ??= asText(first("result", "finalAnswer", "conclusion", "takeaway"));
+  }
+  if (r.layout === "concept") r.takeaway ??= asText(first("summary", "keyTakeaway", "conclusion"));
+  if (r.layout === "quiz") {
+    r.question ??= asText(first("prompt", "text"));
+    r.answer ??= asText(first("correctAnswer", "expectedAnswer", "solution", "correct"));
+  }
+  if (r.layout === "comparison") {
+    // A table written as objects: {"header": "X"} columns, {"Aspect": "…", "X": "…"} rows.
+    const cell = (v: unknown) =>
+      typeof v === "string"
+        ? v
+        : typeof v === "object" && v !== null
+          ? String(Object.values(v).find((x) => typeof x === "string") ?? "")
+          : String(v ?? "");
+    const cols = r.columns ?? r.headers ?? (r.table as { headers?: unknown } | undefined)?.headers;
+    if (Array.isArray(cols)) r.columns = cols.map(cell);
+    const rows = r.rows ?? (r.table as { rows?: unknown } | undefined)?.rows;
+    if (Array.isArray(rows))
+      r.rows = rows.map((row) =>
+        Array.isArray(row)
+          ? row.map(cell)
+          : typeof row === "object" && row !== null
+            ? Object.values(row).map(cell)
+            : [cell(row)],
+      );
+  }
+  if (r.layout === "steps") r.steps ??= asList(first("points", "items"));
+  if (r.layout === "activity") {
+    r.prompt ??= asText(first("setup", "challenge", "task", "question"));
+    r.steps ??= asList(first("instructions", "hints_on_slide"));
+  }
+  // A visual of an unknown type: Mermaid code under another name is Mermaid; anything else is
+  // dropped (the slide keeps its explanation; a diagram slide with points becomes a list).
+  if (typeof r.visual === "object" && r.visual !== null) {
+    const v = { ...(r.visual as Record<string, unknown>) };
+    const types = ["mermaid", "latex", "lesson", "plot"];
+    if (typeof v.type !== "string" || !types.includes(v.type)) {
+      if (typeof v.code === "string" && mermaidStart.test(v.code))
+        r.visual = { ...v, type: "mermaid" };
+      else if (typeof v.latex === "string") r.visual = { ...v, type: "latex" };
+      else {
+        delete r.visual;
+        if (r.layout === "diagram" && Array.isArray(r.points) && r.points.length)
+          r.layout = "bullets";
+      }
+    } else r.visual = v;
+  }
+  // An unknown layout with points becomes a list slide rather than a lost slide.
+  const known = AiSlideSchema.options.map((o) => o.shape.layout.value as string);
+  if (typeof r.layout !== "string" || !known.includes(r.layout))
+    if (Array.isArray(r.points) && typeof r.title === "string") r.layout = "bullets";
+  return r;
+}
 
 /** Slides per writer request: teaching slides carry long notes, revision slides are short. */
 export const BATCH: Record<Purpose, number> = {
@@ -317,6 +406,14 @@ export function activityProblems(
 }
 
 /** Depth and notes checks for one slide (code). Empty = fine. */
+/**
+ * Soft problems (thin notes, a little vague) are rewritten while there are tries left, but a
+ * slide with only soft problems is kept on the last try: the review pass judges depth again.
+ * Hard problems (format, no example, a rejected activity, broken formulas) are never accepted.
+ */
+export const isSoft = (reason: string) =>
+  /teaching notes|too vague|3-6 meaningful points/.test(reason);
+
 export function slideProblems(
   s: AiSlide,
   purpose: Purpose,
@@ -369,6 +466,27 @@ export function slideProblems(
   return out;
 }
 
+/** Every layout's exact JSON shape, for the writer's prompt (guessing field names failed slides). */
+export const LAYOUT_SHAPES = [
+  `{"layout":"concept","title":"","analogy":"","points":[""],"example":{"label":"","text":"","code":""},"takeaway":"","visual":{...}}`,
+  `{"layout":"bullets","title":"","points":["",""]} (also "recap")`,
+  `{"layout":"two-column","title":"","left":{"heading":"","points":[""]},"right":{"heading":"","points":[""]}}`,
+  `{"layout":"steps","title":"","steps":["",""]}`,
+  `{"layout":"comparison","title":"","columns":["Aspect","X","Y"],"rows":[["","",""]]} (columns and every row are arrays of plain strings, one cell per column)`,
+  `{"layout":"formula","title":"","formulas":[{"latex":"","caption":""}],"symbols":["E: electric field (N/C)"]}`,
+  `{"layout":"example","title":"","problem":"","code":"","steps":[""],"answer":""}`,
+  `{"layout":"diagram","title":"","visual":{...},"points":[""]}`,
+  `{"layout":"quiz","title":"","question":"","options":[],"answer":"","explanation":""} (always give the answer; on a teaching deck it is shown only in the notes)`,
+  `{"layout":"activity","title":"","format":"","minutes":5,"group":"","prompt":"","material":"","steps":[""],"facilitation":{"answer":"","hints":["",""],"wrongAnswers":[{"answer":"","why":""}],"debrief":""}}`,
+  `{"layout":"statement","label":"","text":""} (e.g. a reveal or an exit question)`,
+  `{"layout":"section","title":"","kicker":""}`,
+  `{"layout":"questions","title":"","items":[{"n":1,"text":""}]}`,
+  `{"layout":"answers","title":"","items":[{"n":1,"answer":"","why":""}]}`,
+  `{"layout":"summary","title":"","groups":[{"heading":"","points":[""]}],"formulas":[{"latex":""}],"mnemonic":"","map":{"code":"flowchart LR ..."}}`,
+]
+  .map((l) => `- ${l}`)
+  .join("\n");
+
 export type WriteFeedback = { index: number; issues: string[]; fix?: string; previous?: string };
 
 export function writePrompt(input: {
@@ -403,7 +521,8 @@ Depth rules:
       : `
 - "notes": {"say": a short note for the reader or "", "ask": "", "doubts": []}.`
   }${b.purpose === "study" ? `\n- "quiz" slides are "check yourself" questions; give the "answer" and "explanation".` : ""}${b.purpose === "practice" ? `\n- "questions" items are numbered across the whole sheet (continue from earlier numbers); "answers" give each answer with full steps in "why".` : ""}
-Layouts you may use: concept, bullets, recap, two-column, steps, comparison, formula, example (with "code" when it's about code), diagram, quiz, activity, statement (e.g. a reveal), section, questions, answers, summary (one-page: "groups" of points, "formulas" [{"latex"}], "mnemonic", "map" {"code": a small Mermaid flowchart linking the groups}).
+Layouts (use these exact field names; every slide also has "notes"):
+${LAYOUT_SHAPES}
 Reply with JSON only: {"slides":[{"layout":"concept","title":"...","analogy":"...","points":["..."],"example":{"label":"Worked example","text":"...","code":""},"takeaway":"...","visual":{"type":"mermaid","code":"...","caption":"..."},"notes":{"say":"...","ask":"...","doubts":[],"minutes":3}}]}`;
   const outlineText = input.outline.slides
     .map((s, i) => `${i + 1}. [${s.kind}${s.activity ? `: ${s.activity}` : ""}] ${s.title}`)

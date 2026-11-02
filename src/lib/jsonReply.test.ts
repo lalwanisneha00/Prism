@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { extractCompleteArrayItems, parseJsonReply } from "@/lib/jsonReply";
+import { balanceBrackets, extractCompleteArrayItems, parseJsonReply } from "@/lib/jsonReply";
 
 describe("parseJsonReply", () => {
   it("parses plain JSON", () => {
@@ -77,5 +77,42 @@ describe("extractCompleteArrayItems", () => {
 
   it("returns nothing before the array starts", () => {
     expect(extractCompleteArrayItems('{"hook":"x","secti', "sections")).toEqual([]);
+  });
+});
+
+describe("closing brackets in the wrong order (seen from the lite models on long replies)", () => {
+  it("repairs a slide whose notes and slide closers are swapped, ignoring text after the reply", () => {
+    // Real ending: ...}],"minutes":4}]}],"tag":"compiled-languages","type":"json"}
+    const text =
+      '{"slides":[{"layout":"comparison","title":"T","notes":{"say":"S","doubts":[{"doubt":"D","answer":"A"}],"minutes":4}]}],"tag":"x","type":"json"}';
+    expect(parseJsonReply(text)).toEqual({
+      slides: [
+        {
+          layout: "comparison",
+          title: "T",
+          notes: { say: "S", doubts: [{ doubt: "D", answer: "A" }], minutes: 4 },
+        },
+      ],
+    });
+  });
+
+  it("repairs an extra closer at the end", () => {
+    // Real ending: ...fine."}],"minutes":3}}}]}
+    const text =
+      '{"slides":[{"layout":"statement","text":"X","notes":{"doubts":[{"doubt":"D","answer":"fine."}],"minutes":3}}}]}';
+    expect(parseJsonReply(text)).toEqual({
+      slides: [
+        {
+          layout: "statement",
+          text: "X",
+          notes: { doubts: [{ doubt: "D", answer: "fine." }], minutes: 3 },
+        },
+      ],
+    });
+  });
+
+  it("leaves brackets inside strings alone and changes nothing that was already valid", () => {
+    expect(balanceBrackets('{"a":"]}"}')).toBeNull();
+    expect(parseJsonReply('{"a":"x ] y }"}')).toEqual({ a: "x ] y }" });
   });
 });
