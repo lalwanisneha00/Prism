@@ -18,8 +18,8 @@ export function BranchSemesterBar({
   const id = useId();
   const semesters = mine.branch ? semestersFor(mine.branch) : [];
   return (
-    <div className="flex flex-wrap items-end gap-3" data-testid="branch-bar">
-      <label htmlFor={`${id}-branch`} className="flex flex-col gap-1 text-sm">
+    <div className="grid gap-3 sm:flex sm:flex-wrap sm:items-end" data-testid="branch-bar">
+      <label htmlFor={`${id}-branch`} className="flex min-w-0 flex-col gap-1 text-sm sm:max-w-xs">
         <span className="font-semibold">My branch</span>
         <select
           id={`${id}-branch`}
@@ -37,7 +37,7 @@ export function BranchSemesterBar({
           ))}
         </select>
       </label>
-      <label htmlFor={`${id}-semester`} className="flex flex-col gap-1 text-sm">
+      <label htmlFor={`${id}-semester`} className="flex min-w-0 flex-col gap-1 text-sm sm:max-w-xs">
         <span className="font-semibold">Semester</span>
         <select
           id={`${id}-semester`}

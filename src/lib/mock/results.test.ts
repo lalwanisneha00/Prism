@@ -1,9 +1,16 @@
 import "fake-indexeddb/auto";
 import { IDBFactory } from "fake-indexeddb";
 import { beforeEach, describe, expect, it } from "vitest";
-import { listMockResults, markMockResult, recordMockResult, scoreText } from "@/lib/mock/results";
+import {
+  deleteMockResults,
+  listMockResults,
+  markMockResult,
+  recordMockResult,
+  restoreMockResults,
+  scoreText,
+} from "@/lib/mock/results";
 import { resetDbForTests } from "@/lib/storage/db";
-import { listOutbox } from "@/lib/storage/records";
+import { getRecord, listOutbox } from "@/lib/storage/records";
 import { recordSchemas } from "@/lib/storage/recordSchemas";
 
 beforeEach(() => {
@@ -58,5 +65,44 @@ describe("mock test results", () => {
     expect(scoreText(saved)).toBe("12.5/20");
     expect(await listMockResults()).toHaveLength(1);
     expect(await markMockResult("missing", 3)).toBe(false);
+  });
+});
+
+describe("deleting mocks", () => {
+  const base = {
+    subject: "em",
+    chapter: "electrostatics",
+    level: "exam-prep",
+    minutes: 30,
+    title: "Electrostatics",
+    total: 30,
+    score: 20,
+    byTopic: [],
+  };
+
+  it("hides a deleted mock and queues the tombstone for sync, so it goes on every device", async () => {
+    const a = await recordMockResult(base, 1000);
+    const b = await recordMockResult(base, 2000);
+    await deleteMockResults([a], 3000);
+    expect((await listMockResults()).map((r) => r.id)).toEqual([b]);
+    expect(await getRecord("mockResults", a)).toMatchObject({ deleted: true, updatedAt: 3000 });
+    const queued = (await listOutbox()).filter((e) => e.collection === "mockResults");
+    expect(queued.map((e) => e.id)).toContain(a);
+  });
+
+  it("undo brings it back with a newer write, so the undo wins when syncing", async () => {
+    const a = await recordMockResult(base, 1000);
+    await deleteMockResults([a], 3000);
+    await restoreMockResults([a], 4000);
+    const back = await listMockResults();
+    expect(back.map((r) => r.id)).toEqual([a]);
+    expect(back[0].updatedAt).toBe(4000);
+  });
+
+  it("deletes several at once and ignores unknown ids", async () => {
+    const a = await recordMockResult(base, 1000);
+    const b = await recordMockResult(base, 2000);
+    await deleteMockResults([a, b, "nope"], 3000);
+    expect(await listMockResults()).toEqual([]);
   });
 });

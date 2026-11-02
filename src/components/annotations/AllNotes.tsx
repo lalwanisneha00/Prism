@@ -14,7 +14,7 @@ import { findChapter, findSubject, subjects } from "@/lib/subjects";
 type State = { status: "loading" } | { status: "error" } | { status: "ready"; notes: Annotation[] };
 
 const DAY = 86_400_000;
-const select = "rounded-lg border border-border bg-surface px-2 py-1.5 text-sm";
+const select = "w-full min-w-0 rounded-lg border border-border bg-surface px-2 py-1.5 text-sm";
 
 /** Every highlight and comment across all lessons, with filters and search. */
 export function AllNotes() {
@@ -102,7 +102,7 @@ export function AllNotes() {
           placeholder="Search highlights, comments and topics…"
           className="w-full rounded-xl border border-border bg-bg px-3 py-2"
         />
-        <div className="flex flex-wrap gap-2">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
           <select
             aria-label="Subject"
             value={subject}

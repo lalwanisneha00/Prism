@@ -509,6 +509,39 @@ h2 {
   }
 }
 
+/*
+ * Form controls never stick out of their box. A dropdown is as wide as its longest option by
+ * default (some subject names are 70+ characters), which pushed it past its card on phones. In
+ * the base layer, so a component's own width classes still win.
+ */
+@layer base {
+  select,
+  textarea,
+  input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"]) {
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+  }
+  select {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  /* A label wrapping a control ("My branch" + dropdown) may shrink with it. */
+  label:has(> select, > input, > textarea) {
+    min-width: 0;
+    max-width: 100%;
+  }
+  /* Phones: dropdowns and text boxes take their container's full width. */
+  @media (max-width: 639px) {
+    select,
+    textarea,
+    input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"]) {
+      width: 100%;
+    }
+  }
+}
+
 /* A clear keyboard focus everywhere, in the action colour. */
 :focus-visible {
   outline: var(--focus-ring);

@@ -44,3 +44,24 @@ export async function listMockResults(): Promise<MockResult[]> {
   const all = await getAllRecords("mockResults");
   return all.filter((r) => !r.deleted).sort((a, b) => b.at - a.at);
 }
+
+/**
+ * Deletes mocks (Past mocks → Delete). A soft delete, like the rest of the app: the tombstone
+ * syncs, so the mock disappears on every device and from every score that used it.
+ */
+export async function deleteMockResults(ids: string[], now = Date.now()): Promise<void> {
+  for (const id of ids) {
+    const saved = await getRecord("mockResults", id);
+    if (saved && !saved.deleted)
+      await putRecord("mockResults", { ...saved, deleted: true, updatedAt: now });
+  }
+}
+
+/** Undo: brings deleted mocks back (a newer write, so the undo wins on every device too). */
+export async function restoreMockResults(ids: string[], now = Date.now()): Promise<void> {
+  for (const id of ids) {
+    const saved = await getRecord("mockResults", id);
+    if (saved?.deleted)
+      await putRecord("mockResults", { ...saved, deleted: false, updatedAt: now });
+  }
+}

@@ -8,6 +8,8 @@ import { defineConfig, devices } from "@playwright/test";
  */
 
 const PORT = 3210;
+/** E2E_BASE_URL=http://localhost:3211 tests a server that is already running (saves memory). */
+const EXISTING = process.env.E2E_BASE_URL;
 
 export default defineConfig({
   testDir: "e2e",
@@ -18,7 +20,7 @@ export default defineConfig({
   retries: 0,
   reporter: [["list"]],
   use: {
-    baseURL: `http://localhost:${PORT}`,
+    baseURL: EXISTING ?? `http://localhost:${PORT}`,
     channel: process.env.PW_CHANNEL ?? "msedge",
     trace: "retain-on-failure",
   },
@@ -44,14 +46,18 @@ export default defineConfig({
       },
     },
   ],
-  webServer: {
-    // E2E_SERVER=start serves a production build (built with LLM_PROVIDER=fake): far less
-    // memory than the dev server, for computers that are short of it.
-    command:
-      process.env.E2E_SERVER === "start" ? `npx next start -p ${PORT}` : `npx next dev -p ${PORT}`,
-    url: `http://localhost:${PORT}`,
-    env: { LLM_PROVIDER: "fake" },
-    reuseExistingServer: false,
-    timeout: 180_000,
-  },
+  webServer: EXISTING
+    ? undefined
+    : {
+        // E2E_SERVER=start serves a production build (built with LLM_PROVIDER=fake): far less
+        // memory than the dev server, for computers that are short of it.
+        command:
+          process.env.E2E_SERVER === "start"
+            ? `npx next start -p ${PORT}`
+            : `npx next dev -p ${PORT}`,
+        url: `http://localhost:${PORT}`,
+        env: { LLM_PROVIDER: "fake" },
+        reuseExistingServer: false,
+        timeout: 180_000,
+      },
 });

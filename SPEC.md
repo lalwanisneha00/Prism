@@ -487,3 +487,8 @@ Eight themes, picked from the profile menu ("Choose theme") or the footer ("Them
 ## 11.16 Top menu: icons with names on hover (plan update 2026-11-03)
 
 On a laptop or desktop with a mouse (`min-width: 1024px` and `hover: hover`), the top menu shows icons only. Hovering or keyboard focus opens one item at a time to show its name inside the same pill (180 ms width + fade, none under reduced motion; 80 ms close delay after the cursor leaves the menu). Every open name has the same width, and it opens on the side the cursor came from, so no icon ever moves under the cursor (no jitter loops). The menu reserves room for one open name, so it never re-centres. The current section stays highlighted while closed. Each link has an aria-label. Phones, narrow windows and touch screens keep icon + name in a row that scrolls sideways inside itself.
+
+## 11.17 Phones: no overflow; deleting past mocks (plan update 2026-11-03)
+
+- Every dropdown and text box stays inside its box at any width: shared base styles in `globals.css` (max-width 100%, min-width 0, border-box, ellipsis; full width under 640 px). Filter rows stack on phones. No page scrolls sideways at 360-412 px (`e2e/mobile-overflow.spec.ts`, `scripts/mobile-sweep.mjs`).
+- Past mocks: "…" menu → Delete (confirm: "Delete this mock? This removes the paper, answer sheet and your score."), or Select mode for several. A 5-second Undo follows. Deletion is a synced tombstone, so it applies on every device and to every score that used the mock.
