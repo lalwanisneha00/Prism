@@ -223,6 +223,35 @@ export function displayFormulas(markdown: string): string[] {
   return out;
 }
 
+/**
+ * Slide text with every bit of LaTeX turned into readable text (deck quality overhaul): "$V_{new}
+ * = 2V$" → "V_new = 2V", "\frac{L}{A}" → "L/A", "\Omega" → "Ω". PowerPoint and the PDF show
+ * text as it is, so a dollar sign or a backslash command would reach the student raw. Markdown
+ * bold/italic markers go too. Line breaks are kept; money like "$5" is left alone.
+ */
+export function readableMath(text: string): string {
+  return (
+    text
+      .replace(/\$\$([\s\S]+?)\$\$/g, (_, latex: string) => latexToPlain(latex))
+      .replace(/\$([^$\n]+?)\$/g, (_, latex: string) => latexToPlain(latex))
+      // LaTeX written without dollar signs: a command with its braced arguments (C escapes
+      // like \n and \t in text about code are kept).
+      .replace(/\\(?![ntr0](?![a-zA-Z]))[a-zA-Z]+(?:\s*\{[^{}]*\})*/g, (cmd) => latexToPlain(cmd))
+      .replace(/\\[,;:!]/g, " ")
+      // What is left: a lone "$" (not money) and stray backslashes.
+      .replace(/\$(?!\d)/g, "")
+      .replace(/\\(?![ntr0"'\\](?![a-zA-Z]))/g, "")
+      .replace(/(\*\*|__)(.+?)\1/g, "$2")
+      .replace(/[ \t]{2,}/g, " ")
+      .trim()
+  );
+}
+
+/** Whether text still holds LaTeX a student would see raw ($…$ maths or a \command). */
+export function hasRawMath(text: string): boolean {
+  return /\$[^$\n\d][^$\n]*\$|\\(?![ntr0](?![a-zA-Z]))[a-zA-Z]+/.test(text);
+}
+
 /** Markdown → plain text: formulas inline as Unicode, display formulas removed, markup gone. */
 export function plainText(markdown: string): string {
   return markdown

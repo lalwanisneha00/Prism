@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { similarity } from "@/lib/mock/paper";
+import { readableMath } from "@/lib/slides/text";
 import type { LessonVisual } from "@/lib/slides/ai/digest";
 import {
   PURPOSE_RULES,
@@ -510,7 +511,8 @@ Depth rules:
 - "concept" slides explain one idea: an everyday "analogy" first when the idea is hard or abstract ("" otherwise), "points" saying what it is and WHY it works or matters, an "example" (label, and "text" and/or "code": a worked numerical, a code snippet, a real-world case or a derivation step), a one-line "takeaway", and a "visual" when one helps.
 - Visuals: "visual" is {"type":"mermaid","code":"flowchart TD\\n  A[Source] --> B[Preprocessor]","caption":"..."} for flowcharts, process steps and labelled structures; {"type":"latex","latex":"...","caption":"..."} for one formula; {"type":"lesson","key":"L1V2","caption":"..."} to reuse a lesson visual; {"type":"plot","expression":"x^2","xRange":[0,5],"xLabel":"...","yLabel":"...","caption":"..."} for a graph. Use "comparison" slides for tables and "formula" slides (with "symbols": what each symbol means, with units) for formula breakdowns.
 - Accuracy: check every formula, unit, definition, number and line of code. Code must compile and run as described. Never state implementation-defined behaviour as universal; state assumptions.
-- Never repeat an earlier slide's content. Maths in LaTeX inside $...$ in text fields (in JSON write each backslash as \\\\). No HTML.${
+- Never repeat an earlier slide's content.
+- Maths in every text field (points, examples, prompts, notes…) is plain readable text with Unicode symbols, the way a textbook prints it: V_new = 2V, I = V/R, R = ρL/A, 10 Ω, x², √x, 3 × 10⁸, ≤, π. NEVER LaTeX and NEVER $ signs or backslashes in text: slides show text exactly as written. LaTeX only goes in "latex" fields (formula slides, latex visuals), which are typeset as pictures (in JSON write each backslash there as \\\\). No HTML, no markdown symbols.${
     teach
       ? `
 - "notes" (speaker notes) on every slide: {"say": what to say and how to explain it, several sentences; "ask": the question to ask the class; "doubts": [{"doubt","answer"}] students commonly raise; "minutes": time for this slide}.
@@ -580,6 +582,32 @@ export function notesText(s: AiSlide, purpose: Purpose): string {
   return parts.join("\n\n").slice(0, 4000);
 }
 
+/** Fields kept exactly as written: code, LaTeX for the typesetter, ids and enum values. */
+const KEEP_RAW = new Set([
+  "code",
+  "material",
+  "latex",
+  "expression",
+  "layout",
+  "format",
+  "key",
+  "type",
+]);
+
+function readableValue(v: unknown, key = ""): unknown {
+  if (KEEP_RAW.has(key)) return v;
+  if (typeof v === "string") return readableMath(v);
+  if (Array.isArray(v)) return v.map((x) => readableValue(x));
+  if (v && typeof v === "object")
+    return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, readableValue(x, k)]));
+  return v;
+}
+
+/** A written slide with all its visible text (and notes) free of raw LaTeX; code untouched. */
+export function readableSlide(s: AiSlide): AiSlide {
+  return readableValue(s) as AiSlide;
+}
+
 /** Converts written slides into the renderers' slides; pictures become `visuals` entries. */
 export function toSlides(
   ai: readonly AiSlide[],
@@ -613,7 +641,8 @@ export function toSlides(
     const caption = v.caption || (v.type === "lesson" ? (byKey.get(v.key)?.caption ?? "") : "");
     return { key, caption: caption.slice(0, 240), alt: (caption || "Diagram").slice(0, 240) };
   };
-  return ai.map((s): Slide => {
+  // Every text a student reads goes through readableMath (no raw $…$ or \commands on a slide).
+  return ai.map(readableSlide).map((s): Slide => {
     const id = ids.slide();
     const notes = notesText(s, purpose);
     switch (s.layout) {

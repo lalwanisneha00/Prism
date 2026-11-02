@@ -1,6 +1,7 @@
 import { contentSlides, SHORT_BY } from "@/lib/slides/ai/outline";
 import { planProblems, type Slide, type SlidePlan } from "@/lib/slides/plan";
 import { conceptFit, overflowRisks } from "@/lib/slides/pptx";
+import { hasRawMath } from "@/lib/slides/text";
 
 /*
  * Denser slides must still look clean (deck quality overhaul). A slide whose text can't fit at
@@ -83,5 +84,18 @@ export function deckChecks(plan: SlidePlan, asked: number, written: number): str
     out.push(`${written} content slides written, ${want} asked for`);
   out.push(...planProblems(plan));
   out.push(...overflowRisks(plan));
+  plan.slides.forEach((slide, i) => {
+    const raw = visibleTexts(slide).find(hasRawMath);
+    if (raw) out.push(`slide ${i + 1}: raw LaTeX in "${raw.slice(0, 60)}"`);
+  });
   return out;
+}
+
+/** Every text a slide shows or speaks, except code (where $ and \ are real characters). */
+export function visibleTexts(v: unknown, key = ""): string[] {
+  if (key === "code" || key === "material" || key === "id" || key === "key") return [];
+  if (typeof v === "string") return [v];
+  if (Array.isArray(v)) return v.flatMap((x) => visibleTexts(x));
+  if (v && typeof v === "object") return Object.entries(v).flatMap(([k, x]) => visibleTexts(x, k));
+  return [];
 }
