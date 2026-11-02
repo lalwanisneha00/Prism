@@ -1,11 +1,8 @@
-import { z } from "zod";
-
 /*
- * Checking the answer sheet (mock test redesign). Last time a question said "State the value of
- * Euler's number e" and the key gave the definition. Two checks stop that: plain rules on the
- * question's command word (state the value → a value, derive → steps, compare → differences…),
- * and a second, independent AI pass that answers each question again without seeing the key;
- * code then compares the two. Like a second examiner solving the paper before it is printed.
+ * Checking the answer sheet with plain rules (mock test redesign). Last time a question said
+ * "State the value of Euler's number e" and the key gave the definition. These rules on the
+ * question's command word (state the value → a value, derive → steps, compare → differences…)
+ * catch that for free; the paper's examiner (examiner.ts) then checks everything else.
  */
 
 export type Command =
@@ -43,6 +40,18 @@ function opening(question: string): string {
 /** What the question asks for, from its command word. */
 export function commandOf(question: string): Command {
   const q = opening(question);
+  const first = classify(q);
+  if (first !== "other") return first;
+  // "Assume int is 4 bytes. Calculate…", "Consider the code: … What will be printed?": the
+  // command can follow a sentence that sets the scene.
+  for (const sentence of q.split(/(?<=[.?!:])\s+/).slice(1)) {
+    const c = classify(sentence.trim());
+    if (c !== "other") return c;
+  }
+  return "other";
+}
+
+function classify(q: string): Command {
   const head = q.split(/\s+/).slice(0, 10).join(" ");
   if (
     /\b(state|write|give|find|what is|what's)\b.{0,25}\b(numerical )?value\b|\bhow (many|much)\b/.test(
@@ -128,11 +137,29 @@ export type KeyItem = {
   reason?: string;
 };
 
+/** Code that prints something (C, C++, Java, Python). */
+const PRINTS = /\b(printf|fprintf|puts|fputs|putchar|cout|System\.out|print)\s*(\(|<<|\.)/;
+
+/**
+ * An "output" question needs code that prints. "What is the output of int z = (x > y) && 1;"
+ * has no output at all: it should ask for the value of z.
+ */
+export function outputProblem(question: string): string | null {
+  const asksOutput = /\b(output|printed|print out|display(ed|s)?)\b/i.test(question);
+  const hasCode = /[;{}]/.test(question);
+  return asksOutput && hasCode && !PRINTS.test(question)
+    ? "asks for the output of code that prints nothing: ask for the value of a variable instead"
+    : null;
+}
+
 /**
  * Whether the model answer and scheme answer what the question asks. Returns the problem in a
- * few words, or null. Catches "state the value of e" answered with a definition.
+ * few words, or null. Catches "state the value of e" answered with a definition, and an "output"
+ * asked of code that prints nothing.
  */
 export function commandProblem(q: KeyItem): string | null {
+  const output = outputProblem(q.question);
+  if (output) return output;
   if (q.type === "mcq") return null;
   const c = commandOf(q.question);
   const schemeText = q.scheme.map((p) => p.point).join(" ");
@@ -185,95 +212,6 @@ export function mcqProblem(q: KeyItem): string | null {
   const named = /\boption\s*\(?([a-d])\)?\s+is\s+(correct|right)\b/i.exec(q.reason);
   if (named && named[1].toLowerCase() !== letter) return "the reason points to a different option";
   return null;
-}
-
-/** The second examiner's reply for each question (answered without seeing the key). */
-export const VerifyReplySchema = z.object({
-  checks: z
-    .array(
-      z.object({
-        slot: z.string().max(20),
-        /** Does the key's answer give exactly what the question asks for? */
-        answersQuestion: z.boolean(),
-        issue: z.string().trim().max(300).default(""),
-        /** For MCQs: the option letter the examiner thinks is right. */
-        option: z.enum(["a", "b", "c", "d"]).optional(),
-        /** For calculations: the examiner's own final number and the calculation behind it. */
-        finalAnswer: z.number().optional(),
-        expression: z.string().trim().max(300).optional(),
-      }),
-    )
-    .max(20),
-});
-export type VerifyCheck = z.infer<typeof VerifyReplySchema>["checks"][number];
-
-/**
- * Compares the key with the second examiner's answers. A numerical counts as re-solved when the
- * examiner's own calculation (run by code) agrees with the key's checked answer.
- */
-export function verifyProblem(
-  item: KeyItem & { slot: string; check?: { answer: number } },
-  check: VerifyCheck | undefined,
-  evaluate: (expression: string) => number,
-): string | null {
-  if (!check) return "the answer sheet couldn't be checked";
-  if (!check.answersQuestion)
-    return `the answer doesn't give what the question asks${check.issue ? `: ${check.issue}` : ""}`;
-  if (item.type === "mcq" && check.option) {
-    const letter = "abcd"[(item.options ?? []).indexOf(item.answer)];
-    if (letter && check.option !== letter)
-      return `a second solve picked option (${check.option}), not (${letter})`;
-  }
-  if (item.type === "numerical" && item.check) {
-    let solved = check.finalAnswer;
-    if (check.expression) {
-      try {
-        solved = evaluate(check.expression);
-      } catch {
-        // Keep the stated number.
-      }
-    }
-    if (solved === undefined) return "the calculation couldn't be re-solved";
-    if (!sameNumber(solved, item.check.answer))
-      return `a second solve gives ${Number(solved.toPrecision(4))}, not ${Number(item.check.answer.toPrecision(4))}`;
-  }
-  return null;
-}
-
-export function verifyPrompt(items: readonly (KeyItem & { slot: string })[]): {
-  system: string;
-  prompt: string;
-} {
-  const system = `You are a second examiner checking an answer key before a paper is printed.
-For each question:
-1. Solve it yourself FIRST, without looking at the key.
-2. MCQ: give the letter of the correct option in "option".
-3. Calculation: give your final number in "finalAnswer" and a plain calculation with numbers only (mathjs syntax) in "expression".
-4. Then read the key's answer: "answersQuestion" is true only if it gives exactly what the question asks for (state the value → a value; define → a definition; derive → the full derivation; calculate → working and the final answer with units; compare → points of difference; list N → N items) and is correct. If not, say why in "issue".
-Reply with JSON only: {"checks":[{"slot":"s1q1","answersQuestion":true,"issue":"","option":"b","finalAnswer":7,"expression":"2*3.5"}]}`;
-  const prompt = items
-    .map((q) => {
-      const options = q.options?.map((o, i) => `  (${"abcd"[i]}) ${o}`).join("\n");
-      return `SLOT ${q.slot} (${q.type})
-QUESTION: ${q.question}${options ? `\nOPTIONS:\n${options}` : ""}
-KEY ANSWER: ${q.answer}${q.reason ? `\nKEY REASON: ${q.reason}` : ""}`;
-    })
-    .join("\n\n---\n\n");
-  return { system, prompt };
-}
-
-/** The test AI's second examiner: agrees with a correct key, re-solves numericals from the key. */
-export function fakeVerify(
-  items: readonly (KeyItem & { slot: string; check?: { expression: string } })[],
-): z.input<typeof VerifyReplySchema> {
-  return {
-    checks: items.map((q) => ({
-      slot: q.slot,
-      answersQuestion: true,
-      ...(q.type === "mcq" ? { option: "abcd"[(q.options ?? []).indexOf(q.answer)] as "a" } : {}),
-      ...(q.check ? { expression: q.check.expression } : {}),
-    })),
-  };
 }
 
 /**

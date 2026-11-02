@@ -143,7 +143,7 @@ export function GenerateStep({
         <p className="font-semibold">{errorCopy[state.kind].title}</p>
         <p className="text-muted">
           {state.kind === "bad-response"
-            ? "Some questions didn't pass our checks (topic, marks or answer), so we didn't show the paper."
+            ? "Some questions still didn't pass the examiner's checks (syllabus, correctness or answer) after fixing, so we didn't show the paper. Trying again writes new questions."
             : errorCopy[state.kind].message}
         </p>
         <button
@@ -156,9 +156,17 @@ export function GenerateStep({
       </div>
     );
   const { progress } = state;
+  const heading =
+    progress.stage === "checking"
+      ? progress.failing && progress.failing < progress.sections.reduce((n, s) => n + s.total, 0)
+        ? `Checking ${progress.failing} rewritten ${progress.failing === 1 ? "question" : "questions"}…`
+        : "An examiner is checking every question and answer…"
+      : progress.stage === "fixing"
+        ? `Fixing ${progress.failing} ${progress.failing === 1 ? "question" : "questions"} the examiner rejected…`
+        : "Writing your paper…";
   return (
     <div className="flex flex-col gap-3" role="status" data-testid="mock-generating">
-      <p className="font-semibold">Writing your paper…</p>
+      <p className="font-semibold">{heading}</p>
       <ul className="flex flex-col gap-2">
         {progress.sections.map((s) => (
           <li key={s.id} className="flex flex-col gap-1 text-sm">
@@ -180,7 +188,7 @@ export function GenerateStep({
       <p className="text-xs text-muted">
         {progress.waiting
           ? `The free AI is busy; trying again in ${progress.waiting} s…`
-          : "Each question is checked (topic, marks, answer) before you see it."}
+          : "Every question is checked against your syllabus, and its answer by a separate examiner, before you see it."}
       </p>
     </div>
   );

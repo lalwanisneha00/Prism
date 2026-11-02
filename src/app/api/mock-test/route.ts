@@ -3,6 +3,7 @@ import { errorCopy } from "@/lib/lessonEvents";
 import { chainFor, generateJsonWithFallback, LlmError, providersFromEnv } from "@/lib/llm";
 import { fetchWikipediaExtract, searchWikipedia, trimExtract } from "@/lib/grounding/wikipedia";
 import { parseJsonReply } from "@/lib/jsonReply";
+import { boundaryFor, type BoundaryTopic } from "@/lib/mock/boundary";
 import {
   checkSection,
   fakeSection,
@@ -14,26 +15,20 @@ import {
 } from "@/lib/mock/paper";
 import { QUESTION_TYPES } from "@/lib/mock/pattern";
 import { evaluateCheck } from "@/lib/safeMath";
-import {
-  fakeVerify,
-  isRecall,
-  verifyProblem,
-  verifyPrompt,
-  VerifyReplySchema,
-  type VerifyCheck,
-} from "@/lib/mock/verify";
+import { isRecall } from "@/lib/mock/verify";
 import { findSubject, type Subject } from "@/lib/subjects";
 import { CustomSubjectPayloadSchema, toSubject } from "@/lib/custom/customSubject";
-import { activeChapters } from "@/lib/syllabusFix/active";
 
 /*
  * POST one batch of a mock paper's questions with their answer key → { ok, questions, fixed }.
  * The browser plans the paper (sections, each question's type, marks and topic) and asks for it a
  * few questions at a time, so each request stays well inside the time limit and the student sees
- * the paper fill in. Every question is checked here before it is sent back (scope, marks,
- * numericals, marking scheme, command word, maths that renders, no copied past questions), then
- * a second examiner re-solves each one without the key (code compares the two). Failed ones are
- * rewritten; a batch that can't be fixed in time is refused, never shown.
+ * the paper fill in. The writer gets the syllabus boundary (chosen topics, and the course's other
+ * topics as "not in this paper"). Every question is checked here by code before it is sent back
+ * (relevance, scope, marks, numericals, marking scheme, command word, maths that renders, no
+ * copied past questions); failed ones are rewritten. The whole paper then goes to the examiner
+ * (/api/mock-test/verify) once. The same route rewrites the questions the examiner rejects
+ * (`feedback`).
  */
 
 export const maxDuration = 60;
@@ -48,8 +43,6 @@ const MODEL_WAIT_MS = 20_000;
 const BUDGET_MS = 50_000;
 /** A rewrite is only started with at least this much time left. */
 const REWRITE_NEEDS_MS = 22_000;
-/** The second examiner only runs with at least this much time left; otherwise the rule checks stand. */
-const VERIFY_NEEDS_MS = 12_000;
 const id = z.string().trim().min(1).max(80);
 
 const RequestSchema = z.object({
@@ -84,6 +77,22 @@ const RequestSchema = z.object({
   avoid: z.array(z.string().trim().max(200)).max(40).default([]),
   /** Marks plain recall questions may still take in the paper (the warm-up share). */
   recallMarks: z.number().min(0).max(300).optional(),
+  /** Marks prerequisite (relevance B) questions may still take in the paper. */
+  prereqMarks: z.number().min(0).max(300).optional(),
+  /** The student's uploaded syllabus for this subject (text), if any. */
+  syllabus: z.string().trim().max(4000).optional(),
+  /** The examiner's findings on earlier versions of these slots (a rewrite). */
+  feedback: z
+    .array(
+      z.object({
+        slot: z.string().max(20),
+        issues: z.array(z.string().trim().max(400)).max(10),
+        fix: z.string().trim().max(800).optional(),
+        previous: z.string().trim().max(1500).optional(),
+      }),
+    )
+    .max(6)
+    .default([]),
 });
 
 type Reply =
@@ -115,16 +124,12 @@ export async function POST(req: Request) {
   const data = body.data;
   const custom = data.custom ? toSubject(data.custom) : undefined;
   const subject = custom?.id === data.subject ? custom : findSubject(data.subject);
-  const topicInfo = new Map(
-    subject
-      ? activeChapters(subject).flatMap((c) =>
-          c.topics.map((t) => [t.id, { id: t.id, name: t.name, unit: c.name }] as const),
-        )
-      : [],
-  );
+  const boundary = subject ? boundaryFor(subject, data.scope) : undefined;
+  const topicInfo: ReadonlyMap<string, BoundaryTopic> = boundary?.all ?? new Map();
   const scope = new Set(data.scope);
   if (
     !subject ||
+    !boundary ||
     data.scope.some((t) => !topicInfo.has(t)) ||
     data.section.slots.some((s) => !scope.has(s.topic))
   )
@@ -143,6 +148,11 @@ export async function POST(req: Request) {
       ? undefined
       : data.recallMarks -
         [...done.values()].filter((q) => isRecall(q.question)).reduce((n, q) => n + q.marks, 0);
+  const prereqLeft = () =>
+    data.prereqMarks === undefined
+      ? undefined
+      : data.prereqMarks -
+        [...done.values()].filter((q) => q.relevance === "B").reduce((n, q) => n + q.marks, 0);
   const fake = process.env.LLM_PROVIDER === "fake";
   const bare = slotTopics.filter((t) => !data.facts[t.id]?.length);
   const reference =
@@ -155,36 +165,6 @@ export async function POST(req: Request) {
   /** The request's own signal, cut off when the time budget runs out. */
   const deadline = (ms = left()) =>
     AbortSignal.any([req.signal, AbortSignal.timeout(Math.max(1_000, ms))]);
-
-  /**
-   * One call checks the whole batch. Null when it couldn't run in time or its reply couldn't be
-   * read: then the rule checks stand on their own rather than the student getting no paper.
-   */
-  async function verify(
-    questions: readonly PaperQuestion[],
-  ): Promise<Map<string, VerifyCheck> | null> {
-    const items = questions.map((q) => ({ ...q, slot: q.id }));
-    if (fake) {
-      const parsed = VerifyReplySchema.safeParse(fakeVerify(items));
-      return parsed.success ? new Map(parsed.data.checks.map((c) => [c.slot, c])) : null;
-    }
-    if (left() < VERIFY_NEEDS_MS) return null;
-    try {
-      const { system, prompt } = verifyPrompt(items);
-      const text = await generateJsonWithFallback(
-        chainFor(req, providersFromEnv),
-        { system, prompt, temperature: 0, signal: deadline(left() - 3_000) },
-        Date.now,
-        MODEL_WAIT_MS,
-      );
-      const parsed = VerifyReplySchema.safeParse(parseJsonReply(text));
-      return parsed.success ? new Map(parsed.data.checks.map((c) => [c.slot, c])) : null;
-    } catch (err) {
-      if (req.signal.aborted) throw err;
-      console.warn("[api/mock-test] second examiner skipped:", String(err));
-      return null;
-    }
-  }
 
   const done = new Map<string, PaperQuestion>();
   let fixed = 0;
@@ -201,8 +181,11 @@ export async function POST(req: Request) {
       else {
         const { system, prompt } = sectionPrompt({
           subjectName: subject.name,
+          course: boundary.course,
           section: todo,
-          topics: [...scope].map((t) => topicInfo.get(t)!).slice(0, 120),
+          topics: boundary.inside.slice(0, 120),
+          outside: boundary.outside,
+          syllabus: data.syllabus,
           facts: Object.fromEntries(
             Object.entries(data.facts).filter(([t]) => todo.slots.some((s) => s.topic === t)),
           ),
@@ -214,7 +197,9 @@ export async function POST(req: Request) {
           styleNote: data.styleNote,
           avoid: [...data.avoid, ...[...done.values()].map((q) => q.question.slice(0, 200))],
           recallMarks: recallLeft(),
+          prereqMarks: prereqLeft(),
           problems: attempt > 0 ? problems : undefined,
+          feedback: data.feedback.filter((f) => todo.slots.some((s) => s.id === f.slot)),
         });
         const text = await generateJsonWithFallback(
           chainFor(req, providersFromEnv),
@@ -232,19 +217,14 @@ export async function POST(req: Request) {
         const parsed = SectionReplySchema.safeParse(reply);
         raw = parsed.success ? parsed.data.questions : [];
       }
-      const checked = checkSection(todo, raw, { ...ctx, recallMarks: recallLeft() });
+      const checked = checkSection(todo, raw, {
+        ...ctx,
+        recallMarks: recallLeft(),
+        prereqMarks: prereqLeft(),
+      });
       fixed += checked.fixed;
       problems = checked.problems;
-      // The second examiner: every question that passed the rules is solved again without the key.
-      const passed = [...checked.ok.values()];
-      const verdicts = passed.length ? await verify(passed) : new Map<string, VerifyCheck>();
-      for (const q of passed) {
-        const problem = verdicts
-          ? verifyProblem({ ...q, slot: q.id }, verdicts.get(q.id), evaluateCheck)
-          : null;
-        if (problem) problems.push({ slot: q.id, reason: problem });
-        else done.set(q.id, q);
-      }
+      for (const q of checked.ok.values()) done.set(q.id, q);
       if (done.size === section.slots.length) break;
     }
     if (done.size < section.slots.length) {

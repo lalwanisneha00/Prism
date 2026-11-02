@@ -1,0 +1,89 @@
+{
+  "id": "c-programming",
+  "name": "C programming",
+  "match": {
+    "subjectNames": ["programming in c", "c programming", "c language"],
+    "topicNames": ["features of c", "c tokens", "c program", "c programming", "c language"]
+  },
+  "offTopic": "Java, Python, C++ classes, object-oriented programming (inheritance, abstract methods, interfaces), closures, lambdas, garbage collection and functional programming are NOT part of a C course.",
+  "areas": [
+    {
+      "area": "Data types and sizes",
+      "rules": [
+        "Sizes of int, long, pointers etc. are implementation-defined: the C standard only gives minimum ranges (int at least 16 bits) and sizeof(char) == 1. A question that needs a size must state it (e.g. 'assume int is 4 bytes').",
+        "Format specifiers must match the type (%d int, %ld long, %u unsigned, %f float/double in printf, %lf double in scanf, %c char, %s string, %p pointer).",
+        "Declaration (int x;), initialization (int x = 5; a value given in the declaration) and assignment (x = 5; a later statement) are different things and must not be mixed up.",
+        "Integer division truncates toward zero; mixing int and float follows the usual arithmetic conversions."
+      ]
+    },
+    {
+      "area": "Operators and precedence",
+      "rules": [
+        "Check precedence and associativity in every expression (e.g. * before +, == before &&, assignment right to left).",
+        "Modifying a variable twice without a sequence point (i = i++ + ++i; printf(\"%d %d\", i, i++);) is undefined behaviour: it has no single correct output and must not be asked as an output question.",
+        "Pre-increment returns the new value, post-increment the old value.",
+        "&& and || short-circuit; the result of a relational or logical operator is int 0 or 1."
+      ]
+    },
+    {
+      "area": "Tokens",
+      "rules": [
+        "The token kinds are keywords, identifiers, constants, string literals, operators and punctuators (special symbols). C89 has 32 keywords; C99 adds 5 and C11 adds 7: say which standard if a count is asked.",
+        "Identifiers: letters, digits and underscore, not starting with a digit, case-sensitive, not a keyword."
+      ]
+    },
+    {
+      "area": "Arrays and bounds",
+      "rules": [
+        "Indices run from 0 to size-1; reading or writing outside is undefined behaviour, not a guaranteed error or garbage value.",
+        "Memory of an array = number of elements × sizeof(element) (state the element size if a number is expected).",
+        "2-D arrays are stored row-major; a[i][j] is the element in row i, column j.",
+        "A string needs room for the terminating '\\0'."
+      ]
+    },
+    {
+      "area": "Pointers",
+      "rules": [
+        "& gives an address, * in a declaration declares a pointer, * in an expression dereferences it. Keep the pointer, the pointer variable and the object pointed to distinct.",
+        "Pointer arithmetic moves by the size of the pointed-to type; it is only valid inside one array (or one past its end).",
+        "Dereferencing NULL, an uninitialised or a freed pointer is undefined behaviour.",
+        "Never claim pointers always make programs faster; passing a pointer avoids copying a large object, that is all."
+      ]
+    },
+    {
+      "area": "Functions",
+      "rules": [
+        "Distinguish declaration (prototype), definition and call; parameters (in the definition) and arguments (in the call).",
+        "C passes arguments by value; 'call by reference' in C means passing a pointer.",
+        "Local (automatic) variables live until the block ends; static locals keep their value between calls; globals have file scope.",
+        "A recursive function needs a base case."
+      ]
+    },
+    {
+      "area": "Program structure",
+      "rules": [
+        "The textbook layout (documentation, link/preprocessor section, definitions, global declarations, main, user-defined functions) is a convention; only main() is required for a hosted program.",
+        "#include and #define are preprocessor directives, handled before compilation; a macro is text substitution, not a function call.",
+        "main returns int; void main() is not standard C."
+      ]
+    },
+    {
+      "area": "Compilation stages",
+      "rules": [
+        "The stages are preprocessing (directives, macros, includes → expanded source), compilation (source → assembly), assembly (assembly → object code), linking (object files + libraries → executable), then loading and execution.",
+        "Never use compiler, interpreter, assembler and linker interchangeably; C is compiled, not interpreted.",
+        "Syntax errors are found at compile time, undefined references at link time, and logic or runtime errors only when the program runs."
+      ]
+    },
+    {
+      "area": "Code in questions and answers",
+      "rules": [
+        "Every program shown must compile as standard C (headers included, declared before use, semicolons, matching braces) unless the question is about finding the error.",
+        "An output question must have exactly one correct output on any standard compiler: no undefined, unspecified or implementation-defined behaviour unless the needed assumption is stated.",
+        "Trace the program line by line and compare the exact printed text (spaces and newlines) with the key.",
+        "Indentation means nothing to C. Without braces, if/else/while/for control only the next single statement, and an else belongs to the nearest unmatched if (the dangling else). Re-indent the code by these rules before tracing it.",
+        "Integer division truncates (5 / 2 is 2); % takes the sign of the left operand; a char in arithmetic is its character code."
+      ]
+    }
+  ]
+}

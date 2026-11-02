@@ -6,6 +6,7 @@ import { activeChapters } from "@/lib/syllabusFix/active";
 vi.mock("server-only", () => ({}));
 const { POST } = await import("@/app/api/mock-test/route");
 const pattern = await import("@/app/api/mock-test/pattern/route");
+const examiner = await import("@/app/api/mock-test/verify/route");
 
 const subject = findSubject("pdeu-discrete-mathematics")!;
 const [unit] = activeChapters(subject);
@@ -61,6 +62,54 @@ describe("POST /api/mock-test (one batch of questions)", () => {
       scope: [...scope, "made-up"],
     });
     expect(res.status).toBe(400);
+  });
+});
+
+describe("POST /api/mock-test with the examiner's feedback (a rewrite)", () => {
+  it("rewrites the rejected slots and keeps their metadata", async () => {
+    const res = await post(POST, {
+      subject: subject.id,
+      section: section(),
+      scope,
+      feedback: [{ slot: "s1q2", issues: ["off-syllabus"], fix: "Ask about the topic itself" }],
+      prereqMarks: 2,
+      syllabus: "Unit 1: sets, relations, functions.",
+    });
+    const body = (await res.json()) as { ok: boolean; questions: unknown[] };
+    expect(body.ok).toBe(true);
+    const q = PaperQuestionSchema.parse(body.questions[1]);
+    expect(q.relevance).toBe("A");
+    expect(q.learningOutcome).toBeTruthy();
+  });
+});
+
+describe("POST /api/mock-test/verify (one examiner call for the paper)", () => {
+  const written = async () => {
+    const res = await post(POST, { subject: subject.id, section: section(), scope });
+    return ((await res.json()) as { questions: unknown[] }).questions;
+  };
+
+  it("returns one verdict per question", async () => {
+    const questions = await written();
+    const res = await post(examiner.POST, { subject: subject.id, scope, questions });
+    const body = (await res.json()) as {
+      ok: boolean;
+      results: { id: string; pass: boolean; issues: string[] }[];
+    };
+    expect(body.ok).toBe(true);
+    expect(body.results.map((r) => [r.id, r.pass])).toEqual([
+      ["s1q1", true],
+      ["s1q2", true],
+      ["s1q3", true],
+    ]);
+  });
+
+  it("refuses an unknown subject or a scope topic outside it", async () => {
+    const questions = await written();
+    expect((await post(examiner.POST, { subject: "nope", scope, questions })).status).toBe(400);
+    expect(
+      (await post(examiner.POST, { subject: subject.id, scope: ["made-up"], questions })).status,
+    ).toBe(400);
   });
 });
 

@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   assignTopics,
   checkSection,
+  duplicateIssues,
   fakeSection,
   fitScheme,
   paperMarks,
@@ -159,8 +160,10 @@ describe("checking the AI's questions", () => {
   it("puts every slot and the topic list in the prompt", () => {
     const { prompt, system } = sectionPrompt({
       subjectName: "Physics",
+      course: "Physics, semester 1",
       section,
       topics: [{ id: "gauss", name: "Gauss's law", unit: "Unit 1" }],
+      outside: ["Ampere's law (Unit 2)"],
       facts: { gauss: ["Flux equals charge over epsilon"] },
       material: [],
       reference: [],
@@ -174,6 +177,139 @@ describe("checking the AI's questions", () => {
     expect(prompt).toContain("[gauss] Flux");
     expect(system).toMatch(/Hard/);
     expect(system).toMatch(/Never copy a past question/);
+    // The syllabus boundary and the quality rules reach the writer.
+    expect(prompt).toContain("NOT IN THIS PAPER");
+    expect(prompt).toContain("Ampere's law (Unit 2)");
+    expect(system).toMatch(/implementation-defined/);
+    expect(system).toMatch(/"relevance"/);
+  });
+
+  it("asks to correct a rejected question, or to write a new one after repeated failures", () => {
+    const { prompt } = sectionPrompt({
+      subjectName: "C",
+      course: "C",
+      section,
+      topics: [],
+      outside: [],
+      facts: {},
+      material: [],
+      reference: [],
+      pyqs: [],
+      pyqRepeat: false,
+      difficulty: "mixed",
+      styleNote: "Standard",
+      avoid: [],
+      feedback: [
+        { slot: "s1q1", previous: "Q: sizeof(int)?", issues: ["assumes 4 bytes"], fix: "state it" },
+        { slot: "s1q2", issues: ["off-syllabus"] },
+      ],
+    });
+    expect(prompt).toMatch(/s1q1: CORRECT this version[\s\S]*assumes 4 bytes[\s\S]*Fix: state it/);
+    expect(prompt).toMatch(/s1q2: write a COMPLETELY NEW question/);
+  });
+});
+
+describe("syllabus relevance (A in chapter, B prerequisite, C beyond, D elsewhere)", () => {
+  it("keeps each question's internal metadata", () => {
+    const q = checkSection(section, good(), ctx).ok.get("s1q2")!;
+    expect(q.relevance).toBe("A");
+    expect(q.difficulty).toBe("medium");
+    expect(q.learningOutcome).toMatch(/Test outcome/);
+  });
+
+  it("rejects off-syllabus (D) and beyond-the-chapter (C) questions", () => {
+    const raw = good();
+    raw[0] = { ...raw[0], relevance: "D" };
+    raw[1] = { ...raw[1], relevance: "c" };
+    const r = checkSection(section, raw, ctx);
+    expect(r.problems.find((p) => p.slot === "s1q1")?.reason).toMatch(/off-syllabus/);
+    expect(r.problems.find((p) => p.slot === "s1q2")?.reason).toMatch(/beyond/);
+    expect(r.ok.has("s1q3")).toBe(true);
+  });
+
+  it("caps prerequisite (B) questions so chapter questions stay the majority", () => {
+    const raw = good().map((q) => ({ ...q, relevance: "B" }));
+    const r = checkSection(section, raw, { ...ctx, prereqMarks: 3 });
+    // s1q1 (1 mark) fits, s1q2 (3 marks) would take it to 4 > 3.
+    expect(r.ok.has("s1q1")).toBe(true);
+    expect(r.problems.find((p) => p.slot === "s1q2")?.reason).toMatch(/prerequisite/);
+  });
+
+  it("rejects an MCQ asking for the output of code that prints nothing", () => {
+    const raw = good();
+    raw[0] = {
+      ...raw[0],
+      question: "What is the output of int x = 5, y = 10; int z = (x > y) && (y > 0); in C?",
+    };
+    expect(checkSection(section, raw, ctx).problems[0]).toEqual({
+      slot: "s1q1",
+      reason: expect.stringMatching(/prints nothing/),
+    });
+  });
+
+  it("needs a learning outcome and a relevance from the writer", () => {
+    const raw = good();
+    delete raw[1].learningOutcome;
+    delete raw[2].relevance;
+    const slots = checkSection(section, raw, ctx).problems.map((p) => p.slot);
+    expect(slots).toEqual(["s1q2", "s1q3"]);
+  });
+});
+
+describe("repeats in a paper", () => {
+  const q = (id: string, question: string, learningOutcome?: string, topic = "vars") => ({
+    id,
+    topic,
+    question,
+    ...(learningOutcome ? { learningOutcome } : {}),
+  });
+
+  it("finds a reworded repeat and the same learning outcome on the same topic", () => {
+    const found = duplicateIssues([
+      q("q1", "Differentiate between declaration and initialization of a variable in C."),
+      q("q2", "Explain the difference between declaration and initialization of variables in C."),
+      q("q3", "What does this program print?", "Distinguish declaration from initialization"),
+      q("q4", "Which line below initializes x?", "Distinguish declaration from initialization"),
+      q(
+        "q5",
+        "Trace the loop and give its output.",
+        "Distinguish declaration from initialization",
+        "loops",
+      ),
+    ]);
+    expect(found.map((d) => [d.id, d.of])).toEqual([
+      ["q2", "q1"],
+      ["q4", "q3"],
+    ]);
+  });
+
+  it("the final check counts each section's questions against the plan", () => {
+    const paper: Paper = {
+      title: "T",
+      subject: "s",
+      totalMarks: 3,
+      minutes: 10,
+      sections: [
+        {
+          id: "s1",
+          name: "A",
+          questions: [
+            {
+              id: "s1q2",
+              type: "short",
+              topic: "coulomb",
+              marks: 3,
+              question: "Explain Coulomb's law.",
+              answer: "Force between charges.",
+              scheme: [{ point: "law", marks: 3 }],
+              source: "lesson",
+            },
+          ],
+        },
+      ],
+    };
+    expect(paperProblems(paper, ctx.scope, 3, [section]).join()).toMatch(/1 questions, planned 3/);
+    expect(paperProblems(paper, ctx.scope, 3)).toEqual([]);
   });
 });
 

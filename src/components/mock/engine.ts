@@ -6,11 +6,14 @@ import type { CustomSubjectPayload } from "@/lib/custom/customSubject";
 import { sectionText } from "@/lib/extract/types";
 import type { LessonErrorKind } from "@/lib/lessonEvents";
 import { lessonsByChapter } from "@/lib/mock/deviceLessons";
+import { EXAMINE_LIMIT, type Verdict } from "@/lib/mock/examiner";
 import {
   paperProblems,
+  PREREQ_SHARE,
   PYQ_REPEAT_SHARE,
   RECALL_SHARE,
   similarity,
+  type Feedback,
   type Paper,
   type PaperQuestion,
   type PaperSection,
@@ -22,6 +25,7 @@ import { rulePattern } from "@/lib/mock/readPattern";
 import type { ScopeTopic } from "@/lib/mock/scope";
 import { isRecall } from "@/lib/mock/verify";
 import { recordMockResult } from "@/lib/mock/results";
+import { reviewPaper, ReviewFailed } from "@/lib/mock/review";
 import { listLocalNotes, listRemoteOnlyNotes, setPaperPattern } from "@/lib/notes/store";
 import { searchChunks, type NoteChunk } from "@/lib/notes/retrieval";
 import type { MockSettings, StoredNote } from "@/lib/storage/db";
@@ -30,8 +34,9 @@ import { splitPaper } from "@/lib/worksheet/splitPaper";
 
 /*
  * The browser side of a mock (mock test overhaul): gathers what to ground the questions in
- * (lesson facts, the student's notes, past questions), asks the server for the paper a few
- * questions at a time, waits and retries when the free AI is busy, then marks the answers.
+ * (lesson facts, the student's notes, past questions, an uploaded syllabus), asks the server for
+ * the paper a few questions at a time, has the examiner check the whole paper and the writer fix
+ * what it rejects, and waits and retries when the free AI is busy.
  */
 
 export class MockError extends Error {
@@ -184,7 +189,12 @@ type Sources = {
   facts: Map<string, string[]>;
   chunks: NoteChunk[];
   pyqs: string[];
+  /** The student's uploaded syllabus for this subject (the boundary), if any. */
+  syllabus?: string;
 };
+
+/** Most syllabus text sent with each request. */
+const SYLLABUS_CHARS = 4000;
 
 /** What the questions are grounded in: lesson facts, the student's notes, past questions. */
 async function gatherSources(
@@ -212,7 +222,14 @@ async function gatherSources(
     .filter((p) => !p.local && (!styleKind || p.kind === styleKind))
     .flatMap((p) => p.pattern?.samples ?? []);
   const pyqs = [...new Set([...fromText, ...fromOther].map((q) => q.slice(0, 500)))];
-  return { facts, chunks, pyqs };
+  // Only a syllabus uploaded for this subject sets the boundary (an untagged one might be another's).
+  const syllabus = mine
+    .filter((n) => n.kind === "syllabus" && n.subject === subjectId)
+    .map(noteText)
+    .join("\n")
+    .trim()
+    .slice(0, SYLLABUS_CHARS);
+  return { facts, chunks, pyqs, ...(syllabus ? { syllabus } : {}) };
 }
 
 /** Past questions closest to a batch's topics (the most useful style examples). */
@@ -227,6 +244,10 @@ function closestPyqs(pyqs: readonly string[], topicNames: string, limit = 12): s
 
 export type GenProgress = {
   sections: { id: string; name: string; total: number; ready: number }[];
+  /** Writing the questions, the examiner checking them, or rewriting the ones it rejected. */
+  stage?: "writing" | "checking" | "fixing";
+  /** Questions being checked or rewritten in this round. */
+  failing?: number;
   /** Shown while waiting for a busy AI. */
   waiting?: number;
 };
@@ -243,9 +264,15 @@ export type GenerateInput = {
   styleNote: string;
 };
 
+/** Marks a kind of question takes among these questions. */
+const marksOf = (qs: readonly PaperQuestion[], test: (q: PaperQuestion) => boolean) =>
+  qs.filter(test).reduce((n, q) => n + q.marks, 0);
+
 /**
  * Writes the paper section by section (a few questions per request), reporting progress as each
- * batch arrives. The finished paper is checked once more (scope, marks) before it is returned.
+ * batch arrives. Then the whole paper goes to the examiner once; rejected questions are rewritten
+ * and checked again (see review.ts). The finished paper gets a last code check (sections, marks,
+ * scope, repeats) before it is returned. Nothing unchecked is ever returned.
  */
 export async function generatePaper(
   input: GenerateInput,
@@ -254,67 +281,101 @@ export async function generatePaper(
 ): Promise<Paper> {
   const progress: GenProgress = {
     sections: input.plan.map((s) => ({ id: s.id, name: s.name, total: s.slots.length, ready: 0 })),
+    stage: "writing",
   };
   const report = () =>
     onProgress({ ...progress, sections: progress.sections.map((s) => ({ ...s })) });
   report();
+  const onWait = (s: number) => {
+    progress.waiting = s;
+    report();
+  };
   const sources = await gatherSources(input.subjectId, input.papers, input.settings.style);
   const names = new Map(input.scope.map((t) => [t.id, t.name]));
   const scope = input.scope.map((t) => t.id);
-  let repeatLeft = input.settings.pyqRepeat
-    ? Math.floor(input.settings.marks * PYQ_REPEAT_SHARE)
-    : 0;
-  // Plain recall is a warm-up only: at most this many marks of the whole paper.
-  let recallLeft = Math.floor(input.settings.marks * RECALL_SHARE);
-  const written: string[] = [];
-  const sections: PaperSection[] = [];
+  const total = input.settings.marks;
+  const repeatShare = input.settings.pyqRepeat ? Math.floor(total * PYQ_REPEAT_SHARE) : 0;
+  // Plain recall is a warm-up only, prerequisites a small share: at most this many marks.
+  const recallShare = Math.floor(total * RECALL_SHARE);
+  const prereqShare = Math.floor(total * PREREQ_SHARE);
+  const common = {
+    subject: input.subjectId,
+    ...(input.custom ? { custom: input.custom } : {}),
+    scope,
+    ...(sources.syllabus ? { syllabus: sources.syllabus } : {}),
+  };
 
+  /** One writer request for a batch of slots; `kept` are the paper's other questions. */
+  async function write(
+    batch: PlannedSection,
+    kept: readonly PaperQuestion[],
+    feedback: readonly Feedback[] = [],
+  ): Promise<PaperQuestion[]> {
+    const topics = [...new Set(batch.slots.map((s) => s.topic))];
+    const topicNames = topics.map((t) => names.get(t) ?? t).join(", ");
+    const facts = Object.fromEntries(
+      topics.flatMap((t) => {
+        const list = sources.facts.get(t);
+        return list?.length ? [[t, list]] : [];
+      }),
+    );
+    const material = searchChunks(sources.chunks, topicNames, 6).map((c) => c.text.slice(0, 800));
+    const repeatLeft = repeatShare - marksOf(kept, (q) => q.source === "pyq-repeat");
+    const reply = await postJson(
+      "/api/mock-test",
+      {
+        ...common,
+        section: batch,
+        facts,
+        material,
+        pyqs: closestPyqs(sources.pyqs, topicNames),
+        pyqRepeat: repeatLeft > 0,
+        pyqRepeatMarks: Math.max(0, repeatLeft),
+        difficulty: input.settings.difficulty,
+        styleNote: input.styleNote,
+        avoid: kept.map((q) => q.question.slice(0, 200)).slice(-40),
+        recallMarks: Math.max(0, recallShare - marksOf(kept, (q) => isRecall(q.question))),
+        prereqMarks: Math.max(0, prereqShare - marksOf(kept, (q) => q.relevance === "B")),
+        ...(feedback.length ? { feedback } : {}),
+      },
+      { signal, retryBad: true, onWait },
+    );
+    delete progress.waiting;
+    return (reply.questions as PaperQuestion[]) ?? [];
+  }
+
+  /** One examiner call per EXAMINE_LIMIT questions (one call for a normal paper). */
+  async function examine(
+    questions: readonly PaperQuestion[],
+    accepted: readonly PaperQuestion[],
+  ): Promise<Verdict[]> {
+    const out: Verdict[] = [];
+    for (let i = 0; i < questions.length; i += EXAMINE_LIMIT) {
+      const chunk = questions.slice(i, i + EXAMINE_LIMIT);
+      const others = [...accepted, ...questions.filter((q) => !chunk.includes(q))];
+      const reply = await postJson(
+        "/api/mock-test/verify",
+        {
+          ...common,
+          questions: chunk,
+          accepted: others.map((q) => q.question.slice(0, 300)).slice(0, 60),
+        },
+        { signal, retryBad: true, onWait },
+      );
+      delete progress.waiting;
+      out.push(...((reply.results as Verdict[]) ?? []));
+    }
+    return out;
+  }
+
+  const written: PaperQuestion[] = [];
+  const sections: PaperSection[] = [];
   for (const [si, section] of input.plan.entries()) {
     const questions: PaperQuestion[] = [];
     for (const batch of batches(section)) {
-      const topics = [...new Set(batch.slots.map((s) => s.topic))];
-      const topicNames = topics.map((t) => names.get(t) ?? t).join(", ");
-      const facts = Object.fromEntries(
-        topics.flatMap((t) => {
-          const list = sources.facts.get(t);
-          return list?.length ? [[t, list]] : [];
-        }),
-      );
-      const material = searchChunks(sources.chunks, topicNames, 6).map((c) => c.text.slice(0, 800));
-      const reply = await postJson(
-        "/api/mock-test",
-        {
-          subject: input.subjectId,
-          ...(input.custom ? { custom: input.custom } : {}),
-          section: batch,
-          scope,
-          facts,
-          material,
-          pyqs: closestPyqs(sources.pyqs, topicNames),
-          pyqRepeat: repeatLeft > 0,
-          pyqRepeatMarks: repeatLeft,
-          difficulty: input.settings.difficulty,
-          styleNote: input.styleNote,
-          avoid: written.slice(-40),
-          recallMarks: Math.max(0, recallLeft),
-        },
-        {
-          signal,
-          retryBad: true,
-          onWait: (s) => {
-            progress.waiting = s;
-            report();
-          },
-        },
-      );
-      delete progress.waiting;
-      const got = (reply.questions as PaperQuestion[]) ?? [];
-      for (const q of got) {
-        if (q.source === "pyq-repeat") repeatLeft -= q.marks;
-        if (isRecall(q.question)) recallLeft -= q.marks;
-        written.push(q.question.slice(0, 200));
-      }
+      const got = await write(batch, written);
       questions.push(...got);
+      written.push(...got);
       progress.sections[si].ready = questions.length;
       report();
     }
@@ -326,14 +387,33 @@ export async function generatePaper(
       questions,
     });
   }
-  const paper: Paper = {
+  const draft: Paper = {
     title: input.title,
     subject: input.subjectId,
-    totalMarks: input.settings.marks,
+    totalMarks: total,
     minutes: input.settings.minutes,
     sections,
   };
-  const problems = paperProblems(paper, new Set(scope), input.settings.marks);
+
+  let paper: Paper;
+  try {
+    ({ paper } = await reviewPaper(draft, input.plan, {
+      examine,
+      rewrite: (batch, feedback, accepted) => write(batch, accepted, feedback),
+      onProgress: ({ stage, failing }) => {
+        progress.stage = stage;
+        progress.failing = failing;
+        report();
+      },
+    }));
+  } catch (err) {
+    if (err instanceof ReviewFailed) {
+      console.warn("[mock] questions still failing the examiner:", err.failing);
+      throw new MockError("bad-response", "examiner");
+    }
+    throw err;
+  }
+  const problems = paperProblems(paper, new Set(scope), total, input.plan);
   if (problems.length) {
     console.warn("[mock] paper failed the final check:", problems.join("; "));
     throw new MockError("bad-response");

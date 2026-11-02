@@ -1,7 +1,8 @@
 import { z } from "zod";
 import { statesUnit } from "@/lib/units";
 import { cleanAiText, displayProblems } from "@/lib/mock/mathClean";
-import { commandProblem, isRecall, mcqProblem } from "@/lib/mock/verify";
+import { commandProblem, isRecall, mcqProblem, outputProblem } from "@/lib/mock/verify";
+import { ANSWER_SIZE, CORRECTNESS_RULES } from "@/lib/mock/rules";
 import {
   QUESTION_TYPES,
   sectionMarks,
@@ -28,6 +29,16 @@ export const sourceLabel: Record<QuestionSource, string> = {
   "pyq-style": "In past-paper style",
   "pyq-repeat": "PYQ repeat",
 };
+
+/**
+ * How a question sits in the syllabus: A = inside the chosen units (most of the paper), B = a
+ * prerequisite the units rely on (some), C = beyond the units, D = another unit or subject.
+ * C and D are refused; B is capped (PREREQ_SHARE).
+ */
+export const RELEVANCE = ["A", "B", "C", "D"] as const;
+export type Relevance = (typeof RELEVANCE)[number];
+/** Difficulty by the thinking a question needs, not by how long its wording is. */
+export const DIFFICULTIES = ["easy", "medium", "hard"] as const;
 
 const SchemePointSchema = z.object({
   point: text.max(300),
@@ -63,6 +74,13 @@ export const PaperQuestionSchema = z.object({
         .transform((u) => u || undefined),
     })
     .optional(),
+  // Internal metadata (not shown to the student; older papers have none).
+  /** What the question tests, in one line ("Tell declaration from initialization of a variable"). */
+  learningOutcome: z.string().trim().max(200).optional(),
+  relevance: z.enum(RELEVANCE).optional(),
+  difficulty: z.enum(DIFFICULTIES).optional(),
+  /** The points a full answer must make (the answer sheet's backbone). */
+  answerPoints: z.array(z.string().trim().min(1).max(300)).max(8).optional(),
 });
 
 export const PaperSectionSchema = z.object({
@@ -183,6 +201,17 @@ export function topicWeights(
 /** One question as the AI writes it into a slot. */
 export const SlotAnswerSchema = PaperQuestionSchema.omit({ id: true }).extend({
   slot: z.string().max(20),
+  // The writer must say what each question tests and where it sits in the syllabus.
+  learningOutcome: text.max(200),
+  relevance: z.preprocess(
+    (v) => (typeof v === "string" ? v.trim().toUpperCase() : v),
+    z.enum(RELEVANCE),
+  ),
+  difficulty: z.preprocess(
+    (v) => (typeof v === "string" ? v.trim().toLowerCase() : v),
+    z.enum(DIFFICULTIES),
+  ),
+  answerPoints: z.array(text.max(300)).max(8).default([]),
 });
 export const SectionReplySchema = z.object({ questions: z.array(z.unknown()).max(40) });
 
@@ -228,6 +257,8 @@ export type CheckContext = {
   pyqRepeatMarks: number;
   /** Marks plain recall questions may still take (the warm-up share). Missing = no limit. */
   recallMarks?: number;
+  /** Marks prerequisite (relevance B) questions may still take. Missing = no limit. */
+  prereqMarks?: number;
   evaluate: (expression: string) => number;
 };
 
@@ -242,6 +273,7 @@ function cleanQuestion(q: SlotAnswer): SlotAnswer {
     ...(q.options ? { options: q.options.map(cleanAiText) } : {}),
     ...(q.reason ? { reason: cleanAiText(q.reason) } : {}),
     scheme: q.scheme.map((p) => ({ ...p, point: cleanAiText(p.point) })),
+    answerPoints: q.answerPoints.map(cleanAiText),
   };
 }
 
@@ -278,6 +310,7 @@ export function checkSection(
   let fixed = 0;
   let repeatMarks = 0;
   let recallMarks = 0;
+  let prereqMarks = 0;
   const slots = new Map(planned.slots.map((s) => [s.id, s]));
   raw.forEach((item, i) => {
     const parsed = SlotAnswerSchema.safeParse(item);
@@ -304,6 +337,26 @@ export function checkSection(
         slot: slot.id,
         reason: `topic "${q.topic}" is outside the chosen topics`,
       });
+    if (q.relevance === "D")
+      return problems.push({
+        slot: slot.id,
+        reason:
+          "off-syllabus (relevance D): it belongs to another unit, course or language; test the slot's topic as this course teaches it",
+      });
+    if (q.relevance === "C")
+      return problems.push({
+        slot: slot.id,
+        reason:
+          "beyond the chosen units (relevance C): ask about what the syllabus topic itself covers",
+      });
+    if (q.relevance === "B") {
+      if (prereqMarks + slot.marks > (ctx.prereqMarks ?? Infinity))
+        return problems.push({
+          slot: slot.id,
+          reason: "too many prerequisite questions: test the chosen units themselves (relevance A)",
+        });
+      prereqMarks += slot.marks;
+    }
     if (!SAME_KIND[slot.type].includes(q.type))
       return problems.push({
         slot: slot.id,
@@ -319,7 +372,8 @@ export function checkSection(
     const shown = shownTexts(q).flatMap(displayProblems);
     if (shown.length) return problems.push({ slot: slot.id, reason: shown[0] });
     const key = { ...q, type };
-    const keyProblem = type === "mcq" ? mcqProblem(key) : commandProblem(key);
+    const keyProblem =
+      type === "mcq" ? (mcqProblem(key) ?? outputProblem(key.question)) : commandProblem(key);
     if (keyProblem) return problems.push({ slot: slot.id, reason: keyProblem });
     if (type !== "mcq" && q.scheme.length === 0)
       return problems.push({ slot: slot.id, reason: "needs a marking scheme" });
@@ -382,6 +436,10 @@ export function checkSection(
       scheme,
       source,
       ...(type === "numerical" && q.check ? { check: q.check } : {}),
+      learningOutcome: q.learningOutcome,
+      relevance: q.relevance,
+      difficulty: q.difficulty,
+      ...(q.answerPoints.length ? { answerPoints: q.answerPoints } : {}),
     });
   });
   for (const s of planned.slots)
@@ -400,11 +458,75 @@ export function paperMarks(paper: Pick<Paper, "sections">): number {
 }
 
 /**
- * The last check before a paper is shown: every question inside the chosen topics, choice
- * sections with equal marks, and the marks adding up exactly to the total picked.
+ * How alike two questions are, by word stems (the first 6 letters), so "differentiate" and
+ * "difference", "variable" and "variables" count as the same word.
  */
-export function paperProblems(paper: Paper, scope: ReadonlySet<string>, total: number): string[] {
+export function stemSimilarity(a: string, b: string): number {
+  const stems = (s: string) => new Set(words(s).map((w) => w.slice(0, 6)));
+  const x = stems(a);
+  const y = stems(b);
+  if (x.size === 0 || y.size === 0) return 0;
+  let shared = 0;
+  for (const w of x) if (y.has(w)) shared++;
+  return shared / (x.size + y.size - shared);
+}
+
+/** Two questions this alike (word stems) are the same question reworded. */
+export const DUPLICATE_SIMILARITY = 0.75;
+/** Two learning outcomes this alike, on the same topic, test the same thing twice. */
+const SAME_OUTCOME_SIMILARITY = 0.8;
+
+/**
+ * Questions that repeat an earlier one in the paper (same wording, or the same learning outcome on
+ * the same topic). Each repeat is reported once, against the first question it repeats.
+ */
+export function duplicateIssues(
+  questions: readonly Pick<PaperQuestion, "id" | "topic" | "question" | "learningOutcome">[],
+): { id: string; of: string; reason: string }[] {
+  const out: { id: string; of: string; reason: string }[] = [];
+  questions.forEach((q, i) => {
+    for (const earlier of questions.slice(0, i)) {
+      if (stemSimilarity(q.question, earlier.question) >= DUPLICATE_SIMILARITY) {
+        out.push({ id: q.id, of: earlier.id, reason: `repeats question ${earlier.id}` });
+        return;
+      }
+      if (
+        q.learningOutcome &&
+        earlier.learningOutcome &&
+        q.topic === earlier.topic &&
+        stemSimilarity(q.learningOutcome, earlier.learningOutcome) >= SAME_OUTCOME_SIMILARITY
+      ) {
+        out.push({
+          id: q.id,
+          of: earlier.id,
+          reason: `tests the same learning outcome as question ${earlier.id}; test a different idea`,
+        });
+        return;
+      }
+    }
+  });
+  return out;
+}
+
+/**
+ * The last check before a paper is shown (plain code, no AI): every question inside the chosen
+ * topics, the planned number of questions in each section, choice sections with equal marks, no
+ * repeated question, and the marks adding up exactly to the total picked.
+ */
+export function paperProblems(
+  paper: Paper,
+  scope: ReadonlySet<string>,
+  total: number,
+  plan?: readonly Pick<PlannedSection, "id" | "slots">[],
+): string[] {
   const problems: string[] = [];
+  for (const planned of plan ?? []) {
+    const got = paper.sections.find((s) => s.id === planned.id)?.questions.length ?? 0;
+    if (got !== planned.slots.length)
+      problems.push(`section ${planned.id}: ${got} questions, planned ${planned.slots.length}`);
+  }
+  for (const d of duplicateIssues(paper.sections.flatMap((s) => s.questions)))
+    problems.push(`${d.id}: ${d.reason}`);
   for (const s of paper.sections) {
     for (const q of s.questions) {
       if (!scope.has(q.topic)) problems.push(`${s.name} ${q.id}: topic "${q.topic}" not chosen`);
@@ -430,11 +552,28 @@ export function paperProblems(paper: Paper, scope: ReadonlySet<string>, total: n
 export const PYQ_REPEAT_SHARE = 0.2;
 /** Most of the paper's marks plain recall (define, state, list, the value of…) may take. */
 export const RECALL_SHARE = 0.15;
+/** Most of the paper's marks prerequisite (relevance B) questions may take; the rest is A. */
+export const PREREQ_SHARE = 0.25;
+
+/** What the examiner (or a code check) found wrong with a question, sent back to the writer. */
+export type Feedback = {
+  slot: string;
+  issues: readonly string[];
+  fix?: string;
+  /** The failed question and answer, to correct (absent = write a completely new question). */
+  previous?: string;
+};
 
 export function sectionPrompt(input: {
   subjectName: string;
+  /** "Computer Programming - I, PDEU, semester 1" */
+  course: string;
   section: PlannedSection;
   topics: readonly { id: string; name: string; unit: string }[];
+  /** Topics of the same subject that are NOT in this paper (the other side of the boundary). */
+  outside: readonly string[];
+  /** The student's uploaded syllabus text for this subject, if any. */
+  syllabus?: string;
   facts: Readonly<Record<string, readonly string[]>>;
   material: readonly string[];
   reference: readonly string[];
@@ -445,29 +584,40 @@ export function sectionPrompt(input: {
   avoid: readonly string[];
   /** Marks plain recall questions may still take in this paper. */
   recallMarks?: number;
+  /** Marks prerequisite (relevance B) questions may still take in this paper. */
+  prereqMarks?: number;
   problems?: readonly SlotProblem[];
+  /** The examiner's findings on earlier versions of these slots. */
+  feedback?: readonly Feedback[];
 }): { system: string; prompt: string } {
   const diff = {
-    easy: "Easy: direct recall and single-step problems.",
+    easy: "Easy: mostly easy and medium questions.",
     mixed:
-      "Mixed, like a real paper: mostly explain, apply, derive, solve and compare; one or two harder questions.",
-    hard: "Hard: multi-step problems, applications and reasoning; no pure recall.",
+      "Mixed, like a real paper: mostly medium (explain, apply, compare, solve, trace), a few easy, one or two hard.",
+    hard: "Hard: mostly medium and hard (multi-step problems, applications, debugging, reasoning); no pure recall.",
   }[input.difficulty];
-  const system = `You are a university examiner writing part of an engineering mock exam.
+  const system = `You are a careful university examiner writing part of a mock exam for ${input.course}. Quality over quantity: every question must be inside the syllabus, technically correct, unambiguous and at exam level.
 Rules:
-- Write exactly one question for each SLOT below, with the slot's id, type and marks, testing the slot's topic (use its topic id). Never test anything outside the listed topics.
-- Ground every question in the SOURCE material below (the student's notes, lesson facts, reference text). Don't ask about things the sources don't support.
+- Write exactly one question for each SLOT below, with the slot's id, type and marks, testing the slot's topic (use its topic id) as THIS course teaches it.
+- The SYLLABUS BOUNDARY is the list of TOPICS below. Topics listed under NOT IN THIS PAPER, other courses and other languages must not be asked.
+- For each question give "relevance": "A" if it tests the slot's topic directly (most questions), "B" if it tests a prerequisite the topic relies on (only a few${input.prereqMarks !== undefined ? `: at most ${input.prereqMarks} more marks of them` : ""}), "C" if it goes beyond the chosen topics, "D" if it belongs to another unit, course or language. Only A and B questions are accepted: rewrite anything that would be C or D.
+- "learningOutcome": one line on what the question tests (e.g. "Distinguish declaration from initialization of a variable"). Every question in the paper must test a different learning outcome.
+- "difficulty": "easy", "medium" or "hard" by the thinking required.
+- "answerPoints": the 1-6 points a full-marks answer must make.
+${CORRECTNESS_RULES}
+- Ground every question in the SOURCES (the syllabus, lesson facts, the student's notes, reference text). Don't ask about things they don't support.
 - "mcq": exactly 4 different options, exactly one correct; "answer" is the correct option copied exactly; "reason": one line on why it is right; "scheme": [].
-- Other types: "answer" is the model answer a top student would write, sized to the marks: steps for numericals and derivations, key points for theory, a described labelled diagram where one is needed. "scheme" lists 2-6 points showing where the marks go (e.g. "Formula", "Substitution", "Final answer with units"), each with its "marks", adding up to the question's marks.
-- The answer and scheme must give EXACTLY what the question's command word asks: "state the value" → the value; "define" → a definition; "derive" → the full derivation; "calculate" → working and the final answer with units; "compare" → points of difference; "list N" → N items.
-- Plain recall (define, state, list, "the value of") is a small warm-up only${input.recallMarks !== undefined ? `: at most ${input.recallMarks} more marks of it in this part` : ""}. Prefer questions that ask to explain, apply, derive, solve or compare, as in the university's papers.
+- Other types: "answer" is the model answer a top student would write, sized to the marks (${ANSWER_SIZE}) "scheme" lists 2-6 points showing where the marks go, each with its "marks", adding up to the question's marks.
+- The answer and scheme give EXACTLY what the command word asks: "state the value" → the value; "define" → a definition; "derive" → the full derivation; "calculate" → working and the final answer with units; "compare"/"differentiate" → points of difference; "list N" → N items; "predict the output" → the exact output and why; "write a program" → a complete program that compiles.
+- Plain recall (define, state, list, "the value of") is a small warm-up only${input.recallMarks !== undefined ? `: at most ${input.recallMarks} more marks of it in this part` : ""}.
 - "numerical": include "check": {"expression": a plain calculation with numbers only (mathjs, e.g. "8.99e9*2e-6/0.05^2"), "answer": the number it gives, "unit": its SI unit (omit for pure numbers)}. The model answer must state that number with that unit.
 - "derivation": ask to derive a result; the scheme lists the steps. "diagram": ask for a labelled diagram and its explanation; the scheme names the labels expected.
-- "source": "material" (from the student's notes), "lesson" (from the lesson facts or reference text), "pyq-style" (styled on a past question but new).${input.pyqRepeat ? `\n- You MAY reuse up to ${Math.round(PYQ_REPEAT_SHARE * 100)}% of the marks as real past questions from the PAST QUESTIONS list, copied as printed, with "source": "pyq-repeat". Every other question must be new: never copy a past question.` : "\n- Never copy a past question; write new ones in the same style."}
-- Difficulty: ${diff}
+- Code: in fenced code blocks (three backticks and the language), complete and compilable unless the question is about finding the error.
+- "source": "material" (from the student's notes), "lesson" (from the syllabus, lesson facts or reference text), "pyq-style" (styled on a past question but new).${input.pyqRepeat ? `\n- You MAY reuse up to ${Math.round(PYQ_REPEAT_SHARE * 100)}% of the marks as real past questions from the PAST QUESTIONS list, copied as printed, with "source": "pyq-repeat". Every other question must be new: never copy a past question.` : "\n- Never copy a past question; write new ones in the same style."}
+- Difficulty mix: ${diff}
 - ${input.styleNote}
 - Maths: ALWAYS LaTeX inside $...$ (inline) or $$...$$ (on its own line), e.g. $\\sqrt{-1}$, $\\frac{a}{b}$, $\\pi$. Never write a LaTeX command outside dollar signs. In the JSON, write each backslash as \\\\ (e.g. "$\\\\frac{1}{2}$"). Markdown allowed; no HTML.
-Reply with JSON only: {"questions":[{"slot":"s1q1","type":"mcq","topic":"<topic id>","marks":1,"question":"...","options":["...","...","...","..."],"answer":"...","reason":"...","scheme":[],"source":"lesson"}]}`;
+Reply with JSON only: {"questions":[{"slot":"s1q1","type":"mcq","topic":"<topic id>","marks":1,"learningOutcome":"...","relevance":"A","difficulty":"easy","question":"...","options":["...","...","...","..."],"answer":"...","reason":"...","answerPoints":["..."],"scheme":[],"source":"lesson"}]}`;
   const slotLines = input.section.slots.map(
     (s) => `- ${s.id}: ${s.type}, ${s.marks} ${s.marks === 1 ? "mark" : "marks"}, topic ${s.topic}`,
   );
@@ -475,27 +625,48 @@ Reply with JSON only: {"questions":[{"slot":"s1q1","type":"mcq","topic":"<topic 
   const factLines = Object.entries(input.facts).flatMap(([topic, list]) =>
     list.map((f) => `- [${topic}] ${f}`),
   );
-  const prompt = `Subject: ${input.subjectName}
+  const feedbackLines = (input.feedback ?? []).map((f) =>
+    f.previous
+      ? `- ${f.slot}: CORRECT this version.\n  Previous: ${f.previous}\n  Examiner found: ${f.issues.join("; ")}${f.fix ? `\n  Fix: ${f.fix}` : ""}`
+      : `- ${f.slot}: write a COMPLETELY NEW question on a different learning outcome (the earlier ones kept failing: ${f.issues.join("; ")}).`,
+  );
+  const prompt = `Course: ${input.course}
 Section: ${input.section.name}${input.section.attempt ? ` (students answer any ${input.section.attempt} of ${input.section.slots.length})` : ""}
 
 SLOTS:
 ${slotLines.join("\n")}
 
-TOPICS (the only ones allowed):
-${topicLines.join("\n")}
-${factLines.length ? `\nLESSON FACTS:\n${factLines.join("\n")}` : ""}${input.material.length ? `\n\nSTUDENT'S NOTES:\n${input.material.map((m) => `- ${m}`).join("\n")}` : ""}${input.reference.length ? `\n\nREFERENCE TEXT:\n${input.reference.join("\n\n")}` : ""}${input.pyqs.length ? `\n\nPAST QUESTIONS (style and difficulty):\n${input.pyqs.map((q) => `- ${q}`).join("\n")}` : ""}${input.avoid.length ? `\n\nALREADY IN THE PAPER (don't repeat):\n${input.avoid.map((q) => `- ${q}`).join("\n")}` : ""}${input.problems?.length ? `\n\nYOUR LAST ANSWER FAILED THESE CHECKS. Rewrite only these slots:\n${input.problems.map((p) => `- ${p.slot}: ${p.reason}`).join("\n")}` : ""}`;
+TOPICS (the syllabus boundary: the only ones allowed):
+${topicLines.join("\n")}${input.outside.length ? `\n\nNOT IN THIS PAPER (other units of the course; don't ask these):\n${input.outside.map((t) => `- ${t}`).join("\n")}` : ""}${input.syllabus ? `\n\nSYLLABUS (uploaded by the student):\n${input.syllabus}` : ""}
+${factLines.length ? `\nLESSON FACTS:\n${factLines.join("\n")}` : ""}${input.material.length ? `\n\nSTUDENT'S NOTES:\n${input.material.map((m) => `- ${m}`).join("\n")}` : ""}${input.reference.length ? `\n\nREFERENCE TEXT:\n${input.reference.join("\n\n")}` : ""}${input.pyqs.length ? `\n\nPAST QUESTIONS (style and difficulty):\n${input.pyqs.map((q) => `- ${q}`).join("\n")}` : ""}${input.avoid.length ? `\n\nALREADY IN THE PAPER (don't repeat these questions or their learning outcomes):\n${input.avoid.map((q) => `- ${q}`).join("\n")}` : ""}${feedbackLines.length ? `\n\nTHE EXAMINER REJECTED THESE SLOTS:\n${feedbackLines.join("\n")}` : ""}${input.problems?.length ? `\n\nYOUR LAST ANSWER FAILED THESE CHECKS. Rewrite only these slots:\n${input.problems.map((p) => `- ${p.slot}: ${p.reason}`).join("\n")}` : ""}`;
   return { system, prompt };
 }
 
+/**
+ * Words only this slot's test question uses (so test questions never look like repeats). The
+ * slot id comes first: the repeat check compares the first 6 letters of each word.
+ */
+const fakeTag = (slot: string) =>
+  ["alpha", "bravo", "charlie", "delta"].map((w) => `${slot.replace(/\W/g, "")}${w}`).join(" ");
+
 /** A predictable section from the test AI: every slot filled correctly. */
 export function fakeSection(section: PlannedSection): unknown[] {
-  return section.slots.map((s, i) => {
-    const base = { slot: s.id, topic: s.topic, marks: s.marks, source: "lesson" as const };
+  return section.slots.map((s) => {
+    const tag = fakeTag(s.id);
+    const base = {
+      slot: s.id,
+      topic: s.topic,
+      marks: s.marks,
+      source: "lesson" as const,
+      learningOutcome: `Test outcome ${tag}`,
+      relevance: "A",
+      difficulty: "medium",
+    };
     if (s.type === "mcq")
       return {
         ...base,
         type: "mcq",
-        question: `Which statement about ${s.topic} is true? (test question ${i + 1})`,
+        question: `Which statement about ${s.topic} is true? (test question ${tag})`,
         options: ["Statement A", "Statement B", "Statement C", "Statement D"],
         answer: "Statement A",
         reason: "Statement A is the one the lesson states (test reason).",
@@ -505,7 +676,7 @@ export function fakeSection(section: PlannedSection): unknown[] {
       return {
         ...base,
         type: "numerical",
-        question: `Compute $2 \\times ${s.marks}$. (test question ${i + 1})`,
+        question: `Compute $2 \\times ${s.marks}$. (test question ${tag})`,
         answer: `Multiply the two numbers.\n$2 \\times ${s.marks} = ${2 * s.marks}$`,
         scheme: [
           { point: "Correct method", marks: 1 },
@@ -516,7 +687,7 @@ export function fakeSection(section: PlannedSection): unknown[] {
     return {
       ...base,
       type: s.type,
-      question: `Explain the main idea of ${s.topic}. (test question ${i + 1})`,
+      question: `Explain the main idea of ${s.topic}. (test question ${tag})`,
       answer: "The main idea, explained with one example.",
       scheme: [
         { point: "States the main idea", marks: 1 },

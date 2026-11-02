@@ -19,14 +19,12 @@ import { evaluateCheck } from "@/lib/safeMath";
 import {
   commandOf,
   commandProblem,
-  fakeVerify,
   isRecall,
   itemsAsked,
   mcqProblem,
   numbersIn,
+  outputProblem,
   parseSelfScore,
-  verifyProblem,
-  VerifyReplySchema,
 } from "@/lib/mock/verify";
 
 const written = (question: string, answer: string, scheme: { point: string; marks: number }[]) => ({
@@ -126,44 +124,38 @@ describe("the answer key matches the question (Euler's e bug)", () => {
   });
 });
 
-describe("the second examiner", () => {
-  const numerical = {
-    slot: "s1q1",
-    type: "numerical",
-    question: "Calculate $2 \\times 3.5$.",
-    answer: "Multiply.\n$2 \\times 3.5 = 7$",
-    scheme: [
-      { point: "Method", marks: 1 },
-      { point: "Answer 7", marks: 1 },
-    ],
-    check: { expression: "2*3.5", answer: 7 },
-  };
-
-  it("catches a wrong numerical answer by re-solving it", () => {
-    const wrong = { ...numerical, check: { expression: "2*3.5", answer: 8 } };
-    const check = VerifyReplySchema.parse({
-      checks: [{ slot: "s1q1", answersQuestion: true, expression: "2*3.5" }],
-    }).checks[0];
-    expect(verifyProblem(wrong, check, evaluateCheck)).toMatch(/second solve gives 7, not 8/);
-    expect(verifyProblem(numerical, check, evaluateCheck)).toBeNull();
-  });
-
-  it("refuses a key the examiner says doesn't answer the question, or that wasn't checked", () => {
+describe("command words after a set-up sentence, and output questions", () => {
+  it("reads the command that follows an 'Assume…' or 'Consider…' sentence", () => {
     expect(
-      verifyProblem(
-        numerical,
-        { slot: "s1q1", answersQuestion: false, issue: "gives a definition" },
-        evaluateCheck,
+      commandOf("Assume char is 1 byte and int is 4 bytes. Calculate sizeof(char) + sizeof(int)."),
+    ).toBe("calculate");
+    // So a bare result without working is sent back (the live Basics of C paper's Q6).
+    expect(
+      commandProblem(
+        written("Assume int takes 4 bytes. Calculate the memory used by int a[10].", "40 bytes", [
+          { point: "Size of one element", marks: 1 },
+          { point: "Total 40 bytes", marks: 1 },
+        ]),
       ),
-    ).toMatch(/definition/);
-    expect(verifyProblem(numerical, undefined, evaluateCheck)).toMatch(/couldn't be checked/);
+    ).toMatch(/working/);
   });
 
-  it("the test AI's examiner agrees with a correct key", () => {
-    const reply = VerifyReplySchema.parse(fakeVerify([numerical]));
-    expect(verifyProblem(numerical, reply.checks[0], evaluateCheck)).toBeNull();
+  it("refuses an 'output' question whose code prints nothing", () => {
+    expect(
+      outputProblem(
+        "What will be the output of the following expression in C: int x = 5, y = 10; int z = (x > y) && (y > 0);?",
+      ),
+    ).toMatch(/prints nothing/);
+    expect(
+      outputProblem(
+        'Consider int a = 2; if (a > 3) printf("One"); else printf("Two"); What will be printed?',
+      ),
+    ).toBeNull();
+    expect(outputProblem("Explain the output devices of a computer.")).toBeNull();
   });
+});
 
+describe("numbers in answers", () => {
   it("reads numbers written many ways", () => {
     expect(numbersIn("$1.6 \\times 10^{-19}$ C")[0]).toBeCloseTo(1.6e-19);
     expect(numbersIn("about 2.72")).toEqual([2.72]);
@@ -194,6 +186,9 @@ describe("generation rejects a mismatched key and too much recall", () => {
     answer,
     scheme: [{ point, marks: 2 }],
     source: "lesson",
+    learningOutcome: `Outcome of ${slot}`,
+    relevance: "A",
+    difficulty: "medium",
   });
 
   it("sends the Euler's-e question back for rewriting", () => {
@@ -262,6 +257,9 @@ describe("generation rejects a mismatched key and too much recall", () => {
           reason: "Because $(\\sqrt{-1})^2 = -1$ by definition.",
           scheme: [],
           source: "lesson",
+          learningOutcome: "Recognise the imaginary unit",
+          relevance: "A",
+          difficulty: "easy",
         },
       ],
       ctx,
