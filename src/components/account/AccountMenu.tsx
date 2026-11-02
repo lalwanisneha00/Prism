@@ -131,6 +131,9 @@ export function AccountMenu() {
               Add or update my API key
             </Link>
           )}
+          <Link href="/themes" className={item} role="menuitem" onClick={() => setOpen(false)}>
+            Choose theme
+          </Link>
           <Link href="/account" className={item} role="menuitem" onClick={() => setOpen(false)}>
             Account, backup &amp; privacy
           </Link>

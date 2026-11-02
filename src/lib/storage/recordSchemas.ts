@@ -3,6 +3,7 @@ import { SyllabusByTermSchema } from "@/lib/syllabus/types";
 import { CustomChapterSchema, CustomDetailsSchema } from "@/lib/custom/customSubject";
 import type { SyncedCollection } from "@/lib/storage/db";
 import { PaperSchema } from "@/lib/mock/paper";
+import { THEME_IDS } from "@/lib/theme";
 import { EXAM_STYLES, PAPER_KINDS, PaperPatternSchema } from "@/lib/mock/pattern";
 
 const MockSettingsSchema = z.object({
@@ -112,6 +113,7 @@ export const recordSchemas: Record<Exclude<SyncedCollection, "savedLessons">, z.
   settings: z.object({
     ...syncFields,
     theme: z.enum(["light", "dark"]).optional(),
+    appTheme: z.enum(THEME_IDS).optional(),
     audioRate: z.number().min(0.5).max(3).optional(),
     branch: z.string().max(40).optional(),
     semester: z.int().min(1).max(8).optional(),

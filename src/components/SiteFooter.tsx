@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { LookToggle } from "@/components/LookToggle";
 import { FLAGS } from "@/lib/flags";
 import { site } from "@/lib/site";
 
@@ -34,12 +33,10 @@ export function SiteFooter() {
               ·{" "}
             </>
           )}
-          {FLAGS.redesign && (
-            <>
-              <LookToggle /> ·{" "}
-            </>
-          )}
-          © {site.name}
+          <Link href="/themes" className="underline underline-offset-2">
+            Themes
+          </Link>{" "}
+          · © {site.name}
         </p>
       </Container>
     </footer>

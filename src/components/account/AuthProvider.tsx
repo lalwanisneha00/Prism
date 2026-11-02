@@ -11,7 +11,7 @@ import {
   type ReactNode,
 } from "react";
 import { firebaseConfig } from "@/lib/firebase/config";
-import { THEME_STORAGE_KEY } from "@/lib/theme";
+import { adoptSyncedTheme } from "@/lib/themeDom";
 import { getSettings } from "@/lib/storage/progress";
 import { clearLocalData, onLocalChange, setMeta } from "@/lib/storage/records";
 import type { SyncEngine, SyncStatus } from "@/lib/sync/engine";
@@ -70,10 +70,7 @@ const sessionPulls = {
 async function applySyncedSettings() {
   const settings = await getSettings();
   try {
-    if (settings?.theme) {
-      localStorage.setItem(THEME_STORAGE_KEY, settings.theme);
-      document.documentElement.setAttribute("data-theme", settings.theme);
-    }
+    if (settings?.theme || settings?.appTheme) adoptSyncedTheme(settings.appTheme, settings.theme);
     if (settings?.audioRate) localStorage.setItem("prism-audio-rate", String(settings.audioRate));
   } catch {
     // Storage blocked: the settings still apply in the cloud copy.

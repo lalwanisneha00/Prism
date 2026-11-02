@@ -1,38 +1,17 @@
 "use client";
 
 import { useLayoutEffect } from "react";
-import { updateSettings } from "@/lib/storage/progress";
-import { THEME_STORAGE_KEY, resolveTheme, type Theme } from "@/lib/theme";
+import { applyMode, currentTrial, paintTheme, savedThemeId } from "@/lib/themeDom";
 
-function currentTheme(): Theme {
-  return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-}
-
-function applyTheme(theme: Theme) {
-  document.documentElement.setAttribute("data-theme", theme);
-}
-
+/** Light/dark switch. Hidden (by CSS) for themes that have only one mode. */
 export function ThemeToggle() {
-  // Re-apply after React's dev-mode remount clears the attribute. No-op in production.
+  // Re-apply after React's dev-mode remount clears the attributes. No-op in production.
   useLayoutEffect(() => {
-    let stored: string | null = null;
-    try {
-      stored = localStorage.getItem(THEME_STORAGE_KEY);
-    } catch {
-      // Storage blocked (private mode): fall back to the device setting.
-    }
-    applyTheme(resolveTheme(stored, matchMedia("(prefers-color-scheme: dark)").matches));
+    paintTheme(currentTrial()?.theme ?? savedThemeId());
   }, []);
 
   function toggle() {
-    const next: Theme = currentTheme() === "dark" ? "light" : "dark";
-    applyTheme(next);
-    try {
-      localStorage.setItem(THEME_STORAGE_KEY, next);
-      void updateSettings({ theme: next }).catch(() => {}); // synced to the account, if signed in
-    } catch {
-      // Not saved, but the switch still works for this visit.
-    }
+    applyMode(document.documentElement.getAttribute("data-mode") === "dark" ? "light" : "dark");
   }
 
   // Both icons render; CSS shows the right one, so server and client HTML always match.
@@ -42,7 +21,7 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label="Switch between light and dark mode"
       title="Switch theme"
-      className="grid size-10 place-items-center rounded-full border border-border bg-surface text-fg transition-colors hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      className="mode-toggle grid size-10 place-items-center rounded-full border border-border bg-surface text-fg transition-colors hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
     >
       <MoonIcon className="size-5 dark:hidden" />
       <SunIcon className="hidden size-5 dark:block" />

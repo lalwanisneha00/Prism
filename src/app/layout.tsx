@@ -13,6 +13,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { TestModeBanner } from "@/components/TestModeBanner";
 import { site } from "@/lib/site";
 import { themeScript } from "@/lib/theme";
+import { ThemeTrialBar } from "@/components/themes/ThemeTrialBar";
+import { themeFontVariables } from "./themeFonts";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -45,10 +47,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      data-theme="light"
-      data-look={FLAGS.redesign ? "new" : "classic"}
+      data-theme={FLAGS.redesign ? "current" : "classic"}
+      data-mode="light"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${sourceSans.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${sourceSans.variable} ${fraunces.variable} ${themeFontVariables} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript(FLAGS.redesign) }} />
@@ -73,6 +75,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteFooter />
           <KeyboardShortcuts />
           <ConfirmPrompt />
+          <ThemeTrialBar />
         </AuthProvider>
       </body>
     </html>

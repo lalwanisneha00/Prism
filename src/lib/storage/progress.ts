@@ -90,6 +90,7 @@ async function writeSettings(
     Pick<
       AppSettings,
       | "theme"
+      | "appTheme"
       | "mockPrefs"
       | "audioRate"
       | "branch"

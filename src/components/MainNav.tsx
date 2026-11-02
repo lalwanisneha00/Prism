@@ -26,7 +26,7 @@ export function MainNav() {
   return (
     <nav
       aria-label="Main"
-      className="order-3 -mx-4 w-[calc(100%+2rem)] overflow-x-auto border-t border-border px-4 py-1.5 sm:-mx-6 sm:w-[calc(100%+3rem)] sm:px-6 lg:order-2 lg:mx-0 lg:w-auto lg:min-w-0 lg:flex-1 lg:overflow-x-auto lg:border-t-0 lg:px-0 lg:py-0"
+      className="site-nav order-3 -mx-4 w-[calc(100%+2rem)] overflow-x-auto border-t border-border px-4 py-1.5 sm:-mx-6 sm:w-[calc(100%+3rem)] sm:px-6 lg:order-2 lg:mx-0 lg:w-auto lg:min-w-0 lg:flex-1 lg:overflow-x-auto lg:border-t-0 lg:px-0 lg:py-0"
     >
       <ul className="flex items-center gap-1 whitespace-nowrap lg:justify-center">
         {links.map((l) => {

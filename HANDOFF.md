@@ -36,7 +36,7 @@ The owner is **Sneha**, a first-year student: explain simply, with an everyday a
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | V1, V2, V2.5                       | Done.                                                                                                                                            |
 | V3 (All Engineering)               | Built. Steps 8 to 10 evals were paused by the owner, and are now outdated anyway (see below).                                                    |
-| Final features A, B, C             | Done: own API key, slides + PDF, redesign (Classic look behind the footer switch).                                                               |
+| Final features A, B, C             | Done: own API key, slides + PDF, redesign. Themes (SPEC §11.15): 8 themes on /themes (Prism default, Classic, 6 newer).                          |
 | Feature D (community branches)     | Not started by decision; flag `community` off. Spec: `docs/PRISM_OVERNIGHT_FINAL.md` §7.                                                         |
 | PDEU syllabus + syllabus fix (0-8) | Done and live, incl. 4B, 7B, 7C and migration 012 (merged lab numbering). Student flagging tested by the owner on the live site with 4 accounts. |
 | Accuracy evals                     | **Outdated** (run on the old syllabus). Don't run or change them until the owner asks for a separate eval task.                                  |

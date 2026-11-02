@@ -1,18 +1,59 @@
 @import "tailwindcss";
 
-/* `dark:` utilities follow the data-theme attribute on <html>, not just the OS setting. */
-@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+/* `dark:` utilities follow the data-mode attribute on <html> (or on a theme preview). */
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
 
 /*
- * Design tokens. Components use these names (bg-surface, text-muted, …),
- * never raw colours, so a re-theme is a change in this file only.
+ * Design tokens. Components use these names (bg-surface, text-muted, rounded-2xl, shadow-sm, …),
+ * never raw values, so a theme is a block of tokens in this file plus, where tokens are not
+ * enough, a few scoped touches at the end ("Theme touches").
  *
- * The look (Feature C): a calm, paper-and-ink interface. Colour is information, not decoration:
- * the six learning levels each own one spectrum colour (--level-*), used wherever a level shows.
- * Everything else is neutral, with one ink-teal for actions. "Classic" (the earlier purple look)
- * is kept below, behind [data-look="classic"], so it can be switched back.
+ * <html data-theme="…" data-mode="light|dark">. A theme preview (Themes page) sets the same two
+ * attributes on a <div>, so every block below also works inside a preview, whatever the page
+ * around it uses. Order matters: structure, then light colours, dark colours, then each theme.
+ *
+ * "Current" (shown as "Prism"): a calm, paper-and-ink interface. Colour is information, not
+ * decoration: the six learning levels each own one spectrum colour (--level-*). "Classic" is the
+ * earlier violet look. Both follow the light/dark switch; the other six have one fixed mode.
  */
-:root {
+
+/* Structure: the Current theme's fonts, corners, shadows, spacing and motion (Tailwind's own). */
+:root,
+[data-theme] {
+  --r-xs: 0.125rem;
+  --r-sm: 0.25rem;
+  --r-md: 0.375rem;
+  --r-lg: 0.5rem;
+  --r-control: 0.375rem;
+  --r-card: 0.5rem;
+  --r-3xl: 1.5rem;
+  --sh-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --sh-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --sh-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --sh-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --sh-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --sh-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --spacing: 0.25rem;
+  --default-transition-duration: 150ms;
+  --ui-font: var(--font-source), system-ui, sans-serif;
+  --display-font: var(--font-fraunces), Georgia, serif;
+  --mono-font: var(--font-geist-mono), ui-monospace, monospace;
+  --heading-tracking: -0.01em;
+  --heading-weight: inherit;
+  --prose-leading: 1.75;
+  --prose-measure: 68ch;
+  --texture: none;
+  --texture-size: auto;
+  --icon-stroke: 2;
+  --focus-ring: 2px solid var(--primary);
+  --focus-offset: 2px;
+  /* Highlighted words ("the one emphasised phrase", <mark>). */
+  --mark: transparent;
+}
+
+/* Light colours: Current light (also the base every light theme starts from). */
+:root,
+[data-mode="light"] {
   /* Warm paper and deep ink. */
   --bg: #f4efe4;
   --surface: #fbf8f1;
@@ -41,14 +82,11 @@
   --spectrum-deep-dive: #1fb85a;
   --spectrum-exam-prep: #1f9bff;
   --spectrum-last-minute: #9a52ff;
-  --r-control: 0.375rem;
-  --r-card: 0.5rem;
-  --ui-font: var(--font-source), system-ui, sans-serif;
-  --display-font: var(--font-fraunces), Georgia, serif;
   color-scheme: light;
 }
 
-[data-theme="dark"] {
+/* Dark colours: Current dark (also the base every dark theme starts from). */
+[data-mode="dark"] {
   /* Deep ink, not black and not purple. */
   --bg: #14181f;
   --surface: #1b2029;
@@ -72,8 +110,8 @@
   color-scheme: dark;
 }
 
-/* Classic: the earlier purple look, one switch away (footer: "Classic look"). */
-[data-look="classic"][data-theme="light"] {
+/* Classic: the earlier violet look. */
+[data-theme="classic"][data-mode="light"] {
   --bg: #f8f7fc;
   --surface: #ffffff;
   --surface-2: #f1eff9;
@@ -92,7 +130,7 @@
   --ui-font: var(--font-geist-sans), system-ui, sans-serif;
   --display-font: var(--font-geist-sans), system-ui, sans-serif;
 }
-[data-look="classic"][data-theme="dark"] {
+[data-theme="classic"][data-mode="dark"] {
   --bg: #0f0d1a;
   --surface: #181527;
   --surface-2: #221e36;
@@ -112,6 +150,314 @@
   --display-font: var(--font-geist-sans), system-ui, sans-serif;
 }
 
+/* Notebook (light): warm ruled paper, serif headings, ink-blue, hairlines, no shadows. */
+[data-theme="notebook"] {
+  --bg: #f7f3ea;
+  --surface: #fcfaf4;
+  --surface-2: #efe9dc;
+  --border: #d9d0bd;
+  --fg: #22252b;
+  --muted: #585c66;
+  --primary: #1f4e8c;
+  --primary-hover: #183f72;
+  --primary-fg: #fcfaf4;
+  --primary-soft: #e1e8f2;
+  --success: #2d6a3a;
+  --warning: #7f520a;
+  --danger: #a12a20;
+  --r-xs: 1px;
+  --r-sm: 2px;
+  --r-md: 3px;
+  --r-lg: 4px;
+  --r-control: 4px;
+  --r-card: 4px;
+  --r-3xl: 6px;
+  --sh-xs: none;
+  --sh-sm: none;
+  --sh-md: none;
+  --sh-lg: 0 0 0 1px var(--border);
+  --sh-xl: 0 0 0 1px var(--border);
+  --sh-2xl: 0 0 0 1px var(--border);
+  --spacing: 0.25rem;
+  --default-transition-duration: 120ms;
+  --ui-font: var(--font-public), system-ui, sans-serif;
+  --display-font: var(--font-source-serif), Georgia, serif;
+  --mono-font: var(--font-geist-mono), ui-monospace, monospace;
+  --heading-tracking: -0.005em;
+  --heading-weight: 600;
+  --prose-leading: 1.8;
+  --prose-measure: 66ch;
+  /* Faint blue rules, 2rem apart, like a school notebook. */
+  --texture: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(2rem - 1px),
+    rgb(31 78 140 / 0.07) calc(2rem - 1px),
+    rgb(31 78 140 / 0.07) 2rem
+  );
+  --texture-size: auto;
+  --icon-stroke: 1.5;
+  --focus-ring: 2px solid var(--primary);
+  --focus-offset: 3px;
+  --mark: rgb(245 222 98 / 0.65);
+}
+
+/* Reading Room (dark): green-brown library, brass, serif body, book-spine cards. */
+[data-theme="reading-room"] {
+  --bg: #1a1f1a;
+  --surface: #222821;
+  --surface-2: #2b3229;
+  --border: #3e463a;
+  --fg: #e9e2d0;
+  --muted: #b2aa92;
+  --primary: #c9a45c;
+  --primary-hover: #dab874;
+  --primary-fg: #1a1f1a;
+  --primary-soft: #39361f;
+  --success: #93c58f;
+  --warning: #e2b660;
+  --danger: #e8907f;
+  --level-first-encounter: #e8826a;
+  --level-building-blocks: #ddb057;
+  --level-second-chance: #a9c66a;
+  --level-deep-dive: #62bfae;
+  --level-exam-prep: #8aaedb;
+  --level-last-minute: #bb98c9;
+  --r-xs: 2px;
+  --r-sm: 3px;
+  --r-md: 4px;
+  --r-lg: 5px;
+  --r-control: 5px;
+  --r-card: 6px;
+  --r-3xl: 8px;
+  --sh-xs: none;
+  --sh-sm: 0 1px 2px rgb(0 0 0 / 0.35);
+  --sh-md: 0 2px 6px rgb(0 0 0 / 0.35);
+  --sh-lg: 0 8px 20px -6px rgb(0 0 0 / 0.5);
+  --sh-xl: 0 14px 28px -8px rgb(0 0 0 / 0.55);
+  --sh-2xl: 0 20px 40px -12px rgb(0 0 0 / 0.6);
+  --spacing: 0.26rem;
+  --default-transition-duration: 200ms;
+  --ui-font: var(--font-literata), Georgia, serif;
+  --display-font: var(--font-newsreader), Georgia, serif;
+  --mono-font: var(--font-geist-mono), ui-monospace, monospace;
+  --heading-tracking: 0;
+  --heading-weight: 500;
+  --prose-leading: 1.9;
+  --prose-measure: 64ch;
+  /* Lamp light: a very soft warm wash from the top of the page. */
+  --texture: radial-gradient(120% 60% at 50% -10%, rgb(201 164 92 / 0.08), transparent 70%);
+  --texture-size: auto;
+  --icon-stroke: 1.75;
+  --focus-ring: 2px solid var(--primary);
+  --focus-offset: 2px;
+  --mark: rgb(201 164 92 / 0.25);
+  --spine: #6e5a33;
+}
+
+/* Drafting Table (light): blueprint grid, navy text, mono labels, sharp corners, dashed rules. */
+[data-theme="drafting"] {
+  --bg: #eef2f4;
+  --surface: #f8fafb;
+  --surface-2: #e3e9ed;
+  --border: #b6c3cd;
+  --fg: #1b2a3a;
+  --muted: #4b5b6c;
+  --primary: #a3401a;
+  --primary-hover: #86330f;
+  --primary-fg: #f8fafb;
+  --primary-soft: #f6e4da;
+  --success: #276a3d;
+  --warning: #7a5208;
+  --danger: #a3271e;
+  --r-xs: 0;
+  --r-sm: 0;
+  --r-md: 1px;
+  --r-lg: 2px;
+  --r-control: 2px;
+  --r-card: 2px;
+  --r-3xl: 2px;
+  --sh-xs: none;
+  --sh-sm: none;
+  --sh-md: none;
+  --sh-lg: 3px 3px 0 0 rgb(27 42 58 / 0.12);
+  --sh-xl: 4px 4px 0 0 rgb(27 42 58 / 0.14);
+  --sh-2xl: 4px 4px 0 0 rgb(27 42 58 / 0.14);
+  --spacing: 0.24rem;
+  --default-transition-duration: 80ms;
+  --ui-font: var(--font-plex-sans), system-ui, sans-serif;
+  --display-font: var(--font-plex-cond), var(--font-plex-sans), sans-serif;
+  --mono-font: var(--font-plex-mono), ui-monospace, monospace;
+  --heading-tracking: 0.005em;
+  --heading-weight: 600;
+  --prose-leading: 1.7;
+  --prose-measure: 72ch;
+  /* A faint 24px drawing grid with a stronger line every 5 squares. */
+  --texture:
+    linear-gradient(rgb(36 93 143 / 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(36 93 143 / 0.09) 1px, transparent 1px),
+    linear-gradient(rgb(36 93 143 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(36 93 143 / 0.045) 1px, transparent 1px);
+  --texture-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  --icon-stroke: 1.5;
+  --focus-ring: 2px dashed var(--primary);
+  --focus-offset: 2px;
+  --mark: rgb(163 64 26 / 0.14);
+}
+
+/* Midnight Desk (dark): warm charcoal, amber, softer contrast, flat and still. */
+[data-theme="midnight"] {
+  --bg: #191715;
+  --surface: #201d1a;
+  --surface-2: #292521;
+  --border: #3a3530;
+  --fg: #d6ccbb;
+  --muted: #a1978a;
+  --primary: #d9a04a;
+  --primary-hover: #e4b265;
+  --primary-fg: #191715;
+  --primary-soft: #392d1c;
+  --success: #9cc58a;
+  --warning: #e0b366;
+  --danger: #e29a85;
+  --level-first-encounter: #e46f5e;
+  --level-building-blocks: #d6a552;
+  --level-second-chance: #a4bf6c;
+  --level-deep-dive: #6fb7a6;
+  --level-exam-prep: #7fa3d4;
+  --level-last-minute: #bf8fbf;
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 8px;
+  --r-lg: 10px;
+  --r-control: 10px;
+  --r-card: 14px;
+  --r-3xl: 18px;
+  --sh-xs: none;
+  --sh-sm: none;
+  --sh-md: none;
+  --sh-lg: 0 0 0 1px var(--border);
+  --sh-xl: 0 0 0 1px var(--border);
+  --sh-2xl: 0 0 0 1px var(--border);
+  --spacing: 0.25rem;
+  --default-transition-duration: 0ms;
+  --ui-font: var(--font-atkinson), system-ui, sans-serif;
+  --display-font: var(--font-manrope), system-ui, sans-serif;
+  --mono-font: var(--font-atkinson-mono), ui-monospace, monospace;
+  --heading-tracking: -0.01em;
+  --heading-weight: 600;
+  --prose-leading: 1.8;
+  --prose-measure: 66ch;
+  --texture: none;
+  --icon-stroke: 1.75;
+  --focus-ring: 2px solid var(--primary);
+  --focus-offset: 2px;
+  --mark: rgb(217 160 74 / 0.2);
+}
+
+/* Index (light): stark black and white, signal red, heavy rules, zero radius, strict grid. */
+[data-theme="index"] {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f1f1f1;
+  --border: #b8b8b8;
+  --fg: #0b0b0b;
+  --muted: #4a4a4a;
+  --primary: #d0231a;
+  --primary-hover: #a51a12;
+  --primary-fg: #ffffff;
+  --primary-soft: #fde9e7;
+  --success: #17692f;
+  --warning: #8a5300;
+  --danger: #a81a12;
+  --r-xs: 0;
+  --r-sm: 0;
+  --r-md: 0;
+  --r-lg: 0;
+  --r-control: 0;
+  --r-card: 0;
+  --r-3xl: 0;
+  --sh-xs: none;
+  --sh-sm: none;
+  --sh-md: none;
+  --sh-lg: 0 0 0 2px var(--fg);
+  --sh-xl: 0 0 0 2px var(--fg);
+  --sh-2xl: 0 0 0 2px var(--fg);
+  --spacing: 0.25rem;
+  --default-transition-duration: 0ms;
+  --ui-font: var(--font-instrument), "Helvetica Neue", Arial, sans-serif;
+  --display-font: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --mono-font: var(--font-jetbrains), ui-monospace, monospace;
+  --heading-tracking: -0.025em;
+  --heading-weight: 800;
+  --prose-leading: 1.65;
+  --prose-measure: 70ch;
+  --texture: none;
+  --icon-stroke: 2.25;
+  --focus-ring: 3px solid var(--fg);
+  --focus-offset: 2px;
+  --mark: rgb(208 35 26 / 0.12);
+}
+
+/* Studio (light): sand and clay, terracotta, friendly grotesque, round "pressed paper" cards. */
+[data-theme="studio"] {
+  --bg: #f1ebe2;
+  --surface: #f9f5ef;
+  --surface-2: #e9e0d3;
+  --border: #d8cab7;
+  --fg: #2b2420;
+  --muted: #61564c;
+  --primary: #9a472a;
+  --primary-hover: #7f3920;
+  --primary-fg: #fbf8f3;
+  --primary-soft: #f3e0d5;
+  --success: #3c6a38;
+  --warning: #7b560f;
+  --danger: #a13124;
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 12px;
+  --r-control: 14px;
+  --r-card: 22px;
+  --r-3xl: 28px;
+  --sh-xs: 0 1px 0 rgb(255 255 255 / 0.6) inset;
+  --sh-sm:
+    0 1px 0 rgb(255 255 255 / 0.7) inset, 0 1px 2px rgb(90 60 35 / 0.1),
+    0 2px 6px -2px rgb(90 60 35 / 0.1);
+  --sh-md:
+    0 1px 0 rgb(255 255 255 / 0.7) inset, 0 2px 4px rgb(90 60 35 / 0.1),
+    0 6px 14px -6px rgb(90 60 35 / 0.14);
+  --sh-lg: 0 1px 0 rgb(255 255 255 / 0.7) inset, 0 10px 24px -10px rgb(90 60 35 / 0.25);
+  --sh-xl: 0 1px 0 rgb(255 255 255 / 0.7) inset, 0 16px 32px -12px rgb(90 60 35 / 0.28);
+  --sh-2xl: 0 24px 48px -16px rgb(90 60 35 / 0.32);
+  --spacing: 0.265rem;
+  --default-transition-duration: 180ms;
+  --ui-font: var(--font-dm-sans), system-ui, sans-serif;
+  --display-font: var(--font-bricolage), system-ui, sans-serif;
+  --mono-font: var(--font-dm-mono), ui-monospace, monospace;
+  --heading-tracking: -0.02em;
+  --heading-weight: 700;
+  --prose-leading: 1.75;
+  --prose-measure: 66ch;
+  /* Paper grain: a very fine dot pattern, barely visible. */
+  --texture: radial-gradient(rgb(90 60 35 / 0.05) 1px, transparent 1px);
+  --texture-size: 5px 5px;
+  --icon-stroke: 1.75;
+  --focus-ring: 3px solid rgb(154 71 42 / 0.45);
+  --focus-offset: 2px;
+  --mark: rgb(154 71 42 / 0.14);
+}
+
+/* A theme preview carries its own text colour and face, like a small page. */
+[data-theme-root] {
+  background-color: var(--bg);
+  background-image: var(--texture);
+  background-size: var(--texture-size);
+  color: var(--fg);
+  font-family: var(--ui-font);
+}
+
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);
@@ -128,9 +474,20 @@
   --color-danger: var(--danger);
   --font-sans: var(--ui-font);
   --font-display: var(--display-font);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--mono-font);
+  --radius-xs: var(--r-xs);
+  --radius-sm: var(--r-sm);
+  --radius-md: var(--r-md);
+  --radius-lg: var(--r-lg);
   --radius-xl: var(--r-control);
   --radius-2xl: var(--r-card);
+  --radius-3xl: var(--r-3xl);
+  --shadow-xs: var(--sh-xs);
+  --shadow-sm: var(--sh-sm);
+  --shadow-md: var(--sh-md);
+  --shadow-lg: var(--sh-lg);
+  --shadow-xl: var(--sh-xl);
+  --shadow-2xl: var(--sh-2xl);
 }
 
 /* Headings in the display face; everything else in the reading face. */
@@ -141,13 +498,21 @@ h3 {
 }
 h1,
 h2 {
-  letter-spacing: -0.01em;
+  letter-spacing: var(--heading-tracking);
+}
+/* In the base layer, so a heading's own font-bold / font-semibold still wins. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-weight: var(--heading-weight);
+  }
 }
 
 /* A clear keyboard focus everywhere, in the action colour. */
 :focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
 }
 
 /* Motion is only for meaning, and off for anyone who asks. */
@@ -171,7 +536,9 @@ h2 {
 }
 
 body {
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: var(--texture);
+  background-size: var(--texture-size);
   color: var(--fg);
 }
 
@@ -179,6 +546,7 @@ body {
 .text-spectrum {
   font-style: italic;
   color: var(--primary);
+  background-image: linear-gradient(transparent 58%, var(--mark) 58%);
 }
 
 /*
@@ -186,12 +554,12 @@ body {
  * room between paragraphs.
  */
 .markdown {
-  line-height: 1.75;
+  line-height: var(--prose-leading);
 }
 .markdown > p,
 .markdown > ul,
 .markdown > ol {
-  max-width: 68ch;
+  max-width: var(--prose-measure);
 }
 .markdown p + p {
   margin-top: 0.9em;
@@ -234,6 +602,7 @@ body {
 @media print {
   :root,
   :root[data-theme] {
+    --texture: none;
     --bg: #fff;
     --fg: #000;
     --muted: #444;
@@ -381,4 +750,191 @@ summary:active {
   .map-node-in {
     animation: map-node-in 0.35s ease-out both;
   }
+}
+
+/*
+ * Theme touches: the few details tokens cannot express. Each block is scoped to its theme and
+ * stops at a nested theme preview ("to ([data-theme-root])"), so the Themes page can show every
+ * theme side by side without one leaking into another. Current and Classic have none.
+ */
+@scope (:is([data-theme="notebook"], [data-theme="reading-room"], [data-theme="drafting"], [data-theme="midnight"], [data-theme="index"], [data-theme="studio"])) to ([data-theme-root]) {
+  svg.lucide {
+    stroke-width: var(--icon-stroke);
+  }
+  mark {
+    color: inherit;
+    background: linear-gradient(transparent 50%, var(--mark) 50%);
+  }
+}
+
+/* Notebook: double hairline under the header, highlighter-pen key terms, margin-note quotes. */
+@scope ([data-theme="notebook"]) to ([data-theme-root]) {
+  .site-header {
+    background-color: var(--bg);
+    box-shadow: 0 3px 0 -2px var(--border);
+  }
+  .site-nav a[aria-current="page"] {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: inset 0 -2px 0 var(--primary);
+  }
+  .markdown strong {
+    background-image: linear-gradient(transparent 55%, var(--mark) 55%);
+  }
+  .markdown blockquote {
+    border-left: 2px solid rgb(161 42 32 / 0.45);
+    padding-left: 1rem;
+    font-style: italic;
+    color: var(--muted);
+  }
+  hr {
+    border-color: var(--border);
+  }
+}
+
+/* Reading Room: book-spine cards, a lit header, brass underline for the current page. */
+@scope ([data-theme="reading-room"]) to ([data-theme-root]) {
+  .site-header {
+    background-color: var(--surface);
+  }
+  .site-nav a[aria-current="page"] {
+    background: transparent;
+    box-shadow: inset 0 -2px 0 var(--primary);
+    border-radius: 0;
+  }
+  .rounded-2xl.border:is(.bg-surface, .bg-surface-2, .bg-bg) {
+    border-left: 4px solid var(--spine);
+  }
+  .markdown blockquote {
+    border-left: 2px solid var(--primary);
+    padding-left: 1rem;
+    font-style: italic;
+  }
+}
+
+/* Drafting Table: mono labels and numbers, annotation headings, figure numbers, dashed rules. */
+@scope ([data-theme="drafting"]) to ([data-theme-root]) {
+  :scope {
+    counter-reset: fig;
+  }
+  .text-xs,
+  .uppercase,
+  .tabular-nums,
+  kbd,
+  time {
+    font-family: var(--mono-font);
+  }
+  h3 {
+    font-family: var(--mono-font);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    overflow-wrap: anywhere;
+  }
+  figure {
+    counter-increment: fig;
+  }
+  figcaption::before {
+    content: "FIG. " counter(fig) " · ";
+    font-family: var(--mono-font);
+    color: var(--primary);
+  }
+  hr,
+  .border-t,
+  .border-b,
+  .divide-y > * {
+    border-style: dashed;
+  }
+  .site-header {
+    border-bottom: 1.5px solid var(--fg);
+  }
+  .site-nav a[aria-current="page"] {
+    background: transparent;
+    box-shadow: inset 0 0 0 1px var(--primary);
+  }
+  :is(a, button, span, label).rounded-full {
+    border-radius: var(--r-control);
+  }
+}
+
+/* Midnight Desk: no header line, still loaders, pictures dimmed a little for the dark. */
+@scope ([data-theme="midnight"]) to ([data-theme-root]) {
+  .site-header {
+    background-color: var(--surface);
+    border-bottom-color: transparent;
+  }
+  .animate-pulse {
+    animation-duration: 3s;
+  }
+  .map-node-in {
+    animation: none;
+  }
+  img:not([src$=".svg"]) {
+    filter: brightness(0.88) sepia(0.06);
+  }
+}
+
+/* Index: heavy black rules, square everything, inverted current page, confident headings. */
+@scope ([data-theme="index"]) to ([data-theme-root]) {
+  .site-header {
+    background-color: var(--bg);
+    border-bottom: 3px solid var(--fg);
+  }
+  .site-nav a {
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .site-nav a[aria-current="page"] {
+    background: var(--fg);
+    color: var(--bg);
+  }
+  :is(a, button, span, label, input).rounded-full {
+    border-radius: 0;
+  }
+  h1 {
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.04;
+  }
+  h2:not(.border h2) {
+    border-top: 3px solid var(--fg);
+    padding-top: 0.35em;
+  }
+  hr {
+    border-top: 2px solid var(--fg);
+  }
+  .rounded-2xl.border {
+    border-color: var(--fg);
+  }
+  .bg-primary {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Studio: raised "pressed paper" cards and buttons, a raised pill for the current page. */
+@scope ([data-theme="studio"]) to ([data-theme-root]) {
+  .site-header {
+    border-bottom-color: transparent;
+    box-shadow: 0 1px 0 var(--border);
+  }
+  .site-nav a[aria-current="page"] {
+    background: var(--surface);
+    box-shadow: var(--sh-sm);
+  }
+  .rounded-2xl.border:is(.bg-surface, .bg-bg) {
+    border-color: rgb(216 202 183 / 0.7);
+    box-shadow: var(--sh-sm);
+  }
+  .bg-primary {
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.18);
+  }
+  .bg-primary:not(:disabled):active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+}
+
+/* The light/dark switch only shows for themes that have both modes. */
+[data-mode-locked] .mode-toggle {
+  display: none;
 }

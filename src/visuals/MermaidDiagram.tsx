@@ -19,7 +19,7 @@ export function MermaidDiagram({ code, caption }: { code: string; caption: strin
     (async () => {
       try {
         const mermaid = (await import("mermaid")).default;
-        const dark = document.documentElement.getAttribute("data-theme") === "dark";
+        const dark = document.documentElement.getAttribute("data-mode") === "dark";
         mermaid.initialize({
           startOnLoad: false,
           securityLevel: "strict",

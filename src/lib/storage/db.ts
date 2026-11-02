@@ -5,6 +5,7 @@ import type { MaterialKind } from "@/lib/notes/kinds";
 import type { Paper } from "@/lib/mock/paper";
 import type { ExamStyle, PaperKind, PaperPattern } from "@/lib/mock/pattern";
 import type { ScopeLevel } from "@/lib/mock/scope";
+import type { ThemeId } from "@/lib/theme";
 
 /*
  * The local database (IndexedDB): the main copy of a student's data (SPEC §9.3).
@@ -150,6 +151,8 @@ export type PlannerPrefs = {
 
 export type AppSettings = SyncFields & {
   theme?: "light" | "dark";
+  /** Which of the app themes the student picked (Themes page); light/dark stays in `theme`. */
+  appTheme?: ThemeId;
   audioRate?: number;
   /** "My branch and semester" (V3 · Step 3): the student's subjects are shown first. */
   branch?: string;
