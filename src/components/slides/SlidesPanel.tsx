@@ -365,7 +365,13 @@ export function SlidesPanel({
                       : "."}
                   </p>
                 )}
-                {state.report && !state.report.review && (
+                {state.report?.reviewSkipped && (
+                  <p className="text-muted">
+                    The review pass couldn&apos;t run this time (the free AI was busy), so these
+                    slides weren&apos;t double-checked: read them through before using them.
+                  </p>
+                )}
+                {state.report && !state.report.review && !state.report.reviewSkipped && (
                   <p className="text-muted">
                     Checked by code: slide count, no empty slides, no text overflow.
                   </p>
@@ -383,6 +389,11 @@ export function SlidesPanel({
               ) : (
                 <div className="flex flex-col gap-2">
                   <LessonError kind={state.kind} onRetry={() => void make()} />
+                  {state.message && state.message !== "The slides couldn't be written." && (
+                    <p className="text-xs text-muted" data-testid="slides-error-detail">
+                      What failed: {state.message}
+                    </p>
+                  )}
                   <p className="text-sm text-muted">
                     Or{" "}
                     <button

@@ -1,7 +1,13 @@
 import { z } from "zod";
 import { LlmError } from "@/lib/llm";
 import { DeckBriefSchema } from "@/lib/slides/ai/outline";
-import { DeckReviewSchema, fakeReview, REVIEWED, reviewPrompt } from "@/lib/slides/ai/review";
+import {
+  DeckReviewSchema,
+  fakeReview,
+  REVIEWED,
+  reviewPrompt,
+  reviewResults,
+} from "@/lib/slides/ai/review";
 import { askJson, clock, errorReply, invalid, isFake } from "@/lib/slides/ai/server";
 import { AiSlideSchema } from "@/lib/slides/ai/write";
 
@@ -28,14 +34,16 @@ export async function POST(req: Request) {
   const data = body.data;
   const c = clock(req);
   try {
-    let raw: unknown = isFake() ? fakeReview(data.slides) : null;
-    for (let attempt = 0; attempt < 2 && raw === null; attempt++) {
+    let parsed = DeckReviewSchema.safeParse(isFake() ? fakeReview(data.slides) : null);
+    for (let attempt = 0; attempt < 2 && !parsed.success; attempt++) {
       if (attempt > 0 && c.left() < 15_000) break;
       const { system, prompt } = reviewPrompt(data.brief, data.slides, data.others);
-      raw = await askJson(req, c, { system, prompt, temperature: 0 });
+      const raw = await askJson(req, c, { system, prompt, temperature: 0 });
+      parsed = DeckReviewSchema.safeParse(reviewResults(raw));
+      if (!parsed.success)
+        console.warn("[api/slides/review] unreadable reply:", JSON.stringify(raw)?.slice(0, 300));
     }
-    const parsed = DeckReviewSchema.safeParse(raw);
-    if (!parsed.success) throw new LlmError("bad-response", "the review couldn't be read");
+    if (!parsed.success) throw new LlmError("bad-response", "the review's reply couldn't be read");
     const wanted = new Set(data.slides.map((s) => s.index));
     const results = parsed.data.results.filter((r) => wanted.has(r.index));
     const flagged = results.filter((r) => !r.pass);

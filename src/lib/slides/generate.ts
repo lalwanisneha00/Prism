@@ -238,11 +238,18 @@ export async function generateFile(
         teacherNotes: req.teacherNotes ?? true,
       });
       plan = built.plan;
-      report = { ...(deck.review ? { review: deck.review } : {}), checks: built.checks };
+      report = {
+        ...(deck.review ? { review: deck.review } : {}),
+        ...(deck.reviewSkipped ? { reviewSkipped: true } : {}),
+        checks: built.checks,
+      };
       if (built.checks.length) console.warn("[slides] code checks:", built.checks.join(" | "));
     } catch (err) {
       if (err instanceof MockError)
-        throw new GenerateError(err.kind, "The slides couldn't be written.");
+        throw new GenerateError(
+          err.kind,
+          err.message && err.message !== err.kind ? err.message : "The slides couldn't be written.",
+        );
       throw err;
     }
   }

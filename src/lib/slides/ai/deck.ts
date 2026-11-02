@@ -35,6 +35,8 @@ export type DeckStage =
 
 export type DeckReport = {
   review?: DeckReviewReport;
+  /** The review couldn't run: the deck was delivered unreviewed. */
+  reviewSkipped?: boolean;
   /** Code-check findings left in the finished deck (shown to the student, never hidden). */
   checks: string[];
 };
@@ -50,7 +52,13 @@ export async function writeDeck(
   brief: DeckBrief,
   post: Post,
   onStage: (s: DeckStage) => void,
-): Promise<{ outline: Outline; slides: AiSlide[]; review?: DeckReviewReport }> {
+): Promise<{
+  outline: Outline;
+  slides: AiSlide[];
+  review?: DeckReviewReport;
+  /** Why the review couldn't run (the deck is delivered unreviewed, and the student is told). */
+  reviewSkipped?: string;
+}> {
   onStage({ stage: "outline" });
   const outline = (await post("/api/slides/outline", brief)).outline as Outline;
   const slides: AiSlide[] = [];
@@ -69,41 +77,49 @@ export async function writeDeck(
   onStage({ stage: "writing", done: batches.length, total: batches.length });
   if (!REVIEWED.has(brief.purpose)) return { outline, slides };
 
-  const { slides: reviewed, report } = await reviewDeck(slides, {
-    review: async (some, others) => {
-      const results: SlideVerdict[] = [];
-      for (let i = 0; i < some.length; i += 20) {
-        const reply = await post("/api/slides/review", {
-          brief,
-          slides: some.slice(i, i + 20),
-          others: others.slice(0, 60),
-        });
-        results.push(...(reply.results as SlideVerdict[]));
-      }
-      return results;
-    },
-    rewrite: async (feedback: readonly WriteFeedback[]) => {
-      const out = new Map<number, AiSlide>();
-      const size = BATCH[brief.purpose];
-      for (let i = 0; i < feedback.length; i += size) {
-        const chunk = feedback.slice(i, i + size);
-        const skip = new Set(chunk.map((f) => f.index));
-        const others = slides.filter((_, k) => !skip.has(k));
-        const reply = await post("/api/slides/write", {
-          brief,
-          outline,
-          indices: chunk.map((f) => f.index),
-          earlier: earlierText(others).slice(-40),
-          formatsUsed: formatsIn(others),
-          feedback: chunk,
-        });
-        (reply.slides as AiSlide[]).forEach((s, k) => out.set(chunk[k].index, s));
-      }
-      return out;
-    },
-    onProgress: ({ stage, flagged }) => onStage({ stage, flagged }),
-  });
-  return { outline, slides: reviewed, review: report };
+  let result: Awaited<ReturnType<typeof reviewDeck>>;
+  try {
+    result = await reviewDeck(slides, {
+      review: async (some, others) => {
+        const results: SlideVerdict[] = [];
+        for (let i = 0; i < some.length; i += 20) {
+          const reply = await post("/api/slides/review", {
+            brief,
+            slides: some.slice(i, i + 20),
+            others: others.slice(0, 60),
+          });
+          results.push(...(reply.results as SlideVerdict[]));
+        }
+        return results;
+      },
+      rewrite: async (feedback: readonly WriteFeedback[]) => {
+        const out = new Map<number, AiSlide>();
+        const size = BATCH[brief.purpose];
+        for (let i = 0; i < feedback.length; i += size) {
+          const chunk = feedback.slice(i, i + size);
+          const skip = new Set(chunk.map((f) => f.index));
+          const others = slides.filter((_, k) => !skip.has(k));
+          const reply = await post("/api/slides/write", {
+            brief,
+            outline,
+            indices: chunk.map((f) => f.index),
+            earlier: earlierText(others).slice(-40),
+            formatsUsed: formatsIn(others),
+            feedback: chunk,
+          });
+          (reply.slides as AiSlide[]).forEach((s, k) => out.set(chunk[k].index, s));
+        }
+        return out;
+      },
+      onProgress: ({ stage, flagged }) => onStage({ stage, flagged }),
+    });
+  } catch (err) {
+    // A review that can't run (AI busy, an unreadable reply) never costs the student the deck.
+    if (err instanceof Error && err.message === "stopped") throw err;
+    console.warn("[slides] review skipped:", err);
+    return { outline, slides, reviewSkipped: err instanceof Error ? err.message : String(err) };
+  }
+  return { outline, slides: result.slides, review: result.report };
 }
 
 export type AssembleOptions = {

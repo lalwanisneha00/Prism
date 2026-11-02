@@ -76,6 +76,8 @@ export async function POST(req: Request) {
         slides: data.indices.map((i) => fakeSlides([data.outline.slides[i]], i)[0]),
       });
     const done = new Map<number, AiSlide>();
+    /** The latest complete (well-formed) version of each slide, even if it failed a check. */
+    const best = new Map<number, { slide: AiSlide; problems: string[] }>();
     let problems: { index: number; reason: string }[] = [];
     for (let attempt = 0; attempt < 3; attempt++) {
       if (attempt > 0 && c.left() < REWRITE_NEEDS_MS) break;
@@ -111,15 +113,17 @@ export async function POST(req: Request) {
           return;
         }
         const slide = parsed.data;
+        best.set(index, { slide, problems: [] });
         const found = [
           ...slideProblems(slide, data.brief.purpose, { formats, texts: data.earlier }),
           ...formulaProblems(slide),
         ];
         // On the last try, a slide with only soft problems is kept (the review checks it again).
         const lastTry = attempt === 2 || c.left() < REWRITE_NEEDS_MS;
-        if (found.length && !(lastTry && found.every(isSoft)))
+        if (found.length && !(lastTry && found.every(isSoft))) {
           problems.push(...found.map((reason) => ({ index, reason })));
-        else {
+          best.set(index, { slide, problems: found });
+        } else {
           done.set(index, slide);
           if (slide.layout === "activity") formats.push(slide.format);
         }
@@ -130,9 +134,29 @@ export async function POST(req: Request) {
         problems.map((p) => `${p.index + 1}: ${p.reason}`).join(" | "),
       );
     }
-    if (done.size < data.indices.length)
-      throw new LlmError("bad-response", "slides failed the checks");
-    return Response.json({ ok: true, slides: data.indices.map((i) => done.get(i)!) });
+    // A slide still imperfect after every try: its best complete version is used (the review
+    // pass, where the deck has one, flags it again). Only a slide never written in a usable
+    // form fails the request.
+    const missing = data.indices.filter((i) => !done.has(i) && !best.has(i));
+    if (missing.length)
+      throw new LlmError(
+        "bad-response",
+        `slide ${missing.map((i) => i + 1).join(", ")} couldn't be written in a usable form: ${problems
+          .filter((p) => missing.includes(p.index))
+          .map((p) => p.reason)
+          .join("; ")
+          .slice(0, 300)}`,
+      );
+    const kept = data.indices.filter((i) => !done.has(i));
+    if (kept.length)
+      console.warn(
+        "[api/slides/write] kept imperfect:",
+        kept.map((i) => `${i + 1}: ${best.get(i)!.problems.join("; ")}`).join(" | "),
+      );
+    return Response.json({
+      ok: true,
+      slides: data.indices.map((i) => done.get(i) ?? best.get(i)!.slide),
+    });
   } catch (err) {
     return errorReply(err, c, "api/slides/write");
   }

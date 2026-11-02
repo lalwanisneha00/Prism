@@ -96,7 +96,10 @@ export async function postJson(
       await sleep(RETRY_WAITS_MS[attempt], opts.signal);
       continue;
     }
-    throw new MockError(isErrorKind(kind) ? kind : "unavailable");
+    throw new MockError(
+      isErrorKind(kind) ? kind : "unavailable",
+      typeof obj.detail === "string" ? obj.detail : undefined,
+    );
   }
 }
 

@@ -10,7 +10,12 @@ import { sampleLessons } from "@/data/sampleLessons";
 import { assemblePlan, writeDeck, type Post } from "@/lib/slides/ai/deck";
 import { lessonDigest } from "@/lib/slides/ai/digest";
 import { contentSlides, fakeOutline, type DeckBrief } from "@/lib/slides/ai/outline";
-import { fakeReview, type SlideVerdict } from "@/lib/slides/ai/review";
+import {
+  DeckReviewSchema,
+  fakeReview,
+  reviewResults,
+  type SlideVerdict,
+} from "@/lib/slides/ai/review";
 import { splitOverflow } from "@/lib/slides/ai/split";
 import { fakeSlides, type AiSlide } from "@/lib/slides/ai/write";
 import { renderPdf, type PdfFonts } from "@/lib/slides/pdf";
@@ -105,6 +110,32 @@ describe("the deck pipeline: outline → slides → review → plan", () => {
     const deck = await writeDeck(brief("study", 12), post, () => {});
     expect(deck.review).toEqual({ rounds: 2, fixed: 1, stillFlagged: 0 });
     expect(calls.filter((c) => c.endsWith("/review"))).toHaveLength(2);
+  });
+
+  it("still delivers the deck, marked unreviewed, when the review can't run", async () => {
+    const { post } = fakeServer();
+    const failing: Post = async (url, body) => {
+      if (url.endsWith("/review")) throw new Error("the review's reply couldn't be read");
+      return post(url, body);
+    };
+    const deck = await writeDeck(brief("teach", 15), failing, () => {});
+    expect(deck.slides).toHaveLength(contentSlides("teach", 15));
+    expect(deck.reviewSkipped).toMatch(/couldn't be read/);
+  });
+
+  it("reads review replies with slide numbers written as text or under another name", () => {
+    const parsed = DeckReviewSchema.parse(
+      reviewResults({
+        reviews: [
+          { slide: "Slide 3", pass: "false", issues: ["wrong unit"], fix: "use N/C" },
+          { id: 4, pass: true },
+        ],
+      }),
+    );
+    expect(parsed.results.map((r) => [r.index, r.pass])).toEqual([
+      [3, false],
+      [4, true],
+    ]);
   });
 
   it("revision decks and one-page summaries skip the AI review", async () => {

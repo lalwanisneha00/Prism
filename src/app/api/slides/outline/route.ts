@@ -29,6 +29,7 @@ export async function POST(req: Request) {
   try {
     if (isFake()) return Response.json({ ok: true, outline: fakeOutline(brief) });
     let problems: string[] = [];
+    let usable: Outline | null = null;
     for (let attempt = 0; attempt < 2; attempt++) {
       if (attempt > 0 && c.left() < RETRY_NEEDS_MS) break;
       const { system, prompt } = outlinePrompt(brief);
@@ -47,9 +48,16 @@ export async function POST(req: Request) {
       const outline: Outline = fitOutline(parsed.data, brief.purpose, brief.slides);
       problems = outlineProblems(outline, brief.purpose, brief.slides);
       if (problems.length === 0) return Response.json({ ok: true, outline });
+      usable = outline;
       console.warn("[api/slides/outline] asking again:", problems.join(" | "));
     }
-    throw new LlmError("bad-response", `outline failed its checks: ${problems.join("; ")}`);
+    // A well-formed plan with small problems left (count, activity placement) is used rather
+    // than failing the deck: the slide checks and the review still apply to what it produces.
+    if (usable) {
+      console.warn("[api/slides/outline] using the plan despite:", problems.join(" | "));
+      return Response.json({ ok: true, outline: usable });
+    }
+    throw new LlmError("bad-response", `the deck plan couldn't be read: ${problems.join("; ")}`);
   } catch (err) {
     return errorReply(err, c, "api/slides/outline");
   }

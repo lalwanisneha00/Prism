@@ -16,18 +16,40 @@ export const REVIEWED: ReadonlySet<Purpose> = new Set(["teach", "study", "practi
 /** Review → fix rounds before the deck is exported as it stands. */
 export const MAX_ROUNDS = 2;
 
+/** A review result with its slide number under another name ("slide", "id", "3", "Slide 3"). */
+const reviewItem = (v: unknown) => {
+  if (typeof v !== "object" || v === null) return v;
+  const r = v as Record<string, unknown>;
+  const n = r.index ?? r.slide ?? r.slideIndex ?? r.id ?? r.number;
+  const index = typeof n === "number" ? n : Number(/\d+/.exec(String(n ?? ""))?.[0] ?? NaN);
+  return { ...r, index, pass: typeof r.pass === "string" ? r.pass === "true" : r.pass };
+};
+
 export const DeckReviewSchema = z.object({
   results: z
     .array(
-      z.object({
-        index: z.int().min(1),
-        pass: z.boolean(),
-        issues: z.array(z.string().trim().max(400)).max(8).default([]),
-        fix: z.string().trim().max(800).default(""),
-      }),
+      z.preprocess(
+        reviewItem,
+        z.object({
+          index: z.int().min(1),
+          pass: z.boolean(),
+          issues: z.array(z.string().trim().max(400)).max(8).default([]),
+          fix: z.string().trim().max(800).default(""),
+        }),
+      ),
     )
     .max(80),
 });
+
+/** The review reply, wherever the model put its list (a bare array, "reviews", "slides"). */
+export function reviewResults(raw: unknown): unknown {
+  if (Array.isArray(raw)) return { results: raw };
+  if (typeof raw === "object" && raw !== null && !("results" in raw)) {
+    const list = Object.values(raw).find(Array.isArray);
+    if (list) return { results: list };
+  }
+  return raw;
+}
 export type SlideVerdict = { index: number; pass: boolean; issues: string[]; fix: string };
 
 /** A slide as the reviewer reads it (activities with their facilitation guide). */
@@ -130,6 +152,6 @@ export async function reviewDeck(
 }
 
 /** The test AI's reviewer: passes every slide. */
-export function fakeReview(slides: readonly { index: number }[]): z.input<typeof DeckReviewSchema> {
+export function fakeReview(slides: readonly { index: number }[]): { results: SlideVerdict[] } {
   return { results: slides.map((s) => ({ index: s.index, pass: true, issues: [], fix: "" })) };
 }

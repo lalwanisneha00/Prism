@@ -52,7 +52,13 @@ export function errorReply(err: unknown, c: Clock, where: string): Response {
   console.error(`[${where}]`, error.message);
   const status = error.kind === "rate-limit" ? 429 : error.kind === "bad-response" ? 422 : 503;
   return Response.json(
-    { ok: false, kind: error.kind, message: errorCopy[error.kind].message },
+    {
+      ok: false,
+      kind: error.kind,
+      message: errorCopy[error.kind].message,
+      // What failed, in plain words (no keys: provider errors are already redacted).
+      detail: `${where.replace("api/slides/", "")}: ${error.message}`.slice(0, 400),
+    },
     { status },
   );
 }
